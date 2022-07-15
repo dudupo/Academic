@@ -66,7 +66,7 @@ correctly with probability greater than \(2/3\) by exchanging at most \ona{\sqrt
 Let \( x^{(j)} \) be the \(j\)-th \(\sqrt{n}\)-block of \(x\), e.g \(x^{(j)} = x_{j\sqrt{n}},x_{j\sqrt{n}+1}...,x_{(j+1)(\sqrt{n})-1}  \). And denote by \( \ket{\psi_x} \in \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \) the uniform superposition state over the \( x^{(j)}\)-'s "tensored" with \(\sqrt{n}\)-qudit (which will correspond to the block number). 
 \[ \ket{\psi_x} = \frac{1}{n^\frac{1}{4}}\sum_{j}^{\sqrt{n}}\ket{x^{(j)}}\ket{j} \] Note that the encoding of \( \ket{\psi_x} \) require only \( \sqrt{n} + \log(\sqrt{n}) \) qubits.
 Clearly both Alice and Bob can generate the states \( \ket{\psi_x}, \ket{\psi_y} \), then Bob sends he's share to Alice.
-We know that there is a classical circuit with logarithmic depth in \( \sqrt{n} \) that act over the pure states \( \ket{x^{(j)}}\ket{j} , \ket{y^{(k)}}\ket{k} \) and decides whether \[ \left( j =  k \right) \ \mathbf{AND}  \ \left( x^{(j)} \ \mathbf{bitwise-OR} \  y^{(k)} \right)   \]
+We know that there is a classical circuit with logarithmic depth in \( \sqrt{n} \) that act over the pure states \( \ket{x^{(j)}}\ket{j} , \ket{y^{(k)}}\ket{k} \) and decides whether \[ \left( j =  k \right) \ \big\wedge  \ \left( \big\vee_{i \in [ \sqrt{n} ] } x^{(j)}_{i} \ \wedge \  y^{(k)}_{i} \right)   \]
 
 
 Denote it by \( C \) and the quantum version of it by \( U \), which is operator in Hilbert state at dimension: \[ \mathcal{O} \left( \left( \dim \left( \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \right) \right) ^2 o(1) \right) = \mathcal{O} \left( 2^{2\sqrt{n}}  \right)  \]
