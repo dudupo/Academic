@@ -110,7 +110,7 @@ $\Theta(\sqrt a)$ if $a>0$, and otherwise runs forever.}
 \paragraph{} 
 
 \paragraph{Proof of Theorem 1} 
-Suppose that \( A \cap B \neq \emptyset \) then, the support of \( \ket{\psi_x} \otimes \ket{\psi_y} \) contain a state \( \ket{\phi} \) which satisfies \(C\), or in other words $a = |\bra{\Psi_1}\ket{Psi_0}|^2 > 0 $ and therefore by \textit{Theorem 3} there is an explicit procdure which take a $\Theta(\sqrt{a})$ time in expection, Hence for any \(\varepsilon >0\) we could construct a finate algorithm that fail with probability less than $ \varepsilon $ by rejecting runnings that last longer than $\frac{1}{\varepsilon}$. 
+Suppose that \( A \cap B \neq \emptyset \) then, the support of \( \ket{\psi_x} \otimes \ket{\psi_y} \) contain a state \( \ket{\phi} \) which satisfies \(C\), or in other words $a = |\bra{\Psi_1}\ket{\Psi_0}|^2 > 0 $ and therefore by \textit{Theorem 3} there is an explicit procdure which take a $\Theta(\sqrt{a})$ time in expection, Hence for any \(\varepsilon >0\) we could construct a finate algorithm that fail with probability less than $ \varepsilon $ by rejecting runnings that last longer than $\frac{1}{\varepsilon}$. 
   
 On the other hand, Consider the case when \(A \cap B = \emptyset\) then $\Rightarrow a = 0 \Rightarrow \mathcal{H}_{\Psi}$ is 1-diminsion space spanned only by $\ket{\Psi_0} $, and the operator $ I - 2 \bra{\Psi}\ket{\Psi} $ act over the $ \ket{\Psi_0}  $ as identty and therefore after executing any number of iterations the probability to measure from $\ket{\Psi_0}$ will remain $1$.
 
@@ -120,7 +120,7 @@ On the other hand, Consider the case when \(A \cap B = \emptyset\) then $\Righta
     \item Alice simulate \textbf{algqsearch} either the algorithm accept or either $n^4$.     
     \item If the algotithm accept then Alice return True otherwise Alice return False. 
 \end{enumerate}
-The corrections, emits directly from Grover corrections and the construction above, the probability to measure an instruction between \(A\) and \(B\) is grater than \( \frac{2}{3} \) in case there is exist such, due to Grover. In the case the instruction is empty Alice will returns false at probability equal 1 (as explained above). The communication cost is exactly  \( \sqrt{n} + \log(\sqrt{n}) \) qubits. 
+
 
 
 \paragraph{ The mistake.} \ctt{The mistake.} The fault was that I have ignored the fact that the Diffusion operator in the Grover algorithm might concentrate weight in states which disjoint to the initial support of \( \ket{\psi_{x}}\). In fact this algorithm will always return true. 
