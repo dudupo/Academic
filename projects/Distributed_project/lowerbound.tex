@@ -110,7 +110,7 @@ $\Theta(\sqrt a)$ if $a>0$, and otherwise runs forever.}
 \paragraph{} 
 
 \paragraph{Proof of Theorem 1} 
-Suppose that \( A \cap B \neq \emptyset \) then, the support of \( \ket{\psi_x} \otimes \ket{\psi_y} \) contain a state \( \ket{\phi} \) which satisfies \(C\), or in other words $a = |\bra{\Psi_1}\ket{\Psi_0}|^2 > 0 $ and therefore by \textit{Theorem 3} there is an explicit procdure which take a $\Theta(\sqrt{a})$ time in expection, Hence for any \(\varepsilon >0\) we could construct a finate algorithm that fail with probability less than $ \varepsilon $ by rejecting runnings that last longer than $\frac{1}{\varepsilon}$. 
+Suppose that \( A \cap B \neq \emptyset \) then, the support of \( \ket{\psi_x} \otimes \ket{\psi_y} \) contain a state \( \ket{\phi} \) which satisfies \(C\), or in other words $a = |\braket{\Psi_1|\Psi}|^2 > 0 $ and therefore by \textit{Theorem 3} there is an explicit procdure which take a $\Theta(\sqrt{a})$ time in expection, Hence for any \(\varepsilon >0\) we could construct a finate algorithm that fail with probability less than $ \varepsilon $ by rejecting runnings that last longer than $\frac{1}{\varepsilon}$. 
   
 On the other hand, Consider the case when \(A \cap B = \emptyset\) then $\Rightarrow a = 0 \Rightarrow \mathcal{H}_{\Psi}$ is 1-diminsion space spanned only by $\ket{\Psi_0} $, and the operator $ I - 2 \ket{\Psi}\bra{\Psi} $ act over the $ \ket{\Psi_0}  $ as identty and therefore after executing any number of iterations the probability to measure from $\ket{\Psi_0}$ will remain $1$.
 
