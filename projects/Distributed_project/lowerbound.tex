@@ -121,7 +121,7 @@ On the other hand, Consider the case when \(A \cap B = \emptyset\) then $\Righta
     \item If the algotithm accept then Alice return True otherwise Alice return False. 
 \end{enumerate}
 
-
+The protocol compute the disjointness in single round while requiring transmition of less then $\Theta\left( \sqrt{n} \right)$ qubits. That in contrast to the known lower bound proved by Braverman \cite{Braverman}: 
 \paragraph{Theorem A} \textit{The $r$-round quantum communication complexitiy of Disjointness$_n$ is $ \Omega\left( \frac{n}{r \log^8 r} \right)$.} 
 \paragraph{ The mistake.} \ctt{The mistake.} The fault was that I have ignored the fact that the Diffusion operator in the Grover algorithm might concentrate weight in states which disjoint to the initial support of \( \ket{\psi_{x}}\). In fact this algorithm will always return true. 
 Combining the Braverman's communication  lower bound We obtain the following no-go corollary:  
