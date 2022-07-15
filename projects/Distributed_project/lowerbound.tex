@@ -71,14 +71,15 @@ We know that there is a classical circuit with logarithmic depth in \( \sqrt{n} 
 
 Denote it by \( C \) and the quantum version of it by \( U \), which is operator in Hilbert state at dimension: \[ \mathcal{O} \left( \left( \dim \left( \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \right) \right) ^2 o(1) \right) = \mathcal{O} \left( 2^{2\sqrt{n}}  \right)  \]
 
-\paragraph{Theorem 3} Quadratic speedup without knowing $\mathbf{a}$
+\paragraph{Theorem 3.} \textit{Quadratic speedup without knowing $\mathbf{a}$
 There exists a quantum algorithm \textbf{algqsearch} with the following property.
 Let $\mathcal A$ be any quantum algorithm that uses no measurements,
 and let $\chi : \mathbb{N}  \rightarrow \{0,1\}$ be any Boolean function.
 Let $a$ denote the initial success probability of~$\mathcal A$.
 Algorithm \textbf{algqsearch} finds a good solution using an expected number
 of applications of $\mathcal A$ and ${\mathcal A}^{-1}$ which are in
-$\Theta(\sqrt a)$ if $a>0$, and otherwise runs forever.
+$\Theta(\sqrt a)$ if $a>0$, and otherwise runs forever.}
+
 
 Suppose that \( A \cap B \neq \emptyset \) then, the support of \( \ket{\psi_x} \otimes \ket{\psi_y} \) contain a state \( \ket{\phi} \) which satisfies \(C\), and therefore  after performing \ona{ 2^{ \sqrt{n}}} Grover iterations, measuring the qubits "type" will collapse (\textbf{w.h.p}) into \( \ket{\phi} \). In another hand, if \( A \cap B = \emptyset \) then no matter what will be the result of the measurement, Alice could could verify it by applying the classical circuit. 
 \paragraph{}Summarize the above yields the following protocol,
