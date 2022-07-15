@@ -46,11 +46,11 @@
   
 \begin{equation*}
   \begin{split}
-    U \ket{\psi}\ket{\phi} = \ket{\psi}\left( \mathbb{I} - 2 \ket{\psi}\bra{\psi} \right)\ket{\phi} 
+    D \ket{\psi}\ket{\phi} = \ket{\psi}\left( \mathbb{I} - 2 \ket{\psi}\bra{\psi} \right)\ket{\phi} 
    \end{split}
 \end{equation*}
 
-We name the gate above the \textit{Generalize Diffusion} gate, As if such gate were exists it could be used instand of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $U$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity, which shown by Braverman to be impossible \cite{Braverman}.    
+We name the gate above the \textit{Generalize Diffusion} gate, As if such gate were exists it could be used instand of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity, which shown by Braverman to be impossible \cite{Braverman}.    
 \paragraph{Ex1 - Quantum Communication Complexity of Disjointness.}
 Consider the following communication
 problem. As inputs Alice gets an \(x\) and Bob get a \(y\), where \(x, y \in \{0, 1\}^n \), and by exchanging information they what to determine if there is an index \(k\) with \(x_k = y_k = 1 \) or not. 
@@ -63,9 +63,13 @@ correctly with probability greater than \(2/3\) by exchanging at most \ona{\sqrt
 
 
 \paragraph{Wrong Solution (The original version, the mistake explained beneath).}
-Let \( x^{(j)} \) be the \(j\)-th \(\sqrt{n}\)-block of \(x\), e.g \(x^{(j)} = x_{j\sqrt{n}},x_{j\sqrt{n}+1}...,x_{(j+1)(\sqrt{n})-1}  \). And denote by \( \ket{\psi_x} \in \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \) the uniform superposition state over the \( x^{(j)}\)-'s "tensored" with \(\sqrt{n}\)-qudit (which will correspond to the block number).  \[ \ket{\psi_x} = \frac{1}{n^\frac{1}{4}}\sum_{j}^{\sqrt{n}}\ket{x^{(j)}}\ket{j} \] Note that \( \ket{\psi_x} \) require only \( \sqrt{n} + \log(\sqrt{n}) \) qubits. Suppose Alice and Bob can generate the states \( \ket{\psi_x}, \ket{\psi_y} \) in polynomial time, then Bob sends he's share to Alice. We know that there is a classical circuit with logarithmic depth in \( \sqrt{n} \) that act over the pure states \( \ket{x^{(j)}}\ket{j} , \ket{y^{(k)}}\ket{k} \) and decides whether \[ \left( j =  k \right) \ \mathbf{AND}  \ \left( x^{(j)} \ \mathbf{bitwise-OR} \  y^{(k)} \right)   \]
+Let \( x^{(j)} \) be the \(j\)-th \(\sqrt{n}\)-block of \(x\), e.g \(x^{(j)} = x_{j\sqrt{n}},x_{j\sqrt{n}+1}...,x_{(j+1)(\sqrt{n})-1}  \). And denote by \( \ket{\psi_x} \in \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \) the uniform superposition state over the \( x^{(j)}\)-'s "tensored" with \(\sqrt{n}\)-qudit (which will correspond to the block number). 
+\[ \ket{\psi_x} = \frac{1}{n^\frac{1}{4}}\sum_{j}^{\sqrt{n}}\ket{x^{(j)}}\ket{j} \] Note that the encoding of \( \ket{\psi_x} \) require only \( \sqrt{n} + \log(\sqrt{n}) \) qubits.
+Clearly both Alice and Bob can generate the states \( \ket{\psi_x}, \ket{\psi_y} \), then Bob sends he's share to Alice.
+We know that there is a classical circuit with logarithmic depth in \( \sqrt{n} \) that act over the pure states \( \ket{x^{(j)}}\ket{j} , \ket{y^{(k)}}\ket{k} \) and decides whether \[ \left( j =  k \right) \ \mathbf{AND}  \ \left( x^{(j)} \ \mathbf{bitwise-OR} \  y^{(k)} \right)   \]
 
-Denote it by \( C \) and it's quantum version of that circuit by \( U \), which is operator in Hilbert state at dimension: \[ \mathcal{O} \left( \left( \dim \left( \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \right) \right) ^2 o(1) \right) = \mathcal{O} \left( 2^{2\sqrt{n}}  \right)  \]
+
+Denote it by \( C \) and the quantum version of it by \( U \), which is operator in Hilbert state at dimension: \[ \mathcal{O} \left( \left( \dim \left( \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \right) \right) ^2 o(1) \right) = \mathcal{O} \left( 2^{2\sqrt{n}}  \right)  \]
 Suppose that \( A \cap B \neq \emptyset \) then, the support of \( \ket{\psi_x} \otimes \ket{\psi_y} \) contain a state \( \ket{\phi} \) which satisfies \(C\), and therefore  after performing \ona{ 2^{ \sqrt{n}}} Grover iterations, measuring the qubits "type" will collapse (\textbf{w.h.p}) into \( \ket{\phi} \). In another hand, if \( A \cap B = \emptyset \) then no matter what will be the result of the measurement, Alice could could verify it by applying the classical circuit. 
 \paragraph{}Summarize the above yields the following protocol,
 \begin{enumerate}
