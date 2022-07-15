@@ -69,7 +69,15 @@ Clearly both Alice and Bob can generate the states \( \ket{\psi_x}, \ket{\psi_y}
 We know that there is a classical circuit with logarithmic depth in \( \sqrt{n} \) that act over the pure states \( \ket{x^{(j)}}\ket{j} , \ket{y^{(k)}}\ket{k} \) and decides whether \[ \left( j =  k \right) \ \bigwedge  \ \left( \bigvee_{i \in [ \sqrt{n} ] } x^{(j)}_{i} \ \wedge \  y^{(k)}_{i} \right)   \]
 
 
-Denote it by \( C \) and the quantum version of it by \( U \), which is operator in Hilbert state at dimension: \[ \mathcal{O} \left( \left( \dim \left( \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \right) \right) ^2 o(1) \right) = \mathcal{O} \left( 2^{2\sqrt{n}}  \right)  \]
+Denote it by \( C \) and by \( U \) the phase flip controled by $C$ i.e $U\ket{i}=\left( -1 \right)^{C\left( i \right)}\ket{i}$.
+
+\paragraph{Lemma.}  Recall $\mathbf Q $ defined in \cite{Brassard_2002}, and consider the generaliz deffusion gate $D$, for any pair $\ket{\psi_{x}},\ket{\psi_{y}}$ defined as above. it holds that:
+
+\begin{equation*}
+  \left(  \mathbb{I} \otimes \mathbf Q \right) \ket{\psi_{x}}\ket{\psi_{y}} \ket{\phi} =  D \left( \mathbb{I} \otimes U \right)  \ket{\psi_{x}}\ket{\psi_{y}} \ket{\phi} 
+\end{equation*}
+
+% which is operator in Hilbert state at dimension: \[ \mathcal{O} \left( \left( \dim \left( \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \right) \right) ^2 o(1) \right) = \mathcal{O} \left( 2^{2\sqrt{n}}  \right)  \]
 
 
 \begin{equation}\label{eq:defq}
