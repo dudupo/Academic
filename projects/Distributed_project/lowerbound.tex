@@ -41,7 +41,7 @@
 \maketitle
 \begin{multicols*}{2}
 
-  \paragraph{Preamble} One of the most promised applications of quantum computation is the Amplitude Amplification algorithm, In which, one can transform a known state with probability $a$ to measure a $\ket{i}$ to a state in which the desired measurement obtained with probability grater than $\frac{1}{2}$ at the cost of less than $\sqrt{a}$ sort of Grover iterations. One question that might rise is whether the above can be done given an single entity of the state. We show that there is no operator that given two state $\ket{\psi},\ket{\phi}$ compute the transformation: 
+  \paragraph{Preamble} One of the most promised applications of quantum computation is the Amplitude Amplification algorithm \cite{Brassard_2002}, In which, one can transform a known state with probability $a$ to measure a $\ket{i}$ to a state in which the desired measurement obtained with probability grater than $\frac{1}{2}$ at the cost of less than $\sqrt{a}$ sort of Grover iterations. One question that might rise is whether the above can be done given an single entity of the state. We show that there is no operator that given two state $\ket{\psi},\ket{\phi}$ compute the transformation: 
  
   
 \begin{equation*}
@@ -50,7 +50,7 @@
    \end{split}
 \end{equation*}
 
-We name the above gate the \textit{Generalize Diffusion} gate, As if such gate were exists it could be used instand of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $U$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity, which shown by Braverman to be impossible \cite{Braverman}.    
+We name the gate above the \textit{Generalize Diffusion} gate, As if such gate were exists it could be used instand of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $U$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity, which shown by Braverman to be impossible \cite{Braverman}.    
 \paragraph{Ex1 - Quantum Communication Complexity of Disjointness.}
 Consider the following communication
 problem. As inputs Alice gets an \(x\) and Bob get a \(y\), where \(x, y \in \{0, 1\}^n \), and by exchanging information they what to determine if there is an index \(k\) with \(x_k = y_k = 1 \) or not. 
