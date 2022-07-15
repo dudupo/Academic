@@ -14,7 +14,7 @@
 \usepackage{multicol}
 \usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
 
-\addbibresource{sample.bib} %Import the bibliography file
+\addbibresource{bibfile.bib} %Import the bibliography file
 
 \newcommand{\commentt}[1]{\textcolor{blue}{ \textbf{[COMMENT]} #1}}
 \newcommand{\ctt}[1]{\commentt{#1}}
@@ -50,7 +50,7 @@
    \end{split}
 \end{equation*}
 
-We name the above gate the \textit{Generalize Diffusion} gate, As if such gate were exists it could be used instand of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $U$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity.    
+We name the above gate the \textit{Generalize Diffusion} gate, As if such gate were exists it could be used instand of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $U$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity, which shown by Braverman to be impossible \cite{Braverman}.    
 \paragraph{Ex1 - Quantum Communication Complexity of Disjointness.}
 Consider the following communication
 problem. As inputs Alice gets an \(x\) and Bob get a \(y\), where \(x, y \in \{0, 1\}^n \), and by exchanging information they what to determine if there is an index \(k\) with \(x_k = y_k = 1 \) or not. 
@@ -77,7 +77,8 @@ The corrections, emits directly from Grover corrections and the construction abo
 
 
 \paragraph{ The mistake.} \ctt{The mistake.} The fault was that I have ignored the fact that the Diffusion operator in the Grover algorithm might concentrate weight in states which disjoint to the initial support of \( \ket{\psi_{x}}\). In fact this algorithm will always return true. 
-Combining the Braverman's communication  lower bound We obtain the following no-go corollary:  % \printbibliography 
+Combining the Braverman's communication  lower bound We obtain the following no-go corollary:  
+\printbibliography 
 \end{multicols*}
 \end{document}
 
