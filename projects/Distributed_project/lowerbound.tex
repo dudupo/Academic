@@ -96,6 +96,7 @@ consider the generaliz deffusion gate $D$, Then it holds that for any state $ \k
 \end{split}
 \end{equation*}
 % which is operator in Hilbert state at dimension: \[ \mathcal{O} \left( \left( \dim \left( \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \right) \right) ^2 o(1) \right) = \mathcal{O} \left( 2^{2\sqrt{n}}  \right)  \]
+Now, it's clear that Alice, could simulate the \textbf{algqsearch} algorithm \cite{Brassard_2002}, 
 
 \paragraph{Theorem 3.} \textit{Quadratic speedup without knowing $\mathbf{a}$
 There exists a quantum algorithm \textbf{algqsearch} with the following property.
@@ -106,13 +107,18 @@ Algorithm \textbf{algqsearch} finds a good solution using an expected number
 of applications of $\mathcal A$ and ${\mathcal A}^{-1}$ which are in
 $\Theta(\sqrt a)$ if $a>0$, and otherwise runs forever.}
 
-\paragraph{}
-Suppose that \( A \cap B \neq \emptyset \) then, the support of \( \ket{\psi_x} \otimes \ket{\psi_y} \) contain a state \( \ket{\phi} \) which satisfies \(C\), and therefore  after performing \ona{ 2^{ \sqrt{n}}} Grover iterations, measuring the qubits "type" will collapse (\textbf{w.h.p}) into \( \ket{\phi} \). In another hand, if \( A \cap B = \emptyset \) then no matter what will be the result of the measurement, Alice could could verify it by applying the classical circuit. 
+\paragraph{} 
+
+\paragraph{Proof of Theorem 1} 
+Suppose that \( A \cap B \neq \emptyset \) then, the support of \( \ket{\psi_x} \otimes \ket{\psi_y} \) contain a state \( \ket{\phi} \) which satisfies \(C\), or in other words $a = |\bra{\Psi_1}\ket{Psi_0}|^2 > 0 $ and therefore by \textit{\Theorem 3} there is an explicit procdure which take a $\Theta(\sqrt{a})$ time in expection, Hence for any \(\varepsilon >0\) we could construct a finate algorithm that fail with probability less than $ \varepsilon $ by rejecting runnings that last longer than $\frac{1}{\varepsilon}$. 
+  
+On the other hand, Consider the case when \(A \cap B = \emptyset\) then $\Rightarrow a = 0 \Rightarrow \mathcal{H}_{\Psi}$ is 1-diminsion space spanned only by $\ket{\Psi_0} $, and the operator $ I - 2 \bra{\Psi}\ket{\Psi} $ act over the $ \ket{\Psi_0}  $ as identty and therefore after executing any number of iterations the probability to measure from $\ket{\Psi_0}$ will remain $1$.
+
 \paragraph{}Summarize the above yields the following protocol,
 \begin{enumerate}
-    \item Bob create \( \ket{\psi_x} \) and sent it to Alice.
-    \item Alice uses Grover search and \(U\) to amplify the probability to measure a state \( \ket{\phi} \in Support \left(   \ket{\psi_x} \otimes \ket{\psi_y}  \right) \) that satisfies \(C\).
-    \item denote by \( \tilde{\phi} \) the result (a bit string / pure state) that Alice measured, Alice compute \(C\left(\tilde{\phi}\right) \) and returns the result. 
+    \item Bob create \( \ket{\psi_x} \) and send it to Alice.
+    \item Alice simulate \textbf{algqsearch} either the algorithm accept or either $n^4$.     
+    \item If the algotithm accept then Alice return True otherwise Alice return False. 
 \end{enumerate}
 The corrections, emits directly from Grover corrections and the construction above, the probability to measure an instruction between \(A\) and \(B\) is grater than \( \frac{2}{3} \) in case there is exist such, due to Grover. In the case the instruction is empty Alice will returns false at probability equal 1 (as explained above). The communication cost is exactly  \( \sqrt{n} + \log(\sqrt{n}) \) qubits. 
 
