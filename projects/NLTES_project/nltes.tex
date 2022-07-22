@@ -14,7 +14,7 @@
 \usepackage{multicol}
 \usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
 
-\addbibresource{sample.bib} %Import the bibliography file
+%\addbibresource{sample.bib} %Import the bibliography file
 
 \newcommand{\commentt}[1]{\textcolor{blue}{ \textbf{[COMMENT]} #1}}
 \newcommand{\ctt}[1]{\commentt{#1}}
@@ -50,13 +50,12 @@
 \textbf{Proof.} let $y \in \{0,1\}^{n}$ be a vector such $ y \in \Gz $, let assume that $|y|_{c^{x^{\perp}}} \le C_{2} d$ then for any $ c \in C_{x}^{\perp}$: 
 
 \begin{equation*}
-  \begin{split}
+  %\begin{split}
     \delta r_z \ge | H_{z} y | = | H_{z} \left( y + c \right) |  
-  \end{split}
+  %\end{split}
 \end{equation*}
 
-  \paragraph{Definition.} \textit{ Let \(H_{i}\) be a single term of the Hamiltonian, we will define the \( \text{support}(H_{i}) \) to be a vector \( v \in \mathbb{F}^{n}_2\) such that \(v_j = 1\) if \(H_{i}\) act non-triviality on the \(j\)th qubit and \(0\) else.}
-\end{multicos*}{2}
+\end{multicos*}
   % \printbibliography 
 \end{document}
 
