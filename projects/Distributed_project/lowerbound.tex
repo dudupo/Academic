@@ -81,7 +81,15 @@ consider the generalize diffusion gate $D$, Then it holds that for any state $ \
 \end{equation*}
 
 \paragraph{Proof.} Let $\ket{\Psi_0}, \ket{\Psi_1}$ be the base which span $ \mathcal{H}_{\Psi}$ and in addition $U\ket{\Psi_0} = \ket{\Psi_0}, U\ket{\Psi_1} =- \ket{\Psi_1}$.
-    Then it follows that   
+
+First consider the case in which the diminsion of $ \mathcal{H}_{\Psi}$ is exactly 1, If $ \ket{\Psi} $ supported only on non-satisfaing states (i.e $\ket{\Psi} = \ket{\Psi_{0}}) $ then it's clear that $ I \otimes U $ act over the $ \ket{\Psi}\ket{\Psi} $ as identity and therefore $ -D\left( I \otimes U \right) $ act also as identity: 
+\begin{equation*}
+  -D\left( I \otimes U \right) \ket{\Psi}\ket{\Psi} = -\ket{\Psi}\left( I - 2\ket{\Psi}\bra{\Psi}  \right) \ket{\Psi} = ket{\Psi}\ket{\Psi}
+\end{equation*}
+Similar calculation yields that the action is tricial also when  $ \mathcal{H}_{\Psi}$  supported only over $ \ket{\Psi_1} $.  
+
+It is left to show the equivaliance when $\ket{\Psi}$ supported both over $\ket{\Psi_0}$ and $\ket{\Psi_1}$. Then it follows that:
+
     \begin{equation*}
       \begin{split}
     - D & \left( \mathbb{I} \otimes U \right)  \ket{\psi_{x}}\ket{\psi_{y}} \ket{\Psi_1} =    D  \ket{\psi_{x}}\ket{\psi_{y}} \ket{\Psi_1} \\
