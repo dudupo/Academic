@@ -63,7 +63,8 @@ Assuming Alice and Bob can exchange quantum messages, It is known that Alice and
 correctly with probability greater than \(2/3\) by exchanging at most \ona{\sqrt{n}\log n } qubits \ctt{add ciation of the original solution}. 
 
 
-\paragraph{Wrong Solution.}
+\paragraph{The reduction.} 
+Assume by way of contradiction the existance of $D$ defined above.  
 Let \( x^{(j)} \) be the \(j\)-th \(\sqrt{n}\)-block of \(x\), e.g \(x^{(j)} = x_{j\sqrt{n}},x_{j\sqrt{n}+1}...,x_{(j+1)(\sqrt{n})-1}  \). And denote by \( \ket{\psi_x} \in \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \) the uniform superposition state over the \( x^{(j)}\)-'s "tensored" with \(\sqrt{n}\)-qudit (which will correspond to the block number). 
 \[ \ket{\psi_x} = \frac{1}{n^\frac{1}{4}}\sum_{j}^{\sqrt{n}}\ket{x^{(j)}}\ket{j} \] Note that the encoding of \( \ket{\psi_x} \) require only \( \sqrt{n} + \log(\sqrt{n}) \) qubits.
 Clearly both Alice and Bob can generate the states \( \ket{\psi_x}, \ket{\psi_y} \), then Bob sends he's share to Alice.
