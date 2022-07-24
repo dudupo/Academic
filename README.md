@@ -24,7 +24,7 @@ some expansion property. Unfortunately, we still don't understand the recent con
 ### Quantum version of FLP impossibility. 
 We are trying to formulate reliability in a quantum distributed environment,
 hoping to reach a quantum version of Stren proof for the impossibility of doing
-a synchronic computation without a non-vanishing probability of non-terminating running. 
+a asynchronic computation without a non-vanishing probability of non-terminating running. 
 
 ## Do you interested in any kind of collaboration? 
 Good, So I, Feel free to ask for a pull request, open an issue, or send mail.
