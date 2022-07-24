@@ -18,6 +18,6 @@ far from being complete and contains mistakes, faults, and alternations in the n
 
 ### Local Testability and qPCP. 
 Making baby steps towards the holy grill, we conjecture that property 1 defined in the NLTES recent papers combined with 
-code in which the dual cx equals cx yields a good quantum ldpc. Furthermore, there is a reason to suspect that property 1 holds for any css code with 
+code in which the dual cx equals cx yields a good quantum LTC. Furthermore, there is a reason to suspect that property 1 holds for any css code with 
 some expansion property. Unfortunately, we still don't understand the recent construction enough to ask if the case above is possible.  
 
