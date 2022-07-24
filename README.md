@@ -14,4 +14,10 @@ Here we are trying to figure out what can be done to generate an efficient simul
 given in the computational base. The goal of this direaction is to yield a technics that might be used one day to perform a practical computation.
 Hence we allow ourselves to assume properties such as the distribution over the local terms along it match the expected behavior of nature. 
 The [draft](https://github.com/dudupo/Academic/blob/master/projects/pdfs/Classiq.pdf) is
-far from being complete and contains mistakes, faults, and alternations in the notation :see_no_evil:.    
+far from being complete and contains mistakes, faults, and alternations in the notation :see_no_evil:.
+
+### Local Testability and qPCP. 
+Making baby steps towards the holy grill, we conjecture that property 1 defined in the NLTES recent papers combined with 
+code in which the dual cx equals cx yields a good quantum ldpc. Furthermore, there is a reason to suspect that property 1 holds for any css code with 
+some expansion property. Unfortunately, we still don't understand the recent construction enough to ask if the case above is possible.  
+
