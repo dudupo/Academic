@@ -21,3 +21,7 @@ Making baby steps towards the holy grill, we conjecture that property 1 defined 
 code in which the dual cx equals cx yields a good quantum LTC. Furthermore, there is a reason to suspect that property 1 holds for any css code with 
 some expansion property. Unfortunately, we still don't understand the recent construction enough to ask if the case above is possible.  
 
+### Quantum version of FLP impossibility. 
+We are trying to formulate reliability in a quantum distributed environment,
+hoping to reach a quantum version of Stren proof for the impossibility of doing
+a synchronic computation without a non-vanishing probability of non-terminating running. 
