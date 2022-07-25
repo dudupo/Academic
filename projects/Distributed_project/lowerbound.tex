@@ -53,11 +53,8 @@
   One question that might rise is whether the above amplification process can be done assuming nothing but given a single entity of the initial state. We gave a partly answer for that question by proving the follow theroem: 
 
   \paragraph{Theorem 1} \textit{ There is no operator that given two state $\ket{\psi},\ket{\phi}$ compute the transformation:} 
-
 \begin{equation*}
-  \begin{split}
     D \ket{\psi}\ket{\phi} = \ket{\psi}\left( \mathbb{I} - 2 \ket{\psi}\bra{\psi} \right)\ket{\phi} 
-   \end{split}
 \end{equation*}
 
 We name the gate above the \textit{Generalize Diffusion} gate, As if such gate were exists it could be used instand of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity in contradact to the fact that $r$-rounds two party computation needs at least $\Omega\left( \frac{n}{r} \right)$ communication to compute disjoiness (up to log factors) \cite{Braverman}.    
