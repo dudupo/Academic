@@ -80,7 +80,9 @@ Clearly both Alice and Bob can generate the states \( \ket{\psi_x}, \ket{\psi_y}
 We know that there is a classical circuit with logarithmic depth in \( \sqrt{n} \) that act over the pure states \( \ket{x^{(j)}}\ket{j} , \ket{y^{(k)}}\ket{k} \) and decides whether \[ \left( j =  k \right) \ \bigwedge  \ \left( \bigvee_{i \in [ \sqrt{n} ] } x^{(j)}_{i} \ \wedge \  y^{(k)}_{i} \right)   \]
 
 
-Denote it by \( C \) and by \( U \) the phase flip controlled by $C$ i.e. $U\ket{i}=\left( -1 \right)^{C\left( i \right)}\ket{i}$.
+Denote it by \( C \) and by \( U \) the phase flip controlled by $C$ i.e. $U\ket{i}=\left( -1 \right)^{C\left( i \right)}\ket{i}$. 
+
+The next claim argue that $D,U$ are sufficents to Alice to simulate a single iteration of the amplitutde amplification.  
 
 \paragraph{Claim.} \textit{ Recall the operator $\mathbf Q  = - {\mathcal A}  {\mathbf S}_0 
   {\mathcal A}^{-1}  {\mathbf S}_\chi$ defined in \cite{Brassard_2002}, such that $ \mathcal A \ket{0} = \ket{\Psi} = \ket{\psi_{x}}\ket{\psi_{y}}$ and 
