@@ -47,17 +47,17 @@
 
   \paragraph{Preamble} One of the most promised applications of quantum computation is the Amplitude Amplification algorithm \cite{Brassard_2002}, In which, one can transform a known state $\ket{\Psi}$  with probability $a$ to measure a $\ket{i}$ to a state in which the desired measurement obtained with probability grater than $\frac{1}{2}$ at the cost of less than $\sqrt{a}$ sort of Grover iterations.
   
-  A critical requirement for that precedure is to have the ability to generate a copeis of the initial state, Formulated by \cite{Brassard_2002} as holding an algorithm $\mathcal{A}$, which does not make any mausrements, such that $\mathcal{A}\ket{0}=\ket{\Psi}$. Assuming having this ability one could mimic the scattring done in the Grover search, but ristrict himself to be supported on $\ket{\Psi}$. 
+  A critical requirement for that procedure is to have the ability to generate a copies of the initial state, Formulated by \cite{Brassard_2002} as holding an algorithm $\mathcal{A}$, which does not make any measurements, such that $\mathcal{A}\ket{0}=\ket{\Psi}$. Assuming having this ability one could mimic the scattering done in the Grover search, but restrict himself to be supported on $\ket{\Psi}$. 
 
 
-  One question that might rise is whether the above amplification process can be done assuming nothing but given a single entity of the initial state. We gave a partly answer for that question by proving the follow theroem: 
+  One question that might rise is whether the above amplification process can be done assuming nothing but given a single entity of the initial state. We gave a partly answer for that question by proving the follow theorem: 
 
   \paragraph{Theorem 1} \textit{ There is no operator that given two state $\ket{\psi},\ket{\phi}$ compute the transformation:} 
 \begin{equation*}
     D \ket{\psi}\ket{\phi} = \ket{\psi}\left( \mathbb{I} - 2 \ket{\psi}\bra{\psi} \right)\ket{\phi} 
 \end{equation*}
 
-We name the gate above the \textit{Generalize Diffusion} gate, As if such gate were exists it could be used instand of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity in contradact to the fact that $r$-rounds two party computation needs at least $\Omega\left( \frac{n}{r} \right)$ communication to compute disjoiness (up to log factors) \cite{Braverman}.    
+We name the gate above the \textit{Generalize Diffusion} gate, As if such gate were exists it could be used instand of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity in contradict to the fact that $r$-rounds two party computation needs at least $\Omega\left( \frac{n}{r} \right)$ communication to compute disjoiness (up to log factors) \cite{Braverman}.    
 
 \paragraph{Quantum Communication Complexity of Disjointness.}
 Consider the following communication problem.
@@ -67,11 +67,11 @@ then Alice and Bob want to determine whether \( A \cap B \) is empty or not.
 
 The classical randomized communication complexity of this problem is \ona{n} \cite{v003a011}.
 Assuming Alice and Bob can exchange quantum messages, It is known that Alice and bob can solve the task
-correctly with probability greater than \(2/3\) by exchanging at most \ona{\sqrt{n}\log n } qubits \ctt{add ciation of the original solution}. 
+correctly with probability greater than \(2/3\) by exchanging at most \ona{\sqrt{n}\log n } qubits \ctt{add cation of the original solution}. 
 
 
 \paragraph{The reduction.} 
-Assume by way of contradiction the existance of $D$ defined above.  
+Assume by way of contradiction the existence of $D$ defined above.  
 Let \( x^{(j)} \) be the \(j\)-th \(\sqrt{n}\)-block of \(x\), e.g \(x^{(j)} = x_{j\sqrt{n}},x_{j\sqrt{n}+1}...,x_{(j+1)(\sqrt{n})-1}  \). And denote by \( \ket{\psi_x} \in \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \) the uniform superposition state over the \( x^{(j)}\)-'s "tensored" with \(\sqrt{n}\)-qudit (which will correspond to the block number). 
 \[ \ket{\psi_x} = \frac{1}{n^\frac{1}{4}}\sum_{j}^{\sqrt{n}}\ket{x^{(j)}}\ket{j} \] Note that the encoding of \( \ket{\psi_x} \) require only \( \sqrt{n} + \log(\sqrt{n}) \) qubits.
 Clearly both Alice and Bob can generate the states \( \ket{\psi_x}, \ket{\psi_y} \), then Bob sends he's share to Alice.
@@ -80,7 +80,7 @@ We know that there is a classical circuit with logarithmic depth in \( \sqrt{n} 
 
 Denote it by \( C \) and by \( U \) the phase flip controlled by $C$ i.e. $U\ket{i}=\left( -1 \right)^{C\left( i \right)}\ket{i}$. 
 
-The next claim argue that $D,U$ are sufficents to Alice to simulate a single iteration of the amplitutde amplification.  
+The next claim argue that $D,U$ are sufficient to Alice to simulate a single iteration of the amplitude amplification.  
 
 \paragraph{Claim.} \textit{ Recall the operator $\mathbf Q  = - {\mathcal A}  {\mathbf S}_0 
   {\mathcal A}^{-1}  {\mathbf S}_\chi$ defined in \cite{Brassard_2002}, such that $ \mathcal A \ket{0} = \ket{\Psi} = \ket{\psi_{x}}\ket{\psi_{y}}$ and 
@@ -91,15 +91,15 @@ consider the generalize diffusion gate $D$, Denote by $\mathcal{H}_{\Psi}$ the s
 
 \paragraph{Proof.} Let $\ket{\Psi_0}, \ket{\Psi_1}$ be the base which span $ \mathcal{H}_{\Psi}$ and in addition $U\ket{\Psi_0} = \ket{\Psi_0}, U\ket{\Psi_1} =- \ket{\Psi_1}$.
 
-First consider the case in which the diminsion of $ \mathcal{H}_{\Psi}$ is exactly 1, If $ \ket{\Psi} $ supported only on non-satisfaing states (i.e $\ket{\Psi} = \ket{\Psi_{0}}) $ then it's clear that $ I \otimes U $ act over the $ \ket{\Psi}\ket{\Psi} $ as identity and therefore $ -D\left( I \otimes U \right) $ act also as identity: 
+First consider the case in which the dimension of $ \mathcal{H}_{\Psi}$ is exactly 1, If $ \ket{\Psi} $ supported only on non-satisfying states (i.e $\ket{\Psi} = \ket{\Psi_{0}}) $ then it's clear that $ I \otimes U $ act over the $ \ket{\Psi}\ket{\Psi} $ as identity and therefore $ -D\left( I \otimes U \right) $ act also as identity: 
 \begin{equation*}
   -D\left( I \otimes U \right) \ket{\Psi}\ket{\Psi} = -\ket{\Psi}\left( I - 2\ket{\Psi}\bra{\Psi}  \right) \ket{\Psi} = \ket{\Psi}\ket{\Psi}
 \end{equation*}
-Similar calculation yields that the action is tricial also when  $ \mathcal{H}_{\Psi}$  supported only over $ \ket{\Psi_1} $.  
+Similar calculation yields that the action is trivial also when  $ \mathcal{H}_{\Psi}$  supported only over $ \ket{\Psi_1} $.  
 
 \paragraph{}
 
-It is left to show the equivaliance when $\ket{\Psi}$ supported both over $\ket{\Psi_0}$ and $\ket{\Psi_1}$. Then it follows that:
+It is left to show the equivalence when $\ket{\Psi}$ supported both over $\ket{\Psi_0}$ and $\ket{\Psi_1}$. Then it follows that:
 
     \begin{equation*}
       \begin{split}
@@ -144,9 +144,9 @@ On the other hand, Consider the case when \(A \cap B = \emptyset\) then $\Righta
 
 The protocol compute the disjointness in single round while requiring transmission of less than $\Theta\left( \sqrt{n} \right)$ qubits. That in contrast to the known lower bound proved by Braverman \cite{Braverman}: 
 \paragraph{Theorem A} \textit{The $r$-round quantum communication complexity of Disjointness$_n$ is $ \Omega\left( \frac{n}{r \log^8 r} \right)$.} 
-\paragraph{Conclusion And Open Problems.} The reduction above demonstrate how a known results can give us almost immedetitly insights about quantum computibility. We hope that beside of been an no-go-to proof this work will also use as an hint for direaction to other quantum advantags in the disturbuited computing setting. 
+\paragraph{Conclusion And Open Problems.} The reduction above demonstrate how a known results can give us almost immediately insights about quantum compatibility. We hope that beside of been an no-go-to proof this work will also use as an hint for direction to other quantum advantages in the disturbed computing setting. 
 
-It's worth say that the $r$-rounds communiaction bound on disjointness does not hold in many cases, For simple example condsider that each of the set $x,y \in \{0,1\}^{n}$ drwan uniformly, Then it's clear that Alice and Bob could just answer ``Yes'' and they will be correct with heigh probability. The family of states which one can do project over them by only partly projection (defussion operators) are corresponed to the distributions over pairs of Alice and Bob sets which they can compute with their disjointness with less communication.        
+It's worth say that the $r$-rounds communication bound on disjointness does not hold in many cases, For simple example consider that each of the set $x,y \in \{0,1\}^{n}$ drawn uniformly, Then it's clear that Alice and Bob could just answer ``Yes'' and they will be correct with high probability. The family of states which one can do project over them by only partly projection (diffusion operators) are correspond to the distributions over pairs of Alice and Bob sets which they can compute with their disjointness with less communication.        
 \printbibliography 
 \end{multicols*}
 \end{document}
