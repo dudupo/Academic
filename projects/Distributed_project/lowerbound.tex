@@ -59,7 +59,7 @@
    \end{split}
 \end{equation*}
 
-We name the gate above the \textit{Generalize Diffusion} gate, As if such gate were exists it could be used instand of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity in contradact to the fact that $r$-rounds two party computation needs at least $\Omega\left( \frac{n}{r} \right)$ communication to compute disjoiness \cite{Braverman}.    
+We name the gate above the \textit{Generalize Diffusion} gate, As if such gate were exists it could be used instand of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity in contradact to the fact that $r$-rounds two party computation needs at least $\Omega\left( \frac{n}{r} \right)$ communication to compute disjoiness (up to log factors) \cite{Braverman}.    
 
 \paragraph{Quantum Communication Complexity of Disjointness.}
 Consider the following communication problem.
@@ -67,7 +67,7 @@ As inputs Alice gets an \(x\) and Bob get a \(y\), where \(x, y \in \{0, 1\}^n \
 In other words, if \(x\) encodes the set \(A = \{k | x_k = 1\} \), and \(y\) encodes \(B = \{k | y_k = 1\}\), 
 then Alice and Bob want to determine whether \( A \cap B \) is empty or not.
 
-The classical randomized communication complexity of this problem is \ona{n}.
+The classical randomized communication complexity of this problem is \ona{n} \cite{v001a011}.
 Assuming Alice and Bob can exchange quantum messages, It is known that Alice and bob can solve the task
 correctly with probability greater than \(2/3\) by exchanging at most \ona{\sqrt{n}\log n } qubits \ctt{add ciation of the original solution}. 
 
