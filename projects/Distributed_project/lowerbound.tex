@@ -46,7 +46,9 @@
 
 \paragraph{Preamble} It's wide believed that quantum machines have a significant advantage over the classical in optimization tasks. Simple algorithms, which could be interpreted as the quantum version of ``scanning all the options'' cut the running time by square root of the classical magnitude. That cut achieved by using the superposition principal in most strightfowrd way known as the Amplitude Amplification algorithm \cite{Brassard_2002}. 
 
-General speaking this method transform a known state $\ket{\Psi}$  with probability $a$ to measure a $\ket{i}$ to a state in which the desired measurement obtained with probability grater than $\frac{1}{2}$ at the cost of less than $\sqrt{a}$ sort of Grover iterations.
+General speaking this method transform a known state $\ket{\Psi}$  with probability $a$ to measure a $\ket{i}$ to a state in which the desired measurement obtained with probability grater than $\frac{1}{2}$ at the cost of less than $\sqrt{a}$ sort of Grover iterations. Using this process, One can initalize a quantum states which spred over $n$ elements and amplify the probability to measure a desired state at $\sqrt{n}$ time. To understand the scale of power gaind by this method, we mention max extracting as usecase. 
+
+While quntemly extracting the maximum element of finte set can be done in time propertional to square root of the set size, classicly less then    
   
   A critical requirement for that procedure is to have the ability to generate a copies of the initial state, Formulated by \cite{Brassard_2002} as holding an algorithm $\mathcal{A}$, which does not make any measurements, such that $\mathcal{A}\ket{0}=\ket{\Psi}$. Assuming having this ability one could mimic the scattering done in the Grover search, but restrict himself to be supported on $\ket{\Psi}$. 
 
