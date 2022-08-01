@@ -46,7 +46,7 @@
 
 \paragraph{Preamble} It's wide believed that quantum machines have a significant advantage over the classical in optimization tasks. Simple algorithms, which could be interpreted as the quantum version of ``scanning all the options'' cut the running time by square root of the classical magnitude. That cut achieved by using the superposition principal in most straightforward way known as the Amplitude Amplification algorithm \cite{Brassard_2002}. 
 
-General speaking this method transform a known state $\ket{\psi}$  with probability $a$ to measure a $\ket{i}$ to a state in which the desired measurement obtained with probability grater than $\frac{1}{2}$ at the cost of less than $\sqrt{a}$ sort of Grover iterations. Using this process, One can initialize a quantum states which spread over $n$ elements and amplify the probability to measure a desired state at $\sqrt{n}$ time. To understand the scale of power gained by this method, we mention max extraction as use-case. While any classical algorithm which runs at square time results an output deadened only on square fraction of the bits and therefore can't yield a constant probability to sample the maximum element, Quntemly this limitation doesn't hold. And the gap amplification is indeed enable a square root time maximum extraction algorithm. 
+General speaking this method transform a known state $\ket{\psi}$  with probability $a$ to measure a $\ket{i}$ to a state in which the desired measurement obtained with probability grater than $\frac{1}{2}$ at the cost of less than $\sqrt{a}$ sort of Grover iterations. Using this process, One can initialize a quantum states which spread over $n$ elements and amplify the probability to measure a desired state at $\sqrt{n}$ time. To understand the power scale gained by this method, we mention max extraction as use-case. While any classical algorithm which runs at square time results an output deadened only on square fraction of the bits and therefore can't yield a constant probability to sample the maximum element, Quntemly this limitation doesn't hold. And the gap amplification is indeed enable a square root time maximum extraction algorithm. 
   
   A critical requirement for that procedure is to have the ability to generate a copies of the initial state, Formulated by \cite{Brassard_2002} as holding an algorithm $\mathcal{A}$, which does not make any measurements, such that $\mathcal{A}\ket{0}=\ket{\Psi}$. Assuming having this ability one could mimic the scattering done in the Grover search, but restrict himself to be supported on $\ket{\Psi}$. 
 
@@ -62,6 +62,7 @@ We name the gate above the \textit{Generalize Diffusion} gate, As if such gate w
 
 \paragraph{Quantum Communication Complexity of Disjointness.}
 Consider the following communication problem.
+
 As inputs Alice gets an \(x\) and Bob get a \(y\), where \(x, y \in \{0, 1\}^n \), and by exchanging information they want to determine if there is an index \(k\) with \(x_k = y_k = 1 \) or not. 
 In other words, if \(x\) encodes the set \(A = \{k | x_k = 1\} \), and \(y\) encodes \(B = \{k | y_k = 1\}\), 
 then Alice and Bob want to determine whether \( A \cap B \) is empty or not.
