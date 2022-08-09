@@ -51,9 +51,9 @@ General speaking this method transform a known state $\ket{\psi}$  with probabil
   A critical requirement for that procedure is to have the ability to generate a copies of the initial state, Formulated by \cite{Brassard_2002} as holding an algorithm $\mathcal{A}$, which does not make any measurements, such that $\mathcal{A}\ket{0}=\ket{\Psi}$. Assuming having this ability one could mimic the scattering done in the Grover search, but restrict himself to be supported on $\ket{\Psi}$. 
 
 
-  One question that might rise is whether the above amplification process can be done assuming nothing but having a single entity of the initial state. Both positive and negetive answers will shead light about the fundumentels beahind the concept of transfering probability weight. We gave a partly answer for that question by proving that the given copy alone is not sufficent to simulate the difussion step. We formulate the above by the follow theorem: 
+  One question that might rise is whether the above amplification process can be done assuming nothing but having a single entity of the initial state. Both positive and negative answers will shead light about the fundamentals behind the concept of transferring probability weight. We gave a partly answer for that question by proving that the given copy alone is not sufficient to simulate the diffusion step. We formulate the above by the follow theorem: 
 
-  \paragraph{Theorem 1} \textit{ There is no operator $D$ that for given two arbirary states $\ket{\psi},\ket{\phi}$ compute the transformation:} 
+  \paragraph{Theorem 1} \textit{ There is no operator $D$ that for given two arbitrary states $\ket{\psi},\ket{\phi}$ compute the transformation:} 
 \begin{equation*}
     D \ket{\psi}\ket{\phi} = \ket{\psi}\otimes\left( \mathbb{I} - 2 \ket{\psi}\bra{\psi} \right)\ket{\phi} 
 \end{equation*}
@@ -82,7 +82,7 @@ We know that there is a classical circuit with logarithmic depth in \( \sqrt{n} 
 
 Denote it by \( C \) and by \( U \) the phase flip controlled by $C$ i.e. $U\ket{i}=\left( -1 \right)^{C\left( i \right)}\ket{i}$. 
 
-The next claim argue that $D,U$ are sufficient to Alice to simulate a single iteration of the amplitude amplification. Since the techncial ditels of the amplification procdeure is not the focus of this paper, we only show equivlance without define the operators and the notation used by \cite{Brassard_2002}.   
+The next claim argue that $D,U$ are sufficient to Alice to simulate a single iteration of the amplitude amplification. Since the technical ditels of the amplification procedure is not the focus of this paper, we only show equivalence without define the operators and the notation used by \cite{Brassard_2002}.   
 
 \paragraph{Claim.} \textit{ Recall the operator $\mathbf Q  = - {\mathcal A}  {\mathbf S}_0 
   {\mathcal A}^{-1}  {\mathbf S}_\chi$ defined in \cite{Brassard_2002}, such that $ \mathcal A \ket{0} = \ket{\Psi} = \ket{\psi_{x}}\ket{\psi_{y}}$ and 
