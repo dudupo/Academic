@@ -180,8 +180,11 @@ And that finishes the proof \(\square\)
     \mathbb{E}\left[ \text{intersects} \right] \le & \mathbb{E}\left[ \sum_{i,k}^{m}{n\cdot X_{i}^{j}X_{k}^{j}} \right]  = {m \choose 2}np^2 
     \end{split}
   \end{equation*}
-  If we sample the terms form a uniform distrubtion over the $\Delta$-local terms then $p =  { n -1 \choose \Delta -1 }/ {n \choose \Delta}  = \frac{\Delta}{n}$. And therfore the excpection of the intersections is less then ${ m \choose 2}\frac{\Delta^2}{n}$. Hence by markov inequality we obtin that $ \prb{ \text{intersects} \ge \frac{1}{2} { m \choose 2}  } \le \frac{2\Delta^2}{n} $
-\paragraph{The Algorithm.}
+  If we sample the terms form a uniform distrubtion over the $\Delta$-local terms then $p =  { n -1 \choose \Delta -1 }/ {n \choose \Delta}  = \frac{\Delta}{n}$. And therfore the excpection of the intersections is less then ${ m \choose 2}\frac{\Delta^2}{n}$. Hence by markov inequality we obtin that 
+  \begin{equation*}
+    \prb{ \text{intersects} \ge \frac{1}{2} { m \choose 2}  } \le \frac{2\Delta^2}{n} $
+  \end{equation*}
+    \paragraph{The Algorithm.}
 
 \paragraph{The general concept.} We will identify each pair of  
 
