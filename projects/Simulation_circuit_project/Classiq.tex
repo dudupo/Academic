@@ -131,7 +131,7 @@ To understand the rational behind those notations consider the following  possib
     \item \(H_{4} = X  I  I  Z  I \)
 \end{itemize} In case we have decided to simulate first \(H_{1},H_{2}\) which can be done in parallel after swapping the first and the third qubit. Then we already have made half of the way trough the rotation in which \(H_{3},H_{4}\) can be compute in parallel. That insight bring us to the next Lemma.     
 
-\paragraph{Lemma.} \textit{ Let \(v,u\) be vertices in \(G\) which by definition are also match to a pair of vectors in \(\mathbb{F}_2^{n} \). Then:} 
+\paragraph{Lemma.} \textit{ Let \(v,u\) be vertices in \(G\) which by definition are also match to a pair of vectors in \(\mathbb{F}_4^{n} \). Then:} 
 \begin{equation*}
  \text{Depth}\left(\textbf{SWAP}^{v,u}\right) \le w(v,u)\cdot \text{Depth}\left(\textbf{SWAP}\right)
 \end{equation*}
@@ -141,7 +141,7 @@ To understand the rational behind those notations consider the following  possib
 
 
 \paragraph{}
-Assume the correction of the lemma for any \(d^\prime \le d\) and consider the vector \(u^\prime = u \oplus e_{j} \Rightarrow u^{\prime}_{j} = v_{j}\), if \( \textbf{Ham}(u,v) = d\) then \( \textbf{Ham}(u^\prime,v) = d-1\) and therefore there exist a circuit \(C^{v,u^\prime}\in \textbf{SWAP}^{v,u^\prime}\) at depth \( \textbf{Ham}(v,u^\prime)\cdot\text{Depth}\left(\textbf{SWAP}\right) \). By the fact that \( \textbf{SWAP}^{v,u} = \textbf{SWAP}^{v,u^\prime} \textbf{SWAP}^{u^\prime,u}     \) and because \( \textbf{Ham}(u^\prime,u) = 1 \) we get that:
+Assume the correction of the lemma for any \(d^\prime \le d\), denote again by $j$ one of the cordinate in which $v,u$ act different, And consider the vector \(u^\prime = u \oplus v_{j} \Rightarrow u^{\prime}_{j} = v_{j}\), if \( \textbf{Ham}(u,v) = d\) then \( \textbf{Ham}(u^\prime,v) = d-1\) and therefore there exist a circuit \(C^{v,u^\prime}\in \textbf{SWAP}^{v,u^\prime}\) at depth \( \textbf{Ham}(v,u^\prime)\cdot\text{Depth}\left(\textbf{SWAP}\right) \). By the fact that \( \textbf{SWAP}^{v,u} = \textbf{SWAP}^{v,u^\prime} \textbf{SWAP}^{u^\prime,u}     \) and because \( \textbf{Ham}(u^\prime,u) = 1 \) we get that:
 
 \begin{equation*}
     \begin{split}
