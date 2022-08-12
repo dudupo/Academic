@@ -222,6 +222,14 @@ And that finishes the proof \(\square\)
     \end{split}
 \end{equation*}
 
+
+\paragraph{Expectation of intersect terms.} Denote by $X_{i}^{j}$ the indector which assign $1$ to the event that the $i$ term act non trivaliy on the $j$th qubit. Then it's clear that
+
+\begin{equation*}
+  \begin{split}
+  \mathbb{E}\left[ \text{intersects} \right] \le & \mathbb{E}\left[ \sum_{i,k}^{m}{n\cdot X_{i}^{j}X_{k}^{j} \right] \\ & = \choose{m}{2}\frac{n}{p^2} 
+    \end{split}
+  \end{equation*}
 \section{\ctt{Enter it}}
 
 \paragraph{Lemma I} \textit{ A graph with all degrees at most \(d\) satisfies: 
