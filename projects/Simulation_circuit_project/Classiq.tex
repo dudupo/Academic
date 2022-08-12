@@ -68,7 +68,7 @@ Noitce that each term \(H_i\) such that \(\text{support}(H_{i}) = 1^{a}0^{b} = (
 In addition, if the support isn't a continues segement of \(1\)'s then one could perform rotate the base by permutation at a cost of the "mixing size".   
 \ctt{Change \(G\) to be the graph which each node \( v = \left(P, \text{base change}\right) \). }
 
-\paragraph{Definition.} \textit{ Denote by $m$ the number of local Hamiltonian terms and consider the graph \(G = \left( \left\{ H_{i} \right\}, E \right)\) which is a wighted complte graph over $m$ vertices. Such that the wight function defined by \(w(u,v) = \textbf{Ham}(u, v) = \#\left\{ j | H_{v}^{j} \neq H_{u}^{j} \text{ and } H_{v}^{j},H_{u}^{j}\neq I \right\} \). We will call to such \(G\) the Qubic embedding or shortly just \(G\). }    
+\paragraph{Definition.} \textit{ Denote by $m$ the number of local Hamiltonian terms and consider the graph \(G = \left( \left\{ H_{i} \right\}, E \right)\) which is a wighted complte graph over $m$ vertices. Such that the wight function defined by \(w(u,v) = \#\left\{ j | H_{v}^{j} \neq H_{u}^{j} \text{ and } H_{v}^{j},H_{u}^{j}\neq I \right\} \). We will call to such \(G\) the Qubic embedding or shortly just \(G\). }    
 \paragraph{}
  Let us abuse the notation and denote by $H$ also the random variable which count the support size of local term which is sampled uniformly from the total Hamiltonian. 
 \paragraph{Theorem.} \textit{ Given an Hamiltonian with expected support \(\mathbb{E}[H] := \mathbb{E}_{\sim i}\left[ \textbf{Ham}( \text{support}(H_i)) \right]\) then there is a circuit which simulate a single step \(e^{iH \Delta t}\) at depth:}
