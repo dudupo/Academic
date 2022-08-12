@@ -130,10 +130,10 @@ To understand the rational behind those notations consider the following  possib
     \item \(H_{3} = I  I  X  I  X \)
     \item \(H_{4} = X  I  I  Z  I \)
 \end{itemize} In case we have decided to simulate first \(H_{1},H_{2}\) which can be done in parallel after swapping the first and the third qubit. Then we already have made half of the way trough the rotation in which \(H_{3},H_{4}\) can be compute in parallel. That insight bring us to the next Lemma.     
-
-\paragraph{Lemma.} \textit{ Let \(v,u\) be vertices in \(G\) which by definition are also match to a pair of vectors in \(\mathbb{F}_4^{n} \). Then:} 
+\paragraph{Definition.} \textit{ Let $G^\prime$ be the the graph which is obtained from $G$ by indentify each vertex with his support. }
+\paragraph{Lemma.} \textit{ Let \(v,u\) be vertices in \(G^{\prime}\) which defined as   which by definition are also match to a pair of vectors in \(\mathbb{F}_2^{n} \). Then:} 
 \begin{equation*}
- \text{Depth}\left(\textbf{SWAP}^{v,u}\right) \le w(v,u)\cdot \text{Depth}\left(\textbf{SWAP}\right)
+  \text{Depth}\left(\textbf{SWAP}^{v,u}\right) \le \textbf{Ham}(v,u)\cdot \text{Depth}\left(\textbf{SWAP}\right)
 \end{equation*}
 
 \paragraph{Proof.} By induction over \(w(v,u)\). For the base case consider \(u,v\) such \(u\) differ from \(v\) only by single coordinate. Denote it by \(j\). Observes that if $\textbf{Ham}(u) <\textbf{Ham}(v)$ then $\textbf{SWAP}^{v,u}$ is just the indentity. So we can assume that $ \textbf{Ham}(u) = \textbf{Ham}(v)+1 $ and that  \(v_j = 0, u_j =1\), denote by \(j^{\prime}\) the wire which \(SWAP^{v}\) sends \(j\) into. then it's sufficient to apply the gate \(\textbf{SWAP}(\text{Ham}(v) +1, j^\prime) \).
