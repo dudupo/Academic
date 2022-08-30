@@ -1,0 +1,42 @@
+
+" do stuff you want to do on every buffer enter event
+
+" guard to end loading if it has been loaded for the currently edited file
+if g:localvimrc_sourced_once_for_file
+  finish
+endif
+
+" do stuff you want to do only once for a edited file
+
+" guard to end loading if it has been loaded for the running vim instance
+if g:localvimrc_sourced_once
+  finish
+endif
+
+" do stuff you want to do only once for a running vim instance
+
+call IMAP('`1s', '\ket{\psi<++>}<++>'  	,"tex")
+call IMAP('`1b', '\bra{<++>}<++>'	,"tex")
+" call IMAP(,,"tex")
+" call IMAP(,,"tex")
+" call IMAP(,,"tex")
+" call IMAP(,,"tex")
+
+function! g:Series(_char, _end_sym)
+  let l:ret = ""
+  let l:c = 0
+  let l:terms = 3  
+  let l:tempchar = a:_char
+  let l:tempesym = a:_end_sym
+  while c <= terms
+    if c < terms
+      let ret = ret . tempchar .  "_{" . c . "},"
+    else
+      let ret = ret . "..." . tempchar .  "_{"  . tempesym  . "}" 
+    endif
+    let c += 1 
+  endwhile
+  execute 'normal i'.ret 
+  return 0
+endfunction
+"command! Series call <SID>Series(<args>)
