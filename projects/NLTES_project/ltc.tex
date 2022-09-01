@@ -109,26 +109,6 @@
 	    $X-$check which commute with the other $Z-$checks? 
 	  \item Write a program which plot small complex in a small scale for getting more intuition. 
 	\end{enumerate}
-	\paragraph{Claim} \textit{ for any ?  $ \left[ \left[ n,k,d \right] \right] $ \textbf{CSS} code property 1 holds }. 
-\textbf{Proof.} let $y \in \{0,1\}^{n}$ be a vector such $ y \in \Gz $, let assume that $|y|_{c^{x^{\perp}}} \le C_{2} d$ then for any $ c \in C_{x}^{\perp}$: 
-
-\begin{equation*}
-  %\begin{split}
-    \delta r_z \ge | H_{z} y | = | H_{z} \left( y + c \right) |  
-  %\end{split}
-\end{equation*}
-\paragraph{Robustness} \textit{ Let $ \omega \le \Delta^{2}$. Let $C_{A}$ and $C_{B}$ be codes of length $\Delta$ with minimum distance $d_{A}$ and $d_{B}$. We shall say that the dual tensor code $C = C_{A}\otimes \mathbb{F}^{B}_{2} + \mathbb{F}^{A}_{2} \otimes C_{B}$ is $\omega$-robust, if for any codeword $c\in C$ of Hamming weight $|c|\le \omega$, there exist $A^{\prime}\subset A, B^{\prime}\subset B, |A^{\prime}|\le |c|/d_{B}, |B^{\prime}|\le |c|/d_{A},$ such that $c_{ab}=0$ whenever $a \notin A^{\prime}, b \notin B^{\prime}$.} 
-\paragraph{Definition. Sub-Tensor Pair} \textit{ We will say that $C_{A}^{\prime}, C_{B}^{\prime}$ are sub-tensor pair of $C_A,C_B$ if each of the code is subspace of $C_A, C_B$ respectively and in addition one of the  minimal codeword in $C_{A}$ is also contained in $C_{A}^{\prime}$ (and similar to $C_{B}^{\prime}$.}
-
-  Note that the distance of each subcode is equal to the one from which its drived. And also such code can be generated efficiently by choosing $\Delta$ non trivial coordinate of one of the minimal codewords and sets a check nodes over them. (Assuming that $\Delta$ is even and that there is at least one different codeword in the code which has an overlap with that minimal codeword.    
-
- \paragraph{Claim. Subcode Robustness.} \textit{ Consider the sub-tensor pair $C_{A}^{\prime}\subset C_{A}, C_{B}^{\prime}\subset C_{B}$, such that the dual tensor of $C_{A}, C_{B}$ is $\omega$-robust then the dual tensor of $C_{A}^{\prime}, C_{B}^{\prime}$ is also $\omega$-robust.} 
- \paragraph{Proof.} Let $c$ be a codeword in the dual tensor of $C_{A}^{\prime},C_{B}^{\prime}$ then it's clear that $c$ is also in the dual tensor of $C_{A}, C_{B}$ and therefore there exists $V,U$subsets of $A,B$ respectively such that $c$ supported only on them, and their size is less then $|c|/d_{B}, |c|/d_{A}$. As the length's space of the each of the subcode is identical to his container, and by the fact that the distance of each of the subcode is equal to one which contain it, It's follow that (1) $U \subset A^\prime = A $ and (2) $|c|/d_{A}=|c|/d_{A^\prime}$. 
-
- \paragraph{Existence Of Sub-Tensor Pair } \ctt{ Try to prove existence by the probabilistic method.} 
- \paragraph{Theorem 1.} \textit{ Let $C_{0} = C_{A}\otimes C_{B}$ , and $C_{1} = C_{A}^{\prime, \perp} \otimes C_{B}^{\prime, perp}$ such that $C_{A}^\prime, C_{B}^\prime$ are sub-tensor pair of $C_{A},C_{B}$, and each of the code has length $\Delta$ and relative distance $\delta$. Consider the G-balance product of graph with good algebraic expansion $\Gamma^{\square}_{0},\Gamma^{\square}_{1}$ . Then the pair of the tanner codes $\mathcal{T}\left( \Gamma^{\square}_{0}, C_0 \right)$ and  $\mathcal{T}\left( \Gamma^{\square}_{1}, C_{1}^{\perp} \right)$ define a CSS code with linear distance, positive rate, and local testbility for some constant $\kappa$.} 
-
- \paragraph{Proof.} First, it's clear that each pair of $X$ and $Z$ generators are orthogonal by design. d dd     
 \end{multicols*}
   % \printbibliography 
 \end{document}
