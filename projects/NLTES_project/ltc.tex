@@ -45,9 +45,9 @@
 
 
   \paragraph{preamble.} preamble.  
-  \paragraph{The Construction.} Fix primes $q,p_1,p_2,p_3$ such that each of them has $1 $ resduie mode $4$. Let $A_{1},A_{2},A_{3}$ be a different generators sets of $ \mathbf{GPL}(2 , \mathbb{Z} / q\mathbb{Z} )  $ 
-  obtained by gettring the soultions for $a_{0}^{2} + a_{1}^{2} +a_{2}^{2} +a_{3}^{2} = p_i $ such that each pair $A_i,A_j$ satisfiy the 
-  TNC constraint. Then consider the union of the Blance product of 
+  \paragraph{The Construction.} Fix primes $q,p_1,p_2,p_3$ such that each of them has $1 $ residue mode $4$. Let $A_{1},A_{2},A_{3}$ be a different generators sets of $ \mathbf{GPL}(2 , \mathbb{Z} / q\mathbb{Z} )  $ 
+  obtained by gettring the solutions for $a_{0}^{2} + a_{1}^{2} +a_{2}^{2} +a_{3}^{2} = p_i $ such that each pair $A_i,A_j$ satisfy the 
+  TNC constraint. Then consider the union of the Balance product of 
   \begin{equation*}
     \begin{split}
       \Gamma_{1}  &= Cay_{2}\left(  G, A_{1} \right)\times_{G} Cay_{2}\left(  G, A_{2} \right) \\
@@ -68,21 +68,21 @@
 	    C_{w} &=  \mathcal{T}\left( \Gamma_{\square \square}, \left(  C_{A_1} \otimes C_{A_2} \otimes C_{A_3} \right)^{\perp}  \right)   
 	  \end{split}
 	\end{equation*}
-	Notice that the faces of $\Gamma_{\square_{1}},\Gamma_{\square_{2}}$ are disjointess and here the symbol $|$ means just joint them togther. 
-	The main focus here is to prove local testability for computaion base (i.e $C_{x}$) and for completence one also must to define the code 
+	Notice that the faces of $\Gamma_{\square_{1}},\Gamma_{\square_{2}}$ are disjointed and here the symbol $|$ means just joint them together. 
+	The main focus here is to prove local test-ability for computation base (i.e $C_{x}$) and for completeness one also must to define the code 
 	\begin{equation*}
 	  \begin{split}
 	    C_{w_{z}} &=  \mathcal{T}\left( \Gamma_{\square \square}, \left(  C_{A_1}^\perp \otimes C_{A_2}^\perp \otimes C_{A_3}^\perp \right)^{\perp}  \right)   
 	  \end{split}
 	\end{equation*}
-	\paragraph{What We Currently Have.} Given a canidate for a codeword $c$ we could check efficently if $c\in C_{z}^\perp$.  
-	Additionaly summing up the local corretion of each vertex in $C_{x}$ yields a codeword in $C_{w}$. Now we would want to show 
-	somthing similar to property 1 in Levarier and Zemor which imply that any codeword of $C_{w}$ with weigh benteeth 
-	a linear treashold $\eta n $ must to be also in $C_{X}$. (And therefore we can reject canidates with heigh weight). 
+	\paragraph{What We Currently Have.} Given a candidate for a codeword $c$ we could check efficiently if $c\in C_{z}^\perp$.  
+	Additionally summing up the local correction of each vertex in $C_{x}$ yields a codeword in $C_{w}$. Now we would want to show 
+	something similar to property 1 in Levarier and Zemor which imply that any codeword of $C_{w}$ with weigh beneath 
+	a linear threshold $\eta n $ must to be also in $C_{X}$. (And therefore we can reject candidates with high weight). 
 	%(And maybe we would also say something about the gap between the this minimal weight of $C_{w}/C_{x}$. 
 
-	Assume that we have successed to do so, Then the testing protocol will be looked as follow, 
-	first we check that the canidate is not in $C_{z}^\perp$ and then we check that is indeed in $C_{x}$. And repeat again 
+	Assume that we have succeed to do so, Then the testing protocol will be looked as follow, 
+	first we check that the candidate is not in $C_{z}^\perp$ and then we check that is indeed in $C_{x}$. And repeat again 
 	in the phase base. Then there are constants $\kappa_1, \kappa_2$ 
 	\begin{equation*}
 	  \begin{split}
@@ -92,22 +92,22 @@
 	    & +\kappa_1 \cdot  d\left( c,C_{z}^\perp \right) \cdot \left[ 1 - \kappa_{2} d\left( c, C_{x} \right) \right] 
 	  \end{split}
 	\end{equation*}
-	\paragraph{Disclaimer.} The use of the $\sim$ was  made by purpose. The above should be formlize by inequlities. (And this also make another problem as 
-	the term $ 1 - \kappa_{1} \cdot d\left(  \right) $ is in the opposite direaction). 
-	\paragraph{The Hard Part.} It seems (at least for now) that the hard part is to find an analog for Lemma 1 in Levrier-Zemor, Which can formolize 
-	as follow: Consider a codeword $c \in C_{w}$ such that $|c| \le \eta n $ then we could alwayes find a vertex in $\Gamma_{\square_{1}} $
+	\paragraph{Disclaimer.} The use of the $\sim$ was  made by purpose. The above should be formalize by inequalities. (And this also make another problem as 
+	the term $ 1 - \kappa_{1} \cdot d\left(  \right) $ is in the opposite direction). 
+	\paragraph{The Hard Part.} It seems (at least for now) that the hard part is to find an analog for Lemma 1 in Levrier-Zemor, Which can formalize 
+	as follow: Consider a codeword $c \in C_{w}$ such that $|c| \le \eta n $ then we could always find a vertex in $\Gamma_{\square_{1}} $
 	and a local codeword $\xi \in C_{A_1} \otimes c_{A_2} $ on his support such that $|c + \xi| < |c| $.     
       
 
 	\paragraph{Tasks.}
 	\begin{enumerate}
 	  \item Prove that $\Gamma_{\square \square } $ is indeed an expander. Should be (relative) easy.
-	  \item Prove a Lemma 1 analogy. And while do so, undersand what are the properties we should require from the small code.
-	    (i.e w-robusstness and p-resistence for pancutring). 
-	  \item Show that we could acutaly choose such $\left\{ A \right\}_{i}$ and the matched small codes.
-	  \item Understand what it mean quantmlly test if a $c \in C_{w}/ C_{x}$. Namly, is weight counting can be consider as 
+	  \item Prove a Lemma 1 analogy. And while do so, understand what are the properties we should require from the small code.
+	    (i.e w-robustness and p-resistance for puncturing). 
+	  \item Show that we could actually choose such $\left\{ A \right\}_{i}$ and the matched small codes.
+	  \item Understand what it mean quantomlly test if a $c \in C_{w}/ C_{x}$. Namely, is weight counting can be consider as 
 	    $X-$check which commute with the other $Z-$checks. 
-	  \item Write a program which plot samll coplex in asmall scale for getting more intuion. 
+	  \item Write a program which plot small complex in a small scale for getting more intuition. 
 	\end{enumerate}
 	\paragraph{Claim} \textit{ for any ?  $ \left[ \left[ n,k,d \right] \right] $ \textbf{CSS} code property 1 holds }. 
 \textbf{Proof.} let $y \in \{0,1\}^{n}$ be a vector such $ y \in \Gz $, let assume that $|y|_{c^{x^{\perp}}} \le C_{2} d$ then for any $ c \in C_{x}^{\perp}$: 
@@ -117,18 +117,18 @@
     \delta r_z \ge | H_{z} y | = | H_{z} \left( y + c \right) |  
   %\end{split}
 \end{equation*}
-\paragraph{Robusstness} \textit{ Let $ \omega \le \Delta^{2}$. Let $C_{A}$ and $C_{B}$ be codes of length $\Delta$ with minimum distance $d_{A}$ and $d_{B}$. We shall say that the dual tensor code $C = C_{A}\otimes \mathbb{F}^{B}_{2} + \mathbb{F}^{A}_{2} \otimes C_{B}$ is $\omega$-robust, if for any codeword $c\in C$ of Hamming weight $|c|\le \omega$, there exist $A^{\prime}\subset A, B^{\prime}\subset B, |A^{\prime}|\le |c|/d_{B}, |B^{\prime}|\le |c|/d_{A},$ such that $c_{ab}=0$ whenever $a \notin A^{\prime}, b \notin B^{\prime}$.} 
-\paragraph{Definition. Sub-Tensor Pair} \textit{ We will say that $C_{A}^{\prime}, C_{B}^{\prime}$ are sub-tensor pair of $C_A,C_B$ if each of the code is subspace of $C_A, C_B$ respeactivly and in addition one of the  minimal codeword in $C_{A}$ is also contained in $C_{A}^{\prime}$ (and similar to $C_{B}^{\prime}$.}
+\paragraph{Robustness} \textit{ Let $ \omega \le \Delta^{2}$. Let $C_{A}$ and $C_{B}$ be codes of length $\Delta$ with minimum distance $d_{A}$ and $d_{B}$. We shall say that the dual tensor code $C = C_{A}\otimes \mathbb{F}^{B}_{2} + \mathbb{F}^{A}_{2} \otimes C_{B}$ is $\omega$-robust, if for any codeword $c\in C$ of Hamming weight $|c|\le \omega$, there exist $A^{\prime}\subset A, B^{\prime}\subset B, |A^{\prime}|\le |c|/d_{B}, |B^{\prime}|\le |c|/d_{A},$ such that $c_{ab}=0$ whenever $a \notin A^{\prime}, b \notin B^{\prime}$.} 
+\paragraph{Definition. Sub-Tensor Pair} \textit{ We will say that $C_{A}^{\prime}, C_{B}^{\prime}$ are sub-tensor pair of $C_A,C_B$ if each of the code is subspace of $C_A, C_B$ respectively and in addition one of the  minimal codeword in $C_{A}$ is also contained in $C_{A}^{\prime}$ (and similar to $C_{B}^{\prime}$.}
 
-  Note that the distance of each subcode is eqaul to the one from which its drived. And also such code can be generated efficintly by choosing $\Delta$ non trival coordinate of one of the minimal codewords and sets a check nodes over them. (Assunming that $\Delta$ is even and that there is at least one diffrent codeword in the code wich has an overlap with that minimal codewoed.    
+  Note that the distance of each subcode is equal to the one from which its drived. And also such code can be generated efficiently by choosing $\Delta$ non trivial coordinate of one of the minimal codewords and sets a check nodes over them. (Assuming that $\Delta$ is even and that there is at least one different codeword in the code which has an overlap with that minimal codeword.    
 
- \paragraph{Claim. Subcode Robusstness.} \textit{ Consider the sub-tensor pair $C_{A}^{\prime}\subset C_{A}, C_{B}^{\prime}\subset C_{B}$, such that the dual tensor of $C_{A}, C_{B}$ is $\omega$-robust then the dual tensor of $C_{A}^{\prime}, C_{B}^{\prime}$ is also $\omega$-robust.} 
- \paragraph{Proof.} Let $c$ be a codeword in the dual tensor of $C_{A}^{\prime},C_{B}^{\prime}$ then it's clear that $c$ is also in the dual tensor of $C_{A}, C_{B}$ and therfore there exists $V,U$subsets of $A,B$ respectivly such that $c$ supported only on them, and their size is less then $|c|/d_{B}, |c|/d_{A}$. As the length's space of the each of the subcode is indentical to his container, and by the fact that the distance of each of the subcode is equal to one which contain it, It's follow that (1) $U \subset A^\prime = A $ and (2) $|c|/d_{A}=|c|/d_{A^\prime}$. 
+ \paragraph{Claim. Subcode Robustness.} \textit{ Consider the sub-tensor pair $C_{A}^{\prime}\subset C_{A}, C_{B}^{\prime}\subset C_{B}$, such that the dual tensor of $C_{A}, C_{B}$ is $\omega$-robust then the dual tensor of $C_{A}^{\prime}, C_{B}^{\prime}$ is also $\omega$-robust.} 
+ \paragraph{Proof.} Let $c$ be a codeword in the dual tensor of $C_{A}^{\prime},C_{B}^{\prime}$ then it's clear that $c$ is also in the dual tensor of $C_{A}, C_{B}$ and therefore there exists $V,U$subsets of $A,B$ respectively such that $c$ supported only on them, and their size is less then $|c|/d_{B}, |c|/d_{A}$. As the length's space of the each of the subcode is identical to his container, and by the fact that the distance of each of the subcode is equal to one which contain it, It's follow that (1) $U \subset A^\prime = A $ and (2) $|c|/d_{A}=|c|/d_{A^\prime}$. 
 
- \paragraph{Existance Of Sub-Tensor Pair } \ctt{ Try to prove existance by the probablistic method.} 
- \paragraph{Theorem 1.} \textit{ Let $C_{0} = C_{A}\otimes C_{B}$ , and $C_{1} = C_{A}^{\prime, \perp} \otimes C_{B}^{\prime, perp}$ scuh that $C_{A}^\prime, C_{B}^\prime$ are sub-tensor pair of $C_{A},C_{B}$, and each of the code has length $\Delta$ and relative distance $\delta$. Consider the G-blance product of graph with good algebraic expansion $\Gamma^{\square}_{0},\Gamma^{\square}_{1}$ . Then the pair of the tanner codes $\mathcal{T}\left( \Gamma^{\square}_{0}, C_0 \right)$ and  $\mathcal{T}\left( \Gamma^{\square}_{1}, C_{1}^{\perp} \right)$ define a CSS code with linear distance, positive rate, and local testbility for some constant $\kappa$.} 
+ \paragraph{Existence Of Sub-Tensor Pair } \ctt{ Try to prove existence by the probabilistic method.} 
+ \paragraph{Theorem 1.} \textit{ Let $C_{0} = C_{A}\otimes C_{B}$ , and $C_{1} = C_{A}^{\prime, \perp} \otimes C_{B}^{\prime, perp}$ such that $C_{A}^\prime, C_{B}^\prime$ are sub-tensor pair of $C_{A},C_{B}$, and each of the code has length $\Delta$ and relative distance $\delta$. Consider the G-balance product of graph with good algebraic expansion $\Gamma^{\square}_{0},\Gamma^{\square}_{1}$ . Then the pair of the tanner codes $\mathcal{T}\left( \Gamma^{\square}_{0}, C_0 \right)$ and  $\mathcal{T}\left( \Gamma^{\square}_{1}, C_{1}^{\perp} \right)$ define a CSS code with linear distance, positive rate, and local testbility for some constant $\kappa$.} 
 
- \paragraph{Proof.} First, it's clear that each pair of $X$ and $Z$ generators are orthogoanl by design. d dd     
+ \paragraph{Proof.} First, it's clear that each pair of $X$ and $Z$ generators are orthogonal by design. d dd     
 \end{multicols*}
   % \printbibliography 
 \end{document}
