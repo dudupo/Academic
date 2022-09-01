@@ -89,9 +89,11 @@
 	    \text{accept} & \sim \kappa_1 \cdot  d\left( c,C_{z}^\perp \right)  \\ 
 	    & +  \left[ 1 -  \kappa_1 \cdot  d\left( c,C_{z}^\perp \right)\right] \kappa_{2} d\left( c, C_{x} \right) \\
 	    \text{reject} & \sim  \left[ 1 -  \kappa_1 \cdot  d\left( c,C_{z}^\perp \right)\right] \\ 
-	    & +\sim \kappa_1 \cdot  d\left( c,C_{z}^\perp \right) \cdot \left[ 1 - \kappa_{2} d\left( c, C_{x} \right) \right] 
+	    & +\kappa_1 \cdot  d\left( c,C_{z}^\perp \right) \cdot \left[ 1 - \kappa_{2} d\left( c, C_{x} \right) \right] 
 	  \end{split}
 	\end{equation*}
+	\paragraph{Disclaimer.} The use of the $\sim$ was  made by purpose. The above should be formlize by inequlities. (And this also make another problem as 
+	the term $ 1 - \kappa_{1} \cdot d\left(  \right) $ is in the opposite direaction). 
 	\paragraph{Claim} \textit{ for any ?  $ \left[ \left[ n,k,d \right] \right] $ \textbf{CSS} code property 1 holds }. 
 \textbf{Proof.} let $y \in \{0,1\}^{n}$ be a vector such $ y \in \Gz $, let assume that $|y|_{c^{x^{\perp}}} \le C_{2} d$ then for any $ c \in C_{x}^{\perp}$: 
 
