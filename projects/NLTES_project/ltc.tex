@@ -77,12 +77,21 @@
 	\end{equation*}
 	\paragraph{What We Currently Have.} Given a canidate for a codeword $c$ we could check efficently if $c\in C_{z}^\perp$.  
 	Additionaly summing up the local corretion of each vertex in $C_{x}$ yields a codeword in $C_{w}$. Now we would want to show 
-	somthing similar to property 1 in Levarier and Zemor which imply that any codeword of $C_{W}$ with weigh benteeth 
+	somthing similar to property 1 in Levarier and Zemor which imply that any codeword of $C_{w}$ with weigh benteeth 
 	a linear treashold $\eta n $ must to be also in $C_{X}$. (And therefore we can reject canidates with heigh weight). 
 	%(And maybe we would also say something about the gap between the this minimal weight of $C_{w}/C_{x}$. 
 
 	Assume that we have successed to do so, Then the testing protocol will be looked as follow, 
-	first we check that the canidate is not in $C_{z}^\perp$. 
+	first we check that the canidate is not in $C_{z}^\perp$ and then we check that is indeed in $C_{x}$. And repeat again 
+	in the phase base. Then there are constants $\kappa_1, \kappa_2$ 
+	\begin{equation*}
+	  \begin{split}
+	    \text{accept} & \sim \kappa_1 \cdot  d\left( c,C_{z}^\perp \right)  \\ 
+	    & +  \left[ 1 -  \kappa_1 \cdot  d\left( c,C_{z}^\perp \right)\right] \kappa_{2} d\left( c, C_{x} \right) \\
+	    \text{reject} & \sim  \left[ 1 -  \kappa_1 \cdot  d\left( c,C_{z}^\perp \right)\right] \\ 
+	    & +\sim \kappa_1 \cdot  d\left( c,C_{z}^\perp \right) \cdot \left[ 1 - \kappa_{2} d\left( c, C_{x} \right) \right] 
+	  \end{split}
+	\end{equation*}
 	\paragraph{Claim} \textit{ for any ?  $ \left[ \left[ n,k,d \right] \right] $ \textbf{CSS} code property 1 holds }. 
 \textbf{Proof.} let $y \in \{0,1\}^{n}$ be a vector such $ y \in \Gz $, let assume that $|y|_{c^{x^{\perp}}} \le C_{2} d$ then for any $ c \in C_{x}^{\perp}$: 
 
