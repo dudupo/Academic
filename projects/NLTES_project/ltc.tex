@@ -110,16 +110,34 @@
 	  \item Write a program which plot small complex in a small scale for getting more intuition. 
 	\end{enumerate}
 	% be a codeword with weight less then $\alpha n$.
-	\paragraph{All The Verticis Are Normal } Let $x \in C_{w}$. Define a noraml vertex in $ V_{1} $ to be a vertex such his local view (a codeword in a dual tensor code) 
+
+	
+
+	\paragraph{All The Verticis Are Normal } Define a noraml vertex in $ V_{1} $ to be a vertex such his local view (a codeword in a dual tensor code). 
 	supported on less then $w = \Delta^\frac{3}{2}$ faces.
-	Condisder the case in which all vertices in the induced graph by $x$ are noraml. Then there exists a vertex $ g \in V_{0} $ and a local codeword $ c \in C_{A_1} \otimes C_{A_2} \otimes C_{A_3} $ supported entirly on the neighberhood of $ g $ such that: 
+	Consider the code $C_{W}$ defined above, and assume in addition that the diststance of 
+      the small codes $C_{A_{j}}$, $\delta \Delta$ satisfay the eqution $ 1 - \delta < \delta^{3} $ and also the $ C_{A_{1}}  $ 
+      contains the word $ \overset{\Delta } { \overbrace{ 111\dots11  } } $	
+	Then for any $x \in C_{w}$ such that all the vertices in the induced graph by it are noraml. 
+	There exists a vertex $ g \in V_{0} $ and a local codeword $ c \in C_{A_1} \otimes C_{A_2} \otimes C_{A_3} $ supported entirly on the neighberhood of $ g $ such that: 
 	$ |x + c| \le |x| $.
+
+
 	\paragraph{Proof.} Let $g$ be an aribtrary vertex in $V_{0}$ the local view of $g$ is the sum of the rows and coloms shered with verticis of $V_{1}$. 
 	For example, $\left( g, - \right)$ and $\left( ag, + \right)$ share the faces $ \left\{ \left\{ \left( g, - \right) , \left( agb, - \right)  \right\},  \left\{ \left( g, - \right) , \left( agc, - \right)  \right\}\right\} $. 
-	By the defination of $w$-robustness any local codeword on $V_{1}$ vertices supoorted on at most $w/d_{B} = \sqrt{\Delta} $ colomuns. 
+	By the defination of $w$-robustness any local codeword on $V_{1}$ vertices supported on at most $w/d_{B} = \sqrt{\Delta} $ colomuns. 
 	And therefore a codeword could be thouht as a table which constructed by gaterring rows which are codewords of  $C_{A} $ plus a small error which coressponded to the contributed of codewords  
 	of the code $ \mathbb{F}^{A} \otimes C_{B} $. 
-	And viceversa, by the fact that each vertex has $2\Delta$ neighboors we have that the total error from a table corresponded to $ C_{A} \otimes C_{B} $ is less then $2\delta^{\frac{3}{2}} $.
+	And viceversa, by the fact that each vertex has $2\Delta$ neighboors we have that the total error from a table corresponded to $ C_{A} \otimes C_{B} $ is less then $2\Delta^{\frac{3}{2}} $.
+	Now we know that we can repreasnt the local view on $g$ as the sum of two disjointess vector, each lay on $\Gamma_{\square_1},\Gamma_{\square_2}$ in the follow mannaer:
+	\begin{equation*}
+	  \begin{split}
+	    y &= y_{1}y_{2}^{\top} + \xi_{y} 
+	    z &= z_{1}z_{2}^{\top} + \xi_{z}
+	  \end{split}
+	\end{equation*}
+	such that $ y_{1}y_{2}^{\top} \in C_{A} \otimes C_{B}$,  $z_{1}z_{2}^{\top}\in otimes C_{C} $ and the $\xi_{y}, \xi_{z} $ are the coressponded errors of the local views from the tensorcodes. 
+	\paragraph{Lemma} There exists $u \in C_{A_{1}}, v \in C_{A_{2}}, w \in C_{A_{3}}$ such that   
 \end{multicols*}
   % \printbibliography 
 \end{document}
