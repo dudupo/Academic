@@ -111,21 +111,27 @@
 	\end{enumerate}
 	% be a codeword with weight less then $\alpha n$.
 
-	
+	\newcommand{ \Aa } { C_{A_{1}}}  
+	\newcommand{ \Ab } { C_{A_{2}}}
+	\newcommand{ \Ac } { C_{A_{3}}}
+	\newcommand{ \Aab } { \A1 \otimes \A2 } 
+	\newcommand{ \Aac } { \A1 \otimes \A3 }
+	\newcommand{ \Aabc } { \A1 \otimes \A2 \otimes \A3 }
 
 	\paragraph{All The Verticis Are Normal } Define a noraml vertex in $ V_{1} $ to be a vertex such his local view (a codeword in a dual tensor code). 
 	supported on less then $w = \Delta^\frac{3}{2}$ faces.
-	Consider the code $C_{W}$ defined above, and assume in addition that the diststance of 
+	Consider the code $C_{w}$ defined above, and assume in addition that the diststance of 
 	the small codes $C_{A_{j}}$, $\delta \Delta$ satisfay the eqution $ 1 - \delta < \frac{1}{2}\delta^{3} $ and also the code $ C_{A_{1}}  $ 
       contains the word $ 1^{\Delta} $.
 
 
       Then for any $x \in C_{w}$ such that all the vertices in the induced graphs $\Gamma_{\square_{1}},\Gamma_{\square_{2}}$  by it are noramls. 
-	Then there exists a vertex $ g \in V_{0} $ and a local codeword $ c \in C_{A_1} \otimes C_{A_2} \otimes C_{A_3} $ supported entirly on the neighberhood of $ g $ such that: 
+	Then there exists a vertex $ g \in V_{0} $ and a local codeword $ c \Aabc $ supported entirly on the neighberhood of $ g $ such that: 
 	$ |x + c| \le |x| $.
 
 
-	\paragraph{Proof.} Let $g$ be an aribtrary vertex in $V_{0}$ the local view of $g$ is the sum of the rows and coloms shered with verticis of $V_{1}$. 
+	\paragraph{Proof.} Let $g$ be an aribtrary vertex in $V_{0}$ we know by Leverrir and Zemor that the local views of $g$ in  $\Gamma_{\square_{1}},\Gamma_{\square_{2}}$ are $\Delta^{3/2}$ close to 
+      $\Aab $ and $ \Aac $ sum of the rows and coloms shered with verticis of $V_{1}$. 
 	For example, $\left( g, - \right)$ and $\left( ag, + \right)$ share the faces $ \left\{ \left\{ \left( g, - \right) , \left( agb, - \right)  \right\},  \left\{ \left( g, - \right) , \left( agc, - \right)  \right\}\right\} $. 
 	By the defination of $w$-robustness any local codeword on $V_{1}$ vertices supported on at most $w/d_{B} = \sqrt{\Delta} $ colomuns. 
 	And therefore a codeword could be thouht as a table which constructed by gaterring rows which are codewords of  $C_{A} $ plus a small error which coressponded to the contributed of codewords  
