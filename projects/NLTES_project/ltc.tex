@@ -121,34 +121,34 @@
 	\newcommand{ \ZZ } {  z_{1}z_{2}^{\top} } 
 	\newcommand{ \TT } { \tilde{\tau} } 
 
-	\paragraph{All The Verticis Are Normal } Define a noraml vertex in $ V_{1} $ to be a vertex such his local view (a codeword in a dual tensor code). 
+	\paragraph{All The Vertices Are Normal } Define a normal vertex in $ V_{1} $ to be a vertex such his local view (a codeword in a dual tensor code). 
 	supported on less then $w = \Delta^\frac{3}{2}$ faces.
-	Consider the code $C_{w}$ defined above, and assume in addition that the diststance and the rate of 
-	the small codes $C_{A_{j}}$, $\delta \Delta$ satisfay the eqution $ \left(\Delta r\right)^{4}\left(1 - \delta\right) < \frac{1}{2}\delta^{3} $ and also the code $ C_{A_{1}}  $ 
+	Consider the code $C_{w}$ defined above, and assume in addition that the distance and the rate of 
+	the small codes $C_{A_{j}}$, $\delta \Delta$ satisfy the equation $ \left(\Delta r\right)^{4}\left(1 - \delta\right) < \frac{1}{2}\delta^{3} $ and also the code $ C_{A_{1}}  $ 
       contains the word $ 1^{\Delta} $.
 
 
-      Then for any $x \in C_{w}$ such that all the vertices in the induced graphs $\Gamma_{\square_{1}},\Gamma_{\square_{2}}$  by it are noramls. 
-	Then there exists a vertex $ g \in V_{0} $ and a local codeword $ c \in \Aabc $ supported entirly on the neighberhood of $ g $ such that: 
+      Then for any $x \in C_{w}$ such that all the vertices in the induced graphs $\Gamma_{\square_{1}},\Gamma_{\square_{2}}$  by it are normal. 
+	Then there exists a vertex $ g \in V_{0} $ and a local codeword $ c \in \Aabc $ supported entirely on the neighborhood of $ g $ such that: 
 	$ |x + c| \le |x| $.
 
 
-	\paragraph{Proof.} Let $g$ be an aribtrary vertex in $V_{0}$ we know by Leverrir and Zemor that the local views of $g$ in  $\Gamma_{\square_{1}},\Gamma_{\square_{2}}$ are $\Delta^{3/2}$ close to 
-      $\Aab $ and $ \Aac $ by the $w$-robustness propperty. 
+	\paragraph{Proof.} Let $g$ be an arbitrary vertex in $V_{0}$ we know by Leverrir and Zemor that the local views of $g$ in  $\Gamma_{\square_{1}},\Gamma_{\square_{2}}$ are $\Delta^{3/2}$ close to 
+      $\Aab $ and $ \Aac $ by the $w$-robustness property. 
 
-	So we can repreasnt the locals views on $g$ as the following disjointess vectors, each lays on $\Gamma_{\square_1},\Gamma_{\square_2}$:
+	So we can represent the locals views on $g$ as the following disjointed vectors, each lays on $\Gamma_{\square_1},\Gamma_{\square_2}$:
 	\begin{equation*}
 	  \begin{split}
 	    y &= y_{1}y_{2}^{\top} + \xi_{y} \\ 
 	    z &= z_{1}z_{2}^{\top} + \xi_{z}
 	  \end{split}
 	\end{equation*}
-	such that $ y_{1}y_{2}^{\top} \in \Aab $,  $z_{1}z_{2}^{\top}\in \Aac $ and the $\xi_{y}, \xi_{z} $ are the coressponded errors of the local views from the tensor codes. 
+	such that $ y_{1}y_{2}^{\top} \in \Aab $,  $z_{1}z_{2}^{\top}\in \Aac $ and the $\xi_{y}, \xi_{z} $ are the corresponded errors of the local views from the tensor codes. 
  
 	Let $ \{ y_{1}^{j}y_{2}^{i \ \top} \} ,\{ z_{1}^{j}z_{2}^{i \ \top} \}  $ be the bases for $ \Aab $ and $ \Aac $ such that $ y_{1}^{j}, z_{1}^{j} \in \Aa $ and $ y_{2}^{i} \in \Ab, z_{2}^{i} \in \Ac $.  
-	And denote by $\alpha_{ij},\beta_{ij} \in \mathbb{F}_2 $ the coffeicents of $\YY$ and $\ZZ$. 
+	And denote by $\alpha_{ij},\beta_{ij} \in \mathbb{F}_2 $ the coefficients of $\YY$ and $\ZZ$. 
 
-	By the fact that $1^\Delta \in \Aa$ we have that for any $i,j$ the vecotr: 
+	By the fact that $1^\Delta \in \Aa$ we have that for any $i,j$ the vector: 
 	\begin{equation*}
 	  \begin{split}
 	  \bar{y_{1}}^{j}y_{2}^{i \ \top} & =  1^\Delta y_{2}^{i \ \top} \\ 
@@ -162,8 +162,8 @@
       \begin{equation*}	
       d\left( \tau, \Aabc \right) \le \left( 1-\delta \right)\Delta^{3}  
       \end{equation*}
-      \paragraph{Proof.} First noitce that $y_{1a}y_{2b}z_{2c} $ is a valid codeword of $\Aabc$. That beacuse that the projection obtained bt 
-      fixing any two coordinates yields ethier a zero or a codeword of one the codes.
+      \paragraph{Proof.} First notice that $y_{1a}y_{2b}z_{2c} $ is a valid codeword of $\Aabc$. That because that the projection obtained bt 
+      fixing any two coordinates yields either a zero or a codeword of one the codes.
       
       Therefore we could consider the following codeword $ \TT_{abc} = \left( y_{1a} + \bar{z}_{1a} \right)y_{2b}y_{2c} $ and bounding the distance of $\tau$ by 
       \begin{equation*}
@@ -180,7 +180,7 @@
 	d\left(w, \Aabc \right) \le \left( r\Delta \right)^{4}\left( 1 - \delta \right)\Delta^{3} + \Theta \left( \Delta^{2\frac{1}{2}}  \right)
       \end{equation*}
 
-      Consider again the represntion of the local view $w$ on the vertex $g$. 
+      Consider again the representation of the local view $w$ on the vertex $g$. 
       \begin{equation*}
 	\begin{split}
 	  & w_{abc} = y_{ab}z_{ac} = \left( \YY + \xi_{y} \right)_{ab}   \left( \ZZ + \xi_{z} \right)_{ac} \\ 
