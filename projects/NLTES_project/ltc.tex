@@ -201,9 +201,11 @@
   	\newcommand{ \Hw }{ \delta\Delta -\Delta^{\frac{1}{2}-\varepsilon}/\delta  }
 	\newcommand{ \Nw }{ \Delta^{\frac{3}{2}-\varepsilon}} 
 	  \newcommand{ \Gu } { \Gamma^{\cup} }
+	  \newcommand{ \Guq } { \Gamma^{\cup, \square} }
+
     	\newcommand{ \Gsa } {\Gamma_{\square_{1}} }
 	\newcommand{ \Gsb } {\Gamma_{\square_{2}} }
-    \paragraph{Dense Normal Net Countiong} Let us call the normal vertices the vertices with degree less then $\xi$ in $\Gu = \Gamma_{1}^{x} \cup \Gamma_{2}^{x}$. 
+	\paragraph{Dense Normal Net Countiong} Let us call the normal vertices the vertices with degree less then $\xi$ in $\Guq = \Gamma_{\square, 1}^{x} \cup \Gamma_{\square, 2}^{x}$. 
     And Let us say that that an edge of $\Gu$ is heavy if it is incident to at least $\eta$ squares in $\Gsa$ and $\Gsb$. Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal vertex through a heavy edge. 
 
     First notice that the number of vertices in the induced graph by $x$ is bounded by it's weight:
@@ -224,6 +226,13 @@
 	& |T| \le \left(\frac{\lambda^{\star}}{\eta - \frac{6|x|}{n \delta}}\right)^{2}|S|
       \end{split}
     \end{equation*}
+    Denote by $S_e$ the set of vertices in $\Guq$ with degree greater then $\zi$. Then by reapting on the above calculation, while subsuting $\Gamma_{i}$ by $\Gamma_{i, \square}$, We obtain that there is $\lambda^{\star}_{2}$ such that:
+     \begin{equation*}
+      \begin{split}
+	& |S_{e}| \le \left(\frac{\lambda^{\star}}{\zi - \left(2\Delta^{2} - \Delta  \right)<++>\frac{|x|}{n \delta}}\right)^{2}|S|
+      \end{split}
+    \end{equation*}
+
 \end{multicols*}
   % \printbibliography 
 \end{document}
