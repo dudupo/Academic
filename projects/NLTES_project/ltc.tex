@@ -206,12 +206,18 @@
     \paragraph{Dense Normal Net Countiong} Let us call the normal vertices the vertices with degree less then $\xi$ in $\Gu = \Gamma_{1}^{x} \cup \Gamma_{2}^{x}$. 
     And Let us say that that an edge of $\Gu$ is heavy if it is incident to at least $\eta$ squares in $\Gsa$ and $\Gsb$. Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal vertex. 
 
-    %$ |S| \le \frac{2|x|}{ \delta\Delta }$ 
+    $ |S| \le \frac{2|x|}{ \delta\Delta }$ 
     \begin{equation*}
       \begin{split}
-	|E\left( S,T \right)| & \ge \eta \\ 
+	|E\left( S,T \right)| & \ge \eta |T| \\ 
 	|E\left( S,T \right)| & = |E\left( S,T \right)_{\Gamma_{1}} \cup E\left( S,T \right)_{\Gamma_{2}} | \\ 
       \le & \frac{|S||T|}{n}\left( 2 \cdot 2\Delta - \Delta  \right) \\ & + \sqrt{|S||T|}\left( 2\cdot \lambda_{ \text{double cover} } + \lambda_{ \text{ramnujan} }    \right)
+      \end{split}
+    \end{equation*}
+    \begin{equation*}
+      \begin{split}
+	& |T|\left( \eta - \frac{2|x|}{\delta\Delta}\cdot\frac{3\Delta}{n}  \right)\le \sqrt{|S||T|}\lambda^{\star} \\ 
+	& |T| \le \left(\frac{\lambda^{\star}}{\eta - \frac{6|x|}{n \delta}}\right)^{2}|S|
       \end{split}
     \end{equation*}
 \end{multicols*}
