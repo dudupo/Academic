@@ -48,6 +48,15 @@
 
     	\newcommand{ \Gsa } {\Gamma_{\square_{1}} }
 	\newcommand{ \Gsb } {\Gamma_{\square_{2}} }
+        \newcommand{ \Aa } { C_{A_{1}}}  
+	\newcommand{ \Ab } { C_{A_{2}}}
+	\newcommand{ \Ac } { C_{A_{3}}}
+	\newcommand{ \Aab } { \Aa^{\perp} \otimes \Ab^{\perp} } 
+	\newcommand{ \Aac } { \Aa^{\perp} \otimes \Ac^{\perp} }
+	\newcommand{ \Aabc } { \Aa^{\perp} \otimes \Ab^{\perp} \otimes \Ac^{\perp} }
+	\newcommand{ \YY } {  y_{1}y_{2}^{\top} }
+	\newcommand{ \ZZ } {  z_{1}z_{2}^{\top} } 
+	\newcommand{ \TT } { \tilde{\tau} } 
 
 
   \paragraph{preamble.} preamble.  
@@ -81,14 +90,17 @@
 	    C_{w_{z}} &=  \mathcal{T}\left( \Gamma_{\square \square}, \left(  C_{A_1} \otimes C_{A_2} \otimes C_{A_3} \right)^{\perp}  \right)   
 	  \end{split}
 	\end{equation*}
-	%\newcommand{}<++>
+	%\newcommand{}
 	\paragraph{Definition} Define the mapping (not linear)  
 	\begin{equation*}	
 	\phi : \mathcal{T}\left(\Gsa \cup \Gsb , \mathbb{F}_2  \right) \rightarrow  \mathcal{T}\left( \Gamma_{\square \square}, \mathbb{F}_{2} \right)
       \end{equation*} 
-      as the summtion over the fowlloing local maps $\phi_{g}$. which for given vertex $g \in V\left( \Gamma_{\square \square}\right)$ with local view $c_1$ on $\Gsa$ and local view $c_2$ on $\Gsb$ compute the tensor $c_{abc} = c_{ab}c_{ac}$ and set result bit on the plaquette defined by the vertices $ g, ag, gb, gc, agb, agc$.    
+      as the summtion over the fowlloing local maps $\phi_{g}$. which for given vertex $g \in V\left( \Gamma_{\square \square}\right)$ with local view $c_1$ on $\Gsa$ and local view $c_2$ on $\Gsb$ compute the tensor $c_{abc} = c_1_{ab}c_2_{ac}$ and set result bit on the plaquette defined by the vertices $ g, ag, gb, gc, agb, agc$.    
 
-      We will abuse the notation by defining for every subset of vertices $S \subset V\left(\Guq \right) $  the map $\phi_S = \sum_{g \in S} \phi_{g}$. 
+      We will abuse the notation by defining for every subset of vertices $S \subset V $  the map $\phi_S = \sum_{g \in S} \phi_{g}$. 
+
+      \paragraph{Lemma 1} Fix a vertex $g$ and assume that the local views $c_1,c_2$ that lay over the graphs $\Gsa, \Gsb$ belongs to the dual tensors $\Cab, \Cac$. And inaddtion $ 
+
 	\paragraph{What We Currently Have.} Given a candidate for a codeword $c$ we could check efficiently if $c\in C_{z}^\perp$.  
 	Additionally summing up the local correction of each vertex in $C_{x}$ yields a codeword in $C_{w}$. Now we would want to show 
 	something similar to property 1 in Levarier and Zemor which imply that any codeword of $C_{w}$ with weigh beneath 
@@ -125,16 +137,7 @@
 	\end{enumerate}
 	% be a codeword with weight less then $\alpha n$.
 
-	\newcommand{ \Aa } { C_{A_{1}}}  
-	\newcommand{ \Ab } { C_{A_{2}}}
-	\newcommand{ \Ac } { C_{A_{3}}}
-	\newcommand{ \Aab } { \Aa \otimes \Ab } 
-	\newcommand{ \Aac } { \Aa \otimes \Ac }
-	\newcommand{ \Aabc } { \Aa \otimes \Ab \otimes \Ac }
-	\newcommand{ \YY } {  y_{1}y_{2}^{\top} }
-	\newcommand{ \ZZ } {  z_{1}z_{2}^{\top} } 
-	\newcommand{ \TT } { \tilde{\tau} } 
-
+	
 	\paragraph{All The Vertices Are Normal } Define a normal vertex in $ V_{1} $ to be a vertex such his local view (a codeword in a dual tensor code). 
 	supported on less then $w = \Delta^\frac{3}{2}$ faces.
 	Consider the code $C_{w}$ defined above, and assume in addition that the distance and the rate of 
