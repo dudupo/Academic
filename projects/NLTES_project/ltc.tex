@@ -274,10 +274,17 @@
  Hence, the row (or column) shared between the normal vertex and $v$ is at distance at most $\frac{\xi}{\delta\Delta}$ from a nonzero codewoed of $\Aa$ (or $\Ab$, $\Ac$).
 
 
- Assume that we could find $ \eta, \xi  $ such that for $ |x| \le d $ we have that:
+ Let us denote by $x_{v^{\prime}}$ the the local view obtained by taking only the rows and columns that shared bewteen $v$ and notrmal vertics. The $\gamma$-resistance to puncturing propperty implies that if we could find $ \eta, \xi  $ such that for any $ |x| \le d $ we have:
  \begin{equation*}
    \begin{split}
-     &  \eta \cdot  \frac{6}{\rho} \left( 9\Delta^{2} + \lambda^{\star}  \right) = \Theta\left( \Delta^{2\frac{1}{2}} \right)
+     &  \frac{6}{\rho} \left( 9\Delta^{2} + \lambda^{\star}  \right) \le \gamma \ \ \ \ \ \left( \Theta\left(  \Delta^{2\frac{1}{2}} \right) \right)
+   \end{split}
+ \end{equation*}
+ Then the local view of $v$ is at distance at most:
+ \begin{equation*}
+   \begin{split}
+     d\left(x_{v}, \Aabc\right) &\le d\left(x_{v^{\prime}, \cdot }\right) + |\text{ ignored bits }|\\
+     \le  d\left(x_{v^{\prime}, \cdot }\right) +  \red{\frac{3}{2}} \Delta \cdot \frac{6}{\rho} \left( 9\Delta^{2} + \lambda^{\star}  \right) 
    \end{split}
  \end{equation*}
 \end{multicols*}
