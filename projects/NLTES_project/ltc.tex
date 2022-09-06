@@ -87,6 +87,8 @@
 	\phi : \mathcal{T}\left(\Gsa \cup \Gsb , \mathbb{F}_2  \right) \rightarrow  \mathcal{T}\left( \Gamma_{\square \square}, \mathbb{F}_{2} \right)
       \end{equation*} 
       as the summtion over the fowlloing local maps $\phi_{g}$. which for given vertex $g \in V\left( \Gamma_{\square \square}\right)$ with local view $c_1$ on $\Gsa$ and local view $c_2$ on $\Gsb$ compute the tensor $c_{abc} = c_{ab}c_{ac}$ and set result bit on the plaquette defined by the vertices $ g, ag, gb, gc, agb, agc$.    
+
+      We will abuse the notation by defining for every subset of vertices $S \subset V\left(\Guq \right) $  the map $\phi_S = \sum_{g \in S} \phi_{g}$. 
 	\paragraph{What We Currently Have.} Given a candidate for a codeword $c$ we could check efficiently if $c\in C_{z}^\perp$.  
 	Additionally summing up the local correction of each vertex in $C_{x}$ yields a codeword in $C_{w}$. Now we would want to show 
 	something similar to property 1 in Levarier and Zemor which imply that any codeword of $C_{w}$ with weigh beneath 
