@@ -114,10 +114,14 @@
       \begin{split}
 	\braket{h_{bc}, \phi_{g} \left( c_1, c_2 \right)  } & \ \ \ \ \ = \sum_{a}{h_{a}c_{abc}} = 
 	  \sum_{a}{h_{a}c_{1_{ab}}c_{2_{ac}}} = \\ 
-	  &\overset{\text{ for  } y,z\in \Aa}{\overbrace{=}}  \braket{h,zy} \\ 
-	  &=  
+	  &\overset{\text{ for  } y,z\in \Aa}{\overbrace{=}}  \sum_{a} h_{a}z_{a}y_{a} \\ 
+	  &\ \ \ \ \ = |h| -  \sum_{a} {h_{a} \left( \overline{ z_{a}y_{a}}  \right)} \\
+	  &\ \ \ \ \ = |h| -  \sum_{a} {h_{a} \left( z_{a} + y_{a}  \right)} \\  
+	  &\ \ \ \ \ = |h| +  \sum_{a} {h_{a} \left( z_{a} + y_{a}  \right)} \\ 
+	  &\ \ \ \ \ =  \sum_{a} {h_{a} \left( 1^{\Delta} + z_{a} + y_{a}  \right)} 
       \end{split}
     \end{equation*}
+    But $1^{\Delta} \in \Aa$ and therfore the $ \braket{h, 1^{\Delta} + z + y} = 0 $.  
 
 	\paragraph{What We Currently Have.} Given a candidate for a codeword $c$ we could check efficiently if $c\in C_{z}^\perp$.  
 	Additionally summing up the local correction of each vertex in $C_{x}$ yields a codeword in $C_{w}$. Now we would want to show 
