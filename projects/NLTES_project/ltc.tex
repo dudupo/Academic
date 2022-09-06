@@ -51,9 +51,15 @@
         \newcommand{ \Aa } { C_{A_{1}}}  
 	\newcommand{ \Ab } { C_{A_{2}}}
 	\newcommand{ \Ac } { C_{A_{3}}}
-	\newcommand{ \Aab } { \Aa^{\perp} \otimes \Ab^{\perp} } 
-	\newcommand{ \Aac } { \Aa^{\perp} \otimes \Ac^{\perp} }
-	\newcommand{ \Aabc } { \Aa^{\perp} \otimes \Ab^{\perp} \otimes \Ac^{\perp} }
+	\newcommand{ \Aab } { \Aa \otimes \Ab } 
+	\newcommand{ \Aac } { \Aa \otimes \Ac }
+	\newcommand{ \Aabc } { \Aa \otimes \Ab \otimes \Ac }
+	\newcommand{ \Aabp } { \Aa^{\perp} \otimes \Ab^{\perp} } 
+	\newcommand{ \Aacp } { \Aa^{\perp} \otimes \Ac^{\perp} }
+	\newcommand{ \Aabcp } { \Aa^{\perp} \otimes \Ab^{\perp} \otimes \Ac^{\perp} }
+	\newcommand{ \Aabpp } { \left( \Aabp \right)^\perp } 
+	\newcommand{ \Aacpp } { \left( \Aacp \right)^\perp }
+	\newcommand{ \Aabcpp } { \left( \Aabcp \right)^\perp }
 	\newcommand{ \YY } {  y_{1}y_{2}^{\top} }
 	\newcommand{ \ZZ } {  z_{1}z_{2}^{\top} } 
 	\newcommand{ \TT } { \tilde{\tau} } 
@@ -99,7 +105,8 @@
 
       We will abuse the notation by defining for every subset of vertices $S \subset V $  the map $\phi_S = \sum_{g \in S} \phi_{g}$. 
 
-      \paragraph{Lemma 1} Fix a vertex $g$ and assume that the local views $c_1,c_2$ that lay over the graphs $\Gsa, \Gsb$ belongs to the dual tensors $\Aab, \Aac$. And inaddtion $ 1^{\Delta} \in \Aa $ then $ \phi_{g}\left( c_1, c_2 \right) \in \Aabc$. 
+      \paragraph{Lemma 1} Fix a vertex $g$ and assume that the local views $c_1,c_2$ that lay over the graphs $\Gsa, \Gsb$ belongs to the dual tensors $\Aabpp, \Aacpp$. And inaddtion $ 1^{\Delta} \in \Aa $ then $ \phi_{g}\left( c_1, c_2 \right) \in \Aabcpp$. 
+      \paragraph{Proof.} 
 
 	\paragraph{What We Currently Have.} Given a candidate for a codeword $c$ we could check efficiently if $c\in C_{z}^\perp$.  
 	Additionally summing up the local correction of each vertex in $C_{x}$ yields a codeword in $C_{w}$. Now we would want to show 
