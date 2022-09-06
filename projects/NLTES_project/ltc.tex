@@ -266,7 +266,11 @@
    \item Indceidnt to at least $\frac{1}{2}\Delta\rho$ heavy edges. 
    \item Adjacent to at most $ \frac{6}{\rho} \left( 9\Delta^{2} + \lambda^{\star}  \right)$ vertices of $S_{e}$.  
  \end{enumerate}
- \paragraph{Proof Of Theorem 1} Let us call to the set of verices satisfy the constarints above \textbf{good vertices}. Pick any good vertex $g \in T$. Assume that we could find $ \eta, \xi  $ such that for $ |x| \le d $ we have that:
+ \paragraph{Proof Of Theorem 1} Let us call to the set of verices satisfy the constarints above \textbf{good vertices}. Pick any good vertex $g \in T$.
+ Remmeber that each heavy edge between anormal vertex of $S$ and a vertex of $T$ corresponds to either a row or a column shared by the two local views.
+ By $w$-robustness, for any small enougth $\xi \le w $, the local view of any normal vertex is supported on at most $\frac{\xi}{\delta\Delta}$ rows and columns. 
+ Hence, the row (or column) shared between the normal vertex and $v$ is at distance at most $\frac{\xi}{\delta\Delta}$. 
+ Assume that we could find $ \eta, \xi  $ such that for $ |x| \le d $ we have that:
  \begin{equation*}
    \begin{split}
      &  \eta \cdot  \frac{6}{\rho} \left( 9\Delta^{2} + \lambda^{\star}  \right) = \Theta\left( \Delta^{2\frac{1}{2}} \right)
