@@ -13,7 +13,7 @@
 \usepackage[ruled,vlined]{algorithm2e}
 \usepackage{multicol}
 \usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
-
+\usepackage{xcolor}
 %\addbibresource{sample.bib} %Import the bibliography file
 
 \newcommand{\commentt}[1]{\textcolor{blue}{ \textbf{[COMMENT]} #1}}
@@ -34,7 +34,6 @@
 \setlength{\columnsep}{0.6cm}
 
 \newcommand{\Gz}{ G_{z}^{\delta} } 
-
 
 \begin{document}
 
@@ -284,7 +283,7 @@
  \begin{equation*}
    \begin{split}
      d\left(x_{v}, \Aabc\right) &\le d\left(x_{v^{\prime}, \cdot }\right) + |\text{ ignored bits }|\\
-     \le  d\left(x_{v^{\prime}, \cdot }\right) +  \red{\frac{3}{2}} \Delta \cdot \frac{6}{\rho} \left( 9\Delta^{2} + \lambda^{\star}  \right) 
+     & \le  d\left(x_{v^{\prime}, \cdot }\right) +  \red{\frac{3}{2}} \Delta \cdot \frac{6}{\rho} \left( 9\Delta^{2} + \lambda^{\star}  \right) 
    \end{split}
  \end{equation*}
 \end{multicols*}
