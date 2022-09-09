@@ -131,6 +131,8 @@
 	 &\Rightarrow c_{ijk}= v_{i}^{2}u_{j}w_{k}=\left( vu^{\top} \right)_{ij}\left( vw^{\top} \right)_{ik}
       \end{split}
     \end{equation*}
+    define $y$ to be the addition of  $\left( vu^{\top} \right)_{ij}$ and $\left( vw^{\top} \right)_{ik}$on the $\left(A_{1},A_{2}  \right), \left(A_{1}, A_{3}\right) $ faces correspondly. 
+
 	\paragraph{What We Currently Have.} Given a candidate for a codeword $c$ we could check efficiently if $c\in C_{z}^\perp$.  
 	Additionally summing up the local correction of each vertex in $C_{x}$ yields a codeword in $C_{w}$. Now we would want to show 
 	something similar to property 1 in Levarier and Zemor which imply that any codeword of $C_{w}$ with weigh beneath 
@@ -347,7 +349,7 @@
    %\item Sum the $\omega$'s divded by $\color{red}\frac{1}{3}\color{black}$. Namly $\sum_{g\in G}{\frac{1}{3}\omega_g}$. And set the yilded bits on the plaquettes.  
    %\item Map the plaquettes values which are fractions ( $\left\{ \frac{1}{3}, \frac{2}{3} \right\}$ ) to $1$ and to $0$ otherwise. Denote the word obtained by that by $J$.
  \end{enumerate}
- Clearly $J \in C_{w}$. 
+ Clearly $J \in C_{w}$. Denote by $e$ the error, i.e $e + x \in C_{x}$. Let us decompose  
  
 \end{multicols*}
   % \printbibliography 
