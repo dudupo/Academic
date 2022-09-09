@@ -323,6 +323,14 @@
  Choosing $ \eta, \xi, \delta, \gamma, w, |x| < d $ such that the above is lower than $\frac{1}{2}\left( \delta\Delta \right)^{3}$ finishes the proof. 
  \paragraph{Theorem 2.} \textit{ The code $C_{w} / \mathcal{T}\left( \Gamma_{\square \square}, \left(  C_{A_1} \otimes C_{A_2} \otimes C_{A_3} \right)  \right)  $ has positive rate and linear distance.}
  \paragraph{Theorem 3.} \textit{ The code defined by $C_{x}$ has an efficient test for rejecting candidate with high error weigh. } 
+ \paragraph{The Decoder.} Let $x$ be a canidate that might or might not be in $C_{x}$. The decoder $\mathcal{D}$ describe below return a valid codeword of $C_{X}$ if $x$ is at distance at most $\tilde{\alpha}$ from $C_{x}$ and otherwise reject.
+ First, for every positive (left) vertex $g\in G\times \mathbb{Z}_2 $,  $\mathcal{D}$ compute the codeword of the dual tensor code which is the closest to its local view. Denote each that codeword by $c_g$. 
+ Then define the mismatch to be $z = \sum_{g in G}{c_g} $ and notice that by the fact that each face is summed up twice $|z|$ eqaul the number of disagrements. 
+ 
+ If $|z|$ is indeed zero, then $\tilde{z}$ which define by taking the ``AND'' of local correction instead of xoring them is a valid codeword. 
+ $\mathcal{D}$ will defined to returns $\tilde{z}$ in that case. 
+
+
 \end{multicols*}
   % \printbibliography 
 \end{document}
