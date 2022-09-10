@@ -16,10 +16,15 @@ Hence we allow ourselves to assume properties such as the distribution over the 
 The [draft](https://github.com/dudupo/Academic/blob/master/projects/pdfs/Classiq.pdf) is
 far from being complete and contains mistakes, faults, and alternations in the notation :see_no_evil:.
 
-### Local Testability and qPCP. 
-Making baby steps towards the holy grill, we conjecture that property 1 defined in the NLTES recent papers combined with 
-code in which the dual cx equals cx yields a good quantum LTC. Furthermore, there is a reason to suspect that property 1 holds for any css code with 
-some expansion property. Unfortunately, we still don't understand the recent construction enough to ask if the case above is possible.  
+### Local Testability and qPCP. (Currently My Main Project). 
+Making baby steps towards the holy grill. It's clear that there is a deep connection between CSS orthogonality and 
+Local testibility. As we have local decodibility of low erorr weight since the imerging of the good codes themselfs, 
+The testability problem is reduced for testing high weigh errors. In the mean time, proving that $ C_{x}, c_{z} $ are CSS pair 
+obtains upperbond on the the weight of codewords in $ C_{z}^{\perp} $, Furthemore the squares complex of the recent constructions 
+gurrentes that the result of local views correction is a code word of $C_{x}$. 
+
+We are trying to figuring out how one canlift the diminsion of the complex to obtain a system in which the $C_{x}$ 
+is also subspace of larger code $C_{w}$. We are still not there yet, but the work is starting to come into shap. Noitce that that Lemma 2 is completle nouncence (And the probabiliy not the only fault). [draft] (https://github.com/dudupo/Academic/blob/master/projects/pdfs/ltc.pdf).    
 
 ### Quantum version of FLP impossibility. 
 We are trying to formulate reliability in a quantum distributed environment,
