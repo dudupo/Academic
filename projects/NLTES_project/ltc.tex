@@ -105,6 +105,22 @@
 
       We will abuse the notation by defining for every subset of vertices $S \subset V $  the map $\phi_S = \sum_{g \in S} \phi_{g}$. 
 
+      \begin{figure}[h!]
+%\label{fig:square}
+\begin{center}
+\begin{tikzpicture}
+\draw[thick] (0,0) -- (0,2) -- (2,2) -- (2,0) -- (0,0);
+\node[below left] at (0,0) {$g \in V_0$};
+\node[above left] at (0,2) {$gb \in V_1$};
+\node[above right] at (2,2) {$agb \in V_0$};
+\node[below right] at (2,0) {$ag \in V_1$};
+\end{tikzpicture}
+\end{center}
+\caption{Square of the complex, with edges $(g,ag), (agb, gb) \in E_A,
+(g,gb), (agb, ag) \in E_B.$ \label{fig:square}
+}
+\end{figure}
+
       \paragraph{Lemma 1.} Fix a vertex $g$ and assume that the local views $c_1,c_2$ that lay over the graphs $\Gsa, \Gsb$ belongs to the dual tensors $\Aabpp, \Aacpp$. And inaddtion $ 1^{\Delta} \in \Aa $ then 
       \begin{equation*}
       \phi_{g}\left( c_1, c_2 \right) \in \Aabcpp
