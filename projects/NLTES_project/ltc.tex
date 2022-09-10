@@ -110,10 +110,13 @@
 \begin{center}
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (0,2) -- (2,2) -- (2,0) -- (0,0);
-\node[below left] at (0,0) {$g \in V_0$};
-\node[above left] at (0,2) {$gb \in V_1$};
-\node[above right] at (2,2) {$agb \in V_0$};
-\node[below right] at (2,0) {$ag \in V_1$};
+\node[below left] at (0,0) {$ (g,+)$};
+\node[above left] at (0,2) {$ (gb,-)$};
+\node[above right] at (2,2) {$ (agb,+)$};
+\node[below right] at (2,0) {$ (ag,-)$};
+\node[above leftc] at (0.5,2) {$ (gc,-)$};
+\node[above rightc] at (2.5,2) {$ (agc,+)$};
+
 \end{tikzpicture}
 \end{center}
 \caption{Square of the complex, with edges $(g,ag), (agb, gb) \in E_A,
