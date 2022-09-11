@@ -50,6 +50,7 @@
 	\newcommand{ \Gsah } { \Gamma_{\square_{1}}^{h}} 
 	\newcommand{ \Gsb } {\Gamma_{\square_{2}} }
 	\newcommand{ \Gsbh } {\Gamma_{\square_{2}}^{h} }
+	\newcommand{ \Gssh } { \Gamma_{\square \square }^{h}}
         \newcommand{ \Aa } { C_{A_{1}}}  
 	\newcommand{ \Ab } { C_{A_{2}}}
 	\newcommand{ \Ac } { C_{A_{3}}}
@@ -60,10 +61,13 @@
 	\newcommand{ \Aabc } { \Aa \otimes \Ab \otimes \Ac }
 	\newcommand{ \Aabp } { \Aa^{\perp} \otimes \Ab^{\perp} } 
 	\newcommand{ \Aacp } { \Aa^{\perp} \otimes \Ac^{\perp} }
+	\newcommand{ \Acdp } { \Ac^{\perp} \otimes \Ad^{\perp} }
 	\newcommand{ \Aabcp } { \Aa^{\perp} \otimes \Ab^{\perp} \otimes \Ac^{\perp} }
 	\newcommand{ \Aabpp } { \left( \Aabp \right)^\perp } 
+	\newcommand{ \Acdpp } { \left( \Acdp \right)^\perp } 
 	\newcommand{ \Aacpp } { \left( \Aacp \right)^\perp }
 	\newcommand{ \Aabcpp } { \left( \Aabcp \right)^\perp }
+	\newcommand{ \Aabcdpp } { \Aabpp \otimes \Acdpp  }
 	\newcommand{ \YY } {  y_{1}y_{2}^{\top} }
 	\newcommand{ \ZZ } {  z_{1}z_{2}^{\top} } 
 	\newcommand{ \TT } { \tilde{\tau} } 
@@ -99,9 +103,9 @@
 	  \begin{split}
 	    C_{z}^{\perp} & = \mathcal{T}\left( \Gsah,  \Aab  \right) \\
 	    & \ \ + \ \mathcal{T}\left(  \Gsbh, \Acd \right) \\
-	    C_{x} &=  \mathcal{T}\left(  \Gamma_{\square_{1}}, \left(  C_{A_1}^{\perp} \otimes C_{A_2}^{\perp} \right)^{\perp}  \right) \\
-	    & \ \ + \ \mathcal{T}\left( \Gamma_{\square_{2}}, \left(  C_{A_1}^{\perp} \otimes C_{A_3}^{\perp} \right)^{\perp}  \right) \\
-	    C_{w} &=  \mathcal{T}\left( \Gamma_{\square \square}, \left(  C_{A_1}^{\perp} \otimes C_{A_2}^{\perp} \otimes C_{A_3}^{\perp} \right)^{\perp}  \right)   
+	    C_{x} &=  \mathcal{T}\left(  \Gsah, \Aabpp  \right) \\
+	    & \ \ + \ \mathcal{T}\left( \Gsbh,  \Acdpp  \right) \\
+	    C_{w} &=  \mathcal{T}\left( \Gssh , \ \right)   
 	  \end{split}
 	\end{equation*}
 	Notice that the faces of $\Gamma_{\square_{1}},\Gamma_{\square_{2}}$ are disjointed and here the symbol $|$ means just joint them together. 
