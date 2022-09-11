@@ -72,16 +72,20 @@
   obtained by taking the solutions for $a_{0}^{2} + a_{1}^{2} +a_{2}^{2} +a_{3}^{2} = p_i $ such that the pairs $A_{1},A_{2}$ and $A_{3},A_{4}$ satisfy the 
   TNC constraint and also they all satisfy that constraint togther, namly for any $g \in \mathbf{PGL}$  and $a_{1}\in A_{1}, a_{2} \in A_{2}, a_{3} \in A_{3}, a_{4} \in A_{4}$ we have that $ g \neq a_{3}a_{1}ga_{2}a_{4}$. 
   
-  For any $h \in \mathbb{Z}_{3}^{2} $ define the group $G^{h}$ to be: 
+  For any $h \in \mathbb{Z}_{3}^{2} $ define the groups $G^{h}, H^{h}$ to be: 
   \begin{equation*}
-    G^{h} = \mathbf{PGL}  \times \left( h + \mathbb{Z}_{3}^{2}\cap \braket{ \left( 1,1 \right)} \right)
+    \begin{split}
+      H^{h} &=  h + \mathbb{Z}_{3}^{2}\cap \braket{ \left( 1,1 \right)} \\
+      G^{h} &=  \mathbf{PGL}  \times H^{h} 
+    \end{split}
 \end{equation*} 
   Then consider the graphs:   
   \begin{equation*}
     \begin{split}
       %\Gamma_{1}  &= Cay_{3}\left(  G, A_{1} \right)\times_{G} Cay_{3}\left(  G, A_{2} \right) \\
       %\Gamma_{2}  &= Cay_{3}\left(  G, A_{3} \right)\times_{G} Cay_{3}\left(  G, A_{4} \right) \\
-      \Gamma_{\square_{1}}^{h} &= \left( G^{h}, \left\{ \left( \left(g, h_{1} \right),\left(  agb,h_{1} + \left( 1,1 \right)  \right)\right) : a \in A_{1}, b \in A_{2}  \right\}  \right) \\
+      \Gamma_{\square_{1}}^{h} &= \left( G^{h}, \left\{ \left( \left(g, h_{1} \right),\left(  agb,h_{1} + \left( 1,1 \right)  \right)\right) : \\ 
+      & a \in A_{1}, b \in A_{2}, h_{1} \in H^{h}  \right\}  \right) \\
       \Gamma_{\square_{2}}^{h} &= \left( G^{h}, \left\{ \left( g, agc \right) : a \in A_{1}, c \in A_{3} \right\}  \right) \\
       \Gamma_{\square \square} &= \left( G^{h}, \left\{ \left( g, gb, agc \right), \left( g, gc, agb \right) :
       a \in A_{1}, b \in A_{2}, c \in A_{3} \right\}  \right) 
