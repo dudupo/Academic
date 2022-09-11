@@ -72,13 +72,17 @@
   obtained by taking the solutions for $a_{0}^{2} + a_{1}^{2} +a_{2}^{2} +a_{3}^{2} = p_i $ such that the pairs $A_{1},A_{2}$ and $A_{3},A_{4}$ satisfy the 
   TNC constraint and also they all satisfy that constraint togther, namly for any $g \in \mathbf{PGL}$  and $a_{1}\in A_{1}, a_{2} \in A_{2}, a_{3} \in A_{3}, a_{4} \in A_{4}$ we have that $ g \neq a_{3}a_{1}ga_{2}a_{4}$. 
   
-  Let $G$ be the group $ \mathbf{PGL} \times \mathbb{Z}_3$.  
+  Let $G$ be the group: 
+  \begin{equation*}
+  \mathbf{PGL} =  \times \mathbb{Z}_{3}^{2}\cap \braket{ \left( 1,1 \right)}
+\end{equation*} 
   Then consider the graphs:   
   \begin{equation*}
     \begin{split}
-      \Gamma_{1}  &= Cay_{2}\left(  G, A_{1} \right)\times_{G} Cay_{2}\left(  G, A_{2} \right) \\
-      \Gamma_{2}  &= Cay_{2}\left(  G, A_{1} \right)\times_{G} Cay_{2}\left(  G, A_{3} \right) \\
-      \Gamma_{\square_{1}} &= \left( G, \left\{ \left( g, agb \right) : a \in A_{1}, b \in A_{2} \right\}  \right) \\
+      \Gamma_{1}  &= Cay_{3}\left(  G, A_{1} \right)\times_{G} Cay_{3}\left(  G, A_{2} \right) \\
+      \Gamma_{2}  &= Cay_{3}\left(  G, A_{3} \right)\times_{G} Cay_{3}\left(  G, A_{4} \right) \\
+
+      \Gamma_{\square_{1}} &= \left( G, \left\{ \left( \left(g, h \right), agb \right) : a \in A_{1}, b \in A_{2} \right\}  \right) \\
       \Gamma_{\square_{2}} &= \left( G, \left\{ \left( g, agc \right) : a \in A_{1}, c \in A_{3} \right\}  \right) \\
       \Gamma_{\square \square} &= \left( G, \left\{ \left( g, gb, agc \right), \left( g, gc, agb \right) :
       a \in A_{1}, b \in A_{2}, c \in A_{3} \right\}  \right) 
