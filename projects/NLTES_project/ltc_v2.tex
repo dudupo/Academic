@@ -62,6 +62,7 @@
 	\newcommand{ \Aabp } { \Aa^{\perp} \otimes \Ab^{\perp} } 
 	\newcommand{ \Aacp } { \Aa^{\perp} \otimes \Ac^{\perp} }
 	\newcommand{ \Acdp } { \Ac^{\perp} \otimes \Ad^{\perp} }
+	\newcommand{ \Aabcdp } { \Aabp \otimes \Acdp }
 	\newcommand{ \Aabcp } { \Aa^{\perp} \otimes \Ab^{\perp} \otimes \Ac^{\perp} }
 	\newcommand{ \Aabpp } { \left( \Aabp \right)^\perp } 
 	\newcommand{ \Acdpp } { \left( \Acdp \right)^\perp } 
@@ -70,7 +71,8 @@
 	\newcommand{ \Aabcdpp } { \Aabpp \otimes \Acdpp  }
 	\newcommand{ \YY } {  y_{1}y_{2}^{\top} }
 	\newcommand{ \ZZ } {  z_{1}z_{2}^{\top} } 
-	\newcommand{ \TT } { \tilde{\tau} } 
+	\newcommand{ \TT } { \tilde{\tau} }
+	
 
 
   \paragraph{preamble.} preamble.  
@@ -103,7 +105,7 @@
 	  \begin{split}
 	    C_{z}^{\perp} & = \mathcal{T}\left( \Gsah,  \Aabp  \right) \\
 	    & \ \ + \ \mathcal{T}\left(  \Gsbh, \Acdp \right) \\
-	    C_{x} &=  \mathcal{T}\left(  \Gsah, \Aabpp  \right) \\
+	    C_{x} &=  \mathcal{T}\left(  \Gsah, \Aabcdp  \right) \\
 	    & \ \ + \ \mathcal{T}\left( \Gsbh,  \Acdpp  \right) \\
 	    C_{w} &=  \mathcal{T}\left( \Gssh , \Aabcdpp \right)   
 	  \end{split}
