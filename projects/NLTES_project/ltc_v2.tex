@@ -71,7 +71,7 @@
 	\newcommand{ \Aabcpp } { \left( \Aabcp \right)^\perp }
 	\newcommand{ \Aabcdpp } { \Aabpp \otimes \Acdpp  }
 	\newcommand{ \App} { \left(\Aabcdpp\right)^{\perp} } 
-	\newcommand{ \Aabcdnp } { \left( \Aa \otimes \Ab  \right)^{\perp} \left( \Ac \otimes \Ad  \right)^{\perp }}
+	\newcommand{ \Aabcdnp } { \left( \Aa \otimes \Ab  \right)^{\perp} \otimes  \left( \Ac \otimes \Ad  \right)^{\perp }}
 	\newcommand{ \YY } {  y_{1}y_{2}^{\top} }
 	\newcommand{ \ZZ } {  z_{1}z_{2}^{\top} } 
 	\newcommand{ \TT } { \tilde{\tau}}
@@ -109,16 +109,11 @@
 	    C_{w} &=  \mathcal{T}\left( \Gssh , \App \right)   
 	  \end{split}
 	\end{equation*}
-	Notice that the faces of $\Gamma_{\square_{1}},\Gamma_{\square_{2}}$ are disjointed and here the symbol $|$ means just joint them together. 
-	The main focus here is to prove local test-ability for computation base (i.e $C_{x}$) and for completeness one also must to define the code 
-	\begin{equation*}
-	  \begin{split}
-	    C_{w_{z}} &=  \mathcal{T}\left( \Gamma_{\square \square}, \left(  C_{A_1} \otimes C_{A_2} \otimes C_{A_3} \right)^{\perp}  \right)   
-	  \end{split}
-	\end{equation*}
-\begin{figure}[H]
-%\label{fig:square}
-\begin{center}
+	Notice that that $C_{x}$ could be viewed as the classical LTC code in Levarier and Zemor construction by treating the tensor product as standing alone small code. 
+	
+	\begin{figure}[H]
+	%\label{zafig:square}
+	  \begin{center}
 \begin{tikzpicture}
   \draw[thick] (0,0) -- (0,2) -- (2,2) -- (2,4) -- (4,4) -- (4,2) -- (2,2) -- (2,0) -- (0,0);
 \node[below left] at (0,0) {$ (g,0)$};
@@ -134,6 +129,7 @@
 (g,gb), (agb, ag) \in E_B.$ \label{fig:square}
 }
 \end{figure}
+
 
 \paragraph{Lemma 1.} Fix a vertex $g$ and assume that the local views $c_1,c_2$ that lay over the graphs $\Gsa, \Gsb$ belongs to the dual tensors $\Aabpp, \Aacpp$. And inaddtion $ 1^{\Delta} \in \Aa $ then 
       \begin{equation*}
