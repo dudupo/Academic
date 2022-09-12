@@ -142,24 +142,24 @@
 \end{figure}
 
 
-\paragraph{Lemma 1.} Fix a vertex $g$ and assume that the local views $c_1,c_2$ that lay over the graphs $\Gsa, \Gsb$ belongs to the dual tensors $\Aabpp, \Aacpp$. And inaddtion $ 1^{\Delta} \in \Aa $ then 
-      \begin{equation*}
-      \phi_{g}\left( c_1, c_2 \right) \in \Aabcpp
-    \end{equation*}
-    \paragraph{Proof.} The case where $c_{1} \in \mathbb{F}^{A_{1}} \otimes \Ab$ or $c_{2} \in \mathbb{F}^{A_{1}} \otimes \Ac $ is trival. Suppose that both $ c_{1} \in \Aa \otimes \mathbb{F}^{A_{2}}$ and $ c_{2} \in \Aa \otimes \mathbb{F}^{A_{3}}$. And consider by $h$ arbirary check of $\Aa$.Then: 
-    \begin{equation*}
-      \begin{split}
-	\braket{h_{bc}, \phi_{g} \left( c_1, c_2 \right)  } & \ \ \ \ \ = \sum_{a}{h_{a}c_{abc}} = 
-	  \sum_{a}{h_{a}c_{1_{ab}}c_{2_{ac}}} = \\ 
-	  &\overset{\text{ for  } y,z\in \Aa}{\overbrace{=}}  \sum_{a} h_{a}z_{a}y_{a} \\ 
-	  &\ \ \ \ \ = |h| -  \sum_{a} {h_{a} \left( \overline{ z_{a}y_{a}}  \right)} \\
-	  &\ \ \ \ \ = |h| -  \sum_{a} {h_{a} \left( z_{a} + y_{a}  \right)} \\  
-	  &\ \ \ \ \ = |h| +  \sum_{a} {h_{a} \left( z_{a} + y_{a}  \right)} \\ 
-	  &\ \ \ \ \ =  \sum_{a} {h_{a} \left( 1^{\Delta} + z_{a} + y_{a}  \right)} 
-      \end{split}
-    \end{equation*}
-    But $1^{\Delta} \in \Aa$ and therfore the $ \braket{h, 1^{\Delta} + z + y} = 0 $. Or in other words the words that lay over the row obtained by fixing $bc$-row is in $ C_{A_{1}}$. Hence $\phi \left( c_{1}, c_{2} \right) \in C_{A_{1}}\otimes \mathbb{F}^{A_{2}} \otimes \mathbb{F}^{A_{3}} \subset \Aabcpp$.   
-
+%\paragraph{Lemma 1.} Fix a vertex $g$ and assume that the local views $c_1,c_2$ that lay over the graphs $\Gsa, \Gsb$ belongs to the dual tensors $\Aabpp, \Aacpp$. And inaddtion $ 1^{\Delta} \in \Aa $ then 
+%      \begin{equation*}
+%      \phi_{g}\left( c_1, c_2 \right) \in \Aabcpp
+%    \end{equation*}
+%    \paragraph{Proof.} The case where $c_{1} \in \mathbb{F}^{A_{1}} \otimes \Ab$ or $c_{2} \in \mathbb{F}^{A_{1}} \otimes \Ac $ is trival. Suppose that both $ c_{1} \in \Aa \otimes \mathbb{F}^{A_{2}}$ and $ c_{2} \in \Aa \otimes \mathbb{F}^{A_{3}}$. And consider by $h$ arbirary check of $\Aa$.Then: 
+%    \begin{equation*}
+%      \begin{split}
+%	\braket{h_{bc}, \phi_{g} \left( c_1, c_2 \right)  } & \ \ \ \ \ = \sum_{a}{h_{a}c_{abc}} = 
+	  %\sum_{a}{h_{a}c_{1_{ab}}c_{2_{ac}}} = \\ 
+	  %&\overset{\text{ for  } y,z\in \Aa}{\overbrace{=}}  \sum_{a} h_{a}z_{a}y_{a} \\ 
+	  %&\ \ \ \ \ = |h| -  \sum_{a} {h_{a} \left( \overline{ z_{a}y_{a}}  \right)} \\
+	  %&\ \ \ \ \ = |h| -  \sum_{a} {h_{a} \left( z_{a} + y_{a}  \right)} \\  
+	  %&\ \ \ \ \ = |h| +  \sum_{a} {h_{a} \left( z_{a} + y_{a}  \right)} \\ 
+	  %&\ \ \ \ \ =  \sum_{a} {h_{a} \left( 1^{\Delta} + z_{a} + y_{a}  \right)} 
+      %\end{split}
+    %\end{equation*}
+    %But $1^{\Delta} \in \Aa$ and therfore the $ \braket{h, 1^{\Delta} + z + y} = 0 $. Or in other words the words that lay over the row obtained by fixing $bc$-row is in $ C_{A_{1}}$. Hence $\phi \left( c_{1}, c_{2} \right) \in C_{A_{1}}\otimes \mathbb{F}^{A_{2}} \otimes \mathbb{F}^{A_{3}} \subset \Aabcpp$.   
+%
     	\paragraph{What We Currently Have.} Given a candidate for a codeword $c$ we could check efficiently if $c\in C_{z}^\perp$.  
 	Additionally summing up the local correction of each vertex in $C_{x}$ yields a codeword in $C_{w}$. Now we would want to show 
 	something similar to property 1 in Levarier and Zemor which imply that any codeword of $C_{w}$ with weigh beneath 
