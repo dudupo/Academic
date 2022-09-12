@@ -187,10 +187,13 @@
 		% be a codeword with weight less then $\alpha n$.
 
 	\paragraph{Expansion.} Let, $S , T$ be vertices subsets of $G^{h}$ and Let $S^{\star}$ be the vertices which can be reached from $S$ trought edges from $\Gsah$. By regularity it's clear that $S^{\star}\le \Delta^{2}|S|$. In addition, by the fact that $G^{h}$ is a group, we have that $agb = ag^{\prime}b$ if and only if $g = g^{\prime}$. 
-	Therefore we could derive a lowerbound on the size of $S^{\star}$ by fixing $a,b$ and consider the vertices coressponded to $aSb \subset S^{\star}$.     
+	Therefore we could derive a lowerbound on the size of $S^{\star}$ by fixing $a,b$ and consider the vertices coressponded to $aSb \subset S^{\star}$.    
+	Then by the mixing expansion lemma we get: 
 	\begin{equation*}
 	  \begin{split}
-	    E\left( S,T \right)_{\Gssh} &= E\left( S, \cdot \right)_{Gsah} 
+	    E\left( S,T \right)_{\Gssh} &= E\left( S^{\star}, T  \right)_{\Gsah} \\
+	    E\left( S,T \right)_{\Gssh} &\le \frac{\Delta^{2}}{n}\Delta^{2}|S||T| + \lambda_{\Gsah}\Delta\sqrt{|S||T|} \\ 
+	    E\left( S,T \right)_{\Gssh} &\ge \frac{\Delta^{2}}{n}|S||T| - \lambda_{\Gsah}\sqrt{|S||T|}  
 	  \end{split}
 	\end{equation*}
 
