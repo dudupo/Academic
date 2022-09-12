@@ -196,7 +196,67 @@
       |E\left( S,T \right)_{\Gssh}| &\ge \frac{\Delta^{2}}{n}|S||T| - \lambda_{\Gsbh}\sqrt{|S||T|}  
 	  \end{split}
 	\end{equation*}
+\paragraph{Dense Normal Net Counting} Let us call the normal vertices the vertices with degree less then $\xi$ in $\Guq = \Gamma_{\square, 1}^{x} \cup \Gamma_{\square, 2}^{x}$. 
+    And Let us say that that an edge of $\Gu$ is heavy if it is incident to at least $\eta$ squares in $\Gsa$ and $\Gsb$. Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal vertex through a heavy edge. 
 
+    First notice that the number of vertices in the induced graph by $x$ is bounded by it's weight:
+    $ |S| \le \frac{2|x|}{ \delta\Delta }$ 
+
+    By the mixing Lemma we get:  
+    \begin{equation*}
+      \begin{split}
+	|E\left( S,T \right)| & \ge \eta |T| \\ 
+	|E\left( S,T \right)| & = |E\left( S,T \right)_{\Gamma_{1}} \cup E\left( S,T \right)_{\Gamma_{2}} | \\ 
+      \le & \frac{|S||T|}{n}\left( 2 \cdot 2\Delta - \Delta  \right) \\ & + \sqrt{|S||T|}\left( 2\cdot \lambda_{ \text{double cover} } + \lambda_{ \text{ramnujan} }    \right)
+      \end{split}
+    \end{equation*}
+    Hence we have that:
+    \begin{equation*}
+      \begin{split}
+	& |T|\left( \eta - \frac{2|x|}{\delta\Delta}\cdot\frac{3\Delta}{n}  \right)\le \sqrt{|S||T|}\lambda^{\star} \\ 
+	& |T| \le \left(\frac{\lambda^{\star}}{\eta - \frac{6|x|}{n \delta}}\right)^{2}|S|
+      \end{split}
+    \end{equation*}
+    Denote by $S_{e}$ the set of vertices in $\Guq$ with degree greater then $\xi$. Then by repeating on the above calculation, while substituting $\Gamma_{i}$ by $\Gamma_{i, \square}$, We obtain that there is $\lambda^{\star}_{2}$ such that:
+     \begin{equation*}
+      \begin{split}
+	& |S_{e}| \le \left(\frac{\lambda^{\star}_{2}}{\xi - \left(2\Delta^{2} - \Delta  \right)\frac{|x|}{n \delta\Delta}}\right)^{2}|S|
+      \end{split}
+    \end{equation*}
+    Define $\bar{d}_{T}$ to be the average (over $T$) of heavy edges incident to a vertex of $T$. So 
+    \begin{equation*}
+      \begin{split}
+	\bar{d}_{T} &= \frac{|E\left( T, S / S_{e} \right)|}{T} \ge \frac{|S| - |S_{e}|}{|T|} \\
+	& \ge \left( 1 -   \left(\frac{\lambda^{\star}_{2}}{\xi - \left(2\Delta^{2} - \Delta  \right)\frac{|x|}{n \delta\Delta}}\right)^{2}\right) /  
+	  \left(\frac{\lambda^{\star}}{\eta - \frac{6|x|}{n \delta}}\right)^{2}
+      \end{split}
+    \end{equation*}
+    Let us call to the quantity above $\Delta\rho$ and denote by $1 - \tau$ the fraction of vertices of $ T $ with degree less then $\frac{1}{2}\Delta\rho$. 
+ Then $ \Delta\rho \le \bar{d}_{T} \le 3\Delta\tau + \left( 1 - \tau \right) \Delta\rho  $ 
+ $ \Rightarrow \tau \ge \frac{\rho}{2\left( 3 - \rho \right)}\ge \rho/3 $. Namely, at least $\rho/3$ of vertices of $T$ are incident to at least $\frac{1}{2}\Delta\rho$ heavy edges. 
+
+ Since $\Gu$ is $3\Delta$ regular we get that $|S| - |S_{e}| \le 3\Delta |T| $. In the other-hand we have shown that 
+ \begin{equation*}
+   \begin{split}
+     |S_{e}| & \le \left(\frac{\lambda^{\star}_{2}}{\xi - \left(2\Delta^{2} - \Delta  \right)\frac{|x|}{n \delta\Delta}}\right)^{2}|S| \\ &
+     \Rightarrow |S| \le \left( 1 - \left(\frac{\lambda^{\star}_{2}}{\xi - \left(2\Delta^{2} - \Delta  \right)\frac{|x|}{n \delta\Delta}}\right)^{2}\right)^{-1}3\Delta|T| \\
+     & = \left( 1 - \theta^2 \right) 3 \Delta |T|
+   \end{split}
+ \end{equation*}
+ And by using again the mixing Lemma we have that: 
+ \begin{equation*}
+   \begin{split}
+     E\left( S_{e},T \right) &\le \frac{\theta^2}{1- \theta^2}3\Delta|T|^2 \frac{3\Delta}{n} + \lambda^{\star}\sqrt{\frac{\theta^2}{1- \theta^2}}|T| \\ 
+     & \le  \left( \frac{\theta^2}{1- \theta^2}9\Delta^{2} + \lambda^{\star}\sqrt{\frac{\theta^2}{1- \theta^2}}\right)|T| \\ 
+     & \le \left(9\Delta^{2} + \lambda^{\star} \right) |T|
+  \end{split}
+ \end{equation*}
+ Hence at most an $\frac{1}{6}\rho $ proportion of vertices of $T$ are adjacent to more than $\frac{6}{\rho} \left( 9\Delta^{2} + \lambda^{\star}  \right) $ vertices of $S_{e}$, And at least $\frac{5}{6}\rho$ proportion of $T$ are adjacent to less then $\frac{6}{\rho} \left( 9\Delta^{2} + \lambda^{\star}  \right) $ . 
+ And therefore we have that at least $\frac{1}{6}\rho$ vertices are:
+ \begin{enumerate}
+   \item Incident to at least $\frac{1}{2}\Delta\rho$ heavy edges. 
+   \item Adjacent to at most $ \frac{6}{\rho} \left( 9\Delta^{2} + \lambda^{\star}  \right)$ vertices of $S_{e}$.  
+ \end{enumerate}
 	\paragraph{All The Vertices Are Normal} Define a normal vertex in $ V_{1} $ to be a vertex such his local view (a codeword in a dual tensor code). 
 	supported on less then $w = \Delta^\frac{3}{2}$ faces.
 	Consider the code $C_{w}$ defined above, and assume in addition that the distance and the rate of 
@@ -274,67 +334,7 @@
       d\left( w, \Aabc  \right) \le  \left( r\Delta \right)^{4}\left( 1 - \delta \right)\Delta^{3} + \Theta \left( \Delta^{2\frac{1}{2}}  \right)
     \end{split}
   \end{equation*}
-  		\paragraph{Dense Normal Net Counting} Let us call the normal vertices the vertices with degree less then $\xi$ in $\Guq = \Gamma_{\square, 1}^{x} \cup \Gamma_{\square, 2}^{x}$. 
-    And Let us say that that an edge of $\Gu$ is heavy if it is incident to at least $\eta$ squares in $\Gsa$ and $\Gsb$. Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal vertex through a heavy edge. 
-
-    First notice that the number of vertices in the induced graph by $x$ is bounded by it's weight:
-    $ |S| \le \frac{2|x|}{ \delta\Delta }$ 
-
-    By the mixing Lemma we get:  
-    \begin{equation*}
-      \begin{split}
-	|E\left( S,T \right)| & \ge \eta |T| \\ 
-	|E\left( S,T \right)| & = |E\left( S,T \right)_{\Gamma_{1}} \cup E\left( S,T \right)_{\Gamma_{2}} | \\ 
-      \le & \frac{|S||T|}{n}\left( 2 \cdot 2\Delta - \Delta  \right) \\ & + \sqrt{|S||T|}\left( 2\cdot \lambda_{ \text{double cover} } + \lambda_{ \text{ramnujan} }    \right)
-      \end{split}
-    \end{equation*}
-    Hence we have that:
-    \begin{equation*}
-      \begin{split}
-	& |T|\left( \eta - \frac{2|x|}{\delta\Delta}\cdot\frac{3\Delta}{n}  \right)\le \sqrt{|S||T|}\lambda^{\star} \\ 
-	& |T| \le \left(\frac{\lambda^{\star}}{\eta - \frac{6|x|}{n \delta}}\right)^{2}|S|
-      \end{split}
-    \end{equation*}
-    Denote by $S_{e}$ the set of vertices in $\Guq$ with degree greater then $\xi$. Then by repeating on the above calculation, while substituting $\Gamma_{i}$ by $\Gamma_{i, \square}$, We obtain that there is $\lambda^{\star}_{2}$ such that:
-     \begin{equation*}
-      \begin{split}
-	& |S_{e}| \le \left(\frac{\lambda^{\star}_{2}}{\xi - \left(2\Delta^{2} - \Delta  \right)\frac{|x|}{n \delta\Delta}}\right)^{2}|S|
-      \end{split}
-    \end{equation*}
-    Define $\bar{d}_{T}$ to be the average (over $T$) of heavy edges incident to a vertex of $T$. So 
-    \begin{equation*}
-      \begin{split}
-	\bar{d}_{T} &= \frac{|E\left( T, S / S_{e} \right)|}{T} \ge \frac{|S| - |S_{e}|}{|T|} \\
-	& \ge \left( 1 -   \left(\frac{\lambda^{\star}_{2}}{\xi - \left(2\Delta^{2} - \Delta  \right)\frac{|x|}{n \delta\Delta}}\right)^{2}\right) /  
-	  \left(\frac{\lambda^{\star}}{\eta - \frac{6|x|}{n \delta}}\right)^{2}
-      \end{split}
-    \end{equation*}
-    Let us call to the quantity above $\Delta\rho$ and denote by $1 - \tau$ the fraction of vertices of $ T $ with degree less then $\frac{1}{2}\Delta\rho$. 
- Then $ \Delta\rho \le \bar{d}_{T} \le 3\Delta\tau + \left( 1 - \tau \right) \Delta\rho  $ 
- $ \Rightarrow \tau \ge \frac{\rho}{2\left( 3 - \rho \right)}\ge \rho/3 $. Namely, at least $\rho/3$ of vertices of $T$ are incident to at least $\frac{1}{2}\Delta\rho$ heavy edges. 
-
- Since $\Gu$ is $3\Delta$ regular we get that $|S| - |S_{e}| \le 3\Delta |T| $. In the other-hand we have shown that 
- \begin{equation*}
-   \begin{split}
-     |S_{e}| & \le \left(\frac{\lambda^{\star}_{2}}{\xi - \left(2\Delta^{2} - \Delta  \right)\frac{|x|}{n \delta\Delta}}\right)^{2}|S| \\ &
-     \Rightarrow |S| \le \left( 1 - \left(\frac{\lambda^{\star}_{2}}{\xi - \left(2\Delta^{2} - \Delta  \right)\frac{|x|}{n \delta\Delta}}\right)^{2}\right)^{-1}3\Delta|T| \\
-     & = \left( 1 - \theta^2 \right) 3 \Delta |T|
-   \end{split}
- \end{equation*}
- And by using again the mixing Lemma we have that: 
- \begin{equation*}
-   \begin{split}
-     E\left( S_{e},T \right) &\le \frac{\theta^2}{1- \theta^2}3\Delta|T|^2 \frac{3\Delta}{n} + \lambda^{\star}\sqrt{\frac{\theta^2}{1- \theta^2}}|T| \\ 
-     & \le  \left( \frac{\theta^2}{1- \theta^2}9\Delta^{2} + \lambda^{\star}\sqrt{\frac{\theta^2}{1- \theta^2}}\right)|T| \\ 
-     & \le \left(9\Delta^{2} + \lambda^{\star} \right) |T|
-  \end{split}
- \end{equation*}
- Hence at most an $\frac{1}{6}\rho $ proportion of vertices of $T$ are adjacent to more than $\frac{6}{\rho} \left( 9\Delta^{2} + \lambda^{\star}  \right) $ vertices of $S_{e}$, And at least $\frac{5}{6}\rho$ proportion of $T$ are adjacent to less then $\frac{6}{\rho} \left( 9\Delta^{2} + \lambda^{\star}  \right) $ . 
- And therefore we have that at least $\frac{1}{6}\rho$ vertices are:
- \begin{enumerate}
-   \item Incident to at least $\frac{1}{2}\Delta\rho$ heavy edges. 
-   \item Adjacent to at most $ \frac{6}{\rho} \left( 9\Delta^{2} + \lambda^{\star}  \right)$ vertices of $S_{e}$.  
- \end{enumerate}
+  		
  \paragraph{Proof Of Theorem 1} Let us call to the set of vertices satisfy the constraints above \textbf{good vertices}. Pick any good vertex $g \in T$.
  Remember that each heavy edge between a normal vertex of $S$ and a vertex of $T$ corresponds to either a row or a column shared by the two local views.
  
