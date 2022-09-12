@@ -71,14 +71,13 @@
 	\newcommand{ \Aabcpp } { \left( \Aabcp \right)^\perp }
 	\newcommand{ \Aabcdpp } { \Aabpp \otimes \Acdpp  }
 	\newcommand{ \App} { \left(\Aabcdpp\right)^{\perp} } 
+	\newcommand{ \Aabcdnp } { \left( \Aa \otimes \Ab  \right)^{\perp} \left( \Ac \otimes \Ad  \right)^{\perp }}
 	\newcommand{ \YY } {  y_{1}y_{2}^{\top} }
 	\newcommand{ \ZZ } {  z_{1}z_{2}^{\top} } 
-	\newcommand{ \TT } { \tilde{\tau} }
-	
-
-
-  \paragraph{preamble.} preamble.  
-  \paragraph{The Construction.} Fix primes $q,p_1,p_2,p_3,p_4$ such that each of them has $1 $ residue mode $4$. Let $A_{1},A_{2},A_{3},A_{4}$ be a different generators sets of $ \mathbf{PGL}(2 , \mathbb{Z} / q\mathbb{Z} )  $ 
+	\newcommand{ \TT } { \tilde{\tau}}
+	\paragraph{preamble.} preamble.  
+   
+ \paragraph{The Construction.} Fix primes $q,p_0,p_2,p_3,p_4$ such that each of them has $1 $ residue mode $4$. Let $A_{1},A_{2},A_{3},A_{4}$ be a different generators sets of $ \mathbf{PGL}(2 , \mathbb{Z} / q\mathbb{Z} )  $ 
   obtained by taking the solutions for $a_{0}^{2} + a_{1}^{2} +a_{2}^{2} +a_{3}^{2} = p_i $ such that the pairs $A_{1},A_{2}$ and $A_{3},A_{4}$ satisfy the 
   TNC constraint and also they all satisfy that constraint togther, namly for any $g \in \mathbf{PGL}$  and $a_{1}\in A_{1}, a_{2} \in A_{2}, a_{3} \in A_{3}, a_{4} \in A_{4}$ we have that $ g \neq a_{3}a_{1}ga_{2}a_{4}$. 
   
@@ -105,7 +104,7 @@
    Then define the codes:
 	\begin{equation*}
 	  \begin{split}
-	    C_{z}^{\perp} & = \mathcal{T}\left( \Gssh,  \Aabcd  \right) \\
+	    C_{z} & = \mathcal{T}\left( \Gssh,  \Aabcdnp  \right) \\
 	    C_{x} &=  \mathcal{T}\left(  \Gssh, \Aabcdpp  \right) \\
 	    C_{w} &=  \mathcal{T}\left( \Gssh , \App \right)   
 	  \end{split}
@@ -117,7 +116,6 @@
 	    C_{w_{z}} &=  \mathcal{T}\left( \Gamma_{\square \square}, \left(  C_{A_1} \otimes C_{A_2} \otimes C_{A_3} \right)^{\perp}  \right)   
 	  \end{split}
 	\end{equation*}
-	%\newcommand{}
 \begin{figure}[H]
 %\label{fig:square}
 \begin{center}
