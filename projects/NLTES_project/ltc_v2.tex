@@ -75,9 +75,7 @@
 	\newcommand{ \YY } {  y_{1}y_{2}^{\top} }
 	\newcommand{ \ZZ } {  z_{1}z_{2}^{\top} } 
 	\newcommand{ \TT } { \tilde{\tau}}
-
-
-	
+	\newcommand{\EST}{E\left( S,T \right)_{\Gssh} }
 
 \paragraph{Tasks.}
 	\begin{enumerate}
@@ -194,27 +192,22 @@
 	Then by the mixing expansion lemma we get: 
 	\begin{equation*}
 	  \begin{split}
-	  E\left( S,T \right)_{\Gssh} &= E\left( S^{\star}, T  \right)_{\Gsah} \\
-	|E\left( S,T \right)_{\Gssh}| &\le \frac{\Delta^{2}}{n}\Delta^{2}|S||T| + \lambda_{\Gsbh}\Delta\sqrt{|S||T|} \\ 
-      |E\left( S,T \right)_{\Gssh}| &\ge \frac{\Delta^{2}}{n}|S||T| - \lambda_{\Gsbh}\sqrt{|S||T|}  
+	  \EST &= E\left( S^{\star}, T  \right)_{\Gsah} \\
+	|\EST| &\le \frac{\Delta^{2}}{n}\Delta^{2}|S||T| + \lambda_{\Gsbh}\Delta\sqrt{|S||T|} \\ 
+      |\EST| &\ge \frac{\Delta^{2}}{n}|S||T| - \lambda_{\Gsbh}\sqrt{|S||T|}  
 	  \end{split}
 	\end{equation*}
-	\paragraph{Dense Normal Net Counting} Let $x \in \mathbb{F}^{\left\{ \cdot \right\}}  $ be aword, And consider the graph $\Gssh\left( x \right)$  obtained by taking the edges induced by setting $x$ over the plaquettes.  
-	Let us call the normal vertices the vertices with degree less then $\xi$ in $\Gssh\left( x \right)$.  
+\paragraph{Dense Normal Net Counting} Let us call the normal vertices the vertices with degree less then $\xi$ in $\Guq = \Gamma_{\square, 1}^{x} \cup \Gamma_{\square, 2}^{x}$. 
+    And Let us say that that an edge of $\Gu$ is heavy if it is incident to at least $\eta$ squares in $\Gsa$ and $\Gsb$. Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal vertex through a heavy edge. 
 
-	And Let us say that that a tuple $e = \left(  e_1, e_2\right) $   is heavy edge if $e_1,e_2$ are edges in the graphs $\Gsah, \Gsbh$ accordingly and that concatenation is incident to at least $\eta$ plaquettes in $\Gsah$ and $\Gsbh$. Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal vertex through a heavy edge. 
-    
-	Recall that the distance of the tensor code equal to the distances multiplication of commponents code.It is clear that the distance of $\Aabpp$ and $\Acdpp$ is exectly $\delta\Delta $ and therefore the distance of $\Aabcdpp$ equals $\left( \delta\Delta \right)^{2} $.  
-	\paragraph{} 
-
-    Hence the number of vertices in the induced graph by $x$ is bounded by it's weight:
-    $ |S| \le \frac{6|x|}{ \delta^{2}\Delta^{2} }$ 
+    Recall that the distance of the tensor code equal to the mFirst notice that the number of vertices in the induced graph by $x$ is bounded by it's weight:
+    $ |S| \le \frac{2|x|}{ \delta^{2}\Delta^{2} }$ 
 
     By the mixing Lemma we get:  
     \begin{equation*}
       \begin{split}
-	|E\left( S,T \right)| & \ge \eta |T| \\ 
-	|E\left( S,T \right)| & = |E\left( S,T \right)_{\Gamma_{1}} \cup E\left( S,T \right)_{\Gamma_{2}} | \\ 
+	| \EST | & \ge \eta |T| \\ 
+	| \EST )| & = |E\left( S,T \right)_{\Gamma_{1}} \cup E\left( S,T \right)_{\Gamma_{2}} | \\ 
       \le & \frac{|S||T|}{n}\left( 2 \cdot 2\Delta - \Delta  \right) \\ & + \sqrt{|S||T|}\left( 2\cdot \lambda_{ \text{double cover} } + \lambda_{ \text{ramnujan} }    \right)
       \end{split}
     \end{equation*}
