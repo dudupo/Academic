@@ -79,18 +79,18 @@
 
 \paragraph{Tasks.}
 	\begin{enumerate}
-	  \item Prove that the construction indeed yields a square complex. (The gentle point is to formolize a general TNC property).  
-	  \item Prove that $C_{x}$ and $C_{z}$ are indeed CSS pair. Its not so clear how to show that. We hope to prove that either we can choose as generator the forth tensor power product or at least that the generators qubics coressponded to edges in the orignal graph ( i.e $ \left( g \sim ag  \right) $ edge) share structure (that enforce meeting between duals).
+	  \item Prove that the construction indeed yields a square complex. (The gentle point is to formalize a general TNC property).  
+	  \item Prove that $C_{x}$ and $C_{z}$ are indeed CSS pair. Its not so clear how to show that. We hope to prove that either we can choose as generator the forth tensor power product or at least that the generators qubics corresponded to edges in the original graph ( i.e $ \left( g \sim ag  \right) $ edge) share structure (that enforce meeting between duals).
 	    % key here is to show that we can choose the genertors to be the matrix $ \Ac \otimes \Ad $   
 	  \item Prove a Lemma 1 analogy. And while do so, understand what are the properties we should require from the small code.  
 	    (i.e w-robustness and p-resistance for puncturing). 
-	    (Make the requirement changes for the new 4D complex with minimal eriseions, as possible).
+	    (Make the requirement changes for the new 4D complex with minimal erases, as possible).
 	  \item Show that we could actually choose such $\left\{ A \right\}_{i}$ and the matched small codes. (Last priority.) 
 	  \item Write a program which plot small complex in a small scale for getting more intuition.  
 	\end{enumerate}
  \paragraph{The Construction.} Fix primes $q,p_0,p_2,p_3,p_4$ such that each of them has $1 $ residue mode $4$. Let $A_{1},A_{2},A_{3},A_{4}$ be a different generators sets of $ \mathbf{PGL}(2 , \mathbb{Z} / q\mathbb{Z} )  $ 
   obtained by taking the solutions for $a_{0}^{2} + a_{1}^{2} +a_{2}^{2} +a_{3}^{2} = p_i $ such that the pairs $A_{1},A_{2}$ and $A_{3},A_{4}$ satisfy the 
-  TNC constraint and also they all satisfy that constraint togther, namly for any $g \in \mathbf{PGL}$  and $a_{1}\in A_{1}, a_{2} \in A_{2}, a_{3} \in A_{3}, a_{4} \in A_{4}$ we have that $ g \neq a_{3}a_{1}ga_{2}a_{4}$. 
+  TNC constraint and also they all satisfy that constraint together, manly for any $g \in \mathbf{PGL}$  and $a_{1}\in A_{1}, a_{2} \in A_{2}, a_{3} \in A_{3}, a_{4} \in A_{4}$ we have that $ g \neq a_{3}a_{1}ga_{2}a_{4}$. 
   
   For any $h \in \mathbb{Z}_{3}^{2} $ define the groups $G^{h}, H^{h}$ to be: 
   \begin{equation*}
@@ -187,8 +187,8 @@
 
 		% be a codeword with weight less then $\alpha n$.
 
-	\paragraph{Expansion.} Let, $S , T$ be vertices subsets of $G^{h}$ and Let $S^{\star}$ be the vertices which can be reached from $S$ trought edges from $\Gsah$. By regularity it's clear that $S^{\star}\le \Delta^{2}|S|$. In addition, by the fact that $G^{h}$ is a group, we have that $agb = ag^{\prime}b$ if and only if $g = g^{\prime}$. 
-	Therefore we could derive a lowerbound on the size of $S^{\star}$ by fixing $a,b$ and consider the vertices coressponded to $aSb \subset S^{\star}$.    
+	\paragraph{Expansion.} Let, $S , T$ be vertices subsets of $G^{h}$ and Let $S^{\star}$ be the vertices which can be reached from $S$ trough edges from $\Gsah$. By regularity it's clear that $S^{\star}\le \Delta^{2}|S|$. In addition, by the fact that $G^{h}$ is a group, we have that $agb = ag^{\prime}b$ if and only if $g = g^{\prime}$. 
+	Therefore we could derive a lowerbound on the size of $S^{\star}$ by fixing $a,b$ and consider the vertices corresponded to $aSb \subset S^{\star}$.    
 	Then by the mixing expansion lemma we get: 
 	\begin{equation*}
 	  \begin{split}
@@ -200,7 +200,7 @@
 \paragraph{Dense Normal Net Counting} Let us call the normal vertices the vertices with degree less then $\xi$ in $\Guq = \Gamma_{\square, 1}^{x} \cup \Gamma_{\square, 2}^{x}$. 
     And Let us say that that an edge of $\Gu$ is heavy if it is incident to at least $\eta$ squares in $\Gsa$ and $\Gsb$. Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal vertex through a heavy edge. 
 
-    Recall that the distance of the tensor code equal to the mFirst notice that the number of vertices in the induced graph by $x$ is bounded by it's weight:
+    Recall that the distance of the tensor code equal to the   notice that the number of vertices in the induced graph by $x$ is bounded by it's weight:
     $ |S| \le \frac{2|x|}{ \delta^{2}\Delta^{2} }$ 
 
     By the mixing Lemma we get:  
@@ -360,9 +360,9 @@
  Choosing $ \eta, \xi, \delta, \gamma, w, |x| < d $ such that the above is lower than $\frac{1}{2}\left( \delta\Delta \right)^{3}$ finishes the proof. 
  \paragraph{Theorem 2.} \textit{ The code $C_{w} / \mathcal{T}\left( \Gamma_{\square \square}, \left(  C_{A_1} \otimes C_{A_2} \otimes C_{A_3} \right)  \right)  $ has positive rate and linear distance.}
  \paragraph{Theorem 3.} \textit{ The code defined by $C_{x}$ has an efficient test for rejecting candidate with high error weigh. } 
- \paragraph{The Decoder.} Let $x$ be a canidate that might or might not be in $C_{x}$. The decoder $\mathcal{D}$ describe below return a valid codeword of $C_{X}$ if $x$ is at distance at most $\tilde{\alpha}$ from $C_{x}$ and otherwise reject.
+ \paragraph{The Decoder.} Let $x$ be a candidate that might or might not be in $C_{x}$. The decoder $\mathcal{D}$ describe below return a valid codeword of $C_{X}$ if $x$ is at distance at most $\tilde{\alpha}$ from $C_{x}$ and otherwise reject.
  First, for every positive (left) vertex $g\in G\times \mathbb{Z}_2 $,  $\mathcal{D}$ compute the codeword of the dual tensor code which is the closest to its local view. Denote each that codeword by $c_g$. 
- Then define the mismatch to be $z = \sum_{g \in G}{c_g} $ and notice that by the fact that each face is summed up twice $|z|$ eqaul the number of disagrements. 
+ Then define the mismatch to be $z = \sum_{g \in G}{c_g} $ and notice that by the fact that each face is summed up twice $|z|$ equal the number of disagreements. 
  
  If $|z|$ is indeed zero, then $\tilde{z}$ which define by taking the ``AND'' of local correction instead of xoring them is a valid codeword. 
  $\mathcal{D}$ will defined to returns $\tilde{z}$ in that case. 
@@ -370,7 +370,7 @@
  Assume that $|z| > 0 $. Then $\mathcal{D}$ will:
  \begin{enumerate}
    \item Compute for every negative vertex the closest local view correspond to $\phi_{g}^{\perp}$. Call it, $\omega_{g}$.
-   \item Sum the $\omega's$. And set the yilded bits on the plaquettes. Denote the word obtained by that by $J$.
+   \item Sum the $\omega's$. And set the yielded bits on the plaquettes. Denote the word obtained by that by $J$.
 
 
    %\item Sum the $\omega$'s divded by $\color{red}\frac{1}{3}\color{black}$. Namly $\sum_{g\in G}{\frac{1}{3}\omega_g}$. And set the yilded bits on the plaquettes.  
