@@ -76,6 +76,9 @@
 	\newcommand{ \ZZ } {  z_{1}z_{2}^{\top} } 
 	\newcommand{ \TT } { \tilde{\tau}}
 
+
+	
+
 \paragraph{Tasks.}
 	\begin{enumerate}
 	  \item Prove that the construction indeed yields a square complex. (The gentle point is to formolize a general TNC property).  
@@ -196,10 +199,11 @@
       |E\left( S,T \right)_{\Gssh}| &\ge \frac{\Delta^{2}}{n}|S||T| - \lambda_{\Gsbh}\sqrt{|S||T|}  
 	  \end{split}
 	\end{equation*}
-\paragraph{Dense Normal Net Counting} Let us call the normal vertices the vertices with degree less then $\xi$ in $\Guq = \Gamma_{\square, 1}^{x} \cup \Gamma_{\square, 2}^{x}$. 
-    And Let us say that that an edge of $\Gu$ is heavy if it is incident to at least $\eta$ squares in $\Gsa$ and $\Gsb$. Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal vertex through a heavy edge. 
+	\paragraph{Dense Normal Net Counting} Let $x \in \mathbb{F}^\left\{ \cdot \right\}  $ be aword, And consider the graph $\Gsseh\left( x \right)$  obtained by taking the edges induced by setting $x$ over the plaquettes.  
+	Let us call the normal vertices the vertices with degree less then $\xi$ in $\Gsseh\left( x \right)$.  
+    And Let us say that that an edge of $\Gsah$ is heavy if it is incident to at least $\eta$ squares in $\Gsa$ and $\Gsb$. Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal vertex through a heavy edge. 
 
-    First notice that the number of vertices in the induced graph by $x$ is bounded by it's weight:
+    Recall that the distance of the tensor code equal to the mFirst notice that the number of vertices in the induced graph by $x$ is bounded by it's weight:
     $ |S| \le \frac{2|x|}{ \delta^{2}\Delta^{2} }$ 
 
     By the mixing Lemma we get:  
