@@ -271,17 +271,17 @@ Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal
     \color{red} mark \color{black} In the other-hand we have shown that 
  \begin{equation*}
    \begin{split}
-     |S_{e}| & |S_{e}| \le \left( \frac{ \lambda_{\Gsbh}\Delta}{\xi - \frac{\Delta^{2}\cdot 2|x|}{n\ \delta^{2}} } \right)^{2} |S| \\ &
+     |S_{e}| &  \le \left( \frac{ \lambda_{\Gsbh}\Delta}{\xi - \frac{\Delta^{2}\cdot 2|x|}{n\ \delta^{2}} } \right)^{2} |S| \\ &
      \Rightarrow |S| \le \left( 1 - \left( \frac{ \lambda_{\Gsbh}\Delta}{\xi - \frac{\Delta^{2}\cdot 2|x|}{n\ \delta^{2}} } \right)^{2}\right)^{-1}2\Delta^{2}|T| \\
-     & = \left( 1 - \theta^2 \right) 2 \Delta^{2} |T|
+     & = \left( 1 - \theta^2 \right)^{-1} 2 \Delta^{2} |T|
    \end{split}
  \end{equation*}
  And by using again the mixing Lemma we have that: 
  \begin{equation*}
    \begin{split}
-     E\left( S_{e},T \right) &\le \frac{\theta^2}{1- \theta^2}3\Delta|T|^2 \frac{3\Delta}{n} + \lambda^{\star}\sqrt{\frac{\theta^2}{1- \theta^2}}|T| \\ 
-     & \le  \left( \frac{\theta^2}{1- \theta^2}9\Delta^{2} + \lambda^{\star}\sqrt{\frac{\theta^2}{1- \theta^2}}\right)|T| \\ 
-     & \le \left(9\Delta^{2} + \lambda^{\star} \right) |T|
+     E\left( S_{e},T \right)_{\text{step}} &\le \frac{\theta^2}{1- \theta^2}2\Delta^{2}|T|^2 \frac{2\Delta^{2}}{n} + \lambda\sqrt{\frac{\theta^2}{1- \theta^2}}|T| \\ 
+     & \le  \left( \frac{\theta^2}{1- \theta^2}9\Delta^{2} + \lambda\sqrt{\Delta}\sqrt{\frac{\theta^2}{1- \theta^2}}\right)|T| \\ 
+%     & \le \left(9\Delta^{2} + \lambda^{\star} \right) |T|
   \end{split}
  \end{equation*}
  Hence at most an $\frac{1}{6}\rho $ proportion of vertices of $T$ are adjacent to more than $\frac{6}{\rho} \left( 9\Delta^{2} + \lambda^{\star}  \right) $ vertices of $S_{e}$, And at least $\frac{5}{6}\rho$ proportion of $T$ are adjacent to less then $\frac{6}{\rho} \left( 9\Delta^{2} + \lambda^{\star}  \right) $ . 
