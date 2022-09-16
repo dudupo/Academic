@@ -198,7 +198,7 @@
 	  \end{split}
 	\end{equation*}
 \paragraph{Dense Normal Net Counting} Let us call the normal vertices the vertices with degree less then $\xi$ in $\Guq = \Gamma_{\square, 1}^{x} \cup \Gamma_{\square, 2}^{x}$. 
-    And Let us say that that an edge of $\Gu$ is heavy if it is incident to at least $\eta$ squares in $\Gsa$ and $\Gsb$. Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal vertex through a heavy edge. 
+And Let us say that the tuple $ e = \left( e_{1} e_{2} \right)$ is an heavy edge if $e_{1},e_{2}$ are adjacents and they incident to at least $\eta$ squares in $\Gsa$ and $\Gsb$. Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal vertex through a heavy edge.  
 
     Recall that the distance of the tensor code equal to the   notice that the number of vertices in the induced graph by $x$ is bounded by it's weight:
     $ |S| \le \frac{2|x|}{ \delta^{2}\Delta^{2} }$ 
@@ -217,7 +217,7 @@
 	& |T| \le \left( \frac{ \lambda_{\Gsbh}\Delta}{\eta - \frac{\Delta^{2}\cdot 2|x|}{n\ \delta^{2}} } \right)^{2} |S|	
       \end{split}
     \end{equation*}
-    \color{red} Fixed till here\color{black}. Denote by $S_{e}$ the set of vertices in $\Guq$ with degree greater then $\xi$. Then by repeating on the above calculation, while substituting $\Gamma_{i}$ by $\Gamma_{i, \square}$, We obtain that there is $\lambda^{\star}_{2}$ such that:
+    Denote by $S_{e}$ the set of vertices in $\Guq$ with degree greater then $\xi$. Then by repeating on the above calculation, while substituting $\Gamma_{i}$ by $\Gamma_{i, \square}$, We obtain that there is $\lambda^{\star}_{2}$ such that:
      \begin{equation*}
       \begin{split}
 	& |S_{e}| \le \left(\frac{\lambda^{\star}_{2}}{\xi - \left(2\Delta^{2} - \Delta  \right)\frac{|x|}{n \delta\Delta}}\right)^{2}|S|
