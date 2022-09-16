@@ -210,8 +210,8 @@
 		\begin{equation*}
 	  \begin{split}
 	    \ESTs &= E\left( S^{\star}_{L}, T  \right)_{\cdot} +  E\left( S^{\star}_{R}, T  \right)_{\cdot} \\
-	|\ESTs| &\le \frac{\Delta}{n}\Delta|S||T| + \lambda\sqrt{\Delta|S||T|} \\ 
-      |\ESTs| &\ge \frac{\Delta}{n}|S||T| - \lambda\sqrt{|S||T|}  
+	|\ESTs| &\le \frac{2\Delta}{n}\Delta|S||T| + 2\lambda\sqrt{\Delta|S||T|} \\ 
+      |\ESTs| &\ge \frac{2\Delta}{n}|S||T| - 2\lambda\sqrt{|S||T|}  
 	  \end{split}
 	\end{equation*}
 
@@ -228,19 +228,32 @@ Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal
     By the mixing Lemma we get:  
     \begin{equation*}
       \begin{split}
-	| \EST | & \ge \eta |T| \\ 
-	\Rightarrow  & |T|\left( \eta - \frac{\Delta^{4}\cdot 2|x|}{n\left( \delta\Delta \right)^{2}}  \right) \le   \lambda_{\Gsbh}\Delta\sqrt{|S||T|} 
+	| \ESTs | & \ge \eta |T| \\ 
+	\Rightarrow  & |T|\left( \eta - \frac{2\Delta^{2}\cdot 2|x|}{n\left( \delta\Delta \right)^{2}}  \right) \le  2 \lambda\Delta\sqrt{|S||T|} 
       \end{split}
     \end{equation*}
     Hence we have that:
     \begin{equation*}
       \begin{split}
-	& \sqrt{|T|}\left( \eta - \frac{\Delta^{4}\cdot 2|x|}{n\left( \delta\Delta \right)^{2}}  \right) \le   \lambda_{\Gsbh}\Delta\sqrt{|S|} \\ 
-	& |T| \le \left( \frac{ \lambda_{\Gsbh}\Delta}{\eta - \frac{\Delta^{2}\cdot 2|x|}{n\ \delta^{2}} } \right)^{2} |S|	
+	& \sqrt{|T|}\left( \eta - \frac{2\Delta^{2}\cdot 2|x|}{n\left( \delta\Delta \right)^{2}}  \right) \le   2\lambda\Delta\sqrt{|S|} \\ 
+	& |T| \le \left( \frac{ 2\lambda\Delta}{\eta - \frac{4 |x|}{n\ \delta^{2}} } \right)^{2} |S|	
       \end{split}
     \end{equation*}
     Denote by $S_{e}$ the set of vertices in $\Guq$ with degree greater then $\xi$. Then by repeating on the above calculation, while substituting $\Gamma_{i}$ by $\Gamma_{i, \square}$, We obtain that there is $\lambda^{\star}_{2}$ such that:
      \begin{equation*}
+      \begin{split}
+	| \EST | & \ge \xi |S_{e}| \\ 
+	\Rightarrow  & |S_{e}|\left( \xi - \frac{\Delta^{4}\cdot 2|x|}{n\left( \delta\Delta \right)^{2}}  \right) \le   \lambda_{\Gsbh}\Delta\sqrt{|S||S_{e}|} 
+      \end{split}
+    \end{equation*}
+    Hence we have that:
+    \begin{equation*}
+      \begin{split}
+	& \sqrt{|S_{e}|}\left( \xi - \frac{\Delta^{4}\cdot 2|x|}{n\left( \delta\Delta \right)^{2}}  \right) \le   \lambda_{\Gsbh}\Delta\sqrt{|S|} \\ 
+	& |S_{e}| \le \left( \frac{ \lambda_{\Gsbh}\Delta}{\xi - \frac{\Delta^{2}\cdot 2|x|}{n\ \delta^{2}} } \right)^{2} |S|	
+      \end{split}
+    \end{equation*}
+ \begin{equation*}
       \begin{split}
 	& |S_{e}| \le \left(\frac{\lambda^{\star}_{2}}{\xi - \left(2\Delta^{2} - \Delta  \right)\frac{|x|}{n \delta\Delta}}\right)^{2}|S|
       \end{split}
