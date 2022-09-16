@@ -76,6 +76,7 @@
 	\newcommand{ \ZZ } {  z_{1}z_{2}^{\top} } 
 	\newcommand{ \TT } { \tilde{\tau}}
 	\newcommand{\EST}{E\left( S,T \right)_{\Gssh} }
+	\newcommand{\ESTs}{E\left( S,T \right)_{\text{step}}}
 
 \paragraph{Tasks.}
 	\begin{enumerate}
@@ -187,7 +188,7 @@
 
 		% be a codeword with weight less then $\alpha n$.
 
-	\paragraph{Expansion.} Let, $S , T$ be vertices subsets of $G^{h}$ and Let $S^{\star}$ be the vertices which can be reached from $S$ trough edges from $\Gsah$. By regularity it's clear that $S^{\star}\le \Delta^{2}|S|$. In addition, by the fact that $G^{h}$ is a group, we have that $agb = ag^{\prime}b$ if and only if $g = g^{\prime}$. 
+	\paragraph{Plaquettes Expansion.} Let, $S , T$ be vertices subsets of $G^{h}$ and Let $S^{\star}$ be the vertices which can be reached from $S$ trough edges from $\Gsah$. By regularity it's clear that $S^{\star}\le \Delta^{2}|S|$. In addition, by the fact that $G^{h}$ is a group, we have that $agb = ag^{\prime}b$ if and only if $g = g^{\prime}$. 
 	Therefore we could derive a lowerbound on the size of $S^{\star}$ by fixing $a,b$ and consider the vertices corresponded to $aSb \subset S^{\star}$.    
 	Then by the mixing expansion lemma we get: 
 	\begin{equation*}
@@ -197,8 +198,12 @@
       |\EST| &\ge \frac{\Delta^{2}}{n}|S||T| - \lambda_{\Gsbh}\sqrt{|S||T|}  
 	  \end{split}
 	\end{equation*}
+	\paragraph{Step-Edges Expansion.} Let us define a step-edge to be a concation of $e_{1},e_{2}$ edges in $\Gsah, \Gsbh$ such that $e_{1},e_{2}$ are adjacent in the union of $\Gsah, \Gsbh$ and they both either left or right edges. 
+	Now consider again two vertices subsets $S$ and $T$ and denote by $ \ESTs $ the cut contains the edges between $T$ and $S$.  
+
+
 \paragraph{Dense Normal Net Counting} Let us call the normal vertices the vertices with degree less then $\xi$ in $\Guq = \Gamma_{\square, 1}^{x} \cup \Gamma_{\square, 2}^{x}$. 
-And Let us say that the tuple $ e = \left( e_{1} e_{2} \right)$ is an heavy edge if $e_{1},e_{2}$ are adjacents and they incident to at least $\eta$ plaquettes.
+And Let us say that the tuple $ e = \left( e_{1} e_{2} \right)$ is an heavy edge if $e_{1},e_{2}$ are adjacents squares and they incident to at least $\eta$ plaquettes.
 
 Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal vertex through a heavy edge.  
 
