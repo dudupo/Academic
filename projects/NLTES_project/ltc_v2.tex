@@ -188,6 +188,16 @@
 
 		% be a codeword with weight less then $\alpha n$.
 
+\paragraph{Lemma 1} \texit{ The pair $C_{x},C_{z}$ defined above is CSS code. } 
+
+\textbf{Proof.} Let $c^{\left( 1 \right)}, c^{\left( 2 \right)}$ be codewords in $C_{x}$ and $C_{z}$ then: 
+
+\begin{equation*}
+  \begin{split}
+    \braket{c^{\left( 1 \right)}, c^{\left( 2 \right)}} &= \sum_{\text{plaquettes}}c^{\left( 1 \right)}_{i} c^{\left( 2 \right)}_{i} = \sum_{\text{plaquettes}}c^{\left( 1 \right)}_{gabcd} c^{\left( 2 \right)}_{gabcd} \\ 
+    &= \sum{cd}{\sum_{agb}  c^{\left( 1 \right)}_{gabcd}{ c^{\left( 2 \right)}_{gabcd} } 
+  \end{split}
+\end{equation*}<++>
 	\paragraph{Plaquettes Expansion.} Let, $S , T$ be vertices subsets of $G^{h}$ and Let $S^{\star}$ be the vertices which can be reached from $S$ trough edges from $\Gsah$. By regularity it's clear that $S^{\star}\le \Delta^{2}|S|$. In addition, by the fact that $G^{h}$ is a group, we have that $agb = ag^{\prime}b$ if and only if $g = g^{\prime}$. 
 	Therefore we could derive a lowerbound on the size of $S^{\star}$ by fixing $a,b$ and consider the vertices corresponded to $aSb \subset S^{\star}$.    
 	Then by the mixing expansion lemma we get: 
