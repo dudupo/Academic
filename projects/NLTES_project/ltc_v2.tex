@@ -86,6 +86,7 @@
 	  \item Prove a Lemma 1 analogy. And while do so, understand what are the properties we should require from the small code.  
 	    (i.e w-robustness and p-resistance for puncturing). 
 	    (Make the requirement changes for the new 4D complex with minimal erases, as possible).
+	proof. 
 	  \item Show that we could actually choose such $\left\{ A \right\}_{i}$ and the matched small codes. (Last priority.) 
 	  \item Write a program which plot small complex in a small scale for getting more intuition.  
 	\end{enumerate}
@@ -95,10 +96,11 @@
 	  \begin{split}
 	    & | \left\{ v_{i}; v_{i}\in V , \left( v_{i} \right)_{j} = 1  \right\} | \le \gamma\Delta \ \ \ \left( \forall j \in \left[ \Delta \right] \right)
 	  \end{split}
-	\end{equation*}
-	\paragraph{Robusntess Lemma.} Let $C_{A}$ and $C_{B}$ be codes in $\mathbb{F}^{\Delta}_{2}$ and let $\gamma,\delta$ be constants such $0 < \frac{3}{2}\gamma < \delta < 1$. Assume that the codes above have the $\left( \gamma,\delta \right)-$\textit{Base Generators Set} property. Then any codeword $x\in \Aabpp$ is supported on at most $\frac{|x|}{\Delta\left( \delta-\frac{3}{2}\gamma \right)} $ rows and colomns.     
-	
-	proof. 
+	\end{equation*} In adition we will abuse trimonalgy and call $V$ the base of $C$.  
+	\paragraph{Robusntess Lemma.} Let $C_{A}$ and $C_{B}$ be codes in $\mathbb{F}^{\Delta}_{2}$ and let $\gamma,\delta$ be constants such $0 < \frac{3}{2}\gamma < \delta < 1$. Assume that both codes above have the $\left( \gamma,\delta \right)-$\textit{Base Generators Set} property. Then any codeword $x\in \Aabpp$ is supported on at most $\frac{|x|}{\Delta\left( \delta-\frac{3}{2}\gamma \right)} $ rows and colomns.     
+
+	\textbf{Proof.} Denote by $\left\{ e_{i} \right\}$ the standard base and by $ V = \left\{v_{0},v_{1},v_{2},\dots v_{m}  \right\} $ the base of $\Aa$ and simelarly let $U = \left\{u_{0},u_{1},u_{2},\dots u_{m}   \right\} $ be the base of $\Ab$. 
+	Remind that the dual tensor of $\Aabpp$ is spanned by the vectors $ \left\{ e_{i}\otimes v_{j} \right\} $ and $\left\{ u_{i}\otimes e_{j} \right\}$.  Let us write $x$ as formal sum of $\#_{A}$ 
 	\paragraph{$p$-resistence conserve $\gamma$-property. } proof. 
 	\paragraph{Graph Represantion Of The Base. } Def. 
 	\paragraph{The Dual Tensors Have $\left( \gamma,\delta \right)-$generators base set.} proof.
