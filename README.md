@@ -24,7 +24,7 @@ obtains upperbond on the the weight of codewords in $C_{z}^{\perp}$ , Furthemore
 gurrentes that the result of local views correction is a code word of $C_{x}$. 
 
 We are trying to figuring out how one canlift the diminsion of the complex to obtain a system in which the $C_{x}$ 
-is also subspace of larger code $C_{w}$. We are still not there yet, but the work is starting to come into shap. Noitce that that Lemma 2 is completle nonscence (And the probabiliy not the only fault). [draft](https://github.com/dudupo/Academic/blob/master/projects/pdfs/ltc.pdf).    
+is also subspace of larger code $C_{w}$. We are still not there yet, but the work is starting to come into shap. Noitce that that Lemma 2 is completle nonscence (And the probabiliy not the only fault). [draft](https://github.com/dudupo/Academic/blob/master/projects/pdfs/ltc_v2.pdf).    
 
 ### Quantum version of FLP impossibility. 
 We are trying to formulate reliability in a quantum distributed environment,
