@@ -14,7 +14,7 @@
 \usepackage{multicol}
 \usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
 \usepackage{xcolor}
-%\addbibresource{sample.bib} %Import the bibliography file
+\addbibresource{sample.bib} %Import the bibliography file
 
 \newcommand{\commentt}[1]{\textcolor{blue}{ \textbf{[COMMENT]} #1}}
 \newcommand{\ctt}[1]{\commentt{#1}}
@@ -141,14 +141,14 @@
 	\paragraph{The Dual Tensors Have $\left( \gamma,\delta \right)-$generators base set.} Let $\Aa$ and $\Ab$ be codes that have the $\left( \gamma,\delta, \tilde{\delta} \right)-$\textit{Base Generators Set} property. Then the dual tensor of the code $\Aabpp$ has $\left( 2\gamma/\Delta,\delta/\Delta, \tilde{\delta}/\Delta \right)-$\textit{Base Generators Set} property.
 
 	\textbf{Proof.} The proof is trivial. 
-	\paragraph{Existence Of \BGS Codes}. We will now show that the LTC codes of Levarier and Zemor has the \BGS property. Let $\mathcal{C}$ be the $\left[n, k\ge \left( 2\rho^2-1 \right)n, d\ge \beta^{2}\left( \beta - \lambda/\Delta \right)n \right]$ LTC code defined in \color{blue} cite\color{black}. And recall that $\mathcal{C} \subset C^{\perp}_{z}$. The distance of their CSS code is grater than $\tilde{\delta}n=\left( \beta / 4\Delta^{3/2+\varepsilon} \right)n $. \\
+	\paragraph{Existence Of \BGS Codes}. We will now show that the LTC codes of Levarier and Zemor has the \BGS property. Let $\mathcal{C}$ be the $\left[n, k\ge \left( 2\rho^2-1 \right)n, d\ge \beta^{2}\left( \beta - \lambda/\Delta \right)n \right]$ LTC code defined in \cite{leverrier2022quantum} And recall that $\mathcal{C} \subset C^{\perp}_{z}$. The distance of their CSS code is grater than $\tilde{\delta}n=\left( \beta / 4\Delta^{3/2+\varepsilon} \right)n $. \\
 	By definition the distance of the CSS code is the weight of the smallest codeword in $C_{x}$ which is not in $C^{\perp}_{z}$. Hence, the codewords of $\mathcal{C}$ are at weight no more the the maximal weight of codeword of  $C^{\perp}_{z}$ which is at most $\tilde{\delta}n$. \\
-	Hence it's left to show that we could pick a base which has no more than $m$ vectors sharing the same bit. By Theorem 1 in \color{blue}cite\color{black} the set of codewords which entirely supported on the neighborhood of negative codewords spans the the codeword of $C^{\perp}_{z}$ and any vector set which spans $\mathcal{C}$ could represented as linear transformation over the any set which spans $C^{\perp}_{z}$.
+	Hence it's left to show that we could pick a base which has no more than $m$ vectors sharing the same bit. By Theorem 1 in \cite{leverrier2022quantum} the set of codewords which entirely supported on the neighborhood of negative codewords spans the the codeword of $C^{\perp}_{z}$ and any vector set which spans $\mathcal{C}$ could represented as linear transformation over the any set which spans $C^{\perp}_{z}$.
 	Denote by $U = \{u_{0},u_{1},u_{2},\dots u_{\rho^{\prime n}} \}$ the set which spans $\mathcal{C}$, and assume that $U$ is also the base, namely $\log \dim U = \log \dim \mathcal{C} = \rho^{\prime} n $.
 
 	And also denote by $V = \{v_{0},v_{1},v_{2},\dots v_{q}  \} $ the set which spans $C_{z}^{\perp}$ and also $v_{i}$ associate with setting some codeword in $\Aab$ over the some vertex. 
 
-	Let $A\in \mathbb{F}^{\rho^{\prime n } \times q}_{2}$ be the matrix such $A : [V] \mapsto [U] $. Now, any face supports at most $2\rho^{2}\Delta^{2}$ (choosing one of the negative vertices of the face and then choosing a codeword of the product $\Aab$). Then by Remark-14 of \color{blue}cite\color{black}, for large enough $\Delta$ we have that each of the generator contribute at least $\frac{1}{2}\Delta^{2}$ to the weight. and therefore each row of $A$ has at most $2\tilde{\delta}n/\Delta^{2}$ non zeros. Hence the total number of ones in $A$ is at most $\rho^{\prime}n \cdot 2\tilde{\delta}n/\Delta^{2}$ which also bounds the number of times each face appears in the matrix. As we have the freedom to choose $\rho$ let's fix it to be at order $c/n$ and therefore we have that $\gamma = c\tilde{\delta}/\Delta^{2}$.   
+	Let $A\in \mathbb{F}^{\rho^{\prime n } \times q}_{2}$ be the matrix such $A : [V] \mapsto [U] $. Now, any face supports at most $2\rho^{2}\Delta^{2}$ (choosing one of the negative vertices of the face and then choosing a codeword of the product $\Aab$). Then by Remark-14 of \cite{leverrier2022quantum} for large enough $\Delta$ we have that each of the generator contribute at least $\frac{1}{2}\Delta^{2}$ to the weight. and therefore each row of $A$ has at most $2\tilde{\delta}n/\Delta^{2}$ non zeros. Hence the total number of ones in $A$ is at most $\rho^{\prime}n \cdot 2\tilde{\delta}n/\Delta^{2}$ which also bounds the number of times each face appears in the matrix. As we have the freedom to choose $\rho$ let's fix it to be at order $c/n$ and therefore we have that $\gamma = c\tilde{\delta}/\Delta^{2}$.   
 	%$C_{ Take the base,   
 	
  \paragraph{The Construction.} Fix primes $q,p_0,p_2,p_3,p_4$ such that each of them has $1 $ residue mode $4$. Let $A_{1},A_{2},A_{3},A_{4}$ be a different generators sets of $ \mathbf{PGL}(2 , \mathbb{Z} / q\mathbb{Z} )  $ 
@@ -487,7 +487,7 @@ Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal
   
 \input{complex-include.tex}
 \end{multicols*}
-  % \printbibliography 
+  \printbibliography 
 \end{document}
 
 
