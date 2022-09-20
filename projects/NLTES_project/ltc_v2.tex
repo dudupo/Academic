@@ -91,24 +91,24 @@
 	  \item Show that we could actually choose such $\left\{ A \right\}_{i}$ and the matched small codes. (Last priority.) 
 	  \item Write a program which plot small complex in a small scale for getting more intuition.  
 	\end{enumerate}
-	\section{Existance Of 4D Robustness (Small) Codes.} 
-	\paragraph{Defintion.} Let $C$ be a linear binary code in $\mathbb{F}^{\Delta}_{2}$. We will say that $C$ has the $\left( \gamma,\delta, \tilde{\delta} \right)-$\textit{Base Generators Set} property if $C$ is spanned by the vectors $V = \left\{v_{0},v_{1},v_{2},\dots v_{m}  \right\} $ such that the weight of any $v_{i}\in V$ is at least $\delta\Delta$ and at most $\tilde{\delta}$. Farthmore for any $j \in [\Delta]$ at most $\gamma\Delta$ vectors from $V$ has the $j$'th bit turn on. Namly:
+	\section{Existence Of 4D Robustness (Small) Codes.} 
+	\paragraph{Definition.} Let $C$ be a linear binary code in $\mathbb{F}^{\Delta}_{2}$. We will say that $C$ has the $\left( \gamma,\delta, \tilde{\delta} \right)-$\textit{Base Generators Set} property if $C$ is spanned by the vectors $V = \left\{v_{0},v_{1},v_{2},\dots v_{m}  \right\} $ such that the weight of any $v_{i}\in V$ is at least $\delta\Delta$ and at most $\tilde{\delta}$. Farthermost for any $j \in [\Delta]$ at most $\gamma\Delta$ vectors from $V$ has the $j$'th bit turn on. Namely:
 	\begin{equation*}
 	  \begin{split}
 	    & | \left\{ v_{i}; v_{i}\in V , \left( v_{i} \right)_{j} = 1  \right\} | \le \gamma\Delta \ \ \ \left( \forall j \in \left[ \Delta \right] \right)
 	  \end{split}
-	\end{equation*} In adition we will abuse trimonalgy and call $V$ the base of $C$.  
-	\paragraph{Robusntess Lemma.} Let $C_{A}$ and $C_{B}$ be codes in $\mathbb{F}^{\Delta}_{2}$ and let $\gamma,\delta$ be constants such $0 < \frac{3}{2}\gamma < \delta < 1$. Assume that both codes above have the $\left( \gamma,\delta \right)-$\textit{Base Generators Set} property. Then any codeword $x\in \Aabpp$ is supported on at most $\frac{|x|}{\Delta\left( \delta-\frac{3}{2}\gamma \right)} $ rows and colomns.     
+	\end{equation*} In addition we will abuse trimonthly and call $V$ the base of $C$.  
+	\paragraph{Robustness Lemma.} Let $C_{A}$ and $C_{B}$ be codes in $\mathbb{F}^{\Delta}_{2}$ and let $\gamma,\delta$ be constants such $0 < \frac{3}{2}\gamma < \delta < 1$. Assume that both codes above have the $\left( \gamma,\delta \right)-$\textit{Base Generators Set} property. Then any codeword $x\in \Aabpp$ is supported on at most $\frac{|x|}{\Delta\left( \delta-\frac{3}{2}\gamma \right)} $ rows and columns.     
 
-	\textbf{Proof.} Denote by $\left\{ e_{i} \right\}$ the standard base and by $ V = \left\{v_{0},v_{1},v_{2},\dots v_{m}  \right\} $ the base of $\Aa$ and simelarly let $U = \left\{u_{0},u_{1},u_{2},\dots u_{m}   \right\} $ be the base of $\Ab$. 
-	Remind that the dual tensor of $\Aabpp$ is spanned by the products $ \left\{ e_{i}\otimes v_{j} \right\} $ and $\left\{ u_{i}\otimes e_{j} \right\}$ we will call the vectors which are coresponded to $\mathbb{F}^{\Delta} \otimes \Ab$ 'right products' and similary we will give the name 'left products' to the vectors which spans $\Aa \otimes \mathbb{F}^{\Delta}$. 
-	Let us write $x$ as formal sumtion. And let $\#_{A},\#_{B} $ be the set of of right and left products in that sumtion. Then by taking in account only the pairs intersection we have that:  
+	\textbf{Proof.} Denote by $\left\{ e_{i} \right\}$ the standard base and by $ V = \left\{v_{0},v_{1},v_{2},\dots v_{m}  \right\} $ the base of $\Aa$ and similarly let $U = \left\{u_{0},u_{1},u_{2},\dots u_{m}   \right\} $ be the base of $\Ab$. 
+	Remind that the dual tensor of $\Aabpp$ is spanned by the products $ \left\{ e_{i}\otimes v_{j} \right\} $ and $\left\{ u_{i}\otimes e_{j} \right\}$ we will call the vectors which are corresponded to $\mathbb{F}^{\Delta} \otimes \Ab$ 'right products' and similarly we will give the name 'left products' to the vectors which spans $\Aa \otimes \mathbb{F}^{\Delta}$. 
+	Let us write $x$ as formal summation. And let $\#_{A},\#_{B} $ be the set of of right and left products in that summation. Then by taking in account only the pairs intersection we have that:  
 	\begin{equation*}
 	  \begin{split}
 	    |x| & \ge \sum_{\xi \in \#_{A} }{w\left( \xi \right)} +   \sum_{\xi \in \#_{B} }{w\left( \xi \right)}  -{ \sum}_{\xi, \eta \in  \#_{A} \cup  \#_{B}}{ w\left( \xi \cap \eta \right) }\\
 	    & \ge \left( \#_{A} + \#_{B} \right)\delta\Delta - { \sum}_{\xi, \eta \in  \#_{A} \cup  \#_{B}}{ w\left( \xi \cap \eta \right) } \\ 
 	  \end{split}
-	\end{equation*} Split to cases, first case, $\xi,\eta$ are both right (or left products). In the case we are intersted in the intersection of: 
+	\end{equation*} Split to cases, first case, $\xi,\eta$ are both right (or left products). In the case we are interested in the intersection of: 
 	\begin{equation*}
 	  \begin{split}
 	    e_{i}\otimes v_{t} \cap e_{j} \otimes v_{s} = \begin{cases}
@@ -116,8 +116,8 @@
 			v_{t} \cap v_{s}  &\text{else}
         \end{cases}
 	  \end{split}
-	\end{equation*} By the fact that there is at most $\gamma\Delta$ vectors $v\in V$ which their $s$-cordinate is not zero we get that the total contribution of such intersections is bounded from above by $\#_{A}\gamma\Delta + \#_{B}\gamma\Delta $.
-	In the seconed case consider the intersection of left and right products. in that case we have: 
+	\end{equation*} By the fact that there is at most $\gamma\Delta$ vectors $v\in V$ which their $s$-coordinate is not zero we get that the total contribution of such intersections is bounded from above by $\#_{A}\gamma\Delta + \#_{B}\gamma\Delta $.
+	In the second case consider the intersection of left and right products. in that case we have: 
 	\begin{equation*}
 	  \begin{split}
 	    e_{i}\otimes v_{t} \cap  u_{s} \otimes e_{j}= \begin{cases}
@@ -125,30 +125,30 @@
 			1  &\text{otherwise}
         \end{cases}
 	  \end{split}
-	\end{equation*} \color{red} Taking in acount higher momuntens \textbf{only} in the second case is still preserving the inequality direction? For now assume also that $C$ has maximal weight of $\tilde{\delta} = \Theta\left(\frac{1}{\Delta} \right)$. \color{black} 
-	By the assumption that $C$ has maximal weight of $\tilde{\delta}$ we get that the contribuation of the second case is bounded by
+	\end{equation*} \color{red} Taking in a count higher moments \textbf{only} in the second case is still preserving the inequality direction? For now assume also that $C$ has maximal weight of $\tilde{\delta} = \Theta\left(\frac{1}{\Delta} \right)$. \color{black} 
+	By the assumption that $C$ has maximal weight of $\tilde{\delta}$ we get that the contribution of the second case is bounded by
 	\begin{equation*}
 	  \begin{split}
 	    & \frac{1}{2}\left( \#_{A}+\#_{B} \right)\gamma\Delta\tilde{\delta}\Delta \\ &  \Rightarrow \#_{A},\#_{B} \le \frac{|x|}{\Delta\delta - \Delta\gamma - \frac{1}{2}\gamma\tilde{\delta}\Delta^{2}} 
 	  \end{split}
 	\end{equation*}
-	\paragraph{Definition.} Let $C$ be a code. We will say that a code $C^{\prime}$ is obtained by $p$-pancurting from $C$ if there exists a set of indecis $A$ at size $ |A| \in [ \Delta - p , \Delta ] $  such that for any codeword $c^{\prime}$ there exists codeword $c \in C $ such that for any $ i \in \left[ |A|  \right] $ it holds that $c^{\prime}_{A_{i}} = c_{i}$.    
-	\paragraph{Lemma. $p$-resistence conserve $\gamma$-property. } Let $C$ be a code wich has the $\left( \gamma,\delta, \tilde{\delta} \right)-$\textit{Base Generators Set} property. 
-	Then any code $C^{\prime}$ obtained from $C$ by $p$ panucturing has the $\left( \gamma,\delta - p, \tilde{\delta} \right)-$\textit{Base Generators Set} property.
+	\paragraph{Definition.} Let $C$ be a code. We will say that a code $C^{\prime}$ is obtained by $p$-puncturing from $C$ if there exists a set of indices $A$ at size $ |A| \in [ \Delta - p , \Delta ] $  such that for any codeword $c^{\prime}$ there exists codeword $c \in C $ such that for any $ i \in \left[ |A|  \right] $ it holds that $c^{\prime}_{A_{i}} = c_{i}$.    
+	\paragraph{Lemma. $p$-resistance conserve $\gamma$-property. } Let $C$ be a code which has the $\left( \gamma,\delta, \tilde{\delta} \right)-$\textit{Base Generators Set} property. 
+	Then any code $C^{\prime}$ obtained from $C$ by $p$ puncturing has the $\left( \gamma,\delta - p, \tilde{\delta} \right)-$\textit{Base Generators Set} property.
 	
-	\textbf{Proof.} The proof is trival. 
+	\textbf{Proof.} The proof is trivial. 
 	%\paragraph{Graph Represantion Of The Base. } Def. 
 	\paragraph{The Dual Tensors Have $\left( \gamma,\delta \right)-$generators base set.} Let $\Aa$ and $\Ab$ be codes that have the $\left( \gamma,\delta, \tilde{\delta} \right)-$\textit{Base Generators Set} property. Then the dual tensor of the code $\Aabpp$ has $\left( 2\gamma/\Delta,\delta/\Delta, \tilde{\delta}/\Delta \right)-$\textit{Base Generators Set} property.
 
-	\textbf{Proof.} The proof is trival. 
-	\paragraph{Existance Of \BGS Codes}. We will now show that the LTC codes of Levarier and Zemor has the \BGS property. Let $\mathcal{C}$ be the $\left[n, k\ge \left( 2\rho^2-1 \right)n, d\ge \beta^{2}\left( \beta - \lambda/\Delta \right)n \right]$ LTC code defined in \color{blue} cite\color{black}. And recall that $\mathcal{C} \subset C^{\perp}_{z}$. The distance of their CSS code is greter than $\tilde{\delta}n=\left( \beta / 4\Delta^{3/2+\varepsilon} \right)n $. \\
-	By defination the distance of the CSS code is the weight of the smallest codeword in $C_{x}$ which is not in $C^{\perp}_{z}$. Hence, the codewords of $\mathcal{C}$ are at weight no more the the maximal weight of codeword of  $C^{\perp}_{z}$ which is at most $\tilde{\delta}n$. \\
-	Hence it's left to show that we could pick a base which has no more than $m$ vectors sharing the same bit. By Theorem 1 in \color{blue}cite\color{black} the set of codewords which entirly supported on the neighbourhood of negative codewords spans the the codeword of $C^{\perp}_{z}$ and any vecor set which spans $\mathcal{C}$ could represnted as linear transforamrion over the any set which sapns $C^{\perp}_{z}$.
-	Denote by $U = \{u_{0},u_{1},u_{2},\dots u_{\rho^{\prime n}} \}$ the set which spans $\mathcal{C}$, and assume that $U$ is also the base, namly $\log \dim U = \log \dim \mathcal{C} = \rho^{\prime} n $.
+	\textbf{Proof.} The proof is trivial. 
+	\paragraph{Existence Of \BGS Codes}. We will now show that the LTC codes of Levarier and Zemor has the \BGS property. Let $\mathcal{C}$ be the $\left[n, k\ge \left( 2\rho^2-1 \right)n, d\ge \beta^{2}\left( \beta - \lambda/\Delta \right)n \right]$ LTC code defined in \color{blue} cite\color{black}. And recall that $\mathcal{C} \subset C^{\perp}_{z}$. The distance of their CSS code is grater than $\tilde{\delta}n=\left( \beta / 4\Delta^{3/2+\varepsilon} \right)n $. \\
+	By definition the distance of the CSS code is the weight of the smallest codeword in $C_{x}$ which is not in $C^{\perp}_{z}$. Hence, the codewords of $\mathcal{C}$ are at weight no more the the maximal weight of codeword of  $C^{\perp}_{z}$ which is at most $\tilde{\delta}n$. \\
+	Hence it's left to show that we could pick a base which has no more than $m$ vectors sharing the same bit. By Theorem 1 in \color{blue}cite\color{black} the set of codewords which entirely supported on the neighborhood of negative codewords spans the the codeword of $C^{\perp}_{z}$ and any vector set which spans $\mathcal{C}$ could represented as linear transformation over the any set which spans $C^{\perp}_{z}$.
+	Denote by $U = \{u_{0},u_{1},u_{2},\dots u_{\rho^{\prime n}} \}$ the set which spans $\mathcal{C}$, and assume that $U$ is also the base, namely $\log \dim U = \log \dim \mathcal{C} = \rho^{\prime} n $.
 
-	And also denote by $V = \{v_{0},v_{1},v_{2},\dots v_{q}  \} $ the set which spans $C_{z}^{\perp}$ and also $v_{i}$ assosiate with setting some codeward in $\Aab$ over the some vertex. 
+	And also denote by $V = \{v_{0},v_{1},v_{2},\dots v_{q}  \} $ the set which spans $C_{z}^{\perp}$ and also $v_{i}$ associate with setting some codeword in $\Aab$ over the some vertex. 
 
-	Let $A\in \mathbb{F}^{\rho^{\prime n } \times q}_{2}$ be the matrix such $A : [V] \mapsto [U] $. Now, any face supports at most $2\rho^{2}\Delta^{2}$ (choosing one of the negative vertices of the face and then choosing a codeword of the product $\Aab$). Then by Remark-14 of \color{blue}cite\color{black}, for large enough $\Delta$ we have that each of the genrator contribute at least $\frac{1}{2}\Delta^{2}$ to the weigth. and therefore each row of $A$ has at most $2\tilde{\delta}n/\Delta^{2}$ non zeros. Hence the total number of ones in $A$ is at most $\rho^{\prime}n \cdot 2\tilde{\delta}n/\Delta^{2}$ whcih also bounds the number of times each face appers in the matrix. As we have the fredom to choose $\rho$ let's fix it to be at order $c/n$ and therfore we have that $\gamma = \tilde{\delta}/\Delta^{2}$.   
+	Let $A\in \mathbb{F}^{\rho^{\prime n } \times q}_{2}$ be the matrix such $A : [V] \mapsto [U] $. Now, any face supports at most $2\rho^{2}\Delta^{2}$ (choosing one of the negative vertices of the face and then choosing a codeword of the product $\Aab$). Then by Remark-14 of \color{blue}cite\color{black}, for large enough $\Delta$ we have that each of the generator contribute at least $\frac{1}{2}\Delta^{2}$ to the weight. and therefore each row of $A$ has at most $2\tilde{\delta}n/\Delta^{2}$ non zeros. Hence the total number of ones in $A$ is at most $\rho^{\prime}n \cdot 2\tilde{\delta}n/\Delta^{2}$ which also bounds the number of times each face appears in the matrix. As we have the freedom to choose $\rho$ let's fix it to be at order $c/n$ and therefore we have that $\gamma = \tilde{\delta}/\Delta^{2}$.   
 	%$C_{ Take the base,   
 	
  \paragraph{The Construction.} Fix primes $q,p_0,p_2,p_3,p_4$ such that each of them has $1 $ residue mode $4$. Let $A_{1},A_{2},A_{3},A_{4}$ be a different generators sets of $ \mathbf{PGL}(2 , \mathbb{Z} / q\mathbb{Z} )  $ 
@@ -260,7 +260,7 @@
     &= \sum_{cd}{\sum_{gab}{ c^{\left( 1 \right)}_{gabcd} c^{\left( 2 \right)}_{gabcd} }} 
   \end{split}
 \end{equation*}
-By the fact that for any fixed $c,d$ we have that the induced words are codewords of the orignal codes (from Zemor and Levarier) the product above is zeroed.  
+By the fact that for any fixed $c,d$ we have that the induced words are codewords of the original codes (from Zemor and Levarier) the product above is zeroed.  
 	\paragraph{Plaquettes Expansion.} Let, $S , T$ be vertices subsets of $G^{h}$ and Let $S^{\star}$ be the vertices which can be reached from $S$ trough edges from $\Gsah$. By regularity it's clear that $S^{\star}\le \Delta^{2}|S|$. In addition, by the fact that $G^{h}$ is a group, we have that $agb = ag^{\prime}b$ if and only if $g = g^{\prime}$. 
 	Therefore we could derive a lowerbound on the size of $S^{\star}$ by fixing $a,b$ and consider the vertices corresponded to $aSb \subset S^{\star}$.    
 	Then by the mixing expansion lemma we get: 
@@ -271,15 +271,15 @@ By the fact that for any fixed $c,d$ we have that the induced words are codeword
       |\EST| &\ge \frac{\Delta^{2}}{n}|S||T| - \lambda_{\Gsbh}\sqrt{|S||T|}  
 	  \end{split}
 	\end{equation*}
-	\paragraph{Step-Edges Expansion.} Let us define a step-edge to be a concation of $e_{1},e_{2}$ edges in $\Gsah, \Gsbh$ such that $e_{1},e_{2}$ are adjacent in the union of $\Gsah, \Gsbh$ and they both either left or right edges. 
+	\paragraph{Step-Edges Expansion.} Let us define a step-edge to be a concatenation of $e_{1},e_{2}$ edges in $\Gsah, \Gsbh$ such that $e_{1},e_{2}$ are adjacent in the union of $\Gsah, \Gsbh$ and they both either left or right edges. 
 	Now consider again two vertices subsets $S$ and $T$ and denote by $ \ESTs $ the cut contains the step-edges between $T$ and $S$.
-	Consider now subsets $S^{\star}_{L}$ and $S^{\star}_{R}$ which are the vertices which can be reach from $S$ trough left, right edges. And notice that each step-edge is a path compused by an source vertex from $S$, an intermdiate vertex from $S^{\star}_{L}$ or $S^{\star}_{R}$ and a target vertex from $T$. 
+	Consider now subsets $S^{\star}_{L}$ and $S^{\star}_{R}$ which are the vertices which can be reach from $S$ trough left, right edges. And notice that each step-edge is a path composed by an source vertex from $S$, an intermediate vertex from $S^{\star}_{L}$ or $S^{\star}_{R}$ and a target vertex from $T$. 
 
 	In addition, by regularity the size of $S^{\star}_{L}$ is at most $\Delta|S|$.
-	And again by the fact that the edges are coressponded to Group generators, $S^{\star}_{L}$ can be bounded from below by considering the multiplication of $S$ by single generator.    
+	And again by the fact that the edges are corresponded to Group generators, $S^{\star}_{L}$ can be bounded from below by considering the multiplication of $S$ by single generator.    
 	
 
-	Hence by applaing the Mixing Lemma we have: 
+	Hence by applying the Mixing Lemma we have: 
 		\begin{equation*}
 	  \begin{split}
 	    \ESTs &= E\left( S^{\star}_{L}, T  \right)_{\cdot} +  E\left( S^{\star}_{R}, T  \right)_{\cdot} \\
