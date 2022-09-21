@@ -150,7 +150,7 @@
 
 	Let $A\in \mathbb{F}^{\rho^{\prime n } \times q}_{2}$ be the matrix such $A : [V] \mapsto [U] $. Now, any face supports at most $2\rho^{2}\Delta^{2}$ (choosing one of the negative vertices of the face and then choosing a codeword of the product $\Aab$). Then by Remark-14 of \cite{leverrier2022quantum} for large enough $\Delta$ we have that each of the generator contribute at least $\frac{1}{2}\Delta^{2}$ to the weight. and therefore each row of $A$ has at most $2\tilde{\delta}n/\Delta^{2}$ non zeros. Hence the total number of ones in $A$ is at most $\rho^{\prime}n \cdot 2\tilde{\delta}n/\Delta^{2}$ which also bounds the number of times each face appears in the matrix. As we have the freedom to choose $\rho$ let's fix it to be at order $c/n$ and therefore we have that $\gamma = c\tilde{\delta}/\Delta^{2}$.   
 	%$C_{ Take the base,   
-	
+	\section{The Code.}
  \paragraph{The Construction.} Fix primes $q,p_0,p_2,p_3,p_4$ such that each of them has $1 $ residue mode $4$. Let $A_{1},A_{2},A_{3},A_{4}$ be a different generators sets of $ \mathbf{PGL}(2 , \mathbb{Z} / q\mathbb{Z} )  $ 
   obtained by taking the solutions for $a_{0}^{2} + a_{1}^{2} +a_{2}^{2} +a_{3}^{2} = p_i $ such that the pairs $A_{1},A_{2}$ and $A_{3},A_{4}$ satisfy the 
   TNC constraint and also they all satisfy that constraint together, manly for any $g \in \mathbf{PGL}$  and $a_{1}\in A_{1}, a_{2} \in A_{2}, a_{3} \in A_{3}, a_{4} \in A_{4}$ we have that $ g \neq a_{3}a_{1}ga_{2}a_{4}$. 
@@ -466,6 +466,7 @@ Let $ T$ be set of vertices in $V_0$ that are connected to (at least) one normal
  Choosing $ \eta, \xi, \delta, \gamma, w, |x| < d $ such that the above is lower than $\frac{1}{2}\left( \delta\Delta \right)^{3}$ finishes the proof. 
  \paragraph{Theorem 2.} \textit{ The code $C_{w} / \mathcal{T}\left( \Gamma_{\square \square}, \left(  C_{A_1} \otimes C_{A_2} \otimes C_{A_3} \right)  \right)  $ has positive rate and linear distance.}
  \paragraph{Theorem 3.} \textit{ The code defined by $C_{x}$ has an efficient test for rejecting candidate with high error weigh. } 
+ \section{The Decoder.}
  \paragraph{The Decoder.} Let $x$ be a candidate that might or might not be in $C_{x}$. The decoder $\mathcal{D}$ describe below return a valid codeword of $C_{X}$ if $x$ is at distance at most $\tilde{\alpha}$ from $C_{x}$ and otherwise reject.
  First, for every positive (left) vertex $g\in G\times \mathbb{Z}_2 $,  $\mathcal{D}$ compute the codeword of the dual tensor code which is the closest to its local view. Denote each that codeword by $c_g$. 
  Then define the mismatch to be $z = \sum_{g \in G}{c_g} $ and notice that by the fact that each face is summed up twice $|z|$ equal the number of disagreements. 
