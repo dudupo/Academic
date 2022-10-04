@@ -44,9 +44,12 @@
 \begin{multicols*}{2}
   \section{Preambles}Coding theory has emerged by the need to transfer information in noisy communication channels. By embedding a message in higher dimension space, one can guarantee robustness against possible faults. The ratio of the original content length to the passed message length is the rate of the code, and it measures how consuming our communication protocol is. Furthermore, the distance of the code quantifies how many faults the scheme can absorb such that the receiver could recover the original message.    
 
-  Even though it is obvious that any construction resilient to a large number of faults should have a complexity price, The exact relation between the rate and the code distance is still unknown. However, we do know un-tight upper bounds. The first one was proved by Singelton and set the linear constraint: for any linear code.  
+  Even though it is obvious that any construction resilient to a large number of faults should have a complexity price, The exact relation between the rate and the code distance is still unknown. However, we do know un-tight upper bounds. The first one was proved by Singelton and set the linear constraint: $\rho + \delta \le 1 - \frac{1}{\Delta} $ for any $\left[ \Delta, \rho \Delta, \delta\Delta \right]$ linear code.  
 
-We say that code is good if its distance and rate are scaled linearly in the encoded message length. Good codes are considered.
+  We say that code is good if its distance and rate are scaled linearly in the encoded message length. Besides the fact that good codes are considered efficient in terms of robustness and overhead, they are also vital components in establishing secure multiparty computation and have a deep connection to probabilistic proofs.
+
+In this work, we show a new upper bound which tighter than the Singelton bound and holds for any good code.  We state the formal theorem in section 1.
+
   \section{Tanner Code}
   \section{Construction}
   \printbibliography 
