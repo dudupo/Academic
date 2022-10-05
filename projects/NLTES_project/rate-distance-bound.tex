@@ -1,4 +1,5 @@
 \documentclass{article}
+
 \usepackage[utf8]{inputenc}
 \usepackage[a4paper, total={7.5in, 10in}]{geometry}
 \usepackage{braket}
@@ -36,7 +37,7 @@
 \newcommand{\Ep}{\frac{1}{\sqrt{2^n}}\sum^{2^n}_{x}{ \ket{xx}}}
 \newcommand{\HON}{\ket{\psi_{\text{honest}}}}
 \newcommand{\Lemma}{\paragraph{Lemma.}}
-\newcommand{\PonB}{ \rho + \frac{5}{16}\delta\le 1 + \frac{1}{16} } 
+\newcommand{\PonB}{ \rho + \frac{5}{16}\delta\le \frac{3}{4} + \frac{1}{16} } 
 \newcommand{\Cpa}{[n, \rho n, \delta n]}
 %\setlength{\columnsep}{0.6cm}
 
@@ -45,10 +46,10 @@
 \begin{document}
 
 
-\title{Tanner Codes Singleton Bound}
+\title{Good Codes Singleton Bound}
 \author{David Ponarovsky}
 \maketitle
-\abstract{ We propose a new asymptotic upper bound on the trade-off between the rate and the distance of error correction codes obtained by Tanner construction.  }
+\abstract{ We propose a new asymptotic upper bound on the trade-off between the rate and the distance of good error correction codes. }
 \begin{multicols*}{2}
   \section{Preambles}Coding theory has emerged by the need to transfer information in noisy communication channels. By embedding a message in higher dimension space, one can guarantee robustness against possible faults. The ratio of the original content length to the passed message length is the rate of the code, and it measures how consuming our communication protocol is. Furthermore, the distance of the code quantifies how many faults the scheme can absorb such that the receiver could recover the original message.    
 
@@ -56,7 +57,7 @@
 
   Non-formally, we say that code is good if its distance and rate are scaled linearly in the encoded message length. Besides the fact that good codes are considered efficient in terms of robustness and overhead, they are also vital components in establishing secure multiparty computation \cite{MultiParty} and have a deep connection to probabilistic proofs.
 
-In this work, we show a new upper bound $\PonB $ which tighter than the Singelton bound and holds for any Tanner code. First, we state the notations, definitions, and formal theorem in section 2. Then in sections 3 and 4, we review past results and provide their proofs in order to make this paper self-contained. Readers familiar with the basic concepts of LDPC codes and the Tanner code construction should consider skipping directly to section 5, in which we provide our proof. 
+In this work, we show a new upper bound $\PonB $ which tighter than the Singelton bound and holds for any Good code. First, we state the notations, definitions, and formal theorem in section 2. Then in sections 3 and 4, we review past results and provide their proofs in order to make this paper self-contained. Readers familiar with the basic concepts of LDPC codes and the Tanner code construction should consider skipping directly to section 5, in which we provide our proof. 
 %Linear Error Correction Codes, 
 \section{Notations, Definitions, And Our Contribution}
 Here we focus only on linear binary codes, which one could think about as linear subspaces of $\mathbb{F}_{2}^{n}$. A common way to measure resilience is to ask how many bits an evil entity needs to flip such that the corrupted vector will be closer to another vector in that space than the original one. Those ideas were formulated by Hamming \cite{Hamming}, who presented the following definitions. 
