@@ -59,7 +59,11 @@ From now on, we will use the term code to refer to linear binary codes, as we do
 \paragraph{Definition.} A \textit{family of codes} is an infinite series of codes. Additionally, suppose the rates and relative distances converge into constant values $\rho,\delta$. In that case, we abuse the notation and call that family of codes a code with $[n, \rho n, \delta n]$ for fixed $\rho, \delta\in [ 0,1 )$, and infinite integers $n \in \mathbb{N}$.     
 
 Notice that the above definition contains codes with parameters attending to zero. From a practical view, it means that etiher we send too many bits, more than a constant amount, on each bit in the original message. Or that for big enough $n$, adversarial, limited to changing only a constant fraction of the bits, could disrupt the transmission. That distinction raises the definition of good codes.
+
 \paragraph{Definition.}We will say that a family of codes is a \textit{good code} if its parameters converge into positive values. 
+
+
+Nowadays, we are aware of a wide range of constructions yield good codes, including the expander codes of Sipser and Spilman \cite{ExpanderCodes} and the LTC codes of Dinur \cite{Dinur}, \cite{Pavel}, \cite{leverrier2022quantum}. Thus if, a decade ago, the main question was how to construct a good code, then now it is replaced by what is the best code one could expect.   
 \section{Singleton Bound}  
 \section{Tanner Code}
   \section{Construction}
