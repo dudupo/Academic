@@ -10,6 +10,8 @@
 \usepackage{svg}
 \usepackage{float}
 \usepackage{tikz}
+\usetikzlibrary{patterns,shapes.arrows}
+
 \usepackage[ruled,vlined]{algorithm2e}
 \usepackage{multicol}
 \usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
@@ -76,6 +78,11 @@ Now, we are ready to formulate our contribution.
   \end{split}
 \end{equation*}
 
+\begin{figure}[H]
+  \centering
+\input{singleton.tex}
+\caption{\( \hat{y} \) axis is the square amplitude, after performing symmetrtion in Fourier space, \(\hat{x}\) axis is the frequency in \( kHz \).  }
+\end{figure}
 \section{Singleton Bound}  
 \section{Tanner Code}
   \section{Construction}
