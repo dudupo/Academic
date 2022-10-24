@@ -1,0 +1,121 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, total={7.5in, 10in}]{geometry}
+\usepackage{braket}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{patterns,shapes.arrows}
+
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{multicol}
+\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\DeclareUnicodeCharacter{2212}{−}
+\usepgfplotslibrary{groupplots,dateplot}
+\pgfplotsset{compat=newest}
+
+\addbibresource{sample.bib} %Import the bibliography file
+
+\newcommand{\commentt}[1]{\textcolor{blue}{ \textbf{[COMMENT]} #1}}
+\newcommand{\ctt}[1]{\commentt{#1}}
+\newcommand{\prb}[1]{ \mathbf{Pr} \left[ {#1} \right]}
+\newcommand{\onotation}[1]{\(\mathcal{O} \left( {#1}  \right) \)}
+\newcommand{\ona}[1]{\onotation{#1}}
+\newcommand{\PSI}{{\ket{\psi}}}
+\newcommand{\LESn}{\ket{\psi_n}}
+\newcommand{\LESa}{\ket{\phi_n}}
+\newcommand{\LESs}{\frac{1}{\sqrt{n}}\sum_{i}{\ket{\left(0^{i}10^{n-i}\right)^{n}}}}
+\newcommand{\Hn}{\mathcal{H}_{n}}
+\newcommand{\Ep}{\frac{1}{\sqrt{2^n}}\sum^{2^n}_{x}{ \ket{xx}}}
+\newcommand{\HON}{\ket{\psi_{\text{honest}}}}
+\newcommand{\Lemma}{\paragraph{Lemma.}}
+\newcommand{\PonB}{ \rho + \frac{5}{16}\delta\le \frac{3}{4} + \frac{1}{16} } 
+\newcommand{\Cpa}{[n, \rho n, \delta n]}
+%\setlength{\columnsep}{0.6cm}
+
+\newcommand{\Gz}{ G_{z}^{\delta} } 
+
+\begin{document}
+
+
+\title{Simple Almost LTC Good LDPC Codes} 
+\author{David Ponarovsky}
+\maketitle
+\abstract{We propose a new simple construction based on Tanner Codes, which yields a good LDPC code with testability query complexity of $\theta\left( n^{1-\varepsilon} \right)$ for any $\varepsilon> 0$ .} 
+\begin{multicols*}{2}
+  \section{Preambles}Coding theory has emerged by the need to transfer information in noisy communication channels. By embedding a message in higher dimension space, one can guarantee robustness against possible faults. The ratio of the original content length to the passed message length is the rate of the code, and it measures how consuming our communication protocol is. Furthermore, the distance of the code quantifies how many faults the scheme can absorb such that the receiver could recover the original message. Also, We could think about the code as all the strings that satisfy a specified restrictions collection.
+
+ Non-formally, we say that code is good if its distance and rate are scaled linearly in the encoded message length.  In practice, one might also intrested to be able to implement those checks efficiently. We say that a code is an LDPC if any bit is involved in a constant number of restrictions, each of which is a linear equation, and if any restriction contains a fixed number of variables. And finally, another characteristic of the code is its testability, which is the complexity of the number of random checks one should be done in order to negate that a given candidate is in the code.
+
+Besides the fact that good codes are considered efficient in terms of robustness and overhead, they are also vital components in establishing secure multiparty computation \cite{MultiParty} and have a deep connection to probabilistic proofs.
+
+In this work, we propose a new construction for good LDPC codes, which also have a good testability parameter. In contrast to previews, constructions made by C and D, our construction does not involve any amplification And is almost identical to the expander code construction, which is considered by many simple and easy to implement. We remark that Dinur, in her last work, obtained a better LTC code with only constant query complexity. Yet, here construction requires using algebraic structures, which complicates the process. First, we state the notations, definitions, and formal theorem in section 2. Then in sections 3 and 4, we review past results and provide their proofs in order to make this paper self-contained. Readers familiar with the basic concepts of LDPC, Tanner and Expanders codes construction should consider skipping directly to section 5, in which we provide our proof. 
+%Linear Error Correction Codes, 
+\section{Notations, Definitions, And Our Contribution}
+Here we focus only on linear binary codes, which one could think about as linear subspaces of $\mathbb{F}_{2}^{n}$. A common way to measure resilience is to ask how many bits an evil entity needs to flip such that the corrupted vector will be closer to another vector in that space than the original one. Those ideas were formulated by Hamming \cite{Hamming}, who presented the following definitions. 
+\paragraph{Definition.} Let $n \in \mathbb{N}$ and $\rho, \delta\in \left( 0,1 \right)$. We say that $C$ is a \textit{binary linear code} with parameters $[n, \rho n, \delta n]$. If $C$ is a subspace of $\mathbb{F}_{2}^{n}$, and the dimension of $C$ is at least $\rho n$. In addition, we call the vectors belong to $C$ \textit{codewords} and define the distance of $C$ to be the minimal number of different bits between any codewords pair of $C$.   
+
+From now on, we will use the term code to refer to linear binary codes, as we don't deal with any other types of codes. Also, even though it is customary to use the above parameters to analyze codes, we will use their percent forms called the relative distance and the rate of code, matching $\delta$ and $\rho$ correspondingly.     
+\paragraph{Definition.} A \textit{family of codes} is an infinite series of codes. Additionally, suppose the rates and relative distances converge into constant values $\rho,\delta$. In that case, we abuse the notation and call that family of codes a code with $[n, \rho n, \delta n]$ for fixed $\rho, \delta\in [ 0,1 )$, and infinite integers $n \in \mathbb{N}$.     
+
+Notice that the above definition contains codes with parameters attending to zero. From a practical view, it means that etiher we send too many bits, more than a constant amount, on each bit in the original message. Or that for big enough $n$, adversarial, limited to changing only a constant fraction of the bits, could disrupt the transmission. That distinction raises the definition of good codes.
+
+\paragraph{Definition.}We will say that a family of codes is a \textit{good code} if its parameters converge into positive values. 
+
+
+Nowadays, we are aware of a wide range of constructions yield good codes, including the expander codes of Sipser and Spilman \cite{ExpanderCodes} and the LTC codes of Dinur \cite{Dinur}, \cite{Pavel}, \cite{leverrier2022quantum}. Thus if, a decade ago, the main question was how to construct a good code, then now it is replaced by what is the best code one could expect.   
+
+To get a feeling of the behavior of the distance-rate trade-of, Let us consider the following two codes; each demonstrates a different extreme case. First, define the repetition code $C_{r} \subset \mathbb{F}_{2}^{n \cdot r}$, In which, for a fixed integer $r$, any bit of the original string is duplicated $r$ times. Second, consider the parity check code $C_{p} \subset \mathbb{F}_{2}^{n+1}$, which it's codewords are only the vectors with even parity. Let us analyze the repetition code. Clearly, any two $n$-bits different messages must have at least a single different bit. Therefore their corresponding encoded codewords have to differ in at least $r$ bits. Hence, by scaling $r$, one could achieve a higher distance as he wishes. Sadly the rate of the code decays as $n/nr = 1/r$. In contrast, the parity check code adds only a single extra bit for the original message. Therefore scaling $n$ gives a family which has a rate attends to $\rho \rightarrow 1$. However, flipping any two different bits of a valid codeword is conversing the parity and, as a result, leads to another valid codeword.
+
+To summarize the above, we have that, using a simple construction, one could construct the codes $[r, 1, r]$, $[r, r-1, 2]$. Each has a single perfect parameter while the other decays to the worst. In the next section, we will review the Singleton bound, which states that for any code (not necessarily good), there must be a zero-sum game between the relative distance and the rate.
+Now, we are ready to formulate our contribution. 
+
+\paragraph{Theorem 1}  Let $C$ be a family of good codes, with parameters $\Cpa$ . Then: \begin{equation*}
+  \begin{split}
+    & \PonB 
+  \end{split}
+\end{equation*}
+
+\begin{figure}[H]
+ % \centering
+\input{singleton}
+\caption{Comparing our bound, in black,  to Singleton bound, in gray. }
+\end{figure}
+\section{Singleton Bound}  
+Besides of been the first bound, Singleton bound demonstrates how one could get results by using relatively simple elementary arguments. It is also engaging to ask why the proof yields a bound that, empirically, seems far from being tight.
+\paragraph{Theorem, Singleton Bound.} For any linear code with parameter $[n,k,d]$, the following inequality holds:
+\begin{equation*}
+    k+ d \le n + 1
+\end{equation*} 
+\textbf{Proof:} Since any two codewords of $C$ differ by at least $d$ coordinates, we know that by ignoring the first $d-1$ coordinate of any vector, we obtain a new code with one-to-one corresponding to the original code. In other words, we have found a new code with the same dimension embedded in $\mathbb{F}_{2}^{n-d+1}$. Combine the fact that dimension is, at most, the dimension of the container space, we get that:  
+\begin{equation*}
+  \begin{split}
+    \dim C &= 2^{k} \le 2^{n-d+1} \Rightarrow k+d \le n + 1
+  \end{split}
+\end{equation*}
+$\square$
+
+It is also well known that the only binary codes that reach the bound are: $[n,1,n]$, $[n,n-1,2]$,$[n,n,1]$ \cite{eczoo_mds}. In particular, there are no good binary codes that obtain equality. Next, we will review Tanner's construction, that in addition to being a critical element to our proof, also serves as an example of how one can construct a code with arbitrary length and positive rate.
+\section{Tanner Code}
+The constructions require two main ingredients: a graph $\Gamma$, and for simplicity, we will restrict ourselves to a $\Delta$ regular graph. Secondly, a small code $C_{0}$ at length equals the graph's regularity, namely $C_{0} = [\Delta,\rho\Delta, \delta\Delta]$. We can think about any bit string at length E as an assignment over the edges of the graph. Furthermore, for every vertex $v \in \Gamma$, we will call the bit string, which is set on its edges, the local view of $v$.  Then we can define, \cite{Tanner}:
+\paragraph{Definition.}  Let $ C = \mathcal{T}\left( \Gamma, C_{0} \right)$  be all the codewords which, for any vertex $v\in \Gamma$, the local view of $v$ is a codeword of $C_{0}$. We say that $C$ is a Tanner code of $\Gamma, C_{0}$. Notice that if $C_{0}$ is a binary linear code, So $C$ is.  
+
+
+It's also worth mentioning that the first construction of good classical codes, due to Sipser and Shpilman, are Tanner codes over expanders graphs \cite{ExpanderCodes}.
+\paragraph{Theorem} Tanner codes have a rate of at least $2\rho - 1$.
+\textbf{Proof:}  
+  \section{Construction}
+  \section{Comparing To Known Bounds In A Variety Of Regimes}
+  \printbibliography 
+\end{multicols*}
+\end{document}
+
+
