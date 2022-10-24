@@ -49,7 +49,7 @@
 \title{Simple Almost LTC Good LDPC Codes} 
 \author{David Ponarovsky}
 \maketitle
-\abstract{We propose a new simple construction based on Tanner Codes, which yields a good LDPC code with testability query complexity of $\theta\left( n^{1-\varepsilon} \right)$ for any $\varepsilon> 0$ .} 
+\abstract{We propose a new simple construction based on Tanner Codes, which yields a good LDPC code with testability query complexity of $\Theta\left( n^{1-\varepsilon} \right)$ for any $\varepsilon> 0$ .} 
 \begin{multicols*}{2}
   \section{Preambles}Coding theory has emerged by the need to transfer information in noisy communication channels. By embedding a message in higher dimension space, one can guarantee robustness against possible faults. The ratio of the original content length to the passed message length is the rate of the code, and it measures how consuming our communication protocol is. Furthermore, the distance of the code quantifies how many faults the scheme can absorb such that the receiver could recover the original message. Also, We could think about the code as all the strings that satisfy a specified restrictions collection.
  Non-formally, we say that code is good if its distance and rate are scaled linearly in the encoded message length.  In practice, one might also intrested to be able to implement those checks efficiently. We say that a code is an LDPC if any bit is involved in a constant number of restrictions, each of which is a linear equation, and if any restriction contains a fixed number of variables. And finally, another characteristic of the code is its testability, which is the complexity of the number of random checks one should be done in order to negate that a given candidate is in the code.
