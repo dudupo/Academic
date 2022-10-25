@@ -143,7 +143,18 @@ $\square$
 Consider an arbitrary vertex $r \in V^\prime$, and consider the DAG obtained by the BFS walk over the subgraph $\left(V^\prime, E^\prime \right)$ starting at $r$. Denote this directed tree by $T$.
 Let $g$ be the girth of the graph, and consider a layer $U$ in $T$ at height $h\left( U \right)$ satisfies the inequality $ h\left( U \right) < \frac{1}{2}g + l$ for some integer $l$.
 \paragraph{Claim.}. The number of vertices with more than a single parent in $T$ is at most ${\Delta^l}\choose{2}$.  
-\paragraph{Proof:}Assume, towards contradiction, that there are more than $ \Delta^l \choose 2 $ in $U$ that has at least two parents, And consider all the subs trees of $T$ whose roots are placed in height $l$. There are, at most $\Delta^l$, such sub-trees. Hence, by the assumption, there must be a pair of vertices in $U$ with parents in the same sub tree. Because each sub tree has a height at most half of $g$, there is a path connecting those parents at length at most $g$. Then, one can concatenate that path with the corresponding vertices in $U$ and get a cycle shorter than the girth. $\square$
+\paragraph{Proof:}Assume, towards contradiction, that there are more than $ \Delta^l \choose 2 $ in $U$ that has at least two parents, And consider all the subtrees of $T$ whose roots are placed in height $l$. There are, at most $\Delta^l$, such subtrees. Hence, by the assumption, there must be a pair of vertices in $U$ with parents in the same subtree. Because each subtree has a height at most half of $g$, there is a path connecting those parents at length at most $g$. Then, one can concatenate that path with the corresponding vertices in $U$ and get a cycle shorter than the girth. $\square$
+
+\paragraph{Lemma}. Let $U$ be a layer at height $l$. The number of vertices in $U$ is at least F.
+
+\paragraph{Proof:} We will think of $T$ as the tree obtained by purning a tree, with degree greater than $\frac{1}{2}\delta_{0}\Delta$, at height $l$, namely any vertex at height $i \le l $ with two parents can be counted as subtree with height $l-i$ that has pruned. Then the problem is equivalence to bounding from above the number of pruned vertices at height $l$. Define $X_{i}$ to be the number of pruned subtrees whose root is at height $i$. Denote $ \omega = \frac{1}{2}\delta_{0}\Delta$, Then consider the next maximization problem: 
+\begin{equation*}
+  \begin{split}
+    X_{i} & \le \Delta^{2\max \left\{ 0, l-g/2 \right\}} \\ 
+    f & = \sum_{0}^{l}{\omega^{l-i}X_{i} }
+  \end{split}
+\end{equation*}
+
 
 Let C be the small code with parameters A. And Let G be an expander graph with girth A. Denote by C the Tanner code of  C and A.
   \section{Comparing To Known Bounds In A Variety Of Regimes}
