@@ -121,14 +121,12 @@ We call to such code the \textit{disagreement code} of $C$, as edges are set to 
 Assume the correctness of the argument for every codeword defined by at most $m$ nontrivial suggestions made by $V^\prime \subset V$.  And consider the graph $\left( V^\prime, E^\prime \right)$ induced by them. If the graph has more than a single connectivity component, then any of them is also a codeword of $C_{\oplus}$  but composed by at most $m-1$ nontrivial suggestions. Therefore, by the assumption, we could find a vertex $v$ and a proper small codeword $c_v \in C_0 $, such that the addition of the suggestion will decrease the weight of the codeword defined on that component and therefore decrease the total weight of $x$.
 
 So, we can assume that the vertices in $V^\prime$ compose a single connectivity component. Let be $x|_{v} \in \mathbb{F}_{2}^{\Delta}$ the bits of $x$ on the indices corresponding to $v$'s edges. If there is any $v$, with suggestion $c_{v}$, such that $ \frac{1}{2}w\left( c_{v}\right) < w\left( x|_{v} \right)$, then we could pick to turn on $c_{v}$ again and have that:
-
 \begin{equation*}
   \begin{split}
     |x+c_{v}| & = | x_{/v} + x_{v} + c_{v}| = |x_{/v}| + w\left( c_{v} \right) + w\left( x|_{v} \right) \\
     & < |x_{/v}| + \frac{1}{2}w\left( c_{v} \right) \le |x_{/v}| + w\left( x|_{v} \right) = |x|
   \end{split}
 \end{equation*}
-
 
 Hence it is left to consider the case that for any $v\in V^\prime$, it holds that $\frac{1}{2}w\left( c_{v}\right) >  w\left( x|_{v} \right)$ (Notice that if they equal, then by turn on $c_{v}$, we back again to codeword made by $m-1$ nontrivial suggestions). We will prove that this case is possible only for codewords with wight at least $\alpha|E|^{1-\varepsilon}$.
 
