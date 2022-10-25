@@ -197,13 +197,20 @@ Denote by $x|_{U}$ the bits of $x\in C$ correspond to the edges that connected t
 \begin{equation*}
   \begin{split}
     w_{E/E^{\prime}}\left( x|_{U} \right) & \ge \delta_{0}\Delta|U| -w\left( E(U_{-1} \bigcup U_{+1} ,U)  \right) \ge \\ 
-    &  \delta_{0}\Delta|U| - \Delta\frac{|U||U_{-1}}{n} - \\ &
-    \Delta\frac{|U||U_{+1}}{n} -\lambda\sqrt{|U||U_{-1}|} - \lambda\sqrt{|U||U_{+1}|}
+    &  \delta_{0}\Delta|U| - \Delta\frac{|U||U_{-1}|}{n} - \Delta\frac{|U||U_{+1}|}{n} \\
+    & -\lambda\sqrt{|U||U_{-1}|} - \lambda\sqrt{|U||U_{+1}|}
   \end{split}
 \end{equation*}
 
 \paragraph{Claim.} We can assume that $|U| \ge |U_{-1}|, |U_{+1}|$. 
-\paragraph{Proof:} Suppose that $|U_{+1}| > |U|$ then clearly $|U_{+1}| > \frac{1}{2}\omega^{\frac{3}{4}g} $, so we could choose $U$ to be $U_{+1}$. Continuing stepping deeper till we have that $|U| > |U_{+1}|, |U_{-1}|$. Simiraly, if $|U| > |U_{+1}|$ but $|U_{-1}| > |U|$, the we could take steps upward by replacing $U_{-1}$ with $U$. At the end of the process, we will be left with $U$ such  that $|U| > \frac{1}{2}\omega^{\frac{4}{3}g}$ and $|U| > |U_{+1}|, |U_{-1}|$ $\square$
+\paragraph{Proof:} Suppose that $|U_{+1}| > |U|$ then clearly $|U_{+1}| > \frac{1}{2}\omega^{\frac{3}{4}g} $, so we could choose $U$ to be $U_{+1}$. Continuing stepping deeper till we have that $|U| > |U_{+1}|, |U_{-1}|$. Simiraly, if $|U| > |U_{+1}|$ but $|U_{-1}| > |U|$, the we could take steps upward by replacing $U_{-1}$ with $U$. At the end of the process, we will be left with $U$ such that $|U| > \frac{1}{2}\omega^{\frac{4}{3}g}$ and $|U| > |U_{+1}|, |U_{-1}|$ $\square$
+
+Using the the claim, we have that $\left( |U_{+1}| + |U_{-1}| \right)/n <\frac{2}{3} $ and therefore:
+\begin{equation*}
+  \begin{split}
+    w_{E/E^{\prime}}\left( x|_{U} \right) & \ge \Delta\left( \delta_{0} - \frac{2}{3} - \frac{2\lambda}{\Delta} \right) 
+  \end{split}
+\end{equation*}$\square$
 
 Let C be the small code with parameters A. And Let G be an expander graph with girth A. Denote by C the Tanner code of  C and A.
   \section{Comparing To Known Bounds In A Variety Of Regimes}
