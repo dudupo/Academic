@@ -108,7 +108,13 @@ The constructions require two main ingredients: a graph $\Gamma$, and for simpli
 
 It's also worth mentioning that the first construction of good classical codes, due to Sipser and Shpilman, are Tanner codes over expanders graphs \cite{ExpanderCodes}.
 \paragraph{Theorem} Tanner codes have a rate of at least $2\rho - 1$.
-\textbf{Proof:}  
+\textbf{Proof:}  The dimension of the subspace is bounded by the dimension of the container minus the number of restrictions. So assuming non-degeneration of the small code restrictions, we have that any vertex count exactly $ \left( 1 - \rho  \right)\Delta $ restrictions. Hence,
+
+\begin{equation*}
+  \begin{split}
+    \dim C & \ge \frac{1}{2}n\Delta - \left( 1-\rho \right)\Delta n = \frac{1}{2}n\Delta\left( 2\rho - 1 \right)  
+  \end{split}
+\end{equation*} 
   \section{Construction}
 \subsection{ Almost LTC With Zero Rate}
 \paragraph{Definition. The Disagreement Code.} Given a Tanner code $C = \Tann$, define the code $C_{\oplus}$ to contain all the words equal to the formal summation $ \sum_{v \in V\left( G \right)} {c_{v} }$ when $c_{v}$ is an assignment of a codeword $ c_{v} \in C_0 $  on the edges of the vertex $ v \in V\left( G \right)$.
@@ -219,7 +225,9 @@ That immediately yields the following:
   \end{split}
 \end{equation*}
 So for any $\delta_0 \ge \frac{2}{3} + \frac{2\lambda}{\Delta} $ we have proved Theorem 1 $\square$
-Unfortunately, Singelton bound doesn't allow both $\delta_0 > \frac{2}{3}$ and $\rho_0 \ge \frac{1}{2}$, so in total, we prove the existence of code LDPC code which is good in terms of testability and distance yet has a zero rate. In the next subsection, we will prove that one can overcome this problem by requiring, only from the half of the vertices, to restrict their local view to be codewords of heigh relative distance. 
+Unfortunately, Singelton bound doesn't allow both $\delta_0 > \frac{2}{3}$ and $\rho_0 \ge \frac{1}{2}$, so in total, we prove the existence of code LDPC code which is good in terms of testability and distance yet has a zero rate. In the next subsection, we will prove that one can overcome this problem by requiring only half of the vertices to restrict their local view to be codewords of high relative distance. 
+\subsection{ Almost LTC With Positive Rate } 
+
   \section{Comparing To Known Bounds In A Variety Of Regimes}
   \printbibliography 
 \end{multicols*}
