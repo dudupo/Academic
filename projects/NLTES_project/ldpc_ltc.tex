@@ -131,14 +131,17 @@ So, we can assume that the vertices in $V^\prime$ compose a single connectivity 
 Hence it is left to consider the case that for any $v\in V^\prime$, it holds that $\frac{1}{2}w\left( c_{v}\right) >  w\left( x|_{v} \right)$ (Notice that if they equal, then by turn on $c_{v}$, we back again to codeword made by $m-1$ nontrivial suggestions). We will prove that this case is possible only for codewords with wight at least $\alpha|E|^{1-\varepsilon}$.
 
 For any $S \subset E$, define $w_{S}\left( x \right)$ to be the weight that $x$ induces over $S$. And notice that any edge of $E$ connected only to a single vertex in $V^\prime$ equals the corresponding bit in the original suggestion made by $c_{v}$. Hence for every $v\in V^\prime$, it holds that $w_{E / E^\prime}\left(x|_{v}\right) = w_{E / E^\prime}\left(c_{v}\right)$. 
-
 \paragraph{Claim.} For any $v \in V^\prime$ and corresponded suggestion $c_{v}$ it holds that: $w_{E^\prime}\left( c_{v} \right) \ge \frac{1}{2}\delta_{0}\Delta$. 
 \paragraph{Proof:} \begin{equation*}
   \begin{split}
     w_{E^\prime}\left( c_{v} \right) &= w\left( c_{v} \right) - w_{E / E^\prime}\left( c_{v} \right) =  w\left( c_{v} \right) - w_{E / E^\prime}\left( x|_{v} \right) \ge \\ 
-    & w\left( c_{v} \right) - w\left( x|_{v} \right) \ge \frac{1}{2}w\left( c_{v} \right) = \frac{1}{2}\delta_{0}\Delta
+    & w\left( c_{v} \right) - w\left( x|_{v} \right) \ge \frac{1}{2}w\left( c_{v} \right) = \frac{1}{2}\delta_{0}\Delta \square
   \end{split}
 \end{equation*}
+
+Consider an arbitrary vertex $r \in V^\prime$, and consider the DAG obtained by the BFS walk over the subgraph $\left(V^\prime, E^\prime \right)$ starting at $r$. Denote this directed tree by $T$.
+
+
 Let C be the small code with parameters A. And Let G be an expander graph with girth A. Denote by C the Tanner code of  C and A.
   \section{Comparing To Known Bounds In A Variety Of Regimes}
   \printbibliography 
