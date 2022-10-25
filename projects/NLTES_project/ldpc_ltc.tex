@@ -145,9 +145,14 @@ Let $g$ be the girth of the graph, and consider a layer $U$ in $T$ at height $h\
 \paragraph{Claim.}. The number of vertices with more than a single parent in $T$ is at most ${\Delta^l}\choose{2}$.  
 \paragraph{Proof:}Assume, towards contradiction, that there are more than $ \Delta^l \choose 2 $ in $U$ that has at least two parents, And consider all the subtrees of $T$ whose roots are placed in height $l$. There are, at most $\Delta^l$, such subtrees. Hence, by the assumption, there must be a pair of vertices in $U$ with parents in the same subtree. Because each subtree has a height at most half of $g$, there is a path connecting those parents at length at most $g$. Then, one can concatenate that path with the corresponding vertices in $U$ and get a cycle shorter than the girth. $\square$
 
-\paragraph{Lemma}. Let $U$ be a layer at height $l$. The number of vertices in $U$ is at least F.
+\paragraph{Lemma}. Let $U$ be a layer at height $l$ and denote by $ \omega = \frac{1}{2}\delta_{0}\Delta$. The number of vertices in $U$ is at least: 
+\begin{equation*}
+  \begin{split}
+    \left( \frac{1}{2}\delta_0\Delta \right)^{l}- \frac{\left( \frac{\Delta^{2}}{\omega} \right)\Delta^{2l-g} - \omega^{l-g/2} }{\frac{\Delta^{2}}{\omega}-1}
+  \end{split}
+\end{equation*}
 
-\paragraph{Proof:} We will think of $T$ as the tree obtained by purning a tree, with degree greater than $\frac{1}{2}\delta_{0}\Delta$, at height $l$, namely any vertex at height $i \le l $ with two parents can be counted as subtree with height $l-i$ that has pruned. Then the problem is equivalence to bounding from above the number of pruned vertices at height $l$. Define $X_{i}$ to be the number of pruned subtrees whose root is at height $i$. Denote $ \omega = \frac{1}{2}\delta_{0}\Delta$, Then consider the next maximization problem: 
+\paragraph{Proof:} We will think of $T$ as the tree obtained by purning a tree, with degree greater than $\frac{1}{2}\delta_{0}\Delta$, at height $l$, namely any vertex at height $i \le l $ with two parents can be counted as subtree with height $l-i$ that has pruned. Then the problem is equivalence to bounding from above the number of pruned vertices at height $l$. Define $X_{i}$ to be the number of pruned subtrees whose root is at height $i$. Then consider the next maximization problem: 
 \begin{equation*}
   \begin{split}
     X_{i} & \le \Delta^{2\max \left\{ 0, l-g/2 \right\}} \\ 
@@ -155,12 +160,7 @@ Let $g$ be the girth of the graph, and consider a layer $U$ in $T$ at height $h\
       \frac{\left( \frac{\Delta^{2}}{\omega} \right)\Delta^{2l-g} - \omega^{l-g/2} }{\frac{\Delta^{2}}{\omega}-1}
   \end{split}
 \end{equation*}
-Hence,  
-\begin{equation*}
-  \begin{split}
-    |U| \ge \left( \frac{1}{2}\delta_0\Delta \right)^{l}- \frac{\left( \frac{\Delta^{2}}{\omega} \right)\Delta^{2l-g} - \omega^{l-g/2} }{\frac{\Delta^{2}}{\omega}-1}
-  \end{split}
-\end{equation*}$\square$
+Hence, by using the inequality $ |U| \ge \omega^{l} - f $ we get the bound.  
 
 Let C be the small code with parameters A. And Let G be an expander graph with girth A. Denote by C the Tanner code of  C and A.
   \section{Comparing To Known Bounds In A Variety Of Regimes}
