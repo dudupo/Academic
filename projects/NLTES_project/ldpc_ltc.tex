@@ -243,6 +243,9 @@ For proving a linear distance, fix a codeword $x \in C$ and denote By $S_{\pm}$ 
 \end{equation*}
 Notice $|x| < |S_{-}| + |S_{+}| < 2|x|$ and $|S_{\pm}| < \Delta |S_{\mp}|$, so if $S_{-}$ is sublinear, then $S_{+}$ is also sublinear. In addition, we can assume, without loss of generality, that $|S_{-}| < |S_{+}|$. Hence, we have that the average of nontrivial incoming edges to a vertex in $|S_{+}|$ is less than $ \Delta \frac{|S_{-}|}{n} + \lambda $. That implies that for any $x = o\left( n \right)$ there must be at least a single vertex $ v \in S_{+} $ with less than $ \lambda $ nontrivial incoming edges; in other words, the weight of the word seen by $v$ is less than $\lambda$, which contradicts the assumption that $x\in C$ $\square$
 
+\paragraph{Theorem 1+.} For every $\varepsilon > 0$, there exist $\Delta_{\varepsilon}\in \mathbb{N}$ and $\alpha>0$ such that if $\Delta \ge \Delta_{\varepsilon}$, then for every $x \in C_{\oplus}$ at Hamming weight at most $\alpha |E|^{1-\varepsilon}$, there exists a vertex $v \in V_{\pm}$ and a small codeword $c_{v} \in C_{0}^{\pm} $ such that adding the assignment of it over the $v$'s edges to $x$ define the codeword $x + c_{v}$  such that $|x + c_{v}| < |x|$.  
+
+
 
   \section{Comparing To Known Bounds In A Variety Of Regimes}
   \printbibliography 
