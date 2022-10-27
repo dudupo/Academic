@@ -2,6 +2,7 @@
 % Author: Mark Wibrow
 \documentclass[tikz,border=10pt]{article}
 \usepackage{tikz}
+\usetikzlibrary{positioning}
 \begin{document}
 
 \tikzset{%
@@ -20,44 +21,28 @@
 
 \begin{tikzpicture}[x=1.5cm, y=1cm, >=stealth]
 
-\foreach \m/\l [count=\y] in {1,2,3,4,missing,5}
-  \node [every neuron/.try, neuron \m/.try] (input-\m) at (1 ,1-\y) {};
-
-% \node [every neuron/.try, neuron 6.try] (middle-1) at (3 ,-1) {};
-\node [every neuron/.try, neuron 7.try] (middle-2) at (3 ,-3) {};
-\node [every neuron/.try, neuron 7.try] (out-1) at (5 ,-2) {};
-
-\foreach \l [count=\i] in {1,2,3,4, 5}
-  \draw [<-] (input-\i) -- ++(-1,0)
-    node [above, midway] {$I_\i$};
-
-\draw [->] (out-1) -- ++(1,0)
-    node [above, midway] {$O$};
-
-\foreach \y [count=\yi] in {1,2,3,4,5}
-%   \foreach \j in {1,...,2}
-       \pgfmathtruncatemacro{\cur}{\y}
-       \pgfmathtruncatemacro{\next}{\y + 1}
-      \draw [->](input-\cur) -- (middle-2);
-    %   \draw [->] (input-\cur) to [out=50,in=160] (input-5);
-
-
-% \foreach \y [count=\yi] in {1,2,3}
-% %   \foreach \j in {1,...,2}
-%       \pgfmathtruncatemacro{\cur}{\y}
-%       \pgfmathtruncatemacro{\next}{\y + 1}
-%     %   \draw [->](input-\cur) -- (input-\next)
-%       \draw [->] (input-1) to [out=50,in=130] (input-\next);
-% \draw [->](input-1) -- (input-5);
-\draw [->] (input-1) to (out-1);
-% \draw [->] (middle-1) to (out-1);
-\draw [->] (middle-2) to (out-1);
-    % \draw [->] (input-\y) -- (input-(1+\y));
-
-
-
-\foreach \l [count=\x from 0] in {Input, Ouput}
-  \node [align=center, above] at (1 + \x*4,0.5) {\l \\ layer};
+  \node [every neuron/.try, neuron 7.try] (v-0) at (0,0) {};  
+  \node [every neuron/.try, neuron 7.try] (v-1) at (-2,-2) {};
+  \node [every neuron/.try, neuron 7.try] (v-2) at (0,-2) {};
+  \node [every neuron/.try, neuron 7.try] (v-3) at (2,-2) {};
+  \node [every neuron/.try, neuron 7.try] (v-4) at (-6,-4) {};
+  \node [every neuron/.try, neuron 7.try] (v-5) at (-4,-4) {};  
+  \node [every neuron/.try, neuron 7.try] (v-6) at (-2,-4) {};
+  \node [every neuron/.try, neuron 7.try] (v-7) at (0,-4) {};
+  \node [every neuron/.try, neuron 7.try] (v-8) at (2,-4) {};
+  \node [every neuron/.try, neuron 7.try] (v-9) at (4,-4) {};
+  \node [every neuron/.try, neuron 7.try] (v-10) at (6,-4) {};  
+  \node [every neuron/.try, neuron 7.try] (v-11) at (8,-4) {};
+  \node [every neuron/.try, neuron 7.try] (v-12) at (10,-4) {};
+  \draw [->] (v-0) -- (v-1);
+  \draw [->] (v-0) -- (v-2);
+  \draw [->] (v-0) -- (v-3);
+  \draw [->] (v-1) -- (v-4);
+  \draw [->] (v-1) -- (v-5);
+  \draw [->] (v-1) -- (v-6);
+  \draw [->] (v-2) -- (v-7);
+  \draw [->] (v-2) -- (v-8);
+  \draw [->] (v-2) -- (v-9);
 
 \end{tikzpicture}
 \end{document}
