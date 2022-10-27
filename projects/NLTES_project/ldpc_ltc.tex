@@ -284,13 +284,14 @@ And the fact that $|x| \ge w_{E/E^{\prime}}\left( x|_{U\cup U_{+1}} \right) $ pr
 
 \subsection{ Tanner Code Testability For Small ($n^{\frac{2}{3}-\varepsilon}$) Errors}
 Another side result obtained by the proof of Theorem 1 is that one cannot hide errors in a tree at a length less than half of the girth. Namely, any codeword of the disagreement code with a weight less than $ \omega^{\frac{1}{2}g} $ could be reduced, regardless of the parameters of the small code. 
-\paragraph{Theorem 1-.} For every $\delta_{0}, \varepsilon > 0$, there exist $\Delta_{\varepsilon}\in \mathbb{N}$ and $\alpha>0$ such that if $\Delta \ge \Delta_{\varepsilon}$, then for every $x \in C_{\oplus}$ at Hamming weight at most $\alpha |E|^{\frac{2}{3}-\varepsilon}$, there exists a vertex $v \in V$ and a small codeword $c_{v} \in C_{0} $ such that adding the assignment of it over the $v$'s edges to $x$ define the codeword $x + c_{v}$  such that $|x + c_{v}| < |x|$.  
+\paragraph{Theorem 1-.} For every $\delta_{0}, \varepsilon > 0$, there exist $\Delta_{\varepsilon}\in \mathbb{N}$ and $\alpha>0$ such that if $\Delta \ge \Delta_{\varepsilon}$, then for every $x \in C_{\oplus}$ at Hamming weight at most $\alpha |E|^{\frac{g}{2}-\varepsilon}$, there exists a vertex $v \in V$ and a small codeword $c_{v} \in C_{0} $ such that adding the assignment of it over the $v$'s edges to $x$ define the codeword $x + c_{v}$  such that $|x + c_{v}| < |x|$.  
 \paragraph{Proof:} Proof,  Define $T$ again to be the DAG constructed as in the proof of Theorem 1 and denote by $U$ the last layer of $T$. As the height of the tree is less than $\frac{1}{2}g$, then it follows from the claim that any vertex $v$ in $U$ has at most one parent in $T$, and therefore:    
 \begin{equation*}
   \begin{split}
     w_{E/E^{\prime}}\left( x|_{v} \right) \ge w(c_{v}) - 1 \ge \frac{1}{2}w(c_{v})
   \end{split}
-\end{equation*}<++>
+\end{equation*}
+Assuming Girth is greater than $\frac{4}{3}\log_{\Delta-1}\left( n \right)$  gives us a decoder against errors at weight at most $n^{\frac{3}{2}-\varepsilon}$. 
 
   \section{Comparing To Known Bounds In A Variety Of Regimes}
   \printbibliography 
