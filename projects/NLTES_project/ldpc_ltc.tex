@@ -308,10 +308,10 @@ For completeness, we show exactly how Theorem 1 implies testability. The followi
   \caption{Decoding}
   \label{alg:three}
   \KwData{ $x \in \mathbb{F}_{2}^{n}$ }
-  \KwResult{ $\arg\min { y \in C : |y + x|  }$ if $d(y,C) < \tau $ and False otherwise. }
+\KwResult{ $\arg\min {\left\{  y \in C : |y + x|  \right\} }$ if $d(y,C) < \tau $ and False otherwise. }
   $ L \leftarrow \{ \} $\\
   \For { $ v \in V$} {
-    $c^{\prime}_{v} \leftarrow \arg\min { y \in C_{0} : |y + x|_{v} |  } $\\
+  $c^{\prime}_{v} \leftarrow \arg\min {\left\{  y \in C_{0} : |y + x|_{v} |  \right\} } $\\
     $ L \leftarrow  L \cup \{c^{\prime}_{v}\}$
  }
  $ z \leftarrow \sum_{v \in V}{c^{\prime}_{v}} $\\
