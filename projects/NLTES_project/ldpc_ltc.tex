@@ -149,7 +149,9 @@ Let $g$ be the girth of the graph, and consider a layer $U$ in $T$ at height $h\
 \paragraph{Claim.}. The number of vertices with more than a single parent in $T$ is at most ${\Delta^l}\choose{2}$.  
 \paragraph{Proof:}Assume, towards contradiction, that there are more than $ \Delta^l \choose 2 $ in $U$ that has at least two parents, And consider all the subtrees of $T$ whose roots are placed in height $l$. There are, at most $\Delta^l$, such subtrees. Hence, by the assumption, there must be a pair of vertices in $U$ with parents in the same subtree. Because each subtree has a height at most half of $g$, there is a path connecting those parents at length at most $g$. Then, one can concatenate that path with the corresponding vertices in $U$ and get a cycle shorter than the girth. $\square$
 \end{multicols}
+\begin{figure*}[h]
 \input{tree.tex}
+\end{figure*}
 \begin{multicols}{2}
 \paragraph{Lemma}. Let $U$ be a layer at height $l$ and denote by $ \omega = \frac{1}{2}\delta_{0}\Delta$. The number of vertices in $U$ is at least: 
 \begin{equation*}
