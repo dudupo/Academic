@@ -301,8 +301,7 @@ Assuming Girth is greater than $\frac{4}{3}\log_{\Delta-1}\left( n \right)$  giv
 For completeness, we show exactly how Theorem 1 implies testability. The following section repeats Leiverar's and Zemor's proof \cite{leverrier2022quantum}. Consider a binary string $x$ that is not a codeword. The main idea is the observation that the number of bits filliped by (any) decoder, while decoding $x$, bounds the distance $d\left( x,C \right)$ from above. In addition, the number of positive checks in the first iteration is exactly the number of violated restrictions.
 %\begin{figure*}[h]
 %\begin{adjustbox}{width=\textwidth}
-\paragraph{Definition.}Let $L = \{L_{i}\}^{2|E|}_{0}$  be a series of $2|E|$. Such that each element $L_{i} \in C_{0}$. We will call $L$ a \textit{Potential list} and refer to the $e_{v}$'th element of $L$ as a suggestion made by the vertex $v \in V$ for the edge $e \in E$. 
-\paragraph{Definition} Let $L$ be a Potential list, define the Force of $L$ to be the following sum $  F\left( L \right) = \sum_{e = \{v,u\} \in E }{ \left(L_{e_v} + L_{e_u}\right) }$ and notice that $ F\left( L \right) \in C_{\oplus}$ 
+\paragraph{Definition.}Let $L = \{L_{i}\}^{2|E|}_{0}$  be a series of $2|E|$. Such that each element $L_{i} \in C_{0}$. We will call $L$ a \textit{Potential list} and refer to the $e_{v}$'th element of $L$ as a suggestion made by the vertex $v \in V$ for the edge $e \in E$. Define the \txtit{Force} of $L$ to be the following sum $  F\left( L \right) = \sum_{e = \{v,u\} \in E }{ \left(L_{e_v} + L_{e_u}\right) }$ and notice that $ F\left( L \right) \in C_{\oplus}$. And define the \textit{state} $S(L) \subset \mathbb{F}^{|E|}_{2}$ of $L$ as the vector obtained by choosing an arbitrary value from $ \{ L_{e_v}, L_{e_u} \}$ for each edge $e \in E$.  
 \paragraph{}
 
 \begin{algorithm}[H]
