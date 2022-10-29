@@ -79,7 +79,12 @@ Notice that the above definition contains codes with parameters attending to zer
 \paragraph{Definition.}We will say that a family of codes is a \textit{good code} if its parameters converge into positive values. 
 
 Apart from distance and rate here, we interest also that the checking process will be robust. In particular,  we wish that against significant errors, forgetting to perform a single check will sabotage the computation only with a tiny probability.  
-Consider a code $C$  a string $x$, and denote by $\xi\left( x \right)$ the fraction of the checks in which $x$ fails. $C$ will be called a local-te, stability $f\left( n \right)$ If there exsits $\kappa > 0$ such that $d\left( x, C \right) / n \le \xi\left( x \right) f\left( n \right)$
+Consider a code $C$  a string $x$, and denote by $\xi\left( x \right)$ the fraction of the checks in which $x$ fails. $C$ will be called a local-te, stability $f\left( n \right)$ If there exsits $\kappa > 0$ such that 
+\begin{equation*}
+  \begin{split}
+    d\left( x, C \right) / n \le \kappa \cdot  \xi\left( x \right) f\left( n \right)
+  \end{split}
+\end{equation*}
 
 
 Nowadays, we are aware of a wide range of constructions yield good codes, including the expander codes of Sipser and Spilman \cite{ExpanderCodes} and the LTC codes of Dinur \cite{Dinur}, \cite{Pavel}, \cite{leverrier2022quantum}. Thus if a decade ago, the main question was the existence of a good code and its construction, now, and particularly in this work, we concentrate on getting a deep understanding of what makes those constructions work. By utilizing those insights, we seccussed in achieving a significantly simpler Both constructions and their correctness proof.    
