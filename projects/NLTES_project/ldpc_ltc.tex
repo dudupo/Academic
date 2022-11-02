@@ -146,6 +146,13 @@ Namely, for any such, sublinear weight, $x$, the average of nontrivial edges for
 \subsection{Tanner testability.} This subsection will explain why testability is so hard to achieve. Let $C$ be a good Tanner expander code as defined above. And consider an arbitrary vertex $u \in V$ and arbitrary small code's restriction $h$. Now define $\tilde{C}$ as the code obtained by requiring all the restrictions of $C$ except $h$ on $u$. That it, $u$ is satisfied if his local view satisfies all the $C_{0}$ restrictions apart from $h$.
 Also, for convenience, denote the small code $u$ enforces on his local view by $C_{0}^{u}$. Let us assume that the distance of $C_{0}^{u}$ is at least $\delta\Delta$. 
 Then, by repeating almost exactly the steps above with caution, one could prove that $\tilde{C}$ also has a linear distance. 
+Assume that $\tilde{C}$ is not equal to $C \\Rightarrow$ there exists $x\in \tilde{C} / C$. Therefore, by definition, for any $v\in V / \{u\}$ it holdes that $x|_{v} \in C_{0}$. Hence, the assumption that $ x \notin C$  implies $x|_{u} \notin C_{0}$ So, clearly, $x$ fails at a constant number of $C$'s checks. On the other hand, the closest codeword $y \in C$ to $x$ is also a codeword of $\tilde{C}$ as $y|_{v} \in C_{0}$ for every $v\in V$.  Hence:
+\begin{equation*}
+  \begin{split}
+    d\left( x,C \right) &= d\left( x,y \right) \ge d\left( \tilde{C} \right) =\Theta\left( n \right)
+  \end{split}
+\end{equation*}
+That is, even the number of bits that are needed to be flipped for correcting $x$, relative to $C$, only a single check observes that $x$ is indeed an error.
   \section{Construction}
 \subsection{ Almost LTC With Zero Rate}
 \paragraph{Definition. The Disagreement Code.} Given a Tanner code $C = \Tann$, define the code $C_{\oplus}$ to contain all the words equal to the formal summation $ \sum_{v \in V\left( G \right)} {c_{v} }$ when $c_{v}$ is an assignment of a codeword $ c_{v} \in C_0 $  on the edges of the vertex $ v \in V\left( G \right)$.
