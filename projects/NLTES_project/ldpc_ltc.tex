@@ -375,6 +375,21 @@ $ L \leftarrow \text{Array} \{ \} $\\
 
 \paragraph{Theorem.} Consider code $C$and the disagreement code $C_{\oplus}$. Suppose that for every codeword $ z \in C_{\oplus}$ in $C_{\oplus}$ such that $|z| < \tau n / f\left(n\right)$, there exists another codeword $y \in C_{\oplus} $ such that $|y| < |z|$ then $C$ is $f\left( n \right)$ testable code.
 
+\paragraph{Proof.} 
+\begin{equation*}
+  \begin{split}
+    d\left( x, C \right) & \le d_{D} \left( x, C \right) \le |z|\Delta^2 \le \xi\left( x \right) m \Delta^{4} \\ 
+    \Rightarrow  \frac{d\left( x, C \right)}{n} &\le \kappa_{1} \xi\left( x \right)    
+  \end{split}
+\end{equation*}
+
+
+\begin{equation*}
+  \begin{split}
+    \frac{d\left( x, C \right)}{n} & \le 1 \le \frac{|z|}{n}f\left( n \right) \le \frac{m}{n} \Delta^{2} \xi\left( x\right)f\left( n \right) \le \kappa_{2} \xi\left( x \right)f\left( n \right)  
+  \end{split}
+\end{equation*}
+
 %\end{adjustbox}
 %\end{figure*}
   \printbibliography 
