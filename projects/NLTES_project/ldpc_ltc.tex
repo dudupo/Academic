@@ -381,7 +381,7 @@ $ L \leftarrow \text{Array} \{ \} $\\
 \end{enumerate}
 
 
-\paragraph{Proof.} So it is clear from the claim above that if the condition at line (5) is satisfied, then $\mathcal{D}$  will converge into some codeword in $C$. Hence, to complete the first section, it left to show that $D$ returns the closest codeword. Denote by $e$ the error, and by simple counting arguments, we have that $\mathcal{D}$ flips at most:  
+\paragraph{Proof.} So it is clear from the claim above that if the condition at line (6) is satisfied, then $\mathcal{D}$  will converge into some codeword in $C$. Hence, to complete the first section, it left to show that $D$ returns the closest codeword. Denote by $e$ the error, and by simple counting arguments, we have that $\mathcal{D}$ flips at most:  
 \begin{equation*}
   \begin{split}
     d_{\mathcal{D}}\left( x, C \right) & \le 2|e|\Delta + \tau \frac{n}{f\left( n \right)}\Delta
@@ -390,9 +390,10 @@ $ L \leftarrow \text{Array} \{ \} $\\
 bits. Hence, by the assumption, 
 \begin{equation*}
   \begin{split}
-    d_{\mathcal{D}}\left( x, C \right) & \le 3\Delta \tau \frac{n}{f\left( n \right)} \le 3\Delta \tau\delta n \le \frac{1}{2} \delta n  
+    d_{\mathcal{D}}\left( x, C \right) & \le 3\Delta \tau \frac{n}{f\left( n \right)} \le 3\Delta \tau\delta n < \frac{1}{2} \delta n  
   \end{split}
 \end{equation*}
+Therefore the code word returned by $\mathcal{D}$ must be the closet. Otherwise, it contradicts the fact that the relative distance of the code is $\delta$:.
 \begin{equation*}
   \begin{split}
     d\left( x, C \right) & \le d_{D} \left( x, C \right) \le |z|\Delta^2 \le \xi\left( x \right) m \Delta^{4} \\ 
