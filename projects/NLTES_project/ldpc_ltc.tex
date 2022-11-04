@@ -393,7 +393,9 @@ bits. Hence, by the assumption,
     d_{\mathcal{D}}\left( x, C \right) & \le 3\Delta \tau \frac{n}{f\left( n \right)} \le 3\Delta \tau\delta n < \frac{1}{2} \delta n  
   \end{split}
 \end{equation*}
-Therefore the code word returned by $\mathcal{D}$ must be the closet. Otherwise, it contradicts the fact that the relative distance of the code is $\delta$:.
+Therefore the code word returned by $\mathcal{D}$ must be the closet. Otherwise, it contradicts the fact that the relative distance of the code is $\delta$.
+To obtain the correctness of the second section, we will separate when the conditional at line (5) holds and not. And prove that the testability inequality holds in both cases. 
+Let $x \in \mathbb{F}_{2}^{n}$ and consider the running of $mathcal{D}$ over $x$. Assume the first case, in which the conditional at the line (5) is satisfied. In that case, $mathcal{D}$ decods $x$ into it's closest codeword in $C$. Therefore:
 \begin{equation*}
   \begin{split}
     d\left( x, C \right) & \le d_{D} \left( x, C \right) \le |z|\Delta^2 \le \xi\left( x \right) m \Delta^{4} \\ 
