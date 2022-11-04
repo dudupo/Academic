@@ -373,7 +373,7 @@ $ L \leftarrow \text{Array} \{ \} $\\
  
 \end{algorithm}
 
-\paragraph{Theorem.} Consider a Tanner Code $C = [n, n\rho, n\delta]$ and the disagreement code $C_{\oplus}$ defined by it. Suppose that for every codeword $ z \in C_{\oplus}$ in $C_{\oplus}$ such that $|z| < \tau^{\prime} n / f\left(n\right)$, there exists another codeword $y \in C_{\oplus} $ such that $|y| < |z|$, set $\tau \leftarrow \frac{\tau^{\prime} }{6 \Delta^2} \delta$ then, 
+\paragraph{Theorem.} Consider a Tanner Code $C = [n, n\rho, n\delta]$ and the disagreement code $C_{\oplus}$ defined by it. Suppose that for every codeword $ z \in C_{\oplus}$ in $C_{\oplus}$ such that $|z| < \tau^{\prime} n / f\left(n\right)$, there exists another codeword $y \in C_{\oplus} $ such that $|y| < |z|$, set $\tau \leftarrow \frac{\tau^{\prime} }{6 \Delta} \delta$ then, 
 
 \begin{enumerate}
   \item $\mathcal{D}$ corrects any error at a weight less than $\tau n / f\left(n\right)$.   
@@ -381,7 +381,13 @@ $ L \leftarrow \text{Array} \{ \} $\\
 \end{enumerate}
 
 
-\paragraph{Proof.} 
+\paragraph{Proof.} So it is clear from the claim above that if the condition at line 7 is satisfied, then $\mathcal{D}$  will converge into some codeword in $C$. Hence, to complete the first section, it left to show that $D$ returns the closest codeword. Denote by $e$ the error, and by simple counting arguments, we have that $\mathcal{D}$ flips at most:  
+\begin{equation*}
+  \begin{split}
+    d_{\mathcal{D}}\left( x, C \right) & \le 2|e|\Delta + \tau \frac{n}{f\left( n \right)}\Delta
+  \end{split}
+\end{equation*}
+bits. Hence, by the assumption, $d_{\mathcal{D}}\left( x, C \right) \le 3\Delta \tau \frac{n}{f\left( n \right)} \le 3\Delta \tau\delta n$ 
 \begin{equation*}
   \begin{split}
     d\left( x, C \right) & \le d_{D} \left( x, C \right) \le |z|\Delta^2 \le \xi\left( x \right) m \Delta^{4} \\ 
