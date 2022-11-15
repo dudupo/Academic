@@ -256,11 +256,11 @@ That immediately yields the following: let $U_{\text{max}} = \text{arg} \max_{U 
   \begin{split}
   w_{E/E^{\prime}}\left( x \right) & \ge \frac{\delta_{0}}{\Delta}|T| - \sum_{i\in [m]}{ w \left( E\left( U_{i}, U_{i+1}  \right) \right)  } \\ 
   \ge & \frac{\delta_{0}}{\Delta}|T|  - \sum{i \in [m]}{ E\left( U_{i}, U_{i+1}  \right)  } \\ 
-  \ge & \frac{\delta_{0}}{\Delta}|T|  -  \sum{i \in [m]}{ \frac{\Delta}{n}|U_{i}| |U_{i+1}| + \lambda \sqrt{ |U_{i}| |U_{i+1}|i} }\\ 
-  \ge & \frac{\delta_{0}}{\Delta}|T|  - \frac{\Delta}{n}|T||U_{\max}| - \lambda \sum_{i \in [m]} { \max{ |U_{i}| , |U_{i+1}| } \\ 
-    \ge & \frac{\delta_{0}}{\Delta}|T|  - \frac{\Delta}{n}|T||U_{\max}| - \lambda \sum_{i \in [m]} {  |U_{i}| + |U_{i+1}| } \\ 
-    \ge & \frac{\delta_{0}}{\Delta}|T|  - \frac{\Delta}{n}|T||U_{\max}| - 2 \lambda |T| \\ 
-    \ge & \left( \delta_{0} - \frac{|U_{\max}| }{n}- 2 \frac{\lambda}{\Delta}<++> \right) \Delta|T| \\ 
+  \ge & \frac{\delta_{0}}{\Delta}|T|  -  \sum{i \in [m]}{ \frac{\Delta}{n}|U_{i}| |U_{i+1}| + \lambda \sqrt{ |U_{i}| |U_{i+1}|} }\\ 
+  %\ge & \frac{\delta_{0}}{\Delta}|T|  - \frac{\Delta}{n}|T||U_{\max}| - \lambda \sum_{i \in [m]} { \max{ |U_{i}| , |U_{i+1}| } \\ 
+    %\ge & \frac{\delta_{0}}{\Delta}|T|  - \frac{\Delta}{n}|T||U_{\max}| - \lambda \sum_{i \in [m]} {  |U_{i}| + |U_{i+1}| } \\ 
+    %\ge & \frac{\delta_{0}}{\Delta}|T|  - \frac{\Delta}{n}|T||U_{\max}| - 2 \lambda |T| \\ 
+    %\ge & \left( \delta_{0} - \frac{|U_{\max}| }{n}- 2 \frac{\lambda}{\Delta} \right) \Delta|T| 
   \end{split}
 \end{equation*}
 So for any $\delta_0 \ge \frac{2}{3} + \frac{2\lambda}{\Delta} $ we have proved Theorem 1 $\square$
