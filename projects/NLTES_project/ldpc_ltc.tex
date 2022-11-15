@@ -301,10 +301,18 @@ Notice $|x| < |S_{-}| + |S_{+}| < 2|x|$ and $|S_{\pm}| < \Delta |S_{\mp}|$, so i
 
 \paragraph{Theorem 1+.} For every $\varepsilon > 0$, there exist $\Delta_{\varepsilon}\in \mathbb{N}$ and $\alpha>0$ such that if $\Delta \ge \Delta_{\varepsilon}$, then for every $x \in C_{\oplus}$ at Hamming weight at most $\alpha |E|^{1-\varepsilon}$, there exists a vertex $v \in V_{\pm}$ and a small codeword $c_{v} \in C_{0}^{\pm} $ such that adding the assignment of it over the $v$'s edges to $x$ define the codeword $x + c_{v}$  such that $|x + c_{v}| < |x|$.  
 
-\paragraph{Proof:} Define the $T$ precisely as is in the proof of Theorem 1, And assume, without loss of generality $\delta_{-} < \delta_{+}$. Hence it is clear that for any $v \in V^\prime$ it holdes that $w_{E^\prime}\left( c_{v} \right) > \frac{1}{2}\delta_{-}\Delta$, so we could repeat exactly the above steps to get that the $T$ has linear size and the inquality $|x| > \left( \delta_{-} - \frac{|U_{\max}}{n} - \frac{\lambda}{\Delta} \right) $ still holds.  Furthermore: 
+\paragraph{Proof:} Define the $T$ precisely as is in the proof of Theorem 1, And assume, without loss of generality $\delta_{-} < \delta_{+}$. Hence it is clear that for any $v \in V^\prime$ it holdes that $w_{E^\prime}\left( c_{v} \right) > \frac{1}{2}\delta_{-}\Delta$, so we could repeat exactly the above steps to get that the $T$ has linear size and the inquality $|x| > \left( \delta_{-} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) $ still holds, So we can assume that $|U_{\max}|$ is also linear at $n$. Furthermore, if $U_{\max} \subset V_{-}$ then the inequality $\left( \delta_{+} - \frac{2}{3} - \frac{2}{\Delta}\lambda \right) \Delta |U_{\max}|$ also holds and the exactly arguments as before prove the Theoroem.     
+
+Therefore consider the case when $U_{\max} \subset V_{+}$. Denote by the $U_{-1}$ and $U_{+1}$ the previews and the next layers to $U_{\max}$.  
+
 \begin{equation*}
   \begin{split}
-    w_{E/E^{\prime}}\left( x|_{U\cup U_{+1}} \right) & \ge \delta_{-}\Delta|U|+ \delta_{+}\Delta|U_{+1}|  -w\left( E( U_{+1} ,U)  \right) - \\ & \ \ \  w \left( E( U, U_{-1}) \right) - w \left( E( U_{+1}, U_{+2} ) \right)  \ge \\ & \ \ \ \delta_{-}\Delta|U|+ \delta_{+}\Delta|U_{+1}| - \\  & \ \ \  \frac{\Delta}{n}\left( |U||U_{-1}| + |U||U_{+1}| + |U_{+1}||U_{+2}| \right) - \\ &   \lambda \left(  \sqrt{|U||U_{-1}|} + \sqrt{|U||U_{+1}|} + \sqrt{|U_{+1}||U_{+2}|} \right)  
+    w_{E/E^{\prime}}\left( x|_{U_{-1}\cup U_{+1}} \right) & \ge \delta_{+}\Delta\left(|U_{-1}|+ \Delta|U_{+1}|\right)  \\
+    & \ \ \ -w\left( E( U_{-2} ,U_{-1})  \right) -  w \left( E( U_{-1} , U_{\max}) \right) \\
+    & \ \ \  -w\left( E( U_{\max}, U_{+1})  \right)  - w \left( E( U_{+1}, U_{+2} ) \right)  \ge \\
+    & \ \ \  \delta_{+}\Delta\left(|U_{-1}|+ \Delta|U_{+1}|\right) - \\
+    & \ \ \  \frac{\Delta}{n}|U_{\max}|\left(|U_{-2}| + |U_{-1}| + |U_{+1}|+|U_{+2}| \right) - \\
+    &  4 \lambda |U_{\max}|   
   \end{split}
 \end{equation*}
 \paragraph{Claim.}  
