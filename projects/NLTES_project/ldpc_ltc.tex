@@ -321,38 +321,6 @@ So, assume the oppesite, namely that there is a negative layer that both of it's
    &  \left( \delta_{+} -\frac{1}{2} - 2 \cdot \sqrt{\frac{1}{8}}\frac{\lambda}{\sqrt{\Delta}}   \right)\Delta|U|
   \end{split}
 \end{equation*}
-
-\paragraph{Claim.}  
-\begin{equation*}
-  \begin{split}
-     |U||U_{-1}| + |U||U_{+1}| + |U_{+1}||U_{+2}| & \le \left( |U| + |U_{+1}| \right)\frac{3}{4}n 
-  \end{split}
-\end{equation*}
-\paragraph{Proof:} Recall that $ |U_{-1}| + |U_{+1}| =  |U_{-1} \cup U_{+1} | \le | V_{\pm} | = \frac{1}{2}n $. Then:  
-\begin{equation*}
-  \begin{split}
-    & |U||U_{-1}| + |U||U_{+1}| + |U_{+1}||U_{+2}|  = \\
-    & \  \frac{1}{2}\left( |U|(|U_{-1}| + |U_{+1}|) + |U_{+1}||U_{+2}|  \right) + \\ 
-    & \  \frac{1}{2}\left( |U||U_{-1}| + |U_{+1}|(|U| + |U_{+2}|)  \right) \le \\ 
-    & \ \frac{1}{2}\left( |U_{-1}||U| + |U_{+1}||U_{+2}|  \right) + \frac{1}{2}n\left( |U| +|U_{+1}| \right) \\ 
-    & \ \le \left( \frac{1}{4}n + \frac{1}{2}n \right) \left( |U| + |U_{+1}|  \right) \square 
-  \end{split}
-\end{equation*}
-Also, we could again assume that $|U| \ge |U_{-1}|,|U_{+1}|,|U_{+2}|$ and then:
-\begin{equation*}
-  \begin{split}
-    \sqrt{|U_{i}||U_{j}|} & = \frac{\sqrt{|U_{i}||U_{j}|}}{|U|+|U_{+1}|}\cdot \left( |U| + |U_{+1}| \right) \le \\ &   \frac{\sqrt{|U_{i}||U_{j}|}}{|U|}\cdot \left( |U| + |U_{+1}| \right)  
-	 \le \left( |U| + |U_{+1}| \right)
-  \end{split}
-\end{equation*}
-So in total, we have that: 
-\begin{equation*}
-  \begin{split}
-    w_{E/E^{\prime}}\left( x|_{U\cup U_{+1}} \right) \ge   \left( \delta_{-}+\delta_{+} - \frac{3}{4} - \frac{4\lambda}{\Delta} \right)\Delta\left( |U|+|U_{+1}| \right)
-  \end{split}
-\end{equation*}
-And the fact that $|x| \ge w_{E/E^{\prime}}\left( x|_{U\cup U_{+1}} \right) $ proves Theorem 1+ $\square$
-
 \subsection{ Tanner Code Testability For Small ($n^{\frac{2}{3}-\varepsilon}$) Errors}
 Another side result obtained by the proof of Theorem 1 is that one cannot hide errors in a tree at a length less than half of the girth. Namely, any codeword of the disagreement code with a weight less than $ \omega^{\frac{1}{2}g} $ could be reduced, regardless of the parameters of the small code. 
 \paragraph{Theorem 1-.} For every $\delta_{0}, \varepsilon > 0$, there exist $\Delta_{\varepsilon}\in \mathbb{N}$ and $\alpha>0$ such that if $\Delta \ge \Delta_{\varepsilon}$, then for every $x \in C_{\oplus}$ at Hamming weight at most $\alpha |E|^{\frac{g}{2}-\varepsilon}$, there exists a vertex $v \in V$ and a small codeword $c_{v} \in C_{0} $ such that adding the assignment of it over the $v$'s edges to $x$ define the codeword $x + c_{v}$  such that $|x + c_{v}| < |x|$.  
