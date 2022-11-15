@@ -238,12 +238,14 @@ Using the the claim, we have that $\left( |U_{+1}| + |U_{-1}| \right)/n <\frac{2
     w_{E/E^{\prime}}\left( x|_{U} \right) & \ge \Delta\left( \delta_{0} - \frac{2}{3} - \frac{2\lambda}{\Delta} \right)|U| \ \  \square 
   \end{split}
 \end{equation*}
-That immediately yields the following: 
+
+That immediately yields the following: let $U_{\text{max}} = \text{arg} \max_{U \text{layer} \in T } |U|  $  then: 
 \begin{equation*}
   \begin{split}
-    |x| \ge  w_{E/E^{\prime}}\left( x|_{U} \right) \ge \left( \delta_{0} - \frac{2}{3} - \frac{2\lambda}{\Delta} \right)\frac{1}{2}n^{1-\varepsilon} 
+    |x| \ge  w_{E/E^{\prime}}\left( x|_{U_{\text{max}} \right) \ge \left( \delta_{0} - \frac{2}{3} - \frac{2\lambda}{\Delta} \right)|U_{\text{max}}|
   \end{split}
 \end{equation*}
+\paragraph{Claim.} 
 So for any $\delta_0 \ge \frac{2}{3} + \frac{2\lambda}{\Delta} $ we have proved Theorem 1 $\square$
 Unfortunately, Singelton bound doesn't allow both $\delta_0 > \frac{2}{3}$ and $\rho_0 \ge \frac{1}{2}$, so in total, we prove the existence of code LDPC code which is good in terms of testability and distance yet has a zero rate. In the next subsection, we will prove that one can overcome this problem by requiring only half of the vertices to restrict their local view to be codewords of high relative distance. 
 \subsection{ Almost LTC With Positive Rate } 
