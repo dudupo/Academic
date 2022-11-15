@@ -211,59 +211,15 @@ Consider an arbitrary vertex $r \in V^\prime$, and consider the DAG obtained by 
   \end{split}
 \end{equation*}
 $\square$
-\begin{figure*}[t]
-\input{tree.tex}
-\caption{This is a tiger.}
-\end{figure*}
-\paragraph{Lemma}. Denote by $U$ the layer at with the maximal numbe of vertices. \ctt{Here}  height $l$ and denote by $ \omega = \frac{1}{2}\delta_{0}\Delta$. The number of vertices in $U$ is at least: 
-\begin{equation*}
-  \begin{split}
-    \left( \frac{1}{2}\delta_0\Delta \right)^{l}- \frac{\left( \frac{\Delta^{2}}{\omega} \right)\Delta^{2l-g} - \omega^{l-g/2} }{\frac{\Delta^{2}}{\omega}-1}
-  \end{split}
-\end{equation*}
-
-\paragraph{Proof:} We will think of $T$ as the tree obtained by purning a tree, with degree greater than $\frac{1}{2}\delta_{0}\Delta$, at height $l$, namely any vertex at height $i \le l $ with two parents can be counted as subtree with height $l-i$ that has pruned. Then the problem is equivalence to bounding from above the number of pruned vertices at height $l$. Define $X_{i}$ to be the number of pruned subtrees whose root is at height $i$. Then consider the next maximization problem: 
-\begin{equation*}
-  \begin{split}
-    X_{i} & \le \Delta^{2\max \left\{ 0, l-g/2 \right\}} \\ 
-    f & \le \sum_{g/2}^{l}{\omega^{l-i}X_{i} } \le \omega^{l-g/2}\sum_{0}^{l-g/2}{\omega^{-i}\Delta^{2i} } = \\ & \omega^{l-g/2}\frac{\left( \frac{\Delta^{2}}{\omega} \right)^{l-g/2+1}-1}{\frac{\Delta^{2}}{\omega}-1} =  
-      \frac{\left( \frac{\Delta^{2}}{\omega} \right)\Delta^{2l-g} - \omega^{l-g/2} }{\frac{\Delta^{2}}{\omega}-1}
-  \end{split}
-\end{equation*}
-By using the inequality $ |U| \ge \omega^{l} - f $ we get the bound $\square$ 
-\paragraph{Claim.} there exists a constant $\Delta^{\prime}$ that depends only on $\delta_{0}$, such that if $\Delta \ge \Delta^{\prime}$, then the number number of vertices at height $\frac{3}{4}g$ is at least $ \frac{1}{2}\omega^{\frac{3}{4}g} $.
-
-\paragraph{Proof:} The above lower bound yields: 
-\begin{equation*}
-  \begin{split}
-    |U| \ge \omega^{\frac{3}{4}g} -  \frac{\left( \frac{\Delta^{2}}{\omega} \right)\Delta^{\frac{1}{2}g}  }{\frac{\Delta^{2}}{\omega}-1} \ge \omega^{\frac{3}{4}g} -  2 \Delta^{\frac{1}{2}g}  
-  \end{split}
-\end{equation*}
-So it is enough to require that: $\left( \frac{1}{2}\delta_{0}\Delta  \right)^{\frac{3}{4}g} \ge 4 \Delta^{\frac{1}{2}g}$ :  
-\begin{equation*}
-  \begin{split}
-    \Delta^{\frac{1}{4}g}\ge 4\cdot \left( \frac{2}{\delta_{0}} \right)^{\frac{3}{4}g} \Rightarrow\Delta \ge  4^{\frac{4}{g}} \left( \frac{2}{\delta_{0}} \right)^{3} 
-  \end{split}
-\end{equation*} So any $\Delta$ satisfies $\Delta> \left( \frac{2}{\delta_0} \right)^{3}$ is also satisfying the above inequality, and therefore for such $\Delta$-regular graphs, the size of $U$ will be at least $\frac{1}{2}\omega^{\frac{3}{4}g}$ $\square$   
-
-\paragraph{Claim.} Assume that $ g \ge \frac{4}{3} \log_{\Delta -1 }\left( n \right) $, Then we have that for every $\varepsilon >0 $,  there exist $\Delta_{\varepsilon}$  such for every $\Delta \ge \Delta_{\varepsilon}$  it holds that $ \omega^{\frac{3}{4}g} \ge n^{1-\varepsilon}$.
-\paragraph{Proof:}
-
-\begin{equation*}
-  \begin{split}
-    \omega^{\frac{3}{4}g}&\ge \omega^{\log_{\Delta-1}\left( n \right)} = n^{\frac{1}{\log_{\frac{1}{2}\delta_{0}\Delta}\left( \Delta -1 \right)}} \\ 
-    & \log_{\frac{1}{2}\delta_{0}\Delta}\left( \Delta -1 \right) = \frac{\ln\left( \Delta-1 \right)}{\ln\frac{1}{2}\delta_{0}+ \ln \Delta} \rightarrow_{\Delta\rightarrow \infty} 1
-  \end{split}
-\end{equation*} So for every $\varepsilon >0 $ there exist $\Delta_{\varepsilon}$ such that for $\Delta > \Delta_{\varepsilon}$ we get: $\omega^{\frac{3}{4}g} \ge n^{\frac{1}{1-\varepsilon}}$, and for any $\varepsilon < 1$ it holds that: $ n^{\frac{1}{1-\varepsilon}}\ge n^{1-\varepsilon}$ $\square$
-
 Denote by $x|_{U}$ the bits of $x\in C$ correspond to the edges that connected to at least one vertex in $U$. And denote by $w_{E/E^{\prime}}\left( x|_{U} \right)$ the weight induced by the $x|_{U}$ over the edges in $E/E^\prime$.
-\paragraph{Claim.} Suppose that $G$ is an expander graph with a second eigenvalue $\lambda$, then there exists a layer $U$ at the size at least $\omega^{ \frac{3}{4}g }$ such that:
-\begin{equation*}
+\paragraph{Claim.} Suppose that $G$ is an expander graph with a second eigenvalue $\lambda$, then For any layer $U$ there exist a layer $U^{\prime}$ such that:
+\begin{equation*}za
   \begin{split}
-    w_{E/E^{\prime}}\left( x|_{U} \right)\ge\Delta|U|\left( \delta_{0}-\frac{2}{3}-\frac{2\lambda}{\Delta} \right)
+    (1) \ \ |U| & \le |U^{\prime}| \\
+    (2) \ \ w_{E/E^{\prime}}\left( x|_{U^{\prime}} \right) & \ge\Delta|U^{\prime}|\left( \delta_{0}-\frac{2}{3}-\frac{2\lambda}{\Delta} \right)
   \end{split}
 \end{equation*}
-\paragraph{Proof:} Consider layer $U$ at height $\frac{3}{4}g$ and denote by $U_{-1}$ and $U_{+1}$ the preceding and the following layers to $U$ in $T$. It follows from the expander mixing lemma that:
+\paragraph{Proof:} Consider layer $U$ and denote by $U_{-1}$ and $U_{+1}$ the preceding and the following layers to $U$ in $T$. It follows from the expander mixing lemma that:
 \begin{equation*}
   \begin{split}
     w_{E/E^{\prime}}\left( x|_{U} \right) & \ge \delta_{0}\Delta|U| -w\left( E(U_{-1} \bigcup U_{+1} ,U)  \right) \ge \\ 
@@ -274,7 +230,7 @@ Denote by $x|_{U}$ the bits of $x\in C$ correspond to the edges that connected t
 \end{equation*}
 
 \paragraph{Claim.} We can assume that $|U| \ge |U_{-1}|, |U_{+1}|$. 
-\paragraph{Proof:} Suppose that $|U_{+1}| > |U|$ then clearly $|U_{+1}| > \frac{1}{2}\omega^{\frac{3}{4}g} $, so we could choose $U$ to be $U_{+1}$. Continuing stepping deeper till we have that $|U| > |U_{+1}|, |U_{-1}|$. Simiraly, if $|U| > |U_{+1}|$ but $|U_{-1}| > |U|$, the we could take steps upward by replacing $U_{-1}$ with $U$. At the end of the process, we will be left with $U$ such that $|U| > \frac{1}{2}\omega^{\frac{4}{3}g}$ and $|U| > |U_{+1}|, |U_{-1}|$ $\square$
+\paragraph{Proof:} Suppose that $|U_{+1}| > |U|$, so we could choose $U$ to be $U_{+1}$. Continuing stepping deeper till we have that $|U| > |U_{+1}|, |U_{-1}|$. Simiraly, if $|U| > |U_{+1}|$ but $|U_{-1}| > |U|$, the we could take steps upward by replacing $U_{-1}$ with $U$. At the end of the process, we will be left with $U$ at size grater than the inital layer and $|U| > |U_{+1}|, |U_{-1}|$ $\square$
 
 Using the the claim, we have that $\left( |U_{+1}| + |U_{-1}| \right)/n <\frac{2}{3} $ and therefore:
 \begin{equation*}
