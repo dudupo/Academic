@@ -304,24 +304,8 @@ Notice $|x| < |S_{-}| + |S_{+}| < 2|x|$ and $|S_{\pm}| < \Delta |S_{\mp}|$, so i
 \paragraph{Proof:} Define the $T$ precisely as is in the proof of Theorem 1, And assume, without loss of generality $\delta_{-} < \delta_{+}$. Hence it is clear that for any $v \in V^\prime$ it holdes that $w_{E^\prime}\left( c_{v} \right) > \frac{1}{2}\delta_{-}\Delta$, so we could repeat exactly the above steps to get that the $T$ has linear size and the inquality $|x| > \left( \delta_{-} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) $ still holds, So we can assume that $|U_{\max}|$ is also linear at $n$. Furthermore, if $U_{\max} \subset V_{-}$ then the inequality $\left( \delta_{+} - \frac{2}{3} - \frac{2}{\Delta}\lambda \right) \Delta |U_{\max}|$ also holds and the exactly arguments as before prove the Theoroem.     
 
 Therefore consider the case when $U_{\max} \subset V_{+}$. Denote by the $U_{-1}$ and $U_{+1}$ the previews and the next layers to $U_{\max}$.  
-
-Suppose that for every negative layer $U \subset V_{-}$ ethier $|U_{-1}| \ge 8\Delta|U|$ or $|U_{+1}| \ge 8\Delta|U|$. Then its clear that $|U_{\max}| \ge 8\Delta|U_{\max, \pm 1}|$. And therefore:  
-\begin{equation*}
-  \begin{split}
-    w_{E/E^{\prime}}  \left( x|_{U} \right)  & \ge \Delta\delta_{-}|U| - 2\Delta\frac{1}{8^{2}}\frac{|U|^{2}}{ n} - 2 \lambda \cdot \frac{8}{ \sqrt{\Delta} } |U| \\
-    & \ge \left( \delta_{-} - \left( \frac{1}{8} \right)^{2} - \frac{1}{4}\lambda\frac{1}{\Delta} \right) \Delta |U|
-  \end{split}
-\end{equation*}
-So, assume the oppesite, namely that there is a negative layer that both of it's neighbors layers satisfies: $|U_{\pm 1}| \le 8\Delta|U|$ 
-\begin{equation*}
-  \begin{split}
-    w_{E/E^{\prime}} & \left( x|_{U} \right)  \ge \delta_{+}\Delta |U|\\
-    &  -w\left( E( U_{-1} ,U)  \right) -  w \left( E( U , U_{+1}) \right) \ge  \\
-    &  \delta_{+}\Delta |U| -  \frac{\Delta}{n}|U|\left( |U_{-1}| + |U_{+1}| \right) -  2 \sqrt{8} \sqrt{\Delta}\lambda |U|  \ge \\ 
-   &  \left( \delta_{+} -\frac{2}{3} - 2 \cdot \sqrt{8}\frac{\lambda}{\sqrt{\Delta}}   \right)\Delta|U|
-  \end{split}
-\end{equation*}
-\subsection{ Tanner Code Testability For Small ($n^{\frac{2}{3}-\varepsilon}$) Errors}
+\paragraph{Claim.} If $ |U_{\max}| = \Theta\left(n  \right)$ Then there exists at least $3$ layers in $V_{-}$ at linear size.  
+ \subsection{ Tanner Code Testability For Small ($n^{\frac{2}{3}-\varepsilon}$) Errors}
 Another side result obtained by the proof of Theorem 1 is that one cannot hide errors in a tree at a length less than half of the girth. Namely, any codeword of the disagreement code with a weight less than $ \omega^{\frac{1}{2}g} $ could be reduced, regardless of the parameters of the small code. 
 \paragraph{Theorem 1-.} For every $\delta_{0}, \varepsilon > 0$, there exist $\Delta_{\varepsilon}\in \mathbb{N}$ and $\alpha>0$ such that if $\Delta \ge \Delta_{\varepsilon}$, then for every $x \in C_{\oplus}$ at Hamming weight at most $\alpha |E|^{\frac{g}{2}-\varepsilon}$, there exists a vertex $v \in V$ and a small codeword $c_{v} \in C_{0} $ such that adding the assignment of it over the $v$'s edges to $x$ define the codeword $x + c_{v}$  such that $|x + c_{v}| < |x|$.  
 \paragraph{Proof:} Proof,  Define $T$ again to be the DAG constructed as in the proof of Theorem 1 and denote by $U$ the last layer of $T$. As the height of the tree is less than $\frac{1}{2}g$, then it follows from the claim that any vertex $v$ in $U$ has at most one parent in $T$, and therefore:    
