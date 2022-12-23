@@ -12,8 +12,14 @@
 \usepackage{float}
 \usetikzlibrary{calc}
 \usepackage{array}
-\usepackage[most]{tcolorbox}
+\usepackage{efbox,graphicx}
 \usepackage[normalem]{ulem}
+
+
+\efboxsetup{linecolor=green,linewidth=10pt}
+
+
+
 \usetheme{EastLansing}
 \title[Building A Computer Without A Computer] % (optional, only for long titles)
 {Building A Computer Without A Computer.}
@@ -59,15 +65,15 @@
 	  \end{exampleblock}
 
 	  \uncover<3->{ 
-   		\tcbincludegraphics[hbox, size=fbox,boxsep=0.1mm, graphics options={height=100pt,width=120pt}, sharp corners, colframe=green!]{rsut6ggvivt81.jpg}
+	    \efbox{\includegraphics[height=100pt,width=120pt]{rsut6ggvivt81.jpg}}
 	  }
 	  
 	  \uncover<4-> {
-	     \vspace*{-3cm} \hspace*{6cm} \tcbincludegraphics[hbox, size=fbox,boxsep=0.1mm, graphics options={height=150pt,width=120pt}, sharp corners, colframe=green!]{catia-21987-5.jpg}
+	    \vspace*{-3cm} \hspace*{6cm}  \efbox{\includegraphics[height=150pt,width=120pt]{catia-21987-5.jpg}}
 	  }
 	  
 	  \uncover<5-> {
-	    \vspace*{-3cm} \hspace*{2cm}     \tcbincludegraphics[hbox, size=fbox,boxsep=0.1mm, graphics options={height=80pt,width=100pt}, sharp corners, colframe=green!]{what-is-catia-051120}
+	    \vspace*{-3cm} \hspace*{2cm}  \efbox{\includegraphics[height=80pt,width=100pt]{what-is-catia-051120.jpg}}
 	  }
      
 	\end{frame}
