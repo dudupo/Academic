@@ -28,11 +28,15 @@
 \subject{Quantum Error Correction}
 
 \begin{document}
+\usebackgroundtemplate{%             declare it
+\tikz[overlay,remember picture] \node[opacity=0.3, at=(current page.center)] {
+   \includegraphics[height=\paperheight,width=\paperwidth]{1260_original.jpg}};
+}
+
      \begin{frame}
      \maketitle
-     \includegraphics{1260_original.jpg}
    \end{frame}
-
+\usebackgroundtemplate{ }    %% undeclare it
      \section{About}
 	\begin{frame}
 	  \frametitle{ About this Presention.  }
