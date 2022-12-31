@@ -321,6 +321,21 @@ That immediately yields the following: let $U_{\text{max}} = \text{arg} \max_{U 
 Setting $\alpha \ge \frac{2}{3}$ we complete the proof $\square$
 
 Unfortunately, Singelton bound doesn't allow both $\delta_0 > \frac{2}{3}$ and $\rho_0 \ge \frac{1}{2}$, so in total, we prove the existence of code LDPC code which is good in terms of testability and distance yet has a zero rate. In the next subsection, we will prove that one can overcome this problem by requiring only half of the vertices to restrict their local view to be codewords of high relative distance. 
+%\subsection{ Good LTC Which Is Almost LDPC. } 
+%To overcome the vanishing rate issue we are going to consider graphs family in which the maximal layer of BFS scanning couldn't excced a linear  
+
+\subsection{ Quantum Codes. }
+
+\paragraph{Lemma.} Let $C_{1} , C_{2}$ be Tanner codes over the graph $G$ and small codes $C_{0i} = \Delta[1, \rho_{i}, \delta_{i}]$. Let define the code $C$ to be all the non-reducible words in the intersection between $C_{1}^{\oplus}$ and $C_{2}$. Then $C$ has linear distance. 
+\paragraph{Proof.} Consider a vaild codeword $x \in C$ and denote by $S$ the support of $x$ on the vertecis which do not suggest a trival codeword. We have seen that the degree of the vertices of $S$ in the indueced subgraph $G^{\prime}$ is at least $\frac{1}{2}\delta_{1}\Delta$ and therefore the weight of any $v \in S$ upon the edges of the induced graph is at least $\left(\delta_{2} - \left( 1 - \frac{1}{2}\delta_{1} \right)\right)\Delta$. Otherwise there exists a vertex which see less than $\delta_{2}\Delta$ bits. Using the Expander Mixining Lemma we have that: 
+\begin{equation*}
+  \begin{split}
+    \left( \delta_{2} - \left( 1- \frac{1}{2}\delta_{ 1}  \right) \right)\Delta & \le \frac{E\left( S,S \right)}{|S|} \le \frac{n}{\Delta}|S|^2+ \lambda|S| \\
+    |S| \ge \left( \delta_{2} - \frac{1}{2}\delta_{1} - 1 - \frac{\Delta}{\lambda} \right)n 
+  \end{split}
+\end{equation*}
+
+
 \subsection{ Almost LTC With Positive Rate \ctt{ Wrong Section.  } } 
 To overcome the vanishing rate issue, let us restrict ourselves to using only even expanders graph. Now, Let $C_{0}^{-}$ and $C_{0}^{+}$ be two small codes with parameters $C_{0}^{\pm} = [\Delta, \rho_{\pm}\Delta, \delta_{\mp}\Delta]$. We will refer to $C_{0}^{+}$ as the positive and $C_{0}^{-}$ as the negative codes. Similarly, we will call the positive vertices to the left side of $G$ and the negative vertices to the right side of $G$ and use the notation $G = \left( V_{-}, V_{+}, E \right)$, when $V = V_{-} \cup V_{+}$. 
 Consider the code $C$, which consists of all the words $x\in C$ such that $x|_{v} \in C_{0}^{\pm}$ for any $v \in V_{\pm}$.
