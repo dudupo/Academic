@@ -330,8 +330,8 @@ Unfortunately, Singelton bound doesn't allow both $\delta_0 > \frac{2}{3}$ and $
 \paragraph{Proof.} Consider a vaild codeword $x \in C$ and denote by $S$ the support of $x$ on the vertecis which do not suggest a trival codeword. We have seen that the degree of the vertices of $S$ in the indueced subgraph $G^{\prime}$ is at least $\frac{1}{2}\delta_{1}\Delta$ and therefore the weight of any $v \in S$ upon the edges of the induced graph is at least $\left(\delta_{2} - \left( 1 - \frac{1}{2}\delta_{1} \right)\right)\Delta$. Otherwise there exists a vertex which see less than $\delta_{2}\Delta$ bits. Using the Expander Mixining Lemma we have that: 
 \begin{equation*}
   \begin{split}
-    \left( \delta_{2} - \left( 1- \frac{1}{2}\delta_{ 1}  \right) \right)\Delta & \le \frac{E\left( S,S \right)}{|S|} \le \frac{n}{\Delta}|S|^2+ \lambda|S| \\
-    |S| & \ge \left( \delta_{2} + \frac{1}{2}\delta_{1} -  1 - \frac{\Delta}{\lambda} \right)n 
+    \left( \delta_{2} - \left( 1- \frac{1}{2}\delta_{ 1}  \right) \right)\Delta & \le \frac{E\left( S,S \right)}{|S|} \le \frac{\Delta}{n}|S|^2+ \lambda|S| \\
+    |S| & \ge \left( \delta_{2} + \frac{1}{2}\delta_{1} -  1 - \frac{\lambda}{\Delta} \right)n 
   \end{split}
 \end{equation*}
 
