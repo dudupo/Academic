@@ -176,8 +176,23 @@ We will think about $x^{\oplus}$ as the disagreement between the vertices over $
     \left( x + y  \right)^{\oplus} = \left( x  \right)^{\oplus} 
   \end{split}
 \end{equation*}
-\paragraph{Proof.} ll
+\paragraph{Proof.} Having that $y \in C$ followes $y|_v \in C_{0}$ and therefore $\arg_{ \tilde{c} \in C_{0}} \min{ d( z  , \tilde{c} ) } = y|_{v} + \arg_{ \tilde{c} \in C_{0}} \min{ d( z, \tilde{c} + y|_{v} ) } $, Hence the suggestion made by vertrx $v$ is: 
+\begin{equation*}
+  \begin{split}
+    c_{v}\leftarrow &  \arg_{ \tilde{c} \in C_{0}} \min{ d( (x+y)|_{v}  , \tilde{c} ) } \\
+    \leftarrow &  y|_{v} +  \arg_{ \tilde{c} \in C_{0}} \min{ d( (x+y)|_{v}  , \tilde{c} + y|_{v} ) } \\
+    \leftarrow &  y|_{v} +  \arg_{ \tilde{c} \in C_{0}} \min{ d( x|_{v} , \tilde{c} ) } 
+  \end{split}
+\end{equation*}
+It followes that: 
 
+\begin{equation*}
+  \begin{split}
+    \left( x + y \right)^{\opplus} =& \sum_{v\in V}{c_{v}} = \sum_{v \in V}{y|_{v}} + \sum_{v\in V}{ \arg_{ \tilde{c} \in C_{0}} \min{ d( x|_{v} , \tilde{c} ) } } \\ 
+    =& y^{\oplus} + x^{\oplus} = x^{\oplus}
+  \end{split}
+\end{equation*}
+When the last transition followes immedatly by the fact that $y \in C$ and therefore any pair of connected vartices conribute the same value for their assoicated edge $\square$
 
 \paragraph{Theorem 1.} For every $\varepsilon > 0$, there exist $\Delta_{\varepsilon}\in \mathbb{N}$ and $\alpha>0$ such that if $\Delta \ge \Delta_{\varepsilon}$, then for every $x \in C_{\oplus}$ at Hamming weight at most $\alpha |E|^{1-\varepsilon}$, there exists a vertex $v \in V$ and a small codeword $c_{v} \in C_{0} $ such that adding the assignment of it over the $v$'s edges to $x$ define the codeword $x + c_{v}$  such that $|x + c_{v}| < |x|$.  
 
