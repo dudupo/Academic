@@ -338,10 +338,13 @@ Unfortunately, Singelton bound doesn't allow both $\delta_0 > \frac{2}{3}$ and $
 Note both $A_{G^{\prime}}, A_{G}$ are symmetric and thefore by the Interlacing principle (\ctt{add cition}) we have that $\lambda^{\prime} < \lambda$. Finaly consider the indectors vecotrs $\chi_{S}, \chi_{T}$ for $S,T$ gettering all yields:     
 \begin{equation*}
   \begin{split}
-    E\left( S,T \right) = \braket{\chi_{S} A_{G^{\prime}} \chi_{T} } \le \braket{\chi_{S}J\chi_{T}} + \lambda^{\prime}\sqrt{|S||T|}  
+    E\left( S,T \right) $= \braket{\chi_{S} A_{G^{\prime}} \chi_{T} } \le \braket{\chi_{S}J\chi_{T}} + \lambda^{\prime}\sqrt{|S||T|}  \\ 
+    \le & \frac{1}{2|E^{\prime}|}\sum{\chi_{S_{i}}\chi_{T_{j}}deg(i)} +  \lambda^{\prime}\sqrt{|S||T|}  \\
+    & \le \frac{\Delta}{2|E^{\prime}|}|S||T| +  \lambda^{\prime}\sqrt{|S||T|} \\
+    & \le \frac{\Delta}{|U|}|S||T| +  \lambda^{\prime}\sqrt{|S||T|} 
   \end{split}
 \end{equation*}
-
+$\square$
 \paragraph{Lemma.} Let $C_{1} , C_{2}$ be Tanner codes over the graph $G$ and small codes $C_{0i} = \Delta[1, \rho_{i}, \delta_{i}]$. Let's define the code $C$ to be all the non-reducible words in the intersection between $C_{1}^{\oplus}$ and $C_{2}$. Then $C$ has linear distance. 
 \paragraph{Proof.} Consider a vaild codeword $x \in C$ and denote by $S$ the support of $x$ on the vertecis which do not suggest a trival codeword. We have seen that the degree of the vertices of $S$ in the indueced subgraph $\left( T, \cdot \right)$ is at least $\frac{1}{2}\delta_{1}\Delta$. Denote by $S^{\prime} \subset T $ the vertices such their neighborhod is also contained in $T$ and consider the subgraph $G^{\prime}=\left( T, E^{\prime} \right)$ obtaind by taking the vertics which suggested non-trival codewords and the edges which are fully supported on those vertices. 
 
