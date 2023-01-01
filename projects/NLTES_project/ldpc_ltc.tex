@@ -333,7 +333,15 @@ Unfortunately, Singelton bound doesn't allow both $\delta_0 > \frac{2}{3}$ and $
     E_{G^{\prime}}\left(S,T \right) \le \frac{\Delta}{|U|}|S||T| + \lambda^{\prime}\sqrt{|S|||T|}
   \end{split}
 \end{equation*}
-\paragraph{Proof.} Recall that the first eigenvector of en undireacted graph adggecny matrix is distirubuted as $ x_{v} = deg\left( v \right)$. Define the $J$ matrix to be $J_{u,v} =\frac{1}{2|E^{\prime}|} deg_{G^{\prime}}\left( u \right)$ and observes that: $\left(Jx\right)_{v} = \frac{1}{2|E^{\prime}|}\sum_{u \in U}{deg_{G^{\prime}}\left( v \right)  deg_{G^{\prime}}\left( v \right)} = x_{v} $ Therefore for any normalized vecotrs $x,y$ we have that: $ \braket{x\left( A_{G^{\prime}} - J  \right)y} \le  \lambda^{\prime} \sqrt{\left( |x||y| \right)}$. Where $\lambda^{\prime}$ is the seconed largest eigen value.   
+\paragraph{Proof.} Recall that the first eigenvector of en undireacted graph adggecny matrix is distirubuted as $ x_{v} = deg\left( v \right)$. Define the $J$ matrix to be $J_{u,v} =\frac{1}{2|E^{\prime}|} deg_{G^{\prime}}\left( u \right)$ and observes that: $\left(Jx\right)_{v} = \frac{1}{2|E^{\prime}|}\sum_{u \in U}{deg_{G^{\prime}}\left( v \right)  deg_{G^{\prime}}\left( v \right)} = x_{v} $ Therefore for any normalized vecotrs $x,y$ we have that: $ \braket{x\left( A_{G^{\prime}} - J  \right)y} \le  \lambda^{\prime} \sqrt{\left( |x||y| \right)}$. Where $\lambda^{\prime}$ is the seconed largest eigen value of $A_{G^{\prime}}$. 
+
+Note both $A_{G^{\prime}}, A_{G}$ are symmetric and thefore by the Interlacing principle (\ctt{add cition}) we have that $\lambda^{\prime} < \lambda$. Finaly consider the indectors vecotrs $\chi_{S}, \chi_{T}$ for $S,T$ gettering all yields:     
+\begin{equation*}
+  \begin{split}
+    E\left( S,T \right) = \braket{\chi_{S} A_{G^{\prime}} \chi_{T} } \le \braket{\chi_{S}J\chi_{T}} + \lambda^{\prime}\sqrt{|S||T|}  
+  \end{split}
+\end{equation*}
+
 \paragraph{Lemma.} Let $C_{1} , C_{2}$ be Tanner codes over the graph $G$ and small codes $C_{0i} = \Delta[1, \rho_{i}, \delta_{i}]$. Let's define the code $C$ to be all the non-reducible words in the intersection between $C_{1}^{\oplus}$ and $C_{2}$. Then $C$ has linear distance. 
 \paragraph{Proof.} Consider a vaild codeword $x \in C$ and denote by $S$ the support of $x$ on the vertecis which do not suggest a trival codeword. We have seen that the degree of the vertices of $S$ in the indueced subgraph $\left( T, \cdot \right)$ is at least $\frac{1}{2}\delta_{1}\Delta$. Denote by $S^{\prime} \subset T $ the vertices such their neighborhod is also contained in $T$ and consider the subgraph $G^{\prime}=\left( T, E^{\prime} \right)$ obtaind by taking the vertics which suggested non-trival codewords and the edges which are fully supported on those vertices. 
 
