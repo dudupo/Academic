@@ -325,26 +325,26 @@ Unfortunately, Singelton bound doesn't allow both $\delta_0 > \frac{2}{3}$ and $
 %To overcome the vanishing rate issue we are going to consider graphs family in which the maximal layer of BFS scanning couldn't excced a linear  
 
 \subsection{ Quantum Codes. }
-
-\paragraph{Upper-Side-Sub-Expander Lemma.} Let $G=(V,E)$ a $\Delta$-regular graph with $\lambda$-algebric expansioin. Consider a subgraph $G^{\prime} \subset G $ such that $ G^{\prime}= \left( U, E^{\prime} \right)$. Then there exist $\lambda^{\prime} \in \left( 0, \lambda \right)$ that for any subset pair of $S, T \subset U$ satesfys: 
-
-\begin{equation*}
-  \begin{split}
-    E_{G^{\prime}}\left(S,T \right) \le \frac{\Delta}{|U|}|S||T| + \lambda^{\prime}\sqrt{|S|||T|}
-  \end{split}
-\end{equation*}
-\paragraph{Proof.} Recall that the first eigenvector of en undireacted graph adggecny matrix is distirubuted as $ x_{v} = deg\left( v \right)$. Define the $J$ matrix to be $J_{u,v} =\frac{1}{2|E^{\prime}|} deg_{G^{\prime}}\left( u \right)$ and observes that: $\left(Jx\right)_{v} = \frac{1}{2|E^{\prime}|}\sum_{u \in U}{deg_{G^{\prime}}\left( v \right)  deg_{G^{\prime}}\left( v \right)} = x_{v} $ Therefore for any normalized vecotrs $x,y$ we have that: $ \braket{x\left( A_{G^{\prime}} - J  \right)y} \le  \lambda^{\prime} \sqrt{\left( |x||y| \right)}$. Where $\lambda^{\prime}$ is the seconed largest eigen value of $A_{G^{\prime}}$. 
-
-Note both $A_{G^{\prime}}, A_{G}$ are symmetric and thefore by the Interlacing principle (\ctt{add cition}) we have that $\lambda^{\prime} < \lambda$. Finaly consider the indectors vecotrs $\chi_{S}, \chi_{T}$ for $S,T$ gettering all yields:     
-\begin{equation*}
-  \begin{split}
-    E\left( S,T \right) &= \braket{\chi_{S} A_{G^{\prime}} \chi_{T} } \le \braket{\chi_{S}J\chi_{T}} + \lambda^{\prime}\sqrt{|S||T|}  \\ 
-    & \le  \frac{1}{2|E^{\prime}|}\sum{\chi_{S_{i}}\chi_{T_{j}}deg(i)} +  \lambda^{\prime}\sqrt{|S||T|}  \\
-    & \le \frac{\Delta}{2|E^{\prime}|}|S||T| +  \lambda^{\prime}\sqrt{|S||T|} \\
-    & \le \frac{\Delta}{|U|}|S||T| +  \lambda^{\prime}\sqrt{|S||T|} 
-  \end{split}
-\end{equation*}
-$\square$
+%
+%\paragraph{Upper-Side-Sub-Expander Lemma.} Let $G=(V,E)$ a $\Delta$-regular graph with $\lambda$-algebric expansioin. Consider a subgraph $G^{\prime} \subset G $ such that $ G^{\prime}= \left( U, E^{\prime} \right)$. Then there exist $\lambda^{\prime} \in \left( 0, \lambda \right)$ that for any subset pair of $S, T \subset U$ satesfys: 
+%
+%\begin{equation*}
+%  \begin{split}
+%    E_{G^{\prime}}\left(S,T \right) \le \frac{\Delta}{|U|}|S||T| + \lambda^{\prime}\sqrt{|S|||T|}
+%  \end{split}
+%\end{equation*}
+%\paragraph{Proof.} Recall that the first eigenvector of en undireacted graph adggecny matrix is distirubuted as $ x_{v} = deg\left( v \right)$. Define the $J$ matrix to be $J_{u,v} =\frac{1}{2|E^{\prime}|} deg_{G^{\prime}}\left( u \right)$ and observes that: $\left(Jx\right)_{v} = \frac{1}{2|E^{\prime}|}\sum_{u \in U}{deg_{G^{\prime}}\left( v \right)  deg_{G^{\prime}}\left( v \right)} = x_{v} $ Therefore for any normalized vecotrs $x,y$ we have that: $ \braket{x\left( A_{G^{\prime}} - J  \right)y} \le  \lambda^{\prime} \sqrt{\left( |x||y| \right)}$. Where $\lambda^{\prime}$ is the seconed largest eigen value of $A_{G^{\prime}}$. 
+%
+%Note both $A_{G^{\prime}}, A_{G}$ are symmetric and thefore by the Interlacing principle (\ctt{add cition}) we have that $\lambda^{\prime} < \lambda$. Finaly consider the indectors vecotrs $\chi_{S}, \chi_{T}$ for $S,T$ gettering all yields:     
+%\begin{equation*}
+%  \begin{split}
+%    E\left( S,T \right) &= \braket{\chi_{S} A_{G^{\prime}} \chi_{T} } \le \braket{\chi_{S}J\chi_{T}} + \lambda^{\prime}\sqrt{|S||T|}  \\ 
+%    & \le  \frac{1}{2|E^{\prime}|}\sum{\chi_{S_{i}}\chi_{T_{j}}deg(i)} +  \lambda^{\prime}\sqrt{|S||T|}  \\
+%    & \le \frac{\Delta}{2|E^{\prime}|}|S||T| +  \lambda^{\prime}\sqrt{|S||T|} \\
+%    & \le \frac{\Delta}{|U|}|S||T| +  \lambda^{\prime}\sqrt{|S||T|} 
+%  \end{split}
+%\end{equation*}
+%$\square$
 
 \paragraph{Draft.} By the Discrete Cheeger's inequality it follows that, 
 \begin{equation*}
