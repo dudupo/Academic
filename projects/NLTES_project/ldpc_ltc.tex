@@ -305,11 +305,11 @@
   \paragraph{Proof.} Similary to above, now we will bound the weight that all the nodes in $T$ induce over $E/E^{\prime}$. Denote by $U_{0}, U_{1} .. U_{m}$ the layers of $T$ ordered coressponded to their height, thus we obtain: 
   \begin{equation*}
     \begin{split}
-      w_{E/E^{\prime}}\left( x \right) & \ge \frac{\delta_{0}}{\Delta}|T| - \sum_{i\in [m]}{ w \left( E\left( U_{i}, U_{i+1}  \right) \right)  } \\ 
-      \ge & \frac{\delta_{0}}{\Delta}|T|  - \sum_{i \in [m]}{ E\left( U_{i}, U_{i+1}  \right)  } \\ 
-      \ge & \frac{\delta_{0}}{\Delta}|T|  -  \sum_{i \in [m]}{ \frac{\Delta}{n}|U_{i}| |U_{i+1}| + \lambda \sqrt{ |U_{i}| |U_{i+1}|} }\\ 
-      \ge & \frac{\delta_{0}}{\Delta}|T|  -  \sum_{i \in [m]}{ \frac{\Delta}{n}|U_{i}| |U_{i+1}| + \lambda \frac{ |U_{i}|+ |U_{i+1}|}{2 } }\\ 
-      \ge & \frac{\delta_{0}}{\Delta}|T|  - \frac{\Delta}{n}|T||U_{\max}| -  \lambda |T| \\ 
+      w_{E/E^{\prime}}\left( x \right) & \ge \delta_{0}\Delta|T| - \sum_{i\in [m]}{ w \left( E\left( U_{i}, U_{i+1}  \right) \right)  } \\ 
+      \ge & \delta_{0}\Delta|T|  - \sum_{i \in [m]}{ E\left( U_{i}, U_{i+1}  \right)  } \\ 
+      \ge & \delta_{0}\Delta|T|  -  \sum_{i \in [m]}{ \frac{\Delta}{n}|U_{i}| |U_{i+1}| + \lambda \sqrt{ |U_{i}| |U_{i+1}|} }\\ 
+      \ge & \delta_{0}\Delta|T|  -  \sum_{i \in [m]}{ \frac{\Delta}{n}|U_{i}| |U_{i+1}| + \lambda \frac{ |U_{i}|+ |U_{i+1}|}{2 } }\\ 
+      \ge & \delta_{0}\Delta|T|  - \frac{\Delta}{n}|T||U_{\max}| -  \lambda |T| \\ 
       \ge & \left( \delta_{0} - \frac{|U_{\max}| }{n}-  \frac{\lambda}{\Delta} \right) \Delta|T| 
     \end{split}
   \end{equation*}
