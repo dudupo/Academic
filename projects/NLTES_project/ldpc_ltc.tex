@@ -334,7 +334,10 @@
 %\subsection{ Good LTC Which Is Almost LDPC. } 
 %To overcome the vanishing rate issue we are going to consider graphs family in which the maximal layer of BFS scanning couldn't excced a linear  
 
-  \subsection{ Tanner Code Testability For Small ($n^{1-\varepsilon}$) Errors}
+
+  \subsection{Tanner Code Testability For Small ($ \Delta^{\frac{g}{2}} $) Errors.} 
+  \ctt{ Consdier $T$ at height less than the graph diameter.  } 
+  \subsection{Tanner Code Testability When With strongly-Honest Vertices. }
   The result obtained by the proof of Theorem 1 is that one cannot hide errors in a sublinear size tree. Namely, any codeword of the disagreement code with a weight less than $ \Omega \left( n^{1-\varepsilon} \right) $ could be reduced, regardless the parameters of the small code. 
   \paragraph{Theorem 1-.} For every $\delta_{0}, \varepsilon > 0$, there exist $\Delta_{\varepsilon}\in \mathbb{N}$ such that if $\Delta \ge \Delta_{\varepsilon}$, then for every $x \in C_{\oplus}$ at Hamming weight at most $ \Theta \left( n^{1-\varepsilon} \right) $, there exists a vertex $v \in V$ and a small codeword $c_{v} \in C_{0} $ such that adding the assignment of it over the $v$'s edges to $x$ define the codeword $x + c_{v}$  such that $|x + c_{v}| < |x|$.  
   \paragraph{Proof:} Proof, Define $T$ again to be the DAG constructed as in the proof of Theorem 1 and denote by $U_{\max}$ the layer at maximal size. The analiyses of the flux over projeced by $x$ over the vertices which sugessted trivial code words remain the same. But now, as $U_{\max} \subset \text{supp}(x)$ follows that $|U_{\max}| \le 2|x| \le O(n^{1-\varepsilon})$. Therefore, $ \lim_{n \rightarrow \infty} \frac{|U_{\max}|}{n} \rightarrow 0 $ and we have that for sufficently large $n$ it holds that: 
