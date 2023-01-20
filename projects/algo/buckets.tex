@@ -28,6 +28,7 @@
 \newcommand{\commentt}[1]{\textcolor{blue}{ \textbf{[COMMENT]} #1}}
 \newcommand{\ctt}[1]{\commentt{#1}}
 \newcommand{\prb}[1]{ \mathbf{Pr} \left[ {#1} \right]}
+\newcommand{\exp}[1]{ \mathbf{E} \left[ {#1} \right]}
 \newcommand{\onotation}[1]{\(\mathcal{O} \left( {#1}  \right) \)}
 \newcommand{\ona}[1]{\onotation{#1}}
 \newcommand{\PSI}{{\ket{\psi}}}
@@ -54,7 +55,13 @@
 \begin{multicols*}{2}
 
   \paragraph{The problem.} Let $f: [0,1] \rightarrow [0,1]$ a fixed distribution function. Write an algorithm that sort $n$ draws $x_1 ... x_{n}$ at linear expectation time.  
-  \paragraph{Solution.}
+  \paragraph{Solution.} We will define a partition of the input into a seira of $n$ buckets $\mathcal{B} = \left\{ B_{k} = [t_{k}, t_{k+1} ] : k \in [n]  \right\}$ such that $ \prb{ x \in B_{i}} = \frac{1}{n}$ for any bucket.   
+  \begin{equation*}
+    \begin{split}
+      \exp{B_{i}^{2} } &= \exp{ \left( \sum_{j}{X_{ij}} \right)^{2}  }= \exp{ \sum_{j,j^{\prime}}{ X_{ij}X_{ij^{\prime}}}  } \\
+      &= \sum_\left\{ j,j^{\prime} \right\}{ \exp{X_{ij}}\exp{X_{ij^{\prime}}}   } =  \sum_\left\{ j \neq j^{\prime} \right\}{ \exp{X_{ij}}\exp{X_{ij^{\prime}}}   }  + \sum_{j}{ \exp{X_{ij}}} = \\ &= \binom{n}{2} + 1 = O\left( 1 \right)     
+    \end{split}
+  \end{equation*}
 
 \end{multicols*}
 \printbibliography 
