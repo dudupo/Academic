@@ -57,7 +57,7 @@
 
   \paragraph{The problem.} Let $f: [0,1] \rightarrow [0,1]$ a fixed distribution function. Write an algorithm that sort $n$ draws $x_1 ... x_{n}$ at linear expectation time.  
   \paragraph{Solution.} We will define a partition of the input into a seira of $n$ buckets $\mathcal{B} = \left\{ B_{k} = [t_{k}, t_{k+1} ] : k \in [n]  \right\}$ such that $ \prb{ x \in B_{i}} = \frac{1}{n}$ for any bucket. 
-  \paragraph{Claim.} The probability that the size of the $i$th bucket excceds $t \in \mathbb{N}$ is bounded by: $\prb{ B_{i} \ge t}  \le \frac{e}{k}t^{-k}$ for every integer $k \le n$.
+  \paragraph{Claim.} The probability that the size of the $i$th bucket excceds $t \in \mathbb{N}$ is bounded by: $\prb{ B_{i} \ge t}  \le kt^{-k}$ for every integer $k \le n$.
   \paragraph{Proof.} Let the $\xij$ be the indecator of the event that $x_{j}$ belongs to $B_i$. Then we have:
  %  \begin{equation*}
  %    \begin{split}
@@ -82,10 +82,15 @@
   And noitce that quantinue of sequance elements in summation is bounded by:  
   \begin{equation*}
     \begin{split}
-      \binom{n}{l+1} \frac{(l+1)!  }{n^{l+1}} /  \binom{n}{l} \frac{l!  }{n^{l}} = \frac{n-l}{n}=1-\frac{l}{n} 
+      \binom{n}{l+1} \frac{(l+1)!  }{n^{l+1}} /  \binom{n}{l} \frac{l!  }{n^{l}} = \frac{n-l}{n}=1-\frac{l}{n} \le 1 
     \end{split}
   \end{equation*}
-
+  Hence the sum over $k$ elements is lower than $k$. Unsing the markov inequality we have that:  
+  \begin{equation*}
+    \begin{split}
+    \prb{B_i \ge t} &\le \frac{\expp{B_{i}^{k}}}{t^{k}}\le kt^{-k}
+    \end{split}
+  \end{equation*}<++>
   \begin{equation*}
     \begin{split}
       \frac{1}{n} &= \prb{ x \in B_{k} } = f\left( t_{k+1} \right)- f\left( t_{k} \right) \\
