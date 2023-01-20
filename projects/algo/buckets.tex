@@ -45,6 +45,7 @@
 
 \newcommand{\Gz}{ G_{z}^{\delta} } 
 \newcommand{ \Tann } {  \mathcal{T}\left( G, C_0 \right) }
+\newcommand{\xij} { X_{ij} } 
 \begin{document}
 
 
@@ -55,19 +56,22 @@
 \begin{multicols*}{2}
 
   \paragraph{The problem.} Let $f: [0,1] \rightarrow [0,1]$ a fixed distribution function. Write an algorithm that sort $n$ draws $x_1 ... x_{n}$ at linear expectation time.  
-  \paragraph{Solution.} We will define a partition of the input into a seira of $n$ buckets $\mathcal{B} = \left\{ B_{k} = [t_{k}, t_{k+1} ] : k \in [n]  \right\}$ such that $ \prb{ x \in B_{i}} = \frac{1}{n}$ for any bucket.   
+  \paragraph{Solution.} We will define a partition of the input into a seira of $n$ buckets $\mathcal{B} = \left\{ B_{k} = [t_{k}, t_{k+1} ] : k \in [n]  \right\}$ such that $ \prb{ x \in B_{i}} = \frac{1}{n}$ for any bucket. 
+  \paragraph{Claim.} The probability that the size of the $i$th bucket excceds $t \in \mathbb{N}$ is bounded by: $\prb{ B_{i} \ge t}  \le \frac{e}{t^{k}}$ for every intrger $k \le n$.
+  \paragraph{Proof.} Let the $\xij$ be the indecator of the event that $x_{j}$ belongs to $B_i$. Then we have:
+ %  \begin{equation*}
+ %    \begin{split}
+ %      \expp{B_{i}^{2} } &= \expp{ \left( \sum_{j}{X_{ij}} \right)^{2}  } \\
+ %      &= \expp{ \sum_{j,j^{\prime}}{ X_{ij}X_{ij^{\prime}}}  } 
+ %      = \sum_{ j,j^{\prime}}{ \expp{X_{ij}}\expp{X_{ij^{\prime}}}   } \\
+ %      &=  \sum_{ j \neq j^{\prime} }{ \expp{X_{ij}}\expp{X_{ij^{\prime}}}   }  + \sum_{j}{ \expp{X_{ij}}}  \\
+ %      &= \frac{1}{n^{2}} \binom{n}{2} + 1 = O\left( 1 \right)     
+ %    \end{split}
+ %  \end{equation*}
+ 
   \begin{equation*}
     \begin{split}
-      \expp{B_{i}^{2} } &= \expp{ \left( \sum_{j}{X_{ij}} \right)^{2}  } \\
-      &= \expp{ \sum_{j,j^{\prime}}{ X_{ij}X_{ij^{\prime}}}  } 
-      = \sum_{ j,j^{\prime}}{ \expp{X_{ij}}\expp{X_{ij^{\prime}}}   } \\
-      &=  \sum_{ j \neq j^{\prime} }{ \expp{X_{ij}}\expp{X_{ij^{\prime}}}   }  + \sum_{j}{ \expp{X_{ij}}}  \\
-      &= \frac{1}{n^{2}} \binom{n}{2} + 1 = O\left( 1 \right)     
-    \end{split}
-  \end{equation*}
-  \begin{equation*}
-    \begin{split}
-      \expp{B_{i}^{4} } &= \expp{ \left( \sum_{j}{X_{ij}} \right)^{4}  } \\
+      \expp{B_{i}^{k} } &= \expp{ \left( \sum_{ \substack { J \subset [n] \\ |J| = k }  }{ \prod_{j \in J} { X_{ij} } } \right)^{4}  } \\
     &= \expp{ \sum_{j,j^{\prime}}{ \prod{X_{ij}}}}  
       = \sum_{ j,j^{\prime}}{ \expp{X_{ij}}\expp{X_{ij^{\prime}}}   } \\
       &=  \sum_{ j \neq j^{\prime} }{ \expp{X_{ij}}\expp{X_{ij^{\prime}}}   }  +
