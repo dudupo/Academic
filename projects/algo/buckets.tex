@@ -72,7 +72,7 @@
   \begin{equation*}
     \begin{split}
       \expp{B_{i}^{k} } &= \expp{ \left( \sum_{j}{\xij } \right)^{k}  } =  \expp{ \sum_{ \substack { J \in [n]^k }  }{ \prod_{ l \in [k] } { X_{iJ_{l}} } }   } \\
-      &=   \expp{ \sum_{l \in [k]}}\sum_{ \substack { J \subset [n] \\ |J| = l }  }{ \prod_{j \in J} { \binom{n}{l} \frac{1}{n^{l}} }   } \\
+      &=   \expp{ \sum_{l \in [k]}\sum_{ \substack { J \subset [n] \\ |J| = l }  }{ \prod_{j \in J} { \binom{n}{l} \frac{1}{n^{l}} }   }} \\
       &=  \sum_{ j \neq j^{\prime} }{ \expp{X_{ij}}\expp{X_{ij^{\prime}}}   }  +
       \sum_{j}{ \expp{X_{ij}}}  \\
       &= \sum_{l \in [4] }\frac{1}{n^{l}} \binom{n}{l}  = O\left( 1 \right)  \\
