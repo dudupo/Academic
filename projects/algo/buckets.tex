@@ -1,0 +1,63 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, total={7.5in, 10in} ]{geometry}
+\usepackage{braket}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{patterns,shapes.arrows}
+\usepackage{adjustbox}
+\usepackage{tikz-network}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{multicol}
+\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\DeclareUnicodeCharacter{2212}{−}
+\usepgfplotslibrary{groupplots,dateplot}
+\pgfplotsset{compat=newest}
+
+\addbibresource{sample.bib} %Import the bibliography file
+
+\newcommand{\commentt}[1]{\textcolor{blue}{ \textbf{[COMMENT]} #1}}
+\newcommand{\ctt}[1]{\commentt{#1}}
+\newcommand{\prb}[1]{ \mathbf{Pr} \left[ {#1} \right]}
+\newcommand{\onotation}[1]{\(\mathcal{O} \left( {#1}  \right) \)}
+\newcommand{\ona}[1]{\onotation{#1}}
+\newcommand{\PSI}{{\ket{\psi}}}
+\newcommand{\LESn}{\ket{\psi_n}}
+\newcommand{\LESa}{\ket{\phi_n}}
+\newcommand{\LESs}{\frac{1}{\sqrt{n}}\sum_{i}{\ket{\left(0^{i}10^{n-i}\right)^{n}}}}
+\newcommand{\Hn}{\mathcal{H}_{n}}
+\newcommand{\Ep}{\frac{1}{\sqrt{2^n}}\sum^{2^n}_{x}{ \ket{xx}}}
+\newcommand{\HON}{\ket{\psi_{\text{honest}}}}
+\newcommand{\Lemma}{\paragraph{Lemma.}}
+\newcommand{\PonB}{ \rho + \frac{5}{16}\delta\le \frac{3}{4} + \frac{1}{16} } 
+\newcommand{\Cpa}{[n, \rho n, \delta n]}
+%\setlength{\columnsep}{0.6cm}
+
+\newcommand{\Gz}{ G_{z}^{\delta} } 
+\newcommand{ \Tann } {  \mathcal{T}\left( G, C_0 \right) }
+\begin{document}
+
+
+\title{Bucket Sort When You Know The Distribution.} 
+\author{David Ponarovsky}
+\maketitle
+\abstract{We propose a new simple construction based on Tanner Codes, which yields a good LDPC code with testability query complexity of $\Theta\left( n^{1-\varepsilon} \right)$ for any $\varepsilon> 0$ .} 
+\begin{multicols*}{2}
+
+  \paragraph{The problem.} Let $f: [0,1] \rightarrow [0,1]$ a fixed distribution function. Write an algorithm that sort $n$ draws $x_1 ... x_{n}$ at linear expectation time.  
+  \paragraph{Solution.}
+
+\end{multicols*}
+\printbibliography 
+\end{document}
+
+
