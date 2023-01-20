@@ -73,7 +73,9 @@
       &=  \sum_{ j \neq j^{\prime} }{ \expp{X_{ij}}\expp{X_{ij^{\prime}}}   }  +
       \sum_{j}{ \expp{X_{ij}}}  \\
       &= \sum_{l \in [4] }\frac{1}{n^{l}} \binom{n}{l}  = O\left( 1 \right)  \\
-      \mathbf{V}\left[ B_{i}^{2} \right] &= \sum_{ l \in [4]}{ \binom{n}{l} \left( \frac{1}{n^{l}} - \frac{1}{n^{4}} \right)  } \le e 
+      \mathbf{V}\left[ B_{i}^{2} \right] &= \sum_{ l \in [4]}{ \binom{n}{l} \left( \frac{1}{n^{l}} - \frac{1}{n^{4}} \right)  } \le e\\
+      \expp{ \left( B_{i}^2 \right)^{k} } & \le \left( 1 + \frac{1}{n} \right)^{n} \le e \\ 
+      \prb{ B_{i} \ge t} \le \frac{e}{t^{k}}\\ 
     \end{split}
   \end{equation*}
 
