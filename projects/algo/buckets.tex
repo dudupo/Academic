@@ -57,7 +57,7 @@
 
   \paragraph{The problem.} Let $f: [0,1] \rightarrow [0,1]$ a fixed distribution function. Write an algorithm that sort $n$ draws $x_1 ... x_{n}$ at linear expectation time.  
   \paragraph{Solution.} We will define a partition of the input into a seira of $n$ buckets $\mathcal{B} = \left\{ B_{k} = [t_{k}, t_{k+1} ] : k \in [n]  \right\}$ such that $ \prb{ x \in B_{i}} = \frac{1}{n}$ for any bucket. 
-  \paragraph{Claim.} The probability that the size of the $i$th bucket excceds $t \in \mathbb{N}$ is bounded by: $\prb{ B_{i} \ge t}  \le \frac{e}{t^{k}}$ for every intrger $k \le n$.
+  \paragraph{Claim.} The probability that the size of the $i$th bucket excceds $t \in \mathbb{N}$ is bounded by: $\prb{ B_{i} \ge t}  \le \frac{e}{k}t^{-k}$ for every integer $k \le n$.
   \paragraph{Proof.} Let the $\xij$ be the indecator of the event that $x_{j}$ belongs to $B_i$. Then we have:
  %  \begin{equation*}
  %    \begin{split}
@@ -73,13 +73,9 @@
     \begin{split}
       \expp{B_{i}^{k} } &= \expp{ \left( \sum_{j}{\xij } \right)^{k}  } =  \expp{ \sum_{ \substack { J \in [n]^k }  }{ \prod_{ l \in [k] } { X_{iJ_{l}} } }   } \\
       &=   \expp{ \sum_{l \in [k]}\sum_{ \substack { J \subset [n] \\ |J| = l }  }{ \prod_{j \in J} { \xij  }   }} \\
-      &=   \expp{ \sum_{l \in [k]}{  \binom{n}{l} \frac{l!  }{n^{l}} }   } \\
-      &=  \sum_{ j \neq j^{\prime} }{ \expp{X_{ij}}\expp{X_{ij^{\prime}}}   }  +
-      \sum_{j}{ \expp{X_{ij}}}  \\
-      &= \sum_{l \in [4] }\frac{1}{n^{l}} \binom{n}{l}  = O\left( 1 \right)  \\
-      \mathbf{V}\left[ B_{i}^{2} \right] &= \sum_{ l \in [4]}{ \binom{n}{l} \left( \frac{1}{n^{l}} - \frac{1}{n^{4}} \right)  } \le e\\
-      \expp{ \left( B_{i}^2 \right)^{k} } & \le \left( 1 + \frac{1}{n} \right)^{n} \le e \\ 
-      \prb{ B_{i} \ge t} & \le \frac{e}{t^{k}}\\ 
+      &=   \sum_{l \in [k]}{  \binom{n}{l} \frac{l!  }{n^{l}} } 
+      %\expp{ \left( B_{i}^2 \right)^{k} } & \le \left( 1 + \frac{1}{n} \right)^{n} \le e \\ 
+      %\prb{ B_{i} \ge t} & \le \frac{e}{t^{k}}\\ 
     \end{split}
   \end{equation*}
 
