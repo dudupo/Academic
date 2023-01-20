@@ -62,9 +62,20 @@
       &= \expp{ \sum_{j,j^{\prime}}{ X_{ij}X_{ij^{\prime}}}  } 
       = \sum_{ j,j^{\prime}}{ \expp{X_{ij}}\expp{X_{ij^{\prime}}}   } \\
       &=  \sum_{ j \neq j^{\prime} }{ \expp{X_{ij}}\expp{X_{ij^{\prime}}}   }  + \sum_{j}{ \expp{X_{ij}}}  \\
-      &= \frac{1}{n} \binom{n}{2} + 1 = O\left( 1 \right)     
+      &= \frac{1}{n^{2}} \binom{n}{2} + 1 = O\left( 1 \right)     
     \end{split}
   \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      \expp{B_{i}^{4} } &= \expp{ \left( \sum_{j}{X_{ij}} \right)^{4}  } \\
+    &= \expp{ \sum_{j,j^{\prime}}{ \prod{X_{ij}}}}  
+      = \sum_{ j,j^{\prime}}{ \expp{X_{ij}}\expp{X_{ij^{\prime}}}   } \\
+      &=  \sum_{ j \neq j^{\prime} }{ \expp{X_{ij}}\expp{X_{ij^{\prime}}}   }  +
+      \sum_{j}{ \expp{X_{ij}}}  \\
+      &= \sum_{l \in [4] }\frac{1}{n^{l}} \binom{n}{l}  = O\left( 1 \right)     
+    \end{split}
+  \end{equation*}
+
 
   \begin{equation*}
     \begin{split}
@@ -72,6 +83,9 @@
       & \Rightarrow t_{k+1} \leftarrow f^{-1}\left( \frac{1}{n} + f\left( t_{k} \right) \right) 
     \end{split}
   \end{equation*}
+
+
+
 \end{multicols*}
 \printbibliography 
 \end{document}
