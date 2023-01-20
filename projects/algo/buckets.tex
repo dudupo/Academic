@@ -71,6 +71,11 @@
  
   \begin{equation*}
     \begin{split}
+      \prb{ B_i \ge \left( 1+\delta \right) \mu } \le e^{-2\frac{\delta^2\mu^{2}}{n}}  
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
       \expp{B_{i}^{k} } &= \expp{ \left( \sum_{j}{\xij } \right)^{k}  } =  \expp{ \sum_{ \substack { J \in [n]^k }  }{ \prod_{ l \in [k] } { X_{iJ_{l}} } }   } \\
       &=   \expp{ \sum_{l \in [k]}\sum_{ \substack { J \subset [n] \\ |J| = l }  }{ \prod_{j \in J} { \xij  }   }} \\
       &=   \sum_{l \in [k]}{  \binom{n}{l} \frac{l!  }{n^{l}} } 
