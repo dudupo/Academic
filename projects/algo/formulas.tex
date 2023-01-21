@@ -60,6 +60,15 @@
      & \prb{|X - \mu| \ge \delta\mu }  \le 2e^{-\delta^2\mu/3}, \qquad 0 \le \delta \le 1
     \end{split}
   \end{equation*}
+  \paragraph{Jensen's inequality.} If $X$ is a random variable and $\pi$ is a convex function, then:
+
+  \begin{equation*}
+    \begin{split}
+      & \pi\left( \expp{X} \right) \le \expp{\pi\left( X \right)}\\
+      \Rightarrow & \expp{X} \le \ln\left(\expp{e^{X}}  \right) \\ 
+      &  \expp{X} \le e^{\expp{\ln \left( X \right)}} 
+    \end{split}
+  \end{equation*}
 \end{multicols*}{2}
 \end{document} 
 
