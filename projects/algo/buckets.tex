@@ -60,9 +60,9 @@
 
   \begin{equation*}
     \begin{split}
-      & \prb{\sum_{i}{|B_{i}|^{2}} \ge t} = \prb{ \sum_{i}{\left( \sum_{j}X_{ij} \right)^{2}} \ge t   } \\
-     = & \prb{ \sum_{i,j,j^{\prime}}{X_{i,j}X_{i,j^{\prime}} } \ge t  } = \prb{ \sum_{i,j\neq j^{\prime}}{X_{i,j}{X_{i,j^{\prime}} } \ge t - n   } }\\ 
-    \le & \frac{\sum_{i,j\neq j^{\prime}}{\expp{ X_{ij}X_{ij^{\prime}}  }}}{ t - n  } = \frac{n}{\left(t-n \right)n^{2}}2\binom{n}{2}  \le \frac{n}{t-n}  
+      & \ \prb{\sum_{i}{|B_{i}|^{2}} \ge t} = \prb{ \sum_{i}{\left( \sum_{j}X_{ij} \right)^{2}} \ge t   } \\
+     = & \ \prb{ \sum_{i,j,j^{\prime}}{X_{i,j}X_{i,j^{\prime}} } \ge t  } = \prb{ \sum_{i,j\neq j^{\prime}}{X_{i,j}{X_{i,j^{\prime}} } \ge t - n   } }\\ 
+    \le & \ \frac{\sum_{i,j\neq j^{\prime}}{\expp{ X_{ij}X_{ij^{\prime}}  }}}{ t - n  } = \frac{n}{\left(t-n \right)n^{2}}2\binom{n}{2}  \le \frac{n}{t-n}  
     \end{split}
   \end{equation*}
   It follows that for any function $t : \mathbb{N} \rightarrow \mathbb{R}$, such that $n = o\left( t \right)$, sorting quaderic each bucket at turn would last almost surly less than $t(n)$.  
