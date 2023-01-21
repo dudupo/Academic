@@ -52,12 +52,12 @@
 \maketitle
 \begin{multicols*}{2}
   \subsection*{{\textcolor{orange}{Probability.}} } 
-\paragraph{Multiplicative Chernoff bound.} Suppose $ X_1, ..., X_n$ are independence random variables taking values in $\{0, 1\}$ Let $X$ denote their sum and let $\mu = \expp{\sum_{i}^{n}{X_{i}}} $  denote the sum's expected value. Then for any $\delta > 0$: 
+  \paragraph{Multiplicative Chernoff bound.} Suppose $ X_1, ..., X_n$ are independence random variables taking values in $\{0, 1\}$ Let $X$ denote their sum and let $\mu = \expp{\sum_{i}^{n}{X_{i}}} $  denote the sum's expected value. Then for any $\delta > 0$: 
 %:<math>\Pr ( X > (1+\delta)\mu) < \left(\frac{e^\delta}{(1+\delta)^{1+\delta}}\right)^\mu.</math>
-\begin{equation*}
+  \begin{equation*}
     \begin{split}
-     & \prb{X \ge \left( 1+\delta \right) \mu }  \le e^{-2\frac{\delta^2\mu^{2}}{n}} \\ 
-     & \prb{|X - \mu| \ge \delta\mu }  \le 2e^{-\delta^2\mu/3}, \qquad 0 \le \delta \le 1
+      & \prb{X \ge \left( 1+\delta \right) \mu }  \le e^{-2\frac{\delta^2\mu^{2}}{n}} \\ 
+      & \prb{|X - \mu| \ge \delta\mu }  \le 2e^{-\delta^2\mu/3}, \qquad 0 \le \delta \le 1
     \end{split}
   \end{equation*}
   \paragraph{Bernstein inequalities.} \indpr with zero mean $\left( \mu = 0  \right)$. Suppose that $|X_{i}| \le M $ almost surely, for all $i$.Then, for all positive $t$:
@@ -71,42 +71,50 @@
       \prb{ | \frac{1}{n}\sum_{i}^{n}{X_i} | \ge \varepsilon  } \le 2\exp\left( -\frac{n\varepsilon^{2}}{2\left( 1+\frac{\varepsilon}{3} \right)} \right) 
     \end{split}
   \end{equation*}
-  \paragraph{Jensen's inequality.} If $X$ is a random variable and $\phi$ is a convex function, then:
+  There is also a weakly dependent generalization version, that go as follow. Let $X_{0},X_{1},X_{2},\ldots X_{n}$ random variables. Suppose that for all integers $i$ it holds:  
+  \begin{equation*}
+    \begin{split}
+      &\expp{X_{i}|X_{0},X_{1},X_{2},\ldots X_{i-1}}=0\\
+      & \expp{X_{i}^{2}|X_{0},X_{1},X_{2},\ldots X_{i-1}}=0\\
+    & \expp{X_{i}^{k} | X_{0},X_{1},X_{2},\ldots X_{i-1}} \le \frac{1}{2}\expp{X_{i}|X_{0},X_{1},X_{2},\ldots X_{i-1}} L^{k-2}k! 
+      \end{split}
+    \end{equation*}
+    \paragraph{Jensen's inequality.} If $X$ is a random variable and $\phi$ is a convex function, then:
 
-  \begin{equation*}
-    \begin{split}
-       \phi\left( \expp{X} \right) \le \ & \expp{\phi\left( X \right)} \Rightarrow   \expp{X} \le \phi^{-1} \left( \expp{\phi\left( X \right)} \right) \\
-      & \expp{X} \le \ln\left(\expp{e^{X}}  \right)  \\ 
-      &  \expp{X} \ge e^{\expp{\ln \left( X \right)}}  
-    \end{split}
-  \end{equation*}
-  \paragraph{Paley–Zygmund inequality.} bounds the probability that a positive random variable is small, in terms of its first two moments. Could be thought as the lower bound Markov version. If a r.v $X$ is always positive and has a finate variance, then for $0 \le \tau \ge 1$:  
-  \begin{equation*}
-    \begin{split}
-     & \prb{ X > \tau \expp{X} } \ge \left( 1 - \tau \right)^{2}\frac{\expp{X}^{2}}{\expp{X^2}}\\
-     &  \prb{ X > \expp{X} - \tau \sigma } \ge \frac{\tau^{2}}{1+\tau^{2}} 
-    \end{split}
-  \end{equation*}
-  \paragraph{Marcinkiewicz–Zygmund inequality.} \indpr with zero mean $\left( \mu = 0  \right)$ and $\expp{|X_{i}|^{p}} < \infty$, then there exist constants $A_{p}, B_{p}$ which depend only on $p$ such:  
-  \begin{equation*}
-    \begin{split}
-      & A_{p}\expp{\left( \sum_{i}^{n}{|X_{i}|^{2}} \right)^{p/2}  } \le \expp{|\sum_{i}^{n}{X_{i}}|^{p} }\le B_{p}\expp{\left( \sum_{i}^{n}{|X_{i}|^{2}} \right)^{p/2}  }        
-    \end{split}
-  \end{equation*}
-  \paragraph{Cauchy–Schwarz Expectation Inequality.} Let $X,Y$ be random variables then the inequality becomes: 
-  \begin{equation*}
-    \begin{split}
-      |\expp{ XY} |^{2}\le\expp{X^{2}}\expp{Y^{2}}
-    \end{split}
-  \end{equation*}
-  \subsection*{{\textcolor{orange}{Inequalitys.}} } 
-  \paragraph{Sedrakyan's inequality.} For any reals$a_{0},a_{1},a_{2},\ldots a_{n}$ and positive eals $b_{0},b_{1},b_{2},\ldots b_{n}$ we have:  
-  \begin{equation*}
-    \begin{split}
-      \frac{a_{1}^2}{b_{1}}+\frac{a_{2}^2}{b_{2}}+ ...+ \frac{a_{n}^2}{b_{n}} \ge \frac{\left( a_{1}+ a_{2} + ... + a_{n}  \right)^{2}}{b_{1}+b_{2}+... b_{n}}  
-    \end{split}
-  \end{equation*}
-\end{multicols*}{2}
-\end{document} 
+    \begin{equation*}
+      \begin{split}
+	\phi\left( \expp{X} \right) \le \ & \expp{\phi\left( X \right)} \Rightarrow   \expp{X} \le \phi^{-1} \left( \expp{\phi\left( X \right)} \right) \\
+	& \expp{X} \le \ln\left(\expp{e^{X}}  \right)  \\ 
+	&  \expp{X} \ge e^{\expp{\ln \left( X \right)}}  
+      \end{split}
+    \end{equation*}
+    \paragraph{Paley–Zygmund inequality.} bounds the probability that a positive random variable is small, in terms of its first two moments. Could be thought as the lower bound Markov version. If a r.v $X$ is always positive and has a finate variance, then for $0 \le \tau \ge 1$:  
+    \begin{equation*}
+      \begin{split}
+	& \prb{ X > \tau \expp{X} } \ge \left( 1 - \tau \right)^{2}\frac{\expp{X}^{2}}{\expp{X^2}}\\
+	&  \prb{ X > \expp{X} - \tau \sigma } \ge \frac{\tau^{2}}{1+\tau^{2}} 
+      \end{split}
+    \end{equation*}
+    \paragraph{Marcinkiewicz–Zygmund inequality.} \indpr with zero mean $\left( \mu = 0  \right)$ and $\expp{|X_{i}|^{p}} < \infty$, then there exist constants $A_{p}, B_{p}$ which depend only on $p$ such:  
+    \begin{equation*}
+      \begin{split}
+	& A_{p}\expp{\left( \sum_{i}^{n}{|X_{i}|^{2}} \right)^{p/2}  } \le \expp{|\sum_{i}^{n}{X_{i}}|^{p} }\le B_{p}\expp{\left( \sum_{i}^{n}{|X_{i}|^{2}} \right)^{p/2}  }        
+      \end{split}
+    \end{equation*}
+    \paragraph{Cauchy–Schwarz Expectation Inequality.} Let $X,Y$ be random variables then the inequality becomes: 
+    \begin{equation*}
+      \begin{split}
+	|\expp{ XY} |^{2}\le\expp{X^{2}}\expp{Y^{2}}
+      \end{split}
+    \end{equation*}
+    \subsection*{{\textcolor{orange}{Inequalitys.}} } 
+    \paragraph{Sedrakyan's inequality.} For any reals$a_{0},a_{1},a_{2},\ldots a_{n}$ and positive eals $b_{0},b_{1},b_{2},\ldots b_{n}$ we have:  
+    \begin{equation*}
+      \begin{split}
+	\frac{a_{1}^2}{b_{1}}+\frac{a_{2}^2}{b_{2}}+ ...+ \frac{a_{n}^2}{b_{n}} \ge \frac{\left( a_{1}+ a_{2} + ... + a_{n}  \right)^{2}}{b_{1}+b_{2}+... b_{n}}  
+      \end{split}
+    \end{equation*}
+  \end{multicols*}{2}
+  \end{document} 
 
 
