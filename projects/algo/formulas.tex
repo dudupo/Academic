@@ -72,7 +72,8 @@
   \paragraph{Paley–Zygmund inequality.} bounds the probability that a positive random variable is small, in terms of its first two moments. Could be thought as the lower bound Markov version. If a r.v $X$ is always positive and has a finate variance, then for $0 \le \tau \ge 1$:  
   \begin{equation*}
     \begin{split}
-      \prb{ X > \tau \expp{X} } \ge \left( 1 - \tau \right)^{2}\frac{\expp{X}^{2}}{\expp{X^2}}
+     & \prb{ X > \tau \expp{X} } \ge \left( 1 - \tau \right)^{2}\frac{\expp{X}^{2}}{\expp{X^2}}\\
+     &  \prb{ X > \expp{X} - \tau \sigma } \ge \frac{\tau^{2}}{1+\tau^{2}} 
     \end{split}
   \end{equation*}
 \end{multicols*}{2}
