@@ -75,8 +75,9 @@
   \begin{equation*}
     \begin{split}
       &\expp{X_{i}|X_{0},X_{1},X_{2},\ldots X_{i-1}}=0\\
-      & \expp{X_{i}^{2}|X_{0},X_{1},X_{2},\ldots X_{i-1}}=0\\
-    & \expp{X_{i}^{k} | X_{0},X_{1},X_{2},\ldots X_{i-1}} \le \frac{1}{2}\expp{X_{i}|X_{0},X_{1},X_{2},\ldots X_{i-1}} L^{k-2}k! 
+      & \expp{X_{i}^{2}|X_{0},X_{1},X_{2},\ldots X_{i-1}}= R_{i}\expp{X_{i}^{2}}\\
+    & \expp{X_{i}^{k} | X_{0},X_{1},X_{2},\ldots X_{i-1}}  \\
+    & \ \ \le \frac{1}{2}\expp{X_{i}|X_{0},X_{1},X_{2},\ldots X_{i-1}} L^{k-2}k! 
       \end{split}
     \end{equation*}
     \paragraph{Jensen's inequality.} If $X$ is a random variable and $\phi$ is a convex function, then:
