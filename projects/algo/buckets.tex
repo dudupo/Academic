@@ -14,7 +14,7 @@
 \usetikzlibrary{patterns,shapes.arrows}
 \usepackage{adjustbox}
 \usepackage{tikz-network}
-\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage[ruled,lined,linesnumbered]{algorithm2e}
 \usepackage{multicol}
 \usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
 \usepackage{xcolor}
@@ -55,28 +55,29 @@
 \abstract{None.} 
 \begin{multicols*}{2}
 
-  \paragraph{The problem.} Let $f: [0,1] \rightarrow [0,1]$ a fixed distribution function. Write an algorithm that sort $n$ draws $x_1 ... x_{n}$ at linear expectation time.  
-  \paragraph{Solution.} We will define a partition of the input into a serie of $n$ buckets $\mathcal{B} = \left\{ B_{k} = [t_{k}, t_{k+1} ] : k \in [n]  \right\}$ such that $ \prb{ x \in B_{i}} = \frac{1}{n}$ for any bucket. Assume that we seccsused to compute the buckets efficently. Let the $\xij$ be the indecator of the event that $x_{j}$ fall to $B_i$. Then we have:
+  \paragraph{The problem.} Let $f: [0,1] \rightarrow [0,1]$ a fixed distribution function. Write an algorithm that sorts $n$ draws $x_1 ... x_{n}$ at linear expectation time.  
+  \paragraph{Solution.} We will define a partition of the input into a series of $n$ buckets $\mathcal{B} = \left\{ B_{k} = [t_{k}, t_{k+1} ]: k \in [n]  \right\}$ such that $ \prb{ x \in B_{i}} = \frac{1}{n}$ for any bucket. Assume that we succeed in computing the buckets efficiently. Let the $\xij$ be the indicator of the event that $x_{j}$ falls to $B_i$. Then we have:
 
   \begin{equation*}
     \begin{split}
       & \ \prb{\sum_{i}{|B_{i}|^{2}} \ge t} = \prb{ \sum_{i}{\left( \sum_{j}X_{ij} \right)^{2}} \ge t   } \\
      = & \ \prb{ \sum_{i,j,j^{\prime}}{X_{i,j}X_{i,j^{\prime}} } \ge t  } = \prb{ \sum_{i,j\neq j^{\prime}}{X_{i,j}{X_{i,j^{\prime}} } \ge t - n   } }\\ 
-    \le & \ \frac{\sum_{i,j\neq j^{\prime}}{\expp{ X_{ij}X_{ij^{\prime}}  }}}{ t - n  } = \frac{n}{\left(t-n \right)n^{2}}2\binom{n}{2}  \le \frac{n}{t-n}  
+    \le & \ \frac{\sum_{i,j\neq j^{\prime}}{\expp{ X_{ij}X_{ij^{\prime}}  }}}{ t - n  } = \seccsusedfrac{n}{\left(t-n \right)n^{2}}2\binom{n}{2}  \le \frac{n}{t-n}  
     \end{split}
   \end{equation*}
-  It follows that for any function $t : \mathbb{N} \rightarrow \mathbb{R}$, such that $n = o\left( t \right)$, sorting quaderic each bucket at turn would last almost surly less than $t(n)$.  
-  It lefts to show that knowing the distribution enables to compute efficently the buckets. Ensuring the uniform partitonized prtoperty leads for the follow requrisive relation: 
+  It follows that for any function $t: \mathbb{N} \rightarrow \mathbb{R}$, such that $n = o\left( t \right)$, sorting quadric each bucket at turn would last almost surely less than $t(n)$.  
+  It shows that knowing the distribution enables one to compute the buckets efficiently. Ensuring the uniform partitioned property leads to the following recursive relation: 
   \begin{equation*}
     \begin{split}
       \frac{1}{n} &= \prb{ x \in B_{k} } = f\left( t_{k+1} \right)- f\left( t_{k} \right) \\
       & \Rightarrow t_{k+1} \leftarrow f^{-1}\left( \frac{1}{n} + f\left( t_{k} \right) \right) 
     \end{split}
   \end{equation*} 
-  Hence, if $f$ can be computed in sublinear time then we obtained am expected linear time algortihm for sorting $\square$
+  Hence, if $f$ can be computed in sublinear time, then we obtained an expected linear time algorithm for sorting $\square$
 
 \end{multicols*}
 \printbibliography 
 \end{document}
+
 
 
