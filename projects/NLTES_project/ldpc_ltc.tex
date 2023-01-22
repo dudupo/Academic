@@ -11,10 +11,10 @@
 \usepackage{svg}
 \usepackage{float}
 \usepackage{tikz}
-\usetikzlibrary{patterns,shapes.arrows}
+\usetikzlibrary{patterns, shapes.arrows}
 \usepackage{adjustbox}
 \usepackage{tikz-network}
-\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage[ruled,lined,linesnumbered]{algorithm2e}
 \usepackage{multicol}
 \usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
 \usepackage{xcolor}
@@ -53,7 +53,7 @@
 \abstract{We propose a new simple construction based on Tanner Codes, which yields a good LDPC code with testability query complexity of $\Theta\left( n^{1-\varepsilon} \right)$ for any $\varepsilon> 0$ .} 
 \begin{multicols*}{2}
   \section{Preambles}
-  In this work, we propose a new construction for good LDPC codes, which also have a good testability parameter. In the sense that one can engineer the code such that doing $\Theta\left( n^{1-\varepsilon}\right)$ random checks, at most, would be enough to detect any error with probability proportional to its size. When $\varepsilon$ is a small, as we wish, fixed positive number.  In contrast to previews, constructions made by C and D, our construction does not involve any amplification and is almost identical to the expander code construction, which is considered by many simple and easy to implement. We remark that Dinur, in her previous work \cite{Dinur}, obtained a better testability code with only constant query complexity. 
+  In this work, we propose a new construction for good LDPC codes, which also have a good testability parameter. In the sense that one can engineer the code such that doing $\Theta\left( n^{1-\varepsilon}\right)$ random checks, at most, would be enough to detect any error with probability proportional to its size. When $\varepsilon$ is a small, as we wish, fixed positive number. In contrast to previews, constructions made by C and D, our construction does not involve any amplification and is almost identical to the expander code construction, which is considered by many simple and easy to implement. We remark that Dinur, in her previous work \cite{Dinur}, obtained a better testability code with only constant query complexity. 
   Yet, her construction relies on the existence of a specific square complex. That complex, which is also an essential ingredient of the Quantum good LDPC proof, allows engineering a restrictions system with high degeneration. This complex is also necessary to provide a structure of commuting Pauli cheks which is needed to define a quantum CSS code \cite{Pavel}, \cite{leverrier2022quantum}. That fact raises the question: Could the preview constructions also provide such degeneration? What is the exact relation between Quantemness and Testability? Could one create a testability code without having a quantum code? We partially answer those questions above by showing that a slight adaptation of the Tanner-Expander code provides effective, as we wish, testability.
   Our proof also indirectly answers the following question. Why most of the good LDPC codes are known to be bad in terms of detecting errors? In other words, It seems that for most of them, there exist strings that are very far from being in the code and, meanwhile, fail to satisfy only a small number of restrictions.
   While the previous LDPC constructions focused on ensuring that the yielded code would have a good rate and distance parameters, our construction enforces the restrictions collection to have a nontrivial fraction of degeneration. That is, removing a single restriction will not change the code, as any restriction is linearly dependent on the others.
@@ -61,9 +61,9 @@
 
 
   \section{Introduction}
-  Coding theory has emerged by the need to transfer information in noisy communication channels. By embedding a message in higher dimension space, one can guarantee robustness against possible faults. The ratio of the original content length to the passed message length is the rate of the code, and it measures how consuming our communication protocol is. Furthermore, the distance of the code quantifies how many faults the scheme can absorb such that the receiver could recover the original message. Also, We could think about the code as all the strings that satisfy a specified restrictions collection.
-  Non-formally, we say that code is good if its distance and rate are scaled linearly in the encoded message length.  In practice, one might also intrested to be able to implement those checks efficiently. We say that a code is an LDPC if any bit is involved in a constant number of restrictions, each of which is a linear equation, and if any restriction contains a fixed number of variables. And finally, another characteristic of the code is its testability, which is the complexity of the number of random checks one should be done in order to negate that a given candidate is in the code.
-  Besides the fact that good codes are considered efficient in terms of robustness and overhead, they are also vital components in establishing secure multiparty computation \cite{MultiParty} and have a deep connection to probabilistic proofs.
+  Coding theory has emerged by the need to transfer information in noisy communication channels. By embedding a message in higher dimension space, one can guarantee robustness against possible faults. The ratio of the original content length to the passed message length is the rate of the code, and it measures how consuming our communication protocol is. Furthermore, the distance of the code quantifies how many faults the scheme can absorb such that the receiver can recover the original message. Also, we could consider the code as all the strings that satisfy a specified restrictions collection.
+  Non-formally, code is good if its distance and rate are scaled linearly in the encoded message length. In practice, one is also interested in implementing those checks efficiently. We say that a code is an LDPC if any bit is involved in a constant number of restrictions, each of which is a linear equation, and if any restriction contains a fixed number of variables. And finally, another characteristic of the code is its testability, which is the complexity of the number of random checks one should be done in order to negate that a given candidate is in the code.
+  Besides good codes being considered efficient in terms of robustness and overhead, they are also vital components in establishing secure multiparty computation \cite{MultiParty} and have a deep connection to probabilistic proofs.
 
   First, we state the notations, definitions, and formal theorem in section 2. Then in sections 3 and 4, we review past results and provide their proofs in order to make this paper self-contained. Readers familiar with the basic concepts of LDPC, Tanner and Expanders codes construction should consider skipping directly to section 5, in which we provide our proof. 
 %Linear Error Correction Codes, 
@@ -74,12 +74,12 @@
   From now on, we will use the term code to refer to linear binary codes, as we don't deal with any other types of codes. Also, even though it is customary to use the above parameters to analyze codes, we will use their percent forms called the relative distance and the rate of code, matching $\delta$ and $\rho$ correspondingly.     
   \paragraph{Definition.} A \textit{family of codes} is an infinite series of codes. Additionally, suppose the rates and relative distances converge into constant values $\rho,\delta$. In that case, we abuse the notation and call that family of codes a code with $[n, \rho n, \delta n]$ for fixed $\rho, \delta\in [ 0,1 )$, and infinite integers $n \in \mathbb{N}$.     
 
-  Notice that the above definition contains codes with parameters attending to zero. From a practical view, it means that etiher we send too many bits, more than a constant amount, on each bit in the original message. Or that for big enough $n$, adversarial, limited to changing only a constant fraction of the bits, could disrupt the transmission. That distinction raises the definition of good codes.
+  Notice that the above definition contains codes with parameters attending to zero. From a practical view, it means that either we send too many bits, more than a constant amount, on each bit in the original message. Or that for big enough $n$, adversarial, limited to changing only a constant fraction of the bits, could disrupt the transmission. That distinction raises the definition of good codes.
 
   \paragraph{Definition.}We will say that a family of codes is a \textit{good code} if its parameters converge into positive values. 
 
   Apart from distance and rate here, we interest also that the checking process will be robust. In particular,  we wish that against significant errors, forgetting to perform a single check will sabotage the computation only with a tiny probability.  
-  \paragraph{Definition.} Consider a code $C$  a string $x$, and denote by $\xi\left( x \right)$ the fraction of the checks in which $x$ fails. $C$ will be called a \textit{local-testability $f\left( n \right)$} If there exsits $\kappa > 0$ such that 
+  \paragraph{Definition.} Consider a code $C$  a string $x$, and denote by $\xi\left( x \right)$ the fraction of the checks in which $x$ fails. $C$ will be called a \textit{local-testability $f\left( n \right)$} If there exists $\kappa > 0$ such that 
   \begin{equation*}
     \begin{split}
       \frac{d\left( x, C \right)}{n} \le \kappa \cdot  \xi\left( x \right) f\left( n \right)
@@ -88,18 +88,18 @@
 
 
 
-  Nowadays, we are aware of a wide range of constructions yield good codes, including the expander codes of Sipser and Spilman \cite{ExpanderCodes} and the LTC codes of Dinur \cite{Dinur}, \cite{Pavel}, \cite{leverrier2022quantum}. Thus if a decade ago, the main question was the existence of a good code and its construction, now, and particularly in this work, we concentrate on getting a deep understanding of what makes those constructions work. By utilizing those insights, we seccussed in achieving a significantly simpler both constructions and their correctness proof. Our results: 
+  Nowadays, we are aware of a wide range of constructions yield good codes, including the expander codes of Sipser and Spilman \cite{ExpanderCodes} and the LTC codes of Dinur \cite{Dinur}, \cite{Pavel}, \cite{leverrier2022quantum}. Thus if a decade ago, the main question was the existence of a good code and its construction, now, and particularly in this work, we concentrate on getting a deep understanding of what makes those constructions work. By utilizing those insights, we succussed in achieving significantly simpler constructions and their correctness proof. Our results: 
 
   \paragraph{Theorem:} For every $\varepsilon > 0 $ there is a family of good LDPC codes with $\Theta\left( n^{1-\varepsilon} \right)$ testability.     
 
   \subsection{Singleton Bound}  
-  To get a feeling of the behavior of the distance-rate trade-of, Let us consider the following two codes; each demonstrates a different extreme case. First, define the repetition code $C_{r} \subset \mathbb{F}_{2}^{n \cdot r}$, In which, for a fixed integer $r$, any bit of the original string is duplicated $r$ times. Second, consider the parity check code $C_{p} \subset \mathbb{F}_{2}^{n+1}$, which it's codewords are only the vectors with even parity. Let us analyze the repetition code. Clearly, any two $n$-bits different messages must have at least a single different bit. Therefore their corresponding encoded codewords have to differ in at least $r$ bits. Hence, by scaling $r$, one could achieve a higher distance as he wishes. Sadly the rate of the code decays as $n/nr = 1/r$. In contrast, the parity check code adds only a single extra bit for the original message. Therefore scaling $n$ gives a family which has a rate attends to $\rho \rightarrow 1$. However, flipping any two different bits of a valid codeword is conversing the parity and, as a result, leads to another valid codeword.
+  To get a feeling of the behavior of the distance-rate trade-of, Let us consider the following two codes; each demonstrates a different extreme case. First, define the repetition code $C_{r} \subset \mathbb{F}_{2}^{n \cdot r}$, In which, for a fixed integer $r$, any bit of the original string is duplicated $r$ times. Second, consider the parity check code $C_{p} \subset \mathbb{F}_{2}^{n+1}$, in which its codewords are only the vectors with even parity. Let us analyze the repetition code. Clearly, any two $n$-bits different messages must have at least a single different bit. Therefore their corresponding encoded codewords have to differ in at least $r$ bits. Hence, by scaling $r$, one could achieve a higher distance as he wishes. Sadly the rate of the code decays as $n/nr = 1/r$. In contrast, the parity check code adds only a single extra bit for the original message. Therefore scaling $n$ gives a family which has a rate attends to $\rho \rightarrow 1$. However, flipping any two different bits of a valid codeword is conversing the parity and, as a result, leads to another valid codeword.
 
-  To summarize the above, we have that, using a simple construction, one could construct the codes $[r, 1, r]$, $[r, r-1, 2]$. Each has a single perfect parameter while the other decays to the worst. In the next section, we will review the Singleton bound, which states that for any code (not necessarily good), there must be a zero-sum game between the relative distance and the rate.
+  To summarize the above, we have that, using a simple construction, one could construct the codes $[r, 1, r]$, $[r, r-1, 2]$. Each has a single perfect parameter, while the other decays to the worst. In the next section, we will review the Singleton bound, which states that for any code (not necessarily good), there must be a zero-sum game between the relative distance and the rate.
   Now, we are ready to formulate our contribution. 
 
 
-  Besides of been the first bound, Singleton bound demonstrates how one could get results by using relatively simple elementary arguments. It is also engaging to ask why the proof yields a bound that, empirically, seems far from being tight.
+  Besides being the first bound, Singleton bound demonstrates how one could get results by using relatively simple elementary arguments. It is also engaging to ask why the proof yields a bound that, empirically, seems far from being tight.
   \paragraph{Theorem, Singleton Bound.} For any linear code with parameter $[n,k,d]$, the following inequality holds:
   \begin{equation*}
     k+ d \le n + 1
@@ -114,7 +114,7 @@
 
   It is also well known that the only binary codes that reach the bound are: $[n,1,n]$, $[n,n-1,2]$,$[n,n,1]$ \cite{eczoo_mds}. In particular, there are no good binary codes that obtain equality. Next, we will review Tanner's construction, that in addition to being a critical element to our proof, also serves as an example of how one can construct a code with arbitrary length and positive rate.
   \subsection{Tanner Code}
-  The constructions require two main ingredients: a graph $\Gamma$, and for simplicity, we will restrict ourselves to a $\Delta$ regular graph. Secondly, a small code $C_{0}$ at length equals the graph's regularity, namely $C_{0} = [\Delta,\rho\Delta, \delta\Delta]$. We can think about any bit string at length E as an assignment over the edges of the graph. Furthermore, for every vertex $v \in \Gamma$, we will call the bit string, which is set on its edges, the local view of $v$.  Then we can define, \cite{Tanner}:
+  The constructions require two main ingredients: a graph $\Gamma$, and for simplicity, we will restrict ourselves to a $\Delta$ regular graph. Secondly, a small code $C_{0}$ at length equals the graph's regularity, namely $C_{0} = [\Delta,\rho\Delta, \delta\Delta]$. We can think about any bit string at length E as an assignment over the edges of the graph. Furthermore, for every vertex $v \in \Gamma$, we will call the bit string, which is set on its edges, the local view of $v$. Then we can define, \cite{Tanner}:
   \paragraph{Definition.}  Let $ C = \mathcal{T}\left( \Gamma, C_{0} \right)$  be all the codewords which, for any vertex $v\in \Gamma$, the local view of $v$ is a codeword of $C_{0}$. We say that $C$ is a Tanner code of $\Gamma, C_{0}$. Notice that if $C_{0}$ is a binary linear code, So $C$ is.  
 
 
@@ -142,7 +142,8 @@
       & \le_{ n \rightarrow \infty} o\left( 1 \right) + \lambda
     \end{split}
   \end{equation*}
-  Namely, for any such, sublinear weight, $x$, the average of nontrivial edges for the vertex is less than $\lambda$. So there must be at least one vertex $v \in S$ that, on his local view, sets a  string at a weight less than $\lambda$. By the definition of $S$, this string cannot be a trivial string. Combining the fact that any nontrivial codeword of the $C_{0}$ is at weight at least $\delta\Delta$, we get a contradiction to the assumption that $v$ is satisfied, videlicet, $x$ can't be a codeword $\square$
+
+  Namely, for any such sublinear weight string, $x$, the average of nontrivial edges for the vertex is less than $\lambda$. So there must be at least one vertex $v \in S$ that, on his local view, sets a  string at a weight less than $\lambda$. By the definition of $S$, this string cannot be trivial. Combining the fact that any nontrivial codeword of the $C_{0}$ is at weight at least $\delta\Delta$, we get a contradiction to the assumption that $v$ is satisfied, videlicet, $x$ can't be a codeword $\square$
   \subsection{Tanner testability.} This subsection will explain why testability is so hard to achieve. Let $C$ be a good Tanner expander code as defined above. And consider an arbitrary vertex $u \in V$ and arbitrary restriction of $C_{0}$, $h$. Now define $\tilde{C}$ as the code obtained by requiring all the restrictions of $C$ except $h$ on $u$. That it, $u$ is satisfied if his local view satisfies all the $C_{0}$ restrictions apart from $h$.
   Also, for convenience, denote the small code $u$ enforces on his local view by $C_{0}^{u}$. Let us assume that the distance of $C_{0}^{u}$ is at least $\delta\Delta$. 
   Then, by repeating almost exactly the steps above with caution, one could prove that $\tilde{C}$ also has a linear distance. 
@@ -154,14 +155,14 @@
       d\left( x,C \right) &= d\left( x,y \right) \ge d\left( \tilde{C} \right) =\Theta\left( n \right)
     \end{split}
   \end{equation*}
-  That is, even that a linear number of bits are needed to be flipped to correct $x$, only a single check observes that $x$ is indeed an error.
+  Even if a linear number of bits needed to be flipped to correct $x$, only a single check observes that $x$ is indeed an error.
   \section{Construction}
   \subsection{ Almost LTC With Zero Rate}
   \paragraph{Definition. The Disagreement Code.} Given a Tanner code $C = \Tann$, define the code $C_{\oplus}$ to contain all the words equal to the formal summation $ \sum_{v \in V\left( G \right)} {c_{v} }$ when $c_{v}$ is an assignment of a codeword $ c_{v} \in C_0 $  on the edges of the vertex $ v \in V\left( G \right)$.
-  We call to such code the \textit{disagreement code} of $C$, as edges are set to 1 only if their connected vertices contribute to the summation codewords that are different on the corresponding bit to that edge. In addition, we will call to any contribute $c_v$, the \textit{suggestion} of $v$. And notice that by linearity, each vertex suggests at most a single suggestion.   
+  We call to such code the \textit{disagreement code} of $C$, as edges are set to 1 only if their connected vertices contribute to the summation codewords that are different on the corresponding bit to that edge. In addition, we will call to any contribute $c_v$, the \textit{suggestion} of $v$. And notice that by linearity, each vertex suggests, at most, a single suggestion.   
 
 
-  Finally, given a bits asseigtment $x \in \mathbb{F}_{2}^{E}$ over the edges of $G$ we will denote by $x^{\oplus} \in C_{\oplus} $ the codeword which obtained by summing up a suggestions set such each vertex suggests the closet codewrod to his local view. Namely, for each $v \in V$ define:   
+  Finally, given a bits assessment $x \in \mathbb{F}_{2}^{E}$ over the edges of $G$, we will denote by $x^{\oplus} \in C_{\oplus} $ the codeword which obtained by summing up suggestions set such each vertex suggests the closet codeword to his local view. Namely, for each $v \in V$ define:   
   \begin{equation*}
     \begin{split}
       c_{v} & \leftarrow \arg_{ \tilde{c} \in C_{0}} \min{ d( x|_{v} , \tilde{c} ) } \ \ \forall v\in V   \\
@@ -170,9 +171,9 @@
   \end{equation*}
   We will think about $x^{\oplus}$ as the disagreement between the vertices over $x$. 
 
-  \ctt{ Is somthing should said about uniqnees (?) } 
+  \ctt{ Is something should be said about uniqueness (?) } 
 
-  \paragraph{Lemma. Linearity Of The Disagreement.} Consdier the code $C = \Tann$. Let $ x \in \mathbb{F}_{2}^{E}$ then for any $ y \in C$ it holds that: 
+  \paragraph{Lemma. Linearity Of The Disagreement.} Consider the code $C = \Tann$. Let $ x \in \mathbb{F}_{2}^{E}$ then for any $ y \in C$ it holds that: 
   \begin{equation*}
     \begin{split}
       \left( x + y  \right)^{\oplus} = \left( x  \right)^{\oplus} 
@@ -186,7 +187,7 @@
       \leftarrow &  y|_{v} +  \arg_{ \tilde{c} \in C_{0}} \min{ d( x|_{v} , \tilde{c} ) } 
     \end{split}
   \end{equation*}
-  It followes that: 
+  It follows that: 
 
   \begin{equation*}
     \begin{split}
@@ -194,18 +195,18 @@
       =& y^{\oplus} + x^{\oplus} = x^{\oplus}
     \end{split}
   \end{equation*}
-  When the last transition followes immedatly by the fact that $y \in C$ and therefore any pair of connected vartices conribute the same value for their assoicated edge $\square$
+  When the last transition follows immediately by the fact that $y \in C$ and therefore any pair of connected vertices conribute the same value for their associated edge $\square$
 
-  \paragraph{Definition.} Let $C = \Tann$. We say that $x \in C_{\oplus}$ is \textit{reducable} if there exists a vertex $v$ and a small codeword $c_v$, for which, adding the assignment of $c_v$ over the $v$'s edges to $x$ deacreases the weight. Namely, $|x + c_{v}| < |x|$. 
+  \paragraph{Definition.} Let $C = \Tann$. We say that $x \in C_{\oplus}$ is \textit{reducable} if there exists a vertex $v$ and a small codeword $c_v$, for which, adding the assignment of $c_v$ over the $v$'s edges to $x$ decreases the weight. Namely, $|x + c_{v}| < |x|$. 
 
-  \paragraph{Theorem 1.} Let $C = \Tann$ and consider $x \in C_{\oplus}$ which is not reducable. Let $G^{\prime} = \left( V^\prime, \cdot  \right)$ the subgraph of $G$ induced by the vertices in $V$ whoose suggested non-trival codeword for $x$. Denote by $T$ the directed tree spanned by the BFS scanning routine over $G^{\prime}$, and by $U_{max} \subset V^{\prime} $ the layer of $T$ at  maximal size. Then:
+  \paragraph{Theorem 1.} Let $C = \Tann$ and consider $x \in C_{\oplus}$ which is not reducable. Let $G^{\prime} = \left( V^\prime, \cdot  \right)$ the subgraph of $G$ induced by the vertices in $V$ whoose suggested non-trival codeword for $x$. Denote by $T$ the directed tree spanned by the BFS scanning routine over $G^{\prime}$, and by $U_{max} \subset V^{\prime} $ the layer of $T$ at maximal size. Then:
   \begin{enumerate}
     \item $ |T|  \ge \left( \frac{1}{4}\delta_{0} - \frac{\lambda}{\Delta} \right)n $
     \item $ |x| \ge \left( \delta_{0} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) \Delta|T| $
   \end{enumerate}
-  \paragraph{Proof.} By induction over the number of vertices $V^\prime \subset V$, which suggest a nontrivial codeword to $x$. Base, assume that there is just a single vertex $v \in V$ that suggests a nontrivial codeword $c_{v} \in C_{0}$ . Then it's clear that $x = c_{v}$. And therefore, we have that $|x +c_{v}| = 0 < |x|$.
+  \paragraph{Proof.} By induction over the number of vertices $V^\prime \subset V$, which suggest a nontrivial codeword to $x$. Base, assume that a single vertex $v \in V$ suggests a nontrivial codeword $c_{v} \in C_{0}$. Then it's clear that $x = c_{v}$. And therefore, we have that $|x +c_{v}| = 0 < |x|$.
 
-  Assume the correctness of the argument for every codeword defined by at most $m$ nontrivial suggestions made by $V^\prime \subset V$.  And consider the graph $\left( V^\prime, E^\prime \right)$ induced by them. If the graph has more than a single connectivity component, then any of them is also a codeword of $C_{\oplus}$  but composed by at most $m-1$ nontrivial suggestions. Therefore, by the assumption, we could find a vertex $v$ and a proper small codeword $c_v \in C_0 $, such that the addition of the suggestion will decrease the weight of the codeword defined on that component and therefore decrease the total weight of $x$.
+  Assume the correctness of the argument for every codeword defined by at most $m$ nontrivial suggestions made by $V^\prime \subset V$. And consider the graph $\left( V^\prime, E^\prime \right)$ induced by them. If the graph has more than a single connectivity component, then any of them is also a codeword of $C_{\oplus}$  but composed of at most $m-1$ nontrivial suggestions. Therefore, by the assumption, we could find a vertex $v$ and a proper small codeword $c_v \in C_0 $, such that the addition of the suggestion will decrease the weight of the codeword defined on that component and therefore decrease the total weight of $x$.
 
   So, we can assume that the vertices in $V^\prime$ compose a single connectivity component. Let be $x|_{v} \in \mathbb{F}_{2}^{\Delta}$ the bits of $x$ on the indices corresponding to $v$'s edges. If there is any $v$, with suggestion $c_{v}$, such that $ \frac{1}{2}w\left( c_{v}\right) < w\left( x|_{v} \right)$, then we could pick to turn on $c_{v}$ again and have that:
   \begin{equation*}
@@ -217,7 +218,7 @@
 
   Hence it is left to consider the case that for any $v\in V^\prime$, it holds that $\frac{1}{2}w\left( c_{v}\right) >  w\left( x|_{v} \right)$ (Notice that if they equal, then by turn on $c_{v}$, we back again to codeword made by $m-1$ nontrivial suggestions). We will prove that this case is possible only for codewords with wight at least $\alpha|E|^{1-\varepsilon}$.
 
-  For any $S \subset E$, define $w_{S}\left( x \right)$ to be the weight that $x$ induces over $S$. And notice that any edge of $E$ connected only to a single vertex in $V^\prime$ equals the corresponding bit in the original suggestion made by $c_{v}$. Hence for every $v\in V^\prime$, it holds that $w_{E / E^\prime}\left(x|_{v}\right) = w_{E / E^\prime}\left(c_{v}\right)$. 
+  For any $S \subset E$, define $w_{S}\left( x \right)$ as the weight that $x$ induces over $S$. And notice that any edge of $E$ connected only to a single vertex in $V^\prime$ equals the corresponding bit in the original suggestion made by $c_{v}$. Hence for every $v\in V^\prime$, it holds that $w_{E / E^\prime}\left(x|_{v}\right) = w_{E / E^\prime}\left(c_{v}\right)$. 
 
 %\input{network2.tex}
   \paragraph{Claim.} For any $v \in V^\prime$ and corresponded suggestion $c_{v}$ it holds that: $w_{E^\prime}\left( c_{v} \right) \ge \frac{1}{2}\delta_{0}\Delta$. 
@@ -231,7 +232,7 @@
 
   Consider an arbitrary vertex $r \in V^\prime$, and consider the DAG obtained by the BFS walk over the subgraph $\left(V^\prime, E^\prime \right)$ starting at $r$. Denote this directed tree by $T$.
 
-%Let $g$ be the girth of the graph, and consider a layer $U$ in $T$ at height $h\left( U \right)$ satisfies the inequality $ h\left( U \right) < \frac{1}{2}g + l$ for some integer $l$.
+%Let $g$ be the girth of the graph and consider a layer $U$ in $T$ at height $h\left( U \right)$ satisfies the inequality $ h\left( U \right) < \frac{1}{2}g + l$ for some integer $l$.
   %\begin{adjustbox}{width=150pt}%\columnwidth}
 %\begin{figure*}[t]%{width=150pt} %0.3\textwidth}
 
@@ -260,9 +261,9 @@
     \end{split}
   \end{equation*}
 
-  \paragraph{Proof.} Recall that the seconed largest eigen value 
+  \paragraph{Proof.} Recall that the second largest eigenvalue 
 
-  Denote by $x|_{U}$ the bits of $x\in C$ correspond to the edges that connected to at least one vertex in $U$. And denote by $w_{E/E^{\prime}}\left( x|_{U} \right)$ the weight induced by the $x|_{U}$ over the edges in $E/E^\prime$.
+  Denote by $x|_{U}$ the bits of $x\in C$ correspond to the edges connected to at least one vertex in $U$. And denote by $w_{E/E^{\prime}}\left( x|_{U} \right)$ the weight induced by the $x|_{U}$ over the edges in $E/E^\prime$.
   \paragraph{Claim.} Suppose that $G$ is an expander graph with a second eigenvalue $\lambda$, then For any layer $U$ there exist a layer $U^{\prime}$ such that:
   \begin{equation*}
     \begin{split}
@@ -281,7 +282,7 @@
   \end{equation*}
 
   \paragraph{Claim.} We can assume that $|U| \ge |U_{-1}|, |U_{+1}|$. 
-  \paragraph{Proof:} Suppose that $|U_{+1}| > |U|$, so we could choose $U$ to be $U_{+1}$. Continuing stepping deeper till we have that $|U| > |U_{+1}|, |U_{-1}|$. Simiraly, if $|U| > |U_{+1}|$ but $|U_{-1}| > |U|$, the we could take steps upward by replacing $U_{-1}$ with $U$. At the end of the process, we will be left with $U$ at size grater than the inital layer and $|U| > |U_{+1}|, |U_{-1}|$ $\square$
+  \paragraph{Proof:} Suppose that $|U_{+1}| > |U|$, so we could choose $U$ to be $U_{+1}$. Continuing stepping deeper till we have that $|U| > |U_{+1}|, |U_{-1}|$. Simiraly, if $|U| > |U_{+1}|$ but $|U_{-1}| > |U|$, the we could take steps upward by replacing $U_{-1}$ with $U$. At the end of the process, we will be left with $U$ at a size greater than the initial layer and $|U| > |U_{+1}|, |U_{-1}|$ $\square$
 
   Using the the claim, we have that $\left( |U_{+1}| + |U_{-1}| \right)/n <\frac{2}{3} $ and therefore:
   \begin{equation*}
@@ -302,7 +303,7 @@
       w_{E/E^{\prime}}\left( x \right) \ge \left( \delta_{0} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) \Delta|T| 
     \end{split}
   \end{equation*}
-  \paragraph{Proof.} Similary to above, now we will bound the weight that all the nodes in $T$ induce over $E/E^{\prime}$. Denote by $U_{0}, U_{1} .. U_{m}$ the layers of $T$ ordered coressponded to their height, thus we obtain: 
+  \paragraph{Proof.} Similarly to above, now we will bound the weight that all the nodes in $T$ induce over $E/E^{\prime}$. Denote by $U_{0}, U_{1} .. U_{m}$ the layers of $T$ ordered corresponded to their height, thus we obtain: 
   \begin{equation*}
     \begin{split}
       w_{E/E^{\prime}}\left( x \right) & \ge \delta_{0}\Delta|T| - \sum_{i\in [m]}{ w \left( E\left( U_{i}, U_{i+1}  \right) \right)  } \\ 
@@ -320,7 +321,7 @@
       |x| \ge \left( \delta_{0} - \frac{2}{3} - \frac{2}{\lambda}\Delta \right)\Delta|U_{\max}| \ge  \alpha^{\prime} n 
     \end{split}
   \end{equation*}
-  So, it lefts to consider the seconed case in which $ |U_{\max}| < \alpha n $ in that case we have from the second inequality that: 
+  So, it is lefts to consider the second case in which $ |U_{\max}| < \alpha n $ in that case, we have from the second inequality that: 
 
   \begin{equation*}
     \begin{split}
@@ -330,9 +331,9 @@
   \end{equation*}
   Setting $\alpha \ge \frac{2}{3}$ we complete the proof $\square$
 
-  Unfortunately, Singelton bound doesn't allow both $\delta_0 > \frac{2}{3}$ and $\rho_0 \ge \frac{1}{2}$, so in total, we prove the existence of code LDPC code which is good in terms of testability and distance yet has a zero rate. In the next subsection, we will prove (\ctt{sec 3.3 which currently is a failure}) that one can overcome this problem by requiring only half of the vertices to restrict their local view to be codewords of high relative distance. 
+  Unfortunately, Singelton bound doesn't allow both $\delta_0 > \frac{2}{3}$ and $\rho_0 \ge \frac{1}{2}$, so in total, we prove the existence of code LDPC code which is good in terms of testability and distance yet has a zero rate. In the following subsection, we will prove (\ctt{sec 3.3, which currently is a failure}) that one can overcome this problem by requiring only half of the vertices to restrict their local view to be codewords of high relative distance. 
 %\subsection{ Good LTC Which Is Almost LDPC. } 
-%To overcome the vanishing rate issue we are going to consider graphs family in which the maximal layer of BFS scanning couldn't excced a linear  
+%To overcome the vanishing rate issue, we are going to consider the graphs family in which the maximal layer of BFS scanning couldn't exceed a linear  
 
 
   \begin{equation*}
@@ -341,11 +342,11 @@
     \end{split}
   \end{equation*}
   \subsection{Tanner Code Testability For Small ($ \Delta^{\frac{g}{2}} $) Errors.} 
-  \ctt{ Consdier $T$ at height less than the graph diameter.  } 
+  \ctt{Consider $T$ at a height less than the graph diameter.  } 
   \subsection{Tanner Code Testability When With strongly-Honest Vertices. }
-  The result obtained by the proof of Theorem 1 is that one cannot hide errors in a sublinear size tree. Namely, any codeword of the disagreement code with a weight less than $ \Omega \left( n^{1-\varepsilon} \right) $ could be reduced, regardless the parameters of the small code. 
+  The result obtained by the proof of Theorem 1 is that one cannot hide errors in a sublinear size tree. Namely, any codeword of the disagreement code with a weight less than $ \Omega \left( n^{1-\varepsilon} \right) $ could be reduced, regardless of the parameters of the small code. 
   \paragraph{Theorem 1-.} For every $\delta_{0}, \varepsilon > 0$, there exist $\Delta_{\varepsilon}\in \mathbb{N}$ such that if $\Delta \ge \Delta_{\varepsilon}$, then for every $x \in C_{\oplus}$ at Hamming weight at most $ \Theta \left( n^{1-\varepsilon} \right) $, there exists a vertex $v \in V$ and a small codeword $c_{v} \in C_{0} $ such that adding the assignment of it over the $v$'s edges to $x$ define the codeword $x + c_{v}$  such that $|x + c_{v}| < |x|$.  
-  \paragraph{Proof:} Proof, Define $T$ again to be the DAG constructed as in the proof of Theorem 1 and denote by $U_{\max}$ the layer at maximal size. The analiyses of the flux over projeced by $x$ over the vertices which sugessted trivial code words remain the same. But now, as $U_{\max} \subset \text{supp}(x)$ follows that $|U_{\max}| \le 2|x| \le O(n^{1-\varepsilon})$. Therefore, $ \lim_{n \rightarrow \infty} \frac{|U_{\max}|}{n} \rightarrow 0 $ and we have that for sufficently large $n$ it holds that: 
+  \paragraph{Proof:} Proof, Define $T$ again to be the DAG constructed as in the proof of Theorem 1 and denote by $U_{\max}$ the layer at the maximal size. The analyses of the flux projected by $x$ over the vertices suggested trivial code words remain the same. But now, as $U_{\max} \subset \text{supp}(x)$ follows that $|U_{\max}| \le 2|x| \le O(n^{1-\varepsilon})$. Therefore, $ \lim_{n \rightarrow \infty} \frac{|U_{\max}|}{n} \rightarrow 0 $ and we have that for sufficiently large $n$ it holds that: 
 
   \begin{equation*}
     \begin{split}
@@ -356,14 +357,14 @@
   Assuming Girth is greater than $\frac{4}{3}\log_{\Delta-1}\left( n \right)$  gives us a decoder against errors at weight at most $n^{\frac{3}{2}-\varepsilon}$ $\square$. 
 
   \subsection { Overcoming The Vanishing Rate \ctt{ Draft - I think it works.} } 
-  Consider the follow code, instead of assoicating each edge with pair of checks, lets define the vertices to be the checks of small codes over $q \in [0,1]$ of the edges. That it, know each vetex define only $q\Delta$ restrictions. Hence, the rate of the code is at least:   
+  Consider the following code; instead of associating each edge with pair of checks, let's define the vertices to be the checks of small codes over $q \in [0,1]$ of the edges. That is, know each vertex defines only $q\Delta$ restrictions. Hence, the rate of the code is at least:   
   \begin{equation*}
     \begin{split}
       \rho\frac{1}{2}\delta n & \ge \frac{1}{2}\delta n - \left(1 - \rho_{0} \right)q\Delta n \\
       \Rightarrow \rho & \ge \left(  2\rho_{0} + \left( \frac{1}{q}  - 2  \right)  \right)q \\ 
       \rho_{0} & \ge  1 - \frac{1}{2q} 
     \end{split}
-  \end{equation*} for exmple if $q = 2/3$ then for having constant rate, it is enough to ensure that $ \rho_{0} \ge 1 - \frac{3}{4} = \frac{1}{4}$. In the otherhand the lowerbound of the flux the trival vertices remains up to multiplication by the fraction factor $q$: 
+  \end{equation*} for example, if $q = 2/3$, then for having constant rate, it is enough to ensure that $ \rho_{0} \ge 1 - \frac{3}{4} = \frac{1}{4}$. On the other hand, the lower bound of the flux on the trivial vertices remains up to multiplication by the fraction factor $q$: 
   \begin{equation*}
     \begin{split}
       w_{E/E^{\prime}}\left( x|_{U} \right) & \ge  \delta_{0}q\Delta|U| -qw\left( E(U_{-1} \bigcup U_{+1} ,U)  \right) \\ 
@@ -383,7 +384,7 @@
       & \frac{1}{2}\Delta n \left( \rho_{-} + \rho_{+}  - 1  \right) 
     \end{split}
   \end{equation*}
-  For proving a linear distance, fix a codeword $x \in C$ and denote By $S_{\pm}$ the support of $x$ over the edges. Namely, a vertex $v\in V_{\pm}$ belongs to $S_{\pm}$ if it connects to nonzero edges regarding the assignment by $x$, Assume towards contradiction that $|x| = o\left( n \right)$ . By The Expander Mixining Lemma we have that: 
+  For proving a linear distance, fix a codeword $x \in C$ and denote By $S_{\pm}$ the support of $x$ over the edges. Namely, a vertex $v\in V_{\pm}$ belongs to $S_{\pm}$ if it connects to nonzero edges regarding the assignment by $x$, Assume towards contradiction that $|x| = o\left( n \right)$ . By The Expander Mixining Lemma, we have that: 
   \begin{equation*}
     \begin{split}
       \frac{E\left( S_{\pm}, S_{\mp} \right)}{|S_{\pm}|}\le\frac{\Delta}{n}|S_{\mp}| + \lambda\sqrt{\frac{|S_{\mp}|}{|S_{\pm}|}}
@@ -393,9 +394,9 @@
 
   \paragraph{Theorem 1+.} For every $\varepsilon > 0$, there exist $\Delta_{\varepsilon}\in \mathbb{N}$ and $\alpha>0$ such that if $\Delta \ge \Delta_{\varepsilon}$, then for every $x \in C_{\oplus}$ at Hamming weight at most $\alpha |E|^{1-\varepsilon}$, there exists a vertex $v \in V_{\pm}$ and a small codeword $c_{v} \in C_{0}^{\pm} $ such that adding the assignment of it over the $v$'s edges to $x$ define the codeword $x + c_{v}$  such that $|x + c_{v}| < |x|$.  
 
-  \paragraph{Proof:} Define the $T$ precisely as is in the proof of Theorem 1, And assume, without loss of generality $\delta_{-} < \delta_{+}$. Hence it is clear that for any $v \in V^\prime$ it holdes that $w_{E^\prime}\left( c_{v} \right) > \frac{1}{2}\delta_{-}\Delta$, so we could repeat exactly the above steps to get that the $T$ has linear size and the inquality $|x| > \left( \delta_{-} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) $ still holds, So we can assume that $|U_{\max}|$ is also linear at $n$.
+  \paragraph{Proof:} Define the $T$ precisely as is in the proof of Theorem 1, And assume, without loss of generality $\delta_{-} < \delta_{+}$. Hence it is clear that for any $v \in V^\prime$ it holds that $w_{E^\prime}\left( c_{v} \right) > \frac{1}{2}\delta_{-}\Delta$, so we could repeat exactly the above steps to get that the $T$ has a linear size and the inequality $|x| > \left( \delta_{-} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) $ still holds, So we can assume that $|U_{\max}|$ is also linear at $n$.
 
-  Furthermore, if $U_{\max} \subset V_{-}$ then the inequality $\left( \delta_{+} - \frac{2}{3} - \frac{2}{\Delta}\lambda \right) \Delta |U_{\max}|$ also holds and the exactly arguments as before prove the Theoroem.     
+  Furthermore, if $U_{\max} \subset V_{-}$ then the inequality $\left( \delta_{+} - \frac{2}{3} - \frac{2}{\Delta}\lambda \right) \Delta |U_{\max}|$ also holds and the exact arguments as before proving the Theoroem.     
 
 
   Suppose that each negative layer $U_{i}^{-} \subset V_{-}$ is at the size at most $\sqrt{\Delta}n$, then we have that for any positive layer $U_{i}^{+}$ it holds that:
@@ -409,19 +410,19 @@
 
 
   Therefore consider the case when $U_{\max} \subset V_{+}$. Denote by the $U_{-1}$ and $U_{+1}$ the previews and the next layers to $U_{\max}$.  
-  \paragraph{Claim.} If $ |U_{\max}| = \Theta\left(n  \right)$ Then there exists at least $3$ layers in $V_{-}$ at linear size. And at least one of them is not adjaust to $U_{\max}$.    
+  \paragraph{Claim.} If $ |U_{\max}| = \Theta\left(n  \right)$ Then there exists at least $3$ layers in $V_{-}$ at linear size. And at least one of them is not adjusted to $U_{\max}$.    
 
   \paragraph{Cliam} 
   \section{Decodeing and Testing}
   For completeness, we show exactly how Theorem 1 implies testability. The following section repeats Leiverar's and Zemor's proof \cite{leverrier2022quantum}. Consider a binary string $x$ that is not a codeword. The main idea is the observation that the number of bits filliped by (any) decoder, while decoding $x$, bounds the distance $d\left( x,C \right)$ from above. In addition, the number of positive checks in the first iteration is exactly the number of violated restrictions.
 %\begin{figure*}[h]
 %\begin{adjustbox}{width=\textwidth}
-  \paragraph{Definition.}Let $L = \{L_{i}\}^{2|E|}_{0}$  be a series of $2|E|$. Such that for each vertex $ v \in V$ $\sum_{ e = \{u,v\} }{ L_{e_v} } \in C_{0}$. We will call $L$ a \textit{Potential list} and refer to the $e_{v}$'th element of $L$ as a suggestion made by the vertex $v \in V$ for the edge $e \in E$.Sometimes we will use the notation $L_{v}$ to denote all the $L$'s coordinates of the form $ L_{e_{v}} \forall e \in \text{Support} \left( v \right) $. Define the \textit{Force} of $L$ to be the following sum $  F\left( L \right) = \sum_{e = \{v,u\} \in E }{ \left(L_{e_v} + L_{e_u}\right) }$ and notice that $ F\left( L \right) \in C_{\oplus}$. And define the \textit{state} $S(L) \subset \mathbb{F}^{|E|}_{2}$ of $L$ as the vector obtained by choosing an arbitrary value from $ \{ L_{e_v}, L_{e_u} \}$ for each edge $e \in E$.  
+  \paragraph{Definition.}Let $L = \{L_{i}\}^{2|E|}_{0}$  be a series of $2|E|$. Such that for each vertex $ v \in V$ $\sum_{ e = \{u,v\} }{ L_{e_v} } \in C_{0}$. We will call $L$ a \textit{Potential list} and refer to the $e_{v}$'the element of $L$ as a suggestion made by the vertex $v \in V$ for the edge $e \in E$. Sometimes we will use the notation $L_{v}$ to denote all the $L$'s coordinates of the form $ L_{e_{v}} \forall e \in \text{Support} \left( v \right) $. Define the \textit{Force} of $L$ to be the following sum $  F\left( L \right) = \sum_{e = \{v,u\} \in E }{ \left(L_{e_v} + L_{e_u}\right) }$ and notice that $ F\left( L \right) \in C_{\oplus}$. And define the \textit{state} $S(L) \subset \mathbb{F}^{|E|}_{2}$ of $L$ as the vector obtained by choosing an arbitrary value from $ \{ L_{e_v}, L_{e_u} \}$ for each edge $e \in E$.  
   \paragraph{Claim.} Let $L$ be the Potential list. If $F(L)=0$ then $S(L)\in C$.
   \paragraph{Proof.} Denote by $\phi\left( e \right) \subset \{ L_{e_v}, L_{e_u} \}$ the value which was chosen to $e = \{v,u\} \in E$. By $F\left(L\right) = 0$ , it follows that $ L_{e_v} + L_{e_u} = 0 \Rightarrow L_{e_v} = L_{e_u} = \phi\left( e \right) $ for any $e \in E$. Hence for every $v\in V$ we have that $ S\left( L \right)|_{v} = \sum_{u \sim v}{ \phi\left( \{v,u\} \right) } =  \sum_{u \sim v}{ L_{e_v }} \in C_{0}$ $ \Rightarrow S\left( L \right) \in C \square$   
 
-  The decoding goes as follows. First, each vertex suggests the closet $C_{0}$'s codeword to his local view. Those suggestions define a Potential list, denote it by $L$, then if $F\left( L \right) <\tau$, by Theorem 1, one could find a suggestion of vertex $v$, and a codeword $c_v$ such that updating the value of $L_{v} \leftarrow L_{v} + c_{v}$ yields a Potential list with lower force.Therefore repeating the process till the force vanishes, obtain a Potential list in which its state is a codeword. 
-  \paragraph{Definition.} Let $\tau > 0, f : \mathbb{N} \rightarrow \mathbb{R^{+}}$, and consider a Tanner Code $C = \mathcal{T}\left( G, C_{0} \right)$. Let us Define the following decoder, and denote it by $\mathcal{D}$.  
+  The decoding goes as follows. First, each vertex suggests the closet $C_{0}$'s codeword to his local view. Those suggestions define a Potential list, denote it by $L$, then if $F\left( L \right) <\tau$, by Theorem 1, one could find a suggestion of vertex $v$, and a codeword $c_v$ such that updating the value of $L_{v} \leftarrow L_{v} + c_{v}$ yields a Potential list with lower force. Therefore repeating the process till the force vanishes, obtain a Potential list in which its state is a codeword. 
+  \paragraph{Definition.} Let $\tau > 0, f : \mathbb{N} \rightarrow \mathbb{R^{+}}$, and consider a Tanner Code $C = \mathcal{T}\left( G, C_{0} \right)$. Let us Define the following decoder and denote it by $\mathcal{D}$.  
   \paragraph{}
   \begin{algorithm}[H]
     \caption{Decoding}
@@ -455,7 +456,7 @@
   \end{enumerate}
 
 
-  \paragraph{Proof.} So it is clear from the claim above that if the condition at line (6) is satisfied, then $\mathcal{D}$  will converge into some codeword in $C$. Hence, to complete the first section, it left to show that $\mathcal{D}$ returns the closest codeword. Denote by $e$ the error, and by simple counting arguments, we have that $\mathcal{D}$ flips at most:  
+  \paragraph{Proof.} So it is clear from the claim above that if the condition at line (6) is satisfied, then $\mathcal{D}$  will converge into some codeword in $C$. Hence, to complete the first section, it left to show that $\mathcal{D}$ returns the closest codeword. Denote by $e$ the error, and by simple counting arguments; we have that $\mathcal{D}$ flips at most:  
   \begin{equation*}
     \begin{split}
       d_{\mathcal{D}}\left( x, C \right) & \le 2|e|\Delta + \tau \frac{n}{f\left( n \right)}\Delta
@@ -468,8 +469,8 @@
     \end{split}
   \end{equation*}
   Therefore the code word returned by $\mathcal{D}$ must be the closet. Otherwise, it contradicts the fact that the relative distance of the code is $\delta$.
-  To obtain the correctness of the second section, we will separate when the conditional at line (5) holds and not. And prove that the testability inequality holds in both cases. 
-  Let $x \in \mathbb{F}_{2}^{n}$ and consider the running of $\mathcal{D}$ over $x$. Assume the first case, in which the conditional at the line (5) is satisfied. In that case, $\mathcal{D}$ decods $x$ into it's closest codeword in $C$. Therefore:
+  To obtain the correctness of the second section, we will separate when the conditional at the line (5) holds and not. And prove that the testability inequality holds in both cases. 
+  Let $x \in \mathbb{F}_{2}^{n}$ and consider the running of $\mathcal{D}$ over $x$. Assume the first case, in which the conditional at line (5) is satisfied. In that case, $\mathcal{D}$ decodes $x$ into its closest codeword in $C$. Therefore:
   \begin{equation*}
     \begin{split}
       d\left( x, C \right) \le & \ d_{D} \left( x, C \right) \le m\xi\left( x \right)\Delta +  |z|\Delta  \\ \le &  \  m\xi\left( x \right)\Delta + m\xi\left( x \right)  \Delta^{2} \\ 
@@ -488,5 +489,6 @@
 \end{multicols*}
 \printbibliography 
 \end{document}
+
 
 
