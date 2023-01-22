@@ -355,6 +355,17 @@
   \end{equation*}
   Assuming Girth is greater than $\frac{4}{3}\log_{\Delta-1}\left( n \right)$  gives us a decoder against errors at weight at most $n^{\frac{3}{2}-\varepsilon}$ $\square$. 
 
+  \subsection { Overcoming The Vanishing Rate \ctt{ Draft} } 
+  Consider the follow code, instead of assoicating each edge with pair of checks, lets define the vertices to be the checks of small codes over $q \in [0,1]$ of the edges. That it, know each vetex define only $q\Delta$ restrictions. Hence, the rate of the code is at least:   
+  \begin{equation*}
+    \begin{split}
+      \rho\frac{1}{2}\delta n & \ge \frac{1}{2}\delta n - \left(1 - \rho_{0} \right)q\Delta n \\
+      \Rightarrow \rho & \ge \left(  2\rho_{0} + \left( \frac{1}{q}  - 2  \right)  \right)q \\ 
+      \rho_{0} & \ge  1 - \frac{1}{2q} 
+    \end{split}
+  \end{equation*} for exmple if $q = 3/4$ then for having constant rate, it is enough to ensure that $ \rho_{0} \ge 1 - \frac{2}{ 3} = \frac{1}{3}$. 
+
+
  \subsection{ Almost LTC With Positive Rate \ctt{ Wrong Section.  } } 
   To overcome the vanishing rate issue, let us restrict ourselves to using only even expanders graph. Now, Let $C_{0}^{-}$ and $C_{0}^{+}$ be two small codes with parameters $C_{0}^{\pm} = [\Delta, \rho_{\pm}\Delta, \delta_{\mp}\Delta]$. We will refer to $C_{0}^{+}$ as the positive and $C_{0}^{-}$ as the negative codes. Similarly, we will call the positive vertices to the left side of $G$ and the negative vertices to the right side of $G$ and use the notation $G = \left( V_{-}, V_{+}, E \right)$, when $V = V_{-} \cup V_{+}$. 
   Consider the code $C$, which consists of all the words $x\in C$ such that $x|_{v} \in C_{0}^{\pm}$ for any $v \in V_{\pm}$.
