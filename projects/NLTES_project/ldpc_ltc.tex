@@ -336,12 +336,13 @@
 %\subsection{ Good LTC Which Is Almost LDPC. } 
 %To overcome the vanishing rate issue, we are going to consider the graphs family in which the maximal layer of BFS scanning couldn't exceed a linear  
 
+ %
+ %  \begin{equation*}
+ %    \begin{split}
+ %      \left( 1 - \frac{1}{2}\delta_{0} \right)\Delta |T| \ge \left( \delta_{0} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) \Delta|T| 
+ %    \end{split}
+ %  \end{equation*}
 
-  \begin{equation*}
-    \begin{split}
-      \left( 1 - \frac{1}{2}\delta_{0} \right)\Delta |T| \ge \left( \delta_{0} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) \Delta|T| 
-    \end{split}
-  \end{equation*}
   \subsection { Overcoming The Vanishing Rate \ctt{ Draft - I think it works.} } 
   Consider the following code; instead of associating each edge with pair of checks, let's define the vertices to be the checks of small codes over $q \in [0,1]$ fraction of their edges. That is, now each vertex defines only $q\Delta$ restrictions. Hence, the rate of the code is at least:   
   \begin{equation*}
