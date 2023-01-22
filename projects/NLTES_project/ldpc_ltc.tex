@@ -341,21 +341,6 @@
       \left( 1 - \frac{1}{2}\delta_{0} \right)\Delta |T| \ge \left( \delta_{0} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) \Delta|T| 
     \end{split}
   \end{equation*}
-  \subsection{Tanner Code Testability For Small ($ \Delta^{\frac{g}{2}} $) Errors.} 
-  \ctt{Consider $T$ at a height less than the graph diameter.  } 
-  \subsection{Tanner Code Testability When With strongly-Honest Vertices. }
-  The result obtained by the proof of Theorem 1 is that one cannot hide errors in a sublinear size tree. Namely, any codeword of the disagreement code with a weight less than $ \Omega \left( n^{1-\varepsilon} \right) $ could be reduced, regardless of the parameters of the small code. 
-  \paragraph{Theorem 1-.} For every $\delta_{0}, \varepsilon > 0$, there exist $\Delta_{\varepsilon}\in \mathbb{N}$ such that if $\Delta \ge \Delta_{\varepsilon}$, then for every $x \in C_{\oplus}$ at Hamming weight at most $ \Theta \left( n^{1-\varepsilon} \right) $, there exists a vertex $v \in V$ and a small codeword $c_{v} \in C_{0} $ such that adding the assignment of it over the $v$'s edges to $x$ define the codeword $x + c_{v}$  such that $|x + c_{v}| < |x|$.  
-  \paragraph{Proof:} Proof, Define $T$ again to be the DAG constructed as in the proof of Theorem 1 and denote by $U_{\max}$ the layer at the maximal size. The analyses of the flux projected by $x$ over the vertices suggested trivial code words remain the same. But now, as $U_{\max} \subset \text{supp}(x)$ follows that $|U_{\max}| \le 2|x| \le O(n^{1-\varepsilon})$. Therefore, $ \lim_{n \rightarrow \infty} \frac{|U_{\max}|}{n} \rightarrow 0 $ and we have that for sufficiently large $n$ it holds that: 
-
-  \begin{equation*}
-    \begin{split}
-        w_{E/E^{\prime}}\left( x \right) & \ge \left( \delta_{0} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) \Delta|T|  \\ 
-	\rightarrow_{n \rightarrow \infty} &  \ge  \left( \delta_{0} - o(1)  - \frac{\lambda}{\Delta} \right) \Delta|T| 
-    \end{split}
-  \end{equation*}
-  Assuming Girth is greater than $\frac{4}{3}\log_{\Delta-1}\left( n \right)$  gives us a decoder against errors at weight at most $n^{\frac{3}{2}-\varepsilon}$ $\square$. 
-
   \subsection { Overcoming The Vanishing Rate \ctt{ Draft - I think it works.} } 
   Consider the following code; instead of associating each edge with pair of checks, let's define the vertices to be the checks of small codes over $q \in [0,1]$ of the edges. That is, know each vertex defines only $q\Delta$ restrictions. Hence, the rate of the code is at least:   
   \begin{equation*}
@@ -371,6 +356,21 @@
       \Rightarrow |x| & \ge \left(  \delta_{0} - \frac{2}{3} - \frac{2\lambda}{\Delta} \right) q \Delta|U_{\max}|
     \end{split}
   \end{equation*}
+
+  \subsection{Tanner Code Testability For Small ($ \Delta^{\frac{g}{2}} $) Errors.} 
+  \ctt{Consider $T$ at a height less than the graph diameter.  } 
+  \subsection{Tanner Code Testability When With strongly-Honest Vertices. }
+  The result obtained by the proof of Theorem 1 is that one cannot hide errors in a sublinear size tree. Namely, any codeword of the disagreement code with a weight less than $ \Omega \left( n^{1-\varepsilon} \right) $ could be reduced, regardless of the parameters of the small code. 
+  \paragraph{Theorem 1-.} For every $\delta_{0}, \varepsilon > 0$, there exist $\Delta_{\varepsilon}\in \mathbb{N}$ such that if $\Delta \ge \Delta_{\varepsilon}$, then for every $x \in C_{\oplus}$ at Hamming weight at most $ \Theta \left( n^{1-\varepsilon} \right) $, there exists a vertex $v \in V$ and a small codeword $c_{v} \in C_{0} $ such that adding the assignment of it over the $v$'s edges to $x$ define the codeword $x + c_{v}$  such that $|x + c_{v}| < |x|$.  
+  \paragraph{Proof:} Proof, Define $T$ again to be the DAG constructed as in the proof of Theorem 1 and denote by $U_{\max}$ the layer at the maximal size. The analyses of the flux projected by $x$ over the vertices suggested trivial code words remain the same. But now, as $U_{\max} \subset \text{supp}(x)$ follows that $|U_{\max}| \le 2|x| \le O(n^{1-\varepsilon})$. Therefore, $ \lim_{n \rightarrow \infty} \frac{|U_{\max}|}{n} \rightarrow 0 $ and we have that for sufficiently large $n$ it holds that: 
+
+  \begin{equation*}
+    \begin{split}
+        w_{E/E^{\prime}}\left( x \right) & \ge \left( \delta_{0} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) \Delta|T|  \\ 
+	\rightarrow_{n \rightarrow \infty} &  \ge  \left( \delta_{0} - o(1)  - \frac{\lambda}{\Delta} \right) \Delta|T| 
+    \end{split}
+  \end{equation*}
+  Assuming Girth is greater than $\frac{4}{3}\log_{\Delta-1}\left( n \right)$  gives us a decoder against errors at weight at most $n^{\frac{3}{2}-\varepsilon}$ $\square$. 
 
 
  \subsection{ Almost LTC With Positive Rate \ctt{ Wrong Section.  } } 
