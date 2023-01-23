@@ -17,8 +17,33 @@ endif
 
 call IMAP('`1s', '\ket{\psi<++>}<++>'  	,"tex")
 call IMAP('`1b', '\bra{<++>}<++>'	,"tex")
-" call IMAP(,,"tex")
-" call IMAP(,,"tex")
+call IMAP('->',  '\Rightarrow'		,"tex")
+call IMAP('<-',  '\Leftarrow'		,"tex")
+call IMAP('expp',  '\expp{<++>}<++>'		,"tex")
+call IMAP('prbb',  '\prb{<++>}<++>'		,"tex")
+call IMAP('1/2',  '\frac{1}{2}'		,"tex")
+call IMAP('1/3',  '\frac{1}{3}'		,"tex")
+call IMAP('1/4',  '\frac{1}{4}'		,"tex")
+call IMAP('1/5',  '\frac{1}{5}'		,"tex")
+call IMAP('1/6',  '\frac{1}{6}'		,"tex")
+" call IMAP('<<', '&\le', 		'"tex")
+
+
+function! g:Equ()
+  execute "normal! o\\begin{equation*}\<cr>\\begin{split}\<cr><++>\<cr>\\end{split}\<cr>\\end{equation*}<++>" 
+  return 0
+endfunction 
+command! Equ call Equ()
+
+function! g:Newcommand()
+  let l:pos = getcurpos()
+  let l:line = pos[1] + 1
+  execute "normal! i\<esc>?newcommand\<cr>$o\\newcommand{<++>}{<++>}\<esc>:" . line  . "\<cr>" . "$" ."i<++>\<esc>?newcommand\<cr>"
+  return 0
+endfunction 
+
+command! Newco call Newcommand()
+
 " call IMAP(,,"tex")
 " call IMAP(,,"tex")
 
@@ -32,11 +57,21 @@ function! g:Series(_char, _end_sym)
     if c < terms
       let ret = ret . tempchar .  "_{" . c . "},"
     else
-      let ret = ret . "..." . tempchar .  "_{"  . tempesym  . "}" 
+      let ret = ret . "... " . tempchar .  "_{"  . tempesym  . "}" 
     endif
     let c += 1 
   endwhile
   execute 'normal i'.ret 
   return 0
 endfunction
-"command! Series call <SID>Series(<args>)
+"command! Series call <SID>Series(<args>
+
+function! g:WNote(note)
+  let l:_note =  a:note
+  let l:_name = input('Enter note title: ')
+  let _note = substitute(_note, '\', '\\', 'g')
+  execute ':!echo -en ' . _note . '   > /home/davidponar/workspace/DBnotes/' . _name  
+  return 0
+endfunction 
+
+
