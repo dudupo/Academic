@@ -1,8 +1,7 @@
 # My Research
 
 ### Local Testability and qPCP. (Currently My Main Project). 
-We are getting close to find a simple construction for a good LTC LDPC code. (classic). It seems that the same construction could also yields a good $\log$-QLDPC code (If the graphs in Section 3.2 are choosen to be a Cayly graphs over the abilean group, (then it is possible to construct a square complex)).     
-[draft](https://github.com/dudupo/Academic/blob/master/projects/pdfs/ldpc_ltc.pdf).    
+We are getting close to find a simple construction for a good LTC code. (classic). It seems that the same construction could also yields a good $\log$-QLDPC code (If the graphs in Section 3.2 are choosen to be a Cayly graphs over the abilean group, (then it is possible to construct a square complex)). [draft](https://github.com/dudupo/Academic/blob/master/projects/pdfs/ldpc_ltc.pdf).    
 
 ### No-Existence Of Generalized Diffusion.
 We have used a known lower bound over the round's number required to compute the disjoiuntness in two-party (quantum) computation setting
