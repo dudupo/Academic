@@ -391,7 +391,8 @@
   As for any function $f : V \rightarrow \mathbb{R} $ one could define a function $f^{\prime} : E \rightarrow \mathbb{R} $ such that $f^{\prime}\left( v \right) = f\left( v \right) $ and $f^{\prime}$ preservs the norm:    
   \begin{equation*}
     \begin{split}
-       f^{\prime \top}f^{\prime}  = \sum_{v \in V}f^{\prime}\left( v \right)f^{\prime}\left( v \right)   =   \sum_{v \in V } f^{\top}\left( gv \right)f\left( gv \right) = f^{\top}f 
+     &  f^{\prime \top}f^{\prime}   = \sum_{v \in V}f^{\prime}\left( v \right)f^{\prime}\left( v \right)   =   \sum_{v \in V } f^{\top}\left( gv \right)f\left( gv \right) = f^{\top}f \\
+    \Rightarrow  &  \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{gSg^{-1}} f  }{ f^{\top}f}} =\max_{f \perp \mathbf{1}} { \sum_{gv}\sum_{ u\sim_{G} v }\frac{f\left( gu \right) f \left( gv \right)  }{ f^{\top}f}} 
     \end{split}
   \end{equation*}
 
