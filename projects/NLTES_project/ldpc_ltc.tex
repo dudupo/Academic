@@ -379,7 +379,7 @@
   \paragraph{Lemma.} Let $J$ be defined as above such that both \emph{Cayley}$\left( \Gamma, J \right)$, \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ are expanders with algebric expansion greater then $\lambda$ and $C_0$ with the parameters $\rho_{0} > 1 - \frac{1}{2q}$ and $ \delta_{0} - \left( q - \frac{1}{2} \right) > \lambda$. Then the code $\mathcal{T}\left(J, q ,C_{0}\right)$ is a good code. 
   \paragraph{Proof.} We have already proven that the code has a positive rate. Consider a codeword $x$ and denote by $x^{\prime}$ the restriction of $x$ to \emph{Cayley }$\left( \Gamma, J^{\prime}  \right)$ which is a codeword of $\tilde{C} = \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$. But $\tilde{C}$ is a Tanner Code such that any vertex sees at least $ \tilde{\delta_{0}} \Delta := \left(\delta_{0} - \left( q - \frac{1}{2}   \right) \right)\Delta $ non trivial bits, Therefore as the expansion of the graph \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ is lower than $\tilde{\delta}\Delta$ than any subset $S$ of $V$ at the size at most $|S|/|V| < \tilde{\delta_{0}} - \lambda / \Delta $  must contain at least one vertex that see less than  $\tilde{\delta}\Delta$ nontrivial bits, In contradiction for the fact that $x^{\prime} \in \tilde{C}$. $\square$ 
 
-  \paragraph{Claim. Existancess of such \emph{Cayley's}.} Let $S$ be a generator set such that \emph{Cayley}$\left( \Gamma , S \right)$ has a second largest eigen value greater then $\lambda$, And consider an arbitray group element $g \in \Gamma$. Denote by $S_{g}$ the set $gSg^{-1}$. Then the senond eigen value of the graph obtaind by $\left( \Gamma , S \right) \cup \left( \Gamma , S \right)$ is at most $2\lambda$. 
+  \paragraph{Claim. Existancess of such \emph{Cayley's}.} Let $S$ be a generator set such that \emph{Cayley}$\left( \Gamma , S \right)$ has a second largest eigen value greater then $\lambda$, And consider an arbitray group element $g \in \Gamma$ such that $gSg^{-1}$ disjointness to $S$. Denote by $S_{g}$ the set $gSg^{-1}$. Then the senond eigen value of the graph obtaind by $\left( \Gamma , S \right) \cup \left( \Gamma , S \right)$ is at most $2\lambda$. 
   \paragraph{Proof.} Denote by $G,G^{\prime}$ the \emph{Cayley} graphs coressponding to $S$, $S_{g}$, for conviniet we will use the notation of $\sum_{v\sim_{G} u}$ to denote a summation over all the neighboors of $v$ in the graph $G$. Let $A_{g}$ be the adjacency matrix of $G^{\prime}$. Recall that $G^{\prime}$ is a  $\Delta$ regular graph and therefore the uiform distirubtion $\mathbf{1}$ is the eigenstate with the maximal eigenvalue, and the second eigenvalue is given by Cron-Fisher\ctt{[add citation]}  minmax principle: 
   \begin{equation*}
     \begin{split}
@@ -395,14 +395,8 @@
     \Rightarrow  &  \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{gSg^{-1}} f  }{ f^{\top}f}} =\max_{f \perp \mathbf{1}} { \sum_{gv}\sum_{ u\sim_{G} v }\frac{f\left( gu \right) f \left( gv \right)  }{ f^{\top}f}} 
     \end{split}
   \end{equation*}
-  By the fact that $gSg^{-1} \cup S = \emptyset $: 
-  \begin{equation*}
-    \begin{split}
-       = & \max_{f \perp \mathbf{1}} { \sum_{v}\sum_{u\sim_{G} v}\frac{f\left( u \right) f \left( v \right)  }{ f^{\top}f}} 
-    \end{split}
-  \end{equation*}
-
-  \begin{equation*}
+  By the fact that $gSg^{-1} \cup S = \emptyset $, we have that the edges sets of $G,G^{\prime}$ are disjointness sets, Hence the adjacency matrix of the graphs union equals the sum of their adjacency matrices. So in total we obtain that:  
+    \begin{equation*}
     \begin{split}
       \lambda^{\prime} &= \max_{f \perp \mathbf{1}} { \frac{f^{\top} \left( A_{S} + A_{gS} \right) f  }{ f^{\top}f}} \\
       & \le  \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{S} f  }{ f^{\top}f}} +  \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{gSg^{-1}} f  }{ f^{\top}f}} \\
