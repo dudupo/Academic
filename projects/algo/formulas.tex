@@ -121,6 +121,21 @@
 	\frac{a_{1}^2}{b_{1}}+\frac{a_{2}^2}{b_{2}}+ ...+ \frac{a_{n}^2}{b_{n}} \ge \frac{\left( a_{1}+ a_{2} + ... + a_{n}  \right)^{2}}{b_{1}+b_{2}+... b_{n}}  
       \end{split}
     \end{equation*}
+    \subsection*{{\textcolor{orange}{Expanders.}} } 
+    \paragraph{Second Eigenvalue.} Let $A$ be the adjacency matrix of $\Delta$ regular graph, then the seconed eignenvalue is:
+    \begin{equation*}
+      \begin{split}
+	\lambda &= \max_{f \perp \mathbf{1}} { \frac{f^{\top}A f  }{ f^{\top}f}}
+      \end{split}
+    \end{equation*}
+    An exapmle for usecase, consider the \emph{Cayley} Graph defined by the union of two generatorset and a homriphisem of it, namly $S$ and $gS$ for some $g \in $ the group. Then we have that the new spacrtial gap is at most two times the orignal one:    
+    \begin{equation*}
+      \begin{split}	
+	\lambda^{\prime} &= \max_{f \perp \mathbf{1}} { \frac{f^{\top} \left( A_{S} + A_{gS} \right) f  }{ f^{\top}f}} \\
+	& \le  \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{S} f  }{ f^{\top}f}} +  \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{gS}<++> f  }{ f^{\top}f}} \\
+	\le \lambda + \lambda = 2\lambda
+      \end{split}
+    \end{equation*}
   \end{multicols*}{2}
   \end{document} 
 
