@@ -381,9 +381,21 @@
 
   \paragraph{Claim. Existancess of such \em{Cayley's}.} Let $S$ be a generator set such that \em{Cayley}$\left( \Gamma , S \right)$ has a second largest eigen value greater then $\lambda$, And consider an arbitray group element $g \in \Gamma$. Denote by $S_{g}$ the set $gSg^{-1}$. Then the senond eigen value of the graph obtaind by $\left( \Gamma , S \right) \cup \left( \Gamma , S \right)$ is at most $2\lambda$. 
   \paragraph{Proof.} Let $A$ be the adjacency matrix of $\Delta$ regular graph, then the seconed eignenvalue is:
+
+
   \begin{equation*}
     \begin{split}
-      \lambda &= \max_{f \perp \mathbf{1}} { \frac{f^{\top}A f  }{ f^{\top}f}}
+      \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{gSg^{-1}} f  }{ f^{\top}f}} = \max_{f \perp \mathbf{1}} { \sum_{u\sim v}\frac{f\left( u \right) f \left( v \right)  }{ f^{\top}f}} \\
+      \max_{f \perp \mathbf{1}} { \sum_{v , gSg^{-1}v}\frac{f\left( u \right) f \left( v \right)  }{ f^{\top}f}} = \max_{f \perp \mathbf{1}} { \sum_{v , gSg^{-1}v}\frac{f\left( u \right) f \left( v \right)  }{ f^{\top}f}} 
+    \end{split}
+  \end{equation*}
+
+
+  \begin{equation*}
+    \begin{split}
+      \lambda^{\prime} &= \max_{f \perp \mathbf{1}} { \frac{f^{\top} \left( A_{S} + A_{gS} \right) f  }{ f^{\top}f}} \\
+      & \le  \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{S} f  }{ f^{\top}f}} +  \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{gSg^{-1}} f  }{ f^{\top}f}} \\
+      & \le \lambda + \lambda = 2\lambda
     \end{split}
   \end{equation*} 
 
