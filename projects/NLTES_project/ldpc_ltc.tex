@@ -366,7 +366,7 @@
       \left( \delta_{0} - \left( q - \frac{1}{2} \right) \right)\Delta
     \end{split}
   \end{equation*}
- So assume that we could engineer an expander family such that the graphs obtained by removing $\frac{1}{2}$ of the edges connected for each vertex result also expanders, and in addition, regarding $\tilde{C_{0}}$ each edge is checked by both vertices on its support. Namely, a good Tanners Code could be defined on the restricted graphs; Then, any string that satisfies the original checks also has a linear weight. To achieve this property, we will restrict ourselves to a particular family of Cayley Graphs.  
+  So assume that we could engineer an expander family such that the graphs obtained by removing $\frac{1}{2}$ of the edges connected for each vertex result also expanders, and in addition, regarding $\tilde{C_{0}}$ each edge is checked by both vertices on its support. Namely, a good Tanners Code could be defined on the restricted graphs; Then, any string that satisfies the original checks also has a linear weight. To achieve this property, we will restrict ourselves to a particular family of Cayley Graphs.  
   \paragraph{Definion. Testability-Tanner-Code.} Let $q > \frac{1}{2}$ and let $J$ be a geneator set for group $\Gamma$ such that $|J| = \Delta$, $q | \Delta $, $J$ closed for inverse, and there exist subset of $J$, denote it by, $J^{\prime}$ such that $J^{\prime}$ is a generator set of $\Gamma$ and $|J^{\prime}| = \frac{1}{2}\Delta$. Let $C_{0}$ be a code with parameters $C_{0} = q\Delta \left[1, \rho_{0}, \delta_{0}\right]$. For any vertex assoicate a subset $\Jvv \subset J/J^{\prime}$ at size: 
 
   \begin{equation*}
@@ -379,7 +379,7 @@
   \paragraph{Lemma.} Let $J$ be defined as above such that both \emph{Cayley}$\left( \Gamma, J \right)$, \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ are expanders with algebric expansion greater then $\lambda$ and $C_0$ with the parameters $\rho_{0} > 1 - \frac{1}{2q}$ and $ \delta_{0} - \left( q - \frac{1}{2} \right) > \lambda$. Then the code $\mathcal{T}\left(J, q ,C_{0}\right)$ is a good code. 
   \paragraph{Proof.} We have already proven that the code has a positive rate. Consider a codeword $x$ and denote by $x^{\prime}$ the restriction of $x$ to \emph{Cayley }$\left( \Gamma, J^{\prime}  \right)$ which is a codeword of $\tilde{C} = \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$. But $\tilde{C}$ is a Tanner Code such that any vertex sees at least $ \tilde{\delta_{0}} \Delta := \left(\delta_{0} - \left( q - \frac{1}{2}   \right) \right)\Delta $ non trivial bits, Therefore as the expansion of the graph \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ is lower than $\tilde{\delta}\Delta$ than any subset $S$ of $V$ at the size at most $|S|/|V| < \tilde{\delta_{0}} - \lambda / \Delta $  must contain at least one vertex that see less than  $\tilde{\delta}\Delta$ nontrivial bits, In contradiction for the fact that $x^{\prime} \in \tilde{C}$. $\square$ 
 
-  \paragraph{Claim. Existancess of such \em{Cayley's}.} Let $S$ be a generator set such that \em{Cayley}$\left( \Gamma , S \right)$ has a second largest eigen value greater then $\lambda$, And consider an arbitray group element $g \in \Gamma$. Denote by $S_{g}$ the set $gSg^{-1}$. Then the senond eigen value of the graph obtaind by $\left( \Gamma , S \right) \cup \left( \Gamma , S \right)$ is at most $2\lambda$. 
+  \paragraph{Claim. Existancess of such \emph{Cayley's}.} Let $S$ be a generator set such that \emph{Cayley}$\left( \Gamma , S \right)$ has a second largest eigen value greater then $\lambda$, And consider an arbitray group element $g \in \Gamma$. Denote by $S_{g}$ the set $gSg^{-1}$. Then the senond eigen value of the graph obtaind by $\left( \Gamma , S \right) \cup \left( \Gamma , S \right)$ is at most $2\lambda$. 
   \paragraph{Proof.} Let $A$ be the adjacency matrix of $\Delta$ regular graph, then the seconed eignenvalue is:
 
 
@@ -410,14 +410,14 @@
 
   \begin{equation*}
     \begin{split}
-        w_{E/E^{\prime}}\left( x \right) & \ge \left( \delta_{0} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) \Delta|T|  \\ 
-	\rightarrow_{n \rightarrow \infty} &  \ge  \left( \delta_{0} - o(1)  - \frac{\lambda}{\Delta} \right) \Delta|T| 
+      w_{E/E^{\prime}}\left( x \right) & \ge \left( \delta_{0} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) \Delta|T|  \\ 
+      \rightarrow_{n \rightarrow \infty} &  \ge  \left( \delta_{0} - o(1)  - \frac{\lambda}{\Delta} \right) \Delta|T| 
     \end{split}
   \end{equation*}
   Assuming Girth is greater than $\frac{4}{3}\log_{\Delta-1}\left( n \right)$  gives us a decoder against errors at weight at most $n^{\frac{3}{2}-\varepsilon}$ $\square$. 
 
 
- \subsection{ Almost LTC With Positive Rate \ctt{ Wrong Section.  } } 
+  \subsection{ Almost LTC With Positive Rate \ctt{ Wrong Section.  } } 
   To overcome the vanishing rate issue, let us restrict ourselves to using only even expanders graph. Now, Let $C_{0}^{-}$ and $C_{0}^{+}$ be two small codes with parameters $C_{0}^{\pm} = [\Delta, \rho_{\pm}\Delta, \delta_{\mp}\Delta]$. We will refer to $C_{0}^{+}$ as the positive and $C_{0}^{-}$ as the negative codes. Similarly, we will call the positive vertices to the left side of $G$ and the negative vertices to the right side of $G$ and use the notation $G = \left( V_{-}, V_{+}, E \right)$, when $V = V_{-} \cup V_{+}$. 
   Consider the code $C$, which consists of all the words $x\in C$ such that $x|_{v} \in C_{0}^{\pm}$ for any $v \in V_{\pm}$.
   \paragraph{Claim.} If $\rho_{-} + \rho_{+} > 1$, $\delta_{\pm}\Delta > \lambda$ and $|V_{-}| = |V_{+}| = \frac{1}{2}n$ then the $C$ has positive rate, and relative distance. 
