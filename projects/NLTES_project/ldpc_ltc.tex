@@ -404,7 +404,8 @@
     \end{split}
   \end{equation*} 
   $\square$ 
-  \paragraph{Cliam.}  
+  \paragraph{Claim.} If $\Delta$ is a constant greater than two, and $G$ is a $\lambda$-algebric expander, then it there exists a $g \in \Gamma$ such that $S_{g}\cap S = \emptyset$.  
+  \paragraph{Proof.} As $\Delta > 2 $ there are must to be at least two diffrent elements $s_{1},s_{2} \in S$  such that $s_{1} \neq s_{2}, s_{2}^{-1}$. Pick $g = s_{1}s_{2}$. Now assume through contradiction that there exists also $s,t \in S$ such that $gsg^{-1} = r \Rightarrow gs = rg$ and noice that the fact that $s_{1}\neq s_{2}^{-1}$ gurantess that both terms are product of $3$ element group. Therefore ethier that there is a $6$-length cycle in the graph, Or that there is element-wise equivalence, namely $s_{1} = r, s_{2} = s_{1}, s=s_{2}$. The first case contrudict the the lower bound on the expander girth which is at least $\Omega \left( \log_{\Delta}(n) \right)$, while the other stand in contrudiction to the fact that $s_{1} \neq s_{2}$ $\square$  
 
   \subsection{Tanner Code Testability For Small ($ \Delta^{\frac{g}{2}} $) Errors.} 
   \ctt{Consider $T$ at a height less than the graph diameter.  } 
