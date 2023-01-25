@@ -52,7 +52,7 @@
 \title{Simple LTC Good LDPC Codes} 
 \author{David Ponarovsky}
 \maketitle
-\abstract{We propose a new simple construction based on Tanner Codes, which yields a good LDPC testabile code.} 
+\abstract{We propose a new simple construction based on Tanner Codes, which yields a good LDPC testable code.} 
 \begin{multicols*}{2}
   \section{Preambles}
   In this work, we propose a new construction for good LDPC codes, which also have a good testability parameter. In the sense that one can engineer the code such that doing \ctt{change to constant query complexity. } $\Theta\left( n^{1-\varepsilon}\right)$ random checks, at most, would be enough to detect any error with probability proportional to its size. When $\varepsilon$ is a small, as we wish, fixed positive number. In contrast to previews, constructions made by C and D, our construction does not involve any amplification and is almost identical to the expander code construction, which is considered by many simple and easy to implement. We remark that Dinur, in her previous work \cite{Dinur}, obtained a better testability code with only constant query complexity. 
@@ -201,7 +201,7 @@
 
   \paragraph{Definition.} Let $C = \Tann$. We say that $x \in C_{\oplus}$ is \textit{reducable} if there exists a vertex $v$ and a small codeword $c_v$, for which, adding the assignment of $c_v$ over the $v$'s edges to $x$ decreases the weight. Namely, $|x + c_{v}| < |x|$. 
 
-  \paragraph{Theorem 1.} Let $C = \Tann$ and consider $x \in C_{\oplus}$ which is not reducable. Let $G^{\prime} = \left( V^\prime, \cdot  \right)$ the subgraph of $G$ induced by the vertices in $V$ whoose suggested non-trival codeword for $x$. Denote by $T$ the directed tree spanned by the BFS scanning routine over $G^{\prime}$, and by $U_{max} \subset V^{\prime} $ the layer of $T$ at maximal size. Then:
+  \paragraph{Theorem 1.} Let $C = \Tann$ and consider $x \in C_{\oplus}$ which is not reducable. Let $G^{\prime} = \left( V^\prime, \cdot  \right)$ the subgraph of $G$ induced by the vertices in $V$ whoose suggested non-trival codeword for $x$. Denote by $T$ the directed tree spanned by the BFS scanning routine over $G^{\prime}$, and by $U_{max} \subset V^{\prime} $ the layer of $T$ at the maximal size. Then:
   \begin{enumerate}
     \item $ |T|  \ge \left( \frac{1}{4}\delta_{0} - \frac{\lambda}{\Delta} \right)n $
     \item $ |x| \ge \left( \delta_{0} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) \Delta|T| $
@@ -360,7 +360,7 @@
       \Rightarrow |x| & \ge \left(  \delta_{0} - \frac{2}{3} - \frac{2\lambda}{\Delta} \right) q \Delta|U_{\max}|
     \end{split}
   \end{equation*}
-  Yet, We still have require more for proving a linear distance. Noitce that by reapting on the \emph{Singleton Bound} proof it followes that the small code $\tilde{C_{0}}$ obtained by ignoring arbitray $ \left( q - \frac{1}{2} \right) \Delta $ coordinates yield a code with distance: 
+  Yet, We still require more to prove a linear distance. Notice that by repeating on the \emph{Singleton Bound} proof it follows that the small code $\tilde{C_{0}}$ obtained by ignoring arbitrary $ \left( q - \frac{1}{2} \right) \Delta $ coordinates yield a code with distance: 
   \begin{equation*}
     \begin{split}
       \left( \delta_{0} - \left( q - \frac{1}{2} \right) \right)\Delta
@@ -377,10 +377,10 @@
   Define the code $\mathcal{T}\left(J, q , C_{0}\right)$ to be the subspace such that any vertex's local view over the edges defined by $\Jvv \cup J^{\prime}$ is a codeword of $C_{0}$. In addition, let's associate a code $\Cvv$ obtained for any vertex by ignoring the bits supported on the $\Jvv$ coordinates. Notice that code defined by requiring that the local view of any vertex $v$ of \emph{Cayley}$\left(\Gamma, J^{\prime} \right)$ is a codeword of $\Cvv$ is a TannerCode. Denote it by $ \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$.   
 
   \paragraph{Lemma.} Let $J$ be defined as above such that both \emph{Cayley}$\left( \Gamma, J \right)$, \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ are expanders with algebric expansion greater then $\lambda$ and $C_0$ with the parameters $\rho_{0} > 1 - \frac{1}{2q}$ and $ \delta_{0} - \left( q - \frac{1}{2} \right) > \lambda$. Then the code $\mathcal{T}\left(J, q ,C_{0}\right)$ is a good code. 
-  \paragraph{Proof.} We have already proven that the code has a positive rate. Consider a codeword $x$ and denote by $x^{\prime}$ the restriction of $x$ to \emph{Cayley }$\left( \Gamma, J^{\prime}  \right)$ which is a codeword of $\tilde{C} = \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$. But $\tilde{C}$ is a Tanner Code such that any vertex sees at least $ \tilde{\delta_{0}} \Delta := \left(\delta_{0} - \left( q - \frac{1}{2}   \right) \right)\Delta $ non trivial bits, Therefore as the expansion of the graph \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ is lower than $\tilde{\delta}\Delta$ than any subset $S$ of $V$ at the size at most $|S|/|V| < \tilde{\delta_{0}} - \lambda / \Delta $  must contain at least one vertex that see less than  $\tilde{\delta}\Delta$ nontrivial bits, In contradiction for the fact that $x^{\prime} \in \tilde{C}$. $\square$ 
+  \paragraph{Proof.} We have already proven that the code has a positive rate. Consider a codeword $x$ and denote by $x^{\prime}$ the restriction of $x$ to \emph{Cayley }$\left( \Gamma, J^{\prime}  \right)$ which is a codeword of $\tilde{C} = \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$. But $\tilde{C}$ is a Tanner Code such that any vertex sees at least $ \tilde{\delta_{0}} \Delta := \left(\delta_{0} - \left( q - \frac{1}{2}   \right) \right)\Delta $ nontrivial bits, Therefore as the expansion of the graph \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ is lower than $\tilde{\delta}\Delta$ than any subset $S$ of $V$ at the size at most $|S|/|V| < \tilde{\delta_{0}} - \lambda / \Delta $  must contain at least one vertex that sees less than  $\tilde{\delta}\Delta$ nontrivial bits, In contradiction for the fact that $x^{\prime} \in \tilde{C}$. $\square$ 
 
-  \paragraph{Claim. Existancess of such \emph{Cayley's}.} Let $S$ be a generator set such that \emph{Cayley}$\left( \Gamma , S \right)$ has a second largest eigen value greater then $\lambda$, And consider an arbitray group element $g \in \Gamma$ such that $gSg^{-1}$ disjointness to $S$ \ctt{ remove the disjointness requirment}. Denote by $S_{g}$ the set $gSg^{-1}$. Then the senond eigen value of the graph obtaind by $\left( \Gamma , S \right) \cup \left( \Gamma , S \right)$ is at most $2\lambda$. 
-  \paragraph{Proof.} Denote by $G,G^{\prime}$ the \emph{Cayley} graphs coressponding to $S$, $S_{g}$, for conviniet we will use the notation of $\sum_{v\sim_{G} u}$ to denote a summation over all the neighboors of $v$ in the graph $G$. Let $A_{G^{\prime}}$ be the adjacency matrix of $G^{\prime}$. Recall that $G^{\prime}$ is a  $\Delta$ regular graph and therefore the uiform distirubtion $\mathbf{1}$ is the eigenstate with the maximal eigenvalue, and the second eigenvalue is given by Cron-Fisher\ctt{[add citation]}  minmax principle: 
+  \paragraph{Claim. Existence of such \emph{Cayley's}.} Let $S$ be a generator set such that \emph{Cayley}$\left( \Gamma , S \right)$ has a second largest eigen value greater then $\lambda$, And consider an arbitray group element $g \in \Gamma$ such that $gSg^{-1}$ disjointness to $S$ \ctt{ remove the disjointness requirment}. Denote by $S_{g}$ the set $gSg^{-1}$. Then the second eigenvalue of the graph obtained by $\left( \Gamma, S \right) \cup \left( \Gamma, S \right)$ is at most $2\lambda$. 
+  \paragraph{Proof.} Denote by $G,G^{\prime}$ the \emph{Cayley} graphs coressponding to $S$, $S_{g}$, for conviniet we will use the notation of $\sum_{v\sim_{G} u}$ to denote a summation over all the neighboors of $v$ in the graph $G$. Let $A_{G^{\prime}}$ be the adjacency matrix of $G^{\prime}$. Recall that $G^{\prime}$ is a  $\Delta$ regular graph, and therefore the uniform distribution $\mathbf{1}$ is the eigenstate with the maximal eigenvalue, and the second eigenvalue is given by Cron-Fisher\ctt{[add citation]}  min-max principle: 
   \begin{equation*}
     \begin{split}
       & \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{G^{\prime}} f  }{ f^{\top}f}} = \max_{f \perp \mathbf{1}} { \sum_{v}  \sum_{u\sim_{G^{\prime}} v}\frac{f\left( u \right) f \left( v \right)  }{ f^{\top}f}} \\
@@ -391,11 +391,11 @@
   As for any function $f : V \rightarrow \mathbb{R} $ one could define a function $f^{\prime} : E \rightarrow \mathbb{R} $ such that $f^{\prime}\left( v \right) = f\left( v \right) $ and $f^{\prime}$ preservs the norm:    
   \begin{equation*}
     \begin{split}
-     &  f^{\prime \top}f^{\prime}   = \sum_{v \in V}f^{\prime}\left( v \right)f^{\prime}\left( v \right)   =   \sum_{v \in V } f^{\top}\left( gv \right)f\left( gv \right) = f^{\top}f \\
-     \Rightarrow  &  \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{G^{\prime}} f  }{ f^{\top}f}} =\max_{f \perp \mathbf{1}} { \sum_{gv}\sum_{ u\sim_{G} v }\frac{f\left( gu \right) f \left( gv \right)  }{ f^{\top}f}} 
+     &  f^{\prime \top}f^{\prime}   = \sum_{v \in V}f^{\prime}\left( v \right)f^{\prime}\left( v \right)   =   \sum_{v \in V } f^{\top}\left( VG \right)f\left( VG \right) = f^{\top}f \\
+     \Rightarrow  &  \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{G^{\prime}} f  }{ f^{\top}f}} =\max_{f \perp \mathbf{1}} { \sum_{gv}\sum_{ u\sim_{G} v }\frac{f\left( gu \right) f \left( VG \right)  }{ f^{\top}f}} 
     \end{split}
   \end{equation*}
-  By the Interlacing Theorem, \ctt{cite Haemers} the secondeigen value of any subgraph of $G^{\prime}$ is less than the $\lambda^{\prime}$, In particular the eigenvalue of the graph obtaind by taking the edges that are associated with elements of the $ S_{g} / S $, denote that subgraph by $G^{\prime}_{ / S}$.  By the fact that $S_{g} / S \cap S = \emptyset $, we have that the edges sets of $G,G^{\prime}$ are disjointness sets, Hence the adjacency matrix of the graphs union equals the sum of their adjacency matrices. So in total we obtain that:  
+  By the Interlacing Theorem, \ctt{cite Haemers} the second eigenvalue of any subgraph of $G^{\prime}$ is less than the $\lambda^{\prime}$, In particular, the eigenvalue of the graph obtained by taking the edges that are associated with elements of the $ S_{g} / S $, denote that subgraph by $G^{\prime}_{ / S}$. Because $S_{g} / S \cap S = \emptyset $, we have that the edges sets of $G, G^{\prime}$ are disjointness sets. Hence the adjacency matrix of the graphs union equals the sum of their adjacency matrices. So in total, we obtain that:  
     \begin{equation*}
     \begin{split}
       \lambda^{\prime} &= \max_{f \perp \mathbf{1}} { \frac{f^{\top} \left( A_{G} + A_{G^{\prime}_{/S}} \right) f  }{ f^{\top}f}} \\
@@ -405,8 +405,8 @@
   \end{equation*} 
   $\square$ 
   \paragraph{Claim.} If $\Delta$ is a constant greater than two, and $G$ is a $\lambda$-algebric expander, then it there exists a $g \in \Gamma$ such that $S_{g}\cap S = \emptyset$.  
-  \paragraph{Proof.} As $\Delta > 2 $ there are must to be at least two diffrent elements $s_{1},s_{2} \in S$  such that $s_{1} \neq s_{2}, s_{2}^{-1}$. Pick $g = s_{1}s_{2}$. Now assume through contradiction that there exists also $s,t \in S$ such that $gsg^{-1} = r \Rightarrow gs = rg$ and noice that the fact that $s_{1}\neq s_{2}^{-1}$ gurantess that both terms are product of $3$ element group. Therefore ethier that there is a $6$-length cycle in the graph, Or that there is element-wise equivalence, namely $s_{1} = r, s_{2} = s_{1}, s=s_{2}$. The first case contrudict the the lower bound on the expander girth which is at least $\Omega \left( \log_{\Delta}(n) \right)$, while the other stand in contrudiction to the fact that $s_{1} \neq s_{2}$ $\square$  
-  \paragraph{Remark. Regarding Quantum Codes.} Notice that any complex which designd to hold a CSS qLDPC codes must has constant length cycles. Otherwise the distance of $C_{x}$ will not be constanant and therefore the condition $H_{x}H_{z}^{\top} =0$ could be satsifed only if $H_{z}$ is not a constant row-weight matrix, Put differently $C_{z}$ is not a LDPC code. As a consequence, any trial to genrelaize the construction for obtiang quantums must unrelay on that claim.    
+  \paragraph{Proof.} As $\Delta > 2 $ there must be at least two different elements $s_{1},s_{2} \in S$  such that $s_{1} \neq s_{2}, s_{2}^{-1}$. Pick $g = s_{1}s_{2}$. Now assume through contradiction that there also exists $s,t \in S$ such that $gsg^{-1} = r \Rightarrow gs = rg$ and notice that the fact that $s_{1}\neq s_{2}^{-1}$ guarantees that both terms are a product of $3$ element group. Therefore either that there is a $6$-length cycle in the graph, Or that there is element-wise equivalence, namely $s_{1} = r, s_{2} = s_{1}, s=s_{2}$. The first case contradict the lower bound on the expander girth, which is at least $\Omega \left( \log_{\Delta}(n) \right)$, while the other stand in contradiction to the fact that $s_{1} \neq s_{2}$ $\square$  
+  \paragraph{Remark. Regarding Quantum Codes.} Notice that any complex designed to hold CSS qLDPC codes must have constant length cycles. Otherwise, the distance of $C_{x}$ will not be constant, and therefore the condition $H_{x}H_{z}^{\top} =0$ could be satisfied only if $H_{z}$ is not a constant row-weight matrix, Put differently $C_{z}$ is not an LDPC code. Consequently, any trial to generalize the construction for obtaining quantum codes must not rely on that claim.    
 
   \subsection{Tanner Code Testability For Small ($ \Delta^{\frac{g}{2}} $) Errors.} 
   \ctt{Consider $T$ at a height less than the graph diameter.  } 
@@ -425,7 +425,7 @@
 
 
   \subsection{ Almost LTC With Positive Rate \ctt{ Wrong Section.  } } 
-  To overcome the vanishing rate issue, let us restrict ourselves to using only even expanders graph. Now, Let $C_{0}^{-}$ and $C_{0}^{+}$ be two small codes with parameters $C_{0}^{\pm} = [\Delta, \rho_{\pm}\Delta, \delta_{\mp}\Delta]$. We will refer to $C_{0}^{+}$ as the positive and $C_{0}^{-}$ as the negative codes. Similarly, we will call the positive vertices to the left side of $G$ and the negative vertices to the right side of $G$ and use the notation $G = \left( V_{-}, V_{+}, E \right)$, when $V = V_{-} \cup V_{+}$. 
+  To overcome the vanishing rate issue, let us restrict ourselves to using only even expander graphs. Now, Let $C_{0}^{-}$ and $C_{0}^{+}$ be two small codes with parameters $C_{0}^{\pm} = [\Delta, \rho_{\pm}\Delta, \delta_{\mp}\Delta]$. We will refer to $C_{0}^{+}$ as the positive and $C_{0}^{-}$ as the negative codes. Similarly, we will call the positive vertices to the left side of $G$ and the negative vertices to the right side of $G$ and use the notation $G = \left( V_{-}, V_{+}, E \right)$ when $V = V_{-} \cup V_{+}$. 
   Consider the code $C$, which consists of all the words $x\in C$ such that $x|_{v} \in C_{0}^{\pm}$ for any $v \in V_{\pm}$.
   \paragraph{Claim.} If $\rho_{-} + \rho_{+} > 1$, $\delta_{\pm}\Delta > \lambda$ and $|V_{-}| = |V_{+}| = \frac{1}{2}n$ then the $C$ has positive rate, and relative distance. 
   \paragraph{Proof.} First, let us bound the rate, 
@@ -447,7 +447,7 @@
 
   \paragraph{Proof:} Define the $T$ precisely as is in the proof of Theorem 1, And assume, without loss of generality $\delta_{-} < \delta_{+}$. Hence it is clear that for any $v \in V^\prime$ it holds that $w_{E^\prime}\left( c_{v} \right) > \frac{1}{2}\delta_{-}\Delta$, so we could repeat exactly the above steps to get that the $T$ has a linear size and the inequality $|x| > \left( \delta_{-} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) $ still holds, So we can assume that $|U_{\max}|$ is also linear at $n$.
 
-  Furthermore, if $U_{\max} \subset V_{-}$ then the inequality $\left( \delta_{+} - \frac{2}{3} - \frac{2}{\Delta}\lambda \right) \Delta |U_{\max}|$ also holds and the exact arguments as before proving the Theoroem.     
+  Furthermore, if $U_{\max} \subset V_{-}$ then the inequality $\left( \delta_{+} - \frac{2}{3} - \frac{2}{\Delta}\lambda \right) \Delta |U_{\max}|$ also holds and the exact arguments as before proving the theorem.     
 
 
   Suppose that each negative layer $U_{i}^{-} \subset V_{-}$ is at the size at most $\sqrt{\Delta}n$, then we have that for any positive layer $U_{i}^{+}$ it holds that:
@@ -465,14 +465,14 @@
 
   \paragraph{Cliam} 
   \section{Decodeing and Testing}
-  For completeness, we show exactly how Theorem 1 implies testability. The following section repeats Leiverar's and Zemor's proof \cite{leverrier2022quantum}. Consider a binary string $x$ that is not a codeword. The main idea is the observation that the number of bits filliped by (any) decoder, while decoding $x$, bounds the distance $d\left( x,C \right)$ from above. In addition, the number of positive checks in the first iteration is exactly the number of violated restrictions.
+  For completeness, we show exactly how Theorem 1 implies testability. The following section repeats Leiverar's and Zemor's proof \cite{leverrier2022quantum}. Consider a binary string $x$ that is not a codeword. The main idea is the observation that the number of bits filliped by (any) decoder, while decoding $x$, bounds the distance $d\left( x, C \right)$ from above. In addition, the number of positive checks in the first iteration is exactly the number of violated restrictions.
 %\begin{figure*}[h]
 %\begin{adjustbox}{width=\textwidth}
   \paragraph{Definition.}Let $L = \{L_{i}\}^{2|E|}_{0}$  be a series of $2|E|$. Such that for each vertex $ v \in V$ $\sum_{ e = \{u,v\} }{ L_{e_v} } \in C_{0}$. We will call $L$ a \textit{Potential list} and refer to the $e_{v}$'the element of $L$ as a suggestion made by the vertex $v \in V$ for the edge $e \in E$. Sometimes we will use the notation $L_{v}$ to denote all the $L$'s coordinates of the form $ L_{e_{v}} \forall e \in \text{Support} \left( v \right) $. Define the \textit{Force} of $L$ to be the following sum $  F\left( L \right) = \sum_{e = \{v,u\} \in E }{ \left(L_{e_v} + L_{e_u}\right) }$ and notice that $ F\left( L \right) \in C_{\oplus}$. And define the \textit{state} $S(L) \subset \mathbb{F}^{|E|}_{2}$ of $L$ as the vector obtained by choosing an arbitrary value from $ \{ L_{e_v}, L_{e_u} \}$ for each edge $e \in E$.  
   \paragraph{Claim.} Let $L$ be the Potential list. If $F(L)=0$ then $S(L)\in C$.
   \paragraph{Proof.} Denote by $\phi\left( e \right) \subset \{ L_{e_v}, L_{e_u} \}$ the value which was chosen to $e = \{v,u\} \in E$. By $F\left(L\right) = 0$ , it follows that $ L_{e_v} + L_{e_u} = 0 \Rightarrow L_{e_v} = L_{e_u} = \phi\left( e \right) $ for any $e \in E$. Hence for every $v\in V$ we have that $ S\left( L \right)|_{v} = \sum_{u \sim v}{ \phi\left( \{v,u\} \right) } =  \sum_{u \sim v}{ L_{e_v }} \in C_{0}$ $ \Rightarrow S\left( L \right) \in C \square$   
 
-  The decoding goes as follows. First, each vertex suggests the closet $C_{0}$'s codeword to his local view. Those suggestions define a Potential list, denote it by $L$, then if $F\left( L \right) <\tau$, by Theorem 1, one could find a suggestion of vertex $v$, and a codeword $c_v$ such that updating the value of $L_{v} \leftarrow L_{v} + c_{v}$ yields a Potential list with lower force. Therefore repeating the process till the force vanishes, obtain a Potential list in which its state is a codeword. 
+  The decoding goes as follows. First, each vertex suggests the closet $C_{0}$'s codeword to his local view. Those suggestions define a Potential list, denote it by $L$, then if $F\left( L \right) <\tau$, by Theorem 1, one could find a suggestion of vertex $v$ and a codeword $c_v$ such that updating the value of $L_{v} \leftarrow L_{v} + c_{v}$ yields a Potential list with lower force. Therefore repeating the process till the force vanishes, obtain a Potential list in which its state is a codeword. 
   \paragraph{Definition.} Let $\tau > 0, f : \mathbb{N} \rightarrow \mathbb{R^{+}}$, and consider a Tanner Code $C = \mathcal{T}\left( G, C_{0} \right)$. Let us Define the following decoder and denote it by $\mathcal{D}$.  
   \paragraph{}
   \begin{algorithm}[H]
@@ -540,6 +540,7 @@
 \end{multicols*}
 \printbibliography 
 \end{document}
+
 
 
 
