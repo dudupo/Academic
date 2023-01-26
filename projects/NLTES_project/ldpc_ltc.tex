@@ -464,9 +464,16 @@
   Therefore consider the case when $U_{\max} \subset V_{+}$. Denote by the $U_{-1}$ and $U_{+1}$ the previews and the next layers to $U_{\max}$.  
   \paragraph{Claim.} If $ |U_{\max}| = \Theta\left(n  \right)$ Then there exists at least $3$ layers in $V_{-}$ at linear size. And at least one of them is not adjusted to $U_{\max}$.    
 
-  \paragraph{Cliam} 
- \section{Good Quantum Codes, logaritmic-check-weight.}
-
+ \section{Good Quantum Codes, logaritmic-check-weight.} 
+In the following section we will construct a family of complexes on which we will define a pairs of Tanner Codes, evently, they will used to compose a CSS pairs of good quantum codes.  
+  \paragraph{Inifinte Family Of Tanner Quantum Codes.} 
+  Let $p$ be a prime and $\delta \in \left( 0,1 \right)$. Consider the Cayly graphs obtained by taking uniformly a $c\left( \delta \right)\log n$ generators of the cyclic group at order $p$, denote that set by $S$. It was shown by N.Alon that with high probability that process yield a Graph with $\delta$-algebric expansion. Now, consider the double cover of that graph and denote it by $G = \left( V = V^{+} \cup V^{-},E \right)$. And define the folowing graph denoted by $\Gamma^{\pm} = \left(V^{\pm}, E^{\prime}\right)$:
+  \begin{equation*}
+    \begin{split}
+      \left( \left(u , \pm  \right), \left( v, \pm \right) \right) \in  E^{\prime} \Leftrightarrow \exists a\neq b \in S \ s.t \ abu = v     
+    \end{split}
+  \end{equation*}
+  clearly $|E^{\prime}| =  \frac{1}{2} {|S| \choose 2} |V|$. \ctt{ We need to show expansion, One elgante way is first to pick $\sqrt{\log n }$ elements and then show that they match to expansion generator set.}    
 
   \section{Decodeing and Testing}
   For completeness, we show exactly how Theorem 1 implies testability. The following section repeats Leiverar's and Zemor's proof \cite{leverrier2022quantum}. Consider a binary string $x$ that is not a codeword. The main idea is the observation that the number of bits filliped by (any) decoder, while decoding $x$, bounds the distance $d\left( x, C \right)$ from above. In addition, the number of positive checks in the first iteration is exactly the number of violated restrictions.
