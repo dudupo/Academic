@@ -409,10 +409,7 @@
   \paragraph{Remark. Regarding Quantum Codes.} Notice that any complex designed to hold CSS qLDPC codes must have constant length cycles. Otherwise, the distance of $C_{x}$ will not be constant, and therefore the condition $H_{x}H_{z}^{\top} =0$ could be satisfied only if $H_{z}$ is not a constant row-weight matrix, Put differently $C_{z}$ is not an LDPC code. Consequently, any trial to generalize the construction for obtaining quantum codes must not rely on that claim.    
 
   \paragraph{Remark. Note On Random Construction.} One might wondring if using \emph{Cayley} is necssery. We conjecure that there is a constant $c > 0$ such that sampling pair of  $\left( 1 + c \right)\frac{1}{2}\Delta$ regulr random graphs, and than take the anti-symatry union of them might also obtain a good expander such that each of the reseuide part also has good expansion with heigh probability.  
-
-
-  \subsection{Good Quantum Codes, logaritmic-check-weight.}
-  \subsection{Tanner Code Testability For Small ($ \Delta^{\frac{g}{2}} $) Errors.} 
+   \subsection{Tanner Code Testability For Small ($ \Delta^{\frac{g}{2}} $) Errors.} 
   \ctt{Consider $T$ at a height less than the graph diameter.  } 
   \subsection{Tanner Code Testability When With strongly-Honest Vertices. }
   The result obtained by the proof of Theorem 1 is that one cannot hide errors in a sublinear size tree. Namely, any codeword of the disagreement code with a weight less than $ \Omega \left( n^{1-\varepsilon} \right) $ could be reduced, regardless of the parameters of the small code. 
@@ -468,6 +465,9 @@
   \paragraph{Claim.} If $ |U_{\max}| = \Theta\left(n  \right)$ Then there exists at least $3$ layers in $V_{-}$ at linear size. And at least one of them is not adjusted to $U_{\max}$.    
 
   \paragraph{Cliam} 
+ \section{Good Quantum Codes, logaritmic-check-weight.}
+
+
   \section{Decodeing and Testing}
   For completeness, we show exactly how Theorem 1 implies testability. The following section repeats Leiverar's and Zemor's proof \cite{leverrier2022quantum}. Consider a binary string $x$ that is not a codeword. The main idea is the observation that the number of bits filliped by (any) decoder, while decoding $x$, bounds the distance $d\left( x, C \right)$ from above. In addition, the number of positive checks in the first iteration is exactly the number of violated restrictions.
 %\begin{figure*}[h]
