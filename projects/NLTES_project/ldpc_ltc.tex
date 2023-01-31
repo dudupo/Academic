@@ -351,14 +351,17 @@
     \end{split}
   \end{equation*} for example, if $q = 2/3$, then for having constant rate, it is enough to ensure that $ \rho_{0} \ge 1 - \frac{3}{4} = \frac{1}{4}$.
 
- \paragraph{Intuition For Testability.} Before expand the construction let's us justifiy why one should even expects that removing constrainsts preserves testability. Assume that is gurnted that  
-  On the other hand, the lower bound of the flux on the trivial vertices remains up to multiplication by the fraction factor $q$: 
+ \paragraph{Intuition For Testability.} Before expand the construction let's us justifiy why one should even expects that removing constrainsts preserves testability. Assume that is gurnted that the lower bound of the flux on the trivial vertices remains up to multiplication by the fraction factor $q$, or put it diffrently, one could just stick $q$ in every inequalitiy without lose correcntess, Then: 
   \begin{equation*}
     \begin{split}
       w_{E/E^{\prime}}\left( x|_{U} \right) & \ge  \delta_{0}q\Delta|U| -qw\left( E(U_{-1} \bigcup U_{+1} ,U)  \right) \\ 
       \Rightarrow |x| & \ge \left(  \delta_{0} - \frac{2}{3} - \frac{2\lambda}{\Delta} \right) q \Delta|U_{\max}|
     \end{split}
   \end{equation*}
+  As you can see, ireducable words of the disagreement have a linear weight, dispite that the orignal code has non-vanish rate.     
+  
+  \paragraph{Theorem 1+.} There is a famility of good LTC codes. 
+
   Yet, We still require more to prove a linear distance. 
 
    By repeating on the \emph{Singleton Bound} proof it follows that the small code $\tilde{C_{0}}$ obtained by ignoring arbitrary $ \left( q - \frac{1}{2} \right) \Delta $ coordinates yield a code with distance: 
