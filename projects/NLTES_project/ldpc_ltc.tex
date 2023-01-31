@@ -413,12 +413,13 @@
   \paragraph{Remark. Regarding Quantum Codes.} Notice that any complex designed to hold CSS qLDPC codes must have constant length cycles. Otherwise, the distance of $C_{x}$ will not be constant, and therefore the condition $H_{x}H_{z}^{\top} =0$ could be satisfied only if $H_{z}$ is not a constant row-weight matrix, Put differently $C_{z}$ is not an LDPC code. Consequently, any trial to generalize the construction for obtaining quantum codes must not rely on that claim.    
 
   \paragraph{Remark. Note On Random Construction.} One might wondring if using \emph{Cayley} is necssery. We conjecure that there is a constant $c > 0$ such that sampling pair of  $\left( 1 + c \right)\frac{1}{2}\Delta$ regulr random graphs, and than take the anti-symatry union of them might also obtain a good expander such that each of the reseuide part also has good expansion with heigh probability.  
-  \paragraph{Lemma.} Let $S$ and $T$ be a disjointss vertices subset, then:     
+  \paragraph{Lemma.} Consider undirected $\Delta$-regular graph $G$ and a directed $G^{\prime}$ obtaind by seting direactions on the edges of $G$. Let $S$ and $T$ be a disjointss vertices subset. Denote by $\lambda$ the seconed eigen value of $G$ and by $E_{G^{\prime}}(S,T)$ the directed edges which their tail belong to $S$ and their heads belong to $T$ then:     
   \begin{equation*}
     \begin{split}
-      E(S,T) \le q\Delta\frac{|S||T|}{n} + \lambda\sqrt{|S||T|} 
+      E_{G^{\prime}}(S,T) \le q\Delta\frac{|S||T|}{n} + \lambda\sqrt{|S||T|} 
     \end{split}
   \end{equation*}
+\paragraph{Proof.} Noitce that 
    \subsection{Tanner Code Testability For Small ($ \Delta^{\frac{g}{2}} $) Errors.} 
   \ctt{Consider $T$ at a height less than the graph diameter.  } 
   \subsection{Tanner Code Testability When With strongly-Honest Vertices. }
