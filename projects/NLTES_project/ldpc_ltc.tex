@@ -420,62 +420,7 @@
     \end{split}
   \end{equation*}
   \paragraph{Proof.} By reapting over the Expander mixining lemma, apart that the first eigen value is $\frac{1}{2}\Delta$. 
-   \subsection{Tanner Code Testability For Small ($ \Delta^{\frac{g}{2}} $) Errors.} 
-  \ctt{Consider $T$ at a height less than the graph diameter.  } 
-  \subsection{Tanner Code Testability When With strongly-Honest Vertices. }
-  The result obtained by the proof of Theorem 1 is that one cannot hide errors in a sublinear size tree. Namely, any codeword of the disagreement code with a weight less than $ \Omega \left( n^{1-\varepsilon} \right) $ could be reduced, regardless of the parameters of the small code. 
-  \paragraph{Theorem 1-.} For every $\delta_{0}, \varepsilon > 0$, there exist $\Delta_{\varepsilon}\in \mathbb{N}$ such that if $\Delta \ge \Delta_{\varepsilon}$, then for every $x \in C_{\oplus}$ at Hamming weight at most $ \Theta \left( n^{1-\varepsilon} \right) $, there exists a vertex $v \in V$ and a small codeword $c_{v} \in C_{0} $ such that adding the assignment of it over the $v$'s edges to $x$ define the codeword $x + c_{v}$  such that $|x + c_{v}| < |x|$.  
-  \paragraph{Proof:} Proof, Define $T$ again to be the DAG constructed as in the proof of Theorem 1 and denote by $U_{\max}$ the layer at the maximal size. The analyses of the flux projected by $x$ over the vertices suggested trivial code words remain the same. But now, as $U_{\max} \subset \text{supp}(x)$ follows that $|U_{\max}| \le 2|x| \le O(n^{1-\varepsilon})$. Therefore, $ \lim_{n \rightarrow \infty} \frac{|U_{\max}|}{n} \rightarrow 0 $ and we have that for sufficiently large $n$ it holds that: 
-
-  \begin{equation*}
-    \begin{split}
-      w_{E/E^{\prime}}\left( x \right) & \ge \left( \delta_{0} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) \Delta|T|  \\ 
-      \rightarrow_{n \rightarrow \infty} &  \ge  \left( \delta_{0} - o(1)  - \frac{\lambda}{\Delta} \right) \Delta|T| 
-    \end{split}
-  \end{equation*}
-  Assuming Girth is greater than $\frac{4}{3}\log_{\Delta-1}\left( n \right)$  gives us a decoder against errors at weight at most $n^{\frac{3}{2}-\varepsilon}$ $\square$. 
-
-
-  \subsection{ Almost LTC With Positive Rate \ctt{ Wrong Section.  } } 
-  To overcome the vanishing rate issue, let us restrict ourselves to using only even expander graphs. Now, Let $C_{0}^{-}$ and $C_{0}^{+}$ be two small codes with parameters $C_{0}^{\pm} = [\Delta, \rho_{\pm}\Delta, \delta_{\mp}\Delta]$. We will refer to $C_{0}^{+}$ as the positive and $C_{0}^{-}$ as the negative codes. Similarly, we will call the positive vertices to the left side of $G$ and the negative vertices to the right side of $G$ and use the notation $G = \left( V_{-}, V_{+}, E \right)$ when $V = V_{-} \cup V_{+}$. 
-  Consider the code $C$, which consists of all the words $x\in C$ such that $x|_{v} \in C_{0}^{\pm}$ for any $v \in V_{\pm}$.
-  \paragraph{Claim.} If $\rho_{-} + \rho_{+} > 1$, $\delta_{\pm}\Delta > \lambda$ and $|V_{-}| = |V_{+}| = \frac{1}{2}n$ then the $C$ has positive rate, and relative distance. 
-  \paragraph{Proof.} First, let us bound the rate, 
-  \begin{equation*}
-    \begin{split}
-      \dim C & \ge \frac{1}{2}\Delta n - \left( 1 - \rho_{+} \right)\Delta|V_{+}| - \left( 1 - \rho_{-} \right)\Delta|V_{-}| \\
-      & \frac{1}{2}\Delta n \left( \rho_{-} + \rho_{+}  - 1  \right) 
-    \end{split}
-  \end{equation*}
-  For proving a linear distance, fix a codeword $x \in C$ and denote By $S_{\pm}$ the support of $x$ over the edges. Namely, a vertex $v\in V_{\pm}$ belongs to $S_{\pm}$ if it connects to nonzero edges regarding the assignment by $x$, Assume towards contradiction that $|x| = o\left( n \right)$ . By The Expander Mixining Lemma, we have that: 
-  \begin{equation*}
-    \begin{split}
-      \frac{E\left( S_{\pm}, S_{\mp} \right)}{|S_{\pm}|}\le\frac{\Delta}{n}|S_{\mp}| + \lambda\sqrt{\frac{|S_{\mp}|}{|S_{\pm}|}}
-    \end{split}
-  \end{equation*}
-  Notice $|x| < |S_{-}| + |S_{+}| < 2|x|$ and $|S_{\pm}| < \Delta |S_{\mp}|$, so if $S_{-}$ is sublinear, then $S_{+}$ is also sublinear. In addition, we can assume, without loss of generality, that $|S_{-}| < |S_{+}|$. Hence, we have that the average of nontrivial incoming edges to a vertex in $|S_{+}|$ is less than $ \Delta \frac{|S_{-}|}{n} + \lambda $. That implies that for any $x = o\left( n \right)$ there must be at least a single vertex $ v \in S_{+} $ with less than $ \lambda $ nontrivial incoming edges; in other words, the weight of the word seen by $v$ is less than $\lambda$, which contradicts the assumption that $x\in C$ $\square$
-
-  \paragraph{Theorem 1+.} For every $\varepsilon > 0$, there exist $\Delta_{\varepsilon}\in \mathbb{N}$ and $\alpha>0$ such that if $\Delta \ge \Delta_{\varepsilon}$, then for every $x \in C_{\oplus}$ at Hamming weight at most $\alpha |E|^{1-\varepsilon}$, there exists a vertex $v \in V_{\pm}$ and a small codeword $c_{v} \in C_{0}^{\pm} $ such that adding the assignment of it over the $v$'s edges to $x$ define the codeword $x + c_{v}$  such that $|x + c_{v}| < |x|$.  
-
-  \paragraph{Proof:} Define the $T$ precisely as is in the proof of Theorem 1, And assume, without loss of generality $\delta_{-} < \delta_{+}$. Hence it is clear that for any $v \in V^\prime$ it holds that $w_{E^\prime}\left( c_{v} \right) > \frac{1}{2}\delta_{-}\Delta$, so we could repeat exactly the above steps to get that the $T$ has a linear size and the inequality $|x| > \left( \delta_{-} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) $ still holds, So we can assume that $|U_{\max}|$ is also linear at $n$.
-
-  Furthermore, if $U_{\max} \subset V_{-}$ then the inequality $\left( \delta_{+} - \frac{2}{3} - \frac{2}{\Delta}\lambda \right) \Delta |U_{\max}|$ also holds and the exact arguments as before proving the theorem.     
-
-
-  Suppose that each negative layer $U_{i}^{-} \subset V_{-}$ is at the size at most $\sqrt{\Delta}n$, then we have that for any positive layer $U_{i}^{+}$ it holds that:
-
-%\begin{equation*}
- % \begin{split}
-  %  w_{E/E^{\prime}\left( x|_{U_{i}^{+}} \right)  \le \frac{1}{2}\delta_{-}\Delta
- % \end{split}
-%\end{equation*}
-
-
-
-  Therefore consider the case when $U_{\max} \subset V_{+}$. Denote by the $U_{-1}$ and $U_{+1}$ the previews and the next layers to $U_{\max}$.  
-  \paragraph{Claim.} If $ |U_{\max}| = \Theta\left(n  \right)$ Then there exists at least $3$ layers in $V_{-}$ at linear size. And at least one of them is not adjusted to $U_{\max}$.    
-
- \section{Good Quantum Codes, logaritmic-check-weight.} 
+    \section{Good Quantum Codes, logaritmic-check-weight.} 
 In the following section we will construct a family of complexes on which we will define a pairs of Tanner Codes, evently, they will used to compose a CSS pairs of good quantum codes.  
   \paragraph{Inifinte Family Of Tanner Quantum Codes.} 
   Let $p$ be a prime and $\delta \in \left( 0,1 \right)$. Consider the Cayly graphs obtained by taking uniformly a $c\left( \delta \right)\log n$ generators of the cyclic group at order $p$, denote that set by $S$. It was shown by N.Alon \ctt{cite Noga} that with high probability that process yield a Graph with $\delta$-algebric expansion. Now, consider the double cover of that graph and denote it by $G = \left( V = V^{+} \cup V^{-},E \right)$. And define the folowing graph denoted by $\Gamma^{\pm} = \left(V^{\pm}, E^{\prime}\right)$:
