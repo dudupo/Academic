@@ -418,7 +418,19 @@
       E_{G^{\prime}}(S,T) \le q\Delta\frac{|S||T|}{n} + 2\lambda\sqrt{|S||T|} 
     \end{split}
   \end{equation*}
-  \paragraph{Proof.} denote by $1_{S}, 1_{T}$ the indecator vectors for $S$ and $T$. Since $1_{S},1_{T}$ has only non negative value, then for any non-negative matrix $B$ it follows that $1_{S}^{\top}B 1_{T} > 0$. Denote by $A_{G^\prime}$ the adjacency matrix of $G^{\prime}$ and by $B$ the adjacency matrix of the graph $G/G^{\prime}$.     
+  \paragraph{Proof.} denote by $1_{S}, 1_{T}$ the indecator vectors for $S$ and $T$. Since $1_{S},1_{T}$ has only non negative value, then for any non-negative matrix $B$ it follows that $1_{S}^{\top}B 1_{T} > 0$. Denote by $A$ the adjacency matrix of $G^{\prime}$ and by $B$ the matirx define as:     
+  \begin{equation*}
+    \begin{split}
+      B_{ij} = 1 \Leftrightarrow A_{ij} =0 \text{ and } A_{ji} = 1 
+    \end{split}
+  \end{equation*}
+  In other words, $B$ desinged to complete $A$ to the adjacency matrix of $G$. Also notice that $B$ has non negative values. Now, it's easy to see that $\mathbf{1}$ is a left and right eignvector  correspond to $\frac{1}{2}\Delta$ and $q\Delta$ eigenvalues, denote by $s,t$ the projections of $1_{S}, 1_{T}$ over the subspace duals to $\mathbf{1}$. And therefore by reaping on the same arguments in the Expander Mixinig Lemma: 
+  \begin{equation*}
+    \begin{split}
+      E_{G^{\prime}}\left( S,T \right) & \le  q\Delta \frac{|S||T|}{n} + s^{\top}A t 
+    \end{split}
+  \end{equation*}
+
     \section{Good Quantum Codes, logaritmic-check-weight.} 
 In the following section we will construct a family of complexes on which we will define a pairs of Tanner Codes, evently, they will used to compose a CSS pairs of good quantum codes.  
   \paragraph{Inifinte Family Of Tanner Quantum Codes.} 
