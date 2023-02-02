@@ -28,6 +28,7 @@ call IMAP('1/5',  '\frac{1}{5}'		,"tex")
 call IMAP('1/6',  '\frac{1}{6}'		,"tex")
 " call IMAP('<<', '&\le', 		'"tex")
 
+call AutoCorrect()
 
 function! g:Equ()
   execute "normal! o\\begin{equation*}\<cr>\\begin{split}\<cr><++>\<cr>\\end{split}\<cr>\\end{equation*}<++>" 
