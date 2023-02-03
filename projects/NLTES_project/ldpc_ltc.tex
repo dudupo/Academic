@@ -69,11 +69,17 @@
   \city{Hekla}
   \country{Iceland}}
 \email{larst@affiliation.org}
+\else
+\maketitle
 \fi
 
 \abstract{We propose an alternative simple construction of good LTC codes. } 
+
+\ifdefined\ACM
 \maketitle
+\fi
 %\begin{multicols*}{2}
+
   \section{Preambles}
   In this work, we propose a new construction for good LDPC codes, which also have a good testability parameter. In the sense that verfining a constant number of random checks, would be enough to detect any error with probability proportional to the error size. In contrast to previews, constructions made by \cite{Dinur}, \cite{leverrier2022quantum} and \cite{Pavel}, our construction doesn't require spicel properties of the small codes, such as $w$-robustness and $p$-resistance for puncturing. 
   
