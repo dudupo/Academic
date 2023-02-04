@@ -74,7 +74,6 @@
   \subsection{ Almost LTC With Zero Rate}
   \begin{definition}[The Disagreement Code.] Given a Tanner code $C = \Tann$, define the code $C_{\oplus}$ to contain all the words equal to the formal summation $ \sum_{v \in V\left( G \right)} {c_{v} }$ when $c_{v}$ is an assignment of a codeword $ c_{v} \in C_0 $  on the edges of the vertex $ v \in V\left( G \right)$.
   We call to such code the \textbf{disagreement code} of $C$, as edges are set to 1 only if their connected vertices contribute to the summation codewords that are different on the corresponding bit to that edge. In addition, we will call to any contribute $c_v$, the \textbf{suggestion} of $v$. And notice that by linearity, each vertex suggests, at most, a single suggestion.   
-\end{definition}
 
   Finally, given a bits assessment $x \in \mathbb{F}_{2}^{E}$ over the edges of $G$, we will denote by $x^{\oplus} \in C_{\oplus} $ the codeword which obtained by summing up suggestions set such each vertex suggests the closet codeword to his local view. Namely, for each $v \in V$ define:   
   \begin{equation*}
@@ -85,6 +84,7 @@
   \end{equation*}
   We will think about $x^{\oplus}$ as the disagreement between the vertices over $x$. 
 
+\end{definition}
 
   \paragraph{Lemma. Linearity Of The Disagreement.} Consider the code $C = \Tann$. Let $ x \in \mathbb{F}_{2}^{E}$ then for any $ y \in C$ it holds that: 
   \begin{equation*}
