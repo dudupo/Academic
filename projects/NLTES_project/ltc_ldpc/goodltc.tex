@@ -1,0 +1,103 @@
+ \subsection { Overcoming The Vanishing Rate. } 
+  Consider the following code; instead of associating each edge with pair of checks, let's define the vertices to be the checks of small codes over $q \in [0,1]$ fraction of their edges. That is, now each vertex defines only $\left( 1 - \rho_{0} \right)q\Delta$ restrictions. Hence, the rate of the code is at least:   
+  \begin{equation*}
+    \begin{split}
+      \rho\frac{1}{2}\Delta n & \ge \frac{1}{2}\Delta n - \left(1 - \rho_{0} \right)q\Delta n \\
+      \Rightarrow \rho & \ge \left(  2\rho_{0} + \left( \frac{1}{q}  - 2  \right)  \right)q \\ 
+      \rho_{0} & \ge  1 - \frac{1}{2q} 
+    \end{split}
+  \end{equation*} for example, if $q = 2/3$, then for having constant rate, it is enough to ensure that $ \rho_{0} \ge 1 - \frac{3}{4} = \frac{1}{4}$.
+
+ \paragraph{Intuition For Testability.} Before expand the construction let's us justifiy why one should even expects that removing constrainsts preserves testability. Assume that is gurnted that the lower bound of the flux on the trivial vertices remains up to multiplication by the fraction factor $q$, or put it diffrently, one could just stick $q$ in every inequalitiy without lose correcntess, Then: 
+  \begin{equation*}
+    \begin{split}
+      w_{E/E^{\prime}}\left( x|_{U} \right) & \ge  \delta_{0}q\Delta|U| -qw\left( E(U_{-1} \bigcup U_{+1} ,U)  \right) \\ 
+      \Rightarrow |x| & \ge \left(  \delta_{0} - \frac{2}{3} - \frac{2\lambda}{\Delta} \right) q \Delta|U_{\max}|
+    \end{split}
+  \end{equation*}
+  As you can see, ireducable words of the disagreement have a linear weight, dispite that the orignal code has non-vanish rate.     
+  
+  \paragraph{Theorem 1+.} There exist a constant $\alpha > 0 $ and infinite familiy of codes which satesfies Theroem 1 and also good.
+  \paragraph{}
+
+  Yet, We still require more to prove a linear distance. 
+  By repeating on the \emph{Singleton Bound \ref{theorem*:Sing} } proof it follows that the small code $\tilde{C_{0}}$ obtained by ignoring arbitrary $ \left( q - \frac{1}{2} \right) \Delta $ coordinates yield a code with distance: 
+  \begin{equation*}
+    \begin{split}
+      \left( \delta_{0} - \left( q - \frac{1}{2} \right) \right)\Delta
+    \end{split}
+  \end{equation*}
+  So assume that we could engineer an expander family such that the graphs obtained by removing $\frac{1}{2}$ of the edges connected for each vertex result also expanders, and in addition, regarding $\tilde{C_{0}}$ each edge is checked by both vertices on its support. Namely, a good Tanners Code could be defined on the restricted graphs; Then, any string that satisfies the original checks also has a linear weight. To achieve this property, we will restrict ourselves to a particular family of Cayley Graphs.  
+  \paragraph{Definion. Testability-Tanner-Code.} Let $q > \frac{1}{2}$ and let $J$ be a geneator set for group $\Gamma$ such that $|J| = \Delta$, $q | \Delta $, $J$ closed for inverse, and there exist subset of $J$, denote it by, $J^{\prime}$ such that $J^{\prime}$ is a generator set of $\Gamma$ and $|J^{\prime}| = \frac{1}{2}\Delta$. Let $C_{0}$ be a code with parameters $C_{0} = q\Delta \left[1, \rho_{0}, \delta_{0}\right]$. For any vertex assoicate a subset $\Jvv \subset J/J^{\prime}$ at size: 
+
+  \begin{equation*}
+    \begin{split}
+      |\Jvv| = \left( q - \frac{1}{2} \right)\Delta \Rightarrow |\Jvv \cup J^{\prime}| = q\Delta
+    \end{split}
+  \end{equation*}
+  Define the code $\mathcal{T}\left(J, q , C_{0}\right)$ to be the subspace such that any vertex's local view over the edges defined by $\Jvv \cup J^{\prime}$ is a codeword of $C_{0}$. In addition, let's associate a code $\Cvv$ obtained for any vertex by ignoring the bits supported on the $\Jvv$ coordinates. Notice that code defined by requiring that the local view of any vertex $v$ of \emph{Cayley}$\left(\Gamma, J^{\prime} \right)$ is a codeword of $\Cvv$ is a TannerCode. Denote it by $ \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$.   
+
+  \paragraph{Lemma.} Let $J$ be defined as above such that both \emph{Cayley}$\left( \Gamma, J \right)$, \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ are expanders with algebric expansion greater then $\lambda$ and $C_0$ with the parameters $\rho_{0} > 1 - \frac{1}{2q}$ and $ \delta_{0} - \left( q - \frac{1}{2} \right) > \lambda$. Then the code $\mathcal{T}\left(J, q ,C_{0}\right)$ is a good code. 
+  \begin{proof} We have already proven that the code has a positive rate. Consider a codeword $x$ and denote by $x^{\prime}$ the restriction of $x$ to \emph{Cayley }$\left( \Gamma, J^{\prime}  \right)$ which is a codeword of $\tilde{C} = \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$. But $\tilde{C}$ is a Tanner Code such that any vertex sees at least $ \tilde{\delta_{0}} \Delta := \left(\delta_{0} - \left( q - \frac{1}{2}   \right) \right)\Delta $ nontrivial bits, Therefore as the expansion of the graph \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ is lower than $\tilde{\delta}\Delta$ than any subset $S$ of $V$ at the size at most $|S|/|V| < \tilde{\delta_{0}} - \lambda / \Delta $  must contain at least one vertex that sees less than  $\tilde{\delta}\Delta$ nontrivial bits, In contradiction for the fact that $x^{\prime} \in \tilde{C}$. \end{proof} 
+
+  \paragraph{Claim. Existence of such \emph{Cayley's}.} Let $S$ be a generator set such that \emph{Cayley}$\left( \Gamma , S \right)$ has a second largest eigenvalue greater then $\lambda$, And consider an arbitray group element $g \in \Gamma$ such that $gSg^{-1}$ disjointness to $S$ \ctt{ remove the disjointness requirment}. Denote by $S_{g}$ the set $gSg^{-1}$. Then the second eigenvalue of the graph obtained by $\left( \Gamma, S \right) \cup \left( \Gamma, S \right)$ is at most $2\lambda$. 
+  \begin{proof} Denote by $G,G^{\prime}$ the \emph{Cayley} graphs coressponding to $S$, $S_{g}$, for conviniet we will use the notation of $\sum_{v\sim_{G} u}$ to denote a summation over all the neighboors of $v$ in the graph $G$. Let $A_{G^{\prime}}$ be the adjacency matrix of $G^{\prime}$. Recall that $G^{\prime}$ is a  $\Delta$ regular graph, and therefore the uniform distribution $\mathbf{1}$ is the eigenstate with the maximal eigenvalue, and the second eigenvalue is given by the min-max principle: 
+  \begin{equation*}
+    \begin{split}
+      & \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{G^{\prime}} f  }{ f^{\top}f}} = \max_{f \perp \mathbf{1}} { \sum_{v}  \sum_{u\sim_{G^{\prime}} v}\frac{f\left( u \right) f \left( v \right)  }{ f^{\top}f}} \\
+      =  & \max_{f \perp \mathbf{1}} { \sum_{v}\sum_{\tau \in S} \frac{f\left( g\tau g^{-1} v \right) f \left( v \right)  }{ f^{\top}f}} \\ = & \max_{f \perp \mathbf{1}} { \sum_{gv} \sum_{\tau \in S}\frac{f\left( g\tau g^{-1} gv \right) f \left( gv \right)  }{ f^{\top}f}} \\  
+      = & \max_{f \perp \mathbf{1}} { \sum_{gv}\sum_{\tau \in S}\frac{f\left( g \tau v \right) f \left( g v \right)  }{ f^{\top}f}} \\  = & \max_{f \perp \mathbf{1}} { \sum_{gv}\sum_{ u\sim_{G} v }\frac{f\left( gu \right) f \left( gv \right)  }{ f^{\top}f}} \\
+         \end{split}
+  \end{equation*}
+  As for any function $f : V \rightarrow \mathbb{R} $ one could define a function $f^{\prime} : E \rightarrow \mathbb{R} $ such that $f^{\prime}\left( v \right) = f\left( v \right) $ and $f^{\prime}$ preservs the norm:    
+  \begin{equation*}
+    \begin{split}
+     &  f^{\prime \top}f^{\prime}   = \sum_{v \in V}f^{\prime}\left( v \right)f^{\prime}\left( v \right)   =   \sum_{v \in V } f^{\top}\left( vg \right)f\left( vg \right) = f^{\top}f \\
+     \Rightarrow  &  \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{G^{\prime}} f  }{ f^{\top}f}} =\max_{f \perp \mathbf{1}} { \sum_{gv}\sum_{ u\sim_{G} v }\frac{f\left( gu \right) f \left( vg \right)  }{ f^{\top}f}} 
+    \end{split}
+  \end{equation*}
+  By the Interlacing Theorem, \cite{HAEMERS1995593} the second eigenvalue of any subgraph of $G^{\prime}$ is less than the $\lambda^{\prime}$, In particular, the eigenvalue of the graph obtained by taking the edges that are associated with elements of the $ S_{g} / S $, denote that subgraph by $G^{\prime}_{ / S}$. Because $S_{g} / S \cap S = \emptyset $, we have that the edges sets of $G, G^{\prime}$ are disjointness sets. Hence the adjacency matrix of the graphs union equals the sum of their adjacency matrices. So in total, we obtain that:  
+    \begin{equation*}
+    \begin{split}
+      \lambda^{\prime} &= \max_{f \perp \mathbf{1}} { \frac{f^{\top} \left( A_{G} + A_{G^{\prime}_{/S}} \right) f  }{ f^{\top}f}} \\
+      & \le  \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{G} f  }{ f^{\top}f}} +  \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{G^{\prime}_{/S}} f  }{ f^{\top}f}} \\
+      & \le \lambda + \lambda = 2\lambda
+    \end{split}
+  \end{equation*} 
+  \end{proof} 
+  \begin{claim} If $\Delta$ is a constant greater than two, and $G$ is a $\lambda$-algebric expander with girth at length $\Omega\left( \log n \right)$, then it there exists a $g \in \Gamma$ such that $S_{g}\cap S = \emptyset$.  
+    \end{claim}
+  \begin{proof} As $\Delta > 2 $ there must be at least two different elements $s_{1},s_{2} \in S$  such that $s_{1} \neq s_{2}, s_{2}^{-1}$. Pick $g = s_{1}s_{2}$. Now assume through contradiction that there also exists $s,t \in S$ such that $gsg^{-1} = r \Rightarrow gs = rg$ and notice that the fact that $s_{1}\neq s_{2}^{-1}$ guarantees that both terms are a product of $3$ element group. Therefore either that there is a $6$-length cycle in the graph, Or that there is element-wise equivalence, namely $s_{1} = r, s_{2} = s_{1}, s=s_{2}$. The first case contradict the lower bound on the expander girth, which is at least $\Omega \left( \log_{\Delta}(n) \right)$, while the other stand in contradiction to the fact that $s_{1} \neq s_{2}$ \end{proof}  
+  \paragraph{Remark. Regarding Quantum Codes.} Notice that any complex designed to hold CSS qLDPC codes must have constant length cycles. Otherwise, the distance of $C_{x}$ will not be constant, and therefore the condition $H_{x}H_{z}^{\top} =0$ could be satisfied only if $H_{z}$ is not a constant row-weight matrix, Put differently $C_{z}$ is not an LDPC code. Consequently, any trial to generalize the construction for obtaining quantum codes must not rely on that claim.    
+
+  \paragraph{Remark. Note On Random Construction.} One might wondring if using \emph{Cayley} is necssery. We conjecure that there is a constant $c > 0$ such that sampling pair of  $\left( 1 + c \right)\frac{1}{2}\Delta$ regulr random graphs, and than take the anti-symatry union of them might also obtain a good expander such that each of the reseuide part also has good expansion with heigh probability.  
+  \paragraph{Lemma.} \ctt{Rewrite}. Consider the graph $G$ as defind above (direct subset of \emph{Cayley} graph) and let $S$, $T$ be subsets of the vertices. Then the flux of $S$ over $T$ is at most: 
+  \begin{equation*}
+    \begin{split}
+      E_{G^{\prime}}(S,T) \le \frac{1}{2} \Delta\frac{|S||T|}{n} + \lambda\sqrt{|S||T|} 
+    \end{split}
+  \end{equation*} 
+
+  \begin{proof} The only edges that can interferce are the edge defined by $J^{\prime}$. Therefore it's enough to use the mixing expander lemme on the $\frac{1}{2}\Delta$-regular graph. \end{proof}
+
+
+  \begin{proof}[Proof of Theorem 1+.] Noitce that $\frac{1}{2} < \frac{2}{3} = q$, Thus reapting exactly over proof above obtains that: 
+  \begin{equation*}
+    \begin{split}
+      w_{E/E^{\prime}}\left( x|_{U_{\text{max}}} \right) \ge \left( \delta_{0} - \frac{2}{3} - \frac{1}{q}\frac{2\lambda}{\Delta} \right)q\Delta |U_{\text{max}}|
+    \end{split}
+  \end{equation*}
+  Choseing $J$ such that \emph{Cayley}$\left( \Gamma, J \right)$ is ramnujan provid that $ \frac{2\lambda}{\Delta q}$ sacle as $\Theta\left( \frac{1}{\sqrt{\Delta}} \right)$. That close the case in which there is a linear size layer of nontrival suggestions. In other case, in which any such layer is at size less than $\alpha^{\prime}n$ ( $\alpha^{\prime} = \left( \delta_{0} - \left( q - \frac{1}{2} \right) \right)$ ? ) then we obtain the testbility for free
+\end{proof}
+      \section{Good Quantum Codes, logaritmic-check-weight.} 
+In the following section we will construct a family of complexes on which we will define a pairs of Tanner Codes, evently, they will used to compose a CSS pairs of good quantum codes.  
+  \paragraph{Inifinte Family Of Tanner Quantum Codes.} 
+  Let $p$ be a prime and $\delta \in \left( 0,1 \right)$. Consider the Cayly graphs obtained by taking uniformly a $c\left( \delta \right)\log n$ generators of the cyclic group at order $p$, denote that set by $S$. It was shown by N.Alon \ctt{cite Noga} that with high probability that process yield a Graph with $\delta$-algebric expansion. Now, consider the double cover of that graph and denote it by $G = \left( V = V^{+} \cup V^{-},E \right)$. And define the folowing graph denoted by $\Gamma^{\pm} = \left(V^{\pm}, E^{\prime}\right)$:
+  \begin{equation*}
+    \begin{split}
+      \left( \left(u , \pm  \right), \left( v, \pm \right) \right) \in  E^{\prime} \Leftrightarrow \exists a\neq b \in S \ s.t \ abu = v     
+    \end{split}
+  \end{equation*}
+     
+
+
