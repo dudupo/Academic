@@ -31,10 +31,10 @@
 
   Besides being the first bound, Singleton bound demonstrates how one could get results by using relatively simple elementary arguments. It is also engaging to ask why the proof yields a bound that, empirically, seems far from being tight.
   \begin{theorem*}[Singleton Bound.]\label{Sing}  For any linear code with parameter $[n,k,d]$, the following inequality holds:
-  \end{theorem*}
   \begin{equation*}
     k+ d \le n + 1
   \end{equation*} 
+  \end{theorem*}
   \textbf{Proof:} Since any two codewords of $C$ differ by at least $d$ coordinates, we know that by ignoring the first $d-1$ coordinate of any vector, we obtain a new code with one-to-one corresponding to the original code. In other words, we have found a new code with the same dimension embedded in $\mathbb{F}_{2}^{n-d+1}$. Combine the fact that dimension is, at most, the dimension of the container space, we get that:  
   \begin{equation*}
     \begin{split}
