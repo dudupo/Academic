@@ -194,7 +194,6 @@
   \end{equation*}
 
   \begin{claim} We can assume that $|U| \ge |U_{-1}|, |U_{+1}|$. \end{claim}
-\end{proof}
   \begin{proof} Suppose that $|U_{+1}| > |U|$, so we could choose $U$ to be $U_{+1}$. Continuing stepping deeper till we have that $|U| > |U_{+1}|, |U_{-1}|$. Simiraly, if $|U| > |U_{+1}|$ but $|U_{-1}| > |U|$, the we could take steps upward by replacing $U_{-1}$ with $U$. At the end of the process, we will be left with $U$ at a size greater than the initial layer and $|U| > |U_{+1}|, |U_{-1}|$ \end{proof}
 
   Using the the claim, we have that $\left( |U_{+1}| + |U_{-1}| \right)/n <\frac{2}{3} $ and therefore:
@@ -203,7 +202,7 @@
       w_{E/E^{\prime}}\left( x|_{U} \right) & \ge \left( \delta_{0} - \frac{2}{3} - \frac{2\lambda}{\Delta} \right) \Delta |U| \ \   
     \end{split}
   \end{equation*}
-%\end{proof}
+\end{proof}
   That immediately yields the following: let $U_{\text{max}} = \text{arg} \max_{U \text{ layer in }  T } |U|  $  then: 
   \begin{equation*}
     \begin{split}
@@ -339,7 +338,7 @@
   \begin{proof} The only edges that can interferce are the edge defined by $J^{\prime}$. Therefore it's enough to use the mixing expander lemme on the $\frac{1}{2}\Delta$-regular graph. \end{proof}
 
 
-  \paragraph{Proof of Theorem 1+.} Noitce that $\frac{1}{2} < \frac{2}{3} = q$, Thus reapting exactly over proof above obtains that: 
+  \begin{proof}[Proof of Theorem 1+.] Noitce that $\frac{1}{2} < \frac{2}{3} = q$, Thus reapting exactly over proof above obtains that: 
   \begin{equation*}
     \begin{split}
       w_{E/E^{\prime}}\left( x|_{U_{\text{max}}} \right) \ge \left( \delta_{0} - \frac{2}{3} - \frac{1}{q}\frac{2\lambda}{\Delta} \right)q\Delta |U_{\text{max}}|
