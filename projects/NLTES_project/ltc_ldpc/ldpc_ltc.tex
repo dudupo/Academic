@@ -108,7 +108,7 @@
       =& y^{\oplus} + x^{\oplus} = x^{\oplus}
     \end{split}
   \end{equation*}
-  When the last transition follows immediately by the fact that $y \in C$ and therefore any pair of connected vertices contribute the same value for their associated edge $\square$
+  When the last transition follows immediately by the fact that $y \in C$ and therefore any pair of connected vertices contribute the same value for their associated edge \end{proof}
 
   \paragraph{Definition.} Let $C = \Tann$. We say that $x \in C_{\oplus}$ is \textit{reducable} if there exists a vertex $v$ and a small codeword $c_v$, for which, adding the assignment of $c_v$ over the $v$'s edges to $x$ decreases the weight. Namely, $|x + c_{v}| < |x|$. If $x \in C_{\oplus}$ is not a reducable codeword then we say that $x$ is \textit{ireducable}.   
 
@@ -130,14 +130,14 @@
   For any $S \subset E$, define $w_{S}\left( x \right)$ as the weight that $x$ induces over $S$. And notice that any edge of $E$ connected only to a single vertex in $V^\prime$ equals the corresponding bit in the original suggestion made by $c_{v}$. Hence for every $v\in V^\prime$, it holds that $w_{E / E^\prime}\left(x|_{v}\right) = w_{E / E^\prime}\left(c_{v}\right)$. 
 
 %\input{network2.tex}
-  \paragraph{Claim.} For any $v \in V^\prime$ and corresponded suggestion $c_{v}$ it holds that: $w_{E^\prime}\left( c_{v} \right) \ge \frac{1}{2}\delta_{0}\Delta$. 
-  \paragraph{Proof:}By using the previews insight we get: \begin{equation*}
+  \begin{claim} For any $v \in V^\prime$ and corresponded suggestion $c_{v}$ it holds that: $w_{E^\prime}\left( c_{v} \right) \ge \frac{1}{2}\delta_{0}\Delta$. \end{claim}
+  \begin{proof}By using the previews insight we get: \begin{equation*}
     \begin{split}
       w_{E^\prime}\left( c_{v} \right) &= w\left( c_{v} \right) - w_{E / E^\prime}\left( c_{v} \right) =  w\left( c_{v} \right) - w_{E / E^\prime}\left( x|_{v} \right) \\ 
       & \ge  w\left( c_{v} \right) - w\left( x|_{v} \right) \ge \frac{1}{2}w\left( c_{v} \right) = \frac{1}{2}\delta_{0}\Delta 
     \end{split}
   \end{equation*}
-  $\square$
+  \end{proof}
 
   Consider an arbitrary vertex $r \in V^\prime$, and consider the DAG obtained by the BFS walk over the subgraph $\left(V^\prime, E^\prime \right)$ starting at $r$. Denote this directed tree by $T$.
 
@@ -147,13 +147,14 @@
 
 %\end{figure*}
 %\end{adjustbox} 
-  \paragraph{Claim.} The size of $T$ is at least:
+  \begin{claim} The size of $T$ is at least:
   \begin{equation*}
     \begin{split}
       |T| & \ge \left( \frac{1}{4}\delta_{0} - \frac{\lambda}{\Delta} \right)n 
     \end{split}
   \end{equation*}
-  \paragraph{Proof:} By the fact that for any $v \in T$ the degree of $v$ is at least $\frac{1}{2}\delta_{0}\Delta$ we have that: $E\left( T,T \right) \ge \frac{1}{2}\cdot \frac{1}{2}\delta_{0}\Delta |T|$. Combine the Mixining Expander Lemma we obtain:
+\end{claim}
+  \begin{proof} By the fact that for any $v \in T$ the degree of $v$ is at least $\frac{1}{2}\delta_{0}\Delta$ we have that: $E\left( T,T \right) \ge \frac{1}{2}\cdot \frac{1}{2}\delta_{0}\Delta |T|$. Combine the Mixining Expander Lemma we obtain:
   \begin{equation*}
     \begin{split}
       \frac{1}{4}\delta_{0}\Delta |T| & \le \frac{\Delta}{n}|T|^2  + \lambda|T| \\ 
@@ -161,27 +162,28 @@
       \Rightarrow & |T| \ge \left( \frac{1}{4}\delta_{0} - \frac{\lambda}{\Delta} \right)n 
     \end{split}
   \end{equation*}
-  $\square$
+  \end{proof}
  %
- %  \paragraph{Claim.} There is a constant $\gamma > 0 $ such for any  $S \subset T$ it holds that:  
+ %  \begin{claim} There is a constant $\gamma > 0 $ such for any  $S \subset T$ it holds that:  
  %  \begin{equation*}
  %    \begin{split}
  %      \frac{\lambda}{\Delta} \le \gamma\left( 1 - \frac{1}{2}\delta_{0} \right)\frac{|S|}{|T|}
  %    \end{split}
  %  \end{equation*}
  %
- %  \paragraph{Proof.} Recall that the second largest eigenvalue 
+ %  \begin{proof} Recall that the second largest eigenvalue 
  %
  %  Denote by $x|_{U}$ the bits of $x\in C$ correspond to the edges connected to at least one vertex in $U$. And denote by $w_{E/E^{\prime}}\left( x|_{U} \right)$ the weight induced by the $x|_{U}$ over the edges in $E/E^\prime$.
 
-  \paragraph{Claim.} Suppose that $G$ is an expander graph with a second eigenvalue $\lambda$, then For any layer $U$ there exist a layer $U^{\prime}$ such that:
+  \begin{claim} Suppose that $G$ is an expander graph with a second eigenvalue $\lambda$, then For any layer $U$ there exist a layer $U^{\prime}$ such that:
   \begin{equation*}
     \begin{split}
       (1) & \ \ |U^{\prime}| \ge |U| \\
       (2) & \ \ w_{E/E^{\prime}}\left( x|_{U^{\prime}} \right)  \ge\Delta|U^{\prime}|\left( \delta_{0}-\frac{2}{3}-\frac{2\lambda}{\Delta} \right)
     \end{split}
   \end{equation*}
-  \paragraph{Proof:} Consider layer $U$ and denote by $U_{-1}$ and $U_{+1}$ the preceding and the following layers to $U$ in $T$. It follows from the expander mixing lemma that:
+\end{claim}
+  \begin{proof} Consider layer $U$ and denote by $U_{-1}$ and $U_{+1}$ the preceding and the following layers to $U$ in $T$. It follows from the expander mixing lemma that:
   \begin{equation*}
     \begin{split}
       w_{E/E^{\prime}}\left( x|_{U} \right) & \ge \delta_{0}\Delta|U| -w\left( E(U_{-1} \bigcup U_{+1} ,U)  \right) \ge \\ 
@@ -191,29 +193,31 @@
     \end{split}
   \end{equation*}
 
-  \paragraph{Claim.} We can assume that $|U| \ge |U_{-1}|, |U_{+1}|$. 
-  \paragraph{Proof:} Suppose that $|U_{+1}| > |U|$, so we could choose $U$ to be $U_{+1}$. Continuing stepping deeper till we have that $|U| > |U_{+1}|, |U_{-1}|$. Simiraly, if $|U| > |U_{+1}|$ but $|U_{-1}| > |U|$, the we could take steps upward by replacing $U_{-1}$ with $U$. At the end of the process, we will be left with $U$ at a size greater than the initial layer and $|U| > |U_{+1}|, |U_{-1}|$ $\square$
+  \begin{claim} We can assume that $|U| \ge |U_{-1}|, |U_{+1}|$. \end{claim}
+\end{proof}
+  \begin{proof} Suppose that $|U_{+1}| > |U|$, so we could choose $U$ to be $U_{+1}$. Continuing stepping deeper till we have that $|U| > |U_{+1}|, |U_{-1}|$. Simiraly, if $|U| > |U_{+1}|$ but $|U_{-1}| > |U|$, the we could take steps upward by replacing $U_{-1}$ with $U$. At the end of the process, we will be left with $U$ at a size greater than the initial layer and $|U| > |U_{+1}|, |U_{-1}|$ \end{proof}
 
   Using the the claim, we have that $\left( |U_{+1}| + |U_{-1}| \right)/n <\frac{2}{3} $ and therefore:
   \begin{equation*}
     \begin{split}
-      w_{E/E^{\prime}}\left( x|_{U} \right) & \ge \left( \delta_{0} - \frac{2}{3} - \frac{2\lambda}{\Delta} \right) \Delta |U| \ \  \square 
+      w_{E/E^{\prime}}\left( x|_{U} \right) & \ge \left( \delta_{0} - \frac{2}{3} - \frac{2\lambda}{\Delta} \right) \Delta |U| \ \   
     \end{split}
   \end{equation*}
-
+\end{proof}
   That immediately yields the following: let $U_{\text{max}} = \text{arg} \max_{U \text{ layer in }  T } |U|  $  then: 
   \begin{equation*}
     \begin{split}
       |x| \ge  w_{E/E^{\prime}}\left( x|_{U_{\text{max}}} \right) \ge \left( \delta_{0} - \frac{2}{3} - \frac{2\lambda}{\Delta} \right)\Delta |U_{\text{max}}|
     \end{split}
   \end{equation*}
-  \paragraph{Claim.} Consider again the maximal layer $U_{\max}$ then: 
+  \begin{claim} Consider again the maximal layer $U_{\max}$ then: 
   \begin{equation*}
     \begin{split}
       w_{E/E^{\prime}}\left( x \right) \ge \left( \delta_{0} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) \Delta|T| 
     \end{split}
   \end{equation*}
-  \paragraph{Proof.} Similarly to above, now we will bound the weight that all the nodes in $T$ induce over $E/E^{\prime}$. Denote by $U_{0}, U_{1} .. U_{m}$ the layers of $T$ ordered corresponded to their height, thus we obtain: 
+\end{claim}
+  \begin{proof} Similarly to above, now we will bound the weight that all the nodes in $T$ induce over $E/E^{\prime}$. Denote by $U_{0}, U_{1} .. U_{m}$ the layers of $T$ ordered corresponded to their height, thus we obtain: 
   \begin{equation*}
     \begin{split}
       w_{E/E^{\prime}}\left( x \right) & \ge \delta_{0}\Delta|T| - \sum_{i\in [m]}{ w \left( E\left( U_{i}, U_{i+1}  \right) \right)  } \\ 
@@ -224,7 +228,7 @@
       \ge & \left( \delta_{0} - \frac{|U_{\max}| }{n}-  \frac{\lambda}{\Delta} \right) \Delta|T| 
     \end{split}
   \end{equation*}
-  $\square$
+  \end{proof}
   \paragraph{Proof of Theorem 1.} Consider the size of the maxiaml layer $|U_{\max}$ and sepearte to the following two cases. First, consider the case that $|U_{\max}| \ge  \alpha n $ in that case it follows immedily that if $\delta_{0} > \frac{2}{3} - \frac{2\lambda}{\Delta}$ there exists $\alpha^{\prime} > 0 $ such that:  
   \begin{equation*}
     \begin{split}
@@ -239,7 +243,7 @@
       & \ge \left( \delta_{0} - \alpha - \frac{\lambda}{\Delta} \right) \Delta|T| 
     \end{split}
   \end{equation*}
-  Setting $\alpha \ge \frac{2}{3}$ we complete the proof $\square$
+  Setting $\alpha \ge \frac{2}{3}$ we complete the proof \end{proof}
 
   Unfortunately, Singelton bound doesn't allow both $\delta_0 > \frac{2}{3}$ and $\rho_0 \ge \frac{1}{2}$, so in total, we prove the existence of code LDPC code which is good in terms of testability and distance yet has a zero rate. In the following subsection, we will prove (\ctt{sec 3.4, which currently is a failure}) that one can overcome this problem by requiring only half of the vertices to restrict their local view to be codewords of high relative distance. 
 %\subsection{ Good LTC Which Is Almost LDPC. } 
@@ -292,10 +296,10 @@
   Define the code $\mathcal{T}\left(J, q , C_{0}\right)$ to be the subspace such that any vertex's local view over the edges defined by $\Jvv \cup J^{\prime}$ is a codeword of $C_{0}$. In addition, let's associate a code $\Cvv$ obtained for any vertex by ignoring the bits supported on the $\Jvv$ coordinates. Notice that code defined by requiring that the local view of any vertex $v$ of \emph{Cayley}$\left(\Gamma, J^{\prime} \right)$ is a codeword of $\Cvv$ is a TannerCode. Denote it by $ \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$.   
 
   \paragraph{Lemma.} Let $J$ be defined as above such that both \emph{Cayley}$\left( \Gamma, J \right)$, \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ are expanders with algebric expansion greater then $\lambda$ and $C_0$ with the parameters $\rho_{0} > 1 - \frac{1}{2q}$ and $ \delta_{0} - \left( q - \frac{1}{2} \right) > \lambda$. Then the code $\mathcal{T}\left(J, q ,C_{0}\right)$ is a good code. 
-  \paragraph{Proof.} We have already proven that the code has a positive rate. Consider a codeword $x$ and denote by $x^{\prime}$ the restriction of $x$ to \emph{Cayley }$\left( \Gamma, J^{\prime}  \right)$ which is a codeword of $\tilde{C} = \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$. But $\tilde{C}$ is a Tanner Code such that any vertex sees at least $ \tilde{\delta_{0}} \Delta := \left(\delta_{0} - \left( q - \frac{1}{2}   \right) \right)\Delta $ nontrivial bits, Therefore as the expansion of the graph \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ is lower than $\tilde{\delta}\Delta$ than any subset $S$ of $V$ at the size at most $|S|/|V| < \tilde{\delta_{0}} - \lambda / \Delta $  must contain at least one vertex that sees less than  $\tilde{\delta}\Delta$ nontrivial bits, In contradiction for the fact that $x^{\prime} \in \tilde{C}$. $\square$ 
+  \begin{proof} We have already proven that the code has a positive rate. Consider a codeword $x$ and denote by $x^{\prime}$ the restriction of $x$ to \emph{Cayley }$\left( \Gamma, J^{\prime}  \right)$ which is a codeword of $\tilde{C} = \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$. But $\tilde{C}$ is a Tanner Code such that any vertex sees at least $ \tilde{\delta_{0}} \Delta := \left(\delta_{0} - \left( q - \frac{1}{2}   \right) \right)\Delta $ nontrivial bits, Therefore as the expansion of the graph \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ is lower than $\tilde{\delta}\Delta$ than any subset $S$ of $V$ at the size at most $|S|/|V| < \tilde{\delta_{0}} - \lambda / \Delta $  must contain at least one vertex that sees less than  $\tilde{\delta}\Delta$ nontrivial bits, In contradiction for the fact that $x^{\prime} \in \tilde{C}$. \end{proof} 
 
   \paragraph{Claim. Existence of such \emph{Cayley's}.} Let $S$ be a generator set such that \emph{Cayley}$\left( \Gamma , S \right)$ has a second largest eigenvalue greater then $\lambda$, And consider an arbitray group element $g \in \Gamma$ such that $gSg^{-1}$ disjointness to $S$ \ctt{ remove the disjointness requirment}. Denote by $S_{g}$ the set $gSg^{-1}$. Then the second eigenvalue of the graph obtained by $\left( \Gamma, S \right) \cup \left( \Gamma, S \right)$ is at most $2\lambda$. 
-  \paragraph{Proof.} Denote by $G,G^{\prime}$ the \emph{Cayley} graphs coressponding to $S$, $S_{g}$, for conviniet we will use the notation of $\sum_{v\sim_{G} u}$ to denote a summation over all the neighboors of $v$ in the graph $G$. Let $A_{G^{\prime}}$ be the adjacency matrix of $G^{\prime}$. Recall that $G^{\prime}$ is a  $\Delta$ regular graph, and therefore the uniform distribution $\mathbf{1}$ is the eigenstate with the maximal eigenvalue, and the second eigenvalue is given by the min-max principle: 
+  \begin{proof} Denote by $G,G^{\prime}$ the \emph{Cayley} graphs coressponding to $S$, $S_{g}$, for conviniet we will use the notation of $\sum_{v\sim_{G} u}$ to denote a summation over all the neighboors of $v$ in the graph $G$. Let $A_{G^{\prime}}$ be the adjacency matrix of $G^{\prime}$. Recall that $G^{\prime}$ is a  $\Delta$ regular graph, and therefore the uniform distribution $\mathbf{1}$ is the eigenstate with the maximal eigenvalue, and the second eigenvalue is given by the min-max principle: 
   \begin{equation*}
     \begin{split}
       & \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{G^{\prime}} f  }{ f^{\top}f}} = \max_{f \perp \mathbf{1}} { \sum_{v}  \sum_{u\sim_{G^{\prime}} v}\frac{f\left( u \right) f \left( v \right)  }{ f^{\top}f}} \\
@@ -318,9 +322,10 @@
       & \le \lambda + \lambda = 2\lambda
     \end{split}
   \end{equation*} 
-  $\square$ 
-  \paragraph{Claim.} If $\Delta$ is a constant greater than two, and $G$ is a $\lambda$-algebric expander with girth at length $\Omega\left( \log n \right)$, then it there exists a $g \in \Gamma$ such that $S_{g}\cap S = \emptyset$.  
-  \paragraph{Proof.} As $\Delta > 2 $ there must be at least two different elements $s_{1},s_{2} \in S$  such that $s_{1} \neq s_{2}, s_{2}^{-1}$. Pick $g = s_{1}s_{2}$. Now assume through contradiction that there also exists $s,t \in S$ such that $gsg^{-1} = r \Rightarrow gs = rg$ and notice that the fact that $s_{1}\neq s_{2}^{-1}$ guarantees that both terms are a product of $3$ element group. Therefore either that there is a $6$-length cycle in the graph, Or that there is element-wise equivalence, namely $s_{1} = r, s_{2} = s_{1}, s=s_{2}$. The first case contradict the lower bound on the expander girth, which is at least $\Omega \left( \log_{\Delta}(n) \right)$, while the other stand in contradiction to the fact that $s_{1} \neq s_{2}$ $\square$  
+  \end{proof} 
+  \begin{claim} If $\Delta$ is a constant greater than two, and $G$ is a $\lambda$-algebric expander with girth at length $\Omega\left( \log n \right)$, then it there exists a $g \in \Gamma$ such that $S_{g}\cap S = \emptyset$.  
+    \end{claim}
+  \begin{proof} As $\Delta > 2 $ there must be at least two different elements $s_{1},s_{2} \in S$  such that $s_{1} \neq s_{2}, s_{2}^{-1}$. Pick $g = s_{1}s_{2}$. Now assume through contradiction that there also exists $s,t \in S$ such that $gsg^{-1} = r \Rightarrow gs = rg$ and notice that the fact that $s_{1}\neq s_{2}^{-1}$ guarantees that both terms are a product of $3$ element group. Therefore either that there is a $6$-length cycle in the graph, Or that there is element-wise equivalence, namely $s_{1} = r, s_{2} = s_{1}, s=s_{2}$. The first case contradict the lower bound on the expander girth, which is at least $\Omega \left( \log_{\Delta}(n) \right)$, while the other stand in contradiction to the fact that $s_{1} \neq s_{2}$ \end{proof}  
   \paragraph{Remark. Regarding Quantum Codes.} Notice that any complex designed to hold CSS qLDPC codes must have constant length cycles. Otherwise, the distance of $C_{x}$ will not be constant, and therefore the condition $H_{x}H_{z}^{\top} =0$ could be satisfied only if $H_{z}$ is not a constant row-weight matrix, Put differently $C_{z}$ is not an LDPC code. Consequently, any trial to generalize the construction for obtaining quantum codes must not rely on that claim.    
 
   \paragraph{Remark. Note On Random Construction.} One might wondring if using \emph{Cayley} is necssery. We conjecure that there is a constant $c > 0$ such that sampling pair of  $\left( 1 + c \right)\frac{1}{2}\Delta$ regulr random graphs, and than take the anti-symatry union of them might also obtain a good expander such that each of the reseuide part also has good expansion with heigh probability.  
@@ -331,7 +336,7 @@
     \end{split}
   \end{equation*} 
 
-  \paragraph{Proof.} The only edges that can interferce are the edge defined by $J^{\prime}$. Therefore it's enough to use the mixing expander lemme on the $\frac{1}{2}\Delta$-regular graph. $\square$
+  \begin{proof} The only edges that can interferce are the edge defined by $J^{\prime}$. Therefore it's enough to use the mixing expander lemme on the $\frac{1}{2}\Delta$-regular graph. \end{proof}
 
 
   \paragraph{Proof of Theorem 1+.} Noitce that $\frac{1}{2} < \frac{2}{3} = q$, Thus reapting exactly over proof above obtains that: 
@@ -340,7 +345,7 @@
       w_{E/E^{\prime}}\left( x|_{U_{\text{max}}} \right) \ge \left( \delta_{0} - \frac{2}{3} - \frac{1}{q}\frac{2\lambda}{\Delta} \right)q\Delta |U_{\text{max}}|
     \end{split}
   \end{equation*}
-  Choseing $J$ such that \emph{Cayley}$\left( \Gamma, J \right)$ is ramnujan provid that $ \frac{2\lambda}{\Delta q}$ sacle as $\Theta\left( \frac{1}{\sqrt{\Delta}} \right)$. That close the case in which there is a linear size layer of nontrival suggestions. In other case, in which any such layer is at size less than $\alpha^{\prime}n$ ( $\alpha^{\prime} = \left( \delta_{0} - \left( q - \frac{1}{2} \right) \right)$ ? ) then we obtain the testbility for free $\square$
+  Choseing $J$ such that \emph{Cayley}$\left( \Gamma, J \right)$ is ramnujan provid that $ \frac{2\lambda}{\Delta q}$ sacle as $\Theta\left( \frac{1}{\sqrt{\Delta}} \right)$. That close the case in which there is a linear size layer of nontrival suggestions. In other case, in which any such layer is at size less than $\alpha^{\prime}n$ ( $\alpha^{\prime} = \left( \delta_{0} - \left( q - \frac{1}{2} \right) \right)$ ? ) then we obtain the testbility for free \end{proof}
       \section{Good Quantum Codes, logaritmic-check-weight.} 
 In the following section we will construct a family of complexes on which we will define a pairs of Tanner Codes, evently, they will used to compose a CSS pairs of good quantum codes.  
   \paragraph{Inifinte Family Of Tanner Quantum Codes.} 
