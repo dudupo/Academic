@@ -275,7 +275,7 @@
   \paragraph{}
 
   Yet, We still require more to prove a linear distance. 
-   By repeating on the \emph{Singleton Bound} proof it follows that the small code $\tilde{C_{0}}$ obtained by ignoring arbitrary $ \left( q - \frac{1}{2} \right) \Delta $ coordinates yield a code with distance: 
+  By repeating on the ~\cref{Sing}\emph{Singleton Bound} proof it follows that the small code $\tilde{C_{0}}$ obtained by ignoring arbitrary $ \left( q - \frac{1}{2} \right) \Delta $ coordinates yield a code with distance: 
   \begin{equation*}
     \begin{split}
       \left( \delta_{0} - \left( q - \frac{1}{2} \right) \right)\Delta
@@ -352,78 +352,8 @@ In the following section we will construct a family of complexes on which we wil
   \end{equation*}
      
 
-  \section{Decodeing and Testing}
-  For completeness, we show exactly how Theorem 1 implies testability. The following section repeats Leiverar's and Zemor's proof \cite{leverrier2022quantum}. Consider a binary string $x$ that is not a codeword. The main idea is the observation that the number of bits filliped by (any) decoder, while decoding $x$, bounds the distance $d\left( x, C \right)$ from above. In addition, the number of positive checks in the first iteration is exactly the number of violated restrictions.
-%\begin{figure*}[h]
-%\begin{adjustbox}{width=\textwidth}
-  \paragraph{Definition.}Let $L = \{L_{i}\}^{2|E|}_{0}$  be a series of $2|E|$. Such that for each vertex $ v \in V$ $\sum_{ e = \{u,v\} }{ L_{e_v} } \in C_{0}$. We will call $L$ a \textit{Potential list} and refer to the $e_{v}$'the element of $L$ as a suggestion made by the vertex $v \in V$ for the edge $e \in E$. Sometimes we will use the notation $L_{v}$ to denote all the $L$'s coordinates of the form $ L_{e_{v}} \forall e \in \text{Support} \left( v \right) $. Define the \textit{Force} of $L$ to be the following sum $  F\left( L \right) = \sum_{e = \{v,u\} \in E }{ \left(L_{e_v} + L_{e_u}\right) }$ and notice that $ F\left( L \right) \in C_{\oplus}$. And define the \textit{state} $S(L) \subset \mathbb{F}^{|E|}_{2}$ of $L$ as the vector obtained by choosing an arbitrary value from $ \{ L_{e_v}, L_{e_u} \}$ for each edge $e \in E$.  
-  \paragraph{Claim.} Let $L$ be the Potential list. If $F(L)=0$ then $S(L)\in C$.
-  \paragraph{Proof.} Denote by $\phi\left( e \right) \subset \{ L_{e_v}, L_{e_u} \}$ the value which was chosen to $e = \{v,u\} \in E$. By $F\left(L\right) = 0$ , it follows that $ L_{e_v} + L_{e_u} = 0 \Rightarrow L_{e_v} = L_{e_u} = \phi\left( e \right) $ for any $e \in E$. Hence for every $v\in V$ we have that $ S\left( L \right)|_{v} = \sum_{u \sim v}{ \phi\left( \{v,u\} \right) } =  \sum_{u \sim v}{ L_{e_v }} \in C_{0}$ $ \Rightarrow S\left( L \right) \in C \square$   
-
-  The decoding goes as follows. First, each vertex suggests the closet $C_{0}$'s codeword to his local view. Those suggestions define a Potential list, denote it by $L$, then if $F\left( L \right) <\tau$, by Theorem 1, one could find a suggestion of vertex $v$ and a codeword $c_v$ such that updating the value of $L_{v} \leftarrow L_{v} + c_{v}$ yields a Potential list with lower force. Therefore repeating the process till the force vanishes, obtain a Potential list in which its state is a codeword. 
-  \paragraph{Definition.} Let $\tau > 0, f : \mathbb{N} \rightarrow \mathbb{R^{+}}$, and consider a Tanner Code $C = \mathcal{T}\left( G, C_{0} \right)$. Let us Define the following decoder and denote it by $\mathcal{D}$.  
-  \paragraph{}
-  \begin{algorithm}[H]
-    \caption{Decoding}
-    \label{alg:three}
-    \KwData{ $x \in \mathbb{F}_{2}^{n}$ }
-    \KwResult{ $\arg\min {\left\{  y \in C : |y + x|  \right\} }$ if $d(y,C) < \tau $ and False otherwise. }
-    $ L \leftarrow \text{Array} \{ \} $\\
-    \For { $ v \in V$} {
-      $c^{\prime}_{v} \leftarrow \arg\min {\left\{  y \in C_{0} : |y + x|_{v} |  \right\} } $\\
-      $ L_{v} \leftarrow c^{\prime}_{v}$
-    }
-    $ z \leftarrow \sum_{v \in V}{c^{\prime}_{v}} $\\
-    \eIf{ $ |z| < \tau \frac{n}{f\left( n \right)} $}{
-      \While{ $|z| > 0$ }{
-	find $v$ and $c \in C_{0}$ such that $|z + c_{v}| < |z|$\\
-	$z \leftarrow z + c_{v}$ \\
-	$ L_{v} \leftarrow  L_{v} + c_{v}$
-      }
-    }{
-      reject. 
-    }
-    \Return  $S(L) $
-
-  \end{algorithm}
-
-  \paragraph{Theorem.} Consider a Tanner Code $C = [n, n\rho, n\delta]$ and the disagreement code $C_{\oplus}$ defined by it. Suppose that for every codeword $ z \in C_{\oplus}$ in $C_{\oplus}$ such that $|z| < \tau^{\prime} n / f\left(n\right)$, there exists another codeword $y \in C_{\oplus} $ such that $|y| < |z|$, set $\tau \leftarrow \frac{\tau^{\prime} }{6 \Delta} \delta$ then, 
-
-  \begin{enumerate}
-    \item $\mathcal{D}$ corrects any error at a weight less than $\tau n / f\left(n\right)$.   
-    \item $C$ is $f\left( n \right)$ testable code.
-  \end{enumerate}
-
-
-  \paragraph{Proof.} So it is clear from the claim above that if the condition at line (6) is satisfied, then $\mathcal{D}$  will converge into some codeword in $C$. Hence, to complete the first section, it left to show that $\mathcal{D}$ returns the closest codeword. Denote by $e$ the error, and by simple counting arguments; we have that $\mathcal{D}$ flips at most:  
-  \begin{equation*}
-    \begin{split}
-      d_{\mathcal{D}}\left( x, C \right) & \le 2|e|\Delta + \tau \frac{n}{f\left( n \right)}\Delta
-    \end{split}
-  \end{equation*}
-  bits. Hence, by the assumption, 
-  \begin{equation*}
-    \begin{split}
-      d_{\mathcal{D}}\left( x, C \right) & \le 3\Delta \tau \frac{n}{f\left( n \right)} \le 3\Delta \tau\delta n < \frac{1}{2} \delta n  
-    \end{split}
-  \end{equation*}
-  Therefore the code word returned by $\mathcal{D}$ must be the closet. Otherwise, it contradicts the fact that the relative distance of the code is $\delta$.
-  To obtain the correctness of the second section, we will separate when the conditional at the line (5) holds and not. And prove that the testability inequality holds in both cases. 
-  Let $x \in \mathbb{F}_{2}^{n}$ and consider the running of $\mathcal{D}$ over $x$. Assume the first case, in which the conditional at line (5) is satisfied. In that case, $\mathcal{D}$ decodes $x$ into its closest codeword in $C$. Therefore:
-  \begin{equation*}
-    \begin{split}
-      d\left( x, C \right) \le & \ d_{D} \left( x, C \right) \le m\xi\left( x \right)\Delta +  |z|\Delta  \\ \le &  \  m\xi\left( x \right)\Delta + m\xi\left( x \right)  \Delta^{2} \\ 
-      \frac{d\left( x, C \right)}{n} \le & \  \kappa_{1} \xi\left( x \right)    
-    \end{split}
-  \end{equation*}
-  Now, consider the other case in which: $ |z| \ge \tau \frac{n}{f\left( n \right)}  $.
-  \begin{equation*}
-    \begin{split}
-      \frac{d\left( x, C \right)}{n} & \le 1 \le \frac{|z|}{\tau n}f\left( n \right) \le \frac{m}{n} \frac{1}{\tau} \Delta \xi\left( x\right)f\left( n \right) \\ & \le \kappa_{2} \xi\left( x \right)f\left( n \right)  
-    \end{split}
-  \end{equation*}
-  Picking $ \kappa \leftarrow \max \{ \kappa_{1}, \kappa_{2} \}$ proves $f\left( n \right)$-testability $\square$
-%\end{adjustbox}
+  \input{decoder.tex}
+  %\end{adjustbox}
 %\end{figure*}
 %\end{multicols*}
 \printbibliography 
