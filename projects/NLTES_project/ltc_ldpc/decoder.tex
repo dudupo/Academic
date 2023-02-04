@@ -4,7 +4,7 @@
 %\begin{adjustbox}{width=\textwidth}
   \begin{definition}Let $L = \{L_{i}\}^{2|E|}_{0}$  be a series of $2|E|$. Such that for each vertex $ v \in V$ $\sum_{ e = \{u,v\} }{ L_{e_v} } \in C_{0}$. We will call $L$ a \textit{Potential list} and refer to the $e_{v}$'the element of $L$ as a suggestion made by the vertex $v \in V$ for the edge $e \in E$. Sometimes we will use the notation $L_{v}$ to denote all the $L$'s coordinates of the form $ L_{e_{v}} \forall e \in \text{Support} \left( v \right) $. Define the \textit{Force} of $L$ to be the following sum $  F\left( L \right) = \sum_{e = \{v,u\} \in E }{ \left(L_{e_v} + L_{e_u}\right) }$ and notice that $ F\left( L \right) \in C_{\oplus}$. And define the \textit{state} $S(L) \subset \mathbb{F}^{|E|}_{2}$ of $L$ as the vector obtained by choosing an arbitrary value from $ \{ L_{e_v}, L_{e_u} \}$ for each edge $e \in E$.  
   \end{definition}
-  \paragraph{Claim.} Let $L$ be the Potential list. If $F(L)=0$ then $S(L)\in C$.
+  \begin{claim} \label{claim:pot} Let $L$ be the Potential list. If $F(L)=0$ then $S(L)\in C$. \end{claim}
   \begin{proof} Denote by $\phi\left( e \right) \subset \{ L_{e_v}, L_{e_u} \}$ the value which was chosen to $e = \{v,u\} \in E$. By $F\left(L\right) = 0$ , it follows that $ L_{e_v} + L_{e_u} = 0 \Rightarrow L_{e_v} = L_{e_u} = \phi\left( e \right) $ for any $e \in E$. Hence for every $v\in V$ we have that $ S\left( L \right)|_{v} = \sum_{u \sim v}{ \phi\left( \{v,u\} \right) } =  \sum_{u \sim v}{ L_{e_v }} \in C_{0}$ $ \Rightarrow S\left( L \right) \in C$   
   \end{proof}
   The decoding goes as follows. First, each vertex suggests the closet $C_{0}$'s codeword to his local view. Those suggestions define a Potential list, denote it by $L$, then if $F\left( L \right) <\tau$, by Theorem 1, one could find a suggestion of vertex $v$ and a codeword $c_v$ such that updating the value of $L_{v} \leftarrow L_{v} + c_{v}$ yields a Potential list with lower force. Therefore repeating the process till the force vanishes, obtain a Potential list in which its state is a codeword. 
@@ -35,15 +35,15 @@
 
   \end{algorithm}
 
-  \paragraph{Theorem.} Consider a Tanner Code $C = [n, n\rho, n\delta]$ and the disagreement code $C_{\oplus}$ defined by it. Suppose that for every codeword $ z \in C_{\oplus}$ in $C_{\oplus}$ such that $|z| < \tau^{\prime} n / f\left(n\right)$, there exists another codeword $y \in C_{\oplus} $ such that $|y| < |z|$, set $\tau \leftarrow \frac{\tau^{\prime} }{6 \Delta} \delta$ then, 
+  \begin{theorem} Consider a Tanner Code $C = [n, n\rho, n\delta]$ and the disagreement code $C_{\oplus}$ defined by it. Suppose that for every codeword $ z \in C_{\oplus}$ in $C_{\oplus}$ such that $|z| < \tau^{\prime} n / f\left(n\right)$, there exists another codeword $y \in C_{\oplus} $ such that $|y| < |z|$, set $\tau \leftarrow \frac{\tau^{\prime} }{6 \Delta} \delta$ then, 
 
   \begin{enumerate}
     \item $\mathcal{D}$ corrects any error at a weight less than $\tau n / f\left(n\right)$.   
     \item $C$ is $f\left( n \right)$ testable code.
   \end{enumerate}
+\end{theorem}
 
-
-  \begin{proof} So it is clear from the claim above that if the condition at line (6) is satisfied, then $\mathcal{D}$  will converge into some codeword in $C$. Hence, to complete the first section, it left to show that $\mathcal{D}$ returns the closest codeword. Denote by $e$ the error, and by simple counting arguments; we have that $\mathcal{D}$ flips at most:  
+\begin{proof} So it is clear from the claim \cref{claim:pot} above that if the condition at line (6) is satisfied, then $\mathcal{D}$  will converge into some codeword in $C$. Hence, to complete the first section, it left to show that $\mathcal{D}$ returns the closest codeword. Denote by $e$ the error, and by simple counting arguments; we have that $\mathcal{D}$ flips at most:  
   \begin{equation*}
     \begin{split}
       d_{\mathcal{D}}\left( x, C \right) & \le 2|e|\Delta + \tau \frac{n}{f\left( n \right)}\Delta
