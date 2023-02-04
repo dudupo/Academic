@@ -122,10 +122,12 @@
 
 %\input{network2.tex}
   \begin{claim}\label{claim:deg} For any $v \in V^\prime$ and corresponded suggestion $c_{v}$ it holds that: $w_{E^\prime}\left( c_{v} \right) \ge \frac{1}{2}\delta_{0}\Delta$. \end{claim}
-  \begin{proof}By using the previews insight we get: \begin{equation*}
+  \begin{proof} Assume through contradiction that $w_{E^\prime}\left( c_{v} \right) < \frac{1}{2}\delta_{0}\Delta$, and consider the weight of $|x + c_{v}| = |x| + |c_{v}| - 2|x \cap c_{v}|$. By using the previews insight we get: \begin{equation*}
     \begin{split}
+       |x + c_{v}| & = |x| + |c_{v}| - 2|x \cap c_{v}| > |x| \\
+       \Rightarrow &   |x \cap c_{v}|  < \frac{1}{2} |c_{v}| \\
       w_{E^\prime}\left( c_{v} \right) &= |c_{v}| - w_{E / E^\prime}\left( c_{v} \right) =  |c_{v} | - w_{E / E^\prime}\left( x|_{v} \right) \\ 
-      & \ge | c_{v} | - w\left( x|_{v} \right) \ge \frac{1}{2}|c_{v}| = \frac{1}{2}\delta_{0}\Delta 
+      & \ge | c_{v} | - | x \cap c_{v} |  \ge \frac{1}{2}|c_{v}| = \frac{1}{2}\delta_{0}\Delta 
     \end{split}
   \end{equation*}
   \end{proof}
