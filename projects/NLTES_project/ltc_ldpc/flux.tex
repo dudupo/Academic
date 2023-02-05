@@ -1,12 +1,12 @@
 
-  \begin{claim} Suppose that $G$ is an expander graph with a second eigenvalue $\lambda$, then For any layer $U$ there exist a layer $U^{\prime}$ such that:
+\begin{claim} \label{claim:flu1}  Suppose that $G$ is an expander graph with a second eigenvalue $\lambda$, then For any layer $U$ there exist a layer $U^{\prime}$ such that:
   \begin{equation*}
     \begin{split}
       (1) & \ \ |U^{\prime}| \ge |U| \\
       (2) & \ \ w_{E/E^{\prime}}\left( x|_{U^{\prime}} \right)  \ge\Delta|U^{\prime}|\left( \delta_{0}-\frac{2}{3}-\frac{2\lambda}{\Delta} \right)
     \end{split}
   \end{equation*}
-\end{claim}
+\end{claim} 
   \begin{proof} Consider layer $U$ and denote by $U_{-1}$ and $U_{+1}$ the preceding and the following layers to $U$ in $T$. It follows from the expander mixing lemma that:
   \begin{equation*}
     \begin{split}
@@ -33,7 +33,7 @@
       |x| \ge  w_{E/E^{\prime}}\left( x|_{U_{\text{max}}} \right) \ge \left( \delta_{0} - \frac{2}{3} - \frac{2\lambda}{\Delta} \right)\Delta |U_{\text{max}}|
     \end{split}
   \end{equation*}
-  \begin{claim} Consider again the maximal layer $U_{\max}$ then: 
+  \begin{claim}  \label{claim:flu2}Consider again the maximal layer $U_{\max}$ then: 
   \begin{equation*}
     \begin{split}
       w_{E/E^{\prime}}\left( x \right) \ge \left( \delta_{0} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) \Delta|T| 

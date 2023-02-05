@@ -123,7 +123,9 @@
 
   So, we can assume that the vertices in $V^\prime$ compose a single connectivity component. Let be $x|_{v} \in \mathbb{F}_{2}^{\Delta}$ the bits of $x$ on the indices corresponding to $v$'s edges. For any $S \subset E$, define $w_{S}\left( x \right)$ as the weight that $x$ induces over $S$. Sometimes we will refer to $w_{S}\left( x \right)$ as the \textbf{flux} induced by $x$ over $S$.
 
-  The genreal idea of the proof is to show that if the distance of the small code is large ($ \ge \frac{2}{3}$ ) and $x$ is ireducable codeword then there exist an indepandent subset of vertices $U \subset V^{\prime}$, at linear size, that induce a significant flux over $E/E^{\prime}$. If $U$ has linear size than also $x$ has a linear size, And if not, Then we will show that no serious interface has been occurred. ~\cref{cliam:deg} and ~\cref{claim:tree-size} state that if one is willing to hide an ~\cref{ire} ireducable error then he has to touch at least a linar number of verties.
+  \paragraph{}
+
+  The genreal idea of the proof is to show that if the distance of the small code is large ($ \ge \frac{2}{3}$ ) and $x$ is ireducable codeword then there exist an indepandent subset of vertices $U \subset V^{\prime}$, at linear size, that induce a significant flux over $E/E^{\prime}$. If $U$ has linear size than also $x$ has a linear size, And if not, Then we will show that no serious interface has been occurred. ~\cref{claim:deg} and ~\cref{claim:tree-size} state that if one is willing to hide an ~\cref{ire} ireducable error then he has to touch at least a linar number of verties. ~\cref{claim:flu1} and  ~\cref{claim:flu2} quanitify the flux that induced by such errors. 
 
 \begin{claim}\label{claim:deg} For any $v \in V^\prime$ and corresponded suggestion $c_{v}$ it holds that: $w_{E^\prime}\left( c_{v} \right) \ge \frac{1}{2}\delta_{0}\Delta$. \end{claim}
   \begin{proof} Notice that any edge of $E$ connected only to a single vertex in $V^\prime$ equals the corresponding bit in the original suggestion made by $c_{v}$. Hence for every $v\in V^\prime$, it holds that: 
@@ -133,7 +135,7 @@
       \end{split}
     \end{equation*}
      Now consider the weight of $x + c_{v}$, By the assumption that $x$ is ireducable code word of $c_{\oplus}$ we have that: 
-    
+  
  \begin{equation*}
     \begin{split}
        |x + c_{v}| & = |x| + |c_{v}| - 2|x \cap c_{v}| > |x| \\
