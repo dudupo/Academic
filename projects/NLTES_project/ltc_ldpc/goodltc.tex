@@ -52,7 +52,7 @@
   By the assumption that $\tilde{\delta} > 2\lambda / \Delta $ we have that $S$ must has liner size, and therefore $|x^{\prime}|$ also must to be linear in $n$. Finally as $x^{\prime} \subset x$ we obtain the correctness of the claim.  
  \end{proof} 
 
-  \begin{claim}[Existence of such \emph{Cayley's}] Let $S$ be a generator set such that \emph{Cayley}$\left( \Gamma , S \right)$ has a second largest eigenvalue greater then $\lambda$, And consider an arbitray group element $g \in \Gamma$ such that $gSg^{-1}$ disjointness to $S$. Denote by $S_{g}$ the set $gSg^{-1}$. Then the second eigenvalue of the graph obtained by $\left( \Gamma, S \right) \cup \left( \Gamma, S \right)$ is at most $2\lambda$. \end{claim}
+  \begin{claim}[Existence of such \emph{Cayley's}] Let $S$ be a generator set such that \emph{Cayley}$\left( \Gamma , S \right)$ has a second largest eigenvalue greater then $\lambda$, And consider an arbitray group element $g \in \Gamma$ and denote by $S_{g}$ the set $gSg^{-1}$. Then the second eigenvalue of the graph obtained by $\left( \Gamma, S \right) \cup \left( \Gamma, S \right)$ is at most $2\lambda$. \end{claim}
   \begin{proof} Denote by $G,G^{\prime}$ the \emph{Cayley} graphs coressponding to $S$, $S_{g}$, for conviniet we will use the notation of $\sum_{v\sim_{G} u}$ to denote a summation over all the neighboors of $v$ in the graph $G$. Let $A_{G^{\prime}}$ be the adjacency matrix of $G^{\prime}$. Recall that $G^{\prime}$ is a  $\Delta$ regular graph, and therefore the uniform distribution $\mathbf{1}$ is the eigenstate with the maximal eigenvalue, and the second eigenvalue is given by the min-max principle: 
   \begin{equation*}
     \begin{split}
@@ -68,7 +68,9 @@
      \Rightarrow  &  \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{G^{\prime}} f  }{ f^{\top}f}} =\max_{f \perp \mathbf{1}} { \sum_{gv}\sum_{ u\sim_{G} v }\frac{f\left( gu \right) f \left( vg \right)  }{ f^{\top}f}} 
     \end{split}
   \end{equation*}
-  By the Interlacing Theorem, \cite{HAEMERS1995593} the second eigenvalue of any subgraph of $G^{\prime}$ is less than the $\lambda^{\prime}$, In particular, the eigenvalue of the graph obtained by taking the edges that are associated with elements of the $ S_{g} / S $, denote that subgraph by $G^{\prime}_{ / S}$. Because $S_{g} / S \cap S = \emptyset $, we have that the edges sets of $G, G^{\prime}$ are disjointness sets. Hence the adjacency matrix of the graphs union equals the sum of their adjacency matrices. So in total, we obtain that:  
+  By the Interlacing Theorem, \cite{HAEMERS1995593} the second eigenvalue of any subgraph of $G^{\prime}$ is less than the $\lambda^{\prime}$, In particular, the eigenvalue of the graph obtained by taking the edges that are associated with elements of the $ S_{g} / S $. 
+
+  Denote that subgraph by $G^{\prime}_{ / S}$. Because $S_{g} / S \cap S = \emptyset $, we have that the edges sets of $G, G^{\prime}$ are disjointness sets. Hence the adjacency matrix of the graphs union equals the sum of their adjacency matrices. So in total, we obtain that:  
     \begin{equation*}
     \begin{split}
       \lambda^{\prime} &= \max_{f \perp \mathbf{1}} { \frac{f^{\top} \left( A_{G} + A_{G^{\prime}_{/S}} \right) f  }{ f^{\top}f}} \\
