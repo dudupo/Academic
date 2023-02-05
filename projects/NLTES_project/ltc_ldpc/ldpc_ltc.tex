@@ -70,6 +70,7 @@
     \end{split}
   \end{equation*}
   Even if a linear number of bits needed to be flipped to correct $x$, only a single check observes that $x$ is indeed an error.
+  
   \section{Construction}
   \subsection{Almost LTC With Zero Rate}
   \begin{definition}[The Disagreement Code] Given a Tanner code $C = \Tann$, define the code $C_{\oplus}$ to contain all the words equal to the formal summation $ \sum_{v \in V\left( G \right)} {c_{v} }$ when $c_{v}$ is an assignment of a codeword $ c_{v} \in C_0 $  on the edges of the vertex $ v \in V\left( G \right)$.
@@ -113,7 +114,9 @@
 
   \begin{definition} Let $C = \Tann$. We say that $x \in C_{\oplus}$ is \textbf{reducable} if there exists a vertex $v$ and a small codeword $c_v$, for which, adding the assignment of $c_v$ over the $v$'s edges to $x$ decreases the weight. Namely, $|x + c_{v}| < |x|$. If $x \in C_{\oplus}$ is not a reducable codeword then we say that $x$ is \textbf{ireducable}. \end{definition}
 
-  \paragraph{Theorem 1.} There exist a constant $\alpha > 0$ and an infinte family of Tanner Codes $C = \Tann$ such that any ireducable codeword $x$ of a coresponding disagreement code $x \in C_{\oplus}$ at length $n$, weight at least $\alpha n$.
+  \begin{theorem*}[Theorem 1] There exist a constant $\alpha > 0$ and an infinte family of Tanner Codes $C = \Tann$ such that any ireducable codeword $x$ of a coresponding disagreement code $x \in C_{\oplus}$ at length $n$, weight at least $\alpha n$. \end{theorem*}
+
+
   \paragraph{Proof.} By induction over the number of vertices $V^\prime \subset V$, which suggest a nontrivial codeword to $x$. Base, assume that a single vertex $v \in V$ suggests a nontrivial codeword $c_{v} \in C_{0}$. Then it's clear that $x = c_{v}$. And therefore, we have that $|x +c_{v}| = 0 < |x|$.
 
   Assume the correctness of the argument for every codeword defined by at most $m$ nontrivial suggestions made by $V^\prime \subset V$. And consider the graph $\left( V^\prime, E^\prime \right)$ induced by them. If the graph has more than a single connectivity component, then any of them is also a codeword of $C_{\oplus}$  but composed of at most $m-1$ nontrivial suggestions. Therefore, by the assumption, we could find a vertex $v$ and a proper small codeword $c_v \in C_0 $, such that the addition of the suggestion will decrease the weight of the codeword defined on that component and therefore decrease the total weight of $x$.
