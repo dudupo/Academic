@@ -30,7 +30,7 @@
   \end{theorem*}
 
 
-  \begin{definition}[Testability Tanner Code] Let $q > \frac{1}{2}$ and let $J$ be a geneator set for group $\Gamma$ such that $|J| = \Delta$, $q | \Delta $, $J$ closed for inverse, and there exist subset of $J$, denote it by, $J^{\prime}$ such that $J^{\prime}$ is a generator set of $\Gamma$ and $|J^{\prime}| = \frac{1}{2}\Delta$. Let $C_{0}$ be a code with parameters $C_{0} = q\Delta \left[1, \rho_{0}, \delta_{0}\right]$. For any vertex assoicate a subset $\Jvv \subset J/J^{\prime}$ at size: 
+  \begin{definition}[Testability Tanner Code]\label{testtaner} Let $q > \frac{1}{2}$ and let $J$ be a geneator set for group $\Gamma$ such that $|J| = \Delta$, $q | \Delta $, $J$ closed for inverse, and there exist subset of $J$, denote it by, $J^{\prime}$ such that $J^{\prime}$ is a generator set of $\Gamma$ and $|J^{\prime}| = \frac{1}{2}\Delta$. Let $C_{0}$ be a code with parameters $C_{0} = q\Delta \left[1, \rho_{0}, \delta_{0}\right]$. For any vertex assoicate a subset $\Jvv \subset J/J^{\prime}$ at size: 
 
   \begin{equation*}
     \begin{split}
@@ -87,7 +87,7 @@
   \paragraph{Remark. Regarding Quantum Codes.} Notice that any complex designed to hold CSS qLDPC codes must have constant length cycles. Otherwise, the distance of $C_{x}$ will not be constant, and therefore the condition $H_{x}H_{z}^{\top} =0$ could be satisfied only if $H_{z}$ is not a constant row-weight matrix, Put differently $C_{z}$ is not an LDPC code. Consequently, any trial to generalize the construction for obtaining quantum codes must not rely on ~\cref{claim:using-ram}.    
 
   \paragraph{Remark. Note On Random Construction.} One might wondring if using \emph{Cayley} is necssery. We conjecure that there is a constant $c > 0$ such that sampling pair of  $\left( 1 + c \right)\frac{1}{2}\Delta$ regulr random graphs, and than take the anti-symatry union of them might also obtain a good expander such that each of the reseuide part also has good expansion with heigh probability.  
-  \begin{lemma} \ctt{Rewrite}. Consider the graph $G$ as defind above (direct subset of \emph{Cayley} graph) and let $S$, $T$ be subsets of the vertices. Then the flux of $S$ over $T$ is at most: 
+  \begin{lemma} Consider the graph $G$ as defind in [\cref{testtaner}] and let $S$, $T$ be subsets of the vertices. Then the flux of $S$ over $T$ is at most: 
   \begin{equation*}
     \begin{split}
       E_{G^{\prime}}(S,T) \le \frac{1}{2} \Delta\frac{|S||T|}{n} + \lambda\sqrt{|S||T|} 
