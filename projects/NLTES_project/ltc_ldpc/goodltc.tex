@@ -30,7 +30,7 @@
   \end{theorem*}
 
 
-  \paragraph{Definion. Testability-Tanner-Code.} Let $q > \frac{1}{2}$ and let $J$ be a geneator set for group $\Gamma$ such that $|J| = \Delta$, $q | \Delta $, $J$ closed for inverse, and there exist subset of $J$, denote it by, $J^{\prime}$ such that $J^{\prime}$ is a generator set of $\Gamma$ and $|J^{\prime}| = \frac{1}{2}\Delta$. Let $C_{0}$ be a code with parameters $C_{0} = q\Delta \left[1, \rho_{0}, \delta_{0}\right]$. For any vertex assoicate a subset $\Jvv \subset J/J^{\prime}$ at size: 
+  \begin{definition}[Testability Tanner Code] Let $q > \frac{1}{2}$ and let $J$ be a geneator set for group $\Gamma$ such that $|J| = \Delta$, $q | \Delta $, $J$ closed for inverse, and there exist subset of $J$, denote it by, $J^{\prime}$ such that $J^{\prime}$ is a generator set of $\Gamma$ and $|J^{\prime}| = \frac{1}{2}\Delta$. Let $C_{0}$ be a code with parameters $C_{0} = q\Delta \left[1, \rho_{0}, \delta_{0}\right]$. For any vertex assoicate a subset $\Jvv \subset J/J^{\prime}$ at size: 
 
   \begin{equation*}
     \begin{split}
@@ -38,7 +38,7 @@
     \end{split}
   \end{equation*}
   Define the code $\mathcal{T}\left(J, q , C_{0}\right)$ to be the subspace such that any vertex's local view over the edges defined by $\Jvv \cup J^{\prime}$ is a codeword of $C_{0}$. In addition, let's associate a code $\Cvv$ obtained for any vertex by ignoring the bits supported on the $\Jvv$ coordinates. Notice that code defined by requiring that the local view of any vertex $v$ of \emph{Cayley}$\left(\Gamma, J^{\prime} \right)$ is a codeword of $\Cvv$ is a TannerCode. Denote it by $ \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$.   
-
+\end{definition}
   \begin{lemma} Let $J$ be defined as above such that both \emph{Cayley}$\left( \Gamma, J \right)$, \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ are expanders with algebric expansion greater then $\lambda$ and $C_0$ with the parameters $\rho_{0} > 1 - \frac{1}{2q}$ and $ \delta_{0} - \left( q - \frac{1}{2} \right) > \lambda$. Then the code $\mathcal{T}\left(J, q ,C_{0}\right)$ is a good code.\end{lemma}
   \begin{proof} We have already proven that the code has a positive rate. Consider a codeword $x$ and denote by $x^{\prime}$ the restriction of $x$ to \emph{Cayley }$\left( \Gamma, J^{\prime}  \right)$ which is a codeword of $\tilde{C} = \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$. But $\tilde{C}$ is a Tanner Code such that any vertex sees at least $ \tilde{\delta_{0}} \Delta := \left(\delta_{0} - \left( q - \frac{1}{2}   \right) \right)\Delta $ nontrivial bits, Therefore as the expansion of the graph \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ is lower than $\tilde{\delta}\Delta$ than any subset $S$ of $V$ at the size at most $|S|/|V| < \tilde{\delta_{0}} - \lambda / \Delta $  must contain at least one vertex that sees less than  $\tilde{\delta}\Delta$ nontrivial bits, In contradiction for the fact that $x^{\prime} \in \tilde{C}$. \end{proof} 
 
