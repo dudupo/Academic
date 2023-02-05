@@ -112,7 +112,7 @@
   \end{equation*}
   When the last transition follows immediately by the fact that $y \in C$ and therefore any pair of connected vertices contribute the same value for their associated edge \end{proof}
 
-  \begin{definition} Let $C = \Tann$. We say that $x \in C_{\oplus}$ is \textbf{reducable} if there exists a vertex $v$ and a small codeword $c_v$, for which, adding the assignment of $c_v$ over the $v$'s edges to $x$ decreases the weight. Namely, $|x + c_{v}| < |x|$. If $x \in C_{\oplus}$ is not a reducable codeword then we say that $x$ is \textbf{ireducable}. \end{definition}
+  \begin{definition} Let $C = \Tann$. We say that $x \in C_{\oplus}$ is \textbf{reducable} if there exists a vertex $v$ and a small codeword $c_v$, for which, adding the assignment of $c_v$ over the $v$'s edges to $x$ decreases the weight. Namely, $|x + c_{v}| < |x|$. If $x \in C_{\oplus}$ is not a reducable codeword then we say that $x$ is \textbf{ireducable} \label{ire}. \end{definition}
 
   \begin{theorem*}[Theorem 1] There exist a constant $\alpha > 0$ and an infinte family of Tanner Codes $C = \Tann$ such that any ireducable codeword $x$ of a coresponding disagreement code $x \in C_{\oplus}$ at length $n$, weight at least $\alpha n$. \end{theorem*}
 
@@ -121,7 +121,11 @@
 
   Assume the correctness of the argument for every codeword defined by at most $m$ nontrivial suggestions made by $V^\prime \subset V$. And consider the graph $\left( V^\prime, E^\prime \right)$ induced by them. If the graph has more than a single connectivity component, then any of them is also a codeword of $C_{\oplus}$  but composed of at most $m-1$ nontrivial suggestions. Therefore, by the assumption, we could find a vertex $v$ and a proper small codeword $c_v \in C_0 $, such that the addition of the suggestion will decrease the weight of the codeword defined on that component and therefore decrease the total weight of $x$.
 
-  So, we can assume that the vertices in $V^\prime$ compose a single connectivity component. Let be $x|_{v} \in \mathbb{F}_{2}^{\Delta}$ the bits of $x$ on the indices corresponding to $v$'s edges. For any $S \subset E$, define $w_{S}\left( x \right)$ as the weight that $x$ induces over $S$.   \begin{claim}\label{claim:deg} For any $v \in V^\prime$ and corresponded suggestion $c_{v}$ it holds that: $w_{E^\prime}\left( c_{v} \right) \ge \frac{1}{2}\delta_{0}\Delta$. \end{claim}
+  So, we can assume that the vertices in $V^\prime$ compose a single connectivity component. Let be $x|_{v} \in \mathbb{F}_{2}^{\Delta}$ the bits of $x$ on the indices corresponding to $v$'s edges. For any $S \subset E$, define $w_{S}\left( x \right)$ as the weight that $x$ induces over $S$. Sometimes we will refer to $w_{S}\left( x \right)$ as the \textbf{flux} induced by $x$ over $S$.
+
+  The genreal idea of the proof is to show that if the distance of the small code is large ($ \ge \frac{2}{3}$ ) and $x$ is ireducable codeword then there exist an indepandent subset of vertices $U \subset V^{\prime}$, at linear size, that induce a significant flux over $E/E^{\prime}$. If $U$ has linear size than also $x$ has a linear size, And if not, Then we will show that no serious interface has been occurred. ~\cref{cliam:deg} and ~\cref{claim:tree-size} state that if one is willing to hide an ~\cref{ire} ireducable error then he has to touch at least a linar number of verties.
+
+\begin{claim}\label{claim:deg} For any $v \in V^\prime$ and corresponded suggestion $c_{v}$ it holds that: $w_{E^\prime}\left( c_{v} \right) \ge \frac{1}{2}\delta_{0}\Delta$. \end{claim}
   \begin{proof} Notice that any edge of $E$ connected only to a single vertex in $V^\prime$ equals the corresponding bit in the original suggestion made by $c_{v}$. Hence for every $v\in V^\prime$, it holds that: 
 \begin{equation*}
       \begin{split}
@@ -148,7 +152,7 @@
 
 %\end{figure*}
 %\end{adjustbox} 
-  \begin{claim} The size of $T$ is at least:
+  \begin{claim} \label{claim:tree-size} The size of $T$ is at least:
   \begin{equation*}
     \begin{split}
       |T| & \ge \left( \frac{1}{4}\delta_{0} - \frac{\lambda}{\Delta} \right)n 
