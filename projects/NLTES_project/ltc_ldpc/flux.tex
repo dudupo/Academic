@@ -54,7 +54,7 @@
   \end{equation*}
   \end{proof}
 
-  \begin{proof}[Proof of Theorem 1.] Consider the size of the maxiaml layer $|U_{\max}$ and sepearte to the following two cases. First, consider the case that $|U_{\max}| \ge  \alpha n $ in that case it follows immedily by~\cref{claim:flu1} that if $\delta_{0} > \frac{2}{3} - \frac{2\lambda}{\Delta}$ there exists $\alpha^{\prime} > 0 $ such that:  
+  \begin{proof}[Proof of Theorem 1.] Consider the size of the maxiaml layer $|U_{\max}|$ and sepearte to the following two cases. First, consider the case that $|U_{\max}| \ge  \alpha n $ in that case it follows immedily by~\cref{claim:flu1} that if $\delta_{0} > \frac{2}{3} - \frac{2\lambda}{\Delta}$ there exists $\alpha^{\prime} > 0 $ such that:  
   \begin{equation*}
     \begin{split}
       |x| \ge \left( \delta_{0} - \frac{2}{3} - \frac{2}{\lambda}\Delta \right)\Delta|U_{\max}| \ge  \alpha^{\prime} n 
@@ -71,15 +71,5 @@
   Setting $\alpha \ge \frac{2}{3}$ we complete the proof
 \end{proof}
 
-  Unfortunately, Singelton bound doesn't allow both $\delta_0 > \frac{2}{3}$ and $\rho_0 \ge \frac{1}{2}$, so in total, we prove the existence of code LDPC code which is good in terms of testability and distance yet has a zero rate. In the following subsection, we will prove (\ctt{sec 3.4, which currently is a failure}) that one can overcome this problem by requiring only half of the vertices to restrict their local view to be codewords of high relative distance. 
-%\subsection{ Good LTC Which Is Almost LDPC. } 
-%To overcome the vanishing rate issue, we are going to consider the graphs family in which the maximal layer of BFS scanning couldn't exceed a linear  
-
- %
- %  \begin{equation*}
- %    \begin{split}
- %      \left( 1 - \frac{1}{2}\delta_{0} \right)\Delta |T| \ge \left( \delta_{0} - \frac{|U_{\max}|}{n} - \frac{\lambda}{\Delta} \right) \Delta|T| 
- %    \end{split}
- %  \end{equation*}
-
+Unfortunately, Singelton bound doesn't allow both $\delta_0 > \frac{2}{3}$ and $\rho_0 \ge \frac{1}{2}$, so in total, we prove the existence of code LDPC code which is good in terms of testability and distance yet has a zero rate. In the following subsection, we will prove that one can overcome this problem, by considering a variton of Tanner code, in which every vertex cheks only a $\frac{2}{3}$ fraction of the edges in his support.      
 
