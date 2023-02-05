@@ -87,13 +87,13 @@
   \paragraph{Remark. Regarding Quantum Codes.} Notice that any complex designed to hold CSS qLDPC codes must have constant length cycles. Otherwise, the distance of $C_{x}$ will not be constant, and therefore the condition $H_{x}H_{z}^{\top} =0$ could be satisfied only if $H_{z}$ is not a constant row-weight matrix, Put differently $C_{z}$ is not an LDPC code. Consequently, any trial to generalize the construction for obtaining quantum codes must not rely on ~\cref{claim:using-ram}.    
 
   \paragraph{Remark. Note On Random Construction.} One might wondring if using \emph{Cayley} is necssery. We conjecure that there is a constant $c > 0$ such that sampling pair of  $\left( 1 + c \right)\frac{1}{2}\Delta$ regulr random graphs, and than take the anti-symatry union of them might also obtain a good expander such that each of the reseuide part also has good expansion with heigh probability.  
-  \begin{lemma} Consider the graph $G$ and the code $C$ as defind in [\ref{testtaner}] and let $S$, $T$ be a pair od disjointness vertices subsets. And let $x_{S}$ and $x_{T}$ codewords of the $C_{\oplus}$ such that $x_{S}$ suggested only by vertices in $S$, and in similiar manner $x_{T}$ suggested only by $T$'s vertices. Then the flux of $S$ over $T$ is at most: 
+  \begin{claim} Consider the graph $G$ and the code $C$ as defind in [\ref{testtaner}] and let $S$, $T$ be a pair od disjointness vertices subsets. And let $x_{S}$ and $x_{T}$ codewords of the $C_{\oplus}$ such that $x_{S}$ suggested only by vertices in $S$, and in similiar manner $x_{T}$ suggested only by $T$'s vertices. Then the flux of $S$ over $T$ is at most: 
   \begin{equation*}
     \begin{split}
       w_{T}\left( x_{S} \right) \le  E_{G^{\prime}}(S,T) \le \frac{1}{2} \Delta\frac{|S||T|}{n} + \lambda\sqrt{|S||T|} 
     \end{split}
   \end{equation*} 
-\end{lemma}
+\end{claim}
 \begin{proof} The only edges that can interferce are the edge defined by $J^{\prime}$, Namly the edges which belong to \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$. Therefore it's enough to use the mixing expander lemme on the $\frac{1}{2}\Delta$-regular graph. \end{proof}
 
 
