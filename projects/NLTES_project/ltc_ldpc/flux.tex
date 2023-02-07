@@ -54,6 +54,18 @@
   \end{equation*}
   \end{proof}
 
+  \begin{claim}  Alternate proof of fulx inequality, which dosn't assume that there is no interference inside the layers. $w\left( E\left( U,U \right) \right) > 0 $. 
+  \end{claim}
+  \newcommand{\mxU}{U_{\text{max}}}
+  \begin{proof}
+    Separeate into the following cases, First assume that $ \mxU / n   > \frac{1}{3}  $ then we have that the total interference with $\mxU$ layers is at most: 
+    \begin{equation*}
+      \begin{split}
+	\frac{\Delta|\mxU|\left( n- |\mxU| \right)}{n} + \lambda\sqrt{\mxU n } \le \left( 1 - \frac{\mxU}{n} + \sqrt{3} \frac{\lambda}{\Delta}  \right) \Delta |\mxU |  
+      \end{split}
+    \end{equation*}
+  \end{proof}
+
   \begin{proof}[Proof of Theorem 1.] Consider the size of the maxiaml layer $|U_{\max}|$ and sepearte to the following two cases. First, consider the case that $|U_{\max}| \ge  \alpha n $ in that case it follows immedily by~\cref{claim:flu1} that if $\delta_{0} > \frac{2}{3} - \frac{2\lambda}{\Delta}$ there exists $\alpha^{\prime} > 0 $ such that:  
   \begin{equation*}
     \begin{split}
