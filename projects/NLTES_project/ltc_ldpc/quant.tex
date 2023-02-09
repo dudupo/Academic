@@ -23,7 +23,13 @@ Let $\delta_{0} \in \left( \frac{2}{3} ,1 \right)$ and let $\varepsilon > 0$. Co
   $S_{+}$ is uniform distriuted. 
 \end{claim}
 \begin{proof}
-  Proof. 
+  Define the random variable $X_{0}$ to be the sampled group element. We will show that for any $g \in \Gamma $ the probability that $X_{0} = g$ is $1/|\Gamma|$. By the low of total probability, we have that:     
+  \begin{equation*}
+    \begin{split}
+      & \prb{X_{0} = g} = \sum_{A}{ \prb{ X_{0} = g | A } \prb{A}  } = \sum_{A}{ \prb{ X_{0} = g | A } } \\ 
+      & \ \ = B
+    \end{split}
+  \end{equation*}
 \end{proof}
 \begin{claim}
   Let $C_{0} = C_{A}\otimes C_{B}$ and consider the code $\testgo$ defined in \ref{testtaner}. Then $C_{x} = \left( \testgo \right)_{\oplus}$. 
