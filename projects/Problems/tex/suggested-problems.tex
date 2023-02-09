@@ -1,0 +1,85 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+  \documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass{article}
+  \input{usepackage}
+  \addbibresource{sample.bib} 
+
+\fi
+
+\begin{document}
+
+\newcommand{\commentt}[1]{\textcolor{blue}{ \textbf{[COMMENT]} #1}}
+\newcommand{\ctt}[1]{\commentt{#1}}
+\newcommand{\prb}[1]{ \mathbf{Pr} \left[ {#1} \right]}
+\newcommand{\onotation}[1]{\(\mathcal{O} \left( {#1}  \right) \)}
+\newcommand{\ona}[1]{\onotation{#1}}
+%\newcommand{\PSI}{{\ket{\psi}}}
+%\newcommand{\LESn}{\ket{\psi_n}}
+%\newcommand{\LESa}{\ket{\phi_n}}
+%\newcommand{\LESs}{\frac{1}{\sqrt{n}}\sum_{i}{\ket{\left(0^{i}10^{n-i}\right)^{n}}}}
+%\newcommand{\Hn}{\mathcal{H}_{n}}
+%\newcommand{\Ep}{\frac{1}{\sqrt{2^n}}\sum^{2^n}_{x}{ \ket{xx}}}
+%\newcommand{\HON}{\ket{\psi_{\text{honest}}}}
+
+\newcommand{\Cpa}{[n, \rho n, \delta n]}
+%\setlength{\columnsep}{0.6cm}
+\newcommand{\Jvv}{ \bar{J_{v}} } 
+\newcommand{\Cvv}{ \tilde{C_{v}} } 
+
+\newcommand{\Gz}{ G_{z}^{\delta} } 
+\newcommand{ \Tann } {  \mathcal{T}\left( G, C_0 \right) }
+\newcommand{\ireducable}{ireducable \hyperref[ire]{[\ref{ire}]} }
+\newcommand{\cutUU}{E(U_{-1} \bigcup U_{+1} ,U)} 
+\newcommand{\wcutUU}{w\left( E(U_{-1} \bigcup U_{+1} ,U)  \right)}
+\newcommand{\testgo}{  \mathcal{T}\left(J, q , C_{0}\right) } 
+
+\newcommand{\duC}{\left( C_{A}^{\perp}\otimes C_{B}^{\perp} \right)^{\perp}}
+\newcommand{\duduC}{\left( C_{A}\otimes C_{B}\right)^{\perp}}
+
+\title{Suggested Problems} 
+\author{David Ponarovsky}
+
+\ifdefined\ACM
+  \affiliation{%
+    \institution{The Th{\o}rv{\"a}ld Group}
+    \streetaddress{1 Th{\o}rv{\"a}ld Circle}
+    \city{Hekla}
+  \country{Iceland}}
+  \email{larst@affiliation.org}
+\else
+  \maketitle
+\fi
+\input{abstract}
+\ifdefined\ACM
+  \maketitle
+\fi
+
+\section{The Radiologist Problem.}
+Comparable to other fields, medical research relies on experts, as faulty research products might cause severe health damage; any clinical research must adhere to demanding protocols. Nowadays, those protocols are even more felled in the data science age than in the past. As ground truth must be taken by a professional doctor. For example, suppose that one wishes to develop a program to detect liver cancer. Then the development's progress rate also depends on how fast he got the samples from the experts. While an expert's time is an expansive resource in any field, the problem is even worse in medicine, as qualifying an expert doctor usually takes several years.  
+ 
+
+That raises the following question, Suppose that experts could give us different qualities of samples at different prices (time). For example, a rectangle that contains the organ might be considered a low-quality but cheap sample.
+
+ In that model, what is the best we can hope for? The intuition is that the cost of achieving a "better than guess" performance might be the same as the first approximation of a much more complicated model. So, an iterative process that eventually converges into the desired function might be satisfied with low-quality data at the first iterations.
+
+
+
+
+
+%\begin{multicols*}{2}
+%\input{preamble}
+%\input{introduction}
+\end{document}
+
+
+
+
+
