@@ -26,7 +26,7 @@ Let $\delta_{0} \in \left( \frac{2}{3} ,1 \right)$ and let $\varepsilon > 0$. Co
   Define the random variable $X_{0}$ to be the sampled group element. We will show that for any $g \in \Gamma $ the probability that $X_{0} = g$ is $1/|\Gamma|$. By the low of total probability, we have that:     
   \begin{equation*}
     \begin{split}
-      & \prb{X_{0} = g} = 1 -  \prb{X_{0} \neq  g} = 1 - \sum_{A}{ \prb{ \forall b \in A, b \in B \ \ ab = g | A } } = \sum_{A}{ \prod_{a\in A} {\prb{ \exists b \  ba= g | a } } \prb{ A }  } \\ 
+      & \prb{X_{0} = g} = 1 -  \prb{X_{0} \neq  g} = 1 - \sum_{A}{ \prb{ \forall b \in A, b \in B \ \ ab = g | A } } \\ & =  \sum_{A}{ \prod_{a\in A} {\prb{ \exists b \  ba= g | a } } \prb{ A }  } \\ 
       & \ \ =  1-  \sum_{A}{  \left( 1 -   \left( \frac{1}{n} \right) \right)^{|B| \cdot |A| }   \prb{ A }  } = 1 -  \left( 1 -   \left( \frac{1}{n} \right) \right)^{|B| \cdot |A| } 
     \end{split}
   \end{equation*}
