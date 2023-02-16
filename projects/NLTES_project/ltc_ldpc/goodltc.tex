@@ -8,14 +8,14 @@ Consider the following code; instead of associating each edge with pair of check
   \end{split}
 \end{equation*} for example, if $q = 2/3$, then for having constant rate, it is enough to ensure that $ \rho_{0} \ge 1 - \frac{3}{4} = \frac{1}{4}$.
 
-\paragraph{Intuition For Testability.} Before expand the construction let's us justifiy why one should even expects that removing constrainsts preserves testability. Assume that is gurnted that the lower bound of the flux on the trivial vertices remains up to multiplication by the fraction factor $q$, or put it diffrently, one could just stick $q$ in every inequalitiy without lose correcntess, Then: 
+\paragraph{Intuition For Testability.} Before expand the construction let's us justify why one should even expects that removing constraints preserves testability. Assume that is guaranteed that the lower bound of the flux on the trivial vertices remains up to multiplication by the fraction factor $q$, or put it differently, one could just stick $q$ in every inequality without lose correctness, Then: 
 \begin{equation*}
   \begin{split}
     w_{E/E^{\prime}}\left( x|_{U} \right) & \ge  \delta_{0}q\Delta|U| -qw\left( E(U_{-1} \bigcup U_{+1} ,U)  \right) \\ 
     \Rightarrow |x| & \ge \left(  \delta_{0} - \frac{2}{3} - \frac{2\lambda}{\Delta} \right) q \Delta|U_{\max}|
   \end{split}
 \end{equation*}
-As you can see, \ireducable words of the disagreement have a linear weight, dispite that the orignal code has non-vanish rate.     
+As you can see, \ireducable words of the disagreement have a linear weight, despite that the original code has non-vanish rate.     
 
 Yet, We still require more to prove a linear distance. 
 By repeating on the \emph{Singleton Bound \ref{theorem*:Sing} } proof it follows that the small code $\tilde{C_{0}}$ obtained by ignoring arbitrary $ \left( q - \frac{1}{2} \right) \Delta $ coordinates yield a code with distance: 
@@ -26,11 +26,11 @@ By repeating on the \emph{Singleton Bound \ref{theorem*:Sing} } proof it follows
 \end{equation*}
 So assume that we could engineer an expander family such that the graphs obtained by removing $\frac{1}{2}$ of the edges connected for each vertex result also expanders, and in addition, regarding $\tilde{C_{0}}$ each edge is checked by both vertices on its support. Namely, a good Tanners Code could be defined on the restricted graphs; Then, any string that satisfies the original checks also has a linear weight. To achieve this property, we will restrict ourselves to a particular family of Cayley Graphs.  
 
-\begin{theorem*}[Theorem 1+] There exist a constant $\alpha > 0 $ and infinite familiy of codes which satesfies Theroem 1 and also good.
+\begin{theorem*}[Theorem 1+] There exist a constant $\alpha > 0 $ and infinite family of codes which satisfies Theorem 1 and also good.
 \end{theorem*}
 
 
-\begin{definition}[Testability Tanner Code]\label{testtaner} Let $q > \frac{1}{2}$ and let $J$ be a geneator set for group $\Gamma$ such that $|J| = \Delta$, $q | \Delta $, $J$ closed for inverse, and there exist subset of $J$, denote it by, $J^{\prime}$ such that $J^{\prime}$ is a generator set of $\Gamma$ and $|J^{\prime}| = \frac{1}{2}\Delta$. Let $C_{0}$ be a code with parameters $C_{0} = q\Delta \left[1, \rho_{0}, \delta_{0}\right]$. For any vertex assoicate a subset $\Jvv \subset J/J^{\prime}$ at size: 
+\begin{definition}[Testability Tanner Code]\label{testtaner} Let $q > \frac{1}{2}$ and let $J$ be a generator set for group $\Gamma$ such that $|J| = \Delta$, $q | \Delta $, $J$ closed for inverse, and there exist subset of $J$, denote it by, $J^{\prime}$ such that $J^{\prime}$ is a generator set of $\Gamma$ and $|J^{\prime}| = \frac{1}{2}\Delta$. Let $C_{0}$ be a code with parameters $C_{0} = q\Delta \left[1, \rho_{0}, \delta_{0}\right]$. For any vertex associate a subset $\Jvv \subset J/J^{\prime}$ at size: 
 
   \begin{equation*}
     \begin{split}
@@ -39,11 +39,11 @@ So assume that we could engineer an expander family such that the graphs obtaine
   \end{equation*}
   Define the code $\testgo$ to be the subspace such that any vertex's local view over the edges defined by $\Jvv \cup J^{\prime}$ is a codeword of $C_{0}$. In addition, let's associate a code $\Cvv$ obtained for any vertex by ignoring the bits supported on the $\Jvv$ coordinates. Notice that code defined by requiring that the local view of any vertex $v$ of \emph{Cayley}$\left(\Gamma, J^{\prime} \right)$ is a codeword of $\Cvv$ is a TannerCode. Denote it by $ \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$.   
 \end{definition}
-\begin{claim} Let $J$ be defined as above such that both \emph{Cayley}$\left( \Gamma, J \right)$, \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ are expanders with algebric expansion greater then $\lambda$ and $C_0$ with the parameters $\rho_{0} > 1 - \frac{1}{2q}$ and $ \delta_{0}q - \left( q - \frac{1}{2} \right) > 2\lambda/\Delta$. Then the code $\mathcal{T}\left(J, q ,C_{0}\right)$ is a good code.\end{claim}
+\begin{claim} Let $J$ be defined as above such that both \emph{Cayley}$\left( \Gamma, J \right)$, \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ are expanders with algebraic expansion greater then $\lambda$ and $C_0$ with the parameters $\rho_{0} > 1 - \frac{1}{2q}$ and $ \delta_{0}q - \left( q - \frac{1}{2} \right) > 2\lambda/\Delta$. Then the code $\mathcal{T}\left(J, q ,C_{0}\right)$ is a good code.\end{claim}
 \begin{proof} We already proved that the code has a positive rate, So it left to show a constant relative distance. 
 
   Consider a codeword $x$ and denote by $x^{\prime}$ the restriction of $x$ to \emph{Cayley }$\left( \Gamma, J^{\prime}  \right)$ which is a codeword of $\tilde{C} = \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$. But $\tilde{C}$ is a Tanner Code such that any vertex sees at least $ \tilde{\delta_{0}} \Delta := \left(\delta_{0} - \left( q - \frac{1}{2}   \right) \right)\Delta $ nontrivial bits.
-  Denote by $S$ the vertics subset supports $x^{\prime}$, and by $E\left( S,S \right)$ the edges from $S$ to itself, and by using the fact that \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ is an expander with seconed eigenvalue at most $\delta$ we have that: 
+  Denote by $S$ the vertices subset supports $x^{\prime}$, and by $E\left( S,S \right)$ the edges from $S$ to itself, and by using the fact that \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ is an expander with second eigenvalue at most $\delta$ we have that: 
   \begin{equation*}
     \begin{split}
       \frac{|x^{\prime}|}{|S|} \ge \tilde{\delta}_{0}\Delta \Rightarrow  |S| \ge \left( \tilde{\delta} - \frac{2\lambda}{\Delta}  \right)\Delta n 
@@ -52,8 +52,8 @@ So assume that we could engineer an expander family such that the graphs obtaine
   By the assumption that $\tilde{\delta} > 2\lambda / \Delta $ we have that $S$ must has liner size, and therefore $|x^{\prime}|$ also must to be linear in $n$. Finally as $x^{\prime} \subset x$ we obtain the correctness of the claim.  
 \end{proof} 
 
-\begin{claim}[Existence of such \emph{Cayley's}] Let $S$ be a generator set such that \emph{Cayley}$\left( \Gamma , S \right)$ has a second largest eigenvalue greater then $\lambda$, And consider an arbitray group element $g \in \Gamma$ and denote by $S_{g}$ the set $gSg^{-1}$. Then the second eigenvalue of the graph obtained by $\left( \Gamma, S \right) \cup \left( \Gamma, S \right)$ is at most $2\lambda$. \end{claim}
-\begin{proof} Denote by $G,G^{\prime}$ the \emph{Cayley} graphs coressponding to $S$, $S_{g}$, for conviniet we will use the notation of $\sum_{v\sim_{G} u}$ to denote a summation over all the neighboors of $v$ in the graph $G$. Let $A_{G^{\prime}}$ be the adjacency matrix of $G^{\prime}$. Recall that $G^{\prime}$ is a  $\Delta$ regular graph, and therefore the uniform distribution $\mathbf{1}$ is the eigenstate with the maximal eigenvalue, and the second eigenvalue is given by the min-max principle: 
+\begin{claim}[Existence of such \emph{Cayley's}] Let $S$ be a generator set such that \emph{Cayley}$\left( \Gamma , S \right)$ has a second largest eigenvalue greater then $\lambda$, And consider an arbitrary group element $g \in \Gamma$ and denote by $S_{g}$ the set $gSg^{-1}$. Then the second eigenvalue of the graph obtained by $\left( \Gamma, S \right) \cup \left( \Gamma, S \right)$ is at most $2\lambda$. \end{claim}
+\begin{proof} Denote by $G,G^{\prime}$ the \emph{Cayley} graphs corresponding to $S$, $S_{g}$, for convenient we will use the notation of $\sum_{v\sim_{G} u}$ to denote a summation over all the neighbors of $v$ in the graph $G$. Let $A_{G^{\prime}}$ be the adjacency matrix of $G^{\prime}$. Recall that $G^{\prime}$ is a  $\Delta$ regular graph, and therefore the uniform distribution $\mathbf{1}$ is the eigenstate with the maximal eigenvalue, and the second eigenvalue is given by the min-max principle: 
   \begin{equation*}
     \begin{split}
       & \max_{f \perp \mathbf{1}} { \frac{f^{\top}A_{G^{\prime}} f  }{ f^{\top}f}} = \max_{f \perp \mathbf{1}} { \sum_{v}  \sum_{u\sim_{G^{\prime}} v}\frac{f\left( u \right) f \left( v \right)  }{ f^{\top}f}} \\
@@ -61,7 +61,7 @@ So assume that we could engineer an expander family such that the graphs obtaine
       = & \max_{f \perp \mathbf{1}} { \sum_{gv}\sum_{\tau \in S}\frac{f\left( g \tau v \right) f \left( g v \right)  }{ f^{\top}f}} \\  = & \max_{f \perp \mathbf{1}} { \sum_{gv}\sum_{ u\sim_{G} v }\frac{f\left( gu \right) f \left( gv \right)  }{ f^{\top}f}} \\
     \end{split}
   \end{equation*}
-  As for any function $f : V \rightarrow \mathbb{R} $ one could define a function $f^{\prime} : E \rightarrow \mathbb{R} $ such that $f^{\prime}\left( v \right) = f\left( v \right) $ and $f^{\prime}$ preservs the norm:    
+  As for any function $f : V \rightarrow \mathbb{R} $ one could define a function $f^{\prime} : E \rightarrow \mathbb{R} $ such that $f^{\prime}\left( v \right) = f\left( v \right) $ and $f^{\prime}$ preserves the norm:    
   \begin{equation*}
     \begin{split}
       &  f^{\prime \top}f^{\prime}   = \sum_{v \in V}f^{\prime}\left( v \right)f^{\prime}\left( v \right)   =   \sum_{v \in V } f^{\top}\left( vg \right)f\left( vg \right) = f^{\top}f \\
@@ -79,25 +79,25 @@ So assume that we could engineer an expander family such that the graphs obtaine
     \end{split}
   \end{equation*} 
 \end{proof} 
-\begin{claim} \label{claim:using-ram}  If $\Delta$ is a constant greater than two, and $G$ is a $\lambda$-algebric expander with girth at length $\Omega\left( \log n \right)$, then there exists a $g \in \Gamma$ such that $S_{g}\cap S = \emptyset$.  
+\begin{claim} \label{claim:using-ram}  If $\Delta$ is a constant greater than two, and $G$ is a $\lambda$-algebraic expander with girth at length $\Omega\left( \log n \right)$, then there exists a $g \in \Gamma$ such that $S_{g}\cap S = \emptyset$.  
 \end{claim}
 \begin{proof} As $\Delta > 2 $ there must be at least two different elements $s_{1},s_{2} \in S$  such that $s_{1} \neq s_{2}, s_{2}^{-1}$. Pick $g = s_{1}s_{2}$. Now assume through contradiction that there exists a pair $s,r \in S$ such that $gsg^{-1} = r \Rightarrow gs = rg$ and notice that the fact that $s_{1}\neq s_{2}^{-1}$ guarantees that both terms are a product of $3$ element group.
 
 Therefore either that there is a $6$-length cycle in the graph, Or that there is element-wise equivalence, namely $s_{1} = r, s_{2} = s_{1}, s=s_{2}$. The first case contradict the lower bound on the expander girth, which is at least $\Omega \left( \log_{\Delta}(n) \right)$, while the other stand in contradiction to the fact that $s_{1} \neq s_{2}$ \end{proof}  
 \paragraph{Remark. Regarding Quantum Codes.} Notice that any complex designed to hold CSS qLDPC codes must have constant length cycles. Otherwise, the distance of $C_{x}$ will not be constant, and therefore the condition $H_{x}H_{z}^{\top} =0$ could be satisfied only if $H_{z}$ is not a constant row-weight matrix, Put differently $C_{z}$ is not an LDPC code. Consequently, any trial to generalize the construction for obtaining quantum codes must not rely on ~\cref{claim:using-ram}.    
 
-\paragraph{Remark. Note On Random Construction.} One might wondring if using \emph{Cayley} is necssery. We conjecure that there is a constant $c > 0$ such that sampling pair of  $\left( 1 + c \right)\frac{1}{2}\Delta$ regulr random graphs, and than take the anti-symatry union of them might also obtain a good expander such that each of the reseuide part also has good expansion with heigh probability.  
-\begin{claim} Consider the graph $G$ and the code $C$ as defind in [\ref{testtaner}] and let $S$, $T$ be a pair od disjointness vertices subsets. And let $x_{S}$ and $x_{T}$ codewords of the $C_{\oplus}$ such that $x_{S}$ suggested only by vertices in $S$, and in similiar manner $x_{T}$ suggested only by $T$'s vertices. Then the flux of $S$ over $T$ is at most: 
+\paragraph{Remark. Note On Random Construction.} One might wondering if using \emph{Cayley} is necessary. We conjecture that there is a constant $c > 0$ such that sampling pair of  $\left( 1 + c \right)\frac{1}{2}\Delta$ regular random graphs, and than take the anti-symmetry union of them might also obtain a good expander such that each of the residue part also has good expansion with heigh probability.  
+\begin{claim} Consider the graph $G$ and the code $C$ as defined in [\ref{testtaner}] and let $S$, $T$ be a pair of disjointness vertices subsets. And let $x_{S}$ and $x_{T}$ codewords of the $C_{\oplus}$ such that $x_{S}$ suggested only by vertices in $S$, and in similar manner $x_{T}$ suggested only by $T$'s vertices. Then the flux of $S$ over $T$ is at most: 
   \begin{equation*}
     \begin{split}
       w_{T}\left( x_{S} \right) \le  E_{G^{\prime}}(S,T) \le \frac{1}{2} \Delta\frac{|S||T|}{n} + \lambda\sqrt{|S||T|} 
     \end{split}
   \end{equation*} 
 \end{claim}
-\begin{proof} The only edges that can interferce are the edge defined by $J^{\prime}$, Namly the edges which belong to \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$. Therefore it's enough to use the mixing expander lemme on the $\frac{1}{2}\Delta$-regular graph. \end{proof}
+\begin{proof} The only edges that can interfere are the edge defined by $J^{\prime}$, Namely the edges which belong to \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$. Therefore it's enough to use the mixing expander lemme on the $\frac{1}{2}\Delta$-regular graph. \end{proof}
 
 
-\begin{proof}[Proof of Theorem 1+.] Noitce that $\frac{1}{2} < \frac{2}{3} = q$, Thus reapting exactly over proof above obtains that: 
+\begin{proof}[Proof of Theorem 1+.] Notice that $\frac{1}{2} < \frac{2}{3} = q$, Thus repeating exactly over proof above obtains that: 
   \begin{equation*}
     \begin{split}
       w_{E/E^{\prime}}  \left( x|_{U} \right)  & \ge  \delta_{0}q\Delta|U| - \wcutUU  \\ 
@@ -105,9 +105,9 @@ Therefore either that there is a $6$-length cycle in the graph, Or that there is
       & \ge  \left( \delta_{0} - \frac{2}{3} - \frac{1}{q}\frac{\lambda}{\Delta} \right)q\Delta |U|
     \end{split}
   \end{equation*}
-  When the last inequalitiy followes form the fact that the proof of~\cref{claim:maxu} doesn't relay on graph structure arguments. The same arguments leads also to anlog inequalitiy for ~\cref{claim:flu2}.
+  When the last inequality follows form the fact that the proof of~\cref{claim:max} doesn't relay on graph structure arguments. The same arguments leads also to analog inequality for ~\cref{claim:flue}.
 
-  Choseing $J$ such that \emph{Cayley}$\left( \Gamma, J \right)$ is ramnujan provid that $ \frac{2\lambda}{\Delta q}$ sacle as $\Theta\left( \frac{1}{\sqrt{\Delta}} \right)$. That close the case in which there is a linear size layer of nontrival suggestions. In other case, in which any such layer is at size less than $\alpha^{\prime}n$ ( $\alpha^{\prime} = \left( \delta_{0} - \left( q - \frac{1}{2} \right) \right)$ ? ) then we obtain the testbility for free
+  Choosing $J$ such that \emf{Cayley}$\left( \Gamma, J \right)$ is ramnujan provide that $ \frac{2\lambda}{\Delta q}$ scale as $\Theta\left( \frac{1}{\sqrt{\Delta}} \right)$. That close the case in which there is a linear size layer of nontrivial suggestions. In other case, in which any such layer is at size less than $\alpha^{\prime}n$ ( $\alpha^{\prime} = \left( \delta_{0} - \left( q - \frac{1}{2} \right) \right)$ ? ) then we obtain the testability for free
 \end{proof}
 
 
