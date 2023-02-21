@@ -40,7 +40,6 @@
 
 \newcommand{\Ep}{\frac{1}{\sqrt{2^n}}\sum^{2^n}_{x}{ \ket{xx}}}
 \newcommand{\HON}{\ket{\psi_{\text{honest}}}}
-\newcommand{\Lemma}{\paragraph{Lemma.}}
 \usepackage{multicol}
 % \usepackage{  }
 \setlength{\columnsep}{0.6cm}
@@ -109,9 +108,10 @@ Hence the theorem inequality could be written as:
 And therefore, for an Hamiltonians which have a grater number of terms than the number of the qubits which they act on, we expect to see an improvement which is almost an half of the naive solution. In fact this improvement is much more significant than might seem as simulating up to \(\varepsilon\)-error requires \(\textbf{Poly} \left( \frac{1}{\varepsilon} \right) \) repetitions\ctt{add a cition}, so for full simulation we have obtained a \( \sim (\frac{1}{2})^{poly(\frac{1}{\varepsilon})} \) speed-up factor.  
 
 \paragraph{Solution.} Let's formulate the claim which mentioned earlier, suppose that \(H_{i} ,H_{j}\) are terms which their supports are disjoint and also they lay on continues segments. Then we can simulate the terms in parallel. 
-\paragraph{Lemma.} \textit{ let \(H_{i}, H_{j}\) and integers \(a,b,c,d a < c, d < b\) such the supports of the terms are \( 0^{a}1^{b}, 1^{c}0^{d}\). Then we can simulate \(e^{i H_{i} + H_{j}}\) with circuit with depth \( 2 + \max_{ {i,j} } 2 \cdot \textbf{Ham} ( \text{support} ( H_{l} ) )\).}
-\paragraph{Proof.} It's clears that the first rotation, and the final uncompute stages remain unchanged. So we should deal only with 2-qubits operators (the cnot's). By the \( a < c \) restriction it follows that each \(CX\) gate in the naive implementation of the \(H_i\) cross only elements which \(H_j\) act trivially on. Hence if at time-step \(k\) the original operations in each of the naive implementations were \( CX(i_{1} , i_{2}), CX(j_{1} , j_{2}) \) then \( j_{1}, j_{j} \notin [i_{1} , i_{2}] \). Repeating on the above argument, but consider the \(d<b\) constraint instead yields that \( i_{1}, i_{j} \notin [j_{1} , j_{2}] \Rightarrow [i_{1},i_{2}]\cap[j_{1},j_{2}] = \emptyset  \) and therefore we can put those gates on the same time step \( \square\)   
-
+\begin{lemma} let \(H_{i}, H_{j}\) and integers \(a,b,c,d a < c, d < b\) such the supports of the terms are \( 0^{a}1^{b}, 1^{c}0^{d}\). Then we can simulate \(e^{i H_{i} + H_{j}}\) with circuit with depth \( 2 + \max_{ {i,j} } 2 \cdot \textbf{Ham} ( \text{support} ( H_{l} ) )\).
+\end{lemma}
+\begin{proof} It's clears that the first rotation, and the final uncompute stages remain unchanged. So we should deal only with 2-qubits operators (the cnot's). By the \( a < c \) restriction it follows that each \(CX\) gate in the naive implementation of the \(H_i\) cross only elements which \(H_j\) act trivially on. Hence if at time-step \(k\) the original operations in each of the naive implementations were \( CX(i_{1} , i_{2}), CX(j_{1} , j_{2}) \) then \( j_{1}, j_{j} \notin [i_{1} , i_{2}] \). Repeating on the above argument, but consider the \(d<b\) constraint instead yields that \( i_{1}, i_{j} \notin [j_{1} , j_{2}] \Rightarrow [i_{1},i_{2}]\cap[j_{1},j_{2}] = \emptyset  \) and therefore we can put those gates on the same time step   
+\end{proof}
 \paragraph{Corollary.} Assume that \(H_{i}, H_{j}\) have a disjoint supports. Then by swapping the wires (including phase swap) into continues segments, we obtain a simulation at cost of : \( cost( Permutation ) + 2 + \max_{ {i,j} } 2 \cdot \textbf{Ham} ( \text{support} ( H_{l} ) )\).  
 
 The permutation which swapping between \({ v_1 , v_2 ... v_k } \leftrightarrow { u_1 , u_2 ... u_k }\) where \(v_i,u_j \in [n]\) are wires/qubits indices could be done by swapping each of the pair separately. Namely, \(\textbf{SWAP}(v_{i},u_{i})\) for each of the pairs. Figure 1 presents the two qubit gate \textbf{SWAP} and Figure 2 is an example of the generalization obtained by concatenation such gates. 
@@ -144,27 +144,28 @@ To understand the rational behind those notations consider the following  possib
   \item \(H_{4} = X  I  I  Z  I \)
 \end{itemize} In case we have decided to simulate first \(H_{1},H_{2}\) which can be done in parallel after swapping the first and the third qubit. Then we already have made half of the way trough the rotation in which \(H_{3},H_{4}\) can be compute in parallel. That insight bring us to the next Lemma.     
 \paragraph{Definition.} \textit{ Let $G^\prime$ be the the graph which is obtained from $G$ by indentify each vertex with his support. }
-\paragraph{Lemma.} \textit{ Let \(v,u\) be vertices in \(G^{\prime}\) which defined as   which by definition are also match to a pair of vectors in \(\mathbb{F}_2^{n} \). Then:} 
-\begin{equation*}
-  \text{Depth}\left(\textbf{SWAP}^{v,u}\right) \le \textbf{Ham}(v,u)\cdot \text{Depth}\left(\textbf{SWAP}\right)
-\end{equation*}
-
-\paragraph{Proof.} By induction over \(w(v,u)\). For the base case consider \(u,v\) such \(u\) differ from \(v\) only by single coordinate. Denote it by \(j\). Observes that if $\textbf{Ham}(u) <\textbf{Ham}(v)$ then $\textbf{SWAP}^{v,u}$ is just the indentity. So we can assume that $ \textbf{Ham}(u) = \textbf{Ham}(v)+1 $ and that  \(v_j = 0, u_j =1\), denote by \(j^{\prime}\) the wire which \(SWAP^{v}\) sends \(j\) into. then it's sufficient to apply the gate \(\textbf{SWAP}(\text{Ham}(v) +1, j^\prime) \).
+\begin{lemma}  Let \(v,u\) be vertices in \(G^{\prime}\) which defined as   which by definition are also match to a pair of vectors in \(\mathbb{F}_2^{n} \). Then: 
+  \begin{equation*}
+    \text{Depth}\left(\textbf{SWAP}^{v,u}\right) \le \textbf{Ham}(v,u)\cdot \text{Depth}\left(\textbf{SWAP}\right)
+  \end{equation*}
+\end{lemma}
+\begin{proof} By induction over \(w(v,u)\). For the base case consider \(u,v\) such \(u\) differ from \(v\) only by single coordinate. Denote it by \(j\). Observes that if $\textbf{Ham}(u) <\textbf{Ham}(v)$ then $\textbf{SWAP}^{v,u}$ is just the indentity. So we can assume that $ \textbf{Ham}(u) = \textbf{Ham}(v)+1 $ and that  \(v_j = 0, u_j =1\), denote by \(j^{\prime}\) the wire which \(SWAP^{v}\) sends \(j\) into. then it's sufficient to apply the gate \(\textbf{SWAP}(\text{Ham}(v) +1, j^\prime) \).
 % Second case \(v_j = 1, u_j =0\), Note that \(\left(\textbf{SWAP}^{v,u}\right)^{\dagger}=\textbf{SWAP}^{u,v}\) and in our case the gates are involve only Clifford gates and therefore the inverse gate has the same length has it's origin. In other hand the inverse gate matches to the first case above.  
 
 
-\paragraph{}
-Assume the correc[Ham(support(Htion of the lemma for any \(d^\prime \le d\), denote again by $j$ one of the cordinate in which $v,u$ act different, And consider the vector \(u^\prime = u \oplus v_{j} \Rightarrow u^{\prime}_{j} = v_{j}\), if \( \textbf{Ham}(u,v) = d\) then \( \textbf{Ham}(u^\prime,v) = d-1\) and therefore there exist a circuit \(C^{v,u^\prime}\in \textbf{SWAP}^{v,u^\prime}\) at depth \( \textbf{Ham}(v,u^\prime)\cdot\text{Depth}\left(\textbf{SWAP}\right) \). By the fact that \( \textbf{SWAP}^{v,u} = \textbf{SWAP}^{v,u^\prime} \textbf{SWAP}^{u^\prime,u}     \) and because \( \textbf{Ham}(u^\prime,u) = 1 \) we get that:
+  \paragraph{}
+  Assume the correc[Ham(support(Htion of the lemma for any \(d^\prime \le d\), denote again by $j$ one of the cordinate in which $v,u$ act different, And consider the vector \(u^\prime = u \oplus v_{j} \Rightarrow u^{\prime}_{j} = v_{j}\), if \( \textbf{Ham}(u,v) = d\) then \( \textbf{Ham}(u^\prime,v) = d-1\) and therefore there exist a circuit \(C^{v,u^\prime}\in \textbf{SWAP}^{v,u^\prime}\) at depth \( \textbf{Ham}(v,u^\prime)\cdot\text{Depth}\left(\textbf{SWAP}\right) \). By the fact that \( \textbf{SWAP}^{v,u} = \textbf{SWAP}^{v,u^\prime} \textbf{SWAP}^{u^\prime,u}     \) and because \( \textbf{Ham}(u^\prime,u) = 1 \) we get that:
 
-      \begin{equation*}
-	\begin{split}
-	  & D\left(\textbf{SWAP}^{v,u}\right)  =   D\left(\textbf{SWAP}^{v,u^\prime}\right) + D\left( \textbf{SWAP}^{u^\prime,u} \right) \\ 
-	  & \le
-	  \left(\textbf{Ham}(v,u^\prime) + \textbf{Ham}(u,u^\prime)\right) \cdot\text{Depth}\left(\textbf{SWAP}\right) \\ & =
-	  \textbf{Ham}(v,u) \cdot\text{Depth}\left(\textbf{SWAP}\right) 
-	\end{split}
-      \end{equation*}
-      And that finishes the proof \(\square\)
+	\begin{equation*}
+	  \begin{split}
+	    & D\left(\textbf{SWAP}^{v,u}\right)  =   D\left(\textbf{SWAP}^{v,u^\prime}\right) + D\left( \textbf{SWAP}^{u^\prime,u} \right) \\ 
+	    & \le
+	    \left(\textbf{Ham}(v,u^\prime) + \textbf{Ham}(u,u^\prime)\right) \cdot\text{Depth}\left(\textbf{SWAP}\right) \\ & =
+	    \textbf{Ham}(v,u) \cdot\text{Depth}\left(\textbf{SWAP}\right) 
+	  \end{split}
+	\end{equation*}
+	And that finishes the proof 
+      \end{proof}
 
       \paragraph{Corollary.} Let \(P = \braket{v_{1}, v_{2} ... v_{l}}\) a vertices path in the graph \(G\) as defined above. And let \(U\) be circuit such that for each \(v_{i} \in P \) \(U\) apply the circuit \(U_{i}\) at the \ctt{I should define it} base. Then there exist an implementation for that circuit at depth:
       \begin{equation*}
@@ -187,7 +188,7 @@ Assume the correc[Ham(support(Htion of the lemma for any \(d^\prime \le d\), den
       \end{equation*}
       If we sample the terms form a uniform distrubtion over the $\Delta$-local terms then $p =  { n -1 \choose \Delta -1 }/ {n \choose \Delta}  = \frac{\Delta}{n}$. And therfore the excpection of the intersections is less then ${ m \choose 2}\frac{\Delta^2}{n}$. Hence by markov inequality we obtin that 
       \begin{equation*}
-	\prb{ \text{intersects} \ge \frac{1}{2} { m \choose 2}  } \le \frac{2\Delta^2}{n} $
+	\prb{ \text{intersects} \ge \frac{1}{2} { m \choose 2}  } \le \frac{2\Delta^2}{n} 
       \end{equation*}
       \paragraph{The Algorithm.}
 
@@ -219,27 +220,27 @@ Assume the correc[Ham(support(Htion of the lemma for any \(d^\prime \le d\), den
       \end{algorithm}
 
 
-      \paragraph{Lemma.} \textit{Let \(\{X_{i}\}\) be a monotonic set of numbers bounded by \(2\mu\) with expectation \( \mu \) and variance \( \sigma^2 \). Then:}
-      \begin{equation*}
-	\begin{split}
-	  \sum{ \frac{1}{m}\max{ \left\{ X_{i}, X_{i+ \frac{n}{2}} \right\} } } \le \mu + \frac{1}{2}\sigma^2  
-	\end{split}
-      \end{equation*}
-      \paragraph{Proof.} Define \(Y : \Omega \rightarrow \mathbb{R} \) to be the random  variable which is the hist of the \(X\) by \(\mu\) i.e \(Y = X -\mu\). From the linearity of expectation we get that \(\mathbb{E}[X] = \mu + \mathbb{E}[Y]\). let's note by \(Y^{s}\) and \(Y^{as}\) the symetric and asymetric parts of \(Y\). the \(\square\). 
+      \begin{lemma} Let \(\{X_{i}\}\) be a monotonic set of numbers bounded by \(2\mu\) with expectation \( \mu \) and variance \( \sigma^2 \). Then:
+	\begin{equation*}
+	  \begin{split}
+	    \sum{ \frac{1}{m}\max{ \left\{ X_{i}, X_{i+ \frac{n}{2}} \right\} } } \le \mu + \frac{1}{2}\sigma^2  
+	  \end{split}
+	\end{equation*}
+      \end{lemma}
+      \begin{proof} Define \(Y : \Omega \rightarrow \mathbb{R} \) to be the random  variable which is the hist of the \(X\) by \(\mu\) i.e \(Y = X -\mu\). From the linearity of expectation we get that \(\mathbb{E}[X] = \mu + \mathbb{E}[Y]\). let's note by \(Y^{s}\) and \(Y^{as}\) the symetric and asymetric parts of \(Y\). the \(\square\). 
 
-      \( \mathbb{E}[X] = \frac{1}{2}M + \mathbb{E}[X^{s} - M] = \frac{1}{2}M + \mathbb{E}[(X-M)^{s} + (X-M)^{as}] = \frac{1}{2}M + \frac{1}{2}\mu + \mathbb{E}[(X-M)^{as}] \) 
+	\( \mathbb{E}[X] = \frac{1}{2}M + \mathbb{E}[X^{s} - M] = \frac{1}{2}M + \mathbb{E}[(X-M)^{s} + (X-M)^{as}] = \frac{1}{2}M + \frac{1}{2}\mu + \mathbb{E}[(X-M)^{as}] \) 
+      \end{proof}
+      \begin{lemma} Let \( H = \frac{1}{m}\sum{H_{i}}\) be Hamiltonian such each term \(H_{i}\) is a generalized pauli operator. Let \(P\) be random pauli which sampled uniformly. Then:   
+      \end{lemma}
 
-      \paragraph{Lemma.} \textit{Let \( H = \frac{1}{m}\sum{H_{i}}\) be Hamiltonian such each term \(H_{i}\) is a generalized pauli operator. Let \(P\) be random pauli which sampled uniformly. Then:   }
-
-
-      \paragraph{Lemma.} \textit{Majoritiy principle. We can always assume that the more then quarter of the paulis are identity. } \ctt{ doesn't correct, but can be passed if we change the definition of the solid tensor to include only differ coordinates}.
-
-      \begin{equation*}
-	\begin{split}
-	  U^{t} = \sqrt{X}^\dagger\sqrt{X}U\sqrt{X}\sqrt{X}^\dagger U \sqrt{X}^\dagger\sqrt{X} ... U \sqrt{X}^\dagger\sqrt{X}
-	\end{split}
-      \end{equation*}
-
+      \begin{lemma} Majoritiy principle. We can always assume that the more then quarter of the paulis are identity.  \ctt{ doesn't correct, but can be passed if we change the definition of the solid tensor to include only differ coordinates}.
+	\begin{equation*}
+	  \begin{split}
+	    U^{t} = \sqrt{X}^\dagger\sqrt{X}U\sqrt{X}\sqrt{X}^\dagger U \sqrt{X}^\dagger\sqrt{X} ... U \sqrt{X}^\dagger\sqrt{X}
+	  \end{split}
+	\end{equation*}
+      \end{lemma}
       \section{\ctt{Enter it}}
 
       \paragraph{Lemma I} \textit{ A graph with all degrees at most \(d\) satisfies: 
@@ -249,24 +250,23 @@ Assume the correc[Ham(support(Htion of the lemma for any \(d^\prime \le d\), den
 	  \end{split}
 	\end{equation*}
       }
-      \textbf{Proof.} Denote by \(U \subset V\) the maximal independent subset of \(V\). By the maximality it follows that for every \(w \in V/U \) there is at least one neighbor in \(U\) (otherwise the \(U \cup w\) is an independent subset with a bigger size). Therefore 
-      \begin{equation*}
-	\begin{split}
-	  |V/U| &= |\Gamma\left(U\right) / U | \le |\Gamma\left(U\right)| \le d |U|= d \alpha \left( G\right) 
-	\end{split}
-      \end{equation*}
-      Combining the fact that \(|V| = |U| + |V/U| \) we get that: 
-      \begin{equation*}
-	\begin{split}
-	  \Rightarrow |V| &= |U| + |V/U| \le \alpha \left( G\right)  + d \alpha \left( G\right) \\
-	  \Rightarrow \  & \alpha \left( G\right) \ge \frac{|V\left(G\right)}{d+1} 
-	\end{split}
-      \end{equation*}
-      \(\square\)
+      \begin{proof} Denote by \(U \subset V\) the maximal independent subset of \(V\). By the maximality it follows that for every \(w \in V/U \) there is at least one neighbor in \(U\) (otherwise the \(U \cup w\) is an independent subset with a bigger size). Therefore 
+	\begin{equation*}
+	  \begin{split}
+	    |V/U| &= |\Gamma\left(U\right) / U | \le |\Gamma\left(U\right)| \le d |U|= d \alpha \left( G\right) 
+	  \end{split}
+	\end{equation*}
+	Combining the fact that \(|V| = |U| + |V/U| \) we get that: 
+	\begin{equation*}
+	  \begin{split}
+	    \Rightarrow |V| &= |U| + |V/U| \le \alpha \left( G\right)  + d \alpha \left( G\right) \\
+	    \Rightarrow \  & \alpha \left( G\right) \ge \frac{|V\left(G\right)}{d+1} 
+	  \end{split}
+	\end{equation*}
+      \end{proof}
 
-      \Lemma \textit{Bravyi Kitaev Transformation Degree. \ctt{Prove that, in the \(\textbf{SP}(G)\) Graph the degree is bounded by \(4^{4\log(n)} - 2^{4\log{n}}\) }}
-
-
+      \begin{lemma} \textit{Bravyi Kitaev Transformation Degree. \ctt{Prove that, in the \(\textbf{SP}(G)\) Graph the degree is bounded by \(4^{4\log(n)} - 2^{4\log{n}}\) }}
+      \end{lemma}
       \begin{equation*}
 	\begin{split}
 	  m_{i+1} & \leftarrow m_{i} - \alpha\left(G\right) \\ 
@@ -276,33 +276,33 @@ Assume the correc[Ham(support(Htion of the lemma for any \(d^\prime \le d\), den
 	\end{split}
       \end{equation*}
 
-      \Lemma \textit{ For any \( q \in \mathbb{N}  \)    
-	\begin{equation*}
-	  \begin{split}
-	    \frac{1}{2}\left( 1 + q + ... q^{n-1} \right) + q^{n} \le \left( 1 - \frac{1}{2(q+1)} \right) \frac{q^{n+1}-1}{q-1} 
-	  \end{split}
-	\end{equation*}
-      }
-
-
+%      \begin{lemma} \textit{ For any \( q \in \mathbb{N}  \)    
       \begin{equation*}
 	\begin{split}
-	f\left(m\right) &= f\left( \frac{1}{2}\alpha\left(m\right))  \right) + f\left( m - \alpha\left(m\right) \right)  \\
-	& \le f\left( \frac{1}{2\left(\Delta+1\right)}m\right) + f\left( \left(1 - \frac{1}{\left( \Delta + 1 \right)} \right)m \right) 
-      \end{split}
-    \end{equation*}
+	  \frac{1}{2}\left( 1 + q + ... q^{n-1} \right) + q^{n} \le \left( 1 - \frac{1}{2(q+1)} \right) \frac{q^{n+1}-1}{q-1} 
+	\end{split}
+      \end{equation*}
+    }
+
 
     \begin{equation*}
       \begin{split}
-	f\left(m\right) &= \xi + f\left( m - \alpha\left(m\right) \right)  \\
-	& = 2\xi + f\left( m - \alpha\left(m\right) - \alpha\left(m - \alpha\left(m\right)\right)  \right) \\ & \le 2\xi + f\left( m - \alpha\left(m\right) - \alpha\left(m - \alpha\left(m\right)\right)  \right)
-      \end{split}
-    \end{equation*}
+      f\left(m\right) &= f\left( \frac{1}{2}\alpha\left(m\right))  \right) + f\left( m - \alpha\left(m\right) \right)  \\
+      & \le f\left( \frac{1}{2\left(\Delta+1\right)}m\right) + f\left( \left(1 - \frac{1}{\left( \Delta + 1 \right)} \right)m \right) 
+    \end{split}
+  \end{equation*}
 
-    Randomization Trick.
+  \begin{equation*}
+    \begin{split}
+      f\left(m\right) &= \xi + f\left( m - \alpha\left(m\right) \right)  \\
+      & = 2\xi + f\left( m - \alpha\left(m\right) - \alpha\left(m - \alpha\left(m\right)\right)  \right) \\ & \le 2\xi + f\left( m - \alpha\left(m\right) - \alpha\left(m - \alpha\left(m\right)\right)  \right)
+    \end{split}
+  \end{equation*}
+
+  Randomization Trick.
 
 
 
 
 % \printbibliography 
-    \end{document}
+  \end{document}
