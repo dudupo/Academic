@@ -66,7 +66,7 @@
 Generate a circuit, using no more than \(10\) qubits, that approximates the unitary \(e^{-iH}\) where \(H\) is the qubit Hamiltonian of a \textbf{LiH} (lithium hydride) molecule. The \textbf{LiH} Hamiltonian is composed of 276 Pauli strings, and can be found HERE. The approximation error is defined in the next section, and should be less than \(0.1\). The circuit should be composed of the \(CX\) and single qubit gates only.
 
 \begin{definition}
-  Consider the following relation $\prec$. We will say that $H_{i} \prec H_{j}$ if $H_{j}$ could obtained by applying the replacements $I \mapsto X  $ or $ I \mapsto Z$. Note that this relation define an order (transitive). 
+  Consider the following relation $\prec$. We will say that $H_{i} \prec H_{j}$ if $H_{j}$ could obtained by applying the replacements $I \mapsto X  $ or $ I \mapsto Z$. For example, if $H_{1} = IXIXZ$ and $H_{2}=IXZXZ$ then $H_{1}\prec H_{2}$, observe also that $I^{\otimes n} \prec H_{i}$ for any $H_{i}$. Note that this relation define an order (transitive). 
 \end{definition}
 \begin{definition}[Order Tree] 
   Consider the directed graph $G=\left( V,E \right)$, such that the vertices associated with the Hamiltonian terms, and there is a directed edge between $H_{i}$ and $H_{j}$ if $H_{i} \prec H_{j}$. We will say that $G$ is the ordered tree of $H$. 
