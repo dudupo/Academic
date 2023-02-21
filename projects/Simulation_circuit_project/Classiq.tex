@@ -62,10 +62,16 @@
 %     \end{split}
 % \end{equation*}
 
-\paragraph{The problem.} Generate a circuit, using no more than \(10\) qubits, that approximates the unitary \(e^{-iH}\) where \(H\) is the qubit Hamiltonian of a \textbf{LiH} (lithium hydride) molecule. The \textbf{LiH} Hamiltonian is composed of 276 Pauli strings, and can be found HERE. The approximation error is defined in the next section, and should be less than \(0.1\). The circuit should be composed of the \(CX\) and single qubit gates only.s
+\paragraph{The problem.} Generate a circuit, using no more than \(10\) qubits, that approximates the unitary \(e^{-iH}\) where \(H\) is the qubit Hamiltonian of a \textbf{LiH} (lithium hydride) molecule. The \textbf{LiH} Hamiltonian is composed of 276 Pauli strings, and can be found HERE. The approximation error is defined in the next section, and should be less than \(0.1\). The circuit should be composed of the \(CX\) and single qubit gates only.
 
+\begin{definition}
+  Consider the following relation $\prec$. We will say that $H_{i} \prec H_{j}$ if $H_{j}$ could obtain by applaing the replecment $I \mapsto X  $ or $ I \mapsto Z$. 
 
-\paragraph{Definition.} \textit{ Let \(H_{i}\) be a single term of the Hamiltonian, we will define the \( \text{support}(H_{i}) \) to be a vector \( v \in \mathbb{F}^{n}_2\) such that \(v_j = 1\) if \(H_{i}\) act non-trivaliy on the \(j\)th qubit and \(0\) else.}
+\end{definition}
+\begin{definition}
+  Let \(H_{i}\) be a single term of the Hamiltonian, we will define the \( \text{support}(H_{i}) \) to be a vector \( v \in \mathbb{F}^{n}_2\) such that \(v_j = 1\) if \(H_{i}\) act non-trivaliy on the \(j\)th qubit and \(0\) else.
+\end{definition}
+
 
 Noitce that each term \(H_i\) such that \(\text{support}(H_{i}) = 1^{a}0^{b} = (1,1...1,0,..,0)\) can be simulated in parallel with term \(H_j\) with complementary support (i.e \(0^{a}1^{b}\)).  
 In addition, if the support isn't a continues segement of \(1\)'s then one could perform rotate the base by permutation at a cost of the "mixing size".   
