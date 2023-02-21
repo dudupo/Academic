@@ -17,9 +17,9 @@
 % \usepackage{biblatex} %Imports biblatex package
 
 \usepackage[
-backend=biber,
-style=alphabetic,
-sorting=ynt
+  backend=biber,
+  style=alphabetic,
+  sorting=ynt
 ]{biblatex}
 
 \addbibresource{sample.bib} %Import the bibliography file
@@ -47,7 +47,7 @@ sorting=ynt
 
 
 \begin{document}
-    
+
 \title{Hamiltonian Simulation Circuit}
 \author{David Ponarovsky}
 \maketitle
@@ -82,27 +82,28 @@ In addition, if the support isn't a continues segement of \(1\)'s then one could
 \end{equation*}
 
 \paragraph{}
- Let us abuse the notation and denote by $H$ also the random variable which count the support size of local term which is sampled uniformly from the total Hamiltonian. 
- \paragraph{Theorem.} \ctt{Change to uniform drown $\Delta$-local Hamiltonian.} \textit{ Given an Hamiltonian with expected support \(\mathbb{E}[H] := \mathbb{E}_{\sim i}\left[ \textbf{Ham}( \text{support}(H_i)) \right]\) then there is a circuit which simulate a single step \(e^{iH \Delta t}\) at depth:}
+Let us abuse the notation and denote by $H$ also the random variable which count the support size of local term which is sampled uniformly from the total Hamiltonian. 
+\paragraph{Theorem.} \ctt{Change to uniform drown $\Delta$-local Hamiltonian.} \textit{ Given an Hamiltonian with expected support \(\mathbb{E}[H] := \mathbb{E}_{\sim i}\left[ \textbf{Ham}( \text{support}(H_i)) \right]\) then there is a circuit which simulate a single step \(e^{iH \Delta t}\) at depth:}
 \begin{equation*}
-\begin{split}
-    D\left(n,m\right) \leq & m \left\Big( 1 + \mathbb{E}_{\sim i}[H] \right\Big)   \\ & + 4w \left( \text{MST}\left(G\right) \right) + \left(2 - \frac{1}{m}\right)n^2
-\end{split}    
+  \begin{split}
+    D\left(n,m\right) \leq & m \left( 1 + \mathbb{E}_{\sim i}[H] \right)   \\
+    & + 4w \left( \text{MST}\left(G\right) \right) + \left(2 - \frac{1}{m}\right)n^2
+  \end{split}    
 \end{equation*}  Where  \(w \left( \text{MST}\left(G\right) \right) \) is the weight of the minimal spanning tree of \(G\). Please, noitce that in our case \(n=10, m=276\).
 
 Before continuing to the proof let's analyze the naive approach, just handle each of Hamiltonian terms one by one. Assume the the hamming weight of the support of \(H_i\) equal to \(d_i\). so we pay two steps to rotate each wire into the parity base and uncompute it in the end. then we could apply the \(CX\) from each qubit in the support to a chosen one which will sum the wires parity and finally will propogate the sum trough the \(RZ\left(\theta \Delta t \right) \) gate (rotation by the coefficient of the term and the step size). So in total we pay \(2 + 2d_i\) for each term and therefore the whole circuit will require: 
 
 \begin{equation*}
-    \begin{split}
-        D^{\text{naive}}\left(n,m\right) & = \sum_{i}{2 + 2d_i} = m\sum_{i}{\frac{2 + 2d_i}{m}} = \\ & 2m \left\Big( 1 + \mathbb{E}_{\sim i}[H] \right\Big)  
-    \end{split}
+  \begin{split}
+    D^{\text{naive}}\left(n,m\right) & = \sum_{i}{2 + 2d_i} = m\sum_{i}{\frac{2 + 2d_i}{m}} = \\ & 2m \left( 1 + \mathbb{E}_{\sim i}[H] \right)  
+  \end{split}
 \end{equation*}
 
 Hence the theorem inequality could be written as:
 \begin{equation*}
-\begin{split}
+  \begin{split}
     D\left(n,m\right) \leq & \frac{1}{2} D^{\text{naive}} \left(n,m\right) \\ & + 4w \left( \text{MST}\left(G\right) \right) + \left(2 - \frac{1}{m}\right)n^2
-\end{split}    
+  \end{split}    
 \end{equation*} 
 
 And therefore, for an Hamiltonians which have a grater number of terms than the number of the qubits which they act on, we expect to see an improvement which is almost an half of the naive solution. In fact this improvement is much more significant than might seem as simulating up to \(\varepsilon\)-error requires \(\textbf{Poly} \left( \frac{1}{\varepsilon} \right) \) repetitions\ctt{add a cition}, so for full simulation we have obtained a \( \sim (\frac{1}{2})^{poly(\frac{1}{\varepsilon})} \) speed-up factor.  
@@ -118,16 +119,16 @@ The permutation which swapping between \({ v_1 , v_2 ... v_k } \leftrightarrow {
 
 \begin{figure}[H]
   \centering
-    \includesvg[width = 250pt]{SWAPGate.svg}
-    \caption{The implementation of the two-qubit \textbf{SWAP} gate. The left part replace the bit values of the qubits, then we are rotate into the dual space and swap the phases finally we return back to the original space.}
-    \label{fig:average-data-vs-model}
+  \includesvg[width = 250pt]{SWAPGate.svg}
+  \caption{The implementation of the two-qubit \textbf{SWAP} gate. The left part replace the bit values of the qubits, then we are rotate into the dual space and swap the phases finally we return back to the original space.}
+  \label{fig:average-data-vs-model}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-    \includesvg[width = 280pt]{SWAPExample.svg}
-    \caption{Example for the general swap gate  \( \textbf{SWAP}\), In that example \(v = \left(e_1, e_2, e_4\right) \) and \(u = \left(e_7, e_8, e_6\right)\). And notice that the mapping swap between \( e_4 \leftrightarrow e_6\) wires.  }
-    \label{fig:average-data-vs-model}
+  \includesvg[width = 280pt]{SWAPExample.svg}
+  \caption{Example for the general swap gate  \( \textbf{SWAP}\), In that example \(v = \left(e_1, e_2, e_4\right) \) and \(u = \left(e_7, e_8, e_6\right)\). And notice that the mapping swap between \( e_4 \leftrightarrow e_6\) wires.  }
+  \label{fig:average-data-vs-model}
 \end{figure}
 
 
@@ -137,10 +138,10 @@ In similar way for \(u,v \in \mathbb{F}_{2}^{n}\) we will name by \( \textbf{SWA
 
 To understand the rational behind those notations consider the following  possible terms:
 \begin{itemize}
-    \item \(H_{1} = I  X  X  I  I \)
-    \item \(H_{2} = X  I  I  Z  I \)
-    \item \(H_{3} = I  I  X  I  X \)
-    \item \(H_{4} = X  I  I  Z  I \)
+  \item \(H_{1} = I  X  X  I  I \)
+  \item \(H_{2} = X  I  I  Z  I \)
+  \item \(H_{3} = I  I  X  I  X \)
+  \item \(H_{4} = X  I  I  Z  I \)
 \end{itemize} In case we have decided to simulate first \(H_{1},H_{2}\) which can be done in parallel after swapping the first and the third qubit. Then we already have made half of the way trough the rotation in which \(H_{3},H_{4}\) can be compute in parallel. That insight bring us to the next Lemma.     
 \paragraph{Definition.} \textit{ Let $G^\prime$ be the the graph which is obtained from $G$ by indentify each vertex with his support. }
 \paragraph{Lemma.} \textit{ Let \(v,u\) be vertices in \(G^{\prime}\) which defined as   which by definition are also match to a pair of vectors in \(\mathbb{F}_2^{n} \). Then:} 
@@ -155,153 +156,153 @@ To understand the rational behind those notations consider the following  possib
 \paragraph{}
 Assume the correc[Ham(support(Htion of the lemma for any \(d^\prime \le d\), denote again by $j$ one of the cordinate in which $v,u$ act different, And consider the vector \(u^\prime = u \oplus v_{j} \Rightarrow u^{\prime}_{j} = v_{j}\), if \( \textbf{Ham}(u,v) = d\) then \( \textbf{Ham}(u^\prime,v) = d-1\) and therefore there exist a circuit \(C^{v,u^\prime}\in \textbf{SWAP}^{v,u^\prime}\) at depth \( \textbf{Ham}(v,u^\prime)\cdot\text{Depth}\left(\textbf{SWAP}\right) \). By the fact that \( \textbf{SWAP}^{v,u} = \textbf{SWAP}^{v,u^\prime} \textbf{SWAP}^{u^\prime,u}     \) and because \( \textbf{Ham}(u^\prime,u) = 1 \) we get that:
 
-\begin{equation*}
-    \begin{split}
-        & D\left(\textbf{SWAP}^{v,u}\right)  =   D\left(\textbf{SWAP}^{v,u^\prime}\right) + D\left( \textbf{SWAP}^{u^\prime,u} \right) \\ 
-        & \le
-         \left\Big(\textbf{Ham}(v,u^\prime) + \textbf{Ham}(u,u^\prime)\right\Big) \cdot\text{Depth}\left(\textbf{SWAP}\right) \\ & =
-        \textbf{Ham}(v,u) \cdot\text{Depth}\left(\textbf{SWAP}\right) 
-    \end{split}
-\end{equation*}
-And that finishes the proof \(\square\)
+      \begin{equation*}
+	\begin{split}
+	  & D\left(\textbf{SWAP}^{v,u}\right)  =   D\left(\textbf{SWAP}^{v,u^\prime}\right) + D\left( \textbf{SWAP}^{u^\prime,u} \right) \\ 
+	  & \le
+	  \left(\textbf{Ham}(v,u^\prime) + \textbf{Ham}(u,u^\prime)\right) \cdot\text{Depth}\left(\textbf{SWAP}\right) \\ & =
+	  \textbf{Ham}(v,u) \cdot\text{Depth}\left(\textbf{SWAP}\right) 
+	\end{split}
+      \end{equation*}
+      And that finishes the proof \(\square\)
 
-\paragraph{Corollary.} Let \(P = \braket{v_{1}, v_{2} ... v_{l}}\) a vertices path in the graph \(G\) as defined above. And let \(U\) be circuit such that for each \(v_{i} \in P \) \(U\) apply the circuit \(U_{i}\) at the \ctt{I should define it} base. Then there exist an implementation for that circuit at depth:
-\begin{equation*}
-    \begin{split}
-        & D(U) = \sum_{i}{D\left(U_{i}\right)+D\left(\textbf{SWAP}^{v_{i},v_{i+1}}\right)}\\
-        & = \sum_{i}{D\left(U_{i}\right) + \textbf{Ham}(v_{i-1},v_{i}) \cdot\text{Depth}\left(\textbf{SWAP}\right)} \\ 
-        & = \sum_{i}{D\left(U_{i}\right) + w(v_{i-1},v_{i}) \cdot\text{Depth}\left(\textbf{SWAP}\right)} \\
-        & = w\left(P\right)\cdot\text{Depth}\left(\textbf{SWAP}\right) +   \sum_{i}{D\left(U_{i}\right) }  
-    \end{split}
-\end{equation*}
+      \paragraph{Corollary.} Let \(P = \braket{v_{1}, v_{2} ... v_{l}}\) a vertices path in the graph \(G\) as defined above. And let \(U\) be circuit such that for each \(v_{i} \in P \) \(U\) apply the circuit \(U_{i}\) at the \ctt{I should define it} base. Then there exist an implementation for that circuit at depth:
+      \begin{equation*}
+	\begin{split}
+	  & D(U) = \sum_{i}{D\left(U_{i}\right)+D\left(\textbf{SWAP}^{v_{i},v_{i+1}}\right)}\\
+	  & = \sum_{i}{D\left(U_{i}\right) + \textbf{Ham}(v_{i-1},v_{i}) \cdot\text{Depth}\left(\textbf{SWAP}\right)} \\ 
+	  & = \sum_{i}{D\left(U_{i}\right) + w(v_{i-1},v_{i}) \cdot\text{Depth}\left(\textbf{SWAP}\right)} \\
+	  & = w\left(P\right)\cdot\text{Depth}\left(\textbf{SWAP}\right) +   \sum_{i}{D\left(U_{i}\right) }  
+	\end{split}
+      \end{equation*}
 
 
 
-\paragraph{Expectation of intersect terms.} Denote by $X_{i}^{j}$ the indector which assign $1$ to the event that the $i$ term act non trivaliy on the $j$th qubit. Then it's clear that
+      \paragraph{Expectation of intersect terms.} Denote by $X_{i}^{j}$ the indector which assign $1$ to the event that the $i$ term act non trivaliy on the $j$th qubit. Then it's clear that
 
-\begin{equation*}
-  \begin{split}
-    \mathbb{E}\left[ \text{intersects} \right] \le & \mathbb{E}\left[ \sum_{i,k}^{m}{n\cdot X_{i}^{j}X_{k}^{j}} \right]  = {m \choose 2}np^2 
-    \end{split}
-  \end{equation*}
-  If we sample the terms form a uniform distrubtion over the $\Delta$-local terms then $p =  { n -1 \choose \Delta -1 }/ {n \choose \Delta}  = \frac{\Delta}{n}$. And therfore the excpection of the intersections is less then ${ m \choose 2}\frac{\Delta^2}{n}$. Hence by markov inequality we obtin that 
-  \begin{equation*}
-    \prb{ \text{intersects} \ge \frac{1}{2} { m \choose 2}  } \le \frac{2\Delta^2}{n} $
-  \end{equation*}
-    \paragraph{The Algorithm.}
+      \begin{equation*}
+	\begin{split}
+	  \mathbb{E}\left[ \text{intersects} \right] \le & \mathbb{E}\left[ \sum_{i,k}^{m}{n\cdot X_{i}^{j}X_{k}^{j}} \right]  = {m \choose 2}np^2 
+	\end{split}
+      \end{equation*}
+      If we sample the terms form a uniform distrubtion over the $\Delta$-local terms then $p =  { n -1 \choose \Delta -1 }/ {n \choose \Delta}  = \frac{\Delta}{n}$. And therfore the excpection of the intersections is less then ${ m \choose 2}\frac{\Delta^2}{n}$. Hence by markov inequality we obtin that 
+      \begin{equation*}
+	\prb{ \text{intersects} \ge \frac{1}{2} { m \choose 2}  } \le \frac{2\Delta^2}{n} $
+      \end{equation*}
+      \paragraph{The Algorithm.}
 
-\paragraph{The general concept.} We will identify each pair of  
+      \paragraph{The general concept.} We will identify each pair of  
 
 %  \ \textbf{Ham}(v,u^\prime)\cdot\text{Depth}\left(\textbf{SWAP}\right)  + 
-        % \textbf{Ham}(u,u^\prime)\cdot\text{Depth}\left(\textbf{SWAP}\right) =
+	% \textbf{Ham}(u,u^\prime)\cdot\text{Depth}\left(\textbf{SWAP}\right) =
 
-\paragraph{}
+      \paragraph{}
 
-\begin{algorithm}[H]
-\SetAlgoLined
-\ \\ 
-\( \ket{\psi} \leftarrow \) the inital state.
- \(T  \leftarrow\) MST(\(G\)). \\
- \(P \leftarrow \) ordering of the vertices \( \braket{v_{1} , .. v_{l}}\) according to the \textbf{DFS} scanning of \(T\). \\
- \ \\ 
- \For{ \(v \in P\) }{
-    \( \ket{\psi} \leftarrow \textbf{SWAP}^{v_{i-1},v_{i}} \) \\ 
-    \While{ \( \exists H_{i}, H_{j}\) s.t \(supp(H_{i}) = v = \overline{supp(H_{j})}\)} {
-      \( \ket{\psi} \leftarrow U(H_{i})_{v} \otimes U(H_{j})_{\overline{v}} \ket{{\psi}} \) \\ 
-      mark \(H_{i}, H_{j}\).
-    }
- }
- \ \\
- complete the left terms by the naive approach. \\
- \Return \( \ket{\psi} \)
- \caption{Simulate a single step \(e^{iH\Delta t}\)}
-\end{algorithm}
-
-
-\paragraph{Lemma.} \textit{Let \(\{X_{i}\}\) be a monotonic set of numbers bounded by \(2\mu\) with expectation \( \mu \) and variance \( \sigma^2 \). Then:}
-\begin{equation*}
-    \begin{split}
-        \sum{ \frac{1}{m}\max{ \left\{ X_{i}, X_{i+ \frac{n}{2}} \right\} } } \le \mu + \frac{1}{2}\sigma^2  
-    \end{split}
-\end{equation*}
-\paragraph{Proof.} Define \(Y : \Omega \rightarrow \mathbb{R} \) to be the random  variable which is the hist of the \(X\) by \(\mu\) i.e \(Y = X -\mu\). From the linearity of expectation we get that \(\mathbb{E}[X] = \mu + \mathbb{E}[Y]\). let's note by \(Y^{s}\) and \(Y^{as}\) the symetric and asymetric parts of \(Y\). the \(\square\). 
-
-\( \mathbb{E}[X] = \frac{1}{2}M + \mathbb{E}[X^{s} - M] = \frac{1}{2}M + \mathbb{E}[(X-M)^{s} + (X-M)^{as}] = \frac{1}{2}M + \frac{1}{2}\mu + \mathbb{E}[(X-M)^{as}] \) 
-
-\paragraph{Lemma.} \textit{Let \( H = \frac{1}{m}\sum{H_{i}}\) be Hamiltonian such each term \(H_{i}\) is a generalized pauli operator. Let \(P\) be random pauli which sampled uniformly. Then:   }
+      \begin{algorithm}[H]
+	\SetAlgoLined
+	\ \\ 
+	\( \ket{\psi} \leftarrow \) the inital state.
+	\(T  \leftarrow\) MST(\(G\)). \\
+	\(P \leftarrow \) ordering of the vertices \( \braket{v_{1} , .. v_{l}}\) according to the \textbf{DFS} scanning of \(T\). \\
+	\ \\ 
+	\For{ \(v \in P\) }{
+	  \( \ket{\psi} \leftarrow \textbf{SWAP}^{v_{i-1},v_{i}} \) \\ 
+	  \While{ \( \exists H_{i}, H_{j}\) s.t \(supp(H_{i}) = v = \overline{supp(H_{j})}\)} {
+	    \( \ket{\psi} \leftarrow U(H_{i})_{v} \otimes U(H_{j})_{\overline{v}} \ket{{\psi}} \) \\ 
+	    mark \(H_{i}, H_{j}\).
+	  }
+	}
+	\ \\
+	complete the left terms by the naive approach. \\
+	\Return \( \ket{\psi} \)
+	\caption{Simulate a single step \(e^{iH\Delta t}\)}
+      \end{algorithm}
 
 
-\paragraph{Lemma.} \textit{Majoritiy principle. We can always assume that the more then quarter of the paulis are identity. } \ctt{ doesn't correct, but can be passed if we change the definition of the solid tensor to include only differ coordinates}.
+      \paragraph{Lemma.} \textit{Let \(\{X_{i}\}\) be a monotonic set of numbers bounded by \(2\mu\) with expectation \( \mu \) and variance \( \sigma^2 \). Then:}
+      \begin{equation*}
+	\begin{split}
+	  \sum{ \frac{1}{m}\max{ \left\{ X_{i}, X_{i+ \frac{n}{2}} \right\} } } \le \mu + \frac{1}{2}\sigma^2  
+	\end{split}
+      \end{equation*}
+      \paragraph{Proof.} Define \(Y : \Omega \rightarrow \mathbb{R} \) to be the random  variable which is the hist of the \(X\) by \(\mu\) i.e \(Y = X -\mu\). From the linearity of expectation we get that \(\mathbb{E}[X] = \mu + \mathbb{E}[Y]\). let's note by \(Y^{s}\) and \(Y^{as}\) the symetric and asymetric parts of \(Y\). the \(\square\). 
 
-\begin{equation*}
-    \begin{split}
-        U^{t} = \sqrt{X}^\dagger\sqrt{X}U\sqrt{X}\sqrt{X}^\dagger U \sqrt{X}^\dagger\sqrt{X} ... U \sqrt{X}^\dagger\sqrt{X}
-    \end{split}
-\end{equation*}
+      \( \mathbb{E}[X] = \frac{1}{2}M + \mathbb{E}[X^{s} - M] = \frac{1}{2}M + \mathbb{E}[(X-M)^{s} + (X-M)^{as}] = \frac{1}{2}M + \frac{1}{2}\mu + \mathbb{E}[(X-M)^{as}] \) 
 
-\section{\ctt{Enter it}}
-
-\paragraph{Lemma I} \textit{ A graph with all degrees at most \(d\) satisfies: 
-\begin{equation*}
-    \begin{split}
-        \alpha \left( G\right) \ge \frac{|V\left(G\right)|}{d+1}
-    \end{split}
-\end{equation*}
-}
-\textbf{Proof.} Denote by \(U \subset V\) the maximal independent subset of \(V\). By the maximality it follows that for every \(w \in V/U \) there is at least one neighbor in \(U\) (otherwise the \(U \cup w\) is an independent subset with a bigger size). Therefore 
-\begin{equation*}
-    \begin{split}
-        |V/U| &= |\Gamma\left(U\right) / U | \le |\Gamma\left(U\right)| \le d |U|= d \alpha \left( G\right) 
-    \end{split}
-\end{equation*}
-Combining the fact that \(|V| = |U| + |V/U| \) we get that: 
-\begin{equation*}
-    \begin{split}
-        \Rightarrow |V| &= |U| + |V/U| \le \alpha \left( G\right)  + d \alpha \left( G\right) \\
-        \Rightarrow \  & \alpha \left( G\right) \ge \frac{|V\left(G\right)}{d+1} 
-    \end{split}
-\end{equation*}
-\(\square\)
-
-\Lemma \textit{Bravyi Kitaev Transformation Degree. \ctt{Prove that, in the \(\textbf{SP}(G)\) Graph the degree is bounded by \(4^{4\log(n)} - 2^{4\log{n}}\) }}
+      \paragraph{Lemma.} \textit{Let \( H = \frac{1}{m}\sum{H_{i}}\) be Hamiltonian such each term \(H_{i}\) is a generalized pauli operator. Let \(P\) be random pauli which sampled uniformly. Then:   }
 
 
-\begin{equation*}
-    \begin{split}
-        m_{i+1} & \leftarrow m_{i} - \alpha\left(G\right) \\ 
-        m_{i+1} & \leftarrow \left( 1  - \frac{1}{1 + \Delta} \right)m_{i} \\ 
-        & \left( 1  - \frac{1}{1 + \Delta} \right)^{h} m_{0} = 1 \\
-        h &= \log_{\left( \frac{1 + \Delta}{\Delta} \right)}{\left( m_{0} \right)}
-    \end{split}
-\end{equation*}
+      \paragraph{Lemma.} \textit{Majoritiy principle. We can always assume that the more then quarter of the paulis are identity. } \ctt{ doesn't correct, but can be passed if we change the definition of the solid tensor to include only differ coordinates}.
 
-\Lemma \textit{ For any \( q \in \mathbb{N}  \)    
-\begin{equation*}
-    \begin{split}
-        \frac{1}{2}\left( 1 + q + ... q^{n-1} \right) + q^{n} \le \left( 1 - \frac{1}{2(q+1)} \right) \frac{q^{n+1}-1}{q-1} 
-    \end{split}
-\end{equation*}
-}
+      \begin{equation*}
+	\begin{split}
+	  U^{t} = \sqrt{X}^\dagger\sqrt{X}U\sqrt{X}\sqrt{X}^\dagger U \sqrt{X}^\dagger\sqrt{X} ... U \sqrt{X}^\dagger\sqrt{X}
+	\end{split}
+      \end{equation*}
+
+      \section{\ctt{Enter it}}
+
+      \paragraph{Lemma I} \textit{ A graph with all degrees at most \(d\) satisfies: 
+	\begin{equation*}
+	  \begin{split}
+	    \alpha \left( G\right) \ge \frac{|V\left(G\right)|}{d+1}
+	  \end{split}
+	\end{equation*}
+      }
+      \textbf{Proof.} Denote by \(U \subset V\) the maximal independent subset of \(V\). By the maximality it follows that for every \(w \in V/U \) there is at least one neighbor in \(U\) (otherwise the \(U \cup w\) is an independent subset with a bigger size). Therefore 
+      \begin{equation*}
+	\begin{split}
+	  |V/U| &= |\Gamma\left(U\right) / U | \le |\Gamma\left(U\right)| \le d |U|= d \alpha \left( G\right) 
+	\end{split}
+      \end{equation*}
+      Combining the fact that \(|V| = |U| + |V/U| \) we get that: 
+      \begin{equation*}
+	\begin{split}
+	  \Rightarrow |V| &= |U| + |V/U| \le \alpha \left( G\right)  + d \alpha \left( G\right) \\
+	  \Rightarrow \  & \alpha \left( G\right) \ge \frac{|V\left(G\right)}{d+1} 
+	\end{split}
+      \end{equation*}
+      \(\square\)
+
+      \Lemma \textit{Bravyi Kitaev Transformation Degree. \ctt{Prove that, in the \(\textbf{SP}(G)\) Graph the degree is bounded by \(4^{4\log(n)} - 2^{4\log{n}}\) }}
 
 
-\begin{equation*}
-    \begin{split}
-        f\left(m\right) &= f\left( \frac{1}{2}\alpha\left(m\right))  \right) + f\left( m - \alpha\left(m\right) \right)  \\
-        & \le f\left( \frac{1}{2\left(\Delta+1\right)}m\right) + f\left( \left(1 - \frac{1}{\left( \Delta + 1 \right)} \right)m \right) 
-    \end{split}
-\end{equation*}
+      \begin{equation*}
+	\begin{split}
+	  m_{i+1} & \leftarrow m_{i} - \alpha\left(G\right) \\ 
+	  m_{i+1} & \leftarrow \left( 1  - \frac{1}{1 + \Delta} \right)m_{i} \\ 
+	  & \left( 1  - \frac{1}{1 + \Delta} \right)^{h} m_{0} = 1 \\
+	  h &= \log_{\left( \frac{1 + \Delta}{\Delta} \right)}{\left( m_{0} \right)}
+	\end{split}
+      \end{equation*}
 
-\begin{equation*}
-    \begin{split}
-        f\left(m\right) &= \xi + f\left( m - \alpha\left(m\right) \right)  \\
-        & = 2\xi + f\left( m - \alpha\left(m\right) - \alpha\left(m - \alpha\left(m\right)\right)  \right) \\ & \le 2\xi + f\left( m - \alpha\left(m\right) - \alpha\left(m - \alpha\left(m\right)\right)  \right)
-    \end{split}
-\end{equation*}
+      \Lemma \textit{ For any \( q \in \mathbb{N}  \)    
+	\begin{equation*}
+	  \begin{split}
+	    \frac{1}{2}\left( 1 + q + ... q^{n-1} \right) + q^{n} \le \left( 1 - \frac{1}{2(q+1)} \right) \frac{q^{n+1}-1}{q-1} 
+	  \end{split}
+	\end{equation*}
+      }
 
-Randomization Trick.
+
+      \begin{equation*}
+	\begin{split}
+	f\left(m\right) &= f\left( \frac{1}{2}\alpha\left(m\right))  \right) + f\left( m - \alpha\left(m\right) \right)  \\
+	& \le f\left( \frac{1}{2\left(\Delta+1\right)}m\right) + f\left( \left(1 - \frac{1}{\left( \Delta + 1 \right)} \right)m \right) 
+      \end{split}
+    \end{equation*}
+
+    \begin{equation*}
+      \begin{split}
+	f\left(m\right) &= \xi + f\left( m - \alpha\left(m\right) \right)  \\
+	& = 2\xi + f\left( m - \alpha\left(m\right) - \alpha\left(m - \alpha\left(m\right)\right)  \right) \\ & \le 2\xi + f\left( m - \alpha\left(m\right) - \alpha\left(m - \alpha\left(m\right)\right)  \right)
+      \end{split}
+    \end{equation*}
+
+    Randomization Trick.
 
 
 
 
 % \printbibliography 
-\end{document}
+    \end{document}
