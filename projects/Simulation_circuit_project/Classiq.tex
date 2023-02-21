@@ -1,18 +1,19 @@
 
 \documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage[a4paper, total={7in, 10in}]{geometry}
-\usepackage{braket}
-\usepackage{xcolor}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsfonts}
-\usepackage{graphicx}
-\usepackage{svg}
-\usepackage{media9}
-\usepackage{float}
-\usepackage{tikz}
-\usepackage[ruled,vlined]{algorithm2e}
+\input{usepackage}
+ %\usepackage[utf8]{inputenc}
+ %\usepackage[a4paper, total={7in, 10in}]{geometry}
+ %\usepackage{braket}
+ %\usepackage{xcolor}
+ %\usepackage{amsmath}
+ %\usepackage{amssymb}
+ %\usepackage{amsfonts}
+ %\usepackage{graphicx}
+ %\usepackage{svg}
+ %\usepackage{media9}
+ %\usepackage{float}
+ %\usepackage{tikz}
+ %\usepackage[ruled,vlined]{algorithm2e}
 % \usepackage{biblatex} %Imports biblatex package
 
 \usepackage[
@@ -26,6 +27,7 @@ sorting=ynt
 \newcommand{\commentt}[1]{\textcolor{blue}{ \textbf{[COMMENT]} #1}}
 \newcommand{\ctt}[1]{\commentt{#1}}
 \newcommand{\prb}[1]{ \mathbf{Pr} \left[ {#1} \right]}
+\newcommand{\expp}[1]{ \mathbf{E} \left[ {#1} \right]}
 \newcommand{\onotation}[1]{\(\mathcal{O} \left( {#1}  \right) \)}
 \newcommand{\ona}[1]{\onotation{#1}}
 \newcommand{\PSI}{{\ket{\psi}}}
@@ -52,7 +54,7 @@ sorting=ynt
 \begin{abstract} 
   In this work we deal with the problem of desgining efficint circuit to simulate the development in time of the inital state by the given $\Delta$-local Hamiltonian. We suggest an heuristics and  compare the circuit depth obtained by them to the circuit which is yielded by naive approach.   
 \end{abstract}
-\begin{multicols*}{2}
+% \begin{multicols*}{2}
 
 % \paragraph{Definition.} \textit{we will say that an Hamiltonian set \( \mathcal{H} = \{ H_i \} \) is \textbf{\(\gamma\)-stable}  \ctt{CHANGE THE NAME}  if there is a constant \( \gamma > 0  \) such that for any state \( \PSI \) and the following enqulity holds:}
 % \begin{equation*}
@@ -302,5 +304,4 @@ Randomization Trick.
 
 
 % \printbibliography 
-\end{multicols*}
 \end{document}
