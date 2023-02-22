@@ -64,7 +64,7 @@ Generate a circuit, using no more than \(10\) qubits, that approximates the unit
 \begin{algorithm}[H]
 	\SetAlgoLined
 	\ \\ 
-	\If{ $ H \perc H_{v} $ }{
+	\If{ $ H \prec H_{v} $ }{
 	  $ H \leftrightarrow H_{v}$ \\
 	  call in recursion $(v, H_{v} )$ 
 	}
@@ -72,10 +72,10 @@ Generate a circuit, using no more than \(10\) qubits, that approximates the unit
 	  Let $L$ be an empty list. \\
 	  Let $w \leftarrow \emptyset$ \\
 	  \For{ $ \{v,u\}  \in E $ }{
-	    \If{ $ H_{v} \perc H_{u} $ } {
+	    \If{ $ H_{v} \prec H_{u} $ } {
 	      $ L \leftarrow L \cup \{ H_{u} \} $\\
 	    }
-	    \ElseIf{ $ H_{u} \perc H_{v} $}   {
+	    \ElseIf{ $ H_{u} \prec H_{v} $}   {
 	      $w \leftarrow u $ \\
 	    }
 	  }
