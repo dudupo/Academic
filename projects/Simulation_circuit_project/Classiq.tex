@@ -2,11 +2,11 @@
 \documentclass{article}
 \input{usepackage}
 
-\usepackage[
-  backend=biber,
-  style=alphabetic,
-  sorting=ynt
-]{biblatex}
+%\usepackage[
+%  backend=biber,
+%  style=alphabetic,
+%  sorting=ynt
+%]{biblatex}
 
 \addbibresource{sample.bib} %Import the bibliography file
 
@@ -226,7 +226,7 @@ To understand the rational behind those notations consider the following  possib
 	  \end{split}
 	\end{equation*}
       \end{lemma}
-      \begin{proof} Define \(Y : \Omega \rightarrow \mathbb{R} \) to be the random  variable which is the hist of the \(X\) by \(\mu\) i.e \(Y = X -\mu\). From the linearity of expectation we get that \(\mathbb{E}[X] = \mu + \mathbb{E}[Y]\). let's note by \(Y^{s}\) and \(Y^{as}\) the symetric and asymetric parts of \(Y\). the \(\square\). 
+      \begin{proof} Define \(Y : \Omega \rightarrow \mathbb{R} \) to be the random  variable which is the hist of the \(X\) by \(\mu\) i.e \(Y = X -\mu\). From the linearity of expectation we get that \(\mathbb{E}[X] = \mu + \mathbb{E}[Y]\). let's note by \(Y^{s}\) and \(Y^{as}\) the symmetric and asymmetric parts of \(Y\). the \(\square\). 
 
 	\( \mathbb{E}[X] = \frac{1}{2}M + \mathbb{E}[X^{s} - M] = \frac{1}{2}M + \mathbb{E}[(X-M)^{s} + (X-M)^{as}] = \frac{1}{2}M + \frac{1}{2}\mu + \mathbb{E}[(X-M)^{as}] \) 
       \end{proof}
