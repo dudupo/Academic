@@ -2,6 +2,7 @@
 \documentclass{article}
 \input{usepackage}
 
+
 %\usepackage[
 %  backend=biber,
 %  style=alphabetic,
@@ -35,7 +36,6 @@
 \author{David Ponarovsky}
 \maketitle
 \begin{abstract} 
-
   In this work we deal with the problem of desgining efficint circuit to simulate the development in time of the inital state by the given $\Delta$-local Hamiltonian. We suggest an heuristics and  compare the circuit depth obtained by them to the circuit which is yielded by naive approach.   
 \end{abstract}
 % \begin{multicols*}{2}
@@ -199,7 +199,8 @@ To understand the rational behind those notations consider the following  possib
 	\ \\ 
 	\( \ket{\psi} \leftarrow \) the inital state.
 	\(T  \leftarrow\) MST(\(G\)). \\
-	\(P \leftarrow \) ordering of the vertices \( \braket{v_{1} , .. v_{l}}\) according to the \textbf{DFS} scanning of \(T\). \\
+	\(P \leftarrow \) ordering of the vertices \( \braket{v_{1} , .. v_{l}}\) \\ 
+	\ according to the \textbf{DFS} scanning of \(T\). \\
 	\ \\ 
 	\For{ \(v \in P\) }{
 	  \( \ket{\psi} \leftarrow \textbf{SWAP}^{v_{i-1},v_{i}} \) \\ 
