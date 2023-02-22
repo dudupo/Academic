@@ -1,0 +1,61 @@
+  \section{\ctt{Enter it}}
+
+      \paragraph{Lemma I} \textit{ A graph with all degrees at most \(d\) satisfies: 
+	\begin{equation*}
+	  \begin{split}
+	    \alpha \left( G\right) \ge \frac{|V\left(G\right)|}{d+1}
+	  \end{split}
+	\end{equation*}
+      }
+      \begin{proof} Denote by \(U \subset V\) the maximal independent subset of \(V\). By the maximality it follows that for every \(w \in V/U \) there is at least one neighbor in \(U\) (otherwise the \(U \cup w\) is an independent subset with a bigger size). Therefore 
+	\begin{equation*}
+	  \begin{split}
+	    |V/U| &= |\Gamma\left(U\right) / U | \le |\Gamma\left(U\right)| \le d |U|= d \alpha \left( G\right) 
+	  \end{split}
+	\end{equation*}
+	Combining the fact that \(|V| = |U| + |V/U| \) we get that: 
+	\begin{equation*}
+	  \begin{split}
+	    \Rightarrow |V| &= |U| + |V/U| \le \alpha \left( G\right)  + d \alpha \left( G\right) \\
+	    \Rightarrow \  & \alpha \left( G\right) \ge \frac{|V\left(G\right)}{d+1} 
+	  \end{split}
+	\end{equation*}
+      \end{proof}
+
+      \begin{lemma} \textit{Bravyi Kitaev Transformation Degree. \ctt{Prove that, in the \(\textbf{SP}(G)\) Graph the degree is bounded by \(4^{4\log(n)} - 2^{4\log{n}}\) }}
+      \end{lemma}
+      \begin{equation*}
+	\begin{split}
+	  m_{i+1} & \leftarrow m_{i} - \alpha\left(G\right) \\ 
+	  m_{i+1} & \leftarrow \left( 1  - \frac{1}{1 + \Delta} \right)m_{i} \\ 
+	  & \left( 1  - \frac{1}{1 + \Delta} \right)^{h} m_{0} = 1 \\
+	  h &= \log_{\left( \frac{1 + \Delta}{\Delta} \right)}{\left( m_{0} \right)}
+	\end{split}
+      \end{equation*}
+
+%      \begin{lemma} \textit{ For any \( q \in \mathbb{N}  \)    
+      \begin{equation*}
+	\begin{split}
+	  \frac{1}{2}\left( 1 + q + ... q^{n-1} \right) + q^{n} \le \left( 1 - \frac{1}{2(q+1)} \right) \frac{q^{n+1}-1}{q-1} 
+	\end{split}
+      \end{equation*}
+    }
+
+
+    \begin{equation*}
+      \begin{split}
+      f\left(m\right) &= f\left( \frac{1}{2}\alpha\left(m\right))  \right) + f\left( m - \alpha\left(m\right) \right)  \\
+      & \le f\left( \frac{1}{2\left(\Delta+1\right)}m\right) + f\left( \left(1 - \frac{1}{\left( \Delta + 1 \right)} \right)m \right) 
+    \end{split}
+  \end{equation*}
+
+  \begin{equation*}
+    \begin{split}
+      f\left(m\right) &= \xi + f\left( m - \alpha\left(m\right) \right)  \\
+      & = 2\xi + f\left( m - \alpha\left(m\right) - \alpha\left(m - \alpha\left(m\right)\right)  \right) \\ & \le 2\xi + f\left( m - \alpha\left(m\right) - \alpha\left(m - \alpha\left(m\right)\right)  \right)
+    \end{split}
+  \end{equation*}
+
+  Randomization Trick.
+
+
