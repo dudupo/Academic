@@ -24,29 +24,6 @@
 \pgfplotsset{compat=newest}
 
 \addbibresource{sample.bib} %Import the bibliography file
-
-%\newcommand{\commentt}[1]{\textcolor{blue}{ \textbf{[COMMENT]} #1}}
-%\newcommand{\ctt}[1]{\commentt{#1}}
-%\newcommand{\prb}[1]{ \mathbf{Pr} \left[ {#1} \right]}
-%\newcommand{\expp}[1]{ \mathbf{E} \left[ {#1} \right]}
-%\newcommand{\onotation}[1]{\(\mathcal{O} \left( {#1}  \right) \)}
-%\newcommand{\ona}[1]{\onotation{#1}}
-%\newcommand{\PSI}{{\ket{\psi}}}
-%\newcommand{\LESn}{\ket{\psi_n}}
-%\newcommand{\LESa}{\ket{\phi_n}}
-%\newcommand{\LESs}{\frac{1}{\sqrt{n}}\sum_{i}{\ket{\left(0^{i}10^{n-i}\right)^{n}}}}
-%\newcommand{\Hn}{\mathcal{H}_{n}}
-%\newcommand{\Ep}{\frac{1}{\sqrt{2^n}}\sum^{2^n}_{x}{ \ket{xx}}}
-%\newcommand{\HON}{\ket{\psi_{\text{honest}}}}
-%\newcommand{\Lemma}{\paragraph{Lemma.}}
-%\newcommand{\PonB}{ \rho + \frac{5}{16}\delta\le \frac{3}{4} + \frac{1}{16} } 
-%\newcommand{\Cpa}{[n, \rho n, \delta n]}
-%%\setlength{\columnsep}{0.6cm}
-%
-%\newcommand{\Gz}{ G_{z}^{\delta} } 
-%\newcommand{ \Tann } {  \mathcal{T}\left( G, C_0 \right) }
-%\newcommand{\xij} { X_{ij} } 
-%
 \input{../general-tex/newcommands.tex}
 \begin{document}
 
@@ -55,7 +32,6 @@
 \author{David Ponarovsky}
 \maketitle
 \abstract{None.} 
-\begin{multicols*}{2}
 
   \paragraph{The problem.} Let $f: [0,1] \rightarrow [0,1]$ a fixed distribution function. Write an algorithm that sorts $n$ draws $x_1 ... x_{n}$ at linear expectation time.  
   \paragraph{Solution.} We will define a partition of the input into a series of $n$ buckets $\mathcal{B} = \left\{ B_{k} = [t_{k}, t_{k+1} ]: k \in [n]  \right\}$ such that $ \prb{ x \in B_{i}} = \frac{1}{n}$ for any bucket. Assume that we succeed in computing the buckets efficiently. Let the $\xij$ be the indicator of the event that $x_{j}$ falls to $B_i$. Then we have:
@@ -77,7 +53,6 @@
   \end{equation*} 
   Hence, if $f$ can be computed in sublinear time, then we obtained an expected linear time algorithm for sorting $\square$
   The result above demonstrates a case when knowing how the input is distributed turns the problem equivalent to facing a uniform distributed input.     
-\end{multicols*}
 \printbibliography 
 \end{document}
 
