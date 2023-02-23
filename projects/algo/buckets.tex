@@ -10,8 +10,8 @@
 \title{Bucket Sort When You Know The Distribution.} 
 \author{David Ponarovsky}
 \maketitle
-\abstract{None.} 
-
+\begin{abstract}None 
+\end{abstract}
   \paragraph{The problem.} Let $f: [0,1] \rightarrow [0,1]$ a fixed distribution function. Write an algorithm that sorts $n$ draws $x_1 ... x_{n}$ at linear expectation time.  
   \paragraph{Solution.} We will define a partition of the input into a series of $n$ buckets $\mathcal{B} = \left\{ B_{k} = [t_{k}, t_{k+1} ]: k \in [n]  \right\}$ such that $ \prb{ x \in B_{i}} = \frac{1}{n}$ for any bucket. Assume that we succeed in computing the buckets efficiently. Let the $\xij$ be the indicator of the event that $x_{j}$ falls to $B_i$. Then we have:
 
