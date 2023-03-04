@@ -1,18 +1,20 @@
 \documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage[a4paper, total={7in, 10in}]{geometry}
-\usepackage{braket}
-\usepackage{xcolor}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsfonts}
-\usepackage{graphicx}
-\usepackage{svg}
-\usepackage{float}
-\usepackage{tikz}
-\usepackage[ruled,vlined]{algorithm2e}
-\usepackage{multicol}
-\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+%\usepackage[utf8]{inputenc}
+%\usepackage[a4paper, total={7in, 10in}]{geometry}
+%\usepackage{braket}
+%\usepackage{xcolor}
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{amsfonts}
+%\usepackage{graphicx}
+%\usepackage{svg}
+%\usepackage{float}
+%\usepackage{tikz}
+%\usepackage[ruled,vlined]{algorithm2e}
+%\usepackage{multicol}
+%\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+%
+\input{../general-tex/usepackage.tex}
 
 \addbibresource{bibfile.bib} %Import the bibliography file
 
@@ -62,7 +64,6 @@ We name the gate above the \textit{Generalize Diffusion} gate, As if such gate w
 
 \paragraph{Quantum Communication Complexity of Disjointness.}
 Consider the following communication problem.
-
 As inputs Alice gets an \(x\) and Bob get a \(y\), where \(x, y \in \{0, 1\}^n \), and by exchanging information they want to determine if there is an index \(k\) such that \(x_k = y_k = 1 \) or not. 
 In other words, if \(x\) encodes the set \(A = \{k | x_k = 1\} \), and \(y\) encodes \(B = \{k | y_k = 1\}\), 
 then Alice and Bob want to determine whether \( A \cap B \) is empty or not.
@@ -70,7 +71,6 @@ then Alice and Bob want to determine whether \( A \cap B \) is empty or not.
 The classical randomized communication complexity of this problem is \ona{n} \cite{v003a011}.
 Assuming Alice and Bob can exchange quantum messages, It is known that Alice and bob can solve the task
 correctly with probability greater than \(2/3\) by exchanging at most \ona{\sqrt{n}\log n } qubits %\ctt{add cation of the original solution}. 
-
 
 \paragraph{The reduction.} 
 Assume by way of contradiction the existence of $D$ defined above.  
