@@ -133,7 +133,7 @@ $\Theta(\sqrt a)$ if $a>0$, and otherwise runs forever.}
 
 \paragraph{} 
 
-\paragraph{Proof of Theorem 1} 
+\begin{proof}[Proof of Theorem 1]
 Suppose that \( A \cap B \neq \emptyset \) then, the support of \( \ket{\psi_x} \otimes \ket{\psi_y} \) contain a state \( \ket{\phi} \) which satisfies \(C\), or in other words $a = |\braket{\Psi_1|\Psi}|^2 > 0 $ and therefore by \textit{Theorem 3} there is an explicit procedure which take a $\Theta(\sqrt{a})$ time in expectation, Hence for any \(\varepsilon >0\) we could construct a finite algorithm that fail with probability less than $ \varepsilon $ by rejecting runs that last longer than $\frac{1}{\varepsilon}$. 
   
 On the other hand, Consider the case when \(A \cap B = \emptyset\) then $\Rightarrow a = 0 \Rightarrow \mathcal{H}_{\Psi}$ is 1-dimension space spanned only by $\ket{\Psi_0} $, and the operator $ I - 2 \ket{\Psi}\bra{\Psi} $ act over the $ \ket{\Psi_0}  $ as identity and therefore after executing any number of iterations the probability to measure from $\ket{\Psi_0}$ will remain $1$.
@@ -147,6 +147,7 @@ On the other hand, Consider the case when \(A \cap B = \emptyset\) then $\Righta
 
 The protocol compute the disjointness in single round while requiring transmission of less than $\Theta\left( \sqrt{n} \right)$ qubits. That in contrast to the known lower bound proved by Braverman \cite{Braverman}: 
 \paragraph{Theorem A} \textit{The $r$-round quantum communication complexity of Disjointness$_n$ is $ \Omega\left( \frac{n}{r \log^8 r} \right)$.} 
+\end{proof}
 \paragraph{Conclusion And Open Problems.} The reduction above demonstrate how a known results can give us almost immediately insights about quantum compatibility. We hope that beside of been an no-go-to proof this work will also use as an hint for direction to other quantum advantages in the disturbed computing setting. 
 
 It's worth say that the $r$-rounds communication bound on disjointness does not hold in many cases, For simple example consider that each of the set $x,y \in \{0,1\}^{n}$ drawn uniformly, Then it's clear that Alice and Bob could just answer ``Yes'' and they will be correct with high probability. The family of states which one can do project over them by only partly projection (diffusion operators) are correspond to the distributions over pairs of Alice and Bob sets which they can compute with their disjointness with less communication.        
