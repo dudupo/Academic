@@ -55,10 +55,11 @@ General speaking this method transform a known state $\ket{\psi}$  with probabil
 
   One question that might rise is whether the above amplification process can be done assuming nothing but having a single entity of the initial state. Both positive and negative answers will shead light about the fundamentals behind the concept of transferring probability weight. We gave a partly answer for that question by proving that the given copy alone is not sufficient to simulate the diffusion step. We formulate the above by the follow theorem: 
 
-  \paragraph{Theorem 1} \textit{ There is no operator $D$ that for given two arbitrary states $\ket{\psi},\ket{\phi}$ compute the transformation:} 
+  \begin{theorem} \textit{ There is no operator $D$ that for given two arbitrary states $\ket{\psi},\ket{\phi}$ compute the transformation:} 
 \begin{equation*}
     D \ket{\psi}\ket{\phi} = \ket{\psi}\otimes\left( \mathbb{I} - 2 \ket{\psi}\bra{\psi} \right)\ket{\phi} 
 \end{equation*}
+\end{theorem}
 
 We name the gate above the \textit{Generalize Diffusion} gate, As if such gate were exists it could be used instand of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity in contradict to the fact that $r$-rounds two party computation needs at least $\Omega\left( \frac{n}{r} \right)$ communication to compute disjoiness (up to log factors) \cite{Braverman}.    
 
@@ -84,14 +85,14 @@ Denote it by \( C \) and by \( U \) the phase flip controlled by $C$ i.e. $U\ket
 
 The next claim argue that $D,U$ are sufficient to Alice to simulate a single iteration of the amplitude amplification. Since the technical ditels of the amplification procedure is not the focus of this paper, we only show equivalence without define the operators and the notation used by \cite{Brassard_2002}.   
 
-\paragraph{Claim.} \textit{ Recall the operator $\mathbf Q  = - {\mathcal A}  {\mathbf S}_0 
+\begin{claim} \textit{ Recall the operator $\mathbf Q  = - {\mathcal A}  {\mathbf S}_0 
   {\mathcal A}^{-1}  {\mathbf S}_\chi$ defined in \cite{Brassard_2002}, such that $ \mathcal A \ket{0} = \ket{\Psi} = \ket{\psi_{x}}\ket{\psi_{y}}$ and 
 consider the generalize diffusion gate $D$, Denote by $\mathcal{H}_{\Psi}$ the space which is spanned by the $\ket{\Psi}$ support. Then it holds that for any state $ \ket{\phi} \in \mathcal{H}_{\Psi} $:}
 \begin{equation*}
   \left(  \mathbb{I} \otimes \mathbf Q \right) \ket{\psi_{x}}\ket{\psi_{y}} \ket{\phi} =  - D \left( \mathbb{I} \otimes U \right)  \ket{\psi_{x}}\ket{\psi_{y}} \ket{\phi} 
 \end{equation*}
-
-\paragraph{Proof.} Let $\ket{\Psi_0}, \ket{\Psi_1}$ be the base which span $ \mathcal{H}_{\Psi}$ and in addition $U\ket{\Psi_0} = \ket{\Psi_0}, U\ket{\Psi_1} =- \ket{\Psi_1}$.
+\end{claim}
+\begin{proof} Let $\ket{\Psi_0}, \ket{\Psi_1}$ be the base which span $ \mathcal{H}_{\Psi}$ and in addition $U\ket{\Psi_0} = \ket{\Psi_0}, U\ket{\Psi_1} =- \ket{\Psi_1}$.
 
 First consider the case in which the dimension of $ \mathcal{H}_{\Psi}$ is exactly 1, If $ \ket{\Psi} $ supported only on non-satisfying states (i.e $\ket{\Psi} = \ket{\Psi_{0}}) $ then it's clear that $ I \otimes U $ act over the $ \ket{\Psi}\ket{\Psi} $ as identity and therefore $ -D\left( I \otimes U \right) $ act also as identity: 
 \begin{equation*}
@@ -114,10 +115,10 @@ It is left to show the equivalence when $\ket{\Psi}$ supported both over $\ket{\
   &  - \ket{\psi_{x}}\ket{\psi_{y}} \left( \mathbb{I} - 2 \ket{\psi_{x}}\ket{\psi_{y}} \bra{ \psi_{x}}\bra{\psi_{y}} \right) \ket{\Psi_0} \\
   &  - \ket{\psi_{x}}\ket{\psi_{y}} \left( \mathbb{I} - 2 \ket{\Psi} \bra{\Psi} \right) \ket{\Psi_0} \\ 
   &  - \ket{\psi_{x}}\ket{\psi_{y}} \left( \left(  - (2-2a)  \right)\ket{\Psi_1} + 1 -(2 - 2a) \ket{\Psi_0} \right) \\ 
-  & \ket{\psi_{x}}\ket{\psi_{y}} \left( \left( 2-2a \right)\ket{\Psi_1} + \left(1  - 2a\right) \ket{\Psi_0} \right) \\ 
-  & \square
+  & \ket{\psi_{x}}\ket{\psi_{y}} \left( \left( 2-2a \right)\ket{\Psi_1} + \left(1  - 2a\right) \ket{\Psi_0} \right) 
 \end{split}
 \end{equation*}
+\end{proof}
 % which is operator in Hilbert state at dimension: \[ \mathcal{O} \left( \left( \dim \left( \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \right) \right) ^2 o(1) \right) = \mathcal{O} \left( 2^{2\sqrt{n}}  \right)  \]
 Now, it's clear that Alice, could simulate the \textbf{algqsearch} algorithm \cite{Brassard_2002}, 
 
