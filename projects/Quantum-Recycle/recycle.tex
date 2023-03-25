@@ -1,0 +1,50 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+  \documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass{article}
+  \input{./usepackage}
+  \addbibresource{./sample.bib} 
+
+\fi
+
+\begin{document}
+
+\input{newcommands}
+
+\title{Recycling Quantum Computation.} 
+\author{Noa Viner, David Ponarovsky}
+
+\ifdefined\ACM
+  \affiliation{%
+    \institution{The Th{\o}rv{\"a}ld Group}
+    \streetaddress{1 Th{\o}rv{\"a}ld Circle}
+    \city{Hekla}
+  \country{Iceland}}
+  \email{larst@affiliation.org}
+\else
+  \maketitle
+\fi
+\input{abstract}
+\ifdefined\ACM
+  \maketitle
+\fi
+
+%\begin{multicols*}{2}
+% \input{preamble}
+\input{introduction}
+
+
+\printbibliography
+\end{document}
+
+
+
+
+
