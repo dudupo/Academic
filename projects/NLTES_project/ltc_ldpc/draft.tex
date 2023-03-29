@@ -26,7 +26,7 @@ Let $T \subset V^{-}$ be the negative vertices which are connected to at least o
 
 \begin{equation*}
   \begin{split}
-    d_{T} = \frac{E(S_{n}, T)}{|T|} \ge \frac{|S_{n|}}{|T|} \ge \frac{1}{2}\Delta
+    d_{T} = \frac{E(S_{n}, T)}{|T|} \ge \frac{|S_{n|}}{|T|} \ge   \left( 1 -  \frac{1}{\Delta} \right) \delta\Delta
   \end{split}
 \end{equation*}
 
@@ -35,6 +35,9 @@ Let $T \subset V^{-}$ be the negative vertices which are connected to at least o
     (1- \frac{1}{2}\delta)\Delta^{2} \le \frac{3}{4}\left( 1 - \frac{1}{\sqrt{\Delta}}  \right)\Delta^{2} 
   \end{split}
 \end{equation*}
+
+Suppose that we have vertex $v_{-}$ which any of his positive neighbors contribute a row (col) with of poly-code with a small amount of noise (lets say below $\sqrt{\Delta}$). What could we say about the existence of polynomial that close to that manifold. We could think about that a linear number of rows has at most $\frac{1}{3}$ of zeros. 
+
 \subsection{Simplified Claim 13.} 
 \newcommand{\Gtt}{\tilde{G}}
 % \text{ if the row (col) } [uv] \text{ weight is } \Teta\left( \Delta \right) 
