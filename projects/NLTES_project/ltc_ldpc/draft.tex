@@ -44,16 +44,32 @@ Suppose that we have vertex $v_{-}$ which any of his positive neighbors contribu
 \ctt{Notice that the product of two polynomial codes can be though as the polynomial in $2D$ in which the degree of each term is less than $2d$.} 
 
 \begin{claim}
+  \label{claim:poldu}
   Let $C_{0}$ be the $[\Delta,d, \Delta-d]$ polynomial code. Then any code word in $\left( C_{0}^{\perp} \otimes C_{0}^{\perp} \right)^{\perp}$ is a polynomial in $F[x,y]$ at degree at most $\Delta + d$
 \end{claim}
 \begin{proof}
 Consider base element $ C_{0} \otimes \mathbb{F} $, denote it by $c = g_{i} \otimes e_{j}$. And notice that $c$ has representation in $F[x,y]$ of $\prod_{y^{\prime} \neq j}{\left( y - y^{\prime} \right) }g_{i}\left( x \right)$. By the fact that $g_{i}\left( x \right) \in C_{0} $ we have that degree of $c$ is at most $\Delta + \delta$. Hence any element in the subspace of $C_{0} \otimes \mathbb{F}$ is a polynomial at degree at most $\Delta + d$.   
 \end{proof}
+\begin{claim}
+  Any codeword in $\left( C_{0}^{\perp} \otimes C_{0}^{\perp} \right)^{\perp}$ at weight at most $\Delta^{1 \frac{1}{2}}$ is supported on at most $\Delta^{\frac{1}{2}} $ rows and columns.
+\end{claim}
+\begin{proof}
+  Let $c$ be a codeword of the dual tensor and let $R (C)$ be the number of elements base at form $g_{i}\otimes e_{j} (e_{i} \otimes g_{j})$ on which $c$ has nonzero weight. Denote by $\delta_{0}$ the distance of the $C_{0}$. Now, denote by $\gamma$ the fraction number of interfere points between summed up vectors, and observe that by ~\cref{claim:poldu}, each of those point is a zero of polynomial at degree at most $\Delta + d$ over a subset $S \subset \mathbb{F}^{\Delta\times \Delta} $ at size $RC$.     
+
+  Hence by shawartz zimpel lemma we have that $\gamma RC \le \left( d + \Delta \right)$. On the other hand, the number of weight of $c$ is at least: 
+\begin{equation*}
+    \begin{split}
+      |c| \ge \left( R + C  \right) \delta_{0}\Delta - RC \cdot \gamma  \ge \left( R + C \right)\delta_{0}\Delta - \left( d + \Delta  \right)
+    \end{split}
+  \end{equation*}
+  Combine the fact that $|c| \le \Delta^{1 \frac{1}{2}}$ we obtain that: 
   \begin{equation*}
     \begin{split}
-      \left( R + C  \right) \delta_{0}\Delta - RC \cdot \gamma \le \Delta^{1 \frac{1}{2}}
+      R + C \le \frac{d + \Delta}{\delta_{0} \Delta} + \frac{\Delta^{\frac{1}{2}}}{\delta_{0}}
     \end{split}
-  \end{equation*}<++>
+  \end{equation*}
+\end{proof}
+  
  
 
 
