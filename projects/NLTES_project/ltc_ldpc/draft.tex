@@ -109,26 +109,26 @@ That yield an upper bound on the difference $|x +c| - |x| \le  \left( \Delta -C 
     \left( \Delta -C \right) \left( \Delta -R \right)  \le \left( \Delta - \frac{1}{2}\left( R+C \right)  \right)^{2}   = \left( \Delta - d_{T}/2 \right)^{2}
   \end{split}
 \end{equation*}
+Hence, any solution that satisfies the inequality $ \left( \Delta -d_{T}/2  \right)^{2} \le d_{T}\delta_{0}\Delta $ would grantee that $|x +c| < |x|$. Namely:
 
 \begin{equation*}
   \begin{split}
-    & \max \left( \Delta - C \right)\left( \Delta - R  \right) \\ 
-    & C + R \ge d_{T} \ge \left( 1 - \frac{1}{\Delta} \right)\delta_{0}\Delta
+   & d_{T} \in \left( - 2 \Delta \sqrt{\delta_{0} \left(\delta_{0} + 2\right)} + 2 \Delta \left(\delta_{0} + 1\right), 2 \Delta \sqrt{\delta_{0} \left(\delta_{0} + 2\right)} + 2 \Delta \left(\delta_{0} + 1\right)\right) \\
+  \Rightarrow &  d_{T} \ge 2 \Delta + 2 \Delta \delta_{0} - 2 \sqrt{2} \Delta \sqrt{\delta_{0}} - \frac{\sqrt{2} \Delta \delta_{0}^{\frac{3}{2}}}{2} + O\left(\delta_{0}^{2}\right)
   \end{split}
 \end{equation*}
 
-$2 \Delta + 2 \Delta \delta_{0} - 2 \sqrt{2} \Delta \sqrt{\delta_{0}} - \frac{\sqrt{2} \Delta \delta_{0}^{\frac{3}{2}}}{2} + O\left(\delta_{0}^{2}\right)$
-
-$\left( \Delta - C \right)\left( \Delta - R  \right) \le \left(1 - \left( 1 - \frac{1}{\Delta} \right)\delta_{0}/2  \right)^{2}\Delta^{2}$ 
-
-$ \left( \Delta -d_{T}/2  \right)^{2} \le d_{T}\delta_{0}\Delta $
-
-
-\begin{equation*}
-  \begin{split}
-    \left\{- 2 \Delta \sqrt{\delta_{0} \left(\delta_{0} + 2\right)} + 2 \Delta \left(\delta_{0} + 1\right), 2 \Delta \sqrt{\delta_{0} \left(\delta_{0} + 2\right)} + 2 \Delta \left(\delta_{0} + 1\right)\right\}
-  \end{split}
-\end{equation*}
+%
+%\begin{equation*}
+%  \begin{split}
+%    & \max \left( \Delta - C \right)\left( \Delta - R  \right) \\ 
+%    & C + R \ge d_{T} \ge \left( 1 - \frac{1}{\Delta} \right)\delta_{0}\Delta
+%  \end{split}
+%\end{equation*}
+%
+%$\left( \Delta - C \right)\left( \Delta - R  \right) \le \left(1 - \left( 1 - \frac{1}{\Delta} \right)\delta_{0}/2  \right)^{2}\Delta^{2}$ 
+%
+%
 
 \begin{equation*}
   \begin{split}
