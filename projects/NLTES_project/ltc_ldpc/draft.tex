@@ -79,7 +79,7 @@ Consider base element $ C_{0} \otimes \mathbb{F} $, denote it by $c = g_{i} \oti
 \end{proof}
   
 \begin{claim}
-  Let $v_{-} \in T$ be a vertex adjoins to more than $\left( 1 - \frac{1}{\Delta} \right)\delta_{0}2\Delta$ normal vertices via heavy edges. Then there exists $c \in C_{0} \otimes C_{0}$ supported on the local view of $v_{-}$ such that $|x + c| < |x|$. 
+  Let $v_{-} \in T$ be a vertex adjoins to more than $\left( 1 - \frac{1}{\Delta} \right)\delta_{0}\Delta$ normal vertices via heavy edges. Then there exists $c \in C_{0} \otimes C_{0}$ supported on the local view of $v_{-}$ such that $|x + c| < |x|$. 
 \end{claim}
 
 \begin{proof}
@@ -100,7 +100,17 @@ Consider base element $ C_{0} \otimes \mathbb{F} $, denote it by $c = g_{i} \oti
 \end{tikzpicture}
 \end{center}
 
-Assume for the moment that any heavy edge contribute a low degree polynomial. Therefore the local view on $v$ is at distance at most $ \left( \Delta - C \right)\left( \Delta - R \right) $ from $C_{0}\otimes C_{0}$. So $d(x|_{v}$
+
+Assume for the moment that any heavy edge contribute a low degree polynomial. Therefore the local view on $v$ is at distance at most $ \left( \Delta - C \right)\left( \Delta - R \right) $ from $C_{0}\otimes C_{0}$. So $d(x|_{v}, C_{0}\otimes C_{0}) \le \Delta^{2}+CR -   $ 
+
+
+\begin{equation*}
+  \begin{split}
+    & \max \left( \Delta - C \right)\left( \Delta - R  \right) \\ 
+    & C + R \ge d_{T} \ge \left( 1 - \frac{1}{\Delta} \right)\delta_{0}\Delta
+  \end{split}
+\end{equation*}
+
 Denote by the number $R $ and $C$ the numbers of rows and columns with weight $\ge \phi \Delta$. We can set on $R\times C$ a codeword  
                         
   %By \cref{claim:Tdeg}  there exists at least one vertex $v_{-}$ 
