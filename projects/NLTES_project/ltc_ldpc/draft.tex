@@ -2,6 +2,11 @@
 
 \subsection{Claim 13.}
 
+\begin{claim}
+  \label{claim:Tdeg} $d_{T} = ? $ \ctt{complete that lemma}. 
+\end{claim}
+
+\begin{proof}
 Denote By $S_{e}$ the exceptional vertices in $\Gamma^{+}_{\square}$ which their degree restricted to $x$ is more than $\Delta^{1 \frac{1}{2} + \varepsilon}$ and we will say that any vertex which is not exceptional is normal.  
 
 Let $T \subset V^{-}$ be the negative vertices which are connected to at least one normal vertex through an heavy edge i.e an edge which adjoins to at least $\delta\Delta - \Delta^{\frac{1}{2}}$ squares. 
@@ -30,6 +35,8 @@ Let $T \subset V^{-}$ be the negative vertices which are connected to at least o
   \end{split}
 \end{equation*}
 
+\end{proof}
+
 \begin{equation*}
   \begin{split}
     (1- \frac{1}{2}\delta)\Delta^{2} \le \frac{3}{4}\left( 1 - \frac{1}{\sqrt{\Delta}}  \right)\Delta^{2} 
@@ -51,6 +58,7 @@ Suppose that we have vertex $v_{-}$ which any of his positive neighbors contribu
 Consider base element $ C_{0} \otimes \mathbb{F} $, denote it by $c = g_{i} \otimes e_{j}$. And notice that $c$ has representation in $F[x,y]$ of $\prod_{y^{\prime} \neq j}{\left( y - y^{\prime} \right) }g_{i}\left( x \right)$. By the fact that $g_{i}\left( x \right) \in C_{0} $ we have that degree of $c$ is at most $\Delta + \delta$. Hence any element in the subspace of $C_{0} \otimes \mathbb{F}$ is a polynomial at degree at most $\Delta + d$.   
 \end{proof}
 \begin{claim}
+  \label{claim:lim}
   Any codeword in $\left( C_{0}^{\perp} \otimes C_{0}^{\perp} \right)^{\perp}$ at weight at most $\Delta^{1 \frac{1}{2}}$ is supported on at most $\Delta^{\frac{1}{2}} $ rows and columns.
 \end{claim}
 \begin{proof}
@@ -74,7 +82,21 @@ Consider base element $ C_{0} \otimes \mathbb{F} $, denote it by $c = g_{i} \oti
   Let $v_{-} \in T$ be a vertex adjoins to more than $\left( 1 - \frac{1}{\Delta} \right)\delta\Delta$ normal vertices via heavy edges. Then there exists $c \in C_{0} \otimes C_{0}$ supported on the local view of $v_{-}$ such that $|x + c| < |x|$. 
 \end{claim}
 
+\begin{proof}
+  Noitce that any prumutation on the coordinate yield an euavlance code. Therefore if      
 
+\begin{tikzpicture}
+  \matrix [nodes={fill=blue!20,minimum size=5mm}]
+  {
+    \node {8}; & \node{1}; & \node {6}; \\
+    \node {3}; & \node{5}; & \node {7}; \\
+    \node {4}; & \node{9}; & \node {2}; \\
+  };
+\end{tikzpicture}
+
+  %By \cref{claim:Tdeg} there exists at least one vertex $v_{-}$ 
+
+\end{proof}
 
 \subsection{Simplified Claim 13.} 
 \newcommand{\Gtt}{\tilde{G}}
