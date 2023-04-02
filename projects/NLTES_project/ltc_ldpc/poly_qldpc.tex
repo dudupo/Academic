@@ -43,7 +43,7 @@
 
 \newcommand{\duC}{\left( C_{A}^{\perp}\otimes C_{B}^{\perp} \right)^{\perp}}
 \newcommand{\duduC}{\left( C_{A}\otimes C_{B}\right)^{\perp}}
-\title{The Dual-Tensor Polynomial Code Is Not $w$-Robustness. } 
+\title{The Dual-Tensor Polynomial Code Is Not $w$-Robust. } 
 \author{David Ponarovsky}
 
 \ifdefined\ACM
@@ -70,7 +70,7 @@
 \section{Preambles}
 
 Locally Testable Codes, or LTC, are error correction codes such that verifying a uniformly randomly chosen check would be enough to detect any error with probability proportional to its size. Simply put, one can imagine puzzle parts such that any trial to connect pieces in order far from a correct assignment would fail (w.p) at an early step of the process. The analogy for not testability is the case in which the contradiction is observed only in the attempt to putting the last piece.     
-
+\cite{aharonov1999faulttolerant}
 Besides their clear computational advantage, they are known for their significant roles in the early PCP theorems proofs. And still, the existence of good LTC was considered an open question for decades. Moreover, Sasson proved that codes obtained by the standard randomized constructions could not be LTC \cite{Sasson}, which raises the suspicion that maybe codes can not be both good and locally testable. However, recent works by \cite{Dinur}, \cite{Pavel}, and \cite{leverrier2022quantum} yield a positive answer.
 
 In a nutshell, their sophisticated constructions ensure that no sublinear dependency of restriction exists and yet guarantee that the restrictions are linear far from independent. Namely, no restriction is more important than another, and removing a linear number of constraints would yield the same code.  
