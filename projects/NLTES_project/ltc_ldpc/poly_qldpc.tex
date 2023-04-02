@@ -1,0 +1,101 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+\documentclass[manuscript,screen,review]{acmart}
+
+\else
+\documentclass{article}
+\input{usepackage}
+\addbibresource{sample.bib} %Import the bibliography file
+
+\fi
+\begin{document}
+
+\newcommand{\commentt}[1]{\textcolor{blue}{ \textbf{[COMMENT]} #1}}
+\newcommand{\ctt}[1]{\commentt{#1}}
+\newcommand{\prb}[1]{ \mathbf{Pr} \left[ {#1} \right]}
+\newcommand{\expp}[1]{ \mathbf{E} \left[ {#1} \right]  }
+\newcommand{\onotation}[1]{\(\mathcal{O} \left( {#1}  \right) \)}
+\newcommand{\ona}[1]{\onotation{#1}}
+%\newcommand{\PSI}{{\ket{\psi}}}
+%\newcommand{\LESn}{\ket{\psi_n}}
+%\newcommand{\LESa}{\ket{\phi_n}}
+%\newcommand{\LESs}{\frac{1}{\sqrt{n}}\sum_{i}{\ket{\left(0^{i}10^{n-i}\right)^{n}}}}
+%\newcommand{\Hn}{\mathcal{H}_{n}}
+%\newcommand{\Ep}{\frac{1}{\sqrt{2^n}}\sum^{2^n}_{x}{ \ket{xx}}}
+%\newcommand{\HON}{\ket{\psi_{\text{honest}}}}
+%\newcommand{\Lemma}{\paragraph{Lemma.}}
+\newcommand{\Cpa}{[n, \rho n, \delta n]}
+%\setlength{\columnsep}{0.6cm}
+\newcommand{\Jvv}{ \bar{J_{v}} } 
+\newcommand{\Cvv}{ \tilde{C_{v}} } 
+
+\newcommand{\Gz}{ G_{z}^{\delta} } 
+\newcommand{ \Tann } {  \mathcal{T}\left( G, C_0 \right) }
+\newcommand{\ireducable}{ireducable \hyperref[ire]{[\ref{ire}]} }
+\newcommand{\cutUU}{E(U_{-1} \bigcup U_{+1} ,U)} 
+\newcommand{\wcutUU}{w\left( E(U_{-1} \bigcup U_{+1} ,U)  \right)}
+\newcommand{\testgo}{  \mathcal{T}\left(J, q , C_{0}\right) } 
+
+\newcommand{\duC}{\left( C_{A}^{\perp}\otimes C_{B}^{\perp} \right)^{\perp}}
+\newcommand{\duduC}{\left( C_{A}\otimes C_{B}\right)^{\perp}}
+\title{The Dual-Tensor Polynomial Code Is Not $w$-Robustness. } 
+\author{David Ponarovsky}
+
+\ifdefined\ACM
+\affiliation{%
+  \institution{The Th{\o}rv{\"a}ld Group}
+  \streetaddress{1 Th{\o}rv{\"a}ld Circle}
+  \city{Hekla}
+  \country{Iceland}}
+\email{larst@affiliation.org}
+\else
+\maketitle
+\fi
+%\input{abstract-poly}
+\ifdefined\ACM
+\maketitle
+\fi
+%\begin{multicols*}{2}
+%\input{preamble-poly}
+%   \input{backgroud-poly}
+
+\section{The Polynomial-Code Is Not $w$-Robust.}
+One idea for constructing is to use the polynomial code instead $C_{0}$, The follow form the fact that if one pick degree strictly greater than $\Delta/2$ then $C_{0}^{\perp} \subset C_{0}$ and therefore one could choose $C_{z}$ to be the same code defined on the negative vertices of the graph. 
+
+Here we prove that the dual-tensor code, in that case, is not $w$-robust, meaning that any such construction should be consider other way for proving the reduction Lemma.  
+
+\begin{claim}
+  \label{claim:poldu}
+  Let $C_{0}$ be the $[\Delta,d, \Delta-d]$ polynomial code. Then any code word in $\left( C_{0}^{\perp} \otimes C_{0}^{\perp} \right)^{\perp}$ is a polynomial in $F[x,y]$ at degree at most $\Delta + d$
+\end{claim}
+\begin{proof}
+Consider base element $ C_{0} \otimes \mathbb{F} $, denote it by $c = g_{i} \otimes e_{j}$. And notice that $c$ has representation in $F[x,y]$ of $\prod_{y^{\prime} \neq j}{\left( y - y^{\prime} \right) }g_{i}\left( x \right)$. By the fact that $g_{i}\left( x \right) \in C_{0} $ we have that degree of $c$ is at most $\Delta + \delta$. Hence any element in the subspace of $C_{0} \otimes \mathbb{F}$ is a polynomial at degree at most $\Delta + d$.   
+\end{proof}
+
+\begin{claim}
+ \label{claim:nowr} The dual-tensor polynomial code is not $w$-robust. 
+\end{claim}
+
+\begin{proof}
+
+  \begin{equation*}
+    \begin{split}
+%      & P(x,y) = \Delta - 1 + \mathbf{1}_{ x = y } \\ 
+     & P(x,y) = \prod_{i \neq \Delta - 1}{ \left( x + i y \right)  }=\prod_{i \neq  1}{ \left( x - i y \right)  } \\ 
+     & P(x,x) = \prod_{i \neq \Delta - 1}{ \left( x + i x \right)  }= x^{\Delta-1}\prod_{i \neq \Delta - 1}{ \left( 1 + i \right) } = \left( \Delta-1 \right)!  =_{\Delta} -1  \neq_{\Delta} 0 
+    \end{split}
+  \end{equation*}
+%
+
+\printbibliography 
+\end{document}
+
+ 
+
+
+
