@@ -4,6 +4,15 @@ One idea for constructing is to use the polynomial code instead $C_{0}$, The fol
 
 Here we prove that the dual-tensor code, in that case, is not $w$-robust, meaning that any such construction should be consider other way for proving the reduction Lemma.  
 
+\begin{claim}
+  \label{claim:poldu}
+  Let $C_{0}$ be the $[\Delta,d, \Delta-d]$ polynomial code. Then any code word in $\left( C_{0}^{\perp} \otimes C_{0}^{\perp} \right)^{\perp}$ is a polynomial in $F[x,y]$ at degree at most $\Delta + d$
+\end{claim}
+\begin{proof}
+Consider base element $ C_{0} \otimes \mathbb{F} $, denote it by $c = g_{i} \otimes e_{j}$. And notice that $c$ has representation in $F[x,y]$ of $\prod_{y^{\prime} \neq j}{\left( y - y^{\prime} \right) }g_{i}\left( x \right)$. By the fact that $g_{i}\left( x \right) \in C_{0} $ we have that degree of $c$ is at most $\Delta + \delta$. Hence any element in the subspace of $C_{0} \otimes \mathbb{F}$ is a polynomial at degree at most $\Delta + d$.   
+\end{proof}
+
+
 
 \section{Draft.} 
 \subsection{Claim 13.}
@@ -55,14 +64,6 @@ Suppose that we have vertex $v_{-}$ which any of his positive neighbors contribu
 \ctt{ Seems like if $d_{T} \ge \theta \Delta^{2}$ then there is a little number of cols which are zero. Therefore we can think about some $f\left( x,y  \right) = \prod{ \left( y - a_{i} \right)   } g(x,y) $ such the degree of the first product is not so heigh and in addition if we write $f= l\left( x,y \right)g\left( x,y \right)$ then $l$ grantee that $f$ will agree on most to the zeros.  Now as the distance of the polynomial is relative large, we have that any term in $g$ after fixing $y$ is a low degree polynomial at $x$. Hence, it looks like ewe can only improve by adding the suit polynomial.}
 
 \ctt{Notice that the product of two polynomial codes can be though as the polynomial in $2D$ in which the degree of each term is less than $2d$.} 
-
-\begin{claim}
-  \label{claim:poldu}
-  Let $C_{0}$ be the $[\Delta,d, \Delta-d]$ polynomial code. Then any code word in $\left( C_{0}^{\perp} \otimes C_{0}^{\perp} \right)^{\perp}$ is a polynomial in $F[x,y]$ at degree at most $\Delta + d$
-\end{claim}
-\begin{proof}
-Consider base element $ C_{0} \otimes \mathbb{F} $, denote it by $c = g_{i} \otimes e_{j}$. And notice that $c$ has representation in $F[x,y]$ of $\prod_{y^{\prime} \neq j}{\left( y - y^{\prime} \right) }g_{i}\left( x \right)$. By the fact that $g_{i}\left( x \right) \in C_{0} $ we have that degree of $c$ is at most $\Delta + \delta$. Hence any element in the subspace of $C_{0} \otimes \mathbb{F}$ is a polynomial at degree at most $\Delta + d$.   
-\end{proof}
 
 \ctt{ [MISTAKE] Change the field to be at size $|\mathbb{F}| \sim \Delta^{99}$.}
 
