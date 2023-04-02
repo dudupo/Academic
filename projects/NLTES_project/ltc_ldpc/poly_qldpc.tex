@@ -100,8 +100,7 @@ Locally Testable Codes (LTC) are error correction codes such that verifying a un
 
   Hence $h = f-g$ is a non-$0$ polynomial at degree at most $d$ and therefore has at most $d$ roots. Namely at most $d$ points in which $f$ equals $g$ and at least $n-d$ in which they disagree. Put in another way the distance between any two different codewords of the code is at least $n-d$.  
 \end{proof}
-Notice that encoding naively the aleph-bet of $\mathbb{F}_{p}$ in binary strings require to pay a factor $\log n$ bits, So the asymptotic rate of the code attends to zero.     
-\ctt{ Add a statement about the vanishing rate of the binary encoded version. And add a paragraph about Tanner code in which each edge correspond to a non binary alpha-bet.  }
+Notice that encoding naively the aleph-bet of $\mathbb{F}_{p}$ in binary strings require to pay a factor $\log n$ bits, So in general the asymptotic rate of the polynomial code attends to zero. Yet in our case, as we use the code for encoding only local views, The total factor that we have to pay is $\log\Delta$, which is constant relative to the number of bits (faces in the complex).   
 
 \subsubsection{Note On Quantum Polynomial Code.} 
 Let's define the code $C$ such that any state in $C$ is a coset of the polynomials at degree at most $d$ shifted by $x \in \mathbb{F}_{p}$. In other words the codeword associated with $x$ is the state $\ket{\underline{c}} = \sum_{ \substack{ f \in \mathbb{F}_{d}[x] \\  f(0) = 0}}{ \ket{ c + f}} $. The inner product between any $d$-degree polynomial with zero free coefficient is:
