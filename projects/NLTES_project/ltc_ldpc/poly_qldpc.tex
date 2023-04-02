@@ -116,7 +116,7 @@ Let's define the code $C$ such that any state in $C$ is a coset of the polynomia
 Next, we will review Tanner's construction, that in addition to being a critical element to our proof, also serves as an example of how one can construct a code with arbitrary length and positive rate.
 
 
-\begin{definition}[$w$-Robustness] Let $C_{0}$ be code of length $\Delta$ over the aleph-bet $\Sigma$ with minimum distance $\delta_{0}\Delta$. $C = \left(C_{0}^{\perp} \otimes C_{0}^{\perp}\right)^{\perp}$ will be said $w$-robust if any codeword $c \in C$ at weight less than $w$ it follows that $c$ is supported on at most $2\cdot w/\delta_{0}\Delta$ rows and cols.
+\begin{definition}[$w$-Robustness] Let $C_{0}$ be code of length $\Delta$ over the aleph-bet $\Sigma$ with minimum distance $\delta_{0}\Delta$. $C = C_{0} \otimes \mathbb{F} + \mathbb{F}\otimes C_{0}^{\perp}$ will be said $w$-robust if any codeword $c \in C$ at weight less than $w$ it follows that $c$ is supported on at most $2\cdot w/\delta_{0}\Delta$ rows and cols.
 \end{definition}
 
 \input{notw}
