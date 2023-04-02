@@ -58,7 +58,18 @@ Suppose that we have vertex $v_{-}$ which any of his positive neighbors contribu
 Consider base element $ C_{0} \otimes \mathbb{F} $, denote it by $c = g_{i} \otimes e_{j}$. And notice that $c$ has representation in $F[x,y]$ of $\prod_{y^{\prime} \neq j}{\left( y - y^{\prime} \right) }g_{i}\left( x \right)$. By the fact that $g_{i}\left( x \right) \in C_{0} $ we have that degree of $c$ is at most $\Delta + \delta$. Hence any element in the subspace of $C_{0} \otimes \mathbb{F}$ is a polynomial at degree at most $\Delta + d$.   
 \end{proof}
 
-\ctt{ Change the field to be at size $|\mathbb{F}| \sim \Delta^{99}$.}
+\ctt{ [MISTAKE] Change the field to be at size $|\mathbb{F}| \sim \Delta^{99}$.}
+
+\ctt{the following claim and proof are wrong but the idea is cleaver.}
+
+\begin{claim}
+  Let $f,g \in \mathbb{F}^{\Delta}[x,y]$ at degree $\Delta + d$. If the weight of $f+g \le \Delta^{1 \frac{1}{2}}$ then $f+g$ is supported on at most $\Delta^{\frac{1}{2}}$ rows and cols. 
+  (The dual-tensor of the polynomial code, is $w$-robust.)
+\end{claim}
+\begin{proof}
+ 
+  Consider the function $f_{0} = f(x,y) + g(x,y)$ and $f_{1} = f(x,y) + g(x,y) -\Delta$ over $\mathbb{F}^{\Delta\times\Delta}[x,y]$. And observes (\ctt{wrong statement}) that if for given $x,y \le \Delta$ it holds that $f(x,y) + g(x,y) = 0$ then it also true that either $f_{0}(x,y) = 0 $ or $f_{1}(x,y) = 0$. \ctt{That wrong as over $\mathb{F}^{\Delta\times\Delta}$ it might has that $f(x,y) + g(x,y) = 2\Delta$}.   
+\end{proof}
 
 \begin{claim}
   \label{claim:lim}
