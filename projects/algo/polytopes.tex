@@ -1,0 +1,87 @@
+\documentclass{article}
+
+
+\input{../../template/tex/general-tex/usepackage.tex} 
+\addbibresource{sample.bib} %Import the bibliography file
+
+\newcommand{\commentt}[1]{\textcolor{blue}{ \textbf{[COMMENT]} #1}}
+\newcommand{\ctt}[1]{\commentt{#1}}
+\newcommand{\prb}[1]{ \mathbf{Pr} \left[ {#1} \right]}
+\newcommand{\expp}[1]{ \mathbf{E} \left[ {#1} \right]}
+\newcommand{\onotation}[1]{\(\mathcal{O} \left( {#1}  \right) \)}
+\newcommand{\ona}[1]{\onotation{#1}}
+\newcommand{\PSI}{{\ket{\psi}}}
+\newcommand{\LESn}{\ket{\psi_n}}
+\newcommand{\LESa}{\ket{\phi_n}}
+\newcommand{\LESs}{\frac{1}{\sqrt{n}}\sum_{i}{\ket{\left(0^{i}10^{n-i}\right)^{n}}}}
+\newcommand{\Hn}{\mathcal{H}_{n}}
+\newcommand{\Ep}{\frac{1}{\sqrt{2^n}}\sum^{2^n}_{x}{ \ket{xx}}}
+\newcommand{\HON}{\ket{\psi_{\text{honest}}}}
+\newcommand{\Lemma}{\paragraph{Lemma.}}
+\newcommand{\PonB}{ \rho + \frac{5}{16}\delta\le \frac{3}{4} + \frac{1}{16} } 
+\newcommand{\Cpa}{[n, \rho n, \delta n]}
+%\setlength{\columnsep}{0.6cm}
+\newcommand{\Jvv}{ \bar{J_{v}} } 
+\newcommand{\Cvv}{ \tilde{C_{v}} } 
+
+\newcommand{\Gz}{ G_{z}^{\delta} } 
+\newcommand{ \Tann } {  \mathcal{T}\left( G, C_0 \right) }
+\begin{document}
+
+
+
+\newcommand{\dalg}[1]{\expp{#1 : \text{alg} \sim \tilde{\text{alg}}}}
+\newcommand{\dsig}[1]{\expp{#1 : \sigma \sim \tilde{\sigma}}}
+\newcommand{\calg}{c_{\text{alg}}}
+\newcommand{\cbase}{c_{\text{base}}}
+
+
+
+\title{ Objects With Structures. } 
+\author{David Ponarovsky}
+\maketitle
+\tableofcontents
+
+%\abstract{We propose a new simple construction based on Tanner Codes, which yields a good LDPC testable code.} 
+
+\begin{multicols*}{2}
+
+  \section{Polytopes.} 
+  \definition[Convex Polygon]{ $P$ will be said a convex polygon if for every $x,y \in P$ we have that any point $z$ that lays on the line between $x$ and $y$ belongs to $P$.} 
+  
+
+  \subsection{Different Constructions.} 
+  Consider two different polytopes $P,Q \subset \mathbb{R}^{d}$ then we could construct a third polytope by: 
+  \begin{enumerate}
+    \item Intersection, taking the $P\cap Q \subset \mathbb{R}^{d}$
+    \item Minkeoski sum, $P+Q = \left\{ p + q : p \in P, q \in Q \right\} \subset \mathbb{R}^{d}$
+    \item Product, $P \times  Q = \left\{ \left( p,q \right):  p \in P, q \in Q \right\} \subset \mathbb{R}^{2d}$
+  \end{enumerate}
+
+  \paragraph{ $\mathcal{V}$ and $\mathcal{H}$ descriptors of polytopes.} Polytopes can be describe by both a convex hull or inequalities. There is theorem that state that any convex hull has a presentation defined by inequalities system.
+  \lemma{A projection of an $\mathcal{H}$-polyhedron is also $\mathcal{H}$-polyhedron. }
+  \definition[The Cyclic Polytope $\mathcal{C}_{d}\left( n \right)$.]{ Let $d,n \in \mathbb{N}$. And let us define the monment curve $x : \mathbb{R} \rightarrow \mathbb{R}^{d}$ as $t_{i}\mapsto t_{i}^{i}$. $\mathcal{C}_{d}\left( 0 \right)$ is the convex hull of $x\left( y_{1} \right), x\left( y_{2} \right) , .. , x\left( y_{3} \right)$. } 
+  \lemma{ For $ S \subset T = \left\{ y_{1} < y_{2} < y_{3} .. y_{n}  \right\}$ such that $|S|=d$ form a facet if and only if any two different indices $i < j $ we have that the size of the intersection of  $y_{i}, y_{i+1} .. y_{j}$ with $S$ is even. }
+  (That can be used to construct a new LDPC CSS code).  
+  
+  \definition[Simplicial.]{ We will say that polytope $P$ is a Simplicial if all his $d-1$ faces are simplexes.} 
+
+  \section{Poly-Rings} 
+  \paragraph{Polynomial Rings In Several Variables.} We can think about the multiple variables polynomial as polynomial over $y$ where the coefficients are polynomial in variables $x$.   
+
+  \begin{equation*}
+    \begin{split}
+      R[x,y] = R[x][y] = \left\{ \sum_{i}{a_{i}y^{i} | a_{i} \in R[x]  \right\}
+    \end{split}
+  \end{equation*}
+ 
+  $ g(x,y) =  \prod{\left( y - y_{j}\right)}p\left( x \right) $
+
+\end{multicols*}
+  \end{document}
+
+
+
+
+
+
