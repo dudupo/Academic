@@ -69,7 +69,10 @@
 
 \section{Preambles}
 
-Locally Testable Codes, or LTC, are error correction codes such that verifying a uniformly randomly chosen check would be enough to detect any error with probability proportional to its size. Simply put, one can imagine puzzle parts such that any trial to connect pieces in order far from a correct assignment would fail (w.p) at an early step of the process. The analogy for not testability is the case in which the contradiction is observed only in the attempt to putting the last piece.     
+Locally Testable Codes and good Quantum LDPC codes has more in common besides the fact that their existence been, for a long time, an open question that solved at once. For example, It has shown that sampling uniformly a code would be, with probability 1, nether LTC \cite{Sasson} nor qLDPC code. That in totally contrast for many other valuable entities in computer science which can be achieved by random process, such as good classic LDPC codes. Thus it is not a surprise that the recent constructions hings on complex that relatively rich with algebraic structure. And even though those result indeed used for proving the NLTS conjecture \cite{anshu2022nlts}, Yet one could expect that a construction of a qLTC will follow soon after them.  
+
+LTC, are error correction codes such that verifying a uniformly randomly chosen check would be enough to detect any error with probability proportional to its size. Simply put, one can imagine puzzle parts such that any trial to connect pieces in order far from a correct assignment would fail (w.p) at an early step of the process. The analogy for not testability is the case in which the contradiction is observed only in the attempt to putting the last piece.     
+
  \cite{aharonov1999}.
 Besides their clear computational advantage, they are known for their significant roles in the early PCP theorems proofs. And still, the existence of good LTC was considered an open question for decades. Moreover, Sasson proved that codes obtained by the standard randomized constructions could not be LTC \cite{Sasson}, which raises the suspicion that maybe codes can not be both good and locally testable. However, recent works by \cite{Dinur}, \cite{Pavel}, and \cite{leverrier2022quantum} yield a positive answer.
 
