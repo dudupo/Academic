@@ -64,6 +64,25 @@
 %\input{preamble-poly}
 %   \input{backgroud-poly}
 
+\begin{abstract}We propose a simple alternative construction of good LTC codes. In contrast to previews, constructions made by \cite{Dinur}, \cite{leverrier2022quantum}, and \cite{Pavel}, our construction does not require unique properties of the small codes, such as $w$-robustness and $p$-resistance for puncturing.  
+\end{abstract}  
+
+\section{Preambles}
+
+Locally Testable Codes, or LTC, are error correction codes such that verifying a uniformly randomly chosen check would be enough to detect any error with probability proportional to its size. Simply put, one can imagine puzzle parts such that any trial to connect pieces in order far from a correct assignment would fail (w.p) at an early step of the process. The analogy for not testability is the case in which the contradiction is observed only in the attempt to putting the last piece.     
+
+Besides their clear computational advantage, they are known for their significant roles in the early PCP theorems proofs. And still, the existence of good LTC was considered an open question for decades. Moreover, Sasson proved that codes obtained by the standard randomized constructions could not be LTC \cite{Sasson}, which raises the suspicion that maybe codes can not be both good and locally testable. However, recent works by \cite{Dinur}, \cite{Pavel}, and \cite{leverrier2022quantum} yield a positive answer.
+
+In a nutshell, their sophisticated constructions ensure that no sublinear dependency of restriction exists and yet guarantee that the restrictions are linear far from independent. Namely, no restriction is more important than another, and removing a linear number of constraints would yield the same code.  
+
+Their constructions require that the local restrictions, or the local codes, have two properties: the $w$-robustness and $p$-resistance for puncturing. Even though they showed probabilistic proof for the existence of an infinite family of such codes, they are more oversized for any practical use. Therefore, we would not formally restate them here; instead, we refer the reader to \cite{leverrier2022quantum}. Nevertheless, any assumption over the local structure of the code is also an obstacle to encoding a universal computation in the code. 
+
+In this work, we propose a new construction for good LTC that demands small codes only to have a large distance. In short, by associating each check with a small code over $2/3$-fraction of the vertex's edges, instead of all of them as in the standard Tanner code, we successfully obtain an LTC with a constant rate. Then by considering graphs, such that both the graph and his subgraph obtained by taking an $\frac{1}{2}$-fraction of the edges of each vertex are good expanders, we also succeed in proving that the codes have linear distance. 
+
+Finally, we show how to construct such a graph given a Ramanujan \emph{Cayley} graph. Nevertheless, although we succeeded in simplifying the LTC, we still needed to understand how they can be used to encode a universal computation.  
+
+
+
 \section{Background.}
 \subsection{Polynomial Code}. Consider the field $\mathbb{F}_{m}$ for an arbitrary prime power $m=q^{l}$ greater than $n$. The polynomial codes relay on the fact that any two different polynomials in the ring $\mathbb{F}_{m}\left[ x \right]$ at degree at most $d$ different by at least $n - d + 1$ points. By define the code to be the subspace contains all the polynomials at degree at most $d$ encoded by $n$ numbers associated with their values. Formally we define:     
 \begin{definition}
