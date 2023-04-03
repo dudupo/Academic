@@ -9,14 +9,28 @@ So by define the code to be the subspace contains all the polynomials at degree 
     \end{split}
   \end{equation*}
 \end{definition}
-Observe that $C$ is a linear code at length $n$ over the aleph-bet $\mathbb{F}_{m}$. The following Lemma state the realtion between the maximal degree of the polynomials and the properites of the code.   
+Observe that $C$ is a linear code at length $n$ over the aleph-bet $\mathbb{F}_{m}$. The following Lemma states the realtion between the maximal degree of the polynomials and the properites of the code.   
 \begin{lemma}
   Fix the degree of the polynomial code to be at most $d$. Then the parameters of the code are $[n,d + 1, n - d]$.  
   \label{polycode}
 \end{lemma}
 \begin{proof}
-  The dimension of the code equals to the dimension of the polynomials space at degree at most $d$ which is spanned by the vectors $e_{1}, e_{2} .. e_{d} = 1, x .. x^{d}$ and therefore is $d+1$. In addition suppose that $f,g$ are different polynomials i.e $f\neq g$.
+  The dimension of the code equals to the dimension of the polynomials space at degree at most $d$ which is spanned by the monomial base $e_{0}, e_{1}, e_{2} ... e_{d} = 1, x ... x^{d}$ and therefore is $d+1$. In addition suppose that $f,g$ are different polynomials i.e $f\neq g$.
 
   Hence $h = f-g$ is a non-$0$ polynomial at degree at most $d$ and therefore has at most $d$ roots. Namely at most $d$ points in which $f$ equals $g$ and at least $n-d$ in which they disagree. Put in another way the distance between any two different codewords of the code is at least $n-d$.  
 \end{proof}
+
+\begin{lemma}[Testability Of Polynomail Code.] Testability
+  
+\end{lemma}
+\begin{proof}
+
+  \begin{equation*}
+    \begin{split}
+      & #\text{agree} \le \mathbf{Pr}_{x_{1}, x_{2} ... x_{d} \sim_{U}, x_{d+1}\sim \mathbb{F}_{}}\left[ (Gf)(x) = f(x) \right] \le \prb{ (Gf)(x) = f(x)} \le \varepsilon \\
+      $ 1 - #\text{agree} \ge 1 - \varepsilon 
+    \end{split}
+  \end{equation*}
+\end{proof}
+
 
