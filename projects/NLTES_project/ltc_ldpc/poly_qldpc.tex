@@ -82,31 +82,9 @@ Locally Testable Codes (LTC) are error correction codes such that verifying a un
 
 \section{Background.}
 
-\subsection{Polynomial Code.} Consider the field $\mathbb{F}_{m}$ for an arbitrary prime power $m=q^{l}$ greater than $n$. The polynomial codes relay on the fact that any two different polynomials in the ring $\mathbb{F}_{m}\left[ x \right]$ at degree at most $d$ different by at least $n - d + 1$ points. By define the code to be the subspace contains all the polynomials at degree at most $d$ encoded by $n$ numbers associated with their values. Formally we define:     
-\begin{definition}
-  Fix $m > n $ to be a prime power and let $a_{0},a_{1},a_{2},\ldots a_{n}$ distinct points of the field $\mathbb{F}_{m} = R$  and define the code $C \subset R $ as follows:  
-  \begin{equation*}
-    \begin{split}
-      C = \left\{p\left(a_{0}\right),p\left(a_{1}\right),p\left(a_{2}\right),\cdots p\left(a_{n}\right) : p \text{ is polynomial at degree at most } k \right\}
-    \end{split}
-  \end{equation*}
-\end{definition}
-\begin{lemma}
-  Fix the degree of the polynomial code to be at most $d$. Then the parameters of the code are $[n,d + 1, n - d]$.  
-  \label{polycode}
-\end{lemma}
-\begin{proof}
-  The dimension of the code equals to the dimension of the polynomials space at degree at most $d$ which is spanned by the vectors $e_{1}, e_{2} .. e_{d} = 1, x .. x^{d}$ and therefore is $d+1$. In addition suppose that $f,g$ are different polynomials i.e $f\neq g$.
+\input{polycode.tex}
 
-  Hence $h = f-g$ is a non-$0$ polynomial at degree at most $d$ and therefore has at most $d$ roots. Namely at most $d$ points in which $f$ equals $g$ and at least $n-d$ in which they disagree. Put in another way the distance between any two different codewords of the code is at least $n-d$.  
-\end{proof}
 Notice that encoding naively the aleph-bet of $\mathbb{F}_{p}$ in binary strings require to pay a factor $\log n$ bits, So in general the asymptotic rate of the polynomial code attends to zero. Yet in our case, as we use the code for encoding only local views, The total factor that we have to pay is $\log\Delta$, which is constant relative to the number of bits (faces in the complex).   
-
-Using Sage\TeX, one can use Sage to compute things and put them into
-your \LaTeX{} document. For example, there are
-$\sage{number_of_partitions(1269)}$ integer partitions of $1269$.
-You don't need to compute the number yourself, or even cut and paste
-it from somewhere.
 
 \subsection{Quantum Polynomial Code.} 
 Let's define the code $C$ such that any state in $C$ is a coset of the polynomials at degree at most $d$ shifted by $x \in \mathbb{F}_{p}$. In other words the codeword associated with $x$ is the state $\ket{\underline{c}} = \sum_{ \substack{ f \in \mathbb{F}_{d}[x] \\  f(0) = 0}}{ \ket{ c + f}} $. The inner product between any $d$-degree polynomial with zero free coefficient is:
