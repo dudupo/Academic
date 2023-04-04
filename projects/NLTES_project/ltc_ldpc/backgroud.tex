@@ -13,22 +13,19 @@
   \begin{definition} \label{good-code} We will say that a family of codes is a \textbf{good code} if its parameters converge into positive values. 
   \end{definition}
 
-  Apart from distance and rate here, we interest also that the checking process will be robust. In particular,  we wish that against significant errors, forgetting to perform a single check will sabotage the computation only with a tiny probability.  
-  \begin{definition} \label{LTC} Consider a code $C$  a string $x$, and denote by $\xi\left( x \right)$ the fraction of the checks in which $x$ fails. $C$ will be called a \textbf{local-testability $f\left( n \right)$} If there exists $\kappa > 0$ such that 
-  \begin{equation*}
-    \begin{split}
-      \frac{d\left( x, C \right)}{n} \le \kappa \cdot  \xi\left( x \right) f\left( n \right)
-    \end{split}
-  \end{equation*}
-\end{definition}
-  \input{contribution.tex}
+  \input{back-ltc} 
+
+  
+\ifdefined\LDPCLTC
+  Now, we are ready to formulate our contribution. 
+\input{contribution.tex}
+\fi
 
   \subsection{Singleton Bound}  
   To get a feeling of the behavior of the distance-rate trade-of, Let us consider the following two codes; each demonstrates a different extreme case. First, define the repetition code $C_{r} \subset \mathbb{F}_{2}^{n \cdot r}$, In which, for a fixed integer $r$, any bit of the original string is duplicated $r$ times. Second, consider the parity check code $C_{p} \subset \mathbb{F}_{2}^{n+1}$, in which its codewords are only the vectors with even parity. Let us analyze the repetition code. Clearly, any two $n$-bits different messages must have at least a single different bit. Therefore their corresponding encoded codewords have to differ in at least $r$ bits. Hence, by scaling $r$, one could achieve a higher distance as he wishes. Sadly the rate of the code decays as $n/nr = 1/r$. In contrast, the parity check code adds only a single extra bit for the original message. Therefore scaling $n$ gives a family which has a rate attends to $\rho \rightarrow 1$. However, flipping any two different bits of a valid codeword is conversing the parity and, as a result, leads to another valid codeword.
 
-  To summarize the above, we have that, using a simple construction, one could construct the codes $[r, 1, r]$, $[r, r-1, 2]$. Each has a single perfect parameter, while the other decays to the worst. In the next section, we will review the Singleton bound, which states that for any code (not necessarily good), there must be a zero-sum game between the relative distance and the rate.
-  Now, we are ready to formulate our contribution. 
-
+  To summarize the above, we have that, using a simple construction, one could construct the codes $[r, 1, r]$, $[r, r-1, 2]$. Each has a single perfect parameter, while the other decays to the worst.\ifdefined\LDPCLTC In the next section, we will review the Singleton bound, which states that for any code (not necessarily good), there must be a zero-sum game between the relative distance and the rate.
+\fi % 
 
   Besides being the first bound, Singleton bound demonstrates how one could get results by using relatively simple elementary arguments. It is also engaging to ask why the proof yields a bound that, empirically, seems far from being tight.
   \begin{theorem*}[Singleton Bound.]\label{theorem*:Sing}  For any linear code with parameter $[n,k,d]$, the following inequality holds:
@@ -47,26 +44,7 @@
 
 It is also well known that the only binary codes that reach the bound are: $[n,1,n]$, $[n,n-1,2]$,$[n,n,1]$ \cite{eczoo_mds}. In particular, there are no good binary codes that obtain equality(And no binary code which get close to the equality exits). Let's review the polynomial code family \cite{Reed1960PolynomialCO}, which is a code over none binary field that achieve the Singleton Bound. 
 
-\subsection{Polynomial Code}. Consider the field $\mathbb{F}_{m}$ for an arbitrary prime power $m=q^{l}$ greater than $n$. The polynomial codes relay on the fact that any two different polynomials in the ring $\mathbb{F}_{m}\left[ x \right]$ at degree at most $d$ different by at least $n - d + 1$ points. By define the code to be the subspace contains all the polynomials at degree at most $d$ encoded by $n$ numbers associated with their values. Formally we define:     
-\begin{definition}
-  Fix $m > n $ to be a prime power and let $a_{0},a_{1},a_{2},\ldots a_{n}$ distinct points of the field $\mathbb{F}_{m} = R$  and define the code $C \subset R $ as follows:  
-  \begin{equation*}
-    \begin{split}
-      C = \left\{p\left(a_{0}\right),p\left(a_{1}\right),p\left(a_{2}\right),\cdots p\left(a_{n}\right) : p \text{ is polynomial at degree at most } k \right\}
-    \end{split}
-  \end{equation*}
-\end{definition}
-\begin{lemma}
-  Fix the degree of the polynomial code to be at most $d$. Then the parameters of the code are $[n,d + 1, n - d]$.  
-  \label{polycode}
-\end{lemma}
-\begin{proof}
-  The dimension of the code equals to the dimension of the polynomials space at degree at most $d$ which is spanned by the vectors $e_{1}, e_{2} .. e_{d} = 1, x .. x^{d}$ and therefore is $d+1$. In addition suppose that $f,g$ are different polynomials i.e $f\neq g$.
-
-  Hence $h = f-g$ is a non-$0$ polynomial at degree at most $d$ and therefore has at most $d$ roots. Namely at most $d$ points in which $f$ equals $g$ and at least $n-d$ in which they disagree. Put in another way the distance between any two different codewords of the code is at least $n-d$.  
-\end{proof}
-Notice that encoding naively the aleph-bet of $\mathbb{F}_{p}$ in binary strings require to pay a factor $\log n$ bits, So the asymptotic rate of the code attends to zero.     
-\ctt{ Add a statement about the vanishing rate of the binary encoded version. And add a paragraph about Tanner code in which each edge correspond to a non binary alpha-bet.  }
+\input{polycode.tex} 
 
 \subsubsection{Note On Quantum Polynomial Code.} 
 Let's define the code $C$ such that any state in $C$ is a coset of the polynomials at degree at most $d$ shifted by $x \in \mathbb{F}_{p}$. In other words the codeword associated with $x$ is the state $\ket{\underline{c}} = \sum_{ \substack{ f \in \mathbb{F}_{d}[x] \\  f(0) = 0}}{ \ket{ c + f}} $. The inner product between any $d$-degree polynomial with zero free coefficient is:
