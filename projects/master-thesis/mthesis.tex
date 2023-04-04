@@ -3,7 +3,26 @@
 
 
 \documentclass{book}
+
+
+
+
 \input{./usepackage}
+
+
+\ExplSyntaxOn
+\tl_new:N \l__bourne_tmpa_tl
+\cs_new_protected:Npn \bourne_path_push:
+  {
+    \seq_put_left:NV \l_file_search_path_seq \CurrentFilePath
+    \AddToHookNext {file/after/\CurrentFile} { \bourne_path_pop: }
+  }
+\cs_new_protected:Npn \bourne_path_pop:
+  { \seq_pop_left:NN \l_file_search_path_seq \l__bourne_tmpa_tl }
+\NewDocumentCommand \topinput { }
+  { \AddToHookNext {file/before} { \bourne_path_push: } \input }
+\ExplSyntaxOff
+
 \addbibresource{./sample.bib} 
 
 
