@@ -19,7 +19,12 @@ However, even though quantum noise is so violent, It was proven that any ideal c
 
 The basic ingredient in \cite{aharonov1999faulttolerant} was to show the existence of quantum error correction code, such that one can perform all the logic operations in a way that restrict present errors from propagate on. That allow them separate any operation of the computation into stages, one of them is the operation itself, another one is an error correction stage. That process become with an additional cost, in both space and time, yet it might decrease the probability that the final state at the end would be faulted. The trade-off between the resource needed to pay and the decreasing rate define the threshold. And if the balance is positive then one can repeat in recursion manner, and after a log-log iterations the failure probability decay to zero while the circuit would scale at most poly-logarithmic wide and depth factors.      
 
-Let's return back to repeation code presented in chapter 2. We would like to think about an analog, a first and natural attempt might considering to duplicate copies of the state, Unfortunately copying a general state is not a linear operation and therefore can not be done in the circuit model (and any other believed to be feasible).           
+Let's return back to repeation code presented in chapter 2. We would like to think about an analog, a first and natural attempt might considering to duplicate copies of the state, Unfortunately copying a general state is not a linear operation and therefore can not be done in the circuit model (and any other believed to be feasible). In particular there is no circuit $U$ which duplicate simultaneity the states $\ket{0}, \ket{1}, \ket{+}, \ket{-}$.
+
+To overcome the issue Shor came up with the nine-quibt code \cite{Ninequ}, which in first glance might seems a naive straightforward implantation of ``duplication'', but instead use a clever insight about quantum's in general. Any operation can been seen as linear (and even unitary) operation over a subspace embedded in large enough dimensions. By quadric the dimension of the repeation code,.. \ctt{Here}   
+
+in which the encode state is a tree copies of the encoding of $\ket{pm}$ states  encoded in the repeation code.   
+  \begin{split}
 
 
 \begin{equation*}
