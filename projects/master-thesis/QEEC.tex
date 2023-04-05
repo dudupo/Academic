@@ -49,7 +49,12 @@ So, it's clear that a single bit-flip fault can be treat exactly as in the class
   \end{equation*}
 \end{proof}
 Now it's clear how to correct a phase flip. One can apply the Hadamard transform and compute the parity of each triple, By the assumption that only a single phase flip might occurs either all the triples have the same parity or that the faulted one has an opposite parity and to corrected.           
-\include{shor_decoder.tikz}
+
+\begin{center}
+  \begin{tickzpicture}
+    \input{shor_decoder.tikz}
+  \end{tickzpicture}
+\end{center}
 %\begin{algorithm}[H]
 %  \caption{Shor code decoder.}
 %    \label{alg:shordecoder}
