@@ -35,16 +35,16 @@ For convenient let us use the notation, $\ket{\mathbf{GHZ}^{\pm}} =  \ket{0^{m}}
 \begin{lemma}
   The Shor code over $9$ qubits enable to correct a single either bit or phase flip.  
 \end{lemma}
-So, it's clear that a single bit-flip fault can be treat exactly as in the classical case. The decoder will check that any of the triples store the same value, and if it's not the case then it will correct by majority. We will need the following claim to construct a decoder which also can correct a phase flip fault.
+So, it's clear that a single bit-flip fault can be treat exactly as in the classical case. The decoder will check that any of the triples store the same value, and if it's not the case then it will correct by majority. We will need the following claim to construct a decoder which also can correct a phase-flip fault.
 \begin{claim}
-$ H^{m}\ket{\mathbf{GHZ}^{\pm}} = \sum_{|x| =_2 \pm }{\ket{x} }$
+  Let $H^{m}$ be applying of the Hadamard gate over each of the $m$ qubits. Then, $H^{m}\ket{\mathbf{GHZ}^{\pm}} = \sum_{ x \cdot \mathbf{1} =_2 \pm }{\ket{x} }$
 \end{claim}
 
 \begin{proof}
 
   \begin{equation*}
     \begin{split}
-      H^{m}\ket{\mathbf{GHZ}^{\pm}} & = H^{m}\ket{0^{m}} \pm  H^{m}\ket{1^{m}} = \sum_{x \in \mathbb{F}_{2}^{m}}{\ket{x}} \pm  \sum_{x \in \mathbb{F}_{2}^{m}}{\left( -1 \right)^{|x|} \ket{x}} \\ & = \sum_{x \in \mathbb{F}_{2}^{m}}{ \left( 1 \pm \left( -1 \right)^{|x|}  \right) \ket{x} } =  \sum_{|x| =_2 \pm }{\ket{x} }
+      H^{m}\ket{\mathbf{GHZ}^{\pm}} & = H^{m}\ket{0^{m}} \pm  H^{m}\ket{1^{m}} = \sum_{x \in \mathbb{F}_{2}^{m}}{\ket{x}} \pm  \sum_{x \in \mathbb{F}_{2}^{m}}{\left( -1 \right)^{x \cdot \mathbf{1}} \ket{x}} \\ & = \sum_{x \in \mathbb{F}_{2}^{m}}{ \left( 1 \pm \left( -1 \right)^{x \cdot \mathbf{1}}  \right) \ket{x} } =  \sum_{x \cdot \mathbf{1} =_2 \pm }{\ket{x} }
     \end{split}
   \end{equation*}
 \end{proof}
