@@ -30,7 +30,12 @@ To overcome the issue, Shor came up with the nine-quibt code \cite{Ninequ}, whic
 \end{equation*}
 
 
-For convenient let us use the notation, $\ket{\mathbf{GHZ}^{\pm}} =  \ket{0^{m}} \pm  \ket{1^{m}}$. So the state $\ket{\overline{0}}$ over $m^{2}$ qubits can be written as $\ket{\mathbf{GHZ}^{+}}^{m}$. 
+For convenient let us use the notation, $\ket{\mathbf{GHZ}^{\pm}} =  \ket{0^{m}} \pm  \ket{1^{m}}$. One can also consider the Shor code over $m^{2}$ qubits which defined as above beside that any logical state contain $m$ product over $m$ qubits, So the state $\ket{\overline{0}}$ over $m^{2}$ qubits can be written as $\ket{\mathbf{GHZ}^{+}}^{m}$. We are now ready to prove a statement regards to the robustness.  
+
+\begin{lemma}
+  The Shor code over $9$ qubits enable to correct a single either bit or phase flip.  
+\end{lemma}
+So, it's clear that a single bit-flip fault can be treat exactly as in the classical case. The decoder will check that any of the triples store the same value, and if it's not the case then it will correct by majority.    
 \begin{claim}
 $ H^{m}\ket{\mathbf{GHZ}^{\pm}} = \sum_{|x| =_2 \pm }{\ket{x} }$
 \end{claim}
