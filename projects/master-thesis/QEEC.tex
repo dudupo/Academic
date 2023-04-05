@@ -18,5 +18,15 @@ The second difference, which is a really tricky point, is that quantum sates are
 However, even though quantum noise is so violent, It was proven that any ideal circuit at polynomial depth can be transformed to a robust circuit at poly-logarithmic cost \cite{aharonov1999faulttolerant}. Or in other words, There is a threshold, If the physicists would provide qubits and a finite gate set that suffer from a rate of noise below that threshold, than $BQP$, the class of polynomial time ideal quantum computation is feasible and could computed on realistic machine.                
 
 The basic ingredient in \cite{aharonov1999faulttolerant} was to show the existence of quantum error correction code, such that one can perform all the logic operations in a way that restrict present errors from propagate on. That allow them separate any operation of the computation into stages, one of them is the operation itself, another one is an error correction stage. That process become with an additional cost, in both space and time, yet it might decrease the probability that the final state at the end would be faulted. The trade-off between the resource needed to pay and the decreasing rate define the threshold. And if the balance is positive then one can repeat in recursion manner, and after a log-log iterations the failure probability decay to zero while the circuit would scale at most poly-logarithmic wide and depth factors.      
- 
+
+Let's return back to repeation code presented in chapter 2. We would like to think about an analog, a first and natural attempt might considering to duplicate copies of the state, Unfortunately copying a general state is not a linear operation and therefore can not be done in the circuit model (and any other believed to be feasible).           
+
+
+\begin{equation*}
+  \begin{split}
+    |\overline{0}\rangle&=\frac{1}{2\sqrt{2}}\left(|000\rangle+|111\rangle\right)^{\otimes3}\\
+    |\overline{1}\rangle&=\frac{1}{2\sqrt{2}}\left(|000\rangle-|111\rangle\right)^{\otimes3}~.
+  \end{split}
+\end{equation*}
+
 %\printbibliography[heading=subbibliography]
