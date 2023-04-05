@@ -21,17 +21,21 @@ The basic ingredient in \cite{aharonov1999faulttolerant} was to show the existen
 
 Let's return to the repetition code presented in Chapter 2. We would like to have an analog; a first and natural attempt might consider duplicating copies of the state. Unfortunately, copying a general state is not a linear operation and therefore can not be done in the circuit model (and any other believed to be feasible). In particular there is no circuit $U$ which duplicate simultaneity the states $\ket{0}, \ket{1}, \ket{+}, \ket{-}$.
 
-To overcome the issue, Shor came up with the nine-quibt code \cite{Ninequ}, which at first glance might seem a naive straightforward implantation of ``duplication'', but instead uses a clever insight about quantumness in general. Any operation can be seen as a linear (and even unitary) operation over a subspace embedded in large enough dimensions. By quadric the dimension of the repetition code,.. \ctt{Here}   
-
-The encoded state is a tree copy of the encoding of $\ket{\pm}$ states encoded in the repetition code.   
-
-
+To overcome the issue, Shor came up with the nine-quibt code \cite{Ninequ}, which at first glance might seem a naive straightforward implantation of ``duplication'', but instead uses a clever insight about quantumness in general. Any operation can be seen as a linear (and even unitary) operation over a subspace embedded in large enough dimensions. The encoding is given as follow: 
 \begin{equation*}
   \begin{split}
     |\overline{0}\rangle&=\frac{1}{2\sqrt{2}}\left(|000\rangle+|111\rangle\right)^{\otimes3}\\
     |\overline{1}\rangle&=\frac{1}{2\sqrt{2}}\left(|000\rangle-|111\rangle\right)^{\otimes3}~.
   \end{split}
 \end{equation*}
+
+\begin{claim}
+$ H^{m}\ket{\mathbf{GHZ}^{\pm}} = \sum_{|x| =_2 \pm }{\ket{x} }$
+
+\end{calim}
+
+
+By quadric the dimension of the repetition code one can find those state which at least two pauli are needed to applay for flipping either the bit or the phase of the logic state. Clearly any phase flip      
 
 %\printbibliography[heading=subbibliography]
 
