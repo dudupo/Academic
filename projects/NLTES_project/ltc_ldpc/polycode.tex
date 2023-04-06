@@ -43,6 +43,14 @@ Denote by $f \in \mathbb{F}_{m}^{n}$ a codeword candidate and consider the follo
 \end{proof}
   
 \begin{sagesilent}
+  def res(X):
+    Y = [(X[0][0], X[0][1])]
+    for x,y in X[1:]:
+      midx = (Y[-1][0] + x)/2
+      midy = (Y[-1][1] + y)/2
+      Y.append((x,y))
+      Y.append( (midx, midy) )
+    return Y
   R.<t> = PowerSeriesRing(GF(17));
   poly = (t+1) * (t+2)
   p_list = ( (x,poly(x)) for x in range(17) )
