@@ -68,7 +68,7 @@ Denote by $f \in \mathbb{F}_{m}^{n}$ a codeword candidate and consider the follo
   p_list =  split_lines([ (y, fmod(f(y),17)) for y in linspace(0,17,100) ])
   pplot_t =  line(p_list[0]) 
   for l in p_list[1:]:
-    p_list += line(l) 
+    pplot_t += line(l) 
   p_list2 = [ (y, fmod(g(y),17)) for y in linspace(0,17,100) ]
 \end{sagesilent}
 Here's a plot of $f$ from $-1$ to $1$ and:  $\sage{poly}$ %and $\sage{p_list}$: 
