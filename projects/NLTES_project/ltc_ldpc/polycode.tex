@@ -56,7 +56,7 @@ Denote by $f \in \mathbb{F}_{m}^{n}$ a codeword candidate and consider the follo
   poly = (t+1) * (t+2)
   f(x) = (x+1) * (x+2)
   g(x) = x**2
-  p_list = [ (y, fmod(f(y),17)) for y in range(0,17,0.1) ]
+  p_list = [ (y, fmod(f(y),17)) for y in linspace(0,17,20) ]
 \end{sagesilent}
 Here's a plot of $f$ from $-1$ to $1$ and:  $\sage{poly}$ and $\sage{p_list}$: 
 \begin{center}
