@@ -50,11 +50,12 @@ So, it's clear that a single bit-flip fault can be treat exactly as in the class
 \end{proof}
 Now it's clear how to correct a phase flip. One can apply the Hadamard transform and compute the parity of each triple, By the assumption that only a single phase flip might occurs either all the triples have the same parity or that the faulted one has an opposite parity and to corrected.           
 
-\begin{center}
-  \begin{tikzpicture}
-    \input{shor_decoder.tikz}
-  \end{tikzpicture}
-\end{center}
+%\begin{center}
+%  \begin{tikzpicture}
+%    \input{shor_decoder.tikz}
+%  \end{tikzpicture}
+%\end{center}
+
 %\begin{algorithm}[H]
 %  \caption{Shor code decoder.}
 %    \label{alg:shordecoder}
@@ -85,6 +86,10 @@ Now it's clear how to correct a phase flip. One can apply the Hadamard transform
 
 By quadric the dimension of the repetition code one can find those state which at least two pauli are needed to applay for flipping either the bit or the phase of the logic state. Clearly any phase flip      
 
+\section{Quantum Codes.}
+\begin{definition}
+  A $\left[\left[ n,k,d \right]\right]$ is a quantum code over $n$ qubits, that encode a subspace at demission $k$ and any fault composed by a product of at most $d/2$ Pauli operators. 
+\end{definition}
 
 \input{../NLTES_project/ltc_ldpc/qpolycode.tex}
 
