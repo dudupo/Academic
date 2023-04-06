@@ -29,9 +29,13 @@ pplot_t = finate_poly_plot(f)
 pplot_t2 = finate_poly_plot(g)
 \end{sagesilent}
 Here's a plot of $\sage{polyf}$ and $\sage{polyg}$ %and $\sage{p_list}$: 
-\begin{center}
-  \sageplot{ pplot_t + pplot_t2 }
-\end{center}
+\begin{figure}[h]
+  \begin{center}
+    \sageplot{ pplot_t + pplot_t2 }
+  \end{center}
+  \caption{a nice plot}
+  \label{fig:polyexample}
+\end{figure}
 
 \begin{fact} \label{fact:poly}
   Given $d+1$ points, there is a unique polynomial at degree at most $d$ that pass through all those points. Nevertheless, there is an algorithm $G$ that takes those points as input and outputs the corresponding polynomial.   
