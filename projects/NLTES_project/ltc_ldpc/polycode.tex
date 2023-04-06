@@ -48,8 +48,8 @@ Denote by $f \in \mathbb{F}_{m}^{n}$ a codeword candidate and consider the follo
     for x,y in X[1:]:
       midx = (Y[-1][0] + x)/2
       midy = (Y[-1][1] + y)/2
-      Y.append((x,y))
       Y.append( (midx, midy) )
+      Y.append((x,y))
     return Y
   R.<t> = PowerSeriesRing(GF(17));
   poly = (t+1) * (t+2)
