@@ -43,33 +43,7 @@ Denote by $f \in \mathbb{F}_{m}^{n}$ a codeword candidate and consider the follo
 \end{proof}
   
 \begin{sagesilent}
-  from math import fmod
-  from numpy import linspace
-  def res(X):
-    Y = [(X[0][0], X[0][1])]
-    for x,y in X[1:]:
-      midx = (Y[-1][0] + x)/2
-      midy = (Y[-1][1] + y)/2
-      Y.append( (midx, midy) )
-      Y.append((x,y))
-    return Y
-  def split_lines(X):
-    ret = [ [ (X[0][0], X[0][1])  ] ]
-    for x,y in X[1:]:
-      if abs(y - ret[-1][-1][1]) > 1:
-        ret +=  [ [ (x,y) ] ] 
-      else:
-        ret[-1].append( (x,y) )
-    return ret 
-  R.<t> = PowerSeriesRing(GF(17));
-  poly = (t+1) * (t+2)
-  f(x) = (x-1) * (x-2)
-  g(x) = (x-1) * (x-4)
-  p_list =  split_lines([ (y, fmod(f(y),17)) for y in linspace(0,17,1000) ])
-  pplot_t =  line(p_list[0]) 
-  for l in p_list[1:]:
-    pplot_t += line(l) 
-  p_list2 = [ (y, fmod(g(y),17)) for y in linspace(0,17,100) ]
+  \input{./sageutil.py}
 \end{sagesilent}
 Here's a plot of $f$ from $-1$ to $1$ and:  $\sage{poly}$ %and $\sage{p_list}$: 
 \begin{center}
