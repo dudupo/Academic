@@ -13,7 +13,9 @@
   \begin{definition} \label{good-code} We will say that a family of codes is a \textbf{good code} if its parameters converge into positive values. 
   \end{definition}
 
-  \input{back-ltc} 
+  \ifdefined\LDPCLTC
+  \input{back-ltc} %
+\fi
 
   
 \ifdefined\LDPCLTC
@@ -44,7 +46,9 @@
 
 It is also well known that the only binary codes that reach the bound are: $[n,1,n]$, $[n,n-1,2]$,$[n,n,1]$ \cite{eczoo_mds}. In particular, there are no good binary codes that obtain equality(And no binary code which get close to the equality exits). Let's review the polynomial code family \cite{Reed1960PolynomialCO}, which is a code over none binary field that achieve the Singleton Bound. 
 
+\ifdefined\LDPCLTC
 \input{polycode.tex} 
+\fi
 
 \subsubsection{Note On Quantum Polynomial Code.} 
 Let's define the code $C$ such that any state in $C$ is a coset of the polynomials at degree at most $d$ shifted by $x \in \mathbb{F}_{p}$. In other words the codeword associated with $x$ is the state $\ket{\underline{c}} = \sum_{ \substack{ f \in \mathbb{F}_{d}[x] \\  f(0) = 0}}{ \ket{ c + f}} $. The inner product between any $d$-degree polynomial with zero free coefficient is:
