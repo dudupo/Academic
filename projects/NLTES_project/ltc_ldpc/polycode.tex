@@ -34,11 +34,11 @@ pplot_t2 = finate_poly_plot(g)
  
 \begin{figure}[H]
     \sageplot{ pplot_t + pplot_t2 }
+    \sagestr{print_capt()}
     %\caption{ The plot presents the extension of the polynomials $\sage{f}$ and  in the filed $\mathbb{F}_{17}$. }
   %\label{fig:polyexample}
 \end{figure}
 
-\sagestr{print_capt()}
 \begin{fact} \label{fact:poly}
   Given $d+1$ points, there is a unique polynomial at degree at most $d$ that pass through all those points. Nevertheless, there is an algorithm $G$ that takes those points as input and outputs the corresponding polynomial.   
 \end{fact}
