@@ -103,4 +103,27 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
   \end{equation*}
 
   Namely, for any such sublinear weight string, $x$, the average of nontrivial edges for the vertex is less than $\lambda$. So there must be at least one vertex $v \in S$ that, on his local view, sets a  string at a weight less than $\lambda$. By the definition of $S$, this string cannot be trivial. Combining the fact that any nontrivial codeword of the $C_{0}$ is at weight at least $\delta\Delta$, we get a contradiction to the assumption that $v$ is satisfied, videlicet, $x$ can't be a codeword \end{proof}
- 
+
+
+\begin{sageblock}
+  g = graphs.PetersenGraph()
+  g.set_latex_options(tkz_style='Art')
+\end{sageblock}
+
+Now just do \verb|\sage{}| on it to plot it. You'll need to use the
+\texttt{tkz-berge} package for this to work; that package in turn
+depends on \texttt{tkz-graph} and TikZ. See
+\href{http://altermundus.fr/pages/tkz.html}{\texttt{altermundus.fr/pages/tkz.html}};
+if you're using a recent version of \TeX Live, you can use its package
+manager to install those packages, or get them from CTAN:
+\href{http://www.ctan.org/pkg/tkz-berge}{\texttt{www.ctan.org/pkg/tkz-berge}}.
+See
+\href{http://doc.sagemath.org/html/en/reference/sage/graphs/graph_latex.html}{``\LaTeX{}
+  Options for Graphs''} in the Sage reference manual for more details.
+
+\sagetexunpause 
+\begin{center}
+  \sageplot[][png]{g.plot2d()}
+\end{center}
+\sagetexpause
+
