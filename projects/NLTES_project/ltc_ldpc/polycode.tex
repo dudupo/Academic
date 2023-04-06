@@ -19,6 +19,19 @@ Observe that $C$ is a linear code at length $n$ over the aleph-bet $\mathbb{F}_{
 
   Hence $h = f-g$ is a non-$0$ polynomial at degree at most $d$ and therefore has at most $d$ roots. Namely at most $d$ points in which $f$ equals $g$ and at least $n-d$ in which they disagree. Put in another way the distance between any two different codewords of the code is at least $n-d$.  
 \end{proof}
+\begin{sagesilent}
+R.<t> = PowerSeriesRing(GF(17));
+polyf = (t-1) * (t-2)
+polyg = (t-1) * (t-4)
+f(x) = (x-1) * (x-2)
+g(x) = (x-1) * (x-4)
+pplot_t = finate_poly_plot(f)
+pplot_t2 = finate_poly_plot(g)
+\end{sagesilent}
+Here's a plot of $\sage{polyf}$ and $\sage{polyg}$ %and $\sage{p_list}$: 
+\begin{center}
+  \sageplot{ pplot_t + pplot_t2 }
+\end{center}
 
 \begin{fact} \label{fact:poly}
   Given $d+1$ points, there is a unique polynomial at degree at most $d$ that pass through all those points. Nevertheless, there is an algorithm $G$ that takes those points as input and outputs the corresponding polynomial.   
@@ -42,18 +55,5 @@ Denote by $f \in \mathbb{F}_{m}^{n}$ a codeword candidate and consider the follo
   \end{equation*}
 \end{proof}
 
-\input{sageutil.py}
   
-\begin{sagesilent}
-R.<t> = PowerSeriesRing(GF(17));
-poly = (t+1) * (t+2)
-f(x) = (x-1) * (x-2)
-g(x) = (x-1) * (x-4)
-pplot_t = finate_poly_plot(f)
-pplot_t2 = finate_poly_plot(g)
-\end{sagesilent}
-Here's a plot of $f$ from $-1$ to $1$ and:  $\sage{poly}$ %and $\sage{p_list}$: 
-\begin{center}
-  \sageplot{ pplot_t + pplot_t2 }
-\end{center}
 %+  point(p_list2, size=1, color='green')
