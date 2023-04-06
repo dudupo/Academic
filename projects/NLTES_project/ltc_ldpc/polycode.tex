@@ -20,7 +20,7 @@ Observe that $C$ is a linear code at length $n$ over the aleph-bet $\mathbb{F}_{
   Hence $h = f-g$ is a non-$0$ polynomial at degree at most $d$ and therefore has at most $d$ roots. Namely at most $d$ points in which $f$ equals $g$ and at least $n-d$ in which they disagree. Put in another way the distance between any two different codewords of the code is at least $n-d$.  
 \end{proof}
 
-\begin{fact}
+\begin{fact} \label{fact:poly}
   Given $d+1$ points, there is a unique polynomial at degree at most $d$ that pass through all those points. Nevertheless, there is an algorithm $G$ that takes those points as input and outputs the corresponding polynomial.   
 \end{fact}
 
@@ -28,6 +28,9 @@ Observe that $C$ is a linear code at length $n$ over the aleph-bet $\mathbb{F}_{
 
 \end{lemma}
 \begin{proof}
+  Denote by $f \in \mathbb{F_{m}^{n}}$ a codeword candidate and consider the following test. First, choose uniformly at random $d+1$ points $x_{1}, x_{2}, x_{3}, ... x_{d+1}$ and use $G$ to output a polynomial that agree on that points, denote it by $G\left( f \right)$. Then uniformly choose an additional point, return \textbf{True} if $G\left( f \right)(x_{d+2}) = f\left( x_{d+2} \right)$ and \textbf{False} otherwise.   
+
+  Now, observe that if $f\in C$ then by ~\cref{fact:poly} we have that $G\left( f \right) = f$. In particular $G\left( f \right)(x_{d+2}) = f\left( x_{d+2} \right)$, Namely the test validate a codeword with probability $1$.   
 
   \begin{equation*}
     \begin{split}
