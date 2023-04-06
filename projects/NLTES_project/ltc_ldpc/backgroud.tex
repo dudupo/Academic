@@ -107,21 +107,10 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
 
 \begin{sageblock}
   g = graphs.PetersenGraph()
-  g.set_latex_options(tkz_style='Art')
+  #g.set_latex_options(tkz_style='Art')
 \end{sageblock}
 
-Now just do \verb|\sage{}| on it to plot it. You'll need to use the
-\texttt{tkz-berge} package for this to work; that package in turn
-depends on \texttt{tkz-graph} and TikZ. See
-\href{http://altermundus.fr/pages/tkz.html}{\texttt{altermundus.fr/pages/tkz.html}};
-if you're using a recent version of \TeX Live, you can use its package
-manager to install those packages, or get them from CTAN:
-\href{http://www.ctan.org/pkg/tkz-berge}{\texttt{www.ctan.org/pkg/tkz-berge}}.
-See
-\href{http://doc.sagemath.org/html/en/reference/sage/graphs/graph_latex.html}{``\LaTeX{}
-  Options for Graphs''} in the Sage reference manual for more details.
-
 \begin{center}
-  \sageplot[][png]{g.plot2d()}
+  \sageplot[][png]{g.plot()}
 \end{center}
 
