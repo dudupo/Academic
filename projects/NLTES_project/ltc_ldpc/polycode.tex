@@ -43,6 +43,7 @@ Denote by $f \in \mathbb{F}_{m}^{n}$ a codeword candidate and consider the follo
 \end{proof}
   
 \begin{sagesilent}
+  from math import fmod
   def res(X):
     Y = [(X[0][0], X[0][1])]
     for x,y in X[1:]:
