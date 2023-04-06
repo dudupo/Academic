@@ -43,9 +43,11 @@ Denote by $f \in \mathbb{F}_{m}^{n}$ a codeword candidate and consider the follo
 \end{proof}
 
 \begin{sagesilent}
-  f(x) = 3*x \% 5  
+  R = PolynomialRing(GF(17), 't')
+  poly = (t+1) * (t+2)
+  f(x) = sin(2*x)
 \end{sagesilent}
-Here's a plot of $f$ from $-1$ to $1$:
+Here's a plot of $f$ from $-1$ to $1$ and $\sega{poly}$: 
 \begin{center}
 \sageplot{plot(f, -10, 10)}
 \end{center}
