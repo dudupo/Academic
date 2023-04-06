@@ -55,9 +55,9 @@ Denote by $f \in \mathbb{F}_{m}^{n}$ a codeword candidate and consider the follo
   R.<t> = PowerSeriesRing(GF(17));
   poly = (t+1) * (t+2)
   f(x) = fmod((x+1) * (x+2), 17) 
-  p_list = [ (x, f(x)) for x in range(17) ]
+  p_list = [ (y, poly(y)) for y in range(17) ]
 \end{sagesilent}
 Here's a plot of $f$ from $-1$ to $1$ and:  $\sage{poly}$ and $\sage{p_list}$: 
 \begin{center}
-  \sageplot{plot(poly, 0, 17) + line(p_list)}
+  \sageplot{plot(f, 0, 17) }
 \end{center}
