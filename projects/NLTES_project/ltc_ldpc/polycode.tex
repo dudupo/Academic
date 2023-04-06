@@ -22,6 +22,7 @@ Observe that $C$ is a linear code at length $n$ over the aleph-bet $\mathbb{F}_{
 \begin{sagesilent}
 R.<t> = PowerSeriesRing(GF(17));
 polyf = (t-1) * (t-2)
+polyff = facotr(polyf)
 polyg = (t-1) * (t-4)
 f(x) = (x-1) * (x-2)
 g(x) = (x-1) * (x-4)
@@ -32,7 +33,7 @@ pplot_t2 = finate_poly_plot(g)
   \begin{center}
     \sageplot{ pplot_t + pplot_t2 }
   \end{center}
-  \caption{The plot presents the extension of the polynomials $\sage{factor(polyf)}$ and $\sage{polyg}$ in the filed $\matbb{F}_{17}$.  }
+  \caption{The plot presents the extension of the polynomials $\sage{polyff}$ and $\sage{polyg}$ in the filed $\matbb{F}_{17}$.  }
   \label{fig:polyexample}
 \end{figure}
 
