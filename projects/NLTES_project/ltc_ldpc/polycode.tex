@@ -55,11 +55,12 @@ Denote by $f \in \mathbb{F}_{m}^{n}$ a codeword candidate and consider the follo
     return Y
   R.<t> = PowerSeriesRing(GF(17));
   poly = (t+1) * (t+2)
-  f(x) = (x+1) * (x+2)
-  g(x) = x**2
+  f(x) = (x-1) * (x-2)
+  g(x) = (x-1) * (x-4)
   p_list = [ (y, fmod(f(y),17)) for y in linspace(0,17,10000) ]
+  p_list2 = [ (y, fmod(g(y),17)) for y in linspace(0,17,10000) ]
 \end{sagesilent}
 Here's a plot of $f$ from $-1$ to $1$ and:  $\sage{poly}$ %and $\sage{p_list}$: 
 \begin{center}
-  \sageplot{point(p_list, size=1) }
+  \sageplot{point(p_list, size=1) +  point(p_list2, size=1)}
 \end{center}
