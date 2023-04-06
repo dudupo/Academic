@@ -57,7 +57,7 @@ Denote by $f \in \mathbb{F}_{m}^{n}$ a codeword candidate and consider the follo
     ret = [ [ (X[0][0], X[0][1])  ] ]
     for x,y in X:
       if abs(y - ret[-1][-1][1]) > 1:
-        ret.append( [ ] )
+        ret.append( [ [] ] )
       ret[-1].append( (x,y) )
     return ret 
   R.<t> = PowerSeriesRing(GF(17));
