@@ -65,7 +65,7 @@ Denote by $f \in \mathbb{F}_{m}^{n}$ a codeword candidate and consider the follo
   poly = (t+1) * (t+2)
   f(x) = (x-1) * (x-2)
   g(x) = (x-1) * (x-4)
-  p_list =  split_lines([ (y, fmod(f(y),17)) for y in linspace(0,17,100) ])
+  p_list =  split_lines([ (y, fmod(f(y),17)) for y in linspace(0,17,1000) ])
   #pplot_t =  line(p_list[0]) 
   #for l in p_list[1:]:
   #  pplot_t += line(l) 
