@@ -1,18 +1,15 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'lowerbound.blg'
-[74] biber:340> INFO - === Sat Apr  8, 2023, 11:36:56
-[87] Biber.pm:415> INFO - Reading 'lowerbound.bcf'
-[143] Biber.pm:952> INFO - Found 5 citekeys in bib section 0
-[154] Biber.pm:4340> INFO - Processing section 0
-[164] Biber.pm:4531> INFO - Looking for bibtex format file 'lowerbound' for section 0
-[181] Utils.pm:395> WARN - Data source './lowerbound.tex' contains no BibTeX entries/macros, ignoring
-[181] Biber.pm:4531> INFO - Looking for bibtex format file 'lowerbound.bib' for section 0
-[183] bibtex.pm:1689> INFO - LaTeX decoding ...
-[212] bibtex.pm:1494> INFO - Found BibTeX data source 'lowerbound.bib'
-[281] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[281] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[281] Biber.pm:4168> INFO - Sorting list 'ynt/global//global/global' of type 'entry' with template 'ynt' and locale 'en-US'
-[281] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
-[290] bbl.pm:654> INFO - Writing 'lowerbound.bbl' with encoding 'UTF-8'
-[293] bbl.pm:757> INFO - Output to lowerbound.bbl
-[293] Biber.pm:128> INFO - WARNINGS: 1
+[71] biber:340> INFO - === Sat Apr  8, 2023, 11:53:40
+[84] Biber.pm:415> INFO - Reading 'lowerbound.bcf'
+[141] Biber.pm:952> INFO - Found 5 citekeys in bib section 0
+[153] Biber.pm:4340> INFO - Processing section 0
+[162] Biber.pm:4531> INFO - Looking for bibtex format file 'lowerbound.bib' for section 0
+[164] bibtex.pm:1689> INFO - LaTeX decoding ...
+[191] bibtex.pm:1494> INFO - Found BibTeX data source 'lowerbound.bib'
+[256] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[256] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[256] Biber.pm:4168> INFO - Sorting list 'ynt/global//global/global' of type 'entry' with template 'ynt' and locale 'en-US'
+[256] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[264] bbl.pm:654> INFO - Writing 'lowerbound.bbl' with encoding 'UTF-8'
+[267] bbl.pm:757> INFO - Output to lowerbound.bbl

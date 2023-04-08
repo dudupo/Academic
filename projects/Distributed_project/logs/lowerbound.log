@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.7.4)  8 APR 2023 11:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.7.4)  8 APR 2023 11:53
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -22,7 +22,7 @@ File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
-) (./usepackage.tex
+)
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2020/08/01 v1.3d Input encoding file
 \inpenc@prehook=\toks15
@@ -1441,81 +1441,21 @@ File: tikzlibraryplotmarks.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.co
 de.tex
 File: pgflibraryplotmarks.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-))) (/usr/share/texlive/texmf-local/tex/latex/sagetex/sagetex.sty
-Package: sagetex 2020/08/12 v3.5 embedding Sage into LaTeX documents
-
-(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
-Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks71
-\verbatim@line=\toks72
-\verbatim@in@stream=\read5
-)
-(/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
-Package: fancyvrb 2021/01/20 v3.7 verbatim text (tvz,hv)
-\FV@CodeLineNo=\count488
-\FV@InFile=\read6
-\FV@TabBox=\box122
-\c@FancyVerbLine=\count489
-\FV@StepNumber=\count490
-\FV@OutFile=\write6
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count491
-\lst@gtempboxa=\box123
-\lst@token=\toks73
-\lst@length=\count492
-\lst@currlwidth=\dimen318
-\lst@column=\count493
-\lst@pos=\count494
-\lst@lostspace=\dimen319
-\lst@width=\dimen320
-\lst@newlines=\count495
-\lst@lineno=\count496
-\lst@maxwidth=\dimen321
-
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count497
-\lst@skipnumbers=\count498
-\lst@framebox=\box124
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2020/03/24 1.8d listings configuration
-))
-Package: listings 2020/03/24 1.8d (Carsten Heinz)
-
-(/usr/share/texlive/texmf-dist/tex/latex/makecmds/makecmds.sty
-Package: makecmds 2009/09/03 v1.0a extra command making commands
-)
-(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifpdf.sty
-Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
-)
-(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty
-Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-)
-\c@ST@inline=\count499
-\c@ST@plot=\count500
-\c@ST@cmdline=\count501
-\sagetexindent=\skip103
-
-(./lowerbound.sagetex.sout)
-\sagecommandlineskip=\skip104
-)
-(/usr/share/texlive/texmf-dist/tex/latex/etoc/etoc.sty
+))) (/usr/share/texlive/texmf-dist/tex/latex/etoc/etoc.sty
 Package: etoc 2020/05/15 v1.09c Completely customisable TOCs (JFB)
-\Etoc@toctoks=\toks74
-\c@etoc@tocid=\count502
-\c@etoc@tocdepth=\count503
-\etoc@framed@titlebox=\box125
-\etoc@framed@contentsbox=\box126
+\Etoc@toctoks=\toks71
+\c@etoc@tocid=\count488
+\c@etoc@tocdepth=\count489
+\etoc@framed@titlebox=\box122
+\etoc@framed@contentsbox=\box123
 )
    defining Unicode char U+2212 (decimal 8722)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.gr
 oupplots.code.tex
-\pgfplots@group@current@plot=\count504
-\pgfplots@group@current@row=\count505
-\pgfplots@group@current@column=\count506
+\pgfplots@group@current@plot=\count490
+\pgfplots@group@current@row=\count491
+\pgfplots@group@current@column=\count492
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.da
 teplot.code.tex
@@ -1524,55 +1464,54 @@ teplot.code.tex
 File: pgfcalendar.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
-\pgfcalendarcurrentjulian=\count507
-\pgf@cal@easter@Y=\count508
-\pgf@cal@easter@G=\count509
-\pgf@cal@easter@C=\count510
-\pgf@cal@easter@X=\count511
-\pgf@cal@easter@Z=\count512
-\pgf@cal@easter@D=\count513
-\pgf@cal@easter@E=\count514
-\pgf@cal@easter@N=\count515
-\pgf@cal@easter@M=\count516
-\pgf@cal@easter@julianday=\count517
+\pgfcalendarcurrentjulian=\count493
+\pgf@cal@easter@Y=\count494
+\pgf@cal@easter@G=\count495
+\pgf@cal@easter@C=\count496
+\pgf@cal@easter@X=\count497
+\pgf@cal@easter@Z=\count498
+\pgf@cal@easter@D=\count499
+\pgf@cal@easter@E=\count500
+\pgf@cal@easter@N=\count501
+\pgf@cal@easter@M=\count502
+\pgf@cal@easter@julianday=\count503
 )))
-\c@theorem=\count518
-\c@definition=\count519
-\c@claim=\count520
-\c@fact=\count521
-\c@remark=\count522
-\c@lemma=\count523
-Package hyperref Info: Option `colorlinks' set `true' on input line 42.
-)
-\@quotelevel=\count524
-\@quotereset=\count525
+\c@theorem=\count504
+\c@definition=\count505
+\c@claim=\count506
+\c@fact=\count507
+\c@remark=\count508
+\c@lemma=\count509
+Package hyperref Info: Option `colorlinks' set `true' on input line 59.
+\@quotelevel=\count510
+\@quotereset=\count511
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count526
-\l__pdf_internal_box=\box127
+\l__color_backend_stack_int=\count512
+\l__pdf_internal_box=\box124
 )
 (./lowerbound.aux)
 \openout1 = `lowerbound.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1610,17 +1549,17 @@ LaTeX Font Info:    ... okay on input line 38.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count527
-\scratchdimen=\dimen322
-\scratchbox=\box128
-\nofMPsegments=\count528
-\nofMParguments=\count529
-\everyMPshowfont=\toks75
-\MPscratchCnt=\count530
-\MPscratchDim=\dimen323
-\MPnumerator=\count531
-\makeMPintoPDFobject=\count532
-\everyMPtoPDFconversion=\toks76
+\scratchcounter=\count513
+\scratchdimen=\dimen318
+\scratchbox=\box125
+\nofMPsegments=\count514
+\nofMParguments=\count515
+\everyMPshowfont=\toks72
+\MPscratchCnt=\count516
+\MPscratchDim=\dimen319
+\MPnumerator=\count517
+\makeMPintoPDFobject=\count518
+\everyMPtoPDFconversion=\toks73
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1630,7 +1569,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 38.
+Package hyperref Info: Link coloring ON on input line 80.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1641,15 +1580,15 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count533
+\c@section@level=\count519
 )
-LaTeX Info: Redefining \ref on input line 38.
-LaTeX Info: Redefining \pageref on input line 38.
-LaTeX Info: Redefining \nameref on input line 38.
+LaTeX Info: Redefining \ref on input line 80.
+LaTeX Info: Redefining \pageref on input line 80.
+LaTeX Info: Redefining \nameref on input line 80.
 
 (./lowerbound.out) (./lowerbound.out)
-\@outlinefile=\write7
-\openout7 = `lowerbound.out'.
+\@outlinefile=\write6
+\openout6 = `lowerbound.out'.
 
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
@@ -1682,23 +1621,19 @@ Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'lowerbound.bbl' found.
  (./lowerbound.bbl)
-Package biblatex Info: Reference section=0 on input line 38.
-Package biblatex Info: Reference segment=0 on input line 38.
+Package biblatex Info: Reference section=0 on input line 80.
+Package biblatex Info: Reference segment=0 on input line 80.
 
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-\c@lstlisting=\count534
-\ST@sf=\write8
-\openout8 = `lowerbound.sagetex.sage'.
-
 No file lowerbound.toc.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 44.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 86.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 44.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 86.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1706,16 +1641,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/usr/share/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \hbox (22.37308pt too wide) in paragraph at lines 149--150
+Overfull \hbox (22.37308pt too wide) in paragraph at lines 191--192
 []\OT1/cmr/bx/n/10 Theorem \OT1/cmr/m/n/10 (The-o-rem A)\OT1/cmr/bx/n/10 . []\O
 T1/cmr/m/it/10 The $\OML/cmm/m/it/10 r$\OT1/cmr/m/it/10 -round quan-tum com-mu-
 ni-ca-tion com-plex-ity of Disjointness$[]$ is $\OT1/cmr/m/n/10 
  []$\OT1/cmr/m/it/10 . 
  []
 
-[3]
-*********************************************************************
-[4] (./lowerbound.aux)
+[3] [4] (./lowerbound.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1729,13 +1662,13 @@ Package logreq Info: Writing requests to 'lowerbound.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48866 strings out of 480806
- 1066538 string characters out of 5905152
- 1962665 words of memory out of 6000000
- 65399 multiletter control sequences out of 15000+600000
+ 46984 strings out of 480806
+ 1038461 string characters out of 5905152
+ 1930022 words of memory out of 6000000
+ 63554 multiletter control sequences out of 15000+600000
  414977 words of font info for 71 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 115i,18n,110p,981b,1336s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 110i,18n,107p,981b,1336s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
