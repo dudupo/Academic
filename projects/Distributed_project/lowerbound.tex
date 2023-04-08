@@ -44,7 +44,7 @@
 
 \begin{abstract}\textit{We show that there is no operator that given two state $\ket{\psi},\ket{\phi}$ compute the transformation: $D \ket{\psi}\ket{\phi} = \ket{\psi}\left( \mathbb{I} - 2 \ket{\psi}\bra{\psi} \right)\ket{\phi} $ The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity, which shown by Braverman to be impossible \cite{Braverman}. }
 \end{abstract}
-\begin{multicols*}{2}
+%\begin{multicols*}{2}
 
 \paragraph{Preamble} It's wide believed that quantum machines have a significant advantage over the classical in optimization tasks. Simple algorithms, which could be interpreted as the quantum version of ``scanning all the options'' cut the running time by square root of the classical magnitude. That cut achieved by using the superposition principal in most straightforward way known as the Amplitude Amplification algorithm \cite{Brassard_2002}. 
 
@@ -153,7 +153,7 @@ The protocol compute the disjointness in single round while requiring transmissi
 
 It's worth say that the $r$-rounds communication bound on disjointness does not hold in many cases, For simple example consider that each of the set $x,y \in \{0,1\}^{n}$ drawn uniformly, Then it's clear that Alice and Bob could just answer ``Yes'' and they will be correct with high probability. The family of states which one can do project over them by only partly projection (diffusion operators) are correspond to the distributions over pairs of Alice and Bob sets which they can compute with their disjointness with less communication.        
 \printbibliography 
-\end{multicols*}
+%\end{multicols*}
 \end{document}
 
 
