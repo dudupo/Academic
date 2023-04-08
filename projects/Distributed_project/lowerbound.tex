@@ -46,7 +46,7 @@
 \end{abstract}
 %\begin{multicols*}{2}
 
-\paragraph{Preamble} It's wide believed that quantum machines have a significant advantage over the classical in optimization tasks. Simple algorithms, which could be interpreted as the quantum version of ``scanning all the options'' cut the running time by square root of the classical magnitude. That cut achieved by using the superposition principal in most straightforward way known as the Amplitude Amplification algorithm \cite{Brassard_2002}, \cite{grover1996fast}. 
+\section{Preamble} It's wide believed that quantum machines have a significant advantage over the classical in optimization tasks. Simple algorithms, which could be interpreted as the quantum version of ``scanning all the options'' cut the running time by square root of the classical magnitude. That cut achieved by using the superposition principal in most straightforward way known as the Amplitude Amplification algorithm \cite{Brassard_2002}, \cite{grover1996fast}. 
 
 General speaking this method transform a known state $\ket{\psi}$  with probability $a$ to measure $\ket{i}$ to a state in which the desired measurement obtained with probability grater than $\frac{1}{2}$ at the cost of less than $\sqrt{a}$ Grover iterations. Using this process, One can initialize a uniform distribution over $n$ elements and amplify the probability to measure a desired state at $\sqrt{n}$ time. To understand the power gained by this method, we mention max extraction as use-case \cite{ahuja1999quantum}. While any classical algorithm which runs at square time results an output deadened only on square fraction of the bits and therefore can't yield a constant probability to sample the maximum element, Quntemly this limitation doesn't hold. And the gap amplification is indeed enable a square root time maximum extraction algorithm. 
   
@@ -63,7 +63,7 @@ General speaking this method transform a known state $\ket{\psi}$  with probabil
 
 We name the gate above the \textit{Generalize Diffusion} gate, As if such gate were exists it could be used instand of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity in contradict to the fact that $r$-rounds two party computation needs at least $\Omega\left( \frac{n}{r} \right)$ communication to compute disjoiness (up to log factors) \cite{Braverman}.    
 
-\paragraph{Quantum Communication Complexity of Disjointness.}
+\section{Quantum Communication Complexity Of Disjointness.}
 Consider the following communication problem.
 As inputs Alice gets an \(x\) and Bob get a \(y\), where \(x, y \in \{0, 1\}^n \), and by exchanging information they want to determine if there is an index \(k\) such that \(x_k = y_k = 1 \) or not. 
 In other words, if \(x\) encodes the set \(A = \{k | x_k = 1\} \), and \(y\) encodes \(B = \{k | y_k = 1\}\), 
@@ -73,7 +73,7 @@ The classical randomized communication complexity of this problem is \ona{n} \ci
 Assuming Alice and Bob can exchange quantum messages, It is known that Alice and bob can solve the task
 correctly with probability greater than \(2/3\) by exchanging at most \ona{\sqrt{n}\log n } qubits %\ctt{add cation of the original solution}. 
 
-\paragraph{The reduction.} 
+\section{The Reduction.} 
 Assume by way of contradiction the existence of $D$ defined above.  
 Let \( x^{(j)} \) be the \(j\)-th \(\sqrt{n}\)-block of \(x\), e.g \(x^{(j)} = x_{j\sqrt{n}},x_{j\sqrt{n}+1}...,x_{(j+1)(\sqrt{n})-1}  \). And denote by \( \ket{\psi_x} \in \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \) the uniform superposition state over the \( x^{(j)}\)-'s "tensored" with \(\sqrt{n}\)-qudit (which will correspond to the block number). 
 \[ \ket{\psi_x} = \frac{1}{n^\frac{1}{4}}\sum_{j}^{\sqrt{n}}\ket{x^{(j)}}\ket{j} \] Note that the encoding of \( \ket{\psi_x} \) require only \( \sqrt{n} + \log(\sqrt{n}) \) qubits.
@@ -150,7 +150,8 @@ The protocol compute the disjointness in single round while requiring transmissi
 \end{theorem*}
 \paragraph{}
 \end{proof}
-\paragraph{Conclusion And Open Problems.} The reduction above demonstrate how a known results can give us almost immediately insights about quantum compatibility. We hope that beside of been an no-go-to proof this work will also use as an hint for direction to other quantum advantages in the disturbed computing setting. 
+
+\section{Conclusion And Open Problems.} The reduction above demonstrate how a known results can give us almost immediately insights about quantum compatibility. We hope that beside of been an no-go-to proof this work will also use as an hint for direction to other quantum advantages in the disturbed computing setting. 
 
 It's worth say that the $r$-rounds communication bound on disjointness does not hold in many cases, For simple example consider that each of the set $x,y \in \{0,1\}^{n}$ drawn uniformly, Then it's clear that Alice and Bob could just answer ``Yes'' and they will be correct with high probability. The family of states which one can do project over them by only partly projection (diffusion operators) are correspond to the distributions over pairs of Alice and Bob sets which they can compute with their disjointness with less communication.        
 \printbibliography 
