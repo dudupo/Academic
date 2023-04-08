@@ -1,0 +1,239 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{grover1996fast}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=619ef89ee12058aba6b0df9b17b11ca3}{%
+           family={Grover},
+           familyi={G\bibinitperiod},
+           given={Lov\bibnamedelima K.},
+           giveni={L\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{619ef89ee12058aba6b0df9b17b11ca3}
+      \strng{fullhash}{619ef89ee12058aba6b0df9b17b11ca3}
+      \strng{bibnamehash}{619ef89ee12058aba6b0df9b17b11ca3}
+      \strng{authorbibnamehash}{619ef89ee12058aba6b0df9b17b11ca3}
+      \strng{authornamehash}{619ef89ee12058aba6b0df9b17b11ca3}
+      \strng{authorfullhash}{619ef89ee12058aba6b0df9b17b11ca3}
+      \field{labelalpha}{Gro96}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{title}{A fast quantum mechanical algorithm for database search}
+      \field{year}{1996}
+      \verb{eprint}
+      \verb quant-ph/9605043
+      \endverb
+    \endentry
+    \entry{ahuja1999quantum}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=fff170554a8c31da5edb04618cb867d2}{%
+           family={Ahuja},
+           familyi={A\bibinitperiod},
+           given={Ashish},
+           giveni={A\bibinitperiod}}}%
+        {{hash=fb8d9dfccffc00445eedbf38535009bc}{%
+           family={Kapoor},
+           familyi={K\bibinitperiod},
+           given={Sanjiv},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{7d7f8fc42d0038f844ec407f8942a24d}
+      \strng{fullhash}{7d7f8fc42d0038f844ec407f8942a24d}
+      \strng{bibnamehash}{7d7f8fc42d0038f844ec407f8942a24d}
+      \strng{authorbibnamehash}{7d7f8fc42d0038f844ec407f8942a24d}
+      \strng{authornamehash}{7d7f8fc42d0038f844ec407f8942a24d}
+      \strng{authorfullhash}{7d7f8fc42d0038f844ec407f8942a24d}
+      \field{labelalpha}{AK99}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{title}{A Quantum Algorithm for finding the Maximum}
+      \field{year}{1999}
+      \verb{eprint}
+      \verb quant-ph/9911082
+      \endverb
+    \endentry
+    \entry{Brassard_2002}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=504bb784f2241f359d5030d2ca7f2bdd}{%
+           family={Brassard},
+           familyi={B\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod}}}%
+        {{hash=a63f61d51d4a7a277cce46722c380f1a}{%
+           family={H{ø}yer},
+           familyi={H\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=cac498e264a2fdb0a8c4dd3e95c92055}{%
+           family={Mosca},
+           familyi={M\bibinitperiod},
+           given={Michele},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ffbcbc5eda6edf64a21ce3b8529b1ce0}{%
+           family={Tapp},
+           familyi={T\bibinitperiod},
+           given={Alain},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Society}%
+      }
+      \strng{namehash}{07de7c08a8e5a865459ac3b08f723626}
+      \strng{fullhash}{260a71d5255a0117d78d042829019aa3}
+      \strng{bibnamehash}{07de7c08a8e5a865459ac3b08f723626}
+      \strng{authorbibnamehash}{07de7c08a8e5a865459ac3b08f723626}
+      \strng{authornamehash}{07de7c08a8e5a865459ac3b08f723626}
+      \strng{authorfullhash}{260a71d5255a0117d78d042829019aa3}
+      \field{labelalpha}{Bra+02}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Quantum amplitude amplification and estimation}
+      \field{year}{2002}
+      \field{pages}{53\bibrangedash 74}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1090/conm/305/05215
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1090%2Fconm%2F305%2F05215
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1090%2Fconm%2F305%2F05215
+      \endverb
+    \endentry
+    \entry{v003a011}{article}{}
+      \name{author}{2}{}{%
+        {{hash=804cd45ec4be77b4cc5e4d994ba18af0}{%
+           family={H{å}stad},
+           familyi={H\bibinitperiod},
+           given={Johan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=94bdc407739d530448ac88956c6c98a5}{%
+           family={Wigderson},
+           familyi={W\bibinitperiod},
+           given={Avi},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Theory of Computing}%
+      }
+      \strng{namehash}{f754dba32d0fbb3ff8be68ce331463e5}
+      \strng{fullhash}{f754dba32d0fbb3ff8be68ce331463e5}
+      \strng{bibnamehash}{f754dba32d0fbb3ff8be68ce331463e5}
+      \strng{authorbibnamehash}{f754dba32d0fbb3ff8be68ce331463e5}
+      \strng{authornamehash}{f754dba32d0fbb3ff8be68ce331463e5}
+      \strng{authorfullhash}{f754dba32d0fbb3ff8be68ce331463e5}
+      \field{labelalpha}{HW07}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Theory of Computing}
+      \field{number}{11}
+      \field{title}{The Randomized Communication Complexity of Set Disjointness}
+      \field{volume}{3}
+      \field{year}{2007}
+      \field{pages}{211\bibrangedash 219}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.4086/toc.2007.v003a011
+      \endverb
+      \verb{urlraw}
+      \verb https://theoryofcomputing.org/articles/v003a011
+      \endverb
+      \verb{url}
+      \verb https://theoryofcomputing.org/articles/v003a011
+      \endverb
+    \endentry
+    \entry{Braverman}{article}{}
+      \name{author}{5}{}{%
+        {{hash=104c825437150d43e7ae2adf60ecb7ce}{%
+           family={Braverman},
+           familyi={B\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f14703261a0ee3baeb3bb26d924ebed3}{%
+           family={Garg},
+           familyi={G\bibinitperiod},
+           given={Ankit},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8b62a4090804c541a3e01ee8ff151dc2}{%
+           family={Ko},
+           familyi={K\bibinitperiod},
+           given={Young\bibnamedelima Kun},
+           giveni={Y\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=6e46d6c89836c50271b78f81929b21f8}{%
+           family={Mao},
+           familyi={M\bibinitperiod},
+           given={Jieming},
+           giveni={J\bibinitperiod}}}%
+        {{hash=3341a9b20a32e4d4371c815d8b953bba}{%
+           family={Touchette},
+           familyi={T\bibinitperiod},
+           given={Dave},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{c07dd1e41316305be7c2ccded2026071}
+      \strng{fullhash}{611741bb22c6383e3bda013434498bc8}
+      \strng{bibnamehash}{c07dd1e41316305be7c2ccded2026071}
+      \strng{authorbibnamehash}{c07dd1e41316305be7c2ccded2026071}
+      \strng{authornamehash}{c07dd1e41316305be7c2ccded2026071}
+      \strng{authorfullhash}{611741bb22c6383e3bda013434498bc8}
+      \field{labelalpha}{Bra+18}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We prove a near optimal round-communication tradeoff for the two-party quantum communication complexity of disjointness. For protocols with \$r\$ rounds, we prove a lower bound of \$\tilde{\Omega}(n/r + r)\$ on the communication required for computing disjointness of input size \$n\$, which is optimal up to logarithmic factors. The previous best lower bound was \$\Omega(n/r^2 + r)\$ due to Jain, Radhakrishnan and Sen [Proceedings of FOCS, 2003, pp. 220--229]. Along the way, we develop several tools for quantum information complexity, one of which is a lower bound for quantum information complexity in terms of the generalized discrepancy method. As a corollary, we get that the quantum communication complexity of any Boolean function \$f\$ is at most \$2^{O(QIC(f))}\$, where \$QIC(f)\$ is the prior-free quantum information complexity of \$f\$ (with error \$1/3\$).}
+      \field{journaltitle}{SIAM Journal on Computing}
+      \field{number}{6}
+      \field{title}{Near-Optimal Bounds on the Bounded-Round Quantum Communication Complexity of Disjointness}
+      \field{volume}{47}
+      \field{year}{2018}
+      \field{pages}{2277\bibrangedash 2314}
+      \range{pages}{38}
+      \verb{doi}
+      \verb 10.1137/16M1061400
+      \endverb
+      \verb{eprint}
+      \verb https://doi.org/10.1137/16M1061400
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1137/16M1061400
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1137/16M1061400
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

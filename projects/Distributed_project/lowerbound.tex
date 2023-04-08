@@ -14,10 +14,52 @@
 %\usepackage{multicol}
 %\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
 %
-\input{usepackage.tex}
+%\input{usepackage.tex}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, total={6in, 9in} ]{geometry}
+\usepackage{braket}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+%\usepackage[ocgcolorlinks]{hyperref}
+\usepackage{hyperref}
+%\usepackage{hyperref,xcolor}
+%\usepackage[ocgcolorlinks]{ocgx2}
+\usepackage{cleveref}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{patterns, shapes.arrows}
+\usepackage{adjustbox}
+\usepackage{tikz-network}
+\usepackage[linesnumbered]{algorithm2e}
+\usepackage{multicol}
+\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+%\usepackage{xcolor}
+%\usepackage{tkz-berge}
+%\usepackage{tkz-graph}
+\usepackage{pgfplots}
+%\usepackage{sagetex}
+\usepackage{etoc}
+\DeclareUnicodeCharacter{2212}{−}
+\usepgfplotslibrary{groupplots,dateplot}
+\pgfplotsset{compat=newest}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{claim}{Claim}
+\newtheorem{fact}{Fact}
+\newtheorem{remark}{Remark}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}{Lemma}
+\crefname{lemma}{Lemma}{Lemmas}
+\hypersetup{colorlinks=true}
 
 \addbibresource{lowerbound} %Import the bibliography file
-\bibliography{lowerbound}
+%\bibliography{lowerbound}
 \newcommand{\commentt}[1]{\textcolor{blue}{ \textbf{[COMMENT]} #1}}
 \newcommand{\ctt}[1]{\commentt{#1}}
 \newcommand{\prb}[1]{ \mathbf{Pr} \left[ {#1} \right]}
