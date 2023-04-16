@@ -88,9 +88,9 @@
 \end{abstract}
 %\begin{multicols*}{2}
 
-\section{Preamble} It's widely believed that quantum machines have a significant advantage over classical optimization tasks. Simple algorithms, which could be interpreted as the quantum version of ``scanning all the options'' cut the running time by the square root of the classical magnitude. That cut is achieved by using the superposition principle most straightforwardly known as the Amplitude Amplification algorithm \cite{Brassard_2002}, \cite{grover1996fast}. 
+\section{Preamble} It's widely believed that quantum machines have a significant advantage over classical optimization tasks. Simple algorithms, which could be interpreted as the quantum version of ''scanning all the options'', cut the running time by the square root of the classical magnitude. That cut is achieved by using the superposition principle most straightforwardly known as the Amplitude Amplification algorithm \cite{Brassard_2002}, \cite{grover1996fast}. 
 
-General speaking, this method transforms a known state $\ket{\psi}$  with probability $a$ to measure $\ket{i}$ to a state in which the desired measurement obtained with probability greater than $\frac{1}{2}$ at the cost of less than $\sqrt{a}$ Grover iterations. Using this process, One can initialize a uniform distribution over $n$ elements and amplify the probability to measure a desired state at $\sqrt{n}$ time. To understand the power gained by this method, we mention max extraction as a use-case \cite{ahuja1999quantum}. While any classical algorithm which runs at square time results in output that depends only on a square fraction of the bits and therefore can't yield a constant probability to sample the maximum element, Quntemly, this limitation doesn't hold. And the gap amplification indeed enables a square root time maximum extraction algorithm. 
+General speaking, this method transforms a known state $\ket{\psi}$  with probability $a$ to measure $\ket{i}$ to a state in which the desired measurement obtained with probability greater than $\frac{1}{2}$ at the cost of less than $\sqrt{a}$ Grover iterations. Using this process, One can initialize a uniform distribution over $n$ elements and amplify the probability to measure a desired state at $\sqrt{n}$ time. To understand the power gained by this method, we mention max extraction as a use-case \cite{ahuja1999quantum}. While any classical algorithm which runs at square root time scans at most $ \Theta( \sqrt{n} )$ elements and might miss the maximum with probability at least $ 1 - \Theta(1/sqrt{n})$. Therefore can't yield a constant probability to sample the maximum element, Quntemly, this limitation doesn't hold. And the gap amplification indeed enables a square root time maximum extraction algorithm. 
   
   A critical requirement for that procedure is to have the ability to generate copies of the initial state, Formulated by \cite{Brassard_2002} as holding an algorithm $\mathcal{A}$, which does not make any measurements, such that $\mathcal{A}\ket{0}=\ket{\Psi}$. Assuming having this ability, one could mimic the scattering done in the Grover search but restrict himself to be supported on $\ket{\Psi}$. 
 
@@ -107,7 +107,7 @@ We name the gate above the \textit{Generalize Diffusion} gate. If such a gate ex
 
 \paragraph{Quantum Communication Complexity Of Disjointness.}
 Consider the following communication problem.
-As inputs Alice gets an \(x\), and Bob gets a \(y\), where \(x, y \in \{0, 1\}^n \), and by exchanging information they want to determine if there is an index \(k\) such that \(x_k = y_k = 1 \) or not. 
+As inputs Alice gets an \(x\), and Bob gets a \(y\), where \(x, y \in \{0, 1\}^n \), and by exchanging information, they want to determine if there is an index \(k\) such that \(x_k = y_k = 1 \) or not. 
 In other words, if \(x\) encodes the set \(A = \{k | x_k = 1\} \), and \(y\) encodes \(B = \{k | y_k = 1\}\), 
 then Alice and Bob want to determine whether \( A \cap B \) is empty.
 
@@ -199,6 +199,7 @@ It's worth saying that the $r$-rounds communication bound on disjointness does n
 \printbibliography 
 %\end{multicols*}
 \end{document}
+
 
 
 
