@@ -95,7 +95,7 @@ General speaking, this method transforms a known state $\ket{\psi}$  with probab
   A critical requirement for that procedure is to have the ability to generate copies of the initial state, Formulated by \cite{Brassard_2002} as holding an algorithm $\mathcal{A}$, which does not make any measurements, such that $\mathcal{A}\ket{0}=\ket{\Psi}$. Assuming having this ability, one could mimic the scattering done in the Grover search but restrict himself to be supported on $\ket{\Psi}$. 
 
 
-  One question that might arise is whether the above amplification process can be done assuming nothing but having a single entity of the initial state. Both positive and negative answers will illuminate the fundamentals behind transferring probability weight. We partially answered that question by proving that the given copy alone is insufficient to simulate the diffusion step. We formulate the above by the following theorem: 
+  One question that might arise is whether the above amplification process can be done assuming nothing but having a single entity of the initial state. Both positive and negative answers will illuminate the fundamentals behind transferring probability weight. We partially answered that question by proving that the given copy alone cannot simulate the diffusion step. We formulate the above by the following theorem: 
 
   \begin{theorem} \textit{ There is no operator $D$ that for given two arbitrary states $\ket{\psi},\ket{\phi}$ compute the transformation:} 
 \begin{equation*}
@@ -103,7 +103,7 @@ General speaking, this method transforms a known state $\ket{\psi}$  with probab
 \end{equation*}
 \end{theorem}
 
-We name the gate above the \textit{General Diffusion} gate. If such a gate existed, it could be used instead of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in a single round and $O\left( \sqrt{n} \right)$ communication complexity contradicts the fact that $r$-rounds two-party computation needs at least $\Omega\left( \frac{n}{r} \right)$ communication to compute disjoined (up to log factors) \cite{Braverman}.    
+We name the gate above the \textit{General Diffusion} gate. If such a gate existed, it could be used as the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in a single round and $O\left( \sqrt{n} \right)$ communication complexity contradicts the fact that $r$-rounds two-party computation needs at least $\Omega\left( \frac{n}{r} \right)$ communication to compute disjoined (up to log factors) \cite{Braverman}.    
 
 \paragraph{Quantum Communication Complexity Of Disjointness.}
 Consider the following communication problem.
@@ -193,12 +193,13 @@ The protocol computes the disjointness in a single round while requiring transmi
 \paragraph{}
 \end{proof}
 
-\paragraph{Conclusion And Open Problems.} The reduction above demonstrate how known results can give us almost immediate insights into quantum compatibility. We hope that besides being a no-go-to proof, this work will also use as a hint for direction to other quantum advantages in the disturbed computing setting. 
+\paragraph{Conclusion And Open Problems.} The reduction above demonstrate how known results can give us almost immediate insights into quantum compatibility. Besides being a no-go-to proof, we hope this work will also use as a hint for direction to other quantum advantages in the disturbed computing setting. 
 
 It's worth saying that the $r$-rounds communication bound on disjointness does not hold in many cases. For a simple example, consider that each set $x,y \in \{0,1\}^{n}$ is drawn uniformly. Then it's clear that Alice and Bob could answer ''Yes'' and they will be correct with high probability. So the family of states, which one can project over them by only partly projection (diffusion operators), correspond to the distributions over pairs of Alice and Bob sets, which they can compute with their disjointness with less communication.        
 \printbibliography 
 %\end{multicols*}
 \end{document}
+
 
 
 
