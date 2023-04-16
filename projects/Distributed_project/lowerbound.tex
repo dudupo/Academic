@@ -84,18 +84,18 @@
 % \date{July 2021}
 \maketitle
 
-\begin{abstract}\textit{We show that there is no operator that given two state $\ket{\psi},\ket{\phi}$ compute the transformation: $D \ket{\psi}\ket{\phi} = \ket{\psi}\left( \mathbb{I} - 2 \ket{\psi}\bra{\psi} \right)\ket{\phi} $ The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity, which shown by Braverman to be impossible \cite{Braverman}. }
+\begin{abstract}\textit{We show that there is no operator that given two state $\ket{\psi},\ket{\phi}$ compute the transformation: $D \ket{\psi}\ket{\phi} = \ket{\psi}\left( \mathbb{I} - 2 \ket{\psi}\bra{\psi} \right)\ket{\phi} $ The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in a single round and $O\left( \sqrt{n} \right)$ communication complexity, which shown by Braverman to be impossible \cite{Braverman}. }
 \end{abstract}
 %\begin{multicols*}{2}
 
-\section{Preamble} It's wide believed that quantum machines have a significant advantage over the classical in optimization tasks. Simple algorithms, which could be interpreted as the quantum version of ``scanning all the options'' cut the running time by square root of the classical magnitude. That cut achieved by using the superposition principal in most straightforward way known as the Amplitude Amplification algorithm \cite{Brassard_2002}, \cite{grover1996fast}. 
+\section{Preamble} It's widely believed that quantum machines have a significant advantage over classical optimization tasks. Simple algorithms, which could be interpreted as the quantum version of ``scanning all the options'' cut the running time by the square root of the classical magnitude. That cut is achieved by using the superposition principle most straightforwardly known as the Amplitude Amplification algorithm \cite{Brassard_2002}, \cite{grover1996fast}. 
 
-General speaking this method transform a known state $\ket{\psi}$  with probability $a$ to measure $\ket{i}$ to a state in which the desired measurement obtained with probability grater than $\frac{1}{2}$ at the cost of less than $\sqrt{a}$ Grover iterations. Using this process, One can initialize a uniform distribution over $n$ elements and amplify the probability to measure a desired state at $\sqrt{n}$ time. To understand the power gained by this method, we mention max extraction as use-case \cite{ahuja1999quantum}. While any classical algorithm which runs at square time results an output deadened only on square fraction of the bits and therefore can't yield a constant probability to sample the maximum element, Quntemly this limitation doesn't hold. And the gap amplification is indeed enable a square root time maximum extraction algorithm. 
+General speaking, this method transforms a known state $\ket{\psi}$  with probability $a$ to measure $\ket{i}$ to a state in which the desired measurement obtained with probability greater than $\frac{1}{2}$ at the cost of less than $\sqrt{a}$ Grover iterations. Using this process, One can initialize a uniform distribution over $n$ elements and amplify the probability to measure a desired state at $\sqrt{n}$ time. To understand the power gained by this method, we mention max extraction as a use-case \cite{ahuja1999quantum}. While any classical algorithm which runs at square time results in output that depends only on a square fraction of the bits and therefore can't yield a constant probability to sample the maximum element, Quntemly, this limitation doesn't hold. And the gap amplification indeed enables a square root time maximum extraction algorithm. 
   
-  A critical requirement for that procedure is to have the ability to generate a copies of the initial state, Formulated by \cite{Brassard_2002} as holding an algorithm $\mathcal{A}$, which does not make any measurements, such that $\mathcal{A}\ket{0}=\ket{\Psi}$. Assuming having this ability one could mimic the scattering done in the Grover search, but restrict himself to be supported on $\ket{\Psi}$. 
+  A critical requirement for that procedure is to have the ability to generate copies of the initial state, Formulated by \cite{Brassard_2002} as holding an algorithm $\mathcal{A}$, which does not make any measurements, such that $\mathcal{A}\ket{0}=\ket{\Psi}$. Assuming having this ability, one could mimic the scattering done in the Grover search but restrict himself to be supported on $\ket{\Psi}$. 
 
 
-  One question that might rise is whether the above amplification process can be done assuming nothing but having a single entity of the initial state. Both positive and negative answers will shead light about the fundamentals behind the concept of transferring probability weight. We gave a partly answer for that question by proving that the given copy alone is not sufficient to simulate the diffusion step. We formulate the above by the follow theorem: 
+  One question that might arise is whether the above amplification process can be done assuming nothing but having a single entity of the initial state. Both positive and negative answers will illuminate the fundamentals behind transferring probability weight. We partially answered that question by proving that the given copy alone is insufficient to simulate the diffusion step. We formulate the above by the following theorem: 
 
   \begin{theorem} \textit{ There is no operator $D$ that for given two arbitrary states $\ket{\psi},\ket{\phi}$ compute the transformation:} 
 \begin{equation*}
@@ -103,29 +103,29 @@ General speaking this method transform a known state $\ket{\psi}$  with probabil
 \end{equation*}
 \end{theorem}
 
-We name the gate above the \textit{Generalize Diffusion} gate, As if such gate were exists it could be used instand of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in single round and $O\left( \sqrt{n} \right)$ communication complexity in contradict to the fact that $r$-rounds two party computation needs at least $\Omega\left( \frac{n}{r} \right)$ communication to compute disjoiness (up to log factors) \cite{Braverman}.    
+We name the gate above the \textit{Generalize Diffusion} gate. If such a gate existed, it could be used instead of the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in a single round and $O\left( \sqrt{n} \right)$ communication complexity contradicts the fact that $r$-rounds two-party computation needs at least $\Omega\left( \frac{n}{r} \right)$ communication to compute disjoined (up to log factors) \cite{Braverman}.    
 
 \paragraph{Quantum Communication Complexity Of Disjointness.}
 Consider the following communication problem.
-As inputs Alice gets an \(x\) and Bob get a \(y\), where \(x, y \in \{0, 1\}^n \), and by exchanging information they want to determine if there is an index \(k\) such that \(x_k = y_k = 1 \) or not. 
+As inputs Alice gets an \(x\), and Bob gets a \(y\), where \(x, y \in \{0, 1\}^n \), and by exchanging information they want to determine if there is an index \(k\) such that \(x_k = y_k = 1 \) or not. 
 In other words, if \(x\) encodes the set \(A = \{k | x_k = 1\} \), and \(y\) encodes \(B = \{k | y_k = 1\}\), 
-then Alice and Bob want to determine whether \( A \cap B \) is empty or not.
+then Alice and Bob want to determine whether \( A \cap B \) is empty.
 
 The classical randomized communication complexity of this problem is \ona{n} \cite{v003a011}.
-Assuming Alice and Bob can exchange quantum messages, It is known that Alice and bob can solve the task
+Assuming Alice and Bob can exchange quantum messages, It is known that Alice and Bob can solve the task
 correctly with probability greater than \(2/3\) by exchanging at most \ona{\sqrt{n}\log n } qubits %\ctt{add cation of the original solution}. 
 
 \section{The Reduction.} 
 Assume by way of contradiction the existence of $D$ defined above.  
 Let \( x^{(j)} \) be the \(j\)-th \(\sqrt{n}\)-block of \(x\), e.g \(x^{(j)} = x_{j\sqrt{n}},x_{j\sqrt{n}+1}...,x_{(j+1)(\sqrt{n})-1}  \). And denote by \( \ket{\psi_x} \in \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \) the uniform superposition state over the \( x^{(j)}\)-'s "tensored" with \(\sqrt{n}\)-qudit (which will correspond to the block number). 
 \[ \ket{\psi_x} = \frac{1}{n^\frac{1}{4}}\sum_{j}^{\sqrt{n}}\ket{x^{(j)}}\ket{j} \] Note that the encoding of \( \ket{\psi_x} \) require only \( \sqrt{n} + \log(\sqrt{n}) \) qubits.
-Clearly both Alice and Bob can generate the states \( \ket{\psi_x}, \ket{\psi_y} \), then Bob sends he's share to Alice.
-We know that there is a classical circuit with logarithmic depth in \( \sqrt{n} \) that act over the pure states \( \ket{x^{(j)}}\ket{j} , \ket{y^{(k)}}\ket{k} \) and decides whether \[ \left( j =  k \right) \ \bigwedge  \ \left( \bigvee_{i \in [ \sqrt{n} ] } x^{(j)}_{i} \ \wedge \  y^{(k)}_{i} \right)   \]
+Clearly, both Alice and Bob can generate the states \( \ket{\psi_x}, \ket{\psi_y} \), then Bob sends his share to Alice.
+We know that there is a classical circuit with logarithmic depth in \( \sqrt{n} \) that act over the pure states \( \ket{x^{(j)}}\ket{j}, \ket{y^{(k)}}\ket{k} \) and decides whether \[ \left( j =  k \right) \ \bigwedge  \ \left( \bigvee_{i \in [ \sqrt{n} ] } x^{(j)}_{i} \ \wedge \  y^{(k)}_{i} \right)   \]
 
 
 Denote it by \( C \) and by \( U \) the phase flip controlled by $C$ i.e. $U\ket{i}=\left( -1 \right)^{C\left( i \right)}\ket{i}$. 
 
-The next claim argue that $D,U$ are sufficient to Alice to simulate a single iteration of the amplitude amplification. Since the technical ditels of the amplification procedure is not the focus of this paper, we only show equivalence without define the operators and the notation used by \cite{Brassard_2002}.   
+The following claim argues that $D, U$ are sufficient for Alice to simulate a single iteration of the amplitude amplification. Since the technical details of the amplification procedure are not the focus of this paper, we only show equivalence without defining the operators, and the notation used by \cite{Brassard_2002}.   
 
 \begin{claim} \textit{ Recall the operator $\mathbf Q  = - {\mathcal A}  {\mathbf S}_0 
   {\mathcal A}^{-1}  {\mathbf S}_\chi$ defined in \cite{Brassard_2002}, such that $ \mathcal A \ket{0} = \ket{\Psi} = \ket{\psi_{x}}\ket{\psi_{y}}$ and 
@@ -162,12 +162,12 @@ It is left to show the equivalence when $\ket{\Psi}$ supported both over $\ket{\
 \end{equation*}
 \end{proof}
 % which is operator in Hilbert state at dimension: \[ \mathcal{O} \left( \left( \dim \left( \mathcal{H}_{2}^{\bigotimes \sqrt{n}} \bigotimes \mathcal{H}_{\sqrt{n}} \right) \right) ^2 o(1) \right) = \mathcal{O} \left( 2^{2\sqrt{n}}  \right)  \]
-Now, it's clear that Alice, could simulate the \textbf{algqsearch} algorithm \cite{Brassard_2002}, 
+Now, it's clear that Alice could simulate the \textbf{algqsearch} algorithm \cite{Brassard_2002}, 
 
 \paragraph{Theorem 3.} \textit{Quadratic speedup without knowing $\mathbf{a}$
 There exists a quantum algorithm \textbf{algqsearch} with the following property.
 Let $\mathcal A$ be any quantum algorithm that uses no measurements,
-and let $\chi : \mathbb{N}  \rightarrow \{0,1\}$ be any Boolean function.
+and let $\chi: \mathbb{N}  \rightarrow \{0,1\}$ be any Boolean function.
 Let $a$ denote the initial success probability of~$\mathcal A$.
 Algorithm \textbf{algqsearch} finds a good solution using an expected number
 of applications of $\mathcal A$ and ${\mathcal A}^{-1}$ which are in
@@ -176,7 +176,7 @@ $\Theta(\sqrt a)$ if $a>0$, and otherwise runs forever.}
 \paragraph{} 
 
 \begin{proof}[Proof of Theorem 1]
-Suppose that \( A \cap B \neq \emptyset \) then, the support of \( \ket{\psi_x} \otimes \ket{\psi_y} \) contain a state \( \ket{\phi} \) which satisfies \(C\), or in other words $a = |\braket{\Psi_1|\Psi}|^2 > 0 $ and therefore by \textit{Theorem 3} there is an explicit procedure which take a $\Theta(\sqrt{a})$ time in expectation, Hence for any \(\varepsilon >0\) we could construct a finite algorithm that fail with probability less than $ \varepsilon $ by rejecting runs that last longer than $\frac{1}{\varepsilon}$. 
+Suppose that \( A \cap B \neq \emptyset \) then, the support of \( \ket{\psi_x} \otimes \ket{\psi_y} \) contain a state \( \ket{\phi} \) which satisfies \(C\), or in other words $a = |\braket{\Psi_1|\Psi}|^2 > 0 $ and therefore by \textit{Theorem 3} there is an explicit procedure which takes a $\Theta(\sqrt{a})$ time in expectation, Hence for any \(\varepsilon >0\) we could construct a finite algorithm that fails with probability less than $ \varepsilon $ by rejecting runs that last longer than $\frac{1}{\varepsilon}$. 
   
 On the other hand, Consider the case when \(A \cap B = \emptyset\) then $\Rightarrow a = 0 \Rightarrow \mathcal{H}_{\Psi}$ is 1-dimension space spanned only by $\ket{\Psi_0} $, and the operator $ I - 2 \ket{\Psi}\bra{\Psi} $ act over the $ \ket{\Psi_0}  $ as identity and therefore after executing any number of iterations the probability to measure from $\ket{\Psi_0}$ will remain $1$.
 
@@ -184,20 +184,21 @@ On the other hand, Consider the case when \(A \cap B = \emptyset\) then $\Righta
 \begin{enumerate}
     \item Bob create \( \ket{\psi_x} \) and send it to Alice.
     \item Alice simulate \textbf{algqsearch} either the algorithm accept or either $n^4$ turns were passed.     
-    \item If the algorithm accept then Alice return True otherwise Alice return False. 
+    \item If the algorithm accepts, Alice returns True; otherwise, Alice returns False. 
 \end{enumerate}
 
-The protocol compute the disjointness in single round while requiring transmission of less than $\Theta\left( \sqrt{n} \right)$ qubits. That in contrast to the known lower bound proved by Braverman \cite{Braverman}: 
+The protocol computes the disjointness in a single round while requiring transmission of less than $\Theta\left( \sqrt{n} \right)$ qubits. That is in contrast to the known lower bound proved by Braverman \cite{Braverman}: 
 \begin{theorem*}[Theorem A] The $r$-round quantum communication complexity of Disjointness$_n$ is $ \Omega\left( \frac{n}{r \log^8 r} \right)$.
 \end{theorem*}
 \paragraph{}
 \end{proof}
 
-\paragraph{Conclusion And Open Problems.} The reduction above demonstrate how a known results can give us almost immediately insights about quantum compatibility. We hope that beside of been an no-go-to proof this work will also use as an hint for direction to other quantum advantages in the disturbed computing setting. 
+\paragraph{Conclusion And Open Problems.} The reduction above demonstrate how known results can give us almost immediate insights into quantum compatibility. We hope that besides being a no-go-to proof, this work will also use as a hint for direction to other quantum advantages in the disturbed computing setting. 
 
-It's worth say that the $r$-rounds communication bound on disjointness does not hold in many cases, For simple example consider that each of the set $x,y \in \{0,1\}^{n}$ drawn uniformly, Then it's clear that Alice and Bob could just answer ``Yes'' and they will be correct with high probability. The family of states which one can do project over them by only partly projection (diffusion operators) are correspond to the distributions over pairs of Alice and Bob sets which they can compute with their disjointness with less communication.        
+It's worth saying that the $r$-rounds communication bound on disjointness does not hold in many cases. For a simple example, consider that each set $x,y \in \{0,1\}^{n}$ is drawn uniformly. Then it's clear that Alice and Bob could answer ``Yes'' and they will be correct with high probability. So the family of states, which one can project over them by only partly projection (diffusion operators), correspond to the distributions over pairs of Alice and Bob sets, which they can compute with their disjointness with less communication.        
 \printbibliography 
 %\end{multicols*}
 \end{document}
+
 
 
