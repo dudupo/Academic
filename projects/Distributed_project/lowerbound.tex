@@ -84,7 +84,7 @@
 % \date{July 2021}
 \maketitle
 
-\begin{abstract}\textit{We show that there is no operator that given two state $\ket{\psi},\ket{\phi}$ compute the transformation: $D \ket{\psi}\ket{\phi} = \ket{\psi}\left( \mathbb{I} - 2 \ket{\psi}\bra{\psi} \right)\ket{\phi} $ The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in a single round and $O\left( \sqrt{n} \right)$ communication complexity, which shown by Braverman to be impossible \cite{Braverman}. }
+\begin{abstract}\textit{We show that given two arbitrary states $\ket{\psi},\ket{\phi}$ it is impossible to compute the transformation: $ \ket{\psi}\ket{\phi} \mapsto \ket{\psi}\left( \mathbb{I} - 2 \ket{\psi}\bra{\psi} \right)\ket{\phi} $ The contradiction of the existence of such operator follows by showing that using it, two players can compute the disjoints of their sets in a single round and $O\left( \sqrt{n} \right)$ communication complexity, which shown by Braverman to be impossible \cite{Braverman}. }
 \end{abstract}
 %\begin{multicols*}{2}
 
@@ -103,7 +103,7 @@ General speaking, this method transforms a known state $\ket{\psi}$  with probab
 \end{equation*}
 \end{theorem}
 
-We name the gate above the \textit{General Diffusion} gate. If such a gate existed, it could be used as the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $D$ two players can compute the disjoints of their sets in a single round and $O\left( \sqrt{n} \right)$ communication complexity contradicts the fact that $r$-rounds two-party computation needs at least $\Omega\left( \frac{n}{r} \right)$ communication to compute disjoined (up to log factors) \cite{Braverman}.    
+We name the gate above the \textit{General Diffusion} gate. If such a gate existed, it could be used as the projection operator to simulate the amplitude amplification procedure. The contradiction of the existence follows by showing that using $D$, two players can compute the disjoints of their sets in a single round and $O\left( \sqrt{n} \right)$ communication complexity contradicts the fact that $r$-rounds two-party computation needs at least $\Omega\left( \frac{n}{r} \right)$ communication to compute disjoined (up to log factors) \cite{Braverman}.    
 
 \paragraph{Quantum Communication Complexity Of Disjointness.}
 Consider the following communication problem.
@@ -199,6 +199,7 @@ It's worth saying that the $r$-rounds communication bound on disjointness does n
 \printbibliography 
 %\end{multicols*}
 \end{document}
+
 
 
 
