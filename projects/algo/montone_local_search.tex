@@ -11,7 +11,6 @@
   \documentclass{article}
   \input{./usepackage}
   \addbibresource{./sample.bib} 
-  \input{./exactalgo-rs.bbl}
 \fi
 
 \begin{document}
@@ -40,6 +39,7 @@
 % \input{preamble}
 %\input{introduction}
 
+  \input{./exactalgo-rs.bbl}
 \section{Introduction.} We follow the study of \cite{fomin2015exact}, who relate between the parametrized complexity to the general average case complexity. Crudely put, they shown that for particular wide range of \textbf{NP} hard problems, a solution which run exponentially at some complexity parameter, for example the tree-width of a graph, can be used to derive a batter than bruteforce solution for the general problem. We continue their work by plugin the Grover search   \cite{grover1996fast} routine instead the original sampling process.   
 %\defproblem{\phiext}{An instance $I$, a set $X \subseteq U_I$, and an integer $k$.}
 %{Does there exists a subset $S \subseteq (U_I \setminus X)$ such that $S \cup X \in {\cal F}_I$ and $|S| \leq k$?}
