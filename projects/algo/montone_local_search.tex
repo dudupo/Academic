@@ -48,17 +48,7 @@
   f(x) = (2 - (1/c))^x
   g(x) = (2 - (1/c)^2)^(x/2)
 \end{sageblock}
-
-The second derivative of $f$ is
-
-\[
-  \frac{\mathrm{d}^{2}}{\mathrm{d}x^{2}} \sage{f(x)} =
-  \sage{diff(f, x, 2)(x)}.
-\]
-
-Here's a plot of $f$ from $-1$ to $1$:
-
-\sageplot{ plot(f, 2, 20, color = 'red')+ plot(g, 2, 20)}
+\sageplot{ plot(f, 2, 7, color = 'red')+ plot(g, 2, 7)}
 
 
 \printbibliography
