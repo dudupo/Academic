@@ -49,14 +49,14 @@
   \begin{split}    
 \sum_{k' \leq k} \frac{1}{p(k')} \cdot c^{k'-t} \bitsize^{\Oh(1)} \leq  \max_{k' \leq k} \frac{{n - |X| \choose t}}{{k' \choose t}} \cdot c^{k'-t} \bitsize^{\Oh(1)} \leq \max_{k \leq n-|X|} \frac{{n - |X| \choose t}}{{k \choose t}} \cdot c^{k-t} \bitsize^{\Oh(1)}
   \end{split}
-\end{equation*}<++>
+\end{equation*}
 
-\begin{sageblock}
+\begin{sagesilent}
   c = 8 
   d = 4
   f(x) = (2 - (1/c))^x
   g(x) = (2 - (1/(d*c))^2)^(x/2)
-\end{sageblock}
+\end{sagesilent}
 \sageplot{ plot(f, 2, 7, color = 'red')+ plot(g, 2, 7)}
 
 
