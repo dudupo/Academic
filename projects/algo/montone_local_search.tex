@@ -47,7 +47,10 @@
 
 \begin{equation*}
   \begin{split}    
-\sum_{k' \leq k} \frac{1}{p(k')} \cdot c^{k'-t} \bitsize^{\Oh(1)} \leq  \max_{k' \leq k} \frac{{n - |X| \choose t}}{{k' \choose t}} \cdot c^{k'-t} \bitsize^{\Oh(1)} \leq \max_{k \leq n-|X|} \frac{{n - |X| \choose t}}{{k \choose t}} \cdot c^{k-t} \bitsize^{\Oh(1)}
+    & \sum_{k' \leq k}   \frac{1}{ \sqrt{ p(k') } } \cdot c^{k'-t} \bitsize^{\Oh(1)} \leq  \max_{k' \leq k} \sqrt{ \frac{{n - |X| \choose t}}{{k' \choose t}} } \cdot c^{k'-t} \bitsize^{\Oh(1)} = \\ 
+    & \sqrt{ \max_{k' \leq k} \frac{{n - |X| \choose t}}{{k' \choose t}}  \cdot c^{2 \left( k'-t \right) } }\bitsize^{\Oh(1) } = \\ 
+    & \sqrt{ \max_{k \leq n-|X|} \frac{{n - |X| \choose t}}{{k \choose t}}} \cdot c^{ 2 \left(  k-t \right) } \bitsize^{\Oh(1)} \le \\ 
+      & \Rightarrow  \left(2-\frac{1}{c^{2}}\right)^{ \frac{ n-|X|}{2} }\bitsize^{\Oh(1)}
   \end{split}
 \end{equation*}
 
