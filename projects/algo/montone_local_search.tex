@@ -1,0 +1,70 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+  \documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass{article}
+  \input{./usepackage}
+  \addbibresource{./sample.bib} 
+
+\fi
+
+\begin{document}
+
+\input{newcommands}
+
+\title{Quantum Monotone Local Search.} 
+\author{David Ponarovsky}
+
+\ifdefined\ACM
+  \affiliation{%
+    \institution{The Th{\o}rv{\"a}ld Group}
+    \streetaddress{1 Th{\o}rv{\"a}ld Circle}
+    \city{Hekla}
+  \country{Iceland}}
+  \email{larst@affiliation.org}
+\else
+  \maketitle
+\fi
+\input{abstract}
+\ifdefined\ACM
+  \maketitle
+\fi
+
+%\begin{multicols*}{2}
+% \input{preamble}
+%\input{introduction}
+
+\paragraph{Introduction.} bla bla bla 
+
+
+\begin{sageblock}
+  c = 8 
+  f(x) = (2 - (1/c))^x
+  g(x) = (2 - (1/c)^2)^(x/2)
+\end{sageblock}
+
+The second derivative of $f$ is
+
+\[
+  \frac{\mathrm{d}^{2}}{\mathrm{d}x^{2}} \sage{f(x)} =
+  \sage{diff(f, x, 2)(x)}.
+\]
+
+Here's a plot of $f$ from $-1$ to $1$:
+
+\sageplot{ plot(f, 2, 40)+ plot(g, 2, 40)}
+
+
+\printbibliography
+\end{document}
+
+
+
+
+
