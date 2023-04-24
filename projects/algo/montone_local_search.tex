@@ -40,8 +40,16 @@
 % \input{preamble}
 %\input{introduction}
 
-\paragraph{Introduction.} bla bla bla 
+\section{Introduction.} bla bla bla 
 
+\newcommand{\Oh}{{\mathcal{O}}}
+\newcommand{\bitsize}{N}
+
+\begin{equation*}
+  \begin{split}    
+\sum_{k' \leq k} \frac{1}{p(k')} \cdot c^{k'-t} \bitsize^{\Oh(1)} \leq  \max_{k' \leq k} \frac{{n - |X| \choose t}}{{k' \choose t}} \cdot c^{k'-t} \bitsize^{\Oh(1)} \leq \max_{k \leq n-|X|} \frac{{n - |X| \choose t}}{{k \choose t}} \cdot c^{k-t} \bitsize^{\Oh(1)}
+  \end{split}
+\end{equation*}<++>
 
 \begin{sageblock}
   c = 8 
