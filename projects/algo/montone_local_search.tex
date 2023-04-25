@@ -31,6 +31,11 @@
 \else
   \maketitle
 \fi
+
+\begin{abstract} 
+In this paper, we improve a wide range of upper bounds for a variety of \textbf{NP} problems, by plugging Grover into the work made by \cite{fomin2015exact}. We emphasize that this work has only a technical value and does not present any new idea. Nevertheless, we think it is worth sharing how easy and straightforwardly integrating quantum might be. We coin the term Groverize, harvesting a quantum improvement by doing almost nothing.
+\end{abstract}
+
 %\input{abstract}
 \ifdefined\ACM
   \maketitle
@@ -74,6 +79,8 @@ Let $L$ be a problem family, and use the notation $P \in L$ to indicate that $P$
 \begin{definition}[extension problem]
 A problem family $L$ which is parametrized computable will be said an extension problem, if for any $P \in L$, the problem obtained from $P$ by setting one of the input bits to be $1$ can be converted by polynomial-time reduction to another instance of $L$, denoted as $P^{\prime} \in L$, such that $\phi\left( P^{\prime} \right) = \phi\left( P \right) -1$.
 \end{definition}
+
+\paragraph{The General Idea.} \ctt{add a description of their solution}. 
 
 Consider a decision problem inside \textbf{NP}. In this paper, we will associate two verifiers $U$ and $V$ with each language. $U$ stands for input validation and conceptually it is used for checking that the solution is valid within the problem world. For example, for the $3$-\textbf{SAT}, $U$ checks that the input indeed encodes an assignment. Formally, the role of $U$ is to restrict the inputs to a certain form. $V$ is responsible for verifying that the word is indeed in the language, i.e. it checks that the assignment satisfies the formula.
 
