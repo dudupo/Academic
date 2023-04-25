@@ -19,5 +19,8 @@ We are attempting to formulate a quantum version of the Stren proof, which state
 ### Groverizing Recent Results in the Era of Parameterized Complexity
 We are not introducing any new concepts or proofs here, but rather assembling existing pieces together. [Draft](https://github.com/dudupo/Academic/blob/master/projects/pdfs/montone_local_search.pdf).
 
+### Near Threshold Regime
+Here we ask if, in the presence of noise which is slightly higher than the threshold, one can design a fault-tolerant circuit to generate a useful output. The idea is to ensure that any time one chooses to turn on the fridge, some meaningful computation will be done, even if it is not the desirable one. [Draft](https://github.com/dudupo/Academic/blob/master/projects/pdfs/recycle.pdf).
+
 ## Are you interested in collaborating in any way?
 If so, feel free to request a pull, open an issue, or send an email.
