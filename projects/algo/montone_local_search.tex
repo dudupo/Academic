@@ -40,6 +40,14 @@
 % \input{preamble}
 %\input{introduction}
 
+% commands taken form the original paper. 
+
+\newcommand{\Oh}{{\mathcal{O}}}
+\newcommand{\bitsize}{N}
+\newcommand{\longversion}[1]{#1}
+\newcommand{\abpartization}{{\sc Vertex $(r,\ell)$-Partization}}
+
+
 \section{Todo.}
 \begin{enumerate}
   \item Write the table (sage script).
@@ -52,10 +60,27 @@
 %\defproblem{\phiext}{An instance $I$, a set $X \subseteq U_I$, and an integer $k$.}
 %{Does there exists a subset $S \subseteq (U_I \setminus X)$ such that $S \cup X \in {\cal F}_I$ and $|S| \leq k$?}
 
-\newcommand{\Oh}{{\mathcal{O}}}
-\newcommand{\bitsize}{N}
-\newcommand{\longversion}[1]{#1}
-\newcommand{\abpartization}{{\sc Vertex $(r,\ell)$-Partization}}
+
+\begin{definition}[Implicit Set System]
+We define an {\em implicit set system} as a function $\Phi$ that takes as input a string $I \in \{0,1\}^*$ and outputs a set system $(U_I, {\cal F}_I)$, where $U_I$ is a universe  and ${\cal F}_I$ is a collection of subsets of $U_I$.  The string $I$ is referred to as an {\em instance}  and we denote by $|U_I| = n$ the size of the universe and by $|I|=\bitsize$ the size of the instance. 
+
+\end{definition}
+%Let us note that we do not assume here that ${\cal F}_I$ can be computed in time polynomial in the input or the output, nor that
+%the size of ${\cal F}_I$ is polynomial  in $n$ or $\bitsize$.
+We assume that $\bitsize\ge n$. The implicit set system $\Phi$ is said to be {\em polynomial time computable} if (a) there exists a polynomial time algorithm that given $I$ produces $U_I$, and (b) there exists a polynomial time algorithm that given $I$, $U_I$ and a subset $S$ of $U_I$ determines whether $S \in{\cal F}_I$.
+All implicit set systems discussed in this paper are polynomial time computable, except for the minimal satisfying assignments of $d$-CNF formulas which are not polynomial time computable unless P=NP \cite{YatoS03}.
+%In fact, the size of  ${\cal F}_I$ may be exponential for the majority  of interesting applications.
+%Hence  we do not have  a polynomial time algorithm to construct ${\cal F}_I$ from $I$.
+
+An implicit set system $\Phi$ naturally leads to some problems about\longversion{ the set system} $(U_I, {\cal F}_I)$. Find a set in $\mathcal{F}_I$. Is $\mathcal{F}_I$ non-empty? What is the cardinality of $\mathcal{F}_I$? In this paper we will primarily focus on the first and last problems. Examples of implicit sets systems include the set of all feedback vertex sets of a graph of size at most $k$, the set of all satisfying assignments of a CNF formula of weight at most $W$, and the set of all minimal hitting sets of a set system. Next we formally define subset problems.
+
+\defoptproblem{\phisub}{An instance $I$}{A set $S \in {\cal F}_I$ if one exists.}
+
+\noindent
+An example of a subset problem is \textsc{Min-Ones} $d$-\textsc{Sat}. Here for an integer $k$ and a propositional formula $F$ in conjunctive normal form (CNF) where each clause has at most $d$ literals,
+the task is to determine whether $F$ has a satisfying assignment with Hamming weight \shortversion{(number of $1$s) }at most $k$\longversion{, i.e., setting at most $k$ variables to 1}. 
+In our setting, the instance $I$ consists of the input formula $F$ and the integer $k$, encoded as a string over $0$s and  $1$s. The implicit set system  $\Phi$ is a function from $I$ to $(U_I, {\cal F}_I)$, where $U_I$ is the set of variables of $F$, and ${\cal F}_I$ is the set of all satisfying assignments of Hamming weight at most $k$.
+
 
 \begin{equation*}
   \begin{split}    
