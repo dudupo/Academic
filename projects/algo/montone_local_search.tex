@@ -57,25 +57,28 @@
 \end{enumerate}
 
 \section{Introduction.} We follow the study of \cite{fomin2015exact}, who relate between the parametrized complexity to the general average case complexity. Crudely put, they shown that for particular wide range of \textbf{NP} hard problems, a solution which run exponentially at some complexity parameter, for example the tree-width of a graph, can be used to derive a batter than bruteforce solution for the general problem. We continue their work by plugin the Grover search   \cite{grover1996fast} routine instead the original sampling process.  We will simplify the definitions given at \cite{fomin2015exact} and use the following definitions instead:
-%\begin{definition}[extension problems] 
-
-% Consider a decision problem $L$ inside \textbf{NP}.  $P$ 
+ 
 A decision problem is said to have a parameterized algorithm if there is a mapping between its instances and the natural number $k$ such that there exists an algorithm that solves the problem in running time that is exponential in $k$ and polynomial in $n$. 
 
-We will say that a problem having a parametrized algorithms is an \emph{extension problem} if for any instance of the problem $P$, requiring any of the input bits to be $1$ can be reduced to another instance of the problem $P^{\prime}$ such that $\phi\left( P^{\prime} \right) = \phi\left( P \right) - 1$. For example, consider $3$-\textbf{SAT} with the restriction that the Hamming weight of the assignment would be at most $k$. Fixing an arbitrary bit $x_{i}$ to be $1$ can be reduced to another $3$-\textbf{SAT} formula by erasing any of the clauses containing $x_{i}$ and replacing any of the occurrences of $\bar{x_{i}}$ by another terminal on the same clause (i.e. $ \bar{x_{i}} \wedge  \bar{y} \wedge z  \mapsto  \bar{y} \wedge \bar{y} \wedge z$). Now, note that an assignment that satisfies the new formula at Hamming weight at most $k-1$ combined with $x_{i} \leftarrow 1$ is an assignment to the original formula at weight at most $k$. Given the fact that we have a brute-force algorithm which tries all the partitions in time roughly $\mathcal{O}\left( n^{k} \right)$, it follows that this problem is an extension problem.
+We will say that a problem having a parametrized algorithms is an \emph{extension problem} if for any instance of the problem $P$, requiring any of the input bits to be $1$ can be reduced to another instance of the problem $P^{\prime}$ such that $\phi\left( P^{\prime} \right) = \phi\left( P \right) - 1$. For example, consider $3$-\textbf{SAT} with the restriction that the Hamming weight of the assignment would be at most $k$. Fixing an arbitrary bit $x_{i}$ to be $1$ can be reduced to another $3$-\textbf{SAT} formula by erasing any of the clauses containing $x_{i}$ and replacing any of the occurrences of $\bar{x_{i}}$ by another terminal on the same clause (i.e. $ \bar{x_{i}} \wedge  \bar{y} \wedge z  \mapsto  \bar{y} \wedge \bar{y} \wedge z$). Now, note that an assignment that satisfies the new formula at Hamming weight at most $k-1$ combined with $x_{i} \leftarrow 1$ is an assignment to the original formula at weight at most $k$. Given the fact that we have a brute-force algorithm which tries all the partitions in time roughly $\mathcal{O}\left( n^{k} \right)$, it follows that this problem is an extension problem. Let us state the above:
+
+\begin{definition}[Parameterized Computable] 
+  Let $L$ be a problems family, and use the notation $P \in L$ to point that $P$ is an instance of $L$ (boolean formula, if $L$ is a $3$-\textbf{SAT}) and by $|P|$ to denote the length of the binary string encodes $P$. $L$ be said a parameterized computable if there exists a mapping $\phi : L \rightarrow \mathbb{N}$ and an Algorithm $\mathcal{A}$ such that
+
+  \begin{enumerate}
+    \item $\phi(P) \in [|P|]$ for any $P\inL$
+    \item $\mathcal{A}$ return on $P$ at running time $\matcal{O}\left(c^{\phi(P)} \cdot Poly(|P|) \right)$. 
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}[extension problem]
+  A problem family $L$ which is parametrized computable will be said an extension problem, if for any $P \in L$. The problem obtianed from $P$ by setting one of the input bits to be $1$, can be converted by polynomial time reduction to another instance of $L$, denote it $P^{\prime} \in L$ such that $\phi\left( P^{\prime} \right) = \phi\left( P \right) -1$. 
+\end{definition}
 
 Consider a decision problem inside \textbf{NP}. In this paper, we will associate two verifiers $U$ and $V$ with each language. $U$ stands for input validation and conceptually it is used for checking that the solution is valid within the problem world. For example, for the $3$-\textbf{SAT}, $U$ checks that the input indeed encodes an assignment. Formally, the role of $U$ is to restrict the inputs to a certain form. $V$ is responsible for verifying that the word is indeed in the language, i.e. it checks that the assignment satisfies the formula.
 
 
 Any instance of the problem can be represented as the bit-wise union of two strings which pass $U$ verification. For example, any assignment satisfying a  $3$-\textbf{SAT} instance can be written as an or-wise of two assignments.
-
-\begin{definition}
-A \emph{directed graph} $G$ is a pair $(V,E)$ where $V$ is a set of \emph{vertices} and $E$ is a set of \emph{directed edges}.
-\end{definition}
-
-\begin{definition}
-The \emph{directed shortest path problem} is the problem of finding the directed path with the minimum weight between two given vertices in a directed weighted graph.
-\end{definition}
 
 
 \begin{equation*}
