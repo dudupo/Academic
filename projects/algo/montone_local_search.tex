@@ -63,16 +63,16 @@ A decision problem is said to have a parameterized algorithm if there is a mappi
 We will say that a problem having a parametrized algorithms is an \emph{extension problem} if for any instance of the problem $P$, requiring any of the input bits to be $1$ can be reduced to another instance of the problem $P^{\prime}$ such that $\phi\left( P^{\prime} \right) = \phi\left( P \right) - 1$. For example, consider $3$-\textbf{SAT} with the restriction that the Hamming weight of the assignment would be at most $k$. Fixing an arbitrary bit $x_{i}$ to be $1$ can be reduced to another $3$-\textbf{SAT} formula by erasing any of the clauses containing $x_{i}$ and replacing any of the occurrences of $\bar{x_{i}}$ by another terminal on the same clause (i.e. $ \bar{x_{i}} \wedge  \bar{y} \wedge z  \mapsto  \bar{y} \wedge \bar{y} \wedge z$). Now, note that an assignment that satisfies the new formula at Hamming weight at most $k-1$ combined with $x_{i} \leftarrow 1$ is an assignment to the original formula at weight at most $k$. Given the fact that we have a brute-force algorithm which tries all the partitions in time roughly $\mathcal{O}\left( n^{k} \right)$, it follows that this problem is an extension problem. Let us state the above:
 
 \begin{definition}[Parameterized Computable] 
-  Let $L$ be a problems family, and use the notation $P \in L$ to point that $P$ is an instance of $L$ (boolean formula, if $L$ is a $3$-\textbf{SAT}) and by $|P|$ to denote the length of the binary string encodes $P$. $L$ be said a parameterized computable if there exists a mapping $\phi : L \rightarrow \mathbb{N}$ and an Algorithm $\mathcal{A}$ such that
+Let $L$ be a problem family, and use the notation $P \in L$ to indicate that $P$ is an instance of $L$ (e.g., if $L$ is a $3$-SAT problem), and by $|P|$ to denote the length of the binary string encoding $P$. $L$ is said to be parameterized computable if there exists a mapping $\phi : L \rightarrow \mathbb{N}$ and an algorithm $\mathcal{A}$ such that:
 
   \begin{enumerate}
     \item $\phi(P) \in [|P|]$ for any $P\in L$
-    \item $\mathcal{A}$ return on $P$ at running time $\mathcal{O}\left(c^{\phi(P)} \cdot Poly(|P|) \right)$. 
+    \item $\mathcal{A}$ returns on $P$ at running time $\mathcal{O}\left(c^{\phi(P)} \cdot Poly(|P|) \right)$ for a fixed $c$ which does not depend on $P$.
   \end{enumerate}
 \end{definition}
 
 \begin{definition}[extension problem]
-  A problem family $L$ which is parametrized computable will be said an extension problem, if for any $P \in L$. The problem obtianed from $P$ by setting one of the input bits to be $1$, can be converted by polynomial time reduction to another instance of $L$, denote it $P^{\prime} \in L$ such that $\phi\left( P^{\prime} \right) = \phi\left( P \right) -1$. 
+A problem family $L$ which is parametrized computable will be said an extension problem, if for any $P \in L$, the problem obtained from $P$ by setting one of the input bits to be $1$ can be converted by polynomial-time reduction to another instance of $L$, denoted as $P^{\prime} \in L$, such that $\phi\left( P^{\prime} \right) = \phi\left( P \right) -1$.
 \end{definition}
 
 Consider a decision problem inside \textbf{NP}. In this paper, we will associate two verifiers $U$ and $V$ with each language. $U$ stands for input validation and conceptually it is used for checking that the solution is valid within the problem world. For example, for the $3$-\textbf{SAT}, $U$ checks that the input indeed encodes an assignment. Formally, the role of $U$ is to restrict the inputs to a certain form. $V$ is responsible for verifying that the word is indeed in the language, i.e. it checks that the assignment satisfies the formula.
