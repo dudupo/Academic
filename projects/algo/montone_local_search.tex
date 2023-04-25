@@ -65,7 +65,7 @@
   \end{split}
 \end{equation*}
 
- 
+
 %f"{Groverize_complixity(c_values[i]):.3}^{{k}}"
 %\begin{sagesilent}
 %\end{sagesilent}
@@ -83,53 +83,53 @@
 }
 %\end{figure}
 \newcommand{\tcite}[1]{\hfill\cite{#1}}
-
-\begin{table}[t]
-  \centering
-  \setlength{\tabcolsep}{4pt}
-  {\footnotesize
-    \begin{tabular}{l l l l l}
-      \toprule
-      Problem Name                                  & Parameterized                                 & Groverize                    & New bound                                                                  & Previous Bound       \\
-      \midrule
-      {\sc Feedback Vertex Set}                     & $3^k$ (r) \tcite{cut-and-count}               & $\sagestr{next(genr)} $ & $1.6667^n$   (r)                                                           & \\
-      {\sc Feedback Vertex Set}                     & $3.592^k$            \tcite{KociumakaP13}     & $\sagestr{next(genr)} $                          & $1.7217^n$                                                                 & $1.7347^n$ \tcite{FominTV15}  \\
-      {\sc Subset Feedback Vertex Set}              & $4^k$         \tcite{Wahlstrom14}             & $\sagestr{next(genr)} $                           & $1.7500^n$                                                                 & $1.8638^n$ \tcite{FominHKPV14}  \\
-      {\sc Feedback Vertex Set in Tournaments}     & $1.6181^k$        \tcite{KumarL16}            & $\sagestr{next(genr)} $ & $1.3820^n$                   & $1.4656^n$  \tcite{KumarL16}  \\
-      {\sc  Group Feedback Vertex Set}             & $4^k$           \tcite{Wahlstrom14}           & $\sagestr{next(genr)} $ & $1.7500^n$                   & NPR    \\
-      \textsc{Node Unique Label Cover}             & $|\Sigma|^{2k}$           \tcite{Wahlstrom14} & $\sagestr{next(genr)} $ & $(2-\frac{1}{|\Sigma|^2})^n$ & NPR    \\
-      {\abpartization} ($r,\ell \leq 2$)           & $3.3146^k$   \tcite{BasteFKS15,KolayP15}      & $\sagestr{next(genr)} $ & $1.6984^n$                   & NPR  \\
+%\scalebox{0.8}{
+  \begin{table}[t]
+    \centering
+    \setlength{\tabcolsep}{4pt}
+    {\footnotesize
+      \begin{tabular}{l l l l l}
+        \toprule
+        Problem Name                                  & Parameterized                                 & Groverize                    & New bound                                                                  & Previous Bound       \\
+        \midrule
+        {\sc Feedback Vertex Set}                     & $3^k$ (r) \tcite{cut-and-count}               & $\sagestr{next(genr)} $ & $1.6667^n$   (r)                                                           & \\
+        {\sc Feedback Vertex Set}                     & $3.592^k$            \tcite{KociumakaP13}     & $\sagestr{next(genr)} $                          & $1.7217^n$                                                                 & $1.7347^n$ \tcite{FominTV15}  \\
+        {\sc Subset Feedback Vertex Set}              & $4^k$         \tcite{Wahlstrom14}             & $\sagestr{next(genr)} $                           & $1.7500^n$                                                                 & $1.8638^n$ \tcite{FominHKPV14}  \\
+        {\sc Feedback Vertex Set in Tournaments}     & $1.6181^k$        \tcite{KumarL16}            & $\sagestr{next(genr)} $ & $1.3820^n$                   & $1.4656^n$  \tcite{KumarL16}  \\
+        {\sc  Group Feedback Vertex Set}             & $4^k$           \tcite{Wahlstrom14}           & $\sagestr{next(genr)} $ & $1.7500^n$                   & NPR    \\
+        \textsc{Node Unique Label Cover}             & $|\Sigma|^{2k}$           \tcite{Wahlstrom14} & $\sagestr{next(genr)} $ & $(2-\frac{1}{|\Sigma|^2})^n$ & NPR    \\
+        {\abpartization} ($r,\ell \leq 2$)           & $3.3146^k$   \tcite{BasteFKS15,KolayP15}      & $\sagestr{next(genr)} $ & $1.6984^n$                   & NPR  \\
       %\textsc{Odd Cycle Transversal}              & $2.3146^k$  \cite{LokshtanovNRRS14}           & $\sagestr{next(genr)} $ & $1.5680^n$                   & $1.4391^n$  \\
-      {\sc Interval Vertex Deletion}               & $8^k$       \tcite{Cao8kinterval}             & $\sagestr{next(genr)} $ & $1.8750^n$                   & $(2-\varepsilon)^n$ for $\varepsilon <10^{-20}$  \tcite{BliznetsFPV13} \\
-      {\sc Proper Interval Vertex Deletion}        & $6^k$           \tcite{HofV13,Cao15}          & $\sagestr{next(genr)} $ & $1.8334^n$                   & $(2-\varepsilon)^n$ for $\varepsilon <10^{-20}$  \tcite{BliznetsFPV13} \\
-      {\sc Block Graph Vertex Deletion}            & $4^k$   \tcite{AgrawalLKS16}                  & $\sagestr{next(genr)} $ & $1.7500^n$                   & $(2-\varepsilon)^n$ for $\varepsilon <10^{-20}$  \tcite{BliznetsFPV13}  \\
+        {\sc Interval Vertex Deletion}               & $8^k$       \tcite{Cao8kinterval}             & $\sagestr{next(genr)} $ & $1.8750^n$                   & $(2-\varepsilon)^n$ for $\varepsilon <10^{-20}$  \tcite{BliznetsFPV13} \\
+        {\sc Proper Interval Vertex Deletion}        & $6^k$           \tcite{HofV13,Cao15}          & $\sagestr{next(genr)} $ & $1.8334^n$                   & $(2-\varepsilon)^n$ for $\varepsilon <10^{-20}$  \tcite{BliznetsFPV13} \\
+        {\sc Block Graph Vertex Deletion}            & $4^k$   \tcite{AgrawalLKS16}                  & $\sagestr{next(genr)} $ & $1.7500^n$                   & $(2-\varepsilon)^n$ for $\varepsilon <10^{-20}$  \tcite{BliznetsFPV13}  \\
       %{\sc Cograph Deletion}                      & $??^k$                                        & $\sagestr{next(genr)} $ &                              & deterministic    \\
-      {\sc   Cluster Vertex Deletion}              & $1.9102^k$      \tcite{BoralCKP14}            & $\sagestr{next(genr)} $ & $1.4765^n$                   & $1.6181^n$  \tcite{FominGKLS10}  \\
-      {\sc   Thread Graph Vertex Deletion}         & $8^k$    \tcite{Kante0KP15}                   & $\sagestr{next(genr)} $ & $1.8750^n$                   & NPR    \\
-      {\sc   Multicut on Trees}                    & $1.5538^k$  \tcite{KanjLLTXXYZZZ14}           & $\sagestr{next(genr)} $ & $1.3565^n$                   & NPR    \\
+        {\sc   Cluster Vertex Deletion}              & $1.9102^k$      \tcite{BoralCKP14}            & $\sagestr{next(genr)} $ & $1.4765^n$                   & $1.6181^n$  \tcite{FominGKLS10}  \\
+        {\sc   Thread Graph Vertex Deletion}         & $8^k$    \tcite{Kante0KP15}                   & $\sagestr{next(genr)} $ & $1.8750^n$                   & NPR    \\
+        {\sc   Multicut on Trees}                    & $1.5538^k$  \tcite{KanjLLTXXYZZZ14}           & $\sagestr{next(genr)} $ & $1.3565^n$                   & NPR    \\
       %{\sc    Vertex Cover}                       & $1.2738^k$ \cite{ChenKX10}                    & $\sagestr{next(genr)} $ & $1.2150^n$  (DNI)            & $1.1996^n$  \cite{XiaoN13}  \\
-      {\sc    $3$-Hitting Set}                     & $2.0755^k$    \tcite{MagnusPhD07}             & $\sagestr{next(genr)} $ & $1.5182^n$                   & $1.6278^n$    \tcite{MagnusPhD07}  \\
-      {\sc   $4$-Hitting Set}                      & $3.0755^k$      \tcite{FominGKLS10}           & $\sagestr{next(genr)} $ & $1.6750^n$                   & $1.8704^n$ \tcite{FominGKLS10}     \\
-      {\sc   $d$-Hitting Set} ($d\geq 3$)          & $(d-0.9245)^k$     \tcite{FominGKLS10}        & $\sagestr{next(genr)} $ & $(2-\frac{1}{(d-0.9245)})^n$ & \tcite{CochefertCGK16,FominGKLS10}   \\
+        {\sc    $3$-Hitting Set}                     & $2.0755^k$    \tcite{MagnusPhD07}             & $\sagestr{next(genr)} $ & $1.5182^n$                   & $1.6278^n$    \tcite{MagnusPhD07}  \\
+        {\sc   $4$-Hitting Set}                      & $3.0755^k$      \tcite{FominGKLS10}           & $\sagestr{next(genr)} $ & $1.6750^n$                   & $1.8704^n$ \tcite{FominGKLS10}     \\
+        {\sc   $d$-Hitting Set} ($d\geq 3$)          & $(d-0.9245)^k$     \tcite{FominGKLS10}        & $\sagestr{next(genr)} $ & $(2-\frac{1}{(d-0.9245)})^n$ & \tcite{CochefertCGK16,FominGKLS10}   \\
       %{\sc    Weighted $2$-SAT}                   & $1.2738^k$     \cite{MisraNRS10}              & $\sagestr{next(genr)} $ & $1.2150^n$  (DNI)            & $1.1996^n$    \\ \hline
-      {\sc    Min-Ones $3$-SAT}                    & $2.562^k$    \tcite{abs-1007-1166}            & $\sagestr{next(genr)} $ & $1.6097^n$                   & NPR   \\
-      {\sc    Min-Ones $d$-SAT} ($d\geq 4$)        & $d^k$                                         & $\sagestr{next(genr)} $ & $(2-\frac{1}{d})^n$          & NPR    \\
-      {\sc    Weighted $d$-SAT} ($d\geq 3$)        & $d^k$                                         & $\sagestr{next(genr)} $ & $(2-\frac{1}{d})^n$          & NPR    \\
-      {\sc Weighted Feedback Vertex Set}           & $3.6181^k$   \tcite{AgrawalLKS16}             & $\sagestr{next(genr)} $ & $1.7237^n$                   & $1.8638^n$  \tcite{FominGPR08-On} \\
-      \textsc{Weighted 3-Hitting Set}              & $2.168^k$ \tcite{ShachnaiZ15}                 & $\sagestr{next(genr)} $ & $1.5388^n$                   & $1.6755^n$ \tcite{CochefertCGK16}\\
-      \textsc{Weighted $d$-Hitting Set} ($d\ge 4$) & $(d-0.832)^k$ \tcite{FominGKLS10,ShachnaiZ15} & $\sagestr{next(genr)} $ & $(2-\frac{1}{d-0.932})^n$    & \tcite{CochefertCGK16} \\
-      \bottomrule
+        {\sc    Min-Ones $3$-SAT}                    & $2.562^k$    \tcite{abs-1007-1166}            & $\sagestr{next(genr)} $ & $1.6097^n$                   & NPR   \\
+        {\sc    Min-Ones $d$-SAT} ($d\geq 4$)        & $d^k$                                         & $\sagestr{next(genr)} $ & $(2-\frac{1}{d})^n$          & NPR    \\
+        {\sc    Weighted $d$-SAT} ($d\geq 3$)        & $d^k$                                         & $\sagestr{next(genr)} $ & $(2-\frac{1}{d})^n$          & NPR    \\
+        {\sc Weighted Feedback Vertex Set}           & $3.6181^k$   \tcite{AgrawalLKS16}             & $\sagestr{next(genr)} $ & $1.7237^n$                   & $1.8638^n$  \tcite{FominGPR08-On} \\
+        \textsc{Weighted 3-Hitting Set}              & $2.168^k$ \tcite{ShachnaiZ15}                 & $\sagestr{next(genr)} $ & $1.5388^n$                   & $1.6755^n$ \tcite{CochefertCGK16}\\
+        \textsc{Weighted $d$-Hitting Set} ($d\ge 4$) & $(d-0.832)^k$ \tcite{FominGKLS10,ShachnaiZ15} & $\sagestr{next(genr)} $ & $(2-\frac{1}{d-0.932})^n$    & \tcite{CochefertCGK16} \\
+        \bottomrule
       %{\almsat}                                    & $2.3146^k$                                    & $\sage{next(genr)} $ & $1.5680^n$                   & NPR    \\ \hline
-    \end{tabular}
+      \end{tabular}
 
-  }
-  \caption{\label{fig:vertexresults}Summary of known and new results for different 
-    optimization problems.
+    }
+    \caption{\label{fig:vertexresults}Summary of known and new results for different 
+      optimization problems.
     %New results are highlighted in green (last row).
-  NPR means  that we are not aware of any previous algorithms faster than brute-force. All bounds suppress factors polynomial in the input size $N$.\longversion{ The algorithms in the first row are randomized (r).}}
+    NPR means  that we are not aware of any previous algorithms faster than brute-force. All bounds suppress factors polynomial in the input size $N$.\longversion{ The algorithms in the first row are randomized (r).}}
   % and DNI means that our approach does not improve over fastest previous results.}
-\end{table}
-
+  \end{table}
+%}
 
 \printbibliography
 \end{document}
