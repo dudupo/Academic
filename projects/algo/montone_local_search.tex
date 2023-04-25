@@ -60,26 +60,18 @@
 %\defproblem{\phiext}{An instance $I$, a set $X \subseteq U_I$, and an integer $k$.}
 %{Does there exists a subset $S \subseteq (U_I \setminus X)$ such that $S \cup X \in {\cal F}_I$ and $|S| \leq k$?}
 
-
-\begin{definition}[Implicit Set System]
-We define an {\em implicit set system} as a function $\Phi$ that takes as input a string $I \in \{0,1\}^*$ and outputs a set system $(U_I, {\cal F}_I)$, where $U_I$ is a universe  and ${\cal F}_I$ is a collection of subsets of $U_I$.  The string $I$ is referred to as an {\em instance}  and we denote by $|U_I| = n$ the size of the universe and by $|I|=\bitsize$ the size of the instance. 
-
+We will simplify the definitions given at \cite{fomin2015exact} and use the following definitions instead:
+\begin{definition}[extension problems] 
+  Consider a decision problem inside \textbf{NP}, in this paper, we will associate two verifiers $U,V$ with each language. $U$ stands for input validation, conceptually it uses for checking that the solution 'live' inside the problem world. For example, for the $3$-\textbf{SAT}, $U$ checks that the input indeed encode an assignment. Formally the role of $U$ is to restrict the inputs to certain form. And $V$ responsible to verify that the word indeed in the langauge, ie check that the assignment satisfies the formula. We will say that a problem is an \emph{extension problem} if any instance of the problem could be representated as the bit-wise union of two strings which pass $U$ verification. For example, any assignment satisfies a  $3$-\textbf{SAT} instance could be write as or-wise of two assignments.   
 \end{definition}
-%Let us note that we do not assume here that ${\cal F}_I$ can be computed in time polynomial in the input or the output, nor that
-%the size of ${\cal F}_I$ is polynomial  in $n$ or $\bitsize$.
-We assume that $\bitsize\ge n$. The implicit set system $\Phi$ is said to be {\em polynomial time computable} if (a) there exists a polynomial time algorithm that given $I$ produces $U_I$, and (b) there exists a polynomial time algorithm that given $I$, $U_I$ and a subset $S$ of $U_I$ determines whether $S \in{\cal F}_I$.
-All implicit set systems discussed in this paper are polynomial time computable, except for the minimal satisfying assignments of $d$-CNF formulas which are not polynomial time computable unless P=NP \cite{YatoS03}.
-%In fact, the size of  ${\cal F}_I$ may be exponential for the majority  of interesting applications.
-%Hence  we do not have  a polynomial time algorithm to construct ${\cal F}_I$ from $I$.
 
-An implicit set system $\Phi$ naturally leads to some problems about\longversion{ the set system} $(U_I, {\cal F}_I)$. Find a set in $\mathcal{F}_I$. Is $\mathcal{F}_I$ non-empty? What is the cardinality of $\mathcal{F}_I$? In this paper we will primarily focus on the first and last problems. Examples of implicit sets systems include the set of all feedback vertex sets of a graph of size at most $k$, the set of all satisfying assignments of a CNF formula of weight at most $W$, and the set of all minimal hitting sets of a set system. Next we formally define subset problems.
+\begin{definition}
+A \emph{directed graph} $G$ is a pair $(V,E)$ where $V$ is a set of \emph{vertices} and $E$ is a set of \emph{directed edges}.
+\end{definition}
 
-\defoptproblem{\phisub}{An instance $I$}{A set $S \in {\cal F}_I$ if one exists.}
-
-\noindent
-An example of a subset problem is \textsc{Min-Ones} $d$-\textsc{Sat}. Here for an integer $k$ and a propositional formula $F$ in conjunctive normal form (CNF) where each clause has at most $d$ literals,
-the task is to determine whether $F$ has a satisfying assignment with Hamming weight \shortversion{(number of $1$s) }at most $k$\longversion{, i.e., setting at most $k$ variables to 1}. 
-In our setting, the instance $I$ consists of the input formula $F$ and the integer $k$, encoded as a string over $0$s and  $1$s. The implicit set system  $\Phi$ is a function from $I$ to $(U_I, {\cal F}_I)$, where $U_I$ is the set of variables of $F$, and ${\cal F}_I$ is the set of all satisfying assignments of Hamming weight at most $k$.
+\begin{definition}
+The \emph{directed shortest path problem} is the problem of finding the directed path with the minimum weight between two given vertices in a directed weighted graph.
+\end{definition}
 
 
 \begin{equation*}
