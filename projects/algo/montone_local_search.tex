@@ -92,16 +92,9 @@ A problem family $L$ which is parametrized computable will be said an Extendable
 \end{theorem}
 \section{ Local Monotone Search. }
 One can consider local search as a weighted tiling problem, in a sense that we would like to cover all the space. For instance, in the non-parameterized setting, or in the query model, one has no chance to beat the 'scanning all the options' approach. However, having an oracle gives us a degree of freedom to sample points from a sparser lattice and then perform a 'cheap' computation to scan the ball around it. To gain a better understanding, let us consider the extreme case. If it is guaranteed that $\mathcal{A}$ returns a solution at radius $\frac{1}{4}n$ in $\alpha$ time, then instead of sampling all the possible inputs, one can sample just from all the points on the hypercube such that any two different points are at least $\frac{3}{4}n$ apart and pay a total of $\sim O\left( 2^{\frac{3}{4}n} \alpha \right)$ time to cover all the options.
+When the problem has a monotone property \cref{def:ext}, the idea remains the same, but now we aim to fill the space with cones instead of balls. It turns out that computing the optimal ratio of the lattice to sample from is a bit tricky; this is exactly what \cite{fomin2015exact} did in their work.
 
-When the problems has monotone property \cref{def:ext}, the idea remain the same but that now we aim to till the space by cones instead of balls. It turns out, that compute the optimal ratio of the lattice to sample from is a little bit tricky. And that exactly what \cite{fomin2015exact} did in their work.   
-
-\paragraph{The General Idea.} The idea   \ctt{add a description of their solution}. 
-
-Consider a decision problem inside \textbf{NP}. In this paper, we will associate two verifiers $U$ and $V$ with each language. $U$ stands for input validation and conceptually it is used for checking that the solution is valid within the problem world. For example, for the $3$-\textbf{SAT}, $U$ checks that the input indeed encodes an assignment. Formally, the role of $U$ is to restrict the inputs to a certain form. $V$ is responsible for verifying that the word is indeed in the language, i.e. it checks that the assignment satisfies the formula.
-
-
-Any instance of the problem can be represented as the bit-wise union of two strings which pass $U$ verification. For example, any assignment satisfying a  $3$-\textbf{SAT} instance can be written as an or-wise of two assignments.
-
+ 
 
 \begin{equation*}
   \begin{split}    
