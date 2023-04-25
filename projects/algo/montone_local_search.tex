@@ -66,7 +66,7 @@ We will say that a problem having a parametrized algorithms is an \emph{extensio
   Let $L$ be a problems family, and use the notation $P \in L$ to point that $P$ is an instance of $L$ (boolean formula, if $L$ is a $3$-\textbf{SAT}) and by $|P|$ to denote the length of the binary string encodes $P$. $L$ be said a parameterized computable if there exists a mapping $\phi : L \rightarrow \mathbb{N}$ and an Algorithm $\mathcal{A}$ such that
 
   \begin{enumerate}
-    \item $\phi(P) \in [|P|]$ for any $P\inL$
+    \item $\phi(P) \in [|P|]$ for any $P\in L$
     \item $\mathcal{A}$ return on $P$ at running time $\matcal{O}\left(c^{\phi(P)} \cdot Poly(|P|) \right)$. 
   \end{enumerate}
 \end{definition}
