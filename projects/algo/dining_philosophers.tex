@@ -89,12 +89,12 @@ An incident related to the problem occurred in \ctt{2008}, when a bug in the syn
 
 \subsection{Validity for Odds Number Yields Validity for Even Ones.}  
 
-\begin{lemma} If there exists an odd number $n > 1$ such that there is a valid protocol to solve the Dining Philosophers problem for $n$ philosophers, then there exists an even number $n' = 2n$ such that the problem can be solved by a protocol.
+\begin{lemma} If there exists an odd number $n > 1$ such that there is a valid protocol to solve the Dining Philosophers problem for $n$ philosophers, then there exists an even number $n' = n+1$ such that the problem can be solved by a protocol.
 \end{lemma}
 \begin{proof}
-  Let $P_1, P_2, ..., P_{2n}$ denote the $2n$ philosophers sitting around the table, and let $F_1, F_2, ..., F_{2n}$ denote the forks placed between them. Consider the running of the $n$-philosophers protocol over $2n$-philosophers. That it, each philosopher execute exactly the same code as it would execute in the $n$-philosophers protocol. 
+  Let $P_1, P_2, ..., P_{n+1}$ denote the $n+1$ philosophers sitting around the table, and let $F_1, F_2, ..., F_{n+1}$ denote the forks placed between them. Consider the running of the $n$-philosophers protocol over $n'$-philosophers. That it, each philosopher execute exactly the same code as it would execute in the $n$-philosophers protocol. 
 
-  \begin{claim} 
+  \begin{claim} \label{claim:lr} 
 Suppose there is a deadlock and all the forks are held, then either all the philosophers hold the fork to their right or all of them hold the fork to their left.
   \end{claim} 
   \begin{proof}
@@ -103,7 +103,7 @@ Suppose there is a deadlock and all the forks are held, then either all the phil
   \begin{claim} \label{claim:up} 
     We can assume when deadlock occur then all the forks are held by the philosophers. 
   \end{claim} 
-  
+  The is given in the Appendix. Combining \cref{claim:lr} we can assume w.l.g that each $P_{i}$ holds $F_{i+1}$. Now denote by $j$ the philosopher who is the last one to pick it's fork. We will show, that the protocol has a running on $n$ philosophers in which for any $i\neq j$, the $i$th philosopher sees the same local view as $P_{i}$ in the $n'$-protocol.  
 \end{proof}
 
 \subsection{ Back From $2m$ Protocol to $2$-philosophers Protocol.}
