@@ -1,0 +1,109 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+  \documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass{article}
+  \input{./usepackage}
+  \addbibresource{./sample.bib} 
+  \addbibresource{./exactalgo-rs.bib}
+\fi
+
+\begin{document}
+
+\input{newcommands}
+
+\title{Dining Philosophers (Short Note)} 
+\author{David Ponarovsky}
+
+\ifdefined\ACM
+  \affiliation{%
+    \institution{The Th{\o}rv{\"a}ld Group}
+    \streetaddress{1 Th{\o}rv{\"a}ld Circle}
+    \city{Hekla}
+  \country{Iceland}}
+  \email{larst@affiliation.org}
+\else
+  \maketitle
+\fi
+
+\begin{abstract} 
+In this paper, we improve a wide range of upper bounds for a variety of \textbf{NP} problems, by plugging Grover into the work made by \cite{fomin2015exact}. We emphasize that this work has only a technical value and does not present any new idea. Nevertheless, we think it is worth sharing how easy and straightforwardly integrating quantum might be. We coin the term Groverize, harvesting a quantum improvement by doing almost nothing.
+\end{abstract}
+
+%\input{abstract}
+\ifdefined\ACM
+  \maketitle
+\fi
+
+%\begin{multicols*}{2}
+% \input{preamble}
+%\input{introduction}
+
+% commands taken form the original paper. 
+
+\newcommand{\Oh}{{\mathcal{O}}}
+\newcommand{\bitsize}{N}
+\newcommand{\longversion}[1]{#1}
+\newcommand{\abpartization}{{\sc Vertex $(r,\ell)$-Partization}}
+
+
+\section{Todo.}
+\begin{enumerate}
+  \item Write the table (sage script). \ctt{all most done, it's left to handle the parameterized lines.}
+  \item Add definitions. Problem description.  
+  \item Complete the 'proof'. 
+  \item Prove lower bound. 
+  \item Add figures of covering the space by balls and cones. 
+\end{enumerate}
+
+\section{Introduction.} 
+The Dining Philosophers problem is a classic synchronization problem in computer science, where a group of philosophers sit at a round table and alternate between thinking and eating. The problem arises when they share common resources (forks) and a set of rules must be established to prevent deadlocks and starvation.
+
+The impossibility result for the deterministic case states that it is impossible to design a solution to the Dining Philosophers problem if the philosophers behave deterministically and the resource allocation is symmetric. This is because each philosopher would require the same resources as their neighbor at the same time, which leads to deadlocks.Michael Rabin proposed a solution to the randomized case, where the philosophers behave randomly in choosing which fork to pick up first. This randomization breaks the symmetry and prevents deadlocks.
+
+Attempts have also been made to solve the problem using quantumness, with  \ctt{Adi Shamir and Avi Wigderson} proposing a quantum analog to the Dining Philosophers problem. In \ctt{2003, Dorit Aharonov} proposed a quantum solution to the problem, which involves using entanglement to share the forks between philosophers.
+
+An example of a real-world application of the Dining Philosophers problem is in resource allocation in computer networks, where multiple nodes may need access to a shared resource. The problem can also be used as a teaching tool in computer science to illustrate the importance of synchronization and avoiding deadlocks.
+
+An incident related to the problem occurred in \ctt{2008}, when a bug in the synchronization code of the iPhone's email application caused it to hang, leading to a flurry of frustrated complaints from iPhone users dubbed the "Dining Philosopher's bug".
+
+\begin{definition}[Parameterized Computable] 
+Let $L$ be a problem family, and use the notation $P \in L$ to indicate that $P$ is an instance of $L$ (e.g., if $L$ is a $3$-SAT problem), and by $|P|$ to denote the length of the binary string encoding $P$. $L$ is said to be parameterized computable if there exists a mapping $\phi : L \rightarrow \mathbb{N}$ and an algorithm $\mathcal{A}$ such that:
+
+  \begin{enumerate}
+    \item $\phi(P) \in [|P|]$ for any $P\in L$
+    \item $\mathcal{A}$ returns on $P$ at running time $\mathcal{O}\left(c^{\phi(P)} \cdot Poly(|P|) \right)$ for a fixed $c$ which does not depend on $P$.
+  \end{enumerate}
+\end{definition}
+ 
+
+
+
+%f"{Groverize_complixity(c_values[i]):.3}^{{k}}"
+%\begin{sagesilent}
+%\end{sagesilent}
+
+% \input{sagelocal.py}
+% \begin{sagesilent}
+%   c = 8 
+%   d = 4
+%   f(x) = (2 - (1/c))^x
+%   g(x) = (2 - (1/(d*c))^2)^(x/2)
+% \end{sagesilent}
+% %\begin{figure}{H}
+% \scalebox{0.8}{
+%   \sageplot{plot(f, 0, 7, color = 'red')+ plot(g, 0, 7)}
+% }
+\printbibliography
+\end{document}
+
+
+
+
+
