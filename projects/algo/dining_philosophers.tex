@@ -138,7 +138,9 @@ Now, observe that any running of the $2$-philosophers protocol is also a valid i
 \section{Appendix}
 proof of \cref{claim:up}. 
 \begin{proof}
-    Let $\mathcal{A}$ be a protocol, and consider the protocol $\mathcal{A}^{\prime}$ in which each time that one of the philosopher is 
+  Let $\mathcal{A}$ be a protocol, and consider the protocol $\mathcal{A}^{\prime}$ in which each time that one of the philosopher is get stack then he pass a number with initial value $0$ through the net by sending it to the philosopher sit to his right. Then any philosopher upon receiving, increase the number by one, records it and resend the bit to his right sibling and so on. In the end the original writer of the message receive a number with value $n$. On recording $n$ numbers $1 ,2 ... n$ the philosopher knows that every one on the circle gets stuck (and it easy to see that is the only scenario in which a philosopher record $n$ different values). 
+
+  At this point, $\mathcal{A}^{\prime}$ define the philosopher to pick any of the forks next to it if he can do so. Notice that if $\mathcal{A}$ is a deadlock free protocol so is $\mathcal{A}^{\prime}$.         
   \end{proof}
 
 \end{document}
