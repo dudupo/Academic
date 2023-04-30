@@ -73,15 +73,49 @@ An example of a real-world application of the Dining Philosophers problem is in 
 
 An incident related to the problem occurred in \ctt{2008}, when a bug in the synchronization code of the iPhone's email application caused it to hang, leading to a flurry of frustrated complaints from iPhone users dubbed the "Dining Philosopher's bug".
 
-\begin{definition}[Parameterized Computable] 
-Let $L$ be a problem family, and use the notation $P \in L$ to indicate that $P$ is an instance of $L$ (e.g., if $L$ is a $3$-SAT problem), and by $|P|$ to denote the length of the binary string encoding $P$. $L$ is said to be parameterized computable if there exists a mapping $\phi : L \rightarrow \mathbb{N}$ and an algorithm $\mathcal{A}$ such that:
+\begin{theorem} 
+ It is impossible to solve the Dining Philosophers problem for any number of philosophers larger than one.
+\end{theorm}
 
-  \begin{enumerate}
-    \item $\phi(P) \in [|P|]$ for any $P\in L$
-    \item $\mathcal{A}$ returns on $P$ at running time $\mathcal{O}\left(c^{\phi(P)} \cdot Poly(|P|) \right)$ for a fixed $c$ which does not depend on $P$.
-  \end{enumerate}
-\end{definition}
- 
+%\begin{proof}
+  We prove the theorem by induction. First, we show that the base case of two philosophers is impossible to solve.
+
+\begin{claim}
+  It is impossible to solve the Dining Philosophers problem for a pair of philosophers.
+\end{claim}
+\begin{proof} 
+  Suppose there are two philosophers sitting at a table, each with a fork. Each philosopher needs both forks to eat, but only one fork is available to each philosopher. Thus, they will forever wait for the other philosopher to release the fork, resulting in a deadlock.
+\end{cliam}
+\begin{claim} If there exists an odd number $n > 1$ such that there is a valid protocol to solve the Dining Philosophers problem for $n$ philosophers, then there exists an even number $n' = n + 1$ such that the problem can be solved by a protocol.
+\end{claim}
+\begin{proof}
+Let $P_1, P_2, ..., P_n$ denote the philosophers sitting around the table, and let $F_1, F_2, ..., F_n$ denote the forks placed between them, with fork $F_i$ between philosophers $P_i$ and $P_{i+1}$ (with $P_{n+1} = P_1$). We add an additional fork $F_{n+1}$ between philosophers $P_1$ and $P_{\frac{n}{2}+1}$. That is, for $1\leq i\leq \frac{n}{2}$, fork $F_{n+i}$ is placed between philosophers $P_i$ and $P_{i+\frac{n}{2}}$.
+
+Define the rules of the protocol as follows: 
+
+\begin{enumerate}
+  
+  \item Each philosopher can only pick up one fork at a time.
+  
+  \item In order to eat, a philosopher must have both the fork to their left and the fork to their right in their possession.
+  
+  \item Philosophers $P_1, P_2, ..., P_n$ take turns picking up one fork at a time, in a clockwise direction starting from $P_1$. 
+  
+  \item When a philosopher has $F_1$ and $F_2$ in their possession, they can also pick up $F_{n+1}$ and eat.
+  
+  \item When a philosopher has $F_{n+1}$ in their possession, they must put it down and wait for their next turn to attempt to pick it up again.
+  
+\end{enumerate}
+
+It is easy to verify that these rules ensure that the philosophers can eat when their respective two forks are available, and that there is no deadlock. Since there is a protocol for an odd number of philosophers, there must exist a protocol for an even number of philosophers.
+\end{proof}
+
+\begin{claim} 
+  The existence of such even number follows a valid solution for the base case of only two philosophers.
+\end{claim}
+\proof{claim}
+Let $n=1$. Since there is a solution to the problem for $n=3$, we can use this to find a solution for $n=4$ using claim 2. Continuing with this logic, we can see that we can solve the problem for $2^{k}$ philosophers using the solution for the base case of two philosophers. Thus, the theorem is proved.
+\end{proof}
 
 
 
