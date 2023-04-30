@@ -91,8 +91,8 @@ An incident related to the problem occurred in \ctt{2008}, when a bug in the syn
 
 \subsection{Validity for Odds Number Yields Validity for Even Ones.}  
 
-\begin{Lemma} If there exists an odd number $n > 1$ such that there is a valid protocol to solve the Dining Philosophers problem for $n$ philosophers, then there exists an even number $n' = 2n$ such that the problem can be solved by a protocol.
-\end{Lemma}
+\begin{lemma} If there exists an odd number $n > 1$ such that there is a valid protocol to solve the Dining Philosophers problem for $n$ philosophers, then there exists an even number $n' = 2n$ such that the problem can be solved by a protocol.
+\end{lemma}
 \begin{proof}
   Let $P_1, P_2, ..., P_{2n}$ denote the $2n$ philosophers sitting around the table, and let $F_1, F_2, ..., F_{2n}$ denote the forks placed between them. Consider the running of the $n$-philosophers protocol over $2n$-philosophers. That it, each philosopher execute exactly the same code as it would execute in the $n$-philosophers protocol. 
 
@@ -110,9 +110,9 @@ Suppose there is a deadlock and all the forks are held, then either all the phil
 
 \subsection{ Back From $2m$ Protocol to $2$-philosophers Protocol.}
 
-\begin{Lemma} 
+  \begin{lemma} 
   The existence of such even number follows a valid solution for the base case of only two philosophers.
-\end{Lemma}
+\end{lemma}
 \begin{proof}
 Suppose there is an even number $n = 2m$ for which the there is a valid protocol for $n$ philosophers. We show that a protocol exists in which two philosophers simulate the $n$ philosophers in the original protocol.
 
