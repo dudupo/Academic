@@ -86,28 +86,21 @@ An incident related to the problem occurred in \ctt{2008}, when a bug in the syn
 \begin{proof} 
   Suppose there are two philosophers sitting at a table, each with a fork. Each philosopher needs both forks to eat, but only one fork is available to each philosopher. Thus, they will forever wait for the other philosopher to release the fork, resulting in a deadlock.
 \end{proof}
-\begin{claim} If there exists an odd number $n > 1$ such that there is a valid protocol to solve the Dining Philosophers problem for $n$ philosophers, then there exists an even number $n' = n + 1$ such that the problem can be solved by a protocol.
+\begin{claim} If there exists an odd number $n > 1$ such that there is a valid protocol to solve the Dining Philosophers problem for $n$ philosophers, then there exists an even number $n' = 2n$ such that the problem can be solved by a protocol.
 \end{claim}
 \begin{proof}
-Let $P_1, P_2, ..., P_n$ denote the philosophers sitting around the table, and let $F_1, F_2, ..., F_n$ denote the forks placed between them, with fork $F_i$ between philosophers $P_i$ and $P_{i+1}$ (with $P_{n+1} = P_1$). We add an additional fork $F_{n+1}$ between philosophers $P_1$ and $P_{\frac{n}{2}+1}$. That is, for $1\leq i\leq \frac{n}{2}$, fork $F_{n+i}$ is placed between philosophers $P_i$ and $P_{i+\frac{n}{2}}$.
+  Let $P_1, P_2, ..., P_{2n}$ denote the $2n$ philosophers sitting around the table, and let $F_1, F_2, ..., F_{2n}$ denote the forks placed between them. Consider the running of the $n$-philosophers protocol over $2n$-philosophers. That it, each philosopher execute exactly the same code as it would execute in the $n$-philosophers protocol. 
 
-Define the rules of the protocol as follows: 
-
-\begin{enumerate}
+  \begin{claim} 
+Suppose there is a deadlock and all the forks are held, then either all the philosophers hold the fork to their right or all of them hold the fork to their left.
+  \end{claim} 
+  \begin{proof}
+    Assume through contradiction otherwise, then there are must to be two adjoined philosophers $P_{i}$ and $P_{i+1}$ such one of them hold the fork to his left while the other hold the fork to his right. So either $F_{i+1}$ is held by both of them, which by definition cannot be true, or $F_{i}$ is free, which contradict the fact the second restriction of the claim. 
+  \end{proof}
+  \begin{claim} \label{claim:up} 
+    We can assume when deadlock occur then all the forks are held by the philosophers. 
+  \end{claim} 
   
-  \item Each philosopher can only pick up one fork at a time.
-  
-  \item In order to eat, a philosopher must have both the fork to their left and the fork to their right in their possession.
-  
-  \item Philosophers $P_1, P_2, ..., P_n$ take turns picking up one fork at a time, in a clockwise direction starting from $P_1$. 
-  
-  \item When a philosopher has $F_1$ and $F_2$ in their possession, they can also pick up $F_{n+1}$ and eat.
-  
-  \item When a philosopher has $F_{n+1}$ in their possession, they must put it down and wait for their next turn to attempt to pick it up again.
-  
-\end{enumerate}
-
-It is easy to verify that these rules ensure that the philosophers can eat when their respective two forks are available, and that there is no deadlock. Since there is a protocol for an odd number of philosophers, there must exist a protocol for an even number of philosophers.
 \end{proof}
 
 \begin{claim} 
@@ -141,6 +134,13 @@ Now, observe that any running of the $2$-philosophers protocol is also a valid i
 %   \sageplot{plot(f, 0, 7, color = 'red')+ plot(g, 0, 7)}
 % }
 \printbibliography
+
+\section{Appendix}
+proof of \cref{claim:up}. 
+\begin{proof}
+    Let $\mathcal{A}$ be a protocol, and consider the protocol $\mathcl{A}^{\prime}$ in which each time that one of the philosopher is 
+  \end{proof}
+
 \end{document}
 
 
