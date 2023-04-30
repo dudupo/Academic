@@ -119,17 +119,17 @@ Suppose there is an even number $n = 2m$. We show that a protocol exists in whic
 Let the original protocol have $n$ Philosophers and $n$ forks, labeled $F_0, F_1, ..., F_{n-1}$, where $F_i$ is between Philosopher $i$ and Philosopher $(i+1) \mod n$. In the new protocol, the two simulating Philosophers, P1 and P2, will each be responsible for simulating a continuous half of the original Philosophers, i.e., P1 will simulate Philosophers $0$ to $m-1$ and P2 will simulate Philosophers $m$ to $n-1$. 
 
 To do this, P1 will define $m-1$ imaginary forks, labeled $I_1, I_2, ..., I_{m-1}$, where $I_i$ is between P1 and P2. Similarly, P2 will define $m-1$ imaginary forks, labeled $I'_1, I'_2, ..., I'_{m-1}$, where $I'_i$ is also between P1 and P2. Note that $I_1$ and $I'_1$ are shared forks, held by both P1 and P2.
-
+\begin{enumerate}
 The protocol for P1 and P2 to simulate the original $n$ Philosophers is as follows:
-1. P1 and P2 both pick up their left-hand fork and $I_1$.
-2. P1 picks up their right-hand fork and $I_2$.
-3. P2 picks up their right-hand fork and $I'_2$.
-4. Both P1 and P2 now have two forks, and can eat.
-5. After eating, P1 and P2 put down their forks and $I_1$.
-6. P1 puts down their right-hand fork and $I_2$.
-7. P2 puts down their right-hand fork and $I'_2$.
-8. P1 and P2 are now ready to repeat the process.
-
+\item P1 and P2 both pick up their left-hand fork and $I_1$.
+\item P1 picks up their right-hand fork and $I_2$.
+\item P2 picks up their right-hand fork and $I'_2$.
+\item Both P1 and P2 now have two forks, and can eat.
+\item After eating, P1 and P2 put down their forks and $I_1$.
+\item P1 puts down their right-hand fork and $I_2$.
+\item P2 puts down their right-hand fork and $I'_2$.
+\item P1 and P2 are now ready to repeat the process.
+\end{enumerate}
 It can be seen that this protocol never allows for a deadlock to occur, as both P1 and P2 are only ever holding two forks and either P1 or P2 will always be able to obtain another fork when they need it. Thus, the claim is proved.
 
 \end{proof}
