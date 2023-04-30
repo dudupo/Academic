@@ -77,6 +77,8 @@ An incident related to the problem occurred in \ctt{2008}, when a bug in the syn
  It is impossible to solve the Dining Philosophers problem for any number of philosophers larger than one.
 \end{theorem}
 
+\section{The Proof.}
+
 %\begin{proof}
   We prove the theorem by induction. First, we show that the base case of two philosophers is impossible to solve.
 
@@ -86,6 +88,9 @@ An incident related to the problem occurred in \ctt{2008}, when a bug in the syn
 \begin{proof} 
   Suppose there are two philosophers sitting at a table, each with a fork. Each philosopher needs both forks to eat, but only one fork is available to each philosopher. Thus, they will forever wait for the other philosopher to release the fork, resulting in a deadlock.
 \end{proof}
+
+\subsection{Validity for Odds Number Yields Validity for Even Ones.}  
+
 \begin{claim} If there exists an odd number $n > 1$ such that there is a valid protocol to solve the Dining Philosophers problem for $n$ philosophers, then there exists an even number $n' = 2n$ such that the problem can be solved by a protocol.
 \end{claim}
 \begin{proof}
@@ -102,6 +107,8 @@ Suppose there is a deadlock and all the forks are held, then either all the phil
   \end{claim} 
   
 \end{proof}
+
+\subsection{ Back From $2m$ Protocol to $2$-philosophers Protocol.}
 
 \begin{claim} 
   The existence of such even number follows a valid solution for the base case of only two philosophers.
