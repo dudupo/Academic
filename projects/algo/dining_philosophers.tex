@@ -118,10 +118,9 @@ Suppose there is an even number $n = 2m$ for which the there is a valid protocol
 
 Let the original protocol have $n$ philosophers and $n$ forks, labeled $F_0, F_1, ..., F_{n-1}$, where $F_i$ is between philosopher $i$ and philosopher $(i+1) \mod n$. In the new protocol, the two simulating Philosophers, $P_1$ and $P_2$, will each be responsible for simulating a continuous half of the original Philosophers, i.e., $P_1$ will simulate Philosophers $0$ to $m-1$ and $P_2$ will simulate Philosophers $m$ to $n-1$. 
 
-To do this, $P_1$ will define $m-1$ imaginary forks, labeled $I_1, I_2, ..., I_{m-1}$, where $I_i$ matches the original fork $F_{i}$ for $i\le m-1$. Similarly, $P_2$ will define $m-1$ imaginary forks, labeled $I'_1, I'_2, ..., I'_{m-1}$. Denote by $J_{0}$ and $J'_{0}$ the real shared forks between $P_{1}$ and $P_{2}$. Now each of the philosophers follow the $n$-protocol, such that when the $i$'th philosopher pick a fork, then both $P_{0}, P_{1}$ pick $I_{i}$ and $I'_{i}$ accordantly (Or $J_{0}$, $J'_{0}$ if $i$ is zero. Notice that the protocol is symmetric. 
+To do this, $P_1$ will define $m-1$ imaginary forks, labeled $I_1, I_2, \dots, I_{m-1}$, where $I_i$ matches the original fork $F_{i}$ for $i \le m-1$. Similarly, $P_2$ will define $m-1$ imaginary forks, labeled $I'_1, I'_2, \dots, I'_{m-1}$. Denote by $J_{0}$ and $J'_{0}$ the real shared forks between $P_1$ and $P_2$. Now each of the philosophers follows the $n$-protocol, such that when the $i$th philosopher picks a fork, then both $P_1$ and $P_2$ pick $I_i$ and $I'_i$ accordingly (or $J_0$, $J'_0$ if $i$ is zero). Notice that the protocol is symmetric.
 
-  Now, observes that any running of the $2$-philosophers protocol is also a valid of the $n$-philosophers protocol. Therefore any scenario in which deadlock or starvation occur either on real philosopher or imaginary matches to possible occurrence of the same incident while executing the $n$-philosophers protocol.  We obtain, that any protocols grantees rightness for even number of philosophers yield a right protocol for the base case.
-
+Now, observe that any running of the $2$-philosophers protocol is also a valid instance of the $n$-philosophers protocol. Therefore any scenario in which deadlock or starvation occur either on real philosophers or imaginary ones matches a possible occurrence of the same incident while executing the $n$-philosophers protocol. We can conclude that any protocols that guarantee correctness for even numbers of philosophers yield a correct protocol for the base case.
 \end{proof}
 
 
