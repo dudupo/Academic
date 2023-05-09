@@ -56,9 +56,11 @@ suppose for the moment that $\ket{\psi}$ and $\ket{\phi}$ are in the code. Thus:
     \ket{\psi} & = \frac{1}{\sqrt{|C_{z}^{\perp}|}}\sum_{z \in C_{z}^{\perp}}{ \ket{\psi + z   }} \\ 
     (1-\mathbf{SWAP})\ket{0}\ket{\psi}\ket{\phi} &= \frac{1}{|C_{z}^{\perp}|}\sum_{z,\xi \in  \in C_{z}^{\perp} }{(1-\mathbf{SWAP})\ket{0} \ket{\psi + z   }\ket{\phi + \xi   }}\\
     & = \frac{1}{2|C_{z}^{\perp}|}\sum_{z,\xi \in  \in C_{z}^{\perp} }{  H\ket{\pm} \left( \ket{\psi + z   }\ket{\phi + \xi   }  \pm  \ket{  \left( \phi + \xi \right)_{ i }\left( \psi + z \right)_{ / i }   }\ket{\left( \psi + z \right)_{ i }\left( \phi + \xi \right)_{ / i }  }  \right) }\\
-    \Rightarrow \prb{ \ket{0} } &=  \frac{1}{4|C_{z}^{\perp}|^{2}} \big(  2 |C_{z}^{\perp}|^{2} + 2 \sum_{z^{\prime},\xi^{\prime},  z,\xi \in  \in C_{z}^{\perp} }   \\
-    & \left( \overbrace{    \bra{\psi + z^{\prime}   }\bra{\phi + \xi^{\prime}   } \ket{  \left( \phi + \xi \right)_{ i }\left( \psi + z \right)_{ / i }   }\ket{\left( \psi + z \right)_{ i }\left( \phi + \xi \right)_{ / i }  }}^{A}+  \right) \\
-  &  \left(  \overbrace{ \bra{  \left( \phi + \xi^{\prime} \right)_{ i }\left( \psi + z^{\prime} \right)_{ / i }   }\bra{\left( \psi + z^{\prime} \right)_{ i }\left( \phi + \xi^{\prime} \right)_{ / i }  }  \ket{  \left( \phi + \xi \right)_{ i }\left( \psi + z \right)_{ / i }   }\ket{\left( \psi + z \right)_{ i }\left( \phi + \xi \right)_{ / i }  } }^{B} \right) \big) \\ 
+    \Rightarrow \prb{ \ket{0} } &=  \frac{1}{4|C_{z}^{\perp}|^{2}} \big( \\ 
+      & 2 |C_{z}^{\perp}|^{2} + 2 \sum_{z^{\prime},\xi^{\prime},  z,\xi \in  \in C_{z}^{\perp} }   \\
+    & \left( \overbrace{    \bra{\psi + z^{\prime}   }\bra{\phi + \xi^{\prime}   } \ket{  \left( \phi + \xi \right)_{ i }\left( \psi + z \right)_{ / i }   }\ket{\left( \psi + z \right)_{ i }\left( \phi + \xi \right)_{ / i }  }}^{A}  \right) +\\
+  &  \left(  \overbrace{ \bra{  \left( \phi + \xi^{\prime} \right)_{ i }\left( \psi + z^{\prime} \right)_{ / i }   }\bra{\left( \psi + z^{\prime} \right)_{ i }\left( \phi + \xi^{\prime} \right)_{ / i }  }  \ket{  \left( \phi + \xi \right)_{ i }\left( \psi + z \right)_{ / i }   }\ket{\left( \psi + z \right)_{ i }\left( \phi + \xi \right)_{ / i }  } }^{B} \right) \\ 
+& \big) \\ 
     A &=     \bra{\psi + z^{\prime}   }\ket{  \left( \phi + \xi \right)_{ i }\left( \psi + z \right)_{ / i }   } \bra{\phi + \xi^{\prime}   } \ket{\left( \psi + z \right)_{ i }\left( \phi + \xi \right)_{ / i }  }  
   \end{split}
 \end{equation*}
