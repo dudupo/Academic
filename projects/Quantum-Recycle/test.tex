@@ -1,0 +1,71 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+  \documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass{article}
+  \input{./usepackage}
+  \addbibresource{./sample.bib} 
+
+\fi
+
+\begin{document}
+
+\input{newcommands}
+
+\title{Recycling Quantum Computation.} 
+\author{David Ponarovsky}
+%\author{Noa Viner, David Ponarovsky}
+
+\ifdefined\ACM
+  \affiliation{%
+    \institution{The Th{\o}rv{\"a}ld Group}
+    \streetaddress{1 Th{\o}rv{\"a}ld Circle}
+    \city{Hekla}
+  \country{Iceland}}
+  \email{larst@affiliation.org}
+\else
+  \maketitle
+\fi
+%\input{abstract}
+\ifdefined\ACM
+  \maketitle
+\fi
+
+%\begin{multicols*}{2}
+% \input{preamble}
+%\input{introduction}
+
+Consider the CSS code composed by $C_{x}$,  $C^{\perp}_{z}$ at length $n$. Define the $1$-\textbf{SWAP} test on $\ket{\psi}\otimes \ket{\phi}$ to be: 
+\begin{enumerate}
+  \item Applay the hadamard gate on ancile. 
+  \item Pick a random coordinate $i \sim [n]$.
+  \item condinatal on the ancile a swap between the $i$th qubit of $\ket{\psi}$ to the $i$th qubit of $\ket{\phi}$. 
+  \item Applay the hadammard again on the ancile and massure. If $\ket{0}$ massured then accept, otherwise reject. 
+\end{enumerate}
+
+suppose for the moment that $\ket{\psi}$ and $\ket{\phi}$ are in the code. Thus: 
+
+\begin{equation*}
+  \begin{split}
+    \ket{\psi} & = \frac{1}{\sqrt{|C_{z}^{\perp}|}}\sum_{z \in C_{z}^{\perb}}{ \ket{\psi + z   }} \\ 
+    (1-\mathbf{SWAP})\ket{0}\ket{\psi}\ket{\phi} &= \sum_{z,\xi \in  \in C_{z}^{\perb} }{(1-\mathbf{SWAP})\ket{0} \ket{\psi + z   }\ket{\phi + \xi   }}\\
+    & = \sum_{z,\xi \in  \in C_{z}^{\perb} }{  H\ket{\pm} \left( \ket{\psi + z   }\ket{\phi + \xi   }  \pm  \ket{  \left( \phi + \xi \right)_{ i }\left( \psi + z \right)_{ / i }   }\ket{\left( \psi + z \right)_{ i }\left( \phi + \xi \right)_{ / i }  }  \right) }\\
+    \Rightarrow \prb{ \ket{0} } &=  \sum_{z,\xi \in  \in C_{z}^{\perb} }{A }
+  \end{split}
+\end{equation*}
+
+
+
+\printbibliography
+\end{document}
+
+
+
+
+
