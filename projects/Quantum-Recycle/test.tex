@@ -81,6 +81,39 @@ And the equalitiy $ \left( \psi + z \right)_{i} = \left( \phi + \xi  \right)_{i}
   \end{equation*}
 \end{lemma}
 
+
+\newcommand{\dxnw}{  1 - \frac{d\left( C_{x}/C_{z}^{\perp} \right)}{n} } 
+\newcommand{\dxn}{ \left( \dxnw \right)} 
+\newcommand{\czp}{C_{z}^{\perp}}
+\newcommand{\czpa}{|\czp |}
+\newcommand{\forczp}[2]{ \sum_{#1 \in \czp}{#2} }  
+\newcommand{\dismul}{  \frac{ d\left( \czp  \right) \cdot   d\left( C_{x}/C_{z}^{\perp} \right)}{n^{2} }}
+\begin{proof}
+  Noicte that by the conditial probability formula we have that: 
+  \begin{equation*}
+    \begin{split}
+      \prbm{X_{z}=1}{i} &=  \prbcprb{}{X_{z}=1}{z_{i}=1}  \\ 
+      & \ \ \ + \prbcprb{}{X_{z}=1}{z_{i}=0} \\ 
+      & \le \prbm{z_{i}= 1 }{i} +  \prbm{\phi_{i} = \psi_{i}  }{i} \cdot \prb{z_{i}= 0 }  \\ 
+      & \le \prbm{z_{i}= 1 }{i} +  \dxn \cdot \prb{z_{i}= 0 }  \\
+      & \le \prbm{z_{i}= 1 }{i} + \prbm{z_{i}= 0 }{i} -   \frac{d\left( C_{x}/C_{z}^{\perp} \right)}{n} \cdot \left( 1 - \frac{d\left( \czp \right)}{n}   \right) \\ 
+      & \le \dxn + \dismul \\ 
+      & \le \prbm{z_{i}= 1 }{i} + \dxn \cdot \prb{z_{i} = 0 } \\ 
+      \Rightarrow  \expp{\forczp{z}{X_{z}}}  & \le \forczp{z}{\prbm{z_{i}= 1 }{i}} + \dxn \czpa    
+    \end{split}
+  \end{equation*}
+\begin{equation*}
+  \begin{split}
+    \forczp{z}{\prbm{z_{i}= 1 }{i}} & = \czpa \forczp{z}{\prbcprb{i}{z_{i}= 1 }{z}} \\
+    & =   \czpa \sum_{i \in [n]}{\prbcprb{z}{z_{i}= 1 }{i}} \\
+    & \le \czpa \frac{1}{n} \sum_{i\in [n]}{ \prb{ \text{sample generator in the support of } i  } }\\
+    & \le \czpa \frac{1}{n} \cdot n \frac{2^{\Delta}}{2^{\dim \czp}} = 2^{\Delta} \\ 
+    \Rightarrow  \expp{\forczp{z}{X_{z}}}  & \le \left( \dxnw + \frac{2^{\Delta}}{\czpa}  \right)\czpa
+  \end{split}
+\end{equation*}
+
+
+\end{proof}
 \printbibliography
 \end{document}
 
