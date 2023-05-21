@@ -1,40 +1,34 @@
 \chapter{Introduction}
 
 
-A deterministic test for comparing two numbers can be done by simply comparing each digit in the numbers one by one. 
-
-
-% ------- %
-
-The coordinate picking test is a probabilistic test for comparing the equality of two numbers. It's efficient because it provides a high probability of correctly determining if two numbers are different, especially if the numbers are far apart from each other in terms of their digits.
-
-To use the coordinate picking test, a random digit from each number is chosen, and the test checks if the chosen digits from both numbers are the same or different. The process is repeated for multiple positions or coordinates, and if all the chosen coordinates match, the numbers are considered equal.
-
-When the numbers being compared are far apart in terms of their digits, the probability of detecting their difference with the coordinate picking test becomes higher. This is because it's more likely to find a position where the numbers differ upon choosing random coordinates for comparison.
-
-Overall, the coordinate picking test is an efficient probabilistic algorithm for comparing the equality of two numbers, especially if the numbers are far apart in terms of their digits.
-
-
-% ------ % 
-
-The quantum swap test is an algorithm used in quantum computing to compare the similarity of two large strings of information. It works by manipulating qubits to determine whether two large strings are identical or different. The swap test can be used on product states, which are tensor products of individual qubits. 
-
-To use the quantum swap test, two large strings of information (in quantum form) are prepared, and the algorithm compares them by swapping qubits and measuring the resulting state. The process is repeated multiple times to improve the accuracy of the test. 
-
-In contrast to the probabilistic coordinate picking test, the quantum swap test is a deterministic algorithm that can determine the equality of two numbers with high probability. However, the quantum swap test requires complex quantum operations that may be difficult to implement, and it may not be efficient for very large inputs.
-
-Regarding a hypothetical test where a random coordinate is picked and only the corresponding qubits are swapped, such a test would likely fail with high probability in mimicking the coordinate picking test, as it would not take into account the correlation between qubits that exist in quantum states. Unlike classical bits, qubits can exist in superpositions, which means they can represent multiple states simultaneously. Therefore, a test that only swaps particular qubits without taking into account their entanglement is unlikely to give accurate results in a way that mimics the classical coordinate picking test.
-
-% ----- % 
-The PCP (Probabilistically Checkable Proof) theorem is a fundamental result in theoretical computer science that has broad implications in various fields, including computational complexity theory, cryptography, and algorithms design. It describes the relationship between the amount of information required to verify a proof of a computational problem and the computational resources needed to find a solution to that problem.
-
+%A deterministic test for comparing two numbers can be done by simply comparing each digit in the numbers one by one. 
+%
+%The coordinate picking test is a probabilistic test for comparing the equality of two numbers. It's efficient because it provides a high probability of correctly determining if two numbers are different, especially if the numbers are far apart from each other in terms of their digits.
+%
+%To use the coordinate picking test, a random digit from each number is chosen, and the test checks if the chosen digits from both numbers are the same or different. The process is repeated for multiple positions or coordinates, and if all the chosen coordinates match, the numbers are considered equal.
+%
+%When the numbers being compared are far apart in terms of their digits, the probability of detecting their difference with the coordinate picking test becomes higher. This is because it's more likely to find a position where the numbers differ upon choosing random coordinates for comparison.
+%
+%Overall, the coordinate picking test is an efficient probabilistic algorithm for comparing the equality of two numbers, especially if the numbers are far apart in terms of their digits.
+%
+%The quantum swap test is an algorithm used in quantum computing to compare the similarity of two large strings of information. It works by manipulating qubits to determine whether two large strings are identical or different. The swap test can be used on product states, which are tensor products of individual qubits. 
+%
+%To use the quantum swap test, two large strings of information (in quantum form) are prepared, and the algorithm compares them by swapping qubits and measuring the resulting state. The process is repeated multiple times to improve the accuracy of the test. 
+%
+%In contrast to the probabilistic coordinate picking test, the quantum swap test is a deterministic algorithm that can determine the equality of two numbers with high probability. However, the quantum swap test requires complex quantum operations that may be difficult to implement, and it may not be efficient for very large inputs.
+%
+%Regarding a hypothetical test where a random coordinate is picked and only the corresponding qubits are swapped, such a test would likely fail with high probability in mimicking the coordinate picking test, as it would not take into account the correlation between qubits that exist in quantum states. Unlike classical bits, qubits can exist in superpositions, which means they can represent multiple states simultaneously. Therefore, a test that only swaps particular qubits without taking into account their entanglement is unlikely to give accurate results in a way that mimics the classical coordinate picking test.
+%
+%The PCP (Probabilistically Checkable Proof) theorem is a fundamental result in theoretical computer science that has broad implications in various fields, including computational complexity theory, cryptography, and algorithms design. It describes the relationship between the amount of information required to verify a proof of a computational problem and the computational resources needed to find a solution to that problem.
+%
 The PCP theorem states that there exists a class of computational problems that can be probabilistically verified with high accuracy by reading only a constant number of bits from a proof that is polynomial in the input size of the problem. This means that given a proof for a problem, a verifier can check the proof for correctness by reading only a few bits of the proof, making the verification process efficient.
-
-The theorem also shows that there exists a connection between the resources required to verify a proof and the computational resources needed to solve the corresponding computational problem. Specifically, the theorem states that if a problem can be verified with high accuracy using a small amount of proof information, then the problem can be solved efficiently using a probabilistic algorithm. This provides a powerful tool for studying the computational complexity of problems, as it allows us to focus on verifying solutions rather than finding them.
-
-The PCP theorem has numerous implications in various fields, such as applications in cryptography and the potential to improve algorithm design and optimization. It has also led to the development of new techniques for solving computational problems efficiently, such as the use of probabilistically checkable proofs in conjunction with the power of randomized algorithms.
-
-In summary, the PCP theorem provides a fundamental insight into the relationship between proof verification and computational complexity, and has implications for numerous fields of study. It has led to the development of new techniques and algorithms for solving complex problems efficiently, and offers a powerful tool for understanding the complexity of computational problems.
-
+%%
+%A deterministic test for comparing two numbers can be done by simply comparing each digit in the numbers one by one; however, the coordinate picking test is a probabilistic test that provides a high probability of correctly determining if two numbers are different, especially if the numbers are far apart from each other in terms of their digits. In contrast, the quantum swap test is a deterministic algorithm that can determine the equality of two numbers with high probability, but it requires complex quantum operations and may not be efficient for very large inputs. Moreover, a hypothetical test where a random coordinate is picked and only the corresponding qubits are swapped is unlikely to give accurate results in a way that mimics the classical coordinate picking test. Finally, the PCP theorem states that there exists a class of computational problems that can be probabilistically verified with high accuracy by reading only a constant number of bits from a proof that is polynomial in the input size of the problem, making the verification process efficient.
+%The theorem also shows that there exists a connection between the resources required to verify a proof and the computational resources needed to solve the corresponding computational problem. Specifically, the theorem states that if a problem can be verified with high accuracy using a small amount of proof information, then the problem can be solved efficiently using a probabilistic algorithm. This provides a powerful tool for studying the computational complexity of problems, as it allows us to focus on verifying solutions rather than finding them.
+%
+%The PCP theorem has numerous implications in various fields, such as applications in cryptography and the potential to improve algorithm design and optimization. It has also led to the development of new techniques for solving computational problems efficiently, such as the use of probabilistically checkable proofs in conjunction with the power of randomized algorithms.
+%
+%In summary, the PCP theorem provides a fundamental insight into the relationship between proof verification and computational complexity, and has implications for numerous fields of study. It has led to the development of new techniques and algorithms for solving complex problems efficiently, and offers a powerful tool for understanding the complexity of computational problems.
+%
 
 %\printbibliography[heading=subbibliography]

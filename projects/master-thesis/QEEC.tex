@@ -35,7 +35,7 @@ For convenient let us use the notation, $\ket{\mathbf{GHZ}^{\pm}} =  \ket{0^{m}}
 \begin{lemma}
   The Shor code over $9$ qubits enable to correct a single either bit or phase flip.  
 \end{lemma}
-So, it's clear that a single bit-flip fault can be treat exactly as in the classical case. The decoder will check that any of the triples store the same value, and if it's not the case then it will correct by majority. We will need the following claim to construct a decoder which also can correct a phase-flip fault. In this chapter we denote by $H^{m}$ the Hadamard gate over the $m$ qubits.
+It is evident that a single bit-flip error can be handled in the same way as in the conventional case. The decoder will check if any of the triples have the same value, and if not, it will correct it by majority. To create a decoder that can also correct a phase-flip error, we need the following statement. In this chapter, we denote the Hadamard gate over $m$ qubits as $H^m$.
 \begin{claim}
    $H^{m}\ket{\mathbf{GHZ}^{\pm}} = \sum_{ x \cdot \mathbf{1} =_2 \pm }{\ket{x} }$
 \end{claim}
@@ -48,7 +48,10 @@ So, it's clear that a single bit-flip fault can be treat exactly as in the class
     \end{split}
   \end{equation*}
 \end{proof}
-Now it's clear how to correct a phase flip. One can apply the Hadamard transform and compute the parity of each triple, By the assumption that only a single phase flip might occurs either all the triples have the same parity or that the faulted one has an opposite parity and to corrected.           
+
+Now it is clear how to correct a phase flip. One can apply the Hadamard transform and compute the parity of each triple. By the assumption that only a single phase flip may occur, either all the triples have the same parity or the faulted one has an opposite parity and needs to be corrected. Thus, we obtain an $\left[ \left[ 9,1,1 \right] \right]$ quantum error correction code. Asymptotically, this is an $\left[ \left[ m^{2}, 1, m \right] \right]$ code. There is still one big difference between the classic repetition code and the Shor code. While each parity check of the Shor code examines a square root number of qubits, any check of the repetition code touches no more than a constant number of qubits; that is, any check just tests if any two adjacent bits are equal.  That brings us to ask if there are quantum LDPC codes.
+
+\paragraph{qLDPC Codes.} As exactly as in the classic case, qLDPC codes are codes in which any check act non trivially on at most a constant number of qubits, It was proved that using a good Quantum LDPC code one can achieve a fault tolerance threshold theorem at the cost of only constant overhead \cite{gottesman2014faulttolerant}. 
 
 %\begin{center}
 %  \begin{tikzpicture}
@@ -83,8 +86,8 @@ Now it's clear how to correct a phase flip. One can apply the Hadamard transform
 %
 %  \end{algorithm}
 
-
-By quadric the dimension of the repetition code one can find those state which at least two pauli are needed to applay for flipping either the bit or the phase of the logic state. Clearly any phase flip      
+%
+%By quadric the dimension of the repetition code one can find those state which at least two pauli are needed to applay for flipping either the bit or the phase of the logic state. Clearly any phase flip 
 
 \section{Quantum Codes.}
 \begin{definition}
