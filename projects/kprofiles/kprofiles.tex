@@ -1,0 +1,119 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+  \documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass{article}
+  \input{./usepackage}
+  \addbibresource{./sample.bib} 
+
+\fi
+
+\begin{document}
+
+\input{newcommands}
+
+\title{Short Note On The Kprofile Problem.} 
+\author{David Ponarovsky}
+%\author{Noa Viner, David Ponarovsky}
+
+\ifdefined\ACM
+  \affiliation{%
+    \institution{The Th{\o}rv{\"a}ld Group}
+    \streetaddress{1 Th{\o}rv{\"a}ld Circle}
+    \city{Hekla}
+  \country{Iceland}}
+  \email{larst@affiliation.org}
+\else
+  \maketitle
+\fi
+%\input{abstract}
+\ifdefined\ACM
+  \maketitle
+\fi
+
+%\begin{multicols*}{2}
+% \input{preamble}
+
+%\input{introduction}
+
+\newcommand{\precom}[3]{ \braket{#1,#2,#3} }
+\newcommand{\ora}{ \mathcal{O} }
+
+%\section{The Problem.} Given a permutation $\sigma \in S_{n}$ one can map each of the her subsequent at length $k$ to a permutation in $S_{k}$. The histogram obtained by counting how many subsequences are mapped to permutation in $S_{k}$ calls the k-profile of $\sigma$. We study the problem in the setting on which one is allowed to perform preprocessing independent on $\sigma$.        
+%
+%\subsection{Trivial Example.} Suppose that we don't limit the preprocessing running time, then one can just compute for head the k-profile of any of the permutations in $S_{n}$, as the size of $S_{n}$ equals $n!$ we have that the depth of the binary tree stores the answer is tightly $\Theta(n\log n)$. We denote it by $\precom{n!}{n!}{n \log n}$ for $n!$ memory and time preprocessing and $n \log n$ for query time cost.
+%
+%\subsection{Quantum.} Assume that we have an oracle $\ora$ that compute for any $k$ distinct numbers the matched permutation in $S_{k}$.
+%
+%\paragraph{Preprocessing.} In the preprocessing stage we compute classically the $n$ length binary strings contain at weight exactly $k$, we can do and store it at $\Theta(n^{k}) \cdot n$ time and memory. Denote by $M$ the classically gate which on $x \in \{0,1\}^{\Theta\left( \log(n^k) \right)}$ return the $n$ length bit string at weight $k$  corresponds to $x$. In addition denote by $\sigma_{M(x)}$ the restriction of $\sigma$ on the non-zero bits of $M\left( x \right)$.    
+%
+%Recall that for any classical circuit $C : x \mapsto C(x) $ one can construct a traversal circuit $C : \ket{x}\ket{y} \mapsto \ket{x}\ket{y \oplus C(x)}$. From now on, we refer to $\ora$ and $M$ as quantum circuits.   
+%
+%\paragraph{Query.} For query we prepare $ \Theta (\log(n^k) )$ qubits, and apply them $H^{\log(n^k)}$ to obtain a uniform super position over all the strings at length $\log(n^k)$.  Now we associate each of the strings with a $k$ length subsequent of $\sigma$ by taking the coordinates $\sigma_{i}$ such that digit $i$ of string is not $0$, namely: 
+%
+%\begin{equation*}
+%  \begin{split}
+%    \sum_{x\in \{0,1\}^{*}}{\ket{x}} \overbrace{\mapsto}^M \sum_{x\in \{0,1\}^{*}}{\ket{x}\ket{M(x)}} \mapsto  \sum_{x\in \{0,1\}^{*}}{\ket{x}\ket{M(x)}\ket{\sigma_{M(x)} }}
+%  \end{split}
+%\end{equation*}
+%
+%When the feaching of $ \sigma_{i_0},\sigma_{i_1},\sigma_{i_2},\cdots \sigma_{i_k}$ is done by  taking the Toffoli gate on $x_{i},\sigma_{i}, (0^{*})_{i}$. Noitce that that is the only operator which is not in the Clifford group.  We finish by computing $f$ and measure.
+%
+%\begin{equation*}
+%  \begin{split}
+%    \sum_{x\in \{0,1\}^{*}}{\ket{x}\ket{M(x)}\ket{\sigma_{M(x)} }}\overbrace{\mapsto}^f & \sum_{x\in \{0,1\}^{*}}{\ket{x}\ket{M(x)}\ket{\sigma_{M(x)} }\ket{f\left( \sigma_{M(x)}  \right) } } \\ 
+%    =  &  \sum_{ \tau \in S_{k}}{ \left(\sum{\ket{junk}} \right) \ket{\tau}}
+%  \end{split}
+%\end{equation*}
+%
+%In fact we show a reduction from the kprofile problem to  estimation of classic dice with $|S_{k}|= k!$ faces. So if it suffices to estimate up to precision depend only on $k$, we obtained a query time which only linear at $n$ (and exponential on $k$). 
+%
+
+\section{The Problem.} Given a permutation $\sigma \in S_{n}$, one can map each of its subsequences of length $k$ to a permutation in $S_{k}$. The histogram obtained by counting how many subsequences are mapped to permutations in $S_{k}$ is called the $k$-profile of $\sigma$. We study the problem in the setting in which one is allowed to perform preprocessing independent of $\sigma$.        
+
+\subsection{Trivial Example.} Suppose that we do not limit the preprocessing running time, then one can just compute ahead of time the $k$-profile of any of the permutations in $S_{n}$. As the size of $S_{n}$ equals $n!$, we have that the depth of the binary tree storing the answer is tightly $\Theta(n\log n)$. We denote it by $\precom{n!}{n!}{n \log n}$ for $n!$ memory and time preprocessing and $n \log n$ for query time cost.
+
+\subsection{Quantum.} Assume that we have an oracle $\ora$ that computes for any $k$ distinct numbers the matched permutation in $S_{k}$.
+
+\paragraph{Preprocessing.} In the preprocessing stage, we compute classically the $n$ length binary strings containing a weight of exactly $k$. We can do and store this at $\Theta(n^{k}) \cdot n$ time and memory. Denote by $M$ the classical gate which, on $x \in \{0,1\}^{\Theta\left( \log(n^k) \right)}$, returns the $n$ length bit string of weight $k$ that corresponds to $x$. In addition, denote by $\sigma_{M(x)}$ the restriction of $\sigma$ on the non-zero bits of $M\left( x \right)$.    
+
+Recall that for any classical circuit $C : x \mapsto C(x) $ one can construct a traversal circuit $C : \ket{x}\ket{y} \mapsto \ket{x}\ket{y \oplus C(x)}$. From now on, we refer to $\ora$ and $M$ as quantum circuits.   
+
+\paragraph{Query.} For the query, we prepare $\Theta (\log(n^k) )$ qubits, and apply $H^{\log(n^k)}$ to them to obtain a uniform superposition over all the strings of length $\log(n^k)$. Now we associate each of the strings with a $k$ length subsequence of $\sigma$ by taking the coordinates $\sigma_{i}$ such that the digit $i$ of the string is not $0$, namely: 
+
+\begin{equation*}
+  \begin{split}
+    \sum_{x\in \{0,1\}^{*}}{\ket{x}} \overbrace{\mapsto}^M \sum_{x\in \{0,1\}^{*}}{\ket{x}\ket{M(x)}} \mapsto  \sum_{x\in \{0,1\}^{*}}{\ket{x}\ket{M(x)}\ket{\sigma_{M(x)} }}
+  \end{split}
+\end{equation*}
+
+
+When the fetching of $\sigma_{i_0}, \sigma_{i_1}, \sigma_{i_2}, \cdots, \sigma_{i_k}$ is done by taking the Toffoli gate on $x_i, \sigma_i, (0^*)_i$, note that this is the only operator which is not in the Clifford group. We finish by computing $f$ and measuring.
+
+\begin{equation*}
+  \begin{split}
+    \sum_{x\in \{0,1\}^{*}}{\ket{x}\ket{M(x)}\ket{\sigma_{M(x)} }}\overbrace{\mapsto}^f & \sum_{x\in \{0,1\}^{*}}{\ket{x}\ket{M(x)}\ket{\sigma_{M(x)} }\ket{f\left( \sigma_{M(x)}  \right) } } \\ 
+    =  &  \sum_{ \tau \in S_{k}}{ \left(\sum{\ket{junk}} \right) \ket{\tau}}
+  \end{split}
+\end{equation*}
+
+We show a reduction from the k-profile problem to the estimation of a classical die with $|S_k| = k!$ faces. Thus, if it suffices to estimate up to a precision that depends only on $k$, we obtain a query time that is linear in $n$ (and exponential in $k$). \ctt{ And now I realize that there is no quantum advantage here.} 
+%The k-profile of a permutation is a measure of the complexity of the permutation. It is defined as the number of distinct subsequences of length k that appear in the permutation. Computing the k-profile of a permutation is a useful tool for analyzing the structure of the permutation and can be used to identify patterns and symmetries. It can also be used to compare the complexity of different permutations.
+%\end{multicols*}{2}
+
+
+
+
+\printbibliography
+\end{document}
+
+
+
+
+
