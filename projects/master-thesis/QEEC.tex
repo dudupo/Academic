@@ -60,6 +60,7 @@ Recall that one way to present a code is by define the parity check matrix, Cons
   \item Each face, requires the almost the same from it's supported edges but that the face compute the parity in different (specific) base. That it, the face is first rotate the qubits by apply the Hadamard transform on them, and than computes their xor. Finally, rotate back the qubits to the computation base.   
 \end{enumerate}
 
+\begin{figure}
 \begin{tikzpicture}
 \draw[step=1cm,gray,very thin] (0,0) grid (5,5);
 \foreach \x in {0,1,2,3,4,5}
@@ -67,10 +68,10 @@ Recall that one way to present a code is by define the parity check matrix, Cons
 {
 \node[draw,circle,inner sep=2pt,fill] at (\x,\y) {};
 }
-\draw[thick] (0,0) -- (5,5);
-\draw[thick] (0,5) -- (5,0);
+\draw[thick] (0,0) -- (0,5);
+\draw[thick] (0,5) -- (5,5);
 \end{tikzpicture}
-
+\end{figure}
 
 The above encoding could be also seem as extension of the tanner code, in which the graph is cayley 
 
