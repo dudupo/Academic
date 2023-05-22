@@ -93,7 +93,14 @@ Recall that one way to present a code is by define the parity check matrix, Cons
 \draw[ -> ]  (9,2) to (9,3);
 %\draw[ -> ]  (9,2) to (5,0);
 
-
+\node[draw,circle,inner sep=2pt,fill] at (10,1) {};
+\node[draw,circle,inner sep=2pt,fill] at (11,1) {};
+\node[draw,circle,inner sep=2pt,fill] at (10,0) {};
+\node[draw,circle,inner sep=2pt,fill] at (11,0) {};
+\draw[ -> ]  (10,1) to (11,1);
+\draw[ -> ]  (10,1) to (10,0);
+\draw[ -> ]  (10,0) to (11,0);
+\draw[ -> ]  (11,1) to (11,0);
 
 \end{tikzpicture}
 \caption{Toric Graph.}
