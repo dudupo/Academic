@@ -77,7 +77,6 @@ d(n) &= T_{d}[d(n-1)] + \overbrace{1}^{ \text{rotation} } + \overbrace{n-1}^{\te
 
 
 \section{First Soultion $\times 4$ Space.}
-
 \begin{enumerate}
   \item Prapere $+2$ qubits.
   \item Apply $CX$ from the first qubit to the second.
@@ -86,13 +85,12 @@ d(n) &= T_{d}[d(n-1)] + \overbrace{1}^{ \text{rotation} } + \overbrace{n-1}^{\te
 \end{enumerate}
 Clearly $T_{S}[S(n)] = 2 \cdot S(n) + 2$ and $T_{d}[d(n)] = 1 + d(n) + 1$ And that sumup to:
 
- 
 \begin{equation*}
 \begin{split}
-  S(n) & = T_{S}[S(n-1)] = 2T_{S}[S(n-2)] + 2  & \\
-  & = 2\cdot 2^{n - 1}...+2\cdot 2^{2} +2\cdot 2 + 2 & \\
-  & = 2\cdot 2^{n} & \\ 
-  & d(n) = T_{d}[d(n-1)] + \overbrace{1}^{ \text{rotation} } + \overbrace{n-1}^{\text{swap}} =  T_{d}[d(n-1)] + n &
+  S(n) &  = T_{S}[S(n-1)] = 2T_{S}[S(n-2)] + 2   \\
+  & = 2\cdot 2^{n - 1}...+2\cdot 2^{2} +2\cdot 2 + 2  \\
+  & = 2\cdot 2^{n}  \\ 
+  & d(n) = T_{d}[d(n-1)] + \overbrace{1}^{ \text{rotation} } + \overbrace{n-1}^{\text{swap}} =  T_{d}[d(n-1)] + n 
 \end{split} 
 \end{equation*}
 
