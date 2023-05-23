@@ -45,6 +45,9 @@
 \begin{problem} Given amplitudes $\{ a_{i} \}_{0}^{2^{n}}$ Show that there is a Quantum cuircuit that generate $\ket{\psi} = \sum_{i}{a_{i}\ket{i}}$.
 \end{problem}
 
+\section{Control Gate.}
+\input{../circuit_tkz/control.tikz}
+
 We will show a construction of the controlled gate. 
 
 \section{Equivalence to Fusion-controlled gates problem.}
@@ -89,9 +92,6 @@ S(n) &= 2 \cdot T_{S}[S(n-1)] + 1   \\
 d(n) &= 2\cdot \log(n-1) +  T_{d}[d(n-1)] + \overbrace{1}^{ \text{rotation} } + \overbrace{n-1}^{\text{swap}} =  T_{d}[d(n-1)] + n  
 \end{split} 
 \end{equation*}
-
-\input{../circuit_tkz/control.tikz}
-
 
 \section{First Soultion $\times 4$ Space.}
 \begin{enumerate}
