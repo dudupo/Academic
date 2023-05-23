@@ -32,7 +32,7 @@
 \else
   \maketitle
 \fi
-\input{abstract}
+%\input{abstract}
 \ifdefined\ACM
   \maketitle
 \fi
@@ -45,7 +45,10 @@ There is some magic hides in the You right that if the amplitudes depends on the
 \section{Equivalence to Fusion-controlled gates problem.}
 \subsection{Stage (1) - Fusion-controlled circuit.}
 
-For a circuit, $U$ denotes by $U^{c}$, the controlled version of it. Define the fusion-controlled gate to be the circuit $$(U\otimes V)^{c} :0^{\Delta}\otimes 0^{U}\otimes 0^{V}   \rightarrow \begin{cases} 0 0^{\Delta -1} U0^{U} 0^{V} & x_{0} = 0\\ 1 0^{\Delta -1} 0^{U} V0^{V} & else \end{cases} $$  We first show that given $U^{c},V^{c}$ one can implement at the same depth cost the circuit $(U\otimes V)^{c}$
+For a circuit, $U$ denotes by $U^{c}$, the controlled version of it. Define the fusion-controlled gate to be the circuit 
+\begin{equation*} (U\otimes V)^{c} :0^{\Delta}\otimes 0^{U}\otimes 0^{V}   \rightarrow \begin{cases} 0 0^{\Delta -1} U0^{U} 0^{V} & x_{0} = 0\\ 1 0^{\Delta -1} 0^{U} V0^{V} & else \end{cases} 
+\end{equation*}
+We first show that given $U^{c},V^{c}$ one can implement at the same depth cost the circuit $(U\otimes V)^{c}$
 
 \subsection{stage (2) - Induction.}
 
@@ -53,13 +56,20 @@ Assume that for any set of given $2^{n-1}$ amplitudes encoding a state $\psi$ th
 \begin{enumerate}
   \item Prepare $2 \times S_{n-1} + 1$ anciles. And arrange them by $S_{n-1} \ |0| \ S_{n-1}$. 
   \item Rotate the middle qubit as follow: $ 0 \mapsto \alpha_{0} 0 + \alpha_{1} 1 $.   
-  \item Apply $\left(U_{\psi_{0}}^{(n-1)} \otimes U_{\psi_{1}}^{(n-1)}\right)^{c} $ to have $$\alpha_{0} 0 0^{\Delta -1} U_{\psi_{0}}^{(n-1)} 0^{(n-1)} 0^{(n-1)} + \alpha_{1} 1 0^{(\Delta - 1)}0^{(n-1)}U_{\psi_{1}}^{(n-1)}0^{(n-1)}$$
+  \item Apply $\left(U_{\psi_{0}}^{(n-1)} \otimes U_{\psi_{1}}^{(n-1)}\right)^{c} $ to have 
+    \begin{equation*}
+      \alpha_{0} 0 0^{\Delta -1} U_{\psi_{0}}^{(n-1)} 0^{(n-1)} 0^{(n-1)} + \alpha_{1} 1 0^{(\Delta - 1)}0^{(n-1)}U_{\psi_{1}}^{(n-1)}0^{(n-1)}
+    \end{equation*}
   \item Now apply control swap, use the $\Delta$th qubit as the control wire and swap between $S_{0}$,$S_{1}$. That yields the state: 
-$$ 0^{\Delta -1} \left(\alpha_{0} 0 U_{\psi_{0}}^{(n-1)} 0^{(n-1)} + \alpha_{1} 1 U_{\psi_{1}}^{(n-1)}0^{(n-1)} \right)0^{(n-1)} $$
+    \begin{equation*} 0^{\Delta -1} \left(\alpha_{0} 0 U_{\psi_{0}}^{(n-1)} 0^{(n-1)} + \alpha_{1} 1 U_{\psi_{1}}^{(n-1)}0^{(n-1)} \right)0^{(n-1)} 
+    \end{equation*}
 \item By induction, the above state expanse to $\psi \otimes 0^{*}$.
 \end{enumerate}
 So if we denote by $d(n), S(n)$ the depth and the space needed to compute a general state correspond to a given amplitude, It follows by the recursion that: 
-$$ \begin{split} & S(n) = T_{S}[S(n-1)]  &  \\ & d(n) = T_{d}[d(n-1)] + \overbrace{1}^{ \text{rotation} } + \overbrace{n-1}^{\text{swap}} =  T_{d}[d(n-1)] + n   \end{split} $$     
+
+\begin{equation*}
+\begin{split} & S(n) = T_{S}[S(n-1)]  &  \\ & d(n) = T_{d}[d(n-1)] + \overbrace{1}^{ \text{rotation} } + \overbrace{n-1}^{\text{swap}} =  T_{d}[d(n-1)] + n   \end{split} 
+\end{equation*}
 
 
 
@@ -73,8 +83,11 @@ $$ \begin{split} & S(n) = T_{S}[S(n-1)]  &  \\ & d(n) = T_{d}[d(n-1)] + \overbra
 \end{enumerate}
 Clearly $T_{S}[S(n)] = 2 \cdot S(n) + 2$ and $T_{d}[d(n)] = 1 + d(n) + 1$ And that sumup to:
 
- $$ \begin{split} S(n) & = T_{S}[S(n-1)] = 2T_{S}[S(n-2)] + 2  & \\ & = 
-2\cdot 2^{n - 1}...+2\cdot 2^{2} +2\cdot 2 + 2 & \\ & = 2\cdot 2^{n} & \\ & d(n) = T_{d}[d(n-1)] + \overbrace{1}^{ \text{rotation} } + \overbrace{n-1}^{\text{swap}} =  T_{d}[d(n-1)] + n   \end{split} $$
+ 
+\begin{equation*}
+\begin{split} S(n) & = T_{S}[S(n-1)] = 2T_{S}[S(n-2)] + 2  & \\ & = 
+2\cdot 2^{n - 1}...+2\cdot 2^{2} +2\cdot 2 + 2 & \\ & = 2\cdot 2^{n} & \\ & d(n) = T_{d}[d(n-1)] + \overbrace{1}^{ \text{rotation} } + \overbrace{n-1}^{\text{swap}} =  T_{d}[d(n-1)] + n   \end{split} 
+\end{equation*}
 
 \section{Second Solution $\times 2$ Space. }
 
