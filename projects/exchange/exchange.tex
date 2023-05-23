@@ -69,6 +69,7 @@ We will now show how one can use the fusion-controlled circuit to generate an ar
 
 Assume by induction that for any state in $n-1$ dimisional space we have a control cuircuit that generate it by at most $S(n-1)$ width and $d(n-1)$ depth. Recall that any state in a $n$-dimisional space could be write as $\ket{\psi} = \alpha_{0} \ket{0}\ket{ \psi_{0}} + \alpha_{1} \ket{1}\ket{ \psi_{1}} $. By the assumption there are $U_{\psi_{0}}^{(n-1)},U_{\psi_{1}}^{(n-1)}$ circuits generate $\ket{\psi_{0}}$ and $\ket{\psi_{1}}$ corespondly. We are going to construct a circuit that computes $\psi$ by the following: 
 \begin{enumerate}
+  \item Warp lines $2-5$ by control. 
   \item Prepare $2 \times T[S(n-1)]$ anciles.  
   \item Rotate the middle qubit as follow: $ \ket{0} \mapsto \alpha_{0} \ket{0} + \alpha_{1} \ket{1}$.   
   \item Apply $\left(U_{\psi_{0}}^{(n-1)} \otimes U_{\psi_{1}}^{(n-1)}\right)^{c} $ to have 
