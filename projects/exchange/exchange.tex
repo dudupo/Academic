@@ -50,9 +50,17 @@ We will show a construction of the controlled gate.
 \section{Equivalence to Fusion-controlled gates problem.}
 \subsection{Stage (1) - Fusion-controlled circuit.}
 
-For a circuit, $U$ denotes by $U^{c}$, the controlled version of it. Define the fusion-controlled gate to be the circuit 
-\begin{equation*} (U\otimes V)^{c} :0^{\Delta}\otimes 0^{U}\otimes 0^{V}   \rightarrow \begin{cases} 0 0^{\Delta -1} U0^{U} 0^{V} & x_{0} = 0\\ 1 0^{\Delta -1} 0^{U} V0^{V} & else \end{cases} 
+To build the required circuit, we will start by defining the fusion-controlled gate as the circuit $(U\otimes V)^{c}$, where $U$ and $V$ are two specific circuits, and $U^{c}$ and $V^{c}$ are their controlled versions. The fusion-controlled gate operates on three quantum registers - a work register of size $\Delta$ which contains the control qubit, and two input registers $U$ and $V$.
+
+
+\begin{equation*}
+  (U\otimes V)^{c} :0^{\Delta}\otimes 0^{U}\otimes 0^{V}   \rightarrow 
+  \begin{cases}
+  0 0^{\Delta -1} U0^{U} 0^{V} & x_{0} = 0\\
+1 0^{\Delta -1} 0^{U} V0^{V} & else
+\end{cases} 
 \end{equation*}
+
 We first show that given $U^{c},V^{c}$ one can implement at the same depth cost the circuit $(U\otimes V)^{c}$
 
 \subsection{stage (2) - Induction.}
