@@ -88,8 +88,12 @@ Clearly $T_{S}[S(n)] = 2 \cdot S(n) + 2$ and $T_{d}[d(n)] = 1 + d(n) + 1$ And th
 
  
 \begin{equation*}
-\begin{split} S(n) & = T_{S}[S(n-1)] = 2T_{S}[S(n-2)] + 2  & \\ & = 
-2\cdot 2^{n - 1}...+2\cdot 2^{2} +2\cdot 2 + 2 & \\ & = 2\cdot 2^{n} & \\ & d(n) = T_{d}[d(n-1)] + \overbrace{1}^{ \text{rotation} } + \overbrace{n-1}^{\text{swap}} =  T_{d}[d(n-1)] + n   \end{split} 
+\begin{split}
+  S(n) & = T_{S}[S(n-1)] = 2T_{S}[S(n-2)] + 2  & \\
+  & = 2\cdot 2^{n - 1}...+2\cdot 2^{2} +2\cdot 2 + 2 & \\
+  & = 2\cdot 2^{n} & \\ 
+  & d(n) = T_{d}[d(n-1)] + \overbrace{1}^{ \text{rotation} } + \overbrace{n-1}^{\text{swap}} =  T_{d}[d(n-1)] + n &
+\end{split} 
 \end{equation*}
 
 \section{Second Solution $\times 2$ Space. }
