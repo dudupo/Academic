@@ -65,7 +65,9 @@ Assume that $S(n-1)$ and $d(n-1)$ are the maximum possible widths and depths of 
 
 \subsection{stage (2) - Induction.}
 
-Assume that for any set of given $2^{n-1}$ amplitudes encoding a state $\psi$ there is a $\log(n-1)$ circuit $U_{\psi}^{(n-1)}$ that generate $\psi$. Recall that any state in a $n$-dimisional space could be write as $\psi = \alpha_{0} 0 \psi_{0} + \alpha_{1} 1 \psi_{1} $. By the assumption there are $U_{\psi_{0}}^{(n-1)},U_{\psi_{1}}^{(n-1)}$ circuits each at depth at most $\log n$ generate $\psi_{0}$ and $\psi_{1}$ corespondly. We are going to construct a circuit that computes $\psi$ by the following: 
+We will now show how one can use the fusion-controlled circuit to generate an arbitrary control gate for resolving $\ket{\psi}$. 
+
+Recall that any state in a $n$-dimisional space could be write as $\psi = \alpha_{0} \ket{0}\ket{ \psi_{0}} + \alpha_{1} \ket{1}\ket{ \psi_{1}} $. By the assumption there are $U_{\psi_{0}}^{(n-1)},U_{\psi_{1}}^{(n-1)}$ circuits each at depth at most $\log n$ generate $\ket{\psi_{0}}$ and $\ket{\psi_{1}}$ corespondly. We are going to construct a circuit that computes $\psi$ by the following: 
 \begin{enumerate}
   \item Prepare $2 \times S_{n-1} + 1$ anciles. And arrange them by $S_{n-1} \ |0| \ S_{n-1}$. 
   \item Rotate the middle qubit as follow: $ 0 \mapsto \alpha_{0} 0 + \alpha_{1} 1 $.   
