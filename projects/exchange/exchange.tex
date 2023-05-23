@@ -68,7 +68,10 @@ Assume that for any set of given $2^{n-1}$ amplitudes encoding a state $\psi$ th
 So if we denote by $d(n), S(n)$ the depth and the space needed to compute a general state correspond to a given amplitude, It follows by the recursion that: 
 
 \begin{equation*}
-\begin{split} & S(n) = T_{S}[S(n-1)]  &  \\ & d(n) = T_{d}[d(n-1)] + \overbrace{1}^{ \text{rotation} } + \overbrace{n-1}^{\text{swap}} =  T_{d}[d(n-1)] + n   \end{split} 
+\begin{split} 
+S(n) &= T_{S}[S(n-1)]    \\
+d(n) &= T_{d}[d(n-1)] + \overbrace{1}^{ \text{rotation} } + \overbrace{n-1}^{\text{swap}} =  T_{d}[d(n-1)] + n  
+\end{split} 
 \end{equation*}
 
 
