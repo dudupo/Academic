@@ -1,0 +1,152 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{Pavel}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=2045547a573a8653a385a24802d84861}{%
+           family={Panteleev},
+           familyi={P\bibinitperiod},
+           given={Pavel},
+           giveni={P\bibinitperiod}}}%
+        {{hash=965427f6d0d037e6e3f530bc87ae1a30}{%
+           family={Kalachev},
+           familyi={K\bibinitperiod},
+           given={Gleb},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{0798ba004634ed1d7aa919b68cddb863}
+      \strng{fullhash}{0798ba004634ed1d7aa919b68cddb863}
+      \strng{bibnamehash}{0798ba004634ed1d7aa919b68cddb863}
+      \strng{authorbibnamehash}{0798ba004634ed1d7aa919b68cddb863}
+      \strng{authornamehash}{0798ba004634ed1d7aa919b68cddb863}
+      \strng{authorfullhash}{0798ba004634ed1d7aa919b68cddb863}
+      \field{labelalpha}{PK21}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Asymptotically Good Quantum and Locally Testable Classical LDPC Codes}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.48550/ARXIV.2111.03654
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2111.03654
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2111.03654
+      \endverb
+      \keyw{Information Theory (cs.IT),Quantum Physics (quant-ph),FOS: Computer and information sciences,FOS: Computer and information sciences,FOS: Physical sciences,FOS: Physical sciences}
+    \endentry
+    \entry{Dinur}{misc}{}
+      \name{author}{5}{}{%
+        {{hash=9a5f80a9b2b1359cbc50244c7816730c}{%
+           family={Dinur},
+           familyi={D\bibinitperiod},
+           given={Irit},
+           giveni={I\bibinitperiod}}}%
+        {{hash=cf4fd32be7d1575441dd8d7defeeebdc}{%
+           family={Evra},
+           familyi={E\bibinitperiod},
+           given={Shai},
+           giveni={S\bibinitperiod}}}%
+        {{hash=44bcc8e59af2adef781b86d28fd33616}{%
+           family={Livne},
+           familyi={L\bibinitperiod},
+           given={Ron},
+           giveni={R\bibinitperiod}}}%
+        {{hash=c6034c88f321d2d456e5baa592685826}{%
+           family={Lubotzky},
+           familyi={L\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ddd2923715cd2343a4a8a5b46b1d295b}{%
+           family={Mozes},
+           familyi={M\bibinitperiod},
+           given={Shahar},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{998dfb3aee939e2438a0913f9c8f2de3}
+      \strng{fullhash}{c67aac9e30c171974c9fad2923260b03}
+      \strng{bibnamehash}{998dfb3aee939e2438a0913f9c8f2de3}
+      \strng{authorbibnamehash}{998dfb3aee939e2438a0913f9c8f2de3}
+      \strng{authornamehash}{998dfb3aee939e2438a0913f9c8f2de3}
+      \strng{authorfullhash}{c67aac9e30c171974c9fad2923260b03}
+      \field{labelalpha}{Din+22}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Good Locally Testable Codes}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.48550/ARXIV.2207.11929
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2207.11929
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2207.11929
+      \endverb
+      \keyw{Information Theory (cs.IT),Combinatorics (math.CO),Group Theory (math.GR),FOS: Computer and information sciences,FOS: Computer and information sciences,FOS: Mathematics,FOS: Mathematics}
+    \endentry
+    \entry{leverrier2022quantum}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=5533ab856083ca9b0c98042d38048318}{%
+           family={Leverrier},
+           familyi={L\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0bf2f70bde46bb86c3382a7e9f8c9eaa}{%
+           family={Zémor},
+           familyi={Z\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{fullhash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{bibnamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authorbibnamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authornamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authorfullhash}{d9e791cfe465672a244f9c3129e98f07}
+      \field{labelalpha}{LZ22}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{title}{Quantum Tanner codes}
+      \field{year}{2022}
+      \verb{eprint}
+      \verb 2202.13641
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

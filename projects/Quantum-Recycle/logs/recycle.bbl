@@ -1,0 +1,57 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{aharonov1999faulttolerant}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=4000a75f6a9e7ba12838755d51937e22}{%
+           family={Aharonov},
+           familyi={A\bibinitperiod},
+           given={Dorit},
+           giveni={D\bibinitperiod}}}%
+        {{hash=41eb128ae71f8745a6089159ac4aaf4e}{%
+           family={Ben-Or},
+           familyi={B\bibinithyphendelim O\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{8970ec19a2792de36bb8d7c68c49c0ce}
+      \strng{fullhash}{8970ec19a2792de36bb8d7c68c49c0ce}
+      \strng{bibnamehash}{8970ec19a2792de36bb8d7c68c49c0ce}
+      \strng{authorbibnamehash}{8970ec19a2792de36bb8d7c68c49c0ce}
+      \strng{authornamehash}{8970ec19a2792de36bb8d7c68c49c0ce}
+      \strng{authorfullhash}{8970ec19a2792de36bb8d7c68c49c0ce}
+      \field{labelalpha}{AB99}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{title}{Fault-Tolerant Quantum Computation With Constant Error Rate}
+      \field{year}{1999}
+      \verb{eprint}
+      \verb quant-ph/9906129
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

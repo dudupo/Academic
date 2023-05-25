@@ -1,0 +1,23 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'montone_local_search.blg'
+[94] biber:340> INFO - === Tue Apr 25, 2023, 17:42:38
+[110] Biber.pm:415> INFO - Reading 'montone_local_search.bcf'
+[190] Biber.pm:952> INFO - Found 24 citekeys in bib section 0
+[204] Biber.pm:4340> INFO - Processing section 0
+[214] Biber.pm:4531> INFO - Looking for bibtex format file './sample.bib' for section 0
+[217] bibtex.pm:1689> INFO - LaTeX decoding ...
+[255] bibtex.pm:1494> INFO - Found BibTeX data source './sample.bib'
+[304] Biber.pm:4531> INFO - Looking for bibtex format file './exactalgo-rs.bib' for section 0
+[308] bibtex.pm:1689> INFO - LaTeX decoding ...
+[371] bibtex.pm:1494> INFO - Found BibTeX data source './exactalgo-rs.bib'
+[503] Utils.pm:395> WARN - I didn't find a database entry for 'Wahlstrom14' (section 0)
+[503] Utils.pm:395> WARN - I didn't find a database entry for 'KolayP15' (section 0)
+[503] Utils.pm:395> WARN - I didn't find a database entry for 'MagnusPhD07' (section 0)
+[504] Utils.pm:395> WARN - I didn't find a database entry for 'abs-1007-1166' (section 0)
+[540] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[540] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[540] Biber.pm:4168> INFO - Sorting list 'ynt/global//global/global' of type 'entry' with template 'ynt' and locale 'en-US'
+[541] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[569] bbl.pm:654> INFO - Writing 'montone_local_search.bbl' with encoding 'UTF-8'
+[587] bbl.pm:757> INFO - Output to montone_local_search.bbl
+[587] Biber.pm:128> INFO - WARNINGS: 4

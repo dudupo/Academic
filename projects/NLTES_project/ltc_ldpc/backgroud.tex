@@ -63,17 +63,89 @@ Let's define the code $C$ such that any state in $C$ is a coset of the polynomia
 Next, we will review Tanner's construction, that in addition to being a critical element to our proof, also serves as an example of how one can construct a code with arbitrary length and positive rate.
 
 \subsection{Tanner Code}
-  The constructions require two main ingredients: a graph $\Gamma$, and for simplicity, we will restrict ourselves to a $\Delta$ regular graph. Secondly, a small code $C_{0}$ at length equals the graph's regularity, namely $C_{0} = [\Delta,\rho\Delta, \delta\Delta]$. We can think about any bit string at length E as an assignment over the edges of the graph. Furthermore, for every vertex $v \in \Gamma$, we will call the bit string, which is set on its edges, the local view of $v$. Then we can define, \cite{Tanner}:
+The constructions require two main ingredients: a graph $\Gamma$, and for simplicity, we will restrict ourselves to a $\Delta$ regular graph, Yet notice that the following could be generalize straightforwardly for graphs with degree at most $\Delta$. The second ingredients is a ;small' code $C_{0}$ at length equals the graph's regularity, namely $C_{0} = [\Delta,\rho\Delta, \delta\Delta]$. We can think about any bit string at length $\Delta$ as an assignment over the edges of the graph. Furthermore, for every vertex $v \in \Gamma$, we will call the bit string, which is set on its edges, the local view of $v$. Then we can define, \cite{Tanner}:
   \begin{definition}  Let $ C = \mathcal{T}\left( \Gamma, C_{0} \right)$  be all the codewords which, for any vertex $v\in \Gamma$, the local view of $v$ is a codeword of $C_{0}$. We say that $C$ is a \textbf{Tanner code}\label{Tan} of $\Gamma, C_{0}$. Notice that if $C_{0}$ is a binary linear code, So $C$ is.  
   \end{definition}
+  \begin{example}
+Consider the Petersen graph $\Gamma$, which is a regular graph with degree $3$. Let $C_{0}$ be the set of all words with even parity. It follows that $C_{0}$ contains all even-length binary strings of length $3$: $000$, $110$, $101$, and $011$. However, the size of $\mathcal{T}(\Gamma, C_{0})$ is significantly larger, as shown in Figure \cref{fig:pet}. Specifically, any rotation of the inner and outer cycles simultaneously gives rise to another valid codeword, so any assignments that are not invariant under these rotations would produce five additional valid codewords.
+
+  \end{example}
+\begin{sagesilent}
+   
+  
+gg = peter_graph()
+ff = cycle_graph()
+
+gg.set_latex_options(
+          edge_label_sloped = False,
+          edge_labels=True,
+          edge_thickness=0.005,
+          vertex_labels=False,
+          vertex_size= 0.01,
+          format='dot2tex',
+          prog='crico',
+          graphic_size=(7,7),
+          edge_fills=False,
+      )
+ff.set_latex_options(
+          edge_label_sloped = False,
+          edge_labels=True,
+          edge_thickness=0.005,
+          vertex_labels=False,
+          vertex_size= 0.01,
+          format='dot2tex',
+          prog='crico',
+          graphic_size=(30,8),
+          edge_fills=False,
+      )
+ 
+ops = gg.latex_options()
+ops2 = ff.latex_options()
+
+graphs_tex =  ' \ \ \  '.join([  str(ops.tkz_picture())  for _ in range(4) ])
+graphs_tex_ff  = str(ops2.tkz_picture())
+\end{sagesilent}
+
+\begin{center}
+  \begin{figure}[H]
+    \scalebox{0.5}{
+      \sagestr{graphs_tex}
+   }
+  \caption{Peterson Graph.} 
+  \label{fig:pet}
+\end{figure}
+\end{center}
 
   It's also worth mentioning that the first construction of good classical codes, due to Sipser and Shpilman, are Tanner codes over expanders graphs \cite{ExpanderCodes}.
-  \begin{theorem*}  Tanner codes have a rate of at least $2\rho - 1$. \end{theorem*}
+  \begin{lemma}
+\label{tanrate} Tanner codes have a rate of at least $2\rho - 1$.
+\end{lemma}
   \begin{proof}  The dimension of the subspace is bounded by the dimension of the container minus the number of restrictions. So assuming non-degeneration of the small code restrictions, we have that any vertex count exactly $ \left( 1 - \rho  \right)\Delta $ restrictions. Hence, \begin{equation*}
     \begin{split}
       \dim C & \ge \frac{1}{2}n\Delta - \left( 1-\rho \right)\Delta n = \frac{1}{2}n\Delta\left( 2\rho - 1 \right)  
     \end{split}
   \end{equation*} Clearly, any small code with rate $> \frac{1}{2}$ will yield a code with an asymptotically positive rate \end{proof} 
+  %\subsubsection{Positive Rate, Arbitrarily Large Codes.} 
+  Based on \cref{tanrate}, we can obtain a recipe for constructing codes with a almost non-vanishing rate for arbitrarily large lengths and dimensions. This recipe involves concatenating a series of Tanner codes over complete graphs. To be more precise, we can define a family of codes as follows:
+  \begin{equation*}
+    \begin{split}
+      C_{i+1} & = \mathcal{T}\left( K_{n(C_{i}) + 1}, C_{i} \right) \\
+      C_{0} &= \text{ Some simple } \Delta[1, \rho_{0}, \delta_{0}] \text{ code. }
+    \end{split}
+  \end{equation*}
+  Where $n(C_{i})$ is the code length of the $i$th code. By repeating on the above $ \log_{\Delta}^{*}(n)$ times, One can lift the initial code $\Delta[1,\rho_{0}]$ to $n[1, \sim 2\rho^{\log_{\Delta}^{*}(n)}]$. \ctt{Add figure here}.  
+  %$  n^{2^log n} \Rightarrow n^n p = 1/    
+  We saw a simple method to amplify  
+ \begin{center}
+  \begin{figure}[H]
+    \scalebox{0.5}{
+      \sagestr{graphs_tex_ff}
+    }
+  \caption{Cycle Graph.} 
+  \label{fig:cyc}
+\end{figure}
+\end{center}
+ 
   \subsubsection{Setting $C_{0}$ To Be The Polynomial Code.}
   
   \begin{equation*}
@@ -105,12 +177,4 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
   Namely, for any such sublinear weight string, $x$, the average of nontrivial edges for the vertex is less than $\lambda$. So there must be at least one vertex $v \in S$ that, on his local view, sets a  string at a weight less than $\lambda$. By the definition of $S$, this string cannot be trivial. Combining the fact that any nontrivial codeword of the $C_{0}$ is at weight at least $\delta\Delta$, we get a contradiction to the assumption that $v$ is satisfied, videlicet, $x$ can't be a codeword \end{proof}
 
 
-\begin{sageblock}
-gg = graphs.PetersenGraph()
-gg.set_latex_options(tkz_style='Art')
-\end{sageblock}
-
-\begin{center}
-  \sageplot{gg.plot()}
-\end{center}
 %

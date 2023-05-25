@@ -1,0 +1,15 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'recycle.blg'
+[102] biber:340> INFO - === Tue Apr 25, 2023, 18:58:12
+[119] Biber.pm:415> INFO - Reading 'recycle.bcf'
+[201] Biber.pm:952> INFO - Found 1 citekeys in bib section 0
+[215] Biber.pm:4340> INFO - Processing section 0
+[231] Biber.pm:4531> INFO - Looking for bibtex format file './sample.bib' for section 0
+[234] bibtex.pm:1689> INFO - LaTeX decoding ...
+[275] bibtex.pm:1494> INFO - Found BibTeX data source './sample.bib'
+[331] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[332] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[332] Biber.pm:4168> INFO - Sorting list 'ynt/global//global/global' of type 'entry' with template 'ynt' and locale 'en-US'
+[332] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[337] bbl.pm:654> INFO - Writing 'recycle.bbl' with encoding 'UTF-8'
+[338] bbl.pm:757> INFO - Output to recycle.bbl

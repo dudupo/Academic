@@ -96,7 +96,7 @@ And the equalitiy $ \left( \psi + z \right)_{i} = \left( \phi + \xi  \right)_{i}
       & \ \ \ + \prbcprb{}{X_{z}=1}{z_{i}=0} \\ 
       & \le \prbm{z_{i}= 1 }{i} +  \prbm{\phi_{i} = \psi_{i}  }{i} \cdot \prb{z_{i}= 0 }  \\ 
       & \le \prbm{z_{i}= 1 }{i} +  \dxn \cdot \prb{z_{i}= 0 }  \\
-      & \le \prbm{z_{i}= 1 }{i} + \prbm{z_{i}= 0 }{i} -   \frac{d\left( C_{x}/C_{z}^{\perp} \right)}{n} \cdot \left( 1 - \frac{d\left( \czp \right)}{n}   \right) \\ 
+      & = \prbm{z_{i}= 1 }{i} + \prbm{z_{i}= 0 }{i} -   \frac{d\left( C_{x}/C_{z}^{\perp} \right)}{n} \cdot \left( 1 - \frac{d\left( \czp \right)}{n}   \right) \\ 
       & \le \dxnw + \dismul \\ 
      % & \le \prbm{z_{i}= 1 }{i} + \dxn \cdot \prb{z_{i} = 0 } \\ 
      % \Rightarrow  \expp{\forczp{z}{X_{z}}}  & \le \forczp{z}{\prbm{z_{i}= 1 }{i}} + \dxn \czpa    
@@ -113,8 +113,32 @@ And the equalitiy $ \left( \psi + z \right)_{i} = \left( \phi + \xi  \right)_{i}
   \end{split}
 \end{equation*}
 
-
 \end{proof}
+\newpage 
+
+\section{New Idea.}
+Sample an hush function $g$ from universail familiy, obtain the product $\ket{\psi}\ket{\phi} \ket{g\psi}\ket{g\phi}$ and then execute a swap test over the two last qubits.
+
+
+\begin{equation*}
+  \begin{split}
+    & \sum_{i,j}{\rho_{i}\rho_{j} \frac{1}{\sqrt{2}}H\ket{\pm} \otimes \ket{\psi_{i}}\ket{\phi_{j}}\left( \ket{g \psi_{i}}\ket{ g \phi_{i} } \pm \ket{ g \phi_{i} }\ket{ g \psi_{i} }  \right)    } 
+  \end{split}
+\end{equation*}
+
+So the probability to measure $\ket{0}$ conditioned on $g$: 
+
+\begin{alignat*}{2}
+    f& = \prb{ \text{ measure } \ket{0} } =   \sum_{i,j}{\rho_{i}^{2}\rho_{j}^{\prime 2} \frac{1}{4} \left( 2 + 2 ||\braket{g \psi_{i} |  g \phi_{j} }||^{2}    \right)    } &   \\ 
+    \expp{f}   & =  \sum_{i,j}{\rho_{i}^{2}\rho_{j}^{\prime 2} \frac{1}{4} \left( 2 + 2  \expp{||\braket{g \psi_{i} |  g \phi_{j} }||}  \right) }  &  \\
+    &=  \prb{ \text{ measure } \ket{0} \text{ in SWAP test} } + & \\ & \ \ \ \ \ \  \   \sum_{i \neq  j}{\rho_{i}^{2}\rho_{j}^{\prime 2} \frac{1}{2}   \expp{||\braket{g \psi_{i} |  g \phi_{j} }||}  } & E_{0} + \Theta\left( m \right) \tau   \\  
+  V\left[ f \right]  &= \sum_{i\neq j,k \neq l}{ \rho_{i}^{2}\rho_{j}^{\prime 2} \rho_{l}^{2}\rho_{k}^{\prime 2} \frac{1}{4}  \expp{ \braket{g \psi_{i} |  g \phi_{j} }  \braket{g \psi_{k} |  g \phi_{l} }}  & \\ & \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \  - \expp{ \braket{g \psi_{i} |  g \phi_{j} }}\expp{\braket{g \psi_{k} |  g \phi_{l} }}  \right)  }  &  \Theta\left( m \right)  \tau^{2} \\
+  & &  \Rightarrow  \prb{f > ( 1 + \sigma) E_{0}}   \le \frac{ \Theta \left( m \right) }{ \Theta \left(\sigma^{2} m^{2} \right)  } &  
+\end{alignat*}
+
+And therefore we could  
+
+
 \printbibliography
 \end{document}
 

@@ -1,0 +1,9 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'Classiq.blg'
+[76] biber:340> INFO - === Wed Feb 22, 2023, 12:22:38
+[88] Biber.pm:415> INFO - Reading 'Classiq.bcf'
+[152] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
+[157] Utils.pm:395> WARN - The file 'Classiq.bcf' does not contain any citations!
+[164] bbl.pm:654> INFO - Writing 'Classiq.bbl' with encoding 'UTF-8'
+[164] bbl.pm:757> INFO - Output to Classiq.bbl
+[164] Biber.pm:128> INFO - WARNINGS: 1

@@ -1,15 +1,15 @@
 % Drawing a graph using the PG 3.0 graphdrawing library
 % Author: Mark Wibrow
-\documentclass[tikz,border=10pt]{article}
-\usepackage{tikz}
-\usetikzlibrary{positioning}
-\begin{document}
+%\documentclass[tikz,border=10pt]{article}
+%\usepackage{tikz}
+%\usetikzlibrary{positioning}
+%\begin{document}
 
 \tikzset{%
   every neuron/.style={
     circle,
     draw,
-    fill=black,
+    %fill=black,
     radius=0.05mm
   },
   neuron missing/.style={
@@ -19,7 +19,7 @@
     execute at begin node=\color{black}$\vdots$
   },
 }
-
+\begin{adjustbox}{width=\textwidth}
 \begin{tikzpicture}[x=0.7cm, y=0.5cm, >=stealth]
 
   \node [every  neuron ] (v-0) at (0,0) {};  
@@ -66,9 +66,11 @@
 \draw[->] (v-18) -- (v-15);
 \draw[->] (v-13) -- (v-15);
 \draw[->] (v-16) -- (v-17);
-\draw[<->] (-12, 0) -- (-12, -3.8); 
-\draw[<->] (-12, -4.2) -- (-12, -10);
-\node (L-l) at (-13, -1.9) {$l$};
-\node (L-g) at (-13, -7) {$\frac{1}{2}g$};
+\draw[<->] (-10, 0) -- (-10, -3.8); 
+\draw[<->] (-10, -4.2) -- (-10, -10);
+\node (L-l) at (-11.2, -1.9) {$l$};
+\node (L-g) at (-11.2, -7) {$\frac{1}{2}g$};
 \end{tikzpicture}
-\end{document}
+\end{adjustbox}
+
+%\end{document}

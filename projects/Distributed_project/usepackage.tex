@@ -1,5 +1,5 @@
 \usepackage[utf8]{inputenc}
-\usepackage[a4paper, total={6in, 9in} ]{geometry}
+\usepackage[a4paper, total={6in, 9in}]{geometry}
 \usepackage{braket}
 \usepackage{xcolor}
 \usepackage{amsmath}
@@ -17,7 +17,9 @@
 \usepackage{tikz}
 \usetikzlibrary{patterns, shapes.arrows}
 \usepackage{adjustbox}
-\usepackage{tikz-network}
+%\usepackage{tikz-network}
+\usepackage{tkz-graph}
+\usepackage{tkz-berge}
 \usepackage[linesnumbered]{algorithm2e}
 \usepackage{multicol}
 \usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
@@ -26,6 +28,7 @@
 %\usepackage{tkz-graph}
 \usepackage{pgfplots}
 \usepackage{sagetex}
+\usepackage{setspace}
 \usepackage{etoc}
 \DeclareUnicodeCharacter{2212}{−}
 \usepgfplotslibrary{groupplots,dateplot}
@@ -33,6 +36,7 @@
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
 \newtheorem{claim}{Claim}
 \newtheorem{fact}{Fact}
 \newtheorem{remark}{Remark}
@@ -45,6 +49,8 @@
 % pdfpagemode=FullScreen,
 % backref 
 
+\newtheorem{problem}{Problem}
+\crefname{problem}{Problem}{Problems}
 
 
 

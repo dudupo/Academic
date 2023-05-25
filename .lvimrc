@@ -27,6 +27,7 @@ call IMAP('1/4',  '\frac{1}{4}'		,"tex")
 call IMAP('1/5',  '\frac{1}{5}'		,"tex")
 call IMAP('1/6',  '\frac{1}{6}'		,"tex")
 " call IMAP('<<', '&\le', 		'"tex")
+call IMAP('dff', "\\begin{definition}\n<++>\n\\end{definition}", "tex")
 
 call AutoCorrect()
 
@@ -35,6 +36,12 @@ function! g:Equ()
   return 0
 endfunction 
 command! Equ call Equ()
+
+function! g:Ecase()
+  execute "normal! o\\begin{cases}\<cr><++>&<++> \\\\\ \<cr><++>&<++>\<cr>\\end{cases}<++>" 
+  return 0
+endfunction 
+command! Ecase call Ecase()
 
 function! g:Newcommand()
   let l:pos = getcurpos()
@@ -74,5 +81,23 @@ function! g:WNote(note)
   execute ':!echo -en ' . _note . '   > /home/davidponar/workspace/DBnotes/' . _name  
   return 0
 endfunction 
+
+function! g:Alg()
+  execute "normal! o\\begin{algorithm}[H]\<cr><++>\<cr>\\end{algorithm}\<cr><++>" 
+  return 0
+endfunction 
+command! Alg call Alg()
+
+function! g:Aif()
+  execute "normal! i\\If{<++>}{\<cr><++>\<cr>}\\Else{\<cr>}<++>" 
+  return 0
+endfunction 
+command! Aif call Aif()
+
+function! g:Afor()
+  execute "normal! i\\For{<++>}{\<cr><++>\<cr>}<++>" 
+  return 0
+endfunction 
+command! Afor call Afor()
 
 

@@ -1,0 +1,284 @@
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{braket}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{media9}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage[ruled,vlined]{algorithm2e}
+% \usepackage{biblatex} %Imports biblatex package
+
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+
+\addbibresource{sample.bib} %Import the bibliography file
+
+\newcommand{\commentt}[1]{\textcolor{blue}{ \textbf{[COMMENT]} #1}}
+\newcommand{\ctt}[1]{\commentt{#1}}
+\newcommand{\prb}[1]{ \mathbf{Pr} \left[ {#1} \right]}
+\newcommand{\onotation}[1]{\(\mathcal{O} \left( {#1}  \right) \)}
+\newcommand{\ona}[1]{\onotation{#1}}
+\newcommand{\PSI}{{\ket{\psi}}}
+\newcommand{\LESn}{\ket{\psi_n}}
+\newcommand{\LESa}{\ket{\phi_n}}
+\newcommand{\LESs}{\frac{1}{\sqrt{n}}\sum_{i}{\ket{\left(0^{i}10^{n-i}\right)^{n}}}}
+\newcommand{\Hn}{\mathcal{H}_{n}}
+% \title{Understanding Quantum Computing}
+% \author{David Ponarovsky}
+% \date{July 2021}
+
+\newcommand{\Ep}{\frac{1}{\sqrt{2^n}}\sum^{2^n}_{x}{ \ket{xx}}}
+\newcommand{\HON}{\ket{\psi_{\text{honest}}}}
+\newcommand{\Lemma}{\paragraph{Lemma.}}
+\usepackage{multicol}
+% \usepackage{  }
+\setlength{\columnsep}{0.6cm}
+
+
+\begin{document}
+    
+\title{Classiq}
+    
+\maketitle
+\begin{multicols*}{2}
+
+% \paragraph{Definition.} \textit{we will say that an Hamiltonian set \( \mathcal{H} = \{ H_i \} \) is \textbf{\(\gamma\)-stable}  \ctt{CHANGE THE NAME}  if there is a constant \( \gamma > 0  \) such that for any state \( \PSI \) and the following enqulity holds:}
+% \begin{equation*}
+%     \begin{split}
+%         \braket{\psi|\frac{1}{|\mathcal{H}|^2}\sum{H_{i}^{2}}|\psi} \le \gamma \cdot \braket{\psi|\frac{1}{|\mathcal{H}|}\sum{H_{i}}|\psi}
+%     \end{split}
+% \end{equation*}
+
+\paragraph{The problem.} Generate a circuit, using no more than \(10\) qubits, that approximates the unitary \(e^{-iH}\) where \(H\) is the qubit Hamiltonian of a \textbf{LiH} (lithium hydride) molecule. The \textbf{LiH} Hamiltonian is composed of 276 Pauli strings, and can be found HERE. The approximation error is defined in the next section, and should be less than \(0.1\). The circuit should be composed of the \(CX\) and single qubit gates only.s
+
+
+\paragraph{Definition.} \textit{ Let \(H_{i}\) be a single term of the Hamiltonian, we will define the \( \text{support}(H_{i}) \) to be a vector \( v \in \mathbb{F}^{n}_2\) such that \(v_j = 1\) if \(H_{i}\) act non-trivaliy on the \(j\)th qubit and \(0\) else.}
+
+Noitce that each term \(H_i\) such that \(\text{support}(H_{i}) = 1^{a}0^{b} = (1,1...1,0,..,0)\) can be simulated in parallel with term \(H_j\) with complementary support (i.e \(0^{a}1^{b}\)).  
+In addition, if the support isn't a continues segement of \(1\)'s then one could perform rotate the base by permutation at a cost of the "mixing size".   
+\ctt{Change \(G\) to be the graph which each node \( v = \left(P, \text{base change}\right) \). }
+
+\paragraph{Definition.} \textit{ Denote by $m$ the number of local Hamiltonian terms and consider the graph \(G = \left( \left\{ H_{i} \right\}, E \right)\) which is a wighted complte graph over $m$ vertices. Such that the wight function defined by \(w(u,v) = \#\left\{ j | H_{v}^{j} \neq H_{u}^{j} \text{ and } H_{v}^{j},H_{u}^{j}\neq I \right\} \). We will call to such \(G\) the Qubic embedding or shortly just \(G\). }    
+\paragraph{}
+ %Let us abuse the notation and denote by $H$ also the random variable which count the support size of local term which is sampled uniformly from the total Hamiltonian. 
+% with expected support \(\mathbb{E}[H] := \mathbb{E}_{\sim i}\left[ \textbf{Ham}( \text{support}(H_i)) \right]\) 
+\paragraph{Theorem.} \textit{ Given an $\Delta$-local Hamiltonian then there is a circuit which simulate a single step \(e^{iH \Delta t}\) at depth:}
+\begin{equation*}
+\begin{split}
+  D\left(n,m\right) \leq & \log_{\frac{1+\Delta}{\Delta}\left(m\right)2n\Delta  
+  end{split}    
+\end{equation*}  Where  \(w \left( \text{MST}\left(G\right) \right) \) is the weight of the minimal spanning tree of \(G\). Please, noitce that in our case \(n=10, m=276\).
+
+Before continuing to the proof let's analyze the naive approach, just handle each of Hamiltonian terms one by one. Assume the the hamming weight of the support of \(H_i\) equal to \(d_i\). so we pay two steps to rotate each wire into the parity base and uncompute it in the end. then we could apply the \(CX\) from each qubit in the support to a chosen one which will sum the wires parity and finally will propogate the sum trough the \(RZ\left(\theta \Delta t \right) \) gate (rotation by the coefficient of the term and the step size). So in total we pay \(2 + 2d_i\) for each term and therefore the whole circuit will require: 
+
+\begin{equation*}
+    \begin{split}
+        D^{\text{naive}}\left(n,m\right) & = \sum_{i}{2 + 2d_i} = m\sum_{i}{\frac{2 + 2d_i}{m}} = \\ & 2m \left\Big( 1 + \mathbb{E}_{\sim i}[H] \right\Big)  
+    \end{split}
+\end{equation*}
+
+Hence the theorem inequality could be written as:
+\begin{equation*}
+\begin{split}
+    D\left(n,m\right) \leq & \frac{1}{2} D^{\text{naive}} \left(n,m\right) \\ & + 4w \left( \text{MST}\left(G\right) \right) + \left(2 - \frac{1}{m}\right)n^2
+\end{split}    
+\end{equation*} 
+
+And therefore, for an Hamiltonians which have a grater number of terms than the number of the qubits which they act on, we expect to see an improvement which is almost an half of the naive solution. In fact this improvement is much more significant than might seem as simulating up to \(\varepsilon\)-error requires \(\textbf{Poly} \left( \frac{1}{\varepsilon} \right) \) repetitions\ctt{add a cition}, so for full simulation we have obtained a \( \sim (\frac{1}{2})^{poly(\frac{1}{\varepsilon})} \) speed-up factor.  
+
+\paragraph{Solution.} Let's formulate the claim which mentioned earlier, suppose that \(H_{i} ,H_{j}\) are terms which their supports are disjoint and also they lay on continues segments. Then we can simulate the terms in parallel. 
+\paragraph{Lemma.} \textit{ let \(H_{i}, H_{j}\) and integers \(a,b,c,d a < c, d < b\) such the supports of the terms are \( 0^{a}1^{b}, 1^{c}0^{d}\). Then we can simulate \(e^{i H_{i} + H_{j}}\) with circuit with depth \( 2 + \max_{ {i,j} } 2 \cdot \textbf{Ham} ( \text{support} ( H_{l} ) )\).}
+\paragraph{Proof.} It's clears that the first rotation, and the final uncompute stages remain unchanged. So we should deal only with 2-qubits operators (the cnot's). By the \( a < c \) restriction it follows that each \(CX\) gate in the naive implementation of the \(H_i\) cross only elements which \(H_j\) act trivially on. Hence if at time-step \(k\) the original operations in each of the naive implementations were \( CX(i_{1} , i_{2}), CX(j_{1} , j_{2}) \) then \( j_{1}, j_{j} \notin [i_{1} , i_{2}] \). Repeating on the above argument, but consider the \(d<b\) constraint instead yields that \( i_{1}, i_{j} \notin [j_{1} , j_{2}] \Rightarrow [i_{1},i_{2}]\cap[j_{1},j_{2}] = \emptyset  \) and therefore we can put those gates on the same time step \( \square\)   
+
+\paragraph{Corollary.} Assume that \(H_{i}, H_{j}\) have a disjoint supports. Then by swapping the wires (including phase swap) into continues segments, we obtain a simulation at cost of : \( cost( Permutation ) + 2 + \max_{ {i,j} } 2 \cdot \textbf{Ham} ( \text{support} ( H_{l} ) )\).  
+
+The permutation which swapping between \({ v_1 , v_2 ... v_k } \leftrightarrow { u_1 , u_2 ... u_k }\) where \(v_i,u_j \in [n]\) are wires/qubits indices could be done by swapping each of the pair separately. Namely, \(\textbf{SWAP}(v_{i},u_{i})\) for each of the pairs. Figure 1 presents the two qubit gate \textbf{SWAP} and Figure 2 is an example of the generalization obtained by concatenation such gates. 
+
+
+\begin{figure}[H]
+  \centering
+    \includesvg[width = 250pt]{SWAPGate.svg}
+    \caption{The implementation of the two-qubit \textbf{SWAP} gate. The left part replace the bit values of the qubits, then we are rotate into the dual space and swap the phases finally we return back to the original space.}
+    \label{fig:average-data-vs-model}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includesvg[width = 280pt]{SWAPExample.svg}
+    \caption{Example for the general swap gate  \( \textbf{SWAP}\), In that example \(v = \left(e_1, e_2, e_4\right) \) and \(u = \left(e_7, e_8, e_6\right)\). And notice that the mapping swap between \( e_4 \leftrightarrow e_6\) wires.  }
+    \label{fig:average-data-vs-model}
+\end{figure}
+
+
+Now Let \(v \in \mathbb{F}_{2}^{n}\), we will use the notation \( \textbf{SWAP}^{v} \) to name the family of circuits such that for every \(v_i =1\) the \(i\)'th wire will be swapped with \(j\)'th wire such that \(j \le \textbf{Ham}(v)\). In other words, we could think about a circuit \(C \in \textbf{SWAP}^{v}\) as the one who lifting (advancing) the interesting wires to the top of the circuit.  
+
+In similar way for \(u,v \in \mathbb{F}_{2}^{n}\) we will name by \( \textbf{SWAP}^{v,u} \) the family of gates such that for every \( C_{1} \in \textbf{SWAP}^{v}\) and \( C_{2} \in \textbf{SWAP}^{v,u} \) we get that \(C_{2}C_{1} \in \textbf{SWAP}^{u}\).
+
+To understand the rational behind those notations consider the following  possible terms:
+\begin{itemize}
+    \item \(H_{1} = I  X  X  I  I \)
+    \item \(H_{2} = X  I  I  Z  I \)
+    \item \(H_{3} = I  I  X  I  X \)
+    \item \(H_{4} = X  I  I  Z  I \)
+\end{itemize} In case we have decided to simulate first \(H_{1},H_{2}\) which can be done in parallel after swapping the first and the third qubit. Then we already have made half of the way trough the rotation in which \(H_{3},H_{4}\) can be compute in parallel. That insight bring us to the next Lemma.     
+\paragraph{Definition.} \textit{ Let $G^\prime$ be the the graph which is obtained from $G$ by indentify each vertex with his support. }
+\paragraph{Lemma.} \textit{ Let \(v,u\) be vertices in \(G^{\prime}\) which defined as   which by definition are also match to a pair of vectors in \(\mathbb{F}_2^{n} \). Then:} 
+\begin{equation*}
+  \text{Depth}\left(\textbf{SWAP}^{v,u}\right) \le \textbf{Ham}(v,u)\cdot \text{Depth}\left(\textbf{SWAP}\right)
+\end{equation*}
+
+\paragraph{Proof.} By induction over \(w(v,u)\). For the base case consider \(u,v\) such \(u\) differ from \(v\) only by single coordinate. Denote it by \(j\). Observes that if $\textbf{Ham}(u) <\textbf{Ham}(v)$ then $\textbf{SWAP}^{v,u}$ is just the indentity. So we can assume that $ \textbf{Ham}(u) = \textbf{Ham}(v)+1 $ and that  \(v_j = 0, u_j =1\), denote by \(j^{\prime}\) the wire which \(SWAP^{v}\) sends \(j\) into. then it's sufficient to apply the gate \(\textbf{SWAP}(\text{Ham}(v) +1, j^\prime) \).
+% Second case \(v_j = 1, u_j =0\), Note that \(\left(\textbf{SWAP}^{v,u}\right)^{\dagger}=\textbf{SWAP}^{u,v}\) and in our case the gates are involve only Clifford gates and therefore the inverse gate has the same length has it's origin. In other hand the inverse gate matches to the first case above.  
+
+
+\paragraph{}
+Assume the correction of the lemma for any \(d^\prime \le d\), denote again by $j$ one of the cordinate in which $v,u$ act different, And consider the vector \(u^\prime = u \oplus v_{j} \Rightarrow u^{\prime}_{j} = v_{j}\), if \( \textbf{Ham}(u,v) = d\) then \( \textbf{Ham}(u^\prime,v) = d-1\) and therefore there exist a circuit \(C^{v,u^\prime}\in \textbf{SWAP}^{v,u^\prime}\) at depth \( \textbf{Ham}(v,u^\prime)\cdot\text{Depth}\left(\textbf{SWAP}\right) \). By the fact that \( \textbf{SWAP}^{v,u} = \textbf{SWAP}^{v,u^\prime} \textbf{SWAP}^{u^\prime,u}     \) and because \( \textbf{Ham}(u^\prime,u) = 1 \) we get that:
+
+\begin{equation*}
+    \begin{split}
+        & D\left(\textbf{SWAP}^{v,u}\right)  =   D\left(\textbf{SWAP}^{v,u^\prime}\right) + D\left( \textbf{SWAP}^{u^\prime,u} \right) \\ 
+        & \le
+         \left\Big(\textbf{Ham}(v,u^\prime) + \textbf{Ham}(u,u^\prime)\right\Big) \cdot\text{Depth}\left(\textbf{SWAP}\right) \\ & =
+        \textbf{Ham}(v,u) \cdot\text{Depth}\left(\textbf{SWAP}\right) 
+    \end{split}
+\end{equation*}
+And that finishes the proof \(\square\)
+
+\paragraph{Corollary.} Let \(P = \braket{v_{1}, v_{2} ... v_{l}}\) a vertices path in the graph \(G\) as defined above. And let \(U\) be circuit such that for each \(v_{i} \in P \) \(U\) apply the circuit \(U_{i}\) at the \ctt{I should define it} base. Then there exist an implementation for that circuit at depth:
+\begin{equation*}
+    \begin{split}
+        & D(U) = \sum_{i}{D\left(U_{i}\right)+D\left(\textbf{SWAP}^{v_{i},v_{i+1}}\right)}\\
+        & = \sum_{i}{D\left(U_{i}\right) + \textbf{Ham}(v_{i-1},v_{i}) \cdot\text{Depth}\left(\textbf{SWAP}\right)} \\ 
+        & = \sum_{i}{D\left(U_{i}\right) + w(v_{i-1},v_{i}) \cdot\text{Depth}\left(\textbf{SWAP}\right)} \\
+        & = w\left(P\right)\cdot\text{Depth}\left(\textbf{SWAP}\right) +   \sum_{i}{D\left(U_{i}\right) }  
+    \end{split}
+\end{equation*}
+
+\paragraph{The Algorithm.}
+
+\paragraph{The general concept.} We will identify each pair of  
+
+%  \ \textbf{Ham}(v,u^\prime)\cdot\text{Depth}\left(\textbf{SWAP}\right)  + 
+        % \textbf{Ham}(u,u^\prime)\cdot\text{Depth}\left(\textbf{SWAP}\right) =
+
+\paragraph{}
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\ \\ 
+\( \ket{\psi} \leftarrow \) the inital state.
+ \(T  \leftarrow\) MST(\(G\)). \\
+ \(P \leftarrow \) ordering of the vertices \( \braket{v_{1} , .. v_{l}}\) according to the \textbf{DFS} scanning of \(T\). \\
+ \ \\ 
+ \For{ \(v \in P\) }{
+    \( \ket{\psi} \leftarrow \textbf{SWAP}^{v_{i-1},v_{i}} \) \\ 
+    \While{ \( \exists H_{i}, H_{j}\) s.t \(supp(H_{i}) = v = \overline{supp(H_{j})}\)} {
+      \( \ket{\psi} \leftarrow U(H_{i})_{v} \otimes U(H_{j})_{\overline{v}} \ket{{\psi}} \) \\ 
+      mark \(H_{i}, H_{j}\).
+    }
+ }
+ \ \\
+ complete the left terms by the naive approach. \\
+ \Return \( \ket{\psi} \)
+ \caption{Simulate a single step \(e^{iH\Delta t}\)}
+\end{algorithm}
+
+
+\paragraph{Lemma.} \textit{Let \(\{X_{i}\}\) be a monotonic set of numbers bounded by \(2\mu\) with expectation \( \mu \) and variance \( \sigma^2 \). Then:}
+\begin{equation*}
+    \begin{split}
+        \sum{ \frac{1}{m}\max{ \left\{ X_{i}, X_{i+ \frac{n}{2}} \right\} } } \le \mu + \frac{1}{2}\sigma^2  
+    \end{split}
+\end{equation*}
+\paragraph{Proof.} Define \(Y : \Omega \rightarrow \mathbb{R} \) to be the random  variable which is the hist of the \(X\) by \(\mu\) i.e \(Y = X -\mu\). From the linearity of expectation we get that \(\mathbb{E}[X] = \mu + \mathbb{E}[Y]\). let's note by \(Y^{s}\) and \(Y^{as}\) the symetric and asymetric parts of \(Y\). the \(\square\). 
+
+\( \mathbb{E}[X] = \frac{1}{2}M + \mathbb{E}[X^{s} - M] = \frac{1}{2}M + \mathbb{E}[(X-M)^{s} + (X-M)^{as}] = \frac{1}{2}M + \frac{1}{2}\mu + \mathbb{E}[(X-M)^{as}] \) 
+
+\paragraph{Lemma.} \textit{Let \( H = \frac{1}{m}\sum{H_{i}}\) be Hamiltonian such each term \(H_{i}\) is a generalized pauli operator. Let \(P\) be random pauli which sampled uniformly. Then:   }
+
+
+\paragraph{Lemma.} \textit{Majoritiy principle. We can always assume that the more then quarter of the paulis are identity. } \ctt{ doesn't correct, but can be passed if we change the definition of the solid tensor to include only differ coordinates}.
+
+\begin{equation*}
+    \begin{split}
+        U^{t} = \sqrt{X}^\dagger\sqrt{X}U\sqrt{X}\sqrt{X}^\dagger U \sqrt{X}^\dagger\sqrt{X} ... U \sqrt{X}^\dagger\sqrt{X}
+    \end{split}
+\end{equation*}
+
+\section{\ctt{Enter it}}
+
+\paragraph{Lemma I} \textit{ A graph with all degrees at most \(d\) satisfies: 
+\begin{equation*}
+    \begin{split}
+        \alpha \left( G\right) \ge \frac{|V\left(G\right)|}{d+1}
+    \end{split}
+\end{equation*}
+}
+\textbf{Proof.} Denote by \(U \subset V\) the maximal independent subset of \(V\). By the maximality it follows that for every \(w \in V/U \) there is at least one neighbor in \(U\) (otherwise the \(U \cup w\) is an independent subset with a bigger size). Therefore 
+\begin{equation*}
+    \begin{split}
+        |V/U| &= |\Gamma\left(U\right) / U | \le |\Gamma\left(U\right)| \le d |U|= d \alpha \left( G\right) 
+    \end{split}
+\end{equation*}
+Combining the fact that \(|V| = |U| + |V/U| \) we get that: 
+\begin{equation*}
+    \begin{split}
+        \Rightarrow |V| &= |U| + |V/U| \le \alpha \left( G\right)  + d \alpha \left( G\right) \\
+        \Rightarrow \  & \alpha \left( G\right) \ge \frac{|V\left(G\right)}{d+1} 
+    \end{split}
+\end{equation*}
+\(\square\)
+
+\Lemma \textit{Bravyi Kitaev Transformation Degree. \ctt{Prove that, in the \(\textbf{SP}(G)\) Graph the degree is bounded by \(4^{4\log(n)} - 2^{4\log{n}}\) }}
+
+
+\begin{equation*}
+    \begin{split}
+        m_{i+1} & \leftarrow m_{i} - \alpha\left(G\right) \\ 
+        m_{i+1} & \leftarrow \left( 1  - \frac{1}{1 + \Delta} \right)m_{i} \\ 
+        & \left( 1  - \frac{1}{1 + \Delta} \right)^{h} m_{0} = 1 \\
+        h &= \log_{\left( \frac{1 + \Delta}{\Delta} \right)}{\left( m_{0} \right)}
+    \end{split}
+\end{equation*}
+
+\Lemma \textit{ For any \( q \in \mathbb{N}  \)    
+\begin{equation*}
+    \begin{split}
+        \frac{1}{2}\left( 1 + q + ... q^{n-1} \right) + q^{n} \le \left( 1 - \frac{1}{2(q+1)} \right) \frac{q^{n+1}-1}{q-1} 
+    \end{split}
+\end{equation*}
+}
+
+
+\begin{equation*}
+    \begin{split}
+        f\left(m\right) &= f\left( \frac{1}{2}\alpha\left(m\right))  \right) + f\left( m - \alpha\left(m\right) \right)  \\
+        & \le f\left( \frac{1}{2\left(\Delta+1\right)}m\right) + f\left( \left(1 - \frac{1}{\left( \Delta + 1 \right)} \right)m \right) 
+    \end{split}
+\end{equation*}
+
+\begin{equation*}
+    \begin{split}
+        f\left(m\right) &= \xi + f\left( m - \alpha\left(m\right) \right)  \\
+        & = 2\xi + f\left( m - \alpha\left(m\right) - \alpha\left(m - \alpha\left(m\right)\right)  \right) \\ & \le 2\xi + f\left( m - \alpha\left(m\right) - \alpha\left(m - \alpha\left(m\right)\right)  \right)
+    \end{split}
+\end{equation*}
+
+Randomization Trick.
+
+
+
+
+% \printbibliography 
+\end{multicols*}
+\end{document}

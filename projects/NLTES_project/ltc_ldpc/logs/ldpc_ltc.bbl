@@ -1,0 +1,533 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{Hamming}{article}{}
+      \name{author}{1}{}{%
+        {{hash=968cf20f5f546315b3e73b135d9fdc38}{%
+           family={Hamming},
+           familyi={H\bibinitperiod},
+           given={R.\bibnamedelimi W.},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{968cf20f5f546315b3e73b135d9fdc38}
+      \strng{fullhash}{968cf20f5f546315b3e73b135d9fdc38}
+      \strng{bibnamehash}{968cf20f5f546315b3e73b135d9fdc38}
+      \strng{authorbibnamehash}{968cf20f5f546315b3e73b135d9fdc38}
+      \strng{authornamehash}{968cf20f5f546315b3e73b135d9fdc38}
+      \strng{authorfullhash}{968cf20f5f546315b3e73b135d9fdc38}
+      \field{labelalpha}{Ham50}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Bell System Technical Journal}
+      \field{number}{2}
+      \field{title}{Error detecting and error correcting codes}
+      \field{volume}{29}
+      \field{year}{1950}
+      \field{pages}{147\bibrangedash 160}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1002/j.1538-7305.1950.tb00463.x
+      \endverb
+    \endentry
+    \entry{Reed1960PolynomialCO}{article}{}
+      \name{author}{2}{}{%
+        {{hash=37f57c5f7585b47da1946352cee4d6dd}{%
+           family={Reed},
+           familyi={R\bibinitperiod},
+           given={Irving\bibnamedelima S.},
+           giveni={I\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=abd0d5108903894427446c09ce75de64}{%
+           family={Solomon},
+           familyi={S\bibinitperiod},
+           given={Gustave},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{582d8799d79ba58b6cbb33707a573404}
+      \strng{fullhash}{582d8799d79ba58b6cbb33707a573404}
+      \strng{bibnamehash}{582d8799d79ba58b6cbb33707a573404}
+      \strng{authorbibnamehash}{582d8799d79ba58b6cbb33707a573404}
+      \strng{authornamehash}{582d8799d79ba58b6cbb33707a573404}
+      \strng{authorfullhash}{582d8799d79ba58b6cbb33707a573404}
+      \field{labelalpha}{RS60}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of The Society for Industrial and Applied Mathematics}
+      \field{title}{Polynomial Codes Over Certain Finite Fields}
+      \field{volume}{8}
+      \field{year}{1960}
+      \field{pages}{300\bibrangedash 304}
+      \range{pages}{5}
+    \endentry
+    \entry{Schwartz}{article}{}
+      \name{author}{1}{}{%
+        {{hash=decbfb97c97d619d96936c9ce79a98da}{%
+           family={Schwartz},
+           familyi={S\bibinitperiod},
+           given={J.\bibnamedelimi T.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{decbfb97c97d619d96936c9ce79a98da}
+      \strng{fullhash}{decbfb97c97d619d96936c9ce79a98da}
+      \strng{bibnamehash}{decbfb97c97d619d96936c9ce79a98da}
+      \strng{authorbibnamehash}{decbfb97c97d619d96936c9ce79a98da}
+      \strng{authornamehash}{decbfb97c97d619d96936c9ce79a98da}
+      \strng{authorfullhash}{decbfb97c97d619d96936c9ce79a98da}
+      \field{labelalpha}{Sch80}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0004-5411}
+      \field{journaltitle}{J. ACM}
+      \field{month}{10}
+      \field{number}{4}
+      \field{title}{Fast Probabilistic Algorithms for Verification of Polynomial Identities}
+      \field{volume}{27}
+      \field{year}{1980}
+      \field{pages}{701\bibrangedash 717}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1145/322217.322225
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/322217.322225
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/322217.322225
+      \endverb
+    \endentry
+    \entry{Tanner}{article}{}
+      \name{author}{1}{}{%
+        {{hash=fa5f099c6947df2d1303a0e49b44f6b6}{%
+           family={Tanner},
+           familyi={T\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{fa5f099c6947df2d1303a0e49b44f6b6}
+      \strng{fullhash}{fa5f099c6947df2d1303a0e49b44f6b6}
+      \strng{bibnamehash}{fa5f099c6947df2d1303a0e49b44f6b6}
+      \strng{authorbibnamehash}{fa5f099c6947df2d1303a0e49b44f6b6}
+      \strng{authornamehash}{fa5f099c6947df2d1303a0e49b44f6b6}
+      \strng{authorfullhash}{fa5f099c6947df2d1303a0e49b44f6b6}
+      \field{labelalpha}{Tan81}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Information Theory}
+      \field{number}{5}
+      \field{title}{A recursive approach to low complexity codes}
+      \field{volume}{27}
+      \field{year}{1981}
+      \field{pages}{533\bibrangedash 547}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1109/TIT.1981.1056404
+      \endverb
+    \endentry
+    \entry{HAEMERS1995593}{article}{}
+      \name{author}{1}{}{%
+        {{hash=fc2b54fc71a57838bfec1cc92bc42473}{%
+           family={Haemers},
+           familyi={H\bibinitperiod},
+           given={Willem\bibnamedelima H.},
+           giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{fc2b54fc71a57838bfec1cc92bc42473}
+      \strng{fullhash}{fc2b54fc71a57838bfec1cc92bc42473}
+      \strng{bibnamehash}{fc2b54fc71a57838bfec1cc92bc42473}
+      \strng{authorbibnamehash}{fc2b54fc71a57838bfec1cc92bc42473}
+      \strng{authornamehash}{fc2b54fc71a57838bfec1cc92bc42473}
+      \strng{authorfullhash}{fc2b54fc71a57838bfec1cc92bc42473}
+      \field{labelalpha}{Hae95}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We give several old and some new applications of eigenvalue interlacing to matrices associated to graphs. Bounds are obtained for characteristic numbers of graphs, such as the size of a maximal (co)clique, the chromatic number, the diameter, and the bandwidth, in terms of the eigenvalues of the standard adjacency matrix or the Laplacian matrix. We also deal with inequalities and regularity results concerning the structure of graphs and block designs.}
+      \field{issn}{0024-3795}
+      \field{journaltitle}{Linear Algebra and its Applications}
+      \field{note}{Honoring J.J.Seidel}
+      \field{title}{Interlacing eigenvalues and graphs}
+      \field{volume}{226-228}
+      \field{year}{1995}
+      \field{pages}{593\bibrangedash 616}
+      \range{pages}{24}
+      \verb{doi}
+      \verb https://doi.org/10.1016/0024-3795(95)00199-2
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/0024379595001992
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/0024379595001992
+      \endverb
+    \endentry
+    \entry{ExpanderCodes}{article}{}
+      \name{author}{2}{}{%
+        {{hash=75a9e61254fc449d4886b6ee4cff0b22}{%
+           family={Sipser},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=bee66c6e4cf38d7e693ca851c40c42ba}{%
+           family={Spielman},
+           familyi={S\bibinitperiod},
+           given={D.A.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff59c81166644da08ea82fb925631c54}
+      \strng{fullhash}{ff59c81166644da08ea82fb925631c54}
+      \strng{bibnamehash}{ff59c81166644da08ea82fb925631c54}
+      \strng{authorbibnamehash}{ff59c81166644da08ea82fb925631c54}
+      \strng{authornamehash}{ff59c81166644da08ea82fb925631c54}
+      \strng{authorfullhash}{ff59c81166644da08ea82fb925631c54}
+      \field{labelalpha}{SS96}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Information Theory}
+      \field{number}{6}
+      \field{title}{Expander codes}
+      \field{volume}{42}
+      \field{year}{1996}
+      \field{pages}{1710\bibrangedash 1722}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1109/18.556667
+      \endverb
+    \endentry
+    \entry{Sasson}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=c225b1561fdce9ac9f61f1edca0e0160}{%
+           family={Ben-Sasson},
+           familyi={B\bibinithyphendelim S\bibinitperiod},
+           given={Eli},
+           giveni={E\bibinitperiod}}}%
+        {{hash=cfdedddbe9e3c4182ae5140f9c80b8f3}{%
+           family={Harsha},
+           familyi={H\bibinitperiod},
+           given={Prahladh},
+           giveni={P\bibinitperiod}}}%
+        {{hash=595cb420436ece2997a0f6b90fa4089f}{%
+           family={Raskhodnikova},
+           familyi={R\bibinitperiod},
+           given={Sofya},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {San Diego, CA, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{664fa96351e88640efced167c64159ec}
+      \strng{fullhash}{664fa96351e88640efced167c64159ec}
+      \strng{bibnamehash}{664fa96351e88640efced167c64159ec}
+      \strng{authorbibnamehash}{664fa96351e88640efced167c64159ec}
+      \strng{authornamehash}{664fa96351e88640efced167c64159ec}
+      \strng{authorfullhash}{664fa96351e88640efced167c64159ec}
+      \field{labelalpha}{BHR03}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{For a boolean formula φ on n variables, the associated property Pφ is the collection of n-bit strings that satisfy φ. We prove that there are 3CNF properties that require a linear number of queries, even for adaptive tests. This contrasts with 2CNF properties that are testable with O(√n) queries[7]. Notice that for every bad instance (i.e. an assignment that does not satisfy φ) there is a 3-bit query that witnesses this fact. Nevertheless, finding such a short witness requires a linear number of queries, even for assignments that are very far from satisfying.We provide sufficient conditions for linear properties to be hard to test, and in the course of the proof include a couple of observations which are of independent interest.}
+      \field{booktitle}{Proceedings of the Thirty-Fifth Annual ACM Symposium on Theory of Computing}
+      \field{isbn}{1581136749}
+      \field{series}{STOC '03}
+      \field{title}{Some 3CNF Properties Are Hard to Test}
+      \field{year}{2003}
+      \field{pages}{345\bibrangedash 354}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/780542.780594
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/780542.780594
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/780542.780594
+      \endverb
+      \keyw{lower bounds,property testing,locally testable codes,CNF formulas,sublinear algorithms}
+    \endentry
+    \entry{hoory2006expander}{article}{}
+      \name{author}{3}{}{%
+        {{hash=7a2e07605478413e89736ff680e2593c}{%
+           family={Hoory},
+           familyi={H\bibinitperiod},
+           given={Shlomo},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3799f17b3ff4ed819996ef9220d1b820}{%
+           family={Linial},
+           familyi={L\bibinitperiod},
+           given={Nathan},
+           giveni={N\bibinitperiod}}}%
+        {{hash=94bdc407739d530448ac88956c6c98a5}{%
+           family={Wigderson},
+           familyi={W\bibinitperiod},
+           given={Avi},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{fullhash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{bibnamehash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{authorbibnamehash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{authornamehash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{authorfullhash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \field{labelalpha}{HLW06}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bulletin of the American Mathematical Society}
+      \field{number}{4}
+      \field{title}{Expander graphs and their applications}
+      \field{volume}{43}
+      \field{year}{2006}
+      \field{pages}{439\bibrangedash 561}
+      \range{pages}{123}
+    \endentry
+    \entry{MultiParty}{inbook}{}
+      \name{author}{3}{}{%
+        {{hash=41eb128ae71f8745a6089159ac4aaf4e}{%
+           family={Ben-Or},
+           familyi={B\bibinithyphendelim O\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=39e4a0690915f1d991133196a545b37b}{%
+           family={Goldwasser},
+           familyi={G\bibinitperiod},
+           given={Shafi},
+           giveni={S\bibinitperiod}}}%
+        {{hash=94bdc407739d530448ac88956c6c98a5}{%
+           family={Wigderson},
+           familyi={W\bibinitperiod},
+           given={Avi},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{bc8541956602af48fb2539a988498d4a}
+      \strng{fullhash}{bc8541956602af48fb2539a988498d4a}
+      \strng{bibnamehash}{bc8541956602af48fb2539a988498d4a}
+      \strng{authorbibnamehash}{bc8541956602af48fb2539a988498d4a}
+      \strng{authornamehash}{bc8541956602af48fb2539a988498d4a}
+      \strng{authorfullhash}{bc8541956602af48fb2539a988498d4a}
+      \field{labelalpha}{BGW19}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Providing Sound Foundations for Cryptography: On the Work of Shafi Goldwasser and Silvio Micali}
+      \field{isbn}{9781450372664}
+      \field{title}{Completeness Theorems for Non-Cryptographic Fault-Tolerant Distributed Computation}
+      \field{year}{2019}
+      \field{pages}{351\bibrangedash 371}
+      \range{pages}{21}
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3335741.3335756
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3335741.3335756
+      \endverb
+    \endentry
+    \entry{Pavel}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=2045547a573a8653a385a24802d84861}{%
+           family={Panteleev},
+           familyi={P\bibinitperiod},
+           given={Pavel},
+           giveni={P\bibinitperiod}}}%
+        {{hash=965427f6d0d037e6e3f530bc87ae1a30}{%
+           family={Kalachev},
+           familyi={K\bibinitperiod},
+           given={Gleb},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{0798ba004634ed1d7aa919b68cddb863}
+      \strng{fullhash}{0798ba004634ed1d7aa919b68cddb863}
+      \strng{bibnamehash}{0798ba004634ed1d7aa919b68cddb863}
+      \strng{authorbibnamehash}{0798ba004634ed1d7aa919b68cddb863}
+      \strng{authornamehash}{0798ba004634ed1d7aa919b68cddb863}
+      \strng{authorfullhash}{0798ba004634ed1d7aa919b68cddb863}
+      \field{labelalpha}{PK21}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Asymptotically Good Quantum and Locally Testable Classical LDPC Codes}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.48550/ARXIV.2111.03654
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2111.03654
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2111.03654
+      \endverb
+      \keyw{Information Theory (cs.IT),Quantum Physics (quant-ph),FOS: Computer and information sciences,FOS: Computer and information sciences,FOS: Physical sciences,FOS: Physical sciences}
+    \endentry
+    \entry{eczoo_mds}{incollection}{}
+      \name{editor}{2}{}{%
+        {{hash=db0256bf77f3727d8d424c610129db47}{%
+           family={Albert},
+           familyi={A\bibinitperiod},
+           given={Victor\bibnamedelima V.},
+           giveni={V\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=859b6dc81cd3230d4d6154bd9c875bea}{%
+           family={Faist},
+           familyi={F\bibinitperiod},
+           given={Philippe},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e5e1fd436ca9050e4ba31a53acd3206}
+      \strng{fullhash}{9e5e1fd436ca9050e4ba31a53acd3206}
+      \strng{bibnamehash}{9e5e1fd436ca9050e4ba31a53acd3206}
+      \strng{editorbibnamehash}{9e5e1fd436ca9050e4ba31a53acd3206}
+      \strng{editornamehash}{9e5e1fd436ca9050e4ba31a53acd3206}
+      \strng{editorfullhash}{9e5e1fd436ca9050e4ba31a53acd3206}
+      \field{labelalpha}{AF22}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The Error Correction Zoo}
+      \field{title}{Maximum distance separable (MDS) code}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://errorcorrectionzoo.org/c/mds
+      \endverb
+      \verb{url}
+      \verb https://errorcorrectionzoo.org/c/mds
+      \endverb
+    \endentry
+    \entry{Dinur}{misc}{}
+      \name{author}{5}{}{%
+        {{hash=9a5f80a9b2b1359cbc50244c7816730c}{%
+           family={Dinur},
+           familyi={D\bibinitperiod},
+           given={Irit},
+           giveni={I\bibinitperiod}}}%
+        {{hash=cf4fd32be7d1575441dd8d7defeeebdc}{%
+           family={Evra},
+           familyi={E\bibinitperiod},
+           given={Shai},
+           giveni={S\bibinitperiod}}}%
+        {{hash=44bcc8e59af2adef781b86d28fd33616}{%
+           family={Livne},
+           familyi={L\bibinitperiod},
+           given={Ron},
+           giveni={R\bibinitperiod}}}%
+        {{hash=c6034c88f321d2d456e5baa592685826}{%
+           family={Lubotzky},
+           familyi={L\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ddd2923715cd2343a4a8a5b46b1d295b}{%
+           family={Mozes},
+           familyi={M\bibinitperiod},
+           given={Shahar},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{998dfb3aee939e2438a0913f9c8f2de3}
+      \strng{fullhash}{c67aac9e30c171974c9fad2923260b03}
+      \strng{bibnamehash}{998dfb3aee939e2438a0913f9c8f2de3}
+      \strng{authorbibnamehash}{998dfb3aee939e2438a0913f9c8f2de3}
+      \strng{authornamehash}{998dfb3aee939e2438a0913f9c8f2de3}
+      \strng{authorfullhash}{c67aac9e30c171974c9fad2923260b03}
+      \field{labelalpha}{Din+22}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Good Locally Testable Codes}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.48550/ARXIV.2207.11929
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2207.11929
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2207.11929
+      \endverb
+      \keyw{Information Theory (cs.IT),Combinatorics (math.CO),Group Theory (math.GR),FOS: Computer and information sciences,FOS: Computer and information sciences,FOS: Mathematics,FOS: Mathematics}
+    \endentry
+    \entry{leverrier2022quantum}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=5533ab856083ca9b0c98042d38048318}{%
+           family={Leverrier},
+           familyi={L\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0bf2f70bde46bb86c3382a7e9f8c9eaa}{%
+           family={Zémor},
+           familyi={Z\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{fullhash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{bibnamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authorbibnamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authornamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authorfullhash}{d9e791cfe465672a244f9c3129e98f07}
+      \field{labelalpha}{LZ22}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{title}{Quantum Tanner codes}
+      \field{year}{2022}
+      \verb{eprint}
+      \verb 2202.13641
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -1,0 +1,15 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'poly_qldpc.blg'
+[79] biber:340> INFO - === Thu Apr  6, 2023, 17:20:34
+[92] Biber.pm:415> INFO - Reading 'poly_qldpc.bcf'
+[148] Biber.pm:952> INFO - Found 6 citekeys in bib section 0
+[159] Biber.pm:4340> INFO - Processing section 0
+[169] Biber.pm:4531> INFO - Looking for bibtex format file 'sample.bib' for section 0
+[171] bibtex.pm:1689> INFO - LaTeX decoding ...
+[191] bibtex.pm:1494> INFO - Found BibTeX data source 'sample.bib'
+[280] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[280] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[280] Biber.pm:4168> INFO - Sorting list 'ynt/global//global/global' of type 'entry' with template 'ynt' and locale 'en-US'
+[280] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[289] bbl.pm:654> INFO - Writing 'poly_qldpc.bbl' with encoding 'UTF-8'
+[292] bbl.pm:757> INFO - Output to poly_qldpc.bbl

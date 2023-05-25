@@ -1,0 +1,1011 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{grover1996fast}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=619ef89ee12058aba6b0df9b17b11ca3}{%
+           family={Grover},
+           familyi={G\bibinitperiod},
+           given={Lov\bibnamedelima K.},
+           giveni={L\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{619ef89ee12058aba6b0df9b17b11ca3}
+      \strng{fullhash}{619ef89ee12058aba6b0df9b17b11ca3}
+      \strng{bibnamehash}{619ef89ee12058aba6b0df9b17b11ca3}
+      \strng{authorbibnamehash}{619ef89ee12058aba6b0df9b17b11ca3}
+      \strng{authornamehash}{619ef89ee12058aba6b0df9b17b11ca3}
+      \strng{authorfullhash}{619ef89ee12058aba6b0df9b17b11ca3}
+      \field{labelalpha}{Gro96}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{title}{A fast quantum mechanical algorithm for database search}
+      \field{year}{1996}
+      \verb{eprint}
+      \verb quant-ph/9605043
+      \endverb
+    \endentry
+    \entry{FominGPR08-On}{article}{}
+      \name{author}{4}{}{%
+        {{hash=79f82fca58f3e65e15c5f702996ec47f}{%
+           family={Fomin},
+           familyi={F\bibinitperiod},
+           given={Fedor\bibnamedelima V.},
+           giveni={F\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=6f6618c17370df18dffa9daf0771c9e5}{%
+           family={Gaspers},
+           familyi={G\bibinitperiod},
+           given={Serge},
+           giveni={S\bibinitperiod}}}%
+        {{hash=afbf4f55d6e3635b7866c9a7e8181d5f}{%
+           family={Pyatkin},
+           familyi={P\bibinitperiod},
+           given={Artem\bibnamedelima V.},
+           giveni={A\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=23dd9f59adad58a0b5fc7a007d06a40b}{%
+           family={Razgon},
+           familyi={R\bibinitperiod},
+           given={Igor},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{fullhash}{333af78298a1546e7530fe7222160ace}
+      \strng{bibnamehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{authorbibnamehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{authornamehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{authorfullhash}{333af78298a1546e7530fe7222160ace}
+      \field{extraname}{1}
+      \field{labelalpha}{Fom+08}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0178-4617}
+      \field{journaltitle}{Algorithmica}
+      \field{number}{2}
+      \field{title}{On the minimum feedback vertex set problem: exact and enumeration algorithms}
+      \field{volume}{52}
+      \field{year}{2008}
+      \field{pages}{293\bibrangedash 307}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1007/s00453-007-9152-0
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s00453-007-9152-0
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s00453-007-9152-0
+      \endverb
+    \endentry
+    \entry{FominGKLS10}{article}{}
+      \name{author}{5}{}{%
+        {{hash=79f82fca58f3e65e15c5f702996ec47f}{%
+           family={Fomin},
+           familyi={F\bibinitperiod},
+           given={Fedor\bibnamedelima V.},
+           giveni={F\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=6f6618c17370df18dffa9daf0771c9e5}{%
+           family={Gaspers},
+           familyi={G\bibinitperiod},
+           given={Serge},
+           giveni={S\bibinitperiod}}}%
+        {{hash=5b3562b0f32fd18e197e049545720176}{%
+           family={Kratsch},
+           familyi={K\bibinitperiod},
+           given={Dieter},
+           giveni={D\bibinitperiod}}}%
+        {{hash=c04a1887f319c9a553c16830db6ee49d}{%
+           family={Liedloff},
+           familyi={L\bibinitperiod},
+           given={Mathieu},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f6ffd3ea3887e04ef5a00a54c6c71668}{%
+           family={Saurabh},
+           familyi={S\bibinitperiod},
+           given={Saket},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{fullhash}{78df59fc4209387fbe8b43df8d014528}
+      \strng{bibnamehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{authorbibnamehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{authornamehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{authorfullhash}{78df59fc4209387fbe8b43df8d014528}
+      \field{extraname}{2}
+      \field{labelalpha}{Fom+10}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0304-3975}
+      \field{journaltitle}{Theoret. Comput. Sci.}
+      \field{number}{7-9}
+      \field{title}{Iterative compression and exact algorithms}
+      \field{volume}{411}
+      \field{year}{2010}
+      \field{pages}{1045\bibrangedash 1053}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1016/j.tcs.2009.11.012
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.tcs.2009.11.012
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.tcs.2009.11.012
+      \endverb
+    \endentry
+    \entry{cut-and-count}{incollection}{}
+      \name{author}{5}{}{%
+        {{hash=fc00f5045e289bdc649a0e1fa023fede}{%
+           family={Cygan},
+           familyi={C\bibinitperiod},
+           given={Marek},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b241621e43bc5af50b18eef1140fefba}{%
+           family={Nederlof},
+           familyi={N\bibinitperiod},
+           given={Jesper},
+           giveni={J\bibinitperiod}}}%
+        {{hash=0a3f85829e46b5ad472cbcfbf3f57549}{%
+           family={Pilipczuk},
+           familyi={P\bibinitperiod},
+           given={Marcin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7e43ac6d39e97d5c8012e45d4c3ab72a}{%
+           family={Pilipczuk},
+           familyi={P\bibinitperiod},
+           given={Johan\bibnamedelimb M.\bibnamedelimi M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim M\bibinitperiod},
+           suffix={Michałand\bibnamedelimb van\bibnamedelima Rooij},
+           suffixi={M\bibinitperiod\bibinitdelim v\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=8a7755ec51a93f34110eb8bbe57110a1}{%
+           family={Wojtaszczyk},
+           familyi={W\bibinitperiod},
+           given={Jakub\bibnamedelima Onufry},
+           giveni={J\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE Computer Soc., Los Alamitos, CA}%
+      }
+      \strng{namehash}{0105fbfc06b2c19ca7b3d990443f208d}
+      \strng{fullhash}{33f54e1ad2f6b08fd0bc7d998527ea3b}
+      \strng{bibnamehash}{0105fbfc06b2c19ca7b3d990443f208d}
+      \strng{authorbibnamehash}{0105fbfc06b2c19ca7b3d990443f208d}
+      \strng{authornamehash}{0105fbfc06b2c19ca7b3d990443f208d}
+      \strng{authorfullhash}{33f54e1ad2f6b08fd0bc7d998527ea3b}
+      \field{labelalpha}{Cyg+11}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2011 {IEEE} 52nd {A}nnual {S}ymposium on {F}oundations of {C}omputer {S}cience---{FOCS} 2011}
+      \field{title}{Solving connectivity problems parameterized by treewidth in single exponential time (extended abstract)}
+      \field{year}{2011}
+      \field{pages}{150\bibrangedash 159}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/FOCS.2011.23
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1109/FOCS.2011.23
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1109/FOCS.2011.23
+      \endverb
+    \endentry
+    \entry{HofV13}{article}{}
+      \name{author}{2}{}{%
+        {{hash=4c2c8094966664bd7776d0cfc172a7e0}{%
+           family={'t\bibnamedelima Hof},
+           familyi={'\bibinitperiod\bibinitdelim H\bibinitperiod},
+           given={Pim},
+           giveni={P\bibinitperiod},
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+        {{hash=5ab9bdeb03d7c14a535c45449d3ad815}{%
+           family={Villanger},
+           familyi={V\bibinitperiod},
+           given={Yngve},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{5b61d020dfb3e65c121e191948fe31ad}
+      \strng{fullhash}{5b61d020dfb3e65c121e191948fe31ad}
+      \strng{bibnamehash}{5b61d020dfb3e65c121e191948fe31ad}
+      \strng{authorbibnamehash}{5b61d020dfb3e65c121e191948fe31ad}
+      \strng{authornamehash}{5b61d020dfb3e65c121e191948fe31ad}
+      \strng{authorfullhash}{5b61d020dfb3e65c121e191948fe31ad}
+      \field{labelalpha}{tV13}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0178-4617}
+      \field{journaltitle}{Algorithmica}
+      \field{number}{4}
+      \field{title}{Proper interval vertex deletion}
+      \field{volume}{65}
+      \field{year}{2013}
+      \field{pages}{845\bibrangedash 867}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1007/s00453-012-9661-3
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s00453-012-9661-3
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s00453-012-9661-3
+      \endverb
+    \endentry
+    \entry{BliznetsFPV13}{incollection}{}
+      \name{author}{3}{}{%
+        {{hash=661f8a6c05e1c1399d8b0a3e4c0f63d6}{%
+           family={Bliznets},
+           familyi={B\bibinitperiod},
+           given={Ivan},
+           giveni={I\bibinitperiod}}}%
+        {{hash=79f82fca58f3e65e15c5f702996ec47f}{%
+           family={Fomin},
+           familyi={F\bibinitperiod},
+           given={Fedor\bibnamedelima V.},
+           giveni={F\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=21c387fcd10a5eda18771a03206110c5}{%
+           family={Pilipczuk},
+           familyi={P\bibinitperiod},
+           given={Yngve},
+           giveni={Y\bibinitperiod},
+           suffix={Michałand\bibnamedelima Villanger},
+           suffixi={M\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer, Heidelberg}%
+      }
+      \strng{namehash}{ca921a46dc323f6e37ee9a7ee714da09}
+      \strng{fullhash}{ca921a46dc323f6e37ee9a7ee714da09}
+      \strng{bibnamehash}{ca921a46dc323f6e37ee9a7ee714da09}
+      \strng{authorbibnamehash}{ca921a46dc323f6e37ee9a7ee714da09}
+      \strng{authornamehash}{ca921a46dc323f6e37ee9a7ee714da09}
+      \strng{authorfullhash}{ca921a46dc323f6e37ee9a7ee714da09}
+      \field{labelalpha}{BFP13}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Algorithms---{ESA} 2013}
+      \field{series}{Lecture Notes in Comput. Sci.}
+      \field{title}{Largest chordal and interval subgraphs faster than {$2^n$}}
+      \field{volume}{8125}
+      \field{year}{2013}
+      \field{pages}{193\bibrangedash 204}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1007/978-3-642-40450-4\_17
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-642-40450-4_17
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-642-40450-4_17
+      \endverb
+    \endentry
+    \entry{BoralCKP14}{incollection}{}
+      \name{author}{4}{}{%
+        {{hash=a62c8f2d0d1a2716d67c4798bbd958a7}{%
+           family={Boral},
+           familyi={B\bibinitperiod},
+           given={Anudhyan},
+           giveni={A\bibinitperiod}}}%
+        {{hash=fc00f5045e289bdc649a0e1fa023fede}{%
+           family={Cygan},
+           familyi={C\bibinitperiod},
+           given={Marek},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c70c19c5c6f2a440b47c842cc44fd36a}{%
+           family={Kociumaka},
+           familyi={K\bibinitperiod},
+           given={Tomasz},
+           giveni={T\bibinitperiod}}}%
+        {{hash=0a3f85829e46b5ad472cbcfbf3f57549}{%
+           family={Pilipczuk},
+           familyi={P\bibinitperiod},
+           given={Marcin},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer, Cham}%
+      }
+      \strng{namehash}{04437033d09f545a61edb9c37f3ed4c9}
+      \strng{fullhash}{ae67d15548526f2545e4df46ff4e5af6}
+      \strng{bibnamehash}{04437033d09f545a61edb9c37f3ed4c9}
+      \strng{authorbibnamehash}{04437033d09f545a61edb9c37f3ed4c9}
+      \strng{authornamehash}{04437033d09f545a61edb9c37f3ed4c9}
+      \strng{authorfullhash}{ae67d15548526f2545e4df46ff4e5af6}
+      \field{labelalpha}{Bor+14}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Computer science---theory and applications}
+      \field{series}{Lecture Notes in Comput. Sci.}
+      \field{title}{A fast branching algorithm for cluster vertex deletion}
+      \field{volume}{8476}
+      \field{year}{2014}
+      \field{pages}{111\bibrangedash 124}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1007/978-3-319-06686-8\_9
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-319-06686-8_9
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-319-06686-8_9
+      \endverb
+    \endentry
+    \entry{FominHKPV14}{article}{}
+      \name{author}{5}{}{%
+        {{hash=79f82fca58f3e65e15c5f702996ec47f}{%
+           family={Fomin},
+           familyi={F\bibinitperiod},
+           given={Fedor\bibnamedelima V.},
+           giveni={F\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=5a2cf3a9e6038a6473a981ef4b905ede}{%
+           family={Heggernes},
+           familyi={H\bibinitperiod},
+           given={Pinar},
+           giveni={P\bibinitperiod}}}%
+        {{hash=5b3562b0f32fd18e197e049545720176}{%
+           family={Kratsch},
+           familyi={K\bibinitperiod},
+           given={Dieter},
+           giveni={D\bibinitperiod}}}%
+        {{hash=c7690c51fc2e87da962f432b99ecfa63}{%
+           family={Papadopoulos},
+           familyi={P\bibinitperiod},
+           given={Charis},
+           giveni={C\bibinitperiod}}}%
+        {{hash=5ab9bdeb03d7c14a535c45449d3ad815}{%
+           family={Villanger},
+           familyi={V\bibinitperiod},
+           given={Yngve},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{fullhash}{956634a7e344a8f41f79cf81d8d415ab}
+      \strng{bibnamehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{authorbibnamehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{authornamehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{authorfullhash}{956634a7e344a8f41f79cf81d8d415ab}
+      \field{extraname}{3}
+      \field{labelalpha}{Fom+14}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0178-4617}
+      \field{journaltitle}{Algorithmica}
+      \field{number}{1}
+      \field{title}{Enumerating minimal subset feedback vertex sets}
+      \field{volume}{69}
+      \field{year}{2014}
+      \field{pages}{216\bibrangedash 231}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1007/s00453-012-9731-6
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s00453-012-9731-6
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s00453-012-9731-6
+      \endverb
+    \endentry
+    \entry{KanjLLTXXYZZZ14}{incollection}{}
+      \name{author}{10}{}{%
+        {{hash=45a2109eef53156b4727f8922a1aedc5}{%
+           family={Kanj},
+           familyi={K\bibinitperiod},
+           given={Iyad},
+           giveni={I\bibinitperiod}}}%
+        {{hash=7e76d43b731cbb889ebe502e7936f7c3}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Guohui},
+           giveni={G\bibinitperiod}}}%
+        {{hash=4e64e6d580d246c262e8ee86ea082dde}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Tian},
+           giveni={T\bibinitperiod}}}%
+        {{hash=7ff3dc22fc689af7d03f6661d762503b}{%
+           family={Tong},
+           familyi={T\bibinitperiod},
+           given={Weitian},
+           giveni={W\bibinitperiod}}}%
+        {{hash=12c85af6bbf806dba4aba06c23ed19b4}{%
+           family={Xia},
+           familyi={X\bibinitperiod},
+           given={Ge},
+           giveni={G\bibinitperiod}}}%
+        {{hash=0e4e7048d70cdb17a2447980fe02307f}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Jinhui},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e0abc9f03d2c49ba36d1a9b6055a156c}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Boting},
+           giveni={B\bibinitperiod}}}%
+        {{hash=800568979d2696921bd154a86875a77c}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Fenghui},
+           giveni={F\bibinitperiod}}}%
+        {{hash=f189b293bd3263254702f8c5fe1d714b}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Peng},
+           giveni={P\bibinitperiod}}}%
+        {{hash=77aed896de8d7f47e5248d1df57df9c5}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Binhai},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer, Cham}%
+      }
+      \strng{namehash}{2532e7d95c656e4bb62b99caefb050c0}
+      \strng{fullhash}{ae696f4a47995e2795c01c657b4c7764}
+      \strng{bibnamehash}{2532e7d95c656e4bb62b99caefb050c0}
+      \strng{authorbibnamehash}{2532e7d95c656e4bb62b99caefb050c0}
+      \strng{authornamehash}{2532e7d95c656e4bb62b99caefb050c0}
+      \strng{authorfullhash}{ae696f4a47995e2795c01c657b4c7764}
+      \field{labelalpha}{Kan+14}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Combinatorial optimization and applications}
+      \field{series}{Lecture Notes in Comput. Sci.}
+      \field{title}{Algorithms for cut problems on trees}
+      \field{volume}{8881}
+      \field{year}{2014}
+      \field{pages}{283\bibrangedash 298}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1007/978-3-319-12691-3\_22
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-319-12691-3_22
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-319-12691-3_22
+      \endverb
+    \endentry
+    \entry{KociumakaP13}{article}{}
+      \name{author}{2}{}{%
+        {{hash=c70c19c5c6f2a440b47c842cc44fd36a}{%
+           family={Kociumaka},
+           familyi={K\bibinitperiod},
+           given={Tomasz},
+           giveni={T\bibinitperiod}}}%
+        {{hash=0a3f85829e46b5ad472cbcfbf3f57549}{%
+           family={Pilipczuk},
+           familyi={P\bibinitperiod},
+           given={Marcin},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{cc303285f1f12ee9dce3ee6e7474582b}
+      \strng{fullhash}{cc303285f1f12ee9dce3ee6e7474582b}
+      \strng{bibnamehash}{cc303285f1f12ee9dce3ee6e7474582b}
+      \strng{authorbibnamehash}{cc303285f1f12ee9dce3ee6e7474582b}
+      \strng{authornamehash}{cc303285f1f12ee9dce3ee6e7474582b}
+      \strng{authorfullhash}{cc303285f1f12ee9dce3ee6e7474582b}
+      \field{labelalpha}{KP14}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0020-0190}
+      \field{journaltitle}{Inform. Process. Lett.}
+      \field{number}{10}
+      \field{title}{Faster deterministic {F}eedback {V}ertex {S}et}
+      \field{volume}{114}
+      \field{year}{2014}
+      \field{pages}{556\bibrangedash 560}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1016/j.ipl.2014.05.001
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.ipl.2014.05.001
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.ipl.2014.05.001
+      \endverb
+    \endentry
+    \entry{Cao15}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=ffbd440be3d518a696e50320511efbfa}{%
+           family={Cao},
+           familyi={C\bibinitperiod},
+           given={Yixin},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer, Heidelberg}%
+      }
+      \strng{namehash}{ffbd440be3d518a696e50320511efbfa}
+      \strng{fullhash}{ffbd440be3d518a696e50320511efbfa}
+      \strng{bibnamehash}{ffbd440be3d518a696e50320511efbfa}
+      \strng{authorbibnamehash}{ffbd440be3d518a696e50320511efbfa}
+      \strng{authornamehash}{ffbd440be3d518a696e50320511efbfa}
+      \strng{authorfullhash}{ffbd440be3d518a696e50320511efbfa}
+      \field{extraname}{1}
+      \field{labelalpha}{Cao15}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Automata, languages, and programming. {P}art {I}}
+      \field{series}{Lecture Notes in Comput. Sci.}
+      \field{title}{Unit interval editing is fixed-parameter tractable}
+      \field{volume}{9134}
+      \field{year}{2015}
+      \field{pages}{306\bibrangedash 317}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1007/978-3-662-47672-7\_25
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-662-47672-7_25
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-662-47672-7_25
+      \endverb
+    \endentry
+    \entry{FominTV15}{article}{}
+      \name{author}{3}{}{%
+        {{hash=79f82fca58f3e65e15c5f702996ec47f}{%
+           family={Fomin},
+           familyi={F\bibinitperiod},
+           given={Fedor\bibnamedelima V.},
+           giveni={F\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=9c32f44b00f0c5e66827640b22eb8527}{%
+           family={Todinca},
+           familyi={T\bibinitperiod},
+           given={Ioan},
+           giveni={I\bibinitperiod}}}%
+        {{hash=5ab9bdeb03d7c14a535c45449d3ad815}{%
+           family={Villanger},
+           familyi={V\bibinitperiod},
+           given={Yngve},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{865828079060d412b5575ea625271ced}
+      \strng{fullhash}{865828079060d412b5575ea625271ced}
+      \strng{bibnamehash}{865828079060d412b5575ea625271ced}
+      \strng{authorbibnamehash}{865828079060d412b5575ea625271ced}
+      \strng{authornamehash}{865828079060d412b5575ea625271ced}
+      \strng{authorfullhash}{865828079060d412b5575ea625271ced}
+      \field{labelalpha}{FTV15}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0097-5397}
+      \field{journaltitle}{SIAM J. Comput.}
+      \field{number}{1}
+      \field{title}{Large induced subgraphs via triangulations and {CMSO}}
+      \field{volume}{44}
+      \field{year}{2015}
+      \field{pages}{54\bibrangedash 87}
+      \range{pages}{34}
+      \verb{doi}
+      \verb 10.1137/140964801
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1137/140964801
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1137/140964801
+      \endverb
+    \endentry
+    \entry{fomin2015exact}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=79f82fca58f3e65e15c5f702996ec47f}{%
+           family={Fomin},
+           familyi={F\bibinitperiod},
+           given={Fedor\bibnamedelima V.},
+           giveni={F\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=6f6618c17370df18dffa9daf0771c9e5}{%
+           family={Gaspers},
+           familyi={G\bibinitperiod},
+           given={Serge},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d36fdf541c333f611dfa11132a784053}{%
+           family={Lokshtanov},
+           familyi={L\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=f6ffd3ea3887e04ef5a00a54c6c71668}{%
+           family={Saurabh},
+           familyi={S\bibinitperiod},
+           given={Saket},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{fullhash}{392e6b5f3cc29c1b522c10e8e1dbd362}
+      \strng{bibnamehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{authorbibnamehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{authornamehash}{2e9cbb84b2b980c46e6520235290957e}
+      \strng{authorfullhash}{392e6b5f3cc29c1b522c10e8e1dbd362}
+      \field{extraname}{4}
+      \field{labelalpha}{Fom+15}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.DS}
+      \field{eprinttype}{arXiv}
+      \field{title}{Exact Algorithms via Monotone Local Search}
+      \field{year}{2015}
+      \verb{eprint}
+      \verb 1512.01621
+      \endverb
+    \endentry
+    \entry{Kante0KP15}{incollection}{}
+      \name{author}{4}{}{%
+        {{hash=e7c92e8e679d77c18f80b4962748c8fe}{%
+           family={Kanté},
+           familyi={K\bibinitperiod},
+           given={Mamadou\bibnamedelima Moustapha},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=1d9374b766b15d87eeac92a995393f28}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Eun\bibnamedelima Jung},
+           giveni={E\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=e89764f12876f4ec556130e8b2a8cd1b}{%
+           family={Kwon},
+           familyi={K\bibinitperiod},
+           given={O-joung},
+           giveni={O\bibinithyphendelim j\bibinitperiod}}}%
+        {{hash=27b57da5c1e6f6e165ba96b7a5d7b544}{%
+           family={Paul},
+           familyi={P\bibinitperiod},
+           given={Christophe},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Schloss Dagstuhl. Leibniz-Zent. Inform., Wadern}%
+      }
+      \strng{namehash}{d055a194d08fedfb5b4e728131d70212}
+      \strng{fullhash}{d1e03925eba795315d8df6aec4b7ddf1}
+      \strng{bibnamehash}{d055a194d08fedfb5b4e728131d70212}
+      \strng{authorbibnamehash}{d055a194d08fedfb5b4e728131d70212}
+      \strng{authornamehash}{d055a194d08fedfb5b4e728131d70212}
+      \strng{authorfullhash}{d1e03925eba795315d8df6aec4b7ddf1}
+      \field{labelalpha}{Kan+15}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{10th {I}nternational {S}ymposium on {P}arameterized and {E}xact {C}omputation}
+      \field{series}{LIPIcs. Leibniz Int. Proc. Inform.}
+      \field{title}{An {FPT} algorithm and a polynomial kernel for linear rankwidth-1 vertex deletion}
+      \field{volume}{43}
+      \field{year}{2015}
+      \field{pages}{138\bibrangedash 150}
+      \range{pages}{13}
+    \endentry
+    \entry{ShachnaiZ15}{incollection}{}
+      \name{author}{2}{}{%
+        {{hash=a221e08f26640d4d6f75e07a63a1ea6d}{%
+           family={Shachnai},
+           familyi={S\bibinitperiod},
+           given={Hadas},
+           giveni={H\bibinitperiod}}}%
+        {{hash=c094db470b9bc6954f9ea6283169fc59}{%
+           family={Zehavi},
+           familyi={Z\bibinitperiod},
+           given={Meirav},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer, Heidelberg}%
+      }
+      \strng{namehash}{23545bce0bf21406529b5ee49209109e}
+      \strng{fullhash}{23545bce0bf21406529b5ee49209109e}
+      \strng{bibnamehash}{23545bce0bf21406529b5ee49209109e}
+      \strng{authorbibnamehash}{23545bce0bf21406529b5ee49209109e}
+      \strng{authornamehash}{23545bce0bf21406529b5ee49209109e}
+      \strng{authorfullhash}{23545bce0bf21406529b5ee49209109e}
+      \field{labelalpha}{SZ15}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Algorithms---{ESA} 2015}
+      \field{series}{Lecture Notes in Comput. Sci.}
+      \field{title}{A multivariate approach for weighted {FPT} algorithms}
+      \field{volume}{9294}
+      \field{year}{2015}
+      \field{pages}{965\bibrangedash 976}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1007/978-3-662-48350-3\_80
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-662-48350-3_80
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-662-48350-3_80
+      \endverb
+    \endentry
+    \entry{AgrawalLKS16}{incollection}{}
+      \name{author}{4}{}{%
+        {{hash=765dd9919210f3aa591e23e15de74107}{%
+           family={Agrawal},
+           familyi={A\bibinitperiod},
+           given={Akanksha},
+           giveni={A\bibinitperiod}}}%
+        {{hash=dede48f78747297dfab35304e0ca9ab4}{%
+           family={Kolay},
+           familyi={K\bibinitperiod},
+           given={Sudeshna},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d36fdf541c333f611dfa11132a784053}{%
+           family={Lokshtanov},
+           familyi={L\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=f6ffd3ea3887e04ef5a00a54c6c71668}{%
+           family={Saurabh},
+           familyi={S\bibinitperiod},
+           given={Saket},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer, Berlin}%
+      }
+      \strng{namehash}{8fd2f6ba94a9d1518de04f56a6b77d55}
+      \strng{fullhash}{d89c7954feeff91750f52ba290d1ae0a}
+      \strng{bibnamehash}{8fd2f6ba94a9d1518de04f56a6b77d55}
+      \strng{authorbibnamehash}{8fd2f6ba94a9d1518de04f56a6b77d55}
+      \strng{authornamehash}{8fd2f6ba94a9d1518de04f56a6b77d55}
+      \strng{authorfullhash}{d89c7954feeff91750f52ba290d1ae0a}
+      \field{labelalpha}{Agr+16}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{L{ATIN} 2016: theoretical informatics}
+      \field{series}{Lecture Notes in Comput. Sci.}
+      \field{title}{A faster {FPT} algorithm and a smaller kernel for block graph vertex deletion}
+      \field{volume}{9644}
+      \field{year}{2016}
+      \field{pages}{1\bibrangedash 13}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1007/978-3-662-49529-2\_1
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-662-49529-2_1
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-662-49529-2_1
+      \endverb
+    \endentry
+    \entry{Cao8kinterval}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=ffbd440be3d518a696e50320511efbfa}{%
+           family={Cao},
+           familyi={C\bibinitperiod},
+           given={Yixin},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM, New York}%
+      }
+      \strng{namehash}{ffbd440be3d518a696e50320511efbfa}
+      \strng{fullhash}{ffbd440be3d518a696e50320511efbfa}
+      \strng{bibnamehash}{ffbd440be3d518a696e50320511efbfa}
+      \strng{authorbibnamehash}{ffbd440be3d518a696e50320511efbfa}
+      \strng{authornamehash}{ffbd440be3d518a696e50320511efbfa}
+      \strng{authorfullhash}{ffbd440be3d518a696e50320511efbfa}
+      \field{extraname}{2}
+      \field{labelalpha}{Cao16}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the {T}wenty-{S}eventh {A}nnual {ACM}-{SIAM} {S}ymposium on {D}iscrete {A}lgorithms}
+      \field{title}{Linear recognition of almost interval graphs}
+      \field{year}{2016}
+      \field{pages}{1096\bibrangedash 1115}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1137/1.9781611974331.ch77
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1137/1.9781611974331.ch77
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1137/1.9781611974331.ch77
+      \endverb
+    \endentry
+    \entry{CochefertCGK16}{incollection}{}
+      \name{author}{4}{}{%
+        {{hash=b6d57e2b6e7914ee8057d8f7d841e4c9}{%
+           family={Cochefert},
+           familyi={C\bibinitperiod},
+           given={Manfred},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f2447cd6ead8648748fb36f844c323e5}{%
+           family={Couturier},
+           familyi={C\bibinitperiod},
+           given={Jean-François},
+           giveni={J\bibinithyphendelim F\bibinitperiod}}}%
+        {{hash=6f6618c17370df18dffa9daf0771c9e5}{%
+           family={Gaspers},
+           familyi={G\bibinitperiod},
+           given={Serge},
+           giveni={S\bibinitperiod}}}%
+        {{hash=5b3562b0f32fd18e197e049545720176}{%
+           family={Kratsch},
+           familyi={K\bibinitperiod},
+           given={Dieter},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer, Berlin}%
+      }
+      \strng{namehash}{b6800f82935c3114cdb7e413e8c8b3f4}
+      \strng{fullhash}{b6c661d0ca7f09beb617b741fc08b8ad}
+      \strng{bibnamehash}{b6800f82935c3114cdb7e413e8c8b3f4}
+      \strng{authorbibnamehash}{b6800f82935c3114cdb7e413e8c8b3f4}
+      \strng{authornamehash}{b6800f82935c3114cdb7e413e8c8b3f4}
+      \strng{authorfullhash}{b6c661d0ca7f09beb617b741fc08b8ad}
+      \field{labelalpha}{Coc+16}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{L{ATIN} 2016: theoretical informatics}
+      \field{series}{Lecture Notes in Comput. Sci.}
+      \field{title}{Faster algorithms to enumerate hypergraph transversals}
+      \field{volume}{9644}
+      \field{year}{2016}
+      \field{pages}{306\bibrangedash 318}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1007/978-3-662-49529-2\_23
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-662-49529-2_23
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-662-49529-2_23
+      \endverb
+    \endentry
+    \entry{KumarL16}{incollection}{}
+      \name{author}{2}{}{%
+        {{hash=c96fdbf59c1045967f6af5a9f1c2fa7a}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Mithilesh},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d36fdf541c333f611dfa11132a784053}{%
+           family={Lokshtanov},
+           familyi={L\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Schloss Dagstuhl. Leibniz-Zent. Inform., Wadern}%
+      }
+      \strng{namehash}{588d636f3cc3d6b27cfa19e822506389}
+      \strng{fullhash}{588d636f3cc3d6b27cfa19e822506389}
+      \strng{bibnamehash}{588d636f3cc3d6b27cfa19e822506389}
+      \strng{authorbibnamehash}{588d636f3cc3d6b27cfa19e822506389}
+      \strng{authornamehash}{588d636f3cc3d6b27cfa19e822506389}
+      \strng{authorfullhash}{588d636f3cc3d6b27cfa19e822506389}
+      \field{labelalpha}{KL16}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{33rd {S}ymposium on {T}heoretical {A}spects of {C}omputer {S}cience}
+      \field{series}{LIPIcs. Leibniz Int. Proc. Inform.}
+      \field{title}{Faster exact and parameterized algorithm for feedback vertex set in tournaments}
+      \field{volume}{47}
+      \field{year}{2016}
+      \field{pages}{Art. No. 49\bibrangessep 13}
+      \range{pages}{-1}
+    \endentry
+    \entry{BasteFKS15}{article}{}
+      \name{author}{4}{}{%
+        {{hash=802aefd6f38ed17e8b47cff598bdd487}{%
+           family={Baste},
+           familyi={B\bibinitperiod},
+           given={Julien},
+           giveni={J\bibinitperiod}}}%
+        {{hash=6b8e5786c1da7a20f76ec2d0d5476354}{%
+           family={Faria},
+           familyi={F\bibinitperiod},
+           given={Luerbio},
+           giveni={L\bibinitperiod}}}%
+        {{hash=a268634e09446e2b85f9ddaade8a1d09}{%
+           family={Klein},
+           familyi={K\bibinitperiod},
+           given={Sulamita},
+           giveni={S\bibinitperiod}}}%
+        {{hash=f23ac7e85d8fa0e0f95c4813702523da}{%
+           family={Sau},
+           familyi={S\bibinitperiod},
+           given={Ignasi},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{0cc86916e3662d6b11624de01040c3bf}
+      \strng{fullhash}{8ca02cdc530ffe0272c6851705f692e1}
+      \strng{bibnamehash}{0cc86916e3662d6b11624de01040c3bf}
+      \strng{authorbibnamehash}{0cc86916e3662d6b11624de01040c3bf}
+      \strng{authornamehash}{0cc86916e3662d6b11624de01040c3bf}
+      \strng{authorfullhash}{8ca02cdc530ffe0272c6851705f692e1}
+      \field{labelalpha}{Bas+17}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1432-4350}
+      \field{journaltitle}{Theory Comput. Syst.}
+      \field{number}{3}
+      \field{title}{Parameterized complexity dichotomy for {$(r,\ell)$}-vertex deletion}
+      \field{volume}{61}
+      \field{year}{2017}
+      \field{pages}{777\bibrangedash 794}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1007/s00224-016-9716-y
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s00224-016-9716-y
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s00224-016-9716-y
+      \endverb
+    \endentry
+  \enddatalist
+  \missing{KolayP15}
+  \missing{MagnusPhD07}
+  \missing{Wahlstrom14}
+  \missing{abs-1007-1166}
+\endrefsection
+\endinput
+

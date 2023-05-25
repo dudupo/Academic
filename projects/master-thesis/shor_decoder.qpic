@@ -1,0 +1,64 @@
+a0 W 
+b0 W
+c0 W
+d0 W
+e0 W
+a1 W 
+b1 W
+c1 W
+d1 W
+e1 W
+a2 W 
+b2 W
+c2 W
+d2 W
+e2 W
+
+
+d0 C a0
+d0 C b0
+e0 C b0
+e0 C c0
+e0 G $X$ 
+d0 e0 +c0 
+e0 G $X$ 
+d0 e0 +b0
+d0 G $X$
+d0 e0 +a0
+d0 G $X$ 
+
+d1 C a1
+d1 C b1
+e1 C b1
+e1 C c1
+d1 e1 +b1
+d1 G $X$
+d1 e1 +a1
+d1 G $X$ 
+e1 G $X$ 
+d1 e1 +c1 
+e1 G $X$ 
+
+d2 C a2
+d2 C b2
+e2 C b2
+e2 C c2
+d2 e2 +b2
+d2 G $X$
+d2 e2 +a2
+d2 G $X$ 
+e2 G $X$ 
+d2 e2 +c2 
+e2 G $X$ 
+
+a0 G $H$ 
+b0 G $H$
+c0 G $H$
+a1 G $H$ 
+b1 G $H$
+c1 G $H$
+a2 G $H$ 
+b2 G $H$
+c2 G $H$
+
+a0 e0 @ 1 7 

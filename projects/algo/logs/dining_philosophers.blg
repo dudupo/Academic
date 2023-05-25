@@ -1,0 +1,9 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'dining_philosophers.blg'
+[75] biber:340> INFO - === Sun Apr 30, 2023, 18:31:20
+[89] Biber.pm:415> INFO - Reading 'dining_philosophers.bcf'
+[149] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
+[154] Utils.pm:395> WARN - The file 'dining_philosophers.bcf' does not contain any citations!
+[161] bbl.pm:654> INFO - Writing 'dining_philosophers.bbl' with encoding 'UTF-8'
+[161] bbl.pm:757> INFO - Output to dining_philosophers.bbl
+[161] Biber.pm:128> INFO - WARNINGS: 1

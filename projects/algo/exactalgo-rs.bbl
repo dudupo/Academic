@@ -1,0 +1,240 @@
+\begin{thebibliography}{10}
+
+\bibitem{AgrawalLKS16}
+{\sc A.~Agrawal, D.~Lokshtanov, S.~Kolay, and S.~Saurabh}, {\em A faster {FPT}
+  algorithm and a smaller kernel for block graph vertex deletion}, in
+  Proceedings of the 12th Latin American Theoretical Informatics Symposium
+  (LATIN 2016), Lecture Notes in Computer Science, Springer, to appear.
+\newblock Available as arXiv CoRR abs/1510.08154.
+
+\bibitem{AlonBI86}
+{\sc N.~Alon, L.~Babai, and A.~Itai}, {\em A fast and simple randomized
+  parallel algorithm for the maximal independent set problem}, J. Algorithms, 7
+  (1986), pp.~567--583.
+
+\bibitem{BasteFKS15}
+{\sc J.~Baste, L.~Faria, S.~Klein, and I.~Sau}, {\em Parameterized complexity
+  dichotomy for $(r, \ell)$-vertex deletion}, Tech. Report abs/1504.05515,
+  arXiv CoRR, 2015.
+
+\bibitem{BliznetsFPV13}
+{\sc I.~Bliznets, F.~V. Fomin, M.~Pilipczuk, and Y.~Villanger}, {\em Largest
+  chordal and interval subgraphs faster than $2^n$}, in Proceedings of the 21st
+  Annual European Symposium on Algorithms (ESA), vol.~8125 of Lecture Notes in
+  Comput. Sci., Springer, 2013, pp.~193--204.
+
+\bibitem{BoralCKP14}
+{\sc A.~Boral, M.~Cygan, T.~Kociumaka, and M.~Pilipczuk}, {\em A fast branching
+  algorithm for cluster vertex deletion}, in Proceedings of the 9th
+  International Computer Science Symposium in Russia (CSR), vol.~8476 of
+  Lecture Notes in Computer Science, Springer, 2014, pp.~111--124.
+
+\bibitem{BrandstadtLS99}
+{\sc A.~Brandst{\"a}dt, V.~B. Le, and J.~P. Spinrad}, {\em Graph Classes: A
+  Survey}, Discrete Mathematics and Applications, SIAM, 1999.
+
+\bibitem{Cao15}
+{\sc Y.~Cao}, {\em Unit interval editing is fixed-parameter tractable}, in
+  Proceedings of the 42nd International Colloquium of Automata, Languages and
+  Programming (ICALP), vol.~9134 of Lecture Notes in Comput. Sci., Springer,
+  2015, pp.~306--317.
+
+\bibitem{Cao8kinterval}
+{\sc Y.~Cao}, {\em Linear recognition of almost interval graphs}, in
+  Proceedings of the 27th Annual ACM-SIAM Symposium on Discrete Algorithms
+  (SODA 2016), to appear.
+\newblock Available as arXiv CoRR abs/1403.1515.
+
+\bibitem{CaoCL15}
+{\sc Y.~Cao, J.~Chen, and Y.~Liu}, {\em On feedback vertex set: New measure and
+  new structures}, Algorithmica, 73 (2015), pp.~63--86.
+
+\bibitem{ChenFLLV08}
+{\sc J.~Chen, F.~V. Fomin, Y.~Liu, S.~Lu, and Y.~Villanger}, {\em Improved
+  algorithms for feedback vertex set problems}, J. Computer and System
+  Sciences, 74 (2008), pp.~1188--1198.
+
+\bibitem{CochefertCGK16}
+{\sc M.~Cochefert, J.-F. Couturier, S.~Gaspers, and D.~Kratsch}, {\em Faster
+  algorithms to enumerate hypergraph transversals}, in Proceedings of the 12th
+  Latin American Theoretical Informatics Symposium (LATIN 2016), Lecture Notes
+  in Computer Science, Springer, to appear.
+\newblock Available as arXiv CoRR abs/1510.05093.
+
+\bibitem{cygan2015parameterized}
+{\sc M.~Cygan, F.~V. Fomin, L.~Kowalik, D.~Lokshtanov, D.~Marx, M.~Pilipczuk,
+  M.~Pilipczuk, and S.~Saurabh}, {\em Parameterized Algorithms}, Springer,
+  2015.
+
+\bibitem{cut-and-count}
+{\sc M.~Cygan, J.~Nederlof, M.~Pilipczuk, M.~Pilipczuk, J.~M.~M. van Rooij, and
+  J.~O. Wojtaszczyk}, {\em Solving connectivity problems parameterized by
+  treewidth in single exponential time}, in Proceedings of the 52nd Annual
+  Symposium on Foundations of Computer Science (FOCS), IEEE, 2011,
+  pp.~150--159.
+
+\bibitem{Dantsin02deterministic}
+{\sc E.~Dantsin, A.~Goerdt, E.~A. Hirsch, R.~Kannan, J.~Kleinberg,
+  C.~Papadimitriou, P.~Raghavan, and U.~Sch{\"o}ning}, {\em A deterministic
+  {$(2-2/(k+1))\sp n$} algorithm for {$k$}-{SAT} based on local search},
+  Theoretical Computer Science, 289 (2002), pp.~69--83.
+
+\bibitem{DehneFLRS07}
+{\sc F.~K. H.~A. Dehne, M.~R. Fellows, M.~A. Langston, F.~A. Rosamond, and
+  K.~Stevens}, {\em An {$O(2^{O(k)}n^{3})$} {FPT} algorithm for the undirected
+  feedback vertex set problem}, Theory of Computing Systems, 41 (2007),
+  pp.~479--492.
+
+\bibitem{FellowsFLRSV12}
+{\sc M.~R. Fellows, F.~V. Fomin, D.~Lokshtanov, F.~A. Rosamond, S.~Saurabh, and
+  Y.~Villanger}, {\em Local search: Is brute-force avoidable?}, J. Comput.
+  Syst. Sci., 78 (2012), pp.~707--719.
+
+\bibitem{FominGKLS10}
+{\sc F.~V. Fomin, S.~Gaspers, D.~Kratsch, M.~Liedloff, and S.~Saurabh}, {\em
+  Iterative compression and exact algorithms}, Theor. Comput. Sci., 411 (2010),
+  pp.~1045--1053.
+
+\bibitem{FominGPR08-On}
+{\sc F.~V. Fomin, S.~Gaspers, A.~V. Pyatkin, and I.~Razgon}, {\em On the
+  minimum feedback vertex set problem: Exact and enumeration algorithms},
+  Algorithmica, 52 (2008), pp.~293--307.
+
+\bibitem{FominHKPV14}
+{\sc F.~V. Fomin, P.~Heggernes, D.~Kratsch, C.~Papadopoulos, and Y.~Villanger},
+  {\em Enumerating minimal subset feedback vertex sets}, Algorithmica, 69
+  (2014), pp.~216--231.
+
+\bibitem{Fomin:2010mo}
+{\sc F.~V. Fomin and D.~Kratsch}, {\em Exact Exponential Algorithms}, Springer,
+  2010.
+\newblock An EATCS Series: Texts in Theoretical Computer Science.
+
+\bibitem{FominTV15}
+{\sc F.~V. Fomin, I.~Todinca, and Y.~Villanger}, {\em Large induced subgraphs
+  via triangulations and {CMSO}}, {SIAM} J. Comput., 44 (2015), pp.~54--87.
+
+\bibitem{GaspersKOSS12}
+{\sc S.~Gaspers, E.~J. Kim, S.~Ordyniak, S.~Saurabh, and S.~Szeider}, {\em
+  Don't be strict in local search!}, in Proceedings of the Twenty-Sixth {AAAI}
+  Conference on Artificial Intelligence (AAAI), {AAAI} Press, 2012.
+
+\bibitem{GaspersM13}
+{\sc S.~Gaspers and M.~Mnich}, {\em Feedback vertex sets in tournaments},
+  Journal of Graph Theory, 72 (2013), pp.~72--89.
+
+\bibitem{GolovachHP12}
+{\sc P.~A. Golovach, P.~van~'t Hof, and D.~Paulusma}, {\em Obtaining planarity
+  by contracting few edges}, Theoretical Computer Science, 476 (2013),
+  pp.~38--46.
+
+\bibitem{GuoGHNW06}
+{\sc J.~Guo, J.~Gramm, F.~H{\"u}ffner, R.~Niedermeier, and S.~Wernicke}, {\em
+  Compression-based fixed-parameter algorithms for feedback vertex set and edge
+  bipartization}, J. Computer and System Sciences, 72 (2006), pp.~1386--1396.
+
+\bibitem{KanjLLTXXYZZZ14}
+{\sc I.~A. Kanj, G.~Lin, T.~Liu, W.~Tong, G.~Xia, J.~Xu, B.~Yang, F.~Zhang,
+  P.~Zhang, and B.~Zhu}, {\em Algorithms for cut problems on trees}, in
+  Proceedings of the 8th International Conference on Combinatorial Optimization
+  and Applications (COCOA), vol.~8881 of Lecture Notes in Computer Science,
+  Springer, 2014, pp.~283--298.
+
+\bibitem{Kante0KP15}
+{\sc M.~M. Kant{\'{e}}, E.~J. Kim, O.~Kwon, and C.~Paul}, {\em An {FPT}
+  algorithm and a polynomial kernel for linear rankwidth-1 vertex deletion}, in
+  Proceedings of the 10th International Symposium on Parameterized and Exact
+  Computation ({IPEC} 2015), vol.~43 of LIPIcs, Schloss Dagstuhl -
+  Leibniz-Zentrum fuer Informatik, 2015, pp.~138--150.
+
+\bibitem{KociumakaP13}
+{\sc T.~Kociumaka and M.~Pilipczuk}, {\em Faster deterministic feedback vertex
+  set}, Inf. Process. Lett., 114 (2014), pp.~556--560.
+
+\bibitem{KolayP15}
+{\sc S.~Kolay and F.~Panolan}, {\em Parameterized algorithms for deletion to
+  $(r, \ell)$-graphs}, in Proceedings of FSTTCS 2015, to appear.
+\newblock Available as arXiv CoRR abs/1504.08120.
+
+\bibitem{KumarL16}
+{\sc M.~Kumar and D.~Lokshtanov}, {\em Faster exact and parameterized algorithm
+  for feedback vertex set in tournaments}, in Proceedings of the 33rd
+  International Symposium on Theoretical Aspects of Computer Science (STACS
+  2016), to appear.
+\newblock Available as arXiv CoRR abs/1510.07676.
+
+\bibitem{abs-1007-1166}
+{\sc K.~Kutzkov and D.~Scheder}, {\em Using {CSP} to improve deterministic
+  {3-SAT}}, CoRR, abs/1007.1166 (2010).
+
+\bibitem{MarxS11}
+{\sc D.~Marx and I.~Schlotter}, {\em Stable assignment with couples:
+  Parameterized complexity and local search}, Discrete Optimization, 8 (2011),
+  pp.~25--40.
+
+\bibitem{Moon:1971xz}
+{\sc J.~W. Moon}, {\em On maximal transitive subtournaments}, Proc. Edinburgh
+  Math. Soc. (2), 17 (1971), pp.~345--349.
+
+\bibitem{MoserS11}
+{\sc R.~A. Moser and D.~Scheder}, {\em A full derandomization of
+  {S}ch{\"{o}}ning's {$k$-SAT} algorithm}, in Proceedings of the 43rd Annual
+  ACM Symposium on Theory of Computing (STOC), {ACM}, 2011, pp.~245--252.
+
+\bibitem{NaorSS95}
+{\sc M.~Naor, L.~J. Schulman, and A.~Srinivasan}, {\em Splitters and
+  near-optimal derandomization}, in Proceedings of the 36th Annual Symposium on
+  Foundations of Computer Science (FOCS), IEEE, 1995, pp.~182--191.
+
+\bibitem{Razgon06}
+{\sc I.~Razgon}, {\em Exact computation of maximum induced forest}, in
+  Proceedings of the 10th Scandinavian Workshop on Algorithm Theory (SWAT
+  2006), vol.~4059 of Lecture Notes in Comput. Sci., Berlin, 2006, Springer,
+  pp.~160--171.
+
+\bibitem{Razgon07}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Computing minimum
+  directed feedback vertex set in o(1.9977\({}^{\mbox{n}}\))}, in Proceedings
+  of the 10th Italian Conference on Theoretical Computer Science (ICTCS), 2007,
+  pp.~70--81.
+
+\bibitem{Schoening99-A}
+{\sc U.~Sch{\"o}ning}, {\em A probabilistic algorithm for {$k$}-{SAT} and
+  constraint satisfaction problems}, in 40th Annual Symposium on Foundations of
+  Computer Science (New York, 1999), IEEE Computer Soc., Los Alamitos, CA,
+  1999, pp.~410--414.
+
+\bibitem{ShachnaiZ15}
+{\sc H.~Shachnai and M.~Zehavi}, {\em A multivariate approach for weighted
+  {FPT} algorithms}, in Proceedigs of the 23rd Annual European Symposium on
+  Algorithms ({ESA}), vol.~9294 of Lecture Notes in Computer Science, Springer,
+  2015, pp.~965--976.
+
+\bibitem{HofV13}
+{\sc P.~van~'t Hof and Y.~Villanger}, {\em Proper interval vertex deletion},
+  Algorithmica, 65 (2013), pp.~845--867.
+
+\bibitem{MagnusPhD07}
+{\sc M.~Wahlstr{\"o}m}, {\em Algorithms, measures and upper bounds for
+  satisfiability and related problems}, PhD thesis, Link\"oping University,
+  Sweden, 2007.
+
+\bibitem{Wahlstrom14}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Half-integrality,
+  {LP}-branching and {FPT} algorithms}, in Proceedings of the 24th Annual
+  ACM-SIAM Symposium on Discrete Algorithms (SODA), SIAM, 2014, pp.~1762--1781.
+
+\bibitem{XiaoN13}
+{\sc M.~Xiao and H.~Nagamochi}, {\em Exact algorithms for maximum independent
+  set}, in Proceedings of the 24th International Symposium on Algorithms and
+  Computation (ISAAC), vol.~8283 of Lecture Notes in Computer Science,
+  Springer, 2013, pp.~328--338.
+\newblock See also arXiv CoRR abs/1312.6260.
+
+\bibitem{YatoS03}
+{\sc T.~Yato and T.~Seta}, {\em Complexity and completeness of finding another
+  solution and its application to puzzles}, IEICE Transactions on Fundamentals
+  of Electronics, Communications and Computer Sciences, E86-A (2003),
+  pp.~1052--1060.
+
+\end{thebibliography}
