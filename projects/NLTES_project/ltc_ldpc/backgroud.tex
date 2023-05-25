@@ -139,8 +139,6 @@ graphs_tex_ff  = str(ops2.tkz_picture())
   \begin{example}
     The repetition code could be present as Tanner code, over the cycle graph. Any vertex checks that the bits on it's edge are equal, Hence a codeword is an assignment on which all the bits equal (otherwise there is an edge which not connect to any overtax). \cref{fig:cyc} ilustrate a legal assignment.  
   \end{example} 
-
-  %$  n^{2^log n} \Rightarrow n^n p = 1/    
  
  \begin{center}
   \begin{figure}[H]
@@ -151,7 +149,8 @@ graphs_tex_ff  = str(ops2.tkz_picture())
   \label{fig:cyc}
 \end{figure}
 \end{center}
- 
+Now, recall that the distance of linear code is the minimal weight of non-zero codeword. Consider a codeword $c \in C$, and let group the vertex by for sets $V_{i}$ such $V_{i}$ is the set of vertices that see $i \in \{0,1\}^{2}$. By the fact that $c \in C$ we have that $|V_{10}|=|V_{01}| = 0$. But on the other hand any vertex in $V_{00}$ can't be connected to $V_{11}$, Thus we obtain that either all the vertices in $V_{11}$ tr that the graph is not connected. The distance of the code is $\frac{1}{2}\sum{|V_{i}|\cdot |i|} = \frac{1}{2}2 \cdot n = n$.             
+
   \subsubsection{Setting $C_{0}$ To Be The Polynomial Code.}
   
   \begin{equation*}
