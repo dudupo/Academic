@@ -50,16 +50,6 @@ It is also well known that the only binary codes that reach the bound are: $[n,1
 \input{polycode.tex} 
 \fi
 
-\subsubsection{Note On Quantum Polynomial Code.} 
-Let's define the code $C$ such that any state in $C$ is a coset of the polynomials at degree at most $d$ shifted by $x \in \mathbb{F}_{p}$. In other words the codeword associated with $x$ is the state $\ket{\underline{c}} = \sum_{ \substack{ f \in \mathbb{F}_{d}[x] \\  f(0) = 0}}{ \ket{ c + f}} $. The inner product between any $d$-degree polynomial with zero free coefficient is:
-\begin{equation*}
-  \begin{split}
-    \braket{ f | x^{j} } = \sum_{i \le d }{ \braket{a_{i} x^{i} | x^{j}}} = \sum_{i \le d}{ a_{i} \expp{ x^{i}x^{j}   }} =  \sum_{i \le d}{ a_{i } \mathbf{1}_{ i + j =_{n} 0 }}
-  \end{split}
-\end{equation*}
-\ctt{Say some words about the classily testability of the polynomial code, and why for quantum it doesn't work. (The dual space of polynomials of low degree is the subspace of all the polynomials with heigh degree.)}
-
-
 Next, we will review Tanner's construction, that in addition to being a critical element to our proof, also serves as an example of how one can construct a code with arbitrary length and positive rate.
 
 \subsection{Tanner Code}
@@ -188,4 +178,14 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
     \end{split}
   \end{equation*}
 
-%
+
+\subsubsection{Note On Quantum Polynomial Code.} 
+Let's define the code $C$ such that any state in $C$ is a coset of the polynomials at degree at most $d$ shifted by $x \in \mathbb{F}_{p}$. In other words the codeword associated with $x$ is the state $\ket{\underline{c}} = \sum_{ \substack{ f \in \mathbb{F}_{d}[x] \\  f(0) = 0}}{ \ket{ c + f}} $. The inner product between any $d$-degree polynomial with zero free coefficient is:
+\begin{equation*}
+  \begin{split}
+    \braket{ f | x^{j} } = \sum_{i \le d }{ \braket{a_{i} x^{i} | x^{j}}} = \sum_{i \le d}{ a_{i} \expp{ x^{i}x^{j}   }} =  \sum_{i \le d}{ a_{i } \mathbf{1}_{ i + j =_{n} 0 }}
+  \end{split}
+\end{equation*}
+\ctt{Say some words about the classily testability of the polynomial code, and why for quantum it doesn't work. (The dual space of polynomials of low degree is the subspace of all the polynomials with heigh degree.)}
+
+

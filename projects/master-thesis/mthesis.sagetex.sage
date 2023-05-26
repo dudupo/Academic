@@ -71,7 +71,7 @@ try:
 except:
  _st_.goboom(65)
 _st_.blockend()
-_st_.current_tex_line = 73
+_st_.current_tex_line = 63
 _st_.blockbegin()
 try:
  
@@ -108,18 +108,18 @@ try:
  graphs_tex =  ' \ \ \  '.join([  str(ops.tkz_picture())  for _ in range(4) ])
  graphs_tex_ff  = str(ops2.tkz_picture())
 except:
- _st_.goboom(107)
+ _st_.goboom(97)
 _st_.blockend()
 try:
- _st_.current_tex_line = 113
+ _st_.current_tex_line = 103
  _st_.inline(0, graphs_tex)
 except:
- _st_.goboom(113)
+ _st_.goboom(103)
 try:
- _st_.current_tex_line = 146
+ _st_.current_tex_line = 136
  _st_.inline(1, graphs_tex_ff)
 except:
- _st_.goboom(146)
+ _st_.goboom(136)
 _st_.current_tex_line = 22
 _st_.blockbegin()
 try:
