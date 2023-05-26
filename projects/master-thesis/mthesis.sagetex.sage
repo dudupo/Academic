@@ -98,7 +98,7 @@ try:
            vertex_size= 0.01,
            format='dot2tex',
            prog='crico',
-           graphic_size=(30,8),
+           graphic_size=(30,9),
            edge_fills=False,
        )
  
