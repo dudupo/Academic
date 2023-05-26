@@ -150,6 +150,8 @@ Where $n(C_i)$ represents the code length of the $i$th code. Repeating the proce
 \end{center}
 Recall that the distance of a linear code is the minimal weight of the non-zero codewords. Consider a codeword $c \in C$ and group the vertices by four sets $V_i$ such that $V_i$ is the set of vertices that see $i \in \{0,1\}^{2}$. Since $c \in C$, we have that $|V_{10}|=|V_{01}| = 0$. Additionally, any vertex in $V_{00}$ is not connected to $V_{11}$, which gives us two possible cases: either all the vertices in $V_{11}$ are isolated, or the graph is not connected. Hence, the distance of the code is equal to $\frac{1}{2}\sum{|V_{i}|\cdot |i|} = \frac{1}{2}2 \cdot n = n$.
 
+The analyzing the repetition code gives a clue of how, in certain cases, one might prove a lower bound on the code distance. We would like to say that, if the weight of the code word is below the distance, then it is must be that are least one vertex see non trivial local view which is not a codeword in $C_{0}$. Put it differently, we can't spread a small weight codeword over $\{V_{i}\}$, defined above, without to expanse into subsets corresponds to low $|i|$. 
+
 
 %Note that for any $S\subset V$ and $ S \neq V $, 
 
