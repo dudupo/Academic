@@ -131,15 +131,15 @@ Where $n(C_i)$ represents the code length of the $i$th code. Repeating the proce
     In this representation, each vertex checks if the bits on its edges are equal. A valid codeword is an assignment in which all the bits are equal, since otherwise, there would be an edge with no supporting vertex. An illustration of a legal assignment is provided in \cref{fig:cyc}.
   \end{example} 
  
-% \begin{center}
-%  \begin{figure}[H]
+ \begin{center}
+  \begin{figure}[H]
 %    \scalebox{0.5}{
 %      \sagestr{graphs_tex_ff}
 %    }
 %  \caption{Cycle Graph.} 
-%%  \label{fig:cyc}
-%\end{figure}
-%\end{center}
+  \label{fig:cyc}
+\end{figure}
+\end{center}
 %
 Recall that the distance of a linear code is the minimal weight of the non-zero codewords. Consider a codeword $c \in C$ and group the vertices by four sets $V_i$ such that $V_i$ is the set of vertices that see $i \in \{0,1\}^{2}$. Since $c \in C$, we have that $|V_{10}|=|V_{01}| = 0$. Additionally, any vertex in $V_{00}$ is not connected to $V_{11}$, which gives us two possible cases: either all the vertices in $V_{11}$ are isolated, or the graph is not connected. Hence, the distance of the code is equal to $\frac{1}{2}\sum{|V_{i}|\cdot |i|} = \frac{1}{2}2 \cdot n = n$.
 
