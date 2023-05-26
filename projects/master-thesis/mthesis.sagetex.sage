@@ -115,8 +115,30 @@ try:
  _st_.inline(0, graphs_tex)
 except:
  _st_.goboom(103)
+_st_.current_tex_line = 22
+_st_.blockbegin()
 try:
- _st_.current_tex_line = 137
- _st_.inline(1, graphs_tex_ff)
+ R.<t> = PowerSeriesRing(GF(17));
+ polyf = (t-1) * (t-2)
+ polyg = (t-1) * (t-4)
+ f(x) = (x-1) * (x-2)
+ g(x) = (x-1) * (x-4)
+ pplot_t = finate_poly_plot(f)
+ pplot_t2 = finate_poly_plot(g)
+ 
+ 
+ 
 except:
- _st_.goboom(137)
+ _st_.goboom(33)
+_st_.blockend()
+try:
+ _st_.current_tex_line = 36
+ _st_.plot(0, format='notprovided', _p_= pplot_t + pplot_t2 )
+except:
+ _st_.goboom(36)
+try:
+ _st_.current_tex_line = 37
+ _st_.inline(1, print_capt('$' + latex(f) + '$ and $' + latex(g) +'$'))
+except:
+ _st_.goboom(37)
+_st_.endofdoc()
