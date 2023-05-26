@@ -98,7 +98,7 @@ try:
            vertex_size= 0.01,
            format='dot2tex',
            prog='crico',
-           graphic_size=(30,8),
+           graphic_size=(5,5),
            edge_fills=False,
        )
  
@@ -116,10 +116,10 @@ try:
 except:
  _st_.goboom(103)
 try:
- _st_.current_tex_line = 136
+ _st_.current_tex_line = 139
  _st_.inline(1, graphs_tex_ff)
 except:
- _st_.goboom(136)
+ _st_.goboom(139)
 _st_.current_tex_line = 22
 _st_.blockbegin()
 try:
