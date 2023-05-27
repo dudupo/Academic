@@ -21,8 +21,8 @@ We are going to introduce the polynomail code in an opposite order as in the usu
     
     \begin{equation*}
       \begin{split}
-        1 - \varepsilon  & \le \prbm{ D\left( x_1 .. x_{d+1} \right) }{x_1 .. x_{d+1}} = 
-        \prbcprb{  D\left( x_1 .. x_{d+1} \right)}{ x_1 .. x_{d+1}  }{ x_{d+1} \in A } + \prbcprb{ D\left( x_1 .. x_{d+1} \right)}{ x_1 .. x_{d+1}   }{ x_{d+1} \notin A } \\
+        1 - \varepsilon  & \le \prbm{ D\left( x_1 .. x_{d+1} \right) }{x_1 .. x_{d+1}}  \\
+        & = \prbcprb{  D\left( x_1 .. x_{d+1} \right)}{ x_1 .. x_{d+1}  }{ x_{d+1} \in A } + \prbcprb{ D\left( x_1 .. x_{d+1} \right)}{ x_1 .. x_{d+1}   }{ x_{d+1} \notin A } \\
         & \le 1 \cdot \alpha +  \frac{1}{|\Sigma|}  \left( 1 - \alpha \right) = \left( 1 - \frac{1}{|\Sigma|} \right) \alpha  + \frac{1}{|\Sigma|} \\
        & \Rightarrow \alpha \ge  1- \left( 1 - \frac{1}{\Sigma} \right)^{-1}\varepsilon
       \end{split}
