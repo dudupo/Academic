@@ -125,20 +125,17 @@ try:
  g(x) = (x-1) * (x-4)
  pplot_t = finate_poly_plot(f)
  pplot_t2 = finate_poly_plot(g)
- 
- 
- 
 except:
- _st_.goboom(33)
+ _st_.goboom(30)
 _st_.blockend()
 try:
- _st_.current_tex_line = 36
+ _st_.current_tex_line = 33
  _st_.plot(0, format='notprovided', _p_= pplot_t + pplot_t2 )
 except:
- _st_.goboom(36)
+ _st_.goboom(33)
 try:
- _st_.current_tex_line = 37
+ _st_.current_tex_line = 34
  _st_.inline(1, print_capt('$' + latex(f) + '$ and $' + latex(g) +'$'))
 except:
- _st_.goboom(37)
+ _st_.goboom(34)
 _st_.endofdoc()
