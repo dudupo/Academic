@@ -15,7 +15,7 @@ Denote by $V(x)$ the vandermonde matrix defined by $x$ namely $V(x)_{ij} = x_{i}
 
 \begin{equation*}
   \begin{split}
-    \left(\sum_{t}V(x + w^{t}y)\right)_{j} = \sum{ \sum w^{l\cdot t} { j \choose l }x_{i}^{l}y_{i}^{j - l}   }
+  \left(\sum_{t}V(x + w^{t}y)\right)_{j} = \sum{ \sum w^{l\cdot t} { j \choose l }x_{i}^{l}y_{i}^{j - l}   } = t \left( \cdot x^{j} + y^{j}\right) + \sum_{l\neq 0,j}{\frac{w^{l\cdot d} - 1 }{w^{l}-1}\cdot {j choose l}x_{i}^{l}y_{i}^{j-l}}
   \end{split}
 \end{equation*}
 
