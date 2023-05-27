@@ -40,8 +40,9 @@ pplot_t2 = finate_poly_plot(g)
   Given $d+1$ points, there is a unique polynomial at degree at most $d$ that pass through all those points. Nevertheless, there is an algorithm $G$ that takes those points as input and outputs the corresponding polynomial.   
 \end{fact}
 
-\begin{lemma}[Testability Of Polynomail Code.] The polynomial code is $\left(d \cdot \log\left( n \right), \varepsilon  \right) $ testable.   
 
+
+\begin{lemma}[Testability Of Polynomail Code.] The polynomial code is $\left(d \cdot \log\left( n \right), \varepsilon  \right) $ testable.   
 \end{lemma}
 \begin{proof}
 Denote by $f \in \mathbb{F}_{m}^{n}$ a codeword candidate and consider the following test. First, choose uniformly at random $d+1$ points $x_{1}, x_{2}, x_{3}, ... x_{d+1}$ and use $G$ to output a polynomial that agree on that points, denote it by $G\left( f \right)$. Then uniformly choose an additional point, return \textbf{True} if $G\left( f \right)(x_{d+2}) = f\left( x_{d+2} \right)$ and \textbf{False} otherwise.   
@@ -50,10 +51,17 @@ Denote by $f \in \mathbb{F}_{m}^{n}$ a codeword candidate and consider the follo
 
   Now consider the case that $f \neq C$. And observes that $1 - \frac{1}{n} d\left( f, C \right)$ is the maximal fraction $\eta$ such that there exists a polynomial agree with $f$ on at least $\eta n$ points. Then we have:
 
-\begin{claim}
-  For all $x \in \mathbb{F}_{m}^{n}$ we have $\prbm{ G(x,y_{1}) =  G(x,y_{2})  }{ y_{1}, y_{2} \in \mathbb{F}_{m}^{n} } $  
-\end{claim}
+  %
+  % Dx \Rightarrow Dz 
+  % 
+  %
+  %
+  %
 
+%\begin{claim}
+%  For all $x \in \mathbb{F}_{m}^{n}$ we have $\prbm{ G(x,y_{1}) =  G(x,y_{2})  }{ y_{1}, y_{2} \in \mathbb{F}_{m}^{n} }  $  
+%\end{claim}
+%
   \begin{equation*}
     \begin{split}
       \eta & \le \mathbf{Pr}_{x_{1}, x_{2} ... x_{d} \sim_{U}, x_{d+1}\sim \mathbb{F}_{}}\left[ (Gf)(x) = f(x) \right] \\ & \le \prb{ (Gf)(x) = f(x)} \le \varepsilon \\

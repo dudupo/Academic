@@ -1,0 +1,39 @@
+
+
+We are going to introduce the polynomail code in an opposite order as in the usual literature. Instead of starting by presenting polynomials and the code itself we will begin by defining an absract deocder, and define the code to be all the strings on which the decoder is apathetic. Condsider the alephbet $\Sigma$, and let $D$ be a decoder such that on every $d+1$ coordinate $x_1,x_2, .. x_{d+1}$ and candidte for a code word $c$, read $c_1, c_2 .. c_{d}$ and returns   a charter in $\Sigma$. We will think of $D$ as both decoder and tester: 
+\begin{itemize}
+  \item Tester  - on given canidate $c \in \Sigma^{n}$, $D$ accept if for any $x_1,x_2.. x_{d+1}$ it holds that $C_{d+1} = D\left(c; x_1, x_2 .. x_{d+1} \right)$. 
+  \item Decoder - 
+\end{itemize}
+
+\begin{claim}The code defined by all the strings on which $D$ accept with probability $1$, when the randomness is over the sampled cordiantes $x_{1}, x_{2} .. x_{d+1}$ is a localy testable code. In particular, if the $c$ is in the code, then a random check sucsses with probability $1$ and for every $c$ that is $\varepsilon$-far from the code the probability to, accept it isat most $ { d \choose 2 } |\Sigma| \varepsilon $.  
+\end{claim}
+
+\begin{proof}
+  Noitce that by definition if the tester accept with probability $1$ then $c \in C$. Suppose that $c$ pass the test with probability at least $1 - \varepsilon$. First, let us define the codeword $l$ such that $ l_{y} = Majoritiy_{x_1 .. x_{d}}D\left(c, x_{1}.. x_{d},y\right)$.
+
+  \begin{claim} 
+    The distance between $l$ and $c$ is at most $ 1- \left( 1 - \frac{1}{\Sigma} \right)^{-1}\varepsilon$.  
+  \end{claim}
+  \begin{proof} 
+    Denote by $\alpha$ the probability that for given $y$, $D$ accapet on more then $\frac{1}{|\Sigma|}$ fraction to choose $x_{1},x_{2}..x_{d}$. 
+    Then we have that:  
+    
+    \begin{equation*}
+      \begin{split}
+        1 - \varepsilon  & \le \prbm{ D\left( x_1 .. x_{d+1} \right) }{x_1 .. x_{d+1}} = 
+        \prbcprb{  D\left( x_1 .. x_{d+1} \right)}{ x_1 .. x_{d+1}  }{ x_{d+1} \in A } + \prbcprb{ D\left( x_1 .. x_{d+1} \right)}{ x_1 .. x_{d+1}   }{ x_{d+1} \notin A } \\
+        & \le 1 \cdot \alpha +  \frac{1}{|\Sigma|}  \left( 1 - \alpha \right) = \left( 1 - \frac{1}{|\Sigma|} \right) \alpha  + \frac{1}{|\Sigma|} \\
+       & \Rightarrow \alpha \ge  1- \left( 1 - \frac{1}{\Sigma} \right)^{-1}\varepsilon
+      \end{split}
+    \end{equation*}
+  \end{proof} 
+
+  \begin{equation*}
+    \begin{split}
+      \left\{ D(G(c) ; x ) \right\} \subset \bigcap_{ x_{i} } \left\{ D\left( x_{i} ; y_{1} .. y_{d} \right)  \right\} 
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+
