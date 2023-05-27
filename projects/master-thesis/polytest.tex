@@ -1,6 +1,6 @@
 We are going to introduce the polynomial code in an opposite order as in the usual literature. Instead of starting by presenting polynomials and the code itself we will begin by defining an abstract decoder, and define the code to be all the strings on which the decoder is apathetic. Consider the alphabet $\Sigma$, and let $D$ be a decoder such that on every $d+1$ coordinate $x_1,x_2, .. x_{d+1}$ and candidate for a code word $c$, read $c_1, c_2 .. c_{d}$ and returns a charter in $\Sigma$. We will think of $D$ as tester also. On given candidate $c \in \Sigma^{n}$, $D$ accept if for any $x_1,x_2.. x_{d+1}$ it holds that $C_{d+1} = D\left(c; x_1, x_2 .. x_{d+1} \right)$. We will associciate a single check with spesific $d+1$ coordinates.   
 
-The setting avbove is kind general, and we will need to rquire form the code more to be a locally testable. Let us define the following property which could be in thought as induction for cheks degenration:
+The setting avbove is kind general, and we will need to rquire form the code more to be a locally testable. Let us define the following property which could be thought as induction for cheks degenration:
 
 \begin{definition}
   We will say that code $C$ has the \textit{degeneration} property if for any chack $h$ there is a set of checks $H\left( h \right)$ such that: 
@@ -9,8 +9,6 @@ The setting avbove is kind general, and we will need to rquire form the code mor
     \item it easy to chack $H$.  
   \end{enumerate} 
 \end{definition}
-
-
 
 \begin{claim}The code defined by all the strings on which $D$ accept with probability $1$, when the randomness is over the sampled coordinates $x_{1}, x_{2} .. x_{d+1}$ is a locally testable code. In particular, if the $c$ is in the code, then a random check successes with probability $1$ and for every $c$ that is $\varepsilon$-far from the code the probability to, accept  is at most $ { d \choose 2 } |\Sigma| \varepsilon $.  
 \end{claim}
@@ -36,7 +34,7 @@ The setting avbove is kind general, and we will need to rquire form the code mor
     \end{equation*}
   \end{proof} 
 
-  So we showed that $l$ and $c$ are close. It's left to show that $l$ is a code word, namely that any check by $D$ pass. Fix a check, which equivalence as fix $d+1$ coordinates $x_{1} .. x_{d+1}$. Now notice that if there exists $y$ such that for every $i \in [d+1]$ $D\left(l; y_{1} .. y_{d}, x_{i} \right) = l_{x_{i}}$ than it follows that also $D\left(l; x_{1} .. x_{d+1} \right)$ pass.  
+  So we showed that $l$ and $c$ are close. It's left to show that $l$ is a code word, namely that any check by $D$ pass. Fix a check, which equivalence as fix $d+1$ coordinates $x_{1} .. x_{d+1}$. Now notice that by the degenration property if there exists $y$ such that for every $i \in [d+1]$ $D\left(l; y_{1} .. y_{d}, x_{i} \right) = l_{x_{i}}$ than it follows that also $D\left(l; x_{1} .. x_{d+1} \right)$ pass.  
   \begin{equation*}
     \begin{split}
       \left\{ D(G(c) ; x ) \right\} \subset \bigcap_{ x_{i} } \left\{ D\left( x_{i} ; y_{1} .. y_{d} \right)  \right\} 
