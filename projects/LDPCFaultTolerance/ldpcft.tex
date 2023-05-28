@@ -1,0 +1,35 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+  \documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass{article}
+  \input{./usepackage}
+  \addbibresource{./sample.bib} 
+
+\fi
+
+\begin{document}
+
+\input{newcommands}
+\title{Idea For FT computing.} 
+\author{David Ponarovsky}
+
+\begin{enumerate}
+  \item encode $k$ qubit in $[n,10k, d]$ good qLDPC code. With a reducing Lemma for threshold $l$.  
+  \item implement $X,Z,H,T$ in the straightforward way.  
+  \item The $CX$, need more attention. Denote by $g_{i}$ a generator of $C$ and notice that we took only $1/10$-fraction of the generator in the encoding process. Now, any $CX$ will be followed by correction step. The idea we stretch a wire according  predetermined match between the qubits in the support of $g_{i}$ and the qubits in the support of $g_{j}$.    
+  \item  As we took only a fraction of the code space, we can require that any codeword spanned by the $g_{j}$'s has an overlap with $g_{i}$ which less than $l/3$. Or in other words, the decoder can correct a non desire $CX$ in single step $\sim$.       
+\end{enumerate}<++>
+\printbibliography
+\end{document}
+
+
+
+
+
