@@ -24,8 +24,9 @@
   \item encode $k$ qubit in $[n,10k, d]$ good qLDPC code. With a reducing Lemma for threshold $l$.  
   \item implement $X,Z,H,T$ in the straightforward way.  
   \item The $CX$, need more attention. Denote by $g_{i}$ a generator of $C$ and notice that we took only $1/10$-fraction of the generator in the encoding process. Now, any $CX$ will be followed by correction step. The idea we stretch a wire according  predetermined match between the qubits in the support of $g_{i}$ and the qubits in the support of $g_{j}$.    
-  \item  As we took only a fraction of the code space, we can require that any codeword spanned by the $g_{j}$'s has an overlap with $g_{i}$ which less than $l/3$. Or in other words, the decoder can correct a non desire $CX$ in single step $\sim$.       
-\end{enumerate}<++>
+  \item  As we took only a fraction of the code space, we can require that any codeword spanned by the $g_{j}$'s has an overlap with $g_{i}$ which less than $l/3$. Or in other words, the decoder can correct a non desire $CX$ in single step $\sim$.
+  \item key point of the bullet above is that by overlap we mean to the bitwise AND, otherwise , saying that we have such $C$ is equivalence to say that we found a code with positive rate and distance greater than $\frac{1}{2}$. What we are actually want is that any code word will has a small weight, and there fore can't inferred as other codeword when we apply the $CX$ gate.     
+\end{enumerate}
 \printbibliography
 \end{document}
 
