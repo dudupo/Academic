@@ -1,3 +1,6 @@
+
+\newcommand{\FF}{\mathbb{F}_{q}}
+\newcommand{\VV}{\sum_{t}{V(x + w^{t}y)}}
 We are going to introduce the polynomial code in an opposite order as in the usual literature. Instead of starting by presenting polynomials and the code itself we will begin by defining an abstract decoder, and define the code to be all the strings on which the decoder is apathetic. Consider the alphabet $\Sigma$, and let $D$ be a decoder such that on every $d+1$ coordinate $x_1,x_2, .. x_{d+1}$ and candidate for a code word $c$, read $c_1, c_2 .. c_{d}$ and returns a charter in $\Sigma$. We will think of $D$ as tester also. On given candidate $c \in \Sigma^{n}$, $D$ accept if for any $x_1,x_2.. x_{d+1}$ it holds that $C_{d+1} = D\left(c; x_1, x_2 .. x_{d+1} \right)$. We will associciate a single check with spesific $d+1$ coordinates.   
 
 The setting avbove is kind general, and we will need to rquire form the code more to be a locally testable. Let us define the following property which could be thought as induction for cheks degenration:
@@ -10,14 +13,7 @@ The setting avbove is kind general, and we will need to rquire form the code mor
   \end{enumerate} 
 \end{definition}
 
-Denote by $V(x)$ the vandermonde matrix defined by $x$ namely $V(x)_{ij} = x_{i}^{j}$. and by $w$ the $d$ root of $1$. Now $\sum_{t}{ V\left( x +  w^{t}y \right)  } = t \cdot \left(V(x) + V(y) \right)$.   
-
-
-\begin{equation*}
-  \begin{split}
-  \left(\sum_{t}V(x + w^{t}y)\right)_{j} = \sum{ \sum w^{l\cdot t} { j \choose l }x_{i}^{l}y_{i}^{j - l}   } = t \left( \cdot x^{j} + y^{j}\right) + \sum_{l\neq 0,j}{\frac{w^{l\cdot d} - 1 }{w^{l}-1}\cdot {j choose l}x_{i}^{l}y_{i}^{j-l}}
-  \end{split}
-\end{equation*}
+ 
 
 \begin{claim}The code defined by all the strings on which $D$ accept with probability $1$, when the randomness is over the sampled coordinates $x_{1}, x_{2} .. x_{d+1}$ is a locally testable code. In particular, if the $c$ is in the code, then a random check successes with probability $1$ and for every $c$ that is $\varepsilon$-far from the code the probability to, accept  is at most $ { d \choose 2 } |\Sigma| \varepsilon $.  
 \end{claim}
@@ -50,5 +46,34 @@ Denote by $V(x)$ the vandermonde matrix defined by $x$ namely $V(x)_{ij} = x_{i}
     \end{split}
   \end{equation*}
 \end{proof}
+
+Denote by $V(x)$ the vandermonde matrix defined by $x$ namely $V(x)_{ij} = x_{i}^{j}$. and by $w$ the $d$ root of $1$. 
+
+
+\begin{claim} 
+  \label{claim:van }
+Now $\sum_{t}{ V\left( x +  w^{t}y \right)  } = t \cdot \left(V(x) + V(y) \right)$.   
+\end{claim}
+
+\begin{equation*}
+  \begin{split}
+  \left(\sum_{t}V(x + w^{t}y)\right)_{j} = \sum{ \sum w^{l\cdot t} { j \choose l }x_{i}^{l}y_{i}^{j - l}   } = t \left( \cdot x^{j} + y^{j}\right) + \sum_{l\neq 0,j}{\frac{w^{l\cdot d} - 1 }{w^{l}-1}\cdot {j \choose l}x_{i}^{l}y_{i}^{j-l}}
+  \end{split}
+\end{equation*}
+
+\begin{claim}
+For any $i\neq j,x \neq 0 $ the pair $x + yw^{i}$, $x+ yw^{j}$ distrubuted indepandeantly.
+\end{claim}
+
+\begin{claim}
+  If the test reject $c$ with probability at most $\varepsilon$ then $c$ is a $d$-degree polynomial.
+\end{claim}
+
+\begin{proof}
+  Let $A$ coeffcints vector such that the probability that indeapandet $x,y \in \mathbb{F}_{q}^{d+1}$ agree on with probability $\ge \varepsilon$. We will show that for any $x \in \FF^{d+1}$ it has to hold that $V(x)A = c^{(x)}$. Using \cref{claim:van} it follows that $V(x)A = \left(-\VV A \right) $. With probabiliy at least $ 1 - \varepsilon \cdot \left( d+1 \right) $ all the pairs $ x+ w^{t},x + w^{t+1}y$ agree with each other. So the $AV(x+w^{t}$ is    
+\end{proof}
+
+
+
 
 
