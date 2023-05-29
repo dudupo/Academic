@@ -95,15 +95,14 @@ For example consider a linear function over $\FF$, then it $w^2 = 1 \Rightarrow 
   Assume by contradiction that $f$ has more then $d+1$ zeros (w.l.g). Denote them  by $x_{1},x_{2}.. x_{d+1}$. We will show that for any $x \in \FF $ one can find $y \in \FF$ such that $x + w^{t}y =x_{t}$. Those equations compose a linear diophantine system which can reduced for the following system: 
   \begin{equation*}  
 \begin{bmatrix}
-      x                      &  w                     & 1 &  \dots                   &       0         &       0 \\
-      x                       &  w^{2}                & 0     &  \dots                   &       0           &       0  \\
-      \vdots                       &  \vdots                    &  \ddots               &  \vdots                &  \vdots  \\
-      x                       &  w^{d-2}              & 0    &  \dots                   &       1           &       0  \\
-      x                       &  w^{d-1}              & 0 & \dots       &  0     &       1
+                              w                     & 1 &  \dots                   &       0         &       0 \\
+                               w^{2}                & 0     &  \dots                   &       0           &       0  \\
+                              \vdots                    &  \ddots               &  \vdots                &  \vdots  \\
+                               w^{d-2}              & 0    &  \dots                   &       1           &       0  \\
+                               w^{d-1}              & 0 & \dots       &  0     &       1
 \end{bmatrix} 
 \begin{bmatrix}
-  1 \\
-  y \\
+  y 
   k_{1} \\
   k_{2} \\
   \vdots  \\
@@ -111,11 +110,11 @@ For example consider a linear function over $\FF$, then it $w^2 = 1 \Rightarrow 
   k_{d+1} 
 \end{bmatrix}
 = \begin{bmatrix}
-  x_{1} \\
-  x_{2} \\
+  x_{1} - x \\
+  x_{2} -x \\
   \vdots \\
-  x_{d} \\
-  x_{d+1}
+  x_{d} - x \\
+  x_{d+1} - x
 \end{bmatrix}
   \end{equation*}
 \end{proof}
