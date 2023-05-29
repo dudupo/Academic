@@ -125,11 +125,18 @@ For any $i\neq j,x \neq 0 $ the pair $x + yw^{i}$, $x+ yw^{j}$ distrubuted indep
 \end{claim}
 
 \begin{claim}
-  If the test reject $c$ with probability at most $\varepsilon$ then $c$ is a $d$-degree polynomial.
+  If a function $f$ satisfies equation \cref{eq:poly} on the $\varepsilon$ fracton of the points then it satisfies \cref{eq:poly} over all the points.
 \end{claim}
 
 \begin{proof}
-  Let $A$ coeffcints vector such that the probability that indeapandet $x,y \in \mathbb{F}_{q}^{d+1}$ agree on with probability $\ge \varepsilon$. We will show that for any $x \in \FF^{d+1}$ it has to hold that $\left(V(y) + V(x)\right)A = c^{(x)} + c^{(y)}$. Using \cref{claim:van} it follows that $\left( V(x) + V(y) \right) A = \left(-\VV A \right) $. With probabiliy at least $ 1 - \varepsilon \cdot \left( d+1 \right) $ all the pairs $ x+ w^{t},x + w^{t+1}y$ agree with each other on $A$. So the $AV(x+w^{t}$ is    
+  Let $x,y \in \FF$. for a random $\xi$ with probability $\varepsilon$ ecah of the following equations satisfied: 
+  \begin{equation*}
+    \begin{split}
+      f(x) & = \frac{1}{d}\sum_{t}{ f\left( x + w^{t}\xi \right)  } \\
+      f\left( x + w^{t}\xi \right)   & = \frac{1}{d} \sum_{t^{\prime}}{ f\left( x + w^{t}\xi + w^{t^{\prime}}y \right)  } \\
+      f(x + w^{t^\prime}y) & = \frac{1}{d}\sum_{t}{ f\left( x + w^{t^\prime} + w^{t}\xi \right)  } 
+    \end{split}
+  \end{equation*}<++>
 \end{proof}
 
 
