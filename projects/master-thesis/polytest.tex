@@ -129,7 +129,7 @@ For any $i\neq j,x \neq 0 $ the pair $x + yw^{i}$, $x+ yw^{j}$ distrubuted indep
 \end{claim}
 
 \begin{proof}
-  Let $x,y \in \FF$. for a random $\xi$ with probability $\varepsilon$ ecah of the following equations satisfied: 
+  Let $x,y \in \FF$. for a random $\xi$ with probability $1 - \varepsilon$ ecah of the following equations satisfied: 
   \begin{equation*}
     \begin{split}
       f(x) & = \frac{1}{d}\sum_{t}{ f\left( x + w^{t}\xi \right)  } \\
@@ -137,6 +137,7 @@ For any $i\neq j,x \neq 0 $ the pair $x + yw^{i}$, $x+ yw^{j}$ distrubuted indep
       f(x + w^{t^\prime}y) & = \frac{1}{d}\sum_{t}{ f\left( x + w^{t^\prime}y + w^{t}\xi \right)  } 
     \end{split}
   \end{equation*}
+  So the probability they all satisfied simultunisly is $ 1 - d^{2}\varepsilon$ therefore  for $\varepsilon =\Theta\left( 1/d^{2} \right)$ there is such $\xi$, namely $f(x)  = \frac{1}{d}\sum_{t}{ f\left( x + w^{t}y \right)  } $ with probablility $1$.
 \end{proof}
 
 
