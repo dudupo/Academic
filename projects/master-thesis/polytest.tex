@@ -62,6 +62,31 @@ Now $\sum_{t}{ V\left( x +  w^{t}y \right)  } = t \cdot \left(V(x) + V(y) \right
 \end{equation*}
 
 \begin{claim}
+  Consider the finte field $\FF$ for prime $q$, denote by $w$ the $d$ root of $1$, namely $w^{d}  = 1$ then for any polynomial $f$ with degree at most $d$ it holds:   
+  \begin{equation*}
+    f(x) = \frac{1}{d} \sum_{t}^{d}{f( x + w^{t}y)}  \ \ \ \forall x,y \in \FF
+  \end{equation*} 
+\end{claim}
+\begin{proof}
+  Denote by $a_{j}$ the $j$th coffecicient of $f$. And recall that for any fiexd $l \in \FF$ the summtiom $ \sum_{t}^{d}w^{t\cdot l}$ equals: 
+
+  \begin{equation*}
+    \sum_{t}^{d}w^{t\cdot l} = \begin{cases}
+      \frac{w^{l \cdot d} - 1}{ w^{l} - 1 } = 0  & l \neq 0 \\
+      d   & l = 0
+    \end{cases}
+  \end{equation*}
+Thus:  
+  \begin{equation*}
+    \begin{split}
+  &  \sum_{t}{ f\left( x + w^{t}y \right)  } = \sum_{t,j}{a_{j}\left( x + w^{t}y \right)^{j}}  =  \sum_{t,j}{ a_{j} \left( \sum_{l} x^{j-l} w^{t\cdot l}y^{l} { j \choose l} \right)} \\
+  & =  \sum_{j}{ a_{j} \sum_{l} x^{j-l} y^{l} { j \choose l} \sum_{t} w^{t\cdot l} } \\
+  & = \sum_{j}{ a_{j}  x^{j} \cdot d } = f(x) \cdot d  
+    \end{split}
+  \end{equation*}
+\end{proof}
+For example consider a linear function over $\FF$, then it $w^2 = 1 \Rightarrow w = -1 $ and it clears that $f(x) = \frac{1}{2} \left( f(x - y) + f(x + y) \right)$.
+\begin{claim}
 For any $i\neq j,x \neq 0 $ the pair $x + yw^{i}$, $x+ yw^{j}$ distrubuted indepandeantly.
 \end{claim}
 
@@ -70,7 +95,7 @@ For any $i\neq j,x \neq 0 $ the pair $x + yw^{i}$, $x+ yw^{j}$ distrubuted indep
 \end{claim}
 
 \begin{proof}
-  Let $A$ coeffcints vector such that the probability that indeapandet $x,y \in \mathbb{F}_{q}^{d+1}$ agree on with probability $\ge \varepsilon$. We will show that for any $x \in \FF^{d+1}$ it has to hold that $V(x)A = c^{(x)}$. Using \cref{claim:van} it follows that $V(x)A = \left(-\VV A \right) $. With probabiliy at least $ 1 - \varepsilon \cdot \left( d+1 \right) $ all the pairs $ x+ w^{t},x + w^{t+1}y$ agree with each other. So the $AV(x+w^{t}$ is    
+  Let $A$ coeffcints vector such that the probability that indeapandet $x,y \in \mathbb{F}_{q}^{d+1}$ agree on with probability $\ge \varepsilon$. We will show that for any $x \in \FF^{d+1}$ it has to hold that $\left(V(y) + V(x)\right)A = c^{(x)} + c^{(y)}$. Using \cref{claim:van} it follows that $\left( V(x) + V(y) \right) A = \left(-\VV A \right) $. With probabiliy at least $ 1 - \varepsilon \cdot \left( d+1 \right) $ all the pairs $ x+ w^{t},x + w^{t+1}y$ agree with each other on $A$. So the $AV(x+w^{t}$ is    
 \end{proof}
 
 
