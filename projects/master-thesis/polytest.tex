@@ -63,9 +63,10 @@ Now $\sum_{t}{ V\left( x +  w^{t}y \right)  } = t \cdot \left(V(x) + V(y) \right
 
 \begin{claim}
   Consider the finte field $\FF$ for prime $q$, denote by $w$ the $d$ root of $1$, namely $w^{d}  = 1$ then for any polynomial $f$ with degree at most $d$ it holds:   
-  \begin{equation*}
+  \begin{equation}
+    \label{eq:poly}
     f(x) = \frac{1}{d} \sum_{t}^{d}{f( x + w^{t}y)}  \ \ \ \forall x,y \in \FF
-  \end{equation*} 
+  \end{equation} 
 \end{claim}
 \begin{proof}
   Denote by $a_{j}$ the $j$th coffecicient of $f$. And recall that for any fiexd $l \in \FF$ the summtiom $ \sum_{t}^{d}w^{t\cdot l}$ equals: 
@@ -86,6 +87,39 @@ Thus:
   \end{equation*}
 \end{proof}
 For example consider a linear function over $\FF$, then it $w^2 = 1 \Rightarrow w = -1 $ and it clears that $f(x) = \frac{1}{2} \left( f(x - y) + f(x + y) \right)$.
+
+\begin{claim}
+  Suppose that $f : \FF \rightarrow \FF$ satisfies \cref{eq:poly} than, ethier $f$ is polyonomial at degree at most $d$ or that $f$ is the zero function.  
+\end{claim}
+\begin{proof}
+  Assume by contradiction that $f$ has more then $d+1$ zeros (w.l.g). Denote them  by $x_{1},x_{2}.. x_{d+1}$. We will show that for any $x \in \FF $ one can find $y \in \FF$ such that $x + w^{t}y =x_{t}$. Those equations compose a linear diophantine system which can reduced for the following system: 
+  \begin{equation*}  
+\begin{bmatrix}
+      x                      &  w                     & 1 &  \dots                   &       0         &       0 \\
+      x                       &  w^{2}                & 0     &  \dots                   &       0           &       0  \\
+      \vdots                       &  \vdots                    &  \ddots               &  \vdots                &  \vdots  \\
+      x                       &  w^{d-2}              & 0    &  \dots                   &       1           &       0  \\
+      x                       &  w^{d-1}              & 0 & \dots       &  0     &       1
+\end{bmatrix} 
+\begin{bmatrix}
+  y \\
+  k_{1} \\
+  k_{2} \\
+  \vdots  \\
+  k_{d} 
+  k_{d+1} 
+\end{bmatrix}
+= \begin{bmatrix}
+  x_{1} \\
+  x_{2} \\
+  \vdots \\
+  x_{d} \\
+  x_{d+1}
+\end{bmatrix}
+  \end{equation*}
+\end{proof}
+
+
 \begin{claim}
 For any $i\neq j,x \neq 0 $ the pair $x + yw^{i}$, $x+ yw^{j}$ distrubuted indepandeantly.
 \end{claim}
