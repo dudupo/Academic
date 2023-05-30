@@ -1,5 +1,8 @@
 \chapter{Good qLDPC and LTC.}
 
+  \begin{definition} Let $C = \Tann$. We say that $x \in C_{\oplus}$ is \textbf{reducible} if there exists a vertex $v$ and a small codeword $c_v$, for which, adding the assignment of $c_v$ over the $v$'s edges to $x$ decreases the weight. Namely, $|x + c_{v}| < |x|$. If $x \in C_{\oplus}$ is not a reducible codeword then we say that $x$ is \textbf{irreducible} \label{ire}. \end{definition}
+
+
 \begin{definition}[$w$-Robustness] Let $C_{0}$ be code of length $\Delta$ with minimum distance $\delta_{0}\Delta$. $C = C_{0} \otimes \mathbb{F} + \mathbb{F}\otimes C_{0}^{\perp}$ will be said $w$-robust if any codeword $c \in C$ at weight less than $w$ it follows that $c$ is supported on at most $2\cdot w/\delta_{0}\Delta$ rows and cols.
 \end{definition}
 
@@ -7,7 +10,7 @@
 \end{definition}
 
 \begin{theorem}
-  For $\varepsilon \in \left( 0,\frac{1}{2} \right)$, $\gamma\in \left( \frac{1}{2} + \varepsilon, 1 \right)$, $\delta> 0$, large enough $\Delta$, and small codes $C_{A},C_{B}$ with distance at least $\delta\Delta$ if the dual tensor code of $C_{A},C_{B}$ is $w$-robust and $\Delta^{\gamma}$ resistance to puncturing, then there exists an infinite family of square complexes for which the Tanner code defined by the complexes and the dual tensor code is 
+  For $\varepsilon \in \left( 0,\frac{1}{2} \right)$, $\gamma\in \left( \frac{1}{2} + \varepsilon, 1 \right)$, $\delta> 0$, large enough $\Delta$, and small codes $C_{A},C_{B}$ with distance at least $\delta\Delta$ if the dual tensor code of $C_{A},C_{B}$ is $w$-robust and $\Delta^{\gamma}$ resistance to puncturing, then there exists an infinite family of square complexes for which the Tanner code defined by the complexes and the dual tensor code such that any codeword with weigh less than $ \frac{\delta n}{4\Delta^{3/2 + \varepsilon}} $ is reducible \cref{ire}.
 \end{theorem}
 
 \input{../NLTES_project/ltc_ldpc/disag.tex}
