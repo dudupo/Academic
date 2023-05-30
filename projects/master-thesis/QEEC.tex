@@ -64,6 +64,16 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
 \end{lemma}
 \begin{proof}
   Let $P = X^{f}Z^{e}$ be an error such that $e, f < d/2$ act on the state $\ket{\mathbf{x}}$. Denote by $H_{X}, H_{Z}$ the parity check matrices of $C_{X},C_{Z}$.  
+
+  \newcommand{\GZZZ}[1]{ \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ #1 } } 
+
+  \begin{equation*}
+    \begin{split}
+      \ket{\mathbf{x}} &  \mapsto^{P} =  \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ X^{f}Z^{e}\ket{ x + z }} = \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ (-1)^{\braket{ e, x+z }}\ket{ x + z + f}}\\
+      & \mapsto^{H_{X}} \GZZZ{ (-1)^{\braket{ e, x+z }}\ket{ x + z + f} \ket{ H_{X} \left(x + z + f\right) }  } = \GZZZ{ (-1)^{\braket{ e, x+z }}\ket{ x + z + f} \ket{ H_{X}f }  }\\
+      & \mapsto
+    \end{split}
+  \end{equation*}
 \end{proof}
 
 The decoding process for a CSS code involves using two different types of measurements, $X$ and $Z$ measurements. These measurements can be used to determine the values of the $S$ and $C$ operators and thus determine the appropriate error correction. The specific equations used in this decoding process depend on the code used and involve finding the parity of several encoded qubits, applying some Pauli operations, and then measuring to see if the parity changed.
