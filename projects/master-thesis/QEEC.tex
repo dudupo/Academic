@@ -58,7 +58,7 @@ Now it is clear how to correct a phase flip. One can apply the Hadamard transfor
     \end{split}
   \end{equation*}
 \end{definition}
-Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C_{Z}^{\perp}$ and therefore the dimension of the quantum code is $\dim Q\left( C_{X}, C_{Z} \right) = \dim C_{X} + - \dim C_{Z^{\perp}} = \dim C_{X} + \dim C_{Z} - n$. Yet, it's not stems immediately how one can correct faults. Next, we are going to repeat the decoding process of the Shor code in the general setting of CSS codes.  
+Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C_{Z}^{\perp}$ and therefore the dimension of the quantum code is $\dim Q\left( C_{X}, C_{Z} \right) = \dim C_{X} - \dim C_{Z^{\perp}} = \dim C_{X} + \dim C_{Z} - n$. Yet, it's not stems immediately how one can correct faults. Next, we are going to repeat the decoding process of the Shor code in the general setting of CSS codes.  
 \begin{lemma}
   Let $C_{X},C_{Z}$ classical codes such $Q\left( C_{X},C_{Z} \right)$ is a CSS code and each has distance at least $d$. Then one can correct $d/2$ errors.       
 \end{lemma}
