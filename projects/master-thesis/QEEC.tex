@@ -71,14 +71,8 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
 \begin{proof}
   First let us prove the following claim: 
   \begin{claim}
-    Denote by $H^{\otimes n}$ the Hadamard gate over $n$ qubits. Then for any code $C$ it holds that:
-    
-    \begin{equation*}
-      \begin{split}
-        H^{n}\ket{C^{\perp}} = \ket{C} 
-      \end{split}
-    \end{equation*}
-  \end{claim}
+    Denote by $H^{\otimes n}$ the Hadamard gate over $n$ qubits. Then for any code $C$ it holds that: $  H^{n}\ket{C^{\perp}} = \ket{C} $
+        \end{claim}
   \begin{proof}
     \begin{equation*}
       H^{n}\ket{C^{\perp}} = \GZZZ{ H^{n}\ket{z} } =  \GZZZ{ \sum_{y\in \mathbb{F}_{2}^{n}}{ (-1)^{\braket{z,y} \ket{y} } } }
