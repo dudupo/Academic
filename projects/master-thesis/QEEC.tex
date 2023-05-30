@@ -62,14 +62,30 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
 \begin{lemma}
   Let $C_{X},C_{Z}$ classical codes such $Q\left( C_{X},C_{Z} \right)$ is a CSS code and each has distance at least $d$. Then one can correct $d/2$ errors.       
 \end{lemma}
-\begin{proof}
-  Let $P = X^{f}Z^{e}$ be an error such that $e, f < d/2$ act on the state $\ket{\mathbf{x}}$. Denote by $H_{X}, H_{Z}$ the parity check matrices of $C_{X},C_{Z}$.  
 
   \newcommand{\GZZZ}[1]{ \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ #1 } } 
   \newcommand{\GZZZW}[2]{ \frac{1}{\sqrt{|C_{Z}^{\perp}|}} #2 \sum_{z \in C_{Z}^{\perp}}{ #1 } } 
   \newcommand{\GXXX}[1]{ \frac{1}{\sqrt{|C_{X}^{\perp}|}} \sum_{z \in C_{X}^{\perp}}{ #1 } } 
   \newcommand{\GXXXW}[2]{ \frac{1}{\sqrt{|C_{X}^{\perp}|}} #2 \sum_{z \in C_{X}^{\perp}}{ #1 } } 
-  \begin{equation*}
+
+\begin{proof}
+  First let us prove the following claim: 
+  \begin{claim}
+    Denote by $H^{\otimes n}$ the Hadamard gate over $n$ qubits. Then for any code $C$ it holds that:
+    
+    \begin{equation*}
+      \begin{split}
+        H^{n}\ket{C^{\perp}} = \ket{C} 
+      \end{split}
+    \end{equation*}
+  \end{claim}
+  \begin{proof}
+    \begin{equation*}
+      H^{n}\ket{C^{\perp}} = \GZZZ{ H^{n}\ket{z} } =  \GZZZ{ \sum_{y\in \mathbb{F}_{2}^{n}}{ (-1)^{\braket{z,y} \ket{y} } } }
+     \end{equation*}
+  \end{proof}
+  Let $P = X^{f}Z^{e}$ be an error such that $e, f < d/2$ act on the state $\ket{\mathbf{x}}$. Denote by $H_{X}, H_{Z}$ the parity check matrices of $C_{X},C_{Z}$. 
+    \begin{equation*}
     \begin{split}
       \ket{\mathbf{x}} &  \mapsto^{P} =  \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ X^{f}Z^{e}\ket{ x + z }} = \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ (-1)^{\braket{e,f} }Z^{e}\ket{ x + z + f}}\\
       & \mapsto^{H_{X}} \GZZZ{ (-1)^{\braket{e,f} }Z^{e}\ket{ x + z + f} \ket{ H_{X} \left(x + z + f\right) }  } \\ 
