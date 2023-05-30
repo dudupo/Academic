@@ -49,7 +49,7 @@ It is evident that a single bit-flip error can be handled in the same way as in 
   \end{equation*}
 \end{proof}
 
-Now it is clear how to correct a phase flip. One can apply the Hadamard transform and compute the parity of each triple. By the assumption that only a single phase flip may occur, either all the triples have the same parity or the faulted one has an opposite parity and needs to be corrected. Thus, we obtain an $\left[ \left[ 9,1,1 \right] \right]$ quantum error correction code. Asymptotically, this is an $\left[ \left[ m^{2}, 1, m \right] \right]$ code. The Shor code is a specific case of the more general CSS (Calderbank-Shor-Steane) code. A family comipsed by two codes $C_{X}, C_{Z}$ such that $C_{Z}^{\perp} \subset C_{X}$. 
+Now it is clear how to correct a phase flip. One can apply the Hadamard transform and compute the parity of each triple. By the assumption that only a single phase flip may occur, either all the triples have the same parity or the faulted one has an opposite parity and needs to be corrected. Thus, we obtain an $\left[ \left[ 9,1,1 \right] \right]$ quantum error correction code. Asymptotically, this is an $\left[ \left[ m^{2}, 1, m \right] \right]$ code. The Shor code is a specific case of the more general CSS (Calderbank-Shor-Steane) code \cite{Calderbank_1996}. A family composed by two binary codes $C_{X}, C_{Z}$ such that $C_{Z}^{\perp} \subset C_{X}$. 
 \begin{definition}[CSS Code]
   Let $C_{X}, C_{Z}$ classical linear codes such that $C_{Z}^{\perp} \subset C_{X}$ define the $Q\left( C_{X},C_{Z} \right)$ to be all the code words with following structure:
   \begin{equation*}
@@ -60,64 +60,61 @@ Now it is clear how to correct a phase flip. One can apply the Hadamard transfor
 \end{definition}
 Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C_{Z}^{\perp}$ and therefore the dimension of the quantum code is $\dim Q\left( C_{X}, C_{Z} \right) = \dim C_{X} - \dim C_{Z^{\perp}} = \dim C_{X} + \dim C_{Z} - n$. Yet, it's not stems immediately how one can correct faults. Next, we are going to repeat the decoding process of the Shor code in the general setting of CSS codes.  
 \begin{lemma}
-  Let $C_{X},C_{Z}$ classical codes such $Q\left( C_{X},C_{Z} \right)$ is a CSS code and each has distance at least $d$. Then one can correct $d/2$ errors.       
-\end{lemma}
+    Let $C_{X},C_{Z}$ classical codes such $Q\left( C_{X},C_{Z} \right)$ is a CSS code and each has distance at least $d$. Then one can correct $d/2$ errors.       
+  \end{lemma}
 
-  \newcommand{\GZZZ}[1]{ \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ #1 } } 
-  \newcommand{\GZZZW}[2]{ \frac{1}{\sqrt{|C_{Z}^{\perp}|}} #2 \sum_{z \in C_{Z}^{\perp}}{ #1 } } 
-  \newcommand{\GXXX}[1]{ \frac{1}{\sqrt{|C_{Z}|}} \sum_{z \in C_{Z}}{ #1 } } 
-  \newcommand{\GXXXW}[2]{ \frac{1}{\sqrt{|C_{Z}|}} #2 \sum_{z \in C_{Z}}{ #1 } } 
+    \newcommand{\GZZZ}[1]{ \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ #1 } } 
+    \newcommand{\GZZZW}[2]{ \frac{1}{\sqrt{|C_{Z}^{\perp}|}} #2 \sum_{z \in C_{Z}^{\perp}}{ #1 } } 
+    \newcommand{\GXXX}[1]{ \frac{1}{\sqrt{|C_{Z}|}} \sum_{z \in C_{Z}}{ #1 } } 
+    \newcommand{\GXXXW}[2]{ \frac{1}{\sqrt{|C_{Z}|}} #2 \sum_{z \in C_{Z}}{ #1 } } 
 
-\begin{proof}
-  First let us prove the following claim: 
-  \begin{claim}
-    Denote by $H^{\otimes n}$ the Hadamard gate over $n$ qubits. Then for any code $C$ it holds that: $  H^{n}\ket{C^{\perp}} = \ket{C} $
-        \end{claim}
   \begin{proof}
-    \begin{equation*}
-      H^{n}\ket{C^{\perp}} = \GZZZ{ H^{n}\ket{z} } = \frac{1}{ \sqrt{ 2^{n}}} \GZZZ{ \sum_{y\in \mathbb{F}_{2}^{n}}{ (-1)^{\braket{z,y}}  \ket{y}}  }
-     \end{equation*}
-     Notice that $ 2^{n}|C_{Z}^{\perp}| =  |C_{z}| \cdot |C_{Z}^{\perp}| \cdot |C_{Z}^{\perp}|$  
+    First let us prove the following claim: 
+    \begin{claim}
+      Denote by $H^{\otimes n}$ the Hadamard gate over $n$ qubits. Then for any code $C$ it holds that: $  H^{n}\ket{C^{\perp}} = \ket{C} $
+          \end{claim}
+    \begin{proof}
+      \begin{equation*}
+        H^{n}\ket{C^{\perp}} = \GZZZ{ H^{n}\ket{z} } = \frac{1}{ \sqrt{ 2^{n}}} \GZZZ{ \sum_{y\in \mathbb{F}_{2}^{n}}{ (-1)^{\braket{z,y}}  \ket{y}}  }
+       \end{equation*}
+       Notice that $ 2^{n}|C_{Z}^{\perp}| =  |C_{z}| \cdot |C_{Z}^{\perp}| \cdot |C_{Z}^{\perp}|$  
+    \end{proof}
+    Let $P = X^{f}Z^{e}$ be an error such that $e, f < d/2$ act on the state $\ket{\mathbf{x}}$. Denote by $H_{X}, H_{Z}$ the parity check matrices of $C_{X},C_{Z}$. 
+      \begin{equation*}
+      \begin{split}
+        \ket{\mathbf{x}} &  \mapsto^{P}   \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ X^{f}Z^{e}\ket{ x + z }} = \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ (-1)^{\braket{e,f} }Z^{e}\ket{ x + z + f}}\\
+        & \mapsto^{H_{X}} \GZZZ{ (-1)^{\braket{e,f} }Z^{e}\ket{ x + z + f} \ket{ H_{X} \left(x + z + f\right) }  } \\ 
+        & = \ \ \ \ \ \GZZZ{ (-1)^{\braket{e,f} }Z^{e}\ket{ x + z + f} \ket{ H_{X}f }  }\\
+        & \mapsto^{X^{f}} \GZZZ{ Z^{e}\ket{ x + z} \ket{ H_{X}f }  }  \mapsto^{H^{\otimes n}} \GZZZ{  X^{e}H^{\otimes n}\ket{ x + z} } \\
+        & = \GZZZ{  X^{e}H^{\otimes n} X^{x} \ket{ z} }  = \GZZZ{  X^{e} Z^{x} H^{\otimes n} \ket{ z} } \\
+        & = \GZZZW{ \ket{ z} }{X^{e} Z^{x} H^{\otimes n} }  =  \GXXXW{  \ket{ z} }{ X^{e} Z^{x} } \\
+        & =  \GXXXW{   X^{e}\ket{ z} }{ (-1)^{\braket{x,e}} Z^{x}}  =  \GXXXW{   \ket{ z + e} }{ (-1)^{\braket{x,e}} Z^{x}} \\
+        & =  \GXXXW{   \ket{ z + e} \ket{ H_{Z}e }}{ (-1)^{\braket{x,e}} Z^{x}} \\
+        & \mapsto  \GXXXW{   \ket{ z } \ket{ H_{Z}e }}{ (-1)^{\braket{x,e}} Z^{x}} \mapsto^{H^{n}}  \GZZZW{   \ket{ z }}{ X^{x}}\\ 
+        & = \GZZZ{ \ket{z + x}} = \ket{\mathbf{x}}
+      \end{split}
+    \end{equation*}
   \end{proof}
-  Let $P = X^{f}Z^{e}$ be an error such that $e, f < d/2$ act on the state $\ket{\mathbf{x}}$. Denote by $H_{X}, H_{Z}$ the parity check matrices of $C_{X},C_{Z}$. 
-    \begin{equation*}
-    \begin{split}
-      \ket{\mathbf{x}} &  \mapsto^{P}   \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ X^{f}Z^{e}\ket{ x + z }} = \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ (-1)^{\braket{e,f} }Z^{e}\ket{ x + z + f}}\\
-      & \mapsto^{H_{X}} \GZZZ{ (-1)^{\braket{e,f} }Z^{e}\ket{ x + z + f} \ket{ H_{X} \left(x + z + f\right) }  } \\ 
-      & = \ \ \ \ \ \GZZZ{ (-1)^{\braket{e,f} }Z^{e}\ket{ x + z + f} \ket{ H_{X}f }  }\\
-      & \mapsto^{X^{f}} \GZZZ{ Z^{e}\ket{ x + z} \ket{ H_{X}f }  }  \mapsto^{H^{\otimes n}} \GZZZ{  X^{e}H^{\otimes n}\ket{ x + z} } \\
-      & = \GZZZ{  X^{e}H^{\otimes n} X^{x} \ket{ z} }  = \GZZZ{  X^{e} Z^{x} H^{\otimes n} \ket{ z} } \\
-      & = \GZZZW{ \ket{ z} }{X^{e} Z^{x} H^{\otimes n} }  =  \GXXXW{  \ket{ z} }{ X^{e} Z^{x} } \\
-      & =  \GXXXW{   X^{e}\ket{ z} }{ (-1)^{\braket{x,e}} Z^{x}}  =  \GXXXW{   \ket{ z + e} }{ (-1)^{\braket{x,e}} Z^{x}} \\
-      & =  \GXXXW{   \ket{ z + e} \ket{ H_{Z}e }}{ (-1)^{\braket{x,e}} Z^{x}} \\
-      & \mapsto  \GXXXW{   \ket{ z } \ket{ H_{Z}e }}{ (-1)^{\braket{x,e}} Z^{x}} \mapsto^{H^{n}}  \GZZZW{   \ket{ z }}{ X^{x}}\\ 
-      & = \GZZZ{ \ket{z + x}} = \ket{\mathbf{x}}
-    \end{split}
-  \end{equation*}
-\end{proof}
 
-The decoding process for a CSS code involves using two different types of measurements, $X$ and $Z$ measurements. These measurements can be used to determine the values of the $S$ and $C$ operators and thus determine the appropriate error correction. The specific equations used in this decoding process depend on the code used and involve finding the parity of several encoded qubits, applying some Pauli operations, and then measuring to see if the parity changed.
+  There is still one big difference between the classic repetition code and the Shor code. While each parity check of the Shor code examines a square root number of qubits, any check of the repetition code touches no more than a constant number of qubits; that is, any check just tests if any two adjacent bits are equal.  That brings us to ask whether the Shors code is really the quantum analogy for the repetition code? 
 
+  \paragraph{qLDPC Codes.} As exactly as in the classic case, qLDPC codes are codes in which any check act non trivially on at most a constant number of qubits, It was proved that using a good Quantum LDPC code one can achieve a fault tolerance threshold theorem at the cost of only constant overhead\footnote{under the assumption of holding an efficient decoder.} \cite{gottesman2014faulttolerant}. We are now about to embark on a detailed review of the first quantum LDPC code \cite{Dennis_2002}. 
 
-There is still one big difference between the classic repetition code and the Shor code. While each parity check of the Shor code examines a square root number of qubits, any check of the repetition code touches no more than a constant number of qubits; that is, any check just tests if any two adjacent bits are equal.  That brings us to ask whether the Shors code is really the quantum analogy for the repetition code? 
+  Recall that one way to present a code is by define the parity check matrix, Consider the $l\times l$ Tours, namely the Cayley graph of the group product  $\mathbb{Z}_{l} \times \mathbb{Z}_{l}$. Associate any coordinate (bit/qubit) with an edge on the Tours. And consider the following two restrictions:
 
-\paragraph{qLDPC Codes.} As exactly as in the classic case, qLDPC codes are codes in which any check act non trivially on at most a constant number of qubits, It was proved that using a good Quantum LDPC code one can achieve a fault tolerance threshold theorem at the cost of only constant overhead\footnote{under the assumption of holding an efficient decoder.} \cite{gottesman2014faulttolerant}. We are now about to embark on a detailed review of the first quantum LDPC code \cite{Dennis_2002}. 
+  \begin{enumerate}
+    \item Each vertex requires form it's local view, the bits lay on his supported edges, To has an even party. 
+    \item Each face, requires the almost the same from it's supported edges but that the face compute the parity in different (specific) base. That it, the face is first rotate the qubits by apply the Hadamard transform on them, and than computes their xor. Finally, rotate back the qubits to the computation base.   
+  \end{enumerate}
 
-Recall that one way to present a code is by define the parity check matrix, Consider the $l\times l$ Tours, namely the Cayley graph of the group product  $\mathbb{Z}_{l} \times \mathbb{Z}_{l}$. Associate any coordinate (bit/qubit) with an edge on the Tours. And consider the following two restrictions:
-
-\begin{enumerate}
-  \item Each vertex requires form it's local view, the bits lay on his supported edges, To has an even party. 
-  \item Each face, requires the almost the same from it's supported edges but that the face compute the parity in different (specific) base. That it, the face is first rotate the qubits by apply the Hadamard transform on them, and than computes their xor. Finally, rotate back the qubits to the computation base.   
-\end{enumerate}
-
-\begin{center}
-  \begin{figure}[H]
-\begin{tikzpicture}
-\draw[step=1cm,gray,very thin] (0,0) grid (5,5);
-\foreach \x in {0,1,2,3,4,5}
-\foreach \y in {0,1,2,3,4,5}
-{
-\node[draw,circle,inner sep=2pt,fill] at (\x,\y) {};
+  \begin{center}
+    \begin{figure}[H]
+  \begin{tikzpicture}
+  \draw[step=1cm,gray,very thin] (0,0) grid (5,5);
+  \foreach \x in {0,1,2,3,4,5}
+  \foreach \y in {0,1,2,3,4,5}
+  {
+  \node[draw,circle,inner sep=2pt,fill] at (\x,\y) {};
 }
 \draw[ -> ]  (0,0) to [out=50, in=130] (0,5);
 \draw[ -> ]  (1,0) to [out=50, in=130] (1,5);
