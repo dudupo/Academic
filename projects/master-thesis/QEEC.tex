@@ -74,12 +74,12 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
       \ket{\mathbf{x}} &  \mapsto^{P} =  \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ X^{f}Z^{e}\ket{ x + z }} = \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ (-1)^{\braket{e,f} }Z^{e}\ket{ x + z + f}}\\
       & \mapsto^{H_{X}} \GZZZ{ (-1)^{\braket{e,f} }Z^{e}\ket{ x + z + f} \ket{ H_{X} \left(x + z + f\right) }  } \\ 
       & = \ \ \ \ \ \GZZZ{ (-1)^{\braket{e,f} }Z^{e}\ket{ x + z + f} \ket{ H_{X}f }  }\\
-      & \mapsto  \ \ \ \ \ \GZZZ{ (-1)^{\braket{e,f} }Z^{e}\ket{ x + z} \ket{ H_{X}f }  }\\
-      & \mapsto^{H^{\otimes n}} \GZZZ{  (-1)^{\braket{e,f} }Z^{e}H^{\otimes n}\ket{ x + z} } \\
-      & = \GZZZ{  (-1)^{\braket{e,f} }Z^{e}H^{\otimes n} X^{x} \ket{ z} } \\
-      & = \GZZZ{  (-1)^{\braket{e,f} }Z^{e} Z^{x} H^{\otimes n} \ket{ z} } \\
-      & = \GZZZW{ \ket{ z} }{(-1)^{\braket{e,f} }Z^{e} Z^{x} H^{\otimes n} } \\
-      & =  \GXXXW{  \ket{ z} }{ (-1)^{\braket{e,f} }Z^{e} Z^{x} } \\
+      & \mapsto^{X^{f}} \GZZZ{ Z^{e}\ket{ x + z} \ket{ H_{X}f }  }\\
+      & \mapsto^{H^{\otimes n}} \GZZZ{  Z^{e}H^{\otimes n}\ket{ x + z} } \\
+      & = \GZZZ{  Z^{e}H^{\otimes n} X^{x} \ket{ z} } \\
+      & = \GZZZ{  Z^{e} Z^{x} H^{\otimes n} \ket{ z} } \\
+      & = \GZZZW{ \ket{ z} }{Z^{e} Z^{x} H^{\otimes n} } \\
+      & =  \GXXXW{  \ket{ z} }{ Z^{e} Z^{x} } \\
     \end{split}
   \end{equation*}
 \end{proof}
