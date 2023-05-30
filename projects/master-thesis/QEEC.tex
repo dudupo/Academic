@@ -96,6 +96,13 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
     \end{equation*}
   \end{proof}
 
+  
+  \begin{equation*}
+    \begin{split}
+      C_{Z}^{\perp} \subset C_{X} \Rightarrow H_{X}H_{Z}^{\top} = 0 
+    \end{split}
+  \end{equation*}
+
   There is still one big difference between the classic repetition code and the Shor code. While each parity check of the Shor code examines a square root number of qubits, any check of the repetition code touches no more than a constant number of qubits; that is, any check just tests if any two adjacent bits are equal.  That brings us to ask whether the Shors code is really the quantum analogy for the repetition code? 
 
   \paragraph{qLDPC Codes.} As exactly as in the classic case, qLDPC codes are codes in which any check act non trivially on at most a constant number of qubits, It was proved that using a good Quantum LDPC code one can achieve a fault tolerance threshold theorem at the cost of only constant overhead\footnote{under the assumption of holding an efficient decoder.} \cite{gottesman2014faulttolerant}. We are now about to embark on a detailed review of the first quantum LDPC code \cite{Dennis_2002}. 
