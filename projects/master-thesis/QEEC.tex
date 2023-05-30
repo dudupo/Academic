@@ -49,7 +49,14 @@ It is evident that a single bit-flip error can be handled in the same way as in 
   \end{equation*}
 \end{proof}
 
-Now it is clear how to correct a phase flip. One can apply the Hadamard transform and compute the parity of each triple. By the assumption that only a single phase flip may occur, either all the triples have the same parity or the faulted one has an opposite parity and needs to be corrected. Thus, we obtain an $\left[ \left[ 9,1,1 \right] \right]$ quantum error correction code. Asymptotically, this is an $\left[ \left[ m^{2}, 1, m \right] \right]$ code. There is still one big difference between the classic repetition code and the Shor code. While each parity check of the Shor code examines a square root number of qubits, any check of the repetition code touches no more than a constant number of qubits; that is, any check just tests if any two adjacent bits are equal.  That brings us to ask whether the Shors code is really the quantum analogy for the repetition code? 
+Now it is clear how to correct a phase flip. One can apply the Hadamard transform and compute the parity of each triple. By the assumption that only a single phase flip may occur, either all the triples have the same parity or the faulted one has an opposite parity and needs to be corrected. Thus, we obtain an $\left[ \left[ 9,1,1 \right] \right]$ quantum error correction code. Asymptotically, this is an $\left[ \left[ m^{2}, 1, m \right] \right]$ code.
+
+The Shor code is a specific case of the more general CSS (Calderbank-Shor-Steane) code. This is a popular method used for quantum error correction codes. The CSS code is a stabilizer code that uses $S$ and $C$ operators, two different sets of operators, to protect quantum states against errors. $S$ operators deal with bit flip errors while $C$ operators deal with phase errors. An important aspect of the CSS code is that the operators used should be easy to implement and measure.
+
+The decoding process for a CSS code involves using two different types of measurements, $X$ and $Z$ measurements. These measurements can be used to determine the values of the $S$ and $C$ operators and thus determine the appropriate error correction. The specific equations used in this decoding process depend on the code used and involve finding the parity of several encoded qubits, applying some Pauli operations, and then measuring to see if the parity changed.
+
+
+There is still one big difference between the classic repetition code and the Shor code. While each parity check of the Shor code examines a square root number of qubits, any check of the repetition code touches no more than a constant number of qubits; that is, any check just tests if any two adjacent bits are equal.  That brings us to ask whether the Shors code is really the quantum analogy for the repetition code? 
 
 \paragraph{qLDPC Codes.} As exactly as in the classic case, qLDPC codes are codes in which any check act non trivially on at most a constant number of qubits, It was proved that using a good Quantum LDPC code one can achieve a fault tolerance threshold theorem at the cost of only constant overhead\footnote{under the assumption of holding an efficient decoder.} \cite{gottesman2014faulttolerant}. We are now about to embark on a detailed review of the first quantum LDPC code \cite{Dennis_2002}. 
 
@@ -106,10 +113,7 @@ Recall that one way to present a code is by define the parity check matrix, Cons
 \label{fig:Toric}
 \end{figure}
 \end{center}
-For example consider some vertex $v$ on the Torus, and let $\ket{\psi} = \sum_{x}{ \ket{\cdots x_{e_0}x_{e_1}x_{e_2}x_{e_3}  \cdots}}$ when $e_{0},e_{1},e_{2},e_{3}$ are the edges compose the local view of $v$. Then in any ket can be in the support of $\ket{\psi}$ only if the parity of $e_{0},e_{1},e_{2},e_{3}$ is even.
-
-
-Another way to look on the  toric code is as a prodcut of two cycles. If the checks in the repetition code are of the form $H_i =  x_i + x_{i+1}$  then in the toros code the checks are $x_{i,j}+ x_{i, j+1} + x_{i+1, j} + x_{i+1,j+1}$.
+For example consider some vertex $v$ on the Torus, and let $\ket{\psi} = \sum_{x}{ \ket{\cdots x_{e_0}x_{e_1}x_{e_2}x_{e_3}  \cdots}}$ when $e_{0},e_{1},e_{2},e_{3}$ are the edges compose the local view of $v$. Then in any ket can be in the support of $\ket{\psi}$ only if the parity of $e_{0},e_{1},e_{2},e_{3}$ is even. Namely $x_{e_{0}}+ x_{e_{1}} + x_{e_{2}} + x_{e_{3}} = 0$, that insight raise the following perspective. The Toric code could be thought as tanner code defined on product of two cycels. If the checks in the repetition code are of the form $H_i =  x_i + x_{i+1}$  then in the toros code the checks are $x_{i,j}+ x_{i, j+1} + x_{i+1, j} + x_{i+1,j+1}$.
 
 %The Toric code is a topological quantum error-correcting code that encodes a single qubit of information into a two-dimensional lattice of qubits. It is a stabilizer code, meaning that it uses a set of commuting operators to detect and correct errors. The code is based on the mathematical structure of a torus, and its properties make it a powerful tool for quantum computing. It is also a fault-tolerant code, meaning that it can correct errors even when some of the qubits are faulty.
 %
