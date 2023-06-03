@@ -14,6 +14,15 @@ We are now ready to present the Good qLDPC codes.
 \end{theorem}
 
 \begin{claim}
+  Consider a codeword $c$ such there exists a negative vertex $v$ that adjoins only for normal vertices. Then $c$ is reducible, and there exits $y \in C_{A}^{\perp}\otimes C_{B}^{\perp}$ such that $y$ supported only on $v$ and $ | c_{v} + y | < |c_{v}| $.       
+\end{claim}
+
+\begin{proof}
+  Any row in the local view of $v$ can be thought as a codeword of $C_{B}$ plus faults made by adding $C_{A}\otimes \mathbb{F}_{2}$ to the corresponding sibling of $v$ regarding the row. As the dual tensor is $\Delta^{3/2+\varepsilon}$ robust. Then, \cite{kalachev2022twosided}       
+\end{proof}
+
+
+\begin{claim}
   The distance of the dual tensor code is at least $\delta\Delta$.
 \end{claim}
 \begin{proof}
