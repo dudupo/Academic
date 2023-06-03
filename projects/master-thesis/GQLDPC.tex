@@ -14,6 +14,18 @@ We are now ready to present the Good qLDPC codes.
 \end{theorem}
 
 \begin{claim}
+  $ |S| \le \Delta^{\frac{1}{2}}|T| $ 
+\end{claim}
+\begin{proof}
+Suppose not, namely that $|S| > \Delta^{\frac{1}{2}}|T|$, then $|x|/|T| \ge \Delta^{\frac{1}{2}}|x|/|S| \ge \Delta^{\frac{1}{2}} \cdot \Delta $ But:  
+\begin{equation*}
+  \begin{split}
+    \frac{|x|}{|T|} = \frac{\Theta \left(E(T,T) \right)}{|T|} \le \Theta(\Delta^{2})\frac{|T|}{n}  + \Theta(\Delta)  \rightarrow_{n\rightarrow \infty} \Theta(\Delta)
+  \end{split}
+\end{equation*}
+\end{proof}
+
+\begin{claim}
   There is a negative vertex which adjoins to only normal vertices. 
 \end{claim}
 \begin{proof}
