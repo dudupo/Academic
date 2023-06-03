@@ -21,7 +21,8 @@ We are now ready to present the Good qLDPC codes.
 \end{proof}
 
 \begin{claim}
- for any $\varepsilon > 0$ and large enough $\Delta$  it holds that $ |S| \le \Delta^{\varepsilon}|T| $ 
+  \label{claim:epss}
+  for any $\varepsilon \in \left( 0,1 \right)$ and large enough $\Delta$  it holds that $ |S| \le \Delta^{\varepsilon}|T| $ 
 \end{claim}
 \begin{proof}
 Suppose not, namely that $|S| > \Delta^{\varepsilon}|T|$, then $|x|/|T| > \Delta^{\varepsilon}|x|/|S| > \Delta^{\varepsilon} \cdot \Delta $ But:  
@@ -35,20 +36,16 @@ Suppose not, namely that $|S| > \Delta^{\varepsilon}|T|$, then $|x|/|T| > \Delta
 \begin{claim}
   There is a negative vertex which adjoins to only normal vertices. 
 \end{claim}
+% Define the graph $G^{\star} = (V_{-}, E^{\star})$ such that $E^{\star} = E \cup \left\{ \left\{g, xyg \right\} x\neq y, \in A\cup B \right\}$ And notice that the assumption follows that  any 
 \begin{proof}
-  Denote by $S_{e},S_{n}$ the exceptional and the normal vertices. Namely the weight of the local view for any vertex in $S_{e}$ is grater than $\Delta^{3/2 + \varepsilon}$, and the normal vertices is the complementary vertices set. Suppose through contradiction that any negative vertex $v_{-}\in V_{-}$ has at least one sibling in $S_{e}$. Define the graph $G^{\star} = (V_{-}, E^{\star})$ such that $E^{\star} = E \cup \left\{ \left\{g, xyg \right\} x\neq y, \in A\cup B \right\}$ And notice that the assumption follows that  any positive vertex in $S_{n}$ must also has at least one sibling in $V_{e}$. So $S_{e} = \Theta\left( \Delta^{2}\right)|S|$. $|S| \le 2\Delta |T| \le  2\Delta 2\Delta |S_{e}| \Rightarrow \sqrt{|S|/|S_{e}|} \le \Theta\left( \Delta \right)$ 
-  On the another hand the second eigenvalue of $G^{\star}$ is 
-
+  Denote by $S_{e},S_{n}$ the exceptional and the normal vertices. Namely the weight of the local view for any vertex in $S_{e}$ is grater than $\Delta^{3/2 + \varepsilon}$, and the normal vertices is the complementary vertices set. Suppose through contradiction that any negative vertex $v_{-}\in V_{-}$ has at least one sibling in $S_{e}$. Therefore $|T| \le \Delta |S_{e}|$ combining with \cref{claim:epss} it follows that $|S| \le \Delta^{1+\varepsilon}|S_{e}|$ : 
   \begin{equation*}
     \begin{split}
-      \lambda\left( G^{\star} \right) & \le  \lambda\left( G_{A \times A} \cup G_{B \times A} \cup G_{B \times B} \right) \\
-      & = \max_{v \perp \mathbf{1}} v^{\top} \left( G_{A \times A}  +  G_{B \times A} + G_{B \times B} \right) v \\
-      & \le \max_{v \perp \mathbf{1}} v^{\top} \left( G_{A \times A} \right) v + \max_{v \perp \mathbf{1}} v^{\top} \left(   G_{B \times A} \right) v + \max_{v \perp \mathbf{1}} v^{\top} \left( G_{B \times B} \right) v \\ 
-      & = \Theta(\Delta) + \Theta(\Delta) + \Theta(\Delta) = \Theta(\Delta) 
+      \Delta^{3/2 + \varepsilon} & \le \frac{E(S,S_{e})}{|S_{e}|} = \Theta\left( \Delta^{2} \right)\frac{|S|}{n} + \Theta\left( \Delta \right)\sqrt{ \frac{|S|}{|S_{e}|}  }\\ 
+      & \le \Theta(\Delta^{2}) \frac{|S|}{n} + \Theta(\Delta) \Theta\left( \Delta^{\frac{1+\varepsilon}{2}} \right)  
     \end{split}
   \end{equation*} 
   Thus we have that: 
-
   \begin{equation*}
     \begin{split}
       \Delta^{3/2+\varepsilon} & \le \frac{E_{G_{A\times B}}\left( S_{e},S \right)}{|S_{e}|}\le  \frac{E_{G^{\star}}\left( S_{e},S \right)}{|S_{e}|} \\
