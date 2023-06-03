@@ -13,6 +13,23 @@ We are now ready to present the Good qLDPC codes.
   For $\varepsilon \in \left( 0,\frac{1}{2} \right)$, $\gamma\in \left( \frac{1}{2} + \varepsilon, 1 \right)$, $\delta> 0$, large enough $\Delta$, and small codes $C_{A},C_{B}$ with distance at least $\delta\Delta$ if the dual tensor code of $C_{A},C_{B}$ is $w$-robust and $\Delta^{\gamma}$ resistance to puncturing, then there exists an infinite family of square complexes for which the Tanner code defined by the complexes and the dual tensor code such that any codeword with weigh less than $ \frac{\delta n}{4\Delta^{3/2 + \varepsilon}} $ is reducible \cref{ire}.
 \end{theorem}
 
+\begin{claim}
+  There is a negative vertex which adjoins to only normal vertices. 
+\end{claim}
+\begin{proof}
+  Denote by $S_{e},S_{n}$ the exceptional and the normal vertices. Namely the weight of the local view for any vertex in $S_{e}$ is grater than $\Delta^{3/2 + \varepsilon}$, and the normal vertices is the complementary vertices set. Suppose through contradiction that any negative vertex $v_{-}\in V_{-}$ has at least one sibling in $S_{e}$. Define the graph $G^{\star} = (V_{-}, E^{\star})$ such that $E^{\star} = E \cup \left\{ \left\{g, xyg \right\} x\neq y, \in A\cup B \right\}$ And notice that the assumption follows that  any positive vertex in $S_{n}$ must also has at least one sibling in $V_{e}$.
+
+  On the another hand the second eigenvalue of $G^{\star}$ is 
+
+  \begin{equation*}
+    \begin{split}
+      \lambda\left( G^{\star} \right) & \le  \lambda\left( G_{A \times A} \cup G_{B \times A} \cup G_{B \times B} \right) \\
+      & = \max_{v \perp \mathbf{1}} v^{\top} \left( G_{A \times A}  +  G_{B \times A} + G_{B \times B} \right) v \\
+      & \le \max_{v \perp \mathbf{1}} v^{\top} \left( G_{A \times A} \right) v + \max_{v \perp \mathbf{1}} v^{\top} \left(   G_{B \times A} \right) v + \max_{v \perp \mathbf{1}} v^{\top} \left( G_{B \times B} \right) v \\ 
+      & = \Theta(\Delta) + \Theta(\Delta) + \Theta(\Delta) = \Theta(\Delta) 
+    \end{split}
+  \end{equation*} 
+\end{proof}
 
 \begin{equation*}
   \begin{split}
@@ -26,6 +43,7 @@ We are now ready to present the Good qLDPC codes.
  \end{matrix}
  \end{split}
 \end{equation*}
+
 
 
 \input{../NLTES_project/ltc_ldpc/disag.tex}
