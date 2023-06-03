@@ -14,6 +14,13 @@ We are now ready to present the Good qLDPC codes.
 \end{theorem}
 
 \begin{claim}
+  The distance of the dual tensor code is at least $\delta\Delta$.
+\end{claim}
+\begin{proof}
+  By the robustness any codeword with weight less than $\delta\Delta$ supported on at most one row. Now as the multiplication with any code word of $C_{A}^\perp \otimes C_{B}^\perp$ can be decomposed to a pairwise multiplication over the rows We obtain that only non trivial row must to be in $ \left( C_{B}^{\perp} \right)^{\perp}$ and there fore at weight at least $\delta\Delta$ and that is contradiction.  
+\end{proof}
+
+\begin{claim}
   $ |S| \le \Delta^{\frac{1}{2}}|T| $ 
 \end{claim}
 \begin{proof}
@@ -24,7 +31,6 @@ Suppose not, namely that $|S| > \Delta^{\frac{1}{2}}|T|$, then $|x|/|T| \ge \Del
   \end{split}
 \end{equation*}
 \end{proof}
-
 \begin{claim}
   There is a negative vertex which adjoins to only normal vertices. 
 \end{claim}
