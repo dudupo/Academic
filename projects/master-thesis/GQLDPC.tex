@@ -17,7 +17,7 @@ We are now ready to present the Good qLDPC codes.
   There is a negative vertex which adjoins to only normal vertices. 
 \end{claim}
 \begin{proof}
-  Denote by $S_{e},S_{n}$ the exceptional and the normal vertices. Namely the weight of the local view for any vertex in $S_{e}$ is grater than $\Delta^{3/2 + \varepsilon}$, and the normal vertices is the complementary vertices set. Suppose through contradiction that any negative vertex $v_{-}\in V_{-}$ has at least one sibling in $S_{e}$. Define the graph $G^{\star} = (V_{-}, E^{\star})$ such that $E^{\star} = E \cup \left\{ \left\{g, xyg \right\} x\neq y, \in A\cup B \right\}$ And notice that the assumption follows that  any positive vertex in $S_{n}$ must also has at least one sibling in $V_{e}$. So $S_{e} = \Theta\left( \Delta^{2}\right)|S|$. $|S| \le 2\Delta |T| \le  2\Delta 2\Delta |S_{e}| \Rightarrow \sqart{|S|/|S_{e}|} \le \Theta\left( \Delta \right)$ 
+  Denote by $S_{e},S_{n}$ the exceptional and the normal vertices. Namely the weight of the local view for any vertex in $S_{e}$ is grater than $\Delta^{3/2 + \varepsilon}$, and the normal vertices is the complementary vertices set. Suppose through contradiction that any negative vertex $v_{-}\in V_{-}$ has at least one sibling in $S_{e}$. Define the graph $G^{\star} = (V_{-}, E^{\star})$ such that $E^{\star} = E \cup \left\{ \left\{g, xyg \right\} x\neq y, \in A\cup B \right\}$ And notice that the assumption follows that  any positive vertex in $S_{n}$ must also has at least one sibling in $V_{e}$. So $S_{e} = \Theta\left( \Delta^{2}\right)|S|$. $|S| \le 2\Delta |T| \le  2\Delta 2\Delta |S_{e}| \Rightarrow \sqrt{|S|/|S_{e}|} \le \Theta\left( \Delta \right)$ 
   On the another hand the second eigenvalue of $G^{\star}$ is 
 
   \begin{equation*}
@@ -33,8 +33,8 @@ We are now ready to present the Good qLDPC codes.
   \begin{equation*}
     \begin{split}
       \Delta^{3/2+\varepsilon} & \le \frac{E_{G_{A\times B}}\left( S_{e},S \right)}{|S_{e}|}\le  \frac{E_{G^{\star}}\left( S_{e},S \right)}{|S_{e}|} \\
-      & \le \Theta\left( \Delta^{2} \right) \frac{  |S| }{n} +  \lambda\left( G^{\star} \right) \sqart{ \frac{ |S|}{ |S_{e}|} } \\
-      & \le \Theta\left( \Delta^{2} \right) \frac{  |S| }{n} +  
+      & \le \Theta\left( \Delta^{2} \right) \frac{  |S| }{n} +  \lambda\left( G^{\star} \right) \sqrt{ \frac{ |S|}{ |S_{e}|} } \\
+      & \le \Theta\left( \Delta^{2} \right) \frac{|S|}{n}   
     \end{split}
   \end{equation*}
 \end{proof}
