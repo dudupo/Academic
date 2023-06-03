@@ -21,30 +21,16 @@ We are now ready to present the Good qLDPC codes.
 \end{proof}
 
 \begin{claim}
-  $ |S| \le \Delta^{\frac{1}{2}}|T| $ 
+ for any $\varepsilon > 0$ and large enough $\Delta$  it holds that $ |S| \le \Delta^{\varepsilon}|T| $ 
 \end{claim}
 \begin{proof}
-Suppose not, namely that $|S| > \Delta^{\frac{1}{2}}|T|$, then $|x|/|T| > \Delta^{\frac{1}{2}}|x|/|S| > \Delta^{\frac{1}{2}} \cdot \Delta $ But:  
+Suppose not, namely that $|S| > \Delta^{\varepsilon}|T|$, then $|x|/|T| > \Delta^{\varepsilon}|x|/|S| > \Delta^{\varepsilon} \cdot \Delta $ But:  
 \begin{equation*}
   \begin{split}
     \frac{|x|}{|T|} = \frac{\Theta \left(E(T,T) \right)}{|T|} \le \Theta(\Delta^{2})\frac{|T|}{n}  + \Theta(\Delta)  \rightarrow_{n\rightarrow \infty} \Theta(\Delta)
   \end{split}
 \end{equation*}
 \end{proof}
-
-\begin{claim} 
-  $ |T| \le \Delta^{\frac{1}{2}}|S_{e}| $ 
-\end{claim}
-\begin{proof}
-  Suppose not, namely that $|T| > \Delta^{\frac{1}{2}}|S_{e}|$, then $|x|/|T| > \Delta^{\frac{1}{2}}|x|/|S_{e}| > \Delta^{\frac{1}{2}}| \  x|_{S_{e}} \ |/|S_{e}| \ge \Delta^{\frac{1}{2}} \cdot \Delta $ But:  
-\begin{equation*}
-  \begin{split}
-    \frac{|x|}{|T|} = \frac{\Theta \left(E(T,T) \right)}{|T|} \le \Theta(\Delta^{2})\frac{|T|}{n}  + \Theta(\Delta)  \rightarrow_{n\rightarrow \infty} \Theta(\Delta)
-  \end{split}
-\end{equation*}
-
-\end{proof}
-
 
 \begin{claim}
   There is a negative vertex which adjoins to only normal vertices. 
