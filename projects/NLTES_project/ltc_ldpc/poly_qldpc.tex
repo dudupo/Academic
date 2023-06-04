@@ -64,34 +64,34 @@
 %\input{preamble-poly}
 %   \input{backgroud-poly}
 \input{sageutil.py}
-\begin{abstract}
-  $w$-Robust codes are among the main ingredients in the novel constructions of good Quantum LDPC and LTC codes made by \cite{Dinur}, \cite{leverrier2022quantum}, and \cite{Pavel}. The Robustness property grants that any small-weight local view of the codeword will spread a fraction of it in both directions of the Left-Right Cayley Complex. On our way to construct Locally Testable Quantum Codes, we have tested a particular case on which the small code set on each local view is the polynomial code and focus on whether it can be $w$-robust code. Unfortunately, our answer to that question is negative. In this work, we share our experiences, ideas, and insights. We hope that all those would serve others in bringing closer a Quantum PCP Theorem.
-\end{abstract}  
-
-\section{Preambles}
-
-Locally Testable Codes (LTC) are error correction codes such that verifying a uniformly chosen check would be enough to detect any error with probability proportional to its size. Simply put, one can imagine puzzle parts such that any trial to connect pieces in order far from a correct assignment would fail (w.p) at an early step of the process. The analogy for not testability is the case in which the contradiction is observed only in the attempt to putting the last piece.
- 
- Likewise, Quantum LDPC codes (qLDPC) are also error correction codes; though that qLDPC encode qubits instead bits, for been considered good, they have to protect against two types of error, and obviously, their decoders have to be designed such that any attempt to detect or fix a one type error would not cause a second type error.
- 
- Good LTC and qLDPC have more in common besides the fact that their existences were open questions for a long time that were solved at once. For example, It has shown that sampling uniformly a code would be, with probability 1, neither LTC \cite{Sasson} nor qLDPC code. That stands in total contrast to many other valuable entities in computer science,  such as good classic LDPC codes, which a random process can achieve. Thus, it is unsurprising that the recent constructions hinge on a complex that is relatively rich with algebraic structure. And even though those results are indeed used for proving the NLTS conjecture \cite{anshu2022nlts}, one could expect that the construction of a qLTC will follow soon after them. 
-
- Here we shatter light on that wondering by point on one reason that cause the straightforward approach to fail. In detail,.. \ctt{complete this.}   
-
-
-
-\section{Background.}
-
-\input{polycode.tex}
-
-Notice that encoding naively the aleph-bet of $\mathbb{F}_{p}$ in binary strings require to pay a factor $\log n$ bits, So in general the asymptotic rate of the polynomial code attends to zero. Yet in our case, as we use the code for encoding only local views, The total factor that we have to pay is $\log\Delta$, which is constant relative to the number of bits (faces in the complex).   
-
-\input{qpolycode.tex}
-\ctt{Say some words about the classily testability of the polynomial code, and why for quantum it doesn't work. (The dual space of polynomials of low degree is the subspace of all the polynomials with heigh degree.)}
-
-
-Next, we will review Tanner's construction, that in addition to being a critical element to our proof, also serves as an example of how one can construct a code with arbitrary length and positive rate.
-
+%\begin{abstract}
+%  $w$-Robust codes are among the main ingredients in the novel constructions of good Quantum LDPC and LTC codes made by \cite{Dinur}, \cite{leverrier2022quantum}, and \cite{Pavel}. The Robustness property grants that any small-weight local view of the codeword will spread a fraction of it in both directions of the Left-Right Cayley Complex. On our way to construct Locally Testable Quantum Codes, we have tested a particular case on which the small code set on each local view is the polynomial code and focus on whether it can be $w$-robust code. Unfortunately, our answer to that question is negative. In this work, we share our experiences, ideas, and insights. We hope that all those would serve others in bringing closer a Quantum PCP Theorem.
+%\end{abstract}  
+%
+%\section{Preambles}
+%
+%Locally Testable Codes (LTC) are error correction codes such that verifying a uniformly chosen check would be enough to detect any error with probability proportional to its size. Simply put, one can imagine puzzle parts such that any trial to connect pieces in order far from a correct assignment would fail (w.p) at an early step of the process. The analogy for not testability is the case in which the contradiction is observed only in the attempt to putting the last piece.
+% 
+% Likewise, Quantum LDPC codes (qLDPC) are also error correction codes; though that qLDPC encode qubits instead bits, for been considered good, they have to protect against two types of error, and obviously, their decoders have to be designed such that any attempt to detect or fix a one type error would not cause a second type error.
+% 
+% Good LTC and qLDPC have more in common besides the fact that their existences were open questions for a long time that were solved at once. For example, It has shown that sampling uniformly a code would be, with probability 1, neither LTC \cite{Sasson} nor qLDPC code. That stands in total contrast to many other valuable entities in computer science,  such as good classic LDPC codes, which a random process can achieve. Thus, it is unsurprising that the recent constructions hinge on a complex that is relatively rich with algebraic structure. And even though those results are indeed used for proving the NLTS conjecture \cite{anshu2022nlts}, one could expect that the construction of a qLTC will follow soon after them. 
+%
+% Here we shatter light on that wondering by point on one reason that cause the straightforward approach to fail. In detail,.. \ctt{complete this.}   
+%
+%
+%
+%\section{Background.}
+%
+%\input{polycode.tex}
+%
+%Notice that encoding naively the aleph-bet of $\mathbb{F}_{p}$ in binary strings require to pay a factor $\log n$ bits, So in general the asymptotic rate of the polynomial code attends to zero. Yet in our case, as we use the code for encoding only local views, The total factor that we have to pay is $\log\Delta$, which is constant relative to the number of bits (faces in the complex).   
+%
+%\input{qpolycode.tex}
+%\ctt{Say some words about the classily testability of the polynomial code, and why for quantum it doesn't work. (The dual space of polynomials of low degree is the subspace of all the polynomials with heigh degree.)}
+%
+%
+%Next, we will review Tanner's construction, that in addition to being a critical element to our proof, also serves as an example of how one can construct a code with arbitrary length and positive rate.
+%
 
 \begin{definition}[$w$-Robustness] Let $C_{0}$ be code of length $\Delta$ over the aleph-bet $\Sigma$ with minimum distance $\delta_{0}\Delta$. $C = C_{0} \otimes \mathbb{F} + \mathbb{F}\otimes C_{0}^{\perp}$ will be said $w$-robust if any codeword $c \in C$ at weight less than $w$ it follows that $c$ is supported on at most $2\cdot w/\delta_{0}\Delta$ rows and cols.
 \end{definition}
