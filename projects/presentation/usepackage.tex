@@ -36,6 +36,8 @@
 \usepgfplotslibrary{groupplots,dateplot}
 \pgfplotsset{compat=newest}
 
+\ifdefined{\Beme}
+\else
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
 \newtheorem{example}{Example}
@@ -53,6 +55,6 @@
 
 \newtheorem{problem}{Problem}
 \crefname{problem}{Problem}{Problems}
-
+\fi 
 
 
