@@ -1,9 +1,69 @@
 \documentclass[usenames, aspectratio=169]{beamer}
 \newcommand{\Beme} 
-\input{./usepackage}
-\input{newcommands}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[a4paper, total={6in, 9in}]{geometry}
+%\usepackage{braket}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+%\usepackage[ocgcolorlinks]{hyperref}
+\usepackage{hyperref}
+%\usepackage{hyperref,xcolor}
+%\usepackage[ocgcolorlinks]{ocgx2}
+\usepackage{cleveref}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{patterns, shapes.arrows}
+\usepackage{adjustbox}
+%\usepackage{tikz-network}
+\usepackage{tkz-graph}
+\usepackage{tkz-berge}
+\usepackage[linesnumbered]{algorithm2e}
+\usepackage{multicol}
+\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+%\usepackage{xcolor}
+%\usepackage{tkz-berge}
+%\usepackage{tkz-graph}
+\usepackage{pgfplots}
+\usepackage{sagetex}
+\usepackage{setspace}
+\usepackage{etoc}
+%\usepackage{wrapfig}
+\usepackage{pgfgantt}
+\DeclareUnicodeCharacter{2212}{−}
+\usepgfplotslibrary{groupplots,dateplot}
+\pgfplotsset{compat=newest}
+
+\ifdefined{\Beme}
+\else
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{claim}{Claim}
+\newtheorem{fact}{Fact}
+\newtheorem{remark}{Remark}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}{Lemma}
+\crefname{lemma}{Lemma}{Lemmas}
+\hypersetup{colorlinks=true}
+% , allcolors=blue,allbordercolors=blue,pdfborderstyle={0 0 1}}
+%\hypersetup{pdfborder={2 2 2}}
+% pdfpagemode=FullScreen,
+% backref 
+
+\newtheorem{problem}{Problem}
+\crefname{problem}{Problem}{Problems}
+\fi 
+
+
+%\input{newcommands}
 \usetheme[progressbar=frametitle]{metropolis}
-\addbibresource{./sample.bib} 
+\addbibresource{sample.bib} 
 \begin{document}
 
 \title[ Introduction to Quantum Error Correction Codes. ] % (optional, only for long titles)
