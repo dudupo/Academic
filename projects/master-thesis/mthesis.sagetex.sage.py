@@ -150,7 +150,7 @@ try:
  M = matrix(GF(_sage_const_2 ), [_sage_const_1  for _ in range(_sage_const_3 )])
  repetition = codes.LinearCode(M)
  H = repetition.parity_check_matrix()
- H1 = H.tensor_product(identity_matrix(_sage_const_3 )).augment( identity_matrix(_sage_const_3 ).tensor_product(H))
+ H1 = identity_matrix(_sage_const_3 ).tensor_product(H).augment( H.tensor_product(identity_matrix(_sage_const_3 )))
  Hstr = latex(H)
  H1str = latex(H1)
 except:

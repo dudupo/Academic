@@ -210,7 +210,7 @@ latex.matrix_delimiters('[', ']')
 M = matrix(GF(2), [1 for _ in range(3)])
 repetition = codes.LinearCode(M)
 H = repetition.parity_check_matrix()
-H1 = H.tensor_product(identity_matrix(3)).augment( identity_matrix(3).tensor_product(H))
+H1 = identity_matrix(3).tensor_product(H).augment( H.tensor_product(identity_matrix(3)))
 Hstr = latex(H)
 H1str = latex(H1)
 \end{sagesilent}
