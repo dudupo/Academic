@@ -144,8 +144,8 @@ try:
  latex.matrix_delimiters('[', ']')
  M = matrix(GF(2), [1 for _ in range(3)])
  repetition = codes.LinearCode(M)
- H = repetition.parity_check_matrix()
- H1 = identity_matrix(3).tensor_product(H).augment( H.tensor_product(identity_matrix(3)))
+ H = repetition.parity_check_matrix().stack( matrix(GF(2), [1,1,0]))
+ H1 = identity_matrix(3).tensor_product(H).augment( H.transpose().tensor_product(identity_matrix(3)))
  Hstr = latex(H)
  H1str = latex(H1)
 except:
