@@ -208,14 +208,14 @@ As similar to the classical case, the next natural question to ask is whether th
   Let $H_{1}, H_{2} \in \mathbb{F}_{2}^{n\times r}$ be the parity check matrices. Define the bit and the phase parity checks matrices to be:          
 \begin{equation*}
   \begin{split}
-    H_{X} &= \left[ H \otimes I_{r} \ \  I_{n} \otimes H^{\top} \right] \\ 
-    H_{Z} &= \left[ I_{r} \otimes H^{\top} \ \  H \otimes I_{n} \right] \\ 
+    H_{X} &= \left[ H_{1} \otimes I_{r} \ \  I_{n} \otimes H^{\top}_{2} \right] \\ 
+    H_{Z} &= \left[ I_{r} \otimes H_{2} \ \  H_{1}^{\top} \otimes I_{n} \right] \\ 
   \end{split}
   \label{equ:css}
 \end{equation*}
-The matrices are orthogonal to each other as $H_{X}H_{Z}^{\top} = H\otimes H^{\top} + H\otimes H^{\top} = 0$ and therefore the pair define a valid CSS code. 
+The matrices are orthogonal to each other as $H_{X}H_{Z}^{\top} = H_{1}\otimes H^{\top}_{2} + H_{1}\otimes H^{\top}_{2} = 0$ and therefore the pair define a valid CSS code. 
 \end{definition}
-
+Obliviously, if $H_{1},H_{2},H_{1}^{\top},H_{2}^{\top}$ are parity checks matrices of an LDPC codes, so are $H_{X},H_{Z}$ as their maximal row weight is at most two times larger.   
 %\ref{equ:css}
 
 % That insight raise the following perspective. The Toric code could be thought as tanner code defined on product of two cycles. If the checks in the repetition code are of the form $H_i =  x_i + x_{i+1}$  then in the Toric code the checks are $x_{i,j}+ x_{i, j+1} + x_{i+1, j} + x_{i+1,j+1}$. Namely any restriction over the edge in the Toric code  $x_{e_{0}}+ x_{e_{1}} + x_{e_{2}} + x_{e_{3}} = 0$ is obtained by taking two restrictions of the repetition code and multiple them.
