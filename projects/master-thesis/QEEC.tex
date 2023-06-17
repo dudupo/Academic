@@ -208,8 +208,8 @@ As similar to the classical case, the next natural question to ask is whether th
   Let $H_{1}, H_{2} \in \mathbb{F}_{2}^{n\times r}$ be the parity check matrices. Define the bit and the phase parity checks matrices to be:          
 \begin{equation*}
   \begin{split}
-    H_{X} &= \left[ H \otimes I_{n} \ \  I_{n} \otimes H \right] \\ 
-    H_{Z} &= \left[ I_{n} \otimes H \ \  H \otimes I_{n} \right] \\ 
+    H_{X} &= \left[ H \otimes I_{r} \ \  I_{n} \otimes H^{\top} \right] \\ 
+    H_{Z} &= \left[ I_{r} \otimes H^{\top} \ \  H \otimes I_{n} \right] \\ 
   \end{split}
   \label{equ:css}
 \end{equation*}
