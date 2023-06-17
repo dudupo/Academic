@@ -141,6 +141,7 @@ except:
 _st_.current_tex_line = 208
 _st_.blockbegin()
 try:
+ latex.matrix_delimiters('[', ']')
  M = matrix(GF(2), [1 for _ in range(3)])
  repetition = codes.LinearCode(M)
  H = repetition.parity_check_matrix()
@@ -148,16 +149,16 @@ try:
  Hstr = latex(H)
  H1str = latex(H1)
 except:
- _st_.goboom(215)
+ _st_.goboom(216)
 _st_.blockend()
 try:
- _st_.current_tex_line = 220
+ _st_.current_tex_line = 221
  _st_.inline(2, Hstr)
 except:
- _st_.goboom(220)
+ _st_.goboom(221)
 try:
- _st_.current_tex_line = 220
+ _st_.current_tex_line = 221
  _st_.inline(2, Hstr)
 except:
- _st_.goboom(220)
+ _st_.goboom(221)
 _st_.endofdoc()
