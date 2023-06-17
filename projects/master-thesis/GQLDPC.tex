@@ -10,7 +10,7 @@ We are now ready to present the Good qLDPC codes.
 \end{definition}
 
 \begin{theorem}
-  For $\varepsilon \in \left( 0,\frac{1}{2} \right)$, $\gamma\in \left( \frac{1}{2} + \varepsilon, 1 \right)$, $\delta> 0$, large enough $\Delta$, and small codes $C_{A},C_{B}$ with distance at least $\delta\Delta$ if the dual tensor code of $C_{A},C_{B}$ is $w$-robust and $\Delta^{\gamma}$ resistance to puncturing, then there exists an infinite family of square complexes for which the Tanner code defined by the complexes and the dual tensor code such that any codeword with weigh less than $ \frac{\delta n}{4\Delta^{3/2 + \varepsilon}} $ is reducible \cref{ire}.
+  For $\varepsilon \in \left( 0,\frac{1}{2} \right)$, $\gamma\in \left( \frac{1}{2} + \varepsilon, 1 \right)$, $\delta_{0}> 0$, large enough $\Delta$, and small codes $C_{A},C_{B}$ with distance at least $\delta_{0}\Delta$ if the dual tensor code of $C_{A},C_{B}$ is $w$-robust and $\Delta^{\gamma}$ resistance to puncturing, then there exists an infinite family of square complexes for which the Tanner code defined by the complexes and the dual tensor code such that any codeword with weigh less than $ \frac{\delta_{0} n}{4\Delta^{3/2 + \varepsilon}} $ is reducible \cref{ire}.
 \end{theorem}
 
 \begin{claim}
@@ -26,7 +26,7 @@ We are now ready to present the Good qLDPC codes.
   The distance of the dual tensor code is at least $\delta\Delta$.
 \end{claim}
 \begin{proof}
-  By the robustness any codeword with weight less than $\delta\Delta$ supported on at most one row. Now as the multiplication with any code word of $C_{A}^\perp \otimes C_{B}^\perp$ can be decomposed to a pairwise multiplication over the rows We obtain that only non trivial row must to be in $ \left( C_{B}^{\perp} \right)^{\perp}$ and there fore at weight at least $\delta\Delta$ and that is contradiction.  
+  By the robustness any codeword with weight less than $\delta_{0}\Delta$ supported on at most one row. Now as the multiplication with any code word of $C_{A}^\perp \otimes C_{B}^\perp$ can be decomposed to a pairwise multiplication over the rows We obtain that only non trivial row must to be in $ \left( C_{B}^{\perp} \right)^{\perp}$ and there fore at weight at least $\delta_{0}\Delta$ and that is contradiction.  
 \end{proof}
 
 \begin{claim}
@@ -34,7 +34,7 @@ We are now ready to present the Good qLDPC codes.
   for any $\varepsilon \in \left( 0,1 \right)$ and large enough $\Delta$  it holds that $ |S| \le \Delta^{\varepsilon}|T| $ 
 \end{claim}
 \begin{proof}
-Suppose not, namely that $|S| > \Delta^{\varepsilon}|T|$, then $|x|/|T| > \Delta^{\varepsilon}|x|/|S| > \Delta^{\varepsilon} \cdot \Delta $ But:  
+  Suppose not, namely that $|S| > \Delta^{\varepsilon}|T|$, then $|x|/|T| > \Delta^{\varepsilon}|x|/|S| > \Delta^{\varepsilon} \cdot \delta_{0}\Delta $ But:  
 \begin{equation*}
   \begin{split}
     \frac{|x|}{|T|} = \frac{\Theta \left(E(T,T) \right)}{|T|} \le \Theta(\Delta^{2})\frac{|T|}{n}  + \Theta(\Delta)  \rightarrow_{n\rightarrow \infty} \Theta(\Delta)
