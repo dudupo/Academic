@@ -158,7 +158,17 @@ except:
  _st_.goboom(221)
 try:
  _st_.current_tex_line = 221
+ _st_.inline(3, H1str)
+except:
+ _st_.goboom(221)
+try:
+ _st_.current_tex_line = 221
  _st_.inline(2, Hstr)
+except:
+ _st_.goboom(221)
+try:
+ _st_.current_tex_line = 221
+ _st_.inline(3, H1str)
 except:
  _st_.goboom(221)
 _st_.endofdoc()

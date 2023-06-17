@@ -163,7 +163,17 @@ except:
  _st_.goboom(_sage_const_221 )
 try:
  _st_.current_tex_line = _sage_const_221 
+ _st_.inline(_sage_const_3 , H1str)
+except:
+ _st_.goboom(_sage_const_221 )
+try:
+ _st_.current_tex_line = _sage_const_221 
  _st_.inline(_sage_const_2 , Hstr)
+except:
+ _st_.goboom(_sage_const_221 )
+try:
+ _st_.current_tex_line = _sage_const_221 
+ _st_.inline(_sage_const_3 , H1str)
 except:
  _st_.goboom(_sage_const_221 )
 _st_.endofdoc()
