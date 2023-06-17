@@ -238,11 +238,11 @@ H1str = latex(H1)
 
 
 \begin{claim}
-  Let $k_{1},k_{2},k_{1}^{\top},k_{2}^{\top}$ be the demission of the codes with the full rank  parity check matrices $H_{1},H_{2},H_{1}^{\top},H_{2}^{\top}$. Then the dimension of the Hyperproduct code is $k_{1}k_{2} + k_{1}^{\top}k_{2}^{\top}$. 
+  Let $k_{1},k_{2}$ be the demission of the codes with the full rank  parity check matrices $H_{1},H_{2}$. Then the dimension of the Hyperproduct code is $ \ge k_{1}k_{2}$. 
 \end{claim}
 
 \begin{proof}
-  We will find the dimensions of each of the classics codes defined by $H_{X}$ and $H_{Z}$. Notice that length of the code, assuming the fullness of the ranks, is $n \cdot  (n-k_{1}) + n \cdot k_{2}$ be the rank of the.  
+  We will find the dimensions of each of the classics codes defined by $H_{X}$ and $H_{Z}$. Notice that length of the code, assuming the fullness of the ranks, is $n^{2} +  (n-k_{1}) \cdot \left( n -k_{2}\right)$. Note that for any $u,v$ such $H_{1}u = 0$ and $H_{2}^{\top}v =0$ it holds that $[u\otimes e_{i} \ e_{j}\otimes v]$ is a codeword, where $e_{i},e_{j}$ are taken from the standard basis of $[n],[n-k_{2}]$.  
 \end{proof}
 
 \section{Quantum Codes.}
