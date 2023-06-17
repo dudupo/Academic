@@ -213,7 +213,7 @@ As similar to the classical case, the next natural question to ask is whether th
   \end{split}
   \label{equ:css}
 \end{equation*}
-The matrices are orthogonal to each other as $H_{X}H_{Z}^{\top} = H_{1}\otimes H^{\top}_{2} + H_{1}\otimes H^{\top}_{2} = 0$ and therefore the pair define a valid CSS code. 
+The matrices are orthogonal to each other as $H_{X}H_{Z}^{\top} = H_{1}\otimes H^{\top}_{2} + H_{1}\otimes H^{\top}_{2} = 0$ and therefore the pair define a valid CSS code. We will call to that code the Hyperproduct and denote it by $Q\left( H_{1} \times H_{2} \right)$.
 \end{definition}
 Obliviously, if $H_{1},H_{2},H_{1}^{\top},H_{2}^{\top}$ are parity checks matrices of an LDPC codes, so are $H_{X},H_{Z}$ as their maximal row weight is at most two times larger.   
 %\ref{equ:css}
@@ -236,6 +236,11 @@ H1str = latex(H1)
   \end{split}
 \end{equation*}
 
+
+\begin{claim}
+  Let $k_{1},k_{2},k_{1}^{\top},k_{2}^{\top}$ be the demission of the codes with the paritiy check matrices $H_{1},H_{2},H_{1}^{\top},H_{2}^{\top}$
+
+\end{claim}
 
 \section{Quantum Codes.}
 \begin{definition}
