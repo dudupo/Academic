@@ -276,6 +276,7 @@ Thus the dimension of the quantum code is:
 \end{remark}
 
 \begin{claim}
+  \label{claim:Hdis}
   Denote by $d$ the minimal distance of $\ker H_{1}$. Any codeword $x$ of $C_{X} = \ker H_{X}$ with edge at most $d$ belongs to $C_{Z}^{\perp}$.  
 \end{claim}
 
@@ -286,10 +287,14 @@ Thus the dimension of the quantum code is:
 
   Thus, by the fact that for any CSS code $\dim C = \dim C_{X} - \dim C_{Z}^\perp$ it follows that $\dim \ker H_{X}^{\prime}  = \dim \ker H_{Z}^{\prime \perp}$ $ \Rightarrow \ker H_{X}^{\prime}  = \ker H_{Z}^{\prime \perp}$.
 
-  Denote by $x^{\prime}$ the restriction of $x$ to the columns of $H_{X}^{\prime}$ and clearly, by the definition of the construction,  $x^{\prime}$ is a codeword of $\ker H_{X}^{\prime}$. Thus $x^{\prime}$ is also codeword of $\ker H_{Z}^{\prime \perp}$. 
+  Denote by $x^{\prime}$ the restriction of $x$ to the columns of $H_{X}^{\prime}$ and clearly, by the definition of the construction,  $x^{\prime}$ is a codeword of $\ker H_{X}^{\prime}$. Thus $x^{\prime}$ is also codeword of $\ker H_{Z}^{\prime \perp}$ and by the same argument, $x$ is also a codeword of $\ker H_{Z}^{\prime \perp}$. 
 \end{proof}
 
+Immediately from \cref{claim:Hdis} we obtain that exactness of quantum LDPC codes with positive rate and $\Theta\left( \sqrt{n} \right)$ distance by taking the Hyperproduct of two classical expender codes.   
 
+\begin{theorem}
+  There exists an infinity family of QLDPC codes with positive rate and $\Theta(\sqrt{n})$ distance.   
+\end{theorem}
 
 \section{Quantum Codes.}
 \begin{definition}
