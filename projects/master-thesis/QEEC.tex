@@ -205,7 +205,7 @@ For example consider some vertex $v$ on the Torus, and let $\ket{\psi} = \sum_{x
 As similar to the classical case, the next natural question to ask is whether there are codes with positive rates. The quantum expanders were the first quantum LDPC codes to achieve a square-root distance and positive rate \cite{Tillich_2014, Leverrier_2015}. The leading insight was the idea that the Toric code could be represented as a variant product of the repetition code. For example, consider the cross restriction in Figure \cref{fig:Toric}; that restriction can be obtained by gluing two vertices of two different cycle graphs.
 
 \begin{definition}
-  Let $H_{1}, H_{2} \in \mathbb{F}_{2}^{n\times r}$ be the parity check matrices. Define the bit and the phase parity checks matrices to be:          
+  For any two matrices $A,B$, with the same number of rows, denote by $\left[ A,B \right]$ the matrix obtained by attach $B$ next to $A$ from right.  Let $H_{1}, H_{2} \in \mathbb{F}_{2}^{n\times r}$ be the parity check matrices. Define the bit and the phase parity checks matrices to be:          
 \begin{equation*}
   \begin{split}
     H_{X} &= \left[ H_{1} \otimes I_{r} \ \  I_{n} \otimes H^{\top}_{2} \right] \\ 
@@ -238,12 +238,20 @@ H1str = latex(H1)
 
 
 \begin{claim}
+  Let  $A,B \in \mathbb{M}_{n\times r_{1}}, \mathbb{M}_{n\times r_{2}}$ then  $\dim \ker [A ,B]$ is $ \dim \ker A + n $. 
+\end{claim}
+
+\begin{proof}
+  The proof is omitted. 
+\end{proof}
+
+\begin{claim}
   Let $k_{1},k_{2}$ be the demission of the codes with the full rank  parity check matrices $H_{1},H_{2}$. Then the dimension of the Hyperproduct code is $ \ge k_{1}k_{2}$. 
 \end{claim}
 
 \begin{proof}
   %We will find the dimensions of each of the classics codes defined by $H_{X}$ and $H_{Z}$. Notice that length of the code, assuming the fullness of the ranks, is $n^{2} +  (n-k_{1}) \cdot \left( n -k_{2}\right)$. Note that for any $u,v$ such $H_{1}u = 0$ and $H_{2}^{\top}v =0$ it holds that $[u\otimes e_{i} \ e_{j}\otimes v]$ is a codeword, where $e_{i},e_{j}$ are taken from the standard basis of $[n],[n-k_{2}]$. Thus the dimension of $\ker H_{X}$ is $k_{1}n + (n-k_{1})(n-k_{2})$. 
-  By the same arguments we have that $\dim C_{Z} = k_{2}n + (n-k_{1})(n-k_{2})$. 
+  %By the same arguments we have that $\dim C_{Z} = k_{2}n + (n-k_{1})(n-k_{2})$. 
 We will find the dimensions of each of the classical codes defined by $H_{X}$ and $H_{Z}$. Notice that the length of the code, assuming the fullness of the ranks, is $n^{2} +  (n-k_{1}) \cdot \left( n -k_{2}\right)$. Note that for any $u,v$ such that $H_{1}u = 0$ and $H_{2}^{\top}v =0$ it holds that $[u\otimes e_{i} \ e_{j}\otimes v]$ is a codeword, where $e_{i},e_{j}$ are taken from the standard basis of $\mathbb{F}^n,\mathbb{F}^{n-k_{2}}$. Thus the dimension of $\ker H_{X}$ is $k_{1}n + (n-k_{1})(n-k_{2})$. 
 By the same arguments we have that $\dim C_{Z} = k_{2}n + (n-k_{1})(n-k_{2})$. Thus the dimension of the quantum code is:
   \begin{equation*}
