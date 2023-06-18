@@ -270,6 +270,13 @@ Thus the dimension of the quantum code is:
   \end{equation*}
 \end{proof}
 
+\begin{remark}
+  \label{remark:pun}
+  Let $H_{1}^{\prime}$ be a parity check matrix obtained by puncturing columns from $H_{1}$, denote by $k^{\prime}_{1}$ the dimension of that code. Then the Hyperproduct $Q(H_{1}^{\prime}\times H_{2})$ is a CSS code with dimension $k^{\prime}_{1}k_{2}$. Moreover if the number of columns left after the puncturing is less the distance of $\ker H_{1}$ then it must to holds that $k^{\prime}_{1} = 0$. Otherwise, one can take a non trivial codeword of $\ker H^{\prime}_{1}$ and extending it to a valid codeword of $\ker H_{1}$ by set any punctured coordinate of it to zero. The yilded codeword has weight less than $d$ which is contradiction.  
+\end{remark}
+
+
+
 \section{Quantum Codes.}
 \begin{definition}
   A $\left[\left[ n,k,d \right]\right]$ is a quantum code over $n$ qubits, that encode a subspace at demission $k$ and any fault composed by a product of at most $d/2$ Pauli operators. 
