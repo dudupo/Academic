@@ -35,7 +35,6 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
     \end{proof}
     \begin{claim}
       For any $x_{0} \in C_{X}$ and $z_{1}\neq z_{2} \in C_{z}^{\perp}$, $D$ correct $\ket{x+z_{1}+f}$, $\ket{x+z_{2}+f}$ into two different words in $C_{X}$. 
-    \end{claim} 
     \begin{proof}
       Suppose not, namely there exists $y \in C_{X}$ such that $D$ correct $\ket{x+z_{1}+f}$, $\ket{x+z_{2}+f}$ into $\ket{y}$. Then we have that for both $i\in \{1,2\}$ it holds that  $d\left( x+z_{i} +f, y \right) \le d\left( C_{Z}^{\perp}/2 \right)$ and therefore $ d\left( x + z_{1} + f, x+z_{2} +f  \right) \le d\left( C_{Z}^{\perp} \right)$. But
       \begin{equation*}
@@ -46,6 +45,7 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
       \end{equation*}     
       contradiction for the assumption that $z_{1},z_{2} \in C_{Z}^{\perp}$.   
     \end{proof}
+    \end{claim} 
     Let $P = X^{f}Z^{e}$ be an error such that $e, f < d/2$ act on the state $\ket{\mathbf{x}}$. Denote by $H_{X}, H_{Z}$ the parity check matrices of $C_{X},C_{Z}$. 
       \begin{equation*}
       \begin{split}
