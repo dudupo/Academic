@@ -22,6 +22,7 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
     \newcommand{\GXXX}[1]{ \frac{1}{\sqrt{|C_{Z}|}} \sum_{z \in C_{Z}}{ #1 } } 
     \newcommand{\GXXXW}[2]{ \frac{1}{\sqrt{|C_{Z}|}} #2 \sum_{z \in C_{Z}}{ #1 } } 
     \newcommand{\GXXXV}[2]{ \frac{1}{\sqrt{|C_{Z}|}} \sum_{#2 \in C_{Z}}{ #1 } } 
+    \DeclareMathOperator{\Ima}{Im}
   \begin{proof}
     First let us prove the following claim: 
     \begin{claim}
@@ -37,7 +38,7 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
        And recall the dimensional theorem that states:
        \begin{equation*}
          \begin{split}
-          & \dim \img H_{Z} + \dim \ker H_{Z} = n \\
+          & \dim \Ima H_{Z} + \dim \ker H_{Z} = n \\
           & \Leftrightarrow |C_{Z}^{\perp}||C_{Z}| = 2^{n}
          \end{split}
        \end{equation*}
