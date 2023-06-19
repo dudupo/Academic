@@ -138,3 +138,60 @@ try:
  _st_.inline(1, graphs_tex_2)
 except:
  _st_.goboom(114)
+_st_.current_tex_line = 22
+_st_.blockbegin()
+try:
+ R.<t> = PowerSeriesRing(GF(17));
+ polyf = (t-1) * (t-2)
+ polyg = (t-1) * (t-4)
+ f(x) = (x-1) * (x-2)
+ g(x) = (x-1) * (x-4)
+ pplot_t = finate_poly_plot(f)
+ pplot_t2 = finate_poly_plot(g)
+except:
+ _st_.goboom(30)
+_st_.blockend()
+try:
+ _st_.current_tex_line = 33
+ _st_.plot(0, format='notprovided', _p_= pplot_t + pplot_t2 )
+except:
+ _st_.goboom(33)
+try:
+ _st_.current_tex_line = 34
+ _st_.inline(2, print_capt('$' + latex(f) + '$ and $' + latex(g) +'$'))
+except:
+ _st_.goboom(34)
+_st_.current_tex_line = 168
+_st_.blockbegin()
+try:
+ latex.matrix_delimiters('[', ']')
+ M = matrix(GF(2), [1 for _ in range(3)])
+ repetition = codes.LinearCode(M)
+ H = repetition.parity_check_matrix().stack( matrix(GF(2), [1,1,0]))
+ H1 = identity_matrix(3).tensor_product(H).augment( H.transpose().tensor_product(identity_matrix(3)))
+ Hstr = latex(H)
+ H1str = latex(H1)
+except:
+ _st_.goboom(176)
+_st_.blockend()
+try:
+ _st_.current_tex_line = 181
+ _st_.inline(3, Hstr)
+except:
+ _st_.goboom(181)
+try:
+ _st_.current_tex_line = 181
+ _st_.inline(4, H1str)
+except:
+ _st_.goboom(181)
+try:
+ _st_.current_tex_line = 181
+ _st_.inline(3, Hstr)
+except:
+ _st_.goboom(181)
+try:
+ _st_.current_tex_line = 181
+ _st_.inline(4, H1str)
+except:
+ _st_.goboom(181)
+_st_.endofdoc()
