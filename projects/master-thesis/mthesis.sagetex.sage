@@ -57,7 +57,8 @@ try:
    return graph
  
  def peter_graph():
-   code = [0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
+   #code = [0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
+   code = list(range(15)) #[0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
    peter = graphs.PetersenGraph()
    return tanner_graph(peter, code)
  
@@ -69,7 +70,7 @@ try:
  
  
 except:
- _st_.goboom(65)
+ _st_.goboom(66)
 _st_.blockend()
 _st_.current_tex_line = 63
 _st_.blockbegin()

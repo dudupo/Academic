@@ -51,7 +51,8 @@ def tanner_graph(graph, code):
   return graph
 
 def peter_graph():
-  code = [0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
+  #code = [0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
+  code = list(range(15)) #[0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
   peter = graphs.PetersenGraph()
   return tanner_graph(peter, code)
 
