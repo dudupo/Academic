@@ -127,8 +127,8 @@ try:
  ops = [ gg.latex_options() for gg in ggs ]
  ops2 = ff.latex_options()
  
- graphs_tex =  ' \ \ \ '.join([  str(op.tkz_picture())  for op in ops[:_sage_const_3  ])
- graphs_tex_2 =  ' \ \ \ '.join([  str(op.tkz_picture())  for op in ops[_sage_const_3 :])
+ graphs_tex =  ' \ \ \ '.join([  str(op.tkz_picture())  for op in ops[:_sage_const_3  ]])
+ graphs_tex_2 =  ' \ \ \ '.join([  str(op.tkz_picture())  for op in ops[_sage_const_3 :]])
  graphs_tex_ff  = str(ops2.tkz_picture())
 except:
  _st_.goboom(_sage_const_98 )
@@ -141,11 +141,11 @@ except:
 _st_.current_tex_line = _sage_const_22 
 _st_.blockbegin()
 try:
- R.<t> = PowerSeriesRing(GF(_sage_const_17 ));
+ R = PowerSeriesRing(GF(_sage_const_17 ), names=('t',)); (t,) = R._first_ngens(1);
  polyf = (t-_sage_const_1 ) * (t-_sage_const_2 )
  polyg = (t-_sage_const_1 ) * (t-_sage_const_4 )
- f(x) = (x-_sage_const_1 ) * (x-_sage_const_2 )
- g(x) = (x-_sage_const_1 ) * (x-_sage_const_4 )
+ __tmp__=var("x"); f = symbolic_expression((x-_sage_const_1 ) * (x-_sage_const_2 )).function(x)
+ __tmp__=var("x"); g = symbolic_expression((x-_sage_const_1 ) * (x-_sage_const_4 )).function(x)
  pplot_t = finate_poly_plot(f)
  pplot_t2 = finate_poly_plot(g)
 except:
