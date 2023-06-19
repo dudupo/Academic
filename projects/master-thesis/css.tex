@@ -49,6 +49,7 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
       H^{n} X^{f} \ket{ C_{Z}^{\perp} } & =  \overbrace{H^{n}X^{f}H^{n}}^{ Z^{f}} H^{n} \ket{C^{\perp}_{Z} }  = Z^{f}\ket{C}
     \end{split}
   \end{equation*}
+  That insight hints a description to decoder for the quantum code. If one knows how to correct errors for each of the classical code $C_{X},C_{Z}$ than he can start by correct the bit flips in using the decoder of $C_{X}$, rotate the state by applying the Hadamard transform and then correct, what was before the transformation phase flips and now a bit flips by using the decoder of $C_{Z}$. Then in  the end applying the Hadamard transform again for backing to the initial computation space. Indeed that decoder correct $ \min \{ d(C_{X})/2 , d\left( C_{Z} \right)/2 \} $ errors. Yet more work is needed to show that this decoder also correct $d\left( Q\left( C_{X}, C_{Z} \right) \right)/ 2$ errors.         
     \begin{claim}
       For any $x_{0} \in C_{X}$ and $z_{1}\neq z_{2} \in C_{z}^{\perp}$, $D_{X}$ correct $\ket{x+z_{1}+f}$, $\ket{x+z_{2}+f}$ into two different words in $C_{X}$. 
     \begin{proof}
