@@ -29,14 +29,19 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
           \end{claim}
     \begin{proof}
       \begin{equation*}
+        \label{equ:dualspace} 
         \begin{split}
         H^{n}\ket{C^{\perp}} &= \GZZZ{ H^{n}\ket{z} } = \frac{1}{ \sqrt{ 2^{n}}} \GZZZ{ \sum_{y\in \mathbb{F}_{2}^{n}}{ (-1)^{\braket{z,y}}  \ket{y}}  }\\
         = & \frac{1}{ \sqrt{ 2^{n}}} \GZZZ{ \left( \GXXXV{ \ket{y} }{y} + \text{ other terms } \right) } 
         \end{split}
        \end{equation*}
-Since the columns of matrix $H_{Z}$ form a basis for the complementary space $C_{Z}^{\perp}$, and due to the dimensional theorem and the equivalence between the row rank and column rank of a matrix, we can deduce that $\dim \rank H_{Z}^{\top} + \dim \ker H_{Z} = n$, which implies that $|C_{Z}^{\perp}||C_{Z}| = 2^{n}$
+       Since the columns of matrix $H_{Z}$ form a basis for the complementary space $C_{Z}^{\perp}$, and due to the dimensional theorem and the equivalence between the row rank and column rank of a matrix, we can deduce that $\dim \rank H_{Z}^{\top} + \dim \ker H_{Z} = n$, which implies that $|C_{Z}^{\perp}||C_{Z}| = 2^{n}$. Thus the norm of  
 
-Notice that $ 2^{n}|C_{Z}^{\perp}| =  |C_{z}| \cdot |C_{Z}^{\perp}| \cdot |C_{Z}^{\perp}|$ 
+       \begin{equation*}
+         \begin{split}
+           \frac{1}{ \sqrt{ 2^{n}}} \GZZZ{ \GXXXV{ \ket{y} }{y} } 
+         \end{split}
+       \end{equation*} equals $1$ and therefore the summation over the vectors $y \not\in C_{Z}$ in the inner closure in \ref{equ:dualspace} must cancel. So we left only with a uniform superposition over the codewords in $C_{Z}$, In other words $H^{n}\ket{C^{\perp}} = \ket{C}$.  
     \end{proof}
     \begin{claim}
       For any $x_{0} \in C_{X}$ and $z_{1}\neq z_{2} \in C_{z}^{\perp}$, $D_{X}$ correct $\ket{x+z_{1}+f}$, $\ket{x+z_{2}+f}$ into two different words in $C_{X}$. 
