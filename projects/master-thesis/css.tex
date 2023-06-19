@@ -25,6 +25,7 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
   \begin{proof}
     First let us prove the following claim: 
     \begin{claim}
+      \label{claim:mapdual}
       Denote by $H^{\otimes n}$ the Hadamard gate over $n$ qubits. Then for any code $C$ it holds that: $  H^{n}\ket{C^{\perp}} = \ket{C} $
           \end{claim}
     \begin{proof}
@@ -43,6 +44,13 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
          \end{split}
        \end{equation} equals $1$ and therefore the summation over the vectors $y \not\in C_{Z}$ in the inner closure in equation \ref{equ:dualspace} must cancel. So we left only with a uniform superposition over the codewords in $C_{Z}$, Or in other words $H^{n}\ket{C^{\perp}} = \ket{C}$.  
     \end{proof}
+  \Cref{claim:mapdualAs} states that, when considering CSS codes,  pauli $X$ operators can be seen as pauli $Z$ operators in the rotated frame. That it,
+
+  \begin{equation*}
+    \begin{split}
+      H^{n} X^{f} \ket{ C_{Z}^{\perp} } & =  \overbrace{H^{n}X^{f}H^{n}}^{ Z^{f}} H^{n} \ket{C^{\perp}_{Z} }  = Z^{f}\ket{C}
+    \end{split}
+  \end{equation*}
     \begin{claim}
       For any $x_{0} \in C_{X}$ and $z_{1}\neq z_{2} \in C_{z}^{\perp}$, $D_{X}$ correct $\ket{x+z_{1}+f}$, $\ket{x+z_{2}+f}$ into two different words in $C_{X}$. 
     \begin{proof}
