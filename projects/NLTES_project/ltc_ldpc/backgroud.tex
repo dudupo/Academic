@@ -63,10 +63,10 @@ Consider the Petersen graph $\Gamma$, which is a regular graph with degree $3$. 
 \begin{sagesilent}
    
   
-gg = peter_graph()
+ggs = peter_graphs()
 ff = cycle_graph()
-
-gg.set_latex_options(
+for gg in ggs:
+  gg.set_latex_options(
           edge_label_sloped = False,
           edge_labels=True,
           edge_thickness=0.005,
@@ -89,10 +89,10 @@ ff.set_latex_options(
           edge_fills=False,
       )
  
-ops = gg.latex_options()
+ops = [ gg.latex_options() for gg in ggs ] 
 ops2 = ff.latex_options()
 
-graphs_tex =  ' \ \ \  '.join([  str(ops.tkz_picture())  for _ in range(4) ])
+graphs_tex =  ' \ \ \  '.join([  str(op.tkz_picture())  for op in ops ])
 graphs_tex_ff  = str(ops2.tkz_picture())
 \end{sagesilent}
 

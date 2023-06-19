@@ -56,11 +56,22 @@ try:
      graph.set_edge_label(*edge[:2], f'{code[i]}')
    return graph
  
- def peter_graph():
-   #code = [0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
-   code = list(range(15)) #[0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
+ def peter_premu(x):
+     premu = [1,9,7,0,2,3,4,5,6,8,13,14,10,11,12]
+     return [ x[premu[i]] for i in range(15) ]
+ 
+ def peter_graph(code = [0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]):
+   #  code = list(range(15)) #[0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
    peter = graphs.PetersenGraph()
    return tanner_graph(peter, code)
+ 
+ def peter_graphs( )
+     code = [0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
+     ret = [ peter_graph( ) ]
+     for _ in range(4):
+         code = peter_premu(code)
+         ret += [  peter_graph(code)]
+     return ret
  
  def cycle_graph():
      nodes = 14
@@ -70,17 +81,17 @@ try:
  
  
 except:
- _st_.goboom(66)
+ _st_.goboom(77)
 _st_.blockend()
 _st_.current_tex_line = 63
 _st_.blockbegin()
 try:
  
  
- gg = peter_graph()
+ ggs = peter_graphs()
  ff = cycle_graph()
- 
- gg.set_latex_options(
+ for gg in ggs:
+   gg.set_latex_options(
            edge_label_sloped = False,
            edge_labels=True,
            edge_thickness=0.005,
@@ -103,10 +114,10 @@ try:
            edge_fills=False,
        )
  
- ops = gg.latex_options()
+ ops = [ gg.latex_options() for gg in ggs ]
  ops2 = ff.latex_options()
  
- graphs_tex =  ' \ \ \  '.join([  str(ops.tkz_picture())  for _ in range(4) ])
+ graphs_tex =  ' \ \ \  '.join([  str(op.tkz_picture())  for op in ops ])
  graphs_tex_ff  = str(ops2.tkz_picture())
 except:
  _st_.goboom(97)
