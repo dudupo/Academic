@@ -1,3 +1,9 @@
+\ifdefined\CSSDOC
+\begin{document}
+\fi 
+
+\ctt{Add a definition of error weight. fault that spanned by pauli operator of degree at} 
+
 \begin{definition}[CSS Code]
   Let $C_{X}, C_{Z}$ classical linear codes such that $C_{Z}^{\perp} \subset C_{X}$ define the $Q\left( C_{X},C_{Z} \right)$ to be all the code words with following structure:
   \begin{equation*}
@@ -8,7 +14,7 @@
 \end{definition}
 Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C_{Z}^{\perp}$ and therefore the dimension of the quantum code is $\dim Q\left( C_{X}, C_{Z} \right) = \dim C_{X} - \dim C_{Z^{\perp}} = \dim C_{X} + \dim C_{Z} - n$. Yet, it's not stems immediately how one can correct faults. Next, we are going to repeat the decoding process of the Shor code in the general setting of CSS codes.  
 \begin{lemma}
-    Let $C_{X},C_{Z}$ classical codes such $Q\left( C_{X},C_{Z} \right)$ is a CSS code and each has distance at least $d$. Then one can correct $d/2$ errors.       
+  Let $C_{X},C_{Z}$ classical codes such $Q\left( C_{X},C_{Z} \right)$ is a CSS code. Let $d_{X}$ be the minimal weigh of codeword in $C_{X}$ which is not in $C_{Z}^{\perp}$, and define by the same way $d_{Z}$ to be the minimal weight of codeword in $C_{Z}$ which doesn't belong to $C_{X}^{\perp}$. Then the distance of $Q\left( C_{X},C_{Z} \right)$ equals to $\min{d_{X},d_{Z}}$. Moreover there is a decoder which correct any fault with weight at most $d/2$.       
   \end{lemma}
 
     \newcommand{\GZZZ}[1]{ \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ #1 } } 
@@ -53,3 +59,7 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
     \end{split}
   \end{equation*}
 
+
+\ifdefined\CSSDOC
+\end{document}
+\fi 
