@@ -66,7 +66,7 @@ try:
      return [ x[premu[i]] for i in range(_sage_const_15 ) ]
  
  def peter_graph(code = [_sage_const_0 ,_sage_const_1 ,_sage_const_1 ,_sage_const_0 ,_sage_const_0 ,_sage_const_1 ,_sage_const_1 ,_sage_const_0 ,_sage_const_1 ,_sage_const_1 ,_sage_const_0 ,_sage_const_1 ,_sage_const_0 ,_sage_const_0 ,_sage_const_1 ]):
-   code = list(range(_sage_const_15 )) #[0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
+   #code = list(range(15)) #[0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
    peter = graphs.PetersenGraph()
    return tanner_graph(peter, code)
  
