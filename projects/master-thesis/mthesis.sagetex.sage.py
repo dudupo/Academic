@@ -127,7 +127,7 @@ try:
  ops = [ gg.latex_options() for gg in ggs ]
  ops2 = ff.latex_options()
  
- graphs_tex =  ' \ \ \\  '.join([  str(op.tkz_picture())  for op in ops ])
+ graphs_tex =  ' \ \ \ \n  '.join([  str(op.tkz_picture())  for op in ops ])
  graphs_tex_ff  = str(ops2.tkz_picture())
 except:
  _st_.goboom(_sage_const_97 )
