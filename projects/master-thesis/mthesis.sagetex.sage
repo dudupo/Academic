@@ -133,11 +133,6 @@ try:
  _st_.inline(0, graphs_tex)
 except:
  _st_.goboom(104)
-try:
- _st_.current_tex_line = 114
- _st_.inline(1, graphs_tex_2)
-except:
- _st_.goboom(114)
 _st_.current_tex_line = 22
 _st_.blockbegin()
 try:
@@ -158,7 +153,7 @@ except:
  _st_.goboom(33)
 try:
  _st_.current_tex_line = 34
- _st_.inline(2, print_capt('$' + latex(f) + '$ and $' + latex(g) +'$'))
+ _st_.inline(1, print_capt('$' + latex(f) + '$ and $' + latex(g) +'$'))
 except:
  _st_.goboom(34)
 _st_.current_tex_line = 168
@@ -176,22 +171,22 @@ except:
 _st_.blockend()
 try:
  _st_.current_tex_line = 181
- _st_.inline(3, Hstr)
+ _st_.inline(2, Hstr)
 except:
  _st_.goboom(181)
 try:
  _st_.current_tex_line = 181
- _st_.inline(4, H1str)
+ _st_.inline(3, H1str)
 except:
  _st_.goboom(181)
 try:
  _st_.current_tex_line = 181
- _st_.inline(3, Hstr)
+ _st_.inline(2, Hstr)
 except:
  _st_.goboom(181)
 try:
  _st_.current_tex_line = 181
- _st_.inline(4, H1str)
+ _st_.inline(3, H1str)
 except:
  _st_.goboom(181)
 _st_.endofdoc()
