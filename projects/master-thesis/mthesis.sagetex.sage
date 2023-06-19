@@ -129,10 +129,10 @@ except:
  _st_.goboom(98)
 _st_.blockend()
 try:
- _st_.current_tex_line = 107
+ _st_.current_tex_line = 104
  _st_.inline(0, graphs_tex)
 except:
- _st_.goboom(107)
+ _st_.goboom(104)
 try:
  _st_.current_tex_line = 107
  _st_.inline(1, graphs_tex_2)
