@@ -70,7 +70,7 @@ try:
    peter = graphs.PetersenGraph()
    return tanner_graph(peter, code)
  
- def peter_graphs( )
+ def peter_graphs():
      code = [_sage_const_0 ,_sage_const_1 ,_sage_const_1 ,_sage_const_0 ,_sage_const_0 ,_sage_const_1 ,_sage_const_1 ,_sage_const_0 ,_sage_const_1 ,_sage_const_1 ,_sage_const_0 ,_sage_const_1 ,_sage_const_0 ,_sage_const_0 ,_sage_const_1 ]
      ret = [ peter_graph( ) ]
      for _ in range(_sage_const_4 ):

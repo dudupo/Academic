@@ -59,7 +59,7 @@ def peter_graph(code = [0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]):
   peter = graphs.PetersenGraph()
   return tanner_graph(peter, code)
 
-def peter_graphs( ) 
+def peter_graphs():
     code = [0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
     ret = [ peter_graph( ) ]
     for _ in range(4):
