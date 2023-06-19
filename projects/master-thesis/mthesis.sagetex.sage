@@ -58,7 +58,12 @@ try:
  
  def peter_premu(x):
      premu = [1,9,7,0,2,3,4,5,6,8,13,14,10,11,12]
-     return [ x[premu[i]] for i in range(15) ]
+     premuinv = [ 0 for _ in range(15) ]
+     for i in range(15):
+         for j in range(15):
+             if premu[j] == i:
+                 premuinv[i] = j
+     return [ x[premuinv[i]] for i in range(15) ]
  
  def peter_graph(code = [0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]):
    #code = list(range(15)) #[0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
@@ -81,7 +86,7 @@ try:
  
  
 except:
- _st_.goboom(77)
+ _st_.goboom(82)
 _st_.blockend()
 _st_.current_tex_line = 63
 _st_.blockbegin()
