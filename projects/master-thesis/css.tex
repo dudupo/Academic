@@ -21,7 +21,7 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
     \newcommand{\GZZZW}[2]{ \frac{1}{\sqrt{|C_{Z}^{\perp}|}} #2 \sum_{z \in C_{Z}^{\perp}}{ #1 } } 
     \newcommand{\GXXX}[1]{ \frac{1}{\sqrt{|C_{Z}|}} \sum_{z \in C_{Z}}{ #1 } } 
     \newcommand{\GXXXW}[2]{ \frac{1}{\sqrt{|C_{Z}|}} #2 \sum_{z \in C_{Z}}{ #1 } } 
-
+    \newcommand{\GXXXV}[2]{ \frac{1}{\sqrt{|C_{Z}|}} \sum_{#2 \in C_{Z}}{ #1 } } 
   \begin{proof}
     First let us prove the following claim: 
     \begin{claim}
@@ -29,18 +29,19 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
           \end{claim}
     \begin{proof}
       \begin{equation*}
-        H^{n}\ket{C^{\perp}} = \GZZZ{ H^{n}\ket{z} } = \frac{1}{ \sqrt{ 2^{n}}} \GZZZ{ \sum_{y\in \mathbb{F}_{2}^{n}}{ (-1)^{\braket{z,y}}  \ket{y}}  }
+        H^{n}\ket{C^{\perp}} &= \GZZZ{ H^{n}\ket{z} } = \frac{1}{ \sqrt{ 2^{n}}} \GZZZ{ \sum_{y\in \mathbb{F}_{2}^{n}}{ (-1)^{\braket{z,y}}  \ket{y}}  }\\
+        = & \frac{1}{ \sqrt{ 2^{n}}}   \GXXXV{ \GZZZ{ \ket{y} } }{y} 
        \end{equation*}
-       Notice that $ 2^{n}|C_{Z}^{\perp}| =  |C_{z}| \cdot |C_{Z}^{\perp}| \cdot |C_{Z}^{\perp}|$  
+       Notice that $ 2^{n}|C_{Z}^{\perp}| =  |C_{z}| \cdot |C_{Z}^{\perp}| \cdot |C_{Z}^{\perp}|$ 
     \end{proof}
     \begin{claim}
-      For any $x_{0} \in C_{X}$ and $z_{1}\neq z_{2} \in C_{z}^{\perp}$, $D$ correct $\ket{x+z_{1}+f}$, $\ket{x+z_{2}+f}$ into two different words in $C_{X}$. 
+      For any $x_{0} \in C_{X}$ and $z_{1}\neq z_{2} \in C_{z}^{\perp}$, $D_{X}$ correct $\ket{x+z_{1}+f}$, $\ket{x+z_{2}+f}$ into two different words in $C_{X}$. 
     \begin{proof}
-      Suppose not, namely there exists $y \in C_{X}$ such that $D$ correct $\ket{x+z_{1}+f}$, $\ket{x+z_{2}+f}$ into $\ket{y}$. Then we have that for both $i\in \{1,2\}$ it holds that  $d\left( x+z_{i} +f, y \right) \le d\left( C_{Z}^{\perp}/2 \right)$ and therefore $ d\left( x + z_{1} + f, x+z_{2} +f  \right) \le d\left( C_{Z}^{\perp} \right)$. But
+      Suppose not, namely there exists $y \in C_{X}$ such that $D_{X}$ correct $\ket{x+z_{1}+f}$, $\ket{x+z_{2}+f}$ into $\ket{y}$. Then we have that for both $i\in \{1,2\}$ it holds that  $d\left( x+z_{i} +f, y \right) \le d\left( C_{Z}^{\perp}/2 \right)$ and therefore $ d\left( x + z_{1} + f, x+z_{2} +f  \right) \le d\left( C_{Z}^{\perp} \right)$. But
       \begin{equation*}
         \begin{split}
             & d\left( x + z_{1} + f, x+z_{2} +f  \right) =  | x + z_{1} + f + x + z_{2} + f | \\
-            =  & | z_{1} + z_{2} | = d\left( z_{1},z_{2} \right) > d\left( C_{Z}^{\perp} \right) 
+            =  & | z_{1} + z_{2} | = d\left( z_{1},z_{2} \right) 
         \end{split}
       \end{equation*}     
       contradiction for the assumption that $z_{1},z_{2} \in C_{Z}^{\perp}$.   
