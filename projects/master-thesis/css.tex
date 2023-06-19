@@ -28,13 +28,13 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
       Denote by $H^{\otimes n}$ the Hadamard gate over $n$ qubits. Then for any code $C$ it holds that: $  H^{n}\ket{C^{\perp}} = \ket{C} $
           \end{claim}
     \begin{proof}
-      \begin{equation*}
+      \begin{equation}
         \label{equ:dualspace} 
         \begin{split}
         H^{n}\ket{C^{\perp}} &= \GZZZ{ H^{n}\ket{z} } = \frac{1}{ \sqrt{ 2^{n}}} \GZZZ{ \sum_{y\in \mathbb{F}_{2}^{n}}{ (-1)^{\braket{z,y}}  \ket{y}}  }\\
         = & \frac{1}{ \sqrt{ 2^{n}}} \GZZZ{ \left( \GXXXV{ \ket{y} }{y} + \text{ other terms } \right) } 
         \end{split}
-       \end{equation*}
+       \end{equation}
        Since the columns of matrix $H_{Z}$ form a basis for the complementary space $C_{Z}^{\perp}$, and due to the dimensional theorem and the equivalence between the row rank and column rank of a matrix, we can deduce that $\dim \rank H_{Z}^{\top} + \dim \ker H_{Z} = n$, which implies that $|C_{Z}^{\perp}||C_{Z}| = 2^{n}$. Thus the norm of  
 
        \begin{equation}
