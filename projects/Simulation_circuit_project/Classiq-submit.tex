@@ -64,7 +64,7 @@ Then in next section we review all the techniques that we have used to improve a
 In contrast, the third and the forth sections reviews methods to determinate an  order which clearly superior comparing to the naive approach. The forth section presenting an concept of analyzing the "product graph" a concept which could be thought as the second order analyses of the alternate path from the third section.      
 \paragraph{The problem.} Generate a circuit, using no more than \(10\) qubits, that approximates the unitary \(e^{-iH}\) where \(H\) is the qubit Hamiltonian of a \textbf{LiH} (lithium hydride) molecule. The \textbf{LiH} Hamiltonian is composed of 276 Pauli strings, and can be found HERE. The approximation error is defined in the next section, and should be less than \(0.1\). The circuit should be composed of the \(CX\) and single qubit gates only.
 
-\paragraph{Naive approach.} Before diving into the technical details let's review our competitor first. Consider the straightforward assignment Lie-Trotter just handle each of Hamiltonian terms one by one. Assume the the hamming weight of the support of \(H_i\) equal to \(d_i\). so we pay two steps to rotate each wire into the parity base and uncompute it in the end. then we could apply the \(CX\) from each qubit in the support to a chosen one which will sum the wires parity and finally will propgate the sum trough the \(RZ\left(\thea \Delta t \right) \) gate (rotation by the coefficient of the term and the step size). So in total we pay \((2 + 2d_i\) for each term and therefore the whole circuit will require: 
+\paragraph{Naive approach.} Before diving into the technical details let's review our competitor first. Consider the straightforward assignment Lie-Trotter \cite{Lie-Trotter} just handle each of Hamiltonian terms one by one. Assume the the hamming weight of the support of \(H_i\) equal to \(d_i\). so we pay two steps to rotate each wire into the parity base and uncompute it in the end. then we could apply the \(CX\) from each qubit in the support to a chosen one which will sum the wires parity and finally will propgate the sum trough the \(RZ\left(\thea \Delta t \right) \) gate (rotation by the coefficient of the term and the step size). So in total we pay \((2 + 2d_i\) for each term and therefore the whole circuit will require: 
 
 \begin{equation*}
     \begin{split}
@@ -72,7 +72,7 @@ In contrast, the third and the forth sections reviews methods to determinate an 
     \end{split}
 \end{equation*}
 
-Where \( D^{\text{naive}}\left(n,m\right)\) is the depth of the circuit which compute a single \( \Delta t \) step of Lie-Trotter formula. In order to getting a more solid feeling about what is good solution, let's assume for the moment that \( \mathbb{E}_{\sim i}[H] > 5 \), in that case we obtain that the naive approach obtain a circuit at depth \( \ge 2 \cdot 276 \cdot 6 \sim 3100 \). In the end we will see that our solution yields a \(1759\)-depth circuit. 
+Where \( D^{\text{naive}}\left(n,m\right)\) is the depth of the circuit which compute a single \( \Delta t \) step of Lie-Trotter formula\cite{Lie-Trotter}. In order to getting a more solid feeling about what is good solution, let's assume for the moment that \( \mathbb{E}_{\sim i}[H] > 5 \), in that case we obtain that the naive approach obtain a circuit at depth \( \ge 2 \cdot 276 \cdot 6 \sim 3100 \). In the end we will see that our solution yields a \(1759\)-depth circuit. 
 
 \paragraph{Characterize our \textbf{LiH}.} A native question that one might ask is whether exists a more efficient way to presents the Hamiltonian. So even we can't a sign that there is not, let's try to estimate how mach improvement can be achived by applying the Kitaev transformation. In one sentence, Kitaev has showed that the ladder and the annihilation operators has pauli representation such each operator touch at least \( \log\left(n\right) \) of the qubits. By the fact that Hamiltonian in the energy base has "product" of four operators (i.e \( a^{\dagger}_{i}b^{\dagger}_{j}a_{n}b_{m}) \) we get that there are might be operators in the computing base which touch \(4\log\left(n\right)\) qubits. In our case, \(n = 10 \Rightarrow 4\log\left(n\right) > n \). 
 Bottom line, It seems that the known techniques for reducing asymptotically the support of the terms don't work here. Hence, it's also an hint that 10-factor improvement is unlikely. Therefore we will aim to 2-factor of improvement over the naive.    
@@ -147,7 +147,7 @@ Another advantage of this method that it can be easily generalize to scanning tr
 
 The final submission is a mixture of all the methods we have reviewed above.   
 
-% \printbibliography 
+\printbibliography 
 \end{multicols*}
 \includepdf[pages=-]{sourcecode.pdf}
 \end{document}
