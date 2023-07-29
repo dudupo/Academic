@@ -121,9 +121,9 @@ Since all the segments \([i_{j}, i_{W-1}]\) are disjoint from any segments of th
 \end{figure*}
 \begin{multicols}{2}
 
-\section{Greedy Order Heuristics.}
-Next, we will review our methods to impose the gates order. Clearly the order does matter, to see that consider an hamiltonian pair which differ by only single coordinate i.e \(XXXX\) and \(XXXZ\). In that case the contribute of the first tree qubits remain the same for both of them, and therefore there is no needed to uncompute them after the applying of the first gate.      
-\paragraph{Sample Greedy Diameters.} Assume that we given a set of therms with a promise that it might has a lot of "closer" terms (relative to the Hamming distance of their supports). Our first simple heuristic goal is to chain them together in greedy manner such that the distance of each adjacent terms will be minimal. 
+\section{Greedy Order Heuristics.} Next, we will review our methods to impose the gate order. Clearly, the order does matter; to see this, consider a Hamiltonian pair that differ by only a single coordinate, i.e. \(XXXX\) and \(XXXZ\). In that case, the contribution of the first three qubits remains the same for both of them, and therefore there is no need to uncompute them after the application of the first gate.
+
+\paragraph{Sample Greedy Diameters.} We define a metric on the local terms by taking the Hamming distance; that is, we say that the distance between $H_{i}$ and $H_{j}$ is equal to the number of indices $k$ such that $H_{i,k} \neq H_{j,k}$. Deciding the order to impose the terms is equivalent to deciding on a path to visit them all. To do this, it is convenient to use graph language. We are given a set of terms with the promise that there are many "closer" terms (relative to the Hamming distance of their supports). Our first simple heuristic goal is to chain them together in a greedy manner such that the distance between each adjacent terms is minimal.
 \end{multicols}
 \begin{algorithm*}[h]
 %\SetAlgoLined
@@ -137,18 +137,18 @@ Next, we will review our methods to impose the gates order. Clearly the order do
  \caption{Chain an Hamiltonian set }
 \end{algorithm*}
 \begin{multicols}{2}
-It's worth to note that replacing the Greedy Spanning Tree by MST (and the diameter by just the DFS scanning order of the MST) could be proving as 2-OPT in the terms of chaining. We think about the uncompute stage as the climbing back at the tree, and therefore \( \textbf{OPT} \le 2w\left(\text{MST} \right) \). But also it easy to see that every path which contain all the vertices has weigth greater than \(w\left(\text{MST} \right) \), Hence  \(2w\left(\text{MST} \right) \le 2\textbf{OPT}\).          
-Yet, By the fact that we have already improved the naive solution at factor which close to \(\frac{1}{2}\) and by the intuition that the optimal depth is not very far from the naive (don't expect that \( D^{\text{naive}} \ge 4 \textbf{OPT} \) we decided to stick to the greedy construction, which in the next chapter will generalized to the product graph. 
+It is worth noting that replacing the Greedy Spanning Tree with an MST (and the diameter with just the DFS scanning order of the MST) could prove to be 2-OPT in terms of chaining. We think of the uncompute stage as climbing back up the tree, and therefore \( \textbf{OPT} \le 2w\left(\text{MST} \right) \). It is also easy to see that every path which contains all the vertices has a weight greater than \(w\left(\text{MST} \right) \), so \(2w\left(\text{MST} \right) \le 2\textbf{OPT}\).          
+Given that we have already improved the naive solution by a factor close to \(\frac{1}{2}\) and that the optimal depth is not far from the naive (we don't expect that \( D^{\text{naive}} \ge 4 \textbf{OPT} \)), we decided to stick to the greedy construction, which in the next chapter will be generalized to the product graph.
 
-\paragraph{Hyperplanes separation.} The cost of chaining pair of Hamiltonians isn't  a monotone function of their Hamming distance, for example consider the case of two terms which have not overlapping at all, i.e \( XXXXIIII \) and \(IIIIXXXX \) then it's clear that those two can be impose such they will be computed in parallel.   
-Technically we have separated those groups by follow, first we have sorted the term collection by the follow weight functions \(f,g\) such that:
+\paragraph{Hyperplanes separation.} The cost of chaining a pair of Hamiltonians is not a monotonic function of their Hamming distance; for example, consider the case of two terms which have no overlap at all, i.e. \(XXXXIIII\) and \(IIIIXXXX\). It is clear that these two can be imposed such that they will be computed in parallel. 
+Technically, we have separated these groups by using the following weight functions \(f,g\):
 \begin{equation*}
     \begin{split}
         f\left(H_{i}\right) &= \min {j : H_{j^{\prime}} = I \ \text{for } j^{\prime} > j } \\
         g\left(H_{i}\right) &= \max {j : H_{j^{\prime}} = I \ \text{for } j^{\prime} \le j }
     \end{split}
 \end{equation*}    
-And then we have matched pairs till we get into intersection.  
+Then we have matched pairs until we reach the intersection.
 \end{multicols}
 
 %\pagebreak
