@@ -141,7 +141,6 @@ It's worth to note that replacing the Greedy Spanning Tree by MST (and the diame
 Yet, By the fact that we have already improved the naive solution at factor which close to \(\frac{1}{2}\) and by the intuition that the optimal depth is not very far from the naive (don't expect that \( D^{\text{naive}} \ge 4 \textbf{OPT} \) we decided to stick to the greedy construction, which in the next chapter will generalized to the product graph. 
 
 \paragraph{Hyperplanes separation.} The cost of chaining pair of Hamiltonians isn't  a monotone function of their Hamming distance, for example consider the case of two terms which have not overlapping at all, i.e \( XXXXIIII \) and \(IIIIXXXX \) then it's clear that those two can be impose such they will be computed in parallel.   
-\vfill\null
 \end{multicols}
 
 \begin{figure*}[h]
@@ -159,6 +158,8 @@ Technically we have separated those groups by follow, first we have sorted the t
     \end{split}
 \end{equation*}    
 And then we have matched pairs till we get into intersection.  
+\vfill\null
+\columnbreak
 \section{The Product Graph.}
 The main disadvantage of the last separation is that it doesn't take into a count any relation between terms which classified in the same side of the plane. The suggested solution: We will say that the pair \(H_i, H_j\) share a "solid product" if  \( f\left(H_{i}\right) \le g \left(H_{j}\right) \) where \(f,g\) defined above. We denote such relation by \(\left(H_i, H_j\right) \in \textbf{SP} \). Define the graph \(G^2 = \left(V\times V , E^{\prime}\right)\) where \(V\) is the set of the terms, to be: 
 \begin{equation*}
