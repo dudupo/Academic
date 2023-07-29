@@ -92,7 +92,8 @@ for arbitrary matrices $A,B$, we obtain that one can apply the gates $e^{\Delta 
 \paragraph{Naive approach.}  Before diving into the technical details, let's first review our competitor. Consider the straightforward assignment Lie-Trotter \cite{Lie-Trotter}, which handles each of the Hamiltonian terms one by one. Assume that the Hamming weight of the support of \(H_i\) is equal to \(d_i\). Thus, we need two steps to rotate each wire into the parity base (relative to the Hamiltonian) and uncompute it in the end. Then, we can apply the \(CX\) from each qubit in the support to a (arbitrary) chosen one, which will sum the wires' parity and finally propagate the sum through the \(RZ\left(\theta \Delta t \right) \) gate (rotation by the coefficient of the term and the step size). Therefore, in total we pay \(2 + 2d_i\) for each term and the whole circuit will require:
 \begin{equation*}
     \begin{split}
-        D^{\text{naive}}\left(n,m\right) & = \sum_{i}{2 + 2d_i} = m\sum_{i}{\frac{2 + 2d_i}{m}} = \\ & 2m \left\Big( 1 + \mathbb{E}_{\sim i}[H] \right\Big)  
+        D^{\text{naive}}\left(n,m\right) & = \sum_{i}{2 + 2d_i} = m\sum_{i}{\frac{2 + 2d_i}{m}} = \\
+        & 2m \left\Big( 1 + \mathbb{E}_{\sim i}[H] \right\Big)  
     \end{split}
 \end{equation*}
 
