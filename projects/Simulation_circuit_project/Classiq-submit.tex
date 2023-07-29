@@ -49,12 +49,12 @@ sorting=ynt
 
 \begin{document}
     
-\title{ Efficiently Trotterizing Lithium Time Eveloution Step  \\  Experimential Project  Classiq}
+\title{ Efficiently Trotterizing Lithium Hydride Time Eveloution Step  \\  Experimential Project  Classiq}
 \author{David Ponarovsky}
 \maketitle
 
 \begin{abstract} 
-In this paper, we review our experimental implementation of an algorithm for designing time evolution simulation circuits of molecules, given their Hamiltonian in the Pauli basis. Our algorithm employs several heuristics to minimize the circuit depth. We demonstrated this by taking the lithium molecule as a use case and comparing the generated circuit to the one produced by the naive approach.
+In this paper, we review our experimental implementation of an algorithm for designing time evolution simulation circuits of molecules, given their Hamiltonian in the Pauli basis. Our algorithm employs several heuristics to minimize the circuit depth. We demonstrated this by taking the lithium hydride molecule as a use case and comparing the generated circuit to the one produced by the naive approach.
 \end{abstract}
 
 \begin{multicols*}{2}
@@ -66,7 +66,7 @@ Though humanity has successfully enabled an efficient simulation in a variety of
 
 Unfortunately, our current quantum machines are extremely limited in terms of computing resources; the most advanced computers have access to no more than a few hundred qubits and suffer from a considerable amount of noise, which cause long computations resulting in nonsense. Therefore, any short-term application must be cost-efficient.
 
-On May 2022, Classiq, a pioneering quantum computing company, launched the first (at least at that scale) competition in quantum circuits programming. The initial purpose of this work was to solve the Lithium simulation problem. In short, the problem asked to come up with a quantum circuit, restricted to only a few qubits, that progress the lithium molecule in time. The winner of the competition would be the circuit with the shortest depth. We mention that our algorithm is generic and the software we have written can easily be modified for any other Hamiltonian.
+On May 2022, Classiq, a pioneering quantum computing company, launched the first (at least at that scale) competition in quantum circuits programming. The initial purpose of this work was to solve the Lithium simulation problem. In short, the problem asked to come up with a quantum circuit, restricted to only a few qubits, that progress the lithium hydride molecule in time. The winner of the competition would be the circuit with the shortest depth. We mention that our algorithm is generic and the software we have written can easily be modified for any other Hamiltonian.
 
 The paper organized in the follow systematically manner, first in the preamble we will present the problem and talk about the general concepts which describe our specific Hamiltoinan, including the quantities regime (i.e number of qubits vs number of hamiltonians terms), the naive solution, and how mach improvement we could hope to make.     
 
@@ -76,7 +76,7 @@ Then in next section we review all the techniques that we have used to improve a
   In contrast, the third and the forth sections reviews methods to determinate an  order which clearly superior comparing to the naive approach. The forth section presenting an concept of analyzing the "product graph" a concept which could be thought as the second order analyses of the alternate path from the third section.      
   \paragraph{The problem.} \textit{Generate a circuit, using no more than \(10\) qubits, that approximates the unitary \(e^{-iH}\) where \(H\) is the qubit Hamiltonian of a \textbf{LiH} (lithium hydride) molecule. The \textbf{LiH} Hamiltonian is composed of 276 Pauli strings, and can be found \hyperlink{LiH.html.pdf.1}{HERE}. The approximation error is defined in the next section, and should be less than \(0.1\). The circuit should be composed of the \(CX\) and single qubit gates only.}
 
-\paragraph{Naive approach.} Before diving into the technical details let's review our competitor first. Consider the straightforward assignment Lie-Trotter \cite{Lie-Trotter} just handle each of Hamiltonian terms one by one. Assume the the hamming weight of the support of \(H_i\) equal to \(d_i\). so we pay two steps to rotate each wire into the parity base and uncompute it in the end. then we could apply the \(CX\) from each qubit in the support to a chosen one which will sum the wires parity and finally will propgate the sum trough the \(RZ\left(\theta \Delta t \right) \) gate (rotation by the coefficient of the term and the step size). So in total we pay \((2 + 2d_i\) for each term and therefore the whole circuit will require: 
+\paragraph{Naive approach.} Before diving into the technical details let's review our competitor first. Consider the straightforward assignment Lie-Trotter \cite{Lie-Trotter} just handle each of Hamiltonian terms one by one. Assume that the hamming weight of the support of \(H_i\) equal to \(d_i\). so we pay two steps to rotate each wire into the parity base and uncompute it in the end. then we could apply the \(CX\) from each qubit in the support to a chosen one which will sum the wires parity and finally will propgate the sum trough the \(RZ\left(\theta \Delta t \right) \) gate (rotation by the coefficient of the term and the step size). So in total we pay \((2 + 2d_i\) for each term and therefore the whole circuit will require: 
 
 \begin{equation*}
     \begin{split}
