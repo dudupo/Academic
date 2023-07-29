@@ -107,7 +107,7 @@ From now on, we will refer to the wire that sums the parity of the state as the 
 \begin{equation*}
     XXXXIII
 \end{equation*} 
-Then as the second wire is above (and beanth) half of the wires, it will be the main wire in that case. the separation into upper and lower sides will enable to us to guarantee that at least two \(CX\) will be sum-up in parallel (using the next heuristic).
+Then, as the second wire is above (and beneath) half of the wires, it will be the main wire in that case. The separation into upper and lower sides will enable us to guarantee that at least two \(CX\) will be added in parallel (using the next heuristic).
 \paragraph{Upper and lower summations.}  We summing the parity as follow, denote by \( i_{1}, i_{2}, ... i_{W} , ... i_{k} \subset [n] \) the indices in the support of given term, such that \(i_{W}\) is the main wire. Then after rotate the wires into the phase base then we summing the parity of \(i_{1}, i_{2}, ... i_{W-1}\) into \(i_{W-1}\), That it, We apply a \(CX\left(i_{j}, i_{W-1}\right)\) for \(j < W-1\). 
 
 As all the segements \([i_{j}, i_{W-1}]\) disjoint to any segments of the form  \([i_{W+1}, i_{j}]\) for \(j > W+1\) then we could sum the parity of \(i_{W+1},   i_{W+2} .. i_{k}\) wires into \(i_{W+1}\) in parallel. It's easy to see that this heuristic cut by almost half the depth of single term. 
