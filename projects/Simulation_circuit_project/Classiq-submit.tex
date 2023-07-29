@@ -81,7 +81,13 @@ For example, suppose that $\ket{\psi} = \ket{00}$ and $H = Z\otimes Z $. Thus, t
 
 For simulating a general Hamiltonian, recall that the Pauli matrices, along with the identity, span the space of matrices. Thus, one can assume that the Hamiltonian is given as a linear combination of Paulis. We will denote it as $H = \sum_{i}{H_{i}}$, where each of the $H_{i}$ is a Pauli product multiplied by a scalar factor.
 
-Using the Lie-Trotter formula \cite{Lie-Trotter} $e^{A+B} = \lim_{n \rightarrow \infty} (e^{A/n}e^{B/n})^n$ for arbitrary matrices $A,B$, we obtain that one can apply the gates $e^{\Delta t H_{i}}$ for $1/(\Delta t)$ iterations and expect to converge to the desired product. This insight defines a circuit which we will refer to as the naive approach.
+Using the Lie-Trotter formula \cite{Lie-Trotter} 
+\begin{equation*}
+  \begin{split}
+    e^{A+B} = \lim_{n \rightarrow \infty} (e^{A/n}e^{B/n})^n 
+  \end{split}
+\end{equation*}
+for arbitrary matrices $A,B$, we obtain that one can apply the gates $e^{\Delta t H_{i}}$ for $1/(\Delta t)$ iterations and expect to converge to the desired product. This insight defines a circuit which we will refer to as the naive approach.
 
   \paragraph{Naive approach.}      Before diving into the technical details let's review our competitor first. Consider the straightforward assignment Lie-Trotter \cite{Lie-Trotter} just handle each of Hamiltonian terms one by one. Assume that the hamming weight of the support of \(H_i\) equal to \(d_i\). so we pay two steps to rotate each wire into the parity base and uncompute it in the end. then we could apply the \(CX\) from each qubit in the support to a chosen one which will sum the wires parity and finally will propagate the sum trough the \(RZ\left(\theta \Delta t \right) \) gate (rotation by the coefficient of the term and the step size). So in total we pay \((2 + 2d_i\) for each term and therefore the whole circuit will require: 
 
