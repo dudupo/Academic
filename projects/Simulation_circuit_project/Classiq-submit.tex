@@ -142,14 +142,14 @@ Yet, By the fact that we have already improved the naive solution at factor whic
 
 \paragraph{Hyperplanes separation.} The cost of chaining pair of Hamiltonians isn't  a monotone function of their Hamming distance, for example consider the case of two terms which have not overlapping at all, i.e \( XXXXIIII \) and \(IIIIXXXX \) then it's clear that those two can be impose such they will be computed in parallel.   
 
-
-\begin{figure}[H]
+\end{multicols}
+\begin{figure*}[h]
   \centering
-    \includesvg[width = 260pt]{Ham_PRODUCT-2022-06-05 11:40:16.002860.svg}
+    \includesvg[width =\textwidth]{Ham_PRODUCT-2022-06-05 11:40:16.002860.svg}
     \caption{ Example for a case in which chaining terms with high distance reduce the depth of the circuit. Here the terms are : \(XIXZZIIIII \) \( XXXZIIIIII \) \( IIIIIIXXZX\) \( IIIIIIZIZX \). }
     \label{fig:average-data-vs-model}
-\end{figure}
-
+\end{figure*}
+\begin{multicols}{2}
 Technically we have separated those groups by follow, first we have sorted the term collection by the follow weight functions \(f,g\) such that:
 \begin{equation*}
     \begin{split}
