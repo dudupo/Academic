@@ -166,7 +166,7 @@ The main disadvantage of the last separation is that it does not take into accou
 \begin{equation*}
     \begin{split}
         E^{\prime} &= \left\{ \left\{ (u,v),(w,z) \right\} : (u,v),(w,z),(u,z),(w,v) \in \textbf{SP} \right\}  \\
-        w(e) &= w\left( \left\{ (u,v),(w,z) \right\} \right) = \max { w(u,w),w(v,z) }
+        w(e) &= w\left( \left\{ (u,v),(w,z) \right\} \right) = \max \{ w(u,w),w(v,z) \}
     \end{split}
 \end{equation*}
 Note that in the \(G^2\) path which passes through all the vertices contains \(|V|\) copies of each term. Thus, searching for spanning trees is not necessary. Therefore, our diameter sampler will be more suitable for this task (when we guarantee that each sampled tree contains at most one copy of each term).
