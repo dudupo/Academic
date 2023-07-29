@@ -112,15 +112,13 @@ Then, as the second wire is above (and beneath) half of the wires, it will be th
 \paragraph{Upper and lower summations.} We sum the parity of the given term as follows. Denote by \(i_{1}, i_{2}, ... i_{W}, ... i_{k} \subset [n]\) the indices in the support of the given term, such that \(i_{W}\) is the main wire. After rotating the wires into the phase base, we sum the parity of \(i_{1}, i_{2}, ... i_{W-1}\) into \(i_{W-1}\) by applying a \(CX\left(i_{j}, i_{W-1}\right)\) for \(j < W-1\). 
 
 Since all the segments \([i_{j}, i_{W-1}]\) are disjoint from any segments of the form  \([i_{W+1}, i_{j}]\) for \(j > W+1\), we can sum the parity of \(i_{W+1},   i_{W+2} .. i_{k}\) wires into \(i_{W+1}\) in parallel. This heuristic reduces the depth of a single term by almost half.
-\end{multicols*}
-\begin{figure}[H]
+\begin{figure*}[H]
   %\centering
     \includesvg[width = 280pt]{Ham_PRODUCT-2022-06-05 09:59:52.767380.svg}
     \caption{ Demonstrating the above methods applied to the terms \( XIXZZXIXXZ \) and \( XIXXZXIXXZ \), the fifth wire (qubit) is the main wire that sums the parity.}
     \label{fig:average-data-vs-model}
-\end{figure}
+\end{figure*}
 
-\begin{multicols*}{2}
 
 \section{Greedy Order Heuristics.}
 Next, we will review our methods to impose the gates order. Clearly the order does matter, to see that consider an hamiltonian pair which differ by only single coordinate i.e \(XXXX\) and \(XXXZ\). In that case the contribute of the first tree qubits remain the same for both of them, and therefore there is no needed to uncompute them after the applying of the first gate.      
