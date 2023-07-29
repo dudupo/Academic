@@ -124,8 +124,7 @@ Since all the segments \([i_{j}, i_{W-1}]\) are disjoint from any segments of th
 \section{Greedy Order Heuristics.}
 Next, we will review our methods to impose the gates order. Clearly the order does matter, to see that consider an hamiltonian pair which differ by only single coordinate i.e \(XXXX\) and \(XXXZ\). In that case the contribute of the first tree qubits remain the same for both of them, and therefore there is no needed to uncompute them after the applying of the first gate.      
 \paragraph{Sample Greedy Diameters.} Assume that we given a set of therms with a promise that it might has a lot of "closer" terms (relative to the Hamming distance of their supports). Our first simple heuristic goal is to chain them together in greedy manner such that the distance of each adjacent terms will be minimal. 
-\begin{figure}[H]
-\begin{algorithm}
+\begin{algorithm*}[H]
 \SetAlgoLined
 \ \\ 
 \While { \( G \neq \empty \)  }{
@@ -135,8 +134,7 @@ Next, we will review our methods to impose the gates order. Clearly the order do
 } 
 \Return \(D_{0} ... D_{l}\) 
  \caption{Chain an Hamiltonian set }
-\end{algorithm}
-\end{figure}
+\end{algorithm*}
 It's worth to note that replacing the Greedy Spanning Tree by MST (and the diameter by just the DFS scanning order of the MST) could be proving as 2-OPT in the terms of chaining. We think about the uncompute stage as the climbing back at the tree, and therefore \( \textbf{OPT} \le 2w\left(\text{MST} \right) \). But also it easy to see that every path which contain all the vertices has weigth greater than \(w\left(\text{MST} \right) \), Hence  \(2w\left(\text{MST} \right) \le 2\textbf{OPT}\).          
 Yet, By the fact that we have already improved the naive solution at factor which close to \(\frac{1}{2}\) and by the intuition that the optimal depth is not very far from the naive (don't expect that \( D^{\text{naive}} \ge 4 \textbf{OPT} \) we decided to stick to the greedy construction, which in the next chapter will generalized to the product graph. 
 
