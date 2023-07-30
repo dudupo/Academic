@@ -20,7 +20,7 @@ try:
  def split_lines(X):
    ret = [ [ (X[0][0], X[0][1])  ] ]
    for x,y in X[1:]:
-     if abs(y - ret[-1][-1][1]) > 1:
+     if (abs(y - ret[-1][-1][1])) > 1 and (y < 5):
        ret +=  [ [ (x,y) ] ]
      else:
        ret[-1].append( (x,y) )
@@ -40,7 +40,6 @@ try:
    pplot_lines =  line(point_lists[0], color=_color)
    for _point_list in point_lists[1:]:
      pplot_lines += line(_point_list, color=_color)
-   pplot_lines.set_ylim([-1, 4])
    return pplot_lines
  
  #p_list =  split_lines([ (y, fmod(f(y),17)) for y in linspace(0,17,1000) ])
@@ -87,7 +86,7 @@ try:
  
  
 except:
- _st_.goboom(83)
+ _st_.goboom(82)
 _st_.blockend()
 _st_.current_tex_line = 63
 _st_.blockbegin()
