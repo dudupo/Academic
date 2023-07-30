@@ -45,7 +45,7 @@ try:
    pplot_lines =  line(point_lists[_sage_const_0 ], color=_color)
    for _point_list in point_lists[_sage_const_1 :]:
      pplot_lines += line(_point_list, color=_color)
-   pplit_lines.set_ylim([-_sage_const_1 , _sage_const_4 ])
+   pplot_lines.set_ylim([-_sage_const_1 , _sage_const_4 ])
    return pplot_lines
  
  #p_list =  split_lines([ (y, fmod(f(y),17)) for y in linspace(0,17,1000) ])
