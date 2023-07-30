@@ -183,6 +183,48 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
     \end{split}
   \end{equation*}
 
+  \section{Randomized Constructions.}
+Let $A$ be a random matrix in $M(\mathbb{F}_{2}^{k\times n})$. For any non-zero $x \in \mathbb{F}$, we have that $Ax$ is distributed uniformly.
+\begin{claim}
+\end{claim}
+\begin{proof}
+By the fact that $x \neq 0$, there exists at least one coordinate $i \in [k]$ such that $x_i \neq 0$. Thus, we have
+\begin{equation*}
+    \begin{split}    
+        \left( Ax \right)_{j} &= \sum_{k}{A_{jk}x_{k}} = \sum_{i \neq k}{A_{jk}x_{k}}  + A_{ji}x_{i} \\ 
+        & =  \sum_{i \neq k}{A_{jk}x_{k}}  + A_{ji}
+      \end{split}
+\end{equation*}
+Notice that due to the fact that $\mathbb{F}_{2}$ is a field, there is exactly one assignment that satisfies the equation conditioned on all the values $A_{jk}$ where $j \neq k$.    
+
+\begin{equation*}
+    \begin{split}
+      \prb{\left( Ax \right)_{j} = 1} &=  \sum_{ A_{jk}; k\neq i   }{\prb{\left( Ax \right)_{j} = 1 \mid A_{jk} ; k\neq i }\prb{ A_{jk} ; k\neq i }}  \\
+      &= \frac{1}{2} 
+    \end{split}
+\end{equation*}
+Therefore, any coordinate of $Ax$ is distributed uniformly $\Rightarrow$ $Ax$ is distributed uniformly. 
+\end{proof}
+By the uniformity of $Ax$, we obtain that the expected Hamming weight of $Ax$ is: 
+\begin{equation*}
+  \begin{split}
+    \expp{|Ax| } = \expp{\sum_{i}^{n}{(Ax)_{i}}} = \frac{1}{2} n    
+  \end{split}
+\end{equation*} 
+As the coordinates of $A_{x}$ are independent (each row of $A$ is sampled separately), we can use the Hoff's bound to conclude that: 
+\begin{equation*}
+  \begin{split}
+    \prb{| |Ax| - \expp{|Ax|}| \ge \left(\frac{1}{2} - \delta \right) n } & \le e^{-n \left(\frac{1}{2} - \delta \right)^{2} } 
+  \end{split}
+\end{equation*}
+Now, we will use the union bound to show that any $x \in \mathbb{F}_{2}^{k}$, $Ax$ is of weight at least $\delta$.  
+\begin{equation*}
+  \begin{split}
+    \prb{|Ax| \ge \delta : \forall x \in \mathbb{F}_{2}^{k} } \ge 1 - |\mathbb{F}_{2}^{k}| \cdot e^{-n \left(\frac{1}{2} - \delta \right)^{2} } 
+  \end{split}
+\end{equation*}
+Denote $k = \rho n$ and notice that the above holds when $\rho \ge \left(\frac{1}{2} - \delta \right)^{2} $.  
+
 
 \subsubsection{Note On Quantum Polynomial Code.} 
 Let's define the code $C$ such that any state in $C$ is a coset of the polynomials at degree at most $d$ shifted by $x \in \mathbb{F}_{p}$. In other words the codeword associated with $x$ is the state $\ket{\underline{c}} = \sum_{ \substack{ f \in \mathbb{F}_{d}[x] \\  f(0) = 0}}{ \ket{ c + f}} $. The inner product between any $d$-degree polynomial with zero free coefficient is:
