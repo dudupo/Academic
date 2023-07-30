@@ -237,11 +237,8 @@ Thus the dimension of the quantum code is:
 \begin{proof}
   Define by $H^{\prime}_{1}$ the matrix which obtained by puncturing from $H_{1}$ the columns  associated with the coordinates $e_{i}$ such that subspace corresponding to $ e_{i} \otimes I_{n} $ doesn't support $x$. Denote the by $S$ the set of the reaming coordinates.  For example if $ H_{1} \otimes I_{n} = I_{2} \otimes I_{2}$ and $x = [1,0,0,0]$ then $H^{\prime}_{1} $ is the unit matrix $[1 , 0]^\top$ obtained by puncturing the second column of $H_{1} = I_{2}$, and $S= \{ e_{1} \} $ .  
 
-  As $|x| < d $ we have that $|S| < d$, Namely $H^{\prime}_{1}$ supported on less than $d$ coordinates and therefore $\dim Q\left( H^{\prime}_{1} \times H_{2} \right)= k^{\prime}_{1}k_{2} = 0$.
 
-  Thus, by the fact that for any CSS code $\dim C = \dim C_{X} - \dim C_{Z}^\perp$ it follows that $\dim \ker H_{X}^{\prime}  = \dim \ker H_{Z}^{\prime \perp}$ $ \Rightarrow \ker H_{X}^{\prime}  = \ker H_{Z}^{\prime \perp}$.
-
-  Denote by $x^{\prime}$ the restriction of $x$ to the columns of $H_{X}^{\prime}$ and clearly, by the definition of the construction,  $x^{\prime}$ is a codeword of $\ker H_{X}^{\prime}$. Thus $x^{\prime}$ is also codeword of $\ker H_{Z}^{\prime \perp}$ and by the same argument, $x$ is also a codeword of $\ker H_{Z}^{\prime \perp}$. 
+  As $|x| < d $ we have that $|S| < d$, Namely $H^{\prime}_{1}$ supported on less than $d$ coordinates and therefore $\dim Q\left( H^{\prime}_{1} \times H_{2} \right)= k^{\prime}_{1}k_{2} = 0$.  Thus, by the fact that for any CSS code $\dim C = \dim C_{X} - \dim C_{Z}^\perp$ it follows that $\dim \ker H_{X}^{\prime}  = \dim \ker H_{Z}^{\prime \perp}$ $ \Rightarrow \ker H_{X}^{\prime}  = \ker H_{Z}^{\prime \perp}$.  Denote by $x^{\prime}$ the restriction of $x$ to the columns of $H_{X}^{\prime}$ and clearly, by the definition of the construction,  $x^{\prime}$ is a codeword of $\ker H_{X}^{\prime}$. Thus $x^{\prime}$ is also codeword of $\ker H_{Z}^{\prime \perp}$ and by the same argument, $x$ is also a codeword of $\ker H_{Z}^{\prime \perp}$. 
 \end{proof}
 
 Immediately from \cref{claim:Hdis} we obtain that existences of quantum LDPC codes with positive rate and $\Theta\left( \sqrt{n} \right)$ distance by taking the Hyperproduct of two classical expender codes.   
