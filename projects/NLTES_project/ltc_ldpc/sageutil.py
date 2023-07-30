@@ -34,6 +34,7 @@ def finate_poly_plot(fun, end=17):
   pplot_lines =  line(point_lists[0], color=_color) 
   for _point_list in point_lists[1:]:
     pplot_lines += line(_point_list, color=_color) 
+  pplit_lines.set_ylim([-1, 4])
   return pplot_lines
 
 #p_list =  split_lines([ (y, fmod(f(y),17)) for y in linspace(0,17,1000) ])
