@@ -178,7 +178,11 @@ H1 = identity_matrix(3).tensor_product(H).augment( H.transpose().tensor_product(
 Hstr = latex(H)
 H1str = latex(H1)
 \end{sagesilent}
- 
+
+\begin{example}
+  The Toric code could be thought as the Hyperproduct of the repetition code with himself. The parity check matrices of the codes are given follow. The left $3 \times 3$ matrix corresponds to the repetition code while the right $18 \times  9$ corresponds to the vertices check of the Toric code.  
+\end{example}
+
 \begin{equation*}
   \begin{split}
     \sagestr{Hstr} \sagestr{H1str} 
@@ -245,11 +249,11 @@ Immediately from \cref{claim:Hdis} we obtain that existences of quantum LDPC cod
   There exists an infinity family of QLDPC codes with positive rate and $\Theta(\sqrt{n})$ distance.   
 \end{theorem}
 
-\section{Quantum Codes.}
-\begin{definition}
-  A $\left[\left[ n,k,d \right]\right]$ is a quantum code over $n$ qubits, that encode a subspace at demission $k$ and any fault composed by a product of at most $d/2$ Pauli operators. 
-\end{definition}
-
+%\section{Quantum Codes.}
+%\begin{definition}
+%  A $\left[\left[ n,k,d \right]\right]$ is a quantum code over $n$ qubits, that encode a subspace at demission $k$ and any fault composed by a product of at most $d/2$ Pauli operators. 
+%\end{definition}
+%
 
 
 
