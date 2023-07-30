@@ -37,7 +37,7 @@ try:
  
  def finate_poly_plot(fun, end=17):
    _color = next(_colorgen)
-   point_lists =  split_lines([ (y, fmod(fun(y),end)) for y in linspace(0,end,3000) ])
+   point_lists =  split_lines([ (y, fmod(fun(y),end)) for y in linspace(0,end+2,3000) ])
    pplot_lines =  line(point_lists[0], color=_color, aspect_ratio=0.3)
    for _point_list in point_lists[1:]:
      pplot_lines += line(_point_list, color=_color, aspect_ratio=0.3)
