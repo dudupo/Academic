@@ -42,7 +42,7 @@ pplot_t2 = finate_poly_plot(g)
 
 
 
-\begin{lemma}[Testability Of Polynomail Code.] The polynomial code is $\left(d \cdot \log\left( n \right), \varepsilon  \right) $ testable.   
+\begin{lemma}[Testability of Polynomail Code.] The polynomial code is $\left(d \cdot \log\left( n \right), \varepsilon  \right) $ testable.   
 \end{lemma}
 \begin{proof}
 Denote by $f \in \mathbb{F}_{m}^{n}$ a codeword candidate and consider the following test. First, choose uniformly at random $d+1$ points $x_{1}, x_{2}, x_{3}, ... x_{d+1}$ and use $G$ to output a polynomial that agree on that points, denote it by $G\left( f \right)$. Then uniformly choose an additional point, return \textbf{True} if $G\left( f \right)(x_{d+2}) = f\left( x_{d+2} \right)$ and \textbf{False} otherwise.   
