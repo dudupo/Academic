@@ -68,7 +68,7 @@ Clearly, the codewords are all the codewords in $C_{X}$ which don't belong to $C
     Let $P = X^{f}Z^{e}$ be an error such that $e, f < d/2$ act on the state $\ket{\mathbf{x}}$. Denote by $H_{X}, H_{Z}$ the parity check matrices of $C_{X},C_{Z}$.Using the commute relation $[X^{f},Z^{e}] = \left( -1 \right)^{\braket{e,f}}$ we have that:  
       \begin{equation*}
       \begin{split}
-        \ket{\mathbf{x}} &  \mapsto^{P}   \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ X^{f}Z^{e}\ket{ x + z }} = \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ (-1)^{\braket{e,f} }Z^{e}\ket{ x + z + f}}
+        \ket{\mathbf{x}}   \mapsto^{P}   \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ X^{f}Z^{e}\ket{ x + z }} = \frac{1}{\sqrt{|C_{Z}^{\perp}|}} \sum_{z \in C_{Z}^{\perp}}{ (-1)^{\braket{e,f} }Z^{e}\ket{ x + z + f}}
 \end{split}
 \end{equation*}
 Now the decoder computes and stores the syndrome relative to the bits code using the parity check matrix $H_{X}$. And apply the inverse gate.     
@@ -81,8 +81,7 @@ Now the decoder computes and stores the syndrome relative to the bits code using
 \end{equation*}
 
 \begin{equation*}
-      \begin{split}
-
+  \begin{split}
         & = \GZZZ{  X^{e}H^{\otimes n} X^{x} \ket{ z} }  = \GZZZ{  X^{e} Z^{x} H^{\otimes n} \ket{ z} } \\
         & = \GZZZW{ \ket{ z} }{X^{e} Z^{x} H^{\otimes n} }  =  \GXXXW{  \ket{ z} }{ X^{e} Z^{x} } \\
         & =  \GXXXW{   X^{e}\ket{ z} }{ (-1)^{\braket{x,e}} Z^{x}}  =  \GXXXW{   \ket{ z + e} }{ (-1)^{\braket{x,e}} Z^{x}} \\
