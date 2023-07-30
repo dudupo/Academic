@@ -20,10 +20,11 @@ try:
  def split_lines(X):
    ret = [ [ (X[0][0], X[0][1])  ] ]
    for x,y in X[1:]:
-     if (abs(y - ret[-1][-1][1])) > 1 and (y < 5):
-       ret +=  [ [ (x,y) ] ]
-     else:
-       ret[-1].append( (x,y) )
+     if y < 5:
+         if abs(y - ret[-1][-1][1]) > 1:
+             ret +=  [ [ (x,y) ] ]
+         else:
+             ret[-1].append( (x,y) )
    return ret
  
  def colorgen():
@@ -86,7 +87,7 @@ try:
  
  
 except:
- _st_.goboom(82)
+ _st_.goboom(83)
 _st_.blockend()
 _st_.current_tex_line = 63
 _st_.blockbegin()
