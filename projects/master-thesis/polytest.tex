@@ -142,7 +142,7 @@ Consider the following decoding process. Given a candidate $f : \FF \rightarrow 
 \end{proof}
 
 \begin{claim}
-  Let $f$ a function that pas the test with probability $1-\varepsilon$ and fix $x \in \mathbb{F}$ then: 
+  Let $f$ be a function that pass the test with probability $1-\varepsilon$ and fix $x \in \mathbb{F}$ then: 
 \begin{equation*}
   \begin{split}
     \prbm{  \sum_{i}^{d}{f\left( x + w^{i}u \right)} = \sum_{i}^{d}{f\left( x + w^{i}v \right)} }{ u,v} \ge 1 - 2\varepsilon \cdot d
@@ -183,15 +183,14 @@ also happens with probability at least $1- d\cdot\varepsilon$ and therefore, aga
 \end{claim}
 
 \begin{proof}
-  Fix $x,y \in \FF$. From \cref{claim:fixx} we get that for any $v$ with probability at least $1 - \Theta \left( d\cdot \varepsilon \right)$ it holds that $ g\left( x + w^{j}y \right) = \sum_{j}^{d}{f\left( x + w^{i}v + w_{j}y \right)}$. Now sample unifirmly random $v$, and observs that 
-
-
-  So by the union bound  
+  Fix $x,y \in \FF$. From \cref{claim:fixx} with probability at least $1 - \Theta \left( d\cdot \varepsilon \right)$ it holds that $ g\left( x + w^{j}y \right) = \sum_{j}^{d}{f\left( x + w^{i}v + w^{j}y \right)}$. Moreover, as $ v+w^{j}y$ distributed uniformly for any $j$, it follows that one can fix $j$ and has with probability at least $1 - \Theta\left( \varepsilon d  \right)$ that  $g\left( x\right) = \sum_{i}^{d}{\left( f\left( x + w^{i}\left( v + w^{j}y \right) \right) \right)}$. So, the raltion holds for all the $j$'s with probability $1 - \Theta\left( \varepsilon d^{2} \right)$ combining all togeter obtains:  
   \begin{equation*}
+    \label{eq:eqproof}
     \begin{split}
       g\left( x \right) &= \sum_{i,j}^{d}{f\left( x + w^{i}\left( v +w^{j}y\right) \right)} =  \sum_{j}^{d}\sum_{i}^{d}{f\left( x + w^{i}v + w^{j}y \right)} = \sum_{j}^{d}{g\left( x + w^{j}y \right)} 
     \end{split}
   \end{equation*}
+  With probability $1 - \Theta \left( \varepsilon \cdot d^{2}\right)$. However, the probability is about sampling $v$ such those transimitions are vaild. But as the value of $g$ is indepanded on the choice of $v$ it's enough to have just a single $v$ to garuntee $g\left( x \right) = \sum_{j}^{d}{g\left( x + w^{j}y \right)}$ namely that the probability is positive. So if  $ \varepsilon = \Theta(1/d^{2}) $ we have that for any $x,y$ there exists $v$ such \cref{eq:eqproof} is satisfied and therfore $g$ is satisfies \cref{eq:poly} for any $x,y$. 
 \end{proof}
 
 \begin{claim}
