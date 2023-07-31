@@ -118,19 +118,28 @@ For example consider a linear function over $\FF$, then it $w^2 = 1 \Rightarrow 
   \end{equation*}
   The determinant of the above matrix is $w \neq 0$ and therefore there exists a $y$ satisfies the equations. Hence for any $x$ we have $f(x) = \frac{1}{d}\left( f(x_{1}) + f(x_{2}) + .. + f(x_{d+1}) \right) = 0$.   
 \end{proof}
-
-Consider the following decoding process. Given a canidate $f : \FF \rightarrow \FF$ we will set for any point $x \in \FF$ the plaurity of \cref{eq:poly} over the $y \in \FF$. Denote the output by $g$, and we have that:  
+Consider the following decoding process. Given a candidate $f : \FF \rightarrow \FF$, we will set for any point $x \in \FF$ the plurality of \cref{eq:poly} over the $y \in \FF$. Denote the output by $g$, and we have that:
 \begin{equation*}
   \begin{split}
     g(x) = \arg_{z\in \FF} \max \prbm{ \sum_{t}^{d}{f\left( x + w^{i}y \right) = z }}{y}
   \end{split}
 \end{equation*}
 
-
 \begin{claim}
-
+  If $f$ pass the test with probability $\ge 1 - \varepsilon$ then the relative distance between $f$ and $g$ is at most $2\varepsilon$.
 \end{claim}
 
+\begin{proof}
+  Notice that for any $x$ for  which there exists $z$ such $\prbm{ \sum_{t}^{d}{f\left( x + w^{i}y \right) = z }}{y} \ge \frac{1}{2}$ it must hold that $g(x) = f(x)$. Denote by $A$ that set and by $\alpha$ the probability to hit such $x$ (namely $|A| / |\FF|$. The probability to pass the test can be bounded by:  
+  \begin{equation*}
+    \begin{split}
+      1- \varepsilon & \le \prb{ f \text{pass}} = \prb{ f \text{pass} \cap x \in A } + \prb{ f \text{pass} \cap x \not\in A} \\
+      & \le 1 \cdot \alpha + \frac{1}{2} \cdot \left( 1 -\alpha \right) \\
+      \Rightarrow & \alpha \ge 1 - 2\varepsilon 
+    \end{split}
+  \end{equation*}
+  Thus, at most $\varepsilon$ of the points do not agree with $g$. 
+\end{proof}
 
 \begin{claim}
 For any $i\neq j,x \neq 0 $ the pair $x + yw^{i}$, $x+ yw^{j}$ distrubuted indepandeantly.
