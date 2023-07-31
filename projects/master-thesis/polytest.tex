@@ -121,7 +121,7 @@ For example consider a linear function over $\FF$, then it $w^2 = 1 \Rightarrow 
 Consider the following decoding process. Given a candidate $f : \FF \rightarrow \FF$, we will set for any point $x \in \FF$ the plurality of \cref{eq:poly} over the $y \in \FF$. Denote the output by $g$, and we have that:
 \begin{equation*}
   \begin{split}
-    g(x) = \arg_{z\in \FF} \max \prbm{ \sum_{t}^{d}{f\left( x + w^{i}y \right) = z }}{y}
+    g(x) = \arg_{z\in \FF} \max \prbm{ \sum_{i}^{d}{f\left( x + w^{i}y \right) = z }}{y}
   \end{split}
 \end{equation*}
 
@@ -130,7 +130,7 @@ Consider the following decoding process. Given a candidate $f : \FF \rightarrow 
 \end{claim}
 
 \begin{proof}
-  Notice that for any $x$ for  which there exists $z$ such $\prbm{ \sum_{t}^{d}{f\left( x + w^{i}y \right) = z }}{y} \ge \frac{1}{2}$ it must hold that $g(x) = f(x)$. Denote by $A$ that set and by $\alpha$ the probability to hit such $x$ (namely $|A| / |\FF|$. The probability to pass the test can be bounded by:  
+  Notice that for any $x$ for  which there exists $z$ such $\prbm{ \sum_{i}^{d}{f\left( x + w^{i}y \right) = z }}{y} \ge \frac{1}{2}$ it must hold that $g(x) = f(x)$. Denote by $A$ that set and by $\alpha$ the probability to hit such $x$ (namely $|A| / |\FF|$. The probability to pass the test can be bounded by:  
   \begin{equation*}
     \begin{split}
       1- \varepsilon & \le \prb{ f \text{pass}} = \prb{ f \text{pass} \cap x \in A } + \prb{ f \text{pass} \cap x \not\in A} \\
@@ -142,14 +142,34 @@ Consider the following decoding process. Given a candidate $f : \FF \rightarrow 
 \end{proof}
 
 \begin{claim}
-Fix $x \in \FF$ then: 
+  Let $f$ a function that pas the test with probability $1-\varepsilon$ and fix $x \in \mathbb{F}$ then: 
 \begin{equation*}
   \begin{split}
-    \prbm{  \sum_{t}^{d}{f\left( x + w^{i}u \right)} = \sum_{t}^{d}{f\left( x + w^{i}v \right)} }{ u,v} \ge 1 - 2\varepsilon \cdot d
+    \prbm{  \sum_{i}^{d}{f\left( x + w^{i}u \right)} = \sum_{i}^{d}{f\left( x + w^{i}v \right)} }{ u,v} \ge 1 - 2\varepsilon \cdot d
   \end{split}
 \end{equation*}
 \end{claim}
 
+\begin{proof}
+  Recall that for any $i$ the random variabile $x + w^{i}u$ is distributed uniformaly random regardless $x$. Therefore we have that for any $i$ the following equation holds with probability at least $1 -\varepsilon$:      
+  \begin{equation*}
+    \begin{split}
+    f\left( x + w^{i}u \right) = \sum_{j}^{d}{f\left( x +w^{i}u + w^{j}v \right)} 
+    \end{split}
+  \end{equation*}
+  Thus, by the union bound, those equastions satisfied simulatnusly for all the $i$ with probability $1 - d\cdot \varepsilon$. By reappting on the same arguments but swpping the $u$ and $v$ we have that 
+\begin{equation*}
+    \begin{split}
+    f\left( x + w^{i}v \right) = \sum_{j}^{d}{f\left( x +w^{i}v + w^{j}u \right)} 
+    \end{split}
+  \end{equation*}
+also happens with probability at least $1- d\cdot\varepsilon$ and therefore, again by the union bound, both of the equations sets hold with probability at least $1 - 2d\cdot\varepsilon$. But that is exactly the event in which: 
+\begin{equation*}
+  \begin{split} 
+    \sum_{i}{f\left( x + w^{i}u \right)} = \sum_{i}^{d}\sum^{d}_{j}{f\left( x +w^{i}u + w^{j}v \right)} =  \sum_{j}{f\left( x + w^{j}v \right)}
+  \end{split}
+\end{equation*}
+\end{proof}
 \begin{claim}
 For any $i\neq j,x \neq 0 $ the pair $x + yw^{i}$, $x+ yw^{j}$ distrubuted indepandeantly.
 \end{claim}
