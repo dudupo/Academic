@@ -1,9 +1,9 @@
-  Apart from distance and rate here, we interest also that the checking process will be robust. In particular,  we wish that against significant errors, forgetting to perform a single check will sabotage the entire computation only with a tiny probability.  
-  \begin{definition} \label{LTC} Consider a code $C$  a string $x$, and denote by $\xi\left( x \right)$ the fraction of the checks in which $x$ fails. $C$ will be called a \textbf{local-testability $f\left( n \right)$} If there exists $\kappa > 0$ such that 
+In addition to distance and rate, we are also interested in ensuring that the checking process is robust. Specifically, we want to guarantee that a single missed check will only have a tiny probability of compromising the entire computation, even in the presence of significant errors. 
+\begin{definition} \label{LTC} Consider a code $C$  a string $x$, and denote by $\xi\left( x \right)$ the fraction of the checks in which $x$ fails. $C$ will be called a \textbf{local-testabile $f\left( n \right)$} If there exists $\kappa > 0$ such that 
   \begin{equation*}
     \begin{split}
       \frac{d\left( x, C \right)}{n} \le \kappa \cdot  \xi\left( x \right) f\left( n \right)
     \end{split}
   \end{equation*}
 \end{definition}
- 
+Next, we will introduce the polynomial code, a testable code. We will then demonstrate a proof that emphasizes the concept of restriction degeneration, meaning that if more than a certain number of restrictions are satisfied, then almost all the remaining restrictions must also be satisfied. It is also worth mentioning that the polynomial code has a nice quantum variant which we will present in the next chapter.
