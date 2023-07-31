@@ -174,7 +174,7 @@ also happens with probability at least $1- d\cdot\varepsilon$ and therefore, aga
   For any $x$ the probability over $v$ that $g\left( x \right) = \sum_{i}{f(x + w^{i}v)}$ is grater than $ 1 - \Theta\left( d \cdot \varepsilon  \right)$. 
 \end{claim}
 \begin{proof}
-  Fix arbitrary $x$ and denote by $\alpha$ the probability to hit $v$ such that $g(x) = \sum_{i}^{d}{f\left( x + w^{i}v \right)}$ and by $A$ the set of $v$'s satisfy the relation. Notice that the probabiliy to pick a pair $v,u$ such that $ \sum_{i}^{d}{f\left( x + w^{i}v \right)} = \sum_{i}^{d}{f\left( x + w^{i}u \right)}$ is lower than the prbability that either $v$ and $u$ are both belong to $A$ or they both belong to his complentarty. Namely: $ \alpha^{2} + (1-\alpha)^{2}\ge 1- 2 \varepsilon\cdot d$. Hence we get $\alpha \ge \frac{1}{2}\left( 1 + \sqrt{1 - 4\varepsilon\delta } \right)$.  
+  Fix arbitrary $x$ and denote by $\alpha$ the probability to hit $v$ such that $g(x) = \sum_{i}^{d}{f\left( x + w^{i}v \right)}$ and by $A$ the set of $v$'s satisfy the relation. Notice that the probabiliy to pick a pair $v,u$ such that $ \sum_{i}^{d}{f\left( x + w^{i}v \right)} = \sum_{i}^{d}{f\left( x + w^{i}u \right)}$ is lower than the prbability that either $v$ and $u$ are both belong to $A$ or they both belong to his complentarty. Namely: $ \alpha^{2} + (1-\alpha)^{2}\ge 1- 2 \varepsilon\cdot d$. Hence we get $\alpha \ge \frac{1}{2}\left( 1 + \sqrt{1 - 4\varepsilon d } \right) = 1 - \Theta\left( \varepsilon \cdot d \right)$.  
 \end{proof}
 
 \begin{claim}
