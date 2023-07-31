@@ -1,15 +1,17 @@
-\section{Polynomial Code.} Consider the field $\mathbb{F}_{m}$ for an arbitrary prime power $m=q^{l}$ greater than $n$. The polynomial codes relay on the fact that any two different polynomials in the ring $\mathbb{F}_{m}\left[ x \right]$ at degree at most $d$ different by at least $m - d + 1$ points. For example consider a polynomials pair at degree 1, namely two linear straight lines. If they are not identical than they have at most single intersection point, and the disagree on each of the $n-1$ remaining points.  
+
+\newcommand{\FF}{\mathbb{F}_{q}}
+\section{Polynomial Code.} Consider the field $\FF$ for an arbitrary prime power $q$ greater than $n$. The polynomial codes relay on the fact that any two different polynomials in the ring $\FF\left[ x \right]$ at degree at most $d$ different by at least $q - d + 1$ points. For example consider a polynomials pair at degree 1, namely two linear straight lines. If they are not identical than they have at most single intersection point, and the disagree on each of the $n-1$ remaining points.  
 
 So by define the code to be the subspace contains all the polynomials at degree at most $d$, in such way that any codeword is an image of such polynomail encoded by $n$ numbers, one can garntee a lower bound on the code's distance. Formally we define:     
 \begin{definition}[Polynomial Code. \cite{Reed1960PolynomialCO}]
-  Fix $m > n $ to be a prime power and let $a_{0},a_{1},a_{2},\ldots a_{n}$ distinct points of the field $\mathbb{F}_{m} = R$  and define the code $C \subset R $ as follows:  
+  Fix $m > n $ to be a prime power and let $a_{0},a_{1},a_{2},\ldots a_{n}$ distinct points of the field $\FF$  and define the code $C$ as follows:  
   \begin{equation*}
     \begin{split}
       C = \left\{p\left(a_{0}\right),p\left(a_{1}\right),p\left(a_{2}\right),\cdots p\left(a_{n}\right) : p \text{ is polynomial at degree at most } d \right\}
     \end{split}
   \end{equation*}
 \end{definition}
-Observe that $C$ is a linear code at length $n$ over the aleph-bet $\mathbb{F}_{m}$. The following Lemma states the realtion between the maximal degree of the polynomials and the properites of the code.   
+Observe that $C$ is a linear code at length $n$ over the aleph-bet $\FF$. The following Lemma states the realtion between the maximal degree of the polynomials and the properites of the code.   
 \begin{lemma}
   Fix the degree of the polynomial code to be at most $d$. Then the parameters of the code are $[n,d + 1, n - d]$.  
   \label{polycode}
