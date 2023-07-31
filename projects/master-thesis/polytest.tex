@@ -193,26 +193,6 @@ also happens with probability at least $1- d\cdot\varepsilon$ and therefore, aga
   With probability $1 - \Theta \left( \varepsilon \cdot d^{2}\right)$. However, the probability is about sampling $v$ such those transimitions are vaild. But as the value of $g$ is indepanded on the choice of $v$ it's enough to have just a single $v$ to garuntee $g\left( x \right) = \sum_{j}^{d}{g\left( x + w^{j}y \right)}$ namely that the probability is positive. So if  $ \varepsilon = \Theta(1/d^{2}) $ we have that for any $x,y$ there exists $v$ such \cref{eq:eqproof} is satisfied and therfore $g$ is satisfies \cref{eq:poly} for any $x,y$. 
 \end{proof}
 
-\begin{claim}
-For any $i\neq j,x \neq 0 $ the pair $x + yw^{i}$, $x+ yw^{j}$ distrubuted indepandeantly.
-\end{claim}
-
-\begin{claim}
-  If a function $f$ satisfies equation \cref{eq:poly} on the $\varepsilon$ fracton of the points then it satisfies \cref{eq:poly} over all the points.
-\end{claim}
-
-\begin{proof}
-  Let $x,y \in \FF$. for a random $\xi$ with probability $1 - \varepsilon$ ecah of the following equations satisfied: 
-  \begin{equation*}
-    \begin{split}
-      f(x) & = \frac{1}{d}\sum_{t}{ f\left( x + w^{t}\xi \right)  } \\
-      f\left( x + w^{t}\xi \right)   & = \frac{1}{d} \sum_{t^{\prime}}{ f\left( x + w^{t}\xi + w^{t^{\prime}}y \right)  } \\
-      f(x + w^{t^\prime}y) & = \frac{1}{d}\sum_{t}{ f\left( x + w^{t^\prime}y + w^{t}\xi \right)  } 
-    \end{split}
-  \end{equation*}
-  So the probability they all satisfied simultunisly is $ 1 - d^{2}\varepsilon$ therefore  for $\varepsilon =\Theta\left( 1/d^{2} \right)$ there is such $\xi$, namely $f(x)  = \frac{1}{d}\sum_{t}{ f\left( x + w^{t}y \right)  } $ with probablility $1$.
-\end{proof}
-
 
 
 
