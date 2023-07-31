@@ -1,15 +1,6 @@
 
 \newcommand{\FF}{\mathbb{F}_{q}}
-\section{Polynomial Code.} Consider the field $\FF$ for an arbitrary prime power $q$ greater than $n$. The polynomial codes relay on the fact that any two different polynomials in the ring $\FF\left[ x \right]$ at degree at most $d$ different by at least $q - d + 1$ points.
-
-\begin{fact} \label{fact:poly}
-  Given $d+1$ points, there is a unique polynomial at degree at most $d$ that pass through all those points. Nevertheless, there is an algorithm $G$ that takes those points as input and outputs the corresponding polynomial.   
-\end{fact}
-
-
-For example consider a polynomials pair at degree 1, namely two linear straight lines. If they are not identical than they have at most single intersection point, and the disagree on each of the $n-1$ remaining points.  
-
-So by define the code to be the subspace contains all the polynomials at degree at most $d$, in such way that any codeword is an image of such polynomail encoded by $n$ numbers, one can garntee a lower bound on the code's distance. Formally we define:     
+\section{Polynomial Code.} Consider the field $\FF$ for an arbitrary prime power $q$ greater than $n$. The polynomial codes rely on the fact that any two different polynomials in the ring $\FF\left[ x \right]$ of degree at most $d$ differ by at least $q - d + 1$ points. For example, consider a pair of polynomials of degree 1, namely two linear straight lines. If they are not identical, then they have at most one intersection point, and they disagree on each of the $n-1$ remaining points. By defining the code to be the subspace containing all polynomials of degree at most $d$, such that any codeword is an image of such a polynomial encoded by $n$ numbers, we can guarantee a lower bound on the code's distance. Formally, we define:
 \begin{definition}[Polynomial Code. \cite{Reed1960PolynomialCO}]
   Fix $m > n $ to be a prime power and let $a_{0},a_{1},a_{2},\ldots a_{n}$ distinct points of the field $\FF$  and define the code $C$ as follows:  
   \begin{equation*}
@@ -18,15 +9,13 @@ So by define the code to be the subspace contains all the polynomials at degree 
     \end{split}
   \end{equation*}
 \end{definition}
-Observe that $C$ is a linear code at length $n$ over the aleph-bet $\FF$. The following Lemma states the realtion between the maximal degree of the polynomials and the properites of the code.   
+Observe that $C$ is a linear code of length $n$ over the alphabet $\FF$. The following Lemma states the relation between the maximal degree of the polynomials and the properties of the code.
 \begin{lemma}
-  Fix the degree of the polynomial code to be at most $d$. Then the parameters of the code are $[n,d + 1, n - d]$.  
+Fix the degree of the polynomial code to be at most $d$. Then the parameters of the code are $[n, d+1, n-d]$.
   \label{polycode}
 \end{lemma}
 \begin{proof}
-  The dimension of the code equals to the dimension of the polynomials space at degree at most $d$ which is spanned by the monomial base $e_{0}, e_{1}, e_{2} ... e_{d} = 1, x ... x^{d}$ and therefore is $d+1$. In addition suppose that $f,g$ are different polynomials i.e $f\neq g$.
-
-  Hence $h = f-g$ is a non-$0$ polynomial at degree at most $d$ and therefore has at most $d$ roots. Namely at most $d$ points in which $f$ equals $g$ and at least $n-d$ in which they disagree. Put in another way the distance between any two different codewords of the code is at least $n-d$.  
+The dimension of the code is equal to the dimension of the polynomial space of degree at most $d$, which is spanned by the monomial basis $e_{0}, e_{1}, e_{2}, \dots, e_{d} = 1, x, \dots, x^{d}$, and is therefore $d+1$. Furthermore, suppose that $f$ and $g$ are two different polynomials, i.e. $f \neq g$. Thus, $h = f-g$ is a non-zero polynomial of degree at most $d$, and therefore has at most $d$ roots. This implies that there are at most $d$ points in which $f$ and $g$ are equal, and at least $n-d$ points in which they disagree. In other words, the distance between any two different codewords of the code is at least $n-d$.
 \end{proof}
 \begin{sagesilent}
 R.<t> = PowerSeriesRing(GF(17));
