@@ -171,6 +171,7 @@ also happens with probability at least $1- d\cdot\varepsilon$ and therefore, aga
 \end{equation*}
 \end{proof}
 \begin{claim}
+  \label{claim:fixx}
   For any $x$ the probability over $v$ that $g\left( x \right) = \sum_{i}{f(x + w^{i}v)}$ is grater than $ 1 - \Theta\left( d \cdot \varepsilon  \right)$. 
 \end{claim}
 \begin{proof}
@@ -182,10 +183,13 @@ also happens with probability at least $1- d\cdot\varepsilon$ and therefore, aga
 \end{claim}
 
 \begin{proof}
+  Fix $x,y \in \FF$. From \cref{claim:fixx} we get that for any $v$ with probability at least $1 - \Theta \left( d\cdot \varepsilon \right)$ it holds that $ g\left( x + w^{j}y \right) = \sum_{j}^{d}{f\left( x + w^{i}v + w_{j}y \right)}$. Now sample unifirmly random $v$, and observs that 
 
+
+  So by the union bound  
   \begin{equation*}
     \begin{split}
-      g\left( x \right) &= \sum_{i}^{d}{f\left( x + w^{i}v \right)} =  \sum_{i}^{d}\sum_{j}^{d}{f\left( x + w^{i}v + w_{j}y \right)} = \sum_{j}^{d}{g\left( x + w^{j}y \right)} 
+      g\left( x \right) &= \sum_{i,j}^{d}{f\left( x + w^{i}\left( v +w^{j}y\right) \right)} =  \sum_{j}^{d}\sum_{i}^{d}{f\left( x + w^{i}v + w_{j}y \right)} = \sum_{j}^{d}{g\left( x + w^{j}y \right)} 
     \end{split}
   \end{equation*}
 \end{proof}
