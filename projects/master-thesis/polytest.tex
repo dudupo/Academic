@@ -1,5 +1,5 @@
 
-\newcommand{\VV}{\sum_{t}{V(x + w^{t}y)}}
+%\newcommand{\VV}{\sum_{t}{V(x + w^{t}y)}}
 %Denote by $V(x)$ the vandermonde matrix defined by $x$ namely $V(x)_{ij} = x_{i}^{j}$. and by $w$ the $d$ root of $1$. 
 %
 %
@@ -13,7 +13,10 @@
 %  \left(\sum_{t}V(x + w^{t}y)\right)_{j} = \sum{ \sum w^{l\cdot t} { j \choose l }x_{i}^{l}y_{i}^{j - l}   } = t \left( \cdot x^{j} + y^{j}\right) + \sum_{l\neq 0,j}{\frac{w^{l\cdot d} - 1 }{w^{l}-1}\cdot {j \choose l}x_{i}^{l}y_{i}^{j-l}}
 %  \end{split}
 %\end{equation*}
-%
+
+
+Now we are about to prove that the polynomial code is a testable code. The next claim will enable us to design a random test to certify polynomials.
+
 \begin{claim}
   Consider the finte field $\FF$ for prime $q$, denote by $w$ the $d$ root of $1$, namely $w^{d}  = 1$ then for any polynomial $f$ with degree at most $d$ it holds:   
   \begin{equation}
@@ -39,7 +42,11 @@ Thus:
     \end{split}
   \end{equation*}
 \end{proof}
+\begin{example}
 For example consider a linear function over $\FF$, then it $w^2 = 1 \Rightarrow w = -1 $ and it clears that $f(x) = \frac{1}{2} \left( f(x - y) + f(x + y) \right)$.
+\end{example}
+
+Hence, we can consider the following tester: randomly select $x,y\in \FF$ and accept if \cref{eq:poly} is satisfied for a given function $f$.
 
 \begin{claim}
   Suppose that $f : \FF \rightarrow \FF$ satisfies \cref{eq:poly} than, ethier $f$ is polyonomial at degree at most $d$ or that $f$ is the zero function.  
