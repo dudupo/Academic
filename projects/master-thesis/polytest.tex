@@ -178,6 +178,19 @@ also happens with probability at least $1- d\cdot\varepsilon$ and therefore, aga
 \end{proof}
 
 \begin{claim}
+  For $\varepsilon = \Theta(1/d^{2})$ $g$ is a polynomial at degree at most $d$. 
+\end{claim}
+
+\begin{proof}
+
+  \begin{equation*}
+    \begin{split}
+      g\left( x \right) &= \sum_{i}^{d}{f\left( x + w^{i}v \right)} =  \sum_{i}^{d}\sum_{j}^{d}{f\left( x + w^{i}v + w_{j}y \right)} = \sum_{j}^{d}{g\left( x + w^{j}y \right)} 
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+\begin{claim}
 For any $i\neq j,x \neq 0 $ the pair $x + yw^{i}$, $x+ yw^{j}$ distrubuted indepandeantly.
 \end{claim}
 
