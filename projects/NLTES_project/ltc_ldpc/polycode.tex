@@ -1,6 +1,13 @@
 
 \newcommand{\FF}{\mathbb{F}_{q}}
-\section{Polynomial Code.} Consider the field $\FF$ for an arbitrary prime power $q$ greater than $n$. The polynomial codes relay on the fact that any two different polynomials in the ring $\FF\left[ x \right]$ at degree at most $d$ different by at least $q - d + 1$ points. For example consider a polynomials pair at degree 1, namely two linear straight lines. If they are not identical than they have at most single intersection point, and the disagree on each of the $n-1$ remaining points.  
+\section{Polynomial Code.} Consider the field $\FF$ for an arbitrary prime power $q$ greater than $n$. The polynomial codes relay on the fact that any two different polynomials in the ring $\FF\left[ x \right]$ at degree at most $d$ different by at least $q - d + 1$ points.
+
+\begin{fact} \label{fact:poly}
+  Given $d+1$ points, there is a unique polynomial at degree at most $d$ that pass through all those points. Nevertheless, there is an algorithm $G$ that takes those points as input and outputs the corresponding polynomial.   
+\end{fact}
+
+
+For example consider a polynomials pair at degree 1, namely two linear straight lines. If they are not identical than they have at most single intersection point, and the disagree on each of the $n-1$ remaining points.  
 
 So by define the code to be the subspace contains all the polynomials at degree at most $d$, in such way that any codeword is an image of such polynomail encoded by $n$ numbers, one can garntee a lower bound on the code's distance. Formally we define:     
 \begin{definition}[Polynomial Code. \cite{Reed1960PolynomialCO}]
@@ -38,8 +45,5 @@ pplot_t2 = finate_poly_plot(g)
   \label{fig:polyexample}
 \end{figure}
 
-\begin{fact} \label{fact:poly}
-  Given $d+1$ points, there is a unique polynomial at degree at most $d$ that pass through all those points. Nevertheless, there is an algorithm $G$ that takes those points as input and outputs the corresponding polynomial.   
-\end{fact}
 
 
