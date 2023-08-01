@@ -120,9 +120,11 @@ For example consider some vertex $v$ on the Torus, and let $\ket{\psi} = \sum_{x
 
   Now, denote by $C_{X}$ and $C_{Z}$ the linear codes defined by the crosses and faces checks. Observes that $C_{X}$ contain all the subgraph of the tours which have only evens degree, namely all the closed loops. 
   \begin{claim}
-    Let $c$ be an assignment of $1$ on a unite square, namely a loop at length $4$, then $c \in C_{Z}^{\top}$. 
+    Let $c$ be an assignment of $1$ on a unite square, namely a loop at length $4$, then $c \in C_{Z}^{\top}$.  
   \end{claim}
-
+  \begin{proof}
+    Denote by $c^{\prime}$ a codeword of $C_{Z}$, therefore the parity sum induced by $c^{\prime}$ on any square equals zero. 
+  \end{proof}
   Let $c \in C_{X}$ at weight at most $l$.     
 \end{proof}
 
