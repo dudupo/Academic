@@ -59,8 +59,8 @@ The Shor code is a specific case of the more general CSS (Calderbank-Shor-Steane
   Recall that one way to present a code is by define the parity check matrix, Consider the $l\times l$ Tours, namely the Cayley graph of the group product  $\mathbb{Z}_{l} \times \mathbb{Z}_{l}$. Associate any coordinate (bit/qubit) with an edge on the Tours. And consider the following two restrictions:
 
   \begin{enumerate}
-    \item Each vertex requires form it's local view, the bits lay on his supported edges, To has an even party. 
-    \item Each face, requires the almost the same from it's supported edges but that the face compute the parity in different (specific) base. That it, the face is first rotate the qubits by apply the Hadamard transform on them, and than computes their xor. Finally, rotate back the qubits to the computation base.   
+    \item Each vertex requires form its local view, the bits lay on its supported edges, To has an even party. We will refer to this type of check as \textit{cross check}. 
+    \item Similarly, each face requires the same from its supported edges, but computes the parity in a different (specific) base. That it, the face first rotates the qubits by applying the Hadamard transform on them, and then computes their XOR. Finally, the qubits are rotated back to the computation base. We shall refer to this type of check as \textit{face check}.
   \end{enumerate}
 
   \begin{center}
@@ -105,12 +105,22 @@ The Shor code is a specific case of the more general CSS (Calderbank-Shor-Steane
 \draw[ -> ]  (10,0) to (11,0);
 \draw[ -> ]  (11,1) to (11,0);
 \end{tikzpicture}
-\caption{Toric Graph.}
+\caption{On the left is the Toric Graph. On the right are cross and face checks.}
 \label{fig:Toric}
 \end{figure}
 \end{center}
 For example consider some vertex $v$ on the Torus, and let $\ket{\psi} = \sum_{x}{ \ket{\cdots x_{e_0}x_{e_1}x_{e_2}x_{e_3}  \cdots}}$ when $e_{0},e_{1},e_{2},e_{3}$ are the edges compose the local view of $v$. Then in any ket can be in the support of $\ket{\psi}$ only if the parity of $e_{0},e_{1},e_{2},e_{3}$ is even.
 %\subsection{Note on the Toric in the presence of noise.} 
+
+\begin{claim}
+  The $l \times l$  Toric code is a CSS code, with dimension $2$ and distance $\Theta\left( l \right)$.   
+\end{claim}
+
+\begin{proof}
+  Let $I$ and $J$ be a cross and a face checks. If they are not intersect (share edges) then, obviously, they commute. So suppose they share an edge. Now there are a finite number of cases ($4$) in which a cross check can intersect a face, and for all of them we have they must to intersect in an exactly two edges. Therefore the crosses checks commute with all the faces checks. 
+
+  Now, denote by $C_{X}$ and $C_{Z}$ the linear codes defined by the crosses and faces checks.
+\end{proof}
 
 %The Toric code is a topological quantum error-correcting code that encodes a single qubit of information into a two-dimensional lattice of qubits. It is a stabilizer code, meaning that it uses a set of commuting operators to detect and correct errors. The code is based on the mathematical structure of a torus, and its properties make it a powerful tool for quantum computing. It is also a fault-tolerant code, meaning that it can correct errors even when some of the qubits are faulty.
 %
