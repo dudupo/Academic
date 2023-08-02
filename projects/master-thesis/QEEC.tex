@@ -148,10 +148,16 @@ For example consider some vertex $v$ on the Torus, and let $\ket{\psi} = \sum_{x
         \end{cases}
       \end{split}
     \end{equation*}
-
+    So if there is no $u \neq v_{i}$ such that $f(u) = f(v_{i}) = f(v_{i-1})+1$ then there must to be an edge $\{v_{j},v_{j+1}\}$, $v_{j} = \left( \cdot, l -1 \right)$, $ v_{j+1} = \left( \cdot, 0  \right)$ such $P$ pass trough it. So  
+    \begin{equation*}
+      \begin{split}
+        f\left( v_{i-1} \right) = f\left( v+1 \right) = |f\left( v+2 \right) -  f\left( v+1 \right)| + .. + -\left( l - 1 \right)
+      \end{split}
+    \end{equation*}
     Assume trough controdiction that $f(u) \neq  $. Then it must hold that $P$ pass through point an $\{(\cdot, l-1), (\cdot, 0)\}$ edge, therefore $L\left(P\right) \ge l$. 
   \end{proof}
 
+  If $c$ dosn't has two edge in the same 
 
   \begin{definition}
     Horizontal and Vertical diameters. 
