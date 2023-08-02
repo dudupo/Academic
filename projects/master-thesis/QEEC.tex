@@ -138,7 +138,18 @@ For example consider some vertex $v$ on the Torus, and let $\ket{\psi} = \sum_{x
   \end{claim}
 
   \begin{proof}
-    Assume without loose of genrality that $v_{i-1} = \left( x, y -1 \right)$ and $v_{i+1} =\left( x,y+1 \right)$. Now denote by $f$ the projection on the second cordinate, $f(a,b)= b$. Assume trough controdiction that $f(u) \neq  $. Then it must hold that $P$ pass through point an $\{(\cdot, l-1), (\cdot, 0)\}$ edge, therefore $L\left(P\right) \ge l$. 
+  Assume without loose of genrality that $v_{i-1} = \left( x, y -1 \right)$ and $v_{i+1} =\left( x,y+1 \right)$. Now denote by $f$ the projection on the second cordinate, $f(a,b)= b$. and obseves that for any $j$ the distnace $f\left( v_{j+1}\right) - \left( v_{j}  \right)$ satisfies:
+    \begin{equation*}
+      \begin{split}
+      f\left( v_{j+1}\right) - f \left( v_{j}  \right) = 
+        \begin{cases}
+          n  & v_{j} = \left( \cdot, l -1 \right), v_{j+1} = \left( \cdot, 0  \right)  \\
+          \in \{ \pm 1 , 0\} & \text{ else }
+        \end{cases}
+      \end{split}
+    \end{equation*}
+
+    Assume trough controdiction that $f(u) \neq  $. Then it must hold that $P$ pass through point an $\{(\cdot, l-1), (\cdot, 0)\}$ edge, therefore $L\left(P\right) \ge l$. 
   \end{proof}
 
 
