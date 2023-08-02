@@ -133,11 +133,29 @@ For example consider some vertex $v$ on the Torus, and let $\ket{\psi} = \sum_{x
     By repeating recursively untill $P/P^{\prime} = \{ \emptyset \}$ we get a decomposition of $P$ into a sum of simple cycles.   
   \end{proof}
 
+  \begin{claim}
+    Associate with any vertices of the Tours a coordinates in $\mathbb{Z}_{l} \times \mathbb{Z}_{l}$. Consider a simple cycle $P$ subset of the Torus. Denote $P$ by the vertices compose it $v_{0}v_{1}..v_{k}$ arranged by order. Consider a  vertex $v_{i} \in P$ such that $\{v_{i-1}, v_{i}\}$, $\{v_{i}, v_{i+1}$ are at the same direaction and denote $v = \left( x,y \right) \in $$ \mathbb{Z}_{l} \times \mathbb{Z}_{l}$. Then there exist vertex $u \in P$, $ u \neq v_{i-1}v_{i+1}$ that share one of the cordinates of $v$. Put it differnetly there exsit $z$ such either  $u = \left( z,y \right)$ or $u = \left( x,z \right)$. 
+  \end{claim}
+
+  \begin{proof}
+    Assume without loose of genrality that $v_{i-1} = \left( x, y -1 \right)$ and $v_{i+1} =\left( x,y+1 \right)$. Now denote by $f$ the projection $f : Z_{l} \times Z_{l} \rightarrow Z_{l}$ on the second cordinate, $f(a,b)= b$. On $P$ we have that $|f(v_{j+1}) - f(v_{j})| \le 1$. By extanding $f$ to be continus function on the real, and associate the $v_{j+1},v_{j+2},v_{j+3}..v_{k-1},v_{k},v_{0}..v_{j-2}v_{j-1}$ with continus segment. We obtain trough intermediate value theorem that there is a $\tau$ such that $f(\tau) = x$ as the values of $f$ on the vertices are must to be integer we obtain the exsitness of desired $u$.   
+  \end{proof}
+
+
+  \begin{definition}
+    Horizontal and Vertical diameters. 
+  \end{definition}
+
+
   Let $c \in C_{X}$ at weight at most $l$ and by $G = (V,E)$ the Cayley graph of the tours, we will refer to each of the two generators of $G$ as directions. We will say that a tuple of edges $\{e_{1},e_{2}\}$ is corner of $c$ if they are both non zero coordinates of $c$ and in addition they match to different directions\footnote{On planner drawing, corner is just an horizontal edge followed by vertical edge}.        
  
   \begin{definition}
-    Inner point. If we draw a line than it intersect the shape odd number of times. Outer point, intersect even number of times.
+    Inner point.   If we draw a line than it intersect the shape odd number of times. Outer point, intersect even number of times.
   \end{definition}
+
+  \begin{claim}
+    Any simple cycle $P$ at length at most $l$, that is a subgraph of the $l \times l$ Torus can be emmbedd in  
+  \end{claim}
 
   \begin{definition}
     Area of closed loop. The probability to pick an inner point. 
