@@ -163,11 +163,16 @@ For example consider some vertex $v$ on the Torus, and let $\ket{\psi} = \sum_{x
     Horizontal and Vertical diameters. Let $P$ be defined again as exactly as in cliam \cref{claim:inter}. We will say that the \textit{horizontial diameter} of $P$ is   
     \begin{equation*}
       \begin{split}
-        \max_{v,u\in P} \min{ \left\{  | v_{x} -u_{x}|, |v_{x} + l 0 u_{x}| \right\} }  
+        \max_{v,u\in P} \min{ \left\{  | v_{x} -u_{x}|, |v_{x} + l + u_{x}| \right\} }  
+      \end{split}
+    \end{equation*}
+    Similarly, we define the vertical diametr to be: 
+    \begin{equation*}
+      \begin{split}
+        \max_{v,u\in P} \min{ \left\{  | v_{y} -u_{y}|, |v_{y} + l + u_{y}| \right\} }  
       \end{split}
     \end{equation*}
   \end{definition}
-
 
   Let $c \in C_{X}$ at weight at most $l$ and by $G = (V,E)$ the Cayley graph of the tours, we will refer to each of the two generators of $G$ as directions. We will say that a tuple of edges $\{e_{1},e_{2}\}$ is corner of $c$ if they are both non zero coordinates of $c$ and in addition they match to different directions\footnote{On planner drawing, corner is just an horizontal edge followed by vertical edge}.        
  
