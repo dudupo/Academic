@@ -164,6 +164,9 @@ For example consider some vertex $v$ on the Torus, and let $\ket{\psi} = \sum_{x
  (1,0) to[out=90,in=90] (5,0);
     \draw [thick, decorate, decoration={random steps,segment length=3pt,amplitude=1pt}]
  (5,0) to[out=270,in=270] (1,-1);
+ \filldraw[black] (1,0) circle (2pt) node[anchor=west]{$v_{i+1}$};
+ \filldraw[black] (0,0) circle (2pt) node[anchor=west]{$v_{i}$};
+
     %\draw [thick, decorate, decoration={random steps,segment length=10pt,amplitude=2pt}]
  %(0,0) to[out=0,in=0] (0,4);
   \end{tikzpicture}
