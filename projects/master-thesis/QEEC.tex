@@ -204,7 +204,6 @@ If $P$ is a non empty simple cycle with vertical and horizontal diameters $d_{1}
   \end{claim}
 
   \begin{proof}
-    \begin{figure}[h]
 \begin{tikzpicture}
     \draw [thick, decorate, decoration={random steps,segment length=3pt,amplitude=1pt}]
  (1,0) to[out=90,in=90] (5,0);
@@ -213,10 +212,9 @@ If $P$ is a non empty simple cycle with vertical and horizontal diameters $d_{1}
  \filldraw[black] (1,0) circle (2pt) node[anchor=west]{$v$};
  \filldraw[black] (5,0) circle (2pt) node[anchor=west]{$u$};
 \draw[draw=gray] (0,-3) rectangle ++(7,7);
-\draw (1,0) -- (5,0)
+\draw (1,0) -- (5,0);
  %(0,0) to[out=0,in=0] (0,4);
   \end{tikzpicture}
-\end{figure}
   \end{proof}
 
   \begin{claim}
