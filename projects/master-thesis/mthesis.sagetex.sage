@@ -162,7 +162,7 @@ try:
  _st_.inline(2, print_capt('$' + latex(f) + '$ and $' + latex(g) +'$'))
 except:
  _st_.goboom(32)
-_st_.current_tex_line = 319
+_st_.current_tex_line = 300
 _st_.blockbegin()
 try:
  latex.matrix_delimiters('[', ']')
@@ -173,26 +173,26 @@ try:
  Hstr = latex(H)
  H1str = latex(H1)
 except:
- _st_.goboom(327)
+ _st_.goboom(308)
 _st_.blockend()
 try:
- _st_.current_tex_line = 336
+ _st_.current_tex_line = 317
  _st_.inline(3, Hstr)
 except:
- _st_.goboom(336)
+ _st_.goboom(317)
 try:
- _st_.current_tex_line = 336
+ _st_.current_tex_line = 317
  _st_.inline(4, H1str)
 except:
- _st_.goboom(336)
+ _st_.goboom(317)
 try:
- _st_.current_tex_line = 336
+ _st_.current_tex_line = 317
  _st_.inline(3, Hstr)
 except:
- _st_.goboom(336)
+ _st_.goboom(317)
 try:
- _st_.current_tex_line = 336
+ _st_.current_tex_line = 317
  _st_.inline(4, H1str)
 except:
- _st_.goboom(336)
+ _st_.goboom(317)
 _st_.endofdoc()
