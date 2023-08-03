@@ -185,7 +185,7 @@ For example consider some vertex $v$ on the Torus, and let $\ket{\psi} = \sum_{x
 \end{figure}
 
   \begin{definition}
-    Horizontal and Vertical diameters. Let $P$ be defined again as exactly as in cliam \cref{claim:inter}. We will say that the \textit{horizontial diameter} of $P$ is   
+    Horizontal and Vertical diameters. Let $P$ be defined again as exactly as in cliam \cref{claim:inter}. We will say that the \textit{horizontial diameter} of $P$ is: 
     \begin{equation*}
       \begin{split}
         \max_{v,u\in P} \min{ \left\{  | v_{x} -u_{x}|, |v_{x} + l + u_{x}| \right\} }  
@@ -213,9 +213,7 @@ If $P$ is a non empty simple cycle with vertical and horizontal diameters $d_{1}
  (5,0) to[out=270,in=270] (1,0);
  \filldraw[black] (1,0) circle (2pt) node[anchor=east]{$v$};
  \filldraw[black] (5,0) circle (2pt) node[anchor=west]{$u$};
-%\draw[draw=gray] (0,-2) rectangle ++(7,5);
 \draw (1,0) -- (5,0);
- %(0,0) to[out=0,in=0] (0,4);
   \end{tikzpicture}
 \end{wrapfigure}
 If $P$ is a non empty simple cycle with vertical and horizontal diameters $d_{1}, d_{2}$, then it can either be a square or can be decomposed into two simple cycles $P_{1},P_{2}$ with either the vertical diameter of both of them being strictly less than $d_{1}$ and their horizontal diameters being at most $d_{2}$, or the horizontal diameter of both of them being strictly less than $d_{2}$ and their vertical diameters being at most $d_{1}$.
