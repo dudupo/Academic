@@ -1,13 +1,14 @@
 \chapter{Good qLDPC Codes and LTC.}
 
-The existence of good QLDPC codes and LTC were considered open problems for roughly two decades. Even though they seemed to be related only by containing the word "code" in their title, they were proven to exist by the same construction. They first appeared in \cite{Dinur} as good locally testable codes and not long after that in \cite{Pavel}, in which they also extended and derived the result to obtain the quantum code. Here, we would follow the \cite{leverrier2022quantum} work, which simplifies the original proof and doesn't rely on any concept more complicated than what we already saw in the previous chapters. They also coined the term "Quantum Tanner Codes".
+The existence of good QLDPC codes and LTC were considered open problems for roughly two decades. Even though they seemed to be related only by containing the word "code" in their title, they were proven to exist by the same construction. They first appeared in \cite{Dinur} as good locally testable codes and not long after that in \cite{Pavel}, in which they also extended and derived the result to obtain the quantum code. Here, we follow the \cite{leverrier2022quantum} work, which simplifies the original proof and doesn't rely on any concept more complicated than what we already saw in the previous chapters. They also coined the term "Quantum Tanner Codes".
 
 
 \section{Quantum Tanner Codes.}
-We are now ready to present the Good qLDPC codes.   
+Recall our insight that for a pair of LDPC codes to define a good CSS code, it must hold that neither of them is a good code, and moreover they both have a constant distance. Therefore, we understand that any codeword in $C_{X}$ that has small weight belongs to $C_{Z}^\perp$. To prove it, we are going to come up with a construction such that if $x \in C_{X}$ and $|x|$ is small then there is some small codeword $z \in C_{Z}^{\perp}$ such that $|x+z| < |x|$; by repeating this process recursively it follows that $x\in C_{Z}^{\perp}$. To formulate this theorem we will need the following definitions:
   
   \begin{definition} Let $C = \Tann$. We say that $x \in C_{\oplus}$ is \textbf{reducible} if there exists a vertex $v$ and a small codeword $c_v$, for which, adding the assignment of $c_v$ over the $v$'s edges to $x$ decreases the weight. Namely, $|x + c_{v}| < |x|$. If $x \in C_{\oplus}$ is not a reducible codeword then we say that $x$ is \textbf{irreducible} \label{ire}. \end{definition}
 
+The next two definitions are concerned with the properties of the small code that will be set on the edges. Using them, one can characterize cases in which a local view can be reduced by subtracting a codeword from the dual code.
 
 \begin{definition}[$w$-Robustness] Let $C_{0}$ be code of length $\Delta$ with minimum distance $\delta_{0}\Delta$. $C = C_{0} \otimes \mathbb{F} + \mathbb{F}\otimes C_{0}^{\perp}$ will be said $w$-robust if any codeword $c \in C$ at weight less than $w$ it follows that $c$ is supported on at most $2\cdot w/\delta_{0}\Delta$ rows and cols.
 \end{definition}
