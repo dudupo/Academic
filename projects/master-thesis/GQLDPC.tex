@@ -120,7 +120,7 @@ Denote by $S$ and $T$ the positive and negetive vertices support the codeword $x
    Let $x$ be a codeword of $\duC$ such that $d(x, \mathbb{F}^{A} \otimes C_{B})$, $d(x, C_{A}\otimes\mathbb{F}^{B}) \le \xi < w$. Then $d(x, C_{A} \otimes C_{B}) < \xi $. 
  \end{claim} 
  \begin{proof}
-   Denote by $R$ the closet codeword of $ C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simliarly dentoe by $C$ the closet codeword of $\mathbb{F}^{A} \otimes C_{B}$ to $x$. And noitce that $C + R \in \duC$. In addition the weight of $C+R$ equals:
+Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Similarly, denote by $C$ the closest codeword of $\mathbb{F}^{A} \otimes C_{B}$ to $x$. Notice that $C + R \in \duC$. In addition, the weight of $C+R$ is bounded by:
    \begin{equation*}
      \begin{split}
        |R + C| &=  |x + \left(x + R\right) + x + \left( x + C\right)| \\
@@ -128,9 +128,9 @@ Denote by $S$ and $T$ the positive and negetive vertices support the codeword $x
        & \le w
      \end{split}
    \end{equation*}
-   Therefore by the robustness property there are $r \in C_{A}\otimes\mathbb{F}^{B}$ and $c \in \mathbb{F}^{A} \otimes C_{B} $ such that $ R + C  = r + c$. And $r,c$ are supported on $|R+C|/\delta\Delta$ rows and cols. (Here $r$ and $c$ play the role of $s,t$ in \cref{def:wrobust}.)  
+   Therefore, by the robustness property, there are $r \in C_{A}\otimes\mathbb{F}^{B}$ and $c \in \mathbb{F}^{A} \otimes C_{B} $ such that $ R + C  = r + c$. And $r,c$ are supported on at most $|R+C|/\delta\Delta$ rows and columns. (Here $r$ and $c$ play the role of $s,t$ in \cref{def:wrobust}.)  
 
-   Now observe that in one hand $C + c = R + r$, and in another hand $ C + c \in \mathbb{F}^{A} \otimes C_{B} $ and $R+r \in C_{A}\otimes\mathbb{F}^{B}$, Therefore $C+c \in C_{A}\otimes\mathbb{F}^{B} \cap \mathbb{F}^{A} \otimes C_{B}$. Namely $C +c \in C_{A} \otimes C_{B}$. Thus we have:  
+   Now observe that on one hand $C + c = R + r$, and on the other hand $ C + c \in \mathbb{F}^{A} \otimes C_{B} $ and $R+r \in C_{A}\otimes\mathbb{F}^{B}$. Therefore, $C+c \in C_{A}\otimes\mathbb{F}^{B} \cap \mathbb{F}^{A} \otimes C_{B}$. Namely, $C +c \in C_{A} \otimes C_{B}$. Thus we have:  
    
    \begin{equation*}
      \begin{split}
@@ -138,7 +138,7 @@ Denote by $S$ and $T$ the positive and negetive vertices support the codeword $x
        &\le \xi + |c|
      \end{split}
    \end{equation*}
-   And in the same way we obtain also that $d\left( x, C_{A} \otimes C_{B} \right) \le \xi + |r|$. By the fact that $c,r$ suppoerted on at most $|R+C|/\delta\Delta$ rows and cols, the weight of the string obtained by joint a single row of $r$ with $c$ gorwes by at least $\delta\Delta - |R+C|/\delta\Delta > 0$. Therefore $|c| < |c + r| = |R + C|$. Thus in total $d\left( x, C_{A} \otimes C_{B} \right) \le 3\xi$. 
+   And in the same way we obtain also that $d\left( x, C_{A} \otimes C_{B} \right) \le \xi + |r|$. Since $c,r$ are supported on at most $|R+C|/\delta\Delta$ rows and columns, the weight of the string obtained by joining a single row of $r$ with $c$ grows by at least $\delta\Delta - |R+C|/\delta\Delta > 0$. Therefore, $|c| < |c + r| = |R + C|$. Thus, in total, $d\left( x, C_{A} \otimes C_{B} \right) \le 3\xi$.
  \end{proof}
 \begin{claim}
   Suppose that $v \in T$ is sarounded by normal vertices. Then:
