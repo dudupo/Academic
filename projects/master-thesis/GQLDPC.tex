@@ -94,28 +94,28 @@ Denote by $S$ and $T$ the positive and negetive vertices support the codeword $x
   \end{equation*} 
  \end{proof}
 
- \begin{claim}
-   Any $x \in \duC$ such that $|x| \le w$, and denote by $A^{\prime},B^{\prime}$ the rows and cols support $x$. Then $x$ can decompise into a sum of $x = t + s$ such that $t \in C_{A}\otimes \mathbb{F}^{B^\prime}$ and $s \in  \mathbb{F}^{A^\prime} \otimes  C_{B}$. 
- \end{claim}
- \begin{proof}
-   By induction on the number of raws supported $x$. Denote $x$ by 
-
-   \begin{equation*}
-     \begin{split}
-       x & = \sum_{i, c_{a}}{ c_{a} \otimes e_{i}  } + \sum_{i, c_{b} }{ e_{i} \otimes c_{b}} \\
-       & =  c_{a^{\prime}} \otimes e_{\tau} + \sum_{i / \tau, c_{a}}{ c_{a} \otimes e_{i}  } + \sum_{i, c_{b} }{ e_{i} \otimes c_{b}} \\
-      \end{split}
-   \end{equation*} 
-   
-   Now, if $c_{a^{\prime}} \otimes e_{\tau}$ decrese the summation weight then it must holds that $x$  
-
-    \begin{equation*}
-     \begin{split}
-       & =  c_{a^{\prime}} \otimes e_{\tau} + t^{\prime} + s^{\prime} = \overbrace{\left( c_{a^{\prime}} \otimes e_{\tau} + t^{\prime} \right) }^{ C_{A} \otimes \mathbb{F}^{B^{\prime}}}+ s^{\prime}
-     \end{split}
-   \end{equation*}
- \end{proof}
- 
+% \begin{claim}
+%   Any $x \in \duC$ such that $|x| \le w$, and denote by $A^{\prime},B^{\prime}$ the rows and cols support $x$. Then $x$ can decompise into a sum of $x = t + s$ such that $t \in C_{A}\otimes \mathbb{F}^{B^\prime}$ and $s \in  \mathbb{F}^{A^\prime} \otimes  C_{B}$. 
+% \end{claim}
+% \begin{proof}
+%   By induction on the number of raws supported $x$. Denote $x$ by 
+%
+%   \begin{equation*}
+%     \begin{split}
+%       x & = \sum_{i, c_{a}}{ c_{a} \otimes e_{i}  } + \sum_{i, c_{b} }{ e_{i} \otimes c_{b}} \\
+%       & =  c_{a^{\prime}} \otimes e_{\tau} + \sum_{i / \tau, c_{a}}{ c_{a} \otimes e_{i}  } + \sum_{i, c_{b} }{ e_{i} \otimes c_{b}} \\
+%      \end{split}
+%   \end{equation*} 
+%   
+%   Now, if $c_{a^{\prime}} \otimes e_{\tau}$ decrese the summation weight then it must holds that $x$  
+%
+%    \begin{equation*}
+%     \begin{split}
+%       & =  c_{a^{\prime}} \otimes e_{\tau} + t^{\prime} + s^{\prime} = \overbrace{\left( c_{a^{\prime}} \otimes e_{\tau} + t^{\prime} \right) }^{ C_{A} \otimes \mathbb{F}^{B^{\prime}}}+ s^{\prime}
+%     \end{split}
+%   \end{equation*}
+% \end{proof}
+% 
  \begin{claim}  
    Let $x$ be a codeword of $\duC$ such that $d(x, \mathbb{F}^{A} \otimes C_{B})$, $d(x, C_{A}\otimes\mathbb{F}^{B}) \le \xi < w$. Then $d(x, C_{A} \otimes C_{B}) < \xi $. 
  \end{claim} 
