@@ -14,7 +14,7 @@ The next two definitions are concerned with the properties of the small code tha
 Let $C_0$ be a code of length $\Delta$ with minimum distance $\delta_0\Delta$. $C = \duC $ will be said to be $w$-robust if for any codeword $c \in C$ of weight less than $w$, it follows that $c$ can be decomposed into a sum of $c = t + s$ such that $t \in C_A \otimes \mathbb{F}^{B}$ and $s \in \mathbb{F}^A \otimes C_B$, where $s$ and $t$ are each supported on at most $\frac{w}{\delta_0\Delta}$ rows and columns. For convenience, we will denote by $B'$ ($A'$) the rows (columns) supporting $t$ ($s$) and use the notation $t \in C_A \otimes \mathbb{F}^{B'}$.
 \end{definition}
 
-The definition we gave for $w$-Robustness is identical to the one stated by Zemor and Leiverar, but we also included the decomposition property in the definition. We refer the readers to the appendix section in \cite{Leiverar} for an existence proof by random construction. We mention that the random construction also gives the Gilbert-Varshamov bound.
+The definition we gave for $w$-Robustness is identical to the one stated by Zemor and Leverrier, but we also included the decomposition property in the definition. We refer the readers to the appendix section in \cite{leverrier2022quantum} for an existence proof by random construction. We mention that the random construction also gives the Gilbert-Varshamov bound.
 
 \begin{definition}[$p$-Resistance to Puncturing.] Let $p,w$ be integers. We will say that the dual tensor code $C_{A} \otimes \mathbb{F} + \mathbb{F} \otimes C_{B}$ is $w$-robust with $p$-resistance to puncturing, if the code obtained by removing (puncturing) a subset of at most $p$ rows and columns is $w$-robust.   
 \end{definition}
@@ -62,7 +62,6 @@ By the robustness property, any codeword of the dual tensor code with a weight l
     \end{split}
   \end{equation*}
   So the $i$th row of any $x \in J$ is a codeword of $C_{B}^{\perp}$ and in total, collecting all the $i$th rows of codewords in $J$ sums up to all the code words in $C_{B}^{\perp}$. On the other hand, $c\cdot x = 0$ for all $x \in J$; that is, $c\cdot x = c_{i} \cdot c_{b} = 0$. Thus we obtain that $c_{i} \in C_{B}$ and therefore $|c_{i}| \ge \delta_{0}\Delta \Rightarrow |c| \ge \delta_{0}\Delta$, which is a contradiction.
-  %can be decomposed to a pairwise multiplication over the rows We obtain that only non trivial row must to be in $ \left( C_{B}^{\perp} \right)^{\perp}$ and there fore at weight at least $\delta_{0}\Delta$ and that is contradiction.  
 \end{proof}
 
 Denote by $S$ and $T$ the positive and negetive vertices support the codeword $x \in C_{x}$.
