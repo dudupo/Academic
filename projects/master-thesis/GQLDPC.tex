@@ -11,6 +11,7 @@ Recall our insight that for a pair of LDPC codes to define a good CSS code, it m
 The next two definitions are concerned with the properties of the small code that will be set on the edges. Using them, one can characterize cases in which a local view can be reduced by subtracting a codeword from the dual code.
 
 \begin{definition}[$w$-Robustness] 
+  \label{def:wrobust}
 Let $C_0$ be a code of length $\Delta$ with minimum distance $\delta_0\Delta$. $C = \duC $ will be said to be $w$-robust if for any codeword $c \in C$ of weight less than $w$, it follows that $c$ can be decomposed into a sum of $c = t + s$ such that $t \in C_A \otimes \mathbb{F}^{B}$ and $s \in \mathbb{F}^A \otimes C_B$, where $s$ and $t$ are each supported on at most $\frac{w}{\delta_0\Delta}$ rows and columns. For convenience, we will denote by $B'$ ($A'$) the rows (columns) supporting $t$ ($s$) and use the notation $t \in C_A \otimes \mathbb{F}^{B'}$.
 \end{definition}
 
@@ -119,7 +120,14 @@ Denote by $S$ and $T$ the positive and negetive vertices support the codeword $x
    Let $x$ be a codeword of $\duC$ such that $d(x, \mathbb{F}^{A} \otimes C_{B})$, $d(x, C_{A}\otimes\mathbb{F}^{B}) \le \xi < w$. Then $d(x, C_{A} \otimes C_{B}) < \xi $. 
  \end{claim} 
  \begin{proof}
-
+   Denote by $R$ the closet codeword of $ C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simliarly dentoe by $C$ the closet codeword of $\mathbb{F}^{A} \otimes C_{B}$ to $x$. And noitce that $C + R \in \duC$. In addition the weight of $C+R$ equals:
+   \begin{equation*}
+     \begin{split}
+       |R + C| &= \le |x + \left(x + R\right) + x + \left( x + C\right)| \\
+       & \le |\left(x + R\right)|+ |\left( x + C\right)| \le d\left( x ,   C_{A}\otimes\mathbb{F}^{B} \right) +  d\left( x ,   \mathbb{F}^{A} \otimes C_{B} \right)
+     \end{split}
+   \end{equation*}
+   \cref{def:wrobust}
  \end{proof}
 \begin{claim}
   Suppose that $v \in T$ is sarounded by normal vertices. Then:
