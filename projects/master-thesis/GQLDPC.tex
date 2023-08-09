@@ -123,11 +123,12 @@ Denote by $S$ and $T$ the positive and negetive vertices support the codeword $x
    Denote by $R$ the closet codeword of $ C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simliarly dentoe by $C$ the closet codeword of $\mathbb{F}^{A} \otimes C_{B}$ to $x$. And noitce that $C + R \in \duC$. In addition the weight of $C+R$ equals:
    \begin{equation*}
      \begin{split}
-       |R + C| &= \le |x + \left(x + R\right) + x + \left( x + C\right)| \\
-       & \le |\left(x + R\right)|+ |\left( x + C\right)| \le d\left( x ,   C_{A}\otimes\mathbb{F}^{B} \right) +  d\left( x ,   \mathbb{F}^{A} \otimes C_{B} \right)
+       |R + C| &=  |x + \left(x + R\right) + x + \left( x + C\right)| \\
+       & \le |\left(x + R\right)|+ |\left( x + C\right)| \le d\left( x ,   C_{A}\otimes\mathbb{F}^{B} \right) +  d\left( x ,   \mathbb{F}^{A} \otimes C_{B} \right) \\ 
+       & \le w
      \end{split}
    \end{equation*}
-   \cref{def:wrobust}
+   Therefore by the robustness property there are $r \in C_{A}\otimes\mathbb{F}^{B}$ and $c \in \mathbb{F}^{A} \otimes C_{B} $ such that $ R + C  = r + c$. And $r,c$ are supported on $|R+C|/\delta\Delta$ rows and cols. (Here $r$ and $c$ play the role of $s,t$ in \cref{def:wrobust}.)  
  \end{proof}
 \begin{claim}
   Suppose that $v \in T$ is sarounded by normal vertices. Then:
