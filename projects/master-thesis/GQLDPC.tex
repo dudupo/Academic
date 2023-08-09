@@ -129,6 +129,15 @@ Denote by $S$ and $T$ the positive and negetive vertices support the codeword $x
      \end{split}
    \end{equation*}
    Therefore by the robustness property there are $r \in C_{A}\otimes\mathbb{F}^{B}$ and $c \in \mathbb{F}^{A} \otimes C_{B} $ such that $ R + C  = r + c$. And $r,c$ are supported on $|R+C|/\delta\Delta$ rows and cols. (Here $r$ and $c$ play the role of $s,t$ in \cref{def:wrobust}.)  
+
+   Now observe that in one hand $C + c = R + r$, and in another hand $ C + c \in \mathbb{F}^{A} \otimes C_{B} $ and $R+r \in C_{A}\otimes\mathbb{F}^{B}$, Therefore $C+c \in C_{A}\otimes\mathbb{F}^{B} \cap \mathbb{F}^{A} \otimes C_{B}$. Namely $C +c \in C_{A} \otimes C_{B}$. Thus we have:  
+   
+   \begin{equation*}
+     \begin{split}
+       d\left(x, C_{A}\otimes C_{B}\right) & \le d\left(x, C\right) + d\left(C, C_{A}\otimes C_{B} \right) \\
+       &\le \xi + |c|
+     \end{split}
+   \end{equation*}
  \end{proof}
 \begin{claim}
   Suppose that $v \in T$ is sarounded by normal vertices. Then:
