@@ -144,12 +144,24 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
   Suppose that $v \in T$ is sarounded by normal vertices. Then:
   \begin{equation*}
     \begin{split}
-      d\left( c|_{v}, c_{A}\otimes C_{B}\right) < \Theta\left( \Delta^{1+\varepsilon} \right)
+      d\left( c|_{v}, C_{A} \otimes \mathbb{F}^{B}\right) < \Theta\left( \Delta^{1+\varepsilon} \right)
     \end{split}
-  \end{equation*}
-   
+  \end{equation*} 
+ \end{claim}
+ \begin{proof}
+   Let $u \in S$ a nighboor of $v$ such they sharing a row. By the fact that $u$ is a normal vertex we have that any row of $u$ is at distance at most $\xi$ from $C_{A} \otimes \mathhb{F}^{B}$.     
+ \end{proof}
+\begin{claim}
+  Suppose that $v \in T$ is sarounded by normal vertices. Then:
+  \begin{equation*}
+    \begin{split}
+      d\left( c|_{v}, C_{A}\otimes C_{B}\right) < \Theta\left( \Delta^{1+\varepsilon} \right)
+    \end{split}
+  \end{equation*} 
  \end{claim}
 \begin{proof}
+  We have to pay $\Delta^{1+\varepsilon}$ to transform $c|_{v}$ into normal vertex. 
+    $ d\left( c|_{v}, C_{A}\otimes C_{B}\right) \le d\left( c|_{v}, C_{A}\otimes C_{B}\right) $
  \end{proof}
  
  \begin{remark}
