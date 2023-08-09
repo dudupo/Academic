@@ -14,6 +14,8 @@ The next two definitions are concerned with the properties of the small code tha
 Let $C_0$ be a code of length $\Delta$ with minimum distance $\delta_0\Delta$. $C = \duC $ will be said to be $w$-robust if for any codeword $c \in C$ of weight less than $w$, it follows that $c$ can be decomposed into a sum of $c = t + s$ such that $t \in C_A \otimes \mathbb{F}^{B}$ and $s \in \mathbb{F}^A \otimes C_B$, where $s$ and $t$ are each supported on at most $\frac{w}{\delta_0\Delta}$ rows and columns. For convenience, we will denote by $B'$ ($A'$) the rows (columns) supporting $t$ ($s$) and use the notation $t \in C_A \otimes \mathbb{F}^{B'}$.
 \end{definition}
 
+The definition we gave for $w$-Robustness is identical to the one stated by Zemor and Leiverar, but we also included the decomposition property in the definition. We refer the readers to the appendix section in \cite{Leiverar} for an existence proof by random construction. We mention that the random construction also gives the Gilbert-Varshamov bound.
+
 \begin{definition}[$p$-Resistance to Puncturing.] Let $p,w$ be integers. We will say that the dual tensor code $C_{A} \otimes \mathbb{F} + \mathbb{F} \otimes C_{B}$ is $w$-robust with $p$-resistance to puncturing, if the code obtained by removing (puncturing) a subset of at most $p$ rows and columns is $w$-robust.   
 \end{definition}
 
