@@ -196,9 +196,15 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
  \end{claim}
 
  \begin{proof}
-   By the given $|S| \le \frac{2|x|}{\delta\Delta} \le \zeta\frac{2n}{\delta\Delta}$ we have that $|S|/n \le \zeta\cdot \frac{2}{\delta\Delta}$.  
+   By the given $|S| \le \frac{2|x|}{\delta\Delta} \le \zeta\frac{2n}{\delta\Delta}$ we have that $|S|/n \le \zeta\cdot \frac{2}{\delta\Delta}$. Let $A \subset S$ and $B \subset S_{-}$ subsets of the positive and the negetive vertices support $x$, and $\alpha \le \Delta^{2},\beta \le \Delta$ their minimal degrees in $G, G$. Then we have that:   
 
    \begin{equation*}
+     \begin{split}
+       \alpha |A| & \le |E(A,S)| \le \frac{\Delta^{2}}{n}|A||S| + 4 \Delta \sqrt{|A||S|} \le |A| \zeta\cdot \frac{2\Delta}{\delta} +  4 \Delta \sqrt{|A||S|}\\ 
+       & \Rightarrow \sqrt{|A|}\left(\alpha-\zeta \frac{2\Delta}{\delta}  \right) \le 4\Delta\sqrt{|S|}  
+     \end{split}
+   \end{equation*}
+\begin{equation*}
      \begin{split}
        \Delta^{3/2-\varepsilon} |S_{e}| & \le |E(S_{e},S)| \le \frac{\delta^{2}}{n}|S_{e}||S| + 4 \Delta \sqrt{|S_{e}||S|}\\ 
        & \le 
