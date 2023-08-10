@@ -85,13 +85,26 @@ Denote by $S$ and $T$ the positive and negetive vertices support the codeword $x
 \end{claim}
 % Define the graph $G^{\star} = (V_{-}, E^{\star})$ such that $E^{\star} = E \cup \left\{ \left\{g, xyg \right\} x\neq y, \in A\cup B \right\}$ And notice that the assumption follows that  any 
 \begin{proof}
-  Denote by $S_{e},S_{n}$ the exceptional and the normal vertices. Namely the weight of the local view for any vertex in $S_{e}$ is grater than $\Delta^{3/2 + \varepsilon}$, and the normal vertices is the complementary vertices set. Suppose through contradiction that any negative vertex $v_{-}\in V_{-}$ has at least one sibling in $S_{e}$. Therefore $|T| \le \Delta |S_{e}|$ combining with \cref{claim:epss} it follows that $|S| \le \Delta^{1+\varepsilon}|S_{e}|$ : 
+  Denote by $S_{e},S_{n}$ the exceptional and the normal vertices. Namely the weight of the local view for any vertex in $S_{e}$ is grater than $\Delta^{3/2 + \varepsilon}$, and the normal vertices is the complementary vertices set. Suppose through contradiction that for $\Delta^{-p}$ portion of the negative vertices $v_{-}\in V_{-}$ have at least one ($\Delta^{\gamma}$) sibling in $S_{e}$. Therefore $ \Delta^{-p} |T| \le \Delta |S_{e}|$ combining with \cref{claim:epss} it follows that $|S| \le \Delta^{1+\varepsilon + p }|S_{e}|$ : 
   \begin{equation*}
     \begin{split}
       \Delta^{3/2 + \varepsilon} & \le \frac{E(S,S_{e})}{|S_{e}|} = \Theta\left( \Delta^{2} \right)\frac{|S|}{n} + \Theta\left( \Delta \right)\sqrt{ \frac{|S|}{|S_{e}|}  }\\ 
-      & \le \Theta(\Delta^{2}) \frac{|S|}{n} + \Theta(\Delta) \Theta\left( \Delta^{\frac{1+\varepsilon}{2}} \right)  
+      & \le \Theta(\Delta^{2}) \frac{|S|}{n} + \Theta(\Delta) \Theta\left( \Delta^{\frac{1+\varepsilon + p}{2}} \right)  
     \end{split}
   \end{equation*} 
+  Thus we obtain contradiction for any $p < \varepsilon/2$. In particular for $p = \varepsilon/4$ we obtain that at least $1 - \Delta^{-\varepsilon/4}$ portion of the negative vertices are sarounded by only normal vertices. 
+ \end{proof}
+
+ \begin{claim}
+The average weight of normal sarounded veritces is   
+ \end{claim}
+ \begin{proof}
+   
+   \begin{equation*}
+     \begin{split}
+       \frac{1}{2}\left[ \left( 1 - \Delta^{-\varepsilon/4} \right)\Delta^{3/2 + \varepsilon} \right]
+     \end{split}
+   \end{equation*}
  \end{proof}
 
 % \begin{claim}
