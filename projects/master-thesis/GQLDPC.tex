@@ -67,23 +67,23 @@ By the robustness property, any codeword of the dual tensor code with a weight l
   So the $i$th row of any $x \in J$ is a codeword of $C_{B}^{\perp}$ and in total, collecting all the $i$th rows of codewords in $J$ sums up to all the code words in $C_{B}^{\perp}$. On the other hand, $c\cdot x = 0$ for all $x \in J$; that is, $c\cdot x = c_{i} \cdot c_{b} = 0$. Thus we obtain that $c_{i} \in C_{B}$ and therefore $|c_{i}| \ge \delta_{0}\Delta \Rightarrow |c| \ge \delta_{0}\Delta$, which is a contradiction.
 \end{proof}
 
-Denote by $S$ and $T$ the positive and negetive vertices support the codeword $x \in C_{x}$.
-
-\begin{claim}
-  \label{claim:epss}
-  for any $\varepsilon \in \left( 0,1 \right)$ and large enough $\Delta$  it holds that $ |S| \le \Delta^{\varepsilon}|T| $ 
-\end{claim}
-\begin{proof}
-  Suppose not, namely that $|S| > \Delta^{\varepsilon}|T|$, then $|x|/|T| > \Delta^{\varepsilon}|x|/|S| > \Delta^{\varepsilon} \cdot \delta_{0}\Delta $ But:  
-\begin{equation*}
-  \begin{split}
-    \frac{|x|}{|T|} = \frac{\Theta \left(E(T,T) \right)}{|T|} \le \Theta(\Delta^{2})\frac{|T|}{n}  + \Theta(\Delta)  \rightarrow_{n\rightarrow \infty} \Theta(\Delta)
-  \end{split}
-\end{equation*}
-\end{proof}
+Denote by $S$ and $S_{-}$ the positive and negetive vertices support the codeword $x \in C_{x}$.
 \begin{definition}
   Denote by $S_{e},S_{n}$ the exceptional and the normal vertices. Namely the weight of the local view for any vertex in $S_{e}$ is grater than $\Delta^{3/2 + \varepsilon}$, and the normal vertices is the complementary vertices set. Denote by $T$ \ctt{complete definition}. In addition denote by $T_{s} \subset T$ the vertices in $S_{-}$ sarounded by only normal vertices. 
 \end{definition}
+\begin{claim}
+  \label{claim:epss}
+  for any $\varepsilon \in \left( 0,1 \right)$ and large enough $\Delta$  it holds that $ |S| \le \Delta^{\varepsilon}|S_{-}| $ 
+\end{claim}
+\begin{proof}
+  Suppose not, namely that $|S| > \Delta^{\varepsilon}|S_{-}|$, then $|x|/|S_{-}| > \Delta^{\varepsilon}|x|/|S| > \Delta^{\varepsilon} \cdot \delta_{0}\Delta $ But:  
+\begin{equation*}
+  \begin{split}
+    \frac{|x|}{|S_{-}|} = \frac{\Theta \left(E(S_{-},S_{-}) \right)}{|S_{-}|} \le \Theta(\Delta^{2})\frac{|S_{-}|}{n}  + \Theta(\Delta)  \rightarrow_{n\rightarrow \infty} \Theta(\Delta)
+  \end{split}
+\end{equation*}
+\end{proof}
+
 \begin{claim}
   At least $ 1- \Delta^{-\frac{\varepsilon}{4}}$ portion of the negative vertices adjoin to only normal vertices. 
 \end{claim}
