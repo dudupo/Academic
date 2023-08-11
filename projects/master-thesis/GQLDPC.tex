@@ -194,7 +194,7 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
  \begin{claim}[The Technical Lemma]  
    \label{cliam:tech} Let $A \subset S$ and $B \subset S_{-}$ subsets of the positive and the negetive vertices support $x$, and $\alpha \le \Delta^{2},\beta \le \Delta$ their minimal degrees in $G, G$. Assume the following conditions hold:
    \begin{enumerate}
-     \item $\beta = \frac{\delta\Delta}{4}\alpha + \Theta\left(  \right)$
+     \item $\beta = \frac{\delta}{4\Delta}\alpha + \Theta\left(  \right)$
      \item Any vertex in $B$ has at least one sibling in $\bar{A}$.
    \end{enumerate}
    Then:
@@ -215,19 +215,18 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
 \begin{equation*}
      \begin{split}
        \Rightarrow  |B| \le & \left( \beta -  \zeta \frac{4 \cdot 2\Delta^{2} }{\delta}  \right)^{-2} \cdot 16\Delta|S|\\
-       = & \sqrt{\Delta}\delta^{2} \left(  \alpha -  2\zeta \Delta^{3}   \right)^{-2} \cdot 16^{2}\Delta|S| 
+       \Rightarrow  |B| \le & \left( \frac{\delta}{\Delta}\alpha   -  \zeta \frac{4 \cdot 2\Delta^{2} }{\delta}  \right)^{-2} \cdot 16\Delta|S|\\
+       = & \frac{\sqrt{\Delta}}{\delta^{2}} \left(  \alpha -  2\zeta \Delta^{3}   \right)^{-2} \cdot 16^{2}\Delta|S| 
      \end{split}
    \end{equation*} 
-   Now, choose $\zeta$ such $\left( \alpha -  \zeta \frac{2\Delta^{3}}{\delta}  \right) \ge 16^{\frac{1}{2}} \cdot 100 \Delta^{\frac{5}{4}}$ yields that: $|A| \le 10^{-4}\Delta^{-\frac{1}{2}} |S| \Rightarrow $$ |\bar{A}| \ge \left( 1 - 10^{-4} \Delta^{-\frac{1}{2}}\right)|S|$. In addition noite that if
-
+   Now, choose $\zeta$ such $\left( \alpha -  \zeta \frac{2\Delta^{3}}{\delta}  \right) \ge 16^{\frac{1}{2}} \cdot 100 \Delta^{\frac{5}{4}}$ yields that: $|A| \le 10^{-4}\Delta^{-\frac{1}{2}} |S| \Rightarrow $$ |\bar{A}| \ge \left( 1 - 10^{-4} \Delta^{-\frac{1}{2}}\right)|S|$. In addition noitce that:
    \begin{equation*}
      \begin{split}
       \left( \alpha -  \zeta 2\Delta^{3}  \right) \ge \left( \alpha -  \zeta \frac{2\Delta^{3}}{\delta}  \right) \ge 16^{\frac{1}{2}} \cdot 100 \Delta^{\frac{5}{4}}
      \end{split}
    \end{equation*}
    
-
-   $|B| \le 10^{-4} \frac{|S|}{16 \Delta}$. Hence:
+   So we obtains that $|B| \le 10^{-4} \frac{|S|}{16 \Delta}$. Hence:
 
    \begin{equation*}
      \begin{split}
