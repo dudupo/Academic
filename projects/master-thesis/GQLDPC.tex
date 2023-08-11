@@ -168,7 +168,12 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
 \begin{proof}
   By being surrounded only by normal vertices any row in the local view of $v$ is codeword of $C_{A}$ plus at most $\Delta^{3/2 + \varepsilon}/\Delta = \Delta^{\frac{1}{2}+\varepsilon}$ faults. So correcting the rows require flipping at most $\Delta \cdot \Delta^{\frac{1}{2} + \varepsilon}$ bits in total.  Thus $d\left(c|_{v}, C_{A}\otimes \mathbb{F}^{B}\right) < \Delta^{3/2 + \varepsilon}$. In same way we obtain that $d\left(c|_{v},  \mathbb{F}^{A} \otimes C_{B}\right) < \Delta^{3/2 + \varepsilon}$. Noitce that, in parituclar, $d(c|_{v}, \duC) \le \Delta^{3/2 + \varepsilon}$.
 
-  Denote by $y$ the closest codeword of $\duC$ to $c|_{v}$. And observes that the distance between $y$ to either $C_{A} \otimes \mathbb{F}^{B}$ or $\mathbb{F}^{A}\otimes C_{B}$ is at most $2 \cdot \Delta^{3/2 + \varepsilon}$. To see it consider the decoding $y \rightarrow x \rightarrow C_{A} \otimes \mathbb{F}^{B}$.   
+  Denote by $y$ the closest codeword of $\duC$ to $c|_{v}$. And observes that the distance between $y$ to either $C_{A} \otimes \mathbb{F}^{B}$ or $\mathbb{F}^{A}\otimes C_{B}$ is at most $2 \cdot \Delta^{3/2 + \varepsilon}$. To see it consider the decoding: 
+  \begin{equation*}
+    \begin{split}
+  y \rightarrow x \rightarrow C_{A} \otimes \mathbb{F}^{B}   
+    \end{split}
+  \end{equation*}
   
   Therefore form \cref{claim:close} it follows that $d\left(y, C_{A} \otimes C_{B}\right) < 3 \xi $, So $d\left(x, C_{A} \otimes C_{B}\right) < \Delta^{3/2 + \varepsilon} +  3 \xi $.
      \end{proof}
