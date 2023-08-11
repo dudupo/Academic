@@ -69,7 +69,7 @@ By the robustness property, any codeword of the dual tensor code with a weight l
 
 Denote by $S$ and $S_{-}$ the positive and negetive vertices support the codeword $x \in C_{x}$.
 \begin{definition}
-  Denote by $S_{e},S_{n}$ the exceptional and the normal vertices. Namely the weight of the local view for any vertex in $S_{e}$ is grater than $\Delta^{3/2 + \varepsilon}$, and the normal vertices is the complementary vertices set. Denote by $T$ \ctt{complete definition}. In addition denote by $T_{s} \subset T$ the vertices in $S_{-}$ sarounded by only normal vertices. 
+Denote by $S_e$ and $S_n$ the exceptional and normal vertices, respectively, defined as follows: the weight of the local view for any vertex in $S_e$ is greater than $\Delta^{3/2 + \varepsilon}$, and $S_n$ is the complementary set of vertices. Denote by $T$ \ctt{complete definition}. In addition, denote by $T_s \subset T$ the vertices in $S_-$ that are surrounded by only normal vertices.
 \end{definition}
 \begin{claim}
   \label{claim:epss}
@@ -96,7 +96,7 @@ Denote by $S$ and $S_{-}$ the positive and negetive vertices support the codewor
       & \le \Theta(\Delta^{2}) \frac{|S|}{n} + \Theta(\Delta) \Theta\left( \Delta^{\frac{1+\varepsilon + p}{2}} \right)  
     \end{split}
   \end{equation*} 
-  Thus we obtain contradiction for any $p < \varepsilon/2$. In particular for $p = \varepsilon/4$ we obtain that at least $1 - \Delta^{-\varepsilon/4}$ portion of the negative vertices are sarounded by only normal vertices. 
+  Thus we obtain contradiction for any $p < \varepsilon/2$. In particular for $p = \varepsilon/4$ we obtain that at least $1 - \Delta^{-\varepsilon/4}$ portion of the negative vertices are surounded by only normal vertices. 
  \end{proof}
 
  % \begin{claim}
@@ -146,7 +146,7 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
    And in the same way we obtain also that $d\left( x, C_{A} \otimes C_{B} \right) \le \xi + |r|$. Since $c,r$ are supported on at most $|R+C|/\delta\Delta$ rows and columns, the weight of the string obtained by joining a single row of $r$ with $c$ grows by at least $\delta\Delta - |R+C|/\delta\Delta > 0$. Therefore, $|c| < |c + r| = |R + C|$. Thus, in total, $d\left( x, C_{A} \otimes C_{B} \right) \le 3\xi$.
  \end{proof}
 \begin{claim}
-  Suppose that $v \in T$ is sarounded by normal vertices. Then:
+  Suppose that $v \in T$ is surounded by normal vertices. Then:
   \begin{equation*}
     \begin{split}
       d\left( c|_{v}, C_{A} \otimes \mathbb{F}^{B}\right) < \Theta\left( \Delta^{1+\varepsilon} \right)
@@ -157,7 +157,7 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
    Let $u \in S$ a nighboor of $v$ such they sharing a row. By the fact that $u$ is a normal vertex we have that any row of $u$ is at distance at most $\xi$ from $C_{A} \otimes \mathbb{F}^{B}$.     
  \end{proof}
 \begin{claim}
-  Suppose that $v \in T$ is sarounded by normal vertices. Then:
+  Suppose that $v \in T$ is surounded by normal vertices. Then:
   \begin{equation*}
     \begin{split}
       d\left( c|_{v}, C_{A}\otimes C_{B}\right) < \Theta\left( \Delta^{1+\varepsilon} \right)
@@ -225,7 +225,7 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
    \end{equation*}
  \end{proof}
 \begin{claim}
-   There is a normal-sarounded vertex in $v \in T$ in weight at least $\frac{1}{2} \Delta^{2}$.   
+   There is a normal-surounded vertex in $v \in T$ in weight at least $\frac{1}{2} \Delta^{2}$.   
  \end{claim}
  \begin{proof}
    Recall that any codeword of positive normal vertex can decompise into $s + t$ we will say that edge is an heavy edge if the squares supported on her associated with a codeword in $Z$. Any normal vertex contribute at most $\Delta^{\frac{1}{2}+\varepsilon}$ havey edges. 
