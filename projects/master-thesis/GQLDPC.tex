@@ -97,18 +97,7 @@ Denote by $S$ and $T$ the positive and negetive vertices support the codeword $x
   Thus we obtain contradiction for any $p < \varepsilon/2$. In particular for $p = \varepsilon/4$ we obtain that at least $1 - \Delta^{-\varepsilon/4}$ portion of the negative vertices are sarounded by only normal vertices. 
  \end{proof}
 
- \begin{claim}
-   There is a normal-sarounded vertex in $v \in T$ in weight at least $\frac{1}{2} \Delta^{2}$.   
- \end{claim}
- \begin{proof}
-   Recall that any codeword of positive normal vertex can decompise into $s + t$ we will say that edge is an heavy edge if the squares supported on her associated with a codeword in $Z$. Any normal vertex contribute at most $\Delta^{\frac{1}{2}+\varepsilon}$ havey edges. 
-   \begin{equation*}
-     \begin{split}
-       \left( 1 - \Delta^{-\varepsilon/4} \right) \cdot \alpha |T| +  \Delta^{-\varepsilon/4}  \Delta |T| \ge |S_{n}| \cdot \Delta^{\frac{1}{2} + \varepsilon}
-     \end{split}
-   \end{equation*}
- \end{proof}
-% \begin{claim}
+ % \begin{claim}
 %   Any $x \in \duC$ such that $|x| \le w$, and denote by $A^{\prime},B^{\prime}$ the rows and cols support $x$. Then $x$ can decompise into a sum of $x = t + s$ such that $t \in C_{A}\otimes \mathbb{F}^{B^\prime}$ and $s \in  \mathbb{F}^{A^\prime} \otimes  C_{B}$. 
 % \end{claim}
 % \begin{proof}
@@ -229,7 +218,18 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
 
    \begin{equation*}
      \begin{split}
-       d_{B\rightarrow \bar{A}} = \frac{ E\left(B,\bar{A}\right) }{|B|} \ge \frac{|\bar{A}|}{|B|} \ge \left( 1 - 10^{-4}\Delta^{-1}  \right) 10^{4} \cdot \delta^{2}\Delta  
+       d_{B\rightarrow \bar{A}} = \frac{ E\left(B,\bar{A}\right) }{|B|} \ge \frac{|\bar{A}|}{|B|} \ge \left( 1 - 10^{-4}\Delta^{-1}  \right) 10^{4} \cdot \delta^{2}\Delta  = \Theta\left( \Delta \right)
+     \end{split}
+   \end{equation*}
+ \end{proof}
+\begin{claim}
+   There is a normal-sarounded vertex in $v \in T$ in weight at least $\frac{1}{2} \Delta^{2}$.   
+ \end{claim}
+ \begin{proof}
+   Recall that any codeword of positive normal vertex can decompise into $s + t$ we will say that edge is an heavy edge if the squares supported on her associated with a codeword in $Z$. Any normal vertex contribute at most $\Delta^{\frac{1}{2}+\varepsilon}$ havey edges. 
+   \begin{equation*}
+     \begin{split}
+       \left( 1 - \Delta^{-\varepsilon/4} \right) \cdot \alpha |T| +  \Delta^{-\varepsilon/4}  \Delta |T| \ge |S_{n}| \cdot \Delta^{\frac{1}{2} + \varepsilon}
      \end{split}
    \end{equation*}
  \end{proof}
