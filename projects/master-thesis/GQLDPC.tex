@@ -191,13 +191,19 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
    Consider a codeword $x \in C_{x}$ with weight at most $\zeta \cdot n\Delta^{2} $. Denote by $S_{n}, S_{e}$ the normal and the exceptional vertices of $S$. Define an haveiy edge in $G$ to be an edge in which the row or colom laid on her has weight at least $\delta\Delta - \frac{\Delta^{\frac{1}{2}}}{\delta}$. Define by $T$ the negetive vertices connected to $S_{n}$ by an heavy edge.     
  \end{proof}
  
- \begin{claim}
-
+ \begin{claim}[The Technical Lemma]  
+   \label{cliam:tech} Let $A \subset S$ and $B \subset S_{-}$ subsets of the positive and the negetive vertices support $x$, and $\alpha \le \Delta^{2},\beta \le \Delta$ their minimal degrees in $G, G$. Assume the following conditions hold:
+   \begin{enumerate}
+     \item $\beta = 4\alpha/\Delta + \Theta\left(  \right)$
+     \item Any vertex in $B$ has at least one sibling in $\bar{A}$.
+   \end{enumerate}
+   Then:
  \end{claim}
 
  \begin{proof}
-   By the given $|S| \le \frac{2|x|}{\delta\Delta} \le \zeta\frac{2n\Delta}{\delta}$ we have that $|S|/n \le \zeta\cdot \frac{2\Delta}{\delta}$. Let $A \subset S$ and $B \subset S_{-}$ subsets of the positive and the negetive vertices support $x$, and $\alpha \le \Delta^{2},\beta \le \Delta$ their minimal degrees in $G, G$. Then we have that:   
-
+   By the given $|S| \le \frac{2|x|}{\delta\Delta} \le \zeta\frac{2n\Delta}{\delta}$ we have that $|S|/n \le \zeta\cdot \frac{2\Delta}{\delta}$.
+   %Let $A \subset S$ and $B \subset S_{-}$ subsets of the positive and the negetive vertices support $x$, and $\alpha \le \Delta^{2},\beta \le \Delta$ their minimal degrees in $G, G$.
+   Then by the Mixing Expander Lemma we have that:   
    \begin{equation*}
      \begin{split}
        \alpha |A| & \le |E(A,S)| \le \frac{\Delta^{2}}{n}|A||S| + 4 \Delta \sqrt{|A||S|} \le |A| \cdot \zeta \frac{2\Delta^{3}}{\delta} +  4 \Delta \sqrt{|A||S|}\\ 
@@ -210,7 +216,8 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
      \begin{split}
        \Rightarrow |B| \le \left( \beta -  \zeta \frac{4 \cdot 2\Delta^{2} }{\delta}  \right)^{-2} \cdot 16\Delta|S|
      \end{split}
-   \end{equation*}  
+   \end{equation*} 
+   Now, choose $\zeta$ such $\left( \alpha -  \zeta \frac{2\Delta^{3}}{\delta}  \right) \le 16^{\frac{1}{2}} \cdot 100 \Delta $ yields that: $|A| \le 10^{-4}|S| \Rightarrow $$ |\bar{A}| \ge \left( 1 - 10^{-4} \right)|S|$. In addition $|B| \le 10^{-4} |S|/16$.  
  \end{proof}
 
 
