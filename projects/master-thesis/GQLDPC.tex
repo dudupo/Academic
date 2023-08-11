@@ -194,7 +194,7 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
  \begin{claim}[The Technical Lemma]  
    \label{cliam:tech} Let $A \subset S$ and $B \subset S_{-}$ subsets of the positive and the negetive vertices support $x$, and $\alpha \le \Delta^{2},\beta \le \Delta$ their minimal degrees in $G, G$. Assume the following conditions hold:
    \begin{enumerate}
-     \item $\beta = 4\alpha/\Delta + \Theta\left(  \right)$
+     \item $\beta = \frac{\alpha\Delta}{4} + \Theta\left(  \right)$
      \item Any vertex in $B$ has at least one sibling in $\bar{A}$.
    \end{enumerate}
    Then:
@@ -214,10 +214,18 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
    And by repetting the same calculation but consider $B$ in the $G$ graph we obtain: 
 \begin{equation*}
      \begin{split}
-       \Rightarrow |B| \le \left( \beta -  \zeta \frac{4 \cdot 2\Delta^{2} }{\delta}  \right)^{-2} \cdot 16\Delta|S|
+       \Rightarrow  |B| \le & \left( \beta -  \zeta \frac{4 \cdot 2\Delta^{2} }{\delta}  \right)^{-2} \cdot 16\Delta|S|\\
+       = & \sqrt{\Delta} \left( 4 \cdot \alpha -  \zeta \frac{4 \cdot 2\Delta^{2} }{\delta}  \right)^{-2} \cdot 16\Delta|S| 
      \end{split}
    \end{equation*} 
-   Now, choose $\zeta$ such $\left( \alpha -  \zeta \frac{2\Delta^{3}}{\delta}  \right) \le 16^{\frac{1}{2}} \cdot 100 \Delta $ yields that: $|A| \le 10^{-4}|S| \Rightarrow $$ |\bar{A}| \ge \left( 1 - 10^{-4} \right)|S|$. In addition $|B| \le 10^{-4} |S|/16$.  
+   Now, choose $\zeta$ such $\left( \alpha -  \zeta \frac{2\Delta^{3}}{\delta}  \right) \le 16^{\frac{1}{2}} \cdot 100 \Delta $ yields that: $|A| \le 10^{-4}|S| \Rightarrow $$ |\bar{A}| \ge \left( 1 - 10^{-4} \right)|S|$. In addition $|B| \le 10^{-4} \frac{|S|}{16 \Delta}$. Hence:
+
+   \begin{equation*}
+     \begin{split}
+       d_{B\rightarrow \bar{A}} = \frac{ E\left(B,\bar{A}\right) }{|B|} \ge \frac{|\bar{A}|}{|B|} \ge    
+     \end{split}
+   \end{equation*}
+
  \end{proof}
 
 
