@@ -122,6 +122,7 @@ Denote by $S_e$ and $S_n$ the exceptional and normal vertices, respectively, def
 % \end{proof}
 % 
  \begin{claim}  
+   \label{claim:close}
    Let $x$ be a codeword of $\duC$ such that $d(x, \mathbb{F}^{A} \otimes C_{B})$, $d(x, C_{A}\otimes\mathbb{F}^{B}) \le \xi < w$. Then $d(x, C_{A} \otimes C_{B}) < \xi $. 
  \end{claim} 
  \begin{proof}
@@ -165,12 +166,15 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
   \end{equation*} 
  \end{claim}
 \begin{proof}
-  We have to pay $\Delta^{1+\varepsilon}$ to transform $c|_{v}$ into normal vertex. 
-    $ d\left( c|_{v}, C_{A}\otimes C_{B}\right) \le d\left( c|_{v}, C_{A}\otimes C_{B}\right) $
+  By being surrounded only by normal vertices any row in the local view of $v$ is codeword of $C_{A}$ plus at most $\Delta^{3/2 + \varepsilon}/\Delta = \Delta^{\frac{1}{2}+\varepsilon}$ faults. So correcting the rows require flipping at most $\Delta \cdot \Delta^{\frac{1}{2} + \varepsilon}$ bits in total.  Thus $d\left(c|_{v}, C_{A}\otimes \mathbb{F}^{B}\right) < \Delta^{3/2 + \varepsilon}$. In same way we obtain that $d\left(c|_{v},  \mathbb{F}^{A} \otimes C_{B}\right) < \Delta^{3/2 + \varepsilon}$. Noitce that, in parituclar, $d(c|_{v}, \duC) \le \Delta^{3/2 + \varepsilon}$.
 
+  Denote by $y$ the closest codeword of $\duC$ to $c|_{v}$. And observes that the distance between $y$ to either $C_{A} \otimes \mathbb{F}^{B}$ or $\mathbb{F}^{A}\otimes C_{B}$ is at most $2 \cdot \Delta^{3/2 + \varepsilon}$. To see it consider the decoding $y \rightarrow x \rightarrow C_{A} \otimes \mathbb{F}^{B}$.   
+  
+  Therefore form \cref{claim:close} it follows that $d\left(y, C_{A} \otimes C_{B}\right) < 3 \xi $, So $d\left(x, C_{A} \otimes C_{B}\right) < \Delta^{3/2 + \varepsilon} +  3 \xi $.
      \end{proof}
  
  \begin{remark}
+   
  \end{remark}
 
  \begin{proof}
