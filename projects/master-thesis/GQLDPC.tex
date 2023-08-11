@@ -159,6 +159,7 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
    Let $u \in S$ a nighboor of $v$ such they sharing a row. By the fact that $u$ is a normal vertex we have that any row of $u$ is at distance at most $\xi$ from $C_{A} \otimes \mathbb{F}^{B}$.     
  \end{proof}
 \begin{claim}
+  \label{claim:closeto}
   Suppose that $v \in T_{s}$, Namely $v$ is surounded by only normal vertices. Then:
   \begin{equation*}
     \begin{split}
@@ -239,6 +240,7 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
  \end{proof}
 
 \begin{claim}
+  \label{claim:linear}
   There is a normal-surounded vertex in $v \in T_{s}$ in weight at least $\Theta\left(\Delta^{2}\right)$.   
  \end{claim}
  \begin{proof}
@@ -255,6 +257,14 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
    Therefore there is at least a single vertex in $T_{s}$ connected to $\Theta\left( \Delta \right)$ havey edges. Combining the fact that edge is heavy edge if there are at least $\Delta\delta - \Delta^{\frac{1}{2} + \varepsilon}$ non trival bits on it's squares we get the desired.  
  \end{proof}
 
+ We are about to finish the proof of the theorem. Combining \cref{claim:linear} and \cref{claim:closeto} we obtain the the existnes of a negative vertex which is both at distance $\Theta\left(\Delta^{3/2 + \varepsilon}\right)$ form $C_{A}\otimes C_{B}$ and weight at least $\Theta\left( \Delta^{2} \right)$. Denote by $v \in T_{s}$ that vertex, by $c|_{v}$ it's local view and by $y \in C_{A}\otimes C_{B}$ the closest codeword to $c|_{v}$. Subtructing $y$ from $c|_{v}$ yilds: 
+ 
+ \begin{equation*}
+   \begin{split}
+     | c|_{v} + y | &= d\left( c|_{v}, y  \right) = \Theta\left( \Delta^{3/2 + \varepsilon} \right) < | c|_{v} |     \\
+     \Rightarrow & | c + y| < |c| 
+   \end{split}
+ \end{equation*}
 
 
 \input{../NLTES_project/ltc_ldpc/disag.tex}
