@@ -85,6 +85,7 @@ Denote by $S_e$ and $S_n$ the exceptional and normal vertices, respectively, def
 \end{proof}
 
 \begin{claim}
+  \label{claim:portion}
   At least $ 1- \Delta^{-\frac{\varepsilon}{4}}$ portion of the negative vertices adjoin to only normal vertices. 
 \end{claim}
 % Define the graph $G^{\star} = (V_{-}, E^{\star})$ such that $E^{\star} = E \cup \left\{ \left\{g, xyg \right\} x\neq y, \in A\cup B \right\}$ And notice that the assumption follows that  any 
@@ -230,6 +231,7 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
  \end{proof}
  
  \begin{claim}
+   \label{claim:satis}
    $S_{e}$ and $T$ satisfies the requrirments of \cref{cliam:tech} with $A = S_{e}$, $B = T$, $\alpha = \Delta^{3/2 + \varepsilon}$ and $\beta = \Delta\delta + \Delta^{\frac{1}{2} + \varepsilon}$. That is, the average of havey edges form $T$ to $S_{n}$ is $\Theta\left( \Delta \right)$. 
  \end{claim}
 
@@ -240,14 +242,7 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
   There is a normal-surounded vertex in $v \in T_{s}$ in weight at least $\Theta\left(\Delta^{2}\right)$.   
  \end{claim}
  \begin{proof}
-   Recall that any codeword of positive normal vertex can decompise into $s + t$ we will say that edge is an heavy edge if the squares supported on her associated with a codeword in $Z$. Any normal vertex contribute at most $\Delta^{\frac{1}{2}+\varepsilon}$ havey edges. 
-   \begin{equation*}
-     \begin{split}
-       \left( 1 - \Delta^{-\varepsilon/4} \right) \cdot \alpha |T| +  \Delta^{-\varepsilon/4}  \Delta |T| \ge |S_{n}| \cdot \Delta^{\frac{1}{2} + \varepsilon}
-     \end{split}
-   \end{equation*}
-   
-   Denote by $T_{s}$ the negative vertices sournded by normal  
+   We know from \cref{claim:satis} that $d_{T\rightarrow S_{n} }$ is linear in $\Delta$. Morever \cref{claim:portion} tell us that most of the vertices in $S_{-}$ are surrounded only by normal vertices. Denote by $\expp{ d(v) | v \in T_{s} }$ the expected degree of heavy edges connected to vertex in $T_{s}$. Using the conditional expection formula we get:
   
    \begin{equation*}
      \begin{split}
