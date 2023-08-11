@@ -81,13 +81,15 @@ Denote by $S$ and $T$ the positive and negetive vertices support the codeword $x
   \end{split}
 \end{equation*}
 \end{proof}
-
+\begin{definition}
+  Denote by $S_{e},S_{n}$ the exceptional and the normal vertices. Namely the weight of the local view for any vertex in $S_{e}$ is grater than $\Delta^{3/2 + \varepsilon}$, and the normal vertices is the complementary vertices set. Denote by $T$ \ctt{complete definition}. In addition denote by $T_{s} \subset T$ the vertices in $S_{-}$ sarounded by only normal vertices. 
+\end{definition}
 \begin{claim}
-  There is a negative vertex which adjoins to only normal vertices. 
+  At least $ 1- \Delta^{-\frac{\varepsilon}{4}}$ portion of the negative vertices adjoin to only normal vertices. 
 \end{claim}
 % Define the graph $G^{\star} = (V_{-}, E^{\star})$ such that $E^{\star} = E \cup \left\{ \left\{g, xyg \right\} x\neq y, \in A\cup B \right\}$ And notice that the assumption follows that  any 
 \begin{proof}
-  Denote by $S_{e},S_{n}$ the exceptional and the normal vertices. Namely the weight of the local view for any vertex in $S_{e}$ is grater than $\Delta^{3/2 + \varepsilon}$, and the normal vertices is the complementary vertices set. Suppose through contradiction that for $\Delta^{-p}$ portion of the negative vertices $v_{-}\in V_{-}$ have at least one ($\Delta^{\gamma}$) sibling in $S_{e}$. Therefore $ \Delta^{-p} |T| \le \Delta |S_{e}|$ combining with \cref{claim:epss} it follows that $|S| \le \Delta^{1+\varepsilon + p }|S_{e}|$ : 
+   Suppose through contradiction that for $\Delta^{-p}$ portion of the negative vertices $v_{-}\in V_{-}$ have at least one ($\Delta^{\gamma}$) sibling in $S_{e}$. Therefore $ \Delta^{-p} |T| \le \Delta |S_{e}|$ combining with \cref{claim:epss} it follows that $|S| \le \Delta^{1+\varepsilon + p }|S_{e}|$ : 
   \begin{equation*}
     \begin{split}
       \Delta^{3/2 + \varepsilon} & \le \frac{E(S,S_{e})}{|S_{e}|} = \Theta\left( \Delta^{2} \right)\frac{|S|}{n} + \Theta\left( \Delta \right)\sqrt{ \frac{|S|}{|S_{e}|}  }\\ 
