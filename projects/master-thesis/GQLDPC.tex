@@ -151,7 +151,7 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
   Suppose that $v \in T$ is surounded by normal vertices. Then:
   \begin{equation*}
     \begin{split}
-      d\left( c|_{v}, C_{A} \otimes \mathbb{F}^{B}\right) < \Theta\left( \Delta^{1+\varepsilon} \right)
+      d\left( c_{v}, C_{A} \otimes \mathbb{F}^{B}\right) < \Theta\left( \Delta^{1+\varepsilon} \right)
     \end{split}
   \end{equation*} 
  \end{claim}
@@ -163,14 +163,14 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
   Suppose that $v \in T_{s}$, Namely $v$ is surounded by only normal vertices. Then:
   \begin{equation*}
     \begin{split}
-      d\left( c|_{v}, C_{A}\otimes C_{B}\right) < \Theta\left( \Delta^{3/2+\varepsilon} \right)
+      d\left( c_{v}, C_{A}\otimes C_{B}\right) < \Theta\left( \Delta^{3/2+\varepsilon} \right)
     \end{split}
   \end{equation*} 
  \end{claim}
 \begin{proof}
-  By being surrounded only by normal vertices any row in the local view of $v$ is codeword of $C_{A}$ plus at most $\Delta^{3/2 + \varepsilon}/\Delta = \Delta^{\frac{1}{2}+\varepsilon}$ faults. So correcting the rows require flipping at most $\Delta \cdot \Delta^{\frac{1}{2} + \varepsilon}$ bits in total.  Thus $d\left(c|_{v}, C_{A}\otimes \mathbb{F}^{B}\right) < \Delta^{3/2 + \varepsilon}$. In same way we obtain that $d\left(c|_{v},  \mathbb{F}^{A} \otimes C_{B}\right) < \Delta^{3/2 + \varepsilon}$. Noitce that, in parituclar, $d(c|_{v}, \duC) \le \Delta^{3/2 + \varepsilon}$.
+  By being surrounded only by normal vertices any row in the local view of $v$ is codeword of $C_{A}$ plus at most $\Delta^{3/2 + \varepsilon}/\Delta = \Delta^{\frac{1}{2}+\varepsilon}$ faults. So correcting the rows require flipping at most $\Delta \cdot \Delta^{\frac{1}{2} + \varepsilon}$ bits in total.  Thus $d\left(c_{v}, C_{A}\otimes \mathbb{F}^{B}\right) < \Delta^{3/2 + \varepsilon}$. In same way we obtain that $d\left(c_{v},  \mathbb{F}^{A} \otimes C_{B}\right) < \Delta^{3/2 + \varepsilon}$. Noitce that, in parituclar, $d(c_{v}, \duC) \le \Delta^{3/2 + \varepsilon}$.
 
-  Denote by $y$ the closest codeword of $\duC$ to $c|_{v}$. And observes that the distance between $y$ to either $C_{A} \otimes \mathbb{F}^{B}$ or $\mathbb{F}^{A}\otimes C_{B}$ is at most $2 \cdot \Delta^{3/2 + \varepsilon}$. To see it consider the decoding: 
+  Denote by $y$ the closest codeword of $\duC$ to $c_{v}$. And observes that the distance between $y$ to either $C_{A} \otimes \mathbb{F}^{B}$ or $\mathbb{F}^{A}\otimes C_{B}$ is at most $2 \cdot \Delta^{3/2 + \varepsilon}$. To see it consider the decoding: 
   \begin{equation*}
     \begin{split}
   y \rightarrow x \rightarrow C_{A} \otimes \mathbb{F}^{B}   
@@ -257,11 +257,11 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
    Therefore there is at least a single vertex in $T_{s}$ connected to $\Theta\left( \Delta \right)$ havey edges. Combining the fact that edge is heavy edge if there are at least $\Delta\delta - \Delta^{\frac{1}{2} + \varepsilon}$ non trival bits on it's squares we get the desired.  
  \end{proof}
 
- We are about to finish the proof of the theorem. Combining \cref{claim:linear} and \cref{claim:closeto} we obtain the the existnes of a negative vertex which is both at distance $\Theta\left(\Delta^{3/2 + \varepsilon}\right)$ form $C_{A}\otimes C_{B}$ and weight at least $\Theta\left( \Delta^{2} \right)$. Denote by $v \in T_{s}$ that vertex, by $c|_{v}$ it's local view and by $y \in C_{A}\otimes C_{B}$ the closest codeword to $c|_{v}$. Subtructing $y$ from $c|_{v}$ yilds: 
+ We are about to finish the proof of the theorem. Combining \cref{claim:linear} and \cref{claim:closeto} we obtain the the existnes of a negative vertex which is both at distance $\Theta\left(\Delta^{3/2 + \varepsilon}\right)$ form $C_{A}\otimes C_{B}$ and weight at least $\Theta\left( \Delta^{2} \right)$. Denote by $v \in T_{s}$ that vertex, by $c_{v}$ it's local view and by $y \in C_{A}\otimes C_{B}$ the closest codeword to $c_{v}$. Subtructing $y$ from $c_{v}$ yilds: 
  
  \begin{equation*}
    \begin{split}
-     \left| \  c|_{v} + y \  \right| &= d\left( c|_{v}, y  \right) = \Theta\left( \Delta^{3/2 + \varepsilon} \right) < \left| \  c|_{v} \  \right|     \\
+     \left| \  c_{v} + y \  \right| &= d\left( c_{v}, y  \right) = \Theta\left( \Delta^{3/2 + \varepsilon} \right) < \left| \  c_{v} \  \right|     \\
      \Rightarrow & | c + y| < |c| 
    \end{split}
  \end{equation*}
