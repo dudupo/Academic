@@ -4,11 +4,9 @@ The existence of good QLDPC codes and LTC were considered open problems for roug
 
 
 \section{Quantum Tanner Codes.}
-Recall our insight that for a pair of LDPC codes to define a good CSS code, it must hold that neither of them is a good code, and moreover they both have a constant distance. Therefore, we understand that any codeword in $C_{X}$ that has small weight belongs to $C_{Z}^\perp$. To prove it, we are going to come up with a construction such that if $x \in C_{X}$ and $|x|$ is small then there is some small codeword $z \in C_{Z}^{\perp}$ such that $|x+z| < |x|$; by repeating this process recursively it follows that $x\in C_{Z}^{\perp}$. To formulate this theorem we will need the following definitions:
+Recall our insight that for a pair of LDPC codes to define a good CSS code, they must both be poor codes and have a constant distance. Therefore, we understand that any codeword in $C_{X}$ with small weight belongs to $C_{Z}^\perp$. To prove this, we will construct a proof such that if $x \in C_{X}$ and $|x|$ is small, then there is a small codeword $z \in C_{Z}^{\perp}$ such that $|x+z| < |x|$; by repeating this process recursively, it follows that $x\in C_{Z}^{\perp}$. To formulate this theorem, we will need to define more defintions.
   
-  \begin{definition} Let $C = \Tann$. We say that $x \in C_{\oplus}$ is \textbf{reducible} if there exists a vertex $v$ and a small codeword $c_v$, for which, adding the assignment of $c_v$ over the $v$'s edges to $x$ decreases the weight. Namely, $|x + c_{v}| < |x|$. If $x \in C_{\oplus}$ is not a reducible codeword then we say that $x$ is \textbf{irreducible} \label{ire}. \end{definition}
-
-The next two definitions are concerned with the properties of the small code that will be set on the edges. Using them, one can characterize cases in which a local view can be reduced by subtracting a codeword from the dual code.
+ The next two definitions are concerned with the properties of the small code that will be set on the edges. Using them, one can characterize cases in which a local view can be reduced by subtracting a codeword from the dual code. 
 
 \begin{definition}[$w$-Robustness] 
   \label{def:wrobust}
