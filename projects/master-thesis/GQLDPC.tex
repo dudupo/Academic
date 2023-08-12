@@ -271,6 +271,7 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
    \begin{enumerate}
      \item $\beta = \frac{\delta}{4 \sqrt{\Delta}}\alpha + \Theta\left(  \right)$
      \item $B$ defined to be all the vertices connected to $\bar{A}$ by at least one heavy edge.
+     \item Any vertex in $A$ has at least on heavy edge. 
    \end{enumerate}
    Then: $d_{B\rightarrow \bar{A}} = \Omega\left( \Delta \right)$.  
  \end{claim}
@@ -300,11 +301,11 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
      \left(  \alpha -  4\cdot 2\zeta \frac{\Delta^{2\frac{1}{2}}}{\delta^{2}}   \right) \ge \left( \alpha -  \zeta \frac{2\Delta^{3}}{\delta}  \right) \Rightarrow |B|  \le  & \frac{1}{\delta^{2}} \left( \alpha -  \zeta \frac{2\Delta^{3}}{\delta}  \right)^{-2} \cdot 16\Delta^{2}|S| 
      \end{split}
    \end{equation*}
-   Now, choose $\zeta$ such $\left( \alpha -  \zeta \frac{2\Delta^{3}}{\delta}  \right) \ge 16^{\frac{1}{2}} \cdot 100 \Delta^{1\frac{1}{2}}$ yields that: $|A| \le 10^{-4}\Delta^{-1} |S| \Rightarrow $$ |\bar{A}| \ge \left( 1 - 10^{-4} \Delta^{-1}\right)|S|$, And $|B| \le 10^{-4} \frac{|S|}{16 \delta^{2}\Delta}$. Hence:
+   Now, choose $\zeta$ such $\left( \alpha -  \zeta \frac{2\Delta^{3}}{\delta}  \right) \ge 16^{\frac{1}{2}} \cdot 100 \Delta^{1\frac{1}{2}}$ yields that: $|A| \le 10^{-4}\Delta^{-1} |S| \Rightarrow $$ |\bar{A}| \ge \left( 1 - 10^{-4} \Delta^{-1}\right)|S|$, And $|B| \le 10^{-4} \frac{|S|}{16 \delta^{2}\Delta}$. Conditions (2) and (3) garunte that any vertex in $\bar{A}$ is connected to at least on vertex of $B$. And therfore, $B$ covers $\bar{A}$, that is, $ d_{B\rightarrow\bar{A}}\cdot |B| \ge \bar{A}$, Hence:
 
    \begin{equation*}
      \begin{split}
-       d_{B\rightarrow \bar{A}} = \frac{ E\left(B,\bar{A}\right) }{|B|} \ge \frac{|\bar{A}|}{|B|} \ge \left( 1 - 10^{-4}\Delta^{-1}  \right) 10^{4} \cdot \delta^{2}\Delta  = \Theta\left( \Delta \right)
+       d_{B\rightarrow \bar{A}}  \ge \frac{|\bar{A}|}{|B|} \ge \left( 1 - 10^{-4}\Delta^{-1}  \right) 10^{4} \cdot \delta^{2}\Delta  = \Theta\left( \Delta \right)
      \end{split}
    \end{equation*}
  \end{proof}
