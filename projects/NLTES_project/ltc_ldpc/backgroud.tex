@@ -131,7 +131,12 @@ Where $n(C_i)$ represents the code length of the $i$th code. Repeating the proce
   Once we have seen that Tanner codes enable us to achieve rates, the next natural question to ask is about the distance of the codes. Achieving a linear distance requires a little bit more from the graphs, but to understand this idea better, let us return to the repetition code. For instance, the repetition code can be presented as a Tanner code over the cycle graph.  
 
   \begin{example}
-    In this representation, each vertex checks if the bits on its edges are equal. A valid codeword is an assignment in which all the bits are equal, since otherwise, there would be an edge with no supporting vertex. An illustration of a legal assignment is provided in \cref{fig:cyc}.\end{example} 
+    In this representation, each vertex checks if the bits on its edges are equal. A valid codeword is an assignment in which all the bits are equal, since otherwise, there would be an edge with no supporting vertex. An illustration of a legal assignment is provided in \cref{fig:cyc}.
+    
+
+Recall that the distance of a linear code is the minimal weight of the non-zero codewords. Consider a codeword $c \in C$ and group the vertices by four sets $V_i$ such that $V_i$ is the set of vertices that see $i \in \{0,1\}^{2}$. Since $c \in C$, we have that $|V_{10}|=|V_{01}| = 0$. Additionally, any vertex in $V_{00}$ is not connected to $V_{11}$, which gives us two possible cases: either all the vertices in $V_{11}$ are isolated, or the graph is not connected. Hence, the distance of the code is equal to $\frac{1}{2}\sum{|V_{i}|\cdot |i|} = \frac{1}{2}2 \cdot n = n$.
+  \end{example} 
+
 
  \begin{figure}[h]
   \label{fig:cyc}
@@ -139,9 +144,9 @@ Where $n(C_i)$ represents the code length of the $i$th code. Repeating the proce
 \caption{The $1^{n}$ assignment on the cycle graph. Any vertex compute parity $1 + 1 = 0$, therefore all the restrictions are satisfied and $1^n \in \mathcal{T} \left( \text{ cycle } , \text{ parity }  \right) $.}
 \end{figure}
 
-Recall that the distance of a linear code is the minimal weight of the non-zero codewords. Consider a codeword $c \in C$ and group the vertices by four sets $V_i$ such that $V_i$ is the set of vertices that see $i \in \{0,1\}^{2}$. Since $c \in C$, we have that $|V_{10}|=|V_{01}| = 0$. Additionally, any vertex in $V_{00}$ is not connected to $V_{11}$, which gives us two possible cases: either all the vertices in $V_{11}$ are isolated, or the graph is not connected. Hence, the distance of the code is equal to $\frac{1}{2}\sum{|V_{i}|\cdot |i|} = \frac{1}{2}2 \cdot n = n$.
+It is worth mentioning that, in the literature, the repetition code is not usually given as an example of a Tanner code. However, this example will come up again later in the chapter on quantum codes, when we discuss the Toric code, its relation to the hyperproduct code, and how it can be seen as a hyperproduct of two cycle codes.
 
-Analyzing the repetition code gives a clue of how, in certain cases, one might prove a lower bound on the code distance. We would like to say that, if the weight of the code word is below the distance, then it is must be that is at least one vertex see non trivial local view which is not a codeword in $C_{0}$. Put it differently, we can't spread a small weight codeword over $\{V_{i}\}$, defined above, without to expanse into subsets corresponds to low $|i|$. Next we are going to present the Expander codes, which are Tanner codes constructed by graph with good algebraic expansion.   
+Furthermore, analyzing the repetition code gives a clue of how, in certain cases, one might prove a lower bound on the code distance. We would like to say that, if the weight of the code word is below the distance, then it is must be that is at least one vertex see non trivial local view which is not a codeword in $C_{0}$. Put it differently, we can't spread a small weight codeword over $\{V_{i}\}$, defined above, without to expanse into subsets corresponds to low $|i|$. Next we are going to present the Expander codes, which are Tanner codes constructed by graph with good algebraic expansion.   
 
 %Note that for any $S\subset V$ and $ S \neq V $, 
 
