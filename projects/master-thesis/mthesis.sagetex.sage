@@ -139,7 +139,7 @@ try:
  _st_.inline(1, graphs_tex_2)
 except:
  _st_.goboom(107)
-_st_.current_tex_line = 20
+_st_.current_tex_line = 21
 _st_.blockbegin()
 try:
  R.<t> = PowerSeriesRing(GF(17));
@@ -150,18 +150,18 @@ try:
  pplot_t = finate_poly_plot(f)
  pplot_t2 = finate_poly_plot(g)
 except:
- _st_.goboom(28)
+ _st_.goboom(29)
 _st_.blockend()
 try:
- _st_.current_tex_line = 31
+ _st_.current_tex_line = 32
  _st_.plot(0, format='notprovided', _p_= pplot_t + pplot_t2 )
 except:
- _st_.goboom(31)
+ _st_.goboom(32)
 try:
- _st_.current_tex_line = 32
+ _st_.current_tex_line = 33
  _st_.inline(2, print_capt('$' + latex(f) + '$ and $' + latex(g) +'$'))
 except:
- _st_.goboom(32)
+ _st_.goboom(33)
 _st_.current_tex_line = 306
 _st_.blockbegin()
 try:
