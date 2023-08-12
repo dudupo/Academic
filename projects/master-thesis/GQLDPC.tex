@@ -337,8 +337,13 @@ Conditions (1) and (2) hold by definition of $S_e,T$ for values $\alpha = \Delta
    \end{split}
  \end{equation*}
 
- \section{LTC.}
+ \section{LTC.} 
+As exactly as in the polynomial code case, we will prove that a code is locally testable by presenting a decoder that can correct small errors and reject errors greater than a linear threshold. But before that, let us define the LTC code.
 
+\begin{definition}
+Consider the Tanner code defined on the square complex above, but instead of taking the dual tensor as the local code, we take the product code: $\mathcal{T} \left(G^{+}, C_{A} \otimes C_{B} \right)$.
+\end{definition}
+Now, let us define the disagreement code, which we can conceptually think of as the strings obtained by an attempt to decode by local correction. That is, any vertex chooses the closest codeword to its local view and the summation of the suggestions is the disagreement. Notice that if the initial assignment was a valid codeword then each of the vertices suggest the codeword it sees on its local view. Hence, for any edge will suggest exactly the same bit and the summation on the edge will be equal to zero. Because it is true for all the edges, the total string obtained will be the zero codeword. Nevertheless, any assignment on an edge which equals $1$ points to a disagreement between the vertices at the edge's ends.
 \input{../NLTES_project/ltc_ldpc/disag.tex}
 \input{../NLTES_project/ltc_ldpc/decoder.tex}
 
