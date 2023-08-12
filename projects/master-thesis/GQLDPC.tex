@@ -347,7 +347,7 @@ Consider the Tanner code defined on the square complex and the negative vertices
 Now, let us define the disagreement code, which we can conceptually think of as the strings obtained by an attempt to decode by local correction. That is, any vertex chooses the closest codeword to its local view and the summation of the suggestions is the disagreement. Notice that if the initial assignment was a valid codeword then each of the vertices suggest the codeword it sees on its local view. Hence, for any edge will suggest exactly the same bit and the summation on the edge will be equal to zero. Because it is true for all the edges, the total string obtained will be the zero codeword. Nevertheless, any assignment on an edge which equals $1$ points to a disagreement between the vertices at the edge's ends.
 \input{../NLTES_project/ltc_ldpc/disag.tex}
 
-Furthermore, in the case of the LTC code \cref{def:ltcode}, the disagreement code is simply $C_X$ (or $C_Z$). This is because any vertex contributes to the local view of the positive vertices codewords in either $C_A \otimes \mathbb{F}^B$ or $\mathbb{F}^A \otimes C_B$.
+Furthermore, in the case of the LTC code \cref{def:ltcode}, the disagreement code is simply $C_X$ (or $C_Z$). This is because any vertex contributes to the local view of the positive vertices codewords in either $C_A \otimes \mathbb{F}^B$ or $\mathbb{F}^A \otimes C_B$. 
 
 \input{../NLTES_project/ltc_ldpc/decoder.tex}
 
