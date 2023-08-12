@@ -1,17 +1,5 @@
-\subsection{Tanner testability.} This subsection will explain why testability is so hard to achieve. Let $C$ be a good Tanner expander code as defined above. And consider an arbitrary vertex $u \in V$ and arbitrary restriction of $C_{0}$, $h$. Now define $\tilde{C}$ as the code obtained by requiring all the restrictions of $C$ except $h$ on $u$. That it, $u$ is satisfied if his local view satisfies all the $C_{0}$ restrictions apart from $h$.
-  Also, for convenience, denote the small code $u$ enforces on his local view by $C_{0}^{u}$. Let us assume that the distance of $C_{0}^{u}$ is at least $\delta\Delta$. 
-  Then, by repeating almost exactly the steps above with caution, one could prove that $\tilde{C}$ also has a linear distance. 
-
-
-  Assume that $\tilde{C} \neq C \Rightarrow$ there exists $x\in \tilde{C} / C$. By definition, for any $v\in V / \{u\}$ it holdes that $x|_{v} \in C_{0}$. Hence, the assumption that $ x \notin C$  implies $x|_{u} \notin C_{0}$ So, clearly, $x$ fails at a constant number of $C$'s checks. On the other hand, the closest codeword $y \in C$ to $x$ is also a codeword of $\tilde{C}$ as $y|_{v} \in C_{0}$ for every $v\in V$.  Hence:
-  \begin{equation*}
-    \begin{split}
-      d\left( x,C \right) &= d\left( x,y \right) \ge d\left( \tilde{C} \right) =\Theta\left( n \right)
-    \end{split}
-  \end{equation*}
-  Even if a linear number of bits needed to be flipped to correct $x$, only a single check observes that $x$ is indeed an error.
-  
-  \section{Construction}
+ 
+  %\section{Construction}
   \subsection{Almost LTC With Zero Rate}
   \input{disag}
     \begin{theorem*}[Theorem 1] There exist a constant $\alpha > 0$ and an infinte family of Tanner Codes $C = \Tann$ such that any \ireducable codeword $x$ of a coresponding disagreement code $x \in C_{\oplus}$ at length $n$, weight at least $\alpha n$. \end{theorem*}
