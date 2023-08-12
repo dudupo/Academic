@@ -1,0 +1,75 @@
+\subsection{Tanner testability.} This subsection will explain why testability is so hard to achieve. Let $C$ be a good Tanner expander code as defined above. And consider an arbitrary vertex $u \in V$ and arbitrary restriction of $C_{0}$, $h$. Now define $\tilde{C}$ as the code obtained by requiring all the restrictions of $C$ except $h$ on $u$. That it, $u$ is satisfied if his local view satisfies all the $C_{0}$ restrictions apart from $h$.
+  Also, for convenience, denote the small code $u$ enforces on his local view by $C_{0}^{u}$. Let us assume that the distance of $C_{0}^{u}$ is at least $\delta\Delta$. 
+  Then, by repeating almost exactly the steps above with caution, one could prove that $\tilde{C}$ also has a linear distance. 
+
+
+  Assume that $\tilde{C} \neq C \Rightarrow$ there exists $x\in \tilde{C} / C$. By definition, for any $v\in V / \{u\}$ it holdes that $x|_{v} \in C_{0}$. Hence, the assumption that $ x \notin C$  implies $x|_{u} \notin C_{0}$ So, clearly, $x$ fails at a constant number of $C$'s checks. On the other hand, the closest codeword $y \in C$ to $x$ is also a codeword of $\tilde{C}$ as $y|_{v} \in C_{0}$ for every $v\in V$.  Hence:
+  \begin{equation*}
+    \begin{split}
+      d\left( x,C \right) &= d\left( x,y \right) \ge d\left( \tilde{C} \right) =\Theta\left( n \right)
+    \end{split}
+  \end{equation*}
+  Even if a linear number of bits needed to be flipped to correct $x$, only a single check observes that $x$ is indeed an error.
+  
+  \section{Construction}
+  \subsection{Almost LTC With Zero Rate}
+  \input{disag}
+    \begin{theorem*}[Theorem 1] There exist a constant $\alpha > 0$ and an infinte family of Tanner Codes $C = \Tann$ such that any \ireducable codeword $x$ of a coresponding disagreement code $x \in C_{\oplus}$ at length $n$, weight at least $\alpha n$. \end{theorem*}
+
+
+  \paragraph{Proof.} By induction over the number of vertices $V^\prime \subset V$, which suggest a nontrivial codeword to $x$. Base, assume that a single vertex $v \in V$ suggests a nontrivial codeword $c_{v} \in C_{0}$. Then it's clear that $x = c_{v}$. And therefore, we have that $|x +c_{v}| = 0 < |x|$.
+
+  \paragraph{}
+
+  Assume the correctness of the argument for every codeword defined by at most $m$ nontrivial suggestions made by $V^\prime \subset V$. And consider the graph $\left( V^\prime, E^\prime \right)$ induced by them. If the graph has more than a single connectivity component, then any of them is also a codeword of $C_{\oplus}$  but composed of at most $m-1$ nontrivial suggestions. Therefore, by the assumption, we could find a vertex $v$ and a proper small codeword $c_v \in C_0 $, such that the addition of the suggestion will decrease the weight of the codeword defined on that component and therefore decrease the total weight of $x$.
+
+  So, we can assume that the vertices in $V^\prime$ compose a single connectivity component. Let be $x|_{v} \in \mathbb{F}_{2}^{\Delta}$ the bits of $x$ on the indices corresponding to $v$'s edges. For any $S \subset E$, define $w_{S}\left( x \right)$ as the weight that $x$ induces over $S$. Sometimes we will refer to $w_{S}\left( x \right)$ as the \textbf{flux} induced by $x$ over $S$.
+
+  \paragraph{}
+
+  The genreal idea of the proof is to show that if the distance of the small code is large ($ \ge \frac{2}{3}$ ) and $x$ is \ireducable codeword then there exist an indepandent subset of vertices $U \subset V^{\prime}$, at linear size, that induce a significant flux over $E/E^{\prime}$. If $U$ has linear size than also $x$ has a linear size, And if not, Then we will show that no serious interface has been occurred. ~\cref{claim:deg} and ~\cref{claim:tree-size} state that if one is willing to hide an ireducable \hyperref[ire]{[\ref{ire}]} error then he has to touch at least a linar number of verties. ~\cref{claim:flu1} and  ~\cref{claim:flu2} quanitify the flux that induced by such errors. 
+
+\begin{claim}\label{claim:deg} For any $v \in V^\prime$ and corresponded suggestion $c_{v}$ it holds that: $w_{E^\prime}\left( c_{v} \right) \ge \frac{1}{2}\delta_{0}\Delta$. \end{claim}
+  \begin{proof} Notice that any edge of $E$ connected only to a single vertex in $V^\prime$ equals the corresponding bit in the original suggestion made by $c_{v}$. Hence for every $v\in V^\prime$, it holds that: 
+\begin{equation*}
+      \begin{split}
+	    w_{E / E^\prime}\left(x|_{v}\right) = w_{E / E^\prime}\left(c_{v}\right) \Rightarrow  w_{E / E^\prime}\left(x|_{v}\right) \le | x \cap c_{v} |
+      \end{split}
+    \end{equation*}
+     Now consider the weight of $x + c_{v}$, By the assumption that $x$ is ireducable code word of $c_{\oplus}$ we have that: 
+  
+ \begin{equation*}
+    \begin{split}
+       |x + c_{v}| & = |x| + |c_{v}| - 2|x \cap c_{v}| > |x| \\
+       \Rightarrow &   |x \cap c_{v}|  < \frac{1}{2} |c_{v}| \\
+      w_{E^\prime}\left( c_{v} \right) &= |c_{v}| - w_{E / E^\prime}\left( c_{v} \right) =  |c_{v} | - w_{E / E^\prime}\left( x|_{v} \right) \\ 
+      & \ge | c_{v} | - | x \cap c_{v} |  \ge \frac{1}{2}|c_{v}| = \frac{1}{2}\delta_{0}\Delta 
+    \end{split}
+  \end{equation*}
+  \end{proof}
+
+  Consider an arbitrary vertex $r \in V^\prime$, and consider the DAG obtained by the BFS walk over the subgraph $\left(V^\prime, E^\prime \right)$ starting at $r$. Denote this directed tree by $T$.
+
+%Let $g$ be the girth of the graph and consider a layer $U$ in $T$ at height $h\left( U \right)$ satisfies the inequality $ h\left( U \right) < \frac{1}{2}g + l$ for some integer $l$.
+  %\begin{adjustbox}{width=150pt}%\columnwidth}
+%\begin{figure*}[t]%{width=150pt} %0.3\textwidth}
+
+%\end{figure*}
+%\end{adjustbox} 
+  \begin{claim} \label{claim:tree-size} The size of $T$ is at least:
+  \begin{equation*}
+    \begin{split}
+      |T| & \ge \left( \frac{1}{4}\delta_{0} - \frac{\lambda}{\Delta} \right)n 
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}By~\cref{claim:deg}  any $v \in T$ the degree of $v$ is at least $\frac{1}{2}\delta_{0}\Delta$ we have that: $E\left( T,T \right) \ge \frac{1}{2}\cdot \frac{1}{2}\delta_{0}\Delta |T|$. Combine the Mixining Expander Lemma we obtain:
+  \begin{equation*}
+    \begin{split}
+      \frac{1}{4}\delta_{0}\Delta |T| & \le \frac{\Delta}{n}|T|^2  + \lambda|T| \\ 
+      \Rightarrow & \left( \frac{\Delta}{n}|T| + \lambda -  \frac{1}{4}\delta_{0}\Delta \right)|T| \ge 0 \\ 
+      \Rightarrow & |T| \ge \left( \frac{1}{4}\delta_{0} - \frac{\lambda}{\Delta} \right)n 
+    \end{split}
+  \end{equation*}
+  \end{proof}
+
