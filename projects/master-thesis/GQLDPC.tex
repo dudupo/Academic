@@ -36,7 +36,7 @@ Let $C_0$ be a code of length $\Delta$ with minimum distance $\delta_0\Delta$. $
   (12.5,5) -- (16.5,5) node[scale=2,midway,yshift=2em]{$s \in \mathbb{F}^{A}\otimes C_{B}$};
      \fill [fill=gray!80!black,draw opacity=0.5] (13,0) rectangle (14,5);
             \end{tikzpicture}
-            \caption{$w$-Robustness, Any low weight codeword of the dual tensor code $c$ can be decomposed into a sum $t+s$ such that $t$ is collection of rows, each of them is a codeword in $C_{A}$ and similarly $s$ is a collection of columns, each of them is a codeword of $C_{B}$. }
+            \caption{$w$-Robustness, Any low-weight codeword of the dual tensor code $c$ can be decomposed into a sum $t+s$, where $t$ is a collection of rows, each of which is a codeword in $C_A$, and similarly $s$ is a collection of columns, each of which is a codeword of $C_B$. }
 \end{figure}
 
 
@@ -219,7 +219,7 @@ Denote by $S_e$ and $S_n$ the exceptional and normal vertices, respectively, def
 % 
  \begin{claim}  
    \label{claim:close}
-   Let $x$ be a codeword of $\duC$ such that $d(x, \mathbb{F}^{A} \otimes C_{B})$, $d(x, C_{A}\otimes\mathbb{F}^{B}) \le \xi < w$. Then $d(x, C_{A} \otimes C_{B}) < \xi $. 
+   Let $x$ be a codeword of $\duC$ and $\xi < w$ such that $d(x, \mathbb{F}^{A} \otimes C_{B}) + d(x, C_{A}\otimes\mathbb{F}^{B}) \le \xi $ . Then $d(x, C_{A} \otimes C_{B}) < 3\xi $. 
  \end{claim} 
  \begin{proof}
 Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Similarly, denote by $C$ the closest codeword of $\mathbb{F}^{A} \otimes C_{B}$ to $x$. Notice that $C + R \in \duC$. In addition, the weight of $C+R$ is bounded by:
@@ -264,8 +264,8 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
   
   Therefore form \cref{claim:close} it follows that $d\left(y, C_{A} \otimes C_{B}\right) < 3 \xi $, So $d\left(x, C_{A} \otimes C_{B}\right) < \Delta^{3/2 + \varepsilon} +  3 \xi $.
      \end{proof}
- 
- 
+   
+   
  
  \begin{claim}[The Technical Lemma]  
    \label{cliam:tech} Let $A \subset S$ and $B \subset S_{-}$ subsets of the positive and the negetive vertices support $x$, and $\alpha \le \Delta^{2},\beta \le \Delta$ their minimal degrees in $G, G$. Assume the following conditions hold:
