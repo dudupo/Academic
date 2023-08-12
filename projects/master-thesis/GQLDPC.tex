@@ -151,6 +151,7 @@ Now we can state formally the theorem:
 
 \begin{claim}
   The distance of the dual tensor code is at least $\delta\Delta$.
+  \label{claim:duweight}
 \end{claim}
 \begin{proof}
 By the robustness property, any codeword of the dual tensor code with a weight less than $\delta_{0}\Delta$ is supported on at most one row. Let $c$ be such a codeword and denote by $i$ the number of the non-trivial row. Fix a $c^{\prime} \in C_{A}^{\perp}$ such that the $i$th coordinate of  $c^{\prime}$ is non-zero and consider the multiplication of $c$ with the codewords of $C_{A}^\perp \otimes C_{B}^\perp$ of the following form:
@@ -315,7 +316,7 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
    $S_{e}$ and $T$ satisfies the requrirments of \cref{cliam:tech} with $A = S_{e}$, $B = T$, $\alpha = \Delta^{3/2 + \varepsilon}$ and $\beta = \Delta\delta + \Delta^{\frac{1}{2} + \varepsilon}$. That is, the average of havey edges form $T$ to $S_{n}$ is $\Theta\left( \Delta \right)$. 
  \end{claim}
 
- \begin{proof}
+ \begin{proof} Conditions (1) and (2) holds by definition of $S_{e},T$. It left to show that any normal vertex has at least on heaviy edge. By \cref{claim:duweight} any normal vertex has weight at least $\Delta\delta$,  
  \end{proof}
 
 \begin{claim}
