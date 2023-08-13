@@ -38,14 +38,21 @@
 \usepgfplotslibrary{groupplots,dateplot}
 \pgfplotsset{compat=newest}
 
-\newtheorem{theorem}{Theorem}
-\newtheorem{definition}{Definition}
-\newtheorem{example}{Example}
-\newtheorem{claim}{Claim}
-\newtheorem{fact}{Fact}
-\newtheorem{remark}{Remark}
-\newtheorem*{theorem*}{Theorem}
-\newtheorem{lemma}{Lemma}
+
+\newcommand{\mynewtheorem}[2]{  
+  \newtheorem{#1}{#2}
+  \numberwithin{#1}{section}
+
+}
+
+\mynewtheorem{theorem}{Theorem}
+\mynewtheorem{definition}{Definition}
+\mynewtheorem{example}{Example}
+\mynewtheorem{claim}{Claim}
+\mynewtheorem{fact}{Fact}
+\mynewtheorem{remark}{Remark}
+\mynewtheorem*{theorem*}{Theorem}
+\mynewtheorem{lemma}{Lemma}
 \crefname{lemma}{Lemma}{Lemmas}
 \hypersetup{colorlinks=true}
 % , allcolors=blue,allbordercolors=blue,pdfborderstyle={0 0 1}}
@@ -53,7 +60,7 @@
 % pdfpagemode=FullScreen,
 % backref 
 
-\newtheorem{problem}{Problem}
+\mynewtheorem{problem}{Problem}
 \crefname{problem}{Problem}{Problems}
 
 \DeclareMathOperator{\Ima}{Im}
