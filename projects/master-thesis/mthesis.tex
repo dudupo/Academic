@@ -2,13 +2,22 @@
 \input{./usepackage}
 \usetikzlibrary{positioning}
 \addbibresource{./sample.bib} 
+
+\pretitle{%
+  \begin{center}
+  \LARGE
+  \includegraphics{logo.png}\\[\bigskipamount]
+}
+\posttitle{\end{center}}
+
+
 \begin{document}
 \input{newcommands}
 
 %\onehalfspacing
 \title{Understanding Quantumness And Testability.} 
 \author{David Ponarovsky}
-\includegraphics{logo.png}
+
 \maketitle
 \input{sageutil.py}
 %\input{abstract}
