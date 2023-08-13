@@ -44,14 +44,18 @@
   \numberwithin{#1}{section}
 
 }
+\newcommand{\mynewtheoremstar}[2]{  
+  \newtheorem*{#1}{#2}
+  \numberwithin{#1}{section}
 
+}
 \mynewtheorem{theorem}{Theorem}
 \mynewtheorem{definition}{Definition}
 \mynewtheorem{example}{Example}
 \mynewtheorem{claim}{Claim}
 \mynewtheorem{fact}{Fact}
 \mynewtheorem{remark}{Remark}
-\mynewtheorem*{theorem*}{Theorem}
+\mynewtheoremstar{theorem*}{Theorem}
 \mynewtheorem{lemma}{Lemma}
 \crefname{lemma}{Lemma}{Lemmas}
 \hypersetup{colorlinks=true}
