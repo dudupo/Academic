@@ -148,7 +148,7 @@ Now we can state formally the theorem:
 
 
 \begin{claim}
-  The distance of the dual tensor code is at least $\delta\Delta$.
+  The distance of the dual tensor code is at least $\delta_{0}\Delta$.
   \label{claim:duweight}
 \end{claim}
 \begin{proof}
@@ -162,7 +162,7 @@ By the robustness property, any codeword of the dual tensor code with a weight l
 \end{proof}
 
 \begin{definition}
-Let $S$ and $S_{-}$ denote the positive and negative vertices that support the codeword $c \in C_{X}$, respectively. Furthermore, let $S_e$ and $S_n$ denote the exceptional and normal vertices, respectively, where the weight of the local view for any vertex in $S_e$ is greater than $\Delta^{3/2 + \varepsilon}$, and $S_n$ is the complementary set of vertices. An edge in $G$ will be said to be heavy if it supports more than $\Delta\delta - \Delta^{\frac{1}{2} + \varepsilon}/\delta$ squares in $G$. Let $T \subset S_{-}$ denote the negative vertices connected to $S_{n}$ by at least one heavy edge. Additionally, let $T_s \subset T$ denote the vertices in $S_-$ that are surrounded by only normal vertices. Finally, for any pair of vertex subsets $A,B$ such that $A \subset V_{+}$ and $B \subset V_{-}$, let $d_{B\rightarrow A}$ denote the average number of heavy edges leaving $B$ and going to $A$.
+Let $S$ and $S_{-}$ denote the positive and negative vertices that support the codeword $c \in C_{X}$, respectively. Furthermore, let $S_e$ and $S_n$ denote the exceptional and normal vertices, respectively, where the weight of the local view for any vertex in $S_e$ is greater than $\Delta^{3/2 + \varepsilon}$, and $S_n$ is the complementary set of vertices. An edge in $G$ will be said to be heavy if it supports more than $\delta_{0}\Delta - \Delta^{\frac{1}{2} + \varepsilon}/\delta$ squares in $G$. Let $T \subset S_{-}$ denote the negative vertices connected to $S_{n}$ by at least one heavy edge. Additionally, let $T_s \subset T$ denote the vertices in $S_-$ that are surrounded by only normal vertices. Finally, for any pair of vertex subsets $A,B$ such that $A \subset V_{+}$ and $B \subset V_{-}$, let $d_{B\rightarrow A}$ denote the average number of heavy edges leaving $B$ and going to $A$.
 \end{definition}
 \begin{claim}
   \label{claim:epss}
@@ -228,7 +228,7 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
        & \le w
      \end{split}
    \end{equation*}
-   Therefore, by the robustness property, there are $r \in C_{A}\otimes\mathbb{F}^{B}$ and $c \in \mathbb{F}^{A} \otimes C_{B} $ such that $ R + C  = r + c$. And $r,c$ are supported on at most $|R+C|/\delta\Delta$ rows and columns. (Here $r$ and $c$ play the role of $s,t$ in \cref{def:wrobust}.)  
+   Therefore, by the robustness property, there are $r \in C_{A}\otimes\mathbb{F}^{B}$ and $c \in \mathbb{F}^{A} \otimes C_{B} $ such that $ R + C  = r + c$. And $r,c$ are supported on at most $|R+C|/\delta_{0}\Delta$ rows and columns. (Here $r$ and $c$ play the role of $s,t$ in \cref{def:wrobust}.)  
 
    Now observe that on one hand $C + c = R + r$, and on the other hand $ C + c \in \mathbb{F}^{A} \otimes C_{B} $ and $R+r \in C_{A}\otimes\mathbb{F}^{B}$. Therefore, $C+c \in C_{A}\otimes\mathbb{F}^{B} \cap \mathbb{F}^{A} \otimes C_{B}$. Namely, $C +c \in C_{A} \otimes C_{B}$. Thus we have:  
    
@@ -238,7 +238,7 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
        &\le \xi + |c|
      \end{split}
    \end{equation*}
-   And in the same way we obtain also that $d\left( x, C_{A} \otimes C_{B} \right) \le \xi + |r|$. Since $c,r$ are supported on at most $|R+C|/\delta\Delta$ rows and columns, the weight of the string obtained by joining a single row of $r$ with $c$ grows by at least $\delta\Delta - |R+C|/\delta\Delta > 0$. Therefore, $|c| < |c + r| = |R + C|$. Thus, in total, $d\left( x, C_{A} \otimes C_{B} \right) \le 3\xi$.
+   And in the same way we obtain also that $d\left( x, C_{A} \otimes C_{B} \right) \le \xi + |r|$. Since $c,r$ are supported on at most $|R+C|/\delta_{0}\Delta$ rows and columns, the weight of the string obtained by joining a single row of $r$ with $c$ grows by at least $\delta_{0}\Delta - |R+C|/\delta_{0}\Delta > 0$. Therefore, $|c| < |c + r| = |R + C|$. Thus, in total, $d\left( x, C_{A} \otimes C_{B} \right) \le 3\xi$.
  \end{proof}
 
 \begin{claim}
@@ -276,7 +276,7 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
  \end{claim}
 
  \begin{proof}
-   By the given $|S| \le \frac{2|x|}{\delta\Delta} \le \zeta\frac{2n\Delta}{\delta}$ we have that $|S|/n \le \zeta\cdot \frac{2\Delta}{\delta}$.
+   By the given $|S| \le \frac{2|x|}{\delta_{0}\Delta} \le \zeta\frac{2n\Delta}{\delta}$ we have that $|S|/n \le \zeta\cdot \frac{2\Delta}{\delta}$.
    %Let $A \subset S$ and $B \subset S_{-}$ subsets of the positive and the negetive vertices support $x$, and $\alpha \le \Delta^{2},\beta \le \Delta$ their minimal degrees in $G, G$.
    Then by the Mixing Expander Lemma we have that:   
    \begin{equation*}
@@ -311,13 +311,13 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
  
  \begin{claim}
    \label{claim:satis}
-   $S_{e}$ and $T$ satisfies the requrirments of \cref{cliam:tech} with $A = S_{e}$, $B = T$, $\alpha = \Delta^{3/2 + \varepsilon}$ and $\beta = \Delta\delta + \Delta^{\frac{1}{2} + \varepsilon}$. That is, the average of havey edges form $T$ to $S_{n}$ is $\Theta\left( \Delta \right)$. 
+   $S_{e}$ and $T$ satisfies the requrirments of \cref{cliam:tech} with $A = S_{e}$, $B = T$, $\alpha = \Delta^{3/2 + \varepsilon}$ and $\beta = \delta_{0}\Delta + \Delta^{\frac{1}{2} + \varepsilon}$. That is, the average of havey edges form $T$ to $S_{n}$ is $\Theta\left( \Delta \right)$. 
  \end{claim}
 
  \begin{proof}
-   Conditions (1) and (2) holds by definition of $S_{e},T$ for values $\alpha = \Delta^{3/2 + \varepsilon}$ and $\beta = \Delta\delta - \Delta^{\frac{1}{2}+\varepsilon}/\delta$. It left to show that any normal vertex has at least on heaviy edge. By \cref{claim:duweight} any normal vertex $v$ has weight at least $\Delta\delta$, yet by robustness there are $t,s \in C_{A}\otimes \mathbb{F}^{B}, \mathbb{F}^{B}\otimes  C_{B}$ such that $t+s = c_{v}$. Assume that that any row of $c_{v}$ has weight less than $\Delta\delta - \Delta^{\frac{1}{2}+\varepsilon}/\delta$. Pick an arbitery row, and denote it by $\tau$, Now observes that by the fact that $c_{v}$ has support on at most $\Delta^{\frac{1}{2}+\varepsilon}/\delta$ columns, then $\tau$ is at distance at most $\Delta^{\frac{1}{2}+\varepsilon}/\delta$ from $C_{A}$. But, by assumption, $|\tau| < \delta\Delta -\Delta^{\frac{1}{2}+\varepsilon}/\delta$ and therefore the closet codeword to $\tau$ in $C_{A}$ has weight less than  $\delta\Delta$ in contradiction to the fact that the distance of $C_{A}$ is at least $\delta\Delta$.  
+   Conditions (1) and (2) holds by definition of $S_{e},T$ for values $\alpha = \Delta^{3/2 + \varepsilon}$ and $\beta = \delta_{0}\Delta - \Delta^{\frac{1}{2}+\varepsilon}/\delta$. It left to show that any normal vertex has at least on heaviy edge. By \cref{claim:duweight} any normal vertex $v$ has weight at least $\delta_{0}\Delta$, yet by robustness there are $t,s \in C_{A}\otimes \mathbb{F}^{B}, \mathbb{F}^{B}\otimes  C_{B}$ such that $t+s = c_{v}$. Assume that that any row of $c_{v}$ has weight less than $\delta_{0}\Delta - \Delta^{\frac{1}{2}+\varepsilon}/\delta$. Pick an arbitery row, and denote it by $\tau$, Now observes that by the fact that $c_{v}$ has support on at most $\Delta^{\frac{1}{2}+\varepsilon}/\delta$ columns, then $\tau$ is at distance at most $\Delta^{\frac{1}{2}+\varepsilon}/\delta$ from $C_{A}$. But, by assumption, $|\tau| < \delta_{0}\Delta -\Delta^{\frac{1}{2}+\varepsilon}/\delta$ and therefore the closet codeword to $\tau$ in $C_{A}$ has weight less than  $\delta_{0}\Delta$ in contradiction to the fact that the distance of $C_{A}$ is at least $\delta_{0}\Delta$.  
 
-Conditions (1) and (2) hold by definition of $S_e,T$ for values $\alpha = \Delta^{3/2 + \varepsilon}$ and $\beta = \Delta\delta - \Delta^{\frac{1}{2}+\varepsilon}/\delta$. It remains to show that any normal vertex has at least one heavy edge. By robustness there are $t,s \in C_{A}\otimes \mathbb{F}^{B}, \mathbb{F}^{B}\otimes  C_{B}$ such that $t+s = c_{v}$. Assume that any row of $c_{v}$ has weight less than $\Delta\delta - \Delta^{\frac{1}{2}+\varepsilon}/\delta$. Pick an arbitrary row, and denote it by $\tau$. Now observe that by the fact that $c_{v}$ has support on at most $\Delta^{\frac{1}{2}+\varepsilon}/\delta$ columns, then $\tau$ is at a distance of at most $\Delta^{\frac{1}{2}+\varepsilon}/\delta$ from $C_{A}$. But, by assumption, $|\tau| < \delta\Delta -\Delta^{\frac{1}{2}+\varepsilon}/\delta$ and therefore the closest codeword to $\tau$ in $C_{A}$ has weight less than $\delta\Delta$, in contradiction to the fact that the distance of $C_{A}$ is at least $\delta\Delta$.
+Conditions (1) and (2) hold by definition of $S_e,T$ for values $\alpha = \Delta^{3/2 + \varepsilon}$ and $\beta = \delta_{0}\Delta - \Delta^{\frac{1}{2}+\varepsilon}/\delta$. It remains to show that any normal vertex has at least one heavy edge. By robustness there are $t,s \in C_{A}\otimes \mathbb{F}^{B}, \mathbb{F}^{B}\otimes  C_{B}$ such that $t+s = c_{v}$. Assume that any row of $c_{v}$ has weight less than $\delta_{0}\Delta - \Delta^{\frac{1}{2}+\varepsilon}/\delta$. Pick an arbitrary row, and denote it by $\tau$. Now observe that by the fact that $c_{v}$ has support on at most $\Delta^{\frac{1}{2}+\varepsilon}/\delta$ columns, then $\tau$ is at a distance of at most $\Delta^{\frac{1}{2}+\varepsilon}/\delta$ from $C_{A}$. But, by assumption, $|\tau| < \delta_{0}\Delta -\Delta^{\frac{1}{2}+\varepsilon}/\delta$ and therefore the closest codeword to $\tau$ in $C_{A}$ has weight less than $\delta_{0}\Delta$, in contradiction to the fact that the distance of $C_{A}$ is at least $\delta_{0}\Delta$.
  \end{proof}
 
 \begin{claim}
@@ -335,7 +335,7 @@ Conditions (1) and (2) hold by definition of $S_e,T$ for values $\alpha = \Delta
        & \Rightarrow  \expp{ d(v) | v \in T_{s} } \ge d_{T \rightarrow S_{n}} - \Delta^{\frac{3}{4} \varepsilon} = \Theta\left( \Delta \right) 
      \end{split}
    \end{equation*}
-   Therefore there is at least a single vertex in $T_{s}$ connected to $\Theta\left( \Delta \right)$ havey edges. Combining the fact that edge is heavy edge if there are at least $\Delta\delta - \Delta^{\frac{1}{2} + \varepsilon}$ non trival bits on it's squares we get the desired.  
+   Therefore there is at least a single vertex in $T_{s}$ connected to $\Theta\left( \Delta \right)$ havey edges. Combining the fact that edge is heavy edge if there are at least $\delta_{0}\Delta - \Delta^{\frac{1}{2} + \varepsilon}$ non trival bits on it's squares we get the desired.  
  \end{proof}
 
  We are about to finish the proof of the theorem. Combining \cref{claim:linear} and \cref{claim:closeto} we obtain the the existnes of a negative vertex which is both at distance $\Theta\left(\Delta^{3/2 + \varepsilon}\right)$ form $C_{A}\otimes C_{B}$ and weight at least $\Theta\left( \Delta^{2} \right)$. Denote by $v \in T_{s}$ that vertex, by $c_{v}$ it's local view and by $y \in C_{A}\otimes C_{B}$ the closest codeword to $c_{v}$. Subtructing $y$ from $c_{v}$ yilds: 
