@@ -37,16 +37,16 @@ Let $C_0$ be a code of length $\Delta$ with minimum distance $\delta_0\Delta$. $
 
 The definition we gave for $w$-Robustness is identical to the one stated by Zemor and Leverrier, but we also included the decomposition property in the definition. We refer readers to the appendix section in~\cite{leverrier2022quantum} for an existence proof of $w$-robustness codes for $w = \Delta^{3/2 - \varepsilon}, \varepsilon > 0$, through random construction. We note that the random construction also yields the Gilbert-Varshamov bound. Though, we need a $w$-robustness codes for $\Delta^{3/2+\varepsilon}$ where $\varepsilon$ is positive. For achiving that we use the theorem proven in~\cite{kalachev2022twosided}:  
 
-\begin{theorem} 
-Fix $\rho_{A},\rho_{B} \in (0,1)$, and let $\kappa$ be:
+\begin{theorem}
+Fix $\rho_A, \rho_B \in (0,1)$, and let $\kappa$ be:
 \begin{equation*}
   \begin{split}
     \kappa = \frac{1}{2}\min\left( \frac{1}{4}H_{2}^{-1}\left( \frac{\rho_{A}}{8} \right) H_{2}^{-1}\left( \frac{\rho_{B}}{8} \right), H_{2}^{-1}\left( \frac{\rho_{A}\rho_{B}}{8} \right)\right)
   \end{split}
 \end{equation*}
-Where $H^{-1}_{2}$ denote the inverse of the binary entropy function. Let $C_{A},C_{B}$ be an $\Delta$ length and $\rho_{A}\Delta$,$\rho_{A}\Delta$ codiminsion codes sampled a uniformly random. Then with high probability as $\Delta\rightarrow\infty$ for any codeword of their dual tensor code $c \in \duC$ there are  can decomposed into a sum of $c = t + s$ such that $t \in C_A \otimes \mathbb{F}^{B}$ and $s \in \mathbb{F}^A \otimes C_B$, where $s$ and $t$ are each supported on at most $\frac{c}{\kappa \Delta}$ rows and columns.
+where $H^{-1}_{2}$ denotes the inverse of the binary entropy function. Let $C_A, C_B$ be $\Delta$-length and $\rho_A \Delta, \rho_B \Delta$ codimension codes sampled uniformly at random. Then, with high probability as $\Delta \rightarrow \infty$, for any codeword of their dual tensor code $c \in \duC$, there exists a decomposition of $c$ into a sum of $c = t + s$ such that $t \in C_A \otimes \mathbb{F}^B$ and $s \in \mathbb{F}^A \otimes C_B$, where $s$ and $t$ are each supported on at most $\frac{c}{\kappa \Delta}$ rows and columns. We call such codes $\kappa$ product expanding.
 \end{theorem}
-
+Note that the fact that the sampling succeeds with high probability implies that with high probability the codes that are sampled have a good distance.
 
 \begin{definition}[$p$-Resistance to Puncturing.]
   \label{def:resistance}
