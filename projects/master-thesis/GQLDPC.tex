@@ -35,9 +35,18 @@ Let $C_0$ be a code of length $\Delta$ with minimum distance $\delta_0\Delta$. $
             \caption{$w$-Robustness, Any low-weight codeword of the dual tensor code $c$ can be decomposed into a sum $t+s$, where $t$ is a collection of rows, each of which is a codeword in $C_A$, and similarly $s$ is a collection of columns, each of which is a codeword of $C_B$. }
 \end{figure}
 
+The definition we gave for $w$-Robustness is identical to the one stated by Zemor and Leverrier, but we also included the decomposition property in the definition. We refer readers to the appendix section in~\cite{leverrier2022quantum} for an existence proof of $w$-robustness codes for $w = \Delta^{3/2 - \varepsilon}, \varepsilon > 0$, through random construction. We note that the random construction also yields the Gilbert-Varshamov bound. Though, we need a $w$-robustness codes for $\Delta^{3/2+\varepsilon}$ where $\varepsilon$ is positive. For achiving that we use the theorem proven in~\cite{kalachev2022twosided}:  
 
+\begin{theorem} 
+Fix $\rho_{A},\rho_{B} \in (0,1)$, and let $\kappa$ be:
+\begin{equation*}
+  \begin{split}
+    \kappa = \frac{1}{2}\min\left( \frac{1}{4}H_{2}^{-1}\left( \frac{\rho_{A}}{8} \right) H_{2}^{-1}\left( \frac{\rho_{B}}{8} \right), H_{2}^{-1}\left( \frac{\rho_{A}\rho_{B}}{8} \right)\right)
+  \end{split}
+\end{equation*}
+Where $H^{-1}_{2}$ denote the inverse of the binary entropy function.  
+\end{theorem}
 
-The definition we gave for $w$-Robustness is identical to the one stated by Zemor and Leverrier, but we also included the decomposition property in the definition. We refer the readers to the appendix section in \cite{leverrier2022quantum} for an existence proof by random construction. We mention that the random construction also gives the Gilbert-Varshamov bound.
 
 \begin{definition}[$p$-Resistance to Puncturing.]
   \label{def:resistance}
