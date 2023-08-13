@@ -3,23 +3,49 @@
 \usetikzlibrary{positioning}
 \addbibresource{./sample.bib} 
 
-\pretitle{%
-  \includegraphics[scale=0.9]{logo.png}\\[\bigskipamount]
-  \begin{center}
-    \LARGE
-  }
-\postdate{
-\end{center}}
-
 
 \begin{document}
 \input{newcommands}
-
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        
+        \includegraphics[width=0.15\textwidth]{huji_logo_notext.pdf}\\
+        The Hebrew University of Jerusalem\\
+        The Rachel and Selim Benin School of Computer Science and Engineering
+        
+        \vspace{2cm}
+        
+        {\Large \textbf{Thesis Title}}
+        
+        \vspace{1cm}
+        \selectlanguage{hebrew}
+        {\Large שם העבודה}
+        \selectlanguage{english}
+        
+        \vspace{1.5cm}
+        
+        \textbf{Author's Name}
+        
+        \vspace{1cm}
+        
+        Thesis submitted in partial fulfillment of the requirements\\for the Master of Sciences degree\\
+        in Computer Science
+        
+        \vspace{1cm}
+        
+        Under the supervision of \textbf{Prof./Dr.~Supervisor's Name}
+        
+        \vfill
+        
+        \textbf{Month year}
+    \end{center}
+\end{titlepage}
 %\onehalfspacing
-\title{Understanding Quantumness And Testability.} 
-\author{David Ponarovsky}
+%\title{Understanding Quantumness And Testability.} 
+%\author{David Ponarovsky}
 
-\maketitle
+%\maketitle
 \input{sageutil.py}
 %\input{abstract}
 
