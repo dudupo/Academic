@@ -39,11 +39,11 @@ So assume that we could engineer an expander family such that the graphs obtaine
   \end{equation*}
   Define the code $\testgo$ to be the subspace such that any vertex's local view over the edges defined by $\Jvv \cup J^{\prime}$ is a codeword of $C_{0}$. In addition, let's associate a code $\Cvv$ obtained for any vertex by ignoring the bits supported on the $\Jvv$ coordinates. Notice that code defined by requiring that the local view of any vertex $v$ of \emph{Cayley}$\left(\Gamma, J^{\prime} \right)$ is a codeword of $\Cvv$ is a TannerCode. Denote it by $ \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$.   
 \end{definition}
-\begin{claim} Let $J$ be defined as above such that both \emph{Cayley}$\left( \Gamma, J \right)$, \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ are expanders with algebraic expansion greater then $\lambda$ and $C_0$ with the parameters $\rho_{0} > 1 - \frac{1}{2q}$ and $ \delta_{0}q - \left( q - \frac{1}{2} \right) > 2\lambda/\Delta$. Then the code $\mathcal{T}\left(J, q ,C_{0}\right)$ is a good code.\end{claim}
-\begin{proof} We already proved that the code has a positive rate, So it left to show a constant relative distance. 
+\begin{claim} Let $J$ be defined as above such that both \emph{Cayley}$\left( \Gamma, J \right)$, \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ are expanders with algebraic expansion greater than $\lambda$ and $C_0$ with the parameters $\rho_{0} > 1 - \frac{1}{2q}$ and $ \delta_{0}q - \left( q - \frac{1}{2} \right) > 2\lambda/\Delta$. Then the code $\mathcal{T}\left(J, q ,C_{0}\right)$ is a good code.\end{claim}
+\begin{proof} We have already proved that the code has a positive rate, so it is left to show a constant relative distance.
 
   Consider a codeword $x$ and denote by $x^{\prime}$ the restriction of $x$ to \emph{Cayley }$\left( \Gamma, J^{\prime}  \right)$ which is a codeword of $\tilde{C} = \tilde{\mathcal{T}}\left(J, q ,C_{0}\right)$. But $\tilde{C}$ is a Tanner Code such that any vertex sees at least $ \tilde{\delta_{0}} \Delta := \left(\delta_{0} - \left( q - \frac{1}{2}   \right) \right)\Delta $ nontrivial bits.
-  Denote by $S$ the vertices subset supports $x^{\prime}$, and by $E\left( S,S \right)$ the edges from $S$ to itself, and by using the fact that \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ is an expander with second eigenvalue at most $\delta$ we have that: 
+  Denote by $S$ the vertices subset supports $x^{\prime}$, and by $E\left( S,S \right)$ the edges from $S$ to itself, and by using the fact that \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$ is an expander with second eigenvalue at most $\lambda$ we have that: 
   \begin{equation*}
     \begin{split}
       \frac{|x^{\prime}|}{|S|} \ge \tilde{\delta}_{0}\Delta \Rightarrow  |S| \ge \left( \tilde{\delta} - \frac{2\lambda}{\Delta}  \right)\Delta n 
