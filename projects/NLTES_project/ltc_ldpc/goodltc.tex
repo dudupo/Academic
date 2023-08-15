@@ -8,24 +8,23 @@ Consider the following code; instead of associating each edge with a pair of che
   \end{split}
 \end{equation*} for example, if $q = 2/3$, then for having constant rate, it is enough to ensure that $ \rho_{0} \ge 1 - \frac{3}{4} = \frac{1}{4}$.
 
-\paragraph{Intuition For Testability.} Before expand the construction let's us justify why one should even expects that removing constraints preserves testability. Assume that is guaranteed that the lower bound of the flux on the trivial vertices remains up to multiplication by the fraction factor $q$, or put it differently, one could just stick $q$ in every inequality without lose correctness, Then: 
+\paragraph{Intuition For Testability.}
+Before expand the construction let's us justify why one should even expects that removing constraints preserves testability. Assume that is guaranteed that the lower bound of the flux on the trivial vertices remains up to multiplication by the fraction factor $q$, or put it differently, one could just stick $q$ in every inequality without lose correctness, Then: 
 \begin{equation*}
   \begin{split}
     w_{E/E^{\prime}}\left( x|_{U} \right) & \ge  \delta_{0}q\Delta|U| -qw\left( E(U_{-1} \bigcup U_{+1} ,U)  \right) \\ 
     \Rightarrow |x| & \ge \left(  \delta_{0} - \frac{2}{3} - \frac{2\lambda}{\Delta} \right) q \Delta|U_{\max}|
   \end{split}
 \end{equation*}
-As you can see, \ireducable words of the disagreement have a linear weight, despite that the original code has non-vanish rate.     
+As you can see, \ireducable words of the disagreement have a linear weight, despite that the original code has non-vanish rate. 
 
-Yet, We still require more to prove a linear distance. 
-By repeating on the \emph{Singleton Bound \ref{theorem*:Sing} } proof it follows that the small code $\tilde{C_{0}}$ obtained by ignoring arbitrary $ \left( q - \frac{1}{2} \right) \Delta $ coordinates yield a code with distance: 
+Yet, we still need more to prove a linear distance. By repeating the proof of the Singleton Bound (Ref. \ref{theorem*:Sing}), it follows that the small code $\tilde{C_{0}}$ obtained by ignoring arbitrary $(q - \frac{1}{2})\Delta$ coordinates yields a code with distance:
 \begin{equation*}
   \begin{split}
     \left( \delta_{0}q - \left( q - \frac{1}{2} \right) \right)\Delta
   \end{split}
 \end{equation*}
-So assume that we could engineer an expander family such that the graphs obtained by removing $\frac{1}{2}$ of the edges connected for each vertex result also expanders, and in addition, regarding $\tilde{C_{0}}$ each edge is checked by both vertices on its support. Namely, a good Tanners Code could be defined on the restricted graphs; Then, any string that satisfies the original checks also has a linear weight. To achieve this property, we will restrict ourselves to a particular family of Cayley Graphs.  
-
+Assuming we can engineer an expander family such that the graphs obtained by removing half of the edges connected to each vertex are also expanders, and in addition, each edge is checked by both vertices on its support with respect to $\tilde{C_{0}}$, then a good Tanner Code can be defined on the restricted graphs. Any string that satisfies the original checks will also have a linear weight. To achieve this property, we will restrict ourselves to a particular family of Cayley Graphs.
 \begin{theorem*}[Theorem 1+] There exist a constant $\alpha > 0 $ and infinite family of codes which satisfies Theorem 1 and also good.
 \end{theorem*}
 
