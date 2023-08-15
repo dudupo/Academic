@@ -70,6 +70,9 @@ Now divide the graph into positive and negative vertices according to their colo
 
 The quantum Tanner code is a CSS code, such that $C_{X}$ is defined to be the classical Tanner code $\mathcal{T}\left(G^{+}, \left(C_{A}^\perp\otimes C_{B}^{\perp}\right)^{\perp} \right)$ and $C_{Z}$ is defined as $\mathcal{T}\left(G^{-}, \left(C_{A}\otimes C_{B}\right)^{\perp} \right)$. Note that in contrast to the classical Tanner code, in the quantum case it will be more convenient to think of codewords as assignments set on the squares and not on the edges.
 \end{definition}
+Note that any check of $C_X$ can be thought of as multiplying one of the matrices in $C_A^\perp \otimes C_B^\perp$ by the local view of some positive vertex. Similarly, the checks of $C_Z$ are obtained by multiplying the matrices in $C_A \otimes C_B$ in the local view of the negative vertices. As any two sibling positive and negative vertices share either a row or a column, it is easy to see that the checks commute. Therefore, by definition, $H_{X}H_{Z}^{\top} =0$, which implies that the code is a CSS code.
+
+
 \begin{figure}[h]
             %\label{fig:square}
             \begin{center}
