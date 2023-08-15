@@ -25,7 +25,9 @@ Yet, we still need more to prove a linear distance. By repeating the proof of th
   \end{split}
 \end{equation*}
 Assuming we can engineer an expander family such that the graphs obtained by removing half of the edges connected to each vertex are also expanders, and in addition, each edge is checked by both vertices on its support with respect to $\tilde{C_{0}}$, then a good Tanner Code can be defined on the restricted graphs. Any string that satisfies the original checks will also have a linear weight. To achieve this property, we will restrict ourselves to a particular family of Cayley Graphs.
-\begin{theorem} There exist a constant $\alpha > 0 $ and infinite family of codes which satisfies ~\cref{theorem:ltczerorate} and also good.
+\begin{theorem}
+\label{theorem:highflux}
+  There exist a constant $\alpha > 0 $ and infinite family of codes which satisfies ~\cref{theorem:ltczerorate} and also good.
 \end{theorem}
 
 
@@ -105,10 +107,10 @@ Therefore either that there is a $6$-length cycle in the graph, Or that there is
 \begin{proof} The only edges that can interfere are the edge defined by $J^{\prime}$, Namely the edges which belong to \emph{Cayley}$\left( \Gamma, J^{\prime} \right)$. Therefore it's enough to use the mixing expander lemme on the $\frac{1}{2}\Delta$-regular graph. \end{proof}
 
 
-\begin{proof}[Proof of Theorem 1+.] Notice that $\frac{1}{2} < \frac{2}{3} = q$, Thus repeating exactly over proof above obtains that: 
+\begin{proof}[Proof of~\cref{theorem:highflux}.] Notice that $\frac{1}{2} < \frac{2}{3} = q$, Thus repeating exactly over proof above obtains that: 
   \begin{equation*}
     \begin{split}
-      w_{E/E^{\prime}}  \left( x|_{U} \right)  & \ge  \delta_{0}q\Delta|U| - \left( q - \frac{1}{2} \right)\Delta |U| - \wcutUU  \\ 
+      w_{E/E^{\prime}}  \left( x|_{U} \right)  & \ge  \delta_{0}q\Delta|U|  - \wcutUU  \\ 
       & \ge   \delta_{0}q\Delta|U| - \frac{\Delta}{2} \frac{|U|\left( |U_{-1}| + |U_{+1}| \right)}{n} -\lambda\sqrt{|U|\left( |U_{-1}| + |U_{+1}| \right)} \\ 
       & \ge  \left( \delta_{0} - \frac{2}{3} - \frac{1}{q}\frac{\lambda}{\Delta} \right)q\Delta |U|
     \end{split}
