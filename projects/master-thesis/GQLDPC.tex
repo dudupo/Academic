@@ -348,6 +348,10 @@ Conditions (1) and (2) hold by definition of $S_e,T$ for values $\alpha = \Delta
    Therefore there is at least a single vertex in $T_{s}$ connected to $\Theta\left( \Delta \right)$ havey edges. Combining the fact that edge is heavy edge if there are at least $\delta_{0}\Delta - \Delta^{\frac{1}{2} + \varepsilon}$ non trival bits on it's squares we get the desired.  
  \end{proof}
 
+ \begin{remark}
+For small codes which are robust for $w < \Delta^{3/2}$, as in the original proof of \cite{leverrier2022quantum}, \cref{claim:portion} no longer holds. However, assuming the dual tensor code is also $p$-resistant to puncturing~\ref{def:resistance}, one can still prove \cref{claim:linear}.
+ \end{remark}
+
  We are about to finish the proof of the theorem. Combining \cref{claim:linear} and \cref{claim:closeto} we obtain the the existnes of a negative vertex which is both at distance $\Theta\left(\Delta^{3/2 + \varepsilon}\right)$ form $C_{A}\otimes C_{B}$ and weight at least $\Theta\left( \Delta^{2} \right)$. Denote by $v \in T_{s}$ that vertex, by $c_{v}$ it's local view and by $y \in C_{A}\otimes C_{B}$ the closest codeword to $c_{v}$. Subtructing $y$ from $c_{v}$ yilds: 
  
  \begin{equation*}
