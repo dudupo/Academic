@@ -14,7 +14,7 @@ Consider base element $ C_{0} \otimes \mathbb{F} $, denote it by $c = g_{i} \oti
 \end{proof}
 
 \begin{claim}
- \label{claim:nowr} The dual-tensor polynomial code is not $w$-robust. 
+  \label{claim:nowr} The dual-tensor polynomial code is not $\Delta^{1 +\varepsilon}$-robust, for any $\varepsilon > 0$.  
 \end{claim}
 
 \begin{proof}
@@ -31,6 +31,6 @@ Consider the following polynomial
        P(x,x) = \prod_{i \neq \Delta - 1}{ \left( x + i x \right)  }= x^{\Delta-1}\prod_{i \neq \Delta - 1}{ \left( 1 + i \right) } = \left( \Delta-1 \right)!  =_{\Delta} -1  \neq_{\Delta} 0 
     \end{split}
   \end{equation*}
-  Put it differently, the diagonal of the matrix has only non-zero values, therefore the $P$ is supported on the entire collection of rows and columns. Namely, we found a codeword in the dual tensor code at weight less than $\Delta^{1 \frac{1}{2}}$ which is not restricted to at most $\Delta^{1 \frac{1}{2}} / \delta_{0}\Delta$. So, the dual-tensor polynomial code is not a $w$-robust code,  for $w = \Delta^{1 \frac{1}{2}}$.   
+  Put it differently, the diagonal of the matrix, and only it, has only non-zero values, therefore the $P$ cannot decompised to a sum of $s + t$ such that $s \in C_{0}\otimes \mathbb{F}$, $t \in \mathbb{F}\otimes C_{0}$ and $s$ ($t$) is supported at most of $\Delta^{\varepsilon}$ rows (columns). But, $P$ is a codeword of the dual tensor code at weight less than $\Delta^{1 + \varepsilon}$. So, the dual-tensor polynomial code is not a $w$-robust code,  for $w = \Delta^{1 +\varepsilon}$.   
 \end{proof}
 
