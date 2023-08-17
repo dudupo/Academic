@@ -139,11 +139,11 @@ The Shor code is a specific case of the more general CSS (Calderbank-Shor-Steane
 
   \begin{claim}
     \label{claim:inter}
-Associate with any vertex of the Torus a coordinate in $\mathbb{Z}_{l} \times \mathbb{Z}_{l}$. Consider a simple cycle $P$ subset of the Torus. Denote $P$ by the vertices composing it $v_{0}v_{1}..v_{k}$ arranged in order. Consider a vertex $v_{i} \in P$ and denote $v = \left( x,y \right) \in $$ \mathbb{Z}_{l} \times \mathbb{Z}_{l}$. Then there exists a vertex $u \in P$, $ u \neq v_{i-1}v_{i+1}$ that shares one of the coordinates of $v$. Put differently, there exists $z$ such that either  $u = \left( z,y \right)$ or $u = \left( x,z \right)$.
+Associate with any vertex of the Torus a coordinate in $\mathbb{Z}_{l} \times \mathbb{Z}_{l}$. Consider a simple cycle $P$ subset of the Torus. Denote $P$ by the vertices composing it $v_{0}v_{1}..v_{k}$ arranged in order. Consider a vertex $v_{i} \in P$ such that $\{v_{i-1}, v_{i}\}$, $\{v_{i}, v_{i+1}\}$ are in the same direction and denote $v = \left( x,y \right) \in $$ \mathbb{Z}_{l} \times \mathbb{Z}_{l}$. Then there exists a vertex $u \in P$, $ u \neq v_{i-1}v_{i+1}$ that shares one of the coordinates of $v$. Put differently, there exists $z$ such that either  $u = \left( z,y \right)$ or $u = \left( x,z \right)$.
   \end{claim}
 
   \begin{proof} 
-Assume without loss of generality that $v_{i-1} = \left( x, y -1 \right)$ . Now denote by $f$ the projection on the second coordinate, $f(a,b)= b$. and observe that for any $j$ the distance $f\left( v_{j+1}\right) - \left( v_{j}  \right)$ satisfies:
+Assume without loss of generality that $v_{i-1} = \left( x, y -1 \right)$ and $v_{i+1} =\left( x,y+1 \right)$. Now denote by $f$ the projection on the second coordinate, $f(a,b)= b$. and observe that for any $j$ the distance $f\left( v_{j+1}\right) - \left( v_{j}  \right)$ satisfies:
     \begin{equation*}
       \begin{split}
       f\left( v_{j+1}\right) - f \left( v_{j}  \right) = 
@@ -153,11 +153,11 @@ Assume without loss of generality that $v_{i-1} = \left( x, y -1 \right)$ . Now 
         \end{cases}
       \end{split}
     \end{equation*}
-    So if there is no $u \neq v_{i}$ such that $f(u) = f(v_{i}) = f(v_{i-1})+1$ then there must to be an edge $\{v_{j},v_{j+1}\}$, $v_{j} = \left( \cdot, l -1 \right)$, $ v_{j+1} = \left( \cdot, 0  \right)$ such $P$ pass trough it. Otherwise, $f(v_{k}) \ge y$ for any $v_{k} \in P$. So  
+    So if there is no $u \neq v_{i}$ such that $f(u) = f(v_{i}) = f(v_{i-1})+1$ then there must to be an edge $\{v_{j},v_{j+1}\}$, $v_{j} = \left( \cdot, l -1 \right)$, $ v_{j+1} = \left( \cdot, 0  \right)$ such $P$ pass trough it. So  
     \begin{equation*}
       \begin{split}
-        f\left( v_{i-1} \right) & \le f\left( v_{ i +1} \right) +  |f\left( v_{i +2} \right) -  f\left( v_{ i +1} \right)| + .. + -\left( l - 1 \right) \\ 
-        & \le f(v_{i +1} ) - |P| - \left(l-1\right)  
+        f\left( v_{i-1} \right) & \le f\left( v+1 \right) +  |f\left( v+2 \right) -  f\left( v+1 \right)| + .. + -\left( l - 1 \right) \\ 
+        & \le f(v+1) - |P| - \left(l-1\right)  
       \end{split}
     \end{equation*}
     But $|P| \le l$. 
