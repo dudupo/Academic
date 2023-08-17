@@ -156,8 +156,8 @@ Assume without loss of generality that $v_{i-1} = \left( x, y -1 \right)$ and $v
     So if there is no $u \neq v_{i}$ such that $f(u) = f(v_{i}) = f(v_{i-1})+1$ then there must to be an edge $\{v_{j},v_{j+1}\}$, $v_{j} = \left( \cdot, l -1 \right)$, $ v_{j+1} = \left( \cdot, 0  \right)$ such $P$ pass trough it. So  
     \begin{equation*}
       \begin{split}
-        f\left( v_{i-1} \right) & \le f\left( v+1 \right) +  |f\left( v+2 \right) -  f\left( v+1 \right)| + .. + -\left( l - 1 \right) \\ 
-        & \le f(v+1) - |P| - \left(l-1\right)  
+        f\left( v_{i-1} \right) & \le f\left( v_{ i +1} \right) +  |f\left( v_{i +2} \right) -  f\left( v_{ i +1} \right)| + .. + -\left( l - 1 \right) \\ 
+        & \le f(v_{i +1} ) - |P| - \left(l-1\right)  
       \end{split}
     \end{equation*}
     But $|P| \le l$. 
