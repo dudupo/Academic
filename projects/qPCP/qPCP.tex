@@ -1,0 +1,193 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+  \documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass{article}
+  \input{./usepackage}
+  \addbibresource{./sample.bib} 
+
+\fi
+
+\begin{document}
+
+\input{newcommands}
+
+\title{Why The Following Doesn't Give Log-Local, Constant Gap Hamiltonian?} 
+\author{David Ponarovsky}
+%\author{Noa Viner, David Ponarovsky}
+
+\ifdefined\ACM
+  \affiliation{%
+    \institution{The Th{\o}rv{\"a}ld Group}
+    \streetaddress{1 Th{\o}rv{\"a}ld Circle}
+    \city{Hekla}
+  \country{Iceland}}
+  \email{larst@affiliation.org}
+\else
+  \maketitle
+\fi
+%\input{abstract}
+\ifdefined\ACM
+  \maketitle
+\fi
+
+
+%\section{Introduction.}
+%\begin{itemize}
+%  \item Solovey-Kitaev shown to be true also for BQL. 
+%  \item Even though postpting the measurements to the end seems to inflat the wide and the length of the circuit. It was provn that there is an effiucent way to elimanating intermidate measurements, So  BQL = BQuL. 
+%  \item There is some error-rduction that I have to complete.  
+%  \item Ta-shma shown that inverting a matrix is BQL complete. 
+%  \item Also computing the eigen values of Hrmitan matrix is BQP complete. The algoritmes that have been used are has qauderic adavantage in space.
+%\end{itemize}
+%
+%
+
+\section{What we would like to have:}
+
+\newcommand{\Hin}{H_{\text{init}}}
+  \newcommand{\Hpr}{H_{\text{prop}}}
+\newcommand{\Hen}{H_{\text{end}}}
+%
+%Consider the LPS expnader on $n$ veritces and denote $ t \sim l $ if $t$ is adjoint to $l$. Let $M_\Delta \in \mathbb{C}^{n \times n}$ be the matrix defined by the product:
+%\begin{equation*}
+%  \begin{split}
+%    \bra{u}M_{\Delta}\ket{l}\bra{l+1}M_{\Delta}\ket{t-1} \bra{t} M_{\Delta}\ket{v} = \mathbf{1}_{ t \sim l } \mathbf{1}_{u = t} \mathbf{1}_{v = l } \ \  
+%  \end{split}
+%\end{equation*}
+% Given the Hamiltonian $\Hin + m \cdot 2I - \Hpr + \Hen$, consider the Hamiltonian $\alpha \Hin + m \cdot 2I - \Hpr M_\Delta \Hpr + \beta \Hen$. Denote $\Hpr$ by $U_{1} \otimes \ket{2}\bra{1}  + U_{2}^{\dagger} \otimes \ket{1}\bra{2} + \cdots $.
+% Now Let $\Lambda_{t,l}$ be defined such that:
+% 
+% \begin{equation*}
+%   \begin{split}
+%     \Lambda^{\dagger}_{l,t} U_{l}^{\dagger}U_{t} \Lambda_{t,l} = U_{l}U_{l-1}..U_{t+1}U_{t}
+%   \end{split}
+% \end{equation*}
+% And codsider the diagonliztion $W^{\dagger}\Hpr M_{\Delta} \Hpr W$. Where:
+%
+%\begin{equation*}
+%  \begin{split}
+%    & W = \sum\Lambda_{t,l}U_{t-1}U_{t-2}..U_{1} \otimes \ket{t}\bra{t} M_{\Delta}\ket{l}\bra{t} \\ 
+%    \Rightarrow & W^{\dagger} = \sum U_{1}^{\dagger}U_{2}^{\dagger} .. U_{t-1}^{\dagger} \Lambda_{t,l}^{\dagger} \otimes \ket{t}\bra{t} M_{\Delta}\ket{l}^{*}\bra{t} 
+%  \end{split}
+%\end{equation*}
+%  Noitce that: 
+%
+%\begin{equation*}
+%  \begin{split}
+%    & W^{\dagger}U_{l}^{\dagger}U_{t}\ket{l}\bra{l+1}M_{\Delta}\ket{t+1}\bra{t}W = \\
+%    & W^{\dagger}U_{l}U_{t}\ket{l+1}\bra{l}M_{\Delta}\ket{t}\bra{t}\ket{t}\bra{t}M_{\Delta}\ket{v}\bra{t}\Lambda_{t,v}U_{t-1}U_{t-2}..U_{1} = \\
+%    & U_{1}^{\dagger}U_{2}^{\dagger}.. \Lambda_{l,u}^{\dagger}  U_{l-1}^{\dagger}U_{t}\Lambda_{t,l}U_{t-1}.. U_{1} \ket{l}\bra{l}M_{\Delta}\ket{u}^{*}\bra{l}\ket{l}\bra{l+1} M_{\Delta}\ket{t-1} \bra{t}\ket{t}\bra{t} M_{\Delta}\ket{v} \ket{l}\bra{t} \\
+%    & U_{1}^{\dagger} .. U_{l}^{\dagger} \Lambda^{\dagger}_{l,t} U_{l}^{\dagger}U_{t} \Lambda_{t,l} U_{t-1} .. U_{1} \ket{l}\bra{t} = \ket{l}\bra{t} \\ 
+%    &\Rightarrow  W^{\dagger}\Hpr W = \sum_{i\sim j}\ket{i}\bra{j}
+%  \end{split}
+%\end{equation*}
+%
+%And the history state will look like:
+%
+%\begin{equation*}
+%  \begin{split}
+%    \ket{\eta} =  \sum \Lambda_{t,l}U_{t-1}U_{t-2}..U_{1}  \ket{x_{0}} \otimes  \ket{t} 
+%  \end{split}
+%\end{equation*}
+
+Consider the LPS expander on $n$ vertices and denote $t \sim l$ if $t$ is adjacent to $l$. Let $M_\Delta \in \mathbb{C}^{n \times n}$ be the matrix defined by the product: \ctt{Such $M_{\Delta}$ dosn't exists.} 
+\begin{equation*}
+  \begin{split}
+    &\bra{u}M_{\Delta}\ket{l}^{*}\bra{l+1}M_{\Delta}\ket{t-1} \bra{t} M_{\Delta}\ket{v} = \mathbf{1}_{ t \sim l } \mathbf{1}_{u = t} \mathbf{1}_{v = l } 
+  \end{split}
+\end{equation*}
+Given the Hamiltonian $\Hin + m \cdot 2I - \Hpr + \Hen$, consider the Hamiltonian $\alpha \Hin + m \cdot 2I - \Hpr M_\Delta \Hpr + \beta \Hen$. Denote $\Hpr$ by $U_{1} \otimes \ket{2}\bra{1}  + U_{2}^{\dagger} \otimes \ket{1}\bra{2} + \cdots $.
+Now let $\Lambda_{t,l}$ be defined such that:
+ 
+ \begin{equation*}
+   \begin{split}
+     \Lambda^{\dagger}_{l,t} U_{l}^{\dagger}U_{t} \Lambda_{t,l} = U_{l}U_{l-1}..U_{t+1}U_{t}
+   \end{split}
+ \end{equation*}
+And consider the diagonalization $W^{\dagger}\Hpr M_{\Delta} \Hpr W$. Where:
+
+\begin{equation*}
+  \begin{split}
+    & W = \sum\Lambda_{t,l}U_{t-1}U_{t-2}..U_{1} \otimes \ket{t}\bra{t} M_{\Delta}\ket{l}\bra{t} \\ 
+    \Rightarrow & W^{\dagger} = \sum U_{1}^{\dagger}U_{2}^{\dagger} .. U_{t-1}^{\dagger} \Lambda_{t,l}^{\dagger} \otimes \ket{t}\bra{t} M_{\Delta}\ket{l}^{*}\bra{t} 
+  \end{split}
+\end{equation*}
+Notice that: 
+
+\begin{equation*}
+  \begin{split}
+    & W^{\dagger}U_{l}^{\dagger}U_{t}\ket{l}\bra{l+1}M_{\Delta}\ket{t-1}\bra{t}W = \\
+    & W^{\dagger}U_{l}U_{t}\ket{l+1}\bra{l}M_{\Delta}\ket{t}\bra{t}\ket{t}\bra{t}M_{\Delta}\ket{v}\bra{t}\Lambda_{t,v}U_{t-1}U_{t-2}..U_{1} = \\
+    & U_{1}^{\dagger}U_{2}^{\dagger}.. \Lambda_{l,u}^{\dagger}  U_{l-1}^{\dagger}U_{t}\Lambda_{t,l}U_{t-1}.. U_{1} \ket{l}\bra{l}M_{\Delta}\ket{u}^{*}\bra{l}\ket{l}\bra{l+1} M_{\Delta}\ket{t-1} \bra{t}\ket{t}\bra{t} M_{\Delta}\ket{v} \ket{l}\bra{t} \\
+    & U_{1}^{\dagger} .. U_{l}^{\dagger} \Lambda^{\dagger}_{l,t} U_{l}^{\dagger}U_{t} \Lambda_{t,l} U_{t-1} .. U_{1} \ket{l}\bra{t} = \ket{l}\bra{t} \\ 
+    &\Rightarrow  W^{\dagger}\Hpr M_{\Delta} \Hpr W = \sum_{i\sim j}\ket{i}\bra{j}
+  \end{split}
+\end{equation*}
+And the history state will look like:
+
+\begin{equation*}
+  \begin{split}
+    \ket{\eta} =  \sum \Lambda_{t,l}U_{t-1}U_{t-2}..U_{1}   \ket{x_{0}} \otimes  \ket{t} \bra{t} M_{\Delta} \ket{l}
+  \end{split}
+\end{equation*}
+
+
+\section{Lets change it a little bit.}
+Mabye we should define $\Lambda$ to be depands on a single paramter, namely $\Lambda_{t}$ and: 
+\begin{equation*}
+   \begin{split}
+     \Lambda^{\dagger}_{l} U_{l}^{\dagger}U_{t} \Lambda_{t} = U_{l}U_{l-1}..U_{t+1}
+   \end{split}
+ \end{equation*}
+ That wil allow us to group terms, and if 
+\begin{equation*}
+  \begin{split}
+     \sum_{v,u}\bra{u}D\ket{l}^{*}\bra{l+1}M_{\Delta}\ket{t-1} \bra{t} D\ket{v} = \mathbf{1}_{ t \sim l } % \mathbf{1}_{u = t} \mathbf{1}_{v = l } 
+  \end{split}
+\end{equation*}
+Then we win. So now we ask wheter there exsits such $D,M_{\Delta}$ and $\Lambda_{t}$'s. (Or approximation).   
+\begin{claim}
+  There are such $\Lambda$'s and they given by: 
+  
+  \begin{equation*}
+    \begin{split}
+      \Lambda_{l}^{\dagger} = U_{l}\Lambda_{l-1}^{\dagger}U_{l-1}^{\dagger}U_{l}
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+  By induction, assume existness for any  $l,t \le l-1$, namely $\Lambda_{l-1}= U_{l-1}^{\dagger}U_{l-2}\Lambda_{l-2}U^{\dagger}_{l-1}$. Then:  
+\begin{equation*}
+    \begin{split} 
+      \Lambda^{\dagger}_{l} U_{l}^{\dagger}U_{t} \Lambda_{t} = &   \Lambda^{\dagger}_{l} U_{l}^{\dagger}U_{l-1}U_{l-1}^{\dagger}U_{t} \Lambda_{t} \\ 
+      & \Lambda^{\dagger}_{l} U_{l}^{\dagger}U_{l-1}\Lambda_{l-1}\Lambda^{\dagger}_{l-1}U_{l-1}^{\dagger}U_{t} \Lambda_{t} = \Lambda^{\dagger}_{l} U_{l}^{\dagger}U_{l-1}\Lambda_{l-1} \cdot \ U_{l-1}..U_{t+1}  = \\ 
+      & U_{l}U_{l-1}..U_{t+1} = \\ 
+      & \ \Rightarrow   \Lambda_{l}^{\dagger} = U_{l}\Lambda_{l-1}^{\dagger}U_{l-1}^{\dagger}U_{l}
+    \end{split}
+  \end{equation*}
+\end{proof}
+\section{Ideas.}
+\begin{enumerate}
+  \item $M_{\Delta}$ doesn't exists. 
+  \item $\Lambda_{t,l}$ is not a unitary matrix? 
+  \item $\Hin$ and $\Hen$ are the critical terms and deserve more gentle treatment.
+\end{enumerate}
+
+%\begin{multicols*}{2}
+% \input{preamble}
+% \input{introduction}
+
+\printbibliography
+\end{document}
+
+
+
+
+
