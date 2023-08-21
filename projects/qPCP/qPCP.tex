@@ -187,6 +187,27 @@ What about defining $\tilde{D} = \bra{t} \mathbf{1}_{t\sim l} \ket{l} $, $D = \t
 We can encode the time by unarity encoding. namely $\ket{t} = \ket{1^{t}000..}$. Then the check $\ket{l}\bra{t}$ replaced by the check $\ket{1_{l}0}\bra{1_{t}0}$.  And we also add checks for the validity of the input $ \ket{*10*1}\bra{*10*1} $ that add a quaderic number of checks.  
 % In addition we have to add panility for any non ilegal edge. So, if $t\not{\sim}l$ then we add panility at the form $ J \cdot \ket{1_{l}0}\bra{1_{t}0}$.
 
+\section{Using the classical LTC as hmiltonian} 
+The idea of looking for a quantum LTC code through a construction of CSS code just committed to failure as approximating the ground state of local commute Hamiltonian sets on the expanders is in NP. Yet that fact also gives hope that using the classical LTC codes, as non-commute Hamiltonian on expanders, as they are as quantum Hamiltonian might yield a Hamiltonian which approximates it is in $QMA$. Let $H_{X} = J_{0}I - \mathcal{T} ( V^{+}, C_{A}\otimes C_{B}) $$H_{Z} = J_{0}I -   \mathcal{T} ( V^{+}, C_{A}^{\perp}\otimes C_{B}^{\perp}) $. Here the notation $H_{X}$ is used to describe Hamiltona and not a parity check matrix.  Denote $H = H_{X} + H_{Z}$.
+
+\begin{definition}
+  Consider the Hamitonain above, over $\frac{1}{4}\Delta^{2}n$ qubits, the decion problem q-c-LTC$[a,b]$ is to answer wheter there exsits state $\ket{\psi}$ such that $\bra{\psi}H\ket{\psi} \le a $ or that for any state the $\bra{\psi}H\ket{\psi} \ge  b $. 
+\end{definition}
+
+
+\begin{claim}
+ q-c-LTC$[a,b]$ in QMA. 
+\end{claim}
+\begin{proof}
+  By definition the problem is Local Hamiltonain, We have to show that the gap is $\sim 1/poly$
+\end{proof}
+
+\begin{claim} 
+ q-c-LTC$[a,b]$ in quantum PCP. 
+\end{claim}
+
+
+
 
 %\begin{multicols*}{2}
 % \input{preamble}
