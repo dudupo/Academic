@@ -245,6 +245,12 @@ Suppose that $\prb{\braket{\psi|H|\psi} \ge b } \le \delta $, So at most $\delta
   Let $x \in \mathbb{F}^{\Delta}_{2}$ and denote by $H_{x}$ the Hamiltonain which on the $i$th coordinate applay $X$ if $x_{i} = 1$ and identty otherwise.And let $c(x) \in [\Delta,\rho\Delta,\delta\Delta]$ be the codeword obtained by encoding $x$. Then $H_{x} \le H_{c(x)}$.  
 \end{claim}
 
+\begin{equation*}
+  \begin{split}
+    & \sum{ H_{x_{i}}} \rightarrow \sum_{|I|=m}{ \prod_{x^{i} \in I } H_{x_{i}}}\rightarrow\sum_{|I|=m}{  H_{ \sum_{x_{i}\in I} x_{i}}} \\
+    & \rightarrow \sum_{|I|=m}{  H_{ c(\sum_{x_{i}\in I} x_{i}}) } \rightarrow \sum_{|I|=m}{  H_{ \sum_{z_{i}} z_{i}}}  
+  \end{split}
+\end{equation*}
 
 %\begin{multicols*}{2}
 % \input{preamble}
