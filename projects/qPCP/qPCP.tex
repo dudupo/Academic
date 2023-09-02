@@ -252,17 +252,26 @@ Suppose that $\prb{\braket{\psi|H|\psi} \ge b } \le \delta $, So at most $\delta
   \end{split}
 \end{equation*}
 
+
 %\begin{multicols*}{2}
 % \input{preamble}
 % \input{introduction}
 
 \section{Exersices.}
-
 \begin{exercise}[Beasd on Free Games] Consider the following protocol, First we measure $k$ arbitrary qubits in the Fourier base, then we take only the bits measrued zero.. \ctt{somthing here is wrong.} 
 \end{exercise}
 
+\begin{definition}
+  BellQMA protocol is a QMA varition when the Arthur is restricted to perform only non adaptive and untangled measurments and classical computation. 
+\end{definition}
+
+\begin{claim}
+  There is a BellQMA protocol which, given a 3-SAT instance with $m$ clauses, uses $\Theta\left( \sqrt{m} \right)$ Merlines, each of them sends $~Q(\log m)$ quabits. The protocol has a completeness $ 1 - exp(-\Omega(\sqrt{m})) $ and soundness $ 1 - \Omega(1)$. 
+\end{claim}
 
 \printbibliography
+
+
 \end{document}
 
 
