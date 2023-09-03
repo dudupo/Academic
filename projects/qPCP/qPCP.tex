@@ -355,6 +355,17 @@ Bottom line, They shown that the entangled measurment is not necessary.
 
 \end{proof}
 
+\newpage
+\begin{definition}
+  Let $C$ a qaumtum circuit, and let $P : \mathcal{C} \times s  \rightarrow \mathcal{C}$ be a function which given a quantum circuit $C$ and a seed $s$ maps the circuit into another circuits. We will think about $P$ as a mapping ideal circuits to those which might run in the end. We will say that $C_{f}$ is a $P$-fault tolerece verision of $C$ if for any state such that $C\ket{\psi}$ measure $1$ with high probability, it holds that $P(C_{f},s)\ket{\psi}$ measure string $\bar{1}$ (on which we think as logical $1$) with high probability.  
+\end{definition}
+
+\begin{claim}
+ Let $C_{f} = U_{T}U_{T-1}..U_{0}$ be a fault tolereance circuit.
+\end{claim}
+
+
+
 
 \printbibliography
 
