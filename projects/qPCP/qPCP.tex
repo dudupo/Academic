@@ -264,10 +264,67 @@ Suppose that $\prb{\braket{\psi|H|\psi} \ge b } \le \delta $, So at most $\delta
 \begin{definition}
   BellQMA protocol is a QMA varition when the Arthur is restricted to perform only non adaptive and untangled measurments and classical computation. 
 \end{definition}
-
 \begin{claim}
   There is a BellQMA protocol which, given a 3-SAT instance with $m$ clauses, uses $\Theta\left( \sqrt{m} \right)$ Merlines, each of them sends $~Q(\log m)$ quabits. The protocol has a completeness $ 1 - exp(-\Omega(\sqrt{m})) $ and soundness $ 1 - \Omega(1)$. 
 \end{claim}
+Bottom line, They shown that the entangled measurment is not necessary.  
+
+\newpage
+
+\begin{definition}
+  Given state $\ket{\psi}$ over $n$ qubits. Let $\ket{\psi^{(i)}}$ be one qubit state defined as $\ket{\psi^{(i)}} = \left( \braket{0|\psi} \right)  \ket{0} + \left( \braket{1|\psi} \right)  \ket{1}$. In addition, define the state $\ket{\psi}^{-i}$ to be the state over $n-1$ qubits, obtained by tracing out the $i$th qubit. We will abuse the notation and denote by $\ket{\psi^{-i}} \otimes \ket{\psi^{(i)}}$ the results by stacking in the qubit of $\ket{\psi^{(i)}}$ in the $i$th position. 
+\end{definition}
+
+\begin{claim} \label{claim:noisyproof}
+  Denote by $H_{f}$ the $k$-local Hamiltonian obtained by applying Kitaev reduction on a fault tolerant circuit, with gap $b -a \ge 1/poly(n)$. And suppose there is a state $\ket{\psi}$ over $n$ qubits with energy lower than $a$. Than for any $i \in [n]$ it holds that 
+  \begin{equation*}
+    \begin{split}    
+  \braket{\ket{\psi^{-i}} \otimes \ket{\psi^{(i)}}|H_{f}|\ket{\psi^{-i}} \otimes \ket{\psi^{(i)}}} < a
+    \end{split}
+  \end{equation*}
+\end{claim}
+
+\begin{definition} \label{definition:denseHam}
+  Given $H_{f}$ Consider the Hamiltonian $H^{\prime}_{f}$ over $2n$ qubits defined by summing local terms $H_{j}$ such that either $H_{j}$ is a local term of $H_{f}$ or that there exist $H_{i}$ in $H_{f}$ such that $H_{i}$ equavilance to $H_{j}$ on $k-1$ nontrival coordinates, and in addition, let $l\in [n]$ be the $k$th nontrivial qubit been act by $H_{i}$ and denote the by $U$ the corresponding opereation applplied by it, namely $H_{i}^{(l)} = U$. Then $H_{j}^{(l + n} = U$. 
+\end{definition}
+
+\begin{claim}
+  If $H_{f}$ has $a,b$-gap, So is $H^{\prime}_{f}$. Furthmore $H^{\prime}_{f}$ has the same locality. 
+\end{claim}
+\begin{definition}
+  Let $H$ be a local Hamiltonian and consider the a qunbit $q$. Denote by $H(q)$ the set of the local terms in $H$ act nontrivially on $q$. Now we will define the $q,\zeta$-majority-term relative to $H$, $M[H,q,\zeta]$, to be the $k^{2}$ Hamiltonian defined by: 
+  \begin{equation*}
+    \braket{\psi|M[H,q,\zeta]|\psi} = \begin{cases}
+      \begin{split}
+        1 & \prbm{ \braket{\psi|H_{i}|\psi}}{H_{i} \sim H(q)} \ge \zeta \\
+        0 & \prbm{ \braket{\psi|H_{i}|\psi}}{H_{i} \sim H(q)} < \zeta 
+    \end{split}
+  \end{cases}
+  \end{equation*}
+\end{definition}
+
+\begin{claim}
+  There is a $f(k)$-time algorithm that compute $M[H,q,\zeta]$ where $f(k)$ is a function of $k$, namely doesn't depeand on $n$. 
+\end{claim}
+
+\begin{definition} \label{definition}  
+  Let $H$ be a $k$-local, Denote by $M[H, \zeta]$ the $\zeta$-majority Hamiltonian relative by $H$ to be: 
+  \begin{equation*}
+    \begin{split}
+      M[H,\zeta] = \sum_{q\in[n]}{ M[H,q,\zeta]} 
+    \end{split}
+  \end{equation*}
+\end{definition}
+
+\begin{claim}
+  There exist $\zeta$ such that $M[H,\zeta]$ is $k^{2}$ local Hamiltonian with $1\frac{1}{2}$ gap.   
+\end{claim}
+
+\begin{definition}
+  
+\end{definition}
+
+
 
 \printbibliography
 
