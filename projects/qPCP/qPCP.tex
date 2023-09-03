@@ -333,14 +333,15 @@ Bottom line, They shown that the entangled measurment is not necessary.
       & \le  \frac{ \exppm{ \braket{\psi|H_{i}|\psi} }{ H_{i} \sim H }  }{\zeta } \le \frac{a}{\zeta}
     \end{split}
   \end{equation*}
-  Frathmore consider the case in which for every state it holds that $\braket{\psi|H|\psi}\ge b$, and denote by $\alpha$ the portion of the qubits which see more than $\zeta k$ energy around them, then: 
+  Frathmore consider the case in which for every state it holds that $\braket{\psi|H|\psi}\ge b$, and denote by $\alpha$ the portion of the qubits which see lass than $\zeta k$ energy around them, then: 
 
   \begin{equation*}
     \begin{split}
     \braket{\psi|H|\psi}  & =  \frac{1}{m}\sum_{H_{i} \in H} {\braket{\psi|H_{i}|\psi} }  \\
     & = \frac{1}{m\cdot k}\sum_{q \in [n]}\sum_{H_{i} \in H(q)} {\braket{\psi|H_{i}|\psi} }  \\
     & = \frac{1}{n \cdot k_{2}}\sum_{q \in [n]}\sum_{H_{i} \in H(q)} {\braket{\psi|H_{i}|\psi} }  \\
-    & \ge \frac{1}{n \cdot k_{2}} \left( \alpha \zeta + (1-\alpha) \right)
+    & \le \frac{1}{n \cdot k_{2}} k_{2}\left( \alpha \zeta + (1-\alpha) \right) \\
+    & \Rightarrow \alpha(1-\zeta) \le b\cdot n - 1 
     \end{split}
   \end{equation*}
 
