@@ -382,15 +382,18 @@ Let $C = U_{T}U_{T-1}..U_{0}$ be a quantum circuit. We will name any Hamiltonian
       \rightarrow CC^{\dagger}CC^{\dagger}CC^{\dagger}C .. C^{\dagger}CC^{\dagger}CC^{\dagger}C  
     \end{split}
   \end{equation*}
-  Now, the local terms in the propagation Hamiltonian will be 
+  Now, any local terms in the propagation Hamiltonian will be at the form of: 
   \begin{equation*}
     \begin{split}
       I - \frac{1}{\Delta}  \left(  U_{i}\ket{t + 1 + 2T\cdot m^{\prime}}\bra{ t + 2T\cdot m} + U^{\dagger}_{t+1}\ket{t + 1 + 2T\cdot m}\bra{ t +1 + 2T\cdot m^{\prime}} \right)
     \end{split}
   \end{equation*}
-  where $\Delta$ is the degree of the vertex associated with $\ket{ t + 2T \cdot m }$ in the adjacency graph (where each time coordinate is associated with a vertex and two vertices are connected only if there is a check that verifies their consistency with each other).
+  where $\Delta$ is the degree of the vertex associated with $\ket{ t + 2T \cdot m }$ in the adjacency graph (where each time coordinate is associated with a vertex and two vertices are connected only if there is a check that verifies their consistency with each other). We choose the local terms such that the adjacency graph has uniform degree and $\Delta$ is a constant number.
 \end{definition}
 
+\begin{definition}
+  The $C$-hashed-Zigzag Hamiltonian will be the mixed of the two technics above. First we take generate a $C$-Zigzag circuit, denote it by $C^{\prime}$ with length $T^{\prime}$ and then we applay the hash reduction, but this time we also allow connection at the form $U_{i}\ket{t + 1 + 2T^{\prime}\cdot m^{\prime}}\bra{ t^{\prime} + 2T^{\prime}\cdot m}$ where the $U_{t}..U_{0} = U_{t^\prime}..U_{0}$ in $t^{\prime}$ (basically, in time $t^{\prime}$ we have returned to the state at time $t$). 
+\end{definition}
 
 
 
