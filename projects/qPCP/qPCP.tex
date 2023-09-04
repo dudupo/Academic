@@ -48,12 +48,72 @@
 %\end{itemize}
 %
 %
-
-\section{What we would like to have:}
-
 \newcommand{\Hin}{H_{\text{init}}}
   \newcommand{\Hpr}{H_{\text{prop}}}
 \newcommand{\Hen}{H_{\text{end}}}
+
+\section{Servel Hamiltonians Constructions.}
+
+\begin{definition} 
+Let $C = U_{T}U_{T-1}..U_{0}$ be a quantum circuit. We will name any Hamiltonian that can be obtained by the following random process as a $C$-hashed. First, we chain $C$ with itself $\Theta(T)$ times as follows:  
+  \begin{equation*}
+    \begin{split}
+      \rightarrow CC^{\dagger}CC^{\dagger}CC^{\dagger}C .. C^{\dagger}CC^{\dagger}CC^{\dagger}C  
+    \end{split}
+  \end{equation*}
+  Now, any local terms in the propagation Hamiltonian will be at the form of: 
+  \begin{equation*}
+    \begin{split}
+      I - \frac{1}{\Delta}  \left(  U_{i}\ket{t + 1 + 2T\cdot m^{\prime}}\bra{ t + 2T\cdot m} + U^{\dagger}_{i+1}\ket{t + 1 + 2T\cdot m}\bra{ t +1 + 2T\cdot m^{\prime}} \right)
+    \end{split}
+  \end{equation*}
+  where $\Delta$ is the degree of the vertex associated with $\ket{ t + 2T \cdot m }$ in the adjacency graph (where each time coordinate is associated with a vertex and two vertices are connected only if there is a check that verifies their consistency with each other). We choose the local terms such that the adjacency graph has uniform degree and $\Delta$ is a constant number.
+\end{definition}
+
+\begin{definition}
+  The $C$-hashed-Zigzag Hamiltonian will be the mixed of the two technics above. Given circuit $C$ we first generate a $C$-Zigzag circuit from it, denote it by $C^{\prime}$ with length $T^{\prime}$ and then we applay the hash reduction, but this time we also allow connection at the form:
+  \begin{equation*}
+    \begin{split}
+      U_{i}\ket{t + 1 + 2T^{\prime}\cdot m^{\prime}}\bra{ t^{\prime} + 2T^{\prime}\cdot m}
+    \end{split}
+  \end{equation*}
+  where the $U_{t}..U_{0} = U_{t^\prime}..U_{0}$ in $C^{\prime}$ (basically, in time $t^{\prime}$ we have returned to the state at time $t$). 
+\end{definition}
+
+\begin{definition}
+  We will say that the following Hamiltonian is a $C$-multilayers if it can be obtained by the follow process. For a given graph $G$, any local term in $\Hpr$ will have the following form:  
+  \begin{equation*}
+    \begin{split}
+      I -  \frac{1}{\Delta} \left( U_{i}\ket{u,t + 1}\bra{v,t} +   U_{i+1}^{\dagger} \ket{v,t}\bra{u,t+1}\right)
+    \end{split}
+  \end{equation*}
+  Where $v,u$ are connected vertices in $G$. In some sanse, any pair of adjoint layers (belongs to consective time step) are perform 'expander graph' (Yet, the total expansion of the obtained graph is still low).
+\end{definition}
+
+\begin{definition}
+  Let $C$ a qaumtum circuit, and let $P : \mathcal{C} \times s  \rightarrow \mathcal{C}$ be a function which given a quantum circuit $C$ and a seed $s$ maps the circuit into another circuits. We will think about $P$ as a mapping ideal circuits to those which might run in the end. We will say that $C_{f}$ is a $P$-fault tolerece verision of $C$ if for any state such that $C\ket{\psi}$ measure $1$ with high probability, it holds that $P(C_{f},s)\ket{\psi}$ measure string $\bar{1}$ (on which we think as logical $1$) with high probability.  
+\end{definition}
+
+\begin{claim}
+  Let $C_{f} = U_{T}U_{T-1}..U_{0}$ be a $P$-fault tolereance circuit verision of circuit $C$. Than for any $t < T$ it holds that:    
+  \begin{equation*}
+    \begin{split}
+      || P\left(U_{1}^{\dagger} U_{2}^{\dagger}.. U_{t}^{\dagger} ,s \right) P\left(U_{t}.. U_{2} U_{1}, s^{\prime}\right) - I  ||_{op} < 1/poly(T)
+    \end{split}
+  \end{equation*}
+\end{claim}
+
+
+\begin{definition} 
+Let $C = U_{T}U_{T-1} \dots U_{0}$ be a quantum circuit. Denote by $Z(C)$ the random variable circuit that is obtained by the following random process: $Z(C)$ is the chain of $X_{S}X_{S-1} \dots X_{0}$ such that $X_{0}=U_{0}$, $X_{S}=U_{T}$ and $X_{i}$ is defined recursively. If $X_{i-1} = U_{j}$ for $j>0$, then $X_{i}$ is chosen uniformly from  $\{ U_{j+1}, U_{j}^{\dagger} \}$. We will call any circuit that can be a result of such a process a $C$-Zigzag.
+\end{definition}
+
+
+
+
+\section{What we would like to have:}
+
+
 %
 %Consider the LPS expnader on $n$ veritces and denote $ t \sim l $ if $t$ is adjoint to $l$. Let $M_\Delta \in \mathbb{C}^{n \times n}$ be the matrix defined by the product:
 %\begin{equation*}
@@ -354,63 +414,6 @@ Bottom line, They shown that the entangled measurment is not necessary.
  
 
 \end{proof}
-
-\newpage
-\begin{definition}
-  Let $C$ a qaumtum circuit, and let $P : \mathcal{C} \times s  \rightarrow \mathcal{C}$ be a function which given a quantum circuit $C$ and a seed $s$ maps the circuit into another circuits. We will think about $P$ as a mapping ideal circuits to those which might run in the end. We will say that $C_{f}$ is a $P$-fault tolerece verision of $C$ if for any state such that $C\ket{\psi}$ measure $1$ with high probability, it holds that $P(C_{f},s)\ket{\psi}$ measure string $\bar{1}$ (on which we think as logical $1$) with high probability.  
-\end{definition}
-
-\begin{claim}
-  Let $C_{f} = U_{T}U_{T-1}..U_{0}$ be a $P$-fault tolereance circuit verision of circuit $C$. Than for any $t < T$ it holds that:    
-  \begin{equation*}
-    \begin{split}
-      || P\left(U_{1}^{\dagger} U_{2}^{\dagger}.. U_{t}^{\dagger} ,s \right) P\left(U_{t}.. U_{2} U_{1}, s^{\prime}\right) - I  ||_{op} < 1/poly(T)
-    \end{split}
-  \end{equation*}
-\end{claim}
-
-
-\begin{definition} 
-Let $C = U_{T}U_{T-1} \dots U_{0}$ be a quantum circuit. Denote by $Z(C)$ the random variable circuit that is obtained by the following random process: $Z(C)$ is the chain of $X_{S}X_{S-1} \dots X_{0}$ such that $X_{0}=U_{0}$, $X_{S}=U_{T}$ and $X_{i}$ is defined recursively. If $X_{i-1} = U_{j}$ for $j>0$, then $X_{i}$ is chosen uniformly from  $\{ U_{j+1}, U_{j}^{\dagger} \}$. We will call any circuit that can be a result of such a process a $C$-Zigzag.
-\end{definition}
-
-
-\begin{definition} 
-Let $C = U_{T}U_{T-1}..U_{0}$ be a quantum circuit. We will name any Hamiltonian that can be obtained by the following random process as a $C$-hashed. First, we chain $C$ with itself $\Theta(T)$ times as follows:  
-  \begin{equation*}
-    \begin{split}
-      \rightarrow CC^{\dagger}CC^{\dagger}CC^{\dagger}C .. C^{\dagger}CC^{\dagger}CC^{\dagger}C  
-    \end{split}
-  \end{equation*}
-  Now, any local terms in the propagation Hamiltonian will be at the form of: 
-  \begin{equation*}
-    \begin{split}
-      I - \frac{1}{\Delta}  \left(  U_{i}\ket{t + 1 + 2T\cdot m^{\prime}}\bra{ t + 2T\cdot m} + U^{\dagger}_{i+1}\ket{t + 1 + 2T\cdot m}\bra{ t +1 + 2T\cdot m^{\prime}} \right)
-    \end{split}
-  \end{equation*}
-  where $\Delta$ is the degree of the vertex associated with $\ket{ t + 2T \cdot m }$ in the adjacency graph (where each time coordinate is associated with a vertex and two vertices are connected only if there is a check that verifies their consistency with each other). We choose the local terms such that the adjacency graph has uniform degree and $\Delta$ is a constant number.
-\end{definition}
-
-\begin{definition}
-  The $C$-hashed-Zigzag Hamiltonian will be the mixed of the two technics above. Given circuit $C$ we first generate a $C$-Zigzag circuit from it, denote it by $C^{\prime}$ with length $T^{\prime}$ and then we applay the hash reduction, but this time we also allow connection at the form:
-  \begin{equation*}
-    \begin{split}
-      U_{i}\ket{t + 1 + 2T^{\prime}\cdot m^{\prime}}\bra{ t^{\prime} + 2T^{\prime}\cdot m}
-    \end{split}
-  \end{equation*}
-  where the $U_{t}..U_{0} = U_{t^\prime}..U_{0}$ in $C^{\prime}$ (basically, in time $t^{\prime}$ we have returned to the state at time $t$). 
-\end{definition}
-
-\begin{definition}
-  We will say that the following Hamiltonian is a $C$-multilayers if it can be obtained by the follow process. For a given graph $G$, any local term in $\Hpr$ will have the following form:  
-  \begin{equation*}
-    \begin{split}
-      I -  \frac{1}{\Delta} \left( U_{i}\ket{u,t + 1}\bra{v,t} +   U_{i+1}^{\dagger} \ket{v,t}\bra{u,t+1}\right)
-    \end{split}
-  \end{equation*}
-  Where $v,u$ are connected vertices in $G$. In some sanse, any pair of adjoint layers (belongs to consective time step) are perform 'expnder graph' (Yet, the total expension of the obtained graph is still low).
-\end{definition}
-
 
 \printbibliography
 
