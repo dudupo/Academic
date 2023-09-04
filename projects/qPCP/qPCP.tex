@@ -376,7 +376,19 @@ Bottom line, They shown that the entangled measurment is not necessary.
 
 
 \begin{definition}
-  
+  Let $C = U_{T}U_{T-1}..U_{0}$ be a quantum circuit. We will name any Hamiltonian that can be obtained by the following random process as a $C$-hashed. First, we chaing $C$ by himself $\Theta(T)$ as follow:  
+  \begin{equation*}
+    \begin{split}
+      \rightarrow CC^{\dagger}CC^{\dagger}CC^{\dagger}C .. C^{\dagger}CC^{\dagger}CC^{\dagger}C  
+    \end{split}
+  \end{equation*}
+  Now local term in the propgation Hamiltonian will be 
+  \begin{equation*}
+    \begin{split}
+      I - \frac{1}{\Delta}  \left(  U_{i}\ket{t + 1 + 2T\cdot m^{\prime}}\bra{ t + 2T\cdot m} + U^{\dagger}_{t+1}\ket{t + 1 + 2T\cdot m}\bra{ t +1 + 2T\cdot m^{\prime}} \right)
+    \end{split}
+  \end{equation*}
+  When $\Delta$ is the degree of vertex assosicated with $\ket{ t + 2T \cdot m }$ in the adjececity graph (where each time cordinated is associated with a vertex and tow vertices are connected only if there is a check that checks their consist with each other).   
 \end{definition}
 
 
