@@ -55,6 +55,10 @@
 \section{Servel Hamiltonians Constructions.}
 
 \begin{definition} 
+Let $C = U_{T}U_{T-1} \dots U_{0}$ be a quantum circuit. Denote by $Z(C)$ the random variable circuit that is obtained by the following random process: $Z(C)$ is the chain of $X_{S}X_{S-1} \dots X_{0}$ such that $X_{0}=U_{0}$, $X_{S}=U_{T}$ and $X_{i}$ is defined recursively. If $X_{i-1} = U_{j}$ for $j>0$, then $X_{i}$ is chosen uniformly from  $\{ U_{j+1}, U_{j}^{\dagger} \}$. We will call any circuit that can be a result of such a process a $C$-Zigzag.
+\end{definition}
+
+\begin{definition} 
 Let $C = U_{T}U_{T-1}..U_{0}$ be a quantum circuit. We will name any Hamiltonian that can be obtained by the following random process as a $C$-hashed. First, we chain $C$ with itself $\Theta(T)$ times as follows:  
   \begin{equation*}
     \begin{split}
@@ -102,13 +106,6 @@ Let $C = U_{T}U_{T-1}..U_{0}$ be a quantum circuit. We will name any Hamiltonian
     \end{split}
   \end{equation*}
 \end{claim}
-
-
-\begin{definition} 
-Let $C = U_{T}U_{T-1} \dots U_{0}$ be a quantum circuit. Denote by $Z(C)$ the random variable circuit that is obtained by the following random process: $Z(C)$ is the chain of $X_{S}X_{S-1} \dots X_{0}$ such that $X_{0}=U_{0}$, $X_{S}=U_{T}$ and $X_{i}$ is defined recursively. If $X_{i-1} = U_{j}$ for $j>0$, then $X_{i}$ is chosen uniformly from  $\{ U_{j+1}, U_{j}^{\dagger} \}$. We will call any circuit that can be a result of such a process a $C$-Zigzag.
-\end{definition}
-
-
 
 
 \section{What we would like to have:}
