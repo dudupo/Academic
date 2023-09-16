@@ -1,0 +1,83 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+  \documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass{article}
+  \input{./usepackage}
+  \addbibresource{./sample.bib} 
+
+\fi
+
+\begin{document}
+\input{newcommands}
+\title{State Synthesis Using PRS.} 
+\author{David Ponarovsky}
+
+\begin{abstract}
+  We studies the complexity of synthesis quantum states using PRS, our reasch continues the work by \cite{searchtodecision}, \cite{rosenthal2023efficient}, \cite{rosenthal2021interactive}, \cite{metger2023stateqip}, \cite{delavenne2023quantum}.
+\end{abstract}
+
+\begin{claim}
+  Let $G$ be a PRS generator, than one can assume that $G$ takes as input two register, the first contains $n$ ancille qubits initiliazied to $\ket{0}$ and the seconed contain a classic string initiliezed to be the seed $k$. 
+\end{claim}
+
+\begin{claim}
+  Let $G : \ket{0}^{n} \otimes \mathbb{F}_{2}^{k} \rightarrow \{ \ket{\psi_{k}} \}_{k \in \mathcal{K}}$ be a PRS generator uses $n$- ancilles and $k$ classicl bits. Then for any unitery $V: \mathcal{H}_{n} \rightarrow \mathcal{H}_{n}$ it holds that $(V \otimes I^{\otimes k} ) G$ is also a PRS.
+\end{claim}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{claim}[Levis Lemma for PRS]
+  Let $f : \mathcal{H} \rightarrow R$ be a \textbf{BQP}-computible fuction on the $n$-qubits hilbert space, and let $g: (0,1) \rightarrow \mathbb{R} $ a function such that:     
+  \begin{equation*}
+    \begin{split}
+      \prbm{f\left(\ket{\psi} \right) > \varepsilon}{ \ket{\psi} \sim U} < g(\varepsilon)
+    \end{split}
+  \end{equation*}
+  Then, a similar inequality also holds for states sampled by the PRS, when the probability for the measure $f$-value grater than $\varepsilon$ is bounded by $g(2\varepsilon)$. Namely,  
+\begin{equation*}
+    \begin{split}
+      \prbm{f\left(\ket{\psi} \right) > \varepsilon}{ \ket{\psi} \sim \ket{\psi_{k}} } < g(2\varepsilon)
+    \end{split}
+  \end{equation*}
+  In praticular, Levi's lemma has a version that capture consetration of states sampled by PRS generator, states the following: Assume there exsists $K$ such that for any $\ket{\psi},\ket{\phi} \in \mathcal{S}(\mathbb{C}^{d})$ $|f(\ket{\psi}) - f(\ket{\phi})| < K | \ket{\psi} - \ket{\phi}|$. Then there exsists a universal constant $C > 0$ such: 
+\begin{equation*}
+    \begin{split}
+      \prbm{ |f\left(\ket{\psi} \right) - \exppm{f\left(\ket{\phi}\right)}{\ket{\phi} \sim U}| > \varepsilon}{ \ket{\psi} \sim \ket{\psi_{k}} } < exp\left(-\frac{Cd}{K^{2}}  4\varepsilon^{2} \right)
+    \end{split}
+  \end{equation*}
+\end{claim}
+
+\begin{proof}
+  
+\end{proof}
+
+\begin{claim}
+  Probablisitc counting argument and $\varepsilon$-net over PRS. 
+\end{claim}
+
+\begin{claim}
+  exsistness of poly($n$) gates $G_{1}, G_{2} ..$ such that, any $G_{i}$ has a polynomial depth, $\braket{p(G_{i})|\tau} > a$ and $\braket{\tau^{\perp}|p(G_{j})}\braket{p(G_{i})|\tau^{\perp}} < b$ for any $i\neq j$. 
+\end{claim}
+\begin{proof}
+  
+\end{proof}
+\begin{claim}
+ bla bla bla 
+\end{claim}
+
+\printbibliography
+\end{document}
+
+
+
+
+
