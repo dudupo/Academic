@@ -24,8 +24,11 @@
   We studies the complexity of synthesis quantum states using PRS, our reasch continues the work by \cite{searchtodecision}, \cite{rosenthal2023efficient}, \cite{rosenthal2021interactive}, \cite{metger2023stateqip}, \cite{delavenne2023quantum}.
 \end{abstract}
 
+\begin{definition}[The keeping setting] Let $R^{A}\otimes R^{B}$ be a general two registers domain. We define the \textbf{keeping setting} to let one construct quntum/classical circuits\footnote{On which we think as a canidate for PRS/PRF/PRG generator.} $G : R^{A}\otimes R^{B} \rightarrow R^{A} \otimes R^{B}$ such that it is gurnted that the register $R^{B}$ cann't be acssed after the computation.   
+\end{definition}
+
 \begin{claim}
-  Let $G$ be a PRS generator, than one can assume that $G$ takes as input two register, the first contains $n$ ancille qubits initiliazied to $\ket{0}$ and the seconed contain a classic string initiliezed to be the seed $k$. 
+  Let $G$ be a PRS generator, than under the the keeping setting one can assume that $G$ takes as input two register, the first contains $n$ ancille qubits initiliazied to $\ket{0}$ and the seconed contain a classic string initiliezed to be the seed $k$.  
 \end{claim}
 
 \begin{claim}
