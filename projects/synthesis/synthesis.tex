@@ -24,6 +24,20 @@
   We studies the complexity of synthesis quantum states using PRS, our reasch continues the work by \cite{searchtodecision}, \cite{rosenthal2023efficient}, \cite{rosenthal2021interactive}, \cite{metger2023stateqip}, \cite{delavenne2023quantum}.
 \end{abstract}
 
+\begin{definition}[Pseudorandom Quantum states] Let $\mathcal{H}$, $\mathcal{K}$ be the Hilbert and the key spaces, their diminsions depeand on a security paramter $n$. A state famliy $\{\ket{\psi_{k}}\}_{k\in \mathcal{K}}$ is a pseudiorandom, if the following hold:
+  \begin{enumerate}
+    \item Efficient generation. There is a polynomial-time quantum algorithm $G$ that generates state $\ket{\psi_{k}}$ on input $k$. 
+    \item Pseudorandomness. Any polynomially many copies of $\ket{\phi_{k}}$ with the same random $k\in K$ is computationaly indistinguishable from the same number of copies of the Haar random state. 
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}[Pseudorandom Unitary Operators] A famliy of unitary operators $\{ U_{k} \in U(\mathcal{H}) \}_{k \in \mathcal{K}}$ is pseudorandom, if two conditions hold: 
+  \begin{enumerate}
+    \item Efficient computation. There is an efficient quantum algorithm $Q$, such that for all $k$ and any $\ket{\psi} \in \mathcal{H}$ $Q(k,\ket{\psi}) = U_{k}\ket{\psi}$. 
+    \item Pseudorandomness. The uniform random distribution on $U_{k}$ is computationally in distinguishable from a Haar random unitary operator. 
+  \end{enumerate} 
+\end{definition}
+
 \begin{definition}[The keeping setting] Let $R^{A}\otimes R^{B}$ be a general two registers domain. We define the \textbf{keeping setting} to let one construct quntum/classical circuits\footnote{On which we think as a canidate for PRS/PRF/PRG generator.} $G : R^{A}\otimes R^{B} \rightarrow R^{A} \otimes R^{B}$ such that it is gurnted that the register $R^{B}$ cann't be acssed after the computation.   
 \end{definition}
 
