@@ -24,7 +24,7 @@
   We studies the complexity of synthesis quantum states using PRS, our reasch continues the work by \cite{searchtodecision}, \cite{rosenthal2023efficient}, \cite{rosenthal2021interactive}, \cite{metger2023stateqip}, \cite{delavenne2023quantum}.
 \end{abstract}
 
-\section{Pseudorandomness}
+\section{Pseudorandomness.}
 
 \begin{definition}[Pseudorandom Quantum states] Let $\mathcal{H}$, $\mathcal{K}$ be the Hilbert and the key spaces, their diminsions depeand on a security paramter $n$. A state famliy $\{\ket{\psi_{k}}\}_{k\in \mathcal{K}}$ is a pseudiorandom, if the following hold:
   \begin{enumerate}
@@ -100,6 +100,21 @@
 \begin{definition}
   $\varepsilon$-bised test $2$-degree for testing RPU/RPS. $f(\braket{x_{j}|G_{s}|\theta}) = 1$ For example ask if $\braket{\psi_{j^{\prime}}\tau^{\perp}}\braket{\tau^{\perp}|\psi_{j}}$ what I can say about that quantenty as polynomail?. 
 \end{definition}
+
+\section{What We Need for Synthesis.}
+
+\begin{definition}[Pseudorandom Unitary for Synthesis] A famliy of unitary operators $\{ U_{k} \in U(\mathcal{H}) \}_{k \in \mathcal{K}}$ is pseudorandom for synthesis, if two conditions hold: 
+  \begin{enumerate}
+    \item Efficient computation. There is an efficient quantum algorithm $Q$, such that for all $k$ and any $\ket{\psi} \in \mathcal{H}$ $Q(k,\ket{\psi}) = U_{k}\ket{\psi}$. 
+    \item Pseudorandomness for synthesis. Given a state $\ket{\tau}$ and polynomial number of samples $U_{1},U_{2}..U_{m}$. Then: 
+      \begin{enumerate}
+        \item $|\braket{\varphi(\tau,U_{k})|U_{k}\tau}|^{2} > a$
+        \item $|\braket{\Varphi(\tau,U_{k})|U_{k}\tau^{\perp}}\braket{\tau^{\perp}U^{\dagger}_{j}|\Varphi(\tau,U_{j})}|^{2} > b$
+      \end{enumerate}
+      The uniform random distribution on $U_{k}$ is computationally in distinguishable from a Haar random unitary operator. 
+  \end{enumerate} 
+\end{definition}
+
 
 
 \printbibliography
