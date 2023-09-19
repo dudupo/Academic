@@ -121,12 +121,20 @@ What about, Assume that $U$ is a quantum circuit such that $\log n$ qubits are i
 
 approximate the absoulte value function, For example, you can consider the binomial expansion of $\sqrt{1-y}$ on $[0,1]$. Namely, setting $y=1-x^2$, we have $|x|=\sqrt{1-y}=\sum_{m=0}^{\infty}\binom{1/2}{m}(-y)^m, \quad x\in[-1,1]$. That will allow me to bound the $k$-design. 
 
-
-% \exppm{ <++>  }{ U \sim D }
+Denote by $q_{d}(x)$ the $d$-order approximation of $|x|$, Namely $q_{d}(x) = \sum_{m=0}^{d}\binom{1/2}{m}(-1)^m\left( 1 - x^{2} \right)^{m}$ and as the series is convergres to any $x \in (-1,1)$ we have that $|x| = q_{d}(x) + O( \binom{1/2}{d}(1-x^{2})^d )$ which by the fact that $1- x^{2} \in (-1,1)$ can be simpllified to $|x| = q_{d}(x) + O( \binom{1/2}{d})$.
+Now for $d$ even we can even simplify more to have: 
+\begin{equation*}
+  \begin{split}
+    \binom{1/2}{d} & = \frac{\frac{1}{2} - i}{ i } = \frac{1}{2}\frac{1- 2i}{ i }  \\
+   & =  -\frac{1}{2}\frac{ 2i - 1 }{ i } = -\frac{1}{2}\frac{2i (2i - 1) }{2i\cdot i } = 2^{-2d}\frac{2d!}{d!d!}
+  \end{split}
+\end{equation*}
+% \exppm{   }{ U \sim D }
 \begin{equation*}
   \begin{split}
   \exppm{ ( \braket{\Phi(\tau,U)|\Rea U\tau} )^{2}  }{ U \sim D } & =  \exppm{  \frac{1}{2^{n/2}}\sum_{x}(-1)^{\sign(\Rea \braket{x|U\tau})}\Rea \braket{x|x}\braket{x|U\tau}  }{ U \sim D } \\
-& = \exppm{ \frac{1}{2^{n/2}}\sum_{x}|\Rea \braket{x|U\tau}|  }{ U \sim D }
+& = \exppm{ \frac{1}{2^{n/2}}\sum_{x}|\Rea \braket{x|U\tau}|  }{ U \sim D } \\
+& \ge \exppm{ \frac{1}{2^{n/2}}\sum_{x}|\Rea \braket{x|U\tau}|  }{ U \sim D } 
   \end{split}
 \end{equation*}
 
