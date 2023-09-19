@@ -124,7 +124,8 @@ approximate the absoulte value function, For example, you can consider the binom
 Denote by $q_{d}(x)$ the $d$-order approximation of $|x|$, Namely 
 \begin{equation*}
   \begin{split}
-q_{d}(x) = \sum_{m=0}^{d}\binom{1/2}{m}(-1)^m\left( 1 - x^{2} \right)^{m}
+q_{d}(x) &= \sum_{m=0}^{d}\binom{1/2}{m}(-1)^m\left( 1 - x^{2} \right)^{m}
+%&= \sum_{m=0}^{d}\sum_{n=0}^{m}\binom{1/2}{n}(-1)^n\left( 1 - x^{2} \right)^{m}\\
   \end{split}
 \end{equation*}
 and as the series is convergres to any $x \in (-1,1)$ we have that $|x| = q_{d}(x) + O( \binom{1/2}{d}(1-x^{2})^d )$ which by the fact that $1- x^{2} \in (-1,1)$ can be simpllified to $|x| = q_{d}(x) + O( \binom{1/2}{d}) = q_{d}(x) + O( 1/d^{1 +1/2})$.
