@@ -135,7 +135,8 @@ and as the series is convergres to any $x \in (-1,1)$ we have that $|x| = q_{d}(
   \begin{split}
   \exppm{ ( \braket{\Phi(\tau,U)|\Rea U\tau} )^{2}  }{ U \sim D } & =  \exppm{  \frac{1}{2^{n/2}}\sum_{x}(-1)^{\sign(\Rea \braket{x|U\tau})}\Rea \braket{x|x}\braket{x|U\tau}  }{ U \sim D } \\
 & = \exppm{ \frac{1}{2^{n/2}}\sum_{x}|\Rea \braket{x|U\tau}|  }{ U \sim D } \\
-& \ge \exppm{ \frac{1}{2^{n/2}}\sum_{x}\sqrt{ 1 - \Ima \left(\braket{x|U\tau}|\right)^2 }  }{ U \sim D } 
+& = \exppm{ \sum_{x}|\Rea \braket{x|U\tau} / 2^{n/2}|  }{ U \sim D } \\
+& \ge \exppm{  \sum_{x} q_{d}\left( \Ima \braket{x|U\tau}| / 2^{n/2}  \right) + \binom{\frac{1}{2}}{d} \left(\frac{ | \Ima \braket{x|U\tau}| }{2^{n/2}}\right)^{d}}{ U \sim D } 
   \end{split}
 \end{equation*}
 
