@@ -168,6 +168,11 @@ and as the series is convergres to any $x \in (-1,1)$ we have that $|x| = q_{d}(
 
 \begin{equation*}
   \begin{split}
+    |\braket{\Phi(\tau,U)|U\phi}|^2 = | \braket{\Phi(\tau, U)|\Rea U\phi}|^2 | + \braket{\Phi(\tau,U)|\Ima U\phi}|^2 
+  \end{split}
+\end{equation*}
+\begin{equation*}
+  \begin{split}
     \braket{\Phi(\tau,U_{k})|MU_{k}\phi} & = \sum_{x}{ \left( -1 \right)^{\sign M\left( \braket{x|U\tau} \right) } \frac{1}{2^{n/2}} \braket{x|U\phi} }\\
     & = \sum_{ \tau,\phi \text{ agree on } x}{ | \frac{1}{2^{n/2}}M \left( \braket{x|U\phi} \right)| } - \sum_{ \tau,\phi \text{ disagree on } x}{  | \frac{1}{2^{n/2}}M \left( \braket{x|U\phi} \right)| }  \\
     & \approx \sum_{ \tau,\phi \text{ agree on } x}{ q_{d} \left(\frac{1}{2^{n/2}}\bar{M} \left( \braket{x|U\phi} \right) \right) } - \sum_{ \tau,\phi \text{ disagree on } x}{  q_{d}\left( \frac{1}{2^{n/2}}\bar{M} \left( \braket{x|U\phi} \right) \right) }  \pm 2^{n}\zeta_{d}\left(\frac{1}{2^{n/2}} \right) 
@@ -178,6 +183,7 @@ noitce that we obtained a $d$-degree polinomial, denote it by $T_{\phi}$.
   \begin{split}
     | \braket{\Phi(\tau,U)|MU\phi} |  \approx & q_{d^{\prime}}\left( \braket{\Phi(\tau,U)|U\phi} \right) + \zeta_{d^{\prime}}\left( \braket{\Phi(\tau,U)|U\phi} \right) \\
 \approx & q_{d^{\prime}}\left( \braket{\Phi(\tau,U)|U\phi} \right) + \zeta_{d^{\prime}}\left( \braket{\Phi(\tau,U)|U\phi} \right)\\
+\approx & q_{d^{\prime}}\left(  T_{\phi}\right) + \zeta_{d^{\prime}}\left( T_{\phi} \right)
 \approx & q_{d^{\prime}}\left(  T_{\phi}\right) + \zeta_{d^{\prime}}\left( T_{\phi} \right)
   \end{split}
 \end{equation*}
