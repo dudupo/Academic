@@ -202,10 +202,18 @@ Assume that our $k$-design collection is defined such that for any $\ket{\varphi
   \begin{equation*}
     \begin{split}
       tr\left( U^{\prime}V^{\prime,\dagger} \right)  = & tr\left( (-1)^{f(x)}\ket{x}\bra{x}UV^{\dagger} (-1)^{f(x)}\ket{x}\bra{x} \right) \\ 
-  = & tr\left( (-1)^{f(y)}\ket{y}\bra{y}(-1)^{f(x)}\ket{x}\bra{x}UV^{\dagger} \right) = tr(UV^{\dagger}) 
+  = & tr\left( (-1)^{f(y)}\ket{y}\bra{y}(-1)^{f(x)}\ket{x}\bra{x}UV^{\dagger} \right) = tr(UV^{\dagger}) = 
+    \end{split}
+  \end{equation*}
+  So, we get that:
+  \begin{equation*}
+    \begin{split}
+      \frac{1}{|X|^{\prime, 2}}\sum_{U,V\in X^{\prime}}{ |tr(UV^{\dagger} )|^{2t} } & =  \frac{1}{|X|^{2}}\sum_{U,V\in X}{ |tr(UV^{\dagger} )|^{2t} }\\
+      & = \int{ |tr(U)|^{2t} dU} 
     \end{split}
   \end{equation*}
 \end{proof}
+
 
 
 \begin{claim}
