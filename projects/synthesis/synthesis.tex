@@ -168,8 +168,9 @@ and as the series is convergres to any $x \in (-1,1)$ we have that $|x| = q_{d}(
 
 \begin{equation*}
   \begin{split}
-    \braket{\Phi(\tau,U_{k})|U_{k}\phi} & = \sum_{x}{ \left( -1 \right)^{\sign M\left( \braket{x|U\tau} \right) } \braket{x|U\phi} }\\
-    & = \sum_{ \tau,\phi \text{ agree on } x}{ | M \left( \braket{x|U\phi} \right)| } - \sum_{ \tau,\phi \text{ disagree on } x}{  | M \left( \braket{x|U\phi} \right)| }  
+    \braket{\Phi(\tau,U_{k})|U_{k}\phi} & = \sum_{x}{ \left( -1 \right)^{\sign M\left( \braket{x|U\tau} \right) } \frac{1}{2^{n/2}} \braket{x|U\phi} }\\
+    & = \sum_{ \tau,\phi \text{ agree on } x}{ | \frac{1}{2^{n/2}}M \left( \braket{x|U\phi} \right)| } - \sum_{ \tau,\phi \text{ disagree on } x}{  | \frac{1}{2^{n/2}}M \left( \braket{x|U\phi} \right)| }  \\
+    & = \sum_{ \tau,\phi \text{ agree on } x}{ q_{d} \left(\frac{1}{2^{n/2}}\bar{M} \left( \braket{x|U\phi} \right) \right) } - \sum_{ \tau,\phi \text{ disagree on } x}{  q_{d}\left( \frac{1}{2^{n/2}}\bar{M} \left( \braket{x|U\phi} \right) \right) }  \pm 2^{n}\zeta_{d}\left(\frac{1}{2^{n/2}} \right) 
   \end{split}
 \end{equation*}
 
