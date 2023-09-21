@@ -231,7 +231,8 @@ Ok the tactics is going to be the follow, we need the $k$-design property only f
     \begin{split}
        \braket{\Phi(\tau,V) V^{\dagger}|\psi} = & \frac{1}{2^{n/2}}\sum_{x} (-1)^{\sign( \Rea \braket{x|V|\tau})}\braket{x |V \psi} \\
        = & \frac{1}{2^{n/2}}\sum_{x} (-1)^{ f(x) + \sign( \Rea \braket{x|V|\tau})}\braket{x |V^{\prime} \psi} \\
-       \Rightarrow\braket{\Phi(\tau,V) V^{\dagger}|\psi}\braket{\psi|U\Phi(\tau,U) } = &\frac{1}{2^{n}}\sum_{x,x^{\prime}} (-1)^{ g(x^{\prime})+f(x) + \sign( \Rea \braket{x|V|\tau})+\sign( \Rea \braket{x^{\prime}|U|\tau})}\braket{x |V^{\prime} \psi} \braket{x |U^{\prime} \psi} 
+       \Rightarrow\braket{\Phi(\tau,V) V^{\dagger}|\psi}\braket{\psi|U\Phi(\tau,U) } = &\frac{1}{2^{n}}\sum_{x,x^{\prime}} (-1)^{ g(x^{\prime})+f(x) + \sign( \Rea \braket{x|V|\tau})+\sign( \Rea \braket{x^{\prime}|U|\tau})}\braket{x |V^{\prime} \psi} \cdot \\
+       & \ \ \ \ \braket{x |U^{\prime} \psi} 
     \end{split}
   \end{equation*}
 
