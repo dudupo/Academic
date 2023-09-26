@@ -89,10 +89,4 @@ try:
 except:
  _st_.goboom(83)
 _st_.blockend()
-_st_.current_tex_line = 149
-_st_.blockbegin()
-try:
-except:
- _st_.goboom(149)
-_st_.blockend()
 _st_.endofdoc()
