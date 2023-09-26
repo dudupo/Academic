@@ -95,14 +95,4 @@ try:
 except:
  _st_.goboom(149)
 _st_.blockend()
-try:
- _st_.current_tex_line = 149
- _st_.inline(0, graphs_tex)
-except:
- _st_.goboom(149)
-try:
- _st_.current_tex_line = 149
- _st_.inline(1, graphs_tex_2)
-except:
- _st_.goboom(149)
 _st_.endofdoc()

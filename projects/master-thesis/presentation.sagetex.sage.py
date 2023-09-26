@@ -100,15 +100,5 @@ try:
 except:
  _st_.goboom(_sage_const_149 )
 _st_.blockend()
-try:
- _st_.current_tex_line = _sage_const_149 
- _st_.inline(_sage_const_0 , graphs_tex)
-except:
- _st_.goboom(_sage_const_149 )
-try:
- _st_.current_tex_line = _sage_const_149 
- _st_.inline(_sage_const_1 , graphs_tex_2)
-except:
- _st_.goboom(_sage_const_149 )
 _st_.endofdoc()
 
