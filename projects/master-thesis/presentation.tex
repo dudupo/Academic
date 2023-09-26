@@ -59,6 +59,8 @@
     \end{columns}
   \end{frame}
 }
+\usepackage{sagetex}
+\input{sageutil.py}
 
 
 \usetheme[progressbar=frametitle]{metropolis}
@@ -93,6 +95,58 @@
     \item<3->Good Classical Locally Testabile Code.
   \end{itemize} 
 \end{frame}
+
+\begin{frame}
+\begin{sagesilent}
+   
+ggs = peter_graphs()
+ff = cycle_graph()
+for gg in ggs:
+  gg.set_latex_options(
+          edge_label_sloped = False,
+          edge_labels=True,
+          edge_thickness=0.005,
+          vertex_labels=False,
+          vertex_size= 0.01,
+          format='dot2tex',
+          prog='crico',
+          graphic_size=(7,7),
+          edge_fills=False,
+      )
+ff.set_latex_options(
+          edge_label_sloped = False,
+          edge_labels=True,
+          edge_thickness=0.005,
+          vertex_labels=False,
+          vertex_size= 0.01,
+          format='dot2tex',
+          prog='crico',
+          graphic_size=(30,8),
+          edge_fills=False,
+      )
+ 
+ops = [ gg.latex_options() for gg in ggs ] 
+ops2 = ff.latex_options()
+
+graphs_tex =  ' \ \ \ '.join([  str(op.tkz_picture())  for op in ops[:3 ]])
+graphs_tex_2 = ' \ \ \ \ \ ' +  ' \ \ \ '.join([  str(op.tkz_picture())  for op in ops[3:]])
+graphs_tex_ff  = str(ops2.tkz_picture())
+\end{sagesilent}
+
+\begin{center}
+  \begin{figure}[h]
+    \scalebox{0.65}{
+      \sagestr{graphs_tex} 
+    } 
+    \scalebox{0.65}{
+      \sagestr{graphs_tex_2}
+   }
+  \caption{Peterson Graph.} 
+  \label{fig:pet}
+\end{figure}
+\end{center}
+
+\end{frame} 
 
 
 %\psls{BUS.}{0.3}{../source/Pic/1-out.png}{
