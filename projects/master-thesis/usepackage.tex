@@ -1,6 +1,10 @@
 %\usepackage{courier}
 \usepackage[utf8]{inputenc}
+\ifdefined \bookflag
+  \usepackage[a4paper, marginparwidth=100pt, total={5in, 9in}]{geometry}
+\else
 \usepackage[a4paper, total={6in, 9in}]{geometry}
+\fi
 \usepackage{braket}
 \usepackage{xcolor}
 \usepackage{amsmath}
@@ -60,7 +64,7 @@
 \mynewtheoremstar{theorem*}{Theorem}
 \mynewtheorem{lemma}{Lemma}
 \mynewtheorem{conjecture}{Conjecture}
-\mynewtheorem{exersice}{Exersice}
+\mynewtheorem{exercise}{Exercise}
 \mynewtheorem{solution}{Solution}
 \mynewtheorem{openproblem}{Open problem}
 \crefname{lemma}{Lemma}{Lemmas}
@@ -74,5 +78,6 @@
 \crefname{problem}{Problem}{Problems}
 
 \DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\Rea}{Re}
 \DeclareMathOperator{\rank}{rank}
-
+\DeclareMathOperator{\sign}{sign}
