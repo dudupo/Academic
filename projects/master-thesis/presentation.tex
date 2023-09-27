@@ -105,7 +105,7 @@
   \begin{tikzpicture}
     \node[name=b, bob,monitor,minimum size=1cm,xshift=-7.2cm]{};
     \node[name= a, alice,monitor, mirrored,minimum size=1cm]{};
-    \draw[ -> ] (b.mouth) to (a.mouth);
+    \draw[ -> ] (b.mouth) + (4,0) to (a.mouth);
   \end{tikzpicture}
 \end{center}
 
