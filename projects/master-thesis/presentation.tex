@@ -162,7 +162,54 @@
 \end{frame} 
 
 \begin{frame}
-  \frametitle{ Coding. }
+  \frametitle{ Quantum Error Correction Codes. }
+  \begin{center}
+    \begin{figure}[H]
+  \begin{tikzpicture}
+  \draw[step=1cm,gray,very thin] (0,0) grid (5,5);
+  \foreach \x in {0,1,2,3,4,5}
+  \foreach \y in {0,1,2,3,4,5}
+  {
+  \node[draw,circle,inner sep=2pt,fill] at (\x,\y) {};
+}
+\draw[ -> ]  (0,0) to [out=50, in=130] (0,5);
+\draw[ -> ]  (1,0) to [out=50, in=130] (1,5);
+\draw[ -> ]  (2,0) to [out=50, in=130] (2,5);
+\draw[ -> ]  (3,0) to [out=50, in=130] (3,5);
+\draw[ -> ]  (4,0) to [out=50, in=130] (4,5);
+\draw[ -> ]  (5,0) to [out=50, in=130] (5,5);
+\draw[ -> ]  (0,5) to [out=130, in=220] (5,5);
+\draw[ -> ]  (0,4) to [out=130, in=220] (5,4);
+\draw[ -> ]  (0,3) to [out=130, in=220] (5,3);
+\draw[ -> ]  (0,2) to [out=130, in=220] (5,2);
+\draw[ -> ]  (0,1) to [out=130, in=220] (5,1);
+\draw[ -> ]  (0,0) to [out=130, in=220] (5,0);
+
+\node[draw,circle,inner sep=2pt,fill] at (9,2) {};
+\node[draw,circle,inner sep=2pt,fill] at (10,2) {};
+\node[draw,circle,inner sep=2pt,fill] at (8,2) {};
+\node[draw,circle,inner sep=2pt,fill] at (9,1) {};
+\node[draw,circle,inner sep=2pt,fill] at (9,3) {};
+\draw[ -> ]  (9,2) to (10,2);
+\draw[ -> ]  (9,2) to (8,2);
+\draw[ -> ]  (9,2) to (9,1);
+\draw[ -> ]  (9,2) to (9,3);
+%\draw[ -> ]  (9,2) to (5,0);
+
+\node[draw,circle,inner sep=2pt,fill] at (10,1) {};
+\node[draw,circle,inner sep=2pt,fill] at (11,1) {};
+\node[draw,circle,inner sep=2pt,fill] at (10,0) {};
+\node[draw,circle,inner sep=2pt,fill] at (11,0) {};
+\draw[ -> ]  (10,1) to (11,1);
+\draw[ -> ]  (10,1) to (10,0);
+\draw[ -> ]  (10,0) to (11,0);
+\draw[ -> ]  (11,1) to (11,0);
+\end{tikzpicture}
+\caption{On the left is the Toric Graph. On the right are cross and face checks.}
+\label{fig:Toric}
+\end{figure}
+\end{center}
+
 \end{frame} 
 
 \begin{frame}
