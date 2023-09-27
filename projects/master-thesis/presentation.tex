@@ -103,8 +103,9 @@
   \frametitle{ Coding. }
   \begin{center}
   \begin{tikzpicture}
-    \node[bob,monitor,minimum size=1cm,xshift=-7.2cm]{};
+    \node[name=a, bob,monitor,minimum size=1cm,xshift=-7.2cm]{};
     \node[alice,monitor, mirrored,minimum size=1cm]{};
+    \node[ellipse callout, draw,yshift= .3cm,callout absolute pointer={(a.mouth)}, font=\tiny] {Hey!};
   \end{tikzpicture}
 \end{center}
 
