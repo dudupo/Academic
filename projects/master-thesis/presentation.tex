@@ -61,6 +61,7 @@
     \end{columns}
   \end{frame}
 }
+\input{newcommands.tex}
 \usepackage{sagetex}
 %\usepackage{libertine}
 %\usepackage{emerald}
@@ -299,6 +300,10 @@
 
 \begin{frame}
   \frametitle{ Quantum Error Correction Codes. }
+\begin{definition}[$w$-Robustness] 
+  \label{def:wrobust}
+  Let $C_{A}$ and $C_{B}$ be codes of length $\Delta$ with minimum distance $\delta_{0}\Delta$. $C = \duC $ will be said to be $w$-robust if for any codeword $c \in C$ of weight less than $w$, it follows that $c$ can be decomposed into a sum of $c = t + s$ such that $t \in C_A \otimes \mathbb{F}^{B}$ and $s \in \mathbb{F}^A \otimes C_B$, where $s$ and $t$ are each supported on at most $\frac{w}{\delta_0\Delta}$ rows and columns. For convenience, we will denote by $B'$ ($A'$) the rows (columns) supporting $t$ ($s$) and use the notation $t \in C_A \otimes \mathbb{F}^{B'}$.
+\end{definition}
 \end{frame} 
 
 \begin{frame}
