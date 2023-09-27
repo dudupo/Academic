@@ -4,6 +4,7 @@
 \usepackage{braket}
 \usepackage{amsfonts}
 \usepackage{tikz}
+\usepackage{tkz-graph}
 \usepackage{tikzpeople}
 \usepackage{adjustbox}
 \usepackage{subcaption}
@@ -142,6 +143,90 @@
   We will say that a family of codes is a \textbf{good code} if its parameters converge into positive values. 
   \end{definition}
 \end{frame} 
+
+\begin{frame}
+  \frametitle{ Coding. }
+\begin{tikzpicture}
+\definecolor{cv0}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv0}{rgb}{1.0,1.0,1.0}
+\definecolor{cv1}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv1}{rgb}{1.0,1.0,1.0}
+\definecolor{cv2}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv2}{rgb}{1.0,1.0,1.0}
+\definecolor{cv3}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv3}{rgb}{1.0,1.0,1.0}
+\definecolor{cv4}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv4}{rgb}{1.0,1.0,1.0}
+\definecolor{cv5}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv5}{rgb}{1.0,1.0,1.0}
+\definecolor{cv6}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv6}{rgb}{1.0,1.0,1.0}
+\definecolor{cv7}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv7}{rgb}{1.0,1.0,1.0}
+\definecolor{cv8}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv8}{rgb}{1.0,1.0,1.0}
+\definecolor{cv9}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv9}{rgb}{1.0,1.0,1.0}
+\definecolor{cv0v1}{rgb}{0.0,0.0,0.0}
+\definecolor{clv0v1}{rgb}{0.0,0.0,0.0}
+\definecolor{cv0v4}{rgb}{0.0,0.0,0.0}
+\definecolor{clv0v4}{rgb}{0.0,0.0,0.0}
+\definecolor{cv0v5}{rgb}{0.0,0.0,0.0}
+\definecolor{clv0v5}{rgb}{0.0,0.0,0.0}
+\definecolor{cv1v2}{rgb}{0.0,0.0,0.0}
+\definecolor{clv1v2}{rgb}{0.0,0.0,0.0}
+\definecolor{cv1v6}{rgb}{0.0,0.0,0.0}
+\definecolor{clv1v6}{rgb}{0.0,0.0,0.0}
+\definecolor{cv2v3}{rgb}{0.0,0.0,0.0}
+\definecolor{clv2v3}{rgb}{0.0,0.0,0.0}
+\definecolor{cv2v7}{rgb}{0.0,0.0,0.0}
+\definecolor{clv2v7}{rgb}{0.0,0.0,0.0}
+\definecolor{cv3v4}{rgb}{0.0,0.0,0.0}
+\definecolor{clv3v4}{rgb}{0.0,0.0,0.0}
+\definecolor{cv3v8}{rgb}{0.0,0.0,0.0}
+\definecolor{clv3v8}{rgb}{0.0,0.0,0.0}
+\definecolor{cv4v9}{rgb}{0.0,0.0,0.0}
+\definecolor{clv4v9}{rgb}{0.0,0.0,0.0}
+\definecolor{cv5v7}{rgb}{0.0,0.0,0.0}
+\definecolor{clv5v7}{rgb}{0.0,0.0,0.0}
+\definecolor{cv5v8}{rgb}{0.0,0.0,0.0}
+\definecolor{clv5v8}{rgb}{0.0,0.0,0.0}
+\definecolor{cv6v8}{rgb}{0.0,0.0,0.0}
+\definecolor{clv6v8}{rgb}{0.0,0.0,0.0}
+\definecolor{cv6v9}{rgb}{0.0,0.0,0.0}
+\definecolor{clv6v9}{rgb}{0.0,0.0,0.0}
+\definecolor{cv7v9}{rgb}{0.0,0.0,0.0}
+\definecolor{clv7v9}{rgb}{0.0,0.0,0.0}
+%
+\Vertex[style={minimum size=0.01cm,draw=cv0,fill=cfv0,shape=circle},NoLabel,x=3.5cm,y=7.0cm]{v0}
+\Vertex[style={minimum size=0.01cm,draw=cv1,fill=cfv1,shape=circle},NoLabel,x=0.0cm,y=4.3262cm]{v1}
+\Vertex[style={minimum size=0.01cm,draw=cv2,fill=cfv2,shape=circle},NoLabel,x=1.3369cm,y=0.0cm]{v2}
+\Vertex[style={minimum size=0.01cm,draw=cv3,fill=cfv3,shape=circle},NoLabel,x=5.6631cm,y=0.0cm]{v3}
+\Vertex[style={minimum size=0.01cm,draw=cv4,fill=cfv4,shape=circle},NoLabel,x=7.0cm,y=4.3262cm]{v4}
+\Vertex[style={minimum size=0.01cm,draw=cv5,fill=cfv5,shape=circle},NoLabel,x=3.5cm,y=5.0652cm]{v5}
+\Vertex[style={minimum size=0.01cm,draw=cv6,fill=cfv6,shape=circle},NoLabel,x=1.75cm,y=3.7284cm]{v6}
+\Vertex[style={minimum size=0.01cm,draw=cv7,fill=cfv7,shape=circle},NoLabel,x=2.4184cm,y=1.5652cm]{v7}
+\Vertex[style={minimum size=0.01cm,draw=cv8,fill=cfv8,shape=circle},NoLabel,x=4.5816cm,y=1.5652cm]{v8}
+\Vertex[style={minimum size=0.01cm,draw=cv9,fill=cfv9,shape=circle},NoLabel,x=5.25cm,y=3.7284cm]{v9}
+%
+\Edge[lw=0.005cm,style={color=cv0v1,},labelstyle={pos=0.5,text=clv0v1,},label=\hbox{$0$},](v0)(v1)
+\Edge[lw=0.005cm,style={color=cv0v4,},labelstyle={pos=0.5,text=clv0v4,},label=\hbox{$1$},](v0)(v4)
+\Edge[lw=0.005cm,style={color=cv0v5,},labelstyle={pos=0.5,text=clv0v5,},label=\hbox{$1$},](v0)(v5)
+\Edge[lw=0.005cm,style={color=cv1v2,},labelstyle={pos=0.5,text=clv1v2,},label=\hbox{$0$},](v1)(v2)
+\Edge[lw=0.005cm,style={color=cv1v6,},labelstyle={pos=0.5,text=clv1v6,},label=\hbox{$0$},](v1)(v6)
+\Edge[lw=0.005cm,style={color=cv2v3,},labelstyle={pos=0.5,text=clv2v3,},label=\hbox{$1$},](v2)(v3)
+\Edge[lw=0.005cm,style={color=cv2v7,},labelstyle={pos=0.5,text=clv2v7,},label=\hbox{$1$},](v2)(v7)
+\Edge[lw=0.005cm,style={color=cv3v4,},labelstyle={pos=0.5,text=clv3v4,},label=\hbox{$0$},](v3)(v4)
+\Edge[lw=0.005cm,style={color=cv3v8,},labelstyle={pos=0.5,text=clv3v8,},label=\hbox{$1$},](v3)(v8)
+\Edge[lw=0.005cm,style={color=cv4v9,},labelstyle={pos=0.5,text=clv4v9,},label=\hbox{$1$},](v4)(v9)
+\Edge[lw=0.005cm,style={color=cv5v7,},labelstyle={pos=0.5,text=clv5v7,},label=\hbox{$0$},](v5)(v7)
+\Edge[lw=0.005cm,style={color=cv5v8,},labelstyle={pos=0.5,text=clv5v8,},label=\hbox{$1$},](v5)(v8)
+\Edge[lw=0.005cm,style={color=cv6v8,},labelstyle={pos=0.5,text=clv6v8,},label=\hbox{$0$},](v6)(v8)
+\Edge[lw=0.005cm,style={color=cv6v9,},labelstyle={pos=0.5,text=clv6v9,},label=\hbox{$0$},](v6)(v9)
+\Edge[lw=0.005cm,style={color=cv7v9,},labelstyle={pos=0.5,text=clv7v9,},label=\hbox{$1$},](v7)(v9)
+%
+\end{tikzpicture}
+\end{frame}
 
 
 \begin{frame}
