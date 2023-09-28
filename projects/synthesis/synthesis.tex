@@ -301,7 +301,9 @@ suppose that for any $\ket{\psi^{(k)}_{i}}$, $\ket{\psi^{(k)}_{j}}$ it holds tha
 So 
 \begin{equation*}
   \begin{split}
-  |\braket{\psi^{(k+1)}_{i}|\psi^{(k+1)}_{t}}| &= | \frac{ \bra{\psi^{(k)}_{i}}\bra{\psi^{(k)}_{j}}+\bra{\psi^{(k)}_{j}}\bra{\psi^{(k)}_{i}} }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}}|^2 } \cdot \frac{ \ket{\psi^{(k)}_{t}}\ket{\psi^{(k)}_{s}}+\ket{\psi^{(k)}_{s}}\ket{\psi^{(k)}_{t}} }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{t}|\psi^{(k)}_{s}}}|^2 } |
+  |\braket{\psi^{(k+1)}_{i}|\psi^{(k+1)}_{t}}| =& | \frac{ \bra{\psi^{(k)}_{i}}\bra{\psi^{(k)}_{j}}+\bra{\psi^{(k)}_{j}}\bra{\psi^{(k)}_{i}} }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}}|^2 } \cdot \frac{ \ket{\psi^{(k)}_{t}}\ket{\psi^{(k)}_{s}}+\ket{\psi^{(k)}_{s}}\ket{\psi^{(k)}_{t}} }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{t}|\psi^{(k)}_{s}}}|^2 } | \\
+  \le & \frac{1}{2+2exp(-2n)}\cdot \sum_{\{v,u\} = \{i,j\},\{v^{\prime},u^{\prime}\} = \{t,s\}}{ |\braket{\psi^{(k)}_{v}|\psi^{(k)}_{v^{\prime}}} \braket{\psi^{(k)}_{u}|\psi^{(k)}_{u^{\prime}}}|} \\ 
+  \le &\frac{1}{2+2exp(-2n)} \cdot 4 exp(-2n)
   \end{split}
 \end{equation*}
 
