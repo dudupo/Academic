@@ -1,4 +1,3 @@
-
 " do stuff you want to do on every buffer enter event
 
 " guard to end loading if it has been loaded for the currently edited file
@@ -15,10 +14,13 @@ endif
 
 " do stuff you want to do only once for a running vim instance
 
+call IMAP('>>', '\ket{<++>}<++>', 'tex')
+call IMAP('<<', '\bra{<++>}<++>', 'tex')
+call IMAP('<>', '\braket{<++>|<++>|<++>}<++>', 'tex')
 call IMAP('`1s', '\ket{\psi<++>}<++>'  	,"tex")
 call IMAP('`1b', '\bra{<++>}<++>'	,"tex")
-call IMAP('->',  '\Rightarrow'		,"tex")
-call IMAP('<-',  '\Leftarrow'		,"tex")
+call IMAP('->',  '\rightarrow'		,"tex")
+call IMAP('<-',  '\leftarrow'		,"tex")
 call IMAP('expp',  '\expp{<++>}<++>'		,"tex")
 call IMAP('prbb',  '\prb{<++>}<++>'		,"tex")
 call IMAP('1/2',  '\frac{1}{2}'		,"tex")
@@ -28,8 +30,55 @@ call IMAP('1/5',  '\frac{1}{5}'		,"tex")
 call IMAP('1/6',  '\frac{1}{6}'		,"tex")
 " call IMAP('<<', '&\le', 		'"tex")
 call IMAP('dff', "\\begin{definition}\n<++>\n\\end{definition}", "tex")
+call IMAP('prff', "\\begin{proof}\n<++>\n\\end{proof}", "tex")
+call IMAP('claimm', "\\begin{claim}\n<++>\n\\end{claim}", "tex")
+call IMAP('remarkk', "\\begin{remark}\n<++>\n\\end{remark}", "tex")
+call IMAP("'mea", "measurment ", "tex")
+call IMAP("'Ha", "Hamiltonian ", "tex")
+call IMAP('`fun', "function! g:GPT()\n\t return 0\nendfunction \ncommand! GPT call GPT()", "vim") 
+call IMAP("'y", "\\ket{\\psi^{(i)}}", "tex")
+call IMAP(">ki", "\\psi^{(k)}_{i}", "tex")
+call IMAP(">kj", "\\psi^{(k)}_{j}", "tex")
+
+
+
+
+function! g:GPTde()
+  let l:AIPrompt = "AI Fix grammar and misspelling errors, and then reformulate" 
+  exe '/\\begin{definition}\zs/+,/\ze\\end{definition}/-' . AIPrompt
+  return 0
+endfunction
+command! GPTde call GPTde()
+function! g:GPTcl()
+  let l:AIPrompt = "AI Fix grammar and misspelling errors, and then reformulate" 
+  exe '/\\begin{claim}\zs/+,/\ze\\end{claim}/-' . AIPrompt
+  return 0
+endfunction
+command! GPTcl call GPTcl()
+
+function! g:GPTpr()
+  let l:AIPrompt = "AI Fix grammar and misspelling errors, and then reformulate" 
+  exe '/\\begin{proof}\zs/+,/\ze\\end{proof}/-' . AIPrompt
+  return 0
+endfunction
+command! GPTpr call GPTpr()
+
 
 call AutoCorrect()
+
+" duplicate current math statement and paste in the end of the line. 
+function! g:DuplicateMath()
+  execute "normal!F$vf$y$pF$"
+  return 0
+endfunction 
+command! Dup call DuplicateMath()
+
+
+function! g:SplitEqu()
+  execute "normal! o\\end{split}\<cr>\\end{equation*}\<cr>\\begin{equation*}\<cr>\\begin{split}\<cr>"
+return 0
+endfunction
+command! SplitEqu call SplitEqu()
 
 function! g:Equ()
   execute "normal! o\\begin{equation*}\<cr>\\begin{split}\<cr><++>\<cr>\\end{split}\<cr>\\end{equation*}<++>" 
@@ -99,5 +148,25 @@ function! g:Afor()
   return 0
 endfunction 
 command! Afor call Afor()
+
+nnoremap 1 A <esc>p
+
+function! MySplit( fname )
+  let bufnum=bufnr(expand(a:fname))
+  let winnum=bufwinnr(bufnum)
+  if winnum != -1
+    " Jump to existing split
+  else
+    " Make new split as usual
+    exe "split " . a:fname
+    exe "set syntax=vim"
+    exe "resize -15"
+    exe "winc p"
+    "exe "set lines=20"
+  endif
+endfunction
+
+call MySplit('~/workspace/academic/.lvimrc')
+
 
 
