@@ -119,9 +119,11 @@
 
 
   \draw (12,6) node { Future. };
-  \draw (12,5) node { ''We understand quantum complexity''. };
-  \draw (12,4.5) node { \alt<3>{BQP ? QMA}{BQP (P) ? QMA (NP)} ? PSPACE. };
-  
+  \alt<4>{ 
+    \draw (12,5) node { ''We understand quantum complexity''. };
+    \draw (12,4.5) node { ''as well as we understand classical complexity''. };
+}{\draw (12,5) node { ''We understand quantum complexity''. };}
+  \draw (12,4) node { \alt<3>{BQP (P) ? QMA (NP)}{BQP ? QMA}? PSPACE. }; 
   \uncover<2->{\draw (6,6) node { Future. };}
   \draw (3,6) node { Future. };
 
