@@ -74,8 +74,10 @@ Observe that because $C_X/C_Z^{\perp} \subset C_X/C_Z^{\prime \perp}$, we have a
     =& \frac{1}{\sqrt{2}}\left( \ket{\mathbf{x}} + \ket{\mathbf{x} + h^{\prime}} \right)
   \end{split}
 \end{equation*}
-Where $h'$ is the check that was removed from $H_Z$ to obtain $C_Z^{\prime}$. Now let us give a quantum circuit that acts non-trivially on no more than a constant number of qubits and with probability $\frac{1}{2}$ transforms $\ket{\mathbf{x}}$ to $\ket{\mathbf{x'}}$. So first we prepare an ancilla in the $\ket{+}$ state, then controlled on its value we add $h'$. After that, we rotate back the ancilla by applying $H$ (Hadamard) again and measuring, with probability $\frac{1}{2}$ we measure $\ket{0}$ and the remaining qubits hold the state $\ket{\mathbf{x'}}$. As $h'$ is also a check of the LDPC code $C_Z$, it has a constant weight and thus all the circuit touches a constant number of qubits. Therefore, the operator which transforms $\ket{\mathbf{x}}$ into $\ket{\mathbf{x'}}$ is supported only on Paulis with constant degree.     
-\end{proof}
+Where $h'$ is the check that was removed from $H_Z$ to obtain $C_Z^{\prime}$. Now let us give a quantum circuit that acts non-trivially on no more than a constant number of qubits and with probability $\frac{1}{2}$ transforms $\ket{\mathbf{x}}$ to $\ket{\mathbf{x'}}$. So first we prepare an ancilla in the $\ket{+}$ state, then controlled on its value we add $h'$. After that, we rotate back the ancilla by applying $H$ (Hadamard) again and measuring.
+
+With probability $\frac{1}{2}$ we measure $\ket{0}$ and the remaining qubits hold the state $\ket{\mathbf{x'}}$. As $h'$ is also a check of the LDPC code $C_Z$, it has a constant weight and thus all the circuit touches a constant number of qubits. Therefore, the operator which transforms $\ket{\mathbf{x}}$ into $\ket{\mathbf{x'}}$ is supported only on Paulis with constant degree.     
+\end{proof}  
 
 %\begin{multicols*}{2}
 % \input{preamble}
