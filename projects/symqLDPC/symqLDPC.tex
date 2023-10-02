@@ -63,14 +63,14 @@ First, notice that any of the rows of $H_Z^{\prime}$ commute with the rows of $H
 Using the fact that the generator matrix of the dual of any binary code is the transposed parity check matrix of it, the above becomes:
 \begin{equation*}
   \begin{split}
-    \ket{\mathbf{x}} = \sum_{z \in \mathbb{F}_2^s}{\ket{x + H_Z^{\perp \prime}z}}
+    \ket{\mathbf{x}} = \sum_{z \in \mathbb{F}_2^s}{\ket{x + H_Z^{\top \prime}z}}
   \end{split}
 \end{equation*}
 Observe that because $C_X/C_Z^{\perp} \subset C_X/C_Z^{\prime \perp}$, we have also that the following state is in $C_X/C_Z^{\perp \prime}$:
 \begin{equation*}
   \begin{split} 
-    \ket{\mathbf{x'}} = & \sum_{z \in \mathbb{F}_2^{s+1}}{\ket{x + H_Z^{\perp}z}} \\
-    =& \sum_{w \in \mathbb{F}_2}\sum_{z \in \mathbb{F}_2^s}{\ket{x + H_Z^{\perp \prime}z + h'w  }} \\ 
+    \ket{\mathbf{x'}} = & \sum_{z \in \mathbb{F}_2^{s+1}}{\ket{x + H_Z^{\top}z}} \\
+    =& \sum_{w \in \mathbb{F}_2}\sum_{z \in \mathbb{F}_2^s}{\ket{x + H_Z^{\top \prime}z + h'w  }} \\ 
     =& \frac{1}{\sqrt{2}}\left( \ket{\mathbf{x}} + \ket{\mathbf{x} + h^{\prime}} \right)
   \end{split}
 \end{equation*}
