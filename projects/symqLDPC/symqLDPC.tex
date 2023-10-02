@@ -1,0 +1,61 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+  \documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass{article}
+  \input{./usepackage}
+  \addbibresource{./sample.bib} 
+
+\fi
+
+\begin{document}
+
+\input{newcommands}
+
+\title{Another reason that makes finding good qLDPC an hard task.} 
+\author{David Ponarovsky}
+  \maketitle
+  
+  \begin{claim}
+    Let $C_{X}/C_{Z}^{\perp}$ be CSS a qLDPC code with non constant distance. Denote by $H_{X},H_{Z}$ their parity check matrices and by $C_{Z}^{\prime},H_{Z}^{\prime}$ the code and the parity check matrix obtaind by removing one arbitrary check form $H_{Z}$. Then $C_{X}/C_{Z}^{\perp \prime}$ is a CSS pair with constant distance.    
+  \end{claim}
+  \begin{proof}
+    First notice that any of the rows of $H_{Z}^{\prime}$ commute with the rows of $H_{X}$, so we defently obtain a CSS code with higher rate. Seconed any codeword of the quantum code $C_{X}/C_{Z}^{\perp, \prime}$ has the form  
+    \begin{equation*}
+      \begin{split}
+        \ket{ \mathbf{x} } = \sum_{z \in C_{Z}^{\perp, \prime}}{\ket{ x + z}}
+      \end{split}
+    \end{equation*}
+    Using the fact that the generator matrix of the dual of any binary code is the transposed parity check matrix of it, the above become:
+\begin{equation*}
+      \begin{split}
+        \ket{ \mathbf{x} } = \sum_{z \in \mathbb{F}_{2}^{s}}{\ket{ x + H_{Z}^{\perp, prime} z}}
+      \end{split}
+    \end{equation*}
+Observe that because $C_{X}/C_{Z}^{\perp} \subset  C_{X}/C_{Z}^{\prime, \perp}$ we have also that the following state is in $C_{X}/C_{Z}^{\perp, \prime}$:
+\begin{equation*}
+  \begin{split} 
+    \ket{ \mathbf{x^{\prime}} } = & \sum_{z \in \mathbb{F}_{2}^{s+1}}{\ket{ x + H_{Z}^{\perp} z}} \\
+      =&  \sim_{w \in \mathbb{F}_{2}}\sum_{z \in \mathbb{F}_{2}^{s}}{\ket{ x + H_{Z}^{\perp, prime} z + h^{\prime} w  }}
+  \end{split}
+\end{equation*}
+Where $h^{\prime}$ is the check that removed form $H_{Z}$ to obtain $C_{Z}^{\prime}$. Now let us give an quantum circuit act non-trivaliy on no more than constant qubits and with probability $\frac{1}{2}$ transform $\ket{\mathbf{x}}$ to $ \ket{\mathbf{x}^{\prime}}$. So first we prapre ancila in the $\ket{+}$ state, then controlled on it's value we add $h^{\prime}$. After that we rotate back the ancila by applaing $H$ (Hadamard) again and measuring, with probability $\frac{1}{2}$ we measure $\ket{0}$ and the remaining qubits hold the state $\ket{\mathbf{x}^{\prime}}$. As $h^{\prime}$ is also a check of the LDPC code $C_{Z}$ it has a constant weight and thus all the circuit toach a constant number of qubits. Therfore the operator which transform $\ket{\mathbf{x}}$ into $\ket{\mathbf{x}^{\prime}}$ is supported only on paulis with constanst degree.     
+  \end{proof}
+
+
+%\begin{multicols*}{2}
+% \input{preamble}
+
+\printbibliography
+\end{document}
+
+
+
+
+
