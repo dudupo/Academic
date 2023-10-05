@@ -188,8 +188,8 @@
     \node[name= a, alice,monitor, mirrored,minimum size=1cm]{};
     \node (C) at (-2,0) {};
     \draw[ -> ] (b.mouth) + (1,0) to (C)  ; 
-    \uncover<2->{ \alt<3->{ \node (D) at (-4,1) { $1\textcolor{red}{1}0101$ } ; }{\node (D) at (-4,1) { $110101$ } ; } }
-    \uncover<4->{ \node (D) at (-3.4,1.5) { $1\textcolor{red}{1}0101 110101$ } ; } 
+    \uncover<2->{ \alt<3->{ \node (D) at (-4,1) { $1\textcolor{red}{0}0101$ } ; }{\node (D) at (-4,1) { $110101$ } ; } }
+    \uncover<4->{ \node (D) at (-3.4,1.5) { $1\textcolor{red}{0}0101 1\textcolor{red}{1}0101$ } ; } 
     %\uncover<2->{\node (D) at (-4,1) { $110101$ } ;  
   \end{tikzpicture}
 \end{center}
