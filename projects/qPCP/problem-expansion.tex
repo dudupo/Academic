@@ -51,6 +51,26 @@ Let $G=(L, R_{0}\cup R_{1}, E)$ be bipartite graph. We think about the $R_{i}$ v
   \end{enumerate}
 \end{claim}
 
+\section{Idea.}
+Just connect $R$ to $L^{\prime}$ such the graph $(R,L^{\prime})$ is expander. And then we get for $S \subset R$:
+\begin{equation*}
+  \begin{split}
+    \Gamma^{\prime}(S) & \ge \Gamma^{(1)}(S) +\Gamma^{(2)}(S) \ge \alpha\Delta|S| + \beta|S| \\
+    & \ge \min \left( \alpha,\beta \right)\left( \Delta + 1 \right)|S|
+  \end{split}
+\end{equation*}
+And for the left expansion $T = T_{1}\cup T_{2}$ such that $T_{1}\subset L$ and $T_{2} \subset L^{\prime}$. 
+\begin{equation*}
+  \begin{split}
+    \Gamma\left( T \right) & =    \Gamma\left( T_{1} \right) +  \Gamma\left( T_{2} \right) -  \Gamma\left( T_{1} \right) \cap  \Gamma\left( T_{2} \right) \\
+    & \ge \Gamma^{(1)}(T_{1}) ,  \Gamma^{(2)}(T_{2})\rightarrow \frac{1}{2}\left(\Gamma^{(1)}(T_{1}) +  \Gamma^{(2)}(T_{2})\right) \\ 
+    & \ge \frac{1}{2}\min(\gamma,\rho) \Delta |T|
+  \end{split}
+\end{equation*}
+
+
+
+%Pick $S_{1},S_{2} \in R$ (each at size grater than $\xi$). if $|\Gamma(S_{1})|/|S_{1}| \ge (1+\delta)|\Gamma(S_{2})|/|S_{2}|$ then switch the (\ctt{We need to think exactly how?} ) such that one edge of 
 
 \printbibliography
 
