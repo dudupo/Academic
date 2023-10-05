@@ -1,0 +1,63 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+  \documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass{article}
+  \input{./usepackage}
+  \addbibresource{./sample.bib} 
+
+\fi
+
+\begin{document}
+
+\input{newcommands}
+
+\title{Problem} 
+%\author{David Ponarovsky}
+%\author{Noa Viner, David Ponarovsky}
+
+\ifdefined\ACM
+  \affiliation{%
+    \institution{The Th{\o}rv{\"a}ld Group}
+    \streetaddress{1 Th{\o}rv{\"a}ld Circle}
+    \city{Hekla}
+  \country{Iceland}}
+  \email{larst@affiliation.org}
+\else
+  \maketitle
+\fi
+%\input{abstract}
+\ifdefined\ACM
+  \maketitle
+\fi
+
+
+\section{Problem.}
+
+Let $G=(L, R_{0}\cup R_{1}, E)$ be bipartite graph. We think about the $R_{i}$ vertices as the vertics that should applay 'logical-gate' $X_{i}$ and a 'fake-gate' $X_{\bar{i}}$. Now let $L^{\prime}$ be additional vertices set at size $\Theta\left( |L| \right)$. 
+
+\begin{claim}
+  There is a way to connect $R_{0},R_{1}$ to $L^{\prime}$ such that: 
+  \begin{enumerate}
+    \item Any vertex of $R$ is connected by exactly single edge to $L^{\prime}$. 
+    \item (Strong.) The obtained graph is expnder. (Weak.) The expnasion of the new graph is not far way form the expnasion of the original graph.
+    \item (Computinal.) The reduction takes polynomial time.   
+  \end{enumerate}
+\end{claim}
+
+
+\printbibliography
+
+
+\end{document}
+
+
+
+
+
