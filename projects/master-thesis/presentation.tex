@@ -217,6 +217,57 @@
 
 
 \begin{frame}
+  \frametitle{Coding.} 
+  
+    Another example, the repttion code can be thought as the tanner graph defind by the parity code on the cyle graph.
+    \begin{columns}[t]
+      \begin{column}{0.4\textwidth}
+    \begin{center}
+      \scalebox{0.6}{
+    \input{~/workspace/academic/projects/NLTES_project/ltc_ldpc/network2-cycle.tex} 
+  }
+  \end{center}
+\end{column}
+\begin{column}{0.25\textwidth}
+\begin{equation*}
+    \begin{split}
+     \overbrace{ 
+      \begin{bmatrix}
+        1 & 1
+      \end{bmatrix}
+    }^{ \text{ parity check matrix of } C_{0} }
+    % \mathbb{F}_{2}^{1 \times 2} 
+  \end{split}
+\end{equation*}
+\begin{center}
+\begin{tikzpicture}
+    \draw (0,0) circle (6pt);
+    \draw[ - ]  (0,0) to (1,1); 
+    \draw[ - ]  (0,0) to (1,-1); 
+    %\uncover<2->{\node (D) at (-4,1) { $110101$ } ;  
+  \end{tikzpicture}
+\end{center}
+\end{column}
+\begin{column}{0.35\textwidth}
+  \begin{equation*}
+    \begin{split}
+      \overbrace{ 
+      \begin{bmatrix}
+1 & 1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 1 & 0 \\ 
+0 & 0 & 0 & 0 & 1 & 1 \\
+1 & 0 & 0 & 0 & 0 & 1 
+ \end{bmatrix}
+ }^{  \substack{ \text{ Parity check matrix of } \mathcal{T} \left( \Gamma, C_{0} \right) \\ \text{  Each row associated with vertex check. }} }
+    \end{split}
+  \end{equation*}
+\end{column}
+\end{columns}
+  \end{frame}
+
+\begin{frame}
   \frametitle{ Tanner Codes. }
   Example, the parity code on the Peterson graph.
   \begin{center}
@@ -284,67 +335,19 @@
 \end{center}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Coding.} 
-  
-    Another example, the repttion code can be thought as the tanner graph defind by the parity code on the cyle graph.
-    \begin{columns}[t]
-      \begin{column}{0.4\textwidth}
-    \begin{center}
-      \scalebox{0.6}{
-    \input{~/workspace/academic/projects/NLTES_project/ltc_ldpc/network2-cycle.tex} 
-  }
-  \end{center}
-\end{column}
-\begin{column}{0.25\textwidth}
-\begin{equation*}
-    \begin{split}
-     \overbrace{ 
-      \begin{bmatrix}
-        1 & 1
-      \end{bmatrix}
-    }^{ \text{ parity check matrix of } C_{0} }
-    % \mathbb{F}_{2}^{1 \times 2} 
-  \end{split}
-\end{equation*}
-\begin{center}
-\begin{tikzpicture}
-    \draw (0,0) circle (6pt);
-    \draw[ - ]  (0,0) to (1,1); 
-    \draw[ - ]  (0,0) to (1,-1); 
-    %\uncover<2->{\node (D) at (-4,1) { $110101$ } ;  
-  \end{tikzpicture}
-\end{center}
-\end{column}
-\begin{column}{0.35\textwidth}
-  \begin{equation*}
-    \begin{split}
-      \overbrace{ 
-      \begin{bmatrix}
-1 & 1 & 0 & 0 & 0 & 0 \\
-0 & 1 & 1 & 0 & 0 & 0 \\
-0 & 0 & 1 & 1 & 0 & 0 \\
-0 & 0 & 0 & 1 & 1 & 0 \\ 
-0 & 0 & 0 & 0 & 1 & 1 \\
-1 & 0 & 0 & 0 & 0 & 1 
- \end{bmatrix}
- }^{  \substack{ \text{ Parity check matrix of } \mathcal{T} \left( \Gamma, C_{0} \right) \\ \text{  Each row associated with vertex check. }} }
-    \end{split}
-  \end{equation*}
-\end{column}
-\end{columns}
-  \end{frame}
+%\begin{frame}
+%  \frametitle{Coding.} 
+%  
+%    Another example, the repttion code can be thought as the tanner graph defind by the parity code on the cyle graph.
+%    \begin{center}
+%      \scalebox{0.7}{
+%    \input{~/workspace/academic/projects/NLTES_project/ltc_ldpc/network2-cycle.tex} 
+%  }
+%  \end{center}
+%  \end{frame}
+%
 
-\begin{frame}
-  \frametitle{Coding.} 
-  
-    Another example, the repttion code can be thought as the tanner graph defind by the parity code on the cyle graph.
-    \begin{center}
-      \scalebox{0.7}{
-    \input{~/workspace/academic/projects/NLTES_project/ltc_ldpc/network2-cycle.tex} 
-  }
-  \end{center}
-  \end{frame}
+
 
 
 
