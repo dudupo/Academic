@@ -150,27 +150,8 @@
   \draw (4,6) node { 21-22 };
 }
 
-%\draw (5.5,6.3) node[scale=2]  { $=$ };
-%\draw (11.5,6.3) node[scale=2]  { $+$ };
-%
-%
-%\draw [decorate,decoration={brace,amplitude=5pt,raise=4ex}] 
-%(0.5,5) -- (4.5,5) node[scale=2,midway,yshift=2em]{$c \in \left(C_{A}^{\perp}\otimes C_{B}^{\perp}\right)^{\perp} $};
-%    \filldraw [fill=white!80!black](0,0) rectangle (5,5);
-%   \fill [fill=gray!80!black] (1,0) rectangle (2,5);
-%    \fill [fill=gray!80!black] (0,1) rectangle (5,3);
-%\filldraw [fill=white!80!black](6,0) rectangle (11,5);
-%\draw [decorate,decoration={brace,amplitude=5pt,raise=4ex}] 
-%(6.5,5) -- (10.5,5) node[scale=2,midway,yshift=2em]{$t \in C_{A}\otimes \mathbb{F}^{B}$};
-%   \fill [fill=gray!80!black,draw opacity=0.5] (6,1) rectangle (11,3);
-%\filldraw [fill=white!80!black](12,0) rectangle (17,5);
-%\draw [decorate,decoration={brace,amplitude=5pt,raise=4ex}] 
-%(12.5,5) -- (16.5,5) node[scale=2,midway,yshift=2em]{$s \in \mathbb{F}^{A}\otimes C_{B}$};
-% \fill [fill=gray!80!black,draw opacity=0.5] (13,0) rectangle (14,5);
         \end{tikzpicture}
-      
     \end{center}
-
 \end{frame}
 
 
@@ -189,7 +170,7 @@
     \node[name=b, bob,monitor,minimum size=1cm,xshift=-7.2cm]{};
     \node[name= a, alice,monitor, mirrored,minimum size=1cm]{};
     \node (C) at (-2,0) {};
-    \draw[ -> ] (b.mouth) + (1,0) to (C)  ; 
+    \draw[ -> ] (b.mouth) + (1,0) to (a.mouth) + (-1,0); 
     \alt<2->{ \node (D) at (-4,1) { $1\textcolor{red}{0}0101$ } ; }{\node (D) at (-4,1) { $110101$ } ; } 
     \uncover<3->{ \node (D) at (-3.4,1.5) { $1\textcolor{red}{0}0101 1\textcolor{red}{1}0101$ } ; }  
     %\uncover<2->{\node (D) at (-4,1) { $110101$ } ;  
