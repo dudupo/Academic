@@ -89,3 +89,4 @@ try:
 except:
  _st_.goboom(83)
 _st_.blockend()
+_st_.endofdoc()
