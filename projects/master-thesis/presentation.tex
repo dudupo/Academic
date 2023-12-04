@@ -188,12 +188,8 @@
     \node[name= a, alice,monitor, mirrored,minimum size=1cm]{};
     \node (C) at (-2,0) {};
     \draw[ -> ] (b.mouth) + (1,0) to (C)  ; 
-    \alt<6->{ 
-      \node(D) at (-4,1.5) { $\ket{\textcolor{red}{0}10101} + \ket{\textcolor{red}{1}10100} \textcolor{blue}{-} \ket{\textcolor{red}{1}1\textcolor{blue}{1}110}$} ;
-  \node(E) at (-4,1) { $\ket{110101} + \ket{010100} + \ket{011110}$} ;
-  }{
-      \alt<5->{ \node(D) at (-4,1) { $\ket{110101} + \ket{010100} + \ket{011110}$} ;}{\uncover<2->{ \alt<3->{ \node (D) at (-4,1) { $1\textcolor{red}{0}0101$ } ; }{\node (D) at (-4,1) { $110101$ } ; } }
-    \uncover<4->{ \node (D) at (-3.4,1.5) { $1\textcolor{red}{0}0101 1\textcolor{red}{1}0101$ } ; } } }
+    \alt<2->{ \node (D) at (-4,1) { $1\textcolor{red}{0}0101$ } ; }{\node (D) at (-4,1) { $110101$ } ; } 
+    \uncover<3->{ \node (D) at (-3.4,1.5) { $1\textcolor{red}{0}0101 1\textcolor{red}{1}0101$ } ; }  
     %\uncover<2->{\node (D) at (-4,1) { $110101$ } ;  
   \end{tikzpicture}
 \end{center}
