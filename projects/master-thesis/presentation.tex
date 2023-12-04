@@ -26,6 +26,7 @@
 \efboxsetup{linecolor=Green,linewidth=1.5pt, margin=0pt}
 
 \usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes}
 
 \newcommand\MemoryLayout[1]{
   \begin{tikzpicture}[scale=0.15]
@@ -306,6 +307,12 @@
     % \mathbb{F}_{2}^{1 \times 2} 
   \end{split}
 \end{equation*}
+\begin{tikzpicture}
+    \draw (0,0) circle (3pt);
+    \draw[ -> ]  (0,0) to (1,1); 
+    \draw[ -> ]  (0,0) to (1,-1); 
+    %\uncover<2->{\node (D) at (-4,1) { $110101$ } ;  
+  \end{tikzpicture}
 \end{column}
 \begin{column}{0.35\textwidth}
   \begin{equation*}
