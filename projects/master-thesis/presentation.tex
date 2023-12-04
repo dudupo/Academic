@@ -20,6 +20,7 @@
 \usepackage{ragged2e}
 \usepackage{array}
 \usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+\usepackage{columns}
 \addbibresource{./sample.bib} 
   
 \efboxsetup{linecolor=Green,linewidth=1.5pt, margin=0pt}
@@ -285,7 +286,36 @@
 \begin{frame}
   \frametitle{Coding.} 
   
-    Another Example, the repttion code can be thought as the tanner graph defind by the parity code on the cyle graph.
+    Another example, the repttion code can be thought as the tanner graph defind by the parity code on the cyle graph.
+    \begin{columns}[c]
+      \begin{colmun}{0.5\textwidth}
+    \begin{center}
+      \scalebox{0.7}{
+    \input{~/workspace/academic/projects/NLTES_project/ltc_ldpc/network2-cycle.tex} 
+  }
+  \end{center}
+\end{colmun}
+\begin{colmun}{0.5\textwidth}
+  \begin{equation*}
+    \begin{split}
+      \begin{bmatrix}
+1 & 2 & 3\\
+a & b & c \\
+a & b & c \\
+a & b & c \\
+a & b & c 
+\end{bmatrix}
+    \end{split}
+  \end{equation*}
+
+\end{colmun}
+\end{columns}
+  \end{frame}
+
+\begin{frame}
+  \frametitle{Coding.} 
+  
+    Another example, the repttion code can be thought as the tanner graph defind by the parity code on the cyle graph.
     \begin{center}
       \scalebox{0.7}{
     \input{~/workspace/academic/projects/NLTES_project/ltc_ldpc/network2-cycle.tex} 
@@ -294,17 +324,16 @@
   \end{frame}
 
 
+
   \begin{frame}
     \frametitle{ Quantum Error Correction Codes. }
     Back to the quantum noise. 
-%    \begin{equation*}
-%      \begin{split}
-%        
-%      \end{split}
-%    \end{equation*}<++>
-%
+
 
   \end{frame} 
+
+
+
 
 \begin{frame}
   \frametitle{ Quantum Noise. }
