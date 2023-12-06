@@ -490,6 +490,24 @@
 \end{definition}
 \end{frame} 
 
+
+
+\begin{frame}
+  \frametitle{ Quantum Error Correction Codes. }
+  Observation, $C_{X}, C_{Z}$ cann't be both good codes and qLDPC codes.
+
+Furthermore, if one is willing to has an qLDPC code, then $H_{X}$ and $H_{Z}$ can't be parity check matrices of good classical code as any column of $H_{z}^{\top}$ is a codeword of $C_{X}$. 
+  \begin{equation*}
+    \begin{split}
+      C_{Z}^{\perp} \subset C_{X} \Rightarrow H_{X}H_{Z}^{\top} = 0 
+    \end{split}
+  \end{equation*}
+  And by being an LDPC code, the rows wights of $H_{Z}$ is bounded by constant. Therefore there is a codeword $\in C_{X}$ which is also a row of $H_{Z}$ that has a constant weight.  
+
+\end{frame}
+
+
+
 \begin{frame}
   \frametitle{ Quantum Error Correction Codes. }
   \begin{center}
