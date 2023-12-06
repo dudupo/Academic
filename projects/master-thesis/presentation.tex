@@ -167,7 +167,7 @@
 
 \begin{frame}
   \frametitle{ Coding. }
-  Bob is willing to send some message to Alice through \uncover<2->{a noisy chanell in which bits might be fliped.} \uncover<3->{By sending extra bits, i.e duplicate any bit tree times, B can ensure that A could still decode the orignal message in the presence of a single bit-flip. } 
+  Bob is willing to send some \alt<4->{state}{message} to Alice through \uncover<2->{a noisy chanell in which bits might be fliped.} \uncover<3->{By sending extra bits, i.e duplicate any bit tree times, B can ensure that A could still decode the orignal \alt<4->{state}{message} in the presence of a single bit-flip. } 
   \begin{center} 
      \begin{tikzpicture}
     \node[name=b, bob,monitor,minimum size=1cm,xshift=-7.2cm]{};
@@ -428,7 +428,7 @@
     \frametitle{ Quantum Error Correction Codes. }
     Back to the quantum noise. 
 
-    So in the quntum setting any state can be a superpostion of classical states. 
+    So in the quntum setting any state can be a superposition of classical states. 
 
 
   \end{frame} 
