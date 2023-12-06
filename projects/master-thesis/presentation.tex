@@ -437,41 +437,49 @@
 \end{frame}
 
 
-
-  \begin{frame}
-    \frametitle{ Quantum Error Correction Codes. }
-    Back to the quantum noise. 
-    
-
-
-  \end{frame} 
+\begin{frame}
+  \frametitle{Quantum Error Correction Codes.}
+  Observation, $\ket{0}$ and $\ket{1}$ cann't both encoded to a single ket codeword. 
+\end{frame}
 
 
+%
+%  \begin{frame}
+%    \frametitle{ Quantum Error Correction Codes. }
+%    Back to the quantum noise. 
+%  \end{frame} 
+
+
+%
+%\begin{frame}
+%  \frametitle{ Quantum Noise. }
+%  \begin{center}
+%  \begin{tikzpicture}
+%    \node[name=b, bob,monitor,minimum size=1cm,xshift=-7.2cm]{};
+%    \node[name= a, alice,monitor, mirrored,minimum size=1cm]{};
+%    \node (C) at (-2,0) {};
+%    \draw[ -> ] (b.mouth) + (1,0) to (C)  ; 
+%    \alt<3->{ 
+%      \node(D) at (-4,1.5) { $\ket{\textcolor{red}{0}10101} + \ket{\textcolor{red}{1}10100} \textcolor{blue}{-} \ket{\textcolor{red}{1}1\textcolor{blue}{1}110}$} ;
+%  \node(E) at (-4,1) { $\ket{110101} + \ket{010100} + \ket{011110}$} ;
+%  }{
+%      \node(D) at (-4,1) { $\ket{110101} + \ket{010100} + \ket{011110}$} ;
+%    }
+%    %\uncover<2->{\node (D) at (-4,1) { $110101$ } ;  
+%  \end{tikzpicture}
+%\end{center}
+%\end{frame}
+%
 
 
 \begin{frame}
-  \frametitle{ Quantum Noise. }
-  \begin{center}
-  \begin{tikzpicture}
-    \node[name=b, bob,monitor,minimum size=1cm,xshift=-7.2cm]{};
-    \node[name= a, alice,monitor, mirrored,minimum size=1cm]{};
-    \node (C) at (-2,0) {};
-    \draw[ -> ] (b.mouth) + (1,0) to (C)  ; 
-    \alt<3->{ 
-      \node(D) at (-4,1.5) { $\ket{\textcolor{red}{0}10101} + \ket{\textcolor{red}{1}10100} \textcolor{blue}{-} \ket{\textcolor{red}{1}1\textcolor{blue}{1}110}$} ;
-  \node(E) at (-4,1) { $\ket{110101} + \ket{010100} + \ket{011110}$} ;
-  }{
-      \node(D) at (-4,1) { $\ket{110101} + \ket{010100} + \ket{011110}$} ;
-    }
-    %\uncover<2->{\node (D) at (-4,1) { $110101$ } ;  
-  \end{tikzpicture}
-\end{center}
+  \frametitle{ Quantum Error Correction Codes. }
+  The clouds perspective. 
 \end{frame}
 
 
 \begin{frame}
   \frametitle{ Quantum Error Correction Codes. }
-
 \begin{definition}[CSS Code]
   Let $C_{X}, C_{Z}$ classical linear codes such that $C_{Z}^{\perp} \subset C_{X}$ define the $Q\left( C_{X},C_{Z} \right)$ to be all the codewords with following structure:
   \begin{equation*}
