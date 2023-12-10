@@ -984,14 +984,14 @@ Now we can state formally the theorem:
 \begin{frame}
 \frametitle{Good Quantum LDPC Codes.}
 \begin{proof}
-  Suppose through contradiction that for $\Delta^{-p}$ portion of the negative vertices $v_{-}\in V_{-}$ have at least one ($\Delta^{\gamma}$) sibling in $S_{e}$. Therefore $ \Delta^{-p} |S_{-}| \le \Delta |S_{e}|$ combining with \ref{claim:epss} it follows that $|S| \le \Delta^{1+\varepsilon + p }|S_{e}|$ : 
+  Suppose through contradiction that for $\Delta^{-p}$ portion of the negative vertices $v_{-}\in V_{-}$ have at least one ($\Delta^{\gamma}$) sibling in $S_{e}$. Therefore $ \Delta^{-p} |S_{-}| \le \Delta |S_{e}|$ combining with \ref{claim:epss} it follows that $|S| \le \Delta^{1+\varepsilon + p }|S_{e}|$ : \uncover<2->{
   \begin{equation*}
     \begin{split}
       \Delta^{3/2 + \varepsilon} & \le \frac{E(S,S_{e})}{|S_{e}|} = \Theta\left( \Delta^{2} \right)\frac{|S|}{n} + \Theta\left( \Delta \right)\sqrt{ \frac{|S|}{|S_{e}|}  }\\ 
       & \le \Theta(\Delta^{2}) \frac{|S|}{n} + \Theta(\Delta) \Theta\left( \Delta^{\frac{1+\varepsilon + p}{2}} \right)  
     \end{split}
-  \end{equation*} 
-  Thus we obtain contradiction for any $p < \varepsilon/2$. In particular for $p = \varepsilon/4$ we obtain that at least $1 - \Delta^{-\varepsilon/4}$ portion of the negative vertices are surounded by only normal vertices. 
+\end{equation*} }
+\uncover<3->{Thus we obtain contradiction for any $p < \varepsilon/2$. In particular for $p = \varepsilon/4$ we obtain that at least $1 - \Delta^{-\varepsilon/4}$ portion of the negative vertices are surounded by only normal vertices. }
  \end{proof}
  \end{frame}
 
