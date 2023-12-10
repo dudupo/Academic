@@ -963,12 +963,13 @@ Now we can state formally the theorem:
   for any $\varepsilon \in \left( 0,1 \right)$ and large enough $\Delta$  it holds that $ |S| \le \Delta^{\varepsilon}|S_{-}| $ 
 \end{claim}
 \begin{proof}
-  Suppose not, namely that $|S| > \Delta^{\varepsilon}|S_{-}|$, then $|x|/|S_{-}| > \Delta^{\varepsilon}|x|/|S| > \Delta^{\varepsilon} \cdot \delta_{0}\Delta $ But:  
+  Suppose not, \uncover<2->{namely that $|S| > \Delta^{\varepsilon}|S_{-}|$,}\uncover<3->{ then $|x|/|S_{-}| > \Delta^{\varepsilon}|x|/|S| > \Delta^{\varepsilon} \cdot \delta_{0}\Delta $ But:}\uncover<4->{
 \begin{equation*}
   \begin{split}
     \frac{|x|}{|S_{-}|} = \frac{\Theta \left(E(S_{-},S_{-}) \right)}{|S_{-}|} \le \Theta(\Delta^{2})\frac{|S_{-}|}{n}  + \Theta(\Delta)  \rightarrow_{n\rightarrow \infty} \Theta(\Delta)
   \end{split}
 \end{equation*}
+}
 \end{proof}
 \end{frame}
 \begin{frame}
