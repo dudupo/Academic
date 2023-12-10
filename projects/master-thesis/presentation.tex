@@ -974,6 +974,8 @@ Let $S$ and $S_{-}$ denote the positive and negative vertices that support the c
    \label{claim:close}
    Let $x$ be a codeword of $\duC$ and $\xi < w$ such that $d(x, \mathbb{F}^{A} \otimes C_{B}) + d(x, C_{A}\otimes\mathbb{F}^{B}) \le \xi $ . Then $d(x, C_{A} \otimes C_{B}) < 3\xi $. 
  \end{claim} 
+ \end{frame}
+ \begin{frame}
  \begin{proof}
 Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Similarly, denote by $C$ the closest codeword of $\mathbb{F}^{A} \otimes C_{B}$ to $x$. Notice that $C + R \in \duC$. In addition, the weight of $C+R$ is bounded by:
    \begin{equation*}
@@ -1008,6 +1010,9 @@ Denote by $R$ the closest codeword of $C_{A}\otimes\mathbb{F}^{B}$ to $x$. Simil
     \end{split}
   \end{equation*} 
  \end{claim}
+\end{frame}
+
+\begin{frame}
 \begin{proof}
   By being surrounded only by normal vertices any row in the local view of $v$ is codeword of $C_{A}$ plus at most $\Delta^{3/2 + \varepsilon}/\Delta = \Delta^{\frac{1}{2}+\varepsilon}$ faults. So correcting the rows require flipping at most $\Delta \cdot \Delta^{\frac{1}{2} + \varepsilon}$ bits in total.  Thus $d\left(c_{v}, C_{A}\otimes \mathbb{F}^{B}\right) < \Delta^{3/2 + \varepsilon}$. In same way we obtain that $d\left(c_{v},  \mathbb{F}^{A} \otimes C_{B}\right) < \Delta^{3/2 + \varepsilon}$. Noitce that, in parituclar, $d(c_{v}, \duC) \le \Delta^{3/2 + \varepsilon}$.
 
@@ -1034,6 +1039,9 @@ Let $A \subset S$ and $B \subset S_{-}$ be subsets of the positive and negative 
    Then: $d_{B\rightarrow \bar{A}} = \Omega\left( \Delta \right)$.  
  \end{claim}
 
+\end{frame}
+
+\begin{frame}
  \begin{proof}
    By the given $|S| \le \frac{2|x|}{\delta_{0}\Delta} \le \zeta\frac{2n\Delta}{\delta}$ we have that $|S|/n \le \zeta\cdot \frac{2\Delta}{\delta}$.
    %Let $A \subset S$ and $B \subset S_{-}$ subsets of the positive and the negetive vertices support $x$, and $\alpha \le \Delta^{2},\beta \le \Delta$ their minimal degrees in $G, G$.
