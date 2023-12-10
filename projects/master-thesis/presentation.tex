@@ -702,16 +702,13 @@ Now divide the graph into positive and negative vertices according to their colo
 
 The quantum Tanner code is a CSS code, such that $C_{X}$ is defined to be the classical Tanner code $\mathcal{T}\left(G^{+}, \left(C_{A}^\perp\otimes C_{B}^{\perp}\right)^{\perp} \right)$ and $C_{Z}$ is defined as $\mathcal{T}\left(G^{-}, \left(C_{A}\otimes C_{B}\right)^{\perp} \right)$. Note that in contrast to the classical Tanner code, in the quantum case it will be more convenient to think of codewords as assignments set on the squares and not on the edges.
 \end{definition}
-
 \end{frame} 
 
 \begin{frame}
 \frametitle{Good Quantum LDPC Codes.}
+The constructions of Quantum LDPC Codes with positive relative distance and rate are attributed to Dinur, Loubozky, Evra, Mosess, Pavel, Kalachev, Leverrier and Zemor \cite{Dinur}~\cite{Pavel}~\cite{leverrier2022quantum}. \uncover<2->{We are about to give a proof following Zemor and Leverrier version. }
 
-\cite{Dinur}~\cite{Pavel}~\cite{leverrier2022quantum}
-
-~\cite{kalachev2022twosided}
- Yet, the proof we present is not exactly the same, as we use a small code that requires satisfying a stronger assumption (the $w$-robustness property~\ref{def:wrobust}) relative to the original work. The reason why they had to use a weaker assumption is because the existence of codes satisfying the stronger one was proven a year later~\cite{kalachev2022twosided}. Relying on the stronger assumption allows us to simplify the proof even more and get rid of another requirement that the small code has to satisfy (The $p$-resistance to puncturing~\ref{def:resistance}).
+\uncover<3->{Yet, the proof we present is not exactly the same, as we use a small code that requires satisfying a stronger assumption (the $w$-robustness property~\ref{def:wrobust}) relative to the original work. The reason why they had to use a weaker assumption is because the existence of codes satisfying the stronger one was proven a year later~\cite{kalachev2022twosided}. Relying on the stronger assumption allows us to simplify the proof even more and get rid of another requirement that the small code has to satisfy (The $p$-resistance to puncturing~\ref{def:resistance}).}
 
 %The existence of good quantum LDPC codes and locally testable codes (LTCs) was considered an open problem for roughly two decades. Although they seemed to be related only by containing the word "code" in their names, they were proven to exist by the same construction. They first appeared in~\cite{Dinur} as good locally testable codes and not long after that in~\cite{Pavel}, in which they also extended and derived the result to obtain the quantum code. We emphasize that even though they developed the same codes, their proofs are not similar at all. Here, we follow the~\cite{leverrier2022quantum} work, which simplifies the original proof and does not rely on any concept more complicated than what we have already seen in the previous chapters. They also coined the term "Quantum Tanner Codes" referring to the fact that $C_{X}$ and $C_{Z}$ are classical Tanner codes. Yet, the proof we present is not exactly the same, as we use a small code that requires satisfying a stronger assumption (the $w$-robustness property~\ref{def:wrobust}) relative to the original work. The reason why they had to use a weaker assumption is because the existence of codes satisfying the stronger one was proven a year later~\cite{kalachev2022twosided}. Relying on the stronger assumption allows us to simplify the proof even more and get rid of another requirement that the small code has to satisfy (The $p$-resistance to puncturing~\ref{def:resistance}).
 \end{frame}
