@@ -713,12 +713,19 @@ The constructions of Quantum LDPC Codes with positive relative distance and rate
 %The existence of good quantum LDPC codes and locally testable codes (LTCs) was considered an open problem for roughly two decades. Although they seemed to be related only by containing the word "code" in their names, they were proven to exist by the same construction. They first appeared in~\cite{Dinur} as good locally testable codes and not long after that in~\cite{Pavel}, in which they also extended and derived the result to obtain the quantum code. We emphasize that even though they developed the same codes, their proofs are not similar at all. Here, we follow the~\cite{leverrier2022quantum} work, which simplifies the original proof and does not rely on any concept more complicated than what we have already seen in the previous chapters. They also coined the term "Quantum Tanner Codes" referring to the fact that $C_{X}$ and $C_{Z}$ are classical Tanner codes. Yet, the proof we present is not exactly the same, as we use a small code that requires satisfying a stronger assumption (the $w$-robustness property~\ref{def:wrobust}) relative to the original work. The reason why they had to use a weaker assumption is because the existence of codes satisfying the stronger one was proven a year later~\cite{kalachev2022twosided}. Relying on the stronger assumption allows us to simplify the proof even more and get rid of another requirement that the small code has to satisfy (The $p$-resistance to puncturing~\ref{def:resistance}).
 \end{frame}
 
-\begin{frame}
-\frametitle{Good Quantum LDPC Codes.}
-Recall our insight that for a pair of LDPC codes to define a good CSS code, they must both be poor codes in the sense that they must have a constant distance. Therefore, we understand that any codeword in $C_{X}$ with small weight belongs to $C_{Z}^\perp$. To prove this, we will construct a proof such that if $x \in C_{X}$ and $|x|$ is small, then there is a small codeword $z \in C_{Z}^{\perp}$ such that $|x+z| < |x|$; by repeating this process recursively, it follows that $x\in C_{Z}^{\perp}$. To formulate this theorem, we will need to define more definitions.
-  
- The next two definitions are concerned with the properties of the small code that will be set on the edges. Using them, one can characterize cases in which a local view can be reduced by subtracting a codeword from the dual code. 
-\end{frame}
+
+% ----- not for the Master Exam, Yet can be apper future presentions.  ------
+
+%\begin{frame}
+%\frametitle{Good Quantum LDPC Codes.}
+%Recall our insight that for a pair of LDPC codes to define a good CSS code, they must both be poor codes in the sense that they must have a constant distance. Therefore, we understand that any codeword in $C_{X}$ with small weight belongs to $C_{Z}^\perp$. To prove this, we will construct a proof such that if $x \in C_{X}$ and $|x|$ is small, then there is a small codeword $z \in C_{Z}^{\perp}$ such that $|x+z| < |x|$; by repeating this process recursively, it follows that $x\in C_{Z}^{\perp}$. To formulate this theorem, we will need to define more definitions.
+%  
+% The next two definitions are concerned with the properties of the small code that will be set on the edges. Using them, one can characterize cases in which a local view can be reduced by subtracting a codeword from the dual code. 
+%\end{frame}
+
+% ----- not for the Master Exam, Yet can be apper future presentions.  ------
+
+
 \begin{frame}
 \frametitle{Good Quantum LDPC Codes.}
 \begin{definition}[$w$-Robustness] 
@@ -783,6 +790,8 @@ where $H^{-1}_{2}$ denotes the inverse of the binary entropy function. Let $C_A,
 \frametitle{Good Quantum LDPC Codes.}
 
 Note that the fact that sampling succeeds with high probability implies that, with high probability, the codes that are sampled have a good distance, as well as their duals. By denoting $\delta \leftarrow \min\{\kappa, \delta\}$, we can say that, for any rate $\rho$ and large enough $\Delta$, there exists $\delta > 0$ such that $\duC$ is $\Delta^{3/2+\varepsilon}$-robust for $\varepsilon < \frac{1}{2}$ and $C_{A},C_{B},C_{A}^{\perp},C_{B}^{\perp}$ have rate and relative distance of at least $\rho$ and $\delta$, respectively.
+\end{frame}
+\begin{frame}
 
 \begin{definition}[$p$-Resistance to Puncturing.]
   \label{def:resistance}
