@@ -316,19 +316,26 @@
 \end{frame}
 \begin{frame}
   \frametitle{ CSS Code.  }
-  \begin{block}{CSS}
+  \begin{block}{CSS.}
     We think about the base of $Q$ (generators) as the generators of $C_{X}/C_{Z}^{\perp}$, and it is easy to see that: 
     \begin{enumerate}
       \item $\dim Q = \dim C_{X} - \dim C_{Z}^{\perp}$.
-      \item The distance of $Q$ is the lightest codeword of $C_{X}$ ($C_{Z}$) that doesn't belong to $C_{Z}^{\perp}$ ($C_{X}^{\perp}$). 
-      \item Denote by $H_{X},H_{Z}$ the parity check matrices of the classic codes, The rows of $H_{Z}$ are in $C_{Z}^{\perp} \Rightarrow $ are also in $C_{X} \rightarrow H_{X}H_{Z}^{\top} =0$. 
+      \item The distance of $Q$ is the lightest codeword of $C_{X}$ ($C_{Z}$) doesn't belong to $C_{Z}^{\perp}$ ($C_{X}^{\perp}$). 
+      \item Denote by $H_{X},H_{Z}$ the parity check matrices of the classic codes, The rows of $H_{Z}$ are in $C_{Z}^{\perp} \Rightarrow $ are also in $C_{X} \rightarrow H_{X}H_{Z}^{\top} =0$. We will say that $Q$ is LDPC if any rows of both $H_{X},H_{Z}$ have at most $O(1)$ weight. 
     \end{enumerate}
   \end{block}
 \end{frame}
 
-
 \begin{frame}
   \frametitle{ 'Idea II' - Tanner Checks are 'Too Much' Interdependence.}
+  \begin{block}{'claim'}
+    Let $C_{1}, C_{2}$ be codes at length $\Delta$ and let $G$ be $\Delta$-reg Graph. $\mathcal{T}\left(G, C_{1} \right),\mathcal{T}\left(G, C_{2} \right)$ don't define a CSS. 
+  \end{block}
+  \uncover<2->{ 
+    \begin{proof}
+      Draw on the board.  
+    \end{proof}
+  }
 \end{frame}
 
 \begin{frame}
