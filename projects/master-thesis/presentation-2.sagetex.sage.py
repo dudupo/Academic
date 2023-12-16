@@ -94,4 +94,5 @@ try:
 except:
  _st_.goboom(_sage_const_83 )
 _st_.blockend()
+_st_.endofdoc()
 
