@@ -262,13 +262,27 @@
 }
 \end{frame}
 
-\begin{frame}
-  \frametitle{Good Classical LDPC Code.}
-\end{frame}
-
-
  \begin{frame}
    \frametitle{Quantum Encoding.}
+   \begin{block}{Quantum Codes in Our Presentation.}
+     $C$ will be called $[n,k,d]$ Quantum Code if:
+     \begin{enumerate}
+       \item  for all $\ket{\psi},\ket{\phi} \in C \rightarrow \frac{1}{\sqrt{2}}\left( \ket{\psi} \pm \ket{\phi} \right) \in C$.
+       \item Let $P$ be a tensor product of $n$ matrices taken from the set $\left\{ I, X, Z \right\}$ where $X,Z$ are the Pauli matrices: 
+         \begin{equation*}
+           \begin{split}
+             X = \begin{bmatrix}
+               0 & 1 \\
+               1 & 0
+             \end{bmatrix}, Z = \begin{bmatrix}
+               1 & 0 \\
+               0 & -1
+             \end{bmatrix},
+           \end{split}
+         \end{equation*} such, that less than $d/2$ of the elements in the product aren't identity. Then there is oneway mapping $T$ such that $T[P\ket{\psi}] \rightarrow \ket{\psi}$ for any $\ket{\psi} \in C$.   
+       \item There are $k$ independents states in $C$.  
+     \end{enumerate}
+   \end{block}
 \end{frame}
  \begin{frame}
    \frametitle{Quantum Encoding.}
