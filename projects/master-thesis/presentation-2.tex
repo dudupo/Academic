@@ -293,9 +293,26 @@
 
 \begin{frame}
   \frametitle{ Idea I - (Uncertainty) Clouds as States. }
+  \begin{block}{'claim'}
+    Let $C$ be quantum code with $d>1$. Then there aren't two distinct $\ket{\psi},\ket{\phi}\in C$ such that they both supported only a single classical state (bit string).   
+  \end{block}
+\uncover<2->{
+  \begin{proof}
+    Assume through contradiction, $x,y \in \mathbb{F}_{2}^{n}$ such that $\ket{\psi}=\ket{x}$ and $\ket{\phi} = \ket{y}$. Let $i \in [n]$ be a coordinate such $x_{i} \neq y_{i}$ and consider the codewords: $\ket{\pm} = \frac{1}{\sqrt{2}}\left( \ket{\psi} \pm \ket{\phi} \right)$. Now observes that applying the $P = I_{0}\otimes I_{1} .. I_{i-1} \otimes  Z_{i} \otimes I_{i+1} .. $,   maps $P\ket{+}\rightarrow \ket{-}$. Hence the distance of $C$ is less than one.  
+  \end{proof}
+}
 \end{frame}
 \begin{frame}
   \frametitle{ CSS Code.  }
+\begin{definition}[CSS Code]
+  Let $C_{X}, C_{Z}$ classical linear codes such that $C_{Z}^{\perp} \subset C_{X}$ define the $Q\left( C_{X},C_{Z} \right)$ to be all the codewords with following structure:
+  \begin{equation*}
+    \begin{split}
+    \ket { \mathbf{ x } } := \ket { x + C_{Z}^{\perp} } = \frac{1}{\sqrt{C_{Z}^{\perp}}} \sum_{z \in C_{Z}^{\perp}}{ \ket{ x + z }} 
+    \end{split}
+  \end{equation*}
+\end{definition}
+
 \end{frame}
 
 \begin{frame}
