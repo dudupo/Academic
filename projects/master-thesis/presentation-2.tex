@@ -219,17 +219,51 @@
 
 \begin{frame}
   \frametitle{Good Classical LDPC Code.}
+\begin{lemma}
+\label{tanrate} Tanner codes have a rate of at least $2\rho - 1$.
+\end{lemma}
 
+\uncover<2->{
+  \begin{proof}  The dimension of the subspace is bounded by the dimension of the container minus the number of restrictions. So assuming non-degeneration of the small code restrictions, we have that any vertex count exactly $ \left( 1 - \rho  \right)\Delta $ restrictions. Hence, \begin{equation*}
+    \begin{split}
+      \dim C & \ge \frac{1}{2}n\Delta - \left( 1-\rho \right)\Delta n = \frac{1}{2}n\Delta\left( 2\rho - 1 \right)  
+    \end{split}
+  \end{equation*} Clearly, any small code with rate $> \frac{1}{2}$ will yield a code with an asymptotically positive rate \end{proof} 
+}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Good Classical LDPC Code.}
+  Technic for design LDPC families with positive relative distance. 
+  \uncover<2->{
+    \begin{definition} Denote by $\lambda$ the second eigenvalue of the adjacency matrix of the $\Delta$-regular graph. For our uses, it will be satisfied to define $\lambda$-Expander as a graph $G = \left( V,E \right)$ such that for any two subsets of vertices $T,S \subset V$, the number of edges between $S$ and $T$ is at most:
+  \begin{equation*}
+    \begin{split}
+      \mid E\left( S,T \right) - \frac{\Delta}{n}|S||T| \mid \le \lambda\sqrt{|S| |T|} 
+    \end{split}
+  \end{equation*}
+\end{definition}
+  }
 \end{frame}
 \begin{frame}
   \frametitle{Good Classical LDPC Code.}
+  \begin{lemma} Using $\lambda$-Expander, the Tanner Code defined bit is a good LDPC code.  
+  \end{lemma}
+  \uncover<2->{
+  \begin{proof} Fix a codeword $x \in C$ and denote By $S$ the support of $x$ over the edges. Namely, a vertex $v\in V$ belongs to $S$ if it connects to nonzero edges regarding the assignment by $x$, Assume towards contradiction that $|x| = o\left( n \right)$. And notice that $|S|$ is at most $2|x|$, Then by The Expander Mixining Lemma we have that: 
+  \begin{equation*}
+    \begin{split}
+      \frac{E\left( S,S \right)}{|S|} & \le \frac{\Delta}{n}|S|  + \lambda \\
+      & \le_{ n \rightarrow \infty} o\left( 1 \right) + \lambda
+    \end{split}
+  \end{equation*}
+   \end{proof}
+}
 \end{frame}
 
 \begin{frame}
   \frametitle{Good Classical LDPC Code.}
 \end{frame}
-
-
 
 
  \begin{frame}
