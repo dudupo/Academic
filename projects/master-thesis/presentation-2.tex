@@ -340,6 +340,14 @@
 
 \begin{frame}
   \frametitle{ 'Idea III' - Impossibility of Both $C_{X},C_{Z}$ being Good.}
+  \begin{block}{'claim'}
+    $C_{X},C_{Z}$ can't be both good LDPC and define a CSS.  
+  \end{block}
+  \uncover<2->{
+    \begin{proof}
+      Let $C_{X},C_{Z}$ define a CSS, and assume they both LDPC. Hence $H_{X}H_{Z}^{\top} = 0 \Rightarrow$ the rows of $H_{Z}$ are codewords of $C_{X}$. Therefore there are codewords in $C_{X}$ at $O(1)$ weight.    
+    \end{proof}
+  }
 \end{frame}
 
 \begin{frame}
