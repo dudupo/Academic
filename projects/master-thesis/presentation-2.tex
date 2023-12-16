@@ -380,13 +380,60 @@
         \begin{itemize}[<+->]
         \item Assuming $x$ is low weight codeword. 
         \item  Using the graph expansion to show the existences of vertex $u$ in the negative graph with high weight local view. Yet, surrounded by only positive vertices with low weigh local view. 
-        \item Assuming a property on the small code, $\rightarrow$ there is a codeword $c$ in $C_{Z}^{\perp}$ supported only on $u$ squares such that $|c + x| < |x|$. 
+        \item Assuming a property on the small code, $\rightarrow$ there is a codeword $c$ in $C_{Z}^{\perp}$ supported only on $u$'s squares such that $|c + x| < |x|$. 
       \end{itemize} 
     \end{block}
 \end{column}
 \end{columns}
 
 \end{frame}
+
+\begin{frame}
+  \frametitle{Quantum Tanner Code.}
+\begin{definition}[$w$-Robustness] 
+  \label{def:wrobust}
+  Let $C_{A}$ and $C_{B}$ be codes of length $\Delta$ with minimum distance $\delta_{0}\Delta$. $C = \duC $ will be said to be $w$-robust if for any codeword $c \in C$ of weight less than $w$, it follows that $c$ can be decomposed into a sum of $c = t + s$ such that $t \in C_A \otimes \mathbb{F}^{B}$ and $s \in \mathbb{F}^A \otimes C_B$, where $s$ and $t$ are each supported on at most $\frac{w}{\delta_0\Delta}$ rows and columns. For convenience, we will denote by $B'$ ($A'$) the rows (columns) supporting $t$ ($s$) and use the notation $t \in C_A \otimes \mathbb{F}^{B'}$.
+\end{definition}
+
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Quantum Tanner Code.}
+  \begin{center}
+  \scalebox{0.65}{
+  \begin{tikzpicture}[scale=0.95]
+
+\draw (5.5,6.3) node[scale=2]  { $=$ };
+\draw (11.5,6.3) node[scale=2]  { $+$ };
+
+\draw [decorate,decoration={brace,amplitude=5pt,raise=4ex}] 
+(0.5,5) -- (4.5,5) node[scale=2,midway,yshift=2em]{$c \in \left(C_{A}^{\perp}\otimes C_{B}^{\perp}\right)^{\perp} $};
+    \filldraw [fill=white!80!black](0,0) rectangle (5,5);
+   \fill [fill=gray!80!black] (1,0) rectangle (2,5);
+    \fill [fill=gray!80!black] (0,1) rectangle (5,3);
+\filldraw [fill=white!80!black](6,0) rectangle (11,5);
+\draw [decorate,decoration={brace,amplitude=5pt,raise=4ex}] 
+(6.5,5) -- (10.5,5) node[scale=2,midway,yshift=2em]{$t \in C_{A}\otimes \mathbb{F}^{B}$};
+   \fill [fill=gray!80!black,draw opacity=0.5] (6,1) rectangle (11,3);
+\filldraw [fill=white!80!black](12,0) rectangle (17,5);
+\draw [decorate,decoration={brace,amplitude=5pt,raise=4ex}] 
+(12.5,5) -- (16.5,5) node[scale=2,midway,yshift=2em]{$s \in \mathbb{F}^{A}\otimes C_{B}$};
+ \fill [fill=gray!80!black,draw opacity=0.5] (13,0) rectangle (14,5);
+        \end{tikzpicture}
+      }
+    \end{center}
+
+ \end{frame}
+
+ \begin{frame}
+
+ \end{frame}
+
+ \begin{frame}
+   \frametile{Q & A}
+ \end{frame}
+
 
 %\begin{frame}
 %  \frametitle{   }
