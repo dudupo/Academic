@@ -1,0 +1,120 @@
+\begin{frame}
+  \frametitle{Good Classical LDPC Code.}
+  Example, the parity code on the Peterson graph.
+  \begin{center}
+  \scalebox{0.65} {
+\begin{tikzpicture}
+
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=3.5cm,y=7.0cm]{v0}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=0.0cm,y=4.3262cm]{v1}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=1.3369cm,y=0.0cm]{v2}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=5.6631cm,y=0.0cm]{v3}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=7.0cm,y=4.3262cm]{v4}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=3.5cm,y=5.0652cm]{v5}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=1.75cm,y=3.7284cm]{v6}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=2.4184cm,y=1.5652cm]{v7}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=4.5816cm,y=1.5652cm]{v8}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=5.25cm,y=3.7284cm]{v9}
+%
+\Edge[lw=0.005cm,labelstyle={pos=0.5},label=\hbox{$0$},](v0)(v1)
+\Edge[lw=0.005cm,labelstyle={pos=0.5},label=\hbox{$1$},](v0)(v4)
+\Edge[lw=0.005cm,labelstyle={pos=0.5},label=\hbox{$1$},](v0)(v5)
+\Edge[lw=0.005cm,labelstyle={pos=0.5},label=\hbox{$0$},](v1)(v2)
+\Edge[lw=0.005cm,labelstyle={pos=0.5},label=\hbox{$0$},](v1)(v6)
+\Edge[lw=0.005cm,labelstyle={pos=0.5},label=\hbox{$1$},](v2)(v3)
+\Edge[lw=0.005cm,labelstyle={pos=0.5},label=\hbox{$1$},](v2)(v7)
+\Edge[lw=0.005cm,labelstyle={pos=0.5},label=\hbox{$0$},](v3)(v4)
+\Edge[lw=0.005cm,labelstyle={pos=0.5},label=\hbox{$1$},](v3)(v8)
+\Edge[lw=0.005cm,labelstyle={pos=0.5},label=\hbox{$1$},](v4)(v9)
+\Edge[lw=0.005cm,labelstyle={pos=0.5},label=\hbox{$0$},](v5)(v7)
+\Edge[lw=0.005cm,labelstyle={pos=0.5},label=\hbox{$1$},](v5)(v8)
+\Edge[lw=0.005cm,labelstyle={pos=0.5},label=\hbox{$0$},](v6)(v8)
+\Edge[lw=0.005cm,labelstyle={pos=0.5},label=\hbox{$0$},](v6)(v9)
+\Edge[lw=0.005cm,labelstyle={pos=0.5},label=\hbox{$1$},](v7)(v9)
+%
+\end{tikzpicture} \ \ \ \begin{tikzpicture}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=3.5cm,y=7.0cm]{v0}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=0.0cm,y=4.3262cm]{v1}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=1.3369cm,y=0.0cm]{v2}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=5.6631cm,y=0.0cm]{v3}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=7.0cm,y=4.3262cm]{v4}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=3.5cm,y=5.0652cm]{v5}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=1.75cm,y=3.7284cm]{v6}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=2.4184cm,y=1.5652cm]{v7}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=4.5816cm,y=1.5652cm]{v8}
+\Vertex[style={minimum size=0.01cm,shape=circle},NoLabel,x=5.25cm,y=3.7284cm]{v9}
+%
+\Edge[lw=0.005cm,labelstyle={pos=0.5,},label=\hbox{$0$},](v0)(v1)
+\Edge[lw=0.005cm,labelstyle={pos=0.5,},label=\hbox{$0$},](v0)(v4)
+\Edge[lw=0.005cm,labelstyle={pos=0.5,},label=\hbox{$0$},](v0)(v5)
+\Edge[lw=0.005cm,labelstyle={pos=0.5,},label=\hbox{$1$},](v1)(v2)
+\Edge[lw=0.005cm,labelstyle={pos=0.5,},label=\hbox{$1$},](v1)(v6)
+\Edge[lw=0.005cm,labelstyle={pos=0.5,},label=\hbox{$0$},](v2)(v3)
+\Edge[lw=0.005cm,labelstyle={pos=0.5,},label=\hbox{$1$},](v2)(v7)
+\Edge[lw=0.005cm,labelstyle={pos=0.5,},label=\hbox{$1$},](v3)(v4)
+\Edge[lw=0.005cm,labelstyle={pos=0.5,},label=\hbox{$1$},](v3)(v8)
+\Edge[lw=0.005cm,labelstyle={pos=0.5,},label=\hbox{$1$},](v4)(v9)
+\Edge[lw=0.005cm,labelstyle={pos=0.5,},label=\hbox{$0$},](v5)(v7)
+\Edge[lw=0.005cm,labelstyle={pos=0.5,},label=\hbox{$0$},](v5)(v8)
+\Edge[lw=0.005cm,labelstyle={pos=0.5,},label=\hbox{$1$},](v6)(v8)
+\Edge[lw=0.005cm,labelstyle={pos=0.5,},label=\hbox{$0$},](v6)(v9)
+\Edge[lw=0.005cm,labelstyle={pos=0.5,},label=\hbox{$1$},](v7)(v9)
+%
+\end{tikzpicture} 
+
+}
+\end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Good Classical LDPC Code.} 
+  
+    Another example, the repttion code can be thought as the tanner graph defind by the parity code on the cyle graph.
+    \begin{columns}[t]
+      \begin{column}{0.4\textwidth}
+    \begin{center}
+      \scalebox{0.6}{
+    \input{~/workspace/academic/projects/NLTES_project/ltc_ldpc/network2-cycle.tex} 
+  }
+  \end{center}
+\end{column}
+\begin{column}{0.25\textwidth}
+\begin{equation*}
+    \begin{split}
+     \overbrace{ 
+      \begin{bmatrix}
+        1 & 1
+      \end{bmatrix}
+    }^{ \text{ parity check matrix of } C_{0} }
+    % \mathbb{F}_{2}^{1 \times 2} 
+  \end{split}
+\end{equation*}
+\begin{center}
+\begin{tikzpicture}
+    \draw (0,0) circle (6pt);
+    \draw[ - ]  (0,0) to (1,1); 
+    \draw[ - ]  (0,0) to (1,-1); 
+    %\uncover<2->{\node (D) at (-4,1) { $110101$ } ;  
+  \end{tikzpicture}
+\end{center}
+\end{column}
+\begin{column}{0.35\textwidth}
+  \begin{equation*}
+    \begin{split}
+      \overbrace{ 
+      \begin{bmatrix}
+1 & 1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 1 & 0 \\ 
+0 & 0 & 0 & 0 & 1 & 1 \\
+1 & 0 & 0 & 0 & 0 & 1 
+ \end{bmatrix}
+ }^{  \substack{ \text{ Parity check matrix of } \mathcal{T} \left( \Gamma, C_{0} \right) \\ \text{  Each row associated with vertex check. }} }
+    \end{split}
+  \end{equation*}
+\end{column}
+\end{columns}
+  \end{frame}
+
+
