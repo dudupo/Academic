@@ -253,7 +253,8 @@
   \begin{proof} Fix a codeword $x \in C$ and denote By $S$ the support of $x$ over the edges. Namely, a vertex $v\in V$ belongs to $S$ if it connects to nonzero edges regarding the assignment by $x$, Assume towards contradiction that $|x| = o\left( n \right)$. And notice that $|S|$ is at most $2|x|$, Then by The Expander Mixining Lemma we have that: 
   \begin{equation*}
     \begin{split}
-      \frac{E\left( S,S \right)}{|S|} & \le \frac{\Delta}{n}|S|  + \lambda \\
+      \text{bits seen by any} v\in S  & \le \text{ average degree of } v \in G \text{ristricted to} S \\
+      = \frac{E\left( S,S \right)}{|S|} & \le \frac{\Delta}{n}|S|  + \lambda \\
       & \le_{ n \rightarrow \infty} o\left( 1 \right) + \lambda
     \end{split}
   \end{equation*}
