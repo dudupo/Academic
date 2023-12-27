@@ -15,9 +15,10 @@ def split_lines(X):
   ret = [ [ (X[0][0], X[0][1])  ] ]
   for x,y in X[1:]:
     if abs(y - ret[-1][-1][1]) > 1:
-      ret +=  [ [ (x,y) ] ] 
+        ret[-1].append((x,17))
+        ret +=  [ [ (x,y) ] ] 
     else:
-      ret[-1].append( (x,y) )
+        ret[-1].append( (x,y) )
   return ret 
 
 def colorgen(): 
@@ -30,10 +31,10 @@ _colorgen = colorgen()
 
 def finate_poly_plot(fun, end=17):
   _color = next(_colorgen)
-  point_lists =  split_lines([ (y, fmod(fun(y),end)) for y in linspace(0,end,3000) ])
-  pplot_lines =  line(point_lists[0], color=_color) 
+  point_lists =  split_lines([ (y, fmod(fun(y),end)) for y in linspace(0,end+2,3000) ])
+  pplot_lines =  line(point_lists[0], color=_color, aspect_ratio=0.3) 
   for _point_list in point_lists[1:]:
-    pplot_lines += line(_point_list, color=_color) 
+    pplot_lines += line(_point_list, color=_color, aspect_ratio=0.3) 
   return pplot_lines
 
 #p_list =  split_lines([ (y, fmod(f(y),17)) for y in linspace(0,17,1000) ])
@@ -50,10 +51,27 @@ def tanner_graph(graph, code):
     graph.set_edge_label(*edge[:2], f'{code[i]}')
   return graph
 
-def peter_graph():
-  code = [0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
+def peter_premu(x):
+    premu = [1,9,7,0,2,3,4,5,6,8,13,14,10,11,12]
+    premuinv = [ 0 for _ in range(15) ]
+    for i in range(15):
+        for j in range(15):
+            if premu[j] == i:
+                premuinv[i] = j 
+    return [ x[premuinv[i]] for i in range(15) ]
+     
+def peter_graph(code = [0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]):
+  #code = list(range(15)) #[0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
   peter = graphs.PetersenGraph()
   return tanner_graph(peter, code)
+
+def peter_graphs():
+    code = [0,1,1,0,0,1,1,0,1,1,0,1,0,0,1]
+    ret = [ peter_graph( ) ]
+    for _ in range(4):
+        code = peter_premu(code)
+        ret += [  peter_graph(code)]
+    return ret
 
 def cycle_graph():
     nodes = 14

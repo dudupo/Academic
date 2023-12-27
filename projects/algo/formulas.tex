@@ -147,6 +147,14 @@
       & \le \lambda + \lambda = 2\lambda
     \end{split}
   \end{equation*}
+  \paragraph{Near-mimimax approximation, Chebyshev.} For any continuous function $f:[-1,1] \rightarrow \mathbb{R}$ if there exists an explicit degree-$d$ polynomial $\hat{P}_{d} \in \mathbb{R}[x]$ such that $\max_{x\in [-1,1} | f(x) - \hat{P}_{d}(x) | \le \varepsilon$, then we know that $P_{d} = \frac{1}{2}\braket{ T_{0},f} + \sum^{d}_{k=1}\braket{T_{k}, f}T_{k}$ satisfies $\max_{x\in [-1,1]}|f(x) - P_{d}(x)| \le O(\varepsilon\log d)$. 
+    \paragraph{MacWilliams identity.}
+    
+    \begin{equation*}
+      \begin{split}
+        \sum_{f \in C^{\perp}}{\left( 1 - p  \right)^{n -|f|}p^{|f|}} = \sum_{f \in C}{\left( 1 - 2p  \right)^{|f|}}
+      \end{split}
+    \end{equation*}
 \end{multicols*}{2}
 \end{document} 
 
