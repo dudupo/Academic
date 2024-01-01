@@ -34,6 +34,18 @@ Let $\ket{f}$ be a codeword in $C_{X}$, and let $X_{g}$ be the indicator that eq
   \end{split}
 \end{equation*}
 
+Now assume that the code $C_{X}$ is the quantum Tanner code, denote by $G,A,B$ the group and the two generator sets that are used for constructing the square complex. In addition, let us assume the existence of $d \in G$ such that $d$ is non-identity and commutes with any element in $A \cup B$. Then, observe that multiplying by $d$ preserves adjacency on the complex. Namely, if $\{u,v\} \in E$ then also $\{du, dv\} \in E$. 
+
+Consider $\ket{f}$ such that if $X_g$ is not zero, and $g$ is associated with a local codeword $c \in C_A \otimes C_B$ on vertex $v$, then the generator associated with the local codeword $c$ on vertex $d \cdot v$ also supports $f$, denoted by $g'$. Thus, the exponent above becomes:
+
+\begin{equation*}
+  \begin{split}
+    & = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  2 \cdot \pi/4 \sum_{g,h} X_{g}X_{h}|g\cdot h| + X_{g^{\prime}}X_{h^{\prime}}|g\cdot|  \\
+    & +  4 \cdot i\pi/4 \sum_{g,h} X_{g}X_{h}X_{l}|g\cdot h \cdot l| + X_{g^{\prime}}X_{h^{\prime}}X_{l^{\prime}}|g\cdot h \cdot l| \Big) \ket{f} \\
+    & = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  2 \cdot 2 \cdot \pi/4 \sum_{g,h} X_{g}X_{h}|g\cdot h| +  2 \cdot 4 \cdot i\pi/4 \sum_{g,h} X_{g}X_{h}X_{l}|g\cdot h \cdot l| \Big) \ket{f} \\
+    & = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  i\pi \sum_{g,h} X_{g}X_{h}|g\cdot h|  \Big) \ket{f} 
+  \end{split}
+\end{equation*}
 
 
 
