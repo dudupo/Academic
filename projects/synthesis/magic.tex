@@ -57,9 +57,11 @@ Consider $\ket{f}$ such that if $X_g$ is not zero, and $g$ is associated with a 
 \end{figure}
 
 \begin{claim}
-  The gate $\ket{f} \mapsto \exp \Big(  -  i\pi \sum_{g,h \in G/a} X_{g}X_{h}|g\cdot h|  \Big) \ket{f} $ is in the Clifford. 
+  The gate $\ket{f} \mapsto \exp \Big(  -  i\pi \sum_{g,h \in G/a} X_{g}X_{h}|g\cdot h|  \Big) \ket{f} $ is in the Clifford.  
 \end{claim}
-
+\begin{proof}
+Just decode $f$ and apply \textbf{CZ} between any pair of qubits corresponding to the generators $g,h$ such that $g \cap h = 1$. Then encode the state again. Observes that \textbf{CZ} is a Clifford gate, and by the fact that the code is a CSS code then the decoder and the encoder are both in the Clifford.
+\end{proof}
 \end{document}
 
 
