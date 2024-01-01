@@ -36,6 +36,19 @@ Let $\ket{f}$ be a codeword in $C_{X}$, and let $X_{g}$ be the indicator that eq
 
 Now assume that the code $C_{X}$ is the quantum Tanner code, denote by $G,A,B$ the group and the two generator sets that are used for constructing the square complex. 
 
+\begin{claim} 
+Consider $g,h$ that are supported on the same $v\in V$. We will call such a pair a source-sharing pair. Suppose that for any we have that $|g \cdot h|$ is even. Then there is a Clifford gate that computes $\ket{f} \mapsto \exp \Big(  -  i\pi \sum_{g,h \text{ source-sharing }} X_{g}X_{h}|g\cdot h|  \Big) \ket{f} $.
+\end{claim}
+
+%\begin{claim}
+%  \label{claim:phase}
+%  The gate $\ket{f} \mapsto \exp \Big(   i\pi \sum_{g,h} X_{g}X_{h}X_{l}|g\cdot h \cdot l| \Big) \ket{f} $ is in the Clifford group.  
+%\end{claim}
+%
+%\begin{proof}
+%  Just decode $f$ and apply \textbf{CCZ} between any triple of qubits corresponding to the generators $g,h,l$ such that $g \cdot h \cdot l=_{2} 1$. Then encode the state again. Observes that \textbf{CCZ} is a Clifford gate, and by the fact that the code is a CSS code then the decoder and the encoder are both in the Clifford.
+%\end{proof}
+%
 
 
 \section{Fail Attempt.}
