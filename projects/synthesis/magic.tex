@@ -24,101 +24,102 @@
 %  We studies the complexity of synthesis quantum states using PRS, our reasch continues the work by \cite{searchtodecision}, \cite{rosenthal2023efficient}, \cite{rosenthal2021interactive}, \cite{metger2023stateqip}, \cite{delavenne2023quantum}.
 %\end{abstract}
 %
-
-Let $\ket{f}$ be a codeword in $C_{X}$, and let $X_{g}$ be the indicator that equals $1$ if $f$ has support on $X_{g}$, and $0$ otherwise. Observes that applying $T^{\otimes}$ on $\ket{f}$ yilds the state: 
-\begin{equation*}
-  \begin{split}
-    T^{\otimes n}\ket{f} & =  T^{\otimes n}\ket{\sum_{g} X_{g}g } = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  2 \cdot i \pi/4 \sum_{g,h} X_{g}X_{h}|g\cdot h| \\
-    & +  4 \cdot i\pi/4 \sum_{g,h} X_{g}X_{h}X_{l}|g\cdot h \cdot l| -   8  \cdot i\pi/4 \cdot \text{ integers } \Big) \ket{f} \\
-    & = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  2 \cdot \pi/4 \sum_{g,h} X_{g}X_{h}|g\cdot h| +  4 \cdot i\pi/4 \sum_{g,h} X_{g}X_{h}X_{l}|g\cdot h \cdot l| \Big) \ket{f}
-  \end{split}
-\end{equation*}
-
-\section{Many to One.}
-Assume that $f$ is supported on exactly one generator. Then we have that $T^{\otimes n}\ket{f}  = e^{i\pi|g|/4}\ket{f}$ Therefore, if $|g| = 4k+1$ then we are done.
-
-
-\section{Using Quntum Error Correction Codes.}
-
-Now assume that the code $C_{X}$ is the quantum Tanner code, denote by $G,A,B$ the group and the two generator sets that are used for constructing the square complex. 
-
-\begin{claim} 
-Consider $g,h$ that are supported on the same $v\in V$. We will call such a pair a source-sharing pair. Suppose that for any we have that $|g \cdot h|$ is even. Then there is a Clifford gate that computes $\ket{f} \mapsto \exp \Big(  -  i\pi \sum_{g,h \text{ source-sharing }} X_{g}X_{h}|g\cdot h|  \Big) \ket{f} $.
-\end{claim}
-
-%\begin{claim}
-%  \label{claim:phase}
-%  The gate $\ket{f} \mapsto \exp \Big(   i\pi \sum_{g,h} X_{g}X_{h}X_{l}|g\cdot h \cdot l| \Big) \ket{f} $ is in the Clifford group.  
+%
+%Let $\ket{f}$ be a codeword in $C_{X}$, and let $X_{g}$ be the indicator that equals $1$ if $f$ has support on $X_{g}$, and $0$ otherwise. Observes that applying $T^{\otimes}$ on $\ket{f}$ yilds the state: 
+%\begin{equation*}
+%  \begin{split}
+%    T^{\otimes n}\ket{f} & =  T^{\otimes n}\ket{\sum_{g} X_{g}g } = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  2 \cdot i \pi/4 \sum_{g,h} X_{g}X_{h}|g\cdot h| \\
+%    & +  4 \cdot i\pi/4 \sum_{g,h} X_{g}X_{h}X_{l}|g\cdot h \cdot l| -   8  \cdot i\pi/4 \cdot \text{ integers } \Big) \ket{f} \\
+%    & = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  2 \cdot \pi/4 \sum_{g,h} X_{g}X_{h}|g\cdot h| +  4 \cdot i\pi/4 \sum_{g,h} X_{g}X_{h}X_{l}|g\cdot h \cdot l| \Big) \ket{f}
+%  \end{split}
+%\end{equation*}
+%
+%\section{Many to One.}
+%Assume that $f$ is supported on exactly one generator. Then we have that $T^{\otimes n}\ket{f}  = e^{i\pi|g|/4}\ket{f}$ Therefore, if $|g| = 4k+1$ then we are done.
+%
+%
+%\section{Using Quntum Error Correction Codes.}
+%
+%Now assume that the code $C_{X}$ is the quantum Tanner code, denote by $G,A,B$ the group and the two generator sets that are used for constructing the square complex. 
+%
+%\begin{claim} 
+%Consider $g,h$ that are supported on the same $v\in V$. We will call such a pair a source-sharing pair. Suppose that for any we have that $|g \cdot h|$ is even. Then there is a Clifford gate that computes $\ket{f} \mapsto \exp \Big(  -  i\pi \sum_{g,h \text{ source-sharing }} X_{g}X_{h}|g\cdot h|  \Big) \ket{f} $.
 %\end{claim}
 %
-%\begin{proof}
-%  Just decode $f$ and apply \textbf{CCZ} between any triple of qubits corresponding to the generators $g,h,l$ such that $g \cdot h \cdot l=_{2} 1$. Then encode the state again. Observes that \textbf{CCZ} is a Clifford gate, and by the fact that the code is a CSS code then the decoder and the encoder are both in the Clifford.
-%\end{proof}
+%%\begin{claim}
+%%  \label{claim:phase}
+%%  The gate $\ket{f} \mapsto \exp \Big(   i\pi \sum_{g,h} X_{g}X_{h}X_{l}|g\cdot h \cdot l| \Big) \ket{f} $ is in the Clifford group.  
+%%\end{claim}
+%%
+%%\begin{proof}
+%%  Just decode $f$ and apply \textbf{CCZ} between any triple of qubits corresponding to the generators $g,h,l$ such that $g \cdot h \cdot l=_{2} 1$. Then encode the state again. Observes that \textbf{CCZ} is a Clifford gate, and by the fact that the code is a CSS code then the decoder and the encoder are both in the Clifford.
+%%\end{proof}
+%%
 %
-
-
-\section{Fail Attempt.}
-
-
-In addition, let us assume the existence of $d \in G$ such that $d$ is non-identity and commutes with any element in $A \cup B$. Then, observe that multiplying by $d$ preserves adjacency on the complex. Namely, if $\{u,v\} \in E$ then also $\{du, dv\} \in E$. 
-
-Consider $\ket{f}$ such that if $X_g$ is not zero, and $g$ is associated with a local codeword $c \in C_A \otimes C_B$ on vertex $v$, then the generator associated with the local codeword $c$ on vertex $d \cdot v$ also supports $f$, denoted by $g'$. Thus, the exponent above becomes:
-
-\begin{equation*}
-  \begin{split}
-    & = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  2 \cdot \pi/4 \sum_{g,h \in G /a} X_{g}X_{h}|g\cdot h| + X_{g^{\prime}}X_{h^{\prime}}|g\cdot h |  \\
-    & +  4 \cdot i\pi/4 \sum_{g,h \in G/a} X_{g}X_{h}X_{l}|g\cdot h \cdot l| + X_{g^{\prime}}X_{h^{\prime}}X_{l^{\prime}}|g\cdot h \cdot l| \Big) \ket{f} \\
-    & = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  2 \cdot 2 \cdot \pi/4 \sum_{g,h \in G/a} X_{g}X_{h}|g\cdot h| +  2 \cdot 4 \cdot i\pi/4 \sum_{g,h \in G/a} X_{g}X_{h}X_{l}|g\cdot h \cdot l| \Big) \ket{f} \\
-    & = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  i\pi \sum_{g,h \in G/a} X_{g}X_{h}|g\cdot h|  \Big) \ket{f} 
-  \end{split}
-\end{equation*}
-
-\begin{figure}
-  \centering
-  \scalebox{0.1}{
-    \includegraphics{distil.jpg-out.png}
-}
-  \caption{Quantum Circuit for distillation.}
-  \label{fig:circuit}
-\end{figure}
-
-\begin{claim}
-  \label{claim:phase}
-  The gate $\ket{f} \mapsto \exp \Big(  -  i\pi \sum_{g,h \in G/a} X_{g}X_{h}|g\cdot h|  \Big) \ket{f} $ is in the Clifford.  
-\end{claim}
-\begin{proof}
-Just decode $f$ and apply \textbf{CZ} between any pair of qubits corresponding to the generators $g,h$ such that $g \cap h = 1$. Then encode the state again. Observes that \textbf{CZ} is a Clifford gate, and by the fact that the code is a CSS code then the decoder and the encoder are both in the Clifford.
-\end{proof}
-Let's denote the circuit defined in \Cref{claim:phase} by $\Lambda$. So we have that:  
-\begin{equation*}
-  \begin{split}
-    \Lambda^{\dagger}\exp \Big( i\pi/4 \sum_{g} X_{g}|g|  & -  i\pi \sum_{g,h \in G/a} X_{g}X_{h}|g\cdot h|  \Big) \ket{f} \\
-= & \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  \Big) \ket{f} 
-  \end{split}
-\end{equation*}
-
-Maybe what do we need is to arrange in some way $|g|+|g^{\prime}| = 4k+1$ and $\braket{g,f}= \braket{g^{\prime},f^{\prime}}$
-
-
-\begin{claim}
-  For any $m$ codewords $x_{1}..x_{m}$ there is a set of coordinates $I$ and $|I| < \alpha n$. Such that:  
-  \begin{equation*}
-    \begin{split}
-      \sum_{j \in [n]/I }x_{a}^{j}x_{b}^{j} = 0
-    \end{split}
-  \end{equation*}
-  For any pair $x_{a},x_{b}$. 
-\end{claim}
-
-\begin{claim}
-  For any $m$ codewords $x_{1}..x_{m}$ there is a set of coordinates $I$ and $|I| < \alpha n$. Such that:  
-  \begin{equation*}
-    \begin{split}
-      \sum_{a,b,j \in [n]/I }x_{a}^{j}x_{b}^{j} = 4k
-    \end{split}
-  \end{equation*}
-  For any pair $x_{a},x_{b}$. 
-\end{claim}
+%
+%\section{Fail Attempt.}
+%
+%
+%In addition, let us assume the existence of $d \in G$ such that $d$ is non-identity and commutes with any element in $A \cup B$. Then, observe that multiplying by $d$ preserves adjacency on the complex. Namely, if $\{u,v\} \in E$ then also $\{du, dv\} \in E$. 
+%
+%Consider $\ket{f}$ such that if $X_g$ is not zero, and $g$ is associated with a local codeword $c \in C_A \otimes C_B$ on vertex $v$, then the generator associated with the local codeword $c$ on vertex $d \cdot v$ also supports $f$, denoted by $g'$. Thus, the exponent above becomes:
+%
+%\begin{equation*}
+%  \begin{split}
+%    & = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  2 \cdot \pi/4 \sum_{g,h \in G /a} X_{g}X_{h}|g\cdot h| + X_{g^{\prime}}X_{h^{\prime}}|g\cdot h |  \\
+%    & +  4 \cdot i\pi/4 \sum_{g,h \in G/a} X_{g}X_{h}X_{l}|g\cdot h \cdot l| + X_{g^{\prime}}X_{h^{\prime}}X_{l^{\prime}}|g\cdot h \cdot l| \Big) \ket{f} \\
+%    & = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  2 \cdot 2 \cdot \pi/4 \sum_{g,h \in G/a} X_{g}X_{h}|g\cdot h| +  2 \cdot 4 \cdot i\pi/4 \sum_{g,h \in G/a} X_{g}X_{h}X_{l}|g\cdot h \cdot l| \Big) \ket{f} \\
+%    & = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  i\pi \sum_{g,h \in G/a} X_{g}X_{h}|g\cdot h|  \Big) \ket{f} 
+%  \end{split}
+%\end{equation*}
+%
+%\begin{figure}
+%  \centering
+%  \scalebox{0.1}{
+%    \includegraphics{distil.jpg-out.png}
+%}
+%  \caption{Quantum Circuit for distillation.}
+%  \label{fig:circuit}
+%\end{figure}
+%
+%\begin{claim}
+%  \label{claim:phase}
+%  The gate $\ket{f} \mapsto \exp \Big(  -  i\pi \sum_{g,h \in G/a} X_{g}X_{h}|g\cdot h|  \Big) \ket{f} $ is in the Clifford.  
+%\end{claim}
+%\begin{proof}
+%Just decode $f$ and apply \textbf{CZ} between any pair of qubits corresponding to the generators $g,h$ such that $g \cap h = 1$. Then encode the state again. Observes that \textbf{CZ} is a Clifford gate, and by the fact that the code is a CSS code then the decoder and the encoder are both in the Clifford.
+%\end{proof}
+%Let's denote the circuit defined in \Cref{claim:phase} by $\Lambda$. So we have that:  
+%\begin{equation*}
+%  \begin{split}
+%    \Lambda^{\dagger}\exp \Big( i\pi/4 \sum_{g} X_{g}|g|  & -  i\pi \sum_{g,h \in G/a} X_{g}X_{h}|g\cdot h|  \Big) \ket{f} \\
+%= & \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  \Big) \ket{f} 
+%  \end{split}
+%\end{equation*}
+%
+%Maybe what do we need is to arrange in some way $|g|+|g^{\prime}| = 4k+1$ and $\braket{g,f}= \braket{g^{\prime},f^{\prime}}$
+%
+%
+%\begin{claim}
+%  For any $m$ codewords $x_{1}..x_{m}$ there is a set of coordinates $I$ and $|I| < \alpha n$. Such that:  
+%  \begin{equation*}
+%    \begin{split}
+%      \sum_{j \in [n]/I }x_{a}^{j}x_{b}^{j} = 0
+%    \end{split}
+%  \end{equation*}
+%  For any pair $x_{a},x_{b}$. 
+%\end{claim}
+%
+%\begin{claim}
+%  For any $m$ codewords $x_{1}..x_{m}$ there is a set of coordinates $I$ and $|I| < \alpha n$. Such that:  
+%  \begin{equation*}
+%    \begin{split}
+%      \sum_{a,b,j \in [n]/I }x_{a}^{j}x_{b}^{j} = 4k
+%    \end{split}
+%  \end{equation*}
+%  For any pair $x_{a},x_{b}$. 
+%\end{claim}
+%
 
 \begin{claim}
   \label{claim:oneg}
