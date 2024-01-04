@@ -165,11 +165,11 @@ Now take $C_0 \otimes C$, and set the new generator set to be $g^0_i \otimes g'_
 \end{proof}
 
 \begin{claim}
-  There exists, a good LDPC code (classic) $C$ such that $C^{\perp}$ is also a good code and a generator set $G$:  
+  There exists, a good LDPC code (classic) $C$ such that $C^{\perp}$ is also a good code and a generator set $G$, for exists $G^{\prime} \subset G$ and $|G^{\prime}| = \Theta( |G|)$ such:  
   \begin{enumerate}
-    \item For any pair $x \neq y \in G \rightarrow x\cdot y = 0$
-    \item For any triple $x\neq y,z \in G \rightarrow \sum_{i}x_{i}y_{i}z_{i} = 0$
-    \item  There exists $\rho^{\prime} > 0$ such that one can choose a generator set $G$ satisfying that at least $\rho^{\prime}$ portion of its generators $g$ have weight $|g| = 8k + 1$.
+    \item For any pair $x \neq y \in G^{\prime} \rightarrow x\cdot y =_{8} 0$
+    \item For any triple $x\neq y,z \in G^{\prime} \rightarrow \sum_{i}x_{i}y_{i}z_{i} =_{8} 0$
+    \item For any $x \in G^{\prime} \rightarrow |x| =_{8} 1$  
   \end{enumerate}
 \end{claim}
 
