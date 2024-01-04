@@ -164,7 +164,7 @@ Maybe what do we need is to arrange in some way $|g|+|g^{\prime}| = 4k+1$ and $\
 Now take $C_0 \otimes C$, and set the new generator set to be $g^0_i \otimes g'_j$. And it's easy to verify that we got the code we wanted.
 \end{proof}
 
-\begin{claim}
+\begin{claim} \label{claim:code}
   There exists, a good LDPC code (classic) $C$ such that $C^{\perp}$ is also a good code and a generator set $G$, for exists $G^{\prime} \subset G$ and $|G^{\prime}| = \Theta( |G|)$ such:  
   \begin{enumerate}
     \item For any pair $x \neq y \in G^{\prime} \rightarrow x\cdot y =_{8} 0$
@@ -178,8 +178,25 @@ Now take $C_0 \otimes C$, and set the new generator set to be $g^0_i \otimes g'_
   There is $n \rightarrow \Theta(n)$ magic states distillation into a binary qldpc code with $\Theta(\sqrt{n})$ distance, and therefore with asymptotic overhead approaching $1$ 
 \end{claim}
 
+\begin{proof}
+For the encoding we are going to use the hyperproduct code defined in \cite{Tillich_2014}. Let $C$ be the code given by \Cref{claim:code} and consider the hyperproduct of $C$ with itself $Q = Q(C \times_{H} C)$. In addition, denote by $C_{X},C_{Z}$ the CSS representation of $Q$. 
+
+By the fact that $C^\perp$ is also a good code, then $Q$ is a positive rate, square root distance code. Let $\rho$ be the rate of $C$ and $1 - \rho$ be the rate of $C^{\perp}$. As $\rho > 0$, then one can find $I \subset [n]$ coordinates such that for any $i \in I$ the indicator $e_{i} \not\in C^{\perp}$. Hence, it holds from \cite{Tillich_2014} that any vector of the form $e_{i}\otimes x$ is a codeword of $C_{X}/C_{Z}^{\perp}$.
+
+Denote by $\rho^{\prime}$ the portion of $G^{\prime}$ as defined in \Cref{claim:code}, and define $S$ to be: 
+\begin{equation*}
+  \begin{split}
+    S = \left\{ e_{i} \otimes x| e_{i} \not\in C^{\perp}, x \in G^{\prime} \right\}
+  \end{split}
+\end{equation*}
+Observes that $|S| = \rho^{\prime}\rho n^{2}$ and in addition $S$ satisfies the property in \Cref{claim:code}. 
+\end{proof}
+
 % Triorthogonal
 
+
+
+\printbibliography
 \end{document}
 
 
