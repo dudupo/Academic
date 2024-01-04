@@ -196,9 +196,17 @@ Observes that $|S| = \rho^{\prime}\rho n^{2}$ and in addition $S$ satisfies the 
     & -  2 \cdot i \pi/4  \overbrace{\sum_{g,h} X_{g}X_{h}|g\cdot h|}^{8k} \\ 
   & +  4 \cdot i\pi/4 \overbrace{ \sum_{g,h} X_{g}X_{h}X_{l}|g\cdot h \cdot l| }^{8k } \Big) \ket{f} \\
   & \\ 
-  =   \exp \Big( i\pi/4 & \sum_{g} X_{g} \Big) \ket{f}
+  =   \exp \Big( i\pi/4 & \sum_{g \in S} X_{g} \Big) \ket{f}
       \end{split}
 \end{equation*}
+
+%Therefore we can, generate $ $
+\begin{equation*}
+  \begin{split}
+    \prod_{s \in S} \Big( \ket{0} + \exp \left( i\pi/4 \right) \ket{s} \Big)
+  \end{split}
+\end{equation*}
+
 \end{proof}
 
 % Triorthogonal
