@@ -121,7 +121,10 @@ Maybe what do we need is to arrange in some way $|g|+|g^{\prime}| = 4k+1$ and $\
 \end{claim}
 
 \begin{claim}
- Let $\varepsilon > 0$ and any code $C$ at rate $\rho(C) \ge 7/8 + \varepsilon$ has at least $\varepsilon 2^{n}$ codewords, such that any of them has a remainder of $1$ when divided by $8$. 
+  Let $C$ be a code at rate $\rho(C) > 7/8 $ has at least one codeword $x \in C$ , such that $|x| =_{8} 1 $.
+\end{claim}
+\begin{claim}
+  Let $C$ be a code at rate $\rho(C) > 7/8 $ then there are at least $\rho/8$ generators $g \in G$ at weight $|g| =_{8} 1$.
 \end{claim}
 
 \begin{claim}
@@ -129,7 +132,7 @@ Maybe what do we need is to arrange in some way $|g|+|g^{\prime}| = 4k+1$ and $\
   \begin{enumerate}
     \item For any pair $x \neq y \in G \rightarrow x\cdot y = 0$
     \item For any triple $x\neq y,z \in G \rightarrow \sum_{i}x_{i}y_{i}z_{i} = 0$
-    \item There exists $\varepsilon$ generators $g$ such that $|g| = 8k+1$
+    \item  There exists $\rho^{\prime} > 0$ such that one can choose a generator set $G$ satisfying that at least $\rho^{\prime}$ portion of its generators $g$ have weight $|g| = 8k + 1$.
   \end{enumerate}
 \end{claim}
 
