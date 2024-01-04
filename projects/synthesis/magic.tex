@@ -134,18 +134,19 @@ Maybe what do we need is to arrange in some way $|g|+|g^{\prime}| = 4k+1$ and $\
   \end{equation*}
 \end{definition}
 
-\begin{claim} 
-If there exists a single $m$-genorthogonal code for a finite length $\Delta$, then there is a family of $m$-genorthogonal codes.
+\begin{claim}  
+If there exists a single $m$-genorthogonal code for a finite length $\Delta$, then there is a family of $m$-genorthogonal good codes. Moreover, if there exists a generator in $C_0$ of weight $|\cdot|_m = 1$, then there exists a family that also has at least one generator of weight $|\cdot|_m = 1$.
 \end{claim}
 \begin{proof}
-  Denote by $C_{0} = \Delta[1,\rho_{0}, \delta_{0}]$ an $m$-genorthogonal code and observes that for any $C = [n,\rho n, \delta n]$ the tensor code $C_{0\otimes}C = [\Delta n, \rho_{0} \rho \Delta n, \delta_{0} \delta \Delta n]$ is also $m$-genorthogonal code.  
+  Denote by $C_{0} = \Delta[1,\rho_{0}, \delta_{0}]$ an $m$-genorthogonal code and observes that for any $C = [n,\rho n, \delta n]$ the tensor code $C_{0}\otimes C = [\Delta n, \rho_{0} \rho \Delta n, \delta_{0} \delta \Delta n]$ is also $m$-genorthogonal code. Choose $C$ to be a good code with rate $> 7/8$by \Cref{claim:oneg} there is at least on codeword $c$ in $C$ such that $|c| =_{m} 1$, So pick the base for $C_{0}\otimes C$ such the first generator is $g_{0} \otimes c$ where $g_{0}$ denote a generator of $C_{0}$ satisfies $|g_{0}| =_{m} 1$. 
+  Then $|g_{0} \otimes c | = |g_{0}| \cdot |c| =_{m} 1$.  
 \end{proof}
 
 \begin{claim}
   Let $C$ be a $9$-genorthogonal code at rate $\rho(C) > 7/8 $ then there are at least $\rho/8$ generators $g \in G$ at weight $|g| =_{8} 1$.
 \end{claim}
 \begin{proof}
-  If $C$ has more than $\rho/8 n$ generators at weight $| \cdot |_{8} = 1$ then we done. Otherwise by pigeonhole principle we have a $i$ such that more than $\rho/8$ portion of the generators are at weight $ |\cdot|_{8} = i$. Denote them by $g_{1},g_{2},g_{3}..g_{m}$. On the otherhand by \Cref{claim:oneg} there is in $C$ at least one codewored $c$ such that $|c|_{8}= 1$. Define the set $g_{1}^{^\prime},g_{2}^{\prime}..g_{m}^{\prime}$ as   
+  If $C$ has more than $\rho/8 n$ generators at weight $| \cdot | =_{8} 1$ then we done. Otherwise by pigeonhole principle we have a $i$ such that more than $\rho/8$ portion of the generators are at weight $ |\cdot| =_{8} i$. Denote them by $g_{1},g_{2},g_{3}..g_{m}$. On the otherhand by \Cref{claim:oneg} there is in $C$ at least one codewored $c$ such that $|c| =_{8} 1$. Define the set $g_{1}^{^\prime},g_{2}^{\prime}..g_{m}^{\prime}$ as   
   \begin{equation*}
     \begin{split}
       g^{\prime}_{t} & = c + \sum_{j=t}^{t+8}g_{j} \\
