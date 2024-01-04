@@ -126,21 +126,21 @@ Maybe what do we need is to arrange in some way $|g|+|g^{\prime}| = 4k+1$ and $\
 \end{claim}
 
 \begin{definition}
-  We will say that a code $C$ is $m$-genorthogonal if there exists a generator set $G$ for $C$ such that for any $I \subset G$ such that $1 < |I| < m$ we have that:
+  We will say that a code $C$ is $(l,m)$-genorthogonal if there exists a generator set $G$ for $C$ such that for any $I \subset G$ such that $1 < |I| < l$ we have that:
   \begin{equation*}
     \begin{split}
-      \sum_{i \in [n]}\prod_{g_{j}\in I \subset G}g_{j}^{i} =_{k} 0 
+      \sum_{i \in [n]}\prod_{g_{j}\in I \subset G}g_{j}^{i} =_{m} 0 
     \end{split}
   \end{equation*}
 \end{definition}
 
 \begin{claim}  
-If there exists a single $m$-genorthogonal code for a finite length $\Delta$, then there is a family of $m$-genorthogonal good codes. Moreover, if there exists a generator in $C_0$ of weight $|\cdot|_m = 1$, then there exists a family that also has at least one generator of weight $|\cdot|_m = 1$.
+  If there exists a single $(l,m)$-genorthogonal code for a finite length $\Delta$, then there is a family of $(l,m)$-genorthogonal good codes. Moreover, if there exists a generator in $C_0$ of weight $|\cdot|_m = 1$, then there exists a family that also has at least one generator of weight $|\cdot|_m = 1$.
 \end{claim}
 \begin{proof}
   Denote by $C_{0} = \Delta[1,\rho_{0}, \delta_{0}]$ an $m$-genorthogonal code and observes that for any $C = [n,\rho n, \delta n]$ the tensor code $C_{0}\otimes C = [\Delta n, \rho_{0} \rho \Delta n, \delta_{0} \delta \Delta n]$ is also $m$-genorthogonal code. 
 
-  For the seconed part of the claim, Choose $C$ to be a good code with rate $> 7/8$ by \Cref{claim:oneg} there is at least on codeword $c$ in $C$ such that $|c| =_{m} 1$.
+  For the seconed part of the claim, Choose $C$ to be a good code with rate $> \left(2^{m}-1\right)/2^{m}$ by \Cref{claim:oneg} there is at least on codeword $c$ in $C$ such that $|c| =_{m} 1$.
 
   So pick the base for $C_{0}\otimes C$ such the first generator is $g_{0} \otimes c$ where $g_{0}$ denote a generator of $C_{0}$ satisfies $|g_{0}| =_{m} 1$. 
     Then $|g_{0} \otimes c | = |g_{0}| \cdot |c| =_{m} 1$.  
