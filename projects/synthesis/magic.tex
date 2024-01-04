@@ -134,7 +134,7 @@ Maybe what do we need is to arrange in some way $|g|+|g^{\prime}| = 4k+1$ and $\
   \end{equation*}
 \end{definition}
 
-\begin{claim}  
+\begin{claim} \label{claim:goodgen} 
   If there exists a single $(l,m)$-genorthogonal code for a finite length $\Delta$, then there is a family of $(l,m)$-genorthogonal good codes. Moreover, if there exists a generator in $C_0$ of weight $|\cdot|_m = 1$, then there exists a family that also has at least one generator of weight $|\cdot|_m = 1$.
 \end{claim}
 \begin{proof}
@@ -147,19 +147,22 @@ Maybe what do we need is to arrange in some way $|g|+|g^{\prime}| = 4k+1$ and $\
 \end{proof}
 
 \begin{claim}
-  Let $C$ be a $\rho$-rate, $(11,8)$-genorthogonal code such the generators set contains generator $c$ at weight $|c|_{8}=1$. Then there is a generators set $G^{\prime}$ for $C$ such that $C$ is $(2,8)$-genorthogonal in respeect to $G^{\prime}$ and there are at least $\rho/8$ generators $g \in G$ at weight $|g| =_{8} 1$.
+  Suppose that there exists $(m+1,m)$-genorthogonal code, such that any generator of it has weight $| \cdot | =_{m} 1$ then there exists also a family of good $(m+1,m)$-genorthogonal codes such that a liner portion of his generators $g$ have weight $|g| =_{m} 1$. 
 \end{claim}
-\begin{proof}
-  If $C$ has more than $\rho/8 \cdot n$ generators at weight $| \cdot | =_{8} 1$ then we done. Otherwise by pigeonhole principle we have a $i$ such that more than $\rho/8$ portion of the generators are at weight $ |\cdot| =_{8} i$. Denote them by $g_{1},g_{2},g_{3}..g_{m}$. On the otherhand by \Cref{claim:oneg} there is in $C$ at least one codewored $c$ such that $|c| =_{8} 1$. Define the set $g_{1}^{^\prime},g_{2}^{\prime}..g_{m}^{\prime}$ as   
+
+\begin{proof}  
+  Denote by $C_{0}$ a finte $(m+1,m)$-genorthogonal code, such that any generator of it has weight $| \cdot | =_{m} 1$. Let $C$ be a good $(m+1,m)$-genorthogonal code with generator $c$ such that $|c| =_{m} 1$, the existence of which is given by \Cref{claim:goodgen}. Denote its rate by $\rho$. If $C$ has more than $\rho/m \cdot n$ generators at weight $| \cdot | =_{m} 1$ then we are done. Otherwise, by the pigeonhole principle, there is an $i$ such that more than $\rho/m$ portion of the generators are at weight $ |\cdot| =_{m} i$. Denote them by $g_{1},g_{2},g_{3}, \dots, g_{m}$.
+
+  Define the set $g_{1}^{^\prime},g_{2}^{\prime}..g_{m}^{\prime}$ as   
   \begin{equation*}
     \begin{split}
-      g^{\prime}_{t} & = c + \sum_{j=t}^{t+10}g_{j} \\
-      & \Rightarrow |g^{\prime}_{t+1}| = |c| + \sum_{t}{ |g_{j}| } + \sum_{|I|<10}\left|\prod_{g \in I\cup \{c\} } \alpha_{\star} g \right| \\
-      & =_{8} c + 8\cdot i =_{8} c =_{8} 1  
+      g^{\prime}_{t} & = c + \sum_{j=t}^{t+m}g_{j} \\
+      & \Rightarrow |g^{\prime}_{t+1}| = |c| + \sum_{t}{ |g_{j}| } + \sum_{|I|<l+1}\left|\prod_{g \in I  } \alpha_{\star} g \right| \\
+      & =_{m} c + m\cdot i =_{m} c =_{m} 1  
     \end{split}
-  \end{equation*} 
-  Now take $C_{0}\otimes C$ and we get a code as we wanted. 
-  \end{proof}
+  \end{equation*}  
+Now take $C_0 \otimes C$, and set the new generator set to be $g^0_i \otimes g'_j$. And it's easy to verify that we got the code we wanted.
+\end{proof}
 
 \begin{claim}
   There exists, a good LDPC code (classic) $C$ such that $C^{\perp}$ is also a good code and a generator set $G$:  
