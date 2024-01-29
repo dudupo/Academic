@@ -115,7 +115,15 @@ swap $A_{1} \leftrightarrow \max A$ \\
 
 
 \section{Sorting Quantumly in Space-Bounded Storage.}
-
+\begin{definition}
+  We will say that a quantum circuit is in the $S$-bounded storage model if it can perform one of the following operations: 
+  \begin{enumerate}
+    \item Initialize $S$ ancillae exactly once. 
+    \item Compute any gate on those ancillae. 
+    \item Read memory into the storage for $R[\ket{x}, i] = \ket{x \oplus M_{i}}$. 
+    \item Write classical state from local storage back to memory $W[\ket{x}, i] = M_{i} \leftarrow x$. 
+  \end{enumerate}
+\end{definition}
 \begin{algorithm}
 \SetAlgoLined
 \KwResult{Sorting $A_{1},A_{2},..A_{n}$ }
