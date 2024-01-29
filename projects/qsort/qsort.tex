@@ -38,6 +38,63 @@ It has been proven that any quantum algorithm in the quantum circuits which sort
   }
 }
 \end{algorithm}
+\begin{claim}
+  \label{claim:first}
+  After the $i$th iteration, $A_{1} \le A_{2} \le A_{3} .. \le A_{i}$ and $A_{i}$ is the maximum of the whole array. 
+\end{claim}
+\begin{proof}
+  By induction on the iteration number $i$. 
+  \begin{enumerate}
+    \item Base. For $i=1$, it is clear that when $j$ reaches the position of the maximum element, an exchange will occur and $A_{1}$ will be set to be the maximum element. Thus, the condition on line (3) will not be satisfied for the remaining $j$-iterations of the inner loop. Therefore, at the end of the first iteration, $A_{1}$ is indeed the maximum.
+    \item Assumption. Assume the correctness of the claim for any $i^{\prime} < i$. 
+    \item Step. Consider the $i$th iteration. And observe that if $A_{i} = A_{i-1}$ then $A_{i}$ is also the maximal element in $A$, namely no exchange will be made in the $i$th iteration, yet $A_{1} \le A_{2} \le .. \le A_{i-1}$ by the induction assumption, thus  $A_{1} \le A_{2} \le .. \le A_{i-1} \le A_{i}$ and $A_{i}$ is the maximal element, so the claim holds in the end of the iteration. 
+      If $A_{i} < A_{i-1}$ then there exists $k \in [1,i-1]$ such that $A_{k} > A_{i}$. Set $k$ to be the minimal position for which the inequality holds. For convenience, denote by $A^{(j)}$ the array in the beginning of the $j$th iteration of the inner loop. And let's split into cases according to $j$ value. 
+      \begin{enumerate}
+        \item $j < k$ By definition of $k$, for any $j < k, A^{(1)}_{j} < A^{(1)}_{i}$, Hence in the first $k-1$ iterations no exchange will be made and we can conclude that $A^{(j)}_{l} = A^{(1)}_{l}$ for any $l \in [n]$ and $j \le k$. 
+        \item $j \ge k$ and $j\le i$, We claim that for each such $j$ an exchange will always occur. (The proof is given below.)
+          \begin{claim}
+            \label{claim:second}
+            For any $j \in [k,i]$ we have that in the end of the $j$th iteration:  
+            \begin{itemize}
+              \item $A^{(j+1)}_{j} = A^{(j)}_{i}$.
+              \item $A^{(j+1)}_{i} = A^{(j)}_{j} = A^{(1)}_{j}$.
+              \item For any $l > j$ and $l \neq i$ we have $A^{(j+1)}_{l} = A^{(1)}_{l}$.
+            \end{itemize}
+          \end{claim}
+
+        \item $j > i$, so we know that $A^{(i+1)}_{i}$ is the maximal element in $A$. Therefore, for any $j$, it holds that $A^{(i+1)}_{i}\ge A^{(i)}_{j}$. It follows that no exchange would be made and $A^{(j)}_{i}$ will remain the maximum til the end of the inner loop. Thus for any $j >i$:   
+          \begin{equation*}
+            \begin{split}
+              A^{(j)}_{i}=A^{(j-1)}_{i}=.. =A^{(i+2)}_{i}=A^{(i+1)}_{i}=A^{(i)}_{i-1}=A^{(0)}_{i-1}=\max A
+            \end{split}
+          \end{equation*}
+          And 
+          \begin{equation*}
+            \begin{split}
+             & A^{(j)}_{1}, A^{(j)}_{2}, .. A^{(j)}_{k-1}, A^{(j)}_{k}, A^{(j)}_{k+1}, .. A^{(j)}_{i-1}, A^{(j)}_{i}, A^{(j)}_{i+1} , A^{(j)}_{i+2} , A^{(j)}_{i+3} .. \\
+            = & A^{(0)}_{1}, A^{(0)}_{2}, .. A^{(0)}_{k-1}, A^{(0)}_{i}, A^{(0)}_{k}, .. A^{(0)}_{i-2}, A^{(0)}_{i-1}, A^{(0)}_{i+1} , A^{(0)}_{i+2} , A^{(0)}_{i+3} .. 
+            \end{split}
+          \end{equation*}
+          In particular, for $j = n+1$ (Note that there is no $n+1$th iteration). Clearly, the inequalities are satisfied and we are done.
+\end{enumerate}
+\end{enumerate}
+  \end{proof}
+  \begin{proof}[Proof of \Cref{claim:second}.]
+  Observe that the third section holds trivially by the definition of the algorithm. It doesn't touch any position greater than $j$ in the first $j$ iterations (inner loop) except the $i$th position. So we have to prove only the first two bullets. Again, we are going to prove them by induction on $j$.  
+  \begin{enumerate}
+    \item Base. $A^{(1)}_{k}$ is greater than $A_{i}$, and by the above case, we have that at the beginning of the $k$th iteration $A^{(k)}_{k}=A^{(1)}_{k}, A^{(k)}_{i}=A^{(1)}_{k}$. Therefore, the condition on line (3) is satisfied, an exchange is made, and $A^{(k+1)}_{k} =A^{(k)}_{i} = A^{(1)}_{i}$ and $A^{(k+1)}_{i} = A^{(k)}_{k}$. %Now, $A^{(k+1)}_{k+1} = A^{(k)}_{k+1} = A^{(0)}_{k+1}$.
+    \item Assumption. Assume the correctness of the claim for any $k \le j^{\prime} < j \le i$. 
+    \item Step. Consider the $j \in (k,i]$ iteration. By the induction assumption, we have that $A^{(j)}_{j-1} = A^{(j-1)}_{i}$ and $A^{(j)}_{i} = A^{(j-1)}_{j-1} = A^{(1)}_{j-1}$. On the other hand, by the induction assumption of \Cref{claim:first}, $j-1 < i \Rightarrow A^{(1)}_{j-1} \le A^{(1)}_{j}$. Combining the third bullet, we obtain that:                
+      \begin{equation*}
+        \begin{split}
+          A^{(j)}_{j} = A^{(1)}_{j} \ge A^{(1)}_{j-1} = A^{(j)}_{i}
+        \end{split}
+      \end{equation*}
+      And therefore, either there is an inequality and an exchange is made or there is equality. In both cases, after the $j$th iteration, we have $A^{(j+1)}_{j} = A^{(j)}_{i}$ and $A^{(j+1)}_{i} = A^{(j)}_{j} = A^{(1)}_{j}$.
+  \end{enumerate}
+\end{proof}
+
+
 \begin{algorithm}
 
 \SetAlgoLined
