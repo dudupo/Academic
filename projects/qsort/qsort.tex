@@ -1,0 +1,46 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+  \documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass{article}
+  \input{./usepackage}
+  \addbibresource{./sample.bib} 
+
+\fi
+
+\begin{document}
+
+\input{newcommands}
+
+\title{$\log n$ - Space, $n^{3/2}$ Time Quantum Sort.} 
+\author{David Ponarovsky}
+%\author{Noa Viner, David Ponarovsky}
+\maketitle
+\cite{klauck2003quantum}, \cite{Simplesort}
+
+\begin{algorithm}
+\SetAlgoLined
+\KwResult{Sorting $A_{1},A_{2},..A_{n}$ }
+\caption{ "ICan'tBelieveItCanSort"  alg.}
+\For{ $ i \in [n]$} {
+  \For{ $ j \in [n]$} {
+    \If { $A_{i} < A_{j} $} {
+      swap $A_{i} \leftrightarrow A_{j}$
+    }
+  }
+}
+\end{algorithm}
+
+\printbibliography
+\end{document}
+
+
+
+
+
