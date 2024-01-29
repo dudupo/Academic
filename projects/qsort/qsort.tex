@@ -43,14 +43,31 @@
 \caption{ "ICan'tBelieveItCanSort"  alg.}
 swap $A_{1} \leftrightarrow \max A$ \\
 \For{ $ i \in [n-1]$} {
-  \For{ $ j \in [n]$} {
     Find the first $k$ such $A_{k} > A_{i}$ \\
-    Set $A \leftarrow A_{1},A_{2}..A_{k-1},A_{i},A_{k+1},..,A_{i-1},A_{i+1}..,A_{n}$
-    
-  }
+    Set $A \leftarrow A_{1},A_{2}..A_{k-1},A_{i},A_{k},A_{k+1},..,A_{i-1},A_{i+1}..,A_{n}$
 }
 \end{algorithm}
 
+\begin{algorithm}
+\SetAlgoLined
+\KwResult{Sorting $A_{1},A_{2},..A_{n}$ }
+\caption{ "ICan'tBelieveItCanSort"  alg.}
+swap $A_{1} \leftrightarrow \max A$ \\
+\For{ $ i \in [n-1]$} {
+    Set current $\leftarrow$ head.next \\
+
+    $k$-pointer $\leftarrow$ Find the first '$k< i$' node such '$A_{k} > A_{i}$' using Grover querying the follow \\
+    \ \ Ask if ( node.color $=$ red and node.value $ > $ current.value \\ 
+    \ \ \ \ and node.back.value $\le$ current.value ) \\ 
+
+    Set head.next $\leftarrow$ head.next.next \\
+    Set head.next.back $\leftarrow$ head\\
+    Set current.next $\leftarrow$ $k$-pointer \\
+    Set current.back $\leftarrow$ $k$-pointer.back \\
+    Set current.back.next $\leftarrow$ current \\ 
+    Set current.clor $\leftarrow$ red
+}
+\end{algorithm}
 \printbibliography
 \end{document}
 
