@@ -36,6 +36,20 @@
   }
 }
 \end{algorithm}
+\begin{algorithm}
+
+\SetAlgoLined
+\KwResult{Sorting $A_{1},A_{2},..A_{n}$ }
+\caption{ "ICan'tBelieveItCanSort"  alg.}
+swap $A_{1} \leftrightarrow \max A$ \\
+\For{ $ i \in [n-1]$} {
+  \For{ $ j \in [n]$} {
+    Find the first $k$ such $A_{k} > A_{i}$ \\
+    Set $A \leftarrow A_{1},A_{2}..A_{k-1},A_{i},A_{k+1},..,A_{i-1},A_{i+1}..,A_{n}$
+    
+  }
+}
+\end{algorithm}
 
 \printbibliography
 \end{document}
