@@ -61,6 +61,18 @@ Let $H$ be a $|V|\times r$ binary parity check matrix of $\tilde{C}$. Also, let 
    is a codeword of $\tilde{C}$. Let $\Lambda$ be the set of all $\tilde{C}$-vertices-respect assignments. Then $|\Lambda| > (1-\varepsilon)2^{\rho |V|}$.
 \end{claim}
 
+\begin{proof} 
+Any $x \in \Lambda$ is a solution for the following system of equations:
+  \begin{equation*}
+    \begin{split}
+      z_{v} &= 1 + \prod_{ e \in v }{ \left( 1 - x_{e} \right) } \\
+      Hz &= 0
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+
+
 
 
 Let $\ket{f}$ be a codeword in $C_{X}$, and let $X_{g}$ be the indicator that equals $1$ if $f$ has support on $X_{g}$, and $0$ otherwise. Observes that applying $T^{\otimes}$ on $\ket{f}$ yilds the state: 
