@@ -20,31 +20,51 @@
 \author{David Ponarovsky}
 \maketitle
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 %\begin{abstract}
 %  We studies the complexity of synthesis quantum states using PRS, our reasch continues the work by \cite{searchtodecision}, \cite{rosenthal2023efficient}, \cite{rosenthal2021interactive}, \cite{metger2023stateqip}, \cite{delavenne2023quantum}.
 %\end{abstract}
 %
 %
-%Let $\ket{f}$ be a codeword in $C_{X}$, and let $X_{g}$ be the indicator that equals $1$ if $f$ has support on $X_{g}$, and $0$ otherwise. Observes that applying $T^{\otimes}$ on $\ket{f}$ yilds the state: 
-%\begin{equation*}
-%  \begin{split}
-%    T^{\otimes n}\ket{f} & =  T^{\otimes n}\ket{\sum_{g} X_{g}g } = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  2 \cdot i \pi/4 \sum_{g,h} X_{g}X_{h}|g\cdot h| \\
-%    & +  4 \cdot i\pi/4 \sum_{g,h} X_{g}X_{h}X_{l}|g\cdot h \cdot l| -   8  \cdot i\pi/4 \cdot \text{ integers } \Big) \ket{f} \\
-%    & = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  2 \cdot \pi/4 \sum_{g,h} X_{g}X_{h}|g\cdot h| +  4 \cdot i\pi/4 \sum_{g,h} X_{g}X_{h}X_{l}|g\cdot h \cdot l| \Big) \ket{f}
-%  \end{split}
-%\end{equation*}
-%
-%\section{Many to One.}
-%Assume that $f$ is supported on exactly one generator. Then we have that $T^{\otimes n}\ket{f}  = e^{i\pi|g|/4}\ket{f}$ Therefore, if $|g| = 4k+1$ then we are done.
-%
-%
-%\section{Using Quntum Error Correction Codes.}
-%
-%Now assume that the code $C_{X}$ is the quantum Tanner code, denote by $G,A,B$ the group and the two generator sets that are used for constructing the square complex. 
-%
-%\begin{claim} 
-%Consider $g,h$ that are supported on the same $v\in V$. We will call such a pair a source-sharing pair. Suppose that for any we have that $|g \cdot h|$ is even. Then there is a Clifford gate that computes $\ket{f} \mapsto \exp \Big(  -  i\pi \sum_{g,h \text{ source-sharing }} X_{g}X_{h}|g\cdot h|  \Big) \ket{f} $.
-%\end{claim}
+Let $\ket{f}$ be a codeword in $C_{X}$, and let $X_{g}$ be the indicator that equals $1$ if $f$ has support on $X_{g}$, and $0$ otherwise. Observes that applying $T^{\otimes}$ on $\ket{f}$ yilds the state: 
+\begin{equation*}
+  \begin{split}
+    T^{\otimes n}\ket{f} & =  T^{\otimes n}\ket{\sum_{g} X_{g}g } = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  2 \cdot i \pi/4 \sum_{g,h} X_{g}X_{h}|g\cdot h| \\
+    & +  4 \cdot i\pi/4 \sum_{g,h} X_{g}X_{h}X_{l}|g\cdot h \cdot l| -   8  \cdot i\pi/4 \cdot \text{ integers } \Big) \ket{f} \\
+    & = \exp \Big( i\pi/4 \sum_{g} X_{g}|g|  -  2 \cdot \pi/4 \sum_{g,h} X_{g}X_{h}|g\cdot h| +  4 \cdot i\pi/4 \sum_{g,h} X_{g}X_{h}X_{l}|g\cdot h \cdot l| \Big) \ket{f}
+  \end{split}
+\end{equation*}
+
+\section{Many to One.}
+Assume that $f$ is supported on exactly one generator. Then we have that $T^{\otimes n}\ket{f}  = e^{i\pi|g|/4}\ket{f}$ Therefore, if $|g| = 4k+1$ then we are done.
+
+
+\section{Using Quntum Error Correction Codes.}
+
+Now assume that the code $C_{X}$ is the quantum Tanner code, denote by $G,A,B$ the group and the two generator sets that are used for constructing the square complex. 
+
+\begin{claim} 
+Consider $g,h$ that are supported on the same $v\in V$. We will call such a pair a source-sharing pair. Suppose that for any we have that $|g \cdot h|$ is even. Then there is a Clifford gate that computes $\ket{f} \mapsto \exp \Big(  -  i\pi \sum_{g,h \text{ source-sharing }} X_{g}X_{h}|g\cdot h|  \Big) \ket{f} $.
+\end{claim}
 %
 %%\begin{claim}
 %%  \label{claim:phase}
@@ -121,7 +141,15 @@
 %\end{claim}
 %
 
-\paragraph{What about concatination?} So, take a quantum good code. And consider a prasintion $k^{\prime}|k|m$ such that $k^{\prime} = \dim C_{Z}^{\perp}$ and $k = \dim C_{X}/C_{Z}^{\perp}$. Now concatinate with two genorthogonal codes, such that any logical bit of $k$ has wight of 1 module 8 and the others has weight 0.  
+
+
+
+
+
+
+
+
+%\paragraph{What about concatination?} So, take a quantum good code. And consider a prasintion $k^{\prime}|k|m$ such that $k^{\prime} = \dim C_{Z}^{\perp}$ and $k = \dim C_{X}/C_{Z}^{\perp}$. Now concatinate with two genorthogonal codes, such that any logical bit of $k$ has wight of 1 module 8 and the others has weight 0.  
 
 
 
