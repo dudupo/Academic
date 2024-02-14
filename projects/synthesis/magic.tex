@@ -58,6 +58,12 @@
 
 Consider the following decoder, we flip a bit if flipping it decrease the syndrome. Now observers that if a non faulty bit $i$ has been flip then it means that there is at least one faulty bit $j$ in the error $e$ that $i,j$ collide. Similarly if a faulty bit $i$ hasn't been flip then it means that there is another faulty bit $j$ that collide with him. In overall we conclude that the total number of incorrect flips made by the decoder is at most the number of collisions. 
 
+\begin{equation*}
+  \begin{split}
+    \expp{\sum_{v \in e} \sum_{u \in [n]} X_{v,u}} \le |e|\cdot n \cdot \left( \frac{1}{2\Delta} \right)^{m} = \frac{|e|}{2^{m}}
+  \end{split}
+\end{equation*}<++>
+
 
 
 \begin{claim}
