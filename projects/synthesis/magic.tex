@@ -68,6 +68,8 @@ Consider the following decoder, we flip a bit if flipping it decrease the syndro
 
 Now we are going to add a random error at weight $\frac{|e|}{2^{m}}$ to ensure that in the next iteration the $\frac{|e|}{2^{m-1}}$ error will distributed uniformly. Repeating for $\log_{2^{m-1}}$ rounds correct the error. (not exactly there is an error in each round that should be handled).   
 
+\ctt{ We flip in over all $|e| \sum \frac{1}{2^{i}}  < 2|e| $ bits, so we would like to have $|e| \le d/4 $.} 
+
 
 
 \begin{equation*}
