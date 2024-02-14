@@ -23,23 +23,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 %\begin{abstract}
 %  We studies the complexity of synthesis quantum states using PRS, our reasch continues the work by \cite{searchtodecision}, \cite{rosenthal2023efficient}, \cite{rosenthal2021interactive}, \cite{metger2023stateqip}, \cite{delavenne2023quantum}.
 %\end{abstract}
@@ -47,6 +30,18 @@
 %
 
 
+
+\newcommand{\hashcode}{ checks-hashed }
+
+
+\begin{definition}
+  Let $\{h_{i} \}_{1}^{t}$ be the checks of $\Delta$-length code $C_{0}$. We say that $i$th bit and the $j$th bit collide if there a check $h$ such that $h_{i}=h_{j}=1$. We say that a $C_{0}$ is a \hashcode if:  
+  \begin{equation*}
+    \begin{split}
+      \prbm{ i,j \text{ collide  }  }{ i \neq j \sim [\Delta]^{2} } < \frac{1}{2\Delta}
+    \end{split}
+  \end{equation*}<++>
+\end{definition}
 
 
 
