@@ -62,8 +62,9 @@ Consider the following decoder, we flip a bit if flipping it decrease the syndro
   \begin{split}
     \expp{\sum_{v \in e} \sum_{u \in [n]} X_{v,u}} \le |e|\cdot n \cdot \left( \frac{1}{2\Delta} \right)^{m} = \frac{|e|}{2^{m}}
   \end{split}
-\end{equation*}<++>
+\end{equation*}
 
+Now we are going to add a random error at weight $\frac{|e|}{2^{m}}$ to ensure that in the next iteration the $\frac{|e|}{2^{m-1}}$ error will distributed uniformly. Repeating for $\log_{2^{m-1}}$ rounds correct the error. (not exactly there is an error in each round that should be handled).   
 
 
 \begin{claim}
