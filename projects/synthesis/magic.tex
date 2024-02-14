@@ -38,11 +38,23 @@
   Let $\{h_{i} \}_{1}^{t}$ be the checks of $\Delta$-length code $C_{0}$. We say that $i$th bit and the $j$th bit collide if there a check $h$ such that $h_{i}=h_{j}=1$. We say that a $C_{0}$ is a \hashcode if:  
   \begin{equation*}
     \begin{split}
-      \prbm{ i,j \text{ collide  }  }{ i \neq j \sim [\Delta]^{2} } < \frac{1}{2\Delta}
+      \prbm{ i,j \text{ collide  }  }{ i, j \sim [\Delta]^{2} } < \frac{1}{2\Delta}
     \end{split}
-  \end{equation*}<++>
+  \end{equation*}
 \end{definition}
 
+\begin{claim}
+  Suppose that $C_{0}^{\perp}$ is a \hashcode. Then $\left( C_{0}^{\otimes m} \right)^{\perp}$ is also a \hashcode. 
+\end{claim}
+\begin{proof}
+  
+  \begin{equation*}
+    \begin{split}
+      \prbm{X^{(m)}_{u,v}}{u,v\sim [n]^{2}} \le & \prbm{X^{(1)}_{u,v}}{u,v\sim [\Delta]^{2}} \cdot \prbm{X^{(m-1)}_{u,v} }{u,v\sim [n/\Delta]^{2}} \\ 
+      \le & \frac{1}{2\Delta} \cdot \left( \frac{1}{2\Delta} \right)^{m-1} = \left( \frac{1}{2\Delta} \right)^{m}
+    \end{split}
+  \end{equation*}
+\end{proof}
 
 
 \begin{claim}
