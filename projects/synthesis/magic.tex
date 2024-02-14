@@ -56,6 +56,9 @@
   \end{equation*}
 \end{proof}
 
+Consider the following decoder, we flip a bit if flipping it decrease the syndrome. Now observers that if a non faulty bit $i$ has been flip then it means that there is at least one faulty bit $j$ in the error $e$ that $i,j$ collide. Similarly if a faulty bit $i$ hasn't been flip then it means that there is another faulty bit $j$ that collide with him. In overall we conclude that the total number of incorrect flips made by the decoder is at most the number of collisions. 
+
+
 
 \begin{claim}
 Let $H$ be a $|V|\times r$ binary parity check matrix of $\tilde{C}$. Also, let $G$ be a $\Delta$-regular graph. A bit assignment over $G$ edges $x$ will be said to be $\tilde{C}$-vertices-respect if the vector $z(x) \in \mathbb{F}_{2}^{|V|}$ which is defined as:
