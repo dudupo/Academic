@@ -67,6 +67,14 @@ Consider the following decoder, we flip a bit if flipping it decrease the syndro
 Now we are going to add a random error at weight $\frac{|e|}{2^{m}}$ to ensure that in the next iteration the $\frac{|e|}{2^{m-1}}$ error will distributed uniformly. Repeating for $\log_{2^{m-1}}$ rounds correct the error. (not exactly there is an error in each round that should be handled).   
 
 
+
+\begin{equation*}
+  \begin{split}
+    \Delta^{m}\le 1/p^{2}_{0} & \rightarrow \alpha \cdot 1/p^{2}_{0} , \frac{m}{2^{m}} \log \Delta 
+  \end{split}
+\end{equation*}
+
+
 \begin{claim}
 Let $H$ be a $|V|\times r$ binary parity check matrix of $\tilde{C}$. Also, let $G$ be a $\Delta$-regular graph. A bit assignment over $G$ edges $x$ will be said to be $\tilde{C}$-vertices-respect if the vector $z(x) \in \mathbb{F}_{2}^{|V|}$ which is defined as:
   \begin{equation*}
