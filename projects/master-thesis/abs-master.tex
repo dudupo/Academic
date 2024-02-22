@@ -1,0 +1,54 @@
+\documentclass[11pt, oneside]{book}
+\usepackage{libertine}
+\usepackage{datetime}
+\input{./usepackage}
+\usetikzlibrary{positioning}
+\addbibresource{./sample.bib} 
+
+%\usepackage[hebrew,english]{babel}
+%\titleformat{\chapter}[hang]{\bf\huge}{\thechapter}{2pc}{}
+
+\begin{document}
+\input{newcommands}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        
+        \includegraphics[width=0.15\textwidth]{huji_logo_notext.pdf}\\
+        { \large The Hebrew University of Jerusalem\\
+        The Rachel and Selim Benin School of Computer Science and Engineering }
+        
+        \vspace{2cm}
+        
+        {\huge \textbf{Understanding Quantumness And Testability.}}
+        
+        \vspace{1cm}
+       % \selectlanguage{hebrew}
+       % {\Large} % שם העבודה}
+       % \selectlanguage{english}
+        
+        \vspace{1.5cm}
+        
+        { \large David Ponarovsky }
+        
+        \vspace{1cm}
+        
+        { \large Thesis submitted in partial fulfillment of the requirements\\for the Master of Sciences degree\\
+        in Computer Science } 
+        
+        \vspace{1cm}
+        
+        { \large  Under the supervision of Prof. Michael Ben Or }
+
+        
+        \vfill
+        
+        {\large August 2023 }
+    \end{center}
+\end{titlepage}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+\input{th-introduction}
+\end{document}
