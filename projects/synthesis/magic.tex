@@ -29,7 +29,12 @@
 %
 %
 
-
+\begin{claim}
+  Let $\Lambda$ be a set of independent $k^{\prime}$ codwords in $[n,k,d]$ code. Then there is a code $C^{\prime} = [\le 2n, \ge k-k^{\prime}/2, d]$and $\Lambda^{\prime}$ set of independent codewords of it, such that $|\Lambda^{\prime}| > \frac{1}{2}|\Lambda|$ and for every pair $x,y \in \Lambda^{\prime}$ we have that $x\cdot y = 0$.
+\end{claim}
+\begin{proof} 
+  First, consider the trigonal/staris/square matrix given by gauss applying elimination on $\Lambda$. Now, consider the following process, go up hil in the squares matrix. Let $j$ be the first nonzero cordinate in the most down row in the matrix. In the $i$th iteration, we ask how many vectors $u_{m}$ such that $m < k^{\prime}-i$ are statisfies $u_{m} u_{k^{\prime}-i} = 0$. Now, if encoding the $j-i$ cordinate by $C_{0}^{1}$ such $1_{C_{0}^{1}}$ give $|B_{i} | > |\bar{B_{i}}|$ then choose to encode with $C_{0}^{1}$ otherwise encode that coordiante with $C_{0}^{0}$. 
+\end{proof}
 
 \newcommand{\hashcode}{ checks-hashed }
 
@@ -347,4 +352,4 @@ Thus we have that $\gamma = \log(n/k)/\log(d) =  \log(n/|S|)/\log(\Theta(\sqrt{n
 
 
 
-
+My responsibility spreads across the entire pipeline, including implementing features on the chip (cpp, 'realtime') and supporting the map synthesis on the cloud (python).
