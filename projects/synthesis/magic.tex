@@ -46,14 +46,17 @@ Continuing with the process eventually yields, after $k$ iterations, a matrix wi
 
 \fi
 
-\begin{claim}
-  Let $\Lambda$ be a set of independent $k^{\prime}$ codwords in $[n,k,d]$ code. Then there is a code $C^{\prime} = [\le 2n, \ge k-k^{\prime}/2, d]$and $\Lambda^{\prime}$ set of independent codewords of it, such that $|\Lambda^{\prime}| > \frac{1}{2}|\Lambda|$ and for every pair $x,y \in \Lambda^{\prime}$ we have that $x\cdot y = 0$.
+\begin{claim} 
+Let $\Lambda$ be a set of $k'$ independent codewords in a $[n,k,d]$ code. Then there exists a code $C' = [\leq 2n, \geq k-k'/2, d]$ and a set of independent codewords $\Lambda'$ in it, such that $|\Lambda'| > \frac{1}{2}|\Lambda|$ and for every pair $x,y \in \Lambda'$, we have $x\cdot y = 0$.
 \end{claim}
 \begin{proof} 
-  %First, consider the trigonal/staris/square matrix given by gauss applying elimination on $\Lambda$. Now, consider the following process, go up hil in the squares matrix. Let $j$ be the first nonzero cordinate in the most down row in the matrix. In the $i$th iteration, we ask how many vectors $u_{m}$ such that $m < k^{\prime}-i$ are statisfies $u_{m} u_{k^{\prime}-i} = 0$. Now, if encoding the $j-i$ cordinate by $C_{0}^{1}$ such $1_{C_{0}^{1}}$ give $|B_{i} | > |\bar{B_{i}}|$ then choose to encode with $C_{0}^{1}$ otherwise encode that coordiante with $C_{0}^{0}$. Denote the vectors yilded form that process by $\Gamma$. 
-First, consider the upper triangular matrix obtained by applying Gaussian elimination on $\Lambda$. Now, consider the following process: go up hill in the square matrix. Let $j$ be the first nonzero coordinate in the bottom row of the matrix. In the $i$th iteration, we ask how many vectors $u_{m}$ satisfy $u_{m} u_{k^{\prime}-i} = 0$ for $m < k^{\prime}-i$. If encoding the $j-i$ coordinate by $C_{0}^{1}$ such that $1_{C_{0}^{1}}$ gives $|B_{i}| > |\bar{B_{i}}|$, then choose to encode with $C_{0}^{1}$; otherwise, encode that coordinate with $C_{0}^{0}$. Denote the vectors yielded from that process by $\Gamma$.
- 
-Denote by $S\subset \Gamma$ the group of vectors such that there exists at least one vector in $\Gamma$ for which their multiplication is not zero. Observe that the total number of pairs with zero multiplication is greater than:
+  First, consider the upper triangular matrix obtained by applying Gaussian elimination on $\Lambda$ that has the $1$-stair property. Now, consider the following process: go uphill, from right to left, iterating over the matrix. Let $j=k$ be the first non-zero coordinate in the bottom row of the matrix. In the $i$th iteration, we ask how many rows $u_{m}$, such that $m < j$, satisfy $u_{m} u_{j} = 0$.
+
+If more than half of such $u_{m}$ satisfy the equality, then we move on to the next iteration. Otherwise, we encode the $j$th coordinate by $C_{0}$, which maps $1 \rightarrow w$ such that $w\cdot w = 0$. This flips the value of $u_{m} u_{j}$ for any pair, so we get that the majority of pairs satisfy the equality.
+
+  %If encoding the $j-i$ coordinate by $C_{0}^{1}$ such that $1_{C_{0}^{1}}$ gives $|B_{i}| > |\bar{B_{i}}|$, then choose to encode with $C_{0}^{1}$; otherwise, encode that coordinate with $C_{0}^{0}$. Denote the vectors yielded from that process by $\Gamma$.
+
+Let $S\subset \Gamma$ be the group of vectors for which there exists at least one vector in $\Gamma$ whose multiplication with them is not zero. Note that the total number of pairs with zero multiplication is greater than:
   \begin{equation*}
     \begin{split}
       \frac{k^{\prime}-1}{2}  \frac{k^{\prime}-2}{2} + .. + \frac{2}{2} = \frac{1}{2} \frac{(k^{\prime}-1)(k^{\prime}-2)}{2}
@@ -66,7 +69,7 @@ Denote by $S\subset \Gamma$ the group of vectors such that there exists at least
        \Rightarrow |S| < \frac{k^{\prime}}{2}
     \end{split}
   \end{equation*}
-  Set $\Lambda^{\prime} \leftarrow \Gamma / S$. 
+  Set $\Lambda^{\prime} \leftarrow \Gamma / S$. And we got what we wanted.
 
 \end{proof}
 
