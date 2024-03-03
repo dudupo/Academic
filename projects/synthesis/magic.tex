@@ -47,6 +47,7 @@ Continuing with the process eventually yields, after $k$ iterations, a matrix wi
 \fi
 
 \begin{claim} 
+  \label{claim:commute}
 Let $\Lambda$ be a set of $k'$ independent codewords in a $[n,k,d]$ code. Then there exists a code $C' = [\leq 2n, \geq k-k'/2, d]$ and a set of independent codewords $\Lambda'$ in it, such that $|\Lambda'| > \frac{1}{2}|\Lambda|$ and for every pair $x,y \in \Lambda'$, we have $x\cdot y = 0$.
 \end{claim}
 \begin{proof} 
@@ -74,6 +75,11 @@ Denote the set of the obtained vectors by $\Gamma$. Let $S\subset \Gamma$ be the
   Set $\Lambda^{\prime} \leftarrow \Gamma / S$. And we got what we wanted.
 
 \end{proof}
+
+\begin{claim}
+  We can repeat on \Cref{claim:commute} but considering triples multiplications instead of pairs multiplications. 
+\end{claim}
+
 
 \newcommand{\hashcode}{ checks-hashed }
 
