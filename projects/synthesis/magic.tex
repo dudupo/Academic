@@ -30,6 +30,21 @@
 %
 
 \section{Good Codes With Large $\Lambda$.}
+\newcommand{\DETAILS}
+\ifdefined{DETAILS}
+\begin{definition}
+  Let $M \in \mathbb{F}_{2}^{k \times n }$ upper triangular matrix such that $k<n$. We say that $M$ has the $1$-stairs property if $M_{ij}=1$ any $j<i$. 
+\end{definition}
+\begin{claim}
+  Any $M \in \mathbb{F}_{2}^{k \times n }$ upper triangular matrix can be turn into upper triangular matrix that has the $1$-stairs property by elementary operation.  
+\end{claim}
+\begin{proof} 
+Consider the following algorithm: Let $M$ be our initial matrix. We iterate over the rows from left to right. In the $i$th iteration, we check for any row $j<i$ if $M_{ji} = 1$. If not, we set $M$ to be the matrix obtained by adding the $i$th row to the $j$th row. Since $M$ is an upper triangular matrix, adding the $i$th row does not change any entry $M_{js}$ for $s<i$. Therefore, the obtained matrix is still an upper triangular matrix and the entries at $M_{js}$ for $j,s < i$ remain the same, namely $1$ if and only if $j\le s$. 
+
+Continuing with the process eventually yields, after $k$ iterations, a matrix with the $1$-stair property.
+\end{proof}
+
+\fi
 
 \begin{claim}
   Let $\Lambda$ be a set of independent $k^{\prime}$ codwords in $[n,k,d]$ code. Then there is a code $C^{\prime} = [\le 2n, \ge k-k^{\prime}/2, d]$and $\Lambda^{\prime}$ set of independent codewords of it, such that $|\Lambda^{\prime}| > \frac{1}{2}|\Lambda|$ and for every pair $x,y \in \Lambda^{\prime}$ we have that $x\cdot y = 0$.
