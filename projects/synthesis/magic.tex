@@ -84,7 +84,9 @@ Denote the set of the obtained vectors by $\Gamma$. Let $S\subset \Gamma$ be the
 \begin{claim} 
 Suppose that a set of vectors $\Lambda \subset C$ satisfies the relation $xy = 0$ and $xyz = 0$ for any $x,y,z \in \Lambda$. Then, there exists a code $C^{\prime}$ with a code length roughly equal to $C$ and a subset $\Lambda^{\prime} \subset C^{\prime}$ such that for any distinct $x,y,z \in \Lambda^\prime$, $xy = 0$, $xyz = 0$, and $xx =_{4} 1$.
 \end{claim}
-
+\begin{proof}
+   We return to the process in \Cref{claim:commute}, but taking the standard upper triangular form of $\Lambda$ instead the $1$-stairs form. Notice that the rows are linear combinations of the original vectors in $\Lambda$ and therefore also preserve the original relations. So now, for any $j<k$, we have that encoding the $M_{jj}$ bit only affects the multiplication of $u_{j}u_{j}$. Thus, we will encode the $j$th coordinate such that the multiplication of a row by itself is $1$ residue $4$.
+\end{proof}
 
 \newcommand{\hashcode}{ checks-hashed }
 
