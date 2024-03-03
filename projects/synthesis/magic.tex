@@ -52,7 +52,9 @@ Let $\Lambda$ be a set of $k'$ independent codewords in a $[n,k,d]$ code. Then t
 \begin{proof} 
   First, consider the upper triangular matrix obtained by applying Gaussian elimination on $\Lambda$ that has the $1$-stair property. Now, consider the following process: go uphill, from right to left, iterating over the matrix. Let $j=k$ be the first non-zero coordinate in the bottom row of the matrix. In the $i$th iteration, we ask how many rows $u_{m}$, such that $m < j$, satisfy $u_{m} u_{j} = 0$.
 
-If more than half of such $u_{m}$ satisfy the equality, then we move on to the next iteration. Otherwise, we encode the $j$th coordinate by $C_{0}$, which maps $1 \rightarrow w$ such that $w\cdot w = 0$. This flips the value of $u_{m} u_{j}$ for any pair, so we get that the majority of pairs satisfy the equality.
+  If more than half of such $u_{m}$ satisfy the equality, then we move on to the next iteration. Otherwise, we encode the $j$th coordinate by $C_{0}$, which maps $1 \rightarrow w$ such that $w\cdot w = 0$. This flips the value of $u_{m} u_{j}$ for any pair, so we get that the majority of pairs satisfy the equality. 
+
+Notice that because we iterate on the upper triangular matrix, we don't change the value of $u_{m}u_{j^{\prime}}$ for any $j^{\prime} > j$ (since its $j$th coordinate was $0$ before the encoding, the encoded bit will also be $0$, thus not affecting the multiplication).
 
 Let $S\subset \Gamma$ be the group of vectors for which there exists at least one vector in $\Gamma$ whose multiplication with them is not zero. Note that the total number of pairs with zero multiplication is greater than:
   \begin{equation*}
