@@ -167,6 +167,30 @@ Decompose $f = f_{1} + f_{2}$, where $f_{1}$ is supported only on $C_{X}/C^{\per
   The logical operator $CX_{g}$ relative the code $C_{Z}^{\perp}$ can be implement such it acts on constant number of qubits. \textbf{Notice,} implementation of the gate $CX_{g}$ relative to $C_{Z}^{\perp}$ might incorrect for computing $CX_{g}$ relative to $C_{X}$. 
 \end{claim}
 
+
+\begin{figure}[h]
+  \begin{subfigure}[b]{0.65\textwidth}
+
+  \end{subfigure}
+  \begin{subfigure}[b]{0.05\textwidth}
+    \
+  \end{subfigure}
+  \begin{subfigure}[b]{0.25\textwidth} 
+\begin{tikzpicture}
+% vertices
+\foreach \i in {1,...,5}
+    \node[circle, fill=black, inner sep=1.5pt] (\i) at (72*\i:1.5) {};
+% edges
+\foreach \i in {1,...,5}
+    \foreach \j in {\i,...,5}
+        \draw (\i) -- (\j);
+% labels
+\foreach \i in {1,...,5}
+    \node[above] at (72*\i:1.5) {\i};
+\end{tikzpicture}
+  \end{subfigure} 
+\end{figure}
+
 \ifdefined\MORE
 
 
