@@ -128,28 +128,6 @@ Observe that the number of satisfied equations is at least:
 
 
     \section{Distillate $\ket{\Lambda + C_{Z}^{\perp}}$ Into Magic.}
-
-
-
-
-\begin{claim} 
-Suppose that a set of vectors $\Lambda \subset C$ satisfies the relation $xy = 0$ and $xyz = 0$ for any $x,y,z \in \Lambda$. Then, there exists a code $C^{\prime}$ with a code length roughly equal to $C$ and a subset $\Lambda^{\prime} \subset C^{\prime}$ such that for any distinct $x,y,z \in \Lambda^\prime$, $xy = 0$, $xyz = 0$, and $xx =_{4} 1$.
-\end{claim}
-\begin{proof}
-   We return to the process in \Cref{claim:commute}, but taking the standard upper triangular form of $\Lambda$ instead the $1$-stairs form. Notice that the rows are linear combinations of the original vectors in $\Lambda$ and therefore also preserve the original relations. So now, for any $j<k$, we have that encoding the $M_{jj}$ bit only affects the multiplication of $u_{j}u_{j}$. Thus, we will encode the $j$th coordinate such that the multiplication of a row by itself is $1$ residue $4$.
-\end{proof}
-
-
-\begin{claim} 
-We can repeat \Cref{claim:commute} by flipping the bit, ensuring that the majority of pairs and triple multiplications are zero. In the end, we will have the following inequality:
-  \begin{equation*}
-    \begin{split}
-      |S|\cdot \left( k + k^2 \right)\le \frac{1}{2}\left( k^{2} + k^{3} \right) 
-    \end{split}
-  \end{equation*}
-  And still we will get that $|S| \le k/2$ 
-\end{claim}
-
 Let $\ket{f}$ be a codeword in $C_{X}$, and let $X_{g}$ be the indicator that equals $1$ if $f$ has support on $X_{g}$, and $0$ otherwise. Observes that applying $T^{\otimes}$ on $\ket{f}$ yilds the state: 
 \begin{equation*}
   \begin{split}
