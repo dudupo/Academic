@@ -100,7 +100,8 @@ Continuing with the process eventually yields, after $k$ iterations, a matrix wi
 Denote the set of the obtained vectors by $\Gamma$. Let $S\subset \Gamma$ be the group of vectors for which there exists at least one vector in $\Gamma$ whose multiplication with them is not zero. Note that the total number of pairs with zero multiplication is greater than:
   \begin{equation*}
     \begin{split}
-      \frac{k^{\prime}-1}{2} + \frac{k^{\prime}-2}{2} + .. + \frac{2}{2} = \frac{1}{2} \frac{(k^{\prime}-1)(k^{\prime}-2)}{2}
+      & \frac{1}{2}\left(k^{\prime}-1+(k^{\prime}-1)^{2}\right)  +\frac{1}{2}\left(k^{\prime}-1+(k^{\prime}-1)^{2}\right)  +\frac{1}{2}\left(k^{\prime}-2+(k^{\prime}-2)^{2}\right)  + .. +\frac{1}{2}\left(1+( 1 )^{2}\right) \\ 
+      & = \frac{1}{2} \left(  { k^{\prime} + 1 \choose 2 }  + { k^{\prime} +1 \choose 3} \right) 
     \end{split}
   \end{equation*}
   So 
