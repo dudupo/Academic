@@ -86,19 +86,16 @@ Continuing with the process eventually yields, after $k$ iterations, a matrix wi
   First, we can assume that the generator matrix of $C$ is an upper triangular matrix, such that the first $k^\prime$ rows span $\Lambda$. Notice that after applying the algorithm from \cref{claim:stair} starting from the first row and stopping at the $k^{\prime}$th row, the first $k^{\prime}$ rows are kept in $\Lambda$. So let's assume that is the form of the generator matrix. 
 
   
-  Now, let's consider the following process: going uphill, from right to left, starting at the $k^\prime$ row. Initially, set $j \leftarrow k^{\prime}$ and in each iteration, advance it to be the index of the next row, namely $j\leftarrow j - 1$. In each iteration, ask how many rows $G_{m}$, such that $m < j$, satisfy $G_{m} G_{j} = 0$ and how many pairs of rows $G_{m},G_{m^{\prime}}$ such that $m,m^{\prime}<j$ satisfy $G_{m}\cdot G_{m^{\prime}} \cdot G_{j} = 0$. Denote by $p$ the probability to fall on unsatisfied equation from the above.  
+  Now, let's consider the following process: going uphill, from right to left, starting at the $k^\prime$ row. Initially, set $j \leftarrow k^{\prime}$ and in each iteration, advance it to be the index of the next row, namely $j\leftarrow j - 1$. In each iteration, ask how many rows $G_{m}$, such that $m \le j$, satisfy $G_{m} G_{j} = 0$ and how many pairs of rows $G_{m},G_{m^{\prime}}$ such that $m,m^{\prime}\le j$ satisfy $G_{m}\cdot G_{m^{\prime}} \cdot G_{j} = 0$. Denote by $p$ the probability to fall on unsatisfied equation from the above.  
   \begin{itemize}
     \item If $p \ge \frac{1}{2}$ then we move on to the next iteration. 
-    \item Otherwise, we encode the $j$th coordinate by $C_{0}$, which maps $1 \rightarrow w$ such that $w\cdot w = 0$. This flips the value of $G_{m} G_{j}$ for any pair and $G_{m} G_{m^{\prime}} G_{j}$ for any triple such that $m,m^{\prime} < j$, so we get that the majority of the equations are satisfied. Also notice that the concatenation doesn't change the value of any multiplication at the form $G_{m}G_{j^{\prime}}$ for $j^{\prime}> j$. Therefore, for any $j< j^{\prime}\le k^{\prime}$ the number of the satisfied equations relative to $j^{\prime}$ is not changed, meaning it is still the majority.
+    \item Otherwise, we encode the $j$th coordinate by $C_{0}$, which maps $1 \rightarrow w$ such that $w\cdot w = 0$. This flips the value of $G_{m} G_{j}$ for any pair and $G_{m} G_{m^{\prime}} G_{j}$ for any triple such that $m,m^{\prime} \le j$, so we get that the majority of the equations are satisfied. Also notice that the concatenation doesn't change the value of any multiplication at the form $G_{m}G_{j^{\prime}}$ for $j^{\prime}> j$. Therefore, for any $j< j^{\prime}\le k^{\prime}$ the number of the satisfied equations relative to $j^{\prime}$ is not changed, meaning it is still the majority.
 
       Set $G$ to be the new matrix after the concatenation by $C_{0}$.
   \end{itemize}
 
-  In the end of the process $G$ is going to be the generator matrix of $C^{\prime}$. It's left to construct $\Lambda^{\prime}$, we are going to do so by taking from the first $k^{\prime}$ rows a subset that satisfies the desired property \Cref{property:prop}.
+  In the end of the process $G$ is going to be the generator matrix of $C^{\prime}$. It's left to construct $\Lambda^{\prime}$, we are going to do so by taking from the $k^{\prime}$ rows a subset that satisfies the desired property in \Cref{property:prop}. 
 
-
- 
-Notice that because we iterate on the upper triangular matrix, we don't change the value of $u_{m}u_{j^{\prime}}$ for any $j^{\prime} > j$ (since its $j$th coordinate was $0$ before the encoding, the encoded bit will also be $0$, thus not affecting the multiplication).
 
 Denote the set of the obtained vectors by $\Gamma$. Let $S\subset \Gamma$ be the group of vectors for which there exists at least one vector in $\Gamma$ whose multiplication with them is not zero. Note that the total number of pairs with zero multiplication is greater than:
   \begin{equation*}
@@ -109,8 +106,8 @@ Denote the set of the obtained vectors by $\Gamma$. Let $S\subset \Gamma$ be the
   So 
   \begin{equation*}
     \begin{split}
-       |S| \cdot (k^{\prime}-1) & \le { k^\prime \choose 2 } -  \frac{1}{2} \frac{(k^{\prime}-1)(k^{\prime}-2)}{2}  < \frac{k^{\prime}(k^{\prime}-1)}{2}
-       \Rightarrow |S| < \frac{k^{\prime}}{2}
+      |S| \cdot k + |S|\cdot k^{2}  & \le  k^{\prime} \cdot k^{2} - \frac{1}{2}\left( { k^{\prime} + 1 \choose 2 }  + { k^{\prime} +1 \choose 3} \right) \\
+       \Rightarrow & |S| < \frac{k^{\prime}}{2}
     \end{split}
   \end{equation*}
   Set $\Lambda^{\prime} \leftarrow \Gamma / S$. And we got what we wanted.
