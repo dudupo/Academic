@@ -194,8 +194,8 @@ There are at most $2\rho\Delta^{2}$ such generators, and we are looking for $\ze
 % edges
 \foreach \i in {1,...,5}
         \draw (\i) -- (0);
-\foreach \i in {1,...,5}
-        \draw (\i\i) -- (\numexpr \i+1 \relax)(\numexpr\i+1\relax));
+\foreach \i[evaluate=\i as \m using int(\+1)]in {1,...,5}
+        \draw (\i\i) -- (\m\m);
 \foreach \i in {1,...,5}
     \foreach \j in {1,...,4}
         \draw (\i) -- (5*\i+\j);
