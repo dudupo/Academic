@@ -40,6 +40,7 @@
   Let $M \in \mathbb{F}_{2}^{k \times n }$ upper triangular matrix such that~$k~<~n$. We say that $M$ has the $1$-stairs property if $M_{ij}=1$ any $j<i$. 
 \end{definition}
 \begin{claim}
+  \label{claim:stair}
   Any $M \in \mathbb{F}_{2}^{k \times n }$ upper triangular matrix can be turn into upper triangular matrix that has the $1$-stairs property by elementary operation.  
 \end{claim}
 
@@ -74,17 +75,20 @@ Continuing with the process eventually yields, after $k$ iterations, a matrix wi
 
 \begin{claim} 
   \label{claim:commute}
-  Let $C$ be a $[n,k,d]$ binary linear code, and let $\Lambda$ be subcode $\Lambda \subset C$ at dimension $k'$. Then there exists a code $C' = [\leq 2n, \geq k-k'/2, d]$ and a subcode of it $\Lambda' $ in it at dimension $\ge k^{\prime}/2$, such:
+  Let $C$ be a $[n,k,d]$ binary linear code, and let $\Lambda$ be subcode $\Lambda \subset C$ at dimension $k'$ and distance $d^{\prime}$. Then there exists a code $C' = [\leq 2n, \geq k-k'/2, d]$ and a subcode of it $\Lambda' $ in it at dimension $\ge k^{\prime}/2$ and distance $d^{\prime}$, such:
   \begin{enumerate}
     \item For every $x \in \Lambda'$ and $y \in C^{\prime} \ \ x\cdot y = 0$
     \item For every $x \in \Lambda'$ and $y,z \in C^{\prime} \ \ x \cdot y \cdot z =0 $
   \end{enumerate}
 \end{claim}
 \begin{proof} 
-  First, consider the upper triangular matrix obtained by applying Gaussian elimination on $\Lambda$ that has the $1$-stair property. Now, consider the following process: go uphill, from right to left, iterating over the matrix. Let $j=k$ be the first non-zero coordinate in the bottom row of the matrix. In the $i$th iteration, we ask how many rows $u_{m}$, such that $m < j$, satisfy $u_{m} u_{j} = 0$.
+  First, we can assume that the generator matrix of $C$ is an upper triangular matrix, such that the first $k^\prime$ rows span $\Lambda$. Notice that after applying the algorithm from \cref{claim:stair} starting from the first row and stopping at the $k^{\prime}$th row, the first $k^{\prime}$ rows are kept in $\Lambda$. So let's assume that is the form of the generator matrix. 
+
+  
+  Now, let's consider the following process: going uphill, from right to left, starting at the $k^\prime$ row. Initially, set $j \leftarrow k^{\prime}$ and in each iteration, advance it to be the index of the next row, namely $j\leftarrow j - 1$. In each iteration, ask how many rows $G_{m}$, such that $m < j$, satisfy $G_{m} G_{j} = 0$ and how many pairs of rows $G_{m},G_{m^{\prime}}$ such that $m,m^{\prime}<j$ satisfy $G_{m}\cdot G_{m^{\prime}} \cdot G_{j} = 0$. Denote by $p$ the probability to fall on unsatisfied equation from the above.  
   \begin{itemize}
-    \item If more than half of such $u_{m}$ satisfy the equality, then we move on to the next iteration. 
-    \item Otherwise, we encode the $j$th coordinate by $C_{0}$, which maps $1 \rightarrow w$ such that $w\cdot w = 0$. This flips the value of $u_{m} u_{j}$ for any pair, so we get that the majority of pairs satisfy the equality. 
+    \item If $p \ge \frac{1}{2}$ then we move on to the next iteration. 
+    \item Otherwise, we encode the $j$th coordinate by $C_{0}$, which maps $1 \rightarrow w$ such that $w\cdot w = 0$. This flips the value of $G_{m} G_{j}$ for any pair and $G_{m} G_{m^{\prime}} G_{j}$ for any triple such that $m,m^{\prime} < j$, so we get that the majority of the equations are satisfied. Set $G$ to be the new matrix after the concatenation by $C_{0}$.
   \end{itemize}
 
 Notice that because we iterate on the upper triangular matrix, we don't change the value of $u_{m}u_{j^{\prime}}$ for any $j^{\prime} > j$ (since its $j$th coordinate was $0$ before the encoding, the encoded bit will also be $0$, thus not affecting the multiplication).
