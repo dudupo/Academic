@@ -178,17 +178,24 @@ Decompose $f = f_{1} + f_{2}$, where $f_{1}$ is supported only on $C_{X}/C^{\per
   \begin{subfigure}[b]{0.25\textwidth} 
 \begin{tikzpicture}
 % vertices
+%\foreach \i in {1,...,5}
+%    \node[circle, fill=black, inner sep=1.5pt] (\i) at (72*\i:1.5) {}
+%    \foreach \j in {1,...,4}
+%    \node[circle, fill=black, inner sep=1.5pt] (5*\i+\j) at ( 18*(5*\i+\j):3) {};
+%\node[circle, fill=black, inner sep=1.5pt] (0) at (0,0) {};
 \foreach \i in {1,...,5}
     \node[circle, fill=black, inner sep=1.5pt] (\i) at (72*\i:1.5) {};
-\node[circle, fill=black, inner sep=1.5pt] (6) at (0,0) {};
+    \foreach \j in {1,...,4}
+    \node[circle, fill=black, inner sep=1.5pt] (5*\j) at (18*\j:3) {};
+\node[circle, fill=black, inner sep=1.5pt] (0) at (0,0) {};
 % edges
 \foreach \i in {1,...,5}
-        \draw (\i) -- (6);
+        \draw (\i) -- (0);
 % labels
 \foreach \i in {1,...,5}
     \node[above] at (72*\i:1.5) {\i};
 
-    \node[above] at (0,0) {6};
+    \node[above] at (0,0) {0};
 
 \end{tikzpicture}
   \end{subfigure} 
