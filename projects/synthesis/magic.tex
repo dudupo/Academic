@@ -185,8 +185,10 @@ Decompose $f = f_{1} + f_{2}$, where $f_{1}$ is supported only on $C_{X}/C^{\per
 %\node[circle, fill=black, inner sep=1.5pt] (0) at (0,0) {};
 \foreach \i in {1,...,5}
     \node[circle, fill=black, inner sep=1.5pt] (\i) at (72*\i:1.5) {};
+
+\foreach \i in {1,...,5}
     \foreach \j in {1,...,4}
-    \node[circle, fill=black, inner sep=1.5pt] (5*\j) at (18*\j:3) {};
+    \node[circle, fill=black, inner sep=1.5pt] (5*\i+\j) at (18*\j:3) {};
 \node[circle, fill=black, inner sep=1.5pt] (0) at (0,0) {};
 % edges
 \foreach \i in {1,...,5}
