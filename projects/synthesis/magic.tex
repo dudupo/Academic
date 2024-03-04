@@ -122,7 +122,7 @@ Observe that the number of satisfied equations is at least:
 \begin{claim}[Not Formal]
   It is easy to see that by using concatenation again, one can obtain the code $\dim \Lambda^{\prime} \leftarrow \frac{1}{2}\dim \Lambda^{\prime}$. For any $x \in \Lambda^{\prime}$, $|x|_{4} = 1$, and for any $x \in C^{\prime} / \Lambda^{\prime}$, we have $|x|_{4} = 0$.
   \end{claim}
-
+  \ctt{ The argument above that the distance $d^{\prime}$ remain the same is not correct. Yet, if we are defining the distance of any codeword in $C/(C/\Lambda)$ to be greater than $d^{\prime}$ then we win. (The problem was that gauss elimination might change the wight of rows associate with $\Lambda$ generators. } 
 
 \begin{claim} 
 Suppose that a set of vectors $\Lambda \subset C$ satisfies the relation $xy = 0$ and $xyz = 0$ for any $x,y,z \in \Lambda$. Then, there exists a code $C^{\prime}$ with a code length roughly equal to $C$ and a subset $\Lambda^{\prime} \subset C^{\prime}$ such that for any distinct $x,y,z \in \Lambda^\prime$, $xy = 0$, $xyz = 0$, and $xx =_{4} 1$.
