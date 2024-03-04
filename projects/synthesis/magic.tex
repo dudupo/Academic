@@ -196,6 +196,9 @@ Decompose $f = f_{1} + f_{2}$, where $f_{1}$ is supported only on $C_{X}/C^{\per
 % labels
 \foreach \i in {1,...,5}
     \node[above] at (72*\i:1.5) {\i};
+\foreach \i in {1,...,5}
+    \foreach \j in {1,...,4}
+    \node[above] at (72*\i+18*\j:3) {5*\i+\j};
 
     \node[above] at (0,0) {0};
 
