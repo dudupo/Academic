@@ -195,6 +195,8 @@ There are at most $2\rho\Delta^{2}$ such generators, and we are looking for $\ze
 \foreach \i in {1,...,5}
         \draw (\i) -- (0);
 \foreach \i in {1,...,5}
+        \draw (\i\i) -- (\i+1)(\i+1));
+\foreach \i in {1,...,5}
     \foreach \j in {1,...,4}
         \draw (\i) -- (5*\i+\j);
 % labels
