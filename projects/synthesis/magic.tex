@@ -9,7 +9,9 @@
 
 \else
   \documentclass{article}
+  \usepackage{libertine}
   \input{./usepackage}
+  \usepackage{subcaption}
   \addbibresource{./sample.bib} 
 
 \fi
@@ -32,6 +34,8 @@
 \section{Good Codes With Large $\Lambda$.}
 \newcommand*{\DETAILS}{}
 \ifdefined\DETAILS
+  \begin{figure}[h]
+\begin{subfigure}[b]{0.65\textwidth}
 \begin{definition}
   Let $M \in \mathbb{F}_{2}^{k \times n }$ upper triangular matrix such that $k<n$. We say that $M$ has the $1$-stairs property if $M_{ij}=1$ any $j<i$. 
 \end{definition}
@@ -43,6 +47,28 @@ Consider the following algorithm: Let $M$ be our initial matrix. We iterate over
 
 Continuing with the process eventually yields, after $k$ iterations, a matrix with the $1$-stair property.
 \end{proof}
+
+\end{subfigure}
+\begin{subfigure}[b]{0.05\textwidth}
+  \
+\end{subfigure}
+  \begin{subfigure}[b]{0.25\textwidth}
+
+
+    \begin{equation*}
+      \begin{split}
+        \begin{bmatrix}
+         1 & 1 & 1 & 1 &\codt & \codt & \codt & \codt & \codt \\     
+         0 & 1 & 1 & 1 &\codt & \codt & \codt & \codt & \codt \\     
+         0 & 0 & 1 & 1 &\codt & \codt & \codt & \codt & \codt \\     
+         0 & 0 & 0 & 1 &\codt & \codt & \codt & \codt & \codt 
+        \end{bmatrix}
+      \end{split}
+    \end{equation*}
+
+ \end{subfigure}
+\end{figure}
+
 
 \fi
 
