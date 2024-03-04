@@ -96,8 +96,9 @@ Continuing with the process eventually yields, after $k$ iterations, a matrix wi
 
   In the end of the process $G$ is going to be the generator matrix of $C^{\prime}$. It's left to construct $\Lambda^{\prime}$, we are going to do so by taking from the $k^{\prime}$ rows a subset that satisfies the desired property in \Cref{property:prop}. 
 
+Let $S$ be the set of rows among the first $k^{\prime}$ rows for which there is at least one unsatisfied equation. We will now prove that if $k^{\prime}$ is large enough, specifically linear in $k$, then $|S|$ is small enough to obtain $\Lambda^{\prime}$ by removing the rows in $S$.
 
-Denote the set of the obtained vectors by $\Gamma$. Let $S\subset \Gamma$ be the group of vectors for which there exists at least one vector in $\Gamma$ whose multiplication with them is not zero. Note that the total number of pairs with zero multiplication is greater than:
+Observe that the number of satisfied equations is at least:
   \begin{equation*}
     \begin{split}
       & \frac{1}{2}\left(k^{\prime}-1+(k^{\prime}-1)^{2}\right)  +\frac{1}{2}\left(k^{\prime}-1+(k^{\prime}-1)^{2}\right)  +\frac{1}{2}\left(k^{\prime}-2+(k^{\prime}-2)^{2}\right)  + .. +\frac{1}{2}\left(1+( 1 )^{2}\right) \\ 
