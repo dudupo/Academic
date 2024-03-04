@@ -101,13 +101,14 @@ Denote the set of the obtained vectors by $\Gamma$. Let $S\subset \Gamma$ be the
   \begin{equation*}
     \begin{split}
       & \frac{1}{2}\left(k^{\prime}-1+(k^{\prime}-1)^{2}\right)  +\frac{1}{2}\left(k^{\prime}-1+(k^{\prime}-1)^{2}\right)  +\frac{1}{2}\left(k^{\prime}-2+(k^{\prime}-2)^{2}\right)  + .. +\frac{1}{2}\left(1+( 1 )^{2}\right) \\ 
-      & = \frac{1}{2} \left(  { k^{\prime} + 1 \choose 2 }  + { k^{\prime} +1 \choose 3} \right) 
+      & = \frac{1}{2} \left(  { k^{\prime} + 1 \choose 2 }  + \frac{k^{\prime}(k^{\prime}+1)(2k^{\prime}+1)}{6} \right) 
     \end{split}
   \end{equation*}
   So 
   \begin{equation*}
     \begin{split}
-      |S| \cdot k + |S|\cdot k^{2}  & \le  k^{\prime} \cdot k^{2} - \frac{1}{2}\left( { k^{\prime} + 1 \choose 2 }  + { k^{\prime} +1 \choose 3} \right) \\
+      |S| \cdot k + |S|\cdot k^{2}  & \le  k^{\prime} \cdot k^{2} - \frac{1}{2} \left(  { k^{\prime} + 1 \choose 2 }  + \frac{k^{\prime}(k^{\prime}+1)(2k^{\prime}+1)}{6} \right) 
+\\
        \Rightarrow & |S| < \frac{k^{\prime}}{2}
     \end{split}
   \end{equation*}
