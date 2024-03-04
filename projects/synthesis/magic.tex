@@ -178,25 +178,25 @@ Let $g$ be a generator of $C_{Z}^{\perp}$. As the generators of $C_{Z}^\perp$ ar
     \
   \end{subfigure}
   \begin{subfigure}[t]{0.25\textwidth} 
-\begin{tikzpicture}
-\foreach \i in {1,...,5}
-\node[circle, fill=black, inner sep=1.5pt] (\i) at (72*\i:1.2) {};
-\foreach \i in {1,...,5}
-    \foreach \j in {1,...,4}
-    \node[circle, fill=black, inner sep=1.5pt] (5*\i+\j) at (72*\i+18*\j-36:2) {};
-\node[circle, fill=black, inner sep=1.5pt] (0) at (0,0) {};
-% edges
-\foreach \i in {1,...,5}
-        \draw (\i) -- (0);
-\foreach \i in {1,...,5}
-    \foreach \j in {1,...,4}
-        \draw (\i) -- (5*\i+\j);
-% labels
-\foreach \i in {1,...,4}
-\node[above] at (72*\i:1.5) {$v_{\i}$};
-\node[anchor=north east] at (72*5:1.5) {$v_{\Delta}$};
-    \node[anchor=north east] at (0,0) {$v$};
-\end{tikzpicture}
+%\begin{tikzpicture}
+%\foreach \i in {1,...,5}
+%\node[circle, fill=black, inner sep=1.5pt] (\i) at (72*\i:1.2) {};
+%\foreach \i in {1,...,5}
+%    \foreach \j in {1,...,4}
+%    \node[circle, fill=black, inner sep=1.5pt] (5*\i+\j) at (72*\i+18*\j-36:2) {};
+%\node[circle, fill=black, inner sep=1.5pt] (0) at (0,0) {};
+%% edges
+%\foreach \i in {1,...,5}
+%        \draw (\i) -- (0);
+%\foreach \i in {1,...,5}
+%    \foreach \j in {1,...,4}
+%        \draw (\i) -- (5*\i+\j);
+%% labels
+%\foreach \i in {1,...,4}
+%\node[above] at (72*\i:1.5) {$v_{\i}$};
+%\node[anchor=north east] at (72*5:1.5) {$v_{\Delta}$};
+%    \node[anchor=north east] at (0,0) {$v$};
+%\end{tikzpicture}
   \end{subfigure} 
 \end{figure}
 
