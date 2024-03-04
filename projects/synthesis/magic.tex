@@ -159,7 +159,8 @@ So eventually, we have a product of gates when non-Clifford gates are applied on
 Decompose $f = f_{1} + f_{2}$, where $f_{1}$ is supported only on $C_{X}/C^{\perp}_{Z}$ and $f_{2}$ is supported only on $C_{Z}^{\perp}$. By using commuting relations, the above can be turned into.
 \begin{equation*}
   \begin{split}
-    T^{n}\ket{f} = \prod_{g \in \Lambda} T_{g} \ \ \prod_{g \in \Lambda, h} \{ CZ_{g,h} | I \} \ \ X_{f_{1}} \\ \ \ \prod_{g ,h \in C_{z}^{\perp}} \{ CS_{g,h} | CZ_{g,h} | I \} \ \ \prod_{g ,h, l \in C_{z}^{\perp}} \{ CCZ_{g,h,l} | I \} \ket{f_2}
+    T^{n}\ket{f} = & \prod_{g \in \Lambda} T_{g} \ \ \prod_{g \in \Lambda, h} \{ CZ_{g,h} | I \} \ \ X_{f_{1}} \\
+    &  \ \ \prod_{g ,h \in C_{z}^{\perp}} \{ CS_{g,h} | CZ_{g,h} | I \} \ \ \prod_{g ,h, l \in C_{z}^{\perp}} \{ CCZ_{g,h,l} | I \} \ket{f_2}
   \end{split}
 \end{equation*}
 \begin{claim}
