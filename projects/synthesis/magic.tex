@@ -177,10 +177,10 @@ Let $C$ be the quantum Tanner code, and let $g$ be a generator of $C_{Z}^{\perp}
 Let $g$ be a generator of $C_{Z}^{\perp}$. As the generators of $C_{Z}^\perp$ are defined to be the set of codewords of some 'small code' ($C_{0}$) over the local view of the vertices in a $\Delta$-regular graph, it holds that first, there is a vertex $v$ on which $g$ is supported. Second, only the generators supported by $v$'s neighbors have a non-vanishing overlap with $g$.
 
 
-Let $g$ be a generator of $C_{Z}^{\perp}$ and denote by $v$ the source of $g$. First, we will prove that there exist $\xi_{1}, \xi_{2}, \xi_{3} \in \mathbb{F}_{2}^{N}$ such that each $\xi_{i}$ has a weight of at most $2/3 \Delta$, $\xi_{i} \cdot g = 1$, and for any other generator $h \neq g$ in $C_{Z}^{\perp}$, there is at least one $i$ such that $\xi_{i} \cdot h = 0$.
+Let $g$ be a generator of $C_{Z}^{\perp}$ and denote by $v$ the source of $g$. First, we will prove that there exist $\xi_{1}, \xi_{2}, \xi_{3} \in \mathbb{F}_{2}^{N}$ such that each $\xi_{i}$ has a weight of at most $\frac{1}{2} \Delta$, $\xi_{i} \cdot g = 1$, and for any other generator $h \neq g$ in $C_{Z}^{\perp}$, there is at least one $i$ such that $\xi_{i} \cdot h = 0$.
 
 
-Let $B_1, B_2, B_3$ be subsets of $[\Delta]$ such that $|B_i| = \frac{2}{3}\Delta$ and $B_1 \cap B_2 \cap B_3 = \emptyset$. Now, define $\xi_i$ to be the vector supported only on $B_i$ and satisfies $\xi_i \cdot g = 1$. For any other generator $h$ such that $v$ is its source, and also $h|_{B_{i}} \neq g|_{B_{i}}$, we have $\xi_i \cdot h = 0$. Notice that for every $h \neq g$, there must be at least one $B_{i}$ for which $g|_{B_{i}} \neq h|_{B_{i}}$. Each $x_{i}$ is a solution for a linear system with (at most) $\rho\Delta$ equations and $2/3 \Delta$ bits. So, if $2/3 > \rho$, there is a solution for each equations system.
+Let $B_1, B_2, B_3$ be subsets of $[\Delta]$ such that $|B_i| = \frac{2}{3}\Delta$ and $B_1 \cap B_2 \cap B_3 = \emptyset$. Now, define $\xi_i$ to be the vector supported only on $B_i$ and satisfies $\xi_i \cdot g = 1$. For any other generator $h$ such that $v$ is its source, and also $h|_{B_{i}} \neq g|_{B_{i}}$, we have $\xi_i \cdot h = 0$. Notice that for every $h \neq g$, there must be at least one $B_{i}$ for which $g|_{B_{i}} \neq h|_{B_{i}}$. Each $x_{i}$ is a solution for a linear system with (at most) $\rho\Delta$ equations and $\frac{1}{2} \Delta$ bits. So, if $1/2 > \rho$, then there is a solution for each equations system.
 
 Clearly, for any generator $h$ such $v$ is it's source there are not $i$'s such $\xi_{i}h = 1$. It's left to show for remian generators. 
 
@@ -219,6 +219,34 @@ Clearly, for any generator $h$ such $v$ is it's source there are not $i$'s such 
 \end{tikzpicture}
   \end{subfigure} 
 \end{figure}
+
+
+
+\begin{claim}
+  Let $Q =(C_{X},C_{Z})$ a good qLDPC CSS code. Then for any $g$ generator in $C_{Z}^{\perp}$ there is a logical gate compute $CX_{g}$ acting on at most $O(1)$ qubits. 
+\end{claim}
+\begin{proof}
+  Recall that the generator matrix of $C_{Z}^\perp$ is the parity check matrix of $C_{Z}$. So we are looking for $\xi$ such that: 
+  \begin{equation*}
+    \begin{split}
+      H_{Z}
+      \begin{bmatrix}
+        | \\
+        | \\
+        \xi \\
+        | \\
+        |
+      \end{bmatrix}
+\begin{bmatrix}
+        1 \\
+        0 \\
+        0 \\
+        0 \\
+        0
+      \end{bmatrix}
+    \end{split}
+  \end{equation*}
+\end{proof}
 
 \ifdefined\MORE
 
