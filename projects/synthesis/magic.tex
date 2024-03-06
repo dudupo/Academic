@@ -182,6 +182,7 @@ And then we get that
 \end{equation*}
 
 \begin{claim}
+  \label{claim:lowlightcone}
   The state $\left(M_{2}^{\dagger}\otimes I\right)\ket{ C_{Z}^{\perp} +  \text{ span } \Lambda   }\ket{0}$ can be computed, such that the light cone depth of any non-clifford gate is bounded by constant.    
 \end{claim}
 \begin{proof}
@@ -199,10 +200,12 @@ Denote by $p \in [0,1]$ the error rate of input magic states, and let $\ket{A}$ 
   \begin{enumerate}
     \item In the no-noise setting, The circuit compute the state $\mathcal{C} \ket{0}^{\Theta(n)} \otimes \ket{A}^{\Theta(n)} \rightarrow  \prod_{g \in \Lambda} T_{g} \ket{ C_{Z}^{\perp} +  \text{ span } \Lambda   }$
     \item Otherwise, the circuit computes the state $Z^{e}\prod_{g \in \Lambda} T_{g} \ket{ C_{Z}^{\perp} +  \text{ span } \Lambda   }$, where the probability that $e_{i} = 1$ is less than $\zeta_{\Delta} \cdot  p$. Additionally, for any $i$, there are at most $\xi_{\Delta}$ indices $j$ such that $e_{i}$ and $e_{j}$ are dependent.
- 
-  \end{enumerate}<++>
+  \end{enumerate}
 \end{claim}
 
+\begin{proof}
+  Concatinate the $T^{n} \otimes I $ with the gate in \Cref{claim:lowlightcone}.
+\end{proof}
 
 \begin{claim}
   The logical operator $CX_{g}$ relative the code $C_{Z}^{\perp}$ can be implement such it acts on constant number of qubits. \textbf{Notice,} implementation of the gate $CX_{g}$ relative to $C_{Z}^{\perp}$ might incorrect for computing $CX_{g}$ relative to $C_{X}$. 
