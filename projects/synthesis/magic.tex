@@ -208,6 +208,18 @@ Denote by $p \in [0,1]$ the error rate of input magic states, and let $\ket{A}$ 
 \end{proof}
 
 \begin{claim}
+  For any $\alpha \in (0,1)$ the probability that $|e|>(1+\alpha)p\zeta_{\Delta}$ is less than:  
+  \begin{equation*}
+    \begin{split}
+      \frac{\xi_{\Delta}(\zeta_{\Delta}p-\zeta_{\Delta}^{2}p^{2})}{\alpha^{2}n}
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+By the Chebyshev bound, notice that the number for which $\expp{e_{i}e_{j}}-\expp{e_{i}}\expp{e_{j}} \neq 0$ is less than $\xi_{\Delta}n$.
+\end{proof}
+
+\begin{claim}
   The logical operator $CX_{g}$ relative the code $C_{Z}^{\perp}$ can be implement such it acts on constant number of qubits. \textbf{Notice,} implementation of the gate $CX_{g}$ relative to $C_{Z}^{\perp}$ might incorrect for computing $CX_{g}$ relative to $C_{X}$. 
 \end{claim}
 
