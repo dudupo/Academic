@@ -155,7 +155,7 @@ Observe that the number of satisfied equations is at least:
     } 
   \end{proof}
 
-    \section{Distillate $\ket{\Lambda + C_{Z}^{\perp}}$ Into Magic.}
+  \section{Distillate $\ket{ \Lambda + C_{Z}^{\perp}}$ Into Magic.}
 Let $\ket{f}$ be a codeword in $C_{X}$, and let $\hat{X}_{g}$ be the indicator that equals $1$ if $f$ has support on generator $g$, and $0$ otherwise. Observe that applying $T^{\otimes}$ on $\ket{f}$ yields the state:
 \begin{equation*}
   \begin{split}
@@ -215,10 +215,10 @@ And then we get that
 \end{claim}
 \begin{proof}
 \begin{align*}
-  \left( I \otimes H_{X} \right) CX_{n\rightarrow n} \left(E \otimes E \right) \ \ I \otimes L[M_{2}^{\dagger}] \ \ & \prod_{\substack{ J\in \{\Lambda,\\ \text{ gen } C_{Z}^{\perp} \}}} \prod_{g \in J} \left( I +  X_{L[g]} \right) && \ket{0} \ket{0} \\  
-   = \left( I \otimes H_{X}   \right) CX_{n\rightarrow n} & \sum_{\substack{ z \in C_{Z}^\perp \\  x\in \text{ span } \Lambda}}  e^{\varphi(z)} && \ket{x}\ket{z} \\ 
-    = & \sum_{\substack{ z \in C_{Z}^\perp \\  x\in \text{ span } \Lambda}}   e^{\varphi(z)} && \ket{x+z}\ket{0} \\ 
-    = & \sum_{\substack{ z \in C_{Z}^\perp \\  x\in \text{ span } \Lambda}} \left(M_{2}^{\dagger}\otimes I\right) && \ket{x+z}\ket{0} \\ 
+  \left( I \otimes H_{X} \right) CX_{n\rightarrow n} \left(E \otimes E \right) \ \ I \otimes L[M_{2}^{\dagger}] \ \ & \prod_{\substack{ J\in \{ \text{ gen }\Lambda,\\ \text{ gen } C_{Z}^{\perp} \}}} \prod_{g \in J} \left( I +  X_{L[g]} \right) && \ket{0} \ket{0} \\  
+   = \left( I \otimes H_{X}   \right) CX_{n\rightarrow n} & \sum_{\substack{ z \in C_{Z}^\perp \\  x\in \Lambda}}  e^{\varphi(z)} && \ket{x}\ket{z} \\ 
+    = & \sum_{\substack{ z \in C_{Z}^\perp \\  x\in \Lambda}}   e^{\varphi(z)} && \ket{x+z}\ket{0} \\ 
+    = & \sum_{\substack{ z \in C_{Z}^\perp \\  x\in \Lambda}} \left(M_{2}^{\dagger}\otimes I\right) && \ket{x+z}\ket{0} \\ 
     = & \left(M_{2}^{\dagger}\otimes I\right) && \ket{ C_{Z}^{\perp} +  \text{ span } \Lambda   }\ket{0}
 \end{align*}
 \end{proof}
