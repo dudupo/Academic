@@ -229,13 +229,13 @@ Denote by $p \in [0,1]$ the error rate of input magic states, and let $\ket{A}$ 
     \item In the no-noise setting, The circuit compute the state 
       \begin{equation*}
         \begin{split}
-      \mathcal{C} \ket{0}^{\Theta(n)} \otimes \ket{A}^{\Theta(n)} \rightarrow  \prod_{g \in \Lambda} T_{g} \ket{ C_{Z}^{\perp} +  \text{ span } \Lambda   }
+          \mathcal{C} \ket{0}^{\Theta(n)} \otimes \ket{A}^{\Theta(n)} \rightarrow  \prod_{g \in \text{ gen }\Lambda} T_{g} \ket{ C_{Z}^{\perp} +  \text{ span } \Lambda   }
         \end{split}
       \end{equation*}
     \item Otherwise, the circuit computes the state 
       \begin{equation*}
         \begin{split}
-      \mathcal{C} \ket{0}^{\Theta(n)} \otimes \ket{A}^{\Theta(n)} \rightarrow Z^{e} \ \ \ \prod_{g \in \Lambda} T_{g} \ket{ C_{Z}^{\perp} +  \text{ span } \Lambda   }
+          \mathcal{C} \ket{0}^{\Theta(n)} \otimes \ket{A}^{\Theta(n)} \rightarrow Z^{e} \ \ \ \prod_{g \in \text{ gen } \Lambda} T_{g} \ket{ C_{Z}^{\perp} +  \text{ span } \Lambda   }
         \end{split}
       \end{equation*}
      , where the probability that $e_{i} = 1$ is less than $\zeta_{\Delta} \cdot  p$. Additionally, for any $i$, there are at most $\xi_{\Delta}$ indices $j$ such that $e_{i}$ and $e_{j}$ are dependent.
