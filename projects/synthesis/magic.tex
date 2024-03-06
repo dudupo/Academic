@@ -182,7 +182,7 @@ And then we get that
 \end{equation*}
 
 \begin{claim}
-  The state $\ket{ C_{Z}^{\perp} +  \text{ span } \Lambda   }\ket{0}$ can be computed, such that the light cone depth of any non-clifford gate is bounded by constant.    
+  The state $\left(M_{2}^{\dagger}\otimes I\right)\ket{ C_{Z}^{\perp} +  \text{ span } \Lambda   }\ket{0}$ can be computed, such that the light cone depth of any non-clifford gate is bounded by constant.    
 \end{claim}
 \begin{proof}
 \begin{align*}
@@ -193,11 +193,13 @@ And then we get that
     = & \left(M_{2}^{\dagger}\otimes I\right) && \ket{ C_{Z}^{\perp} +  \text{ span } \Lambda   }\ket{0}
 \end{align*}
 \end{proof}
-
+Denote by $p \in [0,1]$ the error rate of input magic states, and let $\ket{A}$ be an ancilla initialized to a one-qubit magic state. This $\ket{A}$ can be used to compute the $T$ gate, with a probability of $Z$ error occurring with a probability of $p$ \cite{bravyi2012magic}.
 \begin{claim}
-  Denote by $p \in [0,1]$ the error rate of input magic states, denote by $\ket{A}$ an ancila initilaized to a magic state. There are constant numbers $\zeta_{\Delta},\xi_{\Delta}$, and a circuit $\mathcal{C}$ such that: 
+   There are constant numbers $\zeta_{\Delta},\xi_{\Delta}$, and a circuit $\mathcal{C}$ such that: 
   \begin{enumerate}
-    \item $\mathcal{C} \ket{0}^{\Theta(n)} \otimes \ket{A}^{\Theta(n)}$ 
+    \item In the no-noise setting, The circuit compute the state $\mathcal{C} \ket{0}^{\Theta(n)} \otimes \ket{A}^{\Theta(n)} \rightarrow  \prod_{g \in \Lambda} T_{g} \ket{ C_{Z}^{\perp} +  \text{ span } \Lambda   }$
+    \item Otherwise, the circuit computes the state $Z^{e}\prod_{g \in \Lambda} T_{g} \ket{ C_{Z}^{\perp} +  \text{ span } \Lambda   }$, where the probability that $e_{i} = 1$ is less than $\zeta_{\Delta} \cdot  p$. Additionally, for any $i$, there are at most $\xi_{\Delta}$ indices $j$ such that $e_{i}$ and $e_{j}$ are dependent.
+ 
   \end{enumerate}<++>
 \end{claim}
 
