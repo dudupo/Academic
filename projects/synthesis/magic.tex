@@ -84,7 +84,7 @@ Continuing with the process eventually yields, after $k$ iterations, a matrix wi
   \end{enumerate}
 \end{claim}
 \begin{proof} 
-  First, we can assume that the generator matrix of $C$ is an upper triangular matrix, such that the first $k^\prime$ rows span $\Lambda$. Notice that after applying the algorithm from \cref{claim:stair} starting from the first row and stopping at the $k^{\prime}$th row, the first $k^{\prime}$ rows are kept in $\Lambda$. So let's assume that is the form of the generator matrix. 
+  First, we can assume that the generator matrix of $C$ is an upper triangular matrix, such that the first $k^\prime$ rows span $\Lambda$. Notice that after applying the algorithm from \Cref{claim:stair} starting from the first row and stopping at the $k^{\prime}$th row, the first $k^{\prime}$ rows are kept in $\Lambda$. So let's assume that is the form of the generator matrix. 
 
   
   Now, let's consider the following process: going uphill, from right to left, starting at the $k^\prime$ row. Initially, set $j \leftarrow k^{\prime}$ and in each iteration, advance it to be the index of the next row, namely $j\leftarrow j - 1$. In each iteration, ask how many rows $G_{m}$, such that $m \le j$, satisfy $G_{m} G_{j} = 0$ and how many pairs of rows $G_{m},G_{m^{\prime}}$ such that $m,m^{\prime}\le j$ satisfy $G_{m}\cdot G_{m^{\prime}} \cdot G_{j} = 0$. Denote by $p$ the probability to fall on unsatisfied equation from the above.  
