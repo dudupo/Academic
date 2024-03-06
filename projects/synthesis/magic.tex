@@ -163,6 +163,23 @@ Decompose $f = f_{1} + f_{2}$, where $f_{1}$ is supported only on $C_{X}/C^{\per
     &  \ \ \prod_{g ,h \in C_{z}^{\perp}} \{ CS_{g,h} | CZ_{g,h} | I \} \ \ \prod_{g ,h, l \in C_{z}^{\perp}} \{ CCZ_{g,h,l} | I \} \ket{f_2}
   \end{split}
 \end{equation*}
+
+Denote by $M_1, M_2$ the gates: 
+
+\begin{equation*}
+  \begin{split}
+    M_{1} = \prod_{g \in \Lambda, h} \{ CZ_{g,h} | I \} \\
+    M_{2} = \prod_{g ,h \in C_{z}^{\perp}} \{ CS_{g,h} | CZ_{g,h} | I \} \ \ \prod_{g ,h, l \in C_{z}^{\perp}} \{ CCZ_{g,h,l} | I \}
+  \end{split}
+\end{equation*}
+
+And then we get that
+\begin{equation*}
+  \begin{split}
+      \prod_{g \in \Lambda} T_{g} =  M_{1}^{\dagger} T^{n}  M_{2}^{\dagger}
+  \end{split}
+\end{equation*}
+
 \begin{claim}
   The logical operator $CX_{g}$ relative the code $C_{Z}^{\perp}$ can be implement such it acts on constant number of qubits. \textbf{Notice,} implementation of the gate $CX_{g}$ relative to $C_{Z}^{\perp}$ might incorrect for computing $CX_{g}$ relative to $C_{X}$. 
 \end{claim}
