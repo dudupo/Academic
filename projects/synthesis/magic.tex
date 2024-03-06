@@ -151,12 +151,12 @@ Observe that the number of satisfied equations is at least:
 
   \begin{proof}
     \ctt{ 
-      We will do it by iterating the generators of $C$ after performing row reduction to the generator matrix. Now we will concatenate the $i$ coordinate to complete the weight of the $i$th row to satisfy the requirements. 
+      We will do it by iterating the generators of $C$ after performing rows reduction to the generator matrix. Now we will concatenate the $i$ coordinate to complete the weight of the $i$th row to satisfy the requirements. 
     } 
   \end{proof}
 
     \section{Distillate $\ket{\Lambda + C_{Z}^{\perp}}$ Into Magic.}
-Let $\ket{f}$ be a codeword in $C_{X}$, and let $\hat{X}_{g}$ be the indicator that equals $1$ if $f$ has support on $\hat{X}_{g}$, and $0$ otherwise. Observes that applying $T^{\otimes}$ on $\ket{f}$ yilds the state: 
+Let $\ket{f}$ be a codeword in $C_{X}$, and let $\hat{X}_{g}$ be the indicator that equals $1$ if $f$ has support on generator $g$, and $0$ otherwise. Observe that applying $T^{\otimes}$ on $\ket{f}$ yields the state:
 \begin{equation*}
   \begin{split}
     T^{\otimes n}\ket{f} & =  T^{\otimes n}\ket{\sum_{g} \hat{X}_{g}g } = \exp \Big( i\pi/4 \sum_{g} \hat{X}_{g}|g|  -  2 \cdot i \pi/4 \sum_{g,h} \hat{X}_{g}\hat{X}_{h}|g\cdot h| \\
@@ -169,8 +169,8 @@ So in our case:
 \begin{equation*}
   \begin{split}
     T^{\otimes n}\ket{f} & = \\
-    & = \exp \Big( i\pi/4 \sum_{g \in \Lambda } \hat{X}_{g}  \\
-    & -  2 \cdot \pi/4 \sum_{g \in \Lambda ,h} 2 \hat{X}_{g}\hat{X}_{h}  \\
+    & = \exp \Big( i\pi/4 \sum_{g \in \text{ gen }\Lambda } \hat{X}_{g}  \\
+    & -  2 \cdot \pi/4 \sum_{g \in \text{ gen }\Lambda ,h} 2 \hat{X}_{g}\hat{X}_{h}  \\
     & -  2 \cdot \pi/4 \sum_{g ,h \in \text{ gen } C_{Z}^{\perp}} \hat{X}_{g}\hat{X}_{h}|g\cdot h| \\
    \ifdefined\MORECALC & +  \cancel{4 \cdot i\pi/4 \sum_{g \in \Lambda ,h} \hat{X}_{g}\hat{X}_{h}\hat{X}_{l}2} \\ \fi
  & +  4 \cdot i\pi/4 \sum_{g,h \in \text{ gen } C_{Z}^{\perp}} \hat{X}_{g}\hat{X}_{h}\hat{X}_{l}|g\cdot h \cdot l|  \Big) \ket{f}
@@ -181,14 +181,14 @@ So in our case:
 So eventually, we have a product of gates when non-Clifford gates are applied on only on generators of $C_{Z}^{\perp}$.
 \begin{equation*}
   \begin{split}
-    T^{n}\ket{f} = \prod_{g \in \Lambda} T_{g} \ \ \prod_{g \in \Lambda, h} \{ CZ_{g,h} | I \} \ \ \prod_{g ,h \in C_{z}^{\perp}} \{ CS_{g,h} | CZ_{g,h} | I \} \ \ \prod_{g ,h, l \in C_{z}^{\perp}} \{ CCZ_{g,h,l} | I \} \ket{f}
+    T^{n}\ket{f} = \prod_{g \in \text{ gen }\Lambda} T_{g} \ \ \prod_{g \in \text{ gen }\Lambda, h} \{ CZ_{g,h} | I \} \ \ \prod_{g ,h \in \text{ gen }C_{Z}^{\perp}} \{ CS_{g,h} | CZ_{g,h} | I \} \ \ \prod_{g ,h, l \in \text{ gen }C_{Z}^{\perp}} \{ CCZ_{g,h,l} | I \} \ket{f}
   \end{split}
 \end{equation*}
 Decompose $f = f_{1} + f_{2}$, where $f_{1}$ is supported only on $C_{X}/C^{\perp}_{Z}$ and $f_{2}$ is supported only on $C_{Z}^{\perp}$. By using commuting relations, the above can be turned into.
 \begin{equation*}
   \begin{split}
-    T^{n}\ket{f} = & \prod_{g \in \Lambda, h} \{ CZ_{g,h} | I \} \ \ \prod_{g \in \Lambda} T_{g} \ \  X_{f_{1}} \\
-    &  \ \ \prod_{g ,h \in C_{z}^{\perp}} \{ CS_{g,h} | CZ_{g,h} | I \} \ \ \prod_{g ,h, l \in C_{z}^{\perp}} \{ CCZ_{g,h,l} | I \} \ket{f_2}
+    T^{n}\ket{f} = & \prod_{g \in \text{ gen }\Lambda, h} \{ CZ_{g,h} | I \} \ \ \prod_{g \in \text{ gen }\Lambda} T_{g} \ \  X_{f_{1}} \\
+    &  \ \ \prod_{g ,h \in \text{ gen }C_{Z}^{\perp}} \{ CS_{g,h} | CZ_{g,h} | I \} \ \ \prod_{g ,h, l \in \text{ gen }C_{Z}^{\perp}} \{ CCZ_{g,h,l} | I \} \ket{f_2}
   \end{split}
 \end{equation*}
 
@@ -196,7 +196,7 @@ Denote by $M_1, M_2$ the gates:
 
 \begin{equation*}
   \begin{split}
-    M_{1} &= \prod_{g \in \Lambda, h} \{ CZ_{g,h} | I \} \\
+    M_{1} &= \prod_{g \in \text{ gen } \Lambda, h} \{ CZ_{g,h} | I \} \\
     M_{2} &= \prod_{g ,h \in \text{ gen } C_{Z}^{\perp}} \{ CS_{g,h} | CZ_{g,h} | I \} \ \ \prod_{g ,h, l \in \text{ gen } C_{Z}^{\perp}} \{ CCZ_{g,h,l} | I \}
   \end{split}
 \end{equation*}
