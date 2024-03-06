@@ -211,7 +211,7 @@ And then we get that
 
 \begin{claim}
   \label{claim:lowlightcone}
-  The state $\left(M_{2}^{\dagger}\otimes I\right)\ket{ C_{Z}^{\perp} +  \text{ span } \Lambda   }\ket{0}$ can be computed, such that the light cone depth of any non-clifford gate is bounded by constant.    
+  The state $\left(M_{2}^{\dagger}\otimes I\right)\ket{ C_{Z}^{\perp} +   \Lambda   }\ket{0}$ can be computed, such that the light cone depth of any non-clifford gate is bounded by constant.    
 \end{claim}
 \begin{proof}
 \begin{align*}
@@ -219,7 +219,7 @@ And then we get that
    = \left( I \otimes H_{X}   \right) CX_{n\rightarrow n} & \sum_{\substack{ z \in C_{Z}^\perp \\  x\in \Lambda}}  e^{\varphi(z)} && \ket{x}\ket{z} \\ 
     = & \sum_{\substack{ z \in C_{Z}^\perp \\  x\in \Lambda}}   e^{\varphi(z)} && \ket{x+z}\ket{0} \\ 
     = & \sum_{\substack{ z \in C_{Z}^\perp \\  x\in \Lambda}} \left(M_{2}^{\dagger}\otimes I\right) && \ket{x+z}\ket{0} \\ 
-    = & \left(M_{2}^{\dagger}\otimes I\right) && \ket{ C_{Z}^{\perp} +  \text{ span } \Lambda   }\ket{0}
+    = & \left(M_{2}^{\dagger}\otimes I\right) && \ket{ C_{Z}^{\perp} +   \Lambda   }\ket{0}
 \end{align*}
 \end{proof}
 Denote by $p \in [0,1]$ the error rate of input magic states, and let $\ket{A}$ be an ancilla initialized to a one-qubit magic state. This $\ket{A}$ can be used to compute the $T$ gate, with a probability of $Z$ error occurring with a probability of $p$ \cite{bravyi2012magic}.
