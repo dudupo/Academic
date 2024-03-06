@@ -130,7 +130,18 @@ Observe that the number of satisfied equations is at least:
 \end{claim}
 
 \begin{proof}[Not formal] 
-The way we perform Guess elimination is critical. We want to make sure that we do not add an $\Lambda$ row to a $\bar{\Lambda}$ row.
+  The way we perform Guess elimination is critical. We want to make sure that we do not add an $\Lambda$ row to a $\bar{\Lambda}$ row. \ctt{Continue, Easy. Just need to perform the row reduction when rows of $\Lambda$ at bottom, and then rotate the matrix $	\curvearrowright $    }
+  \begin{equation*}
+    \begin{split}
+      \begin{bmatrix}
+        A & B \\ 
+        C & D
+      \end{bmatrix}	\curvearrowright \begin{bmatrix}
+        D & C \\ 
+        B & A
+      \end{bmatrix}
+    \end{split}
+  \end{equation*}
 \end{proof}
 
 
