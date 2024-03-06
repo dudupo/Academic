@@ -148,9 +148,12 @@ Observe that the number of satisfied equations is at least:
 \begin{claim}[Not Formal]
   It is easy to see that by using concatenation again, one can obtain the code $\dim \Lambda^{\prime} \leftarrow \frac{1}{2}\dim \Lambda^{\prime}$. For any $x \in \text{ gen } \Lambda^{\prime}$, $|x|_{4} = 1$, and for any $x \in C^{\prime} / \Lambda^{\prime}$, we have $|x|_{4} = 0$.
   \end{claim}
-  \ctt{ The argument above that the distance $d^{\prime}$ remain the same is not correct. Yet, if we are defining the distance of any codeword in $C/(C/\Lambda)$ to be greater than $d^{\prime}$ then we win. (The problem was that gauss elimination might change the wight of rows associate with $\Lambda$ generators. } 
 
-
+  \begin{proof}
+    \ctt{ 
+      We will do it by iterating the generators of $C$ after performing row reduction to the generator matrix. Now we will concatenate the $i$ coordinate to complete the weight of the $i$th row to satisfy the requirements. 
+    } 
+  \end{proof}
 
     \section{Distillate $\ket{\Lambda + C_{Z}^{\perp}}$ Into Magic.}
 Let $\ket{f}$ be a codeword in $C_{X}$, and let $\hat{X}_{g}$ be the indicator that equals $1$ if $f$ has support on $\hat{X}_{g}$, and $0$ otherwise. Observes that applying $T^{\otimes}$ on $\ket{f}$ yilds the state: 
