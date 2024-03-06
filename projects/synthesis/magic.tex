@@ -225,6 +225,7 @@ Denote by $p \in [0,1]$ the error rate of input magic states, and let $\ket{A}$ 
 By the Chebyshev bound, notice that the number for which $\expp{e_{i}e_{j}}-\expp{e_{i}}\expp{e_{j}} \neq 0$ is less than $\xi_{\Delta}n$.
 \end{proof}
 
+\begin{definition}
 We will said that a decoder $\mathcal{D}$ for the good qunatum LDPC code is an good-local decoder if
 \begin{enumerate}
   \item There is a treashold $\mu n$ such that if the error size is less than  $|e| < \mu n$ then $\mathcal{D}$ correct $e$ in constant number of rounds. With probability $ 1 - O(1/n)$.   
@@ -232,6 +233,7 @@ We will said that a decoder $\mathcal{D}$ for the good qunatum LDPC code is an g
   \item The above is true in operation-noisy settings, where there is a probability of $p$ for an error to occur after acting on a qubit. ($\star$)
 \end{enumerate}
 $\star$ The motivation for this is that if the decoder does not act on the qubit, then it also does not apply a $T$ gate on it. Therefore, in the distillation setting, there is zero chance for an error to occur.
+\end{definition}
 
 \begin{claim}
   Suppose there is a good local decoder $\mathcal{D}$ for the good qLDPC code. Then, there exists $p_{0}$ such that for any sufficiently large $n$, there is a distillation protocol that, given $\Theta(n)$ magic states at an error probability $p<p_{0}$, successfully distills $\Theta(n)$ perfect magic states with a probability of $1 - O(1/n)$. Furthermore, the protocol's space and time complexity (both quantum and classical) are $\Theta(n)$ and $\Theta(n^{2})$, respectively.
