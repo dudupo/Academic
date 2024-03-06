@@ -250,7 +250,7 @@ Denote by $p \in [0,1]$ the error rate of input magic states, and let $\ket{A}$ 
   For any $\alpha \in (0,1)$ the probability that $|e|>(1+\alpha)p\zeta_{\Delta}$ is less than:  
   \begin{equation*}
     \begin{split}
-      \prb{ |e| > (1+\alpha) \expp{|e|} } < \frac{\zeta_{\Delta}(1-\zeta_{\Delta}p)}{\alpha^{2}\xi_{\Delta}pn} = \Theta\left( \frac{1}{n} \right) 
+      \prb{ |e| > (1+\alpha) \expp{|e|} } < \frac{\zeta_{\Delta}(1-\zeta_{\Delta}p)}{\alpha^{2}\xi_{\Delta}pn} = o\left( 1/n \right)
     \end{split}
   \end{equation*}
 \end{claim}
@@ -261,7 +261,7 @@ By the Chebyshev inequality, notice that the number for which $\expp{e_{i}e_{j}}
 \begin{definition}
 We will said that a decoder $\mathcal{D}$ for the good qunatum LDPC code is an good-local decoder if
 \begin{enumerate}
-  \item There is a treashold $\mu n$ such that if the error size is less than  $|e| < \mu n$ then $\mathcal{D}$ correct $e$ in constant number of rounds. With probability $ 1 - O(1/n)$.   
+  \item There is a treashold $\mu n$ such that if the error size is less than  $|e| < \mu n$ then $\mathcal{D}$ correct $e$ in constant number of rounds. With probability $ 1 - o(1/n)$.   
   \item In any rounds $\mathcal{D}$ performs at most $O(n)$ work (depth $\times$ width).  
   \item The above is true in operation-noisy settings, where there is a probability of $p$ for an error to occur after acting on a qubit. ($\star$)
 \end{enumerate}
