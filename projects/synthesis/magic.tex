@@ -121,7 +121,7 @@ Observe that the number of satisfied equations is at least:
 \end{proof}
 
 \begin{claim}
-  Consider $C,\Lambda$ and $C^{\prime},\Lambda^{\prime}$ defined in \Cref{claim:commute}. Denote by $\bar{\Lambda}$ the subspace $C/\Lambda$. Then 
+  Consider $C,\Lambda$ and $C^{\prime},\Lambda^{\prime}$ defined in \Cref{claim:commute}. Denote by $\bar{\Lambda}$ the subspace $C/\Lambda$. Then:
   \begin{equation*}
     \begin{split}
   d(C^{\prime}/\bar{\Lambda^{\prime}}) \ge d( C/\bar{\Lambda })
@@ -129,8 +129,13 @@ Observe that the number of satisfied equations is at least:
   \end{equation*} 
 \end{claim}
 
+\begin{proof}[Not formal] 
+The way we perform Guess elimination is critical. We want to make sure that we do not add an $\Lambda$ row to a $\bar{\Lambda}$ row.
+\end{proof}
+
+
 \begin{claim}[Not Formal]
-  It is easy to see that by using concatenation again, one can obtain the code $\dim \Lambda^{\prime} \leftarrow \frac{1}{2}\dim \Lambda^{\prime}$. For any $x \in \Lambda^{\prime}$, $|x|_{4} = 1$, and for any $x \in C^{\prime} / \Lambda^{\prime}$, we have $|x|_{4} = 0$.
+  It is easy to see that by using concatenation again, one can obtain the code $\dim \Lambda^{\prime} \leftarrow \frac{1}{2}\dim \Lambda^{\prime}$. For any $x \in \text{ gen } \Lambda^{\prime}$, $|x|_{4} = 1$, and for any $x \in C^{\prime} / \Lambda^{\prime}$, we have $|x|_{4} = 0$.
   \end{claim}
   \ctt{ The argument above that the distance $d^{\prime}$ remain the same is not correct. Yet, if we are defining the distance of any codeword in $C/(C/\Lambda)$ to be greater than $d^{\prime}$ then we win. (The problem was that gauss elimination might change the wight of rows associate with $\Lambda$ generators. } 
 
