@@ -234,7 +234,7 @@ By the Chebyshev bound, notice that the number for which $\expp{e_{i}e_{j}}-\exp
 We will said that a decoder $\mathcal{D}$ for the good qunatum LDPC code is an good-local decoder if
 \begin{enumerate}
   \item There is a treashold $\mu n$ such that if the error size is less than  $|e| < \mu n$ then $\mathcal{D}$ correct $e$ in constant number of rounds. With probability $ 1 - O(1/n)$.   
-  \item In any rounds $\mathcal{D}$ perform a at most $O(n)$ work (depth $\times$ width).  
+  \item In any rounds $\mathcal{D}$ performs at most $O(n)$ work (depth $\times$ width).  
   \item The above is true in operation-noisy settings, where there is a probability of $p$ for an error to occur after acting on a qubit. ($\star$)
 \end{enumerate}
 $\star$ The motivation for this is that if the decoder does not act on the qubit, then it also does not apply a $T$ gate on it. Therefore, in the distillation setting, there is zero chance for an error to occur.
