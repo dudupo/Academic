@@ -57,7 +57,7 @@
         Choose randomly $w \in S$ and set $J \leftarrow J/w$
       }
     \end{algorithm}
-    \\
+    
     Now, we are going to prove that \Cref{alg:pick} always finds a subset $S$ that satisfies the equality on line (7). Assume not. On one hand, the number of possible values that $m_{S}$ can have is $2^{i} - 1$. On the other hand, since $J$ contains $i+1$ vectors on the $i$th iteration, it follows that the number of subsets is $ 2^{i+1}-1 \ge 2^{i}$.
 
 Therefore, there must be at least two different subsets $S$ and $S^{\prime}$ such that $u_{S}=u_{S^{\prime}}$. However, this means that 
@@ -78,15 +78,11 @@ Use the \Cref{alg:pick} twice. However, in the second iteration, define $m_{S,j}
 \end{proof}
 
 \begin{claim}
-  Consider the Left-Right ($\Delta$,$n$)-Complex $\Gamma$ and let  $C_{0} = C_{A}\otimes C_{B}^{\perp} \oplus C_{A}^{\perp} \otimes C_{B}$. Define $\Lambda$ to be the code $\mathcal{T}(V_{+}, C_{0} ) / C_{Z}^\perp$. Then: 
-  \begin{enumerate}
-    \item $ \Lambda \in C_{Z} \cap C_{X}$ 
-    \item $\Lambda$ has a positive rate. 
-  \end{enumerate}
+  Consider the Left-Right ($\Delta$,$n$)-Complex $\Gamma$. $\dim C_{X}/C_{Z}^{\perp} \cap C_{Z} / C_{X}^{\perp}$ is linear in $n$. 
 \end{claim}
 
 \begin{proof}
-  It's easy to see that $C_{0} \subset C_{A}\otimes \mathbb{F}^{B} \oplus \mathbb{F}^{A}\otimes C_{B}$. And therefore $\Lambda \subset C_{X}$. 
+The rates of both $C_{X}/C_{Z}^{\perp}$ and $C_{Z}^{\perp}/C_{X}^{\perp}$ are $(2\rho-1)^{2}$, which is close to one as desired. Therefore, the intersection of those subspaces cannot vanish.
 \end{proof}
 
 
