@@ -58,16 +58,13 @@
       }
     \end{algorithm}
     \\
-Now, we are going to prove that \Cref{alg:pick} always finds a subset $S$ that satisfies the equality on line (7). Assume not. On one hand, the number of possible values that $m_{S}$ can have is $2^{i} - 1$. On the other hand, since $J$ contains $i+1$ vectors on the $i$th iteration, it follows that the number of subsets is 
-    \begin{equation*}
-      \begin{split}
-        2^{i+1}-1 \ge 2^{i}
-      \end{split}
-    \end{equation*}
+    Now, we are going to prove that \Cref{alg:pick} always finds a subset $S$ that satisfies the equality on line (7). Assume not. On one hand, the number of possible values that $m_{S}$ can have is $2^{i} - 1$. On the other hand, since $J$ contains $i+1$ vectors on the $i$th iteration, it follows that the number of subsets is $ 2^{i+1}-1 \ge 2^{i}$.
+
 Therefore, there must be at least two different subsets $S$ and $S^{\prime}$ such that $u_{S}=u_{S^{\prime}}$. However, this means that 
     \begin{equation*}
       \begin{split}
-      m_{S\Delta S^{\prime}, j} = u_{j} \sum_{w\in S\Delta S^{\prime}}w = u_{j}\left(  \sum_{w\in S\Delta S^{\prime}}w + 2 \sum_{w \in S\cap S^{\prime}}w\right) = m_{S,j} +m_{S^{\prime},j} = 0 
+      m_{S\Delta S^{\prime}, j} &= u_{j} \sum_{w\in S\Delta S^{\prime}}w = u_{j}\left(  \sum_{w\in S\Delta S^{\prime}}w + 2 \sum_{w \in S\cap S^{\prime}}w\right) \\ 
+      & = m_{S,j} +m_{S^{\prime},j} = 0 
       \end{split}
     \end{equation*}
 Thus, $m_{S\Delta S^{\prime}} = 0$. Additionally, it is clear that the rank does not decrease, as for $u_{i}$, there exists one $v_{j}$ such that only $u_{i}$ is supported by $v_{j}$.
