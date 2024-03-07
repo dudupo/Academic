@@ -44,6 +44,7 @@
     Consider the follow algorithm, 
 
     \begin{algorithm}[H]
+      \label{alg:pick}
       Let $ J \leftarrow \emptyset$ \\
       \For{$i \in [k/2]$}{
         $J \leftarrow J \cup \{v_{2i-1}, v_{2i}\}$ \\
@@ -54,6 +55,18 @@
         Choose randomly $w \in S$ and set $J \leftarrow J/w$
       }
     \end{algorithm}
+    Now we are going to prove that \Cref{alg:pick} always find a subset $S$ that satisfies the equality on line (7). Assume not, On one hand the number of possible values that $m_{S}$ can have is $2^{i} - 1$. On the other, As $J$ contains $i+1$ vector on the $i$th iteration it follows that the number of the subsets is  
+    \begin{equation*}
+      \begin{split}
+        2^{i+1}-1 \ge 2^{i}
+      \end{split}
+    \end{equation*}
+    Therefore there must to be at least two different subsets $S,S^{\prime}$ such that $u_{S}=u_{S^{\prime}}$ but, then we get that 
+    \begin{equation*}
+      \begin{split}
+      u_{S\Delta S^{\prime}, j} = u_{j} \sum_{w\in S\Delta S^{\prime}}w = u_{j}\left(  \sum_{w\in S\Delta S^{\prime}}w + 2 \sum_{w \in S\cap S^{\prime}}w\right) = u_{S,j} +u_{S^{\prime},j} = 0 
+      \end{split}
+    \end{equation*}
   \end{proof}
 
 
