@@ -38,6 +38,7 @@
 
 
   \begin{claim}
+    \label{claim:find}
     Let $v_{1},v_{2}..v_{k}$ vectors in $\mathbb{F}_{2}^{n}$, then there are $u_{1},u_{2}..u_{k^{\prime}}$ for $k^{\prime} > k/2$. Such $\text{ span } \{   u_{1},u_{2}..u_{k^{\prime}} \} \subset \text{ span } \{ v_{1},v_{2}..v_{k} \}$ and for any $i,j$ it holds that $u_{i}u_{j} = 0$. 
   \end{claim}
   \begin{proof}
@@ -76,7 +77,7 @@ Thus, $m_{S\Delta S^{\prime}} = 0$. Additionally, it is clear that the rank does
     Let $v_{1},v_{2}..v_{k}$ vectors in $\mathbb{F}_{2}^{n}$, then there are $u_{1},u_{2}..u_{k^{\prime}}$ for $k^{\prime} > k/4$. Such $\text{ span } \{   u_{1},u_{2}..u_{k^{\prime}} \} \subset \text{ span } \{ v_{1},v_{2}..v_{k} \}$. And for any $i,j$ $\sum u_{i,k}u_{j,k} =_{4} 0$. 
   \end{claim}
 \begin{proof}
-Use the \Cref{alg:pick} twice, but in the second time, define $m_{S,j}$ to be the product module 4 ($m_{S,j}$ must be either $4n$ or $4n+2$ so the proof still works).
+  Use the \Cref{alg:pick} twice. However, in the second iteration, define $m_{S,j}$ to be the product of module 4. Note that $m_{S,j}$ must be either $4n$ or $4n+2$, Thus we can follow the proof of \Cref{cliam:find}.
 \end{proof}
 
   \begin{figure}[h]
