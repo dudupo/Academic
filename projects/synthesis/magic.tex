@@ -121,7 +121,7 @@ Use the \Cref{alg:pick} twice. However, in the second iteration, define $m_{S,j}
 \end{proof}
 
 \begin{claim}
-  \ctt{Complete for the above the version, which handle triples.} number of options is $\left(2^{i}\right)^2 = 2^{2i}$ and Therefore we have the correctness if $|J| > 2i+1$. 
+    \ctt{Complete for the above the version, which handle triples.} number of options is $\left(2^{i}\right)^2 = 2^{2i}$ and therefore we have the correctness if $|J| > 2i+1$. 
 \end{claim}
 
 \begin{claim}
@@ -132,7 +132,11 @@ The rates of both $C_{X}/C_{Z}^{\perp}$ and $C_{Z}^{\perp}/C_{X}^{\perp}$ are $(
 \end{proof}
 
 \begin{corollary}
-  Fix the rate of the small codes $C_{A}$ and $C_{B}$ to $\rho = \frac{1}{2} + \alpha$.  There is a subspace $\Lambda \subset C_{X}/C_{Z}^{\perp}$ at rate $\frac{1}{4} \cdot  2\alpha$ such that for any $x \in \Lambda$ and $y \in C_{Z}^{\perp} \cup \Lambda$ $xy =_{2} 0$ and also for any $x,y \in \Lambda$ $x,y =_{4} 0$. 
+  Fix the rate of the small codes $C_{A}$ and $C_{B}$ to $\rho = \frac{1}{2} + \alpha$.  There is a subspace $\Lambda \subset C_{X}/C_{Z}^{\perp}$ at rate $\frac{1}{4} \cdot  2\alpha$ such that for any $x \in \Lambda$ and $y,z \in C_{Z}^{\perp} \cup \Lambda$ it holds that: %$xy =_{2} 0$ and also for any $x,y \in \Lambda$ $x,y =_{4} 0$. 
+  \begin{enumerate}
+    \item $xy =_4 0 $
+    \item $xyz =_4  0$
+  \end{enumerate}
 \end{corollary}
 
 
