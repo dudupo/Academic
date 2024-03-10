@@ -103,6 +103,8 @@ The rates of both $C_{X}/C_{Z}^{\perp}$ and $C_{Z}^{\perp}/C_{X}^{\perp}$ are $(
       }
     \end{algorithm}
 
+
+\ifdefined\MORE
 \begin{claim} 
   \label{claim:commute}
   Let $C$ be a $[n,k,d]$ binary linear code, and let $\Lambda$ be subcode $\Lambda \subset C$ at dimension $k' > \alpha k$ for some $\alpha\in(0,1)$. Then there exists a code $C' = [\leq 2n, \geq (1 - \alpha + \frac{\alpha^{3}}{24})k, d]$ and a subcode of it $\Lambda' $ in it at dimension $\ge \frac{\alpha^{3}}{24}k$, such:
@@ -148,6 +150,7 @@ Observe that the number of satisfied equations is at least:
   Therefore, if $k^{\prime} \ge  \alpha k$ we have that $|S| < (1 -\frac{\alpha^{2}}{24})k^{\prime}$ implies that $\dim \Lambda^{\prime} \ge   \frac{\alpha^{3}}{24} k$.  
 
 \end{proof}
+\fi
 
 \begin{claim}
   Consider $C,\Lambda$ and $C^{\prime},\Lambda^{\prime}$ defined in \Cref{claim:commute}. Denote by $\bar{\Lambda}$ the subspace $C/\Lambda$. Then:
