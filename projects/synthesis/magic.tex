@@ -89,6 +89,19 @@ The rates of both $C_{X}/C_{Z}^{\perp}$ and $C_{Z}^{\perp}/C_{X}^{\perp}$ are $(
   Fix the rate of the small codes $C_{A}$ and $C_{B}$ to $\rho = \frac{1}{2} + \alpha$.  There is a subspace $\Lambda \subset C_{X}/C_{Z}^{\perp}$ at rate $\frac{1}{4} \cdot  2\alpha$ such that for any $x \in \Lambda$ and $y \in C_{Z}^{\perp} \cup \Lambda$ $xy =_{2} 0$ and also for any $x,y \in \Lambda$ $x,y =_{4} 0$. 
 \end{corollary}
 
+\begin{algorithm}[H]
+      \caption{ Find commuted vectors $u_{1}, u_{2}, .. u_{k^{\prime}}$  }
+      \label{alg:pick}
+      Let $ J \leftarrow \emptyset$ \\
+      \For{$i \in [k/3]$}{
+        $J \leftarrow J \cup \{v_{3i-2}, v_{2i-1}, v_{2i}\}$ \\
+        \For{ $S \subset J$ }{
+          Compute the vector $m_{S}$ define as $m_{S,j,j^{\prime}} = u_{j^{\prime}} u_{j} \sum_{w\in S}w$
+        }
+        Pick $S$ such $m_{S} = 0$ and set $u_{i} \leftarrow  \sum_{w\in S}w$ \\ 
+        Choose randomly $w \in S$ and set $J \leftarrow J/w$
+      }
+    \end{algorithm}
 
 \begin{claim} 
   \label{claim:commute}
