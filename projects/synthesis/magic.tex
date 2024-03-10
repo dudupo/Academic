@@ -88,7 +88,7 @@
    
   
   \begin{proof}
-    Consider \Cref{alg:pick}, We are going to prove that at line number (8) always finds a subset $S$ that satisfies the equality.  Assume not. On one hand, the number of possible values that $m_{S}$ can have is $2^{i} - 1$. On the other hand, since $J$ contains $i+1$ vectors on the $i$th iteration, it follows that the number of subsets is $ 2^{i+1}-1 \ge 2^{i}$.
+    Consider \Cref{alg:pick}, We are going to prove that at line number (8) the alg always finds a subset $S$ that satisfies the equality.  Assume not. On one hand, the number of possible values that $m_{S}$ can have is $2^{i} - 1$. On the other hand, since $J$ contains $i+1$ vectors on the $i$th iteration, it follows that the number of subsets is $ 2^{i+1}-1 \ge 2^{i}$.
 
 Therefore, there must be at least two different subsets $S$ and $S^{\prime}$ such that $u_{S}=u_{S^{\prime}}$. However, this means that 
     \begin{equation*}
@@ -119,6 +119,10 @@ Let $v_{1},v_{2}..v_{k}$ vectors in $\mathbb{F}_{2}^{n}$ and $m$ be an integer $
 \begin{proof}
 Use the \Cref{alg:pick} twice. However, in the second iteration, define $m_{S,j}$ to be the product of module 4. Note that $m_{S,j}$ must be either $4n$ or $4n+2$. Thus, we can follow the proof of \Cref{claim:find}.
 \end{proof}
+
+\begin{claim}
+  \ctt{Complete for the above the version, which handle triples.} number of options is $\left(2^{i}\right)^2 = 2^{2i}$ and Therefore we have the correctness if $|J| > 2i+1$. 
+\end{claim}
 
 \begin{claim}
   Consider the Left-Right ($\Delta$,$n$)-Complex $\Gamma$. $\dim C_{X}/C_{Z}^{\perp} \cap C_{Z} / C_{X}^{\perp}$ is linear in $n$. 
