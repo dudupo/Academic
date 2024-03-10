@@ -249,7 +249,7 @@ So in our case:
 So eventually, we have a product of gates when non-Clifford gates are applied on only on generators of $C_{Z}^{\perp}$.
 \begin{equation*}
   \begin{split}
-    T^{n}\ket{f} = \prod_{g \in \text{ gen }\Lambda} T_{g} \ \ \prod_{g \in \text{ gen }\Lambda, h} \{ CZ_{g,h} | I \} \ \ \prod_{g ,h \in \text{ gen }C_{Z}^{\perp}} \{ CS_{g,h} | CZ_{g,h} | I \} \ \ \prod_{g ,h, l \in \text{ gen }C_{Z}^{\perp}} \{ CCZ_{g,h,l} | I \} \ket{f}
+    T^{n}\ket{f} = \prod_{g \in \text{ gen }\Lambda} T_{g} \ \ \ifdefined\MORECALC \prod_{g \in \text{ gen }\Lambda, h} \{ CZ_{g,h} | I \} \ \ \fi \prod_{g ,h \in \text{ gen }C_{Z}^{\perp}} \{ CS_{g,h} | CZ_{g,h} | I \} \ \ \prod_{g ,h, l \in \text{ gen }C_{Z}^{\perp}} \{ CCZ_{g,h,l} | I \} \ket{f}
   \end{split}
 \end{equation*}
 Decompose $f = f_{1} + f_{2}$, where $f_{1}$ is supported only on $C_{X}/C^{\perp}_{Z}$ and $f_{2}$ is supported only on $C_{Z}^{\perp}$. By using commuting relations, the above can be turned into.
