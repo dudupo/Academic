@@ -88,7 +88,7 @@
    
   
   \begin{proof}
-    Consider the algorithm in \Cref{alg:pick}, We are going to prove that at line number (8) always finds a subset $S$ that satisfies the equality.  Assume not. On one hand, the number of possible values that $m_{S}$ can have is $2^{i} - 1$. On the other hand, since $J$ contains $i+1$ vectors on the $i$th iteration, it follows that the number of subsets is $ 2^{i+1}-1 \ge 2^{i}$.
+    Consider \Cref{alg:pick}, We are going to prove that at line number (8) always finds a subset $S$ that satisfies the equality.  Assume not. On one hand, the number of possible values that $m_{S}$ can have is $2^{i} - 1$. On the other hand, since $J$ contains $i+1$ vectors on the $i$th iteration, it follows that the number of subsets is $ 2^{i+1}-1 \ge 2^{i}$.
 
 Therefore, there must be at least two different subsets $S$ and $S^{\prime}$ such that $u_{S}=u_{S^{\prime}}$. However, this means that 
     \begin{equation*}
@@ -104,7 +104,7 @@ Thus, $m_{S\Delta S^{\prime}} = 0$. Additionally, it is clear that the rank does
 Let $v_{1},v_{2}..v_{k}$ vectors in $\mathbb{F}_{2}^{n}$ and $m$ be an integer $m<k$, then there are $u_{1},u_{2}..u_{k^{\prime}}$ for $k^{\prime} > k/2-m$. Such $\text{ span } \{   u_{1},u_{2}..u_{k^{\prime}} \} \subset \text{ span } \{ v_{m+1},v_{m+2}..v_{k} \}$, for any $i,j$ it holds that $u_{i}u_{j} = 0$ and for any $i\in ]k^{\prime}$, $j\le m$ it holds that $u_{i}v_{j} = 0$.
   \end{claim}
   \begin{proof}
-    Modify the algorithm in \Cref{alg:pick} as follows, Initialize $u_{1},.u_{m}$ to be $v_{1},..,v_{m}$ and $J = \{v_{m+1},..v_{2m+2}\}$. Notice that in the $i$th iteration, for the counting argument to works in the proof of \Cref{claim:find}, we have to ensure that $|J| \ge m+i+1$, So $m+i+1\le k - m - i  \Rightarrow i \le k/2 -m - \frac{1}{2}$.  
+    Modify the \Cref{alg:pick} as follows, Initialize $u_{1},.u_{m}$ to be $v_{1},..,v_{m}$ and $J = \{v_{m+1},..v_{2m+2}\}$. Notice that in the $i$th iteration, for the counting argument to works in the proof of \Cref{claim:find}, we have to ensure that $|J| \ge m+i+1$, So $m+i+1\le k - m - i  \Rightarrow i \le k/2 -m - \frac{1}{2}$.  
   \end{proof}
 
   \begin{claim}
