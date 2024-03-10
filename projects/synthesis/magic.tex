@@ -45,7 +45,9 @@
   \end{claim}
 
 \begin{figure}[h]
+  \label{fig:fig1}
     \begin{subfigure}[b]{0.45\textwidth}
+  \label{fig:fig2}
  \begin{algorithm}[H]
       \caption{ Find commuted vectors $u_{1}, u_{2}, .. u_{k^{\prime}}$  }
       \label{alg:pick}
@@ -102,7 +104,7 @@ Thus, $m_{S\Delta S^{\prime}} = 0$. Additionally, it is clear that the rank does
 Let $v_{1},v_{2}..v_{k}$ vectors in $\mathbb{F}_{2}^{n}$ and $m$ be an integer $m<k$, then there are $u_{1},u_{2}..u_{k^{\prime}}$ for $k^{\prime} > k/2-m$. Such $\text{ span } \{   u_{1},u_{2}..u_{k^{\prime}} \} \subset \text{ span } \{ v_{m+1},v_{m+2}..v_{k} \}$, for any $i,j$ it holds that $u_{i}u_{j} = 0$ and for any $i\in ]k^{\prime}$, $j\le m$ it holds that $u_{i}v_{j} = 0$.
   \end{claim}
   \begin{proof}
-    Modify \Cref{alg:pick} as follows, Initialize $u_{1},.u_{m}$ to be $v_{1},..,v_{m}$ and $J = \{v_{m+1},..v_{2m+2}\}$. Notice that in the $i$th iteration, for the counting argument to works in the proof of \Cref{claim:find}, we have to ensure that $|J| \ge m+i+1$, So $m+i+1\le k - m - i  \Rightarrow i \le k/2 -m - \frac{1}{2}$.  
+    Modify the algorithm in \Cref{alg:pick} as follows, Initialize $u_{1},.u_{m}$ to be $v_{1},..,v_{m}$ and $J = \{v_{m+1},..v_{2m+2}\}$. Notice that in the $i$th iteration, for the counting argument to works in the proof of \Cref{claim:find}, we have to ensure that $|J| \ge m+i+1$, So $m+i+1\le k - m - i  \Rightarrow i \le k/2 -m - \frac{1}{2}$.  
   \end{proof}
 
   \begin{claim}
