@@ -44,20 +44,6 @@
   \end{claim}
   \begin{proof}
     Consider the following algorithm: 
-
-    \begin{algorithm}[H]
-      \caption{ Find commuted vectors $u_{1}, u_{2}, .. u_{k^{\prime}}$  }
-      \label{alg:pick}
-      Let $ J \leftarrow \emptyset$ \\
-      \For{$i \in [k/2]$}{
-        $J \leftarrow J \cup \{v_{2i-1}, v_{2i}\}$ \\
-        \For{ $S \subset J$ }{
-          Compute the vector $m_{S}$ define as $m_{S,j} = u_{j} \sum_{w\in S}w$
-        }
-        Pick $S$ such $m_{S} = 0$ and set $u_{i} \leftarrow  \sum_{w\in S}w$ \\ 
-        Choose randomly $w \in S$ and set $J \leftarrow J/w$
-      }
-    \end{algorithm}
     
     Now, we are going to prove that \Cref{alg:pick} always finds a subset $S$ that satisfies the equality on line (7). Assume not. On one hand, the number of possible values that $m_{S}$ can have is $2^{i} - 1$. On the other hand, since $J$ contains $i+1$ vectors on the $i$th iteration, it follows that the number of subsets is $ 2^{i+1}-1 \ge 2^{i}$.
 
@@ -71,6 +57,46 @@ Therefore, there must be at least two different subsets $S$ and $S^{\prime}$ suc
 Thus, $m_{S\Delta S^{\prime}} = 0$. Additionally, it is clear that the rank does not decrease, as for $u_{i}$, there exists one $v_{j}$ such that only $u_{i}$ is supported by $v_{j}$.
   \end{proof}
 
+  \begin{figure}[h]
+    \begin{subfigure}[b]{0.45\textwidth}
+ \begin{algorithm}[H]
+      \caption{ Find commuted vectors $u_{1}, u_{2}, .. u_{k^{\prime}}$  }
+      \label{alg:pick}
+      Let $ J \leftarrow \emptyset$ \\
+      \For{$i \in [k/2]$}{
+        $J \leftarrow J \cup \{v_{2i-1}, v_{2i}\}$ \\
+        \For{ $S \subset J$ }{
+          Compute the vector $m_{S}$ \\
+          \ \ \ define as $m_{S,j} = u_{j} \sum_{w\in S}w$
+        }
+        Pick $S$ such $m_{S} = 0$ and set $u_{i} \leftarrow  \sum_{w\in S}w$ \\ 
+        Choose randomly $w \in S$ and set $J \leftarrow J/w$
+      }
+    \end{algorithm}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.05\textwidth}
+      \
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth} 
+\begin{algorithm}[H]
+      \caption{ Find commuted vectors $u_{1}, u_{2}, .. u_{k^{\prime}}$  }
+      \label{alg:picktrip}
+      Let $ J \leftarrow \emptyset$ \\
+      \For{$i \in [k/3]$}{
+        $J \leftarrow J \cup \{v_{3i-2}, v_{2i-1}, v_{2i}\}$ \\
+        \For{ $S \subset J$ }{
+          Compute the vector $m_{S}$ \\
+          \ \ \ define as $m_{S,j,j^{\prime}} = u_{j^{\prime}} u_{j} \sum_{w\in S}w$
+        }
+        Pick $S$ such $m_{S} = 0$ and set $u_{i} \leftarrow  \sum_{w\in S}w$ \\ 
+        Choose randomly $w \in S$ and set $J \leftarrow J/w$
+      }
+    \end{algorithm}
+
+
+    \end{subfigure} 
+  \end{figure}
+   
   \begin{claim}
     Let $v_{1},v_{2}..v_{k}$ vectors in $\mathbb{F}_{2}^{n}$, then there are $u_{1},u_{2}..u_{k^{\prime}}$ for $k^{\prime} > k/4$. Such $\text{ span } \{   u_{1},u_{2}..u_{k^{\prime}} \} \subset \text{ span } \{ v_{1},v_{2}..v_{k} \}$. And for any $i,j$ $\sum u_{i,k}u_{j,k} =_{4} 0$. 
   \end{claim}
@@ -88,20 +114,6 @@ The rates of both $C_{X}/C_{Z}^{\perp}$ and $C_{Z}^{\perp}/C_{X}^{\perp}$ are $(
 \begin{corollary}
   Fix the rate of the small codes $C_{A}$ and $C_{B}$ to $\rho = \frac{1}{2} + \alpha$.  There is a subspace $\Lambda \subset C_{X}/C_{Z}^{\perp}$ at rate $\frac{1}{4} \cdot  2\alpha$ such that for any $x \in \Lambda$ and $y \in C_{Z}^{\perp} \cup \Lambda$ $xy =_{2} 0$ and also for any $x,y \in \Lambda$ $x,y =_{4} 0$. 
 \end{corollary}
-
-\begin{algorithm}[H]
-      \caption{ Find commuted vectors $u_{1}, u_{2}, .. u_{k^{\prime}}$  }
-      \label{alg:pick}
-      Let $ J \leftarrow \emptyset$ \\
-      \For{$i \in [k/3]$}{
-        $J \leftarrow J \cup \{v_{3i-2}, v_{2i-1}, v_{2i}\}$ \\
-        \For{ $S \subset J$ }{
-          Compute the vector $m_{S}$ define as $m_{S,j,j^{\prime}} = u_{j^{\prime}} u_{j} \sum_{w\in S}w$
-        }
-        Pick $S$ such $m_{S} = 0$ and set $u_{i} \leftarrow  \sum_{w\in S}w$ \\ 
-        Choose randomly $w \in S$ and set $J \leftarrow J/w$
-      }
-    \end{algorithm}
 
 
 \ifdefined\MORE
