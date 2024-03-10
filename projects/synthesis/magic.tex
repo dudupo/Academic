@@ -38,26 +38,7 @@
 
 
 \fi
-  \begin{claim}
-    \label{claim:find}
-    Let $v_{1},v_{2}..v_{k}$ vectors in $\mathbb{F}_{2}^{n}$, then there are $u_{1},u_{2}..u_{k^{\prime}}$ for $k^{\prime} > k/2$. Such $\text{ span } \{   u_{1},u_{2}..u_{k^{\prime}} \} \subset \text{ span } \{ v_{1},v_{2}..v_{k} \}$ and for any $i,j$ it holds that $u_{i}u_{j} = 0$. 
-  \end{claim}
-  \begin{proof}
-    Consider the following algorithm: 
-    
-    Now, we are going to prove that \Cref{alg:pick} always finds a subset $S$ that satisfies the equality on line (7). Assume not. On one hand, the number of possible values that $m_{S}$ can have is $2^{i} - 1$. On the other hand, since $J$ contains $i+1$ vectors on the $i$th iteration, it follows that the number of subsets is $ 2^{i+1}-1 \ge 2^{i}$.
-
-Therefore, there must be at least two different subsets $S$ and $S^{\prime}$ such that $u_{S}=u_{S^{\prime}}$. However, this means that 
-    \begin{equation*}
-      \begin{split}
-      m_{S\Delta S^{\prime}, j} &= u_{j} \sum_{w\in S\Delta S^{\prime}}w = u_{j}\left(  \sum_{w\in S\Delta S^{\prime}}w + 2 \sum_{w \in S\cap S^{\prime}}w\right) \\ 
-      & = m_{S,j} +m_{S^{\prime},j} = 0 
-      \end{split}
-    \end{equation*}
-Thus, $m_{S\Delta S^{\prime}} = 0$. Additionally, it is clear that the rank does not decrease, as for $u_{i}$, there exists one $v_{j}$ such that only $u_{i}$ is supported by $v_{j}$.
-  \end{proof}
-
-  \begin{figure}[h]
+\begin{figure}[h]
     \begin{subfigure}[b]{0.45\textwidth}
  \begin{algorithm}[H]
       \caption{ Find commuted vectors $u_{1}, u_{2}, .. u_{k^{\prime}}$  }
@@ -97,6 +78,26 @@ Thus, $m_{S\Delta S^{\prime}} = 0$. Additionally, it is clear that the rank does
     \end{subfigure} 
   \end{figure}
    
+  \begin{claim}
+    \label{claim:find}
+    Let $v_{1},v_{2}..v_{k}$ vectors in $\mathbb{F}_{2}^{n}$, then there are $u_{1},u_{2}..u_{k^{\prime}}$ for $k^{\prime} > k/2$. Such $\text{ span } \{   u_{1},u_{2}..u_{k^{\prime}} \} \subset \text{ span } \{ v_{1},v_{2}..v_{k} \}$ and for any $i,j$ it holds that $u_{i}u_{j} = 0$. 
+  \end{claim}
+  \begin{proof}
+    Consider the following algorithm: 
+    
+    Now, we are going to prove that \Cref{alg:pick} always finds a subset $S$ that satisfies the equality on line (7). Assume not. On one hand, the number of possible values that $m_{S}$ can have is $2^{i} - 1$. On the other hand, since $J$ contains $i+1$ vectors on the $i$th iteration, it follows that the number of subsets is $ 2^{i+1}-1 \ge 2^{i}$.
+
+Therefore, there must be at least two different subsets $S$ and $S^{\prime}$ such that $u_{S}=u_{S^{\prime}}$. However, this means that 
+    \begin{equation*}
+      \begin{split}
+      m_{S\Delta S^{\prime}, j} &= u_{j} \sum_{w\in S\Delta S^{\prime}}w = u_{j}\left(  \sum_{w\in S\Delta S^{\prime}}w + 2 \sum_{w \in S\cap S^{\prime}}w\right) \\ 
+      & = m_{S,j} +m_{S^{\prime},j} = 0 
+      \end{split}
+    \end{equation*}
+Thus, $m_{S\Delta S^{\prime}} = 0$. Additionally, it is clear that the rank does not decrease, as for $u_{i}$, there exists one $v_{j}$ such that only $u_{i}$ is supported by $v_{j}$.
+  \end{proof}
+
+  
   \begin{claim}
     Let $v_{1},v_{2}..v_{k}$ vectors in $\mathbb{F}_{2}^{n}$, then there are $u_{1},u_{2}..u_{k^{\prime}}$ for $k^{\prime} > k/4$. Such $\text{ span } \{   u_{1},u_{2}..u_{k^{\prime}} \} \subset \text{ span } \{ v_{1},v_{2}..v_{k} \}$. And for any $i,j$ $\sum u_{i,k}u_{j,k} =_{4} 0$. 
   \end{claim}
