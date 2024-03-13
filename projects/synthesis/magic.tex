@@ -286,17 +286,21 @@ And then we get that
   Let $(v,g_{1})$ and $(u,g_{2})$ be control wires for two different generators in the graph $G$. Then $U_{v,g_{1}}$ and $U_{u,g_{2}}$ \ctt{There must be a claim about the relationship between two different generators intersection, But I don't sure exactly why}. 
 \end{claim}
 
+\begin{definition}
+  We say that a quantum circuit $\mathcal{C}$ is well error spreading if any $Z$ error propagate well.  
+\end{definition}
 
 \begin{figure}[h]
   \begin{subfigure}[b]{0.55\textwidth}
 \begin{claim}
-  The state $\ket{C_{Z}^{\perp}}$ can be computed by constant depth. 
+  The state:
   \begin{equation*}
     \begin{split}
       \sum_{z \in C_{Z}^{\perp}}  \exp \Big(  & -  2 \cdot \pi/4 \sum_{g ,h \in \text{ gen } C_{Z}^{\perp}} \hat{X}_{g}\hat{X}_{h}|g\cdot h| \\
  & +  4 \cdot i\pi/4 \sum_{g,h \in \text{ gen } C_{Z}^{\perp}} \hat{X}_{g}\hat{X}_{h}\hat{X}_{l}|g\cdot h \cdot l|  \Big) \ket{z}
     \end{split}
   \end{equation*}
+  Can be computed such that any 
 \end{claim}  \end{subfigure}
   \begin{subfigure}[b]{0.05\textwidth}
     \
