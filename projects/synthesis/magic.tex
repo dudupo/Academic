@@ -302,6 +302,13 @@ And then we get that
 
 \begin{claim}
   The state $\ket{C_{Z}^{\perp}}$ can be computed by constant depth. 
+  \begin{equation*}
+    \begin{split}
+      \sum_{z \in C_{Z}^{\perp}} & \exp \Big( \\ 
+    & -  2 \cdot \pi/4 \sum_{g ,h \in \text{ gen } C_{Z}^{\perp}} \hat{X}_{g}\hat{X}_{h}|g\cdot h| \\
+ & +  4 \cdot i\pi/4 \sum_{g,h \in \text{ gen } C_{Z}^{\perp}} \hat{X}_{g}\hat{X}_{h}\hat{X}_{l}|g\cdot h \cdot l|  \Big) \ket{z}
+    \end{split}
+  \end{equation*}
 \end{claim}
 \begin{proof}
   Denote by $U_{v}$ the gate which turn on all the generators supported on $v$. As any of them is just of a code word of $C_{A}\otimes C_{B}$, namely turning on generator require touching at most constant number of qubits combing  
