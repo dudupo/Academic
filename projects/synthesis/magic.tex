@@ -255,7 +255,14 @@ For any $v \in V$, let $\ket{z_{v}}$ be the superposition of codewords in $C_{0}
       \ket{z_{W}} = \ket{\sum_{v \in W} z_{v}}
     \end{split}
   \end{equation*}
-Using the notation, applying all the encoders $E_{v}$ at once over the positive vertices results in:
+  Using the notation, applying the encoders $E_{v},E_{u}$ for any pair of vertices with disjoints local view become: 
+  \begin{equation*}
+    \begin{split}
+      E_{v}\cup E_{u}\ket{0}^{n} & = E_{v}\ket{0 + z_{u}} = E_{v}\ket{0}|_{/ u \text{'s view }}\ket{ z_{u} } \\
+      & = \ket{z_{v}}\ket{z_{u}} = \ket{z_{u} + z_{v}}
+    \end{split}
+  \end{equation*}<++>
+  So applying all the encoders $E_{v}$ at once over the positive vertices results in:
   \begin{equation*}
     \begin{split}
       \left(\cup_{v \in V^{+}}E_{v}\right)\ket{0}^{n} =  \left(\cup_{v \in V^{+} / v_{0} }E_{v}\right)\ket{z_{v_{0}} + 0} = \ket{z_{V^{+}}}
