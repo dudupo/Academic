@@ -225,7 +225,7 @@ Observe that the number of satisfied equations is at least:
 
 
   \section{Compute $\ket{C_{Z}^{\perp}}$ In Constant Depth.}
-Let $C_{0}$ be a $\Delta$-length error linear binary code, $\Gamma$ a $\Delta$-regular bipartite graph, and let $C_{Z}$ be the Tanner code defined by $C_{0}$ and $\Gamma$. We are about to prove that the uniform superposition over $C_{Z}^\perp$ codewords can be computed at a depth dependent only on $\Delta$, in particular independent of the $C_{Z}^{\perp}$-length. For this, we are going to use Proposition 10 in \cite{moore1998parallel}, which states that both the encoder and the decoder of any stabilizer $m$-length code can be implemented by a circuit at depth $\Theta(\log m)$ with $\Theta(m^{2})$ ancillae.
+Let $C_{0}$ be a $\Delta$-length error linear binary code, $\Gamma$ a $\Delta$-regular bipartite graph, and let $C_{Z}$ be the Tanner code defined by $C_{0}$ and $\Gamma$. We are about to prove that the uniform superposition over $C_{Z}^\perp$ codewords can be computed with constant probability at a depth dependent only on $\Delta$, in particular independent of the $C_{Z}^{\perp}$-length. For this, we are going to use Proposition 10 in \cite{moore1998parallel}, which states that both the encoder and the decoder of any stabilizer $m$-length code can be implemented by a circuit at depth $\Theta(\log m)$ with $\Theta(m^{2})$ ancillae.
 
 
 \begin{claim} 
@@ -273,10 +273,17 @@ For any $v \in V$, let $\ket{z_{v}}$ be the superposition of codewords in $C_{0}
   Thus the whole computation sum up into:  
   \begin{align*}
           \left(\cup_{v \in V^{+}}E_{v}\right) \otimes \left( \cup_{v \in V^{+}}E_{v}\right) & \ & \ket{0}^{n} \otimes \ket{0}^n & \mapsto \\
-          \text{CNOT} & \ &\ket{z_{V^{+}}}  \ket{z_{V^{-}}} & \mapsto  \\ 
-          I \otimes \left( \cup_{v\in V^{-}} D_{v} \right)  & \sum_{W \subset V^{-}} & \ket{z_{V^{+} \cup W} } {\ket{z_{W}}} & \mapsto  \\
-          & \ &  \ket{z_{V^{+}} + z_{V^{-}}}\ket{0} & 
+          \text{CNOT} & \sum_{z \in A}\sum_{z^{\prime} \in B} &\ket{z_{V^{+}}}  \ket{z_{V^{-}}} & \mapsto  \\ 
+          I \otimes H^{k}  & \sum_{z \in A}\sum_{z^{\prime} \in B} & \ket{z + z^{\prime} } \ket{z^{\prime}} & \mapsto  \\
+          & \sum_{z \in A}\sum_{z^{\prime} \in B} & \ket{z + z^{\prime} } (-1)^{wz^{\prime}} \ket{w } & \mapsto  
     \end{align*}
+    So if $w \in C_{Z}$ then clearly $z^{\prime}w = 0$. The probability for that to occur is 
+    \begin{equation*}
+      \begin{split}
+      \prb{w \in C_{Z}} = \frac{|C_{Z}|}{\mathbb{F}_{2}^{n}} = 2^{(\rho-1)n}
+      \end{split}
+    \end{equation*}
+
 \end{proof}
 
 
