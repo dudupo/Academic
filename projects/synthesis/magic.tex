@@ -229,7 +229,7 @@ Let $C_{0}$ be a $\Delta$-length error linear binary code, $\Gamma$ a $\Delta$-r
 
 
 \begin{claim} 
-  Let $G$ be a $\Delta$-regular bipartite graph, and denote by $C_{Z}^{\perp}$ the dual-tanner code $\mathcal{T}(G,C^{\perp}_{0})^\perp$. Then there is a circuit that computes the state $\ket{C_{Z}^{\perp}}$ at $\Theta(\log \Delta)$ depth, and $\Theta(\Delta^{2})n$ ancillary qubits.
+  Let $G$ be a $\Delta$-regular bipartite graph, and denote by $C_{Z}^{\perp}$ the dual-tanner code $\mathcal{T}(G,C^{\perp}_{0})^\perp$. Then there is a circuit that with constant probability computes the state $\ket{C_{Z}^{\perp}}$ at $\Theta(\log \Delta)$ depth, and $\Theta(\Delta^{2})n$ ancillary qubits.
   %Suppose that $G_{}
 \end{claim}
 
@@ -246,7 +246,9 @@ Let $C_{0}$ be a $\Delta$-length error linear binary code, $\Gamma$ a $\Delta$-r
     Apply $E_{v}$ in parallel on $L$ for any $v \in V^{+}$. \\
     Apply $E_{v}$ in parallel on $R$ for any $v \in V^{-}$. \\
     XOR $R$ into $L$ by applying CNOT from the $i$th bit of $R$ to the $i$th bit of $L$. \\
-    Apply $D_{v}$ in parallel on $R$ for any $v \in V^{-}$.
+    Apply $D_{v}$ in parallel on $R$ for any $v \in V^{-}$. \\
+    Apply $H^{k}$ on $L$. And measure. \\
+    Accept if the result in $C_{Z}$ 
   \end{algorithm} 
  
 For any $v \in V$, let $\ket{z_{v}}$ be the superposition of codewords in $C_{0}$ supported by the local view of $v$. Similarly, for any subset of vertices $W \subset V$, let $\ket{z_{W}}$ be the uniform superposition over the subspace spanned by the generators supported by the vertices in $W$. In other words:
