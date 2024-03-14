@@ -235,7 +235,13 @@ Let $C_{0}$ be a $\Delta$-length error linear binary code, $\Gamma$ a $\Delta$-r
 
 
 \begin{proof}
-  
+  Let $E_{v}$ and $D_{v}$ be the encoder and the decoder of $C_{0}$ over the local view of vertex $v$, By \cite{moore1998parallel} we have that both have  depth $\Theta(\log \Delta)$ and require $\Delta^{2}$ ancillae. 
+
+Since $\Gamma$ is bipartite, we can decompose $V$ into $V^{-}$ and $V^{+}$ such that the local views of any two vertices in $V^{\pm}$ are disjoint. Therefore, for any two different vertices $v,u \in V^{\pm}$, the encoders $E_v$ and $E_u$ act on disjoint subsets of qubits, each corresponding to the local view of either $v$ or $u$.
+
+  Consider the follows algorithm. 
+
+
   \begin{equation*}
     \begin{split}
       \sum_{v \in V^{+}}\ket{z_{v}} \otimes \sum_{u\in V^{-}}{\ket{z_{u}}} & \mapsto  \sum_{\substack{v \in V^{+} \\ u \in V^{-}}}\ket{z_{v} + z_{u}} {\ket{z_{u}}}\\
