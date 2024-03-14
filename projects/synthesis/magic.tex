@@ -223,6 +223,28 @@ Observe that the number of satisfied equations is at least:
     } 
   \end{proof}
 
+
+  \section{Compute $\ket{C_{Z}^{\perp}}$ In Constant Depth.}
+
+
+\begin{claim}
+  Let $G$ be a $\Delta$-regular bipartite graph. And denote by $C$ the dual-tanner code $\mathcal{T}(G,C_{0})^\perp$. Then there is circuit that compute the state $\ket{C}$ and has constant propagation factor, $\log \Delta$ depth and $\Delta^{2}n$ ancillary.   
+  %Suppose that $G_{}
+\end{claim}
+
+
+\begin{proof}
+  
+  \begin{equation*}
+    \begin{split}
+      \sum_{v \in V^{+}}\ket{z_{v}} \otimes \sum_{u\in V^{-}}{\ket{z_{u}}} & \mapsto  \sum_{\substack{v \in V^{+} \\ u \in V^{-}}}\ket{z_{v} + z_{u}} {\ket{z_{u}}}\\
+        & \mapsto_{H_X}\sum_{\substack{v \in V^{+} \\ u \in V^{-}}}\ket{z_{v} + z_{u}}\ket{0}
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+
+
   \section{Distillate $\ket{ \Lambda + C_{Z}^{\perp}}$ Into Magic.}
 Let $\ket{f}$ be a codeword in $C_{X}$, and let $\hat{X}_{g}$ be the indicator that equals $1$ if $f$ has support on generator $g$, and $0$ otherwise. Observe that applying $T^{\otimes}$ on $\ket{f}$ yields the state:
 \begin{equation*}
@@ -279,21 +301,6 @@ And then we get that
 
 
 
-\begin{claim}
-  Let $G$ be a $\Delta$-regular bipartite graph. And denote by $C$ the dual-tanner code $\mathcal{T}(G,C_{0})^\perp$. Then there is circuit that compute the state $\ket{C}$ and has constant propagation factor. 
-  %Suppose that $G_{}
-\end{claim}
-
-
-\begin{proof}
-  
-  \begin{equation*}
-    \begin{split}
-      \sum_{v \in V^{+}}\ket{z_{v}} \otimes \sum_{u\in V^{-}}{\ket{z_{u}}} & \mapsto  \sum_{\substack{v \in V^{+} \\ u \in V^{-}}}\ket{z_{v} + z_{u}} {\ket{z_{u}}}\\
-        & \mapsto_{H_X}\sum_{\substack{v \in V^{+} \\ u \in V^{-}}}\ket{z_{v} + z_{u}}\ket{0}
-    \end{split}
-  \end{equation*}
-\end{proof}
 
 
 \begin{claim} 
