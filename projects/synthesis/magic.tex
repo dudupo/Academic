@@ -225,12 +225,11 @@ Observe that the number of satisfied equations is at least:
 
 
   \section{Compute $\ket{C_{Z}^{\perp}}$ In Constant Depth.}
-
-  \cite{moore1998parallel}
+Let $C_{0}$ be a $\Delta$-length error linear binary code, $\Gamma$ a $\Delta$-regular bipartite graph, and let $C_{Z}$ be the Tanner code defined by $C_{0}$ and $\Gamma$. We are about to prove that the uniform superposition over $C_{Z}^\perp$ codewords can be computed at a depth dependent only on $\Delta$, in particular independent of the $C_{Z}^{\perp}$-length. For this, we are going to use Proposition 10 in \cite{moore1998parallel}, which states that both the encoder and the decoder of any stabilizer $m$-length code can be implemented by a circuit at depth $\Theta(\log m)$ with $\Theta(m^{2})$ ancillae.
 
 
 \begin{claim}
-  Let $G$ be a $\Delta$-regular bipartite graph. And denote by $C$ the dual-tanner code $\mathcal{T}(G,C_{0})^\perp$. Then there is circuit that compute the state $\ket{C}$ and has constant propagation factor, $\log \Delta$ depth and $\Delta^{2}n$ ancillary.   
+  Let $G$ be a $\Delta$-regular bipartite graph. And denote by $C$ the dual-tanner code $\mathcal{T}(G,C^{\perp}_{0})^\perp$. Then there is circuit that compute the state $\ket{C}$ and has constant propagation factor, $\log \Delta$ depth and $\Delta^{2}n$ ancillary.   
   %Suppose that $G_{}
 \end{claim}
 
