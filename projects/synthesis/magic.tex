@@ -241,6 +241,16 @@ Since $\Gamma$ is bipartite, we can decompose $V$ into $V^{-}$ and $V^{+}$ such 
 
   Consider the follows algorithm. 
 
+  \begin{algorithm}[H]
+    Initialize $2n$ qubits. \\ 
+    \ \ \ Call the left and the right segments $L$ and $R$. \\ 
+    On $L$ apply $E_{v}$ for any $v \in V^{+}$ in parallel. \\ 
+    On $R$ apply $E_{v}$ for any $v \in V^{-}$ in parallel. \\ 
+    Xoring $R$ into $L$ by applying CNOT from the $i$th bit of $R$ into the $i$th bit of $L$. \\
+    On $R$ apply $D_{v}$ for any $v \in V^{-}$ in parallel. 
+  \end{algorithm}
+  
+
 
   \begin{equation*}
     \begin{split}
