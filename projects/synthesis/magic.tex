@@ -252,10 +252,10 @@ Let $C_{0}$ be a $\Delta$-length error linear binary code, $\Gamma$ a $\Delta$-r
   Denote by $z_{v}$ the superposition of $C_{0}$ codewords supported by $v$ local view. Thus the computation sum up into:  
 
   \begin{align*}
-          \left(\cup_{v \in V^{+}}E_{v}\right) \otimes \left( \cup_{v \in V^{+}}E_{v}\right) & \ \ \ket{0}^{n} \otimes \ket{0}^n & \mapsto \\
-          \text{CNOT} & \ \sum_{v \in V^{+}}\ket{z_{v}} \otimes \sum_{u\in V^{-}}{\ket{z_{u}}} & \mapsto  \\ 
-       I \otimes D & \ \sum_{\substack{v \in V^{+} \\ u \in V^{-}}}\ket{z_{v} + z_{u}} {\ket{z_{u}}} & \mapsto  \\
-            &  \ \sum_{\substack{v \in V^{+} \\ u \in V^{-}}}\ket{z_{v} + z_{u}}\ket{0} & 
+          \left(\cup_{v \in V^{+}}E_{v}\right) \otimes \left( \cup_{v \in V^{+}}E_{v}\right) & \ & \ket{0}^{n} \otimes \ket{0}^n & \mapsto \\
+          \text{CNOT} & \ \sum_{v \in V^{+}}\ket{z_{v}} \otimes \sum_{u\in V^{-}} & \ket{z_{u}} & \mapsto  \\ 
+       I \otimes D & \ \sum_{\substack{v \in V^{+} \\ u \in V^{-}}} & \ket{z_{v} + z_{u}} {\ket{z_{u}}} & \mapsto  \\
+            &  \ \sum_{\substack{v \in V^{+} \\ u \in V^{-}}} & \ket{z_{v} + z_{u}}\ket{0} & 
     \end{align*}
 \end{proof}
 
