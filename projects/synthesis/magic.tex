@@ -272,7 +272,7 @@ For any $v \in V$, let $\ket{z_{v}}$ be the superposition of codewords in $C_{0}
   \begin{align*}
           \left(\cup_{v \in V^{+}}E_{v}\right) \otimes \left( \cup_{v \in V^{+}}E_{v}\right) & \ & \ket{0}^{n} \otimes \ket{0}^n & \mapsto \\
           \text{CNOT} & \ &\ket{z_{V^{+}}}  \ket{z_{V^{-}}} & \mapsto  \\ 
-          I \otimes \left( \cup_{v\in V^{-}} D_{v} \right)  & \ & \ket{z_{V^{+}} + z_{V^{-}}} {\ket{z_{V^{-}}}} & \mapsto  \\
+          I \otimes \left( \cup_{v\in V^{-}} D_{v} \right)  & \sum_{W \subset V^{-}} & \ket{z_{V^{+}} \cup W } {\ket{z_{W}}} & \mapsto  \\
           & \ &  \ket{z_{V^{+}} + z_{V^{-}}}\ket{0} & 
     \end{align*}
 \end{proof}
