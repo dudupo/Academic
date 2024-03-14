@@ -241,7 +241,6 @@ Since $\Gamma$ is bipartite, we can decompose $V$ into $V^{-}$ and $V^{+}$ such 
 
   Consider the follows algorithm. 
 
-\fbox{
   \begin{algorithm}
     \caption{ Compute $\ket{C_{Z}^{\perp}}$ }
       \label{alg:computeCZ}
@@ -252,7 +251,6 @@ Since $\Gamma$ is bipartite, we can decompose $V$ into $V^{-}$ and $V^{+}$ such 
     XOR $R$ into $L$ by applying CNOT from the $i$th bit of $R$ to the $i$th bit of $L$. \\
     Apply $D_{v}$ in parallel on $R$ for any $v \in V^{-}$.
   \end{algorithm} 
-}
 
   \begin{equation*}
     \begin{split}
