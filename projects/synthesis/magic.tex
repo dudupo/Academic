@@ -241,20 +241,18 @@ Since $\Gamma$ is bipartite, we can decompose $V$ into $V^{-}$ and $V^{+}$ such 
 
   Consider the follows algorithm. 
 
-
+\frame{
   \begin{algorithm}
     \caption{ Compute $\ket{C_{Z}^{\perp}}$ }
       \label{alg:computeCZ}
-
-    Initialize $2n$ qubits. \\ 
-    \ \ \ Call the left and the right segments $L$ and $R$. \\ 
-    On $L$ apply $E_{v}$ for any $v \in V^{+}$ in parallel. \\ 
-    On $R$ apply $E_{v}$ for any $v \in V^{-}$ in parallel. \\ 
-    Xoring $R$ into $L$ by applying CNOT from the $i$th bit of $R$ into the $i$th bit of $L$. \\
-    On $R$ apply $D_{v}$ for any $v \in V^{-}$ in parallel. 
-  \end{algorithm}
-  
-
+    Initialize $2n$ qubits. \\
+    Call the left and right segments $L$ and $R$. \\
+    Apply $E_{v}$ in parallel on $L$ for any $v \in V^{+}$. \\
+    Apply $E_{v}$ in parallel on $R$ for any $v \in V^{-}$. \\
+    XOR $R$ into $L$ by applying CNOT from the $i$th bit of $R$ to the $i$th bit of $L$. \\
+    Apply $D_{v}$ in parallel on $R$ for any $v \in V^{-}$.
+  \end{algorithm} 
+}
 
   \begin{equation*}
     \begin{split}
