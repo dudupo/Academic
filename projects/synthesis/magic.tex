@@ -242,7 +242,10 @@ Since $\Gamma$ is bipartite, we can decompose $V$ into $V^{-}$ and $V^{+}$ such 
   Consider the follows algorithm. 
 
 
-  \begin{algorithm}[H]
+  \begin{algorithm}
+    \caption{ Compute $\ket{C_{Z}^{\perp}}$ }
+      \label{alg:computeCZ}
+
     Initialize $2n$ qubits. \\ 
     \ \ \ Call the left and the right segments $L$ and $R$. \\ 
     On $L$ apply $E_{v}$ for any $v \in V^{+}$ in parallel. \\ 
