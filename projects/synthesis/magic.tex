@@ -249,8 +249,13 @@ Let $C_{0}$ be a $\Delta$-length error linear binary code, $\Gamma$ a $\Delta$-r
     Apply $D_{v}$ in parallel on $R$ for any $v \in V^{-}$.
   \end{algorithm} 
 
-  For any $v \in V$ denote by $\ket{z_{v}}$ the superposition of $C_{0}$ codewords supported by $v$ local view, and for any subset of vertices $W \subset V$ denote by $\ket{z_{W}} = \ket{\sum_{v \in W} z_{v}}$ . Thus the computation sum up into:  
-
+  For any $v \in V$ denote by $\ket{z_{v}}$ the superposition of $C_{0}$ codewords supported by $v$ local view, and for any subset of vertices $W \subset V$ denote by $\ket{z_{W}} = \ket{\sum_{v \in W} z_{v}}$. Using the notation we have that applying at once all the encoders $E_{v}$ over the positive vertices result into:  
+  \begin{equation*}
+    \begin{split}
+      \left(\cup_{v \in V^{+}}E_{v}\right)\ket{0}^{n} =  \left(\cup_{v \in V^{+} / v_{0} }E_{v}\right)\ket{z_{v_{0}} + 0} = \ket{z_{V^{+}}}
+    \end{split}
+  \end{equation*}
+  Thus the whole computation sum up into:  
   \begin{align*}
           \left(\cup_{v \in V^{+}}E_{v}\right) \otimes \left( \cup_{v \in V^{+}}E_{v}\right) & \ & \ket{0}^{n} \otimes \ket{0}^n & \mapsto \\
           \text{CNOT} & \ \sum_{v \in V^{+}}\sum_{u\in V^{-}} & \ket{z_{v}}  \ket{z_{u}} & \mapsto  \\ 
