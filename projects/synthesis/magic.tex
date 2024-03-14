@@ -248,8 +248,14 @@ Let $C_{0}$ be a $\Delta$-length error linear binary code, $\Gamma$ a $\Delta$-r
     XOR $R$ into $L$ by applying CNOT from the $i$th bit of $R$ to the $i$th bit of $L$. \\
     Apply $D_{v}$ in parallel on $R$ for any $v \in V^{-}$.
   \end{algorithm} 
-
-  For any $v \in V$ denote by $\ket{z_{v}}$ the superposition of $C_{0}$ codewords supported by $v$ local view, and for any subset of vertices $W \subset V$ denote by $\ket{z_{W}} = \ket{\sum_{v \in W} z_{v}}$. Using the notation we have that applying at once all the encoders $E_{v}$ over the positive vertices result into:  
+ 
+For any $v \in V$, let $\ket{z_{v}}$ be the superposition of codewords in $C_{0}$ supported by the local view of $v$. Similarly, for any subset of vertices $W \subset V$, let $\ket{z_{W}}$ be the uniform superposition over the subspace spanned by the generators supported by the vertices in $W$. In other words:
+  \begin{equation*}
+    \begin{split}
+      \ket{z_{W}} = \ket{\sum_{v \in W} z_{v}}
+    \end{split}
+  \end{equation*}
+Using the notation, applying all the encoders $E_{v}$ at once over the positive vertices results in:
   \begin{equation*}
     \begin{split}
       \left(\cup_{v \in V^{+}}E_{v}\right)\ket{0}^{n} =  \left(\cup_{v \in V^{+} / v_{0} }E_{v}\right)\ket{z_{v_{0}} + 0} = \ket{z_{V^{+}}}
