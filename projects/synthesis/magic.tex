@@ -254,7 +254,7 @@ Let $C_{0}$ be a $\Delta$-length error linear binary code, $\Gamma$ a $\Delta$-r
   \begin{align*}
           \left(\cup_{v \in V^{+}}E_{v}\right) \otimes \left( \cup_{v \in V^{+}}E_{v}\right) & \ & \ket{0}^{n} \otimes \ket{0}^n & \mapsto \\
           \text{CNOT} & \ \sum_{v \in V^{+}}\sum_{u\in V^{-}} & \ket{z_{v}}  \ket{z_{u}} & \mapsto  \\ 
-       I \otimes D & \ \sum_{v \in V^{+}}\sum_{u\in V^{-}} & \ket{z_{v} + z_{u}} {\ket{z_{u}}} & \mapsto  \\
+          I \otimes \left( \cup_{v\in V^{-}} D \right)  & \ \sum_{v \in V^{+}}\sum_{u\in V^{-}} & \ket{z_{v} + z_{u}} {\ket{z_{u}}} & \mapsto  \\
             &  \ \sum_{v \in V^{+}}\sum_{u\in V^{-}} & \ket{z_{v} + z_{u}}\ket{0} & 
     \end{align*}
 \end{proof}
