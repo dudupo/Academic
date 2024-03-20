@@ -26,11 +26,13 @@
 
 
 
-%\begin{abstract}
-%  We studies the complexity of synthesis quantum states using PRS, our reasch continues the work by \cite{searchtodecision}, \cite{rosenthal2023efficient}, \cite{rosenthal2021interactive}, \cite{metger2023stateqip}, \cite{delavenne2023quantum}.
-%\end{abstract}
-%
-%
+\section{Current Status.}
+
+\begin{enumerate}
+  \item Section 1 - Correct. In any CSS code, one can find a large subspace $\Lambda \subset C_{X}$ with a dimension that is linear in $n$ and this subspace also satisfies the required relation for distillation. Specifically, for any $x \in \Lambda$, $y, z \in C_{X}$, it holds that $xy = 0$ and $xyz = 0$.
+  \item Sections 2 and 3 - Incorrect. Initially, I believed that assuming the code is LDPC, one could encode the state $C_{Z}^{\perp}$ in constant depth. However, this idea turned out to be incorrect both in calculation and in contrast to the fact that synthesizing the ground state of the Toric code requires $\Omega(\log n)$ depth.
+\end{enumerate}<++>
+
 
 \section{Good Codes With Large $\Lambda$.}
 \newcommand*{\DETAILS}{}
@@ -224,7 +226,7 @@ Observe that the number of satisfied equations is at least:
   \end{proof}
 
 
-  \section{Compute $\ket{C_{Z}^{\perp}}$ In Constant Depth.}
+  \section{Compute $\ket{C_{Z}^{\perp}}$ In Constant Depth. \ctt{Wrong Section.}}
 Let $C_{0}$ be a $\Delta$-length error linear binary code, $\Gamma$ a $\Delta$-regular bipartite graph, and let $C_{Z}$ be the Tanner code defined by $C_{0}$ and $\Gamma$. We are about to prove that the uniform superposition over $C_{Z}^\perp$ codewords can be computed with constant probability at a depth dependent only on $\Delta$, in particular independent of the $C_{Z}^{\perp}$-length. For this, we are going to use Proposition 10 in \cite{moore1998parallel}, which states that both the encoder and the decoder of any stabilizer $m$-length code can be implemented by a circuit at depth $\Theta(\log m)$ with $\Theta(m^{2})$ ancillae.
 
 
