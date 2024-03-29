@@ -45,7 +45,7 @@ For $\Delta$ prime, $\Delta < q$, We have that
 
 \begin{equation*}
   \begin{split}
-    \sum_{\substack{ x \in \mathbb{F}_{q} \\ x < \Delta  }}{ x^{i+j}} =_{q}  \sum_{ x \in \mathbb{F}_{\Delta} }{ x^{i+j}} =_{q}\begin{cases}  0  & i + j\neq_{q} \Delta - 1 \\
+    \sum_{\substack{ x \in \mathbb{F}_{\Delta} \\ x < \Delta  }}{ x^{i+j}} =_{\Delta}  \sum_{ x \in \mathbb{F}_{\Delta} }{ x^{i+j}} =_{\Delta}\begin{cases}  0  & i + j\neq_{q} \Delta - 1 \\
     \Delta - 1 & \text{else}
     \end{cases}
   \end{split}
@@ -75,7 +75,8 @@ $x $ So the punctured $d$-dgree polynomial code is orthogonal for the punctured 
 Consider the Tannner \textbf{Graph}, such that the graph $G$ is bipartite, and every two checks overlap on the $i$th bucket, $\Delta$-size, bits. So for any two checks, we have that 
 \begin{equation*}
   \begin{split}
-    \sum_{x = i \cdot \Delta }^{(i+1)\Delta}{ x^{j} } = 
+    \sum_{x = i \cdot \Delta }^{(i+1)\Delta}{ x^{j} } &=_{\Delta} \sum_{x^{\prime} = (i-1) \cdot \Delta }^{i\Delta}{ (x^{\prime}+\Delta)^{j} } \\
+    & = \sum_{x = (i-1) \cdot \Delta }^{i\Delta}{ x^{\prime}^{j} } =
   \end{split}
 \end{equation*}
 
