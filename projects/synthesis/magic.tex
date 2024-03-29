@@ -37,7 +37,12 @@
 
 \section{ Punctured Polyonomial Codes. }
 
-For $\Delta$ prime, $\Delta < q$, We have that $ \varphi : x \mapsto \left(x \mod \Delta\right)^{i} \mod \Delta$.  
+For $\Delta$ prime, $\Delta < q$, We have that 
+
+\ifdefined\DETAILS
+  $ \varphi : x \mapsto \left(x \right)^{i} \mod \Delta$ act as isomorphisem on $\mathbb{F}_{\Delta}$. 
+\fi
+
 \begin{equation*}
   \begin{split}
     \sum_{\substack{ x \in \mathbb{F}_{q} // x < \Delta  }}{ x^{i+j}} =_{\Delta} \begin{cases}  0  & i \neq j \\
