@@ -50,8 +50,8 @@
   By induction on $c$. 
   \begin{enumerate}
     \item Base. For $c = 3$ we computes the summation bruthforcely. 
-    \item Assumption. Assume the correctness of the claim for every $c-1$.   
-    \item Step. Denote by $B_{j}(\Delta)$ the bucket $\Delta\cdot j +1,  \Delta\cdot j +2, .. \Delta \cdot (j+1)-1$. 
+    \item Assumption. Assume the correctness of the claim for $c-1$.   
+    \item Step. Denote by $B_{j}(\Delta)$ the bucket $\Delta\cdot j +1,  \Delta\cdot j +2, .. \Delta \cdot (j+1)-1$. Observes that $\sum_{x\in B_{j+1}(\Delta)}{x^{i}} =_{\Delta}\sum_{x\in B_{j+1}(\Delta)}{(x-\Delta)^{i}} =_{\Delta} \sum_{x\in B_{j}(\Delta)}{x^{i}}$.  
       \begin{equation*}
         \begin{split}
           \sum_{x \in \mathbb{F}_{\Delta}}{x^{i}} &= \sum_{j \in [4]}\sum_{x \in \mathbb{F}_{j\cdot \frac{\Delta}{4}}}{x^{i}} \\
