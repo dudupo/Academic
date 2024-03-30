@@ -138,7 +138,9 @@ Suppose that $H$ is a parity check matrix scuh that $h_{i}h_{j} =_{\Delta} \in \
   \section{The problem with the above.}
   The code that is obtained by the polynomial tanner is (almost) self dual code, module $\Delta$ the multiplication $x \cdot x$ belongs to $\{ 0, \Delta/2 \}$. While what we actually want to have is $x \cdot x =_{4} 1$. An idea how to correct that, sets the checks such only two of them don't commute. After taking the Hyprproduct code, they will turned to $\Theta(\sqrt{n})$ that don't commute. So if we have a perfect $\Theta(\sqrt{n})$ T states, we can cancel their phase before the encoding.  
 
-  Let $B$ be the bucket which matches $\{2,3,..\Delta-1\}$. On that bucket, the multiplication of the checks corresponds to $\sum_{x\in \mathbb{F}_{\Delta}}x^{i} - 1^i$, which is $\in \{ -1, \Delta/2 - 1 \}$. On the otherhand, the codeword $\xi$ that corresponds to the linear function $f(x)= x$ on every bucket gives $\xi \cdot \xi =_{\Delta} -1$. 
+  Let $B$ be the bucket which matches $\{2,3,..\Delta-1\}$. On that bucket, the multiplication of the checks corresponds to $\sum_{x\in \mathbb{F}_{\Delta}}x^{i} - 1^i$, which is $\in \{ -1, \Delta/2 - 1 \}$. On the otherhand, the codeword $\xi$ that corresponds to the constant function $f(x)= 1$ in every bucket gives $\xi \cdot \xi =_{\Delta} -1$.
+
+  So $\xi^{\prime} = \xi \otimes I$ is a codeword of the Hyprproduct code, such that $\xi^{\prime}\cdot \xi^{\prime} = 1$.  
 
 
 \section{Good Codes With Large $\Lambda$.}
