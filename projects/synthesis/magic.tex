@@ -113,7 +113,7 @@ Consider the ring $\mathbb{F}_{q}[x]$ where $q$ is a prime number. Let $\Delta =
      E^{\prime} = \{  \{ (i,v), u \} : i\in [\Delta], \{u,v\} \in E \} 
   \end{split}
 \end{equation*}
-In addition, we define the equivalence relation $u\sim v$ for $u,v \in \Delta \times L$ to hold if the first coordinates of $u$ and $v$ are equal.
+In addition, we define the equivalence relation $u\sim v$ for $u,v \in \Delta \times L$ to hold if the first coordinates of $u$ and $v$ are equal. 
 \end{definition}
 
 Let $G^{\prime}$ be a graph constructed as described above. Consider the code $C$  over the $\mathbb{F}_{q}$ alphabet, defined as all the assignments of symbols from $\mathbb{F}_{q}$ to the $\Delta \times L$ vertices. Such any vertex on the right side of $G$ sees a polynomial of degree at most $d$ on its local view, in addition the $x$'s value of bit in $\Delta \times  L$ is the same module $\Delta$ for all the checks. 
@@ -128,6 +128,16 @@ To clarify, if one checks, treat $u\in \Delta \times L$ as the value of the poly
   \begin{equation*}
     \begin{split}
       \dim C = \Delta \cdot |L| - |R| \cdot(1-\rho) \cdot q
+    \end{split}
+  \end{equation*}
+  Now, assume trough contradiction that there is $x \in C$ at weight $|x| <\gamma n$ denote by $S^{\prime} \subset \Delta \times  L$ the set of vertices setted to a non-trivial symbol. And observes that in the original graph $G$, $S^{\prime}$ induce a set of vertices $S$  by taking the delegations of the equivalence classes.
+
+  Since $G$ is a $(n,m,\gamma,\alpha)$ expander, and $|S| < |S^{\prime}| < \gamma n$, it followees that $|\Gamma(S)| > \alpha |S| \Rightarrow $
+  
+  \begin{equation*}
+    \begin{split}
+      & |S| / |\Gamma(S)| <  \frac{1}{\alpha}  \\
+      \Rightarrow & |S^{\prime}| / \Gamma(S) < \frac{\Delta}{\alpha}
     \end{split}
   \end{equation*}
 \end{proof}
