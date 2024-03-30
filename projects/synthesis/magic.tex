@@ -37,19 +37,34 @@
 
 \section{ Punctured Polyonomial Codes. }
 
-For $\Delta = 4^{c}$, $\Delta < q$, We have that 
 
-\ifdefined\DETAILS
-  $ \varphi : x \mapsto \left(x \right)^{i} \mod \Delta$ act as isomorphisem on $\mathbb{F}_{\Delta}$. 
-\fi
-
-
+\begin{claim}
+  Consider the ring $\mathbb{F}_{q}[x]$ ($q$ is prime). Let $\Delta = 4^{c}$, and $c >\ge 3$, Then we have that:
 \begin{equation*}
   \begin{split}
     \sum_{x \in \mathbb{F}_{\Delta}}{x^{i}} =_{\Delta} \in \{  0  \ , \ \Delta/2  \} 
   \end{split}
 \end{equation*}
+\end{claim}
+\begin{proof}
+  By induction on $c$. 
+  \begin{enumerate}
+    \item Base. For $c = 3$ we computes the summation bruthforcely. 
+    \item Assumption. Assume the correctness of the claim for every $c-1$.   
+    \item Step. Denote by $B_{j}(\Delta)$ the bucket $\Delta\cdot j +1,  \Delta\cdot j +2, .. \Delta \cdot (j+1)-1$. 
+      \begin{equation*}
+        \begin{split}
+          \sum_{x \in \mathbb{F}_{\Delta}}{x^{i}} &= \sum_{j \in [4]}\sum_{x \in \mathbb{F}_{j\cdot \frac{\Delta}{4}}}{x^{i}} \\
+          &= 
+        \end{split}
+      \end{equation*}
+  \end{enumerate}
+\end{proof}
 
+
+\ifdefined\DETAILS
+  $ \varphi : x \mapsto \left(x \right)^{i} \mod \Delta$ act as isomorphisem on $\mathbb{F}_{\Delta}$. 
+\fi
 
 \begin{equation*}
   \begin{split}
