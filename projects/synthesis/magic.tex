@@ -39,7 +39,7 @@
 
 
 \begin{claim}
-  Consider the ring $\mathbb{F}_{q}[x]$ ($q$ is prime). Let $\Delta = 4^{c}$, and $c >\ge 3$, Then we have that:
+Consider the ring $\mathbb{F}_{q}[x]$ where $q$ is a prime number. Let $\Delta = 4^{c}$ where $c \ge 3$. Then we have:
 \begin{equation*}
   \begin{split}
     \sum_{x \in \mathbb{F}_{\Delta}}{x^{i}} =_{\Delta} \in \{  0  \ , \ \Delta/2  \} 
@@ -56,13 +56,16 @@
         \begin{split}
       \sum_{x\in B_{j+1}(\Delta)}{x^{i}} =_{\Delta}\sum_{x\in B_{j+1}(\Delta)}{(x-\Delta)^{i}} =_{\Delta} \sum_{x\in B_{j}(\Delta)}{x^{i}}
         \end{split}
-      \end{equation*}
-
-     
+      \end{equation*} On the other hand, by the induction assumption, there is some integer $a$ for which: 
       \begin{equation*}
         \begin{split}
-          \sum_{x \in \mathbb{F}_{\Delta}}{x^{i}} &= \sum_{j \in [4]}\sum_{x \in \mathbb{F}_{j\cdot \frac{\Delta}{4}}}{x^{i}} \\
-          &= 
+          \sum_{x\in B_1(\Delta/4)}{ x^{i} } = \Delta/8 \cdot a 
+        \end{split}
+      \end{equation*} 
+    Thus the summation over $\Delta$ elements equals to: 
+      \begin{equation*}
+        \begin{split}
+          \sum_{x \in \mathbb{F}_{\Delta}}{x^{i}} = \sum_{j \in [4]}\sum_{x \in B_{j}(\Delta/4)}{x^{i}} =  \Delta/8 \cdot a \cdot 4 = \Delta \cdot a /2 
         \end{split}
       \end{equation*}
   \end{enumerate}
