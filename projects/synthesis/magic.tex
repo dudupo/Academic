@@ -35,42 +35,42 @@
 
 
 
-\section{ Punctured Polyonomial Codes. }
-
-
-
-
-\ifdefined\DETAILS
-  $ \varphi : x \mapsto \left(x \right)^{i} \mod \Delta$ act as isomorphisem on $\mathbb{F}_{\Delta}$. 
-\fi
-
-\begin{equation*}
-  \begin{split}
-    \sum_{\substack{ x \in \mathbb{F}_{\Delta} \\ x < \Delta  }}{ x^{i+j}} =_{\Delta}  \sum_{ x \in \mathbb{F}_{\Delta} }{ x^{i+j}} =_{\Delta}\begin{cases}  0  & i + j\neq_{q} \Delta - 1 \\
-    \Delta - 1 & \text{else}
-    \end{cases}
-  \end{split}
-\end{equation*}
-
-So the punctured $d$-dgree polynomial code is orthogonal for the punctured $n-1-d$ polyonimal code. So we can take $d = q/2 - 1$, and $\Delta = \alpha q$ to have $[\alpha q, q/2 -1, q/2 - (1-\alpha)q]$ code. For example we can take $\alpha = 7/8$ and have   $[7/8 q, q/2 -1, 3/8 q]$. The rate of the code is 
-\begin{equation*}
-  \begin{split}
-    \sim \frac{1}{2} / \frac{7}{8} = \frac{4}{7} > \frac{1}{2}
-  \end{split}
-\end{equation*}
-
-\begin{claim}
-  For any $\Delta > 5$ there are good LDPC family $C$ such that for any $x,y \in C$ it holds that $x\cdot y=_{(\Delta-1)} 0$.   
-\end{claim}
-\begin{proof}
-  Consider the Tanner code defined by using the $\Delta$-punctured polynomial code as $C_{0}$, where the rate of $C_{0}$ is strictly greater than $\frac{1}{2}$. Then we have for any $x,y\in C$: 
-  \begin{equation*}
-    \begin{split}
-      x\cdot y =_{(\Delta-1)} \sum_{v\in V^{+}}{x|_{v} \ \cdot  \ y|_{v}} =_{(\Delta-1)} 0
-    \end{split}
-  \end{equation*}
-\end{proof}
-
+%\section{ Punctured Polyonomial Codes. }
+%
+%
+%
+%
+%\ifdefined\DETAILS
+  %$ \varphi : x \mapsto \left(x \right)^{i} \mod \Delta$ act as isomorphisem on $\mathbb{F}_{\Delta}$. 
+%\fi
+%
+%\begin{equation*}
+  %\begin{split}
+    %\sum_{\substack{ x \in \mathbb{F}_{\Delta} \\ x < \Delta  }}{ x^{i+j}} =_{\Delta}  \sum_{ x \in \mathbb{F}_{\Delta} }{ x^{i+j}} =_{\Delta}\begin{cases}  0  & i + j\neq_{q} \Delta - 1 \\
+    %\Delta - 1 & \text{else}
+    %\end{cases}
+  %\end{split}
+%\end{equation*}
+%
+%So the punctured $d$-dgree polynomial code is orthogonal for the punctured $n-1-d$ polyonimal code. So we can take $d = q/2 - 1$, and $\Delta = \alpha q$ to have $[\alpha q, q/2 -1, q/2 - (1-\alpha)q]$ code. For example we can take $\alpha = 7/8$ and have   $[7/8 q, q/2 -1, 3/8 q]$. The rate of the code is 
+%\begin{equation*}
+  %\begin{split}
+    %\sim \frac{1}{2} / \frac{7}{8} = \frac{4}{7} > \frac{1}{2}
+  %\end{split}
+%\end{equation*}
+%
+%\begin{claim}
+  %For any $\Delta > 5$ there are good LDPC family $C$ such that for any $x,y \in C$ it holds that $x\cdot y=_{(\Delta-1)} 0$.   
+%\end{claim}
+%\begin{proof}
+  %Consider the Tanner code defined by using the $\Delta$-punctured polynomial code as $C_{0}$, where the rate of $C_{0}$ is strictly greater than $\frac{1}{2}$. Then we have for any $x,y\in C$: 
+  %\begin{equation*}
+    %\begin{split}
+      %x\cdot y =_{(\Delta-1)} \sum_{v\in V^{+}}{x|_{v} \ \cdot  \ y|_{v}} =_{(\Delta-1)} 0
+    %\end{split}
+  %\end{equation*}
+%\end{proof}
+%
 \section{Candidate For Triorthogonal LDPC Code.}
 
 \begin{claim}
