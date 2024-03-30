@@ -105,7 +105,19 @@ Consider the ring $\mathbb{F}_{q}[x]$ where $q$ is a prime number. Let $\Delta =
       \end{equation*}
   \end{enumerate}
 \end{proof}
-Consider the Tannner \textbf{Graph}, such that the graph $G$ is bipartite, and every two checks overlap on the $i$th bucket, $\Delta$-size, bits. So for any two checks, we have that 
+
+\begin{definition}
+  Let $G =(L,R, E)$ be a bipartite graph, and let $\Delta$ be an integer. Define $G^{\prime}$ to be the graph:  $G^{\prime} = (\Delta \times L, R, E^{\prime})$ defined as follows:
+\begin{equation*}
+  \begin{split}
+     E^{\prime} = \{  \{ (i,v), u \} : i\in [\Delta], \{u,v\} \in E \} 
+  \end{split}
+\end{equation*}
+\end{definition}
+
+Let $G^{\prime}$ be a graph constructed as described above. Consider the code over the $\mathbb{F}_{q}$ alphabet, defined as all the assignments of symbols from $\mathbb{F}_{q}$ to the $\Delta \times L$ vertices. Such any vertex on the right side of $G$ sees a polynomial of degree at most $d$ on its local view.
+
+Consider the Tanner \textbf{Graph}, such that the graph $G$ is bipartite, and every two checks overlap on the $i$th bucket, $\Delta$-size, bits. So for any two checks, we have that 
 \begin{equation*}
   \begin{split}
     \sum_{x = i \cdot \Delta }^{(i+1)\Delta}{ x^{j} } &=_{\Delta} \sum_{x^{\prime} = (i-1) \cdot \Delta }^{i\Delta}{ (x^{\prime}+\Delta)^{j} } \\
