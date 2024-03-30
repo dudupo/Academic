@@ -38,38 +38,6 @@
 \section{ Punctured Polyonomial Codes. }
 
 
-\begin{claim}
-Consider the ring $\mathbb{F}_{q}[x]$ where $q$ is a prime number. Let $\Delta = 4^{c}$ where $c \ge 3$. Then we have:
-\begin{equation*}
-  \begin{split}
-    \sum_{x \in [\Delta]}{x^{i}} =_{\Delta} \in \{  0  \ , \ \Delta/2  \} 
-  \end{split}
-\end{equation*}
-\end{claim}
-\begin{proof}
-  By induction on $c$. 
-  \begin{enumerate}
-    \item Base. For $c = 3$ we computes the summation bruthforcely. 
-    \item Assumption. Assume the correctness of the claim for $c-1$.   
-    \item Step. Denote by $B_{j}(\Delta)$ the bucket $\Delta\cdot j +1,  \Delta\cdot j +2, .. \Delta \cdot (j+1)-1$. Observes that: 
-      \begin{equation*}
-        \begin{split}
-      \sum_{x\in B_{j+1}(\Delta)}{x^{i}} =_{\Delta}\sum_{x\in B_{j+1}(\Delta)}{(x-\Delta)^{i}} =_{\Delta} \sum_{x\in B_{j}(\Delta)}{x^{i}}
-        \end{split}
-      \end{equation*} On the other hand, by the induction assumption, there is some integer $a$ for which: 
-      \begin{equation*}
-        \begin{split}
-          \sum_{x\in B_1(\Delta/4)}{ x^{i} } = \Delta/8 \cdot a 
-        \end{split}
-      \end{equation*} 
-    Thus the summation over $\Delta$ elements equals to: 
-      \begin{equation*}
-        \begin{split}
-          \sum_{x \in [\Delta]}{x^{i}} = \sum_{j \in [4]}\sum_{x \in B_{j}(\Delta/4)}{x^{i}} =  \Delta/8 \cdot a \cdot 4 = \Delta \cdot a /2 
-        \end{split}
-      \end{equation*}
-  \end{enumerate}
-\end{proof}
 
 
 \ifdefined\DETAILS
@@ -105,6 +73,38 @@ So the punctured $d$-dgree polynomial code is orthogonal for the punctured $n-1-
 
 \section{Candidate For Triorthogonal LDPC Code.}
 
+\begin{claim}
+Consider the ring $\mathbb{F}_{q}[x]$ where $q$ is a prime number. Let $\Delta = 4^{c}$ where $c \ge 3$. Then we have:
+\begin{equation*}
+  \begin{split}
+    \sum_{x \in [\Delta]}{x^{i}} =_{\Delta} \in \{  0  \ , \ \Delta/2  \} 
+  \end{split}
+\end{equation*}
+\end{claim}
+\begin{proof}
+  By induction on $c$. 
+  \begin{enumerate}
+    \item Base. For $c = 3$ we computes the summation bruthforcely. 
+    \item Assumption. Assume the correctness of the claim for $c-1$.   
+    \item Step. Denote by $B_{j}(\Delta)$ the bucket $\Delta\cdot j +1,  \Delta\cdot j +2, .. \Delta \cdot (j+1)-1$. Observes that: 
+      \begin{equation*}
+        \begin{split}
+      \sum_{x\in B_{j+1}(\Delta)}{x^{i}} =_{\Delta}\sum_{x\in B_{j+1}(\Delta)}{(x-\Delta)^{i}} =_{\Delta} \sum_{x\in B_{j}(\Delta)}{x^{i}}
+        \end{split}
+      \end{equation*} On the other hand, by the induction assumption, there is some integer $a$ for which: 
+      \begin{equation*}
+        \begin{split}
+          \sum_{x\in B_1(\Delta/4)}{ x^{i} } = \Delta/8 \cdot a 
+        \end{split}
+      \end{equation*} 
+    Thus the summation over $\Delta$ elements equals to: 
+      \begin{equation*}
+        \begin{split}
+          \sum_{x \in [\Delta]}{x^{i}} = \sum_{j \in [4]}\sum_{x \in B_{j}(\Delta/4)}{x^{i}} =  \Delta/8 \cdot a \cdot 4 = \Delta \cdot a /2 
+        \end{split}
+      \end{equation*}
+  \end{enumerate}
+\end{proof}
 Consider the Tannner \textbf{Graph}, such that the graph $G$ is bipartite, and every two checks overlap on the $i$th bucket, $\Delta$-size, bits. So for any two checks, we have that 
 \begin{equation*}
   \begin{split}
