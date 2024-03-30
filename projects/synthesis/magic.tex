@@ -116,8 +116,17 @@ Consider the ring $\mathbb{F}_{q}[x]$ where $q$ is a prime number. Let $\Delta =
 In addition, we define the equivalence relation $u\sim v$ for $u,v \in \Delta \times L$ to hold if the first coordinates of $u$ and $v$ are equal.
 \end{definition}
 
-Let $G^{\prime}$ be a graph constructed as described above. Consider the code over the $\mathbb{F}_{q}$ alphabet, defined as all the assignments of symbols from $\mathbb{F}_{q}$ to the $\Delta \times L$ vertices. Such any vertex on the right side of $G$ sees a polynomial of degree at most $d$ on its local view, in addition the $x$'s value of bit in $\Delta \times  L$ is the same module $\Delta$ for all the checks. 
+Let $G^{\prime}$ be a graph constructed as described above. Consider the code $C$  over the $\mathbb{F}_{q}$ alphabet, defined as all the assignments of symbols from $\mathbb{F}_{q}$ to the $\Delta \times L$ vertices. Such any vertex on the right side of $G$ sees a polynomial of degree at most $d$ on its local view, in addition the $x$'s value of bit in $\Delta \times  L$ is the same module $\Delta$ for all the checks. 
 To clarify, if one checks, treat $u\in \Delta \times L$ as the value of the polynomial at coordinate $z$, and treat the other check as the value of the polynomial at coordinate $z^{\prime}$, then $z =_{\Delta} z^{\prime}$.
+
+\begin{claim}
+  $C$ is a good LDPC code. (If $G$ is expander graph).  
+\end{claim}
+
+\begin{proof}
+  Complete it. 
+\end{proof}
+
 
 Consider the Tanner \textbf{Graph}, such that the graph $G$ is bipartite, and every two checks overlap on the $i$th bucket, $\Delta$-size, bits. So for any two checks, we have that 
 \begin{equation*}
