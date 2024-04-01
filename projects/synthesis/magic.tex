@@ -33,6 +33,44 @@
   \item Sections 6 and 7 - Incorrect. Initially, I believed that assuming the code is LDPC, one could encode the state $C_{Z}^{\perp}$ in constant depth. However, this idea turned out to be incorrect both in calculation and in contrast to the fact that synthesizing the ground state of the Toric code requires $\Omega(\log n)$ depth.
 \end{enumerate}
 
+\section{Classic Codes With Few Checks.}
+
+\begin{claim}
+  There is a family of classic binary codes, with positive rate, $\Theta(n^{\frac{1}{3}})$ distance, and $\gamma n^{\frac{1}{3}}$ checks.
+\end{claim}
+\begin{proof}
+  We are going to show the existences of bipartite expander, over $n$ left vertices and $\gamma n^{\frac{1}{3}}$ right vertices such that for any $S \subset L $ at size at most $\alpha n^{\frac{1}{3}}$, the neighbors of $S$ is at size at least $\beta|S|$. We use the standard probabilistic 'fusion construction', meaning that we are going to sample permutation from $ [n \times  d_{1}]$ to $[n^{\frac{1}{3}} \times d_{2}$ and fuse together $d_{1}$'s left vertices subsets $\{ d_{1} \cdot j,  d_{1} \cdot j + 1, d_{1} \cdot j + 2, .. ,d_{1} \cdot (j+1) -1 \}$ and similarly fuse together $d_{2}$ right vertices.
+
+
+    Now observes that the probability of neighbors $S \subset L$ being contained in $T \subset R$  is at most:
+    \begin{equation*}
+      \begin{split}
+        \prb{X_{S,T}} \le \frac{ |T|d_{2} \cdot ( |T|d_{2} -1) \cdot \cdot \cdot  ( |T|d_{2} -|S| d_{1})}{ nd_{1} \cdot ( nd_{1} -1) \cdot \cdot \cdot  ( nd_{1}- |S|d_{1})} \le \left( \frac{|T|d_{2}}{ nd_{1}- |S|d_{1}   } \right)^{|S|d_{1}} 
+      \end{split}
+    \end{equation*}
+And for the $|T| <\beta |S|$ the above is lower than: 
+\begin{equation*}
+      \begin{split}
+        \prb{X_{S,T}} \le \left( \frac{2\beta|S|d_{2}}{ nd_{1}  } \right)^{|S|d_{1}} 
+      \end{split}
+    \end{equation*}
+
+    By the union bound we get that the probability that there exist $S$ at size $|S| < \alpha n^{\frac{1}{3}}$ such that the neighbors of $S$ is at size less than $\beta|S|$ is bounded by: 
+    \begin{equation*}
+      \begin{split}
+        \prb{\bigcup_{\substack{ |S| < \alphan^{\frac{1}{3}} \\ |T| < \beta |S|  }}}  & \le \sum_{\substack{ |S| < \alphan^{\frac{1}{3}} \\ |T| < \beta |S|  }}{ \prb{X_{S,T}}  } \\
+          & \le \sum_{k}^{\alphan^{\frac{1}{3}}}{  { n \choose k  }{ \gamma n^{\frac{1}{3}} \choose \beta k  }\cdot \left( \frac{2\beta kd_{2}}{ nd_{1}  } \right)^{kd_{1}} \\ 
+          & \le \sum \left( \frac{e^{2+\beta}}{k} \cdot \frac{n^{1}+\beta/3}{\beta^{\beta}k^{\beta}} \cdot \left \frac{2\beta kd_{2}}{n d_{1}} \right)^{d_{1}} \right)^{k} \\ 
+          & \le 
+
+      \end{split}
+    \end{equation*}
+
+
+\end{proof}
+
+
+
 
 
 %\section{ Punctured Polyonomial Codes. }
