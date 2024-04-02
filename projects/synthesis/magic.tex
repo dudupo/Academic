@@ -81,6 +81,19 @@ The idea form here, set $C_{Z}$ to be the above code, and $C_{X}^{\perp} = \empt
 
 
 
+\section{Decoding The Code.}
+
+Consider the simplest decoding procedure, any right vertex in $R$ decode it's local view using decoder $D$. The probability of failure is lower than the probability that there is a single vertex which fails to decode. 
+
+\begin{equation*}
+  \begin{split}
+    \prb{\text{failure}} & \le \prb{\exists v \in R \text{ which fails to decode }} \\
+& \le m \cdot \prb{ |e(\Gamma(v))| \ge \mu  }\le  m \cdot \prb{ |e(\Gamma(v))| \ge (1 + \theta) p d_{2} } \\
+& \le m \cdot e^{-\frac{\theta^{2}}{2+\theta} d_{2}p}
+  \end{split}
+\end{equation*}
+
+
 
 %\section{ Punctured Polyonomial Codes. }
 %
