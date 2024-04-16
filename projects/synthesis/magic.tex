@@ -81,6 +81,18 @@ The idea form here, set $C_{Z}$ to be the above code, and $C_{X}^{\perp} = \empt
 
 
 
+
+\section{Bipartite Random Constructions, Collisions Number.}
+
+Let $u,v\in R$ be checks vertices (right vertices) and let $Y_{u,v}$ the indicator for a bit been ceheckd by both $u$ and $v$ checks, Means that there is a left vertex $w$ adjances to both $u,v$. 
+
+\begin{equation*}
+  \begin{split}
+    \prb{Y_{u,v}} =  1 - \frac{ n \left( n - 1 \right)\cdot\cdot\cdot\left( n - d_{2}  \right)   }{ nd_{1} \cdot \left( nd_{1} - 1 \right) \cdot\cdot\cdot \left( nd_{1} - d_{2} \right)  }\cdot \left( d_{1} \right)^{d_{2}}
+  \end{split}
+\end{equation*}<++>
+
+
 \section{Decoding The Code.}
 
 Consider the simplest decoding procedure, any right vertex in $R$ decode it's local view using decoder $D$. The probability of failure is lower than the probability that there is a single vertex which fails to decode. 
