@@ -290,7 +290,7 @@ Therefore, if $S$ is the set of vertices associated with the non-trivial symbols
 \end{equation*}
 So there is a check that sees on his local view less than $\Delta/\alpha$ non-trival bits $<d(C_{0})$. 
 
-\section{Hyprproduct Code of two Triorthogonal Codes.}
+\section{Hyperproduct Code of two Triorthogonal Codes.}
 
 Suppose that $H$ is a parity check matrix scuh that $h_{i}h_{j} =_{\Delta} \in \{\Delta , \ , \ \Delta/2 \}$ for any two rows. IS that true that the same property holds for the following check matrix? 
   \begin{equation*}
@@ -302,7 +302,7 @@ Suppose that $H$ is a parity check matrix scuh that $h_{i}h_{j} =_{\Delta} \in \
 
   \begin{equation*}
     \begin{split}
-      H^{\prime}_{i}H^{\prime}_{j} &= (H\otimes I)_{i}(H\otimes I)_{j} + (I \otimes H)_{i}(I \otimes H)_{j} 
+      H^{\prime}_{i}H^{\prime}_{j} &= \overbrace{ (H\otimes I)_{i}(H\otimes I)_{j}}^{A} + (I \otimes H)_{i}(I \otimes H)_{j} 
     \end{split}
   \end{equation*}
   Denote $i = (i_{1},i_{2})$ and $j = (j_{1},j_{2})$. So: 
@@ -317,6 +317,9 @@ Suppose that $H$ is a parity check matrix scuh that $h_{i}h_{j} =_{\Delta} \in \
       (I \otimes H)_{i}(I \otimes H)_{j} &= \delta_{i_{1},j_{1}} H_{i_{2}}H_{j_{2}}
     \end{split}
   \end{equation*}
+  
+
+
 
   \section{The problem with the above.}
   The code that is obtained by the polynomial tanner is (almost) self dual code, module $\Delta$ the multiplication $x \cdot x$ belongs to $\{ 0, \Delta/2 \}$. While what we actually want to have is $x \cdot x =_{4} 1$. An idea how to correct that, sets the checks such only two of them don't commute. After taking the Hyprproduct code, they will turned to $\Theta(\sqrt{n})$ that don't commute. So if we have a perfect $\Theta(\sqrt{n})$ T states, we can cancel their phase before the encoding.  
