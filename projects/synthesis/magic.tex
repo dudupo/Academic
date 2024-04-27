@@ -345,7 +345,7 @@ Suppose that $H$ is a parity check matrix scuh that $h_{i}h_{j} =_{\Delta} \in \
   Suppose that we have a machine that produce with probability $\frac{1}{2}$ $k$ magic states with error rate $\sim \frac{1}{2^{n}}$. Does that machine useful? Noitce that for obtaing such high accuricite one has to pay overhead of $n\cdot n^{\beta}$ width. Here we reduce it to be:  
   \begin{equation*}
     \begin{split}
-      \sum^{\log \log 2^n}{ \gamma^{i} n  \log^{\beta} \left( n \right)} = n \log^{\beta} n \cdot O(1)
+      \sum^{\log \log 2^n}{ \left(\frac{\gamma}{\rho}\right)^{i} n  \log^{\beta} \left( n \right)} = n \log^{\beta} n \cdot O(1)
     \end{split}
   \end{equation*}
   So in excpection the number of magic states that one might consume is double the above amount. 
