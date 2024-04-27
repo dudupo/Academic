@@ -347,7 +347,8 @@ Suppose that $H$ is a parity check matrix scuh that $h_{i}h_{j} =_{\Delta} \in \
     \begin{split}
       \sum^{\log \log 2^n}{ \gamma^{i} n  \log^{\beta} \left( n \right)} = n \log^{\beta} n \cdot O(1)
     \end{split}
-  \end{equation*}<++>
+  \end{equation*}
+  So in excpection the number of magic states that one might consume is double the above amount. 
 
   \section{The problem with the above.}
   The code that is obtained by the polynomial tanner is (almost) self dual code, module $\Delta$ the multiplication $x \cdot x$ belongs to $\{ 0, \Delta/2 \}$. While what we actually want to have is $x \cdot x =_{4} 1$. An idea how to correct that, sets the checks such only two of them don't commute. After taking the Hyprproduct code, they will turned to $\Theta(\sqrt{n})$ that don't commute. So if we have a perfect $\Theta(\sqrt{n})$ T states, we can cancel their phase before the encoding.  
