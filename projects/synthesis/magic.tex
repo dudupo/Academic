@@ -342,7 +342,12 @@ Suppose that $H$ is a parity check matrix scuh that $h_{i}h_{j} =_{\Delta} \in \
     \end{split}
   \end{equation*}
 
-  Suppose that we have a machine that produce with probability $\frac{1}{2}$ $k$ magic states with error rate $\sim \frac{1}{2^{n}}$. Does that machine useful? Noitce that for obtaing such high accuricite one has to pay overhead of $n\cdot n^{\beta}$ width. 
+  Suppose that we have a machine that produce with probability $\frac{1}{2}$ $k$ magic states with error rate $\sim \frac{1}{2^{n}}$. Does that machine useful? Noitce that for obtaing such high accuricite one has to pay overhead of $n\cdot n^{\beta}$ width. Here we reduce it to be:  
+  \begin{equation*}
+    \begin{split}
+      \sum^{\log \log 2^n}{ \gamma^{i} n  \log^{\beta} \left( n \right)} = n \log^{\beta} n \cdot O(1)
+    \end{split}
+  \end{equation*}<++>
 
   \section{The problem with the above.}
   The code that is obtained by the polynomial tanner is (almost) self dual code, module $\Delta$ the multiplication $x \cdot x$ belongs to $\{ 0, \Delta/2 \}$. While what we actually want to have is $x \cdot x =_{4} 1$. An idea how to correct that, sets the checks such only two of them don't commute. After taking the Hyprproduct code, they will turned to $\Theta(\sqrt{n})$ that don't commute. So if we have a perfect $\Theta(\sqrt{n})$ T states, we can cancel their phase before the encoding.  
