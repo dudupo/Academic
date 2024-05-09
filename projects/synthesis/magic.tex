@@ -326,6 +326,20 @@ Suppose that $H$ is a parity check matrix scuh that $h_{i}h_{j} =_{\Delta} \in \
       T(\rho n) = \overbrace{\gamma n}^{\text{ perfect }} +\overbrace{n}^{\text{ noisy }}   
     \end{split}
   \end{equation*}
+
+  Let's assume also that we found a good LDPC family such the above assumption holds and that the decoder can by using only Clifford gates and messurments correct any error at size less than $\Theta(n)=\tilde{d}n$. Then the protocol extands into:
+
+\begin{equation*}
+    \begin{split}
+      T(\rho n) =  \begin{cases}
+       \overbrace{\gamma n}^{\text{ perfect }} +\overbrace{n}^{\text{ noisy }}   & \text{ w.p }  1 - p^{\tildeP{d}n}  
+       \text{junk} & \text{else}
+      \end{cases}
+    \end{split}
+  \end{equation*}
+
+
+
   Now, Let $T^{\prime}$ be the distillation protocol that uses a subroutine protocol for quaderic redunecy, and sums up to balacne equation $n \mapsto \rho^{\prime} n$, at cost of $\gamma n$ perfect magic states. Can we realx it somehow? Think about using the uinon bound on the $\gamma n$ near to perfect states. 
 
   For generating the $\gamma n$ pefrect states, we will have to call reqursivly, to ask for $\gamma n \frac{\gamma}{\rho}$ states. If the probability for failure for each use of nearly perfect magic state is less than $q$ then the probability of general failutre is less than:  
