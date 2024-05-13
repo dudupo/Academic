@@ -373,6 +373,13 @@ Suppose that $H$ is a parity check matrix scuh that $h_{i}h_{j} =_{\Delta} \in \
   \end{equation*}
 
 
+  \section{Hyper Lift Preserves Few-Overllaps.}
+
+  Assume that  $G^{(i)}$ is a bipartite such that for any two right vertices pair either they don't have a common neighbor or they have exactly one common neighbor. Denote by $\gamma^{(i)}$ the relative number of overlapped checks and similarly by $\gamma^{(i+1)}$ the that ratio in respect to $G^i{(i+1)}$, the graph which obtained from $G^{(i)}$ by lifting. Then $\gamma^{(i)} = \gamma^{(i+1)}$.  
+
+
+
+
 
   \section{The problem with the above.}
   The code that is obtained by the polynomial tanner is (almost) self dual code, module $\Delta$ the multiplication $x \cdot x$ belongs to $\{ 0, \Delta/2 \}$. While what we actually want to have is $x \cdot x =_{4} 1$. An idea how to correct that, sets the checks such only two of them don't commute. After taking the Hyprproduct code, they will turned to $\Theta(\sqrt{n})$ that don't commute. So if we have a perfect $\Theta(\sqrt{n})$ T states, we can cancel their phase before the encoding.  
@@ -1249,7 +1256,6 @@ Thus we have that $\gamma = \log(n/k)/\log(d) =  \log(n/|S|)/\log(\Theta(\sqrt{n
 \printbibliography
 
 \end{document}
-
 
 
 
