@@ -379,6 +379,11 @@ Suppose that $H$ is a parity check matrix scuh that $h_{i}h_{j} =_{\Delta} \in \
 
   Assume that  $G^{(i)}$ is a bipartite such that for any two right vertices pair either they don't have a common neighbor or they have exactly one common neighbor. Denote by $\gamma^{(i)}$ the relative number of overlapped checks and similarly by $\gamma^{(i+1)}$ the that ratio in respect to $G^i{(i+1)}$, the graph which obtained from $G^{(i)}$ by lifting. Then $\gamma^{(i)} = \gamma^{(i+1)}$.  
 
+  \section{ What about the $Z$-product? }
+  $Z$-product, there is an edge between $u$ and $v$ if there is blue-red-blue path between them. First notice that bipartite graph remains bipartite. Second, if $u$ and $v$ belongs to two different sources, and there is also edge between $u$ to $v^{\prime}$. If $v$ and $v^{\prime}$ came form the same source. Then $v$ and $v^{\prime}$ share $d-1$ on their support, they use the same first blue and red edges, and only the last one change. Meaning that if $d$ is odd, then, we don't obtain new uncommute checks. Now lets assume that $v$ and $v^{\prime}$ come from different sources. So how many from $u$ cloud is belongs for both of them. Meaning that now we take two different red edges. So take a vertex on the input set (left vertex). Now, for reach both $v$ and $v^{\prime}$ it has to be one of $V_{0}/{x,y}$. Means that we have multiply by $d-2$. 
+
+  What about triple? Sp any one of $d-3$ doesn't encounter at all. And then we remain only with the impact of disjoints pairs. That might be help. 
+
 
 
 
