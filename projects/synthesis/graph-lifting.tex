@@ -69,8 +69,8 @@ Let $G$ be a bipartite graph, and let $H_{l}$ and $H_{r}$ be the complete graphs
   \item \ctt{Assume $H_{r}, H_{l}$ are the complete graphs, and adding self-loops in step 1.} If $X\neq Y$, then with probability $1 - P(G)$, $X$ and $Y$ commute in $G$ and therefore there are even number of red edges at the form $\{o , o^{\prime}\}$ to connect paths from $x,y \rightarrow w$.     
     \begin{equation*}
       \begin{split}
-        & P(G){ m \choose 2} + Q(G){ m \choose 2} = \frac{1}{2}m D^{2} \\ 
-        & Q(G) = { m \choose 2 }^{-1}\cdot \frac{1}{2}mD^{2} - P(G)
+        & P(G){ m \choose 2} + Q(G){ m \choose 2} = \frac{1}{2}m \Delta^{2} \\ 
+        & Q(G) = { m \choose 2 }^{-1}\cdot \frac{1}{2}m\Delta^{2} - P(G)
       \end{split}
     \end{equation*}
     
@@ -79,6 +79,7 @@ Let $G$ be a bipartite graph, and let $H_{l}$ and $H_{r}$ be the complete graphs
         P(G^{\prime}) \le \left( 1 - \frac{1}{m} \right) \left( P(G) + Q(G)  \frac{1}{\Delta} \right) = \left( 1 - \frac{1}{m} \right) \left(  \frac{\Delta^{2}}{m-1} + \left( 1 -  \frac{1}{\Delta}\right)P(G) \right)
       \end{split}
     \end{equation*}
+
   \end{itemize}
 \end{proof}
 \end{document}
