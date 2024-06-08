@@ -19,7 +19,7 @@
 
 \begin{document}
 \input{newcommands}
-\title{ Amplifying the spectral gap while preserving a low portion of noncommuting checks. }
+\title{ Amplifying the expansion while preserving a low portion of noncommuting checks. }
 \author{David Ponarovsky}
 \maketitle
 
@@ -39,6 +39,12 @@ From now on, we will assume that $G$ has a fixed left and right degree, $\Delta_
 For any subset of vertices $S \subset L \cup R$, we will denote the vertices connected to $S$ by $\Gamma(S)$. $G$ will be said to be a $(\tau, \varepsilon)$ left-expander if for any $S \subset L$ of size at most $\tau n$, it holds that $|\Gamma(S)| > (1-\varepsilon)\Delta_{l}|S|$. In the same way, we define a right-expander.
 
 We are interested in the following question: for fixed constants $\Delta, \varepsilon, \tau, \beta$, is there a family of bipartite graphs such that both $G$ and $G^{\top}$ are $(\tau,\varepsilon)$ left-expanders, and their uncommuting rate is bounded above by $\beta$?
+
+
+\begin{claim}[Zig-Zag product preservs uncommuting-rate.]  
+Let $G$ be a bipartite graph, and let $H_{l}$ and $H_{r}$ be the complete graphs with $\Delta_{l}$ and $\Delta_{r}$ vertices, respectively. Assume that $P(G) < \beta$. Then $P(G \cdot_{z} [H_{l},H_{r}]) < \beta$.
+\end{claim}
+
 \end{document}
 
 
