@@ -60,7 +60,16 @@ Let $G$ be a bipartite graph, and let $H_{l}$ and $H_{r}$ be the complete graphs
   \end{split}
 \end{equation*}
 \end{claim}
+\begin{proof}
+  Consider two checks $x$ and $y$ in $G^{\prime}$. Let us abuse notation and refer to the vertices that define those checks as $x$ and $y$. We will say that a vertex $X$ of $G$, is the souce of $x$ if $x$ defiend by marking a vetex on $X$ edges. Let $X,Y$ be the sources of $x,y$ respectively. Now let's split to cases:
+  \begin{itemize}
+    \item If $X = Y$, namely $x$ and $y$ have the same source. In this case, any blue-red-blue path $x \rightarrow o \rightarrow o^{\prime} \rightarrow w$ from $x$ to $w \in H_{l}$ that passes through a vertex $o \in H_{r}/\{y\}$, and $\{o,y\} \in H_{r}$ matches to a blue-red-blue path $y \rightarrow o \rightarrow o^{\prime} \rightarrow w$ from $y$ to $w$, where the first blue edge $\{ x, o \}$ is replaced by $\{ y, o \}$ to set $y$ at the beginning of the path.
+   
+    So, conditioned on $X=Y$, the probability that $x,y$ do not commute is either $0$ if $\deg H_{l}$ is even, or $P(H_{r})$.
+  \item If $X\neq Y$, 
 
+  \end{itemize}
+\end{proof}
 \end{document}
 
 
