@@ -67,8 +67,7 @@ Let $G$ be a bipartite graph, and let $H_{l}$ and $H_{r}$ be the complete graphs
    
     So, conditioned on $X=Y$, the probability that $x,y$ do not commute is either $0$ if $\deg H_{l}$ is even, or $P(H_{r})$.
   \item \ctt{Assume $H_{r}, H_{l}$ are the complete graphs, and adding self-loops in step 1.} If $X\neq Y$, then with probability $1 - P(G)$, $X$ and $Y$ commute in $G$ and therefore there are even number of red edges at the form $\{o , o^{\prime}\}$ to connect paths from $x,y \rightarrow w$. Denote by $Q(G)$ the probability of choosing $X,Y$ right vertices in $G$ which both commute and share at least one common neighbor (bit).  
-
-    By double counting we get the bound: 
+By double counting we get the bound: 
     \begin{equation*}
       \begin{split}
         & P(G){ m \choose 2} + Q(G){ m \choose 2} \le \frac{1}{2}m \Delta^{2} \\ 
