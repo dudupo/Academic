@@ -66,7 +66,7 @@ Let $G$ be a bipartite graph, and let $H_{l}$ and $H_{r}$ be the complete graphs
     \item If $X = Y$, namely $x$ and $y$ have the same source. In this case, any blue-red-blue path $x \rightarrow o \rightarrow o^{\prime} \rightarrow w$ from $x$ to $w \in H_{l}$ that passes through a vertex $o \in H_{r}/\{y\}$, and $\{o,y\} \in H_{r}$ matches to a blue-red-blue path $y \rightarrow o \rightarrow o^{\prime} \rightarrow w$ from $y$ to $w$, where the first blue edge $\{ x, o \}$ is replaced by $\{ y, o \}$ to set $y$ at the beginning of the path.
    
     So, conditioned on $X=Y$, the probability that $x,y$ do not commute is either $0$ if $\deg H_{l}$ is even, or $P(H_{r})$.
-  \item If $X\neq Y$, 
+  \item \ctt{Assume $H_{r}$ are the complete graphs, and adding self-loops in step 1.} If $X\neq Y$, then with probability $1 - P(G)$, $X$ and $Y$ commute in $G$ and therefore there are even number of red edges at the form $\{o , o^{\prime}\}$ to connect paths from $x,y \rightarrow w$.     
 
   \end{itemize}
 \end{proof}
