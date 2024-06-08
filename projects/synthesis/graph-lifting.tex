@@ -40,6 +40,17 @@ For any subset of vertices $S \subset L \cup R$, we will denote the vertices con
 
 We are interested in the following question: for fixed constants $\Delta, \varepsilon, \tau, \beta$, is there a family of bipartite graphs such that both $G$ and $G^{\top}$ are $(\tau,\varepsilon)$ left-expanders, and their uncommuting rate is bounded above by $\beta$?
 
+\section{The Zig-Zag Product.}
+The Zig-Zag product is a procedure to construct a fixed-degree graph from another given graph without reducing the second's expansion too much. We slightly change the original definition and process to support biparitie grpahs with inequal left and right degree. 
+\begin{definition}
+  Let $G$ be a bipartite graph as defined above, and let $H_{l}$ and $H_{r}$ be graphs with $\Delta_{l}$ and $\Delta_{r}$ vertices, respectively. We define $G^{\prime} = G \cdot_{z} [H_{l},H_{r}]$, the graph obtained by multiplying the graphs $G$, $H_{l}$, and $H_{r}$ using the Zig-Zag product, to be the graph obtained by the following steps:
+  \begin{enumerate}
+    \item For any vertex $v$ in $L$, mark $\Delta_{l}$ new vertices on its edge, one vertex for each edge. Connect them according to the edges of $H_{l}$. Then, remove $v$. Each of the new vertices will have a degree of $\deg H_{l} + 1$, where one edge is associated with an original edge in $G$ and the other matches the structure of $H_{l}$.
+    \item Repeat the above process, but replace each right vertex with $H_{R}$.
+    \item Now, we will color any edge associated with the smaller graphs $H_{l}$ and $H_{r}$ in blue, and any of the original edges of $G$ in red. We define an edge ${u,v}$ in $G^{\prime}$ if there is a path composed of a blue edge, a red edge, and another blue edge.
+  \end{enumerate}
+  Notice that $G^\prime$ remains bipartite and its left and right degrees are $\deg H_{l} \cdot \deg H_{r}$.
+\end{definition}
 
 \begin{claim}[Zig-Zag product preservs uncommuting-rate.]  
 Let $G$ be a bipartite graph, and let $H_{l}$ and $H_{r}$ be the complete graphs with $\Delta_{l}$ and $\Delta_{r}$ vertices, respectively. Assume that $P(G) < \beta$. Then:
