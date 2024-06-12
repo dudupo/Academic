@@ -1,0 +1,124 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{moore1998parallel}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=204e08828e2dc50ada9b8e498f43a1e2}{%
+           family={Moore},
+           familyi={M\bibinitperiod},
+           given={Cristopher},
+           giveni={C\bibinitperiod}}}%
+        {{hash=5f4131863c4e014cc949ba0075e0fe9c}{%
+           family={Nilsson},
+           familyi={N\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{58545e22072335c22612b029a6ed4678}
+      \strng{fullhash}{58545e22072335c22612b029a6ed4678}
+      \strng{bibnamehash}{58545e22072335c22612b029a6ed4678}
+      \strng{authorbibnamehash}{58545e22072335c22612b029a6ed4678}
+      \strng{authornamehash}{58545e22072335c22612b029a6ed4678}
+      \strng{authorfullhash}{58545e22072335c22612b029a6ed4678}
+      \field{labelalpha}{MN98}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{title}{Parallel Quantum Computation and Quantum Codes}
+      \field{year}{1998}
+      \verb{eprint}
+      \verb quant-ph/9808027
+      \endverb
+    \endentry
+    \entry{bravyi2012magic}{article}{}
+      \name{author}{2}{}{%
+        {{hash=964ccce884d5c27e980e285b18d587cd}{%
+           family={Bravyi},
+           familyi={B\bibinitperiod},
+           given={Sergey},
+           giveni={S\bibinitperiod}}}%
+        {{hash=e48d93b2044b7a1ac2195e4d6c8670a7}{%
+           family={Haah},
+           familyi={H\bibinitperiod},
+           given={Jeongwan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {APS}%
+      }
+      \strng{namehash}{156b47579f85575ffa347669dcb771a6}
+      \strng{fullhash}{156b47579f85575ffa347669dcb771a6}
+      \strng{bibnamehash}{156b47579f85575ffa347669dcb771a6}
+      \strng{authorbibnamehash}{156b47579f85575ffa347669dcb771a6}
+      \strng{authornamehash}{156b47579f85575ffa347669dcb771a6}
+      \strng{authorfullhash}{156b47579f85575ffa347669dcb771a6}
+      \field{labelalpha}{BH12}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physical Review A}
+      \field{number}{5}
+      \field{title}{Magic-state distillation with low overhead}
+      \field{volume}{86}
+      \field{year}{2012}
+      \field{pages}{052329}
+      \range{pages}{1}
+    \endentry
+    \entry{leverrier2022quantum}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=5533ab856083ca9b0c98042d38048318}{%
+           family={Leverrier},
+           familyi={L\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0bf2f70bde46bb86c3382a7e9f8c9eaa}{%
+           family={Zémor},
+           familyi={Z\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{fullhash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{bibnamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authorbibnamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authornamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authorfullhash}{d9e791cfe465672a244f9c3129e98f07}
+      \field{labelalpha}{LZ22}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{title}{Quantum Tanner codes}
+      \field{year}{2022}
+      \verb{eprint}
+      \verb 2202.13641
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -24,8 +24,8 @@ def tikz(n,m):
         _list += [ (x0+ x1,y0+ y)] 
         return [f"(0,0)  -- ({x1}, {y}) -- ({x2}, {y})"]  
     for __ in range(n):
-       bnodes += update_node(0,0,1, bnodesp)
-       cnodes += update_node(0,0,-1, cnodesp)
+        bnodes += update_node(0,0,1 , bnodesp)
+        cnodes += update_node(0,0,-1, cnodesp)
 
             #(0,0) -- (0,2) -- (2,2) -- (2,0) -- (0,0) -- (1, 3) -- (3 ,3) -- (2,0) --  (0,0);"      
         #'''     
@@ -36,18 +36,18 @@ def tikz(n,m):
         #    \\node[above right] at (3,3) {$ (agc,+)$};
         #
         #'''
-    def gen_agb_nodes(_anodesp, _bnodesp, sign, sym, coff, hist=(0,0), g="g"):
+    def gen_agb_nodes(_anodesp, _bnodesp, sign, sym, coff, hist=(0,0), g="g", hist2 = 0):
         ret, latex, nodes = [], "", ""
         for ((i,(xa, ya)), (j,(xb, yb))) in product(enumerate(_anodesp), enumerate(_bnodesp)):
             p = (xa+coff*(j+1), yb+ coff *sign *(j+1))
             ret += [p] 
             latex += f"{hist} -- ({xb},{yb}) -- ({p[0]},{p[1]}) -- ({xa},{ya}) -- {hist}\n"
-            vertex = f"{{$ a_{{ {i}  }} {g}{sym}_{{ {j} }} $}}"
+            vertex = f"{{$ a_{{ {i}  }} {g}{sym}_{{ {j + hist2} }} $}}"
             nodes += f"\\node at ({p[0]+0.1},{p[1]+0.2*i}) {vertex};\n"
         return ret, latex, nodes
     from random import randint 
     abnodesp, lat1, latnode1  = gen_agb_nodes(anodesp, bnodesp, 1, "b", 0.6)
-    acnodesp, lat2, latnode2  = gen_agb_nodes(anodesp, cnodesp, -1, "c", 0.6)
+    acnodesp, lat2, latnode2  = gen_agb_nodes(anodesp, cnodesp, -1, "b", 0.6, hist2 =4)
     second_order = 1 #randint(0,m-1)    
     aanodesp = [ ]
     for _ in range(m):
@@ -57,15 +57,16 @@ def tikz(n,m):
     sabnodesp, lat3, lat3node3 = gen_agb_nodes(aanodesp, abnodesp[n* second_order: n* second_order + n], 1, "b" , 0.9, hist = anodesp[second_order], g = f"a_{{ {second_order} }}g")
     
 
-    sacnodesp, lat4, lat3node4 = gen_agb_nodes(aanodesp, acnodesp[n* second_order: n* second_order + n], 1, "c" , 0.9,  anodesp[second_order], g = f"a_{{ {second_order} }}g")
-    ret += lat1 + lat2 + lat3 +  lat4 + ";\n" + latnode1 + latnode2 + lat3node3 + lat3node4  
+    sacnodesp, lat4, lat3node4 = gen_agb_nodes(aanodesp, acnodesp[n* second_order: n* second_order + n], 1, "a" , 0.9,  anodesp[second_order], g = f"a_{{ {second_order} }}g")
+    ret += lat1  + lat2 +  lat3  + lat4 + ";\n" + latnode1 + latnode2 + lat3node3 + lat3node4
     ret += "\\node at (-0.1,0) {$ g $};\n"  
     for g, _alist in zip( ["g"], [anodesp]):# f"a_{{ {second_order} }}g"], [anodesp, aanodesp]): 
         for i, (x,y) in enumerate(_alist):
             ret += f"\\node at ({x+0.1},{y+0.1}) {{$ a_{{ {i} }}{g} $}};\n"
-        for sym, _list in zip(["b" ,"c"] , [bnodesp, cnodesp]):
+        for kk, (sym, _list) in enumerate(zip(["b" , "b"] , [bnodesp, cnodesp])):
             for i, (x,y) in enumerate(_list):
-                vertex = f"{{$ {g}{sym}_{{ {i} }} $}}" #if i % 2 == 0 else f"{{$ a_{{\\cdot}} g{sym}_{{ {i} }} $}}"
+                tt = i if kk == 0 else 4 + i
+                vertex = f"{{$ {g}{sym}_{{ {tt} }} $}}" #if i % 2 == 0 else f"{{$ a_{{\\cdot}} g{sym}_{{ {i} }} $}}"
                 ret +=  f"\\node at ({x+0.1},{y+0.1}) {vertex};\n"
 
     return ret + """

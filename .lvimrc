@@ -23,6 +23,7 @@ call IMAP('->',  '\rightarrow'		,"tex")
 call IMAP('<-',  '\leftarrow'		,"tex")
 call IMAP('expp',  '\expp{<++>}<++>'		,"tex")
 call IMAP('prbb',  '\prb{<++>}<++>'		,"tex")
+call IMAP('prbm',  '\prbm{<++>}{<++>}<++>'		,"tex")
 call IMAP('1/2',  '\frac{1}{2}'		,"tex")
 call IMAP('1/3',  '\frac{1}{3}'		,"tex")
 call IMAP('1/4',  '\frac{1}{4}'		,"tex")
@@ -41,6 +42,20 @@ call IMAP(">ki", "\\psi^{(k)}_{i}", "tex")
 call IMAP(">kj", "\\psi^{(k)}_{j}", "tex")
 
 
+function! g:Above()
+  execute "normal! i\\overbrace{<++>}^{<++>}" 
+  return 0
+endfunction
+
+command! Above call Above()
+
+
+function! g:TwoCol()
+   execute "normal! o\\begin{figure}[h]\<cr>\\begin{subfigure}[b]{0.65\\textwidth}\<cr>\<cr>\\end{subfigure}\<cr>\\begin{subfigure}[b]{0.05\\textwidth}\<cr>\\\<cr>\\end{subfigure}\<cr>\\begin{subfigure}[b]{0.25\\textwidth} \<cr>\<cr>\\end{subfigure} \<cr>\\end{figure}" 
+   return 0
+endfunction
+
+command! TwoCol call TwoCol()
 
 
 function! g:GPTde()
@@ -81,7 +96,7 @@ endfunction
 command! SplitEqu call SplitEqu()
 
 function! g:Equ()
-  execute "normal! o\\begin{equation*}\<cr>\\begin{split}\<cr><++>\<cr>\\end{split}\<cr>\\end{equation*}<++>" 
+  execute "normal! o\\begin{equation*}\<cr>\\begin{split}\<cr>\<cr>\\end{split}\<cr>\\end{equation*}<++>" 
   return 0
 endfunction 
 command! Equ call Equ()

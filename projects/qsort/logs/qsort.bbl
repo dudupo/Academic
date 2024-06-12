@@ -1,0 +1,86 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{klauck2003quantum}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=0bc0e76c22bbdc39295dc1a02f196b63}{%
+           family={Klauck},
+           familyi={K\bibinitperiod},
+           given={Hartmut},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{0bc0e76c22bbdc39295dc1a02f196b63}
+      \strng{fullhash}{0bc0e76c22bbdc39295dc1a02f196b63}
+      \strng{bibnamehash}{0bc0e76c22bbdc39295dc1a02f196b63}
+      \strng{authorbibnamehash}{0bc0e76c22bbdc39295dc1a02f196b63}
+      \strng{authornamehash}{0bc0e76c22bbdc39295dc1a02f196b63}
+      \strng{authorfullhash}{0bc0e76c22bbdc39295dc1a02f196b63}
+      \field{labelalpha}{Kla03}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{title}{Quantum Time-Space Tradeoffs for Sorting}
+      \field{year}{2003}
+      \verb{eprint}
+      \verb quant-ph/0211174
+      \endverb
+    \endentry
+    \entry{Simplesort}{article}{}
+      \name{author}{1}{}{%
+        {{hash=03ce9c94b34868da504dcd50e263af36}{%
+           family={Fung},
+           familyi={F\bibinitperiod},
+           given={Stanley\bibnamedelimb P.\bibnamedelimi Y.},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{03ce9c94b34868da504dcd50e263af36}
+      \strng{fullhash}{03ce9c94b34868da504dcd50e263af36}
+      \strng{bibnamehash}{03ce9c94b34868da504dcd50e263af36}
+      \strng{authorbibnamehash}{03ce9c94b34868da504dcd50e263af36}
+      \strng{authornamehash}{03ce9c94b34868da504dcd50e263af36}
+      \strng{authorfullhash}{03ce9c94b34868da504dcd50e263af36}
+      \field{labelalpha}{Fun21}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{CoRR}
+      \field{title}{Is this the simplest (and most surprising) sorting algorithm ever?}
+      \field{volume}{abs/2110.01111}
+      \field{year}{2021}
+      \verb{eprint}
+      \verb 2110.01111
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2110.01111
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2110.01111
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

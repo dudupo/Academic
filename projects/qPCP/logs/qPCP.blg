@@ -1,0 +1,9 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'qPCP.blg'
+[91] biber:340> INFO - === Mon Sep  4, 2023, 13:05:09
+[106] Biber.pm:419> INFO - Reading 'qPCP.bcf'
+[167] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[179] bbl.pm:660> INFO - Writing 'qPCP.bbl' with encoding 'UTF-8'
+[179] bbl.pm:763> INFO - Output to qPCP.bbl
+[179] Biber.pm:131> WARN - The file 'qPCP.bcf' does not contain any citations!
+[179] Biber.pm:133> INFO - WARNINGS: 1

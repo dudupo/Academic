@@ -1,0 +1,17 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'Classiq-submit.blg'
+[106] biber:340> INFO - === Sun Jul 30, 2023, 09:25:37
+[139] Biber.pm:419> INFO - Reading 'Classiq-submit.bcf'
+[219] Biber.pm:979> INFO - Found 2 citekeys in bib section 0
+[236] Biber.pm:4419> INFO - Processing section 0
+[253] Biber.pm:4610> INFO - Looking for bibtex file 'sample.bib' for section 0
+[257] bibtex.pm:1713> INFO - LaTeX decoding ...
+[317] bibtex.pm:1519> INFO - Found BibTeX data source 'sample.bib'
+[384] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[384] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[384] Biber.pm:4239> INFO - Sorting list 'ynt/global//global/global' of type 'entry' with template 'ynt' and locale 'en-US'
+[384] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[393] bbl.pm:660> INFO - Writing 'Classiq-submit.bbl' with encoding 'UTF-8'
+[395] bbl.pm:763> INFO - Output to Classiq-submit.bbl
+[395] Biber.pm:131> WARN - legacy month field 'may' in entry 'Bravyi_2002' is not an integer - this will probably not sort properly.
+[395] Biber.pm:133> INFO - WARNINGS: 1

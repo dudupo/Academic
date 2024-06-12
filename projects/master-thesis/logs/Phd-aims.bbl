@@ -1,0 +1,204 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{PCPoriginal}{article}{}
+      \name{author}{5}{}{%
+        {{hash=8e08b59145b9531815169c7ed0a0b055}{%
+           family={Arora},
+           familyi={A\bibinitperiod},
+           given={Sanjeev},
+           giveni={S\bibinitperiod}}}%
+        {{hash=8de06808d97fa9673d700197a2bce191}{%
+           family={Lund},
+           familyi={L\bibinitperiod},
+           given={Carsten},
+           giveni={C\bibinitperiod}}}%
+        {{hash=2f555526320a1c4028ad0f6328953999}{%
+           family={Motwani},
+           familyi={M\bibinitperiod},
+           given={Rajeev},
+           giveni={R\bibinitperiod}}}%
+        {{hash=8753fbfaaa4aa8a1195c657edc9daef4}{%
+           family={Sudan},
+           familyi={S\bibinitperiod},
+           given={Madhu},
+           giveni={M\bibinitperiod}}}%
+        {{hash=02787b7c625f75874530bb3bf8b10add}{%
+           family={Szegedy},
+           familyi={S\bibinitperiod},
+           given={Mario},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{ab405688b3c276098991bcafe5da7076}
+      \strng{fullhash}{6bc1e98cb01145498a2f0dd2d6054b70}
+      \strng{bibnamehash}{ab405688b3c276098991bcafe5da7076}
+      \strng{authorbibnamehash}{ab405688b3c276098991bcafe5da7076}
+      \strng{authornamehash}{ab405688b3c276098991bcafe5da7076}
+      \strng{authorfullhash}{6bc1e98cb01145498a2f0dd2d6054b70}
+      \field{labelalpha}{Aro+98}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We show that every language in NP has a probablistic verifier that checks membership proofs for it using logarithmic number of random bits and by examining a constant number of bits in the proof. If a string is in the language, then there exists a proof such that the verifier accepts with probability 1 (i.e., for every choice of its random string). For strings not in the language, the verifier rejects every provided “proof” with probability at least 1/2. Our result builds upon and improves a recent result of Arora and Safra [1998] whose verifiers examine a nonconstant number of bits in the proof (though this number is a very slowly growing function of the input length).As a consequence, we prove that no MAX SNP-hard problem has a polynomial time approximation scheme, unless NP = P. The class MAX SNP was defined by Papadimitriou and Yannakakis [1991] and hard problems for this class include vertex cover, maximum satisfiability, maximum cut, metric TSP, Steiner trees and shortest superstring. We also improve upon the clique hardness results of Feige et al. [1996] and Arora and Safra [1998] and show that there exists a positive ε such that approximating the maximum clique size in an N-vertex graph to within a factor of Nε is NP-hard.}
+      \field{issn}{0004-5411}
+      \field{journaltitle}{J. ACM}
+      \field{month}{5}
+      \field{number}{3}
+      \field{title}{Proof Verification and the Hardness of Approximation Problems}
+      \field{volume}{45}
+      \field{year}{1998}
+      \field{pages}{501\bibrangedash 555}
+      \range{pages}{55}
+      \verb{doi}
+      \verb 10.1145/278298.278306
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/278298.278306
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/278298.278306
+      \endverb
+      \keyw{proof verification,optimization,randomness,NP-completeness}
+    \endentry
+    \entry{bravyi2012magic}{article}{}
+      \name{author}{2}{}{%
+        {{hash=964ccce884d5c27e980e285b18d587cd}{%
+           family={Bravyi},
+           familyi={B\bibinitperiod},
+           given={Sergey},
+           giveni={S\bibinitperiod}}}%
+        {{hash=e48d93b2044b7a1ac2195e4d6c8670a7}{%
+           family={Haah},
+           familyi={H\bibinitperiod},
+           given={Jeongwan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {APS}%
+      }
+      \strng{namehash}{156b47579f85575ffa347669dcb771a6}
+      \strng{fullhash}{156b47579f85575ffa347669dcb771a6}
+      \strng{bibnamehash}{156b47579f85575ffa347669dcb771a6}
+      \strng{authorbibnamehash}{156b47579f85575ffa347669dcb771a6}
+      \strng{authornamehash}{156b47579f85575ffa347669dcb771a6}
+      \strng{authorfullhash}{156b47579f85575ffa347669dcb771a6}
+      \field{labelalpha}{BH12}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physical Review A}
+      \field{number}{5}
+      \field{title}{Magic-state distillation with low overhead}
+      \field{volume}{86}
+      \field{year}{2012}
+      \field{pages}{052329}
+      \range{pages}{1}
+    \endentry
+    \entry{Tillich_2014}{article}{}
+      \name{author}{2}{}{%
+        {{hash=3c8f22aee137281b9b0738ad1c35af18}{%
+           family={Tillich},
+           familyi={T\bibinitperiod},
+           given={Jean-Pierre},
+           giveni={J\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=cf6aa7c8e1e59ab12758174e2e58fa80}{%
+           family={Zemor},
+           familyi={Z\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Institute of Electrical}%
+        {Electronics Engineers ({IEEE})}%
+      }
+      \strng{namehash}{09d79f670cccb66da504641a3c3189a3}
+      \strng{fullhash}{09d79f670cccb66da504641a3c3189a3}
+      \strng{bibnamehash}{09d79f670cccb66da504641a3c3189a3}
+      \strng{authorbibnamehash}{09d79f670cccb66da504641a3c3189a3}
+      \strng{authornamehash}{09d79f670cccb66da504641a3c3189a3}
+      \strng{authorfullhash}{09d79f670cccb66da504641a3c3189a3}
+      \field{labelalpha}{TZ14}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{IEEE} Transactions on Information Theory}
+      \field{month}{2}
+      \field{number}{2}
+      \field{title}{Quantum {LDPC} Codes With Positive Rate and Minimum Distance Proportional to the Square Root of the Blocklength}
+      \field{volume}{60}
+      \field{year}{2014}
+      \field{pages}{1193\bibrangedash 1202}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/tit.2013.2292061
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1109%2Ftit.2013.2292061
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1109%2Ftit.2013.2292061
+      \endverb
+    \endentry
+    \entry{leverrier2022quantum}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=5533ab856083ca9b0c98042d38048318}{%
+           family={Leverrier},
+           familyi={L\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0bf2f70bde46bb86c3382a7e9f8c9eaa}{%
+           family={Zémor},
+           familyi={Z\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{fullhash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{bibnamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authorbibnamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authornamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authorfullhash}{d9e791cfe465672a244f9c3129e98f07}
+      \field{labelalpha}{LZ22}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{title}{Quantum Tanner codes}
+      \field{year}{2022}
+      \verb{eprint}
+      \verb 2202.13641
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

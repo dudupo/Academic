@@ -1,0 +1,52 @@
+aa W g_1
+cc W g_j
+ee W g_k
+aaa W g_1
+ccc W g_j
+eee W g_k
+a W g_1
+c W g_j
+e W g_k
+
+a2 W x_1
+c2 W x_{j_1}
+c21 W x_{j_2}
+c22 W x_{j_3}
+c23 W x_{j_4}
+c24 W x_{j_\Delta}
+e2 W x_n
+
+aa H 
+cc H 
+ee H 
+
+aa +aaa
+cc +ccc
+ee +eee
+
+aaa +a
+ccc +c
+eee +e
+
+a c e G \rotatebox{90}{Non Cliffords}
+
+a +c2 +c21 +c22 +c23 +c24
++a c2 c21 c22 c23 c24
+LB
+a H 
+c H 
+e H 
+LE
+=
+a H 
+c H 
+e H 
+a c e G \rotatebox{90}{Non Cliffords}
+a +c2 +c21 +c22 +c23 +c24
+LB
+a H 
+c H 
+e H 
+LE
+a c2 c21 c22 c23 c24
+

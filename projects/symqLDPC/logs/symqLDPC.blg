@@ -1,0 +1,9 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'symqLDPC.blg'
+[100] biber:340> INFO - === Mon Oct  2, 2023, 19:55:04
+[115] Biber.pm:419> INFO - Reading 'symqLDPC.bcf'
+[180] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[192] bbl.pm:660> INFO - Writing 'symqLDPC.bbl' with encoding 'UTF-8'
+[192] bbl.pm:763> INFO - Output to symqLDPC.bbl
+[192] Biber.pm:131> WARN - The file 'symqLDPC.bcf' does not contain any citations!
+[192] Biber.pm:133> INFO - WARNINGS: 1

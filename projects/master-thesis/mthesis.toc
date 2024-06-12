@@ -1,26 +1,28 @@
 \@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
-\contentsline {chapter}{\numberline {1}Introduction}{7}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Codes}{9}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introduction}{9}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Notations, Definitions, And Our Contribution}{10}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Singleton Bound}{10}{subsection.2.1.2}%
-\contentsline {subsubsection}{Note On Quantum Polynomial Code.}{12}{section*.3}%
-\contentsline {subsection}{\numberline {2.1.3}Tanner Code}{12}{subsection.2.1.3}%
-\contentsline {subsubsection}{Setting $C_{0}$ To Be The Polynomial Code.}{14}{section*.4}%
-\contentsline {subsection}{\numberline {2.1.4}Expander Codes}{14}{subsection.2.1.4}%
-\contentsline {chapter}{\numberline {3}Locally Testable Codes.}{17}{chapter.3}%
-\contentsline {subsection}{\numberline {3.0.1}Polynomial Code.}{17}{subsection.3.0.1}%
-\contentsline {chapter}{\numberline {4}Quantum Error Correction Codes.}{21}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introduction.}{21}{section.4.1}%
-\contentsline {paragraph}{qLDPC Codes.}{24}{section*.5}%
-\contentsline {section}{\numberline {4.2}Quantum Codes.}{25}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Quantum Polynomial Code.}{25}{subsection.4.2.1}%
-\contentsline {chapter}{\numberline {5}Good qLDPC and LTC.}{27}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Decoding and Testing}{28}{section.5.1}%
-\contentsline {chapter}{\numberline {6}First Attempt For Good qLTC.}{31}{chapter.6}%
-\contentsline {section}{\numberline {6.1}The Polynomial-Code Is Not $w$-Robust.}{31}{section.6.1}%
-\contentsline {chapter}{\numberline {7}Local Majority $\neq $ Local Testability.}{33}{chapter.7}%
-\contentsline {subsection}{\numberline {7.0.1} Overcoming The Vanishing Rate. }{36}{subsection.7.0.1}%
-\contentsline {paragraph}{Intuition For Testability.}{36}{section*.6}%
-\contentsline {paragraph}{Remark. Regarding Quantum Codes.}{39}{section*.7}%
-\contentsline {paragraph}{Remark. Note On Random Construction.}{39}{section*.8}%
+\contentsline {chapter}{\numberline {1}Introduction}{6}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Codes}{8}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introduction}{8}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Codes in General. Notations and Definitions.}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Singleton Bound}{9}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Tanner Code}{10}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Expander Codes}{12}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Randomized Constructions.}{14}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Locally Testable Codes.}{15}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Polynomial Code.}{15}{section.2.8}%
+\contentsline {chapter}{\numberline {3}Quantum Error Correction Codes.}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction.}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Quantum Noise.}{20}{section.3.2}%
+\contentsline {section}{\numberline {3.3}CSS Codes.}{21}{section.3.3}%
+\contentsline {section}{\numberline {3.4}qLDPC Codes.}{24}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Quantum Expander Codes.}{27}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Good qLDPC Codes and LTC.}{30}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Quantum Tanner Codes.}{30}{section.4.1}%
+\contentsline {section}{\numberline {4.2}LTC.}{37}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Decoding and Testing}{38}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Further Research.}{41}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Local Majority $=?$ Local Testability.}{41}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Almost LTC With Zero Rate}{41}{subsection.5.1.1}%
+\contentsline {paragraph}{Proof.}{41}{section*.3}%
+\contentsline {subsection}{\numberline {5.1.2} Overcoming The Vanishing Rate. }{45}{subsection.5.1.2}%
+\contentsline {paragraph}{Intuition For Testability.}{45}{section*.4}%
+\contentsline {section}{\numberline {5.2}The Polynomial-Code Is Not $w$-Robust.}{49}{section.5.2}%

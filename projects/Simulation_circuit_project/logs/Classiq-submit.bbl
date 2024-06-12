@@ -1,0 +1,111 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{Lie-Trotter}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f91fad149ddf697f9afba0a4f01e7121}{%
+           family={Trotter},
+           familyi={T\bibinitperiod},
+           given={H.\bibnamedelimi F.},
+           giveni={H\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Society}%
+      }
+      \strng{namehash}{f91fad149ddf697f9afba0a4f01e7121}
+      \strng{fullhash}{f91fad149ddf697f9afba0a4f01e7121}
+      \strng{bibnamehash}{f91fad149ddf697f9afba0a4f01e7121}
+      \strng{authorbibnamehash}{f91fad149ddf697f9afba0a4f01e7121}
+      \strng{authornamehash}{f91fad149ddf697f9afba0a4f01e7121}
+      \strng{authorfullhash}{f91fad149ddf697f9afba0a4f01e7121}
+      \field{labelalpha}{Tro59}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{00029939, 10886826}
+      \field{journaltitle}{Proceedings of the American Mathematical Society}
+      \field{number}{4}
+      \field{title}{On the Product of Semi-Groups of Operators}
+      \field{urlday}{28}
+      \field{urlmonth}{7}
+      \field{urlyear}{2023}
+      \field{volume}{10}
+      \field{year}{1959}
+      \field{urldateera}{ce}
+      \field{pages}{545\bibrangedash 551}
+      \range{pages}{7}
+      \verb{urlraw}
+      \verb http://www.jstor.org/stable/2033649
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/2033649
+      \endverb
+    \endentry
+    \entry{Bravyi_2002}{article}{}
+      \name{author}{2}{}{%
+        {{hash=aa3073de4d45b12118faf6ecfc7071e7}{%
+           family={Bravyi},
+           familyi={B\bibinitperiod},
+           given={Sergey\bibnamedelima B.},
+           giveni={S\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=1784e264c9c939162492e428ac49ad9b}{%
+           family={Kitaev},
+           familyi={K\bibinitperiod},
+           given={Alexei\bibnamedelima Yu.},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier {BV}}%
+      }
+      \strng{namehash}{a936726d9938c84323ff467c818fd876}
+      \strng{fullhash}{a936726d9938c84323ff467c818fd876}
+      \strng{bibnamehash}{a936726d9938c84323ff467c818fd876}
+      \strng{authorbibnamehash}{a936726d9938c84323ff467c818fd876}
+      \strng{authornamehash}{a936726d9938c84323ff467c818fd876}
+      \strng{authorfullhash}{a936726d9938c84323ff467c818fd876}
+      \field{labelalpha}{BK02}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Physics}
+      \field{month}{5}
+      \field{number}{1}
+      \field{title}{Fermionic Quantum Computation}
+      \field{volume}{298}
+      \field{year}{2002}
+      \field{pages}{210\bibrangedash 226}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1006/aphy.2002.6254
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1006%2Faphy.2002.6254
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1006%2Faphy.2002.6254
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
