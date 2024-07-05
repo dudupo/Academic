@@ -82,13 +82,24 @@ Since $\Gamma$ is a group, the map $(g,h) \mapsto (g^{-1},h^{-1})$ is a bijectio
 \begin{claim}
   Let $V$ be a finte set at size $n$ for any $\beta \in (0,1)$, there exists $C$ indepandent on $n$, and a partition of $V$, $\mathcal{I} = S_{1},S_{2},..,S_{k}$, not necessarily disjoint, such that: 
   \begin{enumerate}
-    \item $|S_{i}| < \beta n$ for each $i$
-    \item For any $x,y \in S, x\neq y$ there exactly $C$ subsets in $\mathcal{I}$, such both $x$ and $y$ belongs to $S \in \mathcal{I}$
+    \item $|S_{i}| < \beta n$ for each $i$.
+    \item For any $x,y \in S, x\neq y$ there are both belong to exactly $C$ subsets in $\mathcal{I}$.
   \end{enumerate}
 \end{claim}
+
+\begin{proof}
+  By induction.
+  \begin{itemize}
+      \item Base. For $n_{0}$. 
+      \item Assume correctness for any $n^{\prime} < n$. 
+      \item Consider an $n$-size finte set $V = \{ v_1, v_2 ,.. v_n\}$ and define a finte set $U$ at size $n/2$ to be $\{u_1, u_2, .. u_{n/2}\}$ such that $u_{i} = \{v_{2i}, v_{2i+1}\}$. By the induction assumption, there exists a partition $\mathcal{I}^{\prime}$. 
+  \end{itemize}<++>
+\end{proof}
+
 \begin{corollary}
 And let $ f : V \times V \rightarrow R$. and the distitubtaion over the values of $f$ when sampling from $V \times V$ uninformly, i.e $\prbm{ f(x,y) = q  }{x,y \sim V \times V}$  equals to $C \cdot \prbm{f(x,y) = q }{x,y \sim S_{i}, i\sim [k]}$ .
 \end{corollary}
+
 
 %\section{Left-Rigth Cayley complex \textbf{varition}. \ctt{spalling were not activated, no internent connection 24/6.}}
 %The left-right cayley complex is the complex obtained by taking the union of two Cayley graphs where in the first we generate the group by multiplying the group elements from the left while in the seconed we generate the group by multiplying from right. 
