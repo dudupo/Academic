@@ -1,0 +1,85 @@
+%\usepackage{courier}
+\usepackage[utf8]{inputenc}
+\ifdefined \bookflag
+  \usepackage[a4paper, marginparwidth=100pt, total={5in, 9in}]{geometry}
+\else
+\usepackage[a4paper, total={6in, 9in}]{geometry}
+\fi
+\usepackage{braket}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+%\usepackage[ocgcolorlinks]{hyperref}
+\usepackage{titling}
+\usepackage{hyperref}
+%\usepackage{hyperref,xcolor}
+%\usepackage[ocgcolorlinks]{ocgx2}
+\usepackage{cleveref}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usetikzlibrary{patterns, shapes.arrows}
+\usepackage{adjustbox}
+%\usepackage{tikz-network}
+\usepackage{tkz-graph}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{tkz-berge}
+\usepackage[linesnumbered]{algorithm2e}
+\usepackage{multicol}
+\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+%\usepackage{xcolor}
+%\usepackage{tkz-berge}
+%\usepackage{tkz-graph}
+\usepackage{pgfplots}
+\usepackage{sagetex}
+\usepackage{setspace}
+\usepackage{etoc}
+%\usepackage{wrapfig}
+\usepackage{pgfgantt}
+\usepackage{pdfpages}
+\DeclareUnicodeCharacter{2212}{−}
+\usepgfplotslibrary{groupplots,dateplot}
+\pgfplotsset{compat=newest}
+
+
+\newcommand{\mynewtheorem}[2]{  
+  \newtheorem{#1}{#2}
+  \numberwithin{#1}{section}
+
+}
+\newcommand{\mynewtheoremstar}[2]{  
+  \newtheorem*{#1}{#2}
+
+}
+\mynewtheorem{corollary}{Corollary}
+\mynewtheorem{theorem}{Theorem}
+\mynewtheorem{definition}{Definition}
+\mynewtheorem{example}{Example}
+\mynewtheorem{claim}{Claim}
+\mynewtheorem{fact}{Fact}
+\mynewtheorem{remark}{Remark}
+\mynewtheoremstar{theorem*}{Theorem}
+\mynewtheorem{lemma}{Lemma}
+\mynewtheorem{conjecture}{Conjecture}
+\mynewtheorem{exercise}{Exercise}
+\mynewtheorem{solution}{Solution}
+\mynewtheorem{openproblem}{Open problem}
+\crefname{lemma}{Lemma}{Lemmas}
+\Crefname{algocf}{Algorithm}{Algorithms}
+\hypersetup{colorlinks=true}
+% , allcolors=blue,allbordercolors=blue,pdfborderstyle={0 0 1}}
+%\hypersetup{pdfborder={2 2 2}}
+% pdfpagemode=FullScreen,
+% backref 
+
+\mynewtheorem{problem}{Problem}
+\crefname{problem}{Problem}{Problems}
+
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\Rea}{Re}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\sign}{sign}

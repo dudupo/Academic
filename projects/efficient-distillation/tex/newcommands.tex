@@ -1,0 +1,44 @@
+\newcommand{\commentt}[1]{\textcolor{blue}{ \textbf{[COMMENT]} #1}}
+\newcommand{\ctt}[1]{\commentt{#1}}
+\newcommand{\prb}[1]{ \mathbf{Pr} \left[ #1 \right]}
+\newcommand{\prbm}[2]{ \mathbf{Pr}_{ #2 }\left[ #1 \right]}
+\newcommand{\prbc}[3]{ \mathbf{Pr}_{ #2 }\left[ #1 \right | #3]}
+\newcommand{\prbcprb}[3]{ \prbc{#2}{#1}{#3} \cdot \prb{#3} } 
+\newcommand{\expp}[1]{ 
+%\mathbf{E}\ifx\@currenvir\split\left[ {#1} \right]\else [{#1}] \fi}
+ \mathbf{E}\ifx\@currenvir\enumerate[{#1}]\else \left[ {#1} \right]\fi}
+%\newcommand*\@envname{s}
+
+\newcommand{\exppm}[2]{ \mathbf{E}_{#2}\left[ {#1} \right]}
+\newcommand{\onotation}[1]{\(\mathcal{O} \left( {#1}  \right) \)}
+\newcommand{\ona}[1]{\onotation{#1}}
+\newcommand{\PSI}{{\ket{\psi}}}
+\newcommand{\xij} { X_{ij} } 
+%\newcommand{\LESn}{\ket{\psi_n}}
+%\newcommand{\LESa}{\ket{\phi_n}}
+%\newcommand{\LESs}{\frac{1}{\sqrt{n}}\sum_{i}{\ket{\left(0^{i}10^{n-i}\right)^{n}}}}
+%\newcommand{\Hn}{\mathcal{H}_{n}}
+%\newcommand{\Ep}{\frac{1}{\sqrt{2^n}}\sum^{2^n}_{x}{ \ket{xx}}}
+%\newcommand{\HON}{\ket{\psi_{\text{honest}}}}
+%\newcommand{\Lemma}{\paragraph{Lemma.}}
+\newcommand{\Cpa}{[n, \rho n, \delta n]}
+%\setlength{\columnsep}{0.6cm}
+\newcommand{\Jvv}{ \bar{J_{v}} } 
+\newcommand{\Cvv}{ \tilde{C_{v}} } 
+
+\newcommand{\Gz}{ G_{z}^{\delta} } 
+\newcommand{ \Tann } {  \mathcal{T}\left( G, C_0 \right) }
+\newcommand{\ireducable}{ireducable \hyperref[ire]{[\ref{ire}]} }
+\newcommand{\cutUU}{E(U_{-1} \bigcup U_{+1} ,U)} 
+\newcommand{\wcutUU}{w\left( E(U_{-1} \bigcup U_{+1} ,U)  \right)}
+\newcommand{\testgo}{  \mathcal{T}\left(J, q , C_{0}\right) } 
+
+\newcommand{\duC}{\left( C_{A}^{\perp}\otimes C_{B}^{\perp} \right)^{\perp}}
+\newcommand{\duduC}{\left( C_{A}\otimes C_{B}\right)^{\perp}}
+  
+%\DeclareMathOperator{\rank}{Rank}
+%\DeclareMathOperator{\image}{Im}
+
+
+
+

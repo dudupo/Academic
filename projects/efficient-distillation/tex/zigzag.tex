@@ -1,0 +1,46 @@
+\section{The Zig-Zag Product.}
+The Zig-Zag product is a procedure to construct a fixed-degree graph from another given graph without reducing the second's expansion too much. We slightly change the original definition and process to support biparitie grpahs with inequal left and right degree. 
+\begin{definition}
+  Let $G$ be a bipartite graph as defined above, and let $H_{l}$ and $H_{r}$ be graphs with $\Delta_{l}$ and $\Delta_{r}$ vertices, respectively. We define $G^{\prime} = G \cdot_{z} [H_{l},H_{r}]$, the graph obtained by multiplying the graphs $G$, $H_{l}$, and $H_{r}$ using the Zig-Zag product, to be the graph obtained by the following steps:
+  \begin{enumerate}
+    \item For any vertex $v$ in $L$, mark $\Delta_{l}$ new vertices on its edge, one vertex for each edge. Connect them according to the edges of $H_{l}$. Then, remove $v$. Each of the new vertices will have a degree of $\deg H_{l} + 1$, where one edge is associated with an original edge in $G$ and the other matches the structure of $H_{l}$.
+    \item Repeat the above process, but replace each right vertex with $H_{R}$.
+    \item Now, we will color any edge associated with the smaller graphs $H_{l}$ and $H_{r}$ in blue, and any of the original edges of $G$ in red. We define an edge ${u,v}$ in $G^{\prime}$ if there is a path composed of a blue edge, a red edge, and another blue edge.
+  \end{enumerate}
+  Notice that $G^\prime$ remains bipartite and its left and right degrees are $\deg H_{l} \cdot \deg H_{r}$.
+\end{definition}
+
+\begin{claim}[Zig-Zag product preservs uncommuting-rate.]  
+Let $G$ be a bipartite graph, and let $H_{l}$ and $H_{r}$ be the complete graphs with $\Delta_{l}$ and $\Delta_{r}$ vertices, respectively. Assume that $P(G) < \beta$. Then:
+\begin{equation*}
+  \begin{split}
+      P(G \cdot_{z} [H_{l},H_{r}]) < \beta
+  \end{split}
+\end{equation*}
+\end{claim}
+\begin{proof}
+  Consider two checks $x$ and $y$ in $G^{\prime}$. Let us abuse notation and refer to the vertices that define those checks as $x$ and $y$. We will say that a vertex $X$ of $G$, is the souce of $x$ if $x$ defiend by marking a vetex on $X$ edges. Let $X,Y$ be the sources of $x,y$ respectively. Now let's split to cases:
+  \begin{itemize}
+    \item If $X = Y$, namely $x$ and $y$ have the same source. In this case, any blue-red-blue path $x \rightarrow o \rightarrow o^{\prime} \rightarrow w$ from $x$ to $w \in H_{l}$ that passes through a vertex $o \in H_{r}/\{y\}$, and $\{o,y\} \in H_{r}$ matches to a blue-red-blue path $y \rightarrow o \rightarrow o^{\prime} \rightarrow w$ from $y$ to $w$, where the first blue edge $\{ x, o \}$ is replaced by $\{ y, o \}$ to set $y$ at the beginning of the path.
+   
+    So, conditioned on $X=Y$, the probability that $x,y$ do not commute is either $0$ if $\deg H_{l}$ is even, or $P(H_{r})$.
+  \item \ctt{Assume $H_{r}, H_{l}$ are the complete graphs}. If $X\neq Y$, then with probability $1 - P(G)$, $X$ and $Y$ commute in $G$ and therefore there are even number of red edges at the form $\{o , o^{\prime}\}$ to connect paths from $x,y \rightarrow w$. Denote by $Q(G)$ the probability of choosing $X,Y$ right vertices in $G$ which both commute and share at least one common neighbor (bit).  
+By double counting we get the bound: 
+    \begin{equation*}
+      \begin{split}
+        & P(G){ m \choose 2} + Q(G){ m \choose 2} \le \frac{1}{2}m \Delta^{2} \\ 
+        & Q(G) \le { m \choose 2 }^{-1}\cdot \frac{1}{2}m\Delta^{2} - P(G)
+      \end{split}
+    \end{equation*}
+    Suppose that $X,Y$ uncommute in $G$, then  
+    \begin{equation*}
+      \begin{split}
+        P(G^{\prime})  & \le \left( 1 - \frac{1}{m} \right) \left( P(G) + Q(G)  \frac{1}{\Delta} \right) = \left( 1 - \frac{1}{m} \right) \left(  \frac{\Delta}{m-1} + \left( 1 -  \frac{1}{\Delta}\right)P(G) \right) \\
+       \rightarrow_{m \rightarrow \infty } & \le  \left(  1 - \frac{1}{\Delta} \right)P(G)
+      \end{split}
+    \end{equation*}
+
+  \end{itemize}
+\end{proof}
+
+
