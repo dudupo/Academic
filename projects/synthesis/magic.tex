@@ -83,8 +83,19 @@ $T$ if $w_{i}$ is $1$ and identity otherwise. And finally by $D$ denote the gate
      & \ge \rho (Q) - n^{\frac{1}{4}}
     \end{split}
   \end{equation*}
-  Since $\Mbas$ is given by taking $x_{0} + \mathcal{X}$ we get the required lower bound while it's easy to see that upper bound gotten immediately..  
 \end{proof}
+
+\begin{remark}
+  We emphasise that the above proof can be easily adapted to result the following for general CSS codes: 
+\begin{equation*}
+    \begin{split}
+      \left| \rho\left(Q\right) - \rho\left(\sMbas\right) \right| = d(Q)(1 - \rho(\tilde{C}_{0}))
+    \end{split}
+  \end{equation*}
+  For example lets consider the quantum Tanners code. Since the distance of the quantum Tanner codes is $\sim n/\Delta$, where $\Delta^{2}$ is the degree of the square complex graph, (obtained by taking a codeword for which each local view of it is supported only on rows correspond to a specific single left generator), we get that for any $\rho \in (0,\frac{1}{2})$ one there is a good qLDPC such that the dimension of $\sMbas$ obtained respecting to it $\ge (1-2\rho)^{2}n - n/\Delta$.  
+\end{remark}
+
+From now on 
 
 \begin{claim}
   Let $\ket{\Mbas} \propto \sum_{x \in \text{span } \Mbas }{\ket{x}}$. Then $T^{(w)}\ket{\Mbas} \propto \sum_{x \in \text{span }i}{  x  }$
