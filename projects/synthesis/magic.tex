@@ -27,14 +27,21 @@ Quantum LDPC Codes. }
 
 
 
+\newcommand*{\Mbas}{\mathcal{X}^\prime}
 
 \section{The Construction.} 
 
 
-Let $\mathcal{X} = \{x_{0}, x_{1}, .. x_{k}\} \in \mathbb{F}_{2}^{n}$ be a base for the code $C_{X}/C_{Z}^\perp$.  Denote by $w \in \mathbb{F}_{2}^{n}$ the binary string presents $Z$-generator that anti commute with the $X$-generator corresponds to $x_{0}$, So $x_{0}\cdot w = 1$ and for any other  $x^\prime \in \mathcal{X}/x_{0}$ it holds that $x^{\prime}\cdot w = 0 $.
+Let $\mathcal{X} = \{x_{0}, x_{1}, .. x_{k-1}\} \in \mathbb{F}_{2}^{n}$ be a base for the code $C_{X}/C_{Z}^\perp$.  Denote by $w \in \mathbb{F}_{2}^{n}$ the binary string presents $Z$-generator that anti commute with the $X$-generator corresponds to $x_{0}$, So $x_{0}\cdot w = 1$ and for any other  $x^\prime \in \mathcal{X}/x_{0}$ it holds that $x^{\prime}\cdot w = 0 $. Let us denote by $\Mbas$ the base $\{ y_{1}, y_{2}, .., y_{k-1} \} \in \mathbb{F}_{2}^{n}$ such $y_{i}= x_{i} + x_{0}$. Denote by $E$ the circuit that encodes the logical $ith$ bit to $y_{i}$, by $T^{(w)}$ the application of $T$ gates on the qubits for which $w$ act non trivial, means $T^{(w)}$ is a tensor product of $T$'s and identity where on the $i$th qubit $T^{(w)}$ apply $T$ if $w_{i}$ is $1$ and identity otherwise.
 
 
-\input{./tempmagic.tex} 
+
+
+
+
+
+
+%\input{./tempmagic.tex} 
 
 
 
