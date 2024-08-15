@@ -98,7 +98,13 @@ Let $\ket{\Mbas} \propto \sum_{x \in \text{span } \Mbas }{\ket{x}}$.
 \end{remark}
 
 \begin{claim}
-   Then $T^{(w)}\ket{\Mbas + C_{Z}^{\perp}} \propto \sum_{x \in \text{span }i}{  x  }$
+  There is a family of quantum circuits $\mathcal{C}$ consists from Clifford gates and at most $o(\sqrt{n})$ $T$ gates such that: 
+
+  \begin{equation*}
+    \begin{split}
+      T^{(w)}\ket{\Mbas + C_{Z}^{\perp}} \propto E \ T^{\rho\left(\sMbas\right)} \mathcal{C} H^{\rho\left(\sMbas\right)} \ket{0} 
+    \end{split}
+  \end{equation*}
 \end{claim}
 
 
