@@ -25,9 +25,9 @@ Quantum LDPC Codes. }
 \maketitle
 
 \newcommand*{\Mbas}{\mathcal{X}^\prime}
+\newcommand*{\sMbas}{\text{span }\Mbas}
 \newcommand*{\QQ}{C_{X}/C_{Z}^\perp }
 \newcommand*{\trig}{Triorthogonal}
-
 \section{The Construction.}
 
 Let $x_{0}$ be a codeword of $\QQ$,  Denote by $w \in \mathbb{F}_{2}^{n}$
@@ -46,7 +46,12 @@ $T$ if $w_{i}$ is $1$ and identity otherwise. And finally by $D$ denote the gate
 \section{Proof of Theorem 1.}
 
 \begin{claim}
-  There exists quantum codes such the code $\textbf{span }(\Mbas)$ chosen respect to them define a code with positive rate.   
+  There exists family of quantum codes $Q$ such the codes $\sMbas$ chosen respect to them has a positive rate. Furthermore:
+  \begin{equation*}
+    \begin{split}
+      \left| \rho\left(Q\right) - \rho\left(\sMbas\right) \right| = o(1)
+    \end{split}
+  \end{equation*}
 \end{claim}
 \begin{proof}
   
