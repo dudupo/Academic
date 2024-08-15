@@ -5,371 +5,581 @@
 \ifdefined\ACM
 
 %\documentclass[sigplan,screen]{acmart}
-  \documentclass[manuscript,screen,review]{acmart}
+\documentclass[manuscript,screen,review]{acmart}
 
 \else
-  \documentclass{article}
-  \input{./usepackage}
-  \addbibresource{./sample.bib} 
+\documentclass{article}
+\input{./usepackage}
+\addbibresource{./sample.bib}
 
 \fi
 
 \begin{document}
 \input{newcommands}
-\title{State Synthesis Using PRS.} 
+\title{State Synthesis Using PRS.}
 \author{David Ponarovsky}
 \maketitle
 
 \begin{abstract}
-  We studies the complexity of synthesis quantum states using PRS, our reasch continues the work by \cite{searchtodecision}, \cite{rosenthal2023efficient}, \cite{rosenthal2021interactive}, \cite{metger2023stateqip}, \cite{delavenne2023quantum}.
+  We studies the complexity of synthesis quantum states using PRS, our reasch
+  continues the work by \cite{searchtodecision}, \cite{rosenthal2023efficient},
+  \cite{rosenthal2021interactive}, \cite{metger2023stateqip},
+  \cite{delavenne2023quantum}.
 \end{abstract}
 
 \section{Pseudorandomness.}
 
-\begin{definition}[Pseudorandom Quantum states] Let $\mathcal{H}$, $\mathcal{K}$ be the Hilbert and the key spaces, their diminsions depeand on a security paramter $n$. A state famliy $\{\ket{\psi_{k}}\}_{k\in \mathcal{K}}$ is a pseudiorandom, if the following hold:
+\begin{definition}[Pseudorandom Quantum states] Let $\mathcal{H}$,
+  $\mathcal{K}$ be the Hilbert and the key spaces, their diminsions depeand on a
+  security paramter $n$. A state famliy $\{\ket{\psi_{k}}\}_{k\in \mathcal{K}}$
+  is a pseudiorandom, if the following hold:
   \begin{enumerate}
-    \item Efficient generation. There is a polynomial-time quantum algorithm $G$ that generates state $\ket{\psi_{k}}$ on input $k$. 
-    \item Pseudorandomness. Any polynomially many copies of $\ket{\phi_{k}}$ with the same random $k\in K$ is computationaly indistinguishable from the same number of copies of the Haar random state. 
+    \item Efficient generation. There is a polynomial-time quantum algorithm
+      $G$ that generates state $\ket{\psi_{k}}$ on input $k$.
+    \item Pseudorandomness. Any polynomially many copies of $\ket{\phi_{k}}$
+      with the same random $k\in K$ is computationaly indistinguishable from the
+      same number of copies of the Haar random state.
   \end{enumerate}
 \end{definition}
 
-\begin{definition}[Pseudorandom Unitary Operators] A famliy of unitary operators $\{ U_{k} \in U(\mathcal{H}) \}_{k \in \mathcal{K}}$ is pseudorandom, if two conditions hold: 
+\begin{definition}[Pseudorandom Unitary Operators] A famliy of unitary
+  operators $\{ U_{k} \in U(\mathcal{H}) \}_{k \in \mathcal{K}}$ is
+  pseudorandom, if two conditions hold:
   \begin{enumerate}
-    \item Efficient computation. There is an efficient quantum algorithm $Q$, such that for all $k$ and any $\ket{\psi} \in \mathcal{H}$ $Q(k,\ket{\psi}) = U_{k}\ket{\psi}$. 
-    \item Pseudorandomness. The uniform random distribution on $U_{k}$ is computationally in distinguishable from a Haar random unitary operator. 
-  \end{enumerate} 
+    \item Efficient computation. There is an efficient quantum algorithm $Q$,
+      such that for all $k$ and any $\ket{\psi} \in \mathcal{H}$
+      $Q(k,\ket{\psi}) =
+      U_{k}\ket{\psi}$.
+    \item Pseudorandomness. The uniform random distribution on $U_{k}$ is
+      computationally in distinguishable from a Haar random unitary operator.
+  \end{enumerate}
 \end{definition}
 
-\begin{definition}[The keeping setting] Let $R^{A}\otimes R^{B}$ be a general two registers domain. We define the \textbf{keeping setting} to let one construct quntum/classical circuits\footnote{On which we think as a canidate for PRS/PRF/PRG generator.} $G : R^{A}\otimes R^{B} \rightarrow R^{A} \otimes R^{B}$ such that it is gurnted that the register $R^{B}$ cann't be acssed after the computation.   
+\begin{definition}[The keeping setting] Let $R^{A}\otimes R^{B}$ be a general
+  two registers domain. We define the \textbf{keeping setting} to let one
+  construct quntum/classical circuits\footnote{On which we think as a canidate
+  for PRS/PRF/PRG generator.} $G : R^{A}\otimes R^{B} \rightarrow R^{A} \otimes
+  R^{B}$ such that it is gurnted that the register $R^{B}$ cann't be acssed
+  after the computation.
 \end{definition}
 
 \begin{claim}
-  Let $G$ be a PRS generator, than under the the keeping setting one can assume that $G$ takes as input two register, the first contains $n$ ancille qubits initiliazied to $\ket{0}$ and the seconed contain a classic string initiliezed to be the seed $k$.  
+  Let $G$ be a PRS generator, than under the the keeping setting one can assume
+  that $G$ takes as input two register, the first contains $n$ ancille qubits
+  initiliazied to $\ket{0}$ and the seconed contain a classic string initiliezed
+  to be the seed $k$.
 \end{claim}
 
 \begin{proof}
-  Given a PRS $G : R^{A} \rightarrow R^{A}$ define $\tilde{G} : R^{A} \otimes R^{B} \rightarrow R^{A} \otimes R^{B}$ as follow, first $\tilde{G}$ copy the calsical state in $R^{B}$ (the $k$-length seed) to $R^{A}$ and then appaly $G$ on $R^{A}$, Hence on sampled seed $k \in R^{B}$ results the output $ \ket{\psi_{k}}\otimes\ket{k}$. Under the keeping setting any polynomial distingushier-canidate $D$ has acsses only for $\ket{\psi_{k}}$, So if $D$ distinguish between the distrubition generated by $\tilde{G}$ and the Haar measure then it also distingush between $G$ and Haar measure. 
+  Given a PRS $G : R^{A} \rightarrow R^{A}$ define $\tilde{G} : R^{A} \otimes
+  R^{B} \rightarrow R^{A} \otimes R^{B}$ as follow, first $\tilde{G}$ copy the
+  calsical state in $R^{B}$ (the $k$-length seed) to $R^{A}$ and then appaly $G$
+  on $R^{A}$, Hence on sampled seed $k \in R^{B}$ results the output $
+  \ket{\psi_{k}}\otimes\ket{k}$. Under the keeping setting any polynomial
+  distingushier-canidate $D$ has acsses only for $\ket{\psi_{k}}$, So if $D$
+  distinguish between the distrubition generated by $\tilde{G}$ and the Haar
+  measure then it also distingush between $G$ and Haar measure.
 \end{proof}
 
 \begin{claim}
-  Let $G : \ket{0}^{n} \otimes \mathbb{F}_{2}^{k} \rightarrow \{ \ket{\psi_{k}} \}_{k \in \mathcal{K}}$ be a PRS generator uses $n$- ancilles and $k$ classicl bits. Then for any unitery $V: \mathcal{H}_{n} \rightarrow \mathcal{H}_{n}$ it holds that $(V \otimes I^{\otimes k} ) G$ is also a PRS.
+  Let $G : \ket{0}^{n} \otimes \mathbb{F}_{2}^{k} \rightarrow \{ \ket{\psi_{k}}
+  \}_{k \in \mathcal{K}}$ be a PRS generator uses $n$- ancilles and $k$ classicl
+  bits. Then for any unitery $V: \mathcal{H}_{n} \rightarrow \mathcal{H}_{n}$ it
+  holds that $(V \otimes I^{\otimes k} ) G$ is also a PRS.
 \end{claim}
 \begin{proof}
-   
+
 \end{proof}
 
 \begin{claim}[Levis Lemma for PRS]
-  Let $f : \mathcal{H} \rightarrow R$ be a \textbf{BQP}-computible fuction on the $n$-qubits hilbert space, and let $g: (0,1) \rightarrow \mathbb{R} $ a function such that:     
+  Let $f : \mathcal{H} \rightarrow R$ be a \textbf{BQP}-computible fuction on
+  the $n$-qubits hilbert space, and let $g: (0,1) \rightarrow \mathbb{R} $ a
+  function such that:
   \begin{equation*}
     \begin{split}
-      \prbm{f\left(\ket{\psi} \right) > \varepsilon}{ \ket{\psi} \sim U} < g(\varepsilon)
+      \prbm{f\left(\ket{\psi} \right) > \varepsilon}{ \ket{\psi} \sim U} <
+      g(\varepsilon)
     \end{split}
   \end{equation*}
-  Then, a similar inequality also holds for states sampled by the PRS, when the probability for the measure $f$-value grater than $\varepsilon$ is bounded by $g(2\varepsilon)$. Namely,  
-\begin{equation*}
+  Then, a similar inequality also holds for states sampled by the PRS, when the
+  probability for the measure $f$-value grater than $\varepsilon$ is bounded by
+  $g(2\varepsilon)$. Namely,
+  \begin{equation*}
     \begin{split}
-      \prbm{f\left(\ket{\psi} \right) > \varepsilon}{ \ket{\psi} \sim \ket{\psi_{k}} } < g(2\varepsilon)
+      \prbm{f\left(\ket{\psi} \right) > \varepsilon}{ \ket{\psi} \sim
+      \ket{\psi_{k}} } < g(2\varepsilon)
     \end{split}
   \end{equation*}
-  In praticular, Levi's lemma has a version that capture consetration of states sampled by PRS generator, states the following: Assume there exsists $K$ such that for any $\ket{\psi},\ket{\phi} \in \mathcal{S}(\mathbb{C}^{d})$ $|f(\ket{\psi}) - f(\ket{\phi})| < K | \ket{\psi} - \ket{\phi}|$. Then there exsists a universal constant $C > 0$ such: 
-\begin{equation*}
+  In praticular, Levi's lemma has a version that capture consetration of states
+  sampled by PRS generator, states the following: Assume there exsists $K$ such
+  that for any $\ket{\psi},\ket{\phi} \in \mathcal{S}(\mathbb{C}^{d})$
+  $|f(\ket{\psi}) - f(\ket{\phi})| < K | \ket{\psi} - \ket{\phi}|$. Then there
+  exsists a universal constant $C > 0$ such:
+  \begin{equation*}
     \begin{split}
-      \prbm{ |f\left(\ket{\psi} \right) - \exppm{f\left(\ket{\phi}\right)}{\ket{\phi} \sim U}| > \varepsilon}{ \ket{\psi} \sim \ket{\psi_{k}} } < exp\left(-\frac{Cd}{K^{2}}  4\varepsilon^{2} \right)
+      \prbm{ |f\left(\ket{\psi} \right) -
+      \exppm{f\left(\ket{\phi}\right)}{\ket{\phi} \sim U}| > \varepsilon}{
+      \ket{\psi} \sim \ket{\psi_{k}} } < exp\left(-\frac{Cd}{K^{2}}
+      4\varepsilon^{2} \right)
     \end{split}
   \end{equation*}
 \end{claim}
 
 \begin{proof}
-  
+
 \end{proof}
 
 \begin{claim}
-  Probablisitc counting argument and $\varepsilon$-net over PRS. 
+  Probablisitc counting argument and $\varepsilon$-net over PRS.
 \end{claim}
 
 \begin{claim}
-  exsistness of poly($n$) gates $G_{1}, G_{2} ..$ such that, any $G_{i}$ has a polynomial depth, $\braket{p(G_{i})|\tau} > a$ and $\braket{\tau^{\perp}|p(G_{j})}\braket{p(G_{i})|\tau^{\perp}} < b$ for any $i\neq j$. 
+  exsistness of poly($n$) gates $G_{1}, G_{2} ..$ such that, any $G_{i}$ has a
+  polynomial depth, $\braket{p(G_{i})|\tau} > a$ and
+  $\braket{\tau^{\perp}|p(G_{j})}\braket{p(G_{i})|\tau^{\perp}} < b$ for any
+  $i\neq j$.
 \end{claim}
 \begin{proof}
-  
+
 \end{proof}
 \begin{claim}
- bla bla bla 
+  bla bla bla
 \end{claim}
 
 \begin{definition}
-  $\varepsilon$-bised test $2$-degree for testing RPU/RPS. $f(\braket{x_{j}|G_{s}|\theta}) = 1$ For example ask if $\braket{\psi_{j^{\prime}}\tau^{\perp}}\braket{\tau^{\perp}|\psi_{j}}$ what I can say about that quantenty as polynomail?. 
+  $\varepsilon$-bised test $2$-degree for testing RPU/RPS.
+  $f(\braket{x_{j}|G_{s}|\theta}) = 1$ For example ask if
+  $\braket{\psi_{j^{\prime}}\tau^{\perp}}\braket{\tau^{\perp}|\psi_{j}}$ what I
+  can say about that quantenty as polynomail?.
 \end{definition}
 
 \section{What We Need for Synthesis.}
 
-\begin{definition}[Pseudorandom Unitary for Synthesis] A famliy of unitary operators $\{ U_{k} \in U(\mathcal{H}) \}_{k \in \mathcal{K}}$ is pseudorandom for synthesis, if two conditions hold: 
+\begin{definition}[Pseudorandom Unitary for Synthesis] A famliy of unitary
+  operators $\{ U_{k} \in U(\mathcal{H}) \}_{k \in \mathcal{K}}$ is pseudorandom
+  for synthesis, if two conditions hold:
   \begin{enumerate}
-    \item Efficient computation. There is an efficient quantum algorithm $Q$, such that for all $k$ and any $\ket{\psi} \in \mathcal{H}$ $Q(k,\ket{\psi}) = U_{k}\ket{\psi}$. 
-    \item Pseudorandomness for synthesis. Given a state $\ket{\tau}$ and polynomial number of samples $U_{1},U_{2}..U_{m}$. Then: 
+    \item Efficient computation. There is an efficient quantum algorithm $Q$,
+      such that for all $k$ and any $\ket{\psi} \in \mathcal{H}$
+      $Q(k,\ket{\psi}) =
+      U_{k}\ket{\psi}$.
+    \item Pseudorandomness for synthesis. Given a state $\ket{\tau}$ and
+      polynomial number of samples $U_{1},U_{2}..U_{m}$. Then:
       \begin{enumerate}
         \item $|\braket{\Phi(\tau,U_{k})|U_{k}\tau}|^{2} > a$
-        \item $|\braket{\Phi(\tau,U_{k})|U_{k}\tau^{\perp}}\braket{\tau^{\perp}U^{\dagger}_{j}|\Phi(\tau,U_{j})}|^{2} < b$
+        \item
+          $|\braket{\Phi(\tau,U_{k})|U_{k}\tau^{\perp}}\braket{\tau^{\perp}U^{\dagger}_{j}|\Phi(\tau,U_{j})}|^{2}
+          < b$
       \end{enumerate}
-      The uniform random distribution on $U_{k}$ is computationally in distinguishable from a Haar random unitary operator. 
-  \end{enumerate} 
+      The uniform random distribution on $U_{k}$ is computationally in
+      distinguishable from a Haar random unitary operator.
+  \end{enumerate}
 \end{definition}
 
-What about, Assume that $U$ is a quantum circuit such that $\log n$ qubits are intilaized to some to some input and instead anciles, we have noisy ancilea, can we show that circuit is equavilanent to $\log n $ circuit? That will enable us to prove a quantum version for Nisan Wigerzdon PRG (BPP = P). 
+What about, Assume that $U$ is a quantum circuit such that $\log n$ qubits are
+intilaized to some to some input and instead anciles, we have noisy ancilea,
+can we show that circuit is equavilanent to $\log n $ circuit? That will
+enable us to prove a quantum version for Nisan Wigerzdon PRG (BPP = P).
 
-\paragraph{Problem.} Let $U$ be a quntum circuit which get $\log n$ stable qubits and poly$(n)$ more random qubits obtained from the random Haar masure, can we simulate the circuit in $\log n$ time?  
+\paragraph{Problem.} Let $U$ be a quntum circuit which get $\log n$ stable
+qubits and poly$(n)$ more random qubits obtained from the random Haar masure,
+can we simulate the circuit in $\log n$ time?
 
-approximate the absoulte value function, For example, you can consider the binomial expansion of $\sqrt{1-y}$ on $[0,1]$. Namely, setting $y=1-x^2$, we have $|x|=\sqrt{1-y}=\sum_{m=0}^{\infty}\binom{1/2}{m}(-y)^m, \quad x\in[-1,1]$. That will allow me to bound the $k$-design. 
+approximate the absoulte value function, For example, you can consider the
+binomial expansion of $\sqrt{1-y}$ on $[0,1]$. Namely, setting $y=1-x^2$, we
+have $|x|=\sqrt{1-y}=\sum_{m=0}^{\infty}\binom{1/2}{m}(-y)^m, \quad
+x\in[-1,1]$. That will allow me to bound the $k$-design.
 
-Denote by $q_{d}(x)$ the $d$-order approximation of $|x|$, Namely 
+Denote by $q_{d}(x)$ the $d$-order approximation of $|x|$, Namely
 \begin{equation*}
   \begin{split}
-q_{d}(x) &= \sum_{m=0}^{d}\binom{1/2}{m}(-1)^m\left( 1 - x^{2} \right)^{m}
-%&= \sum_{m=0}^{d}\sum_{n=0}^{m}\binom{1/2}{n}(-1)^n\left( 1 - x^{2} \right)^{m}\\
+    q_{d}(x) &= \sum_{m=0}^{d}\binom{1/2}{m}(-1)^m\left( 1 - x^{2} \right)^{m}
+    %&= \sum_{m=0}^{d}\sum_{n=0}^{m}\binom{1/2}{n}(-1)^n\left( 1 - x^{2}
+    % \right)^{m}\\
   \end{split}
 \end{equation*}
-and as the series is convergres to any $x \in (-1,1)$ we have that $|x| = q_{d}(x) + O( \binom{1/2}{d}(1-x^{2})^d )$ which by the fact that $1- x^{2} \in (-1,1)$ can be simpllified to $|x| = q_{d}(x) + O( \binom{1/2}{d}) = q_{d}(x) + O( 1/d^{1 +1/2})$.
- 
+and as the series is convergres to any $x \in (-1,1)$ we have that $|x| =
+q_{d}(x) + O( \binom{1/2}{d}(1-x^{2})^d )$ which by the fact that $1- x^{2}
+\in (-1,1)$ can be simpllified to $|x| = q_{d}(x) + O( \binom{1/2}{d}) =
+q_{d}(x) + O( 1/d^{1 +1/2})$.
+
 % \exppm{   }{ U \sim D }
 \begin{equation*}
   \begin{split}
-  \exppm{ ( \braket{\Phi(\tau,U)|\Rea U\tau} )^{2}  }{ U \sim D } & =  \exppm{  \frac{1}{2^{n/2}}\sum_{x}(-1)^{\sign(\Rea \braket{x|U\tau})}\Rea \braket{x|x}\braket{x|U\tau}  }{ U \sim D } \\
-& = \exppm{ \frac{1}{2^{n/2}}\sum_{x}|\Rea \braket{x|U\tau}|  }{ U \sim D } \\
-& = \exppm{ \sum_{x}|\Rea \braket{x|U\tau} / 2^{n/2}|  }{ U \sim D } \\
-& \ge \exppm{  \sum_{x} q_{d}\left( \Ima \braket{x|U\tau}| / 2^{n/2}  \right) - \binom{1/2}{d} \left(\frac{ | \Ima \braket{x|U\tau}| }{2^{n/2}}\right)^{d}}{ U \sim D } \\
-& \ge \exppm{  \sum_{x} q_{d}\left( \Ima \braket{x|U\tau}| / 2^{n/2}  \right) - \binom{1/2}{d} \left(\frac{ | \Ima \braket{x|U\tau}| }{2^{n/2}}\right)^{d}}{ U \sim Haar } - \delta \cdot 2 ^{n} \\
-& \ge \exppm{  \sum_{x} |\Rea \braket{x|U\tau} / 2^{n/2}|  - \mathbf{2} \cdot  \binom{1/2}{d} \left(\frac{ | \Ima \braket{x|U\tau}| }{2^{n/2}}\right)^{d}}{ U \sim Haar } - \delta \cdot 2 ^{n} \\
-& \sim \exppm{  \sum_{x} |\Rea \braket{x|U\tau} / 2^{n/2}|}{ U \sim Haar } - \delta \cdot 2 ^{n} 
+    \exppm{ ( \braket{\Phi(\tau,U)|\Rea U\tau} )^{2}  }{ U \sim D } & =
+    \exppm{  \frac{1}{2^{n/2}}\sum_{x}(-1)^{\sign(\Rea \braket{x|U\tau})}\Rea
+    \braket{x|x}\braket{x|U\tau}  }{ U \sim D } \\
+    & = \exppm{ \frac{1}{2^{n/2}}\sum_{x}|\Rea \braket{x|U\tau}|  }{ U \sim D }
+    \\
+    & = \exppm{ \sum_{x}|\Rea \braket{x|U\tau} / 2^{n/2}|  }{ U \sim D } \\
+    & \ge \exppm{  \sum_{x} q_{d}\left( \Ima \braket{x|U\tau}| / 2^{n/2}
+      \right) - \binom{1/2}{d} \left(\frac{ | \Ima \braket{x|U\tau}|
+    }{2^{n/2}}\right)^{d}}{ U \sim D } \\
+    & \ge \exppm{  \sum_{x} q_{d}\left( \Ima \braket{x|U\tau}| / 2^{n/2}
+      \right) - \binom{1/2}{d} \left(\frac{ | \Ima \braket{x|U\tau}|
+    }{2^{n/2}}\right)^{d}}{ U \sim Haar } - \delta \cdot 2 ^{n} \\
+    & \ge \exppm{  \sum_{x} |\Rea \braket{x|U\tau} / 2^{n/2}|  - \mathbf{2}
+      \cdot  \binom{1/2}{d} \left(\frac{ | \Ima \braket{x|U\tau}|
+    }{2^{n/2}}\right)^{d}}{ U \sim Haar } - \delta \cdot 2 ^{n} \\
+    & \sim \exppm{  \sum_{x} |\Rea \braket{x|U\tau} / 2^{n/2}|}{ U \sim Haar }
+    - \delta \cdot 2 ^{n}
   \end{split}
 \end{equation*}
 \begin{equation*}
   \begin{split}
-    \exppm{  \braket{\Phi(\tau,U)|U \tau^{\perp}}\braket{\tau^{\perp}U_{2}^{\dagger}|\Phi(\tau,U_{2})}  }{ U,U_{2} \sim D } & = 
+    \exppm{  \braket{\Phi(\tau,U)|U
+    \tau^{\perp}}\braket{\tau^{\perp}U_{2}^{\dagger}|\Phi(\tau,U_{2})}  }{
+      U,U_{2}
+    \sim D } & =
   \end{split}
 \end{equation*}
 
-
 \begin{claim}
-  fix a state $\ket{\tau}$. Let $U$ be a unitary sampled from $k$-design  distribution $D$ and denote by $\ket{s}$ the vector which $U$ sends $\ket{\tau}$ to. Now, observes that $U$ can be written as $U = \ket{s}\bra{\tau} + V$ when $V$ act on space ortogonal to $ \ket{\tau}$ denote it by $\ket{\tau^{\perp}}$. Then the distribuation over $V$ is also a $k$-design relative to the Haar mesure on $\ket{\tau^{\perp}}$. 
+  fix a state $\ket{\tau}$. Let $U$ be a unitary sampled from $k$-design
+  distribution $D$ and denote by $\ket{s}$ the vector which $U$ sends
+  $\ket{\tau}$ to. Now, observes that $U$ can be written as $U =
+  \ket{s}\bra{\tau} + V$ when $V$ act on space ortogonal to $ \ket{\tau}$ denote
+  it by $\ket{\tau^{\perp}}$. Then the distribuation over $V$ is also a
+  $k$-design relative to the Haar mesure on $\ket{\tau^{\perp}}$.
 \end{claim}
-\begin{proof}  
+\begin{proof}
 \end{proof}
 
 \begin{definition}
-  Denote by 
+  Denote by
   \begin{equation*}
     \begin{split}
-  M(\tau,U)(x) & = \max \left\{ |\Rea \braket{x|U\tau}|, |\Ima \braket{x|U\tau}| \right\} \\
-  \bar{M}(\tau,U)(x) & = \min \left\{ |\Rea \braket{x|U\tau}|, |\Ima \braket{x|U\tau}| \right\} 
+      M(\tau,U)(x) & = \max \left\{ |\Rea \braket{x|U\tau}|, |\Ima
+      \braket{x|U\tau}| \right\} \\
+      \bar{M}(\tau,U)(x) & = \min \left\{ |\Rea \braket{x|U\tau}|, |\Ima
+      \braket{x|U\tau}| \right\}
     \end{split}
   \end{equation*}
-  When it will be clear form the context we omit $\tau,U$ and use only $M(x), \bar{M}(x)$.
+  When it will be clear form the context we omit $\tau,U$ and use only $M(x),
+  \bar{M}(x)$.
 \end{definition}
 
 \begin{equation*}
   \begin{split}
-    |\braket{\Phi(\tau,U)|U\phi}|^2 = | \braket{\Phi(\tau, U)|\Rea U\phi}|^2  + |\braket{\Phi(\tau,U)|\Ima U\phi}|^2 
+    |\braket{\Phi(\tau,U)|U\phi}|^2 = | \braket{\Phi(\tau, U)|\Rea U\phi}|^2  +
+    |\braket{\Phi(\tau,U)|\Ima U\phi}|^2
   \end{split}
 \end{equation*}
 \begin{equation*}
   \begin{split}
-    \braket{\Phi(\tau,U_{k})|MU_{k}\phi} & = \sum_{x}{ \left( -1 \right)^{\sign M\left( \braket{x|U\tau} \right) } \frac{1}{2^{n/2}} \braket{x|U\phi} }\\
-    & = \sum_{ \tau,\phi \text{ agree on } x}{ | \frac{1}{2^{n/2}}M \left( \braket{x|U\phi} \right)| } - \sum_{ \tau,\phi \text{ disagree on } x}{  | \frac{1}{2^{n/2}}M \left( \braket{x|U\phi} \right)| }  \\
-    & \approx \sum_{ \tau,\phi \text{ agree on } x}{ q_{d} \left(\frac{1}{2^{n/2}}\bar{M} \left( \braket{x|U\phi} \right) \right) } - \sum_{ \tau,\phi \text{ disagree on } x}{  q_{d}\left( \frac{1}{2^{n/2}}\bar{M} \left( \braket{x|U\phi} \right) \right) }  \pm 2^{n}\zeta_{d}\left(\frac{1}{2^{n/2}} \right) 
+    \braket{\Phi(\tau,U_{k})|MU_{k}\phi} & = \sum_{x}{ \left( -1 \right)^{\sign
+    M\left( \braket{x|U\tau} \right) } \frac{1}{2^{n/2}} \braket{x|U\phi} }\\
+    & = \sum_{ \tau,\phi \text{ agree on } x}{ | \frac{1}{2^{n/2}}M \left(
+    \braket{x|U\phi} \right)| } - \sum_{ \tau,\phi \text{ disagree on } x}{  |
+    \frac{1}{2^{n/2}}M \left( \braket{x|U\phi} \right)| }  \\
+    & \approx \sum_{ \tau,\phi \text{ agree on } x}{ q_{d}
+    \left(\frac{1}{2^{n/2}}\bar{M} \left( \braket{x|U\phi} \right) \right) } -
+    \sum_{ \tau,\phi \text{ disagree on } x}{  q_{d}\left(
+    \frac{1}{2^{n/2}}\bar{M} \left( \braket{x|U\phi} \right) \right) }  \pm
+    2^{n}\zeta_{d}\left(\frac{1}{2^{n/2}} \right)
   \end{split}
 \end{equation*}
 noitce that we obtained a $d$-degree polinomial, denote it by $T_{\phi}$.
 \begin{equation*}
   \begin{split}
-    | \braket{\Phi(\tau,U)|MU\phi} |  \approx & q_{d^{\prime}}\left( \braket{\Phi(\tau,U)|U\phi} \right) + \zeta_{d^{\prime}}\left( \braket{\Phi(\tau,U)|U\phi} \right) \\
-\approx & q_{d^{\prime}}\left( \braket{\Phi(\tau,U)|U\phi} \right) + \zeta_{d^{\prime}}\left( \braket{\Phi(\tau,U)|U\phi} \right)\\
-\approx & q_{d^{\prime}}\left(  T_{\phi}\right) + \zeta_{d^{\prime}}\left( T_{\phi} \right)\\
-\approx & q_{d^{\prime}}\left(  T_{\phi}\right) + \zeta_{d^{\prime}}\left( T_{\phi} \right)
+    | \braket{\Phi(\tau,U)|MU\phi} |  \approx & q_{d^{\prime}}\left(
+    \braket{\Phi(\tau,U)|U\phi} \right) + \zeta_{d^{\prime}}\left(
+    \braket{\Phi(\tau,U)|U\phi} \right) \\
+    \approx & q_{d^{\prime}}\left( \braket{\Phi(\tau,U)|U\phi} \right) +
+    \zeta_{d^{\prime}}\left( \braket{\Phi(\tau,U)|U\phi} \right)\\
+    \approx & q_{d^{\prime}}\left(  T_{\phi}\right) + \zeta_{d^{\prime}}\left(
+    T_{\phi} \right)\\
+    \approx & q_{d^{\prime}}\left(  T_{\phi}\right) + \zeta_{d^{\prime}}\left(
+    T_{\phi} \right)
   \end{split}
 \end{equation*}
 
-Assume that our $k$-design collection is defined such that for any $\ket{\varphi}$ it holds that: 
+Assume that our $k$-design collection is defined such that for any
+$\ket{\varphi}$ it holds that:
 \begin{equation*}
   \begin{split}
-    \prbm{  \sign(\Rea \braket{x|U_{1}\varphi} ) = \sign(\Rea \braket{x^{\prime}|U_{2}\varphi} )}{ U_{1},U_{2}\sim D } = \frac{1}{2}
+    \prbm{  \sign(\Rea \braket{x|U_{1}\varphi} ) = \sign(\Rea
+    \braket{x^{\prime}|U_{2}\varphi} )}{ U_{1},U_{2}\sim D } = \frac{1}{2}
   \end{split}
 \end{equation*}
 
 \begin{claim}
-  left $f : N \rightarrow \{ \pm \}$ then the set $ (-1)^{f(x)}\ket{x}\bra{x}U$ is a $k$-design. 
+  left $f : N \rightarrow \{ \pm \}$ then the set $ (-1)^{f(x)}\ket{x}\bra{x}U$
+  is a $k$-design.
 \end{claim}
 \begin{proof}
   \begin{equation*}
     \begin{split}
-      tr\left( U^{\prime}V^{\prime,\dagger} \right)  = & tr\left( (-1)^{f(x)}\ket{x}\bra{x}UV^{\dagger} (-1)^{f(x)}\ket{x}\bra{x} \right) \\ 
-  = & tr\left( (-1)^{f(y)}\ket{y}\bra{y}(-1)^{f(x)}\ket{x}\bra{x}UV^{\dagger} \right) = tr(UV^{\dagger})  
+      tr\left( U^{\prime}V^{\prime,\dagger} \right)  = & tr\left(
+      (-1)^{f(x)}\ket{x}\bra{x}UV^{\dagger} (-1)^{f(x)}\ket{x}\bra{x} \right) \\
+      = & tr\left(
+      (-1)^{f(y)}\ket{y}\bra{y}(-1)^{f(x)}\ket{x}\bra{x}UV^{\dagger} \right) =
+      tr(UV^{\dagger})
     \end{split}
   \end{equation*}
   So, we get that:
   \begin{equation*}
     \begin{split}
-      \frac{1}{|X|^{\prime, 2}}\sum_{U,V\in X^{\prime}}{ |tr(UV^{\dagger} )|^{2t} } & =  \frac{1}{|X|^{2}}\sum_{U,V\in X}{ |tr(UV^{\dagger} )|^{2t} }\\
-      & = \int{ |tr(U)|^{2t} dU} 
+      \frac{1}{|X|^{\prime, 2}}\sum_{U,V\in X^{\prime}}{ |tr(UV^{\dagger}
+      )|^{2t} } & =  \frac{1}{|X|^{2}}\sum_{U,V\in X}{ |tr(UV^{\dagger} )|^{2t}
+      }\\
+      & = \int{ |tr(U)|^{2t} dU}
     \end{split}
   \end{equation*}
 \end{proof}
 
-Ok the tactics is going to be the follow, we need the $k$-design property only for the first stage.  When we want to show that $\ket{\Phi}$ has an overlap with $\ket{\tau}$ after that, we can give up on that assumption and by using $f,g$ universal we can ensure a small overllap betweem pair of differnet $U,V$. 
+Ok the tactics is going to be the follow, we need the $k$-design property only
+for the first stage.  When we want to show that $\ket{\Phi}$ has an overlap
+with $\ket{\tau}$ after that, we can give up on that assumption and by using
+$f,g$ universal we can ensure a small overllap betweem pair of differnet $U,V$.
 
 \begin{claim}
-  Assume $f$ above sampled from a universal femily hash functions. Then we have that :  
+  Assume $f$ above sampled from a universal femily hash functions. Then we have
+  that :
   \begin{equation*}
     \begin{split}
-    \exppm{ |\braket{\Phi(\tau,V) V^{\dagger}|\psi}\braket{\psi|U\Phi(\tau,U)}|^{2} }{U,V \sim X , f\sim \mathcal{H}} \approx_{\delta} \exppm{ |\braket{\Phi(\tau,V) V^{\dagger}|\psi}\braket{\psi|U\Phi(\tau,U)}|^{2} }{U,V \sim Haar }
+      \exppm{ |\braket{\Phi(\tau,V)
+      V^{\dagger}|\psi}\braket{\psi|U\Phi(\tau,U)}|^{2} }{U,V \sim X , f\sim
+      \mathcal{H}} \approx_{\delta} \exppm{ |\braket{\Phi(\tau,V)
+      V^{\dagger}|\psi}\braket{\psi|U\Phi(\tau,U)}|^{2} }{U,V \sim Haar }
     \end{split}
   \end{equation*}
 \end{claim}
 
 \begin{proof}
- 
-  \begin{equation*}
-    \begin{split}
-       \braket{\Phi(\tau,V) V^{\dagger}|\psi} = & \frac{1}{2^{n/2}}\sum_{x} (-1)^{\sign( \Rea \braket{x|V|\tau})}\braket{x |V \psi} \\
-       = & \frac{1}{2^{n/2}}\sum_{x} (-1)^{ f(x) + \sign( \Rea \braket{x|V|\tau})}\braket{x |V^{\prime} \psi} \\  
-       = & \frac{1}{2^{n/2}}\sum_{x} (-1)^{ f(x) +  f(x) \cdot \sign( \Rea \braket{x|V^{\prime}|\tau})}\braket{x |V^{\prime} \psi} \\  
-       = & \frac{1}{2^{n/2}}\sum_{x} (-1)^{ f(x) ( 1 +  \sign( \Rea \braket{x|V^{\prime}|\tau}))}\braket{x |V^{\prime} \psi} \\  
-       = & \frac{1}{2^{n/2}}\sum_{x} (-1)^{ f(x) ( 1 +  \sign( \Rea \braket{x|V^{\prime}|\tau}))}\braket{x |V^{\prime} \psi} \\  
-     \end{split}
-   \end{equation*}
-   \begin{equation*}
-     \begin{split}
-       \Rightarrow  \braket{\Phi(\tau,V) V^{\dagger}|\psi} & \braket{\psi|U\Phi(\tau,U) }  \\
-       = & \frac{1}{2^{n}}\sum_{x,x^{\prime}} (-1)^{ g(x^{\prime})+f(x) + \sign( \Rea \braket{x|V|\tau})+\sign( \Rea \braket{x^{\prime}|U|\tau})} \cdot \\
-       & \ \ \ \ \ \ \cdot  \braket{x |V^{\prime} \psi}\braket{x^{\prime} |U^{\prime} \psi} 
-    \end{split}
-  \end{equation*}
-\begin{equation*}
-     \begin{split}
-       \Rightarrow  |\braket{\Phi(\tau,V) V^{\dagger}|\psi} & \braket{\psi|U\Phi(\tau,U) }|^2  \\
-       = & \frac{1}{2^{2n}}\sum_{y,y^{\prime},x,x^{\prime}} (-1)^{ g(x^{\prime})+f(x) + \sign( \Rea \braket{x|V|\tau})+\sign( \Rea \braket{x^{\prime}|U|\tau})} \cdot \\
-       & \ \ \ \ \ \ \cdot  \braket{y |V^{\prime} \psi}\braket{y^{\prime} |U^{\prime} \psi} \cdot  \\
-  & \cdot (-1)^{ g(y^{\prime})+f(y) + \sign( \Rea \braket{y|V|\tau})+\sign( \Rea \braket{y^{\prime}|U|\tau})} \cdot \\
-  & \ \ \ \ \ \ \cdot  \braket{y |V^{\prime} \psi}^{*}\braket{y^{\prime} |U^{\prime} \psi}^{*}
-    \end{split}
-  \end{equation*}
-  \begin{equation*}
-    \begin{split}
-& \exppm{ |\braket{\Phi(\tau,V) V^{\dagger}|\psi}\braket{\psi|U\Phi(\tau,U)}|^{2} }{U,V \sim X , f,g\sim \mathcal{H}^2} \\  
-      & \exppm{ |\braket{\varphi V^{\prime, \dagger}|x}\braket{x|U^{\prime}\varphi}|^{2} }{U,V \sim X , f,g\sim \mathcal{H}^2}  \\ 
-= & \exppm{ \braket{y|U^{\prime}|\phi}^{*} \braket{y^{\prime}|V^{\dagger, \prime}|\phi}^{*} \braket{x|U^{\prime}|\phi} \braket{x^{\prime}|V^{\dagger, \prime}|\phi}}{ U^{prime},V^{\dagger, \prime} \sim X , f,g\sim \mathcal{H}^2} \\
-= & \exppm{ (-1)^{f(x)+g(x^{\prime})+f(y)+g(y^{\prime})} \braket{y|U|\phi}^{*} \braket{y^{\prime}|V|\phi}^{*} \braket{x|U|\phi} \braket{x^{\prime}|V|\phi}}{ U,V \sim X , f,g\sim \mathcal{H}^2} \\
-= & \exppm{ \mathbf{1}_{x=x^{\prime=y=y^{\prime}}} \braket{y|U|\phi}^{*} \braket{y^{\prime}|V|\phi}^{*} \braket{x|U|\phi} \braket{x^{\prime}|V|\phi}}{ U,V \sim X , f,g\sim \mathcal{H}^2} \\
-\le &\frac{2^{n}}{2^{2n}} = \frac{1}{2^n}
-%= & \exppm{|\braket{x|U|\phi}|^{2}  |\braket{x|V^{\dagger}|\phi}|^{2} }{ U,V \sim X } = \exppm{|\braket{x|U|\phi}|^{2}}{ U \sim X }^{2}
-    \end{split}
-  \end{equation*}
 
+  \begin{equation*}
+    \begin{split}
+      \braket{\Phi(\tau,V) V^{\dagger}|\psi} = & \frac{1}{2^{n/2}}\sum_{x}
+      (-1)^{\sign( \Rea \braket{x|V|\tau})}\braket{x |V \psi} \\
+      = & \frac{1}{2^{n/2}}\sum_{x} (-1)^{ f(x) + \sign( \Rea
+      \braket{x|V|\tau})}\braket{x |V^{\prime} \psi} \\
+      = & \frac{1}{2^{n/2}}\sum_{x} (-1)^{ f(x) +  f(x) \cdot \sign( \Rea
+      \braket{x|V^{\prime}|\tau})}\braket{x |V^{\prime} \psi} \\
+      = & \frac{1}{2^{n/2}}\sum_{x} (-1)^{ f(x) ( 1 +  \sign( \Rea
+      \braket{x|V^{\prime}|\tau}))}\braket{x |V^{\prime} \psi} \\
+      = & \frac{1}{2^{n/2}}\sum_{x} (-1)^{ f(x) ( 1 +  \sign( \Rea
+      \braket{x|V^{\prime}|\tau}))}\braket{x |V^{\prime} \psi} \\
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      \Rightarrow  \braket{\Phi(\tau,V) V^{\dagger}|\psi} &
+      \braket{\psi|U\Phi(\tau,U) }  \\
+      = & \frac{1}{2^{n}}\sum_{x,x^{\prime}} (-1)^{ g(x^{\prime})+f(x) + \sign(
+      \Rea \braket{x|V|\tau})+\sign( \Rea \braket{x^{\prime}|U|\tau})} \cdot \\
+      & \ \ \ \ \ \ \cdot  \braket{x |V^{\prime} \psi}\braket{x^{\prime}
+      |U^{\prime} \psi}
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      \Rightarrow  |\braket{\Phi(\tau,V) V^{\dagger}|\psi} &
+      \braket{\psi|U\Phi(\tau,U) }|^2  \\
+      = & \frac{1}{2^{2n}}\sum_{y,y^{\prime},x,x^{\prime}} (-1)^{
+        g(x^{\prime})+f(x) + \sign( \Rea \braket{x|V|\tau})+\sign( \Rea
+      \braket{x^{\prime}|U|\tau})} \cdot \\
+      & \ \ \ \ \ \ \cdot  \braket{y |V^{\prime} \psi}\braket{y^{\prime}
+      |U^{\prime} \psi} \cdot  \\
+      & \cdot (-1)^{ g(y^{\prime})+f(y) + \sign( \Rea \braket{y|V|\tau})+\sign(
+      \Rea \braket{y^{\prime}|U|\tau})} \cdot \\
+      & \ \ \ \ \ \ \cdot  \braket{y |V^{\prime} \psi}^{*}\braket{y^{\prime}
+      |U^{\prime} \psi}^{*}
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      & \exppm{ |\braket{\Phi(\tau,V)
+      V^{\dagger}|\psi}\braket{\psi|U\Phi(\tau,U)}|^{2} }{U,V \sim X , f,g\sim
+      \mathcal{H}^2} \\
+      & \exppm{ |\braket{\varphi V^{\prime,
+      \dagger}|x}\braket{x|U^{\prime}\varphi}|^{2} }{U,V \sim X , f,g\sim
+      \mathcal{H}^2}  \\
+      = & \exppm{ \braket{y|U^{\prime}|\phi}^{*} \braket{y^{\prime}|V^{\dagger,
+        \prime}|\phi}^{*} \braket{x|U^{\prime}|\phi}
+        \braket{x^{\prime}|V^{\dagger,
+      \prime}|\phi}}{ U^{prime},V^{\dagger, \prime} \sim X , f,g\sim
+      \mathcal{H}^2}
+      \\
+      = & \exppm{ (-1)^{f(x)+g(x^{\prime})+f(y)+g(y^{\prime})}
+        \braket{y|U|\phi}^{*} \braket{y^{\prime}|V|\phi}^{*} \braket{x|U|\phi}
+      \braket{x^{\prime}|V|\phi}}{ U,V \sim X , f,g\sim \mathcal{H}^2} \\
+      = & \exppm{ \mathbf{1}_{x=x^{\prime=y=y^{\prime}}} \braket{y|U|\phi}^{*}
+        \braket{y^{\prime}|V|\phi}^{*} \braket{x|U|\phi}
+      \braket{x^{\prime}|V|\phi}}{
+      U,V \sim X , f,g\sim \mathcal{H}^2} \\
+      \le &\frac{2^{n}}{2^{2n}} = \frac{1}{2^n}
+      %= & \exppm{|\braket{x|U|\phi}|^{2}  |\braket{x|V^{\dagger}|\phi}|^{2} }{
+      % U,V \sim X } = \exppm{|\braket{x|U|\phi}|^{2}}{ U \sim X }^{2}
+    \end{split}
+  \end{equation*}
 
 \end{proof}
 
 \begin{claim}
-  $|\braket{\Phi(\tau,U_{k})|U_{k}\tau^{\perp}}\braket{\tau^{\perp}U^{\dagger}_{j}|\Phi(\tau,U_{j})}|^{2} < b$
+  $|\braket{\Phi(\tau,U_{k})|U_{k}\tau^{\perp}}\braket{\tau^{\perp}U^{\dagger}_{j}|\Phi(\tau,U_{j})}|^{2}
+  < b$
 \end{claim}
 \begin{proof}
-  
+
   \begin{equation*}
     \begin{split}
-      & \exppm{|\braket{\Phi(\tau,U_{k})|U_{k}\tau^{\perp}}\braket{\tau^{\perp}U^{\dagger}_{j}|\Phi(\tau,U_{j})}|^{2} }{U \sim D  } \\
-      \le &  \exppm{|\braket{\Phi(\tau,U_{k})|U_{k}\tau^{\perp}}|^{2}\cdot |\braket{\tau^{\perp}U^{\dagger}_{j}|\Phi(\tau,U_{j})}|^{2} }{U \sim D  } \\ 
-      = &  \exppm{|\braket{\Phi(\tau,U_{k})|U_{k}\tau^{\perp}}|^{2} }{U \sim D  }^{2} \\ 
-      %= & \exppm{\sum_{x,y}{| (-1)^{\sign(\Rea\braket{x|U_{k}\tau}) + }\braket{x|U_{k}\tau^{\perp}}|^{2}} }{U \sim D  }^{2} 
-      = & \exppm{|\sum_{x}{\braket{xU_{k}\tau^{\perp}}} |^{2}}{U \sim D  }^{2} \\
-      = & \exppm{\sum_{x}{|\braket{x|U_{k}\tau^{\perp}}|^{2}} }{U \sim D  }^{2} 
+      &
+      \exppm{|\braket{\Phi(\tau,U_{k})|U_{k}\tau^{\perp}}\braket{\tau^{\perp}U^{\dagger}_{j}|\Phi(\tau,U_{j})}|^{2}
+      }{U \sim D  } \\
+      \le &  \exppm{|\braket{\Phi(\tau,U_{k})|U_{k}\tau^{\perp}}|^{2}\cdot
+      |\braket{\tau^{\perp}U^{\dagger}_{j}|\Phi(\tau,U_{j})}|^{2} }{U \sim D  }
+      \\
+      = &  \exppm{|\braket{\Phi(\tau,U_{k})|U_{k}\tau^{\perp}}|^{2} }{U \sim D
+      }^{2} \\
+      %= & \exppm{\sum_{x,y}{| (-1)^{\sign(\Rea\braket{x|U_{k}\tau}) +
+      % }\braket{x|U_{k}\tau^{\perp}}|^{2}} }{U \sim D  }^{2}
+      = & \exppm{|\sum_{x}{\braket{xU_{k}\tau^{\perp}}} |^{2}}{U \sim D  }^{2}
+      \\
+      = & \exppm{\sum_{x}{|\braket{x|U_{k}\tau^{\perp}}|^{2}} }{U \sim D  }^{2}
     \end{split}
   \end{equation*}
 \end{proof}
-
-
-
-
 
 \section{The Distillation.}
-suppose that for any $\ket{\psi^{(k)}_{i}}$, $\ket{\psi^{(k)}_{j}}$ it holds that: $|\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}| < exp(-n)$. After conditianl swap the normlaized state has the form:  
+suppose that for any $\ket{\psi^{(k)}_{i}}$, $\ket{\psi^{(k)}_{j}}$ it holds
+that: $|\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}| < exp(-n)$. After conditianl
+swap the normlaized state has the form:
 \begin{equation*}
   \begin{split}
-    & \ket{\psi^{(k)}_{i}}\ket{\psi^{(k)}_{j}}+\ket{\psi^{(k)}_{j}}\ket{\psi^{(k)}_{i}} \mapsto \frac{ \ket{\psi^{(k)}_{i}}\ket{\psi^{(k)}_{j}}+\ket{\psi^{(k)}_{j}}\ket{\psi^{(k)}_{i}} }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}}|^2 } 
+    &
+    \ket{\psi^{(k)}_{i}}\ket{\psi^{(k)}_{j}}+\ket{\psi^{(k)}_{j}}\ket{\psi^{(k)}_{i}}
+    \mapsto \frac{
+      \ket{\psi^{(k)}_{i}}\ket{\psi^{(k)}_{j}}+\ket{\psi^{(k)}_{j}}\ket{\psi^{(k)}_{i}}
+    }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}}|^2 }
   \end{split}
 \end{equation*}
-%\frac{ \ket{\psi^{(k)}_{t}}\ket{\psi^{(k)}_{s}}+\ket{\psi^{(k)}_{s}}\ket{\psi^{(k)}_{t}} }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{t}|\psi^{(k)}_{s}}}|^2 } 
+%\frac{
+% \ket{\psi^{(k)}_{t}}\ket{\psi^{(k)}_{s}}+\ket{\psi^{(k)}_{s}}\ket{\psi^{(k)}_{t}}
+% }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{t}|\psi^{(k)}_{s}}}|^2 }
 
-%\frac{ \bra{\psi^{(k)}_{i}}\bra{\psi^{(k)}_{j}}+\bra{\psi^{(k)}_{j}}\bra{\psi^{(k)}_{i}} }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}}|^2 } 
-So 
+%\frac{
+% \bra{\psi^{(k)}_{i}}\bra{\psi^{(k)}_{j}}+\bra{\psi^{(k)}_{j}}\bra{\psi^{(k)}_{i}}
+% }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}}|^2 }
+So
 \begin{equation*}
   \begin{split}
-  |\braket{\psi^{(k+1)}_{i}|\psi^{(k+1)}_{t}}| =& | \frac{ \bra{\psi^{(k)}_{i}}\bra{\psi^{(k)}_{j}}+\bra{\psi^{(k)}_{j}}\bra{\psi^{(k)}_{i}} }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}}|^2 } \cdot \frac{ \ket{\psi^{(k)}_{t}}\ket{\psi^{(k)}_{s}}+\ket{\psi^{(k)}_{s}}\ket{\psi^{(k)}_{t}} }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{t}|\psi^{(k)}_{s}}}|^2 } | \\
-  \le & \frac{1}{2+2exp(-2n)}\cdot \sum_{\{v,u\} = \{i,j\},\{v^{\prime},u^{\prime}\} = \{t,s\}}{ |\braket{\psi^{(k)}_{v}|\psi^{(k)}_{v^{\prime}}} \braket{\psi^{(k)}_{u}|\psi^{(k)}_{u^{\prime}}}|} \\ 
-  \le &\frac{1}{2+2exp(-2n)} \cdot 4 exp(-2n)
-  \end{split}
-\end{equation*}
-
-
-
-\begin{equation*}
-  \begin{split}
-     |\frac{ 1 + |\braket{\psi^{(k)}_{j}|\psi^{(k)}_{i}}|^2 }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}}|^2 }\bra{\psi^{(k)}_{i}} & \cdot \frac{ 1 + |\braket{\psi^{(k)}_{s}|\psi^{(k)}_{t}}|^2 }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{t}|\psi^{(k)}_{s}}}|^2 }\ket{\psi^{(k)}_{t}} | \\ 
-     \le &\frac{1}{2} \sqrt{1 + |\braket{\psi^{(k)}_{j}|\psi^{(k)}_{i}}|^2} \sqrt{1 + |\braket{\psi^{(k)}_{s}|\psi^{(k)}_{t}}|^2}\cdot | \braket{\psi^{(k)}_{i}|\psi^{(k)}_{t}} | \\
-     \le & \frac{1}{2}\left(1+exp(-2n)\right)|\braket{\psi^{(k)}_{i}|\psi^{(k)}_{t}} | \le \frac{1}{2}\left( exp(-n) + exp(-3n) \right) 
-  \end{split}
-\end{equation*}
-But we have bound for also $\{i,j\} \times \{s,t\}$ so in general: 
-\begin{equation*}
-  \begin{split}
-    \le & 4 \cdot  \frac{1}{2}\left( exp(-n) + exp(-3n) \right) \sim 2exp(-n)  \\
-    \le & 2 \cdot \left( K(k,n) + K(k,n)^{3} \right) 
+    |\braket{\psi^{(k+1)}_{i}|\psi^{(k+1)}_{t}}| =& | \frac{
+      \bra{\psi^{(k)}_{i}}\bra{\psi^{(k)}_{j}}+\bra{\psi^{(k)}_{j}}\bra{\psi^{(k)}_{i}}
+    }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}}|^2 } \cdot \frac{
+      \ket{\psi^{(k)}_{t}}\ket{\psi^{(k)}_{s}}+\ket{\psi^{(k)}_{s}}\ket{\psi^{(k)}_{t}}
+    }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{t}|\psi^{(k)}_{s}}}|^2 } | \\
+    \le & \frac{1}{2+2exp(-2n)}\cdot \sum_{\{v,u\} =
+    \{i,j\},\{v^{\prime},u^{\prime}\} = \{t,s\}}{
+      |\braket{\psi^{(k)}_{v}|\psi^{(k)}_{v^{\prime}}}
+    \braket{\psi^{(k)}_{u}|\psi^{(k)}_{u^{\prime}}}|} \\
+    \le &\frac{1}{2+2exp(-2n)} \cdot 4 exp(-2n)
   \end{split}
 \end{equation*}
 
 \begin{equation*}
   \begin{split}
-    & | \left(\sum \sqrt{p_{i}} \bra{\psi_{i}}   \right)\ket{\tau^{\perp}}\bra{\tau^{\perp}} \left( q_{j} \ket{\psi_{j}}  \right) | \le \sum_{ij}\sqrt{p_{i}q_{j}}|\braket{\psi_{i}|\tau^{\perp}}\braket{\tau^{\perp}|\psi_{j}}| \\
-    \le & \sqrt{2^{k}\cdot 2^{k}} \max |\braket{\psi_{i}|\tau^{\perp}}\braket{\tau^{\perp}|\psi_{j}}| \cdot \sum_{i,j}p_{i}q_{j} \le 2^{k}\cdot exp(-n)
-   \end{split}
-\end{equation*}
-
-
-\begin{equation*}
-  \begin{split}
-    \ket{\tau}\bra{\tau} \otimes I & \frac{ \ket{\psi^{(k)}_{i}}\ket{\psi^{(k)}_{j}}+\ket{\psi^{(k)}_{j}}\ket{\psi^{(k)}_{i}} }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}}|^2 } \\ 
-    \mapsto &  \frac{ \braket{\tau|\psi^{(k)}_{i}}\ket{\tau}\ket{\psi^{(k)}_{j}}+\braket{\tau|\psi^{(k)}_{j}}\ket{\tau}\ket{\psi^{(k)}_{i}} }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}}|^2 }
+    |\frac{ 1 + |\braket{\psi^{(k)}_{j}|\psi^{(k)}_{i}}|^2 }{ \sqrt{2 + 2
+    |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}}|^2 }\bra{\psi^{(k)}_{i}} & \cdot
+    \frac{ 1 + |\braket{\psi^{(k)}_{s}|\psi^{(k)}_{t}}|^2 }{ \sqrt{2 + 2
+    |\braket{\psi^{(k)}_{t}|\psi^{(k)}_{s}}}|^2 }\ket{\psi^{(k)}_{t}} | \\
+    \le &\frac{1}{2} \sqrt{1 + |\braket{\psi^{(k)}_{j}|\psi^{(k)}_{i}}|^2}
+    \sqrt{1 + |\braket{\psi^{(k)}_{s}|\psi^{(k)}_{t}}|^2}\cdot |
+    \braket{\psi^{(k)}_{i}|\psi^{(k)}_{t}} | \\
+    \le &
+    \frac{1}{2}\left(1+exp(-2n)\right)|\braket{\psi^{(k)}_{i}|\psi^{(k)}_{t}} |
+    \le \frac{1}{2}\left( exp(-n) + exp(-3n) \right)
   \end{split}
 \end{equation*}
-Thus we obtain: 
+But we have bound for also $\{i,j\} \times \{s,t\}$ so in general:
 \begin{equation*}
   \begin{split}
-    | \braket{\tau|\star}|^{2}  = & \left(2 + 2 |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}|^2\right)^{-1} \cdot \left( | \braket{\tau|\psi^{(k)}_{i}}|^{2} + | \braket{\tau|\psi^{(k)}_{j}}|^{2}  + \braket{\tau|\psi^{(k)}_{i}}\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}\braket{\psi^{(k)}_{j}|\tau}\right) \\
-    = & \left(2 + 2 |\bra{\psi^{(k)}_{i}}\left( \ket{\tau}\bra{\tau}+ \ket{\tau^{\perp}}\bra{\tau^{\perp}} \right)\ket{\psi^{(k)}_{j}}|^2\right)^{-1} \cdot \\
-    & \cdot \ \ \left( | \braket{\tau|\psi^{(k)}_{i}}|^{2} + | \braket{\tau|\psi^{(k)}_{j}}|^{2}  + \braket{\tau|\psi^{(k)}_{i}}\bra{\psi^{(k)}_{i}}\left( \ket{\tau}\bra{\tau}+ \ket{\tau^{\perp}}\bra{\tau^{\perp}} \right)\ket{\psi^{(k)}_{j}}\braket{\psi^{(k)}_{j}|\tau}\right) \\
+    \le & 4 \cdot  \frac{1}{2}\left( exp(-n) + exp(-3n) \right) \sim 2exp(-n)
+    \\
+    \le & 2 \cdot \left( K(k,n) + K(k,n)^{3} \right)
   \end{split}
 \end{equation*}
-Denote $\xi_{k} = |\braket{\psi^{(k)}_{i}|\tau^{\perp}}\braket{\tau^{\perp}|\psi^{(k)}_{j}}|^2$ so the above simplifed into:
+
 \begin{equation*}
   \begin{split}
-    \ge & \left(2 + 2 |\braket{\psi^{(k)}_{i}|\tau}|^2|\braket{\tau|\psi^{(k)}_{j}}|^2 + \xi_{k}\right)^{-1} \cdot \\
-    & \cdot \ \ \left( | \braket{\tau|\psi^{(k)}_{i}}|^{2} + | \braket{\tau|\psi^{(k)}_{j}}|^{2}  + 2 |\braket{\psi^{(k)}_{i}|\tau}|^2|\braket{\tau|\psi^{(k)}_{j}}| - \sqrt{\xi_{k}}\right) \\
-    a_{k+1} \ge &  \frac{1}{2}\cdot \frac{a_{k}+b_{k}+2a_{k}b_{k} - \sqrt{\xi_{k}}}{1 + a_{k}b_{k} + \xi_{k}} \approx \frac{a_{k}+a_{k}^{2}}{1 + a_{k}^{2}} = a_{k}\left( \frac{1 + a_{k}}{1 + a_{k}^{2}} \right) \ge a_{k}\left( 1 + \frac{1}{2}a_{k} \right) 
+    & | \left(\sum \sqrt{p_{i}} \bra{\psi_{i}}
+    \right)\ket{\tau^{\perp}}\bra{\tau^{\perp}} \left( q_{j} \ket{\psi_{j}}
+    \right) | \le
+    \sum_{ij}\sqrt{p_{i}q_{j}}|\braket{\psi_{i}|\tau^{\perp}}\braket{\tau^{\perp}|\psi_{j}}|
+    \\
+    \le & \sqrt{2^{k}\cdot 2^{k}} \max
+    |\braket{\psi_{i}|\tau^{\perp}}\braket{\tau^{\perp}|\psi_{j}}| \cdot
+    \sum_{i,j}p_{i}q_{j} \le 2^{k}\cdot exp(-n)
+  \end{split}
+\end{equation*}
+
+\begin{equation*}
+  \begin{split}
+    \ket{\tau}\bra{\tau} \otimes I & \frac{
+      \ket{\psi^{(k)}_{i}}\ket{\psi^{(k)}_{j}}+\ket{\psi^{(k)}_{j}}\ket{\psi^{(k)}_{i}}
+    }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}}|^2 } \\
+    \mapsto &  \frac{
+      \braket{\tau|\psi^{(k)}_{i}}\ket{\tau}\ket{\psi^{(k)}_{j}}+\braket{\tau|\psi^{(k)}_{j}}\ket{\tau}\ket{\psi^{(k)}_{i}}
+    }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}}|^2 }
+  \end{split}
+\end{equation*}
+Thus we obtain:
+\begin{equation*}
+  \begin{split}
+    | \braket{\tau|\star}|^{2}  = & \left(2 + 2
+    |\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}|^2\right)^{-1} \cdot \left( |
+      \braket{\tau|\psi^{(k)}_{i}}|^{2} + | \braket{\tau|\psi^{(k)}_{j}}|^{2}  +
+    \braket{\tau|\psi^{(k)}_{i}}\braket{\psi^{(k)}_{i}|\psi^{(k)}_{j}}\braket{\psi^{(k)}_{j}|\tau}\right)
+    \\
+    = & \left(2 + 2 |\bra{\psi^{(k)}_{i}}\left( \ket{\tau}\bra{\tau}+
+        \ket{\tau^{\perp}}\bra{\tau^{\perp}}
+    \right)\ket{\psi^{(k)}_{j}}|^2\right)^{-1} \cdot \\
+    & \cdot \ \ \left( | \braket{\tau|\psi^{(k)}_{i}}|^{2} + |
+      \braket{\tau|\psi^{(k)}_{j}}|^{2}  +
+      \braket{\tau|\psi^{(k)}_{i}}\bra{\psi^{(k)}_{i}}\left(
+        \ket{\tau}\bra{\tau}+
+        \ket{\tau^{\perp}}\bra{\tau^{\perp}}
+    \right)\ket{\psi^{(k)}_{j}}\braket{\psi^{(k)}_{j}|\tau}\right) \\
+  \end{split}
+\end{equation*}
+Denote $\xi_{k} =
+|\braket{\psi^{(k)}_{i}|\tau^{\perp}}\braket{\tau^{\perp}|\psi^{(k)}_{j}}|^2$
+so the above simplifed into:
+\begin{equation*}
+  \begin{split}
+    \ge & \left(2 + 2
+      |\braket{\psi^{(k)}_{i}|\tau}|^2|\braket{\tau|\psi^{(k)}_{j}}|^2 +
+    \xi_{k}\right)^{-1} \cdot \\
+    & \cdot \ \ \left( | \braket{\tau|\psi^{(k)}_{i}}|^{2} + |
+      \braket{\tau|\psi^{(k)}_{j}}|^{2}  + 2
+      |\braket{\psi^{(k)}_{i}|\tau}|^2|\braket{\tau|\psi^{(k)}_{j}}| -
+    \sqrt{\xi_{k}}\right) \\
+    a_{k+1} \ge &  \frac{1}{2}\cdot \frac{a_{k}+b_{k}+2a_{k}b_{k} -
+    \sqrt{\xi_{k}}}{1 + a_{k}b_{k} + \xi_{k}} \approx \frac{a_{k}+a_{k}^{2}}{1 +
+    a_{k}^{2}} = a_{k}\left( \frac{1 + a_{k}}{1 + a_{k}^{2}} \right) \ge
+    a_{k}\left( 1 + \frac{1}{2}a_{k} \right)
   \end{split}
 \end{equation*}
 
 \begin{equation*}
   \begin{split}
     & \ket{a} = \sum a_{xy}\ket{x}\ket{y} \\
-    & \ket{b} = \sum b_{xy}\ket{x}\ket{y} \\ 
-    & \braket{a^{1}|b^{1}} = \sum \frac{1}{n}a_{xy}^{*}b_{xz}\braket{xyz|xyz} = \sum a_{x}^{*}b_{x}
+    & \ket{b} = \sum b_{xy}\ket{x}\ket{y} \\
+    & \braket{a^{1}|b^{1}} = \sum \frac{1}{n}a_{xy}^{*}b_{xz}\braket{xyz|xyz} =
+    \sum a_{x}^{*}b_{x}
   \end{split}
 \end{equation*}
 
 
- 
 
- %\frac{ 1 + |\braket{\psi^{(k)}_{s}|\psi^{(k)}_{t}}|^2 }{ \sqrt{2 + 2 |\braket{\psi^{(k)}_{t}|\psi^{(k)}_{s}}}|^2 }\bra{\psi^{(k)}_{t}} 
+%\frac{ 1 + |\braket{\psi^{(k)}_{s}|\psi^{(k)}_{t}}|^2 }{ \sqrt{2 + 2
+% |\braket{\psi^{(k)}_{t}|\psi^{(k)}_{s}}}|^2 }\bra{\psi^{(k)}_{t}}
 
 \section{Monomial Synthesis.}
-Let's present how one can syntheisis monomial states by logartimic quantum depth. For rotation we are going to pick the set of partial hadamard $\{H^{v}\}_{|v| = k} $ defined as applying $H$ on each non zero cordiante of $v$, where $v$ satisfies $|v| = k = O(1)$. The monomial state defined to be: 
+Let's present how one can syntheisis monomial states by logartimic quantum
+depth. For rotation we are going to pick the set of partial hadamard
+$\{H^{v}\}_{|v| = k} $ defined as applying $H$ on each non zero cordiante of
+$v$, where $v$ satisfies $|v| = k = O(1)$. The monomial state defined to be:
 \begin{equation*}
   \begin{split}
     \ket{\mathbf{x}^{k}} = \eta \sum_{x}x^{k}\ket{x}
@@ -379,57 +589,67 @@ Now observes that:
 
 \begin{equation*}
   \begin{split}
-    H^{v}\ket{\mathbf{x}^{k}} = &  \eta \sum_{x}x^{k}H^{v}\ket{x_{v};  x_{\bar{v}}} \\
-    = &  \eta \frac{1}{2^{|v|/2}}\sum_{x}\sum_{z}x^{k}(-1)^{z \cdot x_{v}}\ket{z ; x_{\bar{v}}}\\ 
-    = &  \eta \frac{1}{2^{|v|/2}}\sum_{x_{\bar{v}}}\sum_{z} \left( \sum_{x_{v}} (x_{\bar{v}}+ x_{v})^{k}(-1)^{z \cdot x_{v}} \right) \ket{z ; x_{\bar{v}}} 
+    H^{v}\ket{\mathbf{x}^{k}} = &  \eta \sum_{x}x^{k}H^{v}\ket{x_{v};
+    x_{\bar{v}}} \\
+    = &  \eta \frac{1}{2^{|v|/2}}\sum_{x}\sum_{z}x^{k}(-1)^{z \cdot
+    x_{v}}\ket{z ; x_{\bar{v}}}\\
+    = &  \eta \frac{1}{2^{|v|/2}}\sum_{x_{\bar{v}}}\sum_{z} \left( \sum_{x_{v}}
+    (x_{\bar{v}}+ x_{v})^{k}(-1)^{z \cdot x_{v}} \right) \ket{z ; x_{\bar{v}}}
   \end{split}
 \end{equation*}
-So all the coffcients of $H^{v}\ket{\mathbf{x}^{k}}$ are real and thus $\sign \Rea \braket{x|H^{v}\mathbf{x}^{k}} = \sign \braket{x|H^{v}\mathbf{x}^{k}} $. Furthermore, the inner produt $ \bra{\Phi_{v,k} H^{v}\mathbf{x}^{k}}$ is a real number thus: 
+So all the coffcients of $H^{v}\ket{\mathbf{x}^{k}}$ are real and thus $\sign
+\Rea \braket{x|H^{v}\mathbf{x}^{k}} = \sign \braket{x|H^{v}\mathbf{x}^{k}} $.
+Furthermore, the inner produt $ \bra{\Phi_{v,k} H^{v}\mathbf{x}^{k}}$ is a
+real number thus:
 \begin{equation*}
   \begin{split}
-    |\braket{\Phi_{v,k} H^{v}\mathbf{x}^{k}}| = & | \sum_{x,y} \sign \braket{y|H^{v}\mathbf{x}^{k}} \cdot \braket{x|H^{v}\mathbf{x}^{k}} \braket{y|x} | \\
-  = & | \sum_{x} { | \braket{x|H^{v}\mathbf{x}^{k}} |} | =  \sum_{x} { | \braket{x|H^{v}\mathbf{x}^{k}} |} \\ 
-  = &  \eta \frac{1}{2^{(|v| + n)/2}}\sum_{x_{\bar{v}}}{\sum_{z}|\sum_{x_{v}}(x_{\bar{v}}+ x_{v})^{k}(-1)^{z \cdot x_{v}}|} \\
-  \ge &  \eta \frac{1}{2^{(|v| + n)/2}}\Theta\left( 2^{k\cdot(n-|v|)} \right)
+    |\braket{\Phi_{v,k} H^{v}\mathbf{x}^{k}}| = & | \sum_{x,y} \sign
+    \braket{y|H^{v}\mathbf{x}^{k}} \cdot \braket{x|H^{v}\mathbf{x}^{k}}
+    \braket{y|x} | \\
+    = & | \sum_{x} { | \braket{x|H^{v}\mathbf{x}^{k}} |} | =  \sum_{x} { |
+    \braket{x|H^{v}\mathbf{x}^{k}} |} \\
+    = &  \eta \frac{1}{2^{(|v| +
+    n)/2}}\sum_{x_{\bar{v}}}{\sum_{z}|\sum_{x_{v}}(x_{\bar{v}}+
+      x_{v})^{k}(-1)^{z
+    \cdot x_{v}}|} \\
+    \ge &  \eta \frac{1}{2^{(|v| + n)/2}}\Theta\left( 2^{k\cdot(n-|v|)} \right)
   \end{split}
 \end{equation*}
-Now observes that $\eta^{-2} = \sum_{x}x^{2k} = 2^{n\cdot(2k+1)}$, So $\eta^{-1} = 2^{n\cdot(k+\frac{1}{2})}$ and we get that: 
+Now observes that $\eta^{-2} = \sum_{x}x^{2k} = 2^{n\cdot(2k+1)}$, So
+$\eta^{-1} = 2^{n\cdot(k+\frac{1}{2})}$ and we get that:
 
 \begin{equation*}
   \begin{split}
     |\braket{\Phi_{v,k} H^{v}\mathbf{x}^{k}}| \ge  & \\
   \ge &  \frac{1}{2^{(|v| + n)/2}}\Theta\left( 2^{n/2-k|v|)} \right) \\
-= & \Theta\left( 2^{-(k+\frac{1}{2})|v|)} \right) = \Omega(1) 
-  \end{split}
+= & \Theta\left( 2^{-(k+\frac{1}{2})|v|)} \right) = \Omega(1)
+\end{split}
 \end{equation*}
 
-Orth': 
+Orth':
 \begin{equation*}
   \begin{split}
-  \frac{1}{2^{n}}&  \sum_{x_{\bar{v}},x_{\bar{u}}} \sign\left(  \sum_{x_{v}} (x_{v}+x_{\bar{v}})^{k}(-1)^{x_{\bar{u}}|_{v}\cdot x_{v}}  \right) \\
-  & \ \ \ \ \ \ \ \sign\left(  \sum_{x_{u}} (x_{u}+x_{\bar{u}})^{k}(-1)^{x_{\bar{v}}|_{u}\cdot x_{u}}  \right)
+    \frac{1}{2^{n}}&  \sum_{x_{\bar{v}},x_{\bar{u}}} \sign\left(  \sum_{x_{v}}
+    (x_{v}+x_{\bar{v}})^{k}(-1)^{x_{\bar{u}}|_{v}\cdot x_{v}}  \right) \\
+    & \ \ \ \ \ \ \ \sign\left(  \sum_{x_{u}}
+    (x_{u}+x_{\bar{u}})^{k}(-1)^{x_{\bar{v}}|_{u}\cdot x_{u}}  \right)
   \end{split}
 \end{equation*}
 
-
 \begin{definition}[pseudoentanglement]
-  existnass of two ensambels family such one is higly entanglment (means that for any bipartirtion of the qubits has high shmedit rank) while the other has low entanglment, meaning that there is an bipartition with low rank. And inaddition any computationally bounded machine can  not distingusih between the two.   
+  existnass of two ensambels family such one is higly entanglment (means that
+  for any bipartirtion of the qubits has high shmedit rank) while the other has
+  low entanglment, meaning that there is an bipartition with low rank. And
+  inaddition any computationally bounded machine can  not distingusih between
+  the two.
 \end{definition}
 
 \begin{definition}[publickey-pseudoentanglement]
-  same as pseudoentanglement but the description of the sates is callsical, for example the quantum circuit which generate the ensamble on the zero input. 
+  same as pseudoentanglement but the description of the sates is callsical, for
+  example the quantum circuit which generate the ensamble on the zero input.
 \end{definition}
-
-
-
 
 \printbibliography
 
 \end{document}
-
-
-
-
-
-
 
