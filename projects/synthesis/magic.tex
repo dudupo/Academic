@@ -62,13 +62,11 @@ $T$ if $w_{i}$ is $1$ and identity otherwise. And finally by $D$ denote the gate
   Let $Q$ the CSS code, obtained by taking the \Hyp of $\Cin$ with itself. So $Q$ is an quantum qLDPC code with parameters $[n, \Theta(n^{\frac{1}{4}}), \Theta(n)]$. Pick $x_{0}$ and $w \in \mathbb{F}_{2}^{n}$ , which correspond to the supports of anti commute $X$ and $Z$ generators, such that $w$ can be obtains by setting a codeword of $\Ctan$ on the first $n^{\frac{1}{4}}$ bits and padding by zeros the rest. Clearly, $|w| = \Theta(n^{\frac{1}{4}})$.
 
   Now for defying $\text{span }\mathcal{X}$, we are going to consider the parity checks matrix obtained by adding restrictions to $C_{X}$ restrictions as follows: Divide the first $n^{\frac{1}{4}}$ bits into $\Delta$-size buckets: 
-
-
   \begin{equation*}
     \begin{split}
       B_{1} = \{x_{1}, x_{2}, ..,x_{\Delta}\}, B_{2} = \{x_{\Delta + 1}, x_{\Delta + 2}, ..,x_{2\Delta}\}, .., B_{i} = \{x_{(i-1)\Delta + 1}, x_{(i-1)\Delta + 2}, ..,x_{i\Delta}\}, .. 
     \end{split}
-  \end{equation*}<++>
+  \end{equation*}
 
    Then let $\text{span }\mathcal{X}$ be all the codewords of $\QQ$ satisfying $\tilde{C}_{0}$ restrictions for each bucket.
 \end{proof}
