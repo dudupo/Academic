@@ -55,10 +55,9 @@ Let $Q$ be the CSS code obtained by taking the \Hyp of $\Cin$ with itself. So, $
 
 In this work, we consider quantum circuits under the Clifford-free noise model. In this model, it is assumed that any of the Clifford gates, such as $S$, $H$, and $CZ$, can be applied perfectly. Additionally, the circuits have access to noisy magic states at an error rate of $p$, formulated as the mixed state $(1-p)\ket{T} + pZ\ket{T}$, where $p \in (0,1)$ is the probability that a given state is actually a faulty one and $\ket{T}= \frac{1}{\sqrt{2}}(\ket{0} + e^{i\frac{\pi}{4}}\ket{1})$ is a Magic State. Finally, the model allows for intermediate measurements and the application of Clifford gates controlled by the classical outcomes of the measurements. It has been shown that this model is quantum universal. The Magic State Distillation Protocol is a quantum circuit in the Clifford-free noise model that consumes $n$ noisy magic states at an error rate of $p$ and outputs $k$ independent magic states at an error rate of $\frac{1}{\varepsilon}$. Here, we show the existence and construction of protocols that consume $\sqrt{n}$ Magic States and produce, almost surely, $\Theta(n)$ perfect Magic States. We emphasize that the protocols output dependent states, i.e., if the protocol fails, then any of the $\Theta(n)$ outcomes is a faulty Magic state. This is why we put the phrase "Distillation" in quotation marks in the title.
 
-
 \begin{theorem}[$\sqrt{n} \rightarrow n$ 'Distillation']
   \label{theorem:main}
-  
+There exists is $p_0 \in (0,1)$ such that for the Clifford-free noise model with an error rate $p < p_{0}$, there is a family of circuits that, for sufficiently large $n$, consume $\sqrt{n}$ noisy Magic States and with  probability greater than $1 - e^{-n^{1/8}}$ output $\Theta(n)$ perfect Magic States. Furthermore, both the width and depth of the circuits are linear in $n$.
 \end{theorem}
 \section{The Construction.}
 
