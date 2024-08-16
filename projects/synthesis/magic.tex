@@ -59,17 +59,8 @@ In this work, we consider quantum circuits under the Clifford-free noise model. 
   \label{theorem:main}
 There exists is $p_0 \in (0,1)$ such that for the Clifford-free noise model with an error rate $p < p_{0}$, there is a family of circuits that, for sufficiently large $n$, consume $\sqrt{n}$ noisy Magic States and with  probability greater than $1 - e^{-n^{1/8}}$ output $\Theta(n)$ perfect Magic States. Furthermore, both the width and depth of the circuits are linear in $n$.
 \end{theorem}
-\subsection{The Protocol's Description.} Consider $Q$ in the compatation base $\QQ$. Let $x_{0}$ be a codeword of $\QQ$,  Denote by $w \in \mathbb{F}_{2}^{n}$
-the binary string presents the $Z$-generator that anti commute with the
-$X$-generator corresponds to $x_{0}$. Let $\mathcal{X} = \{x_{0}, x_{1}, .. x_{k^\prime}\} \in \mathbb{F}_{2}^{n}$ be a
-subset of a base for the code $\QQ$. Such $\left(\text{ span } \mathcal{X}/x_0 \ \right)|_{w}$ is \trig code in respect to $C_{X}|_{w}$.  
-Let us denote by $\Mbas$ the base $\{ y_{1}, y_{2}, .., y_{k^\prime} \} \in
-\mathbb{F}_{2}^{n}$ defined such: $ y_{i} = x_{j} + x_{0}$. 
-
-Denote by $E$ the circuit that encodes the logical $ith$ bit to $y_{i}$, by $T^{(w)}$ the application of
-$T$ gates on the qubits for which both $w$ and $x_{0}$ act non trivial, means $T^{(w\cap x_0)}$ is a
-tensor product of $T$'s and identity where on the $i$th qubit $T^{(w)}$ apply
-$T$ if $w_{i}$ and $(x_{0})_{i}$ are both $1$ and identity otherwise. And finally by $D$ denote the gate that decode binary strings in $\mathbb{F}_{2}^{n}$ back into the logical space.
+\subsection{The Protocol's Description.} 
+Consider $Q$ in the computation base $\QQ$. Let $x_{0}$ be a codeword of $\QQ$. Denote by $w \in \mathbb{F}_{2}^{n}$ the binary string that represents the $Z$-generator that anti-commutes with the $X$-generator corresponding to $x_{0}$. Let $\mathcal{X} = \{x_{0}, x_{1}, .. x_{k^\prime}\} \in \mathbb{F}_{2}^{n}$ be a subset of a basis for the code $\QQ$. Such $\left(\text{span } \mathcal{X}/x_0 \ \right)|_{w}$ is a \trig code with respect to $C_{X}|_{w}$. Let us denote by $\Mbas$ the basis $\{ y_{1}, y_{2}, .., y_{k^\prime} \} \in \mathbb{F}_{2}^{n}$ defined as follows: $ y_{i} = x_{j} + x_{0}$. Denote by $E$ the circuit that encodes the $i$th logical bit to $y_{i}$, by $T^{(w)}$ the application of $T$ gates on the qubits for which $w$ acts non-trivially, meaning $T^{(w)}$ is a tensor product of $T$'s and identity where on the $i$th qubit $T^{(w)}$ applies $T$ if $w_{i}$ equals $1$, and identity otherwise. Finally, let $D$ denote the gate that decodes binary strings in $\mathbb{F}_{2}^{n}$ back into the logical space.
 
 Let $\ket{\Mbas} \propto \sum_{x \in \text{span } \Mbas }{\ket{x}}$.
 \section{Proof of Theorem 1.}
