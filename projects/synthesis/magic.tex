@@ -40,7 +40,7 @@ subset of a base for the code $\QQ$. Such $\left(\text{ span } \mathcal{X}/x_0 \
 Let us denote by $\Mbas$ the base $\{ y_{1}, y_{2}, .., y_{k^\prime} \} \in
 \mathbb{F}_{2}^{n}$ defined such: $ y_{i} = x_{j} + x_{0}$. 
 
-Denote by $E$ the circuit that encodes the logical $ith$ bit to $y_{i}$, by $T^{(w\cap x_{0})}$ the application of
+Denote by $E$ the circuit that encodes the logical $ith$ bit to $y_{i}$, by $T^{(w)}$ the application of
 $T$ gates on the qubits for which both $w$ and $x_{0}$ act non trivial, means $T^{(w\cap x_0)}$ is a
 tensor product of $T$'s and identity where on the $i$th qubit $T^{(w)}$ apply
 $T$ if $w_{i}$ and $(x_{0})_{i}$ are both $1$ and identity otherwise. And finally by $D$ denote the gate that decode binary strings in $\mathbb{F}_{2}^{n}$ back into the logical space.
@@ -101,7 +101,7 @@ Let $\ket{\Mbas} \propto \sum_{x \in \text{span } \Mbas }{\ket{x}}$.
   There is a family of quantum circuits $\mathcal{C}$ consists of Clifford gates and at most $o(\sqrt{n})$ number of $T$ gates such that: 
   \begin{equation*}
     \begin{split}
-      T^{(w\cap x_{0})}\ket{\Mbas + C_{Z}^{\perp}} \propto E \ \mathcal{C} \ \left(TH\right)^{\rho\left(\sMbas\right)n} \ket{0} 
+      T^{(w)}\ket{\Mbas + C_{Z}^{\perp}} \propto E \ \mathcal{C} \ \left(TH\right)^{\rho\left(\sMbas\right)n} \ket{0} 
     \end{split}
   \end{equation*}
 \end{claim}
@@ -110,12 +110,12 @@ Let $\ket{\Mbas} \propto \sum_{x \in \text{span } \Mbas }{\ket{x}}$.
 
   \begin{equation*}
     \begin{split}
-  \left|\tau\right|_{w\cap x_{0}} &= \left| x_{0} + y _ z  \right|_{w\cap x_{0}} \\
-  &= |x_{0}|_{w\cap x_{0}} + |y|_{w\cap x_{0}} +|z|_{w\cap x_{0}} - 2| x \cdot y |_{w\cap x_{0}} - 2| x \cdot z |_{w\cap x_{0}} -2| z \cdot y |_{w\cap x_{0}} + 4|x_{0}\cdot y \cdot z|_{w\cap x_{0}}  \\
-  &= |x_{0} \cdot w| + |y|_{w\cap x_{0}} +|z|_{w\cap x_{0}} - 2|y|_{w\cap x_{0}} - 2|z|_{w\cap x_{0}} -2| z \cdot y |_{w\cap x_{0}} + 4|y \cdot z|_{w\cap x_{0}}  
+  \left|\tau\right|_{w} &= \left| x_{0} + y _ z  \right|_{w} \\
+  &= |x_{0}|_{w} + |y|_{w} +|z|_{w} - 2| x \cdot y |_{w} - 2| x \cdot z |_{w} -2| z \cdot y |_{w} + 4|x_{0}\cdot y \cdot z|_{w}  \\
+  &= |x_{0} \cdot w| + |y|_{w} +|z|_{w} - 2|y|_{w} - 2|z|_{w} -2| z \cdot y |_{w} + 4|y \cdot z|_{w}  
     \end{split}
   \end{equation*}
-  Since we picked $\tilde{C}_{0} \in C_{0}^{\perp}$ then $y \cdot z|_{w\cap x_{0}} = 0$ $\Rightarrow |y \cdot z|_{w\cap x_{0}}|$ is even.
+  Since we picked $\tilde{C}_{0} \in C_{0}^{\perp}$ then $y \cdot z|_{w} = 0$ $\Rightarrow |y \cdot z|_{w}|$ is even.
 \end{proof}
 
 
