@@ -65,6 +65,7 @@ Consider the code $Q$, defined in \cref{def:thecode} in the computation base $\Q
  \Cref{claim:notempty} states that $\Mbas$ is not empty and even has linear size at $n$.
 
  Denote by $E$ the circuit that encodes the $i$th logical bit into $\ket{y_{i}+C_{Z}^{\perp}}$, By $T^{(w)}$ the application of $T$ gates on the qubits for which $w$ acts non-trivially, meaning $T^{(w)}$ is a tensor product of $T$'s and $I$'s where on the $i$th qubit $T^{(w)}$ applies $T$ if $w_{i}$ equals $1$, and identity otherwise. By $D$ denote the gate that decodes binary strings in $\mathbb{F}_{2}^{n}$ back into the logical space, $D$ is also responsible to correct errors.
+ Finally, denote by $\mathcal{C}$ a non Clifford gate, which contains at most $o(n^{\frac{1}{4}})$ Magic States, and by $\mathcal{D}$ an $n^{2}$-overhead  Magic Distillation Protocol, that consume $\Theta(\sqrt{n})$ magic and produce $O(n^\frac{1}{4})$ Magic States, with error rate less than $2^{-\alpha n}$.     
 
 \begin{figure}
   \label{fig:circ}
