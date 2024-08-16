@@ -66,6 +66,13 @@ Consider the code $Q$, defined in \cref{def:thecode} in the computation base $\Q
 
 Denote by $E$ the circuit that encodes the $i$th logical bit to $y_{i}$, by $T^{(w)}$ the application of $T$ gates on the qubits for which $w$ acts non-trivially, meaning $T^{(w)}$ is a tensor product of $T$'s and $I$'s where on the $i$th qubit $T^{(w)}$ applies $T$ if $w_{i}$ equals $1$, and identity otherwise. Finally, let $D$ denote the gate that decodes binary strings in $\mathbb{F}_{2}^{n}$ back into the logical space.
 
+\begin{figure}
+  \label{fig:circ}
+\noindent\includegraphics{example-image-c} 
+\caption{ The circuit.   }
+\end{figure}
+
+
 Let $\ket{\Mbas} \propto \sum_{x \in \text{span } \Mbas }{\ket{x}}$.
 \section{Proof of Theorem 1.}
 \begin{claim}
