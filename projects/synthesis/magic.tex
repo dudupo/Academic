@@ -46,6 +46,11 @@ In this paper, we define the triple product $\mathbb{F}_2^{n}\times \mathbb{F}_2
   \end{enumerate}
 \end{definition}
 
+\begin{definition}
+  Let $\Delta$ be a constant integer, $C_{0},\tilde{C}_{0}$ codes over $\Delta$ bits such $\tilde{C}_{0}$ is \trig in respect to $C^{\perp}_{0}$, $C_{0}$ has parameters $\Delta[1,\delta_{0},\rho_{0}]$, and $C_{0}^\top$ has relative distance greater than $\delta_{0}$. Let $\Ctan$ be a Tanner code, defined by taking an expander graph with good expansion and $C_{0}$ as the small code. Let $\Cin$ be the dual-tensor code obtained by taking $(\Ctan^\perp \otimes \Ctan^\perp )^\perp$. Notes that first this code has positive rate and $\Theta(\sqrt{n})$ distance, second this code is an LDPC code as well. Notice also that $\Cin^{\top}$ obtained by transporting the parity check matrix, and therefore equals to  $(\Ctan^{\top, \perp} \otimes \Ctan^{\top, \perp} )^\perp$. Hence $\Cin^{\top}$ has a square root distance as well.
+
+  Let $Q$ the CSS code, obtained by taking the \Hyp of $\Cin$ with itself. So $Q$ is an quantum qLDPC code with parameters $[n, \Theta(n^{\frac{1}{4}}), \Theta(n)]$.
+\end{definition}
 \section{The Construction.}
 
 Let $x_{0}$ be a codeword of $\QQ$,  Denote by $w \in \mathbb{F}_{2}^{n}$
@@ -62,11 +67,6 @@ $T$ if $w_{i}$ and $(x_{0})_{i}$ are both $1$ and identity otherwise. And finall
 
 Let $\ket{\Mbas} \propto \sum_{x \in \text{span } \Mbas }{\ket{x}}$.
 \section{Proof of Theorem 1.}
-\begin{definition}
-  Let $\Delta$ be a constant integer, $C_{0},\tilde{C}_{0}$ codes over $\Delta$ bits such $\tilde{C}_{0}$ is \trig in respect to $C^{\perp}_{0}$, $C_{0}$ has parameters $\Delta[1,\delta_{0},\rho_{0}]$, and $C_{0}^\top$ has relative distance greater than $\delta_{0}$. Let $\Ctan$ be a Tanner code, defined by taking an expander graph with good expansion and $C_{0}$ as the small code. Let $\Cin$ be the dual-tensor code obtained by taking $(\Ctan^\perp \otimes \Ctan^\perp )^\perp$. Notes that first this code has positive rate and $\Theta(\sqrt{n})$ distance, second this code is an LDPC code as well. Notice also that $\Cin^{\top}$ obtained by transporting the parity check matrix, and therefore equals to  $(\Ctan^{\top, \perp} \otimes \Ctan^{\top, \perp} )^\perp$. Hence $\Cin^{\top}$ has a square root distance as well.
-
-  Let $Q$ the CSS code, obtained by taking the \Hyp of $\Cin$ with itself. So $Q$ is an quantum qLDPC code with parameters $[n, \Theta(n^{\frac{1}{4}}), \Theta(n)]$.
-\end{definition}
 \begin{claim}
   There exists family of non-trivial distance quantum LDPC codes $Q$ such the codes $\sMbas$ chosen respect to them has a positive rate. Furthermore, the rate of $\sMbas$ is a asymptotically converges to $Q$ rate:
   \begin{equation*}
