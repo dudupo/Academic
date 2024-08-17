@@ -135,7 +135,7 @@ Let $\ket{\Mbas} \propto \sum_{x \in \text{span } \Mbas }{\ket{x}}$.
   \begin{equation*}
     \begin{split}
       \left|\tau\right|_{w} &= \left| \sum_{g \in \Lambda}{ X_{g}g }\right|_{w} \\
-      &= \sum_{g\in \Lambda}{|g|_{w}} - 2\sum_{g,h\in \Lambda \times \Lambda}{|g \cdot h |_{w}}+ 4\sum_{g, h, k\in \Lambda \times \Lambda \times \Lambda }{|g \cdot h \cdot k |_{w}}  \\
+      &= \sum_{g\in \Lambda}{X_{g}|g|_{w}} - 2\sum_{g,h\in \Lambda \times \Lambda}{X_{g}X_{h}|g \cdot h |_{w}}+ 4\sum_{g, h, k\in \Lambda \times \Lambda \times \Lambda }{X_{g}X_{h}X_{k}|g \cdot h \cdot k |_{w}}  \\
   &= |x_{0} \cdot w| + |y|_{w} +|z|_{w} - 2|y|_{w} - 2|z|_{w} -2| z \cdot y |_{w} + 4|y \cdot z|_{w}  
     \end{split}
   \end{equation*}
