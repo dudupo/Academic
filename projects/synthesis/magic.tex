@@ -144,13 +144,14 @@ Let $\ket{\Mbas} \propto \sum_{x \in \text{span } \Mbas }{\ket{x}}$.
     \item $i\frac{\pi}{4}2|y_{i}\cdot g|_{w} \rightarrow c \cdot i\pi$ and therefore can computed by applying logical $CZ_{y_{i},g}$.
     \item $i\frac{\pi}{4}4|y_{i}\cdot g \cdot h |_{w} \rightarrow c \cdot i2\pi$ and therefore such terms don't add phase at all.
   \end{enumerate}
-So, only multiplications of generators which are either $x_{0}$ generator or $C^{\perp}$ generators might contribute a non-Clifford phase. Notice that as $x_{0}$ and $w$ are anti commute, we have that $|x|_{w}=1$, Hence $i\frac{\pi}{4}|x_{w}|$ contribute the phase of the logical $T_{x_{0}}$ up to logical $S_{x_{0}},S^{\dagger}_{x_{0}}$. In addition observes that any a singleton $i\frac{\pi}{4}|z_{i}|_{w}$ contribute a phase of a gate composed by at most single logical $T_{z_{i}}$, and any pair $i\frac{\pi}{4}2|' z_{j} \text{ OR } x_{0}'\cdot z_{i}|_{w}$ and triple $i\frac{\pi}{4}4|' z_{j} \text{ OR } x_{0}'\cdot z_{i} \cdot z_{k}|_{w}$ contribute the phase of logical $CS, CCZ$ and therefore each of them can be computed by at most $O(1)$ logical $T$'s gates. So in overall we can get the rough upper bound on the number of logical $T$ required to uncompute the phase of 
+
+So, only multiplications of generators which are either the $x_{0}$ generator or $C^{\perp}$ generators might contribute a non-Clifford phase. Notice that since $x_{0}$ and $w$ anti-commute, we have that $|x|_{w}=1$. Hence, $i\frac{\pi}{4}|x_{w}|$ contributes the phase of the logical $T_{x_{0}}$ up to logical $S_{x_{0}},S^{\dagger}_{x_{0}}$. Additionally, observe that any singleton $i\frac{\pi}{4}|z_{i}|_{w}$ contributes a phase of a gate composed of at most a single logical $T_{z_{i}}$, and any pair $i\frac{\pi}{4}2|' z_{j} \text{ OR } x_{0}'\cdot z_{i}|_{w}$ and triple $i\frac{\pi}{4}4|' z_{j} \text{ OR } x_{0}'\cdot z_{i} \cdot z_{k}|_{w}$ contribute the phase of logical $CS, CCZ$, respectively. Therefore, each of them can be computed by at most $O(1)$ logical $T$ gates. Overall, we can get a rough upper bound on the number of logical $T$ gates required to uncompute the phase:
 \begin{equation*}
   \begin{split}
 i\frac{\pi}{4} \left(|X_{x_{0}}x_{0} + \sum_{z_i \in \text{ base } C_{Z}^{\perp}}{X_{z_{i}}}|_{w} - |X_{x_{0}}x_{0}|_{w} \right)
   \end{split}
 \end{equation*}
-by a most: 
+by at most: 
 \begin{equation*}
   \begin{split}
     \le c \left( 1 + \left| \{z_{i} \in \text{ base } C_{Z}^{\perp}  : z_{i}|_{w} \neq 0 \} \right| \right)^{3}
