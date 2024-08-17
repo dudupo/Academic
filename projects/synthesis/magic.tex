@@ -136,10 +136,14 @@ Let $\ket{\Mbas} \propto \sum_{x \in \text{span } \Mbas }{\ket{x}}$.
     \begin{split}
       \left|\tau\right|_{w} &= \left| \sum_{g \in \Lambda}{ X_{g}g }\right|_{w} \\
       &= \sum_{g\in \Lambda}{X_{g}|g|_{w}} - 2\sum_{g,h\in \Lambda \times \Lambda}{X_{g}X_{h}|g \cdot h |_{w}}+ 4\sum_{g, h, k\in \Lambda \times \Lambda \times \Lambda }{X_{g}X_{h}X_{k}|g \cdot h \cdot k |_{w}}  \\
-  &= |x_{0} \cdot w| + |y|_{w} +|z|_{w} - 2|y|_{w} - 2|z|_{w} -2| z \cdot y |_{w} + 4|y \cdot z|_{w}  
     \end{split}
   \end{equation*}
-  Since we picked $\tilde{C}_{0} \in C_{0}^{\perp}$ then $y \cdot z|_{w} = 0$ $\Rightarrow |y \cdot z|_{w}|$ is even.
+  
+  Since $\text{ span } \mathcal{X}|_{w}$ is \trig with respect to $C_{X}|_{w}$ all the terms above that involve multiplication of at least one element in $\mathcal{X}$ is even, and therefore those terms add a phases that can be computed by Clifford gate:\begin{enumerate}
+    \item $i\frac{\pi}{4}|y_{i}|_{w} \rightarrow c \cdot i\frac{\pi}{2}$ and there fore can computed by applying logical $S_{y_{i}}$.
+    \item $i\frac{\pi}{4}2|y_{i}\cdot g|_{w} \rightarrow c \cdot i\pi$ and there fore can computed by applying logical $CZ_{y_{i},g}$.
+    \item $i\frac{\pi}{4}4|y_{i}\cdot g \cdot h |_{w} \rightarrow c \cdot i2\pi$ and therefore such terms don't add phase at all.
+  \end{enumerate}
 \end{proof}
 
 
