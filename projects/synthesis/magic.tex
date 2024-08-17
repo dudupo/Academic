@@ -131,12 +131,11 @@ Let $\ket{\Mbas} \propto \sum_{x \in \text{span } \Mbas }{\ket{x}}$.
   \end{equation*}
 \end{claim}
 \begin{proof}
-  Let $\tau \in \sMbas + C_{Z}^\perp$, applying $T^{(w)}$ on $\ket{\tau}$ add a phase of $i\frac{\pi}{4}\left|\tau\right|_{w}$. Notice that $\tau$ can decompose to the sum of  $x_{0} + \sum_{y_{i} \in \mathcal{X}}{X_{y_{i}}y_{i}} + \sum_{z_{i} \in \text{ base }C_{Z}^{\perp}}{X_{z_{i}}z_{i}}$ when $y \in \text{ span } \mathcal{X}$ and $z\in C_{Z}^{\perp}$, so 
-
+  Let $\tau \in \sMbas + C_{Z}^\perp$, applying $T^{(w)}$ on $\ket{\tau}$ add a phase of $i\frac{\pi}{4}\left|\tau\right|_{w}$. Notice that $\tau$ can decompose to the sum of  $X_{x_{0}}x_{0} + \sum_{y_{i} \in \mathcal{X}}{X_{y_{i}}y_{i}} + \sum_{z_{i} \in \text{ base }C_{Z}^{\perp}}{X_{z_{i}}z_{i}}$ when $X_{g}$ is the indicator that equals 1 if the generator $g$ supports $\tau$. Let us denote by $\Lambda$ the union of the generators. So:
   \begin{equation*}
     \begin{split}
-  \left|\tau\right|_{w} &= \left| x_{0} + y _ z  \right|_{w} \\
-  &= |x_{0}|_{w} + |y|_{w} +|z|_{w} - 2| x \cdot y |_{w} - 2| x \cdot z |_{w} -2| z \cdot y |_{w} + 4|x_{0}\cdot y \cdot z|_{w}  \\
+      \left|\tau\right|_{w} &= \left| \sum_{g \in \Lambda}{ X_{g}g }\right|_{w} \\
+      &= \sum_{g\in \Lambda}{|g|_{w}} - 2\sum_{g,h\in \Lambda \times \Lambda}{|g \cdot h |_{w}}+ 4\sum_{g, h, k\in \Lambda \times \Lambda \times \Lambda }{|g \cdot h \cdot k |_{w}}  \\
   &= |x_{0} \cdot w| + |y|_{w} +|z|_{w} - 2|y|_{w} - 2|z|_{w} -2| z \cdot y |_{w} + 4|y \cdot z|_{w}  
     \end{split}
   \end{equation*}
