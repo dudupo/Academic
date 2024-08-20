@@ -125,6 +125,7 @@ Let $\ket{\Mbas} \propto \sum_{x \in \text{span } \Mbas }{\ket{x}}$.
 \end{remark}
 
 \begin{claim}
+  \label{Claim:flift}
   There is a family of quantum circuits $\mathcal{C}$ consists of Clifford gates and at most $O(n^{3/4})$ number of $T$ gates such that: 
   \begin{equation*}
     \begin{split}
@@ -167,11 +168,14 @@ Since $Q$ is LDPC code, any bit of it, participate in a constant number of check
   \end{split}
 \end{equation*}
 Let $\mathcal{C}$ the gate which compute those phases in the logical space. 
-
-  
 \end{proof}
 
-
+\begin{claim}
+  There is a family of quantum circuits $\mathcal{C}$ consists of Clifford gates and at most $o(\sqrt{n})$ number of $T$ gates, and produce $\Theta(n)$ $T$ states. 
+\end{claim}
+\begin{proof}
+  Chain recursively the protocol in \Cref{Claim:flift} for $\log_{(1 + \frac{1}{3})}{2}$ times.
+\end{proof}
 % Notice , So $x_{0}\cdot w = 1$ and for any other
 %$x^\prime \in \mathcal{X}/x_{0}$ it holds that $x^{\prime}\cdot w = 0 $.
 
