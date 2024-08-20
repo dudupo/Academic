@@ -69,10 +69,15 @@ Consider the code $Q$, defined in \cref{def:thecode} in the computation base $\Q
 
 \begin{figure}
   \label{fig:circ}
-\noindent\includegraphics{example-image-c} 
+  \noindent %\includegraphics{example-image-c} 
+\begin{quantikz}
+\lstick{\ket{0}} & \gate{U} &
+\gate[2]{\sqrt{\textsc{swap}}} &\rstick[2]{out} \\
+\lstick[2]{input} & \gate[2]{V} && \\
+& & & \rstick{$\frac{1}{\sqrt{2}}$}
+\end{quantikz}
 \caption{ The circuit.   }
 \end{figure}
-
 
 Let $\ket{\Mbas} \propto \sum_{x \in \text{span } \Mbas }{\ket{x}}$.
 \section{Proof of Theorem 1.}
