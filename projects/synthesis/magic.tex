@@ -50,13 +50,13 @@ Quantum LDPC Codes. }
 \begin{proof}
   Pick $x_{0}$ and $w \in \mathbb{F}_{2}^{n}$ , which correspond to the supports of anti commute $X$ and $Z$ generators, such that $w$ can be obtains by setting a codeword of $\Ctan$ on the first $n^{\frac{1}{4}}$ bits and padding by zeros the rest. Clearly, $|w| = \Theta(n^{\frac{1}{4}})$. Denote by $\Gamma(w)$ vertices supports $w$ in the graph used to define $\Ctan$.  
 
-  Now for defying $\text{span }\bas$, we are going to consider the parity checks matrix obtained by adding restrictions to $C_{X}$'s restrictions as follows: For any $\Delta$-bits correspond to a local view of vertex $v \in \Gamma(w)$ add restrictions of $\tilde{C}_{0}$. Then $\text{span }\bas$ is the subspace of $\QQ$ satisfying $\tilde{C}_{0}$ restrictions for $v \in \Gamma(w)$, Let us name the union of $\tilde{C}_{0}$ restrictions over the buckets by $B$ and observe that $|B| \le |w| \cdot \Delta$. The dimension of the space satisfies both $C_{X}$ restrictions and $B$ is at least:
+  Now for defying $\text{span }\bas$, we are going to consider the parity checks matrix obtained by adding restrictions to $C_{X}$'s restrictions as follows: For any $\Delta$-bits correspond to a local view of vertex $v \in \Gamma(w)$ add restrictions of $\tilde{C}_{0}$. Then $\text{span }\bas$ is the subspace of $\QQ$ satisfying $\tilde{C}_{0}$. Hence, the dimension of $\bas$ is bounded by below by: 
   \begin{equation*}
     \begin{split}
-      \rho(C_{X})\cdot n - |B|\cdot (1 - \rho(\tilde{C}_{0}))\Delta \ge \rho(C_{X})\cdot n - \Delta \cdot n^{\frac{1}{4}}
+      \rho(C_{X})\cdot n - |\Gamma(w)|\cdot (1 - \rho(\tilde{C}_{0}))\Delta \ge \rho(C_{X})\cdot n - \Delta \cdot n^{\frac{1}{4}}
     \end{split}
   \end{equation*}
-  And by the fact that the dimension of $C_{Z}^\perp$'s codewords satisfying $B$ is strictly lower then $\dim C_{Z}^\perp$, we get the following lower bound:
+  And by the fact that the dimension of $C_{Z}^\perp$'s codewords satisfying $\tilde{C}_{0}$ on $\Gamma(w)$ local views is strictly lower then $\dim C_{Z}^\perp$, we get the following lower bound:
   \begin{equation*}
     \begin{split}
       \dim \text{span } \bas & \ge \rho(C_{X})\cdot n - \Delta \cdot n^{\frac{1}{4}} + \rho(C_{Z})\cdot n - n \\
