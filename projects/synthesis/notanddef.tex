@@ -89,7 +89,12 @@ The main advantage of using the dual-tensor and \Hyp is that their bases can be 
 
 \begin{definition}
   \label{def:subcode}  
-  Consider the code $Q$, defined in \cref{def:thecode} in the computation base $\QQ$. Let $x_{0}$ be a lifted codeword \Cref{def:lifted} of $\QQ$. Denote by $w \in \mathbb{F}_{2}^{n}$ the binary string that represents the $Z$-generator that anti-commutes with the $X$-generator corresponding to $x_{0}$. Clearly, $w$ is also lifted codeword. Let $\mathcal{X} \subset \QQ $ be the code spanned by a basis $ \{x_{0}, x_{1}, .. x_{k^\prime}\} \in \mathbb{F}_{2}^{n}$ such $\left( \mathcal{X}/x_0 \ \right)|_{w}$ is a \trig code with respect to $C_{X}/C_{Z}^{\perp}|_{w}$. Let us denote by $\Mbas$ the basis $\{ y_{1}, y_{2}, .., y_{k^\prime} \} \in \mathbb{F}_{2}^{n}$ defined as follows: $ y_{i} = x_{j} + x_{0}$.
+  Consider the code $Q$, defined in \cref{def:thecode} in the computation base $\QQ$. Let $x_{0}$ be a lifted codeword \Cref{def:lifted} of $\QQ$. Denote by $w \in \mathbb{F}_{2}^{n}$ the binary string that represents the $Z$-generator that anti-commutes with the $X$-generator corresponding to $x_{0}$. Clearly, $w$ is also lifted codeword. Let $\mathcal{X} \subset \QQ $ be the code spanned by a basis $ \{x_{0}, x_{1}, .. x_{k^\prime}\} \in \mathbb{F}_{2}^{n}$ such $\left( \mathcal{X}/x_0 \ \right)|_{w}$ is a \trig code with respect to $C_{X}/C_{Z}^{\perp}|_{w}$. Let us denote by $\Mbas$ the code spanned by the basis $\{ y_{1}, y_{2}, .., y_{k^\prime} \} \in \mathbb{F}_{2}^{n}$ defined as:
+  \begin{equation*}
+    \begin{split}
+ y_{i} = x_{i} + x_{0}
+    \end{split}
+  \end{equation*}
 \end{definition}
 
  \Cref{claim:notempty} states that $\Mbas$ is not empty and even has linear size at $n$.
