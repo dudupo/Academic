@@ -54,9 +54,8 @@ Before presenting the code we need to prove the following claim:
 \begin{claim}
   Let $\Ctan$ be a Tanner code defined by a graph with algebraic expansion $\lambda \Delta$, Suppose that both $C_{0}$ and $C_{0}^{\perp}$ have realtive distance greater than $\delta > \lambda$. Then $\Ctan^{\top}$ has a linear distance.
 \end{claim}
-The proof is simplified version of Lemma 3 proof in \cite{Pavel}. 
 \begin{proof}
-  Denote by $H^\top$ the parity check matrix of $\Ctan^\top$. Observes that $H^\top$ can obtained by transposing any of the local parity check matrices of $C_0$, hence the action of $H^{\top}$ on $\mathbb{F}_{2}^{n-k}$ is multiplying $C_{0}^{\perp}$ generator matrices by given vectors according to some mapping from the vertices $(1-\rho_{0})\Delta$-size local view to indices at $[n - k]$. Denote that mapping by $\pi : V \times [(1-\rho_{0})\Delta] \rightarrow [n-k]$.    
+The proof is simplified version of Lemma 3 proof in \cite{Panteleev_2022}.  Denote by $H^\top$ the parity check matrix of $\Ctan^\top$. Observes that $H^\top$ can obtained by transposing any of the local parity check matrices of $C_0$, hence the action of $H^{\top}$ on $\mathbb{F}_{2}^{n-k}$ is multiplying $C_{0}^{\perp}$ generator matrices by given vectors according to some mapping from the vertices $(1-\rho_{0})\Delta$-size local view to indices at $[n - k]$. Denote that mapping by $\pi : V \times [(1-\rho_{0})\Delta] \rightarrow [n-k]$.    
   Let $y \in \mathbb{F}_{2}^{n-k}$, and let $S \subset V$, the vertices support $y$. So: \begin{equation*}
     \begin{split}
       | H^\top y | & \ge \delta_{0}\Delta|S| - 2E(S,S) \ge \delta_{0}\Delta|S| - 2\left( \Delta\frac{|S|^2}{n} + \lambda\Delta|S| \right) \\
