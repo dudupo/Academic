@@ -10,9 +10,8 @@ In this paper, we define the triple product $\mathbb{F}_2^{n}\times \mathbb{F}_2
     \item $|x\cdot y \cdot z|$ is even for $x,y,z \in C$ such that at least one of $x,y,z$  belongs to $\tilde{C}$. 
     \item $|x\cdot y|$ is even for $x,y \in C$ such that at least one of $x,y$  belongs to $\tilde{C}$. 
   \end{enumerate}
-  For example, the empty code, that contains only the zero code word, i.e $C = \{ 0 \}$, is a \trig with respect to any code. In fact for proving \Cref{theorem:main} taking the empty code is sufficient.  
 \end{definition}
-
+For example, the empty code, that contains only the zero code word, i.e $C = \{ 0 \}$, is a \trig with respect to any code. In fact for proving \Cref{theorem:main} taking the empty code is sufficient. For other example, the Triorthogonals codes defined in \cite{bravyi2012magic} are \trig with respec to themself.  
 \begin{definition}
   \label{def:thecode}
 Let $\Delta$ be a constant integer, $C_{0}$ and $\tilde{C}_{0}$ be codes over $\Delta$ bits such that $\tilde{C}_{0}$ is \trig with respect to $C^{\perp}_{0}$. $C_{0}$ has parameters $\Delta[1,\delta_{0},\rho_{0}]$, and $C_{0}^\top$ has relative distance greater than $\delta_{0}$. Let $\Ctan$ be a Tanner code, defined by taking an expander graph with good expansion and $C_{0}$ as the small code. Let $\Cin$ be the dual-tensor code obtained by taking $(\Ctan^\perp \otimes \Ctan^\perp )^\perp$. Note that first, this code has a positive rate and $\Theta(\sqrt{n})$ distance. Second, this code is an LDPC code as well. Also, notice that $\Cin^{\top}$ is obtained by transporting the parity check matrix, and therefore equals to $(\Ctan^{\top, \perp} \otimes \Ctan^{\top, \perp} )^\perp$. Hence, $\Cin^{\top}$ has a square root distance as well.
