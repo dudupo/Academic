@@ -147,7 +147,7 @@ Let $\mathcal{C}$ the gate which compute those phases in the logical space.
     \item We know that $\mathcal{D}$ decode errors drawn from $\mathcal{N}_{1}$ with high probability. ( In fact with:  $1 - e^{-\Theta(d)}$ where $d$ is the code distance.)   
     \item Using the union bound: \begin{equation*}
         \begin{split}
-        \prb{ \mathcal{D} \text{ fails } } \le \sum_{i=0}^{1 + \lceil \log_{(1 + \frac{1}{3})}{2} \rceil }{ e^{ - \frac{n^\frac{(\frac{4}{3})^{i}}{4}  }{2}}  }
+          \prb{ \mathcal{D} \text{ fails } } \le \sum_{i=0}^{1 + \lceil \log_{(1 + \frac{1}{3})}{2} \rceil }{ \exp \left(  - \frac{n^\frac{(\frac{4}{3})^{i}}{4}  }{2} \right)  }
         \end{split}
       \end{equation*}
 \end{enumerate}
