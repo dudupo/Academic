@@ -111,6 +111,6 @@ The main advantage of using the dual-tensor and \Hyp is that their bases can be 
   \scalebox{1.7}{ 
   \input{../circuit_tkz/distil.tikz}
 }
-\caption{ The circuit.   }
+\caption{ The main circuit which compute $\ket{T}^{\otimes \rho(\Mbas)n}$. Where $E$ and $\mathcal{D}$ are the encoder and the decoder. $\mathcal{C}$ is a gate contains at most $O(n^{3/4})$ number of $T$ gates, we can initialize these perfect gates by calling to constant-overhead distillation protocol $\mathcal{P}$ to distillate $O(n^{3/4})$ Magic States. Finally, Chaining the circuits recursively (each iteration distil the needed Magic for the one follow her) constant time yields the $O(\sqrt{n}) \mapsto \Theta(n)$ 'Distillation'. }
 \end{figure}
 
