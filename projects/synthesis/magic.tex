@@ -25,7 +25,8 @@ Quantum LDPC Codes. }
 \maketitle
 
 \newcommand*{\Mbas}{\mathcal{X}^\prime}
-\newcommand*{\sMbas}{\text{span }\Mbas}
+\newcommand*{\bas}{\mathcal{X}}
+\newcommand*{\sMbas}{\Mbas}
 \newcommand*{\QQ}{C_{X}/C_{Z}^\perp }
 \newcommand*{\trig}{Triorthogonal }
 \newcommand*{\Hyp}{Hyperproduct }
@@ -49,7 +50,7 @@ Quantum LDPC Codes. }
 \begin{proof}
   Pick $x_{0}$ and $w \in \mathbb{F}_{2}^{n}$ , which correspond to the supports of anti commute $X$ and $Z$ generators, such that $w$ can be obtains by setting a codeword of $\Ctan$ on the first $n^{\frac{1}{4}}$ bits and padding by zeros the rest. Clearly, $|w| = \Theta(n^{\frac{1}{4}})$. Denote by $\Gamma(w)$ vertices supports $w$ in the graph used to define $\Ctan$.  
 
-  Now for defying $\text{span }\mathcal{X}$, we are going to consider the parity checks matrix obtained by adding restrictions to $C_{X}$'s restrictions as follows: For any $\Delta$-bits correspond to a local view of vertex $v \in \Gamma(w)$ add restrictions of $\tilde{C}_{0}$. Then $\text{span }\mathcal{X}$ is the subspace of $\QQ$ satisfying $\tilde{C}_{0}$ restrictions for $v \in \Gamma(w)$, Let us name the union of $\tilde{C}_{0}$ restrictions over the buckets by $B$ and observe that $|B| \le |w| \cdot \Delta$. The dimension of the space satisfies both $C_{X}$ restrictions and $B$ is at least:
+  Now for defying $\text{span }\bas$, we are going to consider the parity checks matrix obtained by adding restrictions to $C_{X}$'s restrictions as follows: For any $\Delta$-bits correspond to a local view of vertex $v \in \Gamma(w)$ add restrictions of $\tilde{C}_{0}$. Then $\text{span }\bas$ is the subspace of $\QQ$ satisfying $\tilde{C}_{0}$ restrictions for $v \in \Gamma(w)$, Let us name the union of $\tilde{C}_{0}$ restrictions over the buckets by $B$ and observe that $|B| \le |w| \cdot \Delta$. The dimension of the space satisfies both $C_{X}$ restrictions and $B$ is at least:
   \begin{equation*}
     \begin{split}
       \rho(C_{X})\cdot n - |B|\cdot (1 - \rho(\tilde{C}_{0}))\Delta \ge \rho(C_{X})\cdot n - \Delta \cdot n^{\frac{1}{4}}
@@ -58,17 +59,17 @@ Quantum LDPC Codes. }
   And by the fact that the dimension of $C_{Z}^\perp$'s codewords satisfying $B$ is strictly lower then $\dim C_{Z}^\perp$, we get the following lower bound:
   \begin{equation*}
     \begin{split}
-      \dim \text{span } \mathcal{X} & \ge \rho(C_{X})\cdot n - \Delta \cdot n^{\frac{1}{4}} + \rho(C_{Z})\cdot n - n \\
+      \dim \text{span } \bas & \ge \rho(C_{X})\cdot n - \Delta \cdot n^{\frac{1}{4}} + \rho(C_{Z})\cdot n - n \\
      & \ge \rho (Q) - \Delta \cdot n^{\frac{1}{4}}
     \end{split}
   \end{equation*}
 \end{proof}
 
 \begin{remark}
-  We emphasise that if one is only interest in having large $  \mathcal{X}$ subset of $\QQ$ that is only $\trig$ to itself, then instead of setting more restrictions on the vertices in $\Gamma(w)$ one could just divides the non non-trivial bits of $w$ into $\Delta$-size buckets, and then considering the codewords which their restrictions to a bucket is a codeword of $\tilde{C}_{0}$. Then the above proof can be easily adapted to result the following for general CSS codes: There exists $\mathcal{X} \subset \QQ$ such:
+  We emphasise that if one is only interest in having large $  \bas$ subset of $\QQ$ that is only $\trig$ to itself, then instead of setting more restrictions on the vertices in $\Gamma(w)$ one could just divides the non non-trivial bits of $w$ into $\Delta$-size buckets, and then considering the codewords which their restrictions to a bucket is a codeword of $\tilde{C}_{0}$. Then the above proof can be easily adapted to result the following for general CSS codes: There exists $\bas \subset \QQ$ such:
 \begin{equation*}
     \begin{split}
-      \left| \rho\left(Q\right) - \rho\left( \mathcal{X} \right) \right| = d(Q)(1 - \rho(\tilde{C}_{0}))
+      \left| \rho\left(Q\right) - \rho\left( \bas \right) \right| = d(Q)(1 - \rho(\tilde{C}_{0}))
     \end{split}
   \end{equation*}
   In general, this technique does not yield a $\trig$ code for a $\QQ$, but there are several cases in which it does. For example let's consider the quantum Tanner code. Since the distance of the quantum Tanner codes is $\sim n/\Delta$, where $\Delta^{2}$ is the degree of the square complex graph, (obtained by taking a codeword for which each local view of it is supported only on rows corresponding to a specific single left generator), we get that for any $\rho \in (0,\frac{1}{2})$ there is a good qLDPC such that the dimension of $\sMbas$ obtained respecting to it is $\ge (1-2\rho)^{2}n - n/\Delta \cdot (1 - \rho(\tilde{C}_{0}))$.  
@@ -84,7 +85,7 @@ Quantum LDPC Codes. }
   \end{equation*}
 \end{claim}
 \begin{proof}
-  Let $\tau \in \sMbas + C_{Z}^\perp$, applying $T^{(w)}$ on $\ket{\tau}$ add a phase of $i\frac{\pi}{4}\left|\tau\right|_{w}$. Notice that $\tau$ can decompose to the sum of  $X_{x_{0}}x_{0} + \sum_{y_{i} \in \mathcal{X}}{X_{y_{i}}y_{i}} + \sum_{z_{i} \in \text{ base }C_{Z}^{\perp}}{X_{z_{i}}z_{i}}$ when $X_{g}$ is the indicator that equals 1 if the generator $g$ supports $\tau$. Let us denote by $\Lambda$ the union of the generators. So:
+  Let $\tau \in \sMbas + C_{Z}^\perp$, applying $T^{(w)}$ on $\ket{\tau}$ add a phase of $i\frac{\pi}{4}\left|\tau\right|_{w}$. Notice that $\tau$ can decompose to the sum of  $X_{x_{0}}x_{0} + \sum_{y_{i} \in \bas}{X_{y_{i}}y_{i}} + \sum_{z_{i} \in \text{ base }C_{Z}^{\perp}}{X_{z_{i}}z_{i}}$ when $X_{g}$ is the indicator that equals 1 if the generator $g$ supports $\tau$. Let us denote by $\Lambda$ the union of the generators. So:
   \begin{equation*}
     \begin{split}
       \left|\tau\right|_{w} &= \left| \sum_{g \in \Lambda}{ X_{g}g }\right|_{w} \\
@@ -92,7 +93,7 @@ Quantum LDPC Codes. }
     \end{split}
   \end{equation*}
   
-  Since $ \mathcal{X}|_{w}$ is \trig with respect to $C_{X}|_{w}$ all the terms above that involve multiplication of at least one element in $\mathcal{X}$ is even, and therefore those terms add a phases that can be computed by Clifford gate:\begin{enumerate}
+  Since $ \bas|_{w}$ is \trig with respect to $C_{X}|_{w}$ all the terms above that involve multiplication of at least one element in $\bas$ is even, and therefore those terms add a phases that can be computed by Clifford gate:\begin{enumerate}
     \item $i\frac{\pi}{4}|y_{i}|_{w} \rightarrow c \cdot i\frac{\pi}{2}$ and therefore can computed by applying logical $S_{y_{i}}$.
     \item $i\frac{\pi}{4}2|y_{i}\cdot g|_{w} \rightarrow c \cdot i\pi$ and therefore can computed by applying logical $CZ_{y_{i},g}$.
     \item $i\frac{\pi}{4}4|y_{i}\cdot g \cdot h |_{w} \rightarrow c \cdot i2\pi$ and therefore such terms don't add phase at all.
@@ -147,7 +148,7 @@ Let $\mathcal{C}$ the gate which compute those phases in the logical space.
 \end{proof}
 
 % Notice , So $x_{0}\cdot w = 1$ and for any other
-%$x^\prime \in \mathcal{X}/x_{0}$ it holds that $x^{\prime}\cdot w = 0 $.
+%$x^\prime \in \bas/x_{0}$ it holds that $x^{\prime}\cdot w = 0 $.
 
 
 
