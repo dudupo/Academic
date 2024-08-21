@@ -52,6 +52,7 @@ We are about to describe the circuit. \Cref{def:thecode} defines a quantum code 
 
 Before presenting the code we need to prove the following claim:
 \begin{claim}
+  \label{claim:transposedtan}
   Let $\Ctan$ be a Tanner code defined by a graph with algebraic expansion $\lambda \Delta$, Suppose that both $C_{0}$ and $C_{0}^{\perp}$ have realtive distance greater than $\delta > 2\lambda$. Then $\Ctan^{\top}$ has distance greater than $(\frac{1}{2}\delta_{0} - \lambda)n$.
 \end{claim}
 \begin{proof}
@@ -74,7 +75,7 @@ Before presenting the code we need to prove the following claim:
 
 \begin{definition}
   \label{def:thecode}
-  Let $\Delta$ be a constant integer, $C_{0}$ and $\tilde{C}_{0}$ be codes over $\Delta$ bits such that $\tilde{C}_{0}$ is \trig with respect to $C^{\perp}_{0}$. $C_{0}$ has parameters $\Delta[1,\delta_{0},\rho_{0}]$, and $C_{0}^\perp$ has relative distance greater than $\delta_{0}$. Let $\Ctan$ be a Tanner code, defined by taking an expander graph with good expansion and $C_{0}$ as the small code and $\delta_{0}$ is at least twice the graph expansion. Let $\Cin$ be the dual-tensor code obtained by taking $(\Ctan^\perp \otimes \Ctan^\perp )^\perp$. Note that first, this code has a positive rate and $\Theta(\sqrt{n})$ distance. Second, this code is an LDPC code as well. Also, notice that $\Cin^{\top}$ is obtained by transporting the parity check matrix, and therefore equals to $(\Ctan^{\top, \perp} \otimes \Ctan^{\top, \perp} )^\perp$. Hence, $\Cin^{\top}$ has a square root distance as well.
+  Let $\Delta$ be a constant integer, $C_{0}$ and $\tilde{C}_{0}$ be codes over $\Delta$ bits such that $\tilde{C}_{0}$ is \trig with respect to $C^{\perp}_{0}$. $C_{0}$ has parameters $\Delta[1,\delta_{0},\rho_{0}]$, and $C_{0}^\perp$ has relative distance greater than $\delta_{0}$. Let $\Ctan$ be a Tanner code, defined by taking an expander graph with good expansion and $C_{0}$ as the small code and $\delta_{0}$ is at least twice the graph expansion, So by \cite{ExpanderCodes} and \Cref{claim:transposedtan} $\Ctan$ and $\Ctan^\top$ both have a linear distance. Let $\Cin$ be the dual-tensor code obtained by taking $(\Ctan^\perp \otimes \Ctan^\perp )^\perp$. Note that first, this code has a positive rate and $\Theta(\sqrt{n})$ distance. Second, this code is an LDPC code as well. Also, notice that $\Cin^{\top}$ is obtained by transporting the parity check matrix, and therefore equals to $(\Ctan^{\top, \perp} \otimes \Ctan^{\top, \perp} )^\perp$. Hence, $\Cin^{\top}$ has a square root distance as well.
 
 Let $Q$ be the CSS code obtained by taking the \Hyp of $\Cin$ with itself. So, $Q$ is a quantum qLDPC code with parameters $[n, \Theta(n^{\frac{1}{4}}), \Theta(n)]$. The notations $Q,\Ctan, \Cin, \tilde{C}_{0}, C_{0}$ will keep these definitions for the rest of the paper.
 \end{definition}
