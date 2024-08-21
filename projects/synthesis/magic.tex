@@ -47,34 +47,25 @@ Quantum LDPC Codes. }
   \end{equation*}
 \end{claim}
 \begin{proof}
-   Pick $x_{0}$ and $w \in \mathbb{F}_{2}^{n}$ , which correspond to the supports of anti commute $X$ and $Z$ generators, such that $w$ can be obtains by setting a codeword of $\Ctan$ on the first $n^{\frac{1}{4}}$ bits and padding by zeros the rest. Clearly, $|w| = \Theta(n^{\frac{1}{4}})$.
+  Pick $x_{0}$ and $w \in \mathbb{F}_{2}^{n}$ , which correspond to the supports of anti commute $X$ and $Z$ generators, such that $w$ can be obtains by setting a codeword of $\Ctan$ on the first $n^{\frac{1}{4}}$ bits and padding by zeros the rest. Clearly, $|w| = \Theta(n^{\frac{1}{4}})$. Denote by $\Gamma(w)$ vertices supports $w$ in the graph used to define $\Ctan$.  
 
-  Now for defying $\text{span }\mathcal{X}$, we are going to consider the parity checks matrix obtained by adding restrictions to $C_{X}$'s restrictions as follows: Divide the first $w$ bits into $\Delta$-size buckets, define by $w(i)$ the $i$th coordinate on which $w$ isn't trivial. For example if $w(1)=j$ then $j$ is the first nonzero coordinate of $w$, Denote by $B_{1},B_2,.., B_{|w|/\Delta}$ the partion of $w$'s bits: 
+  Now for defying $\text{span }\mathcal{X}$, we are going to consider the parity checks matrix obtained by adding restrictions to $C_{X}$'s restrictions as follows: For any $\Delta$-bits correspond to a local view of vertex $v \in \Gamma(w)$ add restrictions of $\tilde{C}_{0}$. Then $\text{span }\mathcal{X}$ is the subspace of $\QQ$ satisfying $\tilde{C}_{0}$ restrictions for $v \in \Gamma(w)$, Let us name the union of $\tilde{C}_{0}$ restrictions over the buckets by $B$ and observe that $|B| \le |w| \cdot \Delta$. The dimension of the space satisfies both $C_{X}$ restrictions and $B$ is at least:
   \begin{equation*}
     \begin{split}
-      B_{1} &= \left\{w(1), w(2), ..,w(\Delta)\right\}\\
-      B_{2} &= \left\{w(\Delta + 1), w(\Delta + 2), ..,w(2\Delta) \right\}\\
-      B_{i} &= \left\{w((i-1)\Delta + 1), w((i-1)\Delta + 2), ..,w(i\Delta) \right\}
-    \end{split}
-  \end{equation*}
-
-  Then let $\text{span }\mathcal{X}$ be all the codewords of $\QQ$ satisfying $\tilde{C}_{0}$ restrictions for each bucket, Let us name the union of $\tilde{C}_{0}$ restrictions over the buckets by $B$. The dimension of the space satisfies both $C_{X}$ restrictions and $B$ is at least:
-  \begin{equation*}
-    \begin{split}
-      \rho(C_{X})\cdot n - |B|\cdot (1 - \rho(\tilde{C}_{0}))\Delta \ge \rho(C_{X})\cdot n - n^{\frac{1}{4}}
+      \rho(C_{X})\cdot n - |B|\cdot (1 - \rho(\tilde{C}_{0}))\Delta \ge \rho(C_{X})\cdot n - \Delta \cdot n^{\frac{1}{4}}
     \end{split}
   \end{equation*}
   And by the fact that the dimension of $C_{Z}^\perp$'s codewords satisfying $B$ is strictly lower then $\dim C_{Z}^\perp$, we get the following lower bound:
   \begin{equation*}
     \begin{split}
-      \dim \text{span } \mathcal{X} & \ge \rho(C_{X})\cdot n - n^{\frac{1}{4}} + \rho(C_{Z})\cdot n - n \\
-     & \ge \rho (Q) - n^{\frac{1}{4}}
+      \dim \text{span } \mathcal{X} & \ge \rho(C_{X})\cdot n - \Delta \cdot n^{\frac{1}{4}} + \rho(C_{Z})\cdot n - n \\
+     & \ge \rho (Q) - \Delta \cdot n^{\frac{1}{4}}
     \end{split}
   \end{equation*}
 \end{proof}
 
 \begin{remark}
-  We emphasise that the above proof can be easily adapted to result the following for general CSS codes: 
+  We emphasise that instead of setting more restrictions on the vertices in $\Gamma(w)$ one could just divides the non non-trival bits of $w$ into $\Delta$-size buckets, and then considering the codewords which their restrictions to a bucket is a codeword of $\tilde{C}_{0}$. Then the above proof can be easily adapted to result the following for general CSS codes: 
 \begin{equation*}
     \begin{split}
       \left| \rho\left(Q\right) - \rho\left(\sMbas\right) \right| = d(Q)(1 - \rho(\tilde{C}_{0}))
@@ -143,7 +134,7 @@ Let $\mathcal{C}$ the gate which compute those phases in the logical space.
 
   Outline: 
   \begin{enumerate}
-    \item Denote by $\mathcal{N}_{1}$, $\mathcal{N}_{2}$ the noise channel of $p$-Pauli noise, and Clifford-free $p$-noise models. Consider the indicator $X$ that indicate that a decoder $\mathcal{D}$ succeed to decode the sampled error. We can assume that $\prbm{X}{\mathcal{N}_{2}} \ge \prbm{X}{\mathcal{N}_{1}}$, Otherwise we can apply random Pauli on $[n]/[w]$ qubits with error rate $p$ so the error will be sampled according to $\mathcal{N}_1$.
+    \item Denote by $\mathcal{N}_{1}$, $\mathcal{N}_{2}$ the noise channels of $p$-Pauli noise, and Clifford-free $p$-noise models. Consider the indicator $X$ that indicate that a decoder $\mathcal{D}$ succeed to decode the sampled error. We can assume that $\prbm{X}{\mathcal{N}_{2}} \ge \prbm{X}{\mathcal{N}_{1}}$, Otherwise we can apply random Pauli on $[n]/[w]$ qubits with error rate $p$ so the error will be sampled according to $\mathcal{N}_1$.
     \item We know that $\mathcal{D}$ decode errors drawn from $\mathcal{N}_{1}$ with high probability. ( In fact with:  $1 - e^{-\Theta(d)}$ where $d$ is the code distance.)   
     \item Using the union bound: \begin{equation*}
         \begin{split}
