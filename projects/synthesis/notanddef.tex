@@ -52,7 +52,7 @@ We are about to describe the circuit. \Cref{def:thecode} defines a quantum code 
 
 Before presenting the code we need to prove the following claim:
 \begin{claim}
-  Let $\Ctan$ be a Tanner code defined by a graph with algebraic expansion $\lambda \Delta$, Suppose that both $C_{0}$ and $C_{0}^{\perp}$ have realtive distance greater than $\delta > \lambda$. Then $\Ctan^{\top}$ has a linear distance.
+  Let $\Ctan$ be a Tanner code defined by a graph with algebraic expansion $\lambda \Delta$, Suppose that both $C_{0}$ and $C_{0}^{\perp}$ have realtive distance greater than $\delta > 2\lambda$. Then $\Ctan^{\top}$ has distance greater than $(\frac{1}{2}\delta_{0} - \lambda)n$.
 \end{claim}
 \begin{proof}
   The proof is simplified version of Lemma 3 proof in \cite{Panteleev_2022}.  Denote by $H^\top$ the parity check matrix of $\Ctan^\top$. Observes that $H^\top$ can obtained by transposing any of the local parity check matrices of $C_0$. Recall that a transposed parity check matrix of code $C$ is the generator matrix of $C^\perp$. Let $\mathcal{G} = (V, E)$ be the expender graph on which $\Ctan$ is defined. Denote by $G_{v}$ the generator matrix act on the $(1-\rho_{0})\Delta$ bits incides to vertex $v \in V$. Now let $G_{v}, G_{u}$ such their images an overlap, $\Rightarrow$ $G_{v}$ and $G_{u}$ share row in $H^{\top}$, hence $G^{\top}_{v}$ and $G^{\top}_{u}$. By the same argument it follows that it impossible to more than two matrices associated by different vertices to have an intersect images. Now we are ready to bound from below the syndrome size of a low-weight vector. 
@@ -62,7 +62,7 @@ Before presenting the code we need to prove the following claim:
 |H^\top y| \ge \sum_{v\in S}{ |G_{v}y|  } - 2\sum_{v,u\in S}{ \text{ overlapping of } G_{v}y \text{ and } G_{u}y  }   
     \end{split}
   \end{equation*}
-  Using the expander mixing lemma \cite{hoory2006expander} we get:
+  Using the expander mixing lemma \cite{hoory2006expander} we get that if $|y| < \beta n$ for $\beta < \frac{1}{2}\delta_0 - \lambda$:
      \begin{equation*}
     \begin{split}
       | H^\top y | & \ge \delta_{0}\Delta|S| - 2E(S,S) \ge \delta_{0}\Delta|S| - 2\left( \Delta\frac{|S|^2}{n} + \lambda\Delta|S| \right) \\
@@ -74,7 +74,7 @@ Before presenting the code we need to prove the following claim:
 
 \begin{definition}
   \label{def:thecode}
-Let $\Delta$ be a constant integer, $C_{0}$ and $\tilde{C}_{0}$ be codes over $\Delta$ bits such that $\tilde{C}_{0}$ is \trig with respect to $C^{\perp}_{0}$. $C_{0}$ has parameters $\Delta[1,\delta_{0},\rho_{0}]$, and $C_{0}^\top$ has relative distance greater than $\delta_{0}$. Let $\Ctan$ be a Tanner code, defined by taking an expander graph with good expansion and $C_{0}$ as the small code. Let $\Cin$ be the dual-tensor code obtained by taking $(\Ctan^\perp \otimes \Ctan^\perp )^\perp$. Note that first, this code has a positive rate and $\Theta(\sqrt{n})$ distance. Second, this code is an LDPC code as well. Also, notice that $\Cin^{\top}$ is obtained by transporting the parity check matrix, and therefore equals to $(\Ctan^{\top, \perp} \otimes \Ctan^{\top, \perp} )^\perp$. Hence, $\Cin^{\top}$ has a square root distance as well.
+  Let $\Delta$ be a constant integer, $C_{0}$ and $\tilde{C}_{0}$ be codes over $\Delta$ bits such that $\tilde{C}_{0}$ is \trig with respect to $C^{\perp}_{0}$. $C_{0}$ has parameters $\Delta[1,\delta_{0},\rho_{0}]$, and $C_{0}^\perp$ has relative distance greater than $\delta_{0}$. Let $\Ctan$ be a Tanner code, defined by taking an expander graph with good expansion and $C_{0}$ as the small code and $\delta_{0}$ is at least twice the graph expansion. Let $\Cin$ be the dual-tensor code obtained by taking $(\Ctan^\perp \otimes \Ctan^\perp )^\perp$. Note that first, this code has a positive rate and $\Theta(\sqrt{n})$ distance. Second, this code is an LDPC code as well. Also, notice that $\Cin^{\top}$ is obtained by transporting the parity check matrix, and therefore equals to $(\Ctan^{\top, \perp} \otimes \Ctan^{\top, \perp} )^\perp$. Hence, $\Cin^{\top}$ has a square root distance as well.
 
 Let $Q$ be the CSS code obtained by taking the \Hyp of $\Cin$ with itself. So, $Q$ is a quantum qLDPC code with parameters $[n, \Theta(n^{\frac{1}{4}}), \Theta(n)]$. The notations $Q,\Ctan, \Cin, \tilde{C}_{0}, C_{0}$ will keep these definitions for the rest of the paper.
 \end{definition}
