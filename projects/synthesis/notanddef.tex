@@ -55,6 +55,7 @@ Let $\Delta$ be a constant integer, $C_{0}$ and $\tilde{C}_{0}$ be codes over $\
 
 Let $Q$ be the CSS code obtained by taking the \Hyp of $\Cin$ with itself. So, $Q$ is a quantum qLDPC code with parameters $[n, \Theta(n^{\frac{1}{4}}), \Theta(n)]$. The notations $Q,\Ctan, \Cin, \tilde{C}_{0}, C_{0}$ will keep these definitions for the rest of the paper.
 \end{definition}
+For further explanation on dual-tensor, please refer to \cite{leverrier2022quantum}, \cite{Dinur}, and \cite{Pavel}. We rely on the main theorem in \cite{Tillich_2014} for the \Hyp code distance and rate.
 
 The main advantage of using the dual-tensor and \Hyp is that their bases can be easily understood in terms of the codes being multiplied to obtain them. For the dual-tensor $(C^{\perp}\otimes C^{\perp})^{\perp} = C\otimes \mathbb{F}_{2}^{n} \oplus \mathbb{F}_{2}^{n} \otimes C$, one can think of the codewords as $n\times n$ binary matrices and take the collection of imposing single generators of $C$ on the rows or columns as the code base. In the \Hyp, the code words can be thought of as assignments of bits on two matrices: the first at size $n(C) \times n(C)$, while the second is at size $n(C^\top) \times n(C^\top)$. Any generator of $C_{X}$ either imposes a $C$ generator on one of the rows of the first matrix or imposes a $C^{\top}$ generator on one of the columns of the second matrix. In our case, we can imagine that both the $X$ and $Z$ generators of $Q$ correspond to setting a generator of $\Ctan$, $\Ctan^\top$ on a 'row' of the 4D cube.
 
