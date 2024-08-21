@@ -1,0 +1,44 @@
+
+\section{Notations, Definitions and Construction.} The notation used in this paper follows standard conventions for coding theory. We use $n$ to represent the length of the code, $k$ for the code's dimension, and $\rho$ for its rate. The minimum distance of the code will be denoted as $d$, and the relative distance, i.e., $d/n$, as $\delta$. In this paper, $n$ and $k$ will sometimes refer to the number of physical and logical bits. Codes will be denoted by a capital $C$ followed by either a subscript or superscript. When referring to multiple codes, we will use the above parameters as functions. For example, $\rho(C_{1})$ represents the rate of the code $C_{1}$. Square brackets are used to present all these parameters compactly, and we use them as follows: $C=[n,k,d]$ to declare a code with the specified length, dimension, and distance. Any theorem, lemma, or claim that states a statement that is true in the asymptotic sense refers to a family of codes. The parity check matrix of the code will be denoted as $H$, with the rows of $H$ representing the parity check equations. The generator matrix of the code will be denoted as $G$, with the rows of $G$ representing the basis of codewords. The syndrome of a received word will be denoted as $s$, which is the result of multiplying $r$ by the transpose of $H$. We use $C^\perp$ to denote the dual code of $C$, which is defined such that any codeword of it $z\in C^\perp$ is orthogonal to any $x\in C$, meaning $z\cdot x = 0$, where the product is defined as $x\cdot z = \sum_{i}{x_{i}z_{i}}$. $C^{\top}$ stands for the code obtained by taking the parity check matrix of $C$ and transposing it.
+
+In this paper, we define the triple product $\mathbb{F}_2^{n}\times \mathbb{F}_2^{n}\times\mathbb{F}_2^{n} \rightarrow \mathbb{Z}$ as $|x\cdot y \cdot z| = \sum_{i}^{n}{x_{i}y_{i}z_{i}}$. Similarly, we define the binary product $|x \cdot y|$, noting that this product differs from the standard product by mapping into $\mathbb{Z}$ rather than $\mathbb{F}_{2}$. For $w \in \mathbb{F}_{2}^{n}$, we use the super operator $ \cdot |_{w} $ to map an operator originally defined in an $n$-dimensional space to an operator that only acts on coordinates restricted to $w$. For example, $x|_{w}$ is the vector in $\mathbb{F}_{2}^{|w|}$ obtained by taking the values of $x$ on coordinates where $w$ is not zero. $|x\cdot y|_{w} = \sum_{i:w_{i}\neq 0}{x_{i}y_{i}}$ and $C|_{w}$ is the code obtained by taking the codewords of $C$ restricted to $w$.
+
+\begin{definition}
+  Let $C$, $\tilde{C}$ be linear binary codes at the same length, We will say that $\tilde{C}$ is a \trig with respect to $C$ if: 
+  \begin{enumerate}
+    \item $\tilde{C} \subset C$
+    \item $|x\cdot y \cdot z|$ is even for $x,y,z \in C$ such that at least one of $x,y,z$  belongs to $\tilde{C}$. 
+    \item $|x\cdot y|$ is even for $x,y \in C$ such that at least one of $x,y$  belongs to $\tilde{C}$. 
+  \end{enumerate}
+  For example, the empty code, that contains only the zero code word, is a \trig with respect to any code. In fact for proving \Cref{theorem:main} taking the empty code is sufficient.  
+\end{definition}
+
+\begin{definition}
+  \label{def:thecode}
+Let $\Delta$ be a constant integer, $C_{0}$ and $\tilde{C}_{0}$ be codes over $\Delta$ bits such that $\tilde{C}_{0}$ is \trig with respect to $C^{\perp}_{0}$. $C_{0}$ has parameters $\Delta[1,\delta_{0},\rho_{0}]$, and $C_{0}^\top$ has relative distance greater than $\delta_{0}$. Let $\Ctan$ be a Tanner code, defined by taking an expander graph with good expansion and $C_{0}$ as the small code. Let $\Cin$ be the dual-tensor code obtained by taking $(\Ctan^\perp \otimes \Ctan^\perp )^\perp$. Note that first, this code has a positive rate and $\Theta(\sqrt{n})$ distance. Second, this code is an LDPC code as well. Also, notice that $\Cin^{\top}$ is obtained by transporting the parity check matrix, and therefore equals to $(\Ctan^{\top, \perp} \otimes \Ctan^{\top, \perp} )^\perp$. Hence, $\Cin^{\top}$ has a square root distance as well.
+
+Let $Q$ be the CSS code obtained by taking the \Hyp of $\Cin$ with itself. So, $Q$ is a quantum qLDPC code with parameters $[n, \Theta(n^{\frac{1}{4}}), \Theta(n)]$. The notations $Q,\Ctan, \Cin, \tilde{C}_{0}, C_{0}$ will keep these definitions for the rest of the paper.
+\end{definition}
+
+In this work, we consider quantum circuits under the Clifford-free noise model. In this model, it is assumed that any of the Clifford gates, such as $S$, $H$, and $CZ$, can be applied perfectly. Additionally, the circuits have access to noisy magic states at an error rate of $p$, formulated as the mixed state $(1-p)\ket{T} + pZ\ket{T}$, where $p \in (0,1)$ is the probability that a given state is actually a faulty one and $\ket{T}= \frac{1}{\sqrt{2}}(\ket{0} + e^{i\frac{\pi}{4}}\ket{1})$ is a Magic State. Finally, the model allows for intermediate measurements and the application of Clifford gates controlled by the classical outcomes of the measurements. It has been shown that this model is quantum universal. The Magic State Distillation Protocol is a quantum circuit in the Clifford-free noise model that consumes $n$ noisy magic states at an error rate of $p$ and outputs $k$ independent magic states at an error rate of $\frac{1}{\varepsilon}$. Here, we show the existence and construction of protocols that consume $\sqrt{n}$ Magic States and produce, almost surely, $\Theta(n)$ perfect Magic States. We emphasize that the protocols output dependent states, i.e., if the protocol fails, then any of the $\Theta(n)$ outcomes is a faulty Magic state. This is why we put the phrase "Distillation" in quotation marks in the title.
+
+\begin{theorem}[$\sqrt{n} \rightarrow n$ 'Distillation']
+  \label{theorem:main}
+There exists is $p_0 \in (0,1)$ such that for the Clifford-free noise model with an error rate $p < p_{0}$, there is a family of circuits that, for sufficiently large $n$, consume $\sqrt{n}$ noisy Magic States and with  probability greater than $1 - e^{-n^{1/8}}$ output $\Theta(n)$ perfect Magic States. Furthermore, both the width and depth of the circuits are linear in $n$.
+\end{theorem}
+\subsection{The Protocol's Description.} 
+Consider the code $Q$, defined in \cref{def:thecode} in the computation base $\QQ$. Let $x_{0}$ be a codeword of $\QQ$. Denote by $w \in \mathbb{F}_{2}^{n}$ the binary string that represents the $Z$-generator that anti-commutes with the $X$-generator corresponding to $x_{0}$. Let $\mathcal{X} = \{x_{0}, x_{1}, .. x_{k^\prime}\} \in \mathbb{F}_{2}^{n}$ be a subset of a basis for the code $\QQ$. Such $\left(\text{span } \mathcal{X}/x_0 \ \right)|_{w}$ is a \trig code with respect to $C_{X}|_{w}$. Let us denote by $\Mbas$ the basis $\{ y_{1}, y_{2}, .., y_{k^\prime} \} \in \mathbb{F}_{2}^{n}$ defined as follows: $ y_{i} = x_{j} + x_{0}$.
+ \Cref{claim:notempty} states that $\Mbas$ is not empty and even has linear size at $n$.
+
+ Denote by $E$ the circuit that encodes the $i$th logical bit into $\ket{y_{i}+C_{Z}^{\perp}}$, By $T^{(w)}$ the application of $T$ gates on the qubits for which $w$ acts non-trivially, meaning $T^{(w)}$ is a tensor product of $T$'s and $I$'s where on the $i$th qubit $T^{(w)}$ applies $T$ if $w_{i}$ equals $1$, and identity otherwise. By $D$ denote the gate that decodes binary strings in $\mathbb{F}_{2}^{n}$ back into the logical space, $D$ is also responsible to correct errors.
+ Finally, denote by $\mathcal{C}$ a non Clifford gate, which contains at most $o(n^{\frac{1}{4}})$ Magic States, and by $\mathcal{D}$ an $n^{2}$-overhead  Magic Distillation Protocol, that consume $\Theta(\sqrt{n})$ magic and produce $O(n^\frac{1}{4})$ Magic States, with error rate less than $2^{-\alpha n}$.     
+
+\begin{figure}
+  \label{fig:circ}
+  \noindent %\includegraphics{example-image-c} 
+  \scalebox{1.7}{ 
+  \input{../circuit_tkz/distil.tikz}
+}
+\caption{ The circuit.   }
+\end{figure}
+
