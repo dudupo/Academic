@@ -143,7 +143,7 @@ Let $\mathcal{C}$ the gate which compute those phases in the logical space.
 
   Outline: 
   \begin{enumerate}
-    \item Denote by $\mathcal{N}_{1}$, $\mathcal{N}_{2}$ the noise channel of $p$-Pauli noise, and Clifford-free $p$-noise models. Consider the indicator $X$ that indicate that a decoder $\mathcal{D}$ succeed to decode the sampled error. We can assume that $\prbm{\mathcal{N}_{2}}{X} \ge \prbm{\mathcal{N}_{1}}{X}$, Otherwise we can apply random Pauli on $[n]/[w]$ qubits with error rate $p$ so the error will be sampled according to $\mathcal{N}_1$.
+    \item Denote by $\mathcal{N}_{1}$, $\mathcal{N}_{2}$ the noise channel of $p$-Pauli noise, and Clifford-free $p$-noise models. Consider the indicator $X$ that indicate that a decoder $\mathcal{D}$ succeed to decode the sampled error. We can assume that $\prbm{X}{\mathcal{N}_{2}} \ge \prbm{X}{\mathcal{N}_{1}}$, Otherwise we can apply random Pauli on $[n]/[w]$ qubits with error rate $p$ so the error will be sampled according to $\mathcal{N}_1$.
     \item We know that $\mathcal{D}$ decode errors drawn from $\mathcal{N}_{1}$ with high probability. ( In fact with:  $1 - e^{-\Theta(d)}$ where $d$ is the code distance.)   
     \item Using the union bound: \begin{equation*}
         \begin{split}
