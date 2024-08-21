@@ -81,8 +81,10 @@ Let $Q$ be the CSS code obtained by taking the \Hyp of $\Cin$ with itself. So, $
 \end{definition}
 For further explanation on dual-tensor, please refer to \cite{leverrier2022quantum}, \cite{Dinur}, and \cite{Pavel}. We rely on the main theorem in \cite{Tillich_2014} for the \Hyp code distance and rate.
 
-The main advantage of using the dual-tensor and \Hyp is that their bases can be easily understood in terms of the codes being multiplied to obtain them. For the dual-tensor $(C^{\perp}\otimes C^{\perp})^{\perp} = C\otimes \mathbb{F}_{2}^{n} \oplus \mathbb{F}_{2}^{n} \otimes C$, one can think of the codewords as $n\times n$ binary matrices and take the collection of imposing single generators of $C$ on the rows or columns as the code base. In the \Hyp, the code words can be thought of as assignments of bits on two matrices: the first at size $n(C) \times n(C)$, while the second is at size $n(C^\top) \times n(C^\top)$. Any generator of $C_{X}$ either imposes a $C$ generator on one of the rows of the first matrix or imposes a $C^{\top}$ generator on one of the columns of the second matrix. In our case, we can imagine that both the $X$ and $Z$ generators of $Q$ correspond to setting a generator of $\Ctan$, $\Ctan^\top$ on a 'row' of the 4D cube.
-
+The main advantage of using the dual-tensor and \Hyp is that their bases can be easily understood in terms of the codes being multiplied to obtain them. For the dual-tensor $(C^{\perp}\otimes C^{\perp})^{\perp} = C\otimes \mathbb{F}_{2}^{n} \oplus \mathbb{F}_{2}^{n} \otimes C$, one can think of the codewords as $n\times n$ binary matrices and take the collection of imposing single generators of $C$ on the rows or columns as the code base. In the \Hyp, the code words can be thought of as assignments of bits on two matrices: the first at size $n(C) \times n(C)$, while the second is at size $n(C^\top) \times n(C^\top)$. Any generator of $C_{X}$ either imposes a $C$ generator on one of the rows of the first matrix or imposes a $C^{\top}$ generator on one of the columns of the second matrix. In our case, we can imagine that both the $X$ and $Z$ generators of $Q$ correspond to setting a generator of $\Ctan$, $\Ctan^\top$ on a 'row' of the 4D cube. We will define a lifted codeword to be codewords on the first row of the 4D cube.
+\begin{definition}
+  We will say that a code word of $\QQ$ is lifted if it can be obtained by setting a codeword of $\Ctan$ on the first $n^{\frac{1}{4}}$ bits and padding by zero elsewhere. 
+\end{definition}
 
 \begin{definition}
   \label{def:subcode}  
