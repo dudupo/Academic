@@ -65,13 +65,13 @@ Quantum LDPC Codes. }
 \end{proof}
 
 \begin{remark}
-  We emphasise that instead of setting more restrictions on the vertices in $\Gamma(w)$ one could just divides the non non-trival bits of $w$ into $\Delta$-size buckets, and then considering the codewords which their restrictions to a bucket is a codeword of $\tilde{C}_{0}$. Then the above proof can be easily adapted to result the following for general CSS codes: 
+  We emphasise that if one is only interest in having large $  \mathcal{X}$ subset of $\QQ$ that is only $\trig$ to itself, then instead of setting more restrictions on the vertices in $\Gamma(w)$ one could just divides the non non-trivial bits of $w$ into $\Delta$-size buckets, and then considering the codewords which their restrictions to a bucket is a codeword of $\tilde{C}_{0}$. Then the above proof can be easily adapted to result the following for general CSS codes: There exists $\mathcal{X} \subset \QQ$ such:
 \begin{equation*}
     \begin{split}
-      \left| \rho\left(Q\right) - \rho\left(\sMbas\right) \right| = d(Q)(1 - \rho(\tilde{C}_{0}))
+      \left| \rho\left(Q\right) - \rho\left( \mathcal{X} \right) \right| = d(Q)(1 - \rho(\tilde{C}_{0}))
     \end{split}
   \end{equation*}
-  For example lets consider the quantum Tanner code. Since the distance of the quantum Tanner codes is $\sim n/\Delta$, where $\Delta^{2}$ is the degree of the square complex graph, (obtained by taking a codeword for which each local view of it is supported only on rows correspond to a specific single left generator), we get that for any $\rho \in (0,\frac{1}{2})$ one there is a good qLDPC such that the dimension of $\sMbas$ obtained respecting to it $\ge (1-2\rho)^{2}n - n/\Delta \cdot (1 - \rho(\tilde{C}_{0}))$.  
+  In general, this technique does not yield a $\trig$ code for a $\QQ$, but there are several cases in which it does. For example let's consider the quantum Tanner code. Since the distance of the quantum Tanner codes is $\sim n/\Delta$, where $\Delta^{2}$ is the degree of the square complex graph, (obtained by taking a codeword for which each local view of it is supported only on rows corresponding to a specific single left generator), we get that for any $\rho \in (0,\frac{1}{2})$ there is a good qLDPC such that the dimension of $\sMbas$ obtained respecting to it is $\ge (1-2\rho)^{2}n - n/\Delta \cdot (1 - \rho(\tilde{C}_{0}))$.  
 \end{remark}
 
 \begin{claim}
