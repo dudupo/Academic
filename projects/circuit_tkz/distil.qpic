@@ -1,0 +1,44 @@
+a0 W a_0
+a1 W a_1
+a2 W a_2
+a3 W a_3
+a4 W a_4
+a5 W a_5
+a6 W a_6
+a7 W a_7
+a8 W a_8
+a9 W a_9
+
+LB
+a1 G $H$
+a2 G $H$
+a3 G $H$
+a6 G $H$
+a7 G $H$
+a8 G $H$
+a9 G $H$
+LE
+
+
++a0 a1  
++a0 a2  
++a0 a3  
+
+
+a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 G $ \mathcal{C}$
+a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 G $ E $
+
+LB
+a0 G $T$
+a4 G $T$
+a5 G $T$
+a8 G $T$
+LE
+
+@ 6 6 % $T^{(w)}$
+
+a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 G $ \mathcal{D}$
+
++a0 a3  
++a0 a2  
++a0 a1  

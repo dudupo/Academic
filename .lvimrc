@@ -101,6 +101,13 @@ function! g:Equ()
 endfunction 
 command! Equ call Equ()
 
+
+function! g:ExtractEqu()
+  execute "normal! F$vf$do:E€kb€kb€ýa:E€ku€ku€ku€ýapx"
+  return 0
+endfunction
+command! ExtractEqu call ExtractEqu()
+
 function! g:Ecase()
   execute "normal! o\\begin{cases}\<cr><++>&<++> \\\\\ \<cr><++>&<++>\<cr>\\end{cases}<++>" 
   return 0
