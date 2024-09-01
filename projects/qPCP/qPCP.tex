@@ -57,6 +57,21 @@ Consider the following promise problem:
   Note that if $b-a \in 1/poly(n)$ then the deciding which of the case holds is a problem in \textbf{QMA}. We will name that complexity class by: \CLASS. 
 \end{definition}
 
+\begin{claim}
+  \label{claim:conj} There exists a constant $\alpha \in (0,1)$ such for sufficiently large $n$ there is a function $f: \left[ n^{2} \right] \rightarrow \left[ n \right]$ and a partition (not disjoin) $A_{1}, A_{2}, A_{3} .., A_{n}$ such that:
+  \begin{enumerate}
+    \item $f(A_{i}) = \left\{ f(x) : x \in A_{i} \right\} = [n]$   
+    \item for all $i,j \in [n]$ either $A_{i}\cap A_{j} = \emptyset$ or $|A_{i}\cap A_{j}| > (1-\alpha)n$.
+  \end{enumerate}
+\end{claim}
+
+\begin{remark}
+  A weaker version of \Cref{claim:conj} for vanishing $\alpha$ can be got easily using products, i.e define $f_{2} : \left[ n^4 \right] \rightarrow \left[ n^{2} \right]$ as $f = f_{1}\times f_{1}$ where $f_{1}$ is a solution for $n$.
+  Then one can easily concludes that a solution for $\braket{n_{0},\alpha_{0}}$ limitedly implies a solution for $\braket{n_{0}^{\frac{\log (1-\alpha)}{\log ( 1 - \alpha_{0})}}, \alpha}$
+\end{remark}
+
+
+
 \begin{claim} \label{claim:inclass} \textbf{qPCP} $\subset $ \CLASS. \ctt{ For the claim to be true we have to pick $w$ from a subset of qubits such any of them supports at most $O(1)$ local terms. That requirement is problematic since the clock qubits are involved in all terms. We will have to overcome that issue}.  
 \end{claim}
 \begin{proof}
