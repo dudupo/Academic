@@ -60,7 +60,7 @@ Consider the following promise problem:
 \begin{claim} \textbf{qPCP} $\subset $ \CLASS. \ctt{ For the claim to be true we have to pick $w$ from a subset of qubits such any of them supports at most $O(1)$ local terms. That requirement is problematic since the clock qubits are involved in all terms. We will have to overcome that issue}.  
 \end{claim}
 \begin{proof}
-  Index the local terms of the Hamiltonian by $H_{i}$, and consider it's action on $\ket{\phi}$ as define in \Cref{def:class}. If $H_{i}$ isn't supported on $w$ then it contributes the same energy as it would contribute to $\ket{\psi}$. In the other case, when $H_{i}$ act on qubits in $w$ we bound it's contribution from above by $||H_{i}|| = 1$. Since any qubit supports at most $c= O(1)$ local terms, We can bound $\ket{\phi}$ energy by $a + \frac{1}{m}c\cdot w$, Therefore taking $\alpha  = \frac{(b-a)}{2c} \cdot \frac{n}{m}$ satisfies the requirements.
+  Index the local terms of the Hamiltonian by $H_{i}$, and consider it's action on $\ket{\phi}$ as define in \Cref{def:class}. If $H_{i}$ isn't supported on $w$ then it contributes the same energy as it would contribute to $\ket{\psi}$. In the other case, when $H_{i}$ act on qubits in $w$ we bound it's contribution from above by $||H_{i}|| = 1$. Since any qubit supports at most $c= O(1)$ local terms, We can bound $\ket{\phi}$ energy by $a + \frac{1}{m}c\cdot w$, Therefore taking $\alpha  = \frac{(b-a)}{2c} \cdot \frac{n}{m}$, which is constant, gives the requirements.
 \end{proof}
 
 
