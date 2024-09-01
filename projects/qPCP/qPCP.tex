@@ -52,7 +52,26 @@
   \newcommand{\Hpr}{H_{\text{prop}}}
 \newcommand{\Hen}{H_{\text{end}}}
 
-\section{Servel Hamiltonians Constructions.}
+\newcommand{\CLASS}{\textcolor{blue}{Class}}
+
+
+\section{New Approach.}
+
+Consider the following promise problem: 
+
+\begin{definition}
+  Given $k$-local Hamiltonian $H$ either for any quantum states $\braket{\psi|H|\psi} \ge b$ or:\begin{enumerate}
+    \item There exists $\ket{\psi}$ such that $\braket{\psi|H|\psi} \le a$
+    \item For any $w\subset [n]$ the state $\ket{\phi} = \ket{\psi}|_{w} = Tr_{w}\left( \ket{\psi} \right)$ has energy at most $\braket{\phi|H|\phi|} \le a + \frac{b-a}{2}$
+  \end{enumerate}<++>
+
+\end{definition}
+
+
+
+
+
+\section{Several Hamiltonians Constructions.}
 
 \begin{definition} 
 Let $C = U_{T}U_{T-1} \dots U_{0}$ be a quantum circuit. Denote by $Z(C)$ the random variable circuit that is obtained by the following random process: $Z(C)$ is the chain of $X_{S}X_{S-1} \dots X_{0}$ such that $X_{0}=U_{0}$, $X_{S}=U_{T}$ and $X_{i}$ is defined recursively. If $X_{i-1} = U_{j}$ for $j>0$, then $X_{i}$ is chosen uniformly from  $\{ U_{j+1}, U_{j}^{\dagger} \}$. We will call any circuit that can be a result of such a process a $C$-Zigzag.
@@ -239,6 +258,7 @@ What about defining $\tilde{D} = \bra{t} \mathbf{1}_{t\sim l} \ket{l} $, $D = \t
   \item $\Hin$ and $\Hen$ are the critical terms and deserve more gentle treatment.
 \end{enumerate}
 
+
 \section{Constant Clock.}
 
 We can encode the time by unarity encoding. namely $\ket{t} = \ket{1^{t}000..}$. Then the check $\ket{l}\bra{t}$ replaced by the check $\ket{1_{l}0}\bra{1_{t}0}$.  And we also add checks for the validity of the input $ \ket{*10*1}\bra{*10*1} $ that add a quaderic number of checks.  
@@ -333,7 +353,7 @@ Bottom line, They shown that the entangled measurment is not necessary.
 \end{definition}
 
 \begin{claim} \label{claim:noisyproof}
-  Denote by $H_{f}$ the $k$-local Hamiltonian obtained by applying Kitaev reduction on a fault tolerant circuit, with gap $b -a \ge 1/poly(n)$. And suppose there is a state $\ket{\psi}$ over $n$ qubits with energy lower than $a$. Than for any $i \in [n]$ it holds that 
+  Denote by $H_{f}$ the $k$-local Hamiltonian obtained by applying Kitaev reduction on a fault tolerant circuit, with gap $b -a \ge 1/poly(n)$. And suppose there is a state $\ket{\psi}$ over $n$ qubits with energy lower than $a$. Then for any $i \in [n]$ it holds that 
   \begin{equation*}
     \begin{split}    
   \braket{\ket{\psi^{-i}} \otimes \ket{\psi^{(i)}}|H_{f}|\ket{\psi^{-i}} \otimes \ket{\psi^{(i)}}} < a
