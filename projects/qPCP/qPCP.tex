@@ -57,6 +57,16 @@ Consider the following promise problem:
   Note that if $b-a \in 1/poly(n)$ then the deciding which of the case holds is a problem in \textbf{QMA}. We will name that complexity class by: \CLASS. 
 \end{definition}
 
+
+
+
+\begin{claim} \label{claim:inclass} \textbf{qPCP} $\subset $ \CLASS. \ctt{ For the claim to be true we have to pick $w$ from a subset of qubits such any of them supports at most $O(1)$ local terms. That requirement is problematic since the clock qubits are involved in all terms. We will have to overcome that issue}.  
+\end{claim}
+\begin{proof}
+  Index the local terms of the Hamiltonian by $H_{i}$, and consider it's action on $\ket{\phi}$ as define in \Cref{def:class}. If $H_{i}$ isn't supported on $w$ then it contributes the same energy as it would contribute to $\ket{\psi}$. In the other case, when $H_{i}$ act on qubits in $w$ we bound it's contribution from above by $||H_{i}|| = 1$. Since any qubit supports at most $c= O(1)$ local terms, We can bound $\ket{\phi}$ energy by $a + \frac{1}{m}c\cdot w$, Therefore taking $\alpha  = \frac{(b-a)}{2c} \cdot \frac{n}{m}$, which is constant, gives the requirements.
+\end{proof}
+
+
 \begin{claim}
   \label{claim:conj} There exists a constant $\alpha \in (0,1)$ such for sufficiently large $n$ there is a function $f: \left[ n^{2} \right] \rightarrow \left[ n \right]$ and a partition (not disjoin) $A_{1}, A_{2}, A_{3} .., A_{n}$ such that:
   \begin{enumerate}
@@ -74,16 +84,6 @@ Consider the following promise problem:
   \end{equation*}
   I don't know how to prove the claim and don't sure weather it even correct.
 \end{remark}
-
-
-
-\begin{claim} \label{claim:inclass} \textbf{qPCP} $\subset $ \CLASS. \ctt{ For the claim to be true we have to pick $w$ from a subset of qubits such any of them supports at most $O(1)$ local terms. That requirement is problematic since the clock qubits are involved in all terms. We will have to overcome that issue}.  
-\end{claim}
-\begin{proof}
-  Index the local terms of the Hamiltonian by $H_{i}$, and consider it's action on $\ket{\phi}$ as define in \Cref{def:class}. If $H_{i}$ isn't supported on $w$ then it contributes the same energy as it would contribute to $\ket{\psi}$. In the other case, when $H_{i}$ act on qubits in $w$ we bound it's contribution from above by $||H_{i}|| = 1$. Since any qubit supports at most $c= O(1)$ local terms, We can bound $\ket{\phi}$ energy by $a + \frac{1}{m}c\cdot w$, Therefore taking $\alpha  = \frac{(b-a)}{2c} \cdot \frac{n}{m}$, which is constant, gives the requirements.
-\end{proof}
-
-
 
 \begin{claim}\label{claim:inqPCP}
   \CLASS is \textbf{qPCP-Hard}.
