@@ -68,7 +68,7 @@ Consider the following promise problem:
 
 
 \begin{claim}
-  \label{claim:conj} There exists a constant $\alpha \in (0,1)$ such for sufficiently large $n$ there is a function $f: \left[ n^{2} \right] \rightarrow \left[ n \right]$ and a partition (not disjoin) $A_{1}, A_{2}, A_{3} .., A_{2n}$ such that:
+  \label{claim:conj} There exists a constant $\alpha \in (0,1)$ such for sufficiently large $n$ there is a function $f: \left[ n^{2} \right] \rightarrow \left[ n \right]$ and a partition (not disjoin) $A_{1}, A_{2}, A_{3} .., A_{l}$ such that:
   \begin{enumerate}
     \item $f(A_{i}) = \left\{ f(x) : x \in A_{i} \right\} = [n]$   
     \item for all $i,j \in [n]$ either $A_{i}\cap A_{j} = \emptyset$ or $|A_{i}\cap A_{j}| > (1-\alpha)n$.
@@ -89,7 +89,7 @@ Consider the following promise problem:
   \CLASS is \textbf{qPCP-Hard}.
 \end{claim}
 \begin{proof}
-  Divide $N$ qubits into $k$ group such that the intersection of any of them is exactly $\alpha n$,      We will show a reduction from \CLASS instance into $k$-local Hamiltonian with constant gap. Consider the complete graph $K_{n}$. Assign for each qubit for each edge of the graph. And for each vertex $v$    
+  Let $H$ be the Hamiltonian of given \CLASS instance. Let's obtained from it the following Hamiltonian $H^{\prime}$ over $n^{2}$ qubits. Using \Cref{claim:conj} associate for each $A_{i}$ a copy of $H$ when $H$ acts on any $x \in A_{i}$ as the canonical $H$ acts on $f(x)$.   
 \end{proof}
 
 
