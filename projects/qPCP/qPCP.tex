@@ -60,11 +60,11 @@
 Consider the following promise problem: 
 
 \begin{definition}
-  Given $k$-local Hamiltonian $H$ either for any quantum states $\braket{\psi|H|\psi} \ge b$ or:\begin{enumerate}
+  Given $k$-local Hamiltonian $H$ overt $n$ qubits it is promised that either for any quantum states $\braket{\psi|H|\psi} \ge b$ or:\begin{enumerate}
     \item There exists $\ket{\psi}$ such that $\braket{\psi|H|\psi} \le a$
-    \item For any $w\subset [n]$ the state $\ket{\phi} = \ket{\psi}|_{w} = Tr_{w}\left( \ket{\psi} \right)$ has energy at most $\braket{\phi|H|\phi|} \le a + \frac{b-a}{2}$
-  \end{enumerate}<++>
-
+    \item For any $w\subset [n]$, $|w| < \alpha n $ the state $\ket{\phi} = \ket{\psi}|_{w} = Tr_{w}\left( \ket{\psi} \right)$ has energy at most $\braket{\phi|H|\phi|} \le a + \frac{b-a}{2}$
+  \end{enumerate}
+  Notice that if $b-a \in 1/poly(n)$ then the deciding which of the case holds is a problem in $QMA$.  
 \end{definition}
 
 
