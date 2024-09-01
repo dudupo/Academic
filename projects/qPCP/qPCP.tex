@@ -56,7 +56,7 @@ Consider the following promise problem:
   Note that if $b-a \in 1/poly(n)$ then the deciding which of the case holds is a problem in \textbf{QMA}. We will name that complexity class by: \CLASS. 
 \end{definition}
 
-\begin{claim} \textbf{qPCP} $\subset $ \CLASS. 
+\begin{claim} \textbf{qPCP} $\subset $ \CLASS. \ctt{ For the claim to be true we have to pick $w$ from a subset of qubits such any of them supports at most $O(1)$ local terms. That requirement is problematic since the clock qubits are involved in all terms. We will have to overcome that issue}. 
   
 \end{claim}
 
