@@ -37,17 +37,6 @@
   \maketitle
 \fi
 
-
-%\section{Introduction.}
-%\begin{itemize}
-%  \item Solovey-Kitaev shown to be true also for BQL. 
-%  \item Even though postpting the measurements to the end seems to inflat the wide and the length of the circuit. It was provn that there is an effiucent way to elimanating intermidate measurements, So  BQL = BQuL. 
-%  \item There is some error-rduction that I have to complete.  
-%  \item Ta-shma shown that inverting a matrix is BQL complete. 
-%  \item Also computing the eigen values of Hrmitan matrix is BQP complete. The algoritmes that have been used are has qauderic adavantage in space.
-%\end{itemize}
-%
-%
 \newcommand{\Hin}{H_{\text{init}}}
   \newcommand{\Hpr}{H_{\text{prop}}}
 \newcommand{\Hen}{H_{\text{end}}}
@@ -60,12 +49,17 @@
 Consider the following promise problem: 
 
 \begin{definition}
-  Given $k$-local Hamiltonian $H$ overt $n$ qubits it is promised that either for any quantum states $\braket{\psi|H|\psi} \ge b$ or:\begin{enumerate}
+  Given a constant $\alpha\in (0,1)$ and $k$-local Hamiltonian $H$ overt $n$ qubits it is promised that either for any quantum states $\braket{\psi|H|\psi} \ge b$ or:\begin{enumerate}
     \item There exists $\ket{\psi}$ such that $\braket{\psi|H|\psi} \le a$
     \item For any $w\subset [n]$, $|w| < \alpha n $ the state $\ket{\phi} = \ket{\psi}|_{w} = Tr_{w}\left( \ket{\psi} \right)$ has energy at most $\braket{\phi|H|\phi|} \le a + \frac{b-a}{2}$
   \end{enumerate}
-  Notice that if $b-a \in 1/poly(n)$ then the deciding which of the case holds is a problem in $QMA$.  
+  Notice that if $b-a \in 1/poly(n)$ then the deciding which of the case holds is a problem in $QMA$. We will call that class: \CLASS 
 \end{definition}
+
+\begin{claim}
+  
+\end{claim}
+
 
 
 
