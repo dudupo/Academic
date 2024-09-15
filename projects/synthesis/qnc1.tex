@@ -65,8 +65,16 @@ The Protocol:
 \end{claim}
 
 \begin{claim}
-  with probability almost surly, the total amount of noise been absorb in a block is less than $\alpha n$. 
+  With probability almost surly, the total amount of noise been absorb in a block is less than $\alpha n$. 
 \end{claim}
+\begin{proof}
+  With probability almost surly no more than $\beta |B|$ bits at time $t$. 
+  \begin{equation*}
+    \begin{split}
+      \le 2e^{-2n(\beta - p)} 
+    \end{split}
+  \end{equation*}
+\end{proof}
 
 
 
