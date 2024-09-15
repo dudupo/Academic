@@ -38,7 +38,7 @@
 
 
 \section{ Notations. }
-$C_{g}$ - good qLDPC, $C_{ft}$ - concatenation code ($ft$ stands for fault tolerance). For a code $C_{y}$ we use $\Phi_{y}, E_{y}, D_{y}$ to denote the maps circuits into the circuits compute in the code space, the encoder, and the decoder. 
+$C_{g}$ - good qLDPC, $C_{ft}$ - concatenation code ($ft$ stands for fault tolerance). For a code $C_{y}$ we use $\Phi_{y}, E_{y}, D_{y}$ to denote the maps circuits into the circuits compute in the code space, the encoder, and the decoder. We use $\Phi_{U}$ to denote the 'Bell'-state storing the gate $U$. 
 
 
 \section{ The Noise Model }
@@ -53,7 +53,13 @@ $C_{g}$ - good qLDPC, $C_{ft}$ - concatenation code ($ft$ stands for fault toler
 
 \subsection{Initializing Magic for Teleportation gates and encodes ancillaries.}
 
-
+The Protocol:
+\begin{enumerate}
+  \item Initializing zeros. Divide the qubits into $|B|$-size blocks. Encodes each block in $C_{g}$ via $D_{ft} \Phi_{ft}[E_{g}] \ket{0^{|B|}}$.
+  \item Initializing Magic for Teleportation gates encoded in $C_{g}$ via $D_{ft} \Phi_{ft}[E_{g}] \ket{\Phi_{U}}$ for each gate $U$ in the original circit .
+  \item Each gate is replaced by gate teleportation.  
+  \item  
+\end{enumerate}
 \begin{claim}
   The gate $ D_{ft} \Phi_{ft}[E_{g}]$ initializes states encoded in $C_{g}$ subject to $p$-noise channel.  
 \end{claim}
@@ -61,11 +67,6 @@ $C_{g}$ - good qLDPC, $C_{ft}$ - concatenation code ($ft$ stands for fault toler
 
 
 
-\begin{enumerate}
-  \item Initializing Magic for Teleportation gates and encodes ancillaries.
-  \item Each gate is replaced by gate teleportation.  
-  \item  
-\end{enumerate}
 
 
 
