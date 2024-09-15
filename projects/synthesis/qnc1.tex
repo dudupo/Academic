@@ -8,9 +8,10 @@
 \documentclass[manuscript,screen,review]{acmart}
 
 \else
-  \documentclass[16pt, twocolumn]{article}
+  \documentclass[16pt]{article}
 \usepackage{libertine}
 \usepackage{cuted}
+%\usepackage{widetext}
 \input{./usepackage}
 \usepackage{cancel}
 \usepackage{subcaption}
@@ -74,13 +75,13 @@ The Protocol:
 \end{claim}
 \begin{proof}
   Clearly $\Phi_{ft}[E_{g}]$ success, with high probability, let's say $1 - \frac{1}{poly(n)}$, to encode in to $ C_{ft} \circ C_{g}$. Denote by $E_{i}, D_{i}$ the encoder and the decoder at the $i$th level of the concatination construction, and observes that for any paulis noise $P_{1},P_{2},..P_{l}$, and any two quantum states we have the following:  
-  \begin{strip}
+ % \begin{widetext}
   \begin{equation*}
     \begin{split}
       \braket{ \psi^{\prime} | E_{i}P_{i}E_{i}P_{i-1}E_{i-1},..,P_{1}E_{1}P_{i} \psi } = \braket{ \psi^{\prime} D_{i}P_{i}D_{i}P_{i-1}D_{i-1},..,P_{1}D_{1}P_{i} | \psi }
     \end{split}
   \end{equation*}
-\end{strip}
+%\end{widetext}
 \end{proof}
 
 \begin{claim}
