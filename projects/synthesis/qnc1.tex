@@ -68,7 +68,7 @@ The Protocol:
   With probability almost surly, the total amount of noise been absorb in a block is less than $\alpha n$. 
 \end{claim}
 \begin{proof}
-  With probability almost surly no more than $\beta |B|$ bits at time $t$. 
+  Consider the $i$th block,  denoted by $B_{i}$. Using the Hoeffding's inequality we bound the probability that more than $\beta |B|$ bits are flipped at time $t$. 
   \begin{equation*}
     \begin{split}
       \prb{ \beta n \text{ bits were flipped in } B_{i} \text{ at time } t  } \le 2e^{-2|B|(\beta - p)} 
