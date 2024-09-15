@@ -74,14 +74,22 @@ The Protocol:
   The gate $ D_{ft} \Phi_{ft}[E_{g}]$ initializes states encoded in $C_{g}$ subject to $p$-noise channel.  
 \end{claim}
 \begin{proof}
-  Clearly $\Phi_{ft}[E_{g}]$ success, with high probability, let's say $1 - \frac{1}{poly(n)}$, to encode in to $ C_{ft} \circ C_{g}$. Denote by $E_{i}, D_{i}$ the encoder and the decoder at the $i$th level of the concatination construction. Recall that by definition $D_{i}E_{i} = I$, or in other words $D_{i}= E_{i}^{\dagger}$, Hence for any paulis  $P_{1},P_{2},..P_{l}$, and any two quantum states we have the following:  
+  Clearly $\Phi_{ft}[E_{g}]$ success, with high probability, let's say $1 - \frac{1}{poly(n)}$, to encode in to $ C_{ft} \circ C_{g}$. Denote by $E_{i}, D_{i}$ the encoder and the decoder at the $i$th level of the concatination construction. Recall that by definition $D_{i}E_{i} = I$, or in other words $D_{i}= E_{i}^{\dagger}$, Hence for any paulis  $P_{1},P_{2},..P_{l}$ such $P_{i}$'s can be corrected by $E_{i},D_{i}$, and any two quantum states we have the following:  
  % \begin{widetext}
   \begin{equation*}
     \begin{split}
       \braket{ \psi^{\prime} | P_{i}E_{i}P_{i-1}E_{i-1},..,P_{1}E_{1} \psi } = \braket{ \psi^{\prime} P_{i}D_{i}P_{i-1}D_{i-1},..,P_{1}D_{1} | \psi }
     \end{split}
   \end{equation*}
-  Thus for any pauli-channel $\mathcal{N} : L(H) \rightarrow L(H)$ we have that: $ \braket{ \psi^{\prime} | \mathcal{N}(E) \psi } = \braket{ \psi^{\prime} \mathcal{N}(D) | \psi }$. 
+  Thus for any pauli-channel $\mathcal{N} : L(H) \rightarrow L(H)$, and $\psi^{\prime}$ which is a codeword we get: 
+  \begin{equation*}
+    \begin{split}
+      \braket{ \psi^{\prime} \mathcal{N}(D) | \psi } &=  \sum_{P_{1}, P_{2}, .., P_{i} \in \mathcal{P}}{  \braket{ \psi^{\prime} P_{i}D_{i}P_{i-1}D_{i-1},..,P_{1}D_{1} | \psi }} \\
+      &=  \sum_{P_{1}, P_{2}, .., P_{i} \in \mathcal{P}^{\star}}{  \braket{ \psi^{\prime} | P_{i}E_{i}P_{i-1}E_{i-1},..,P_{1}E_{1} \psi }} \pm O(  \frac{1}{poly(n)})\\
+      &=  \sum_{P_{1}, P_{2}, .., P_{i} \in \mathcal{P}^{\star}}{  \braket{ \psi^{\prime} | P_{i} E \psi }} \pm O(  \frac{1}{poly(n)})\\
+      & = \braket{ \psi^{\prime} \mathcal{N}(D) | \psi }
+    \end{split}
+  \end{equation*}
     
 %\end{widetext}
 \end{proof}
