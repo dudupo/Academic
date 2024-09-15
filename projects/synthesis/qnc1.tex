@@ -60,6 +60,14 @@ The Protocol:
   \item Each gate is replaced by gate teleportation.  
   \item At any time tick, any block runs a single round of error reduction.  
 \end{enumerate}
+
+
+\begin{claim}
+  \label{claim:error} 
+  Assume that an error $|e| = \gamma n $, i.e $e$ is supported on less than $\gamma n$ bits, then a single correction round reduce $e$ into an error $e^\prime$ such $|e^{\prime}| < \nu |e|$. 
+\end{claim}
+
+
 \begin{claim}
   The gate $ D_{ft} \Phi_{ft}[E_{g}]$ initializes states encoded in $C_{g}$ subject to $p$-noise channel.  
 \end{claim}
@@ -68,7 +76,7 @@ The Protocol:
   With probability almost surly, the total amount of noise been absorb in a block is less than $\alpha n$. 
 \end{claim}
 \begin{proof}
-  Consider the $i$th block,  denoted by $B_{i}$. Using the Hoeffding's inequality we have that the probability that more than $\beta |B|$ bits are flipped at time $t$ is less than $ \le 2e^{-2|B|(\beta - p)} $. Using the union bounds over all the blocks at all the different time location we get that with probability $ 1 - \frac{WD}{|B|} \cdot D 2e^{-2|B|(\beta - p)} $.  
+  Consider the $i$th block,  denoted by $B_{i}$. Using the Hoeffding's inequality we have that the probability that more than $\beta |B|$ bits are flipped at time $t$ is less than $ \le 2e^{-2|B|(\beta - p)} $. Using the union bounds over all the blocks at all the different time location we get that with probability $ 1 - \frac{WD}{|B|} \cdot D 2e^{-2|B|(\beta - p)} $. Now using the \Cref{claim:error} it follows that total amount of error absorbed by a block until time $t$, call it $X_{t}$ can be bounded by: $X_{t} \le \nu \cdot (X_{t-1} + \beta n ) \le  \nu(\gamma+\beta) n$.   
 %  \begin{equation*}
 %    \begin{split}
 %      \prb{ \beta n \text{ bits were flipped in } B_{i} \text{ at time } t  } \le 2e^{-2|B|(\beta - p)} 
