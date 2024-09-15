@@ -1,0 +1,61 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+\documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass[14pt]{article}
+\usepackage{libertine}
+\input{./usepackage}
+\usepackage{cancel}
+\usepackage{subcaption}
+\addbibresource{./sample.bib}
+
+\fi
+
+\begin{document}
+\input{newcommands}
+\title{ $\textbf{QNC}_{1} \subset $ noisy-\textbf{BQP}}
+\author{Michael Benor \ \ David Ponarovsky}
+\maketitle
+
+\newcommand*{\Mbas}{\mathcal{X}^\prime}
+\newcommand*{\bas}{\mathcal{X}}
+\newcommand*{\sMbas}{\Mbas}
+\newcommand*{\QQ}{C_{X}/C_{Z}^\perp }
+\newcommand*{\trig}{ Triorthogonal }
+\newcommand*{\Hyp}{ Hyperproduct }
+\newcommand*{\Cin}{ C_{\text{initial}} }
+\newcommand*{\Ctan}{ C_{\text{Tan}} }
+
+
+
+%\section{Introduction} blablabla
+
+
+
+\section{ The Noise Model }
+
+
+\section{ Fault Tolerance Protocol at Linear Depth. } 
+
+\begin{claim}
+  There is $p_{th} \in (0,1)$ such that if $p < p_{0}$ then any quantum circuit $C$ with depth $D$ and width $W$ can be computed by $p$-noisy, resets allowed, circuit $C^{\prime}$, with a depth at most $\max{ D, \log(WD) }$. 
+\end{claim}
+
+
+
+%\input{./tempmagic.tex}
+%\cite{leverrier2022quantum}
+%\cite{moore1998parallel}
+%\cite{Tillich_2014}
+%\cite{meier2012magicstate}
+%\cite{bravyi2012magic}
+\printbibliography
+
+\end{document}
+
