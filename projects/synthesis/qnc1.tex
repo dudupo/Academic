@@ -93,7 +93,7 @@ The Protocol:
     \begin{split}
       \mathcal{N}(D) &= \left((\mathcal{N}(D))^{\dagger}\right)^{\dagger} =  \left(\sum_{P_{1}, P_{2}, .., P_{i} \in \mathcal{P}}{ \prb{P_{1}, P_{2}, .., P_{i}}  \left(D_{1}P_{2}D_{2},..,P_{i-1}D_{i}P_{i}\right)^{\dagger}} \right)^{\dagger} \\ 
       &=  \left( \sum_{P_{1}, P_{2}, .., P_{i} \in \mathcal{P}}{ \prb{P_{1}, P_{2}, .., P_{i}}  P_{i}E_{i}P_{i-1}E_{i-1},..,P_{1}E_{1} } \right)^{\dagger}\\
-      &=  \left( \left( 1 -\frac{1}{poly(n)} \right)P_{i}E + \frac{1}{poly(n)} A  \right)^{\dagger}
+      &=  \left( \left( 1 -\frac{1}{poly(n)} \right)\sum_{P_{i} \in \mathcal{P}}P_{i}E + \frac{1}{poly(n)} A  \right)^{\dagger}= \left( 1 -\frac{1}{poly(n)} \right)\sum_{P_{i} \in \mathcal{P}}DP_{i} + \frac{1}{poly(n)} A 
 \end{split}
   \end{equation*}
 
