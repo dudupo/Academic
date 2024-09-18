@@ -95,6 +95,10 @@ The Protocol:
     \end{split}
   \end{equation*}
 
+  \begin{remark}
+    In our construction we use the concatinate-code to encode $\log(n)$-length block, Thus any $poly(n)$ in the above should be replaced by $\log(n)$. Yet it doesn't effect anything since the inequality dosn't depend on $n$.
+  \end{remark}
+
 %
 %
 %  \begin{equation*}
@@ -148,6 +152,14 @@ The Protocol:
 %    \end{split}
 %  \end{equation*}
 %  Taking the union bound over the 
+\end{proof}
+
+
+\begin{claim}
+  The total depth of the circuit is $O\left( \log n  \right)$. 
+\end{claim}
+\begin{proof}
+The gate for encoding $\log(n)$-length blocks in $C_{g}$, is a clifford and therefore can be computed in $O(\log \log n)$ depth. Encoding the magic states, done by first compute them in the logical space (un-encoded qubits) and then by using the encoder. Hence it's foult-tolerence version of both initializing ancillaries and magic states /bell states. Can be done in $O( (\log \log n) \cdot \log^{c}( (\log \log n)  \cdot ( \log n)) )$ \footnote{The width of the original circuit is $\log^{2} n$ so the number of locations is $ \log^{2}(n) \cdot \log \log n$}.   
 \end{proof}
 
 
