@@ -65,18 +65,15 @@ The Protocol: \begin{enumerate}
   \label{claim:error} 
   Assuming that an error $|e| = \gamma n $, i.e $e$ is supported on less than $\gamma n$ bits, then a single correction round reduce $e$ to an error $e^\prime$ such that $|e^{\prime}| < \nu |e|$. 
 \end{claim}
-
-
-
-
+  
 \begin{claim}
-  The gate $ D_{ft} \Phi_{ft}[E_{g}]$ initializes states encoded in $C_{g}$ subject to $3p$-noise channel.  
+  The gate $ D_{ft} \Phi_{ft}[E_{g}]$ initializes states encoded in $C_{g}$ subject to a $3p$-noise channel.  
 \end{claim}
 \begin{proof}
-  Clearly $\Phi_{ft}[E_{g}]$ success, with high probability, let's say $1 - \frac{1}{poly(n)}$, to encode in to $ C_{ft} \circ C_{g}$. Denote by $E_{i}, D_{i}$ the encoder and the decoder at the $i$th level of the concatination construction. Recall that by definition $D_{i}E_{i} = I$, or in other words $D_{i}= E_{i}^{\dagger}$. Consider the decoder under $\mathcal{N}$ action. $P_{2}D_{1}P_{2}D_{2},..,P_{i-1}D_{i}P_{i}$, by the fault-tolerance construction  a logical error happens at the $i$th stage occurs with probability $p^{2^{i}}$, therefore by the union bound the probability that in one of the steps the circuit absorbs an error that is not corrected is less than $p + p^{2} + p^{4} + .. < 2p$. Hence any decoded qubit absorbs a noise with probability less than $2p$.
+  Clearly, with high probability, $\Phi_{ft}[E_{g}]$ successfully encodes into $C_{ft} \circ C_{g}$, let's say with probability $1 - \frac{1}{poly(n)}$. Denote by $E_{i}$ and $D_{i}$ the encoder and decoder at the $i$th level of the concatenation construction. Recall that by definition, $D_{i}E_{i} = I$, or in other words, $D_{i}= E_{i}^{\dagger}$. Consider the decoder under $\mathcal{N}$ action: $P_{2}D_{1}P_{2}D_{2},..,P_{i-1}D_{i}P_{i}$, by the fault-tolerance construction, a logical error at the $i$th stage occurs with probability $p^{2^{i}}$. Therefore, by the union bound, the probability that in one of the steps the circuit absorbs an error that is not corrected is less than $p + p^{2} + p^{4} + .. < 2p$. Hence, any decoded qubit absorbs noise with probability less than $2p$.
 
 
-  Thus in overall we can bound the porobability a single qubit to be faulty by: 
+  Thus, overall, we can bound the probability of a single qubit being faulty by:
   \begin{equation*}
     \begin{split}
       \prb{\text{fault} } &=  \prb{\text{fault} |  \Phi_{ft}[E_{g}] }\cdot \prb{\Phi_{ft}[E_{g}]} + \prb{\text{fault} | \overline{\Phi_{ft}[E_{g}]} }\cdot \prb{\overline{\Phi_{ft}[E_{g}]}}\\
@@ -85,7 +82,7 @@ The Protocol: \begin{enumerate}
   \end{equation*}
 
   \begin{remark}
-    In our construction we use the concatinate-code to encode $\log(n)$-length block, Thus any $poly(n)$ in the above should be replaced by $\log(n)$. Yet it doesn't effect anything since the inequality dosn't depend on $n$.
+In our construction, we use the concatenation code to encode blocks of length $\log(n)$. Therefore, any $poly(n)$ in the above should be replaced by $\log(n)$. However, this does not affect anything since the inequality does not depend on $n$.
   \end{remark}
 
 %
