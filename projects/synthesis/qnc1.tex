@@ -61,10 +61,12 @@ The Protocol: \begin{enumerate}
   \item Error reduction: After the initialization step, at each time tick, each block runs a single round of error reduction.
 \end{enumerate}
 
-\begin{claim}
+\begin{claim}[From \cite{leverrier2022decodingquantumtannercodes}]
   \label{claim:error} 
   Assuming that an error $|e| = \gamma n $, i.e $e$ is supported on less than $\gamma n$ bits, then a single correction round reduce $e$ to an error $e^\prime$ such that $|e^{\prime}| < \nu |e|$. 
 \end{claim}
+
+
 
 
 \begin{claim}
