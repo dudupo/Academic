@@ -54,15 +54,12 @@ There exists a value $p_{th} \in (0,1)$ such that if $p < p_{th}$, then any quan
 
 
 \subsection{Initializing Magic for Teleportation gates and encodes ancillaries.}
-
-The Protocol:
-\begin{enumerate}
-  \item Initializing zeros. Divide the qubits into $|B|$-size blocks. Encodes each block in $C_{g}$ via $D_{ft} \Phi_{ft}[E_{g}] \ket{0^{|B|}}$.
-  \item Initializing Magic for Teleportation gates encoded in $C_{g}$ via $D_{ft} \Phi_{ft}[E_{g}] \ket{\Phi_{U}}$ for each gate $U$ in the original circit .
-  \item Each gate is replaced by gate teleportation.  
-  \item At any time tick, any block runs a single round of error reduction.  
+The Protocol: \begin{enumerate}
+  \item Initialization of zeros: The qubits are divided into blocks of size $|B|$. Each block is encoded in $C_{g}$ using $D_{ft} \Phi_{ft}[E_{g}] \ket{0^{|B|}}$.
+  \item Initialization of Magic for Teleportation gates: The gates in the original circuit are encoded in $C_{g}$ using $D_{ft} \Phi_{ft}[E_{g}] \ket{\Phi_{U}}$.
+  \item Gate teleportation: Each gate in the original circuit is replaced by a gate teleportation.
+  \item Error reduction: After the initialization step, at each time tick, each block runs a single round of error reduction.
 \end{enumerate}
-
 
 \begin{claim}
   \label{claim:error} 
