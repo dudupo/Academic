@@ -164,7 +164,8 @@ The Protocol:
   Then using the bell measurements any of the logical gates takes $O(1)$ depth and since we use perform only a single round of error correction we get that the reaming computation till the last decoding stage is a at most constant time of the original depth. Finally we pay $O(\log |B|)$ for complete decoding. Summing all, we get: 
   \begin{equation*}
     \begin{split}
-      O ( \log |B|\cdot  \log^{c}( |B| \log |B| ) )  + O ( \text{original depth} ) + O ( \log |B| )
+     &  O ( \log |B|\cdot  \log^{c}( |B| \log |B| ) )  + O ( \text{original depth} ) + O ( \log |B| ) \\ 
+     = & O ( \text{original depth} ) + O ( \log^{c} |B| )
     \end{split}
   \end{equation*}
 \end{proof}
