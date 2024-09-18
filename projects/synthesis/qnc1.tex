@@ -126,6 +126,7 @@ The Protocol:
 \end{proof}
 
 \begin{claim}
+  \label{claim:prob}
   With probability $ 1 - \frac{WD}{|B|} \cdot D 2e^{-2|B|(\beta - p)} $, the total amount of noise been absorb in a block, in any time $t$, is less than $\gamma n$. 
 \end{claim}
 \begin{proof}
@@ -160,7 +161,7 @@ The Protocol:
   \end{equation*}
 \end{proof}
 
-Taking the block length to be $|B| = \log ( (W \cdot D)^{c} )$ gives a linear\footnote{Assuming $W$ is polynomial in $D$} fault tolerance construction that success with probability $ 1- \frac{1}{\log^{c_{2}}( W\cdot D)} $. Particularly, the fault tolerance version of  circuits in $\textbf{QNC}_{1}$ has logarithmic depth. Then using the construction in \cite{aharonov1996limitationsnoisyreversiblecomputation} yields a polynomial fault tolerance circuit, in the only reversible gates setting.
+Taking the block length to be $|B| = \log ( (W \cdot D)^{c} )$ gives, by \Cref{claim:prob}, a linear\footnote{Assuming $W$ is polynomial in $D$} fault tolerance construction that success with probability $ 1- \frac{1}{\log^{c_{2}}( W\cdot D)} $. Particularly, the fault tolerance version of  circuits in $\textbf{QNC}_{1}$ has logarithmic depth. Then using the construction in \cite{aharonov1996limitationsnoisyreversiblecomputation} yields a polynomial fault tolerance circuit, in the only reversible gates setting.
 
 
 
