@@ -70,16 +70,6 @@ The Protocol:
 \end{claim}
 
 
-%\begin{definition}
-%  \label{def:mono} We will say that a CSS code $C$ is monotonic if for for any two codewords $X_{1} , X_{2} \in C_{X}/C_{Z}^{\perp}$ such that $X_{1} = \sum_{i}{g^{(1)}_{i}},X_{2} = \sum_{i}{g^{(2)}_{i}}$ and $\{g^{(1)}\} \cap   \{g^{(1)}\} = \emptyset$ it holds that: 
-%  \begin{equation*}
-%    \begin{split}
-%      | X_{1} + X_{2} | > \frac{3}{2} \left(|X_{1}| + |X_{2}|\right)
-%    \end{split}
-%  \end{equation*}
-%  For example, the Toric code is monotonic. In addition it's straightforwardly to see that concatenation of two monotonies code yield monotonic code.
-%\end{definition}
-
 \begin{claim}
   The gate $ D_{ft} \Phi_{ft}[E_{g}]$ initializes states encoded in $C_{g}$ subject to $3p$-noise channel.  
 \end{claim}
@@ -159,7 +149,7 @@ The Protocol:
   The total depth of the circuit is $O\left( \log n  \right)$. 
 \end{claim}
 \begin{proof}
-  The gate for encoding $|B|$-length blocks in $C_{g}$, is a Clifford and therefore can be computed in $O(\log|B|)$ depth. The encoding of the magic/bell states, done by first compute them in the logical space (un-encoded qubits) and then by using the encoder. Hence it's foult-tolerence version of both initializing ancillaries and magic states /bell states. Can be done in $O( (\log |B|) \cdot \log^{c}( |B| \log |B| ) )$ \footnote{The width of the original circuit is $|B|^{2}$ so the number of locations is $ |B|^{2} \cdot \log |B|$}. Backing into $C_{g}$ from $C_{ft}$ by decoding the concatenation code takes exactly as the encoding namely. 
+  The gate for encoding $|B|$-length blocks in $C_{g}$, is a Clifford and therefore can be computed in $O(\log|B|)$ depth. The encoding of the magic/bell states, done by first compute them in the logical space (un-encoded qubits) and then by using the encoder. Hence it's foult-tolerence version of both initializing ancillaries and magic states /bell states cost $O( (\log |B|) \cdot \log^{c}( |B| \log |B| ) )$ \footnote{The width of the original circuit is $|B|^{2}$ so the number of locations is $ |B|^{2} \cdot \log |B|$} depth \cite{aharonov1999faulttolerant}. Backing into $C_{g}$ from $C_{ft}$ by decoding the concatenation code takes exactly as the encoding namely. 
 
   Then using the bell measurements any of the logical gates takes $O(1)$ depth and since we use perform only a single round of error correction we get that the reaming computation till the last decoding stage is a at most constant time of the original depth. Finally we pay $O(\log |B|)$ for complete decoding. Summing all, we get: 
   \begin{equation*}
