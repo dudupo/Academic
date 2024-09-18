@@ -49,7 +49,7 @@ We denote by $C_{g}$ the good qLDPC code \cite{Dinur} \cite{Pavel} \cite{leverri
 \section{ Fault Tolerance (With Resets gates) at Linear Depth. } 
 
 \begin{claim}
-  There is $p_{th} \in (0,1)$ such that if $p < p_{th}$ then any quantum circuit $C$ with depth $D$ and width $W$ can be computed by $p$-noisy, resets allowed, circuit $C^{\prime}$, with a depth at most $\max{ \{D, \log(WD) \} }$. 
+There exists a value $p_{th} \in (0,1)$ such that if $p < p_{th}$, then any quantum circuit $C$ with a depth of $D$ and a width of $W$ can be computed by a $p$-noisy circuit $C^{\prime}$, which allows for resets. The depth of $C^{\prime}$ is at most $\max{ \{O(D), O(\log(WD)) \} }$.
 \end{claim}
 
 
