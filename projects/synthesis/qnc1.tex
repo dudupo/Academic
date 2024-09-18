@@ -40,7 +40,7 @@
 
 
 \section{ Notations. }
-$C_{g}$ - good qLDPC, $C_{ft}$ - concatenation code ($ft$ stands for fault tolerance). For a code $C_{y}$ we use $\Phi_{y}, E_{y}, D_{y}$ to denote the channel maps circuits into the circuits compute in the code space, the encoder, and the decoder. We use $\Phi_{U}$ to denote the 'Bell'-state storing the gate $U$. 
+$C_{g}$ - good qLDPC, $C_{ft}$ - concatenation code ($ft$ stands for fault tolerance). For a code $C_{y}$ we use $\Phi_{y}, E_{y}, D_{y}$ to denote the channel maps circuits into the circuits compute in the code space, the encoder, and the decoder. We use $\Phi_{U}$ to denote the 'Bell'-state storing the gate $U$. We say that a state $\ket{\psi}$ is at distance $d$ from a quantum code $C$ if there is an operator $U$  sending $\ket{\psi}$ into $C$ such that $U$ spanned on paulis with degree at most $d$. Sometimes, when the code been used is clear form the context, we will say that a block $B$ of qubits absorbed at most $d$ noise if the stated encoded on $B$ is at distance at most $d$ form that code.  
 
 
 \section{ The Noise Model }
@@ -130,7 +130,9 @@ The Protocol:
   With probability $ 1 - \frac{WD}{|B|} \cdot D 2e^{-2|B|(\beta - p)} $, the total amount of noise been absorb in a block, in any time $t$, is less than $\gamma n$. 
 \end{claim}
 \begin{proof}
-  Consider the $i$th block,  denoted by $B_{i}$. Using the Hoeffding's inequality we have that the probability that more than $\beta |B|$ bits are flipped at time $t$ is less than $ \le 2e^{-2|B|(\beta - p)} $. Using the union bounds over all the blocks at all the different time locations we get that with probability $ 1 - \frac{WD}{|B|} \cdot D 2e^{-2|B|(\beta - p)} $ the noise been absorbed is less than $|\beta|B$ for the whole computation. Denote by $X_{t}$ the support's size of the error over $B_{i}$ at time $t$. Now using \Cref{claim:error}, given that $X_{t-1} \le \gamma n$, it follows that the total amount of error absorbed by a block until time $t$ can be bounded by: 
+  Consider the $i$th block,  denoted by $B_{i}$. Using the Hoeffding's inequality we have that the probability that more than $\beta |B|$ bits are flipped at time $t$ is less than $ \le 2e^{-2|B|(\beta - p)} $. Using the union bounds over all the blocks at all the different time locations we get that with probability $ 1 - \frac{WD}{|B|} \cdot D 2e^{-2|B|(\beta - p)} $ the noise been absorbed in a block is less than $|\beta|B$ for the whole computation.
+
+  Denote by $X_{t}$ the support's size of the error over $B_{i}$ at time $t$. Now using \Cref{claim:error}, given that $X_{t-1} \le \gamma n$, it follows that the total amount of error absorbed by a block until time $t$ can be bounded by: 
   \begin{equation*}
     \begin{split}
   X_{t} \le \nu \cdot (X_{t-1} + \beta |B| ) \le  \nu(\gamma+\beta) |B| \le \gamma |B|
