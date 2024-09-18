@@ -134,28 +134,20 @@ Let $X_{t}$ denote the support size of the error over $B_{i}$ at time $t$. Using
 X_{t} \le \nu \cdot (X_{t-1} + \beta |B| ) \le \nu(\gamma+\beta) |B| \le \gamma |B|
 \end{split}
 \end{equation*}
-
-
-%  \begin{equation*}
-%    \begin{split}
-%      \prb{ \beta n \text{ bits were flipped in } B_{i} \text{ at time } t  } \le 2e^{-2|B|(\beta - p)} 
-%    \end{split}
-%  \end{equation*}
-%  Taking the union bound over the 
 \end{proof}
 
 
 \begin{claim}
-  The total depth of the circuit is $O\left( \log n  \right)$. 
+  The total depth of the circuit is $O ( D  ) + O ( \log^{c} |B| )$. 
 \end{claim}
 \begin{proof}
-  The gate for encoding $|B|$-length blocks in $C_{g}$, is a Clifford and therefore can be computed in $O(\log|B|)$ depth. The encoding of the magic/bell states, done by first compute them in the logical space (un-encoded qubits) and then by using the encoder. Hence it's foult-tolerence version of both initializing ancillaries and magic states /bell states cost $O( (\log |B|) \cdot \log^{c}( |B| \log |B| ) )$ \footnote{The width of the original circuit is $|B|^{2}$ so the number of locations is $ |B|^{2} \cdot \log |B|$} depth \cite{aharonov1999faulttolerant}. Backing into $C_{g}$ from $C_{ft}$ by decoding the concatenation code takes exactly as the encoding namely. 
+  The gate for encoding $|B|$-length blocks in $C_{g}$ is a Clifford gate and can therefore be computed in $O(\log|B|)$ depth. The encoding of the magic/bell states is done by first computing them in the logical space (un-encoded qubits) and then encode them using the encoder. Hence, the fault-tolerant version of both initializing ancillaries and magic states/bell states costs $O( (\log |B|) \cdot \log^{c}( |B| \log |B| ) )$ \footnote{The width of the original circuit is $|B|^{2}$ so the number of locations is $ |B|^{2} \cdot \log |B|$} depth \cite{aharonov1999faulttolerant}. Backing into $C_{g}$ from $C_{ft}$ by decoding the concatenation code takes exactly as long as the encoding, namely $O( (\log |B|) \cdot \log^{c}( |B| \log |B| ) )$.
 
-  Then using the bell measurements any of the logical gates takes $O(1)$ depth and since we use perform only a single round of error correction we get that the reaming computation till the last decoding stage is a at most constant time of the original depth. Finally we pay $O(\log |B|)$ for complete decoding. Summing all, we get: 
+  Then, using the bell measurements, any of the logical gates takes $O(1)$ depth. Since we only perform a single round of error correction, the remaining computation until the last decoding stage takes at most constant time of the original depth. Finally, we pay $O(\log |B|)$ for complete decoding. Summing all, we get: 
   \begin{equation*}
     \begin{split}
-     &  O ( \log |B|\cdot  \log^{c}( |B| \log |B| ) )  + O ( \text{original depth} ) + O ( \log |B| ) \\ 
-     = & O ( \text{original depth} ) + O ( \log^{c} |B| )
+     &  O ( \log |B|\cdot  \log^{c}( |B| \log |B| ) )  + O ( D  ) + O ( \log |B| ) \\ 
+     = & O ( D  ) + O ( \log^{c} |B| )
     \end{split}
   \end{equation*}
 \end{proof}
