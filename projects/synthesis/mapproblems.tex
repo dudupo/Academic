@@ -1,0 +1,46 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+\documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass[18pt]{article}
+\usepackage{libertine}
+\usepackage{cuted}
+%\usepackage{widetext}
+\input{./usepackage}
+\usepackage{cancel}
+\usepackage{subcaption}
+\addbibresource{./sample.bib}
+
+\fi
+
+\begin{document}
+\input{newcommands}
+\title{ Mapping Open Problems in Quantum Computer Science.}
+\author{David Ponarovsky}
+\maketitle
+
+\newcommand*{\Mbas}{\mathcal{X}^\prime}
+\newcommand*{\bas}{\mathcal{X}}
+\newcommand*{\sMbas}{\Mbas}
+\newcommand*{\QQ}{C_{X}/C_{Z}^\perp }
+\newcommand*{\trig}{ Triorthogonal }
+\newcommand*{\Hyp}{ Hyperproduct }
+\newcommand*{\Cin}{ C_{\text{initial}} }
+\newcommand*{\Ctan}{ C_{\text{Tan}} }
+
+
+%\cite{leverrier2022quantum}
+%\cite{moore1998parallel}
+%\cite{Tillich_2014}
+%\cite{meier2012magicstate}
+%\cite{bravyi2012magic}
+\printbibliography
+
+\end{document}
+
