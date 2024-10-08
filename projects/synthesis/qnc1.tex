@@ -48,7 +48,7 @@
 
 
 \section{ Fault tolerance Toffoli. } 
-Assume that $\bar{0}, \bar{1} \in C_{X}$ and that belong to two different costs of $\QQ$. 
+Assume that $\bar{0}, \bar{1} \in C_{X}$ and that they belong to two different costs of $\QQ$. Let $x,y \in \{ \bar{0},\bar{1}  \}$. 
 \begin{equation*}
   \begin{split}
 &    \sum_{z,z^{\prime},w \in \Czdu }{ \ket{z}\ket{z^{\prime}}\ket{w} } \\  
@@ -58,6 +58,7 @@ Assume that $\bar{0}, \bar{1} \in C_{X}$ and that belong to two different costs 
 &    \sum_{z,z^{\prime},w \in \Czdu }{ \ket{z + x }\ket{z^{\prime} + y}\ket{ x\cdot y + x \cdot z^{\prime} + y \cdot z +  w } } 
   \end{split}
 \end{equation*}
+Since $x,y \in \{ \bar{0},\bar{1}  \}$ we have that $ x\cdot z^{\prime}$ equals to either $z^{\prime}$ or $\bar{0}$. Hence $ \sum_{w \in \Czdu}{\ket { \xi +x \cdot z + w } } =  \sum_{w \in \Czdu}{\ket { \xi + w } } $. 
 
 
 \section{ Notations. }
