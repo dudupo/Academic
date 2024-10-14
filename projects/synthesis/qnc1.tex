@@ -68,7 +68,7 @@ Since $x,y \in \{ \bar{0},\bar{1}  \}$ we have that $ x\cdot z^{\prime}$ equals 
 By similar arguments exhibited at \Cref{claim:noisepa} one can show that the errors behaves according to a Pauli noise channel. \ctt{That is not correct, since the concatenation construction assumes that all the registers initialized to physical zeros in the begging of the computation}.
 
 \subsection{Another Idea, $z\cdot z^{\prime}$ cann't contribute too mach.}
-Clearly we have that  $|z\cdot z^{\prime}| \le |z|,|z^{\prime}|$ therefore we have that $\prbm{ | z \cdot z^{\prime} | \ge t}{z,z^\prime \in \Czdu} \le \prbm{ | z | \ge t}{z\in \Czdu}$. Now assume that the tanner code by which the code defined is bipartite graph and denote by $z_{+},z_{-}$ the grouping of the $z$'s generators supported on the even and the odd vertices of the graph. By triangle inequality $|z| = |z_{+} + z_{-}| \le |z_{+}| + |z_{-}|$, So if $|z| > t$ then at least one of $|z_{-}|,|z_{+}|$ is greater than $t/2$. Hence: 
+Clearly we have that  $|z\cdot z^{\prime}| \le |z|,|z^{\prime}|$ therefore we have that $\prbm{ | z \cdot z^{\prime} | \ge t}{z,z^\prime \in \Czdu} \le \prbm{ | z | \ge t}{z\in \Czdu}$. Now assume that the tanner code by which the code defined is bipartite graph and denote by $z_{+},z_{-}$ the grouping of the $z$'s generators supported on the even and the odd vertices of the graph. By triangle inequality $|z| = |z_{+} + z_{-}| \le |z_{+}| + |z_{-}|$, So if $|z| > t$ then at least one of $|z_{-}|,|z_{+}|$ is greater than $t/2$. Hence via the union  bound: 
 \begin{equation*}
   \begin{split}
     \prbm{ |z|  }{z\in \Czdu} \le \prbm{ \bigcup_{i \in \pm }{|z_{i}| \ge t/2}   }{z\in \Czdu} \le \sum_{i \in \pm }{\prbm{ |z_{i}| \ge t/2   }{z\in \Czdu}}
@@ -82,6 +82,8 @@ Since any two positive (negative) generators are disjoint we have that  $|z_{+}|
     \prbm{ |z|  }{z\in \Czdu} \le \sum_{i \in \pm }{\prbm{ \sum_{v \in V^{i}}{ |z_{v}|} \ge t/2   }{z\in \Czdu}} \le 2e^{-(\mu - \frac{t}{2}) n }
   \end{split}
 \end{equation*}
+Thus if $\mu - \gamma  \ge O (1) $ (from \Cref{claim:error} ) then with high probability the Toffoli is computed up to reducible error.    
+
 \section{ Notations. }
 We denote by $C_{g}$ the good qLDPC code \cite{Dinur} \cite{Pavel} \cite{leverrier2022quantum}, and by $C_{ft}$ the concatenation code presented at \cite{aharonov1999faulttolerant} ($ft$ stands for fault tolerance). For a code $C_{y}$, we use $\Phi_{y}, E_{y}, D_{y}$ to denote the channel maps circuits into the their matched circuits compute in the code space, the encoder, and the decoder, respectively. We use $\Phi_{U}$ to denote the 'Bell'-state storing the gate $U$. We say that a state $\ket{\psi}$ is at a distance $d$ from a quantum code $C$ if there exists an operator $U$ that sends $\ket{\psi}$ into $C$ such that $U$ is spanned on Paulis with a degree of at most $d$. Sometimes, when the code being used is clear from the context, we will say that a block $B$ of qubits has absorbed at most $d$ noise if the state encoded on $B$ is at a distance of at most $d$ from that code.
 
@@ -105,7 +107,7 @@ The Protocol: \begin{enumerate}
 
 \begin{claim}[From \cite{leverrier2022decodingquantumtannercodes}]
   \label{claim:error} 
-  Assuming that an error $|e| = \gamma n $, i.e $e$ is supported on less than $\gamma n$ bits, then a single correction round reduce $e$ to an error $e^\prime$ such that $|e^{\prime}| < \nu |e|$. 
+  Assuming that an error $|e| \le \gamma n $, i.e $e$ is supported on less than $\gamma n$ bits, then a single correction round reduce $e$ to an error $e^\prime$ such that $|e^{\prime}| < \nu |e|$. 
 \end{claim}
  %Recall that by definition, $D_{i}E_{i} = I$, or in other words, $D_{i}= E_{i}^{\dagger}$.  
 \begin{claim}
