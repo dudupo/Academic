@@ -49,7 +49,7 @@
 
 \section{ Fault tolerance Toffoli. } 
 
-\ctt{In that section the $\cdot$ operation describe the pair wise product (pair wise AND).}
+\ctt{In that section the $\cdot$ operation describes the pair wise product (pair wise AND).}
 
 Assume that $\bar{0}, \bar{1} \in C_{X}$ and that they belong to two different cosets of $\QQ$. Let $x,y \in \{ \bar{0},\bar{1}  \}$. 
 \begin{equation}
@@ -75,8 +75,13 @@ Clearly we have that  $|z\cdot z^{\prime}| \le |z|,|z^{\prime}|$ therefore we ha
   \end{split}
 \end{equation*}
 
-Since any two positive (negative) generators are disjoint and intersection of bits can occurs only between positive and negative vertices we have    $z_{+}$ 
+Since any two positive (negative) generators are disjoint we have that  $|z_{+}|$ is a sum of the independent random variables each stands for the weight contributed by a positive vertex. Let us denote by $V^{+}, V^{-}$ the positive and the negative vertices and for each vertex $v \in V$ we will denote by $_{v}$ the bits of $z$ restricted to $v$ edges. So $|z_{\pm}| = \sum_{v \in V^{\pm}}{ |z_{v}| }$. For simplicity assume that $|V^{+}| = |V^{-}| = n/2$ and that $\exppm{|z|}{z \in C_{A}\otimes C_{B}} = \mu $. Then we can use concentration inequality to have: 
 
+\begin{equation*}
+  \begin{split}
+    \prbm{ |z|  }{z\in \Czdu} \le \sum_{i \in \pm }{\prbm{ \sum_{v \in V^{i}}{ |z_{v}|} \ge t/2   }{z\in \Czdu}} \le 2e^{-(\mu - \frac{t}{2}) n }
+  \end{split}
+\end{equation*}
 \section{ Notations. }
 We denote by $C_{g}$ the good qLDPC code \cite{Dinur} \cite{Pavel} \cite{leverrier2022quantum}, and by $C_{ft}$ the concatenation code presented at \cite{aharonov1999faulttolerant} ($ft$ stands for fault tolerance). For a code $C_{y}$, we use $\Phi_{y}, E_{y}, D_{y}$ to denote the channel maps circuits into the their matched circuits compute in the code space, the encoder, and the decoder, respectively. We use $\Phi_{U}$ to denote the 'Bell'-state storing the gate $U$. We say that a state $\ket{\psi}$ is at a distance $d$ from a quantum code $C$ if there exists an operator $U$ that sends $\ket{\psi}$ into $C$ such that $U$ is spanned on Paulis with a degree of at most $d$. Sometimes, when the code being used is clear from the context, we will say that a block $B$ of qubits has absorbed at most $d$ noise if the state encoded on $B$ is at a distance of at most $d$ from that code.
 
