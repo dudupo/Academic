@@ -48,6 +48,9 @@
 
 
 \section{ Fault tolerance Toffoli. } 
+
+\ctt{In that section the $\cdot$ operation describe the pair wise product (pair wise AND).}
+
 Assume that $\bar{0}, \bar{1} \in C_{X}$ and that they belong to two different cosets of $\QQ$. Let $x,y \in \{ \bar{0},\bar{1}  \}$. 
 \begin{equation}
   \label{equation:toff}
@@ -62,7 +65,18 @@ Assume that $\bar{0}, \bar{1} \in C_{X}$ and that they belong to two different c
 Since $x,y \in \{ \bar{0},\bar{1}  \}$ we have that $ x\cdot z^{\prime}$ equals to either $z^{\prime}$ or $\bar{0}$. Hence $ \sum_{w \in \Czdu}{\ket { \xi +x \cdot z + w } } =  \sum_{w \in \Czdu}{\ket { \xi + w } } $. So the idea is the following, suppose that one has to compute Toffoli at time $t$ over the registers $R_{1},R_{2},R_{3}$. First, at time $0$, he initialize a logical zero $\ket{\Czdu}$ in each register, then he compute pairwise Toffoli $R_{1},R_{2}$ into $R_{3}$. That gives the ket $\sum_{z,z^{\prime},w \in \Czdu}{\ket{ z\cdot z^{\prime} + w}}$,  immediately afterwords encode $R_{3}$ again into a good quantum code. Denote by $\tau$ the time required for decoding $R_{3}$ back, at time $t-\tau$ start to decode $R_{3}$. Eventually at time time $t$ compute again the transversal Toffoli, by \Cref{equation:toff} we gets the desired.  
 
 
-By similar arguments exhibited at \Cref{claim:noisepa} one can show that the errors behaves according to a Pauli noise channel. 
+By similar arguments exhibited at \Cref{claim:noisepa} one can show that the errors behaves according to a Pauli noise channel. \ctt{That is not correct, since the concatenation construction assumes that all the registers initialized to physical zeros in the begging of the computation}.
+
+\subsection{Another Idea, $z\cdot z^{\prime}$ cann't contribute too mach.}
+Clearly we have that  $|z\cdot z^{\prime}| \le |z|,|z^{\prime}|$ therefore we have that $\prbm{z,z^\prime \in \Czdu}{ | z \cdot z^{\prime} | \ge t} \le \prbm{z\in \Czdu}{ | z | \ge t}$. Now assume that the tanner code by which the code defined is bipartite graph and denote by $z_{+},z_{-}$ the grouping of the $z$'s generators supported on the even and the odd vertices of the graph. By tingle inequality $|z| = |z_{+} + z_{-}| \le |z_{+}| + |z_{-}|$, So if $|z| > t$ then at least one of $|z_{-}|,|z_{+}|$ is greater than $t/2$. Hence: 
+\begin{equation*}
+  \begin{split}
+    \prbm{z\in \Czdu}{ |z|  } \le \prbm{z\in \Czdu}{ \bigcup_{i \in \pm }{|z_{i}| \ge t/2}   } \le \sum_{i \in \pm }{\prbm{z\in \Czdu}{ |z_{i}| \ge t/2   }}
+  \end{split}
+\end{equation*}
+
+Since any two positive (negative) generators are disjoint and intersection of bits can occurs only between positive and negative vertices we have    $z_{+}$ 
+
 \section{ Notations. }
 We denote by $C_{g}$ the good qLDPC code \cite{Dinur} \cite{Pavel} \cite{leverrier2022quantum}, and by $C_{ft}$ the concatenation code presented at \cite{aharonov1999faulttolerant} ($ft$ stands for fault tolerance). For a code $C_{y}$, we use $\Phi_{y}, E_{y}, D_{y}$ to denote the channel maps circuits into the their matched circuits compute in the code space, the encoder, and the decoder, respectively. We use $\Phi_{U}$ to denote the 'Bell'-state storing the gate $U$. We say that a state $\ket{\psi}$ is at a distance $d$ from a quantum code $C$ if there exists an operator $U$ that sends $\ket{\psi}$ into $C$ such that $U$ is spanned on Paulis with a degree of at most $d$. Sometimes, when the code being used is clear from the context, we will say that a block $B$ of qubits has absorbed at most $d$ noise if the state encoded on $B$ is at a distance of at most $d$ from that code.
 
