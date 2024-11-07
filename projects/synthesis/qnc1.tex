@@ -62,7 +62,7 @@ In this paper, we define the triple product $\mathbb{F}_2^{n}\times \mathbb{F}_2
 
 
 
-  \subsection{Expander Codes}
+  \subsubsection{Expander Codes}
   We saw how a graph could give us arbitrarily long codes with a positive rate. We will show, Sipser's result \cite{ExpanderCodes} that if the graph is also an expander, we can guarantee a positive relative distance. 
   \begin{definition} Denote by $\lambda$ the second eigenvalue of the adjacency matrix of the $\Delta$-regular graph. For our uses, it will be satisfied to define expander as a graph $G = \left( V,E \right)$ such that for any two subsets of vertices $T,S \subset V$, the number of edges between $S$ and $T$ is at most:
   \begin{equation*}
@@ -72,11 +72,6 @@ In this paper, we define the triple product $\mathbb{F}_2^{n}\times \mathbb{F}_2
   \end{equation*}
 \end{definition}
 This bound is known as the Expander Mixining Lemma. We refer the reader to \cite{hoory2006expander} for more detailed servery. 
-\begin{figure}[h]
-  \label{fig:expander}
-\input{~/workspace/academic/projects/NLTES_project/ltc_ldpc/network2.tex} 
-\caption{Expander Graph. Any small set of vertices, like the isolated set on the left, has more edges leaving it than intermediate edges. The exact amount is controlled by the expansion factor.}
-\end{figure}
   \begin{theorem*} Theorem, let $C$ be the Tanner Code defined by the small code $C_{0} = [\Delta,\delta\Delta, \rho\Delta ]$ such that $\rho \ge \frac{1}{2}$ and the expander graph $G$ such that $\delta\Delta \ge \lambda$. $C$ is a good  LDPC code.
   \end{theorem*}
   \begin{proof} We have already shown that the graph has a positive rate due to the Tunner construction. So it's left to show also the code has a linear distance. Fix a codeword $x \in C$ and denote By $S$ the support of $x$ over the edges. Namely, a vertex $v\in V$ belongs to $S$ if it connects to nonzero edges regarding the assignment by $x$, Assume towards contradiction that $|x| = o\left( n \right)$. And notice that $|S|$ is at most $2|x|$, Then by The Expander Mixining Lemma we have that: 
