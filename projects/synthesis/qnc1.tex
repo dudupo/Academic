@@ -91,11 +91,12 @@ Assume that the error $e$ is at size at most $\beta n$. Then:
 
 \begin{equation*}
   \begin{split}
-    \frac{1}{2}\delta_{0}\Delta |T| & \le \Delta \frac{|T||S|}{n} + \lambda\sqrt{|T||S|} \\ 
+    \frac{1}{2}\delta_{0}\Delta |T| & \le \Delta \frac{|T||S|\cdot \frac{1}{2}\delta_{0}}{n} + \lambda\sqrt{|T||S|} \\ 
   \left( \frac{1}{2} \delta_{0} \Delta - \beta \Delta \right) |T| & \le \lambda \sqrt{|T||S|} \\ 
 |T| & \le \left( \frac{1}{2} \delta_{0} \Delta - \beta \Delta \right)^{-2}\lambda^{2} |S| 
   \end{split}
 \end{equation*}
+Denote by $S^{(1)}$ the vertices adjoins to error after the first round, we get that: $|S^{(1)}| \le \left( \frac{1}{2} \delta_{0} \Delta - \beta \Delta \right)^{-2}\lambda^{2} \frac{1}{2} \delta_{0} \Delta$. 
 
 
 \subsubsection{Pippenger Construction.}
