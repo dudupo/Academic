@@ -84,9 +84,9 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
 
   Namely, for any such sublinear weight string, $x$, the average of nontrivial edges for the vertex is less than $\lambda$. So there must be at least one vertex $v \in S$ that, on his local view, sets a  string at a weight less than $\lambda$. By the definition of $S$, this string cannot be trivial. Combining the fact that any nontrivial codeword of the $C_{0}$ is at weight at least $\delta\Delta$, we get a contradiction to the assumption that $v$ is satisfied, videlicet, $x$ can't be a codeword \end{proof}
 
-
-
-\subsubsection{Expander Decoder.}
+  \begin{lemma}
+    If the error is less then $\beta n $ then a single round of the  majority reduce the error by at least constant fraction. 
+  \end{lemma}
 Assume that the error $e$ is at size at most $\beta n$. Then:
 
 \begin{equation*}
@@ -96,6 +96,10 @@ Assume that the error $e$ is at size at most $\beta n$. Then:
 |T| & \le \left( \frac{1}{2} \delta_{0} \Delta - \beta \Delta \right)^{-2}\lambda^{2} |S| 
   \end{split}
 \end{equation*}
+
+
+\subsubsection{Expander Decoder.}
+
 
 
 
