@@ -98,7 +98,7 @@ Assume that the error $e$ is at size at most $\beta n$. Then: \begin{equation*}
 Denote by $S^{(1)}$ the vertices adjoins to error after the first round, we get that: $|S^{(1)}| \le \left( \frac{1}{2} \delta_{0} \Delta - \beta \Delta \right)^{-2}\lambda^{2} \frac{1}{2} \delta_{0} \Delta$. 
 \end{proof}
 
-\subsubsection{Pippenger Construction.} Encode any bit of the original code by $n$ bits using the repitation code. Replace any of the AND, and the OR gate by their transversal gates. In each even turn applay a single round of the majoritiy decoder. Finally at the end applay the decoder.  
+\subsubsection{Pippenger Construction.} Encode any bit of the original code by $n$ bits using the repetition code. Replace any of the AND, and the OR gate by their transversal gates. In each even turn apply a single round of the majority decoder. Finally at the end apply the decoder.  
 
 
 
@@ -175,6 +175,10 @@ Since any two positive (negative) generators are disjoint we have that  $|z_{+}|
   \end{split}
 \end{equation*}
 Thus if $\mu - \gamma  \ge O (1) $ (from \Cref{claim:error} ) then with high probability the Toffoli is computed up to reducible error.    
+
+\subsection{Using Polynomials Codes.} Consider the CSS code above $\mathbb{F}_{q}$ defined by the stabilizers $C_{Z}^{\perp} = \braket{\{ x^{2i} : i\ge \frac{1}{2}d - c \}}$ and $C_{X}^{\perp} = \braket{\{ x^{2i+1} : i \ge \frac{1}{2}d - c \}}$ for some $c = O(1)$. Clearly the $X$-stabilizers commute with the $Z$-stabilizers. 
+
+
 
 \section{ The Noise Model }
 
