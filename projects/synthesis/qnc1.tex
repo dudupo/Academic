@@ -88,7 +88,9 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
     If the error is less than $\beta n $ then a single round of the  majority reduce the error by at least constant fraction. 
   \end{lemma}
   \begin{proof}
-    Denote by $S^{(0)} \subset V^{+}$ and  $T^{(0)} \subset V^{-}$ the subsets of left and right vertices adjacent to the error at the beginning of the algorithm. Similarly denote by $S^{(1)}$ ($ T^{(1)}$) the vertices adjacent to an error after the first left (right) correction round. Consider a vertex $v \in V^{+}$. If $v \notin S^{(0)}$, namely the bits on $v$'s edges satisfying the local restrictions, then no correction is made by $v$. By the bipartition of the graph, any other vertex which share an endpoint with any of $v$'s edge has to be in $V^{-}$. Hence after the first left correction, left vertices which where not adjacent to an error are still not adjacent to an error. Therefore we have $S^{(1)} \subset S^{(0)}$.
+    Denote by $S^{(0)} \subset V^{+}$ and  $T^{(0)} \subset V^{-}$ the subsets of left and right vertices adjacent to the error at the beginning of the algorithm. Similarly denote by $S^{(1)}$ ($ T^{(1)}$) the vertices adjacent to an error after the first left (right) correction round. Consider a vertex $v \in V^{+}$. 
+
+    If $v \notin S^{(0)}$, namely the bits on $v$'s edges satisfying the local restrictions, then no correction is made by $v$. By the bipartition of the graph, any other vertex which share an endpoint with any of $v$'s edge has to be in $V^{-}$. Hence after the first left correction, left vertices which where not adjacent to an error are still not adjacent to an error. Therefore we have $S^{(1)} \subset S^{(0)}$.
      Assume that the error $e$ is at size at most $\beta n$. Then: \begin{equation*}
   \begin{split} 
     \frac{1}{2}\delta_{0}\Delta |T^{(1)}| & \le \Delta \frac{|T^{(1)}||S^{(0)}|\cdot \frac{1}{2}\delta_{0}}{n} + \lambda\sqrt{|T^{(1)}||S^{(0)}|} \\ 
