@@ -97,6 +97,13 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
 |T^{(1)}| & \le \left( \frac{1}{2} \delta_{0} \Delta - \frac{|S^{(0)}|}{n} \Delta \right)^{-2}\lambda^{2} |S^{(0)}| 
   \end{split}
 \end{equation*}
+Since the any left vertex is adjacent to at most $\Delta$ faulty bits we have that $\Delta|S^{(0)}| \le |e|$. Combing with the inequality above we have:  
+
+\begin{equation*}
+  \begin{split}
+    \Delta |T^{(1)}| \le \left( \frac{1}{2} \delta_{0} \Delta - \frac{|e|}{n} \right)^{-2}\lambda^{2} |e|
+  \end{split}
+\end{equation*}
 Denote by $S^{(1)}$ the vertices adjoins to error after the first round, we get that: $|S^{(1)}| \le \left( \frac{1}{2} \delta_{0} \Delta - \beta \Delta \right)^{-2}\lambda^{2} \frac{1}{2} \delta_{0} \Delta$. 
 \end{proof}
 
