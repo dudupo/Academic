@@ -74,7 +74,7 @@ In this paper, we define the triple product $\mathbb{F}_2^{n}\times \mathbb{F}_2
 This bound is known as the Expander Mixining Lemma. We refer the reader to \cite{hoory2006expander} for more detailed servery. 
   \begin{theorem*} Theorem, let $C$ be the Tanner Code defined by the small code $C_{0} = [\Delta,\delta\Delta, \rho\Delta ]$ such that $\rho \ge \frac{1}{2}$ and the expander graph $G$ such that $\delta\Delta \ge \lambda$. $C$ is a good  LDPC code.
   \end{theorem*}
-  \begin{proof} We have already shown that the graph has a positive rate due to the Tunner construction. So it's left to show also the code has a linear distance. Fix a codeword $x \in C$ and denote By $S$ the support of $x$ over the edges. Namely, a vertex $v\in V$ belongs to $S$ if it connects to nonzero edges regarding the assignment by $x$, Assume towards contradiction that $|x| = o\left( n \right)$. And notice that $|S|$ is at most $2|x|$, Then by The Expander Mixining Lemma we have that: 
+  \begin{proof} We have already shown that the graph has a positive rate due to the Tanner construction. So it's left to show also the code has a linear distance. Fix a codeword $x \in C$ and denote By $S$ the support of $x$ over the edges. Namely, a vertex $v\in V$ belongs to $S$ if it connects to nonzero edges regarding the assignment by $x$, Assume towards contradiction that $|x| = o\left( n \right)$. And notice that $|S|$ is at most $2|x|$, Then by The Expander Mixining Lemma we have that: 
   \begin{equation*}
     \begin{split}
       \frac{E\left( S,S \right)}{|S|} & \le \frac{\Delta}{n}|S|  + \lambda \\
@@ -85,14 +85,14 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
   Namely, for any such sublinear weight string, $x$, the average of nontrivial edges for the vertex is less than $\lambda$. So there must be at least one vertex $v \in S$ that, on his local view, sets a  string at a weight less than $\lambda$. By the definition of $S$, this string cannot be trivial. Combining the fact that any nontrivial codeword of the $C_{0}$ is at weight at least $\delta\Delta$, we get a contradiction to the assumption that $v$ is satisfied, videlicet, $x$ can't be a codeword \end{proof}
 
   \begin{lemma}
-    If the error is less then $\beta n $ then a single round of the  majority reduce the error by at least constant fraction. 
+    If the error is less than $\beta n $ then a single round of the  majority reduce the error by at least constant fraction. 
   \end{lemma}
   \begin{proof}
 Assume that the error $e$ is at size at most $\beta n$. Then: \begin{equation*}
   \begin{split}
-    \frac{1}{2}\delta_{0}\Delta |T| & \le \Delta \frac{|T||S|\cdot \frac{1}{2}\delta_{0}}{n} + \lambda\sqrt{|T||S|} \\ 
-  \left( \frac{1}{2} \delta_{0} \Delta - \beta \Delta \right) |T| & \le \lambda \sqrt{|T||S|} \\ 
-|T| & \le \left( \frac{1}{2} \delta_{0} \Delta - \beta \Delta \right)^{-2}\lambda^{2} |S| 
+    \frac{1}{2}\delta_{0}\Delta |T^{(1)}| & \le \Delta \frac{|T^{(1)}||S^{(0)}|\cdot \frac{1}{2}\delta_{0}}{n} + \lambda\sqrt{|T^{(1)}||S^{(0)}|} \\ 
+  \left( \frac{1}{2} \delta_{0} \Delta - \beta \Delta \right) |T^{(1)}| & \le \lambda \sqrt{|T^{(1)}||S^{(0)}|} \\ 
+|T^{(1)}| & \le \left( \frac{1}{2} \delta_{0} \Delta - \beta \Delta \right)^{-2}\lambda^{2} |S^{(0)}| 
   \end{split}
 \end{equation*}
 Denote by $S^{(1)}$ the vertices adjoins to error after the first round, we get that: $|S^{(1)}| \le \left( \frac{1}{2} \delta_{0} \Delta - \beta \Delta \right)^{-2}\lambda^{2} \frac{1}{2} \delta_{0} \Delta$. 
