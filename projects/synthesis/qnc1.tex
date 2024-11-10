@@ -84,6 +84,29 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
 
   Namely, for any such sublinear weight string, $x$, the average of nontrivial edges for the vertex is less than $\lambda$. So there must be at least one vertex $v \in S$ that, on his local view, sets a  string at a weight less than $\lambda$. By the definition of $S$, this string cannot be trivial. Combining the fact that any nontrivial codeword of the $C_{0}$ is at weight at least $\delta\Delta$, we get a contradiction to the assumption that $v$ is satisfied, videlicet, $x$ can't be a codeword \end{proof}
 
+  \begin{algorithm}[h]
+    \caption{Decoding}
+    \label{alg:three}
+    \KwData{ $x \in \mathbb{F}_{2}^{n}$ }
+    \KwResult{ $\arg\min {\left\{  y \in C : |y + x|  \right\} }$ if $d(y,C) < \tau $ and False otherwise. }
+    $ L \leftarrow \text{Array} \{ \} $\\
+    \For { $ v \in V$} {
+      $c^{\prime}_{v} \leftarrow \arg\min {\left\{  y \in C_{0} : |y + x|_{v} |  \right\} } $\\
+      $ L_{v} \leftarrow c^{\prime}_{v}$
+    }
+    $ z \leftarrow \sum_{v \in V}{c^{\prime}_{v}} $\\
+    \eIf{ $ |z| < \tau \frac{n}{f\left( n \right)} $}{
+      \While{ $|z| > 0$ }{
+	find $v$ and $c \in C_{0}$ such that $|z + c_{v}| < |z|$\\
+	$z \leftarrow z + c_{v}$ \\
+	$ L_{v} \leftarrow  L_{v} + c_{v}$
+      }
+    }{
+      reject. 
+    }
+    \Return  $S(L) $
+
+  \end{algorithm}
   \begin{lemma}
     \label{lemma:reduce}
     If the error is less than $\beta n $ then a single round of the  majority reduce the error by at least constant fraction. 
