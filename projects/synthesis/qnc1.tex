@@ -85,6 +85,7 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
   Namely, for any such sublinear weight string, $x$, the average of nontrivial edges for the vertex is less than $\lambda$. So there must be at least one vertex $v \in S$ that, on his local view, sets a  string at a weight less than $\lambda$. By the definition of $S$, this string cannot be trivial. Combining the fact that any nontrivial codeword of the $C_{0}$ is at weight at least $\delta\Delta$, we get a contradiction to the assumption that $v$ is satisfied, videlicet, $x$ can't be a codeword \end{proof}
 
   \begin{lemma}
+    \label{lemma:reduce}
     If the error is less than $\beta n $ then a single round of the  majority reduce the error by at least constant fraction. 
   \end{lemma}
   \begin{proof}
@@ -107,11 +108,11 @@ Since any left vertex adjoins to at most $\Delta$ faulty bits we have that $\Del
 Hence for $|e|/n \le \beta =  \frac{1}{2} \delta_{0} \Delta - \sqrt{2\lambda}$ it holds that $\Delta|T^{(1)}| \le \frac{1}{2}|e|$. Namely the error is reduced by half.  
 \end{proof}
 
-\subsubsection{Pippenger Construction.} The main insight behind Pippenger's construction is that against non trivial noise there is no point in decoding completing back to the code space since it's likely that in the follow turn the block will absorb a magnificent error. So instead of full decoding, one can perform a partial decoding round, for example, a single round of local majority. Keeping reducing the error will ensure that he distance of the state, with hight probability, will remain close (enough) to the ideal state a long an ideal computation. 
+\subsubsection{Pippenger Construction.} The main insight behind Pippenger's construction is that against non trivial noise there is no point in decoding completing back to the code space since it's likely that in the follow turn the block will absorb a magnificent error. So instead of full decoding, one can perform a partial decoding round, for example, a single round of local majority. Keeping reducing the error will ensure that he distance of the state, with hight probability, will remain close (enough) to the ideal state along an ideal computation. 
+ 
+In the original construction, any bit encoded using the repetition code, notice that the repetition code can be thought as expander code on the bipartite $\Delta$-regular graph where the local code $C_{0}$ is the repetition code on $\Delta$ bits. Then one can use \Cref{lemma:reduce} to show that a single round of decoding reduces the error by half.     
 
-In the original construction, any bit encoded using the repetition code, and the decoder.   
-
-ncode any bit of the original code by $n$ bits using the repetition code. Replace any of the AND, and the OR gate by their transversal gates. In each even turn apply a single round of the majority decoder. Finally at the end apply the decoder.  
+Encode any bit of the original code by $n$ bits using the repetition code. Replace any of the AND, and the OR gate by their transversal gates. In each even turn apply a single round of the majority decoder. Finally at the end apply the decoder.  
 
 
 
