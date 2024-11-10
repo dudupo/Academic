@@ -104,7 +104,7 @@ Since the any left vertex is adjacent to at most $\Delta$ faulty bits we have th
     \Delta |T^{(1)}| \le \left( \frac{1}{2} \delta_{0} \Delta - \frac{|e|}{n} \right)^{-2}\lambda^{2} |e|
   \end{split}
 \end{equation*}
-Denote by $S^{(1)}$ the vertices adjoins to error after the first round, we get that: $|S^{(1)}| \le \left( \frac{1}{2} \delta_{0} \Delta - \beta \Delta \right)^{-2}\lambda^{2} \frac{1}{2} \delta_{0} \Delta$. 
+Hence for $|e|/n \le \beta =  \frac{1}{2} \delta_{0} \Delta - \sqrt{2\lambda}$ it holds that $\Delta|T^{(1)}| \le \frac{1}{2}|e|$. Namely the error is reduced by half.  
 \end{proof}
 
 \subsubsection{Pippenger Construction.} Encode any bit of the original code by $n$ bits using the repetition code. Replace any of the AND, and the OR gate by their transversal gates. In each even turn apply a single round of the majority decoder. Finally at the end apply the decoder.  
