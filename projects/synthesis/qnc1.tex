@@ -87,26 +87,17 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
 
 
   \begin{algorithm}
-    \caption{Decoding}
+    \caption{Single decoding round}
     \label{alg:three}
     \KwData{ $x \in \mathbb{F}_{2}^{n}$ }
-    \KwResult{ $\arg\min {\left\{  y \in C : |y + x|  \right\} }$ if $d(y,C) < \tau $ and False otherwise. }
-    $ L \leftarrow \text{Array} \{ \} $\\
-    \For { $ v \in V$} {
-      $c^{\prime}_{v} \leftarrow \arg\min {\left\{  y \in C_{0} : |y + x|_{v} |  \right\} } $\\
-      $ L_{v} \leftarrow c^{\prime}_{v}$
+    \KwResult{ $\arg\min {\left\{  y \in C : |y + x|  \right\} }$ if $d(y,C) <$ }
+    \For { $ v \in V^{+}$} {
+      $x^{\prime}_{v} \leftarrow \arg\min {\left\{  y \in C_{0} : |y + x|_{v} |  \right\} } $\\
     }
-    $ z \leftarrow \sum_{v \in V}{c^{\prime}_{v}} $\\
-    \eIf{ $ |z| < \tau \frac{n}{f\left( n \right)} $}{
-      \While{ $|z| > 0$ }{
-	find $v$ and $c \in C_{0}$ such that $|z + c_{v}| < |z|$\\
-	$z \leftarrow z + c_{v}$ \\
-	$ L_{v} \leftarrow  L_{v} + c_{v}$
-      }
-    }{
-      reject. 
+    \For { $ v \in V^{-}$} {
+      $x^{\prime}_{v} \leftarrow \arg\min {\left\{  y \in C_{0} : |y + x|_{v} |  \right\} } $\\
     }
-    \Return  $S(L) $
+    \Return  $x $
 
   \end{algorithm}
   \begin{lemma}
