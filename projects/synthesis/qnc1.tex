@@ -214,7 +214,12 @@ Thus if $\mu - \gamma  \ge O (1) $ (from \Cref{claim:error} ) then with high pro
 
 
 
-\section{ The Noise Model }
+\section{ The Noise Model } 
+Informally classical noisy circuits describe the running computation of circuits when the bits have probabilities to flip. As exactly to the classical case, in noisy quantum circuits qubits have probabilities to fault. We formalise the noise model by defining a channel $\mathcal{N} : \mathcal{C} \rightarrow \mathcal{D}\left(\mathcal{C}\right)$ that given an ideal circuit induce distribution over circuits. For example, one can consider a Pauli channel, which  after each gate of the original circuit, either do nothing with probability $1-p$ or, with probability $1-p$ impose uniformly one of the Pauli operators $X,Z,Y$. Formally:  
+\begin{definition}
+  Pauli channel $\mathcal{N} \mathcal{C}\rightarrow \mathcal{C}$ defined to give on input $C \in \mathcal{C}$ the distribution over circuits $\tilde{C}$ where any even location of $(2i, j)$ of $\tilde{C}$ equals to the $(i,j)$ location of $C$, and any odd location $(2i+1,j)$ of $\tilde{C}$ is the density operator $(1-p) I + \frac{p}{3} \left(X + Y + Z  \right)$. 
+\end{definition}
+
 
 
 \section{ Fault Tolerance (With Resets gates) at Linear Depth. } 
