@@ -86,9 +86,9 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
 
   From now on, we will assume that the graphs are bipartite and we will denote the right and the left vertices by $V^{-}$ and $V^{+}$. Notice that such expanders near Ramanujan exist, see for example \cite{leverrier2022decodingquantumtannercodes}. The partition into two subsets enable us to come with a simple efficient decoder.
 
-  Expanders code are known for having good decoders, beneath, in \Cref{alg:three}, we introduce a procedure to reduce an error. In overall, we alternately let to the right and then the left vertices to correct their own local view. In \Cref{lemma:reduce} we prove that when the applied error has size at most $\beta n$, for some constant $\beta$ then the error's weight reduced by $\frac{1}{2}$.
- 
-  Repeating over the procedure $\Theta(\log(n) )$ times completely correct the error. We will call to the first stage, when only the right vertices suggest correction the right round, and to the second stage a left round. For the whole procedure, we will call a single correction round.  
+  Expanders code are known for having good decoders, beneath, in \Cref{alg:three}, we introduce a procedure to reduce an error. In overall, we alternately let to the right and then the left vertices to correct their own local view. In \Cref{lemma:reduce} we prove that when the applied error has size at most $\beta n$, for some constant $\beta$ then the error's weight reduced by $\frac{1}{2}$. Repeating over the procedure $\Theta(\log(n) )$ times completely correct the error. 
+
+  We will call to the first stage, when only the right vertices suggest correction the right round, and to the second stage a left round. For the whole procedure, we will call a single correction round.  
 
   \begin{algorithm}
     \caption{Single decoding round}
