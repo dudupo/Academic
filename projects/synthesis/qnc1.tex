@@ -40,6 +40,7 @@
 \newcommand*{\QACze}{ \mathbf{QAC}_{0} }
 \newcommand*{\QNCzef}{ \mathbf{QNC}_{0,f} }
 \newcommand*{\QNCon}{ \mathbf{QNC}_{1} }
+\newcommand*{\NCon}{ \mathbf{NC}_{1} }
 \newcommand*{\noiseQNCon}{ noisy-$\QNCon$ }
 
 
@@ -352,6 +353,12 @@ X_{t} \le \nu \cdot (X_{t-1} + \beta |B| ) \le \nu(\gamma+\beta) |B| \le \gamma 
 
 Assuming that $W$ is polynomial in $D$, taking the block length to be $|B| = \log((W \cdot D)^c)$, as shown in \Cref{claim:prob}, results in a linear fault tolerance construction with a success probability of $1 - \frac{1}{\log^{c_2}(W \cdot D)}$. This means that the fault tolerance version of circuits in $\textbf{QNC}_1$ has a logarithmic depth. Additionally, using the construction in \cite{aharonov1996limitationsnoisyreversiblecomputation} produces a polynomial fault tolerance circuit in the reversible gates setting. \ctt{ We missed the fact that it requires non trivial classical computation to compute what gate should be applied after the gate teleportation (i.e $UPU^{\dagger}$ )}.
 
+
+
+\Section{ Does $\NCon \subset \QNCon$?}
+
+
+\Section{ Does Factoring $\subset \QNCon$?}
 
 
 
