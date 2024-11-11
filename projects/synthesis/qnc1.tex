@@ -220,11 +220,14 @@ Informally classical noisy circuits describe the running computation of circuits
   Pauli channel $\mathcal{N}: \mathcal{C}\rightarrow \mathcal{D} \left( \mathcal{C} \right)$ defined to give on input $C \in \mathcal{C}$ the distribution over circuits $\tilde{C}$ where any even location of $(2i, j)$ of $\tilde{C}$ equals to the $(i,j)$ location of $C$, and any odd location $(2i+1,j)$ of $\tilde{C}$ is the density operator $(1-p) I + \frac{p}{3} \left(X + Y + Z  \right)$. 
 \end{definition}
 
-The Pauli channel is charactered by exhibits an independent noise on the qubits, Yet for most of the fault tolerance construction a much more weaker property is required to be assume. We say that a channel is a local noise channel if the probability to error to be occur is exponentially decays at the number of qubits the error supports.  
+The Pauli channel is charactered by exhibits an independent noise on the qubits, Yet for most of the fault tolerance construction a much more weaker property is required to be assumed. We say that a channel is a local noise channel if the probability to error to be occur is exponentially decays at the number of qubits the error supports.  
  
 \begin{definition}
   An error channel $\mathcal{N}: \mathcal{C}\rightarrow \mathcal{D} \left( \mathcal{C} \right)$ will be said to be a local noise channel if there exists a constant $c$ such the probability to a fault to be applied on locations $(I ,j)$, where $I$ is a subset of qubits, is less than $c^{-n}$.
 \end{definition}
+
+Another important property of a noise model which we consider in this work is the accessibility to fresh qubits, also known as rests gate. When having an access to fresh qubits one can assume that in any time in the computation o classification. It was proven that without an access to fresh qubits quantum circuits cannot last than logarithmic depth without mixing into a fully mixed state, meaning to be turned into complete garbage.    
+
 
 \section{ Fault Tolerance (With Resets gates) at Linear Depth. } 
 
