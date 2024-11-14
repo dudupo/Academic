@@ -59,6 +59,14 @@
     location $(i,j)$ of $C$. \ctt{Add here a figure of classical circuit, that demonstrates locations.}
   \end{definition}
 
+  \begin{figure}[h]
+    \centering
+    \input{circuit_tkz/location.tikz}
+    \caption{location.}
+    \label{fig:location}
+  \end{figure}
+
+
   \subsection{Classical Coding Theory.} \label{sec:classical} The notation used in this paper follows standard conventions for coding theory. We use $n$ to represent the length of the code, $k$ for the code's dimension, and $\rho$ for its rate. The minimum distance of the code will be denoted as $d$, and the relative distance, i.e., $d/n$, as $\delta$. In this paper, $n$ and $k$ will sometimes refer to the number of physical and logical bits. Codes will be denoted by a capital $C$ followed by either a subscript or superscript. When referring to multiple codes, we will use the above parameters as functions. For example, $\rho(C_{1})$ represents the rate of the code $C_{1}$.
 
 Square brackets are used to present all these parameters compactly, and we use them as follows: $C=[n,k,d]$ to declare a code with the specified length, dimension, and distance. Any theorem, lemma, or claim that states a statement that is true in the asymptotic sense refers to a family of codes. The parity check matrix of the code will be denoted as $H$, with the rows of $H$ representing the parity check equations. The generator matrix of the code will be denoted as $G$, with the rows of $G$ representing the basis of codewords. The syndrome of a received word will be denoted as $s$, which is the result of multiplying $r$ by the transpose of $H$. We use $C^\perp$ to denote the dual code of $C$, which is defined such that any codeword of it $z\in C^\perp$ is orthogonal to any $x\in C$, meaning $z\cdot x = 0$, where the product is defined as $x\cdot z = \sum_{i}{x_{i}z_{i}}$. $C^{\top}$ stands for the code obtained by taking the parity check matrix of $C$ and transposing it.
