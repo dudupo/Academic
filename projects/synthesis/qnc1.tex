@@ -437,7 +437,11 @@ Assuming that $W$ is polynomial in $D$, taking the block length to be $|B| = \lo
 
 
 \section{ $\QACze \subset $\noiseQNCon }
-For completing this one has to show that one can compute the parity with a fixed gates set. 
+For completing this one has to show that one can compute the parity with a fixed gates set. Here is what we need: 
+\begin{enumerate}
+  \item having the logical states $\ket{0} + e^{i\frac{|x|}{2^{j}}}\ket{1}$
+  \item Note that gate $\ket{0} + e^{i\frac{1}{2^{j}}}\ket{1}$ is in the $j$th level of the Clifford. Yet after getting the Pauli one has to compute what gate should be applied. And when considering logical space it's not a constant operation, yet it could computed in the logical space, so what we need is just to look, so for a $m$-length code, $\log m$. Or maybe can we do better?   
+\end{enumerate}<++>
 
 
 \section{ Does $\NCon \subset $\noiseQNCon ?}
