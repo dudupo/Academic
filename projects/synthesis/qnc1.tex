@@ -153,12 +153,16 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
 
     \begin{tikzpicture}[scale=2.5]
 \tikzstyle{every node}=[draw,shape=circle];
-\path (0:0cm) node (v0) {$v_0$};
-\path (-36:1cm) node (v1) {$v_1$};
-\path (-2*36:1cm) node (v2) {$v_2$};
-\path (0:1cm) node (v3) {$v_3$};
-\path (36:1cm) node (v4) {$v_4$};
-\path (2*36:1cm) node (v5) {$v_5$};
+
+\draw node (v0) at (0,0) {$v_0$};
+\draw node foreach \x in {1,2,3,4,5} (v\x) at (3,\x) {$v_\x$};
+
+%\path (0:0cm) node (v0) {$v_0$};
+%\path (-36:1cm) node (v1) {$v_1$};
+%\path (-2*36:1cm) node (v2) {$v_2$};
+%\path (0:1cm) node (v3) {$v_3$};
+%\path (36:1cm) node (v4) {$v_4$};
+%\path (2*36:1cm) node (v5) {$v_5$};
 \draw (v0) -- (v1)
 (v0) -- (v2)
 (v0) -- (v3)
