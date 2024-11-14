@@ -129,11 +129,11 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
     \begin{subfigure}[h]{0.05\textwidth}
       \
     \end{subfigure}
-    %\begin{subfigure}[h]{0.40\textwidth}
+    \begin{subfigure}[h]{0.40\textwidth}
 
-  \begin{algorithm}[h]{0.40\textwidth}
-    \caption{Single decoding round}
-    \label{alg:three}
+  \begin{algorithm}
+    %\caption{Single decoding round}
+    %\label{alg:three}
     \KwData{ $x \in \mathbb{F}_{2}^{n}$ }
     \KwResult{ $\arg\min {\left\{  y \in C : |y + x|  \right\} }$ if $d(y,C) <$ }
     \For { $ v \in V^{+}$} {
@@ -145,7 +145,7 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
     \Return  $x $
 
   \end{algorithm}
-    %\end{subfigure}
+    \end{subfigure}
     \begin{subfigure}[h]{0.05\textwidth}
       \
     \end{subfigure}
