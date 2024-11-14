@@ -138,6 +138,38 @@ This bound is known as the Expander Mixining Lemma. We refer the reader to \cite
     \Return  $x $
 
   \end{algorithm}
+  
+  \begin{figure}[h]
+    \begin{subfigure}[h]{0.05\textwidth}
+      \
+    \end{subfigure}
+    \begin{subfigure}[h]{0.40\textwidth}
+
+  Once again, the feasibility question raised again, this time regarding quantum computing, and while an intensive work has been done, and also succeed to prove that polynomial quantum computation can be made fault tolerance, \cite{aharonov1999faulttolerant},\cite{gottesman2014faulttolerant} and even with only constant overhead at the original circuit width \cite{grospellier:tel-03364419}, the required depth over-head is till not well understood. We stress out that in all the familiar constructions, in construct to Pippenger \cite{Pippenger}, original constant-depth gates are mapped to asymptotically grow\footnote{Note, that here, classical computation is also counted in the overall depth cost} depth gates. 
+    \end{subfigure}
+    \begin{subfigure}[h]{0.05\textwidth}
+      \
+    \end{subfigure}
+    \begin{subfigure}[h]{0.40\textwidth} 
+
+    \begin{tikzpicture}[scale=2.5]
+\tikzstyle{every node}=[draw,shape=circle];
+\path (0:0cm) node (v0) {$v_0$};
+\path (0:1cm) node (v1) {$v_1$};
+\path (72:1cm) node (v2) {$v_2$};
+\path (2*72:1cm) node (v3) {$v_3$};
+\path (3*72:1cm) node (v4) {$v_4$};
+\path (4*72:1cm) node (v5) {$v_5$};
+\draw (v0) -- (v1)
+(v0) -- (v2)
+(v0) -- (v3)
+(v0) -- (v4)
+(v0) -- (v5);
+\end{tikzpicture}
+\caption{location.}
+    \label{fig:location}
+    \end{subfigure} 
+  \end{figure}
   \begin{lemma}
     \label{lemma:reduce}
     If the error is at wight less than $\beta n $ then a single round of the  majority reduce the error by at least constant fraction. 
