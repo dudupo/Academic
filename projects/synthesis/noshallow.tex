@@ -1,0 +1,54 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+\documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass[12pt]{article}
+  \usepackage{libertine}
+  %\usepackage[12pt]{extsizes}
+\usepackage{cuted}
+%\usepackage{widetext}
+\input{./usepackage}
+\usepackage{cancel}
+\usepackage{subcaption}
+\addbibresource{./sample.bib}
+
+\fi
+
+\begin{document}
+\input{newcommands}
+%\title{ $\textbf{QNC}_{1} \subset $ noisy-\textbf{BQP}}
+\title{ Logiacl $T$ for The Toric Code Has to Have Non Trivial Depth.}
+\author{Michael Ben-Or \ \ David Ponarovsky}
+\maketitle
+
+\newcommand*{\Mbas}{\mathcal{X}^\prime}
+\newcommand*{\bas}{\mathcal{X}}
+\newcommand*{\sMbas}{\Mbas}
+\newcommand*{\QQ}{C_{X}/C_{Z}^\perp }
+\newcommand*{\trig}{ Triorthogonal }
+\newcommand*{\Hyp}{ Hyperproduct }
+\newcommand*{\Cin}{ C_{\text{initial}} }
+\newcommand*{\Ctan}{ C_{\text{Tan}} }
+
+
+
+\newcommand*{\QACze}{ \mathbf{QAC}_{0} }
+\newcommand*{\QNCzef}{ \mathbf{QNC}_{0,f} }
+\newcommand*{\QNCze}{ \mathbf{QNC}_{0} }
+\newcommand*{\QNCon}{ \mathbf{QNC}_{1} }
+\newcommand*{\NCon}{ \mathbf{NC}_{1} }
+\newcommand*{\noiseQNCon}{ noisy-$\QNCon$ }
+
+
+\abstract{In this work we study the depth of logical $T$ gate of the CSS quantum error correction codes. In particular we shown that for the Toric code the depth of logiacl $T$ can not be trivial.} 
+
+\printbibliography
+
+\end{document}
+
