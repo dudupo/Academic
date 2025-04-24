@@ -463,7 +463,8 @@ Assuming that $W$ is polynomial in $D$, taking the block length to be $|B| = \lo
 Denote by $\Gamma(n,l)$ the number of circuits over $n$ qubits at length at most $n$. Suppose that the code, can tolerate up to $\Delta = \delta n $ faults in each computation turn, and after syndromes measurement the errors collapse to one of $\gamma$ options.  We can bound the number of noisy versions of logical circuits over $k, qubits$ as follows: 
 \begin{equation*}
   \begin{split}
-    \Gamma(k,l) & \cdot \left( { n \choose \Delta  } \cdot \gamma^{\Delta} \right)^{l} \le \Gamma(n,l)    \Rightarrow  2^{  nl \left( H(\delta) +  \delta\log_{2}\gamma \right)  } \le \frac{\Gamma(n,l\cdot c)}{\Gamma(k,l)}
+    \Gamma(k,l) & \cdot \left( { n \choose \Delta  } \cdot \gamma^{\Delta} \right)^{l} \le \Gamma(n,l)    \Rightarrow  2^{  nl \left( H(\delta) +  \delta\log_{2}\gamma \right)  } \le \frac{\Gamma(n,l\cdot c)}{\Gamma(k,l)} \\
+    &H(\delta) +  \delta\log_{2}\gamma \le \frac{1}{nl} \log  \frac{\Gamma(n,l\cdot c)}{\Gamma(k,l)}
   \end{split}
 \end{equation*}
 
