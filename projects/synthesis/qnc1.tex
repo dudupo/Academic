@@ -467,8 +467,13 @@ Denote by $\Gamma(n,l)$ the number of circuits over $n$ qubits at length at most
     &H(\delta) +  \delta\log_{2}\gamma \le \frac{1}{nl} \log  \frac{\Gamma(n,l\cdot c)}{\Gamma(k,l)}
   \end{split}
 \end{equation*}
-
-
+Assuming the number of circuits behave according to an exponential rule yields: 
+\begin{equation*}
+  \begin{split}
+    &H(\delta) +  \delta\log_{2}\gamma \le \frac{1}{nl} \left( nlc - kl\right) = c - \rho  \\ 
+    c & \ge H(\delta) +  \delta\log_{2}\gamma + \rho
+  \end{split}
+\end{equation*}
 \printbibliography
 
 
