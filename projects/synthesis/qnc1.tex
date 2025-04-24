@@ -471,7 +471,7 @@ Assuming the number of circuits behave according to an exponential rule yields:
 \begin{equation*}
   \begin{split}
     &H(\delta) +  \delta\log_{2}\gamma \le \frac{1}{nlc} \left( nlc - kl\right) = 1 - \frac{\rho}{c}  \\ 
-    c & \ge  \frac{\rho}{ 1 -  H(\delta) - \delta\log_{2}\gamma }
+    c & \ge  \frac{\rho}{ 1 -  H(\delta) - \delta\log_{2}\gamma } \sim \rho \left( 1 + H(\delta) + \delta\log_{2}\gamma \right)
   \end{split}
 \end{equation*}
 Now, while for classical computation $\gamma = 1 $ since only bit flips can be occurs, in the quantum case, $\gamma$ equals at least $3$ as one of the $\{ X, Z, ZX \} $ might occurs. Thus, we have already got that computing fault tolerance in the quantum regime is harder. Yet the construction can't taken any further, since for non-trivial overhead $\gamma$ should be function depends on $n$.  
