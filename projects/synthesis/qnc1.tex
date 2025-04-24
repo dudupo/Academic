@@ -458,7 +458,19 @@ Assuming that $W$ is polynomial in $D$, taking the block length to be $|B| = \lo
 %\cite{Tillich_2014}
 %\cite{meier2012magicstate}
 %\cite{bravyi2012magic}
+
+\section{Overhead by Simple Counting Arguments.} 
+Denote by $\Gamma(n,l)$ the number of circuits over $n$ qubits at length at most $n$. We can bound the number of noisy versions of logical circuits over $k, qubits$ as followes: 
+\begin{equation*}
+  \begin{split}
+    \Gamma(k,l) & \cdot \left( { n \choose \Delta  } \cdot \gamma^{\Delta} \right)^{l} \le \Gamma(n,l) \\   
+    \Rightarrow & 2^{  nl \left( H(\delta) +  \delta\log_{2}\gamma \right)  } \le \frac{\Gamma(n,l\cdot c)}{\Gamma(k,l)}
+  \end{split}
+\end{equation*}
+
+
 \printbibliography
+
 
 \end{document}
 
