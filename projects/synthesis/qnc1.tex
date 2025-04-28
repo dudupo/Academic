@@ -490,13 +490,15 @@ Now, while for classical computation $\gamma = 1 $ since only bit flips can be o
 \ctt{Draft:} I have the felling that the right way to analyse Pipenger-style construction is by talking about known location of faults. Then the ${ n \choose \Delta }$ term is subtracted. If we knowes, from head were the bits might fliped (or not fliped) then we can set the constant depth majority cheaks to reduce the error.   
 
 
-\begin{theorem}
-The logical $T$ gate cannot be implemented on the toric code by any constant-depth quantum-classical circuit.
-\end{theorem}
+\ctt{Draft:} Proving that any non-trivial code have a 'non-trivial' disjointness closes the case. 
 
-\begin{proof}
-Suppose, for contradiction, that a constant-depth quantum-classical circuit $C$ implements a logical $T$ gate on the toric code. Consider a logical $\overline{X}$ operator, represented by a non-contractible string of $X$ operators. Conjugating by $C$ gives $C^\dagger \overline{X} C$. Since $C$ is constant-depth and local, $C^\dagger \overline{X} C$ must remain supported in a finite-width neighborhood around the original $\overline{X}$ string. However, the logical $T$ gate maps $\overline{X}$ to a superposition $(\overline{X} + \overline{Y})/\sqrt{2}$, which is not a Pauli operator and cannot be supported in a finite neighborhood. Thus, the assumption leads to a contradiction. Therefore, the logical $T$ gate cannot be implemented by a constant-depth circuit.
-\end{proof}
+%\begin{theorem}
+%The logical $T$ gate cannot be implemented on the toric code by any constant-depth quantum-classical circuit.
+%\end{theorem}
+%
+%\begin{proof}
+%Suppose, for contradiction, that a constant-depth quantum-classical circuit $C$ implements a logical $T$ gate on the toric code. Consider a logical $\overline{X}$ operator, represented by a non-contractible string of $X$ operators. Conjugating by $C$ gives $C^\dagger \overline{X} C$. Since $C$ is constant-depth and local, $C^\dagger \overline{X} C$ must remain supported in a finite-width neighborhood around the original $\overline{X}$ string. However, the logical $T$ gate maps $\overline{X}$ to a superposition $(\overline{X} + \overline{Y})/\sqrt{2}$, which is not a Pauli operator and cannot be supported in a finite neighborhood. Thus, the assumption leads to a contradiction. Therefore, the logical $T$ gate cannot be implemented by a constant-depth circuit.
+%\end{proof}
 
 
 \printbibliography
