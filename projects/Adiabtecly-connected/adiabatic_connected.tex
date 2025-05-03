@@ -1,0 +1,147 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+\documentclass[manuscript,screen,review]{acmart}
+
+\else
+  \documentclass[18pt]{article}
+\usepackage{libertine}
+\usepackage{cuted}
+%\usepackage{widetext}
+\input{./usepackage}
+\usepackage{cancel}
+\usepackage{subcaption}
+\addbibresource{./sample.bib}
+
+\fi
+
+\begin{document}
+\input{newcommands}
+\title{ Studying Adiabatic Paths. }
+\maketitle
+
+\newcommand*{\Mbas}{\mathcal{X}^\prime}
+\newcommand*{\bas}{\mathcal{X}}
+\newcommand*{\sMbas}{\Mbas}
+\newcommand*{\QQ}{C_{X}/C_{Z}^\perp }
+\newcommand*{\trig}{ Triorthogonal }
+\newcommand*{\Hyp}{ Hyperproduct }
+\newcommand*{\Cin}{ C_{\text{initial}} }
+\newcommand*{\Ctan}{ C_{\text{Tan}} }
+
+
+
+\newcommand*{\QACze}{ \mathbf{QAC}_{0} }
+\newcommand*{\QNCzef}{ \mathbf{QNC}_{0,f} }
+\newcommand*{\QNCon}{ \mathbf{QNC}_{1} }
+\newcommand*{\NCon}{ \mathbf{NC}_{1} }
+\newcommand*{\noiseQNCon}{ noisy-$\QNCon$ }
+
+
+\abstract{In this work we study the overall depth overhead cost required for constructing fault tolerance circuits. We focus on shallow depth circuits classes, In particular, $\QACze, \QNCzef$ and $\QNCon$ and certain knowns problem candidates for demonstrating quantum advantage such as factoring \cite{Shor_1997} and Instantaneous Quantum Polynomial-time \cite{Bremner_2017}, \cite{Paletta_2024}. We only give a partial answers, Yet, clues that might pave the way towards a full understanding of the complexity versus fault tolerance trade-off. 
+
+\section{Background For Unfamiliar Readers.} In this work, we study the computational power of Adiabatic computation - the process of moving slowly between different Hamiltonian systems. In the high level, we assume that under 'careful-enough' transformations low(est) energy state of the first system map (change) into low(est) energy state of the target system. 
+
+\begin{example}[Hamiltonians/Systems and paths.] examples for Hamiltonians/Systems: 
+\begin{enumerate}
+    \item $H_{1}$ projection over vector, for in the braket notation $H_{1} = \ket{0}\bra{0}$. Similarly $H_2 = \ket{+}\bra{+}$ and a path between them: $\Gamma\left(\alpha\right) = \left( 1- \alpha \right) \ket{0}\bra{0} + \alpha \ket{1}\bra{1}$  , in standard notation: 
+    \begin{equation*}
+        H_{1} = \ket{0}\bra{0} = \begin{bmatrix}
+            1 & 0 \\
+            0 & 0
+        \end{bmatrix} \ \ \ \ \Gamma=\ket{0}\bra{0} = \begin{bmatrix}
+            1-\alpha & 0 \\
+            0 & \alpha
+        \end{bmatrix}
+    \end{equation*}
+    If one is willing to prepare the ground state for $H_{2}$, he can do so by preparing the physical world in his lab to match $H_{1}$, initialize it in the ground state first, and then change 'the lab' along the "path". At the end, in our setting, the stored state should be the ground state for $H_{2}$.
+
+    \item For a boolean formula $\varphi : \mathbb{F}_2 \rightarrow \mathbf{F}_2$ we say that $H_\varphi$ is the Hamiltonian which matches $\phi$ if it's a diagonal, such $H_{\varphi, ii}$ equals $0$ if $\varphi(i)=1$ and $1$ otherwise. The groundsates for $H_\varphi$ are superpositions over the satisfying assignments to $\varphi$.
+
+    
+     We can take $H_{1}$ to be the Hamiltonias which matches to some $\varphi_1$ formula which we can solve (Or just having it's satisfying assignment), and $H_{2}$ might be the Hamiltonians matches to a $\varphi_2$ formula we don't how to solve, and willing to ask if it's satisfiable. 
+    
+\end{enumerate}
+
+\end{example}
+Computationally, we formalize the 'careful-enough' as the gap between the lowest eigenvalue and its preceding behaves like $\sim 1/poly(n)$, when the intermediate steps along our path are changed by a small set of super operators. (Usually $n$ is the number of qubits, but more generally, the computational parameter of the problem.)  
+\begin{example}
+    Suppose that we are equipped with the actions $f_{ij}^{\pm} : A \rightarrow A^\prime $ defined as $f_{ij}^\pm (A) = A \pm \frac{1}{n^2}\ket{i}\bra{j}$. Then one can transform the $\ket{0}\bra{0}$ into the $\frac{1}{n}I$ by applying $f^{-}_{00}$ $n^{2} - n$ times. And then applying $f^{+}_{ii}$ $n$ times\footnote{Notice that we have $2^n$ elements on the diagonal.}.
+\end{example}
+    
+
+\section{What Do We Already Have?}
+\begin{enumerate}
+    \item \textbf{Universality.} Adiabatic computation can simulate (and be simulated by) quantum circuits.   
+\end{enumerate}
+\section{What We Would Like to Study?}
+\begin{enumerate}
+    \item Find a "big" (hopefully interesting) manifold of Hamiltonians, that one can adiabatically move between. 
+    \item A robust manifold.   
+\end{enumerate}
+
+\section{Insights.}
+\begin{enumerate}
+    \item Adding and subtracting $1$-rank matrices gives information about the order of the eigenvalues. $\lambda_{1}\ge \mu_{1} \ge \lambda_{2} \ge \mu_{2} ...$. 
+    \begin{enumerate}
+        \item What happens when the source matrix has degeneracy?  ( $\lambda_{1} \ge \mu_{1} \ge \mu_{2} \ge \lambda_{2}$ or $\lambda_{1}\ge \mu_{1} \ge \lambda_{2} \ge \mu_{2}$ ? ). 
+        \item We have good expanders, that are also Cayley graphs, with high degeneracy \verb|https://arxiv.org/pdf/2109.13131|. Does that give something? 
+        %\item Free probability was used in order to find good results for ZigZag products.  
+    \end{enumerate}
+\end{enumerate}
+
+\section{Conjectures.} 
+
+\subsection{Big Adiabatic Connected Families.}
+
+\begin{claim}
+Let (There exists infinitly many) \textbf{T} be the tree obtained by taking the Hamiltonians $H(x) = H_{0} + \sum_{i}x_i\ket{v_i}\bra{v_i}$ for $x\in \mathbf{F}_2^n$ as vertices, and connect $H(x)\sim H(x^\prime)$ iff $\Delta(x,x^\prime)= 1$. Where $\Delta$ is the Hamming distance. Then there is a subtree $\textbf{T}^\prime \subset \textbf{T}$ such:  
+\begin{enumerate}
+    \item $\log|\textbf{T}^\prime| \sim \Theta(\log |\textbf{T}| ) $
+    \item $\textbf{T}^\prime$ is adiabatic connected. 
+\end{enumerate}
+\end{claim}
+
+
+\begin{claim}
+\label{claim:claim1}
+    Let $H_{1}$ be an Hamiltonian with $\lambda_{1}$ and $\lambda_2=\lambda_{3}=...=\lambda_{n}=\alpha\Delta$. Then there is a $t > 2$ and a set $X$ of one-rank matrices such: 
+    \begin{enumerate}
+    \item $|X| > t$
+        \item For any $\ket{u}\bra{u} \in X$  $\text{gap } \left( H_{1} \right) \ge \text{gap } \left( H_{1} + \ket{u}\bra{u}  \right) $.  
+    \end{enumerate}
+    Furthermore, $\alpha \Delta$ remains the second eigenvalue of $H_{1} + \ket{u}\bra{u}$
+\end{claim}
+
+\newcommand{\kbra}[2]{\ket{#1}\bra{#2}}
+\newcommand{\kbri}{\kbra{i^\prime}{i}}
+
+Case for which Claim \Cref{claim:claim1} is 'weakly-hold', the diagonal case. Let $H_{1}$ be a diagonal $\lambda_{1}\ket{0}\bra{0} + \lambda_{2}\ket{1}\bra{1}$. Now, if we sample $\ket{u}\bra{u}$ and consider $H_{1} + \lambda_{3}\ket{u}\bra{u}$\footnote{Here it's clear that the coefficient is indeed matter.} Then with probability $1 - \frac{1}{n}$ we keep the gap. That brings us to conjecture the following:
+
+\begin{claim}
+Let $X$ be a finite set of rank-one matrices. And $H_{1}$ be a
+an Hamiltonian at the form $H_1 = \sum{ \ket{v}\bra{v}}$. We say that $\ket{v}\bra{v} \sim H_{1}$ if it drawn uniformly from $H_{1}$ support (element in the presentation).
+
+Suppose that for any $\ket{u}\bra{u} \in X $ we have that $\textbf{E}_{\ket{v}\bra{v}\sim H_1}\left[  \braket{u|v}  \right] \le c$ Then for any $\ket{u}\bra{u} \in X$  $\text{gap } \left( H_{1} \right) \ge \text{gap } \left( H_{1} + \ket{u}\bra{u}  \right) - c$ .  
+\end{claim}
+
+
+\paragraph{}
+
+
+
+Idea, if we have the decomposition of an matrix then it's easy: Let $ M= \lambda_{1}\ket{v_{1}}\bra{v_{1}} +\lambda_{2}\ket{v_{2}}\bra{v_{2}}  $, So it's enough to add $\ket{v_3}\bra{v_3}$ with a coefficient smaller than $\lambda_2$. Yet for picking a random vector, at least it seems that there is a constant probability for picking one with support on $\ket{v_{1}}, \ket{v_2}$.
+Yet in general, what we would like to say is that with high probability, when picking uniformly random $\kbri$ we have that: 
+\begin{equation*}
+    \begin{split}
+    \textbf{Tr}\left(  \kbri \kbra{v_j}{v_j} \right) \le \textbf{Tr}\left(  \kbri \kbra{v_1}{v_1} \right), \textbf{Tr}\left(  \kbri \kbra{v_2}{v_2} \right)
+    \end{split}
+\end{equation*}
+For the above to make sense in the context of algorithmic construction, we ask the following: Let $M$ be a matrix, and sample $\kbri$, when we have a non-symmetric projection over the eigen vectors of $M$. 
+\end{document}
+\end{document}
+
