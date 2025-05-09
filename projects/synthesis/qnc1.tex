@@ -498,7 +498,14 @@ i
 
 I wanted to say the following: Take a LDPC code, and then put the focus on a local system. Then I wanted to say that one can reapet on the proof from \cite{Jochym_O_Connor_2018} of $ \Delta > 1 \Leftrightarrow d > 1$. So the problem there is that qubits that lay outside the local systems might be supported over all the qubits init. So we don't get the effect of $\Delta_{\Delta-1} \ge \frac{\Delta}{\Delta - 1} $. 
 
-So question, Let $\Delta$ a regular degree of a graph, now, take the subset qubtis defined by ommit from any vertices the $i$th bit, (Assume we eraise an euiler cycle), (There must be at least $\Delta /2$) now one can ask, if there is a presention which doesn't intersect with the qubits we chosen. 
+So question, Let $\Delta$ a regular degree of a graph, now, take the subset qubtis defined by ommit from any vertices the $i$th bit, (Assume we eraise an euiler cycle), (There must be at least $\Delta /2$) now one can ask, if there is a presention which doesn't intersect with the qubits we chosen.
+
+\begin{lemma} Let $S = \braket{S_1,..,S_{m}}$ be a stabilizer code and $M\subset \Lambda$ be an arbtrary subset of qubits. Denote $J(M)$ a set of indexes $a$ such that the support of $S_{a}$ overlaps with $M$. Then one of the following is true: 
+  \begin{enumerate}
+    \item There exists a non-trivail logical operator $P \in C(S)/S$ whose support is contained in $M$. 
+    \item For any logical operator $P$ one can choose a stabilizer $S$, such that $PS$ acts trivially on qubits of $M$. 
+  \end{enumerate}
+\end{lemma}
 
 
 
