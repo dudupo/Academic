@@ -490,6 +490,9 @@ Now, while for classical computation $\gamma = 1 $ since only bit flips can be o
 \ctt{Draft:} I have the felling that the right way to analyse Pipenger-style construction is by talking about known location of faults. Then the ${ n \choose \Delta }$ term is subtracted. If we knowes, from head were the bits might fliped (or not fliped) then we can set the constant depth majority cheaks to reduce the error.   
 
 
+
+  \section{The CSS LDPC version for the Cleanining Lemma.}
+
 \ctt{Draft:} Proving that any non-trivial code have a 'non-trivial' disjointness closes the case. \cite{Jochym_O_Connor_2018}, \cite{bostanci2021findingdisjointnessstabilizercodes}. 
 i
 
@@ -508,8 +511,6 @@ So question, Let $\Delta$ a regular degree of a graph, now, take the subset qubt
 
 
 \end{lemma}
-
-  \section{The CSS LDPC version for the Cleanining Lemma.}
 Consider the partition of edges (over Tanner graph or whatever) such that any vertex sees less than $\delta \Delta$ edges. Then no logical codeword is supported by that set. Clearly, no $X$-operator is supported on that set of edges, and since the code is CSS, we have that if a $Z$-operator were supported, then $H^n$ would send the operator to be an $X$-operator, and therefore a contradiction.
 
 So, take an Hamiltonain cycle, in the graph (a cycle that pass trough all the vertices). Each vertex sees lees than $2$ edges, and therfore less than $\delta_{0}\Delta$. Now using the Cleanining Lemma, any operator has a presentationn that acts trivialy on the edges, assume we have 2 cycles. 
