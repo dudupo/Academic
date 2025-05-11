@@ -520,7 +520,12 @@ So, we show that $\Delta_{2} \ge \frac{3}{2}$
   \label{claim:cssstab}
 Let $C = \left( C_{X}, C_{Z} \right)$ be a CSS LDPC code, such that $C_{X}$ is a Tanner code defined by the local codes $C_{0}, C_{1}, \ldots, C_{m}$, each has $\Delta$-bit length and has a distance at least $\delta \Delta$. Let $Q \subset [n]$ be a subset of qubits such that the intersection of $Q$ with each of the supports of the local codes is of size less than $\delta \Delta$. Then no logical codeword is supported entirely on $Q$.
 \end{claim}
-
+\begin{proof}
+  \begin{enumerate}
+    \item Pauli $X$- cann't be for sure, 
+    \item  If there is a logical Pauli $Z$, then since the code is a CSS, applying $H^{\otimes n}$ will send that operator to logical Pauli $X$.
+  \end{enumerate}
+\end{proof}
 
 \begin{claim}
 If $C_{X}$ is a Tanner graph, for which the graph has an Hamiltonian path, then there is a subset of qubits $Q$ that satisfies the requirements in \Cref{claim:cssstab}.
