@@ -516,10 +516,27 @@ So, take an Hamiltonain cycle, in the graph (a cycle that pass trough all the ve
 So, we show that $\Delta_{2} \ge \frac{3}{2}$
 
 \begin{claim}
-Let $C = \left( C_{X}, C_{Z} \right)$ be a CSS LDPC code, such that $C_{X}$ is a Tanner code defined by the local codes $C_{0}, C_{1}, \ldots, C_{m}$, each has a distance  at least $\delta \Delta$. Let $Q \subset [n]$ be a subset of qubits such that the intersection of $Q$ with each of the supports of the local codes is of size less than $\delta \Delta$. Then no logical codeword is supported entirely on $Q$.
+  \label{claim:cssstab}
+Let $C = \left( C_{X}, C_{Z} \right)$ be a CSS LDPC code, such that $C_{X}$ is a Tanner code defined by the local codes $C_{0}, C_{1}, \ldots, C_{m}$, each has $\Delta$-bit length and has a distance at least $\delta \Delta$. Let $Q \subset [n]$ be a subset of qubits such that the intersection of $Q$ with each of the supports of the local codes is of size less than $\delta \Delta$. Then no logical codeword is supported entirely on $Q$.
 \end{claim}
 
+\begin{definition}
+Let $P$ be a logical Pauli in a stabilizer code $C$. Denote by $\Gamma_{c}(P)$ the $c$-disjointness of $P$, which is defined to be the size of the maximal subset of $P$-representations such that each qubit touches at most $c$ of them, divided by $c$. 
 
+
+The $c$-disjointness of $C$ is defined to be the minimum of $c$-disjointness, where the minimization is taken over all the logical Paulis of $C$.
+\end{definition}
+
+\begin{claim}
+  Let $C$ be a stabilizer code defined in \Cref{claim:cssstab}, Then:
+
+
+  \begin{equation*}
+    \begin{split}
+  \Gamma_{\delta \Delta}\left( C \right) \ge \frac{ \Delta }{  \delta \Delta  - 1   }
+    \end{split}
+  \end{equation*}
+\end{claim}
 
 
 
