@@ -1,0 +1,19 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'qnc1.blg'
+[81] biber:340> INFO - === Thu Apr 24, 2025, 16:24:47
+[95] Biber.pm:419> INFO - Reading 'qnc1.bcf'
+[158] Biber.pm:979> INFO - Found 19 citekeys in bib section 0
+[171] Biber.pm:4419> INFO - Processing section 0
+[181] Biber.pm:4610> INFO - Looking for bibtex file './sample.bib' for section 0
+[184] bibtex.pm:1713> INFO - LaTeX decoding ...
+[249] bibtex.pm:1519> INFO - Found BibTeX data source './sample.bib'
+[412] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[412] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[412] Biber.pm:4239> INFO - Sorting list 'ynt/global//global/global' of type 'entry' with template 'ynt' and locale 'en-US'
+[412] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[434] bbl.pm:660> INFO - Writing 'qnc1.bbl' with encoding 'UTF-8'
+[442] bbl.pm:763> INFO - Output to qnc1.bbl
+[442] Biber.pm:131> WARN - legacy month field 'oct' in entry 'Shor_1997' is not an integer - this will probably not sort properly.
+[442] Biber.pm:131> WARN - legacy month field 'oct' in entry 'Leverrier_2015' is not an integer - this will probably not sort properly.
+[442] Biber.pm:131> WARN - legacy month field 'feb' in entry 'Tillich_2014' is not an integer - this will probably not sort properly.
+[442] Biber.pm:133> INFO - WARNINGS: 3

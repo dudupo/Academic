@@ -1,0 +1,815 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{Neumann+1956+43+98}{inbook}{}
+      \name{author}{1}{}{%
+        {{hash=2edbaf68f111b31c9c57b1b1abc8ff34}{%
+           family={Neumann},
+           familyi={N\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           prefix={von},
+           prefixi={v\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=22e2130b8d96f93daba648ff62af869b}{%
+           family={Shannon},
+           familyi={S\bibinitperiod},
+           given={C.\bibnamedelimi E.},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=46e54e04ec0343d677e2b791d1532f7e}{%
+           family={McCarthy},
+           familyi={M\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Princeton}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{2edbaf68f111b31c9c57b1b1abc8ff34}
+      \strng{fullhash}{2edbaf68f111b31c9c57b1b1abc8ff34}
+      \strng{bibnamehash}{2edbaf68f111b31c9c57b1b1abc8ff34}
+      \strng{authorbibnamehash}{2edbaf68f111b31c9c57b1b1abc8ff34}
+      \strng{authornamehash}{2edbaf68f111b31c9c57b1b1abc8ff34}
+      \strng{authorfullhash}{2edbaf68f111b31c9c57b1b1abc8ff34}
+      \strng{editorbibnamehash}{5441b1b52a7863833525b7133ecb78d4}
+      \strng{editornamehash}{5441b1b52a7863833525b7133ecb78d4}
+      \strng{editorfullhash}{5441b1b52a7863833525b7133ecb78d4}
+      \field{labelalpha}{Neu56}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Automata Studies}
+      \field{isbn}{9781400882618}
+      \field{title}{Probabilistic Logics and the Synthesis of Reliable Organisms From Unreliable Components}
+      \field{year}{1956}
+      \field{pages}{43\bibrangedash 98}
+      \range{pages}{56}
+      \verb{doi}
+      \verb doi:10.1515/9781400882618-003
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1515/9781400882618-003
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1515/9781400882618-003
+      \endverb
+    \endentry
+    \entry{Tanner}{article}{}
+      \name{author}{1}{}{%
+        {{hash=fa5f099c6947df2d1303a0e49b44f6b6}{%
+           family={Tanner},
+           familyi={T\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{fa5f099c6947df2d1303a0e49b44f6b6}
+      \strng{fullhash}{fa5f099c6947df2d1303a0e49b44f6b6}
+      \strng{bibnamehash}{fa5f099c6947df2d1303a0e49b44f6b6}
+      \strng{authorbibnamehash}{fa5f099c6947df2d1303a0e49b44f6b6}
+      \strng{authornamehash}{fa5f099c6947df2d1303a0e49b44f6b6}
+      \strng{authorfullhash}{fa5f099c6947df2d1303a0e49b44f6b6}
+      \field{labelalpha}{Tan81}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Information Theory}
+      \field{number}{5}
+      \field{title}{A recursive approach to low complexity codes}
+      \field{volume}{27}
+      \field{year}{1981}
+      \field{pages}{533\bibrangedash 547}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1109/TIT.1981.1056404
+      \endverb
+    \endentry
+    \entry{Pippenger}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=3d1f20e5033209a426c7f9ee61350c9b}{%
+           family={Pippenger},
+           familyi={P\bibinitperiod},
+           given={Nicholas},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{3d1f20e5033209a426c7f9ee61350c9b}
+      \strng{fullhash}{3d1f20e5033209a426c7f9ee61350c9b}
+      \strng{bibnamehash}{3d1f20e5033209a426c7f9ee61350c9b}
+      \strng{authorbibnamehash}{3d1f20e5033209a426c7f9ee61350c9b}
+      \strng{authornamehash}{3d1f20e5033209a426c7f9ee61350c9b}
+      \strng{authorfullhash}{3d1f20e5033209a426c7f9ee61350c9b}
+      \field{labelalpha}{Pip85}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{26th Annual Symposium on Foundations of Computer Science (sfcs 1985)}
+      \field{title}{On networks of noisy gates}
+      \field{year}{1985}
+      \field{pages}{30\bibrangedash 38}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1109/SFCS.1985.41
+      \endverb
+      \keyw{Computer networks;Boolean functions;Stochastic processes;Reliability theory;Computational modeling;Error probability}
+    \endentry
+    \entry{aharonov1996limitationsnoisyreversiblecomputation}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=a035d6c6db867fe1b59042acd0dffe2d}{%
+           family={Aharonov},
+           familyi={A\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ab5c07695ca5c5e6d812fc53854fb541}{%
+           family={Ben-Or},
+           familyi={B\bibinithyphendelim O\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=3ea89603cd068784b23a6b0af806f42d}{%
+           family={Impagliazzo},
+           familyi={I\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=cb9d661b8b20439e97580f0a488cb389}{%
+           family={Nisan},
+           familyi={N\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{38d0c8b9aa34f7b05057b04c3f7f0421}
+      \strng{fullhash}{b2220133bbc1b3c00a9823da0f8aaab1}
+      \strng{bibnamehash}{38d0c8b9aa34f7b05057b04c3f7f0421}
+      \strng{authorbibnamehash}{38d0c8b9aa34f7b05057b04c3f7f0421}
+      \strng{authornamehash}{38d0c8b9aa34f7b05057b04c3f7f0421}
+      \strng{authorfullhash}{b2220133bbc1b3c00a9823da0f8aaab1}
+      \field{labelalpha}{Aha+96}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{title}{Limitations of Noisy Reversible Computation}
+      \field{year}{1996}
+      \verb{eprint}
+      \verb quant-ph/9611028
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/quant-ph/9611028
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/quant-ph/9611028
+      \endverb
+    \endentry
+    \entry{ExpanderCodes}{article}{}
+      \name{author}{2}{}{%
+        {{hash=75a9e61254fc449d4886b6ee4cff0b22}{%
+           family={Sipser},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=bee66c6e4cf38d7e693ca851c40c42ba}{%
+           family={Spielman},
+           familyi={S\bibinitperiod},
+           given={D.A.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff59c81166644da08ea82fb925631c54}
+      \strng{fullhash}{ff59c81166644da08ea82fb925631c54}
+      \strng{bibnamehash}{ff59c81166644da08ea82fb925631c54}
+      \strng{authorbibnamehash}{ff59c81166644da08ea82fb925631c54}
+      \strng{authornamehash}{ff59c81166644da08ea82fb925631c54}
+      \strng{authorfullhash}{ff59c81166644da08ea82fb925631c54}
+      \field{labelalpha}{SS96}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Information Theory}
+      \field{number}{6}
+      \field{title}{Expander codes}
+      \field{volume}{42}
+      \field{year}{1996}
+      \field{pages}{1710\bibrangedash 1722}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1109/18.556667
+      \endverb
+    \endentry
+    \entry{Shor_1997}{article}{}
+      \name{author}{1}{}{%
+        {{hash=7082a9c99d5d51479d4cfba6bbac2d30}{%
+           family={Shor},
+           familyi={S\bibinitperiod},
+           given={Peter\bibnamedelima W.},
+           giveni={P\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Society for Industrial {\&} Applied Mathematics ({SIAM})}%
+      }
+      \strng{namehash}{7082a9c99d5d51479d4cfba6bbac2d30}
+      \strng{fullhash}{7082a9c99d5d51479d4cfba6bbac2d30}
+      \strng{bibnamehash}{7082a9c99d5d51479d4cfba6bbac2d30}
+      \strng{authorbibnamehash}{7082a9c99d5d51479d4cfba6bbac2d30}
+      \strng{authornamehash}{7082a9c99d5d51479d4cfba6bbac2d30}
+      \strng{authorfullhash}{7082a9c99d5d51479d4cfba6bbac2d30}
+      \field{labelalpha}{Sho97}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{SIAM} Journal on Computing}
+      \field{month}{10}
+      \field{number}{5}
+      \field{title}{Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer}
+      \field{volume}{26}
+      \field{year}{1997}
+      \field{pages}{1484\bibrangedash 1509}
+      \range{pages}{26}
+      \verb{doi}
+      \verb 10.1137/s0097539795293172
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1137%2Fs0097539795293172
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1137%2Fs0097539795293172
+      \endverb
+    \endentry
+    \entry{aharonov1999faulttolerant}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=4000a75f6a9e7ba12838755d51937e22}{%
+           family={Aharonov},
+           familyi={A\bibinitperiod},
+           given={Dorit},
+           giveni={D\bibinitperiod}}}%
+        {{hash=41eb128ae71f8745a6089159ac4aaf4e}{%
+           family={Ben-Or},
+           familyi={B\bibinithyphendelim O\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{8970ec19a2792de36bb8d7c68c49c0ce}
+      \strng{fullhash}{8970ec19a2792de36bb8d7c68c49c0ce}
+      \strng{bibnamehash}{8970ec19a2792de36bb8d7c68c49c0ce}
+      \strng{authorbibnamehash}{8970ec19a2792de36bb8d7c68c49c0ce}
+      \strng{authornamehash}{8970ec19a2792de36bb8d7c68c49c0ce}
+      \strng{authorfullhash}{8970ec19a2792de36bb8d7c68c49c0ce}
+      \field{labelalpha}{AB99}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{title}{Fault-Tolerant Quantum Computation With Constant Error Rate}
+      \field{year}{1999}
+      \verb{eprint}
+      \verb quant-ph/9906129
+      \endverb
+    \endentry
+    \entry{hoory2006expander}{article}{}
+      \name{author}{3}{}{%
+        {{hash=7a2e07605478413e89736ff680e2593c}{%
+           family={Hoory},
+           familyi={H\bibinitperiod},
+           given={Shlomo},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3799f17b3ff4ed819996ef9220d1b820}{%
+           family={Linial},
+           familyi={L\bibinitperiod},
+           given={Nathan},
+           giveni={N\bibinitperiod}}}%
+        {{hash=94bdc407739d530448ac88956c6c98a5}{%
+           family={Wigderson},
+           familyi={W\bibinitperiod},
+           given={Avi},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{fullhash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{bibnamehash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{authorbibnamehash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{authornamehash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{authorfullhash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \field{labelalpha}{HLW06}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bulletin of the American Mathematical Society}
+      \field{number}{4}
+      \field{title}{Expander graphs and their applications}
+      \field{volume}{43}
+      \field{year}{2006}
+      \field{pages}{439\bibrangedash 561}
+      \range{pages}{123}
+    \endentry
+    \entry{gottesman2014faulttolerant}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=7547b3f3d9b6b3aebccf1577d598b7de}{%
+           family={Gottesman},
+           familyi={G\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{7547b3f3d9b6b3aebccf1577d598b7de}
+      \strng{fullhash}{7547b3f3d9b6b3aebccf1577d598b7de}
+      \strng{bibnamehash}{7547b3f3d9b6b3aebccf1577d598b7de}
+      \strng{authorbibnamehash}{7547b3f3d9b6b3aebccf1577d598b7de}
+      \strng{authornamehash}{7547b3f3d9b6b3aebccf1577d598b7de}
+      \strng{authorfullhash}{7547b3f3d9b6b3aebccf1577d598b7de}
+      \field{labelalpha}{Got14}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{title}{Fault-Tolerant Quantum Computation with Constant Overhead}
+      \field{year}{2014}
+      \verb{eprint}
+      \verb 1310.2984
+      \endverb
+    \endentry
+    \entry{Tillich_2014}{article}{}
+      \name{author}{2}{}{%
+        {{hash=3c8f22aee137281b9b0738ad1c35af18}{%
+           family={Tillich},
+           familyi={T\bibinitperiod},
+           given={Jean-Pierre},
+           giveni={J\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=cf6aa7c8e1e59ab12758174e2e58fa80}{%
+           family={Zemor},
+           familyi={Z\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Institute of Electrical}%
+        {Electronics Engineers ({IEEE})}%
+      }
+      \strng{namehash}{09d79f670cccb66da504641a3c3189a3}
+      \strng{fullhash}{09d79f670cccb66da504641a3c3189a3}
+      \strng{bibnamehash}{09d79f670cccb66da504641a3c3189a3}
+      \strng{authorbibnamehash}{09d79f670cccb66da504641a3c3189a3}
+      \strng{authornamehash}{09d79f670cccb66da504641a3c3189a3}
+      \strng{authorfullhash}{09d79f670cccb66da504641a3c3189a3}
+      \field{labelalpha}{TZ14}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{IEEE} Transactions on Information Theory}
+      \field{month}{2}
+      \field{number}{2}
+      \field{title}{Quantum {LDPC} Codes With Positive Rate and Minimum Distance Proportional to the Square Root of the Blocklength}
+      \field{volume}{60}
+      \field{year}{2014}
+      \field{pages}{1193\bibrangedash 1202}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/tit.2013.2292061
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1109%2Ftit.2013.2292061
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1109%2Ftit.2013.2292061
+      \endverb
+    \endentry
+    \entry{Leverrier_2015}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=5533ab856083ca9b0c98042d38048318}{%
+           family={Leverrier},
+           familyi={L\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3c8f22aee137281b9b0738ad1c35af18}{%
+           family={Tillich},
+           familyi={T\bibinitperiod},
+           given={Jean-Pierre},
+           giveni={J\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=cf6aa7c8e1e59ab12758174e2e58fa80}{%
+           family={Zemor},
+           familyi={Z\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{82c122698c789aacd48c2afee91f52b1}
+      \strng{fullhash}{82c122698c789aacd48c2afee91f52b1}
+      \strng{bibnamehash}{82c122698c789aacd48c2afee91f52b1}
+      \strng{authorbibnamehash}{82c122698c789aacd48c2afee91f52b1}
+      \strng{authornamehash}{82c122698c789aacd48c2afee91f52b1}
+      \strng{authorfullhash}{82c122698c789aacd48c2afee91f52b1}
+      \field{labelalpha}{LTZ15}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2015 {IEEE} 56th Annual Symposium on Foundations of Computer Science}
+      \field{month}{10}
+      \field{title}{Quantum Expander Codes}
+      \field{year}{2015}
+      \verb{doi}
+      \verb 10.1109/focs.2015.55
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1109%2Ffocs.2015.55
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1109%2Ffocs.2015.55
+      \endverb
+    \endentry
+    \entry{Bremner_2017}{article}{}
+      \name{author}{3}{}{%
+        {{hash=969fd423ac96ed17f888b038c5228de2}{%
+           family={Bremner},
+           familyi={B\bibinitperiod},
+           given={Michael\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=bd78a1f9d6e5f3fbbf33e0967436bb75}{%
+           family={Montanaro},
+           familyi={M\bibinitperiod},
+           given={Ashley},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a3f46709ecc200041e14b6edcca0f40d}{%
+           family={Shepherd},
+           familyi={S\bibinitperiod},
+           given={Dan\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Verein zur Förderung des Open Access Publizierens in den Quantenwissenschaften}%
+      }
+      \strng{namehash}{44946d184ac7733540eacde6ebe18bc5}
+      \strng{fullhash}{44946d184ac7733540eacde6ebe18bc5}
+      \strng{bibnamehash}{44946d184ac7733540eacde6ebe18bc5}
+      \strng{authorbibnamehash}{44946d184ac7733540eacde6ebe18bc5}
+      \strng{authornamehash}{44946d184ac7733540eacde6ebe18bc5}
+      \strng{authorfullhash}{44946d184ac7733540eacde6ebe18bc5}
+      \field{labelalpha}{BMS17}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2521-327X}
+      \field{journaltitle}{{Quantum}}
+      \field{month}{4}
+      \field{title}{Achieving quantum supremacy with sparse and noisy commuting quantum computations}
+      \field{volume}{1}
+      \field{year}{2017}
+      \field{pages}{8}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.22331/q-2017-04-25-8
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.22331/q-2017-04-25-8
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.22331/q-2017-04-25-8
+      \endverb
+    \endentry
+    \entry{grospellier:tel-03364419}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=ee2baa48b6bf1c038e4f23c4341ab1bd}{%
+           family={Grospellier},
+           familyi={G\bibinitperiod},
+           given={Antoine},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Sorbonne Université}%
+      }
+      \strng{namehash}{ee2baa48b6bf1c038e4f23c4341ab1bd}
+      \strng{fullhash}{ee2baa48b6bf1c038e4f23c4341ab1bd}
+      \strng{bibnamehash}{ee2baa48b6bf1c038e4f23c4341ab1bd}
+      \strng{authorbibnamehash}{ee2baa48b6bf1c038e4f23c4341ab1bd}
+      \strng{authornamehash}{ee2baa48b6bf1c038e4f23c4341ab1bd}
+      \strng{authorfullhash}{ee2baa48b6bf1c038e4f23c4341ab1bd}
+      \field{labelalpha}{Gro19}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{number}{2019SORUS575}
+      \field{title}{{Constant time decoding of quantum expander codes and application to fault-tolerant quantum computation}}
+      \field{type}{Theses}
+      \field{year}{2019}
+      \verb{file}
+      \verb https://theses.hal.science/tel-03364419v3/file/GROSPELLIER_Antoine_2019.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://theses.hal.science/tel-03364419
+      \endverb
+      \verb{url}
+      \verb https://theses.hal.science/tel-03364419
+      \endverb
+      \keyw{Fault-tolerant quantum computation ; Quantum error correction ; Expander codes decoding algorithm ; Calcul quantique tolérant aux fautes ; Correction d'erreurs quantiques ; Codes expanseurs ; Algorithme de décodage ; Bruit stochastique ; Performances}
+    \endentry
+    \entry{Pavel}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=2045547a573a8653a385a24802d84861}{%
+           family={Panteleev},
+           familyi={P\bibinitperiod},
+           given={Pavel},
+           giveni={P\bibinitperiod}}}%
+        {{hash=965427f6d0d037e6e3f530bc87ae1a30}{%
+           family={Kalachev},
+           familyi={K\bibinitperiod},
+           given={Gleb},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{0798ba004634ed1d7aa919b68cddb863}
+      \strng{fullhash}{0798ba004634ed1d7aa919b68cddb863}
+      \strng{bibnamehash}{0798ba004634ed1d7aa919b68cddb863}
+      \strng{authorbibnamehash}{0798ba004634ed1d7aa919b68cddb863}
+      \strng{authornamehash}{0798ba004634ed1d7aa919b68cddb863}
+      \strng{authorfullhash}{0798ba004634ed1d7aa919b68cddb863}
+      \field{labelalpha}{PK21}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Asymptotically Good Quantum and Locally Testable Classical LDPC Codes}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.48550/ARXIV.2111.03654
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2111.03654
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2111.03654
+      \endverb
+      \keyw{Information Theory (cs.IT),Quantum Physics (quant-ph),FOS: Computer and information sciences,FOS: Computer and information sciences,FOS: Physical sciences,FOS: Physical sciences}
+    \endentry
+    \entry{Dinur}{misc}{}
+      \name{author}{5}{}{%
+        {{hash=9a5f80a9b2b1359cbc50244c7816730c}{%
+           family={Dinur},
+           familyi={D\bibinitperiod},
+           given={Irit},
+           giveni={I\bibinitperiod}}}%
+        {{hash=cf4fd32be7d1575441dd8d7defeeebdc}{%
+           family={Evra},
+           familyi={E\bibinitperiod},
+           given={Shai},
+           giveni={S\bibinitperiod}}}%
+        {{hash=44bcc8e59af2adef781b86d28fd33616}{%
+           family={Livne},
+           familyi={L\bibinitperiod},
+           given={Ron},
+           giveni={R\bibinitperiod}}}%
+        {{hash=c6034c88f321d2d456e5baa592685826}{%
+           family={Lubotzky},
+           familyi={L\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ddd2923715cd2343a4a8a5b46b1d295b}{%
+           family={Mozes},
+           familyi={M\bibinitperiod},
+           given={Shahar},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{998dfb3aee939e2438a0913f9c8f2de3}
+      \strng{fullhash}{c67aac9e30c171974c9fad2923260b03}
+      \strng{bibnamehash}{998dfb3aee939e2438a0913f9c8f2de3}
+      \strng{authorbibnamehash}{998dfb3aee939e2438a0913f9c8f2de3}
+      \strng{authornamehash}{998dfb3aee939e2438a0913f9c8f2de3}
+      \strng{authorfullhash}{c67aac9e30c171974c9fad2923260b03}
+      \field{labelalpha}{Din+22}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Good Locally Testable Codes}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.48550/ARXIV.2207.11929
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2207.11929
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2207.11929
+      \endverb
+      \keyw{Information Theory (cs.IT),Combinatorics (math.CO),Group Theory (math.GR),FOS: Computer and information sciences,FOS: Computer and information sciences,FOS: Mathematics,FOS: Mathematics}
+    \endentry
+    \entry{leverrier2022decodingquantumtannercodes}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=5533ab856083ca9b0c98042d38048318}{%
+           family={Leverrier},
+           familyi={L\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0bf2f70bde46bb86c3382a7e9f8c9eaa}{%
+           family={Zémor},
+           familyi={Z\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{fullhash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{bibnamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authorbibnamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authornamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authorfullhash}{d9e791cfe465672a244f9c3129e98f07}
+      \field{extraname}{1}
+      \field{labelalpha}{LZ22}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{title}{Decoding quantum Tanner codes}
+      \field{year}{2022}
+      \verb{eprint}
+      \verb 2208.05537
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2208.05537
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2208.05537
+      \endverb
+    \endentry
+    \entry{leverrier2022quantum}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=5533ab856083ca9b0c98042d38048318}{%
+           family={Leverrier},
+           familyi={L\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0bf2f70bde46bb86c3382a7e9f8c9eaa}{%
+           family={Zémor},
+           familyi={Z\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{fullhash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{bibnamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authorbibnamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authornamehash}{d9e791cfe465672a244f9c3129e98f07}
+      \strng{authorfullhash}{d9e791cfe465672a244f9c3129e98f07}
+      \field{extraname}{2}
+      \field{labelalpha}{LZ22}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{title}{Quantum Tanner codes}
+      \field{year}{2022}
+      \verb{eprint}
+      \verb 2202.13641
+      \endverb
+    \endentry
+    \entry{overheadofquantumerrorcorrection}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=c0c8d1b4a67e14fb8ae580f91e4d1246}{%
+           family={Baspin},
+           familyi={B\bibinitperiod},
+           given={Nouédyn},
+           giveni={N\bibinitperiod}}}%
+        {{hash=55f394b61ad2322e8304d2c41d5e38aa}{%
+           family={Fawzi},
+           familyi={F\bibinitperiod},
+           given={Omar},
+           giveni={O\bibinitperiod}}}%
+        {{hash=e6e54c40602820b3525eeb9d19e3eba3}{%
+           family={Shayeghi},
+           familyi={S\bibinitperiod},
+           given={Ala},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{0016864e0e0287edc7b99aa11a8e96cb}
+      \strng{fullhash}{0016864e0e0287edc7b99aa11a8e96cb}
+      \strng{bibnamehash}{0016864e0e0287edc7b99aa11a8e96cb}
+      \strng{authorbibnamehash}{0016864e0e0287edc7b99aa11a8e96cb}
+      \strng{authornamehash}{0016864e0e0287edc7b99aa11a8e96cb}
+      \strng{authorfullhash}{0016864e0e0287edc7b99aa11a8e96cb}
+      \field{labelalpha}{BFS23}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A lower bound on the overhead of quantum error correction in low dimensions}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.48550/ARXIV.2302.04317
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2302.04317
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2302.04317
+      \endverb
+      \keyw{Quantum Physics (quant-ph),FOS: Physical sciences,FOS: Physical sciences}
+    \endentry
+    \entry{Paletta_2024}{article}{}
+      \name{author}{5}{}{%
+        {{hash=9a52330279444a01daa164629eef168f}{%
+           family={Paletta},
+           familyi={P\bibinitperiod},
+           given={Louis},
+           giveni={L\bibinitperiod}}}%
+        {{hash=5533ab856083ca9b0c98042d38048318}{%
+           family={Leverrier},
+           familyi={L\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod}}}%
+        {{hash=bd1e0d8f49c24a92e543fcb43ba3091b}{%
+           family={Sarlette},
+           familyi={S\bibinitperiod},
+           given={Alain},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9f0172d905b2d33f27fd964eea49cd81}{%
+           family={Mirrahimi},
+           familyi={M\bibinitperiod},
+           given={Mazyar},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d7990d228a3ba4f40ceb772a10927dcd}{%
+           family={Vuillot},
+           familyi={V\bibinitperiod},
+           given={Christophe},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Verein zur Förderung des Open Access Publizierens in den Quantenwissenschaften}%
+      }
+      \strng{namehash}{6329213c3bc5f4bafb295752c5ea86be}
+      \strng{fullhash}{175cf09b0f68defe7a481665b6af73fd}
+      \strng{bibnamehash}{6329213c3bc5f4bafb295752c5ea86be}
+      \strng{authorbibnamehash}{6329213c3bc5f4bafb295752c5ea86be}
+      \strng{authornamehash}{6329213c3bc5f4bafb295752c5ea86be}
+      \strng{authorfullhash}{175cf09b0f68defe7a481665b6af73fd}
+      \field{labelalpha}{Pal+24}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2521-327X}
+      \field{journaltitle}{{Quantum}}
+      \field{month}{5}
+      \field{title}{Robust sparse {IQP} sampling in constant depth}
+      \field{volume}{8}
+      \field{year}{2024}
+      \field{pages}{1337}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.22331/q-2024-05-06-1337
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.22331/q-2024-05-06-1337
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.22331/q-2024-05-06-1337
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
