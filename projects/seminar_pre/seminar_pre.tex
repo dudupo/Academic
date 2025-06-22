@@ -13,7 +13,7 @@
 
 
 \begin{frame}
-    \title{Final Recitation – Information Theory, Application for Quantum Fault Tolerance.}
+  \title{Hardness of Computing Fault Tolerance.}
     \author{David Ponarovsky}
     \date{\today}
     \titlepage
@@ -41,7 +41,7 @@
 
 
 \begin{frame}
-  \frametitle{Your Title Here}
+  \frametitle{Nosiy Circuit.}
 
 \begin{quantikz}[row sep=0.3cm, column sep=0.7cm]
 \lstick{$q_1$} & \gate[wires=8]{U_0} & \gate{\mathcal{N}} & \gate[wires=8]{U_1}   & \gate{\mathcal{N}} & \gate[wires=8]{U_2} & \gate{\mathcal{N}}& \qw \\
@@ -55,6 +55,46 @@
 \end{quantikz}
 \end{frame}
 
+
+
+
+\begin{frame}
+  \frametitle{Threshoold Theorem.} 
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Pippenger's Construction.} 
+  
+Encode each bit with the repetition code $0 \mapsto 0^{m}$, $1 \mapsto 1^{m}$. Now observe that any logical operation, without decoding, can be made in $O(1)$ depth.
+
+For example, OR($\bar{x}, \bar{y}$) can be computed by applying in parallel OR($x_{i}, y_{i}$) for each $i$.
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The 'Decoding' trick.} 
+
+Instead of completely decoding, we would apply only a single step of partial decoding. We assume that in each code block the bits are partitioned into random disjoint triples, and we will apply a local correction to each of the triples by majority.
+
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The Franch's Construction.}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{ } 
+\end{frame}
 
 
 
