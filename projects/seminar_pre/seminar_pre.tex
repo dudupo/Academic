@@ -80,7 +80,18 @@ For example, OR($\bar{x}, \bar{y}$) can be computed by applying in parallel OR($
 Instead of completely decoding, we would apply only a single step of partial decoding. We assume that in each code block the bits are partitioned into random disjoint triples, and we will apply a local correction to each of the triples by majority.
 
 
+
+\begin{block}{Claim}
+  There are constants $\alpha, \eta \in (0,1)$ such that for any bit string $x$ at distance $\le \alpha n$ from the code (Repetition Code), A one cycle of local correction on $x$ yield $x^\prime$ such:   
+  \begin{equation*}
+    \begin{split}
+      d(x^{\prime}, C) \le d(x, C)
+    \end{split}
+  \end{equation*}
+\end{block}
 \end{frame}
+
+
 
 
 \begin{frame}
