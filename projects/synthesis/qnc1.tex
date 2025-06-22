@@ -39,6 +39,7 @@
 
 \newcommand*{\QACze}{ \mathbf{QAC}_{0} }
 \newcommand*{\QNCzef}{ \mathbf{QNC}_{0,f} }
+\newcommand*{\QNCze}{ \mathbf{QNC}_{0} }
 \newcommand*{\QNCon}{ \mathbf{QNC}_{1} }
 \newcommand*{\NCon}{ \mathbf{NC}_{1} }
 \newcommand*{\noiseQNCon}{ noisy-$\QNCon$ }
@@ -94,12 +95,12 @@
     location $(i,j)$ of $C$. \ctt{Add here a figure of classical circuit, that demonstrates locations.}
   \end{definition}
 
-%  \begin{figure}[h]
-%    \centering
-%    \input{circuit_tkz/location.tikz}
-%    \caption{location.}
-%    \label{fig:location}
-%  \end{figure}
+
+  \subsection{Circuit Classes.}
+ $\QACze$ is the class of decision problems solvable by a family of constant-depth, polynomial-size quantum circuits. Here each layer of the circuit is a tensor product of one-qubit gates and Toffoli gates, or is a tensor product of controlled-NOT gates. 
+ $\QNCze$ Constant-depth quantum circuits without fanout gates.
+ $\QNCon$ Same as QNC, but logarithmic depth instead of polylogarithmic depth.
+
 
 
   \subsection{Classical Coding Theory.} \label{sec:classical} The notation used in this paper follows standard conventions for coding theory. We use $n$ to represent the length of the code, $k$ for the code's dimension, and $\rho$ for its rate. The minimum distance of the code will be denoted as $d$, and the relative distance, i.e., $d/n$, as $\delta$. In this paper, $n$ and $k$ will sometimes refer to the number of physical and logical bits. Codes will be denoted by a capital $C$ followed by either a subscript or superscript. When referring to multiple codes, we will use the above parameters as functions. For example, $\rho(C_{1})$ represents the rate of the code $C_{1}$.
@@ -480,6 +481,22 @@ X_{t} \le \nu \cdot (X_{t-1} + \beta |B| ) \le \nu(\gamma+\beta) |B| \le \gamma 
 
 Assuming that $W$ is polynomial in $D$, taking the block length to be $|B| = \log((W \cdot D)^c)$, as shown in \Cref{claim:prob}, results in a linear fault tolerance construction with a success probability of $1 - \frac{1}{\log^{c_2}(W \cdot D)}$. This means that the fault tolerance version of circuits in $\textbf{QNC}_1$ has a logarithmic depth. Additionally, using the construction in \cite{aharonov1996limitationsnoisyreversiblecomputation} produces a polynomial fault tolerance circuit in the reversible gates setting. \ctt{ We missed the fact that it requires non trivial classical computation to compute what gate should be applied after the gate teleportation (i.e $UPU^{\dagger}$ )}.
 
+
+
+\section{ $\QACze \subset $\noiseQNCon }
+For completing this one has to show that one can compute the parity with a fixed gates set. Here is what we need: 
+\begin{enumerate}
+  \item having the logical states $\ket{0} + e^{i\frac{|x|}{2^{j}}}\ket{1}$
+  \item Note that gate $\ket{0} + e^{i\frac{1}{2^{j}}}\ket{1}$ is in the $j$th level of the Clifford. Yet after getting the Pauli one has to compute what gate should be applied. And when considering logical space it's not a constant operation, yet it could computed in the logical space, so what we need is just to look, so for a $m$-length code, $\log m$. Or maybe can we do better?   
+  \item if the diminution of the code is constant?  
+    \begin{equation*}
+      \begin{split}
+	& \ket{C_{Z}^{\perp}, C_{Z}^{\perp}} + \ket{C_{Z}^{\perp} + 1_{L}, C_{Z}^{\perp} + 1_{L}} \\ 
+	\rightarrow  \alpha  & \ket{C_{Z}^{\perp}} \left( \ket{C_{Z}^{\perp}, C_{Z}^{\perp}} + \ket{C_{Z}^{\perp} + 1_{L}, C_{Z}^{\perp} + 1_{L}} \right) \\
+	+   \beta & \ket{ C_{Z}^{\perp} + 1_{L}}\left( \ket{C_{Z}^{\perp}+1_{L}, C_{Z}^{\perp}} + \ket{C_{Z}^{\perp}, C_{Z}^{\perp} + 1_{L}} \right)
+      \end{split}
+    \end{equation*}
+\end{enumerate}
 
 
 \section{ Does $\NCon \subset $\noiseQNCon ?}

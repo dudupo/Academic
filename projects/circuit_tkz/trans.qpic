@@ -1,0 +1,47 @@
+x_1 W x_1 x_1 y_1 y_1
+x_2 W x_2 x_2 y_2 y_2
+x_3 W x_3 x_3 y_3 y_3
+#y_1 W y_1 
+#y_2 W y_2 
+#y_3 W y_3 
+y_4 W y_4 y_4
+y_5 W y_5 y_5
+y_6 W y_6 y_6
+y_7 W y_7 y_7
+y_8 W y_8 y_8
+y_9 W y_9 y_9
+
+x_1 START
+x_2 START
+x_3 START
+x_1 x_2 +x_3
+x_1 END
+x_2 END
+x_3 END
+
+=
+
+x_1 START
+x_2 START
+x_3 START
+y_4 START
+y_5 START
+y_6 START
+y_7 START
+y_8 START
+y_9 START
+
+x_1 y_4 +y_7
+x_2 y_5 +y_8
+x_3 y_6 +y_9
+
+x_1 END
+x_2 END
+x_3 END
+y_4 END
+y_5 END
+y_6 END
+y_7 END
+y_8 END
+y_9 END
+
