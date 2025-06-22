@@ -82,7 +82,7 @@ Instead of completely decoding, we would apply only a single step of partial dec
 
 
 \begin{block}{Claim}
-  There are constants $\alpha, \eta \in (0,1)$ such that for any bit string $x$ at distance $\le \alpha n$ from the code (Repetition Code), A one cycle of local correction on $x$ yield $x^\prime$ such:   
+There are constants $\alpha, \eta \in (0,1)$ such that for any bit string $x$ at a distance $\le \alpha n$ from the code (Repetition Code), one cycle of local correction on $x$ yields $x^\prime$ such that:
   \begin{equation*}
     \begin{split}
       d(x^{\prime}, C) \le d(x, C)
@@ -92,7 +92,23 @@ Instead of completely decoding, we would apply only a single step of partial dec
 \end{frame}
 
 
+\begin{frame}
+  \frametitle{The 'Decoding' trick.} 
+  
+  Suppose that a bit obserb a bit flip with probability $p$. So in expectation we expect that entire bolck at length $n$ will absorb $pn$ flips.  
+  \begin{equation*}
+    \begin{split}
+      \eta \left( \beta + p  \right) n &\le \beta n \\ 
+      \beta \ge \frac{p}{ 1 - \eta}
+    \end{split}
+  \end{equation*}<++>
 
+
+
+
+
+
+\end{frame}
 
 \begin{frame}
   \frametitle{The Franch's Construction.}
