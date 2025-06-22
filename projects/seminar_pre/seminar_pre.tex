@@ -7,6 +7,7 @@
 \usepackage{subcaption}
 \usepackage{tikz}
 \usepackage{quantikz}
+\usepackage[linesnumbered]{algorithm2e}
 \begin{document} 
 
 \newcommand*{\Tr}{\textbf{Tr }}
@@ -104,11 +105,98 @@ There are constants $\alpha, \eta \in (0,1)$ such that for any bit string $x$ at
   \end{equation*}
 
 
+\end{frame}
+
+\begin{frame}
+
+  From now on, we will assume that the graphs are bipartite and we will denote the right and the left vertices by $V^{-}$ and $V^{+}$. Notice that such expanders near Ramanujan exist, see for example \cite{leverrier2022decodingquantumtannercodes}. The partition into two subsets enable us to come with a simple efficient decoder.
+
+  Expanders code are known for having good decoders, beneath, in \Cref{alg:three}, we introduce a procedure to reduce an error. In overall, we alternately let to the right and then the left vertices to correct their own local view. In \Cref{lemma:reduce} we prove that when the applied error has size at most $\beta n$, for some constant $\beta$ then the error's weight reduced by $\frac{1}{2}$. Repeating over the procedure $\Theta(\log(n) )$ times completely correct the error. 
+
+  We will call to the first stage, when only the right vertices suggest correction the right round, and to the second stage a left round. For the whole procedure, we will call a single correction round.  
+
+  
+  \begin{figure}[h]
+    \begin{subfigure}[h]{0.05\textwidth}
+      \
+    \end{subfigure}
+    \begin{subfigure}[h]{0.40\textwidth}
+
+    \label{alg:three}
+      \begin{algorithm}[H]
+    \caption{Single decoding round}
+    \KwData{ $x \in \mathbb{F}_{2}^{n}$ }
+    \KwResult{ $\arg\min {\left\{  y \in C : |y + x|  \right\} }$ if $d(y,C) <$ }
+    \For { $ v \in V^{+}$} {
+      $x^{\prime}_{v} \leftarrow \arg\min {\left\{  y \in C_{0} : |y + x|_{v} |  \right\} } $\\
+    }
+    \For { $ v \in V^{-}$} {
+      $x^{\prime}_{v} \leftarrow \arg\min {\left\{  y \in C_{0} : |y + x|_{v} |  \right\} } $\\
+    }
+    \Return  $x $
+
+  \end{algorithm}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.05\textwidth}
+      \
+    \end{subfigure}
+    \begin{subfigure}[h]{0.40\textwidth} 
+
+    \begin{tikzpicture}%[scale=2.5]
+\tikzstyle{every node}=[draw,shape=circle];
+
+\draw node (v0) at (0,1) {$u_1$};
+\draw node (v6) at (0,3) {$u_2$};
+\draw node foreach \x in {1,2,3,4,5} (v\x) at (3,\x) {$v_\x$};
+
+%\path (0:0cm) node (v0) {$v_0$};
+%\path (-36:1cm) node (v1) {$v_1$};
+%\path (-2*36:1cm) node (v2) {$v_2$};
+%\path (0:1cm) node (v3) {$v_3$};
+%\path (36:1cm) node (v4) {$v_4$};
+%\path (2*36:1cm) node (v5) {$v_5$};
+\draw (v0) -- (v1)
+(v0) -- (v2)
+(v0) -- (v5)
+(v6) -- (v3)
+(v6) -- (v4)
+(v6) -- (v1);
+\end{tikzpicture}
+\caption{location.}
+    \label{fig:location}
+    \end{subfigure} 
+  \end{figure}
+  \begin{lemma}
+    \label{lemma:reduce}
+    If the error is at wight less than $\beta n $ then a single round of the  majority reduce the error by at least constant fraction. 
+  \end{lemma}
+  \begin{proof}
+  Denote by $S^{(0)} \subset V^{+}$ and  $T^{(0)} \subset V^{-}$ the subsets of left and right vertices adjacent to the error. And denote by $T^{(1)} \subset T^{(0)}$ the right vertices such any of them is connect by at least $\frac{1}{2}\delta_{0}\Delta$ edges to vertices at $S^{(0))}$. Note that that any vertex in $V^{-}/T^{(1)}$ has on his local view less than $\frac{1}{2}\delta_{0}\Delta$ faulty bits, So it corrects into his right local view in the first right correction round. Therefore after the right correction round the error is set only on $T^{(1)}$'s neighbourhood, namely at size at most $\Delta|T^{(1)}|$.  We will show that this amount is strictly lower by a constant factor than $|e|$. 
+
+  First, let's use the expansion property (\Cref{def:mix}) for getting an upper bound on $T^{(1)}$ size: \begin{equation*}
+  \begin{split} 
+    \frac{1}{2}\delta_{0}\Delta |T^{(1)}| & \le \Delta \frac{|T^{(1)}||S^{(0)}|}{n} + \lambda\sqrt{|T^{(1)}||S^{(0)}|} \\ 
+  \left( \frac{1}{2} \delta_{0} \Delta - \frac{|S^{(0)}|}{n} \Delta \right) |T^{(1)}| & \le \lambda \sqrt{|T^{(1)}||S^{(0)}|} \\ 
+|T^{(1)}| & \le \left( \frac{1}{2} \delta_{0} \Delta - \frac{|S^{(0)}|}{n} \Delta \right)^{-2}\lambda^{2} |S^{(0)}| 
+  \end{split}
+\end{equation*}
+Since any left vertex adjoins to at most $\Delta$ faulty bits we have that $\Delta|S^{(0)}| \le |e|$. Combing with the inequality above we get:  
+
+\begin{equation*}
+  \begin{split}
+    \Delta |T^{(1)}| \le \left( \frac{1}{2} \delta_{0} \Delta - \frac{|e|}{n} \right)^{-2}\lambda^{2} |e|
+  \end{split}
+\end{equation*}
+Hence for $|e|/n \le \beta =  \frac{1}{2} \delta_{0} \Delta - \sqrt{2\lambda}$ it holds that $\Delta|T^{(1)}| \le \frac{1}{2}|e|$. Namely the error is reduced by half.  
+\end{proof}
 
 
 
 
 \end{frame}
+
+
+
 
 \begin{frame}
   \frametitle{The Franch's Construction.}
