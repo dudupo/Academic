@@ -92,7 +92,22 @@ $\NC_i$ is the class of decision problems solvable by a uniform family of Boolea
 \end{quantikz}
 \end{frame}
 
+\begin{frame}{Nosiy Circuit.}
+  \begin{definition}{ $p$- Depolarizing Channel. } 
+    The qubit depolarizing channel with parameter $ p \in [0,1] $ is the quantum channel $ \mathcal{D}_p $ defined by:
+\begin{equation*}
+  \begin{split}
+\mathcal{D}_p(\rho) = (1 - p) \rho + p \cdot \frac{I}{2}
+  \end{split}
+\end{equation*}
 
+where $ \rho $ is a single-qubit density matrix and $ I $ is the identity matrix.
+
+  \end{definition}
+  \begin{definition}{$p$-Noisy Circuit.}
+    Given a circuit $C$ (regardless of the model), its $p$-noisy version $\tilde{C}$ is the circuit obtained by alternately taking layers from $C$ and then passing each (qu)bit through a $p$-Depolarizing channel.
+  \end{definition}
+\end{frame}
 
 
 \begin{frame}
