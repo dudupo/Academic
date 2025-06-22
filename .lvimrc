@@ -57,6 +57,30 @@ endfunction
 
 command! TwoCol call TwoCol()
 
+function! TwiddleCase(str)
+  if a:str ==# toupper(a:str)
+    let result = tolower(a:str)
+  elseif a:str ==# tolower(a:str)
+    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
+  else
+    let result = toupper(a:str)
+  endif
+  return result
+endfunction
+vnoremap ! y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
+
+function! g:GPTspell(str)
+  if len(a:str) == 0
+
+  else
+    let l:AIPrompt = "AI Fix grammatical and misspelling errors in the following:" . a:str
+    exe AIPrompt
+  endif 
+  return 0 
+endfunction
+vnoremap ~ y:call GPTspell(@")<CR>gv""Pgv
+
+
 
 function! g:GPTde()
   let l:AIPrompt = "AI Fix grammar and misspelling errors, and then reformulate" 
@@ -153,6 +177,18 @@ function! g:WNote(note)
   return 0
 endfunction 
 
+" Doesn't work!!!
+function! g:ToTitle()
+    "norm! "^v$"
+    "norm!
+    '</'>s/\<./\u&/g
+  return 0
+endfunction
+command! ToTitle call ToTitle()
+
+
+
+
 function! g:Alg()
   execute "normal! o\\begin{algorithm}[H]\<cr><++>\<cr>\\end{algorithm}\<cr><++>" 
   return 0
@@ -182,13 +218,13 @@ function! MySplit( fname )
     " Make new split as usual
     exe "split " . a:fname
     exe "set syntax=vim"
+    exe "set filetype=vim"
     exe "resize -15"
     exe "winc p"
     "exe "set lines=20"
   endif
 endfunction
 
-call MySplit('~/workspace/academic/.lvimrc')
+"call '~/workspace/Academic/.lvimrc')
 
-
-
+exe 'tabnew ~/workspace/Academic/.lvimrc'
