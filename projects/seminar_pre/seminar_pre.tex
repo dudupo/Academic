@@ -12,6 +12,21 @@
 %\usepackage{hyperref,xcolor}
 %\usepackage[ocgcolorlinks]{ocgx2}
 \usepackage{cleveref}
+
+
+
+\newcommand*{\QACze}{ \mathbf{QAC}_{0} }
+\newcommand*{\QNCzef}{ \mathbf{QNC}_{0,f} }
+\newcommand*{\QNCze}{ \mathbf{QNC}_{0} }
+\newcommand*{\QNCon}{ \mathbf{QNC}_{1} }
+\newcommand*{\NCon}{ \mathbf{NC}_{1} }
+\newcommand*{\noiseQNCon}{ noisy-$\QNCon$ }
+\newcommand*{\QNC}{ \mathbf{QNC} }
+\newcommand*{\QNCG}{ \mathbf{QNC_G} }
+\newcommand*{\NC}{\mathbf{NC}}
+\newcommand*{\QNCiG}{\mathbf{QNC_{G,i}}}
+
+
 \begin{document} 
 
 \newcommand*{\Tr}{\textbf{Tr }}
@@ -42,6 +57,23 @@
     \item Main point 2
     \item Main point 3
 \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Definition}
+  \begin{block}{Definition}
+\begin{definition}[$\NC$ - Nick's Class]
+$\NC_i$ is the class of decision problems solvable by a uniform family of Boolean circuits, with polynomial size, depth $O(\log^i(n))$, and fan-in $2$. 
+\end{definition}
+
+\begin{definition}[$\QNC$]
+  The class of decision problems solvable by polylogarithmic-depth, and finate fan out/in quantum circuits with bounded probability of error. Similarly to $\NC_i$, $\QNC_i$ is the class where the decisdes the circuits have $\log^i (n)$ depth.  
+\end{definition}
+
+\begin{definition}[$\QNCG$]
+  For a fixing finate fan in/out gateset $G$, the class with deciding circuits composed only for gates in $G$ and at depath at most polylogaritmic. And in similar to $\QNC_{i}$, $\QNCiG$ is the restirction to circuits with depath at most $\log^{i}(n)$.  
+\end{definition}
+  \end{block}
 \end{frame}
 
 
