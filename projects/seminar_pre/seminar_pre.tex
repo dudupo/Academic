@@ -117,6 +117,9 @@ There are constants $\alpha, \eta \in (0,1)$ such that for any bit string $x$ at
 
   Expanders code are known for having good decoders, beneath, in \Cref{alg:three}, we introduce a procedure to reduce an error. In overall, we alternately let to the right and then the left vertices to correct their own local view. In \Cref{lemma:reduce} we prove that when the applied error has size at most $\beta n$, for some constant $\beta$ then the error's weight reduced by $\frac{1}{2}$. Repeating over the procedure $\Theta(\log(n) )$ times completely correct the error. 
 
+\end{frame}
+\begin{frame}
+
   We will call to the first stage, when only the right vertices suggest correction the right round, and to the second stage a left round. For the whole procedure, we will call a single correction round.  
 
   
@@ -174,6 +177,10 @@ There are constants $\alpha, \eta \in (0,1)$ such that for any bit string $x$ at
     \label{lemma:reduce}
     If the error is at wight less than $\beta n $ then a single round of the  majority reduce the error by at least constant fraction. 
   \end{lemma}
+
+\end{frame}
+\begin{frame}
+
   \begin{proof}
   Denote by $S^{(0)} \subset V^{+}$ and  $T^{(0)} \subset V^{-}$ the subsets of left and right vertices adjacent to the error. And denote by $T^{(1)} \subset T^{(0)}$ the right vertices such any of them is connect by at least $\frac{1}{2}\delta_{0}\Delta$ edges to vertices at $S^{(0))}$. Note that that any vertex in $V^{-}/T^{(1)}$ has on his local view less than $\frac{1}{2}\delta_{0}\Delta$ faulty bits, So it corrects into his right local view in the first right correction round. Therefore after the right correction round the error is set only on $T^{(1)}$'s neighbourhood, namely at size at most $\Delta|T^{(1)}|$.  We will show that this amount is strictly lower by a constant factor than $|e|$. 
 
