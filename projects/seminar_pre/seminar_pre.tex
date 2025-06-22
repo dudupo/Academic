@@ -6,7 +6,8 @@
 \usepackage{braket}
 \usepackage{subcaption}
 \usepackage{tikz}
-\usetikzlibrary{positioning,fit,backgrounds}
+\usepackage{xcolor}
+%\usetikzlibrary{positioning,fit,backgrounds}
 \usepackage{quantikz}
 \usepackage[linesnumbered]{algorithm2e}
 \usepackage{hyperref}
@@ -113,38 +114,18 @@ where $ \rho $ is a single-qubit density matrix and $ I $ is the identity matrix
 
 \begin{frame}
   \frametitle{Threshoold Theorem.} 
-  \begin{center}
-\begin{tikzpicture}[
-  level 1/.style={sibling distance=40mm},
-  level 2/.style={sibling distance=15mm},
-  every node/.style={draw,minimum size=6mm,inner sep=1pt},
-  code/.style={fill=blue!10},
-  gate/.style={fill=red!10},
-  scale=1.1, transform shape
-]
-
-% Level 0 - Logical gate
-\node[gate] (G0) {Gate}
-  child {node[code] (B1) {Block}
-    child {node[code] {Qubit}}
-    child {node[code] {Qubit}}
-    child {node[code] {Qubit}}
-    child {node[code] {Qubit}}
-    child {node[code] {Qubit}}}
-  child {node[code] (B2) {Block}
-    child {node[code] {Qubit}}
-    child {node[code] {Qubit}}
-    child {node[code] {Qubit}}
-    child {node[code] {Qubit}}
-    child {node[code] {Qubit}}};
-
-% Labels
-\node[above=0.2cm of G0] {Level 0 (Logical)};
-\node[above=0.2cm of B1] {Level 1};
-\node[below=0.2cm of B1-3] {Level 2};
-
-\end{tikzpicture}
+\begin{center}
+\begin{quantikz}[row sep=0.3cm, column sep=0.4cm]
+\lstick[2]{$\ket{\psi}_L$} & \gate[2,style={fill=red!20}]{U_L} & \qw & \qw \\
+                          &                                   &     &     \\
+\lstick{$\ket{\psi_1}$}   & \gate[5,style={fill=blue!10}]{\text{Gadget for } U_L} & \qw & \qw \\
+\lstick{$\ket{\psi_2}$}   &                                                                 & \qw & \qw \\
+\lstick{$\ket{\psi_3}$}   &                                                                 & \qw & \qw \\
+\lstick{$\ket{\psi_4}$}   &                                                                 & \qw & \qw \\
+\lstick{$\ket{\psi_5}$}   &                                                                 & \qw & \qw \\
+\end{quantikz}
 \end{center}
+
 \end{frame}
 
 
