@@ -409,8 +409,17 @@ So we prepared the state $\ket{\psi}$, subjected to local noise (depolarizing no
 \begin{frame}
   \frametitle{Fault Tolerance at Constant Space Overhead.}
 
-  \begin{block}{Start}
-Initialize Magic states in parallel for both the Clifford and the $T$ states. Do it using the original threshold construction.
+  \begin{block}{Start.}
+    We preapere $\sqrt{n}$ blocks at length $\Theta(\sqrt{n})$ each, we do it sesenqutaly, so the preaperation requires $\Theta(\sqrt{n} \mathbf{poly log} n)$ anciles. 
+  \end{block}
+  
+  \begin{block}{Simulate a gate.}
+    \begin{itemize}
+      \item  If the gate is a logical Pauli, we apply it in a transversal manner.
+      \item We prepare the magic state suite for the gate and simulate the gate using the magic procedure - Entangle the states (through transversal CNOT), measure and decode the measurement. 
+
+        Then applying a correction which might be either transversal logical Pauli (if the gate were Clifford) or logical Clifford (if the gate were T). For the second we will have to reapet on the procedure. 
+    \end{itemize}
   \end{block}
 
 
