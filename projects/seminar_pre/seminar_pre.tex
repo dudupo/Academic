@@ -171,13 +171,18 @@ There are constants $\alpha, \eta \in (0,1)$ such that for any bit string $x$ at
 
 
   In particular $G$ could be a bipartite expander graph. Denote the right and the left vertices subsets by $V^{-}$ and $V^{+}$.
-
+  \begin{block}{Decoding:}
+    For $\Omega\left( \log n \right)$ iterations, do: 
   \begin{enumerate}
     \item In every even iteration, all the vertices in $V^{+}$ 'correct' their local view based on the majority.
     \item In every odd iteration, all the vertices in $V^{-}$ 'correct' their local view based on the majority.
   \end{enumerate}
+For having a constant depth error reduction procedure, it's enough to run the decoding above for two iterations.
+\end{block}
 
 \end{frame}
+
+
 \begin{frame}{The Decoding Algorithm.}
 
   
