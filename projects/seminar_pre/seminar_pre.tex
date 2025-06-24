@@ -294,7 +294,7 @@ Hence for $|e|/n \le \beta =  \frac{1}{2}  \Delta - \sqrt{2\lambda}$ it holds th
 \end{frame}
 
 \begin{frame}
-  \begin{Theorem} There exists a threshold $p_{0}$ such that the following holds. Let $p < p_{0}$, let $\delta > 0$ and let $D$ be a circuit with $m$ qubits, with $T$ time steps and $|D|$ locations. We assume that the output of $D$ is a quantum state $\ket{\psi}$. 
+  \begin{Theorem}\footnote{Theorem 6.4 in \cite{grospellier:tel-03364419}} There exists a threshold $p_{0}$ such that the following holds. Let $p < p_{0}$, let $\delta > 0$ and let $D$ be a circuit with $m$ qubits, with $T$ time steps and $|D|$ locations. We assume that the output of $D$ is a quantum state $\ket{\psi}$. 
 
     Then there exists another circuit $D^{\prime}$ whose output is $\ket{\psi}$ and such that when $D^{\prime}$ is subjected to a local noise model with parameter $p$, there exists a $\mathcal{N}$ a local stochastic noise on the qubits of $\ket{\psi}$ with parameters $p^{\prime} = c \cdot p$ such that: 
 
@@ -312,6 +312,18 @@ Hence for $|e|/n \le \beta =  \frac{1}{2}  \Delta - \sqrt{2\lambda}$ it holds th
       \end{split}
     \end{equation*}
   \end{Theorem}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Proof Sketch.}
+    Denote by $\Phi^{k}(D)$ the circuit obtained by the original fault-tolerance construction when concatinating $k$-times. Thus, the output of $\Phi_{k}(D)$ is $\ket{\psi}$ encoded in the concatenated code, thus we need to decode the output of $\Phi^{k}(D)$ in fault tolerant manner. 
+    We fix $\mathcal{E}^{-1}$ somde decoding circit for the Steane code and we denote by $\Lambda(D)$ the citrcuit $\Phi^{1}(D)$ followed by $m_{0}$ copies of $\mathcal{E}^{-1}$, one per block of the Steane code. In pariticular, the output of $\Lambda\left( D \right)$ is an $m_{0}$-qubit state. Similarly, the circuit $\Lambda^{k}(D)$ is the circuit $\Phi^{k}(D)$ followed by $k$ layers of decoding, the $i$th decoding layer uses $\Phi^{k-i}\left( \mathcal{E}^{-1}  \right)$. 
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+
 \end{frame}
 
 
