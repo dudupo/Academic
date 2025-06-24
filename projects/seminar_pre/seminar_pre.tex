@@ -412,7 +412,10 @@ So we prepared the state $\ket{\psi}$, subjected to local noise (depolarizing no
   \begin{block}{Start.}
     We preapere $\sqrt{n}$ blocks at length $\Theta(\sqrt{n})$ each, we do it sesenqutaly, so the preaperation requires $\Theta(\sqrt{n} \mathbf{ poly log} n)$ anciles. 
   \end{block}
-  
+ 
+  \begin{block}{Error reduction.}
+Constantly apply rounds of error reduction.
+  \end{block}
   \begin{block}{Simulate a gate.}
     \begin{itemize}
       \item  If the gate is a logical Pauli, we apply it in a transversal manner.
