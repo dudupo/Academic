@@ -437,8 +437,20 @@ Constantly apply rounds of error reduction.
 \end{figure}
 \end{frame}
 
-\begin{frame}{An almost $\QNCon =$ \noiseQNCon (I)}
-  Prepere all the needed and the might needed magic, in the beginning. 
+\begin{frame}{An almost $\QNCon =$ \noiseQNCon}
+  Encode each qubit by exapnder code at length $\Theta(\log^{10}(n))$. Prepere $2|D|$ magic states form each type in the beginning. \\~\ 
+
+Where did we cheat? \\~\
+
+Decide what correction to apply $UPU^{\dagger}$ given the measurement is not a trivial task. In particular, it isn't clear if it can be done in constant depth.
+\end{frame}
+
+
+\begin{frame}{Open Problems.}
+  \begin{itemize}
+    \item Is there a non-trivial lower bound for deciding the correction problem?
+    \item Implementing logical gates natively without magic states at constant depth.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{An almost $\QNCon =$ \noiseQNCon (II)}
