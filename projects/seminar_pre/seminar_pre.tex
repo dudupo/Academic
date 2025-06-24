@@ -101,7 +101,7 @@ where $ \rho $ is a single-qubit density matrix and $ I $ is the identity matrix
 
 \begin{frame}
   \frametitle{Threshoold Theorem.} 
-  \begin{theorem}[Threshoold Theorem. Informal.]
+  \begin{theorem}[Threshold Theorem. Informal.]
 There is a universal $p_{th} \in (0,1)$ such that for any $p < p_{th}$, any circuit in BQP can be simulated by a $p$-noisy BQP circuit. The simulating circuit has a depth that is at most $\text{poly} \log n$ times the original depth.
   \end{theorem}
 \end{frame}
@@ -127,6 +127,9 @@ $\NC_i$ is the class of decision problems solvable by a uniform family of Boolea
 \begin{frame}
   \frametitle{Pippenger's Construction.} 
   
+  \begin{theorem}[Threshold Theorem - Pippenger. Informal.]
+    There is fault tolerance construction with a constant depth overhead.
+  \end{theorem}
 Encode each bit with the repetition code $0 \mapsto 0^{m}$, $1 \mapsto 1^{m}$. Now observe that any logical operation, without decoding, can be made in $O(1)$ depth.
 
 For example, OR($\bar{x}, \bar{y}$) can be computed by applying in parallel OR($x_{i}, y_{i}$) for each $i$.
