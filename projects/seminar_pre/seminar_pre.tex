@@ -364,7 +364,19 @@ The probability that the $i$th bit will absorb an error at the end is bounded by
       \left( cp \right)^{2^{k-1}} + \left( cp \right)^{2^{k-2}} + .. \left( cp \right)^{2^{k-1}} + .. +  cp \le c_{2}p 
     \end{split}
   \end{equation*}
-So we prepared the state $\ket{\psi}$, subjected to local noise (depolarizing noise) at rate $c_{2}p$.
+So we prepared the state $\ket{\psi}$, subjected to local noise (depolarizing noise) at rate $c_{2}p$. \\~\
+
+\begin{block}{Corollary}
+  We can assume that we have an accsess to magic states encoded in whatever code we like.
+  Moreover, denote by $n$ the complexitiy parameter (input length). if the encoding gate (of the desired code) is $D$ and it's depth is $T$, such that 
+  \begin{equation*}
+    \begin{split}
+      T \mathbf{poly log} \left( |D| \right) = O(\log n)
+    \end{split}
+  \end{equation*}
+  then the preparation of the magic is in \noiseQNCon.
+\end{block}
+
 \end{frame}
 
 \begin{frame}
