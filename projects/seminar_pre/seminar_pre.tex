@@ -330,15 +330,8 @@ Hence for $|e|/n \le \beta =  \frac{1}{2}  \Delta - \sqrt{2\lambda}$ it holds th
   \end{block}
 \end{frame}
 
-\begin{frame}
-  \begin{block}{Proof Sketch.}
-    Denote by $\Phi^{k}(D)$ the circuit obtained by the original fault-tolerance construction when concatinating $k$-times. Thus, the output of $\Phi_{k}(D)$ is $\ket{\psi}$ encoded in the concatenated code, thus we need to decode the output of $\Phi^{k}(D)$ in fault tolerant manner. 
-    We fix $\mathcal{E}^{-1}$ somde decoding circit for the Steane code and we denote by $\Lambda(D)$ the citrcuit $\Phi^{1}(D)$ followed by $m_{0}$ copies of $\mathcal{E}^{-1}$, one per block of the Steane code. In pariticular, the output of $\Lambda\left( D \right)$ is an $m_{0}$-qubit state. Similarly, the circuit $\Lambda^{k}(D)$ is the circuit $\Phi^{k}(D)$ followed by $k$ layers of decoding, the $i$th decoding layer uses $\Phi^{k-i}\left( \mathcal{E}^{-1}  \right)$. 
-  \end{block}
-\end{frame}
 
-
-\begin{frame}
+\begin{frame}{Proof Sketch.}
 
   \scalebox{0.8}{
 \begin{quantikz}%[row sep=0.3cm, column sep=0.7cm]
@@ -417,7 +410,7 @@ With high probability, $\Phi(D)\ket{0}$ sends us to $\rho$, which is not far fro
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{Hypergraph_prod.png}
-    \caption{Caption for the image}
+    \caption{ Hypergraph Product code Tanner graph / stabilizers. }
     \label{fig:your-label}
 \end{figure}
 
@@ -429,7 +422,7 @@ With high probability, $\Phi(D)\ket{0}$ sends us to $\rho$, which is not far fro
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{toric_prod.png}
-    \caption{Caption for the image}
+    \caption{The Toric code can be thought of as the hypergraph product obtained by multiplying the repetition code with itself.}
     \label{fig:your-label}
 \end{figure}
 
