@@ -100,12 +100,22 @@ where $ \rho $ is a single-qubit density matrix and $ I $ is the identity matrix
 
 
 \begin{frame}
-  \frametitle{Threshoold Theorem.} 
+  \frametitle{Threshold Theorem.} 
   \begin{theorem}[Threshold Theorem. Informal.]
 There is a universal $p_{th} \in (0,1)$ such that for any $p < p_{th}$, any circuit in BQP can be simulated by a $p$-noisy BQP circuit. The simulating circuit has a depth that is at most $\text{poly} \log n$ times the original depth.
   \end{theorem}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Threshold Theorem.} 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{threshold.png}
+    \caption{Caption for the image}
+    \label{fig:your-label}
+\end{figure}
+\end{frame}
 
 
 \begin{frame}{Definition}
@@ -347,14 +357,14 @@ Hence for $|e|/n \le \beta =  \frac{1}{2}  \Delta - \sqrt{2\lambda}$ it holds th
 \end{frame}
 
 \begin{frame}
-  The probability that the $i$th bit, will absorb an error at the end is bounded by: 
+The probability that the $i$th bit will absorb an error at the end is bounded by:
   \begin{equation*}
     \begin{split}
       \left( cp \right)^{2^{k-1}} + \left( cp \right)^{2^{k-2}} + .. \left( cp \right)^{2^{k-1}} + .. +  cp \le c_{2}p 
     \end{split}
   \end{equation*}
 \end{frame}
-
+So we prepared the state $\ket{\psi}$, subjected to local noise (depolarizing noise) at rate $c_{2}p$.
 
 \begin{frame}
   \frametitle{Title of the Frame}
