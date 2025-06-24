@@ -290,6 +290,32 @@ Hence for $|e|/n \le \beta =  \frac{1}{2}  \Delta - \sqrt{2\lambda}$ it holds th
 
 
 \begin{frame}
+  Franch's gadgets. 
+\end{frame}
+
+\begin{frame}
+  \begin{Theorem} There exists a threshold $p_{0}$ such that the following holds. Let $p < p_{0}$, let $\delta > 0$ and let $D$ be a circuit with $m$ qubits, with $T$ time steps and $|D|$ locations. We assume that the output of $D$ is a quantum state $\ket{\psi}$. 
+
+    Then there exists another circuit $D^{\prime}$ whose output is $\ket{\psi}$ and such that when $D^{\prime}$ is subjected to a local noise model with parameter $p$, there exists a $\mathcal{N}$ a local stochastic noise on the qubits of $\ket{\psi}$ with parameters $p^{\prime} = c \cdot p$ such that: 
+
+    \begin{equation*}
+      \begin{split}
+        \mathbf{Pr}[  \text{ output of } D^{\prime} \text { is not } \mathcal{N}\left( \ket{\psi} \right)   ]\le \delta
+      \end{split}
+    \end{equation*}
+    In addition $D^{\prime}$ has $m^{\prime}$ qubits and $T^{\prime}$ time steps where: 
+
+    \begin{equation*}
+      \begin{split}
+        m^{\prime} &= m \text{ polylog } \left( |D|/\delta \right) \\ 
+        T^{\prime} &= T \text{ polylog } \left( |D|/\delta \right) 
+      \end{split}
+    \end{equation*}
+  \end{Theorem}
+\end{frame}
+
+
+\begin{frame}
   \frametitle{Hypergraph Product Code.}
 \begin{figure}[h]
     \centering
