@@ -126,7 +126,7 @@ $\NC_i$ is the class of decision problems solvable by a uniform family of Boolea
 \end{definition}
 
 \begin{definition}[$\QNCG$]
-  For a fixing finate fan in/out gateset $G$, the class with deciding circuits composed only for gates in $G$ and at depath at most polylogaritmic. And in similar to $\QNC_{i}$, $\QNCiG$ is the restirction to circuits with depath at most $\log^{i}(n)$.  
+  For a fixing finate fan in/out gateset $G$, the class with deciding circuits composed only for gates in $G$ and at depth at most polylogaritmic. And in similar to $\QNC_{i}$, $\QNCiG$ is the restirction to circuits with depth at most $\log^{i}(n)$.  
 \end{definition}
  % \end{block}
 \end{frame}
@@ -138,7 +138,19 @@ $\NC_i$ is the class of decision problems solvable by a uniform family of Boolea
     There is fault tolerance construction with a constant depth overhead.
   \end{theorem}
   \begin{block}{Idea.}
-Encode each bit with the repetition code $0 \mapsto 0^{m}$, $1 \mapsto 1^{m}$. Now observe that any logical operation, without decoding, can be made in $O(1)$ depth. 
+    \begin{itemize}
+      \item Encode each bit with the repetition code $0 \mapsto 0^{m}$, $1 \mapsto 1^{m}$.
+      \item The OR and the AND operations can be made in $O(1)$ depth (without decoding).
+        \uncover<+->{   
+          \begin{equation*}
+            \begin{split}
+              \mathbf{\bar{OR}}\left( \bar{x} , \bra{y} \right) &= \mathbf{OR}\left( x_{0}x_{0},x_{0}.. , y_{0}y_{0}y_{0} .. \right) \\
+              &= \mathbf{OR}\left( x_0,y_0 \right)\mathbf{OR}\left( x_0,y_0 \right)\mathbf{OR}\left( x_0,y_0 \right)..
+            \end{split}
+          \end{equation*}
+        }
+    \end{itemize}
+. Now observe that  
 
 For example, OR($\bar{x}, \bar{y}$) can be computed by applying in parallel OR($x_{i}, y_{i}$) for each $i$.
 \end{block}
