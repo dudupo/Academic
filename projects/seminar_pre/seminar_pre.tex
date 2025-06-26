@@ -137,10 +137,11 @@ $\NC_i$ is the class of decision problems solvable by a uniform family of Boolea
   \begin{theorem}[Threshold Theorem - Pippenger. Informal.]
     There is fault tolerance construction with a constant depth overhead.
   \end{theorem}
-Encode each bit with the repetition code $0 \mapsto 0^{m}$, $1 \mapsto 1^{m}$. Now observe that any logical operation, without decoding, can be made in $O(1)$ depth.
+  \begin{block}{Idea:}
+Encode each bit with the repetition code $0 \mapsto 0^{m}$, $1 \mapsto 1^{m}$. Now observe that any logical operation, without decoding, can be made in $O(1)$ depth. 
 
 For example, OR($\bar{x}, \bar{y}$) can be computed by applying in parallel OR($x_{i}, y_{i}$) for each $i$.
-
+\end{block}
 \end{frame}
 
 
