@@ -158,6 +158,11 @@ $\NC_i$ is the class of decision problems solvable by a uniform family of Boolea
 \begin{frame}
   \frametitle{The 'Decoding' trick.} 
   
+  \begin{lemma}
+    \label{lemma:reduce}
+There exists $\beta \in (0,1)$ such that if the error is at weight less than $\beta n$, then a single correction round reduces the error by at least a $\frac{1}{2}$ fraction.
+  \end{lemma}
+
   Suppose that a bit obserb a bit flip with probability $p$. So in expectation we expect that entire bolck at length $n$ will absorb $pn$ flips.  
   \begin{equation*}
     \begin{split}
@@ -229,14 +234,7 @@ For having a constant depth error reduction procedure, it's enough to run the de
   \end{figure}
 
 \end{frame}
-\begin{frame}{The Decoding Algorithm.}
 
-  \begin{lemma}
-    \label{lemma:reduce}
-There exists $\beta \in (0,1)$ such that if the error is at weight less than $\beta n$, then a single correction round reduces the error by at least a $\frac{1}{2}$ fraction.
-  \end{lemma}
-
-\end{frame}
 \begin{frame}{The Decoding Algorithm.}
   \begin{block}{Proof.}
   Denote by $S^{(0)} \subset V^{+}$ and  $T^{(0)} \subset V^{-}$ the subsets of left and right vertices adjacent to the error. And denote by $T^{(1)} \subset T^{(0)}$ the right vertices such any of them is connect by at least $\frac{1}{2}\Delta$ edges to vertices at $S^{(0)}$. \\~\
