@@ -402,13 +402,12 @@ So we prepared the state $\ket{\psi}$, subjected to local noise (depolarizing no
   \end{block}
 
 
-  \begin{block}{First}
-  Error  Reducing Stage. One shows that for any error with weight at most $\alpha \sqrt{n}$, the error can be reduced. The proof uses the expansion in the classical codes.
+  \begin{block}{Proof Idea}
+    \begin{itemize}
+      \item First, proving that for adversarial errors with weight at most $\alpha \sqrt{n}$, the error can be reduced by a constant factor. The proof uses the expansion in classical codes.
+      \item Second, showing that with probability $1 - \Theta(e^{-\sqrt{n}})$, the error can be decomposed into disjoint errors, each with a size of at most $\alpha \sqrt{n}$.
+    \end{itemize}
 \end{block}
-
-\begin{block}{Second}
-  Then, one shows that with probability $1 - \Theta(e^{-\sqrt{n}})$, the error can be decomposed into disjoint errors, each with size at most $\alpha \sqrt{n}$.
-  \end{block} 
 \end{frame}
 
 
