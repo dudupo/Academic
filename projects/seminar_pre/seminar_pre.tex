@@ -170,16 +170,18 @@ There exists $\beta \in (0,1)$ such that if the error is at weight less than $\b
       %\beta \ge \frac{p}{ 1 - \eta}
     %\end{split}
   %\end{equation*}
+  \begin{center}
 \begin{tikzpicture}
   \node (bit) [draw, rectangle] {Bit observes a flip with probability $p$};
-  \node (expectation) [draw, rectangle, below of=bit, yshift=-0.5cm] {Expected flips in block of length $n$: $pn$};
-  \node (inequality) [draw, rectangle, below of=expectation, yshift=-0.5cm] {Inequality: $\eta (\beta + p) n \le \beta n$};
-  \node (solution) [draw, rectangle, below of=inequality, yshift=-0.5cm] {Solution: $\beta \ge \frac{p}{1 - \eta}$};
+  \node (expectation) [draw, rectangle, below of=bit, yshift=-0.3cm] {Expected flips in block of length $n$: $pn$};
+  \node (inequality) [draw, rectangle, below of=expectation, yshift=-0.3cm] {Inequality: $\eta (\beta + p) n \le \beta n$};
+  \node (solution) [draw, rectangle, below of=inequality, yshift=-0.3cm] {Solution: $\beta \ge \frac{p}{1 - \eta}$};
 
   \draw [->] (bit) -- (expectation);
   \draw [->] (expectation) -- (inequality);
   \draw [->] (inequality) -- (solution);
 \end{tikzpicture}
+  \end{center}
 
 
 \end{frame}
