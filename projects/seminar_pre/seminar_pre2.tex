@@ -292,6 +292,28 @@ An execution might change upon the order of the small set being chosen, yet noti
 }
 \end{frame}
 
+\newcommand*{\MC}{ \text{MaxConn}_\alpha }
+\begin{frame}
+  \begin{definition}{$\alpha$-subset, and $\MC$. (Simplified\footnote{In the original, the graph is the syndorm graph}) } 
+    Let $G$ be a graph. Let $X,Y \subset \mathcal{V}$ and $\alpha \in (0,1]$. $X$ is said to be an $\alpha$-subset of $Y$ if $|X \cap Y| \ge \alpha |X|$. In addition we define: 
+    
+    \begin{equation*}
+      \begin{split}
+        \MC(Y) = \max{ \{ |X| :  X \text{ is connected in  } G \text{ and is an } \alpha \text{ subset of } Y \} }
+      \end{split}
+    \end{equation*}
+  \end{definition}
+
+Notice that if $X$ is an $\alpha$-subset of $Y$ then: 
+\begin{equation*}
+  \begin{split}
+    |X| \le \frac{1}{\alpha} |Y| 
+  \end{split}
+\end{equation*}
+
+\end{frame}
+
+
 
 \begin{frame}
 
