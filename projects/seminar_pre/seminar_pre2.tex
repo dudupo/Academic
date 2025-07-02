@@ -124,7 +124,7 @@
       \draw node at (1.5,6) {standart model, $t =0$};
 \tikzstyle{every node}=[draw,shape=circle];
 
-\draw node (v0) at (3,1) {$u_1$};
+\draw node[fill=yellow] (v0) at (3,1) {$u_1$};
 \draw node (v6) at (3,3) {$u_2$};
 \draw node foreach \x in {1,2,3,4,5} (v\x) at (0,\x) {$v_\x$};
 
@@ -162,6 +162,98 @@
 
 \end{frame}
 
+\begin{frame}
+  \begin{figure}[h]
+    \begin{subfigure}[h]{0.4\textwidth}
+
+    \label{alg:three}
+    \begin{tikzpicture}%[scale=2.5]
+      \draw node at (1.5,6) {standart model, $t =1$};
+\tikzstyle{every node}=[draw,shape=circle];
+
+\draw node (v0) at (3,1) {$u_1$};
+\draw node (v6) at (3,3) {$u_2$};
+\draw node foreach \x in {2,3,4,5} (v\x) at (0,\x) {$v_\x$};
+\draw node[fill=gray] (v1) at (0,1) {$v_{1}$};
+\draw (v0) -- (v1)
+(v0) -- (v2)
+(v0) -- (v5)
+(v6) -- (v3)
+(v6) -- (v4)
+(v6) -- (v1);
+\end{tikzpicture}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.1\textwidth}
+      \
+    \end{subfigure}
+    \begin{subfigure}[h]{0.45\textwidth} 
+
+    \begin{tikzpicture}%[scale=2.5]
+      \draw node at (1.5,6) {$(p^{\prime},q)$-model};
+\tikzstyle{every node}=[draw,shape=circle];
+
+\draw node[fill=gray] (v0) at (3,1) {$u_1$};
+\draw node (v6) at (3,3) {$u_2$};
+\draw node foreach \x in {2,3,4,5} (v\x) at (0,\x) {$v_\x$};
+\draw node[fill=gray] (v1) at (0,1) {$v_1$};
+\draw (v0) -- (v1)
+(v0) -- (v2)
+(v0) -- (v5)
+(v6) -- (v3)
+(v6) -- (v4)
+(v6) -- (v1);
+\end{tikzpicture}
+    \label{fig:location}
+    \end{subfigure} 
+  \end{figure}
+
+\end{frame}
+\begin{frame}
+  \begin{figure}[h]
+    \begin{subfigure}[h]{0.4\textwidth}
+
+    \label{alg:three}
+    \begin{tikzpicture}%[scale=2.5]
+      \draw node at (1.5,6) {standart model, $t =2$};
+\tikzstyle{every node}=[draw,shape=circle];
+
+\draw node (v0) at (3,1) {$u_1$};
+\draw node[fill=yellow] (v6) at (3,3) {$u_2$};
+\draw node foreach \x in {1,2,3,4,5} (v\x) at (0,\x) {$v_\x$};
+\draw node[fill=gray] (v1) at (0,1) {$v_{1}$};
+\draw (v0) -- (v1)
+(v0) -- (v2)
+(v0) -- (v5)
+(v6) -- (v3)
+(v6) -- (v4)
+(v6) -- (v1);
+\end{tikzpicture}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.1\textwidth}
+      \
+    \end{subfigure}
+    \begin{subfigure}[h]{0.45\textwidth} 
+
+    \begin{tikzpicture}%[scale=2.5]
+      \draw node at (1.5,6) {$(p^{\prime},q)$-model};
+\tikzstyle{every node}=[draw,shape=circle];
+
+\draw node[fill=gray] (v0) at (3,1) {$u_1$};
+\draw node (v6) at (3,3) {$u_2$};
+\draw node foreach \x in {2,3,4,5} (v\x) at (0,\x) {$v_\x$};
+\draw node[fill=gray] (v1) at (0,1) {$v_1$};
+\draw (v0) -- (v1)
+(v0) -- (v2)
+(v0) -- (v5)
+(v6) -- (v3)
+(v6) -- (v4)
+(v6) -- (v1);
+\end{tikzpicture}
+    \label{fig:location}
+    \end{subfigure} 
+  \end{figure}
+
+\end{frame}
 
 \begin{frame}{The Decoding Algorithm.}
   First noitce that the repetition code could be defined as Tanner code, for any $\Delta$-regular graph $G$ and local code $C_{0}$ which is the repetition over $\Delta$ bits.   
