@@ -255,6 +255,34 @@
 
 \end{frame}
 
+\begin{frame}{Reducing error formal statement.}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{formal_state_ment_error_reduction.png}
+    \caption{ Formal statement, error reduction using the Small-set-flip parallel decoder.}
+    \label{fig:your-label}
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}
+  \begin{block}{Decoder. (Simplified version).}
+    Look for a 'small set' $F$ of qubits such that:
+    \begin{enumerate}
+      \item $F$ contained in the support of some $X$-type stabilizer. 
+      \item $F$ toched many unstaisfied $Z$-type stabilizer. Or, flipping $F$, decrease the $Z$-type syndrom.    
+    \end{enumerate}
+  \end{block}
+For parallelizing the decoder, we color the check nodes in the Tanner graph such that no two checks of the same color share a bit.\footnote{Since the code is LDPC, we can do it with $O(1)$ colors.} Then, in the $i$th iteration, we look in parallel over all $X$-type stabilizers at the $i$th color.
+\end{frame}
+
+
+
+
+
+
 \begin{frame}{The Decoding Algorithm.}
   First noitce that the repetition code could be defined as Tanner code, for any $\Delta$-regular graph $G$ and local code $C_{0}$ which is the repetition over $\Delta$ bits.   
 
