@@ -280,10 +280,13 @@ For parallelizing the decoder, we color the check nodes in the Tanner graph such
 
 
 \begin{frame}{Locality.}
-  Denote by $U$ the uinion of the qubits and check bits. For any set $K\subset U$ with $\Gamma_{Q}(K)\cap \Gamma_{Q}(U / K) = \emptyset$ there is a valid executation of the Decoder, on the input $(E \cap K, D\cap \Gamma_{X}(K))$ whose output is $\hat{E}\cap K$ and whose support is $U \cap K$.
+
   \begin{block}
+Denote by $U = E \cup F_1 \cup F_2, \ldots, F_m$ the execution support, the combination of faulty qubits and the qubits flipped by the decoder.
+  \end{block}
 
-
+  \begin{block}
+  For any set $K\subset U$ with $\Gamma_{Q}(K)\cap \Gamma_{Q}(U / K) = \emptyset$ there is a valid executation of the Decoder, on the input $(E \cap K, D\cap \Gamma_{X}(K))$ whose output is $\hat{E}\cap K$ and whose support is $U \cap K$.
   \end{block}
 
 \end{frame}
@@ -559,4 +562,12 @@ Decide what correction to apply $UPU^{\dagger}$ given the measurement is not a t
     \item Implementing logical gates natively without magic states at a constant depth.
   \end{itemize}
 \end{frame}
+
+
+\begin{frame}{Sheets.}
+  \begin{enumerate}
+    \item The Tanner graph of the classical code $C_{X}$ used to correct $X$-type errors is the subgraph of $G_{Q}$ induced by the $V \times V \cup C \times C$ qubits and the set of $Z$-type generators.  
+  \end{enumerate}
+\end{frame}
+
 \end{document}
