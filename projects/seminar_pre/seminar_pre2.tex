@@ -145,8 +145,8 @@
 
 \draw node (v0) at (3,1) {$u_1$};
 \draw node (v6) at (3,3) {$u_2$};
-\draw node foreach \x in {1,2,3,4,5} (v\x) at (0,\x) {$v_\x$};
-
+\draw node foreach \x in {2,3,4,5} (v\x) at (0,\x) {$v_\x$};
+\draw node[fill=black] (v1) at (0,1) {$v_1$};
 \draw (v0) -- (v1)
 (v0) -- (v2)
 (v0) -- (v5)
