@@ -291,6 +291,16 @@ Where $\hat{E}$ is the estimated error computed by the decoder.
 For parallelizing the decoder, we color the check nodes in the Tanner graph such that no two checks of the same color share a bit.\footnote{Since the code is LDPC, we can do it with $O(1)$ colors.} Then, in the $i$th iteration, we look in parallel over all $X$-type stabilizers at the $i$th color.
 \end{frame}
 
+\begin{frame}
+  \frametitle{Decoder. (Simplified version).}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Hypergraph_prod.png}
+    \caption{ Hypergraph Product code Tanner graph / stabilizers. }
+    \label{fig:your-label}
+\end{figure}
+
+\end{frame}
 
 \begin{frame}{Locality.}
 
@@ -349,6 +359,11 @@ Notice that if $X$ is an $\alpha$-subset of $Y$ then:
 
 So with probability $1 - e^{\sqrt{n}}$ we have that $\MC(E) < \gamma \sqrt{n}$.  
 
+\end{frame}
+
+\begin{frame}
+  \title{ The End.  }
+    \titlepage
 \end{frame}
 
 
