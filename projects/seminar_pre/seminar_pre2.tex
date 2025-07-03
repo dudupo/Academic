@@ -263,7 +263,7 @@ Then, for any $p \in (0,1)$, there are $p^{\prime}, q \in (0,1)$ (functions of $
     There exist two non-zero constants $p_1,p_2 > 0$ such that the following holds. Suppose the pair $(E,D)$ satisfies a local stochastic noise model with parameter $(p_{\text{phs}}, p_{\text{syn}})$ where $p_{\text{phs}} <p_{1} , p_{\text{syn}} < p_{2}$. If we run the parallel decoder with constant number of steps $f_{0}$, then there exists a random variable $E^{\prime} \subset V_{Q}$ (qubits) with a local stochastic distribution with parameter $p^{\prime} = p_{1}^{c}$ (for some constant $c$) and such that:  
     \begin{equation*}
       \begin{split}
-        \mathbf{Pr}\left[  E^{\prime} \neq E \otimes \hat{E}   \right] \le e^{\Theta(\sqrt{n}}
+        \mathbf{Pr}\left[  E^{\prime} \neq E \otimes \hat{E}   \right] \le e^{\Theta(\sqrt{n})}
       \end{split}
     \end{equation*}
 Where $\hat{E}$ is the estimated error computed by the decoder.
@@ -307,7 +307,7 @@ An execution might change upon the order of the small set being chosen, yet noti
 
 \newcommand*{\MC}{ \text{MaxConn}_\alpha }
 \begin{frame}
-  \begin{definition}{$\alpha$-subset, and $\MC$. (Simplified\footnote{In the original, the graph is the syndorm graph}) } 
+  \begin{definition}[$\alpha$-subset, and $\MC$. (Simplified\footnote{In the original, the graph is the syndorm graph})]
     Let $G$ be a graph. Let $X,Y \subset \mathcal{V}$ and $\alpha \in (0,1]$. $X$ is said to be an $\alpha$-subset of $Y$ if $|X \cap Y| \ge \alpha |X|$. In addition we define: 
     
     \begin{equation*}
