@@ -96,24 +96,24 @@
 
 \begin{frame}{ $(p^\prime, q)$-Simplified Model. }
   \begin{definition}[Local Stochastic Noise.]
-    Denote by $E$ the subset of faulty qubits. We say that an error model behave according to the local stochastic noise, if:  
-    \begin{equation*}
-      \begin{split}
-        \mathbf{Pr}[|E| = t ] \le O(p^{t}) 
-      \end{split}
-    \end{equation*}
-    For some $p \in (0,1)$. For example, depolarizing channel is local stochastic noise.  
+Denote by $E$ the subset of faulty qubits. We say that an error model behaves according to the local stochastic noise if:  
+\begin{equation*}
+  \begin{split}
+    \mathbf{Pr}[|E| = t ] \le O(p^{t}) 
+  \end{split}
+\end{equation*}
+for some $p \in (0,1)$. For example, a depolarizing channel is a local stochastic noise.
   \end{definition}
   \begin{definition}
-    Let $p^{\prime},q \in (0,1)$ and let $C$ be an error correction code, The decoding problem at the \textbf{$(p^\prime, q)$-Simplified Model}, is defined to find (a correction to) error $E$, promised it subjected to local stochastic nosie $p$, given syndorom measurment subjected to local stochastic noise $q$.
+    Let $p^{\prime}, q \in (0,1)$ and let $C$ be an error correction code. The decoding problem in the \textbf{$(p^\prime, q)$-Simplified Model} is defined as finding (a correction to) error $E$, promised the qubits are subjected to local stochastic noise $p$, and given syndrome measurement subjected to local stochastic noise $q$. We will denote by $D$ the faulty syndrome bits. 
   \end{definition}
 \end{frame}
 
 \begin{frame}{$(p^\prime, q)$-Simplified Model.}
   \begin{block}{Claim.}
-    Assume that $C$ is an LDPC code, and let $D$ be an decoding algorithm which first measure the syndorm, then for any $p \in (0,1)$ there is $p^{\prime}, q \in (0,1)$ (functions of $p$, and the 'locality'\footnote{degree in the Tannner graph of $C$.} of $C$) such that the running of $D$ according to the standrart $p$-noise, is eqauivalence to it's running when subjected to $(p^{\prime}, q)$-Simplified Model. [gottesman2014]
+    Assume that $C$ is an LDPC code, and let $D$ be a decoding algorithm which first measures the syndrome and then decode (guess a correction).  \ ~\\
+Then, for any $p \in (0,1)$, there are $p^{\prime}, q \in (0,1)$ (functions of $p$ and the 'locality'\footnote{degree in the Tanner graph of $C$.} of $C$) such that the running of $D$ according to the standard $p$-noise is equivalent to its running when subjected to the $(p^{\prime}, q)$-Simplified Model. [gottesman2014]
   \end{block}
- \footnote{Riminder to David!!, draw an example.}
   
 \end{frame}
 
