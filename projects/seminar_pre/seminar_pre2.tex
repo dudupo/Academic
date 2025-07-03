@@ -258,12 +258,23 @@ Then, for any $p \in (0,1)$, there are $p^{\prime}, q \in (0,1)$ (functions of $
 \end{frame}
 
 \begin{frame}{Reducing error formal statement.}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{formal_state_ment_error_reduction.png}
-    \caption{ Formal statement, error reduction using the Small-set-flip parallel decoder.}
-    \label{fig:your-label}
-\end{figure}
+
+  \begin{block}{Claim.}
+    There exist two non-zero constants $p_1,p_2 > 0$ such that the following holds. Suppose the pair $(E,D)$ satisfies a local stochastic noise model with parameter $(p_{\text{phs}}, p_{\text{syn}})$ where $p_{\text{phs}} <p_{1} , p_{\text{syn}} < p_{2}$. If we run the parallel decoder with constant number of steps $f_{0}$, then there exists a random variable $E^{\prime} \subset V_{Q}$ (qubits) with a local stochastic distribution with parameter $p^{\prime} = p_{1}^{c}$ (for some constant $c$) and such that:  
+    \begin{equation*}
+      \begin{split}
+        \mathbf{Pr}\left[  E^{\prime} \neq E \otimes \hat{E}   \right] \le e^{\Theta(\sqrt{n}}
+      \end{split}
+    \end{equation*}
+Where $\hat{E}$ is the estimated error computed by the decoder.
+  \end{block}
+
+%\begin{figure}[h]
+    %\centering
+    %\includegraphics[width=\textwidth]{formal_state_ment_error_reduction.png}
+    %\caption{ Formal statement, error reduction using the Small-set-flip parallel decoder.}
+    %\label{fig:your-label}
+%\end{figure}
 
 \end{frame}
 
