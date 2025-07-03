@@ -328,14 +328,24 @@ Notice that if $X$ is an $\alpha$-subset of $Y$ then:
 
 
 
-\begin{frame}
+\begin{frame}{Locality.}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{preculation.png}
-    \caption{ Formal statement, error reduction using the Small-set-flip parallel decoder.}
-    \label{fig:your-label}
-\end{figure}
+  \begin{block}{$\alpha$-percolation.}
+    Let $\alpha \in (0,1]$ then there exists a threshold $p_{\text{th}}(\alpha)$ such that for any $t \in \mathbb{N}$, for any $p_{\text{phys}} < p_{\text{th}}$ and for any $p_{\text{syn}} < p_{\text{th}}$ the following holds. If an error $(E,D)$ is chosen according to a local stochastic noise with parameters $(p_{\text{phys}}, p_{ \text{syn}} )$ then: 
+    \begin{equation*}
+      \begin{split}
+        \mathbf{Pr}\left[ \MC (E \cup D) \ge t  \right] \le C | \text{qubits} \cup \text{check bits} | \left( \frac{ \max { \left( p_{ \text{phys}  },p_{ \text{syn}  }    \right)   } }{p_{ \text{th} } } \right)^{\alpha t}  
+      \end{split}
+    \end{equation*}
+    Where $C$ is dependent only on $p_{th}, \alpha$. 
+  \end{block}
+
+%\begin{figure}[h]
+    %\centering
+    %\includegraphics[width=\textwidth]{preculation.png}
+    %\caption{ Formal statement, error reduction using the Small-set-flip parallel decoder.}
+    %\label{fig:your-label}
+%\end{figure}
 
 So with probability $1 - e^{\sqrt{n}}$ we have that $\MC(E) < \gamma \sqrt{n}$.  
 
