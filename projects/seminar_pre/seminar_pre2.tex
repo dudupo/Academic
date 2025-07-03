@@ -283,11 +283,11 @@ For parallelizing the decoder, we color the check nodes in the Tanner graph such
 
 \begin{frame}{Locality.}
 
-  \begin{block}
+  \begin{definition}[Execution Support.]
 Denote by $U = E \cup F_1 \cup F_2, \ldots, F_m$ the execution support, the combination of faulty qubits and the qubits flipped by the decoder.
-  \end{block}
+  \end{definition}
 
-  \begin{block}
+  \begin{block}{Claim.}
   For any set $K\subset U$ with $\Gamma_{Q}(K)\cap \Gamma_{Q}(U / K) = \emptyset$ there is a valid executation of the Decoder, on the input $(E \cap K, D\cap \Gamma_{X}(K))$ whose output is $\hat{E}\cap K$ and whose support is $U \cap K$.
 \end{block} \footnote{
 An execution might change upon the order of the small set being chosen, yet notice that for small errors, the algorithm is always correct.
@@ -434,7 +434,7 @@ Hence for $|e|/n \le \beta =  \frac{1}{2}   - \sqrt{\frac{2\lambda^{2}}{\Delta}}
 
 
 \begin{frame}
-  \frametitle{The Franch's Construction.
+  \frametitle{The French's Construction.
 }
 
   \begin{refsection}
@@ -445,8 +445,8 @@ Hence for $|e|/n \le \beta =  \frac{1}{2}   - \sqrt{\frac{2\lambda^{2}}{\Delta}}
 \end{frame}
 
 
-\begin{frame}{The Franch's Construction.}
- \begin{block}{Franch gadgets.}
+\begin{frame}{The French's Construction.}
+ \begin{block}{French gadgets.}
    \begin{itemize}
      \item Encoded states and magic preparation (via original fault tolerance).
      \item Hypergraph product code. (Quantum Expander Codes). $\left[ \left[ n, \Theta(n), \Theta(\sqrt{n}) \right] \right]$.
