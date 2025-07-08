@@ -59,36 +59,10 @@
   This work address the above, We ask whether a magnitude depth overhead is an unavoidable price that one has to pay. And, in particular, whether an ideal $\QNCon$ circuits can be computed in noisy-$\QNCon$ circuits. We show how using the ideas presented in \cite{grospellier:tel-03364419} and \cite{Pippenger} gives almost immediately $\QNCzef \subset$ \noiseQNCon and that sampling from IQP \cite{Bremner_2017} also can be done in logarithmic depth circuits.    
 
 
-  \subsection{To Do:}
-  \begin{enumerate}
-    \item Add definitions to complexity classes. Distingusih, between different types of $\QNCon$, For example a classes that allowes to applay any single-qubit gate versurs classes that allows to do only gates up to the second Clifford level. 
-    \item Write a full proof to Pippenger construction. And emphises how, a duplication operator would give the same construction to the quantum regime.  
-    \item 
-  \end{enumerate}
 
   \section{ Notations. } In the following we present the notations used in the paper, readers who familiar with the literature of coding theory and quantum fault tolerance might skip \Cref{sec:classical} and \Cref{sec:quantum} and continue directly to \Cref{sec:decoders} which introduces less standard notations. 
 
-
-
-
-  \begin{figure}[h]
-\begin{subfigure}[h]{0.05\textwidth}
-      \
-    \end{subfigure}
-    \begin{subfigure}[h]{0.45\textwidth}
-
   Once again, the feasibility question raised again, this time regarding quantum computing, and while an intensive work has been done, and also succeed to prove that polynomial quantum computation can be made fault tolerance, \cite{aharonov1999faulttolerant},\cite{gottesman2014faulttolerant} and even with only constant overhead at the original circuit width \cite{grospellier:tel-03364419}, the required depth over-head is till not well understood. We stress out that in all the familiar constructions, in construct to Pippenger \cite{Pippenger}, original constant-depth gates are mapped to asymptotically grow\footnote{Note, that here, classical computation is also counted in the overall depth cost} depth gates. 
-    \end{subfigure}
-    \begin{subfigure}[h]{0.05\textwidth}
-      \
-    \end{subfigure}
-    \begin{subfigure}[h]{0.30\textwidth} 
-
-    %\input{circuit_tkz/location.tikz}
-    \caption{location.}
-    \label{fig:location}
-    \end{subfigure} 
-  \end{figure}
 
   \subsection{Classical and Quantum Circuits.} 
   \begin{definition}
@@ -307,47 +281,6 @@ Given a code with non-trivial distance, what is the complexity of performing gat
 \end{enumerate}
 
 
-\section{ Fault tolerance Toffoli. } 
-
-\ctt{In that section the $\cdot$ operation is the pair wise product (pair wise AND).}
-
-Assume that $\bar{0}, \bar{1} \in C_{X}$ and that they belong to two different cosets of $\QQ$. Let $x,y \in \{ \bar{0},\bar{1}  \}$. 
-\begin{equation}
-  \label{equation:toff}
-  \begin{split}
-&    \sum_{z,z^{\prime},w \in \Czdu }{ \ket{z}\ket{z^{\prime}}\ket{w} } \\  
-&    \sum_{z,z^{\prime},w \in \Czdu }{ \ket{z}\ket{z^{\prime}}\ket{w + z\cdot z^{\prime}} } \\  
-&    \sum_{z,z^{\prime},w \in \Czdu }{ \ket{z + x }\ket{z^{\prime} + y}\ket{w + z\cdot z^{\prime}} } \\  
-&    \sum_{z,z^{\prime},w \in \Czdu }{ \ket{z + x }\ket{z^{\prime} + y}\ket{ x\cdot y + x \cdot z^{\prime} + y \cdot z + z z^{\prime} + w + z\cdot z^{\prime}} } \\  
-&    \sum_{z,z^{\prime},w \in \Czdu }{ \ket{z + x }\ket{z^{\prime} + y}\ket{ x\cdot y + x \cdot z^{\prime} + y \cdot z +  w } } 
-  \end{split}
-\end{equation}
-Since $x,y \in \{ \bar{0},\bar{1}  \}$ we have that $ x\cdot z^{\prime}$ equals to either $z^{\prime}$ or $\bar{0}$. Hence $ \sum_{w \in \Czdu}{\ket { \xi +x \cdot z + w } } =  \sum_{w \in \Czdu}{\ket { \xi + w } } $. So the idea is the following, suppose that one has to compute Toffoli at time $t$ over the registers $R_{1},R_{2},R_{3}$. First, at time $0$, he initialize a logical zero $\ket{\Czdu}$ in each register, then he compute pairwise Toffoli $R_{1},R_{2}$ into $R_{3}$. That gives the ket $\sum_{z,z^{\prime},w \in \Czdu}{\ket{ z\cdot z^{\prime} + w}}$,  immediately afterwords encode $R_{3}$ again into a good quantum code. Denote by $\tau$ the time required for decoding $R_{3}$ back, at time $t-\tau$ start to decode $R_{3}$. Eventually at time time $t$ compute again the transversal Toffoli, by \Cref{equation:toff} we gets the desired.  
-
-
-By similar arguments exhibited at \Cref{claim:noisepa} one can show that the errors behaves according to a Pauli noise channel. \ctt{That is not correct, since the concatenation construction assumes that all the registers initialized to physical zeros in the begging of the computation}.
-
-\subsection{Another Idea, $z\cdot z^{\prime}$ cann't contribute too mach.}
-Clearly we have that  $|z\cdot z^{\prime}| \le |z|,|z^{\prime}|$ therefore we have that $\prbm{ | z \cdot z^{\prime} | \ge t}{z,z^\prime \in \Czdu} \le \prbm{ | z | \ge t}{z\in \Czdu}$. Now assume that the tanner code by which the code defined is bipartite graph and denote by $z_{+},z_{-}$ the grouping of the $z$'s generators supported on the even and the odd vertices of the graph. By triangle inequality $|z| = |z_{+} + z_{-}| \le |z_{+}| + |z_{-}|$, So if $|z| > t$ then at least one of $|z_{-}|,|z_{+}|$ is greater than $t/2$. Hence via the union  bound: 
-\begin{equation*}
-  \begin{split}
-    \prbm{ |z|  }{z\in \Czdu} \le \prbm{ \bigcup_{i \in \pm }{|z_{i}| \ge t/2}   }{z\in \Czdu} \le \sum_{i \in \pm }{\prbm{ |z_{i}| \ge t/2   }{z\in \Czdu}}
-  \end{split}
-\end{equation*}
-
-Since any two positive (negative) generators are disjoint we have that  $|z_{+}|$ is a sum of the independent random variables each stands for the weight contributed by a positive vertex. Let us denote by $V^{+}, V^{-}$ the positive and the negative vertices and for each vertex $v \in V$ we will denote by $_{v}$ the bits of $z$ restricted to $v$ edges. So $|z_{\pm}| = \sum_{v \in V^{\pm}}{ |z_{v}| }$. For simplicity assume that $|V^{+}| = |V^{-}| = n/2$ and that $\exppm{|z|}{z \in C_{A}\otimes C_{B}} = \mu $. Then we can use concentration inequality to have: 
-
-\begin{equation*}
-  \begin{split}
-    \prbm{ |z|  }{z\in \Czdu} \le \sum_{i \in \pm }{\prbm{ \sum_{v \in V^{i}}{ |z_{v}|} \ge t/2   }{z\in \Czdu}} \le 2e^{-(\mu - \frac{t}{2}) n }
-  \end{split}
-\end{equation*}
-Thus if $\mu - \gamma  \ge O (1) $ (from \Cref{claim:error} ) then with high probability the Toffoli is computed up to reducible error.    
-
-\subsection{Using Polynomials Codes.} Consider the CSS code above $\mathbb{F}_{q}$ defined by the stabilizers $C_{Z}^{\perp} = \braket{\{ x^{2i} : i\ge \frac{1}{2}d - c \}}$ and $C_{X}^{\perp} = \braket{\{ x^{2i+1} : i \ge \frac{1}{2}d - c \}}$ for some $c = O(1)$. Clearly the $X$-stabilizers commute with the $Z$-stabilizers. 
-
-
-
 \section{ The Noise Model } 
 Informally classical noisy circuits describe the running computation of circuits when the bits have probabilities to flip. As exactly to the classical case, in noisy quantum circuits qubits have probabilities to fault. We formalise the noise model by defining a channel $\mathcal{N} : \mathcal{C} \rightarrow \mathcal{D}\left(\mathcal{C}\right)$ that given an ideal circuit induce distribution over circuits. For example, one can consider a Pauli channel, which  after each gate of the original circuit, either do nothing with probability $1-p$ or, with probability $1-p$ impose uniformly one of the Pauli operators $X,Z,Y$. Formally:  
 \begin{definition}
@@ -371,6 +304,7 @@ We close this section by formalize the \noiseQNCon class.
   We denote by \noiseQNCon the class of decision problems solvable by logarithmic-depth quantum circuits, subjected to a local stochastic noise,  with bounded probability of error. 
 \end{definition}
 We mention that in \cite{aharonov1996limitationsnoisyreversiblecomputation}, it was proved how a fault tolerance circuit with an access to fresh qubits, at logarithmic depth, can be converted to a log depth circuits without a fresh qubits access at the cost which is at most polynomial in wide. Meaning that Proving that $ \QNCon \subset $ \noiseQNCon implies also that $ \QNCon $ can be computed, in the presence of noise without an access to fresh qubits. 
+
 
 \section{ Fault Tolerance (With Resets gates) at Linear Depth. } 
 
@@ -480,6 +414,7 @@ X_{t} \le \nu \cdot (X_{t-1} + \beta |B| ) \le \nu(\gamma+\beta) |B| \le \gamma 
 \end{proof}
 
 Assuming that $W$ is polynomial in $D$, taking the block length to be $|B| = \log((W \cdot D)^c)$, as shown in \Cref{claim:prob}, results in a linear fault tolerance construction with a success probability of $1 - \frac{1}{\log^{c_2}(W \cdot D)}$. This means that the fault tolerance version of circuits in $\textbf{QNC}_1$ has a logarithmic depth. Additionally, using the construction in \cite{aharonov1996limitationsnoisyreversiblecomputation} produces a polynomial fault tolerance circuit in the reversible gates setting. \ctt{ We missed the fact that it requires non trivial classical computation to compute what gate should be applied after the gate teleportation (i.e $UPU^{\dagger}$ )}.
+
 
 
 
