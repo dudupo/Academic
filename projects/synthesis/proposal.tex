@@ -111,7 +111,7 @@ We use \Cref{def:pnoise} to describe the running of a circuit subjected to noise
   \end{definition}
 
   
-  Generally speaking, we say that a decision problem is solvable by a uniform family of circuits $\mathcal{C}$ if there is a polynomial $p : \mathbb{R} \rightarrow \mathbb{R}$, such that for any large enough $n \in \mathbb{N}$, there exist $a, b \in (0,1)$ at a distance of at least $b - a > 1/\text{poly}(n)$ and a polynomial Turing machine $M$ such that for any given instance $x$ with encoding length $|x| = n$, the running of $M$ on $x$ outputs $C \in \mathcal{C}$ that, when running over the zero word $0^{*}$, induces on the first (qu)bit at least $b$ probability to be at $1$ if $x$ is in the language and at most $a$ to be at $1$ otherwise. 
+  Generally speaking, we say that a decision problem is solvable by a uniform family of circuits $\mathcal{C}$ if there is a polynomial $poly : \mathbb{R} \rightarrow \mathbb{R}$, such that for any large enough $n \in \mathbb{N}$, there exist $a, b \in (0,1)$ at a distance of at least $b - a > 1/\text{poly}(n)$ and a polynomial Turing machine $M$ such that for any given instance $x$ with encoding length $|x| = n$, the running of $M$ on $x$ outputs $C \in \mathcal{C}$ that, when running over the zero word $0^{*}$, induces on the first (qu)bit at least $b$ probability to be at $1$ if $x$ is in the language and at most $a$ to be at $1$ otherwise. 
 
   We are intersting esspicily in the following complexity classes: 
 
