@@ -137,6 +137,19 @@ Another setting which we find interesting is the equipping of classes with an un
 Similarly to $\QNCze{}$, the class of decision problems solvable by constant depth and bounded fan out/in quantum circuits equipped additionally with a 'quantum fanout' gate is available, which CNOTs a qubit into arbitrarily many target qubits in a single step.
 \end{definition}
 
+Finally, the last setting we consider is the restriction of the classes when there is no access to fresh qubits, or equivalently, no reset gates are allowed. In this setting, any step of computation accumulates entropy, and an exponential trade-off relation between entropy and depth was proved.
+
+\begin{definition}[$\QNCon{}$ without reset gates.]
+  The class of decision problems solvable by polynomial size,  logarithmic-depth, and finate fan out/in quantum circuits with bounded probability of error, without reset gates.
+\end{definition}
+Those definitions bring us to ask the following question:
+\begin{equation*}
+  \begin{split}
+    \text{ Does } \QNCon{} = \text{ noisy-}\QNCon{}
+  \end{split}
+\end{equation*}
+
+
   \section{ Strategies to get \CDO. }  \label{sec:opt}
 
   \begin{figure}[h]
