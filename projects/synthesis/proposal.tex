@@ -103,7 +103,9 @@ The proposal is organized as follows. \Cref{sec:nota} presents the notations, fo
   \end{center}
 \end{figure}
 
-We think about computation subjected to noise as the running of a circuit, in which at any time, qubits might be 'flipped', or formally, with some constant probability, they are replaced with the fully mixed state. Since our computation might create correlations between the errors, we will assume nothing about the behavior of the errors except that big errors are unlikely. By doing that, the induction step doesn't have to guarantee the errors being uncorrelated. We use \Cref{def:pnoise} to describe the running of a circuit subjected to noise. \Cref{fig:noise} illustrates a noisy circuit. In the figure, the channel $N$ acts on each qubit separately, yet this is not the case, and we impose it in that way only to make a clear distinction between the original gates and the noise channels.
+We think about computation subjected to noise as the running of a circuit, in which at any time, qubits might be 'flipped', or formally, with some constant probability, they are replaced with the fully mixed state. Since our computation might create correlations between the errors, we will assume nothing about the behavior of the errors except that big errors are unlikely. By doing that, the induction step doesn't have to guarantee the errors being uncorrelated. 
+
+We use \Cref{def:pnoise} to describe the running of a circuit subjected to noise. \Cref{fig:noise} illustrates a noisy circuit. In the figure, the channel $N$ acts on each qubit separately, yet this is not the case, and we impose it in that way only to make a clear distinction between the original gates and the noise channels.
 
   \begin{definition}{$p$-Noisy Circuit.}
     \label{def:pnoise}
