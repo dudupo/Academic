@@ -110,6 +110,9 @@ We use \Cref{def:pnoise} to describe the running of a circuit subjected to noise
     Given a circuit $C$ (regardless of the model), its $p$-noisy version $\tilde{C}$ is the circuit obtained by alternately taking layers from $C$ and then passing each (qu)bit through a $p$-local stochastic channel.
   \end{definition}
 
+  
+  Generally speaking, we say that a decision problem is solvable by a uniform family of circuits $\mathcal{C}$ if there is a polynomial $p : \mathbb{R} \rightarrow \mathbb{R}$, such that for any large enough $n \in \mathbb{N}$, there exist $a, b \in (0,1)$ at a distance of at least $b - a > 1/\text{poly}(n)$ and a polynomial Turing machine $M$ such that for any given instance $x$ with encoding length $|x| = n$, the running of $M$ on $x$ outputs $C \in \mathcal{C}$ that, when running over the zero word $0^{*}$, induces on the first (qu)bit at least $b$ probability to be at $1$ if $x$ is in the language and at most $a$ to be at $1$ otherwise. 
+
   We are intersting esspicily in the following complexity classes: 
 
 
@@ -118,11 +121,11 @@ $\NC_i$ is the class of decision problems solvable by a uniform family of Boolea
 \end{definition}
 
 \begin{definition}[$\QNC{}$]
-  The class of decision problems solvable by polylogarithmic-depth, and finate fan out/in quantum circuits with bounded probability of error. Similarly to $\NC_i{}$, $\QNC_i{}$ is the class where the decisdes the circuits have $\log^i (n)$ depth.  
+  The class of decision problems solvable by polynomial size,  polylogarithmic-depth,  and finate fan out/in quantum circuits with bounded probability of error. Similarly to $\NC_i{}$, $\QNC_i{}$ is the class where the decisdes the circuits have $\log^i (n)$ depth.  
 \end{definition}
 
 \begin{definition}[$\QNCG{}$]
-  For a fixing finate fan in/out gateset $G$, the class with deciding circuits composed only for gates in $G$ and at depth at most polylogaritmic. And in similar to $\QNC_{i}{}$, $\QNCiG{}$ is the restriction to circuits with depth at most $\log^{i}(n)$.  
+  For a fixing finate fan in/out gateset $G$, the class with deciding circuits at polynomial size, composed only for gates in $G$ and at depth at most polylogaritmic. And in similar to $\QNC_{i}{}$, $\QNCiG{}$ is the restriction to circuits with depth at most $\log^{i}(n)$.  
 \end{definition}
 
 \begin{definition}[$\QNCzef{}$] 
