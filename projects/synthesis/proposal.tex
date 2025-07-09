@@ -105,12 +105,13 @@ The proposal is organized as follows. \Cref{sec:nota} presents the notations, fo
 
 We think about computation subjected to noise as the running of a circuit, in which at any time, qubits might be 'flipped', or formally, with some constant probability, they are replaced with the fully mixed state. Since our computation might create correlations between the errors, we will assume nothing about the behavior of the errors except that big errors are unlikely. By doing that, the induction step doesn't have to guarantee the errors being uncorrelated. 
 
-We use \Cref{def:pnoise} to describe the running of a circuit subjected to noise. \Cref{fig:noise} illustrates a noisy circuit. In the figure, the channel $N$ acts on each qubit separately, yet this is not the case, and we impose it in that way only to make a clear distinction between the original gates and the noise channels.
-
-  \begin{definition}{$p$-Noisy Circuit.}
+We use \Cref{def:pnoise} to describe the running of a circuit subjected to noise. \Cref{fig:noise} illustrates a noisy circuit. In the figure, the channel $N$ acts on each qubit separately, yet this is not the case, and we impose it in that way only to make a clear distinction between the original gates and the noise channels. \begin{definition}{$p$-Noisy Circuit.}
     \label{def:pnoise}
     Given a circuit $C$ (regardless of the model), its $p$-noisy version $\tilde{C}$ is the circuit obtained by alternately taking layers from $C$ and then passing each (qu)bit through a $p$-local stochastic channel.
   \end{definition}
+
+  We are intersting esspicily in the following complexity classes: 
+
 
 \begin{definition}[$\NC{}$ - Nick's Class]
 $\NC_i$ is the class of decision problems solvable by a uniform family of Boolean circuits, with polynomial size, depth $O(\log^i(n))$, and fan-in $2$. 
