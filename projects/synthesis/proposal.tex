@@ -111,15 +111,17 @@ We use \Cref{def:pnoise} to describe the running of a circuit subjected to noise
   \end{definition}
 
   
-  Generally speaking, we say that a decision problem is solvable by a uniform family of circuits $\mathcal{C}$ if there is a polynomial $poly : \mathbb{R} \rightarrow \mathbb{R}$, such that for any large enough $n \in \mathbb{N}$, there exist $a, b \in (0,1)$ at a distance of at least $b - a > 1/\text{poly}(n)$ and a polynomial Turing machine $M$ such that for any given instance $x$ with encoding length $|x| = n$, the running of $M$ on $x$ outputs $C \in \mathcal{C}$ that, when running over the zero word $0^{*}$, induces on the first (qu)bit at least $b$ probability to be at $1$ if $x$ is in the language and at most $a$ to be at $1$ otherwise. 
+  Generally speaking, we say that a decision problem is solvable by a uniform family of circuits $\mathcal{C}$ if there is a polynomial $poly : \mathbb{R} \rightarrow \mathbb{R}$, such that for any large enough $n \in \mathbb{N}$, there exist $a, b \in (0,1)$ at a distance of at least $b - a > 1/\text{poly}(n)$ and a polynomial Turing machine $M$ such that for any given instance $x$ with encoding length $|x| = n$, the running of $M$ on $x$ outputs $C_x \in \mathcal{C}$ that, when running over the zero word $0^{*}$, induces on the first (qu)bit at least $b$ probability to be at $1$ if $x$ is in the language and at most $a$ to be at $1$ otherwise. 
+If a decision problem is solvable by a $p$-noisy version of $C \in \mathcal{C}$, we say that the problem is solvable by noisy-$\mathcal{C}$. We abuse the notation, and for complexity class $Q$, we define noisy-$Q$ to be all the decision problems solvable by the noisy version of the circuit family that solves the problems in $Q$. For example, noisy-\textbf{BQP} is the class of all the decision problems solvable by noisy polynomial quantum circuits.  
 
-  We are intersting esspicily in the following complexity classes: 
 
-
+The first class we are interested in is Nick's Class, $\NC{}$ \cite{CITE}, characterizing the boolean circuits at logarithmic depth. This class was proven by Pippenger to be equal to its noisy version, namely noisy-$\NC{} = \NC{}$ \cite{Pippenger}. Formally defined as follows: 
 \begin{definition}[$\NC{}$ - Nick's Class]
 $\NC_i$ is the class of decision problems solvable by a uniform family of Boolean circuits, with polynomial size, depth $O(\log^i(n))$, and fan-in $2$. 
 \end{definition}
 
+
+Second, the analog class of $\NC{}$ is $\QNC{}$, which characterizes logarithmic depth quantum circuits. In $\QNC{}$, the circuits are also allowed to have any single qubit gate. While in the classical case the number of functions from $\{0,1\} \rightarrow \{0,1\}$ is finite, in the quantum case we have an infinite number of single gates. That motivated us to define $\QNCG{}$ - the circuits when the gate set is restricted to some finite, constant size group $G$. We emphasize that in \textbf{BQP} there is no point in restricting to such a family since any gate can be polynomially approximated at polylogarithmic depth, so in that case, the restriction does not change computational power and one can assume to be able to apply any single qubit gate. However, when considering shallow circuits at logarithmic depth, such assumptions don't hold anymore.
 \begin{definition}[$\QNC{}$]
   The class of decision problems solvable by polynomial size,  polylogarithmic-depth,  and finate fan out/in quantum circuits with bounded probability of error. Similarly to $\NC_i{}$, $\QNC_i{}$ is the class where the decisdes the circuits have $\log^i (n)$ depth.  
 \end{definition}
