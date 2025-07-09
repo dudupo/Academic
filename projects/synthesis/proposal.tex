@@ -177,15 +177,17 @@ The second is Memory, a particular type of code which allows restraining the err
 Gadgets.
 
 
+
  \subsection{Memory.} 
+ \newcommand*{\DD}{\mathbf{D} }
  \begin{definition}
-We say that a (quantum) error correction code is a $(\beta,\gamma)$-memory code if there is a constant depth procedure $D$ such that for any $I$ of size $|I| \ge (1 - \beta) n$ and $\rho \in C$, we have that:
-   for some subset of qubits $J$ at depth at least $(1-\gamma)n$. 
+We say that a (quantum) error correction code is a $(\beta,\gamma)$-memory code if there is a constant depth procedure $\DD$ such that for any $I$ of size $|I| \ge (1 - \beta) n$ and $\rho \in C$, we have that:
    \begin{equation*}
      \begin{split}]
-     \text{D} \Tr_{I}\rho = \text{D} \Tr_{J}\rho 
+     \DD \Tr_{I}\rho = \DD \Tr_{J}\rho 
      \end{split}
    \end{equation*}
+for some subset of qubits $J$ at depth at least $(1-\gamma)n$. 
  \end{definition}
 
 
