@@ -85,6 +85,23 @@ The proposal is organized as follows. \Cref{sec:nota} presents the notations, fo
   
 In the following, we present the notations used in the paper. Readers who are familiar with the literature of coding theory and quantum fault tolerance might skip \Cref{sec:classical} and \Cref{sec:quantum} and continue directly to \Cref{sec:decoders}, which introduces less standard notations.
 
+
+
+
+\begin{definition}[$\NC{}$ - Nick's Class]
+$\NC_i$ is the class of decision problems solvable by a uniform family of Boolean circuits, with polynomial size, depth $O(\log^i(n))$, and fan-in $2$. 
+\end{definition}
+
+\begin{definition}[$\QNC{}$]
+  The class of decision problems solvable by polylogarithmic-depth, and finate fan out/in quantum circuits with bounded probability of error. Similarly to $\NC_i{}$, $\QNC_i{}$ is the class where the decisdes the circuits have $\log^i (n)$ depth.  
+\end{definition}
+
+\begin{definition}[$\QNCG{}$]
+  For a fixing finate fan in/out gateset $G$, the class with deciding circuits composed only for gates in $G$ and at depth at most polylogaritmic. And in similar to $\QNC_{i}{}$, $\QNCiG{}$ is the restriction to circuits with depth at most $\log^{i}(n)$.  
+\end{definition}
+
+
+
   \section{ Strategies to get \CDO. }  \label{sec:opt}
 
 
