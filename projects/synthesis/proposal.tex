@@ -49,6 +49,9 @@
 \newcommand*{\QNCiG}{\mathbf{QNC_{G,i}}}
 
 
+% Constant depth fault tolerance construction.   
+\newcommand*{\CDO} {CDFT} 
+
 
 \abstract{In this work we study the overall depth overhead cost required for constructing fault tolerance circuits. We focus on shallow depth circuits classes, In particular, $\QACze, \QNCzef$ and $\QNCon$ and certain knowns problem candidates for demonstrating quantum advantage such as factoring \cite{Shor_1997} and Instantaneous Quantum Polynomial-time \cite{Bremner_2017}, \cite{Paletta_2024}. We only give a partial answers, Yet, clues that might pave the way towards a full understanding of the complexity versus fault tolerance trade-off. 
 
@@ -64,254 +67,265 @@ Moreover, even the deapth overhead is particularly intersting as the nowadays qu
 
 
 
-  The proposal is organized as follows. \Cref{sec:opt}  
-
-
-  \section{ Notations. } \label{sec:opt}  In the following we present the notations used in the paper, readers who familiar with the literature of coding theory and quantum fault tolerance might skip \Cref{sec:classical} and \Cref{sec:quantum} and continue directly to \Cref{sec:decoders} which introduces less standard notations. 
-
   
-
-  \subsection{Classical and Quantum Circuits.} 
-  \begin{definition}
-    location $(i,j)$ of $C$. \ctt{Add here a figure of classical circuit, that demonstrates locations.}
-  \end{definition}
+  
+The proposal is organized as follows. \Cref{sec:nota} presents the notations, formal definitions, and states the open problems that will be studied through the research. Then, \Cref{sec:opt} describes strategies to prove \CDO. In particular, it lists primitives that can be used to achieve it and discusses how far we are from obtaining them. Having said that, \Cref{sec:passi} presents the first cues against the possibility of \CDO and provides the entry points to prove the impossibility claim. Finally, \Cref{sec:app} discusses the applications and implications of either the correctness of \CDO or the impossibility of \CDO, from both theoretical and practical views.
 
 
-  \subsection{Circuit Classes.}
- $\QACze$ is the class of decision problems solvable by a family of constant-depth, polynomial-size quantum circuits. Here each layer of the circuit is a tensor product of one-qubit gates and Toffoli gates, or is a tensor product of controlled-NOT gates. 
- $\QNCze$ Constant-depth quantum circuits without fanout gates.
- $\QNCon$ Same as QNC, but logarithmic depth instead of polylogarithmic depth.
+  \section{ Notations. } \label{sec:nota}
+  
+In the following, we present the notations used in the paper. Readers who are familiar with the literature of coding theory and quantum fault tolerance might skip \Cref{sec:classical} and \Cref{sec:quantum} and continue directly to \Cref{sec:decoders}, which introduces less standard notations.
+
+  \section{ Strategies to get \CDO. }  \label{sec:opt}
 
 
+  \section{ Cues against \CDO.  }\label{sec:passi}
 
-
-\subsection{Quantum Codes.} \label{sec:quantum} A quantum code over $n$ qubits is an embedding of $\mathcal{H}_{2}^{\otimes k}$ as a subspace of $\mathcal{H}_{2}^{\otimes n}$. Similar to classical codes, we will call $n$ and $k$ the physical and logical qubits. The embeddings of states in $\mathcal{H}_{2}^{\otimes k}$ are called codewords or encoded states. In addition, we will use the term "logical operator" (i.e. logical $X_{i}$) to describe an operator that acts on the code space exactly as it would act on the logical space $\mathcal{H}_{2}^{\otimes k}$ (in our example, turning on and off the encoded state corresponds to the $i$th qubit exactly as $X_{i}$ acts as Pauli $X$ on the $i$th qubit in $\mathcal{H}_{2}^{\otimes k}$). 
-
-We will denote by $X$ and $Z$ the single $X$ and $Z$ Pauli operators, by $X_{i}$ the application of $X$ on the $i$th qubit and nothing else (identity) on the rest of the qubits. By $X^{(v)}$ for some $v \in \mathbb{F}_{2}^{n}$, we mean the operator composed by applying $X$ on each of the qubits whose index is a non-trivial coordinate of $v$ and identity elsewhere. In a similar fashion, we define $Z^{(v)}$. When the context is clear, we will allow ourselves to omit the brackets, i.e. $Z^{v}$. The weight of a Pauli operator is the number of coordinates on which the operator acts non-trivially. Recall that the set of Pauli $+ I$ spans all the Hermitian matrices. We say that the Pauli weight of an operator is the maximal weight of a Pauli in its Pauli decomposition. For example, consider the operator $A = IXX + ZII$, the weight of $A$ is $2$.
-
-The distance of a quantum code is the minimal weight of an operator that takes one codeword to another. We use the standard bracket notation to describe quantum states and in addition, we define for a vector space $A \subset \mathbb{F}_{2}^{n}$ the notation $\ket{A}$ to represent the uniform superposition of all the vectors belonging to that space, namely: \begin{equation*}
-  \begin{split}
-\ket{A} = \frac{1}{\sqrt{|A|}}\sum_{x \in A}{\ket{x}}
-  \end{split}
-\end{equation*}
-We define in the same way the notation to hold for affine spaces, $\ket{x +A}$. We will use $\propto$ to denote a quantum states up to normalization factor, for example $\ket{\psi} \propto \ket{0} + \ket{1}$ means that $\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})$.
-A CSS code is a quantum code defined by a pair of classical codes $C_{X}$ and $C_{Z}$, satisfying $C_{Z}^{\perp} \subset C_{X}$, such that any codeword of it has the form $\ket{x + C_{Z}^\perp}$, where $x \in C_{X}$. We will use $Q$ to refer to a CSS code in general and use $\QQ$ to refer to the vectors associated with the $X$-generators or the encoded states in the computational basis. In the same way, $C_{Z}/C_{X}^{\perp}$ refers to the $Q$ in the phase basis. We will say that a CSS code $Q$ is a LDPC if $C_{X}$ and $C_{Z}$ are both LDPC codes. Our construction uses the classical Tanner code \cite{Tanner}, the expander codes \cite{ExpanderCodes}, and \Hyp  code (quantum expanders) \cite{Leverrier_2015}, \cite{Tillich_2014}, \cite{overheadofquantumerrorcorrection}. We will not describe these constructions and refer the reader to those papers for further information.
-
-\subsection{Decoders.} \label{sec:decoders} We denote by $C_{g}$ the good qLDPC code \cite{Dinur} \cite{Pavel} \cite{leverrier2022quantum}, and by $C_{ft}$ the concatenation code presented at \cite{aharonov1999faulttolerant} ($ft$ stands for fault tolerance). For a code $C_{y}$, we use $\Phi_{y}, E_{y}, D_{y}$ to denote the channel maps circuits into the their matched circuits compute in the code space, the encoder, and the decoder, respectively. We use $\Phi_{U}$ to denote the 'Bell'-state storing the gate $U$. We say that a state $\ket{\psi}$ is at a distance $d$ from a quantum code $C$ if there exists an operator $U$ that sends $\ket{\psi}$ into $C$ such that $U$ is spanned on Paulis with a degree of at most $d$. Sometimes, when the code being used is clear from the context, we will say that a block $B$ of qubits has absorbed at most $d$ noise if the state encoded on $B$ is at a distance of at most $d$ from that code.
-
-\subsection{Complexity Classes.}
-
-
-
-%(Named in honor of Nick Pippenger.)
-\begin{definition}[$\NC$ - Nick's Class]
-$\NC_i$ is the class of decision problems solvable by a uniform family of Boolean circuits, with polynomial size, depth $O(\log^i(n))$, and fan-in $2$. 
-\end{definition}
-
-\begin{definition}[$\QNC$]
-  The class of decision problems solvable by polylogarithmic-depth, and finate fan out/in quantum circuits with bounded probability of error. Similarly to $\NC_i$, $\QNC_i$ is the class where the decisdes the circuits have $\log^i (n)$ depth.  
-\end{definition}
-
-\begin{definition}[$\QNCG$]
-  For a fixing finate fan in/out gateset $G$, the class with deciding circuits composed only for gates in $G$ and at depath at most polylogaritmic. And in similar to $\QNC_{i}$, $\QNCiG$ is the restirction to circuits with depath at most $\log^{i}(n)$.  
-\end{definition}
-
-\begin{openproblem}
-Consider a fault tolerance scheme $\tilde{C}$ for a logical circuit $C$ which uses the logical gateset $V_{1}, V_{2}, .. V_{t}$. Given a set of fault tolerance logical gates $U_{1}, U_{2}, .. U_{t}$, how would the fault tolerance version of $C$ look when using $U_{1}, U_{2}, .. U_{t}$? Specifically, is rewriting the Solovay-Kitaev again might give a lower depth ciruit?
-\end{openproblem}
-
-\begin{openproblem}
-Given a code with non-trivial distance, what is the complexity of performing gate teleportation, specifically computing the $T$ gate? Or computing a gate which is at the $j$-level of the Clifford hierarchy? What is the classical computation time needed to perform the correction? (Find the right Clifford gate for fixing the computation).
-\end{openproblem}
-
-\begin{openproblem}
-  Is it possible to compute fault tolerance without paying a significant overhead at the depth of the circuits? In particular, Is it $\QNCon \subset \text{noisy}-\QNCon$.
-\end{openproblem}
-
-
-\section{Todo:}
-\begin{enumerate}
-  \item Move to encoding each qubit by logarithmic width (instead of chanks) the reason is that the gate teleportation becomes complicated when it applied over higher dimension. 
-  \item Then showing for 2-qubit gates set that is indeed works.
-  \item Treating separately to noise observed in two qubits gates. 
-\end{enumerate}
-
-
-\section{ The Noise Model } 
-Informally classical noisy circuits describe the running computation of circuits when the bits have probabilities to flip. As exactly to the classical case, in noisy quantum circuits qubits have probabilities to fault. We formalise the noise model by defining a channel $\mathcal{N} : \mathcal{C} \rightarrow \mathcal{D}\left(\mathcal{C}\right)$ that given an ideal circuit induce distribution over circuits. For example, one can consider a Pauli channel, which  after each gate of the original circuit, either do nothing with probability $1-p$ or, with probability $1-p$ impose uniformly one of the Pauli operators $X,Z,Y$. Formally:  
-\begin{definition}
-  Pauli channel $\mathcal{N}: \mathcal{C}\rightarrow \mathcal{D} \left( \mathcal{C} \right)$ defined to give on input $C \in \mathcal{C}$ the distribution over circuits $\tilde{C}$ where any even location of $(i, 2j)$ of $\tilde{C}$ equals to the $(i,j)$ location of $C$, and any odd location $(i,2j+1)$ of $\tilde{C}$ is the density operator $(1-p) I + \frac{p}{3} \left(X + Y + Z  \right)$. 
-\end{definition}
-
-The Pauli channel is charactered by exhibits an independent noise on the qubits, Yet for most of the fault tolerance construction a much more weaker property is required to be assumed. We say that a channel is a local stochastic noise channel if the probability to error to be occur is exponentially decays at the number of qubits the error supports.  
- 
-\begin{definition}
-  An error channel $\mathcal{N}: \mathcal{C}\rightarrow \mathcal{D} \left( \mathcal{C} \right)$ will be said to be a local stochastic noise channel if there exists a constant $c$ such the probability to a fault to be applied on locations $(I ,j)$, where $I$ is a subset of qubits, is less than $c^{-n}$.
-\end{definition}
-
-Another important property of a noise model which we consider in this work is the accessibility to fresh qubits, also known as resets gate. When having an access to fresh qubits one can assume that in any time in the computation there are qubits at the $\ket{0}$ states. Usually those qubits are used to measured the syndrome relative to an error correction code. It was proven that without an access to fresh qubits quantum circuits cannot last than logarithmic depth without mixing into a fully mixed state, meaning to be turned into complete garbage \cite{aharonov1996limitationsnoisyreversiblecomputation}. That result also holds for a classical noisy computation. 
-
-\begin{definition}
-  An error channel $\mathcal{N}: \mathcal{C}\rightarrow \mathcal{D} \left( \mathcal{C} \right)$ will be said to has a fresh qubits access if location $(i,j)$ in an output gate $\tilde{C}$ has a non zero probability to exhibits a fault if there is a $j^{\prime} < j$ such a location $(i, j^{\prime})$ such that on the input circuit $C$, at location $(i,j^{\prime})$ a non identity gate is posed.     
-\end{definition}
-
-We close this section by formalize the \noiseQNCon class. 
-\begin{definition}
-  We denote by \noiseQNCon the class of decision problems solvable by logarithmic-depth quantum circuits, subjected to a local stochastic noise,  with bounded probability of error. 
-\end{definition}
-We mention that in \cite{aharonov1996limitationsnoisyreversiblecomputation}, it was proved how a fault tolerance circuit with an access to fresh qubits, at logarithmic depth, can be converted to a log depth circuits without a fresh qubits access at the cost which is at most polynomial in wide. Meaning that Proving that $ \QNCon \subset $ \noiseQNCon implies also that $ \QNCon $ can be computed, in the presence of noise without an access to fresh qubits. 
-
-
-\section{ Fault Tolerance (With Resets gates) at Linear Depth. } 
-
-\begin{claim}
-There exists a value $p_{th} \in (0,1)$ such that if $p < p_{th}$, then any quantum circuit $C$ with a depth of $D$ and a width of $W$ can be computed by a $p$-noisy circuit $C^{\prime}$, which allows for resets. The depth of $C^{\prime}$ is at most $\max{ \{O(D), O(\log(WD)) \} }$.
-\end{claim}
-
-
-\subsection{Initializing Magic for Teleportation gates and encodes ancillaries.}
-The Protocol: \begin{enumerate}
-  \item Initialization of zeros: The qubits are divided into blocks of size $|B|$. Each block is encoded in $C_{g}$ using $D_{ft} \Phi_{ft}[E_{g}] \ket{0^{|B|}}$.
-  \item Initialization of Magic for Teleportation gates: The gates in the original circuit are encoded in $C_{g}$ using $D_{ft} \Phi_{ft}[E_{g}] \ket{\Phi_{U}}$.
-  \item Gate teleportation: Each gate in the original circuit is replaced by a gate teleportation.
-  \item Error reduction: After the initialization step, at each time tick, each block runs a single round of error reduction.
-\end{enumerate}
-
-\begin{claim}[From \cite{leverrier2022decodingquantumtannercodes}]
-  \label{claim:error} 
-  Assuming that an error $|e| \le \gamma n $, i.e $e$ is supported on less than $\gamma n$ bits, then a single correction round reduce $e$ to an error $e^\prime$ such that $|e^{\prime}| < \nu |e|$. 
-\end{claim}
- %Recall that by definition, $D_{i}E_{i} = I$, or in other words, $D_{i}= E_{i}^{\dagger}$.  
-\begin{claim}
-  \label{claim:noisepa}
-  The gate $ D_{ft} \Phi_{ft}[E_{g}]$ initializes states encoded in $C_{g}$ subject to a $3p$-noise channel.  
-\end{claim}
-\begin{proof}
-  Clearly, with high probability, $\Phi_{ft}[E_{g}]$ successfully encodes into $C_{ft} \circ C_{g}$, let's say with probability $1 - \frac{1}{poly(n)}$. Denote by $E_{i}$ and $D_{i}$ the encoder and decoder at the $i$th level of the concatenation construction. Consider the decoder under $\mathcal{N}$ action: $P_{2}D_{1}P_{2}D_{2},..,P_{i-1}D_{i}P_{i}$, by the fault-tolerance construction, a logical error at the $i$th stage occurs with probability $p^{2^{i}}$. Therefore, by the union bound, the probability that in one of the steps the circuit absorbs an error that is not corrected is less than $p + p^{2} + p^{4} + .. < 2p$. Hence, any decoded qubit absorbs noise with probability less than $2p$.
-
-
-  Thus, overall, we can bound the probability of a single qubit being faulty by:
-  \begin{equation*}
-    \begin{split}
-      \prb{\text{fault} } &=  \prb{\text{fault} |  \Phi_{ft}[E_{g}] }\cdot \prb{\Phi_{ft}[E_{g}]} + \prb{\text{fault} | \overline{\Phi_{ft}[E_{g}]} }\cdot \prb{\overline{\Phi_{ft}[E_{g}]}}\\
-      &\le  \prb{\text{fault} |  \Phi_{ft}[E_{g}] } + \prb{\overline{\Phi_{ft}[E_{g}]}} \le 2p + \frac{1}{poly(n)} \le 3p
-    \end{split}
-  \end{equation*}
-
-  \begin{remark}
-In our construction, we use the concatenation code to encode blocks of length $\log(n)$. Therefore, any $poly(n)$ in the above should be replaced by $\log(n)$. However, this does not affect anything since the inequality does not depend on $n$.
-  \end{remark}
+  \section {Applications.} \label{sec:app}
 
 %
 %
-%  \begin{equation*}
-%    \begin{split}
-%      \mathcal{N}(D) &= \left((\mathcal{N}(D))^{\dagger}\right)^{\dagger} =  \left(\sum_{P_{1}, P_{2}, .., P_{i} \in \mathcal{P}}{ \prb{P_{1}, P_{2}, .., P_{i}}  \left(D_{1}P_{2}D_{2},..,P_{i-1}D_{i}P_{i}\right)^{\dagger}} \right)^{\dagger} \\ 
-%      &= \left( \sum_{P_{1}, P_{2}, .., P_{i} \in \mathcal{P}}{ \prb{P_{1}, P_{2}, .., P_{i}}  P_{i}E_{i}P_{i-1}E_{i-1},..,P_{1}E_{1} } \right)^{\dagger}\\
-%      &= \left( \left( 1 -\frac{1}{poly(n)} \right)\sum_{P_{i} \in \mathcal{P}}\prb{P_{i}}P_{i}E + \frac{1}{poly(n)} A  \right)^{\dagger} \\ 
-%      &= \left( 1 -\frac{1}{poly(n)} \right)\sum_{P_{i} \in \mathcal{P}}\prb{P_{i}}DP_{i} + \frac{1}{poly(n)} A 
+  %\subsection{Classical and Quantum Circuits.} 
+  %\begin{definition}
+    %location $(i,j)$ of $C$. \ctt{Add here a figure of classical circuit, that demonstrates locations.}
+  %\end{definition}
+%
+%
+  %\subsection{Circuit Classes.}
+ %$\QACze$ is the class of decision problems solvable by a family of constant-depth, polynomial-size quantum circuits. Here each layer of the circuit is a tensor product of one-qubit gates and Toffoli gates, or is a tensor product of controlled-NOT gates. 
+ %$\QNCze$ Constant-depth quantum circuits without fanout gates.
+ %$\QNCon$ Same as QNC, but logarithmic depth instead of polylogarithmic depth.
+%
+%
+%
+%
+%\subsection{Quantum Codes.} \label{sec:quantum} A quantum code over $n$ qubits is an embedding of $\mathcal{H}_{2}^{\otimes k}$ as a subspace of $\mathcal{H}_{2}^{\otimes n}$. Similar to classical codes, we will call $n$ and $k$ the physical and logical qubits. The embeddings of states in $\mathcal{H}_{2}^{\otimes k}$ are called codewords or encoded states. In addition, we will use the term "logical operator" (i.e. logical $X_{i}$) to describe an operator that acts on the code space exactly as it would act on the logical space $\mathcal{H}_{2}^{\otimes k}$ (in our example, turning on and off the encoded state corresponds to the $i$th qubit exactly as $X_{i}$ acts as Pauli $X$ on the $i$th qubit in $\mathcal{H}_{2}^{\otimes k}$). 
+%
+%We will denote by $X$ and $Z$ the single $X$ and $Z$ Pauli operators, by $X_{i}$ the application of $X$ on the $i$th qubit and nothing else (identity) on the rest of the qubits. By $X^{(v)}$ for some $v \in \mathbb{F}_{2}^{n}$, we mean the operator composed by applying $X$ on each of the qubits whose index is a non-trivial coordinate of $v$ and identity elsewhere. In a similar fashion, we define $Z^{(v)}$. When the context is clear, we will allow ourselves to omit the brackets, i.e. $Z^{v}$. The weight of a Pauli operator is the number of coordinates on which the operator acts non-trivially. Recall that the set of Pauli $+ I$ spans all the Hermitian matrices. We say that the Pauli weight of an operator is the maximal weight of a Pauli in its Pauli decomposition. For example, consider the operator $A = IXX + ZII$, the weight of $A$ is $2$.
+%
+%The distance of a quantum code is the minimal weight of an operator that takes one codeword to another. We use the standard bracket notation to describe quantum states and in addition, we define for a vector space $A \subset \mathbb{F}_{2}^{n}$ the notation $\ket{A}$ to represent the uniform superposition of all the vectors belonging to that space, namely: \begin{equation*}
+  %\begin{split}
+%\ket{A} = \frac{1}{\sqrt{|A|}}\sum_{x \in A}{\ket{x}}
+  %\end{split}
+%\end{equation*}
+%We define in the same way the notation to hold for affine spaces, $\ket{x +A}$. We will use $\propto$ to denote a quantum states up to normalization factor, for example $\ket{\psi} \propto \ket{0} + \ket{1}$ means that $\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})$.
+%A CSS code is a quantum code defined by a pair of classical codes $C_{X}$ and $C_{Z}$, satisfying $C_{Z}^{\perp} \subset C_{X}$, such that any codeword of it has the form $\ket{x + C_{Z}^\perp}$, where $x \in C_{X}$. We will use $Q$ to refer to a CSS code in general and use $\QQ$ to refer to the vectors associated with the $X$-generators or the encoded states in the computational basis. In the same way, $C_{Z}/C_{X}^{\perp}$ refers to the $Q$ in the phase basis. We will say that a CSS code $Q$ is a LDPC if $C_{X}$ and $C_{Z}$ are both LDPC codes. Our construction uses the classical Tanner code \cite{Tanner}, the expander codes \cite{ExpanderCodes}, and \Hyp  code (quantum expanders) \cite{Leverrier_2015}, \cite{Tillich_2014}, \cite{overheadofquantumerrorcorrection}. We will not describe these constructions and refer the reader to those papers for further information.
+%
+%\subsection{Decoders.} \label{sec:decoders} We denote by $C_{g}$ the good qLDPC code \cite{Dinur} \cite{Pavel} \cite{leverrier2022quantum}, and by $C_{ft}$ the concatenation code presented at \cite{aharonov1999faulttolerant} ($ft$ stands for fault tolerance). For a code $C_{y}$, we use $\Phi_{y}, E_{y}, D_{y}$ to denote the channel maps circuits into the their matched circuits compute in the code space, the encoder, and the decoder, respectively. We use $\Phi_{U}$ to denote the 'Bell'-state storing the gate $U$. We say that a state $\ket{\psi}$ is at a distance $d$ from a quantum code $C$ if there exists an operator $U$ that sends $\ket{\psi}$ into $C$ such that $U$ is spanned on Paulis with a degree of at most $d$. Sometimes, when the code being used is clear from the context, we will say that a block $B$ of qubits has absorbed at most $d$ noise if the state encoded on $B$ is at a distance of at most $d$ from that code.
+%
+%\subsection{Complexity Classes.}
+%
+%
+%
+%%(Named in honor of Nick Pippenger.)
+%\begin{definition}[$\NC$ - Nick's Class]
+%$\NC_i$ is the class of decision problems solvable by a uniform family of Boolean circuits, with polynomial size, depth $O(\log^i(n))$, and fan-in $2$. 
+%\end{definition}
+%
+%\begin{definition}[$\QNC$]
+  %The class of decision problems solvable by polylogarithmic-depth, and finate fan out/in quantum circuits with bounded probability of error. Similarly to $\NC_i$, $\QNC_i$ is the class where the decisdes the circuits have $\log^i (n)$ depth.  
+%\end{definition}
+%
+%\begin{definition}[$\QNCG$]
+  %For a fixing finate fan in/out gateset $G$, the class with deciding circuits composed only for gates in $G$ and at depath at most polylogaritmic. And in similar to $\QNC_{i}$, $\QNCiG$ is the restirction to circuits with depath at most $\log^{i}(n)$.  
+%\end{definition}
+%
+%\begin{openproblem}
+%Consider a fault tolerance scheme $\tilde{C}$ for a logical circuit $C$ which uses the logical gateset $V_{1}, V_{2}, .. V_{t}$. Given a set of fault tolerance logical gates $U_{1}, U_{2}, .. U_{t}$, how would the fault tolerance version of $C$ look when using $U_{1}, U_{2}, .. U_{t}$? Specifically, is rewriting the Solovay-Kitaev again might give a lower depth ciruit?
+%\end{openproblem}
+%
+%\begin{openproblem}
+%Given a code with non-trivial distance, what is the complexity of performing gate teleportation, specifically computing the $T$ gate? Or computing a gate which is at the $j$-level of the Clifford hierarchy? What is the classical computation time needed to perform the correction? (Find the right Clifford gate for fixing the computation).
+%\end{openproblem}
+%
+%\begin{openproblem}
+  %Is it possible to compute fault tolerance without paying a significant overhead at the depth of the circuits? In particular, Is it $\QNCon \subset \text{noisy}-\QNCon$.
+%\end{openproblem}
+%
+%
+%\section{Todo:}
+%\begin{enumerate}
+  %\item Move to encoding each qubit by logarithmic width (instead of chanks) the reason is that the gate teleportation becomes complicated when it applied over higher dimension. 
+  %\item Then showing for 2-qubit gates set that is indeed works.
+  %\item Treating separately to noise observed in two qubits gates. 
+%\end{enumerate}
+%
+%
+%\section{ The Noise Model } 
+%Informally classical noisy circuits describe the running computation of circuits when the bits have probabilities to flip. As exactly to the classical case, in noisy quantum circuits qubits have probabilities to fault. We formalise the noise model by defining a channel $\mathcal{N} : \mathcal{C} \rightarrow \mathcal{D}\left(\mathcal{C}\right)$ that given an ideal circuit induce distribution over circuits. For example, one can consider a Pauli channel, which  after each gate of the original circuit, either do nothing with probability $1-p$ or, with probability $1-p$ impose uniformly one of the Pauli operators $X,Z,Y$. Formally:  
+%\begin{definition}
+  %Pauli channel $\mathcal{N}: \mathcal{C}\rightarrow \mathcal{D} \left( \mathcal{C} \right)$ defined to give on input $C \in \mathcal{C}$ the distribution over circuits $\tilde{C}$ where any even location of $(i, 2j)$ of $\tilde{C}$ equals to the $(i,j)$ location of $C$, and any odd location $(i,2j+1)$ of $\tilde{C}$ is the density operator $(1-p) I + \frac{p}{3} \left(X + Y + Z  \right)$. 
+%\end{definition}
+%
+%The Pauli channel is charactered by exhibits an independent noise on the qubits, Yet for most of the fault tolerance construction a much more weaker property is required to be assumed. We say that a channel is a local stochastic noise channel if the probability to error to be occur is exponentially decays at the number of qubits the error supports.  
+ %
+%\begin{definition}
+  %An error channel $\mathcal{N}: \mathcal{C}\rightarrow \mathcal{D} \left( \mathcal{C} \right)$ will be said to be a local stochastic noise channel if there exists a constant $c$ such the probability to a fault to be applied on locations $(I ,j)$, where $I$ is a subset of qubits, is less than $c^{-n}$.
+%\end{definition}
+%
+%Another important property of a noise model which we consider in this work is the accessibility to fresh qubits, also known as resets gate. When having an access to fresh qubits one can assume that in any time in the computation there are qubits at the $\ket{0}$ states. Usually those qubits are used to measured the syndrome relative to an error correction code. It was proven that without an access to fresh qubits quantum circuits cannot last than logarithmic depth without mixing into a fully mixed state, meaning to be turned into complete garbage \cite{aharonov1996limitationsnoisyreversiblecomputation}. That result also holds for a classical noisy computation. 
+%
+%\begin{definition}
+  %An error channel $\mathcal{N}: \mathcal{C}\rightarrow \mathcal{D} \left( \mathcal{C} \right)$ will be said to has a fresh qubits access if location $(i,j)$ in an output gate $\tilde{C}$ has a non zero probability to exhibits a fault if there is a $j^{\prime} < j$ such a location $(i, j^{\prime})$ such that on the input circuit $C$, at location $(i,j^{\prime})$ a non identity gate is posed.     
+%\end{definition}
+%
+%We close this section by formalize the \noiseQNCon class. 
+%\begin{definition}
+  %We denote by \noiseQNCon the class of decision problems solvable by logarithmic-depth quantum circuits, subjected to a local stochastic noise,  with bounded probability of error. 
+%\end{definition}
+%We mention that in \cite{aharonov1996limitationsnoisyreversiblecomputation}, it was proved how a fault tolerance circuit with an access to fresh qubits, at logarithmic depth, can be converted to a log depth circuits without a fresh qubits access at the cost which is at most polynomial in wide. Meaning that Proving that $ \QNCon \subset $ \noiseQNCon implies also that $ \QNCon $ can be computed, in the presence of noise without an access to fresh qubits. 
+%
+%
+%\section{ Fault Tolerance (With Resets gates) at Linear Depth. } 
+%
+%\begin{claim}
+%There exists a value $p_{th} \in (0,1)$ such that if $p < p_{th}$, then any quantum circuit $C$ with a depth of $D$ and a width of $W$ can be computed by a $p$-noisy circuit $C^{\prime}$, which allows for resets. The depth of $C^{\prime}$ is at most $\max{ \{O(D), O(\log(WD)) \} }$.
+%\end{claim}
+%
+%
+%\subsection{Initializing Magic for Teleportation gates and encodes ancillaries.}
+%The Protocol: \begin{enumerate}
+  %\item Initialization of zeros: The qubits are divided into blocks of size $|B|$. Each block is encoded in $C_{g}$ using $D_{ft} \Phi_{ft}[E_{g}] \ket{0^{|B|}}$.
+  %\item Initialization of Magic for Teleportation gates: The gates in the original circuit are encoded in $C_{g}$ using $D_{ft} \Phi_{ft}[E_{g}] \ket{\Phi_{U}}$.
+  %\item Gate teleportation: Each gate in the original circuit is replaced by a gate teleportation.
+  %\item Error reduction: After the initialization step, at each time tick, each block runs a single round of error reduction.
+%\end{enumerate}
+%
+%\begin{claim}[From \cite{leverrier2022decodingquantumtannercodes}]
+  %\label{claim:error} 
+  %Assuming that an error $|e| \le \gamma n $, i.e $e$ is supported on less than $\gamma n$ bits, then a single correction round reduce $e$ to an error $e^\prime$ such that $|e^{\prime}| < \nu |e|$. 
+%\end{claim}
+ %%Recall that by definition, $D_{i}E_{i} = I$, or in other words, $D_{i}= E_{i}^{\dagger}$.  
+%\begin{claim}
+  %\label{claim:noisepa}
+  %The gate $ D_{ft} \Phi_{ft}[E_{g}]$ initializes states encoded in $C_{g}$ subject to a $3p$-noise channel.  
+%\end{claim}
+%\begin{proof}
+  %Clearly, with high probability, $\Phi_{ft}[E_{g}]$ successfully encodes into $C_{ft} \circ C_{g}$, let's say with probability $1 - \frac{1}{poly(n)}$. Denote by $E_{i}$ and $D_{i}$ the encoder and decoder at the $i$th level of the concatenation construction. Consider the decoder under $\mathcal{N}$ action: $P_{2}D_{1}P_{2}D_{2},..,P_{i-1}D_{i}P_{i}$, by the fault-tolerance construction, a logical error at the $i$th stage occurs with probability $p^{2^{i}}$. Therefore, by the union bound, the probability that in one of the steps the circuit absorbs an error that is not corrected is less than $p + p^{2} + p^{4} + .. < 2p$. Hence, any decoded qubit absorbs noise with probability less than $2p$.
+%
+%
+  %Thus, overall, we can bound the probability of a single qubit being faulty by:
+  %\begin{equation*}
+    %\begin{split}
+      %\prb{\text{fault} } &=  \prb{\text{fault} |  \Phi_{ft}[E_{g}] }\cdot \prb{\Phi_{ft}[E_{g}]} + \prb{\text{fault} | \overline{\Phi_{ft}[E_{g}]} }\cdot \prb{\overline{\Phi_{ft}[E_{g}]}}\\
+      %&\le  \prb{\text{fault} |  \Phi_{ft}[E_{g}] } + \prb{\overline{\Phi_{ft}[E_{g}]}} \le 2p + \frac{1}{poly(n)} \le 3p
+    %\end{split}
+  %\end{equation*}
+%
+  %\begin{remark}
+%In our construction, we use the concatenation code to encode blocks of length $\log(n)$. Therefore, any $poly(n)$ in the above should be replaced by $\log(n)$. However, this does not affect anything since the inequality does not depend on $n$.
+  %\end{remark}
+%
+%%
+%%
+%%  \begin{equation*}
+%%    \begin{split}
+%%      \mathcal{N}(D) &= \left((\mathcal{N}(D))^{\dagger}\right)^{\dagger} =  \left(\sum_{P_{1}, P_{2}, .., P_{i} \in \mathcal{P}}{ \prb{P_{1}, P_{2}, .., P_{i}}  \left(D_{1}P_{2}D_{2},..,P_{i-1}D_{i}P_{i}\right)^{\dagger}} \right)^{\dagger} \\ 
+%%      &= \left( \sum_{P_{1}, P_{2}, .., P_{i} \in \mathcal{P}}{ \prb{P_{1}, P_{2}, .., P_{i}}  P_{i}E_{i}P_{i-1}E_{i-1},..,P_{1}E_{1} } \right)^{\dagger}\\
+%%      &= \left( \left( 1 -\frac{1}{poly(n)} \right)\sum_{P_{i} \in \mathcal{P}}\prb{P_{i}}P_{i}E + \frac{1}{poly(n)} A  \right)^{\dagger} \\ 
+%%      &= \left( 1 -\frac{1}{poly(n)} \right)\sum_{P_{i} \in \mathcal{P}}\prb{P_{i}}DP_{i} + \frac{1}{poly(n)} A 
+%%\end{split}
+%%  \end{equation*}
+%%
+%%  %Since $D$ is semi-transversal gate, it preserves the 
+%%
+%%
+%%  And notice that $\star$ is with probability $1 - \frac{1}{poly(n)}$ equals to $E_{i}E_{i-1}..,E_{1}=E$. Hence $\mathcal{N}(D)$ equals to $\left( P E \right)^{\dagger} = PD$.
+%%
+%%  \begin{equation*}
+%%    \begin{split}
+%%      \braket{ \psi^{\prime} | P_{i}E_{i}P_{i-1}E_{i-1},..,P_{1}E_{1} \psi } = \braket{ \psi^{\prime} P_{i}D_{i}P_{i-1}D_{i-1},..,P_{1}D_{1} | \psi }
+%%    \end{split}
+%%  \end{equation*}
+%%  Thus for any pauli-channel $\mathcal{N} : L(H) \rightarrow L(H)$, and $\psi^{\prime}$ which is a codeword we get: 
+%%  \begin{equation*}
+%%    \begin{split}
+%%      \braket{ \psi^{\prime} \mathcal{N}(D) | \psi } &=  \sum_{P_{1}, P_{2}, .., P_{i} \in \mathcal{P}}{ \prb{P_{1}, P_{2}, .., P_{i}}  \braket{ \psi^{\prime} P_{i}D_{i}P_{i-1}D_{i-1},..,P_{1}D_{1} | \psi }} \\
+%%      &=  \sum_{P_{1}, P_{2}, .., P_{i} \in \mathcal{P}^{\star}}{  \prb{P_{1}, P_{2}, .., P_{i}}\braket{ \psi^{\prime} | P_{i}E_{i}P_{i-1}E_{i-1},..,P_{1}E_{1} \psi }} \pm O(  \frac{1}{poly(n)})\\
+%%      &=  \sum_{P_{1}, P_{2}, .., P_{i} \in \mathcal{P}^{\star}}{  \prb{P_{1}, P_{2}, .., P_{i}}\braket{ \psi^{\prime} | P_{i} E \psi }} \pm O(  \frac{1}{poly(n)})\\
+%%      &\le  \sum_{ P_{i} \in \mathcal{P}}{  \prb{ P_{i}}\braket{ \psi^{\prime} | P_{i} E \psi }} \pm O(  \frac{1}{poly(n)}) \\
+%%      &\le  \sum_{ P_{i} \in \mathcal{P}^{\le d}}{  \prb{ P_{i}}\braket{ \psi^{\prime} | P_{i} E \psi }} \pm O (e^{-d \cdot n} ) \pm O(  \frac{1}{poly(n)}) \\
+%%      & \le   \sum_{ P_{i} \in \mathcal{P}/\mathcal{P}^{\star}}{  \prb{ P_{j} \in B_{d}\left( P_{i} \right)}\braket{ \psi^{\prime} | P_{i} E \psi }}  \pm O (e^{-d \cdot n} ) \pm O(  \frac{1}{poly(n)}) 
+%%    \end{split}
+%%  \end{equation*}
+%%  Using the fact that the concatenation code is monotonic (\Cref{def:mono}) we get that the probability to have physical fault $P_{j}$.   
+%%%\end{widetext}
+%\end{proof}
+%
+%\begin{claim}
+  %\label{claim:prob}
+  %With a probability $ 1 - \frac{WD}{|B|} \cdot D 2e^{-2|B|(\beta - p)} $, the total amount of noise absorbed in a block at any given time $t$, is less than $\gamma n$. 
+%\end{claim}
+%\begin{proof}
+%Consider the $i$th block, denoted by $B_{i}$. By applying Hoeffding's inequality, we have that the probability that more than $\beta |B|$ qubits are flipped at time $t$ is less than $2e^{-2|B|(\beta - p)}$. By using the union bound over all blocks at all time locations, we can conclude that with probability $1 - \frac{WD}{|B|} \cdot D 2e^{-2|B|(\beta - p)}$, the noise absorbed in a block is less than $|\beta|B$ for the entire computation.
+%
+%Let $X_{t}$ denote the support size of the error over $B_{i}$ at time $t$. Using \Cref{claim:error}, we can bound the total amount of error absorbed by a block until time $t$ as follows:
+%\begin{equation*}
+%\begin{split}
+%X_{t} \le \nu \cdot (X_{t-1} + \beta |B| ) \le \nu(\gamma+\beta) |B| \le \gamma |B|
 %\end{split}
-%  \end{equation*}
+%\end{equation*}
+%\end{proof}
 %
-%  %Since $D$ is semi-transversal gate, it preserves the 
+%
+%\begin{claim}
+  %The total depth of the circuit is $O ( D  ) + O ( \log^{c} |B| )$. 
+%\end{claim}
+%\begin{proof}
+  %The gate for encoding $|B|$-length blocks in $C_{g}$ is a Clifford gate and can therefore be computed in $O(\log|B|)$ depth. The encoding of the magic/bell states is done by first computing them in the logical space (un-encoded qubits) and then encode them using the encoder. Hence, the fault-tolerant version of both initializing ancillaries and magic states/bell states costs $O( (\log |B|) \cdot \log^{c}( |B| \log |B| ) )$ \footnote{The width of the original circuit is $|B|^{2}$ so the number of locations is $ |B|^{2} \cdot \log |B|$} depth \cite{aharonov1999faulttolerant}. Backing into $C_{g}$ from $C_{ft}$ by decoding the concatenation code takes exactly as long as the encoding, namely $O( (\log |B|) \cdot \log^{c}( |B| \log |B| ) )$.
+%
+  %Then, using the bell measurements, any of the logical gates takes $O(1)$ depth. Since we only perform a single round of error correction, the remaining computation until the last decoding stage takes at most constant time of the original depth. Finally, we pay $O(\log |B|)$ for complete decoding. Summing all, we get: 
+  %\begin{equation*}
+    %\begin{split}
+     %&  O ( \log |B|\cdot  \log^{c}( |B| \log |B| ) )  + O ( D  ) + O ( \log |B| ) \\ 
+     %= & O ( D  ) + O ( \log^{c} |B| )
+    %\end{split}
+  %\end{equation*}
+%\end{proof}
+%
+%Assuming that $W$ is polynomial in $D$, taking the block length to be $|B| = \log((W \cdot D)^c)$, as shown in \Cref{claim:prob}, results in a linear fault tolerance construction with a success probability of $1 - \frac{1}{\log^{c_2}(W \cdot D)}$. This means that the fault tolerance version of circuits in $\textbf{QNC}_1$ has a logarithmic depth. Additionally, using the construction in \cite{aharonov1996limitationsnoisyreversiblecomputation} produces a polynomial fault tolerance circuit in the reversible gates setting. \ctt{ We missed the fact that it requires non trivial classical computation to compute what gate should be applied after the gate teleportation (i.e $UPU^{\dagger}$ )}.
 %
 %
-%  And notice that $\star$ is with probability $1 - \frac{1}{poly(n)}$ equals to $E_{i}E_{i-1}..,E_{1}=E$. Hence $\mathcal{N}(D)$ equals to $\left( P E \right)^{\dagger} = PD$.
 %
-%  \begin{equation*}
-%    \begin{split}
-%      \braket{ \psi^{\prime} | P_{i}E_{i}P_{i-1}E_{i-1},..,P_{1}E_{1} \psi } = \braket{ \psi^{\prime} P_{i}D_{i}P_{i-1}D_{i-1},..,P_{1}D_{1} | \psi }
-%    \end{split}
-%  \end{equation*}
-%  Thus for any pauli-channel $\mathcal{N} : L(H) \rightarrow L(H)$, and $\psi^{\prime}$ which is a codeword we get: 
-%  \begin{equation*}
-%    \begin{split}
-%      \braket{ \psi^{\prime} \mathcal{N}(D) | \psi } &=  \sum_{P_{1}, P_{2}, .., P_{i} \in \mathcal{P}}{ \prb{P_{1}, P_{2}, .., P_{i}}  \braket{ \psi^{\prime} P_{i}D_{i}P_{i-1}D_{i-1},..,P_{1}D_{1} | \psi }} \\
-%      &=  \sum_{P_{1}, P_{2}, .., P_{i} \in \mathcal{P}^{\star}}{  \prb{P_{1}, P_{2}, .., P_{i}}\braket{ \psi^{\prime} | P_{i}E_{i}P_{i-1}E_{i-1},..,P_{1}E_{1} \psi }} \pm O(  \frac{1}{poly(n)})\\
-%      &=  \sum_{P_{1}, P_{2}, .., P_{i} \in \mathcal{P}^{\star}}{  \prb{P_{1}, P_{2}, .., P_{i}}\braket{ \psi^{\prime} | P_{i} E \psi }} \pm O(  \frac{1}{poly(n)})\\
-%      &\le  \sum_{ P_{i} \in \mathcal{P}}{  \prb{ P_{i}}\braket{ \psi^{\prime} | P_{i} E \psi }} \pm O(  \frac{1}{poly(n)}) \\
-%      &\le  \sum_{ P_{i} \in \mathcal{P}^{\le d}}{  \prb{ P_{i}}\braket{ \psi^{\prime} | P_{i} E \psi }} \pm O (e^{-d \cdot n} ) \pm O(  \frac{1}{poly(n)}) \\
-%      & \le   \sum_{ P_{i} \in \mathcal{P}/\mathcal{P}^{\star}}{  \prb{ P_{j} \in B_{d}\left( P_{i} \right)}\braket{ \psi^{\prime} | P_{i} E \psi }}  \pm O (e^{-d \cdot n} ) \pm O(  \frac{1}{poly(n)}) 
-%    \end{split}
-%  \end{equation*}
-%  Using the fact that the concatenation code is monotonic (\Cref{def:mono}) we get that the probability to have physical fault $P_{j}$.   
-%%\end{widetext}
-\end{proof}
-
-\begin{claim}
-  \label{claim:prob}
-  With a probability $ 1 - \frac{WD}{|B|} \cdot D 2e^{-2|B|(\beta - p)} $, the total amount of noise absorbed in a block at any given time $t$, is less than $\gamma n$. 
-\end{claim}
-\begin{proof}
-Consider the $i$th block, denoted by $B_{i}$. By applying Hoeffding's inequality, we have that the probability that more than $\beta |B|$ qubits are flipped at time $t$ is less than $2e^{-2|B|(\beta - p)}$. By using the union bound over all blocks at all time locations, we can conclude that with probability $1 - \frac{WD}{|B|} \cdot D 2e^{-2|B|(\beta - p)}$, the noise absorbed in a block is less than $|\beta|B$ for the entire computation.
-
-Let $X_{t}$ denote the support size of the error over $B_{i}$ at time $t$. Using \Cref{claim:error}, we can bound the total amount of error absorbed by a block until time $t$ as follows:
-\begin{equation*}
-\begin{split}
-X_{t} \le \nu \cdot (X_{t-1} + \beta |B| ) \le \nu(\gamma+\beta) |B| \le \gamma |B|
-\end{split}
-\end{equation*}
-\end{proof}
-
-
-\begin{claim}
-  The total depth of the circuit is $O ( D  ) + O ( \log^{c} |B| )$. 
-\end{claim}
-\begin{proof}
-  The gate for encoding $|B|$-length blocks in $C_{g}$ is a Clifford gate and can therefore be computed in $O(\log|B|)$ depth. The encoding of the magic/bell states is done by first computing them in the logical space (un-encoded qubits) and then encode them using the encoder. Hence, the fault-tolerant version of both initializing ancillaries and magic states/bell states costs $O( (\log |B|) \cdot \log^{c}( |B| \log |B| ) )$ \footnote{The width of the original circuit is $|B|^{2}$ so the number of locations is $ |B|^{2} \cdot \log |B|$} depth \cite{aharonov1999faulttolerant}. Backing into $C_{g}$ from $C_{ft}$ by decoding the concatenation code takes exactly as long as the encoding, namely $O( (\log |B|) \cdot \log^{c}( |B| \log |B| ) )$.
-
-  Then, using the bell measurements, any of the logical gates takes $O(1)$ depth. Since we only perform a single round of error correction, the remaining computation until the last decoding stage takes at most constant time of the original depth. Finally, we pay $O(\log |B|)$ for complete decoding. Summing all, we get: 
-  \begin{equation*}
-    \begin{split}
-     &  O ( \log |B|\cdot  \log^{c}( |B| \log |B| ) )  + O ( D  ) + O ( \log |B| ) \\ 
-     = & O ( D  ) + O ( \log^{c} |B| )
-    \end{split}
-  \end{equation*}
-\end{proof}
-
-Assuming that $W$ is polynomial in $D$, taking the block length to be $|B| = \log((W \cdot D)^c)$, as shown in \Cref{claim:prob}, results in a linear fault tolerance construction with a success probability of $1 - \frac{1}{\log^{c_2}(W \cdot D)}$. This means that the fault tolerance version of circuits in $\textbf{QNC}_1$ has a logarithmic depth. Additionally, using the construction in \cite{aharonov1996limitationsnoisyreversiblecomputation} produces a polynomial fault tolerance circuit in the reversible gates setting. \ctt{ We missed the fact that it requires non trivial classical computation to compute what gate should be applied after the gate teleportation (i.e $UPU^{\dagger}$ )}.
-
-
-
-
-\section{ $\QACze \subset $\noiseQNCon }
-For completing this one has to show that one can compute the parity with a fixed gates set. Here is what we need: 
-\begin{enumerate}
-  \item having the logical states $\ket{0} + e^{i\frac{|x|}{2^{j}}}\ket{1}$
-  \item Note that gate $\ket{0} + e^{i\frac{1}{2^{j}}}\ket{1}$ is in the $j$th level of the Clifford. Yet after getting the Pauli one has to compute what gate should be applied. And when considering logical space it's not a constant operation, yet it could computed in the logical space, so what we need is just to look, so for a $m$-length code, $\log m$. Or maybe can we do better?   
-  \item if the diminution of the code is constant?  
-    \begin{equation*}
-      \begin{split}
-	& \ket{C_{Z}^{\perp}, C_{Z}^{\perp}} + \ket{C_{Z}^{\perp} + 1_{L}, C_{Z}^{\perp} + 1_{L}} \\ 
-	\rightarrow  \alpha  & \ket{C_{Z}^{\perp}} \left( \ket{C_{Z}^{\perp}, C_{Z}^{\perp}} + \ket{C_{Z}^{\perp} + 1_{L}, C_{Z}^{\perp} + 1_{L}} \right) \\
-	+   \beta & \ket{ C_{Z}^{\perp} + 1_{L}}\left( \ket{C_{Z}^{\perp}+1_{L}, C_{Z}^{\perp}} + \ket{C_{Z}^{\perp}, C_{Z}^{\perp} + 1_{L}} \right)
-      \end{split}
-    \end{equation*}
-\end{enumerate}
-
-
-\section{ Does $\NCon \subset $\noiseQNCon ?}
-
-
-\section{ Does Factoring $\subset$ \noiseQNCon ?}
-
-\begin{equation*}
-  \begin{split}
-    D(n) &= \Theta(\log n ) + D(\sqrt{n})\\
-    \Rightarrow D(n) & = \Theta( \log n ) 
-  \end{split}
-\end{equation*}
-
-
-
-
-\printbibliography
-
-
-
-
-
-
+%
+%\section{ $\QACze \subset $\noiseQNCon }
+%For completing this one has to show that one can compute the parity with a fixed gates set. Here is what we need: 
+%\begin{enumerate}
+  %\item having the logical states $\ket{0} + e^{i\frac{|x|}{2^{j}}}\ket{1}$
+  %\item Note that gate $\ket{0} + e^{i\frac{1}{2^{j}}}\ket{1}$ is in the $j$th level of the Clifford. Yet after getting the Pauli one has to compute what gate should be applied. And when considering logical space it's not a constant operation, yet it could computed in the logical space, so what we need is just to look, so for a $m$-length code, $\log m$. Or maybe can we do better?   
+  %\item if the diminution of the code is constant?  
+    %\begin{equation*}
+      %\begin{split}
+	%& \ket{C_{Z}^{\perp}, C_{Z}^{\perp}} + \ket{C_{Z}^{\perp} + 1_{L}, C_{Z}^{\perp} + 1_{L}} \\ 
+	%\rightarrow  \alpha  & \ket{C_{Z}^{\perp}} \left( \ket{C_{Z}^{\perp}, C_{Z}^{\perp}} + \ket{C_{Z}^{\perp} + 1_{L}, C_{Z}^{\perp} + 1_{L}} \right) \\
+	%+   \beta & \ket{ C_{Z}^{\perp} + 1_{L}}\left( \ket{C_{Z}^{\perp}+1_{L}, C_{Z}^{\perp}} + \ket{C_{Z}^{\perp}, C_{Z}^{\perp} + 1_{L}} \right)
+      %\end{split}
+    %\end{equation*}
+%\end{enumerate}
+%
+%
+%\section{ Does $\NCon \subset $\noiseQNCon ?}
+%
+%
+%\section{ Does Factoring $\subset$ \noiseQNCon ?}
+%
+%\begin{equation*}
+  %\begin{split}
+    %D(n) &= \Theta(\log n ) + D(\sqrt{n})\\
+    %\Rightarrow D(n) & = \Theta( \log n ) 
+  %\end{split}
+%\end{equation*}
+%
+%
+%
+%
+%\printbibliography
+%
+%
+%
+%
+%
+%
 \end{document}
 
 
