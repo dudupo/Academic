@@ -130,6 +130,9 @@ Second, the analog class of $\NC{}$ is $\QNC{}$, which characterizes logarithmic
   For a fixing finate fan in/out gateset $G$, the class with deciding circuits at polynomial size, composed only for gates in $G$ and at depth at most polylogaritmic. And in similar to $\QNC_{i}{}$, $\QNCiG{}$ is the restriction to circuits with depth at most $\log^{i}(n)$.  
 \end{definition}
 
+Another setting which we find interesting is the equipping of classes with an unbounded fanout CNOT gate, a gate which acts as $\ket{x}\prod_{i}\ket{y_{i}} \rightarrow \ket{x}\prod_{i}\ket{x \oplus y_{i}}$. There are two main reasons we find those class worth considering. First, the unbounded fanout CNOT can be decomposed by chaining only two-qubit CNOTs, since for any CSS code, a CNOT can be implemented in a fault-tolerant manner almost for free. Second, there are candidates at $\QNCzef$ for proving quantum advantage.
+
+
 \begin{definition}[$\QNCzef{}$] 
 Similarly to $\QNCze{}$, the class of decision problems solvable by constant depth and bounded fan out/in quantum circuits equipped additionally with a 'quantum fanout' gate is available, which CNOTs a qubit into arbitrarily many target qubits in a single step.
 \end{definition}
