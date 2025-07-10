@@ -200,9 +200,9 @@ Let $\Po,\Pt$ be sets of density matrices induced over the $n$-qubit Hilbert spa
  \begin{definition}[$(\Po,\Pt)$-Memory]
    Consider a $\left(\Po,\Pt \right)$- thermal couple, We say that C is a $(\Po, \Pt)$-Memory if there is a constant depth procedure $\DD$, such that for any $\rho \in \Po$ we have $\DD\left( \rho \right) \in \Pt$, with high probability. 
  \end{definition}
-For example, consider a code $C$ with a $\Delta$-regular Tanner graph. Let $\Po$ be all the noisy states derived from codewords in $C$ such that the syndrome graph induced by them can be decomposed into disjoint $\Delta/2$-connected components, each of size at most $\beta \sqrt{n}$, and the $\Delta/2$-distance between any two of them, namely the number of edges needed to add to merge them into one single $\Delta/2$-connected component, is at least $\theta\sqrt{n}$.
+ For example, consider a code $C$ with a $\Delta$-regular Tanner graph. Let $\Po$ be all the noisy states derived from codewords in $C$ such that the syndrome graph induced by them can be decomposed into disjoint $\Delta/2$-connected components $A_{1},A_{2},..A_{l}$, each of size at most $|A_{i}| < \beta \sqrt{n}$, and the $\Delta/2$-distance between any two of them $A_{i}, A_{j}$, namely the number of edges needed to add to merge them into one single $\Delta/2$-connected component, is at least $\theta \min \left( |A_{i}|, |A_{j}| \right)$. We call such decomposition characterization $(\beta \sqrt{n}, \theta \sqrt{n})$ error decomposition. 
 
-Now let $\Pt$ be all the deviations from $C$, such that the syndrome graph induced by them can be decomposed into disjoint $\Delta/2$-connected components, each of size at most $\gamma \sqrt{n}$, and the $\Delta/2$-distance between them is at least $\theta\sqrt{n}$.
+ Now let $\Pt$ be all the deviations from $C$, such that the syndrome graph induced by them can be decomposed into $\left(\gamma \sqrt{n}, \theta \sqrt{n}\right)$ error decomposition. 
 
  Assuming the existences of $\DD$ such given $\rho \in \Po$, with high probability, returns $\sigma $ 
 
