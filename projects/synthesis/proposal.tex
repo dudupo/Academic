@@ -178,11 +178,11 @@ The second gadget is Memory, a particular type of code which allows restraining 
   
 The following definition extends the idea of solving decision problems with computation subjected to noise to preparing quantum states with fault tolerance when subjected to noise.
 
-\begin{definition}[State Preparation.] Let $\mathcal{C}$ be a set of circuits, We say that $S$ is an $\left[ n, (w,d), (p \rightarrow q) \right]$-State-Perpetration scheme for $\mathcal{C}$, if for any $C \in \mathcal{C}$, $S(C) \rightarrow \tilde{C}$ such that:
+\begin{definition}[State Preparation.] Let $\mathcal{C}$ be a set of circuits, We say that $S : \mathcal{C} \rightarrow \star $ is an $\left[ (w,d), (p \rightarrow q) \right]$-State-Perpetration scheme for $\mathcal{C}$, if for any $C \in \mathcal{C}$, we have that $S(C) \rightarrow \tilde{C}$ such that:
   \begin{enumerate}
     \item $\text{ Depth } (\tilde{C} ) \le d\text{ Depth } (C )$. 
     \item $\text{ Width } (\tilde{C} ) \le d\text{ Width } (C )$. 
-    \item The state prepared by $\tilde{C}$, namely $\tilde{C}\ket{0}$ is the state prepared by $C$ when subjected to $p$-local stochastic noise. 
+    \item The state prepared by $\tilde{C}$, namely $\tilde{C}\ket{0}$ is the state prepared by $C$ when subjected to $q$-local stochastic noise. 
   \end{enumerate}
     
   \end{definition}
