@@ -255,6 +255,7 @@ Let $\Po,\Pt$ be sets of density matrices induced over the $n$-qubit Hilbert spa
     \item In each even step, we apply $\DD$ to keep the error rate low. It fails with probability at most $\Theta\left(\frac{1}{n^k}\right)$, so by the union bound the probability that $\DD$ had at least a single failure is bounded by $\Theta(\frac{1}{n^{k^{\prime}}})$.
     \item We compute the gates over the odd iterations. Each gate is replaced by two applications of gate teleportation, exploiting the magic states. Each application of Clifford, in the second and the first level of the Clifford hierarchy, is followed by $\log(\log (n))$ depth computation for deciding which operation should be applied next.
   \end{enumerate}
+  So in overall the depth overhead we get is $\log \log n$, when the battle neack is the time required to decide on the correction \ctt{change term} given the measurement results of the gate teleportation gadget. That raise the question whether there exists Memory codes for which one can perform the correction searching in $O(1)$ depth. 
 
   \section{ Cues against \CDO.  }\label{sec:passi}
 
