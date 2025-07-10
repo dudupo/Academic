@@ -205,33 +205,6 @@ Let $\Po,\Pt$ be sets of density matrices induced over the $n$-qubit Hilbert spa
  Now let $\Pt$ be all the deviations from $C$, such that the syndrome graph induced by them can be decomposed into $\left(\gamma \sqrt{n}, \theta \right)$ error decomposition. The couple $\left( \Po, \Pt \right)$ is thermal couple, And combining the quantum expander code and the parallel small set-flip decoder \cite{grospellier:tel-03364419} they defines a $\left( \Po, \Pt \right)$-memory. 
 
 
- \begin{definition}[$(\beta,\gamma)$-Memory]
-   Consider the setting where the qubits are subjected to $p$-stochastic local noise and consider the mixed state $\rho$. Let $I$ be the subset of qubits that were not affected by the noise and denote by $\bar{I}$ its complement, namely there is $\sigma \in C$ such $\Tr_I \left(\rho \right) = \Tr_J \left(\rho \right)$. We say that C is a $(\beta, \gamma)$-Memory if there is a constant depth procedure $\DD$, such that upon conditioning on the event $|I| \ge (1-\beta)n$, then with probability $1 - o(invpoly(n))$ there is $J$ such that:
-   \begin{equation*}
-     \begin{split}
-       \Tr_{J}\DD \left(\rho\right) =  \Tr_{J}\left(\sigma\right) 
-     \end{split}
-   \end{equation*}
-We say that the running of $\DD$ on $\rho$ is successful if either $|I| < (1 - \beta) n$ or the event above happens.
- \end{definition}
-
- An example for Ideal $(\beta,\gamma)$-Memory \cite{leverrier2022quantum},\cite{Dinur},\cite{Pavel}, where the decoder proved by \cite{Gu_2024}. And an example for $\left( \beta,\gamma \right)$-Memory is \cite{Leverrier_2015}, \cite{Tillich_2014}
-
- \begin{equation*}
-   \begin{split}
-    & \prb{|\bar{J}|  \ge \gamma n | \DD \text{ never fails } } \\
-      & \ \ \le  \prb{|\bar{J}| \ge \gamma n \ | \ \DD \text{ never fails } , |\bar{I}| \le \beta n } \cdot \prb{|\bar{I}| \le \beta n}  \\
-     & \ \ + \prb{|\bar{J}| \ge \gamma n \ | \ |\bar{I}| \ge \beta n } \cdot  \prb{|\bar{I}| \ge \beta n} \\ 
-     & \ \ \le  p^{\beta n} = (p^\frac{\beta}{\gamma})^{\gamma n}
-   \end{split}
- \end{equation*}
-
-
- \begin{equation*}
-   \begin{split}
-     \prb{ \DD \text{ never fails  } } \ge 1 -  \text{  locations   } \cdot  \prb{ \DD \text{ fails  } } \rightarrow 1 - o(1)
-   \end{split}
- \end{equation*}
 
 
 
