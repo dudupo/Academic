@@ -204,7 +204,6 @@ Let $\Po,\Pt$ be sets of density matrices induced over the $n$-qubit Hilbert spa
 
  Now let $\Pt$ be all the deviations from $C$, such that the syndrome graph induced by them can be decomposed into $\left(\gamma \sqrt{n}, \theta \right)$ error decomposition. The couple $\left( \Po, \Pt \right)$ is thermal couple, And combining the quantum expander code and the parallel small set-flip decoder \cite{grospellier:tel-03364419} they defines a $\left( \Po, \Pt \right)$-memory. 
 
- Assuming the existences of $\DD$ such given $\rho \in \Po$, with high probability, returns $\sigma $ 
 
  \begin{definition}[$(\beta,\gamma)$-Memory]
    Consider the setting where the qubits are subjected to $p$-stochastic local noise and consider the mixed state $\rho$. Let $I$ be the subset of qubits that were not affected by the noise and denote by $\bar{I}$ its complement, namely there is $\sigma \in C$ such $\Tr_I \left(\rho \right) = \Tr_J \left(\rho \right)$. We say that C is a $(\beta, \gamma)$-Memory if there is a constant depth procedure $\DD$, such that upon conditioning on the event $|I| \ge (1-\beta)n$, then with probability $1 - o(invpoly(n))$ there is $J$ such that:
