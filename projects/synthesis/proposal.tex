@@ -250,6 +250,7 @@ Let $\Po,\Pt$ be sets of density matrices induced over the $n$-qubit Hilbert spa
 
 
   \subsection{An almost $\QNCon{} = \text{ noisy-}\QNCon{} $.}
+  We provide beneath without a formal proof a fault construction that gives an almost \CDO. 
   \begin{enumerate}
     \item We start by initializing many encoded magic states and encoded zeros via the state preparation scheme. Since the block is of length $\log^{\alpha}(n)$, the depth required for that stage is $\log\log(n)$.
     \item In each even step, we apply $\DD$ to keep the error rate low. It fails with probability at most $\Theta\left(\frac{1}{n^k}\right)$, so by the union bound the probability that $\DD$ had at least a single failure is bounded by $\Theta(\frac{1}{n^{k^{\prime}}})$.
