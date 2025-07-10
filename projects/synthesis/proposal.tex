@@ -155,7 +155,7 @@ Here we summarize and present the main gadgets that were invented in past fault 
 
 The second gadget is Memory, a particular type of code which allows restraining the error rate by exhibiting a constant depth procedure that, when promising that the error rate is below a threshold, suppresses the error by at least a constant factor. Using memory, we will be able to promise with high probability that the error rate is lower than some fraction. 
 
-\subsection{State Perpetration.}
+\subsection{State Preparation.}
 
 
   \begin{figure}[h]
@@ -178,7 +178,12 @@ The second gadget is Memory, a particular type of code which allows restraining 
   
 The following definition extends the idea of solving decision problems with computation subjected to noise to preparing quantum states with fault tolerance when subjected to noise.
 
-\begin{definition}[State Perpetration.] Let $\mathcal{C}$ be a set of circuits, We say that $S$ is an $\left[ n, (w,d), (p \rightarrow q) \right]$-State-Perpetration scheme for $\mathcal{C}$, if for any $C \in \mathcal{C}$, S  states $\ket{\psi}$ that can be   
+\begin{definition}[State Preparation.] Let $\mathcal{C}$ be a set of circuits, We say that $S$ is an $\left[ n, (w,d), (p \rightarrow q) \right]$-State-Perpetration scheme for $\mathcal{C}$, if for any $C \in \mathcal{C}$, $S(C) \rightarrow \tilde{C}$ such that:
+  \begin{enumerate}
+    \item $\text{ Depth } (\tilde{C} ) \le d\text{ Depth } (C )$. 
+    \item $\text{ Width } (\tilde{C} ) \le d\text{ Width } (C )$. 
+    \item The state prepared by $\tilde{C}$, namely $\tilde{C}\ket{0}$ is the state prepared by $C$ when subjected to $p$-local stochastic noise. 
+  \end{enumerate}
     
   \end{definition}
 
