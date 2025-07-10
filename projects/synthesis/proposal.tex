@@ -197,6 +197,10 @@ We would like to extend the memory gadgets to work with high probability, which 
 Let $\Po,\Pt$ be sets of density matrices induced over the $n$-qubit Hilbert space, and let $\Nn$ be a $p$-stochastic local noise channel for some constant $p \in (0,1)$. We say that the couple $\left(\Po,\Pt \right)$ is a thermal couple if for any $\rho \in \Pt$, we have $\Nn(\rho) \in \Po$ with high probability.
 \end{definition}
 
+ \begin{definition}[$(\Po,\Pt)$-Memory]
+   Consider a $\left(\Po,\Pt \right)$- thermal couple, We say that C is a $(\Po, \Pt)$-Memory if there is a constant depth procedure $\DD$, such that for any $\rho \in \Po$  $\DD\left( \rho \right) \in \Pt$, with high probability. 
+ \end{definition}
+
  \begin{definition}[$(\beta,\gamma)$-Memory]
    Consider the setting where the qubits are subjected to $p$-stochastic local noise and consider the mixed state $\rho$. Let $I$ be the subset of qubits that were not affected by the noise and denote by $\bar{I}$ its complement, namely there is $\sigma \in C$ such $\Tr_I \left(\rho \right) = \Tr_J \left(\rho \right)$. We say that C is a $(\beta, \gamma)$-Memory if there is a constant depth procedure $\DD$, such that upon conditioning on the event $|I| \ge (1-\beta)n$, then with probability $1 - o(invpoly(n))$ there is $J$ such that:
    \begin{equation*}
