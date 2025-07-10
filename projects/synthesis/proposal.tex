@@ -180,13 +180,17 @@ Gadgets.
 
  \subsection{Memory.} 
  \newcommand*{\DD}{\mathbf{D} }
- \begin{definition}
+ \begin{definition}[Ideal $(\beta,\gamma)$-Memory]
    We say that a (quantum) error correction code $C$ is an Ideal $(\beta,\gamma)$-Memory code if there is a constant depth procedure $\DD$ such that for any $I$ of size $|I| \ge (1 - \beta) n$ and a mixed states $\sigma$ and $\rho$ such $\rho$ distributed over the $C$'s codewords $\rho \in C$ and $\Tr_{I}\left(\rho\right) = \Tr_{I}\left(\sigma\right)$, we have that there is subset of qubits $J$ at size at least $(1-\gamma)n$:
    \begin{equation*}
      \begin{split}
         \Tr_{J} \DD \left(\rho\right) = \Tr_{J}\left(\sigma\right) 
      \end{split}
    \end{equation*}
+
+ \end{definition}
+We would like to extend the memory gadgets to work with high probability, which motivates us to define the following:
+ \begin{definition}[$(\beta,\gamma)$-Memory]
    Furthermore, let $f = \{f_{x}\}$ be a family of distributions, such that $f_{x}$ is a distribution over all the qubit subsets of size at least $x$. We say that C is a $(\beta, \gamma)$-Memory with respect to distribution $f$ over the qubits, if for a sampled subset $I \sim f_{ 1 - \beta }$ we have that:
    \begin{equation*}
      \begin{split}
