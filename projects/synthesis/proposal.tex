@@ -246,11 +246,14 @@ Let $\Po,\Pt$ be sets of density matrices induced over the $n$-qubit Hilbert spa
     \label{fig:mem}
   \end{figure}
 
+  \subsection{Gate Teleportation.} 
+
+
   \subsection{An almost $\QNCon{} = \text{ noisy-}\QNCon{} $.}
   \begin{enumerate}
-    \item We start by intializing many encoded magic states via the state preparation scheme and encoded zeros, since the block is at length $\log^{\alpha}(n)$ the depth reuired to that stage is $\log\log(n)$. 
-    \item In each even step we applay $\DD$ to restrain the error rate low.  
-    \item 
+    \item We start by initializing many encoded magic states and encoded zeros via the state preparation scheme. Since the block is of length $\log^{\alpha}(n)$, the depth required for that stage is $\log\log(n)$.
+    \item In each even step, we apply $\DD$ to keep the error rate low. It fails with probability at most $\Theta\left(\frac{1}{n^k}\right)$.
+    \item We compute the gates over the odd iterations. Each gate is replaced by two applications of gate teleportation, exploiting the magic states. Each application of Clifford, in the second and the first level of the Clifford hierarchy, is followed by $\log(\log (n))$ depth computation for deciding which operation should be applied next.
   \end{enumerate}
 
   \section{ Cues against \CDO.  }\label{sec:passi}
