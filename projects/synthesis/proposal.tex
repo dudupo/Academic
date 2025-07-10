@@ -248,6 +248,57 @@ Let $\Po,\Pt$ be sets of density matrices induced over the $n$-qubit Hilbert spa
 
   \subsection{Gate Teleportation.} 
 
+\begin{tikzpicture}
+    % Styles
+    \tikzset{
+        gate/.style={draw, fill=white, minimum size=1.5em},
+        wire/.style={thick},
+        measure/.style={draw, fill=white, minimum size=1.5em, inner sep=0pt},
+        classical/.style={double, double distance=1pt}
+    }
+
+    % Qubits
+    \node at (0,0) (q1) {$\ket{\psi}$};
+    \node at (0,-1) (q2) {$\ket{0}$};
+    \node at (0,-2) (q3) {$\ket{0}$};
+
+    % Wires
+    \draw[wire] (q1) -- ++(1,0) coordinate (q1end);
+    \draw[wire] (q2) -- ++(1,0) coordinate (q2end);
+    \draw[wire] (q3) -- ++(1,0) coordinate (q3end);
+
+    % Gates
+    \node[gate] at (2,-1.5) (bell) {Bell};
+    \draw[wire] (q2end) -- (bell);
+    \draw[wire] (q3end) -- (bell);
+
+    \node[gate] at (4,0) (cx1) {CNOT};
+    \draw[wire] (q1end) -- (cx1);
+    \draw[wire] (bell) -- ++(1,0) |- (cx1);
+
+    \node[gate] at (6,0) (h) {H};
+    \draw[wire] (cx1) -- (h);
+
+    \node[measure] at (8,0) (m1) {M};
+    \node[measure] at (8,-1) (m2) {M};
+    \draw[wire] (h) -- (m1);
+    \draw[wire] (bell) -- ++(3,0) |- (m2);
+
+    % Classical wires
+    \draw[classical] (m1) -- ++(1,0) coordinate (c1);
+    \draw[classical] (m2) -- ++(1,0) coordinate (c2);
+
+    % Correction gates
+    \node[gate] at (10,-2) (x) {X};
+    \node[gate] at (12,-2) (z) {Z};
+    \draw[classical] (c1) -- ++(0,-2) -| (x);
+    \draw[classical] (c2) -- ++(0,-1) -| (z);
+
+    % Final state
+    \draw[wire] (bell) -- ++(7,0) |- (x);
+    \draw[wire] (x) -- (z);
+    \draw[wire] (z) -- ++(1,0) node[right] {$\ket{\psi}$};
+\end{tikzpicture}
 
   \subsection{An almost $\QNCon{} = \text{ noisy-}\QNCon{} $.}
   We provide beneath without a formal proof a fault construction that gives an almost \CDO. 
