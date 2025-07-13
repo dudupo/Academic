@@ -316,7 +316,10 @@ The $c$-disjointness of $C$ is defined to be the minimum of $c$-disjointness, wh
 
 
 \begin{enumerate}
-  \item Disjointness of 2D Toric code. 
+  \item \textbf{Disjointness of 2D Toric code.}
+
+    First notice that any two representation of $Y_{1}$ intersect in at least two qubits. (four orbits, two horizontally and two vertically. ), Thus $\Delta_{1}\left( Y_{1} \right) = 1$. In addition since one can take disjoint colomuns as $X_{1}$ presentations and disjoint rows $Z_{1}$ represenations, we have that $\Delta_{1}(X_1) = \Delta_{1}(Z_1)$ is at least $\sqrt{n}$, similarly we get the same for $Y_{2},X_{2},Z_{2}$ and therefore, $\Delta_{1} = \min\Delta_{1} = 1$. 
+    Yet, for $\Delta_{2}$, we have form the same argues as presented previously that $\Delta_{2}(X_{1}) = \Delta_{2}(Z_{1}) \ge \frac{1}{2}\sqrt{n}$.  
   \item Disjointness of classical repetition code. 
     For example, the disjointness of the classical repetition  code, the $X$-type generator is $X^{\otimes n}$, the $Z$-type generator is $Z \otimes I^{\otimes n-1}$. 
   \item Disjointness of the good quantum LDPC code. 
