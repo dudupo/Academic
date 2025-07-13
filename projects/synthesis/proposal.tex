@@ -342,14 +342,18 @@ The $c$-disjointness of $C$ is defined to be the minimum of $c$-disjointness, wh
 
 \subsection{Fault Tolerance and Homomorphic Computation.  }
 
+
 While the source for disjointness were computational,  
+\begin{definition}
+  A quantum code is an $r$-fold quantum code, if it's codewords can be written as product over $r$ subsystems: 
+  \begin{equation*}
+    \begin{split}
+      \ket{i}_{L} =  \otimes^{r}_{j}\ket{\psi_{i,j}}  
+    \end{split}
+  \end{equation*} When we think of the states in each subsystem as codewords of subcodes, note that any code is at least a $1$-fold code. If each of the subcodes has distance $1$, then we call the code a maximally redundant code. An example of a maximally redundant code is the Shor code.
+\end{definition}
+It was shown in \cite{newman2017limitationstransversalcomputationquantum} that any binary code which is not a maximally result code cannot compute the Toffoli transversally; otherwise, it implies the existence of a relatively low-resource consuming homomorphic protocol which violates Nayak's bound \cite{nayak1999optimallowerboundsquantum}.
 
- We show that, other than a small set of non-additive codes that we cannot rule out, no binary QECC can transversally implement a classical reversible universal gate set. In particular, no such QECC can implement the Toffoli gate transversally.
-
- We prove our result by constructing an information theoretically secure (but inefficient) quantum homomorphic encryption.
-
-We observe a restriction imposed by Nayak’s \cite{nayak1999optimallowerboundsquantum}  bound (FOCS 1999) on ITS-QHE, implying that any ITS quantum fully homomorphic scheme (ITS-QFHE) implementing the full set of classical reversible functions must be highly inefficient. While our scheme incurs exponential overhead, any such QECC implementing Toffoli transversally would still violate this lower bound through our scheme.
-\cite{ newman2017limitationstransversalcomputationquantum}
 
 \begin{figure}[h]
   \centering
