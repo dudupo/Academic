@@ -297,10 +297,11 @@ In \Cref{fig:magic}, we have the $T$-teleportation gadget. The state progresses 
   So in overall the depth overhead we get is $\log \log n$, when the battle neack is the time required to decide on the correction \ctt{change term} given the measurement results of the gate teleportation gadget. That raise the question whether there exists Memory codes for which one can perform the correction searching in $O(1)$ depth. 
 
   \section{ Cues against \CDO.  }\label{sec:passi}
-
+So far, we discussed what might give \CDO. In this section, we briefly review results concerning the hardness of implementing logical operators fault-tolerantly. 
+We first present a property of stabilizer codes called disjointness \cite{bostanci2021findingdisjointnessstabilizercodes}, which quantifies how the structure of the code is far from being just a union of disjoint subsystems. In \cite{bostanci2021findingdisjointnessstabilizercodes}, they proved a relation between the disjointness value and the complexities of the logical operators that can be computed either transversally or by shallow depth circuits.
   \subsection{The disjointness of stabilizer codes.} 
 
-  \cite{ bostanci2021findingdisjointnessstabilizercodes} 
+   
 
 \begin{definition}
 Let $P$ be a logical Pauli in a stabilizer code $C$. Denote by $\Gamma_{c}(P)$ the $c$-disjointness of $P$, which is defined to be the size of the maximal subset of $P$-representations such that each qubit touches at most $c$ of them, divided by $c$. 
