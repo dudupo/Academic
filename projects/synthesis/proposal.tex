@@ -142,14 +142,14 @@ Finally, the last setting we consider is the restriction of the classes when the
   The class of decision problems solvable by polynomial size,  logarithmic-depth, and finate fan out/in quantum circuits with bounded probability of error, without reset gates.
 \end{definition}
 Those definitions bring us to ask the following question:
+\begin{oproblem}
 \begin{equation*}
   \begin{split}
     \text{ Does } \QNCon{} = \text{ noisy-}\QNCon{} \text{?}
   \end{split}
 \end{equation*}
+\end{oproblem}
 
-
-\newpage
   \section{ Strategies to get \CDO. }  \label{sec:opt}
  
 Here we summarize and present the main gadgets that were invented in past fault tolerance constructions \cite{aharonov1999faulttolerant}, \cite{gottesman2014faulttolerant}, and \cite{grospellier:tel-03364419}. These gadgets will allow us to simplify the model we work with, presenting an almost proof for \CDO, and focusing our question about complexity into a question about the existence of particular quantum error correction codes. The main gadgets are fault-tolerant State Preparation (SP) and Memory error correction codes (ME). The first presents how, while using the original fault tolerance construction based on concatenation \cite{aharonov1999faulttolerant}, one can initialize any quantum state subjected to local stochastic noise at no additional cost to the fault tolerance construction scheme being used. Since encoding is a Clifford operation, and any $m$-bit Clifford can be implemented in $O(\log m)$ time, then when $m =\Theta(\log^{\alpha} n)$ the fault-tolerant version of the 'encoder' has $O(\log n)$ depth. So using SP, one can initialize $m$-length blocks encoded in any error correction code at noisy-$\QNCon{}$.
@@ -297,7 +297,6 @@ In \Cref{fig:magic}, we have the $T$-teleportation gadget. The state progresses 
   \end{enumerate}
   So in overall the depth overhead we get is $\log \log n$, when the battle neack is the time required to decide on the correction \ctt{change term} given the measurement results of the gate teleportation gadget. That raise the question whether there exists Memory codes for which one can perform the correction searching in $O(1)$ depth. \cite{Gu_2024}  
 
-  \newpage
   \section{ Cues against \CDO.  }\label{sec:passi}
 So far, we discussed what might give \CDO. In this section, we briefly review results concerning the hardness of implementing logical operators fault-tolerantly at constant depth. 
 We first present a property of stabilizer codes called disjointness \cite{bostanci2021findingdisjointnessstabilizercodes}, which quantifies how the structure of the code is far from being just a union of disjoint subsystems. In \cite{bostanci2021findingdisjointnessstabilizercodes}, they proved a relation between the disjointness value and the complexities of the logical operators that can be computed either transversally or by shallow depth circuits.
@@ -359,6 +358,10 @@ We observe a restriction imposed by Nayak’s bound (FOCS 1999) on ITS-QHE, impl
   \subsection{The NO Scenario.} 
   Since we know that classical computation in the presence of noise can be computed at constant overhead in depth and in particular Noise-$\NC_{1} = \NC_{1}$, it's tempting to conclude that this scenario implies $\NC_{1} \neq \QNC_{1}$. Yet, taking a second look points out that such a move is not so direct, and that is because of two main reasons. First, the impossibility of \CDO{} doesn't contradict by itself a scenario where $\QNC_{1}$ is degenerated, for example, if $\QNC_{1} = \QNC_{0}$. Then one can close $\QNC_{1}$ to noise by mapping circuits to their constant depth equivalence first and then applying a fault tolerance scheme; the final circuit would be a fault-tolerant circuit at logarithmic depth. 
   Second, when saying that we know how to compute classily in the presence of noise, we mean in the presence of classical noise.  
+
+  \begin{oproblem}
+    What 
+  \end{oproblem}
 
   \subsection{The YES Scenario.} 
 
