@@ -295,7 +295,7 @@ In \Cref{fig:magic}, we have the $T$-teleportation gadget. The state progresses 
     \item In each even step, we apply $\DD$ to keep the error rate low. It fails with probability at most $\Theta\left(\frac{1}{n^k}\right)$, so by the union bound the probability that $\DD$ had at least a single failure is bounded by $\Theta(\frac{1}{n^{k^{\prime}}})$.
     \item We compute the gates over the odd iterations. Each gate is replaced by two applications of gate teleportation, exploiting the magic states. Each application of Clifford, in the second and the first level of the Clifford hierarchy, is followed by $\log(\log (n))$ depth computation for deciding which operation should be applied next.
   \end{enumerate}
-  So in overall the depth overhead we get is $\log \log n$, when the battle neack is the time required to decide on the correction \ctt{change term} given the measurement results of the gate teleportation gadget. That raise the question whether there exists Memory codes for which one can perform the correction searching in $O(1)$ depth. 
+  So in overall the depth overhead we get is $\log \log n$, when the battle neack is the time required to decide on the correction \ctt{change term} given the measurement results of the gate teleportation gadget. That raise the question whether there exists Memory codes for which one can perform the correction searching in $O(1)$ depth. \cite{Gu_2024}  
 
   \newpage
   \section{ Cues against \CDO.  }\label{sec:passi}
@@ -345,8 +345,7 @@ The $c$-disjointness of $C$ is defined to be the minimum of $c$-disjointness, wh
 
  We show that, other than a small set of non-additive codes that we cannot rule out, no binary QECC can transversally implement a classical reversible universal gate set. In particular, no such QECC can implement the Toffoli gate transversally.
 
- We prove our result by constructing an information theoretically secure (but inefficient) quan-
-tum homomorphic encryptioin
+ We prove our result by constructing an information theoretically secure (but inefficient) quantum homomorphic encryption.
 
 We observe a restriction imposed by Nayak’s bound (FOCS 1999) on ITS-QHE, implying that any ITS quantum fully homomorphic scheme (ITS-QFHE) implementing the full set of classical reversible functions must be highly ineffi- cient. While our scheme incurs exponential overhead, any such QECC implementing Toffoli transversally would still violate this lower bound through our scheme.
 \cite{ newman2017limitationstransversalcomputationquantum}
