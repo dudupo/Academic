@@ -288,6 +288,9 @@ In \Cref{fig:magic}, we have the $T$-teleportation gadget. The state progresses 
 %\lstick{\ket{0}} & \qw & \qw & \qw & \gate[wires=2]{U} & \gate{X} & \gate{Z} & \qw \\
 %\lstick{\ket{0}} & \qw & \qw & \qw & \qw & \qw & \qw & \qw
 %\end{quantikz}
+
+Similarly, any two-qubit gate $U$ can be encoded using a proper magic state, and the gate teleportation will be composed by entangling using CNOT, then measurement, and eventually, upon the measurement result $P$, applying a correction $UPU^{\dagger}$. We refer to \cite{CITE} for further reading. 
+
   \subsection{An almost $\QNCon{} = \text{ noisy-}\QNCon{} $.}
   We provide beneath without a formal proof a fault construction that gives an almost \CDO. 
   \begin{enumerate}
@@ -352,7 +355,7 @@ While the source for disjointness were computational,
     \end{split}
   \end{equation*} When we think of the states in each subsystem as codewords of subcodes, note that any code is at least a $1$-fold code. If each of the subcodes has distance $1$, then we call the code a maximally redundant code. An example of a maximally redundant code is the Shor code.
 \end{definition}
-It was shown in \cite{newman2017limitationstransversalcomputationquantum} that any binary code which is not a maximally result code cannot compute the Toffoli transversally; otherwise, it implies the existence of a relatively low-resource consuming homomorphic protocol which violates Nayak's bound \cite{nayak1999optimallowerboundsquantum}.
+It was shown in \cite{newman2017limitationstransversalcomputationquantum} that any binary code which is not a maximally redundant code cannot offer transversal logical Toffoli; otherwise, it implies the existence of a relatively low-resource consuming homomorphic protocol which violates Nayak's bound \cite{nayak1999optimallowerboundsquantum}.
 
 
 \begin{figure}[h]
