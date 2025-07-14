@@ -281,14 +281,6 @@ In \Cref{fig:magic}, we have the $T$-teleportation gadget. The state progresses 
         \end{cases} 
     \end{split}
 \end{equation*}
-
-%\begin{quantikz}
-%\lstick{\ket{\psi}} & \qw & \ctrl{1} & \gate{H} & \meter{} & \cw \cwx[1] & \cw \cwx[2] \\
-%\lstick{\ket{0}} & \gate{H} & \targ{} & \qw & \meter{} & \cwbend{-1} & \cw \cwx[1] \\
-%\lstick{\ket{0}} & \qw & \qw & \qw & \gate[wires=2]{U} & \gate{X} & \gate{Z} & \qw \\
-%\lstick{\ket{0}} & \qw & \qw & \qw & \qw & \qw & \qw & \qw
-%\end{quantikz}
-
 Similarly, any two-qubit gate $U$ can be encoded using a proper magic state, and the gate teleportation will be composed by entangling using CNOT, then measurement, and eventually, upon the measurement result $P$, applying a correction $UPU^{\dagger}$. We refer to \cite{CITE} for further reading. 
 
   \subsection{An almost $\QNCon{} = \text{ noisy-}\QNCon{} $.}
