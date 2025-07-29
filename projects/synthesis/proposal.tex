@@ -142,24 +142,15 @@ Finally, the last setting we consider is the restriction of the classes when the
   The class of decision problems solvable by polynomial size,  logarithmic-depth, and finate fan out/in quantum circuits with bounded probability of error, without reset gates.
 \end{definition}
 Those definitions lead us to ask our first open problem:
-\begin{oproblem}{The Main Open Problem.}
+\begin{oproblem}[The Main Open Problem.]
 \begin{equation*}
   \begin{split}
     \text{ Does }  \QNCon{} = \text{ noisy-}\QNCon{} \text{?}
   \end{split}
 \end{equation*}
 \end{oproblem}
-%Our second main problems invistigates if it's matter which universal gateset is used for the simulation, or whether the previews question is affermitive when our compution is restracted to a finate gateset $G^{\prime}$ and given that the source were also restricted to use local computation in a finate set, that is, we ask:  
-%\begin{oproblem}{Constant Depth Overhead On $G^{\prime}$ restricted machine.}
-  %Is there exsits a finate universal set  $G^{\prime}$ such that for any a finate two qubits gateset $G$ it holds that:
-%\begin{equation*}
-  %\begin{split}
-    %\QNCG{}_{1} = \text{ noisy-}\QNC{}_{\mathbf{G^{\prime}}, 1} \text{?}
-  %\end{split}
-%\end{equation*}
-%\end{oproblem}
 Our second main problem investigates if it matters which universal gateset is used for the simulation, or whether the previous question is affirmative when our computation is restricted to a finite gateset $G^{\prime}$ and given that the source was also restricted to use local computation in a finite set, that is, we ask:  
-\begin{oproblem}[Constant Depth Overhead On $G^{\prime}$ Restricted Machine.]
+\begin{oproblem}[Constant Depth Overhead on $G^{\prime}$ Restricted Machine.]
   Does there exist a finite universal set $G^{\prime}$ such that for any finite two-qubit gateset $G$ it holds that:
 \begin{equation*}
   \begin{split}
@@ -167,6 +158,10 @@ Our second main problem investigates if it matters which universal gateset is us
   \end{split}
 \end{equation*}
 \end{oproblem}
+
+
+
+
   \section{ Strategies to get \CDO. }  \label{sec:opt}
  
 Here we summarize and present the main gadgets that were invented in past fault tolerance constructions \cite{aharonov1999faulttolerant}, \cite{gottesman2014faulttolerant}, and \cite{grospellier:tel-03364419}. These gadgets will allow us to simplify the model we work with, presenting an almost proof for \CDO, and focusing our question about complexity into a question about the existence of particular quantum error correction codes. The main gadgets are fault-tolerant State Preparation (SP) and Memory error correction codes (ME). The first presents how, while using the original fault tolerance construction based on concatenation \cite{aharonov1999faulttolerant}, one can initialize any quantum state subjected to local stochastic noise at no additional cost to the fault tolerance construction scheme being used. Since encoding is a Clifford operation, and any $m$-bit Clifford can be implemented in $O(\log m)$ time, then when $m =\Theta(\log^{\alpha} n)$ the fault-tolerant version of the 'encoder' has $O(\log n)$ depth. So using SP, one can initialize $m$-length blocks encoded in any error correction code at noisy-$\QNCon{}$.
@@ -196,10 +191,10 @@ The second gadget is Memory, a particular type of code which allows restraining 
   
 The following definition extends the idea of solving decision problems with computation subjected to noise to preparing quantum states with fault tolerance when subjected to noise.
 
-\begin{definition}[State Preparation.] Let $\mathcal{C}$ be a set of circuits. We say that $S : \mathcal{C} \rightarrow p\text{-noisy circuits} $ is an $\left[ (w,d), (p \rightarrow q) \right]$-State-Preparation scheme for $\mathcal{C}$ if for any $C \in \mathcal{C}$, we have that $S(C) = \tilde{C}$ such that:
+\begin{definition}[State Preparation.] Let $\mathcal{C}$ be a set of circuits. We say that $S : \mathcal{C} \rightarrow p\text{-noisy circuits} $ is an $\left[ \alpha , (p \rightarrow q) \right]$-State-Preparation scheme for $\mathcal{C}$ if for any $C \in \mathcal{C}$, we have that $S(C) = \tilde{C}$ such that:
   \begin{enumerate}
-    \item $\text{ Depth } (\tilde{C} ) \le d\text{ Depth } (C )$. 
-    \item $\text{ Width } (\tilde{C} ) \le d\text{ Width } (C )$. 
+    \item $\text{ Depth } (\tilde{C} ) \le \alpha \text{ Depth } (C )$. 
+    \item $\text{ Width } (\tilde{C} ) \le \alpha \text{ Width } (C )$. 
     \item The state prepared by $\tilde{C}$, namely $\tilde{C}\ket{0}$ is the state prepared by $C$ when subjected to $q$-local stochastic noise. 
   \end{enumerate}  
   \end{definition}
