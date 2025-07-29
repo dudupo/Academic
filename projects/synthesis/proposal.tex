@@ -219,7 +219,7 @@ As mentioned before, that gadget allows us to assume the initialization of encod
 
  \subsection{Memory.} 
  \newcommand*{\DD}{\mathbf{D} }
-Informal memory code is a code that stores a logical state for a long time while keeping the noise below a certain amount.
+Informal memory code is a code that stores a logical state for a long time while keeping the noise below a certain amount. We define it formally by saying that memory codes will reduce an error that affects at most $\beta$ portion of the qubits into an error that affects at most $\gamma$ portion of the qubits.
 
  \begin{definition}[Ideal $(\beta,\gamma)$-Memory]
    We say that a (quantum) error correction code $C$ is an Ideal $(\beta,\gamma)$-Memory code if there is a constant depth procedure $\DD$ such that for any $I$ of size $|I| \ge (1 - \beta) n$ and a mixed states $\sigma$ and $\rho$ such $\sigma$ distributed over the $C$'s codewords $\sigma \in C$ and $\Tr_{I}\left(\rho\right) = \Tr_{I}\left(\sigma\right)$, we have that there is subset of qubits $J$ at size at least $(1-\gamma)n$:
