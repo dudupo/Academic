@@ -149,12 +149,21 @@ Those definitions lead us to ask our first open problem:
   \end{split}
 \end{equation*}
 \end{oproblem}
-Our second main problems, is wheter the previews is affermitive when restracting to finate gateset, that is, we ask 
-\begin{oproblem}{The Main Open Problem.}
-  Let $G$ be a finate universal two qubits gateset. Is there exsits a finate universal set  $G^{\prime}$ such: 
+%Our second main problems invistigates if it's matter which universal gateset is used for the simulation, or whether the previews question is affermitive when our compution is restracted to a finate gateset $G^{\prime}$ and given that the source were also restricted to use local computation in a finate set, that is, we ask:  
+%\begin{oproblem}{Constant Depth Overhead On $G^{\prime}$ restricted machine.}
+  %Is there exsits a finate universal set  $G^{\prime}$ such that for any a finate two qubits gateset $G$ it holds that:
+%\begin{equation*}
+  %\begin{split}
+    %\QNCG{}_{1} = \text{ noisy-}\QNC{}_{\mathbf{G^{\prime}}, 1} \text{?}
+  %\end{split}
+%\end{equation*}
+%\end{oproblem}
+Our second main problem investigates if it matters which universal gateset is used for the simulation, or whether the previous question is affirmative when our computation is restricted to a finite gateset $G^{\prime}$ and given that the source was also restricted to use local computation in a finite set, that is, we ask:  
+\begin{oproblem}{Constant Depth Overhead On $G^{\prime}$ Restricted Machine.}
+  Does there exist a finite universal set $G^{\prime}$ such that for any finite two-qubit gateset $G$ it holds that:
 \begin{equation*}
   \begin{split}
-    \QNCG{}_{1} = \text{ noisy-}\QNC{}_{\mathbf{G^{\prime}}, 1} \text{?}
+    \QNCG{}_{1} = \text{noisy-}\QNC{}_{\mathbf{G^{\prime}}, 1} \text{?}
   \end{split}
 \end{equation*}
 \end{oproblem}
