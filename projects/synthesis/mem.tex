@@ -86,6 +86,32 @@ Let $\Po,\Pt$ be sets of density matrices induced over the $n$-qubit Hilbert spa
  Now let $\Pt$ be all the deviations from $C$, such that the syndrome graph induced by them can be decomposed into $(\gamma \sqrt{n}, \frac{\beta}{\gamma}  \theta )$ error decomposition. The couple $\left( \Po, \Pt \right)$ is thermal couple, And combining the quantum expander code and the parallel small set-flip decoder \cite{grospellier:tel-03364419} they defines a $\left( \Po, \Pt \right)$-memory. 
 
 
+ \newcommand{\Px}[2]{P^{(v)}_{#1}(#2)}
+
+\begin{claim}
+  The probability to have $\Px{\alpha\Delta}{x} \le $ 
+\end{claim}
+
+\begin{proof}
+  Assume that $J$ is vertices subset that support an $\alpha\Delta$ connected $E$ in $G$, then it's also the support of $\alpha\Delta -1$ connected, denote by $E^{\prime}$ that sub componnent. So we can construct $E$ by first sample $E^{\prime}$ and then find a mathcing between the left veritcis. Thus:  
+  \begin{equation*}
+    \begin{split}
+      \Px{\alpha\Delta}{x} \le \Px{\alpha\Delta - 1}{x} \cdot (\Delta p)^{\frac{x}{2}} \le (\Delta p)^{\frac{x}{2} \alpha \Delta } 
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+\begin{claim}
+  The ptobability to have $n^{\varepsilon}$ connencted component is: 
+\end{claim}
+\begin{proof}
+  \begin{equation*}
+    \begin{split}
+      \le &  n \sum_{n^{\varepsilon}}^{n} \sum_{v \in V}\Px{\alpha\Delta}{x}   \\
+      \le &    n  \frac{  (\Delta p)^{\frac{n^{\varepsilon}}{2} \alpha \Delta }}{ 1  - (\Delta p)^{ \frac{1}{2}\alpha \Delta }} \rightarrow 0 
+    \end{split}
+  \end{equation*}<++>
+\end{proof}
 
 
 
