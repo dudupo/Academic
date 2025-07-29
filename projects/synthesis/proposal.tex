@@ -203,8 +203,7 @@ The following definition extends the idea of solving decision problems with comp
     \item The state prepared by $\tilde{C}$, namely $\tilde{C}\ket{0}$ is the state prepared by $C$ when subjected to $q$-local stochastic noise. 
   \end{enumerate}  
   \end{definition}
-
-Based on the fault-tolerance construction in \cite{aharonov1999faulttolerant}, one can obtain a $\left[ \text{polylog}(n) , (p \rightarrow q) \right]$-SP. We present below an informal description of it and refer to \cite{grospellier:tel-03364419} for more details.
+Based on the fault-tolerance construction in \cite{aharonov1999faulttolerant}, one can obtain a $\left[ \text{polylog}(n) , (p \rightarrow q) \right]$-SP, where $n$ is the number of the source's circuit qubits, which will next be used as a block length of a desired code. Here we present an informal description of it and refer to \cite{grospellier:tel-03364419} for more details.
 
   \Cref{fig:prep} illustrates the preparation scheme. Denote by $E$ the encoder of the desired code to prepare, and by $E_{\text{con}}^{-1}$ the decoder of the single-level concatenation code. First, we apply a fault-tolerant version of the encoder $E$, using the $k$-level concatenated code; that stage is represented as $\Phi^{k}(E)$. Then we decode the concatenated code from top to bottom; namely, in the $j$th stage, we apply $\Phi^{j-1}(E_{\text{con}}^{-1})$.
 
