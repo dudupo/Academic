@@ -120,7 +120,7 @@ $\NC_i$ is the class of decision problems solvable by a uniform family of Boolea
 \end{definition}
 
 
-Second, the analog class of $\NC{}$ is $\QNC{}$, which characterizes logarithmic depth quantum circuits. In $\QNC{}$, the circuits are also allowed to have any single qubit gate. While in the classical case the number of functions from $\{0,1\} \rightarrow \{0,1\}$ is finite, in the quantum case we have an infinite number of single gates. That motivated us to define $\QNCG{}$ - the circuits when the gate set is restricted to some finite, constant size group $G$. We emphasize that in \textbf{BQP} there is no point in restricting to such a family since any gate can be polynomially approximated at polylogarithmic depth, so in that case, the restriction does not change computational power and one can assume to be able to apply any single qubit gate. However, when considering shallow circuits at logarithmic depth, such assumptions don't hold anymore.
+Second, the analog class of $\NC{}$ is $\QNC{}$, which characterizes logarithmic depth quantum circuits. In $\QNC{}$, the circuits are also allowed to have any single qubit gate. While in the classical case the number of functions from $\{0,1\}^{2} \rightarrow \{0,1\}$ is finite, in the quantum case we have an infinite number of single gates. That motivated us to define $\QNCG{}$ - the circuits when the gate set is restricted to some finite, constant size group $G$. We emphasize that in \textbf{BQP} there is no point in restricting to such a family since any gate can be polynomially approximated at polylogarithmic depth, so in that case, the restriction does not change computational power and one can assume to be able to apply any single qubit gate. However, when considering shallow circuits at logarithmic depth, such assumptions don't hold anymore.
 \begin{definition}[$\QNC{}$]
   The class of decision problems solvable by polynomial size,  polylogarithmic-depth,  and finate fan out/in quantum circuits with bounded probability of error. Similarly to $\NC_i{}$, $\QNC_i{}$ is the class where the decisdes the circuits have $\log^i (n)$ depth.  
 \end{definition}
@@ -149,7 +149,14 @@ Those definitions lead us to ask our first open problem:
   \end{split}
 \end{equation*}
 \end{oproblem}
-
+Our second main problems, is wheter the previews is affermitive when restracting to finate geset, that is, we ask 
+\begin{oproblem}{The Main Open Problem.}
+\begin{equation*}
+  \begin{split}
+    \text{ Does }  \QNCG{}_{1} = \text{ noisy-}\QNCG{}_{1} \text{?}
+  \end{split}
+\end{equation*}
+\end{oproblem}
   \section{ Strategies to get \CDO. }  \label{sec:opt}
  
 Here we summarize and present the main gadgets that were invented in past fault tolerance constructions \cite{aharonov1999faulttolerant}, \cite{gottesman2014faulttolerant}, and \cite{grospellier:tel-03364419}. These gadgets will allow us to simplify the model we work with, presenting an almost proof for \CDO, and focusing our question about complexity into a question about the existence of particular quantum error correction codes. The main gadgets are fault-tolerant State Preparation (SP) and Memory error correction codes (ME). The first presents how, while using the original fault tolerance construction based on concatenation \cite{aharonov1999faulttolerant}, one can initialize any quantum state subjected to local stochastic noise at no additional cost to the fault tolerance construction scheme being used. Since encoding is a Clifford operation, and any $m$-bit Clifford can be implemented in $O(\log m)$ time, then when $m =\Theta(\log^{\alpha} n)$ the fault-tolerant version of the 'encoder' has $O(\log n)$ depth. So using SP, one can initialize $m$-length blocks encoded in any error correction code at noisy-$\QNCon{}$.
