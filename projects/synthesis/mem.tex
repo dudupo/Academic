@@ -97,6 +97,18 @@ Let $\Po,\Pt$ be sets of density matrices induced over the $n$-qubit Hilbert spa
 \end{claim}
 
 \begin{proof}
+  $E$ is connected. Let $T$ be its spanning tree. Now consider $Y$, a subset of edges obtained by colorizing from any vertex at an odd level of $T$ a single forward edge. And let $E^{\prime} = E/Y$. First, observes that $E$ is an $\alpha\Delta - 1$ connecnted componnent. On the otherhand: 
+  \begin{equation*}
+    \begin{split}
+      |Y| &= \frac{\Delta-1}\sum_{i}^{h/2} E\left( T^{2i + 1} \right) =  \frac{\Delta-1}\sum_{i}^{h/2} \frac{1}{2} \left( E\left( T^{2i + 1} \right)+ E\left( T^{2i + 1} \right) \right) \\  
+      & \ge \frac{\Delta-1}\sum_{i}^{h/2} \frac{1}{2} \frac{1}{\Delta} \left( E\left( T^{2i + 1} \right)+ E\left( T^{2i} \right) \right) = \frac{1}{2 \left( \Delta - 1 \right) \Delta }|T| \\ 
+      & \ge \frac{1}{2 \left( \Delta - 1 \right) \Delta } \frac{1}{\Delta}|E| 
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+
+\begin{proof}
   Assume that $J$ is vertices subset that support an $\alpha\Delta$ connected $E$ in $G$, then it's also the support of $\alpha\Delta -1$ connected, denote by $E^{\prime}$ that sub componnent. So we can construct $E$ by first sample $E^{\prime}$ and then find a mathcing between the left veritcis. Thus:  
   \begin{equation*}
     \begin{split}
