@@ -207,8 +207,7 @@ Based on the fault-tolerance construction in \cite{aharonov1999faulttolerant}, o
 
   \Cref{fig:prep} illustrates the preparation scheme. Denote by $E$ the encoder of the desired code to prepare, and by $E_{\text{con}}^{-1}$ the decoder of the single-level concatenation code. First, we apply a fault-tolerant version of the encoder $E$, using the $k$-level concatenated code; that stage is represented as $\Phi^{k}(E)$. Then we decode the concatenated code from top to bottom; namely, in the $j$th stage, we apply $\Phi^{j-1}(E_{\text{con}}^{-1})$.
   
-
-The probability that the $i$th bit will absorb an error at the end is bounded by:
+  Since the probability of a logic error at the $k$-level concatenation code is bounded by $(cp)^{2^{k-1}}$, we have by the union bound that the probability that the $i$th bit, in the target state, will absorb an error at the end is bounded by:
   \begin{equation*}
     \begin{split}
       \left( cp \right)^{2^{k-1}} + \left( cp \right)^{2^{k-2}} + .. \left( cp \right)^{2^{k-3}} + .. +  cp \le c_{2}p 
