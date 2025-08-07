@@ -79,13 +79,13 @@
 
 \begin{equation*}
   \begin{split}
-    \prb{S \subset E_{2}} \le \prb{\text{any bit } v\in S_{c_{1}} \text{ sees majority of unstatisfied stabilizers   } } \le q^{\Delta |S|_{c_{1}}}
+    \prb{ \Su E_{2} = S } \le \prb{\text{any bit } v\in S_{c_{1}} \text{ sees majority of unstatisfied stabilizers   } } \le q^{\Delta |S|_{c_{1}}}
   \end{split}
 \end{equation*}
 
 \begin{equation*}
   \begin{split}
-    \prb{S \subset E_{3} } &= \sum_{S^{\prime} \subset S}\prb{S^{\prime} \subset E_{2} \cap S/S^{\prime} \in E_{3}/E_{2} }\\ 
+    \prb{ \Su E_{3} = S   } &= \sum_{S^{\prime} \subset S}\prb{ E_{2} \Su S^{\prime}  \cap E_{3}/E_{2} \Su S/S^{\prime}   }\\ 
     & \le \sum_{S^{\prime} \subset S }{q^{\Delta |S^{\prime}_{c_1}|}p^{|S /S^{\prime}_{c_1}|}  } \le\sum_{S^{\prime} \subset S }{q^{\Delta |S^{\prime}_{c_1}|}p^{|S_{c_1}| - |S^\prime_{c_1}|}  } \\
     &\le \left( q^{\Delta} + p \right)^{|S_{c_1}|}\le  
     \begin{cases}
@@ -95,8 +95,8 @@
   \end{split}
 \end{equation*}
 
-
-
+\newcommand*{\Pt}{\mathcal{P}}
+Let $S^{t} = \Su E $ at time $t$ and denote by $\Pt_{t}$ the probability that $|S^{t}_{c_{1}}| > \frac{1}{4}|S_{t}|$.
 
 
   %\section{ Strategies to get \CDO. }  \label{sec:opt}
