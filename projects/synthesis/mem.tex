@@ -99,7 +99,7 @@ Now, for roughly analyzing the error after observing a round of $p$-depolarized 
 \begin{equation*}
   \begin{split}
     \prb{ \Su{} \left(E_{3}\right) = S   } &= \sum_{S^{\prime} \subset S}\prb{  \Su{} \left( E_{2} \right) = S^{\prime}  \cap \Su{} \left( E_{3}/E_{2}\right) = S/S^{\prime}   }\\ 
-    & \le \sum_{S^{\prime} \subset S }{q^{\Delta |S^{\prime}_{c_1}|}p^{|S /S^{\prime}_{c_1}|}  } \le\sum_{S^{\prime} \subset S }{q^{\Delta |S^{\prime}_{c_1}|}p^{|S_{c_1}| - |S^\prime_{c_1}|}  } \\
+    & \le \sum_{S^{\prime} \subset S }{q^{\Delta |S^{\prime}_{c_1}|}p^{|S /S^{\prime}_{c_1}|}  } \le \sum_{l}\sum_{S^{\prime} \subset S : |S^{\prime}_{c_1}|=l }{q^{\Delta |S^{\prime}_{c_1}|}p^{|S_{c_1}| - |S^\prime_{c_1}|}  } \\
     &\le \left( q^{\Delta} + p \right)^{|S_{c_1}|}\le  
     \begin{cases}
       \left( q^{\Delta} + p \right)^{\frac{1}{4} |S|}  &\text{ if } |S_{c_1}| \ge \frac{1}{4} |S| \\ 
