@@ -22,7 +22,7 @@
 \input{newcommands}
 %\title{ $\textbf{QNC}_{1} \subset $ noisy-\textbf{BQP}}
 \title{ Memory. }
-\author{Michael Ben-Or \ \ David Ponarovsky}
+%\author{Michael Ben-Or \ \ David Ponarovsky}
 \maketitle
 
 \newcommand*{\Mbas}{\mathcal{X}^\prime}
@@ -117,6 +117,8 @@ Then, let $S^{t} = \Su \left(E\right) $ at time $t$ and denote by $\Pt_{t}$ the 
     &\ge \Pt_{t} \cdot \left( 1 - e^{- \varepsilon} m  \right) \ge \Pt_{0}\left( 1 - (t+1) e^{- \varepsilon m } \right)
   \end{split}
 \end{equation*}
+
+There is a problem with the assumption that the new error spreads uniformly across the colors. In particular, $m$ should be taken as the untapped qubits, so it changes over time and might not contain qubits of color $c_{1}$ at all.
 
 
   %\section{ Strategies to get \CDO. }  \label{sec:opt}
