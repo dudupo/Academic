@@ -89,13 +89,13 @@ Given density $\rho$, which is a \textbf{good noisy distribution}, then with hig
 \caption{Illustration of the cycle.}
 \end{figure}
 \subsection{Proof.}
-First, let's bound the probability that the error after the decoding round ($E_{2}$) is supported on $S$. (We use here the fact that views of the bits through their stabilizer don't overlap since we took only bits of the same color for the decoding).
+First, let's bound the probability that the error after the decoding round ($E_{2}$) is supported on $S$. (We use here the fact that views of the bits through their stabilizer don't overlap since we took only bits of the same color for the decoding):
 \begin{equation*}
   \begin{split}
     \prb{ \Su{} \left(E_{2}\right) = S } \le \prb{\text{any bit } v\in S_{c_{1}} \text{ sees majority of unstatisfied stabilizers   } } \le q^{\Delta |S|_{c_{1}}}
   \end{split}
 \end{equation*}
-
+Now, after observing a round of $p$-depolarized noise, we get:
 \begin{equation*}
   \begin{split}
     \prb{ \Su{} \left(E_{3}\right) = S   } &= \sum_{S^{\prime} \subset S}\prb{  \Su{} \left( E_{2} \right) = S^{\prime}  \cap \Su{} \left( E_{3}/E_{2}\right) = S/S^{\prime}   }\\ 
