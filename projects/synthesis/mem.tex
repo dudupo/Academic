@@ -108,7 +108,9 @@ Now, for roughly analyzing the error after observing a round of $p$-depolarized 
   \end{split}
 \end{equation*}
 \newcommand*{\Pt}{\mathcal{P}}
-So, it remains to show that property (2) still holds with high probability. Let $S^{t} = \Su \left(E\right) $ at time $t$ and denote by $\Pt_{t}$ the probability that $|S^{t}_{c_{1}}| > \frac{1}{4}|S^{t}|$. Then:
+So, it remains to show that property (2) still holds with high probability. The following is incorrect, yet almost correct. I want to say that a new error observed by the depolarized channel has to spread evenly on bits at color $c_{1}$, and by concentration get that they are far away from $\frac{1}{4}$ with probability less than $\text{exp}( - \varepsilon m )$.
+
+Let $S^{t} = \Su \left(E\right) $ at time $t$ and denote by $\Pt_{t}$ the probability that $|S^{t}_{c_{1}}| > \frac{1}{4}|S^{t}|$. Then:
 \begin{equation*}
   \begin{split}
     \Pt_{t+1} &\ge \prb{ |S^{t}_{c_{1}}| > \frac{1}{4}|S_{t}| \text{ and }  | \left( S_{t+1}/S_{t} \right)_{c_1}  | \ge \frac{1}{4}|S_{t+1}/S_{t}|  }  \\
