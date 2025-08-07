@@ -52,7 +52,7 @@
 \newcommand*{\CDO} {CDFT} 
 
 
-\subsection{Notations and Definitions.} Consider a code with a 2-colorized ($k$-colorized) Tanner graph, such that any two left bits of the same color share no stabilizer. For a subset of bits $S$, we denote by $S_{c_1}$ its restriction to color $c_1$. We use the integer $\Delta$ to denote half of the stabilizers connected to a single bit. (We assume fixed left and right degree in the graph). Our computation is subjected to $p$-depolarized noise. We denote by $m$ the block length of the code. The decoder works as follows:
+\section{Notations and Definitions.} Consider a code with a 2-colorized ($k$-colorized) Tanner graph, such that any two left bits of the same color share no stabilizer. For a subset of bits $S$, we denote by $S_{c_1}$ its restriction to color $c_1$. We use the integer $\Delta$ to denote half of the stabilizers connected to a single bit. (We assume fixed left and right degree in the graph). Our computation is subjected to $p$-depolarized noise. We denote by $m$ the block length of the code. The decoder works as follows:
 \begin{enumerate}
   \item Pick a random color.
   \item For any (q)bit at that color, check if flipping it decreases the syndrome. If so, then flip it.
@@ -60,15 +60,13 @@
 We say that a density matrix $\rho$, induced on the $m$-length block, is a \textbf{good noisy distribution} if:
 \begin{enumerate}
   \item $\rho$ is subjected to $q$ - local stochastic noise. 
-  \item Denote by $S$ the support of an error occurred on $\rho$ (S is a random variable). Then, with high probability, $|S_{c_{1}}| > \frac{1}{4} |S_{1}|$.
+  \item Denote by $S$ the support of an error occurring on $\rho$ (S is a random variable). Then, with high probability\footnote{I'm leaving specifying what it is to later.}, $|S_{c_{1}}| > \frac{1}{4} |S_{1}|$. 
 \end{enumerate}
 
 
 \begin{claim}
-  Given density $\rho$ such that (1) and (2) when conditing on   
+Given density $\rho$, which is a \textbf{good noisy distribution}, then with high probability, after correction and noise accumulation, it will remain a \textbf{good noisy distribution}.
 \end{claim}
-
-\subsection{Idea.}
 
 \begin{figure}[h]
   \begin{center}
@@ -88,7 +86,10 @@ We say that a density matrix $\rho$, induced on the $m$-length block, is a \text
     \draw[->] (C) to (F); 
   }
 \end{center}
+\caption{Illustration of the cycle.}
 \end{figure}
+\subsection{Idea.}
+
 
 
 \begin{equation*}
