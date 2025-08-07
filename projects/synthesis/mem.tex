@@ -81,7 +81,22 @@
   \begin{split}
     \prb{S \subset E_{2}} \le \prb{\text{any bit } v\in S_{c_{1}} \text{ sees majority of unstatisfied stabilizers   } } \le q^{\Delta |S|_{c_{1}}}
   \end{split}
-\end{equation*}<++>
+\end{equation*}
+
+\begin{equation*}
+  \begin{split}
+    \prb{S \subset E_{3} } &= \sum_{S^{\prime} \subset S}\prb{S^{\prime} \subset E_{2} \cap S/S^{\prime} \in E_{3}/E_{2} }\\ 
+    & \le \sum_{S^{\prime} \subset S }{q^{\Delta |S^{\prime}_{c_1}|}p^{|S /S^{\prime}_{c_1}|}  } \le\sum_{S^{\prime} \subset S }{q^{\Delta |S^{\prime}_{c_1}|}p^{|S_{c_1}| - |S^\prime_{c_1}|}  } \\
+    &\le \left( q^{\Delta} + p \right)^{|S_{c_1}|}\le  
+    \begin{cases}
+      \left( q^{\Delta} + p \right)^{\frac{1}{4} |S|}  &\text{ if } |S_{c_1}| \ge \frac{1}{4} |S| \\ 
+      \star & \text{ else }
+    \end{cases}
+  \end{split}
+\end{equation*}
+
+
+
 
 
   %\section{ Strategies to get \CDO. }  \label{sec:opt}
@@ -158,7 +173,7 @@
       %\le &  n \sum_{n^{\varepsilon}}^{n} \sum_{v \in V}\Px{\alpha\Delta}{x}   
       %\le     n  \frac{  (\Delta p)^{\frac{n^{\varepsilon}}{2} \alpha \Delta }}{ 1  - (\Delta p)^{ \frac{1}{2}\alpha \Delta }} \rightarrow 0 
     %\end{split}
-  %\end{equation*}<++>
+  %\end{equation*}
 %\end{proof}
 %
 %
