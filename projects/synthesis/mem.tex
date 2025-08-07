@@ -92,7 +92,7 @@ Given density $\rho$, which is a \textbf{good noisy distribution}, then with hig
 First, let's bound the probability that the error after the decoding round ($E_{2}$) is supported on $S$. (We use here the fact that views of the bits through their stabilizer don't overlap since we took only bits of the same color for the decoding):
 \begin{equation*}
   \begin{split}
-    \prb{ \Su{} \left(E_{2}\right) = S } \le \prb{\text{any bit } v\in S_{c_{1}} \text{ sees majority of unstatisfied stabilizers   } } \le q^{\Delta |S|_{c_{1}}}
+    \prb{ \Su{} \left(E_{2}\right) = S } \le \prb{\text{any bit } v\in S_{c_{1}} \text{ sees majority of statisfied stabilizers   } } \le q^{\Delta |S|_{c_{1}}}
   \end{split}
 \end{equation*}
 Now, for roughly analyzing the error after observing a round of $p$-depolarized noise, we consider a model in which new errors due to the depolarized channel don't correct previous errors. So we get:
