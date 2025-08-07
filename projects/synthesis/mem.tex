@@ -52,114 +52,127 @@
 \newcommand*{\CDO} {CDFT} 
 
 
+\subsection{Definitions.}
 
-  \section{ Strategies to get \CDO. }  \label{sec:opt}
- 
-The second gadget is Memory, a particular type of code which allows restraining the error rate by exhibiting a constant depth procedure that, when promising that the error rate is below a threshold, suppresses the error by at least a constant factor. Using memory, we will be able to promise with high probability that the error rate is lower than some fraction. 
-
- \subsection{Memory.} 
- \newcommand*{\DD}{\mathbf{D} }
-Informal memory code is a code that stores a logical state for a long time while keeping the noise below a certain amount. We define it formally by saying that memory codes will reduce an error that affects at most $\beta$ portion of the qubits into an error that affects at most $\gamma$ portion of the qubits.
-
- \begin{definition}[Ideal $(\beta,\gamma)$-Memory]
-   We say that a (quantum) error correction code $C$ is an Ideal $(\beta,\gamma)$-Memory code if there is a constant depth procedure $\DD$ such that for any $I$ of size $|I| \ge (1 - \beta) n$ and a mixed states $\sigma$ and $\rho$ such $\sigma$ distributed over the $C$'s codewords $\sigma \in C$ and $\Tr_{I}\left(\rho\right) = \Tr_{I}\left(\sigma\right)$, we have that there is subset of qubits $J$ at size at least $(1-\gamma)n$:
-   \begin{equation*}
-     \begin{split}
-        \Tr_{J} \DD \left(\rho\right) = \Tr_{J}\left(\sigma\right) 
-     \end{split}
-   \end{equation*}
-
- \end{definition}
-We would like to extend the memory gadgets to work with high probability, which motivates us to define the following:
-\newcommand*{\Po}{\mathcal{P}_{1}}
-\newcommand*{\Pt}{\mathcal{P}_{2}}
-\newcommand*{\Nn}{\mathcal{N}}
-\begin{definition}[ $\left(\Po,\Pt \right)$- thermal couple. ]
-Let $\Po,\Pt$ be sets of density matrices induced over the $n$-qubit Hilbert space, and let $\Nn$ be a $p$-stochastic local noise channel for some constant $p \in (0,1)$. We say that the couple $\left(\Po,\Pt \right)$ is a thermal couple if for any $\rho \in \Pt$, we have $\Nn(\rho) \in \Po$ with high probability.
-\end{definition}
-
- \begin{definition}[$(\Po,\Pt)$-Memory]
-   Consider a $\left(\Po,\Pt \right)$- thermal couple, We say that C is a $(\Po, \Pt)$-Memory if there is a constant depth procedure $\DD$, such that for any $\rho \in \Po$ we have $\DD\left( \rho \right) \in \Pt$, with high probability. 
- \end{definition}
- For example, consider a code $C$ with a $\Delta$-regular Tanner graph. Let $\Po$ be all the noisy states derived from codewords in $C$ such that the syndrome graph induced by them can be decomposed into disjoint $\Delta/2$-connected components $A_{1},A_{2},..A_{l}$, each of size at most $|A_{i}| < \beta \sqrt{n}$, and the $\Delta/2$-distance between any two of them $A_{i}, A_{j}$, namely the number of edges needed to add to merge them into one single $\Delta/2$-connected component, is at least $\theta \min \left( |A_{i}|, |A_{j}| \right)$. We call such decomposition characterization $(\beta \sqrt{n}, \theta )$ error decomposition. 
-
- Now let $\Pt$ be all the deviations from $C$, such that the syndrome graph induced by them can be decomposed into $(\gamma \sqrt{n}, \frac{\beta}{\gamma}  \theta )$ error decomposition. The couple $\left( \Po, \Pt \right)$ is thermal couple, And combining the quantum expander code and the parallel small set-flip decoder \cite{grospellier:tel-03364419} they defines a $\left( \Po, \Pt \right)$-memory. 
+\subsection{Idea.}
 
 
- \newcommand{\Px}[2]{P^{(v)}_{#1}(#2)}
-
-\begin{claim}
-  The probability to have $\Px{\alpha\Delta}{x} \le $ 
-\end{claim}
-
-\begin{claim}
-  Any $\alpha\Delta$-connected component $E$ can be decompized to $\alpha\Delta-1$ connected component and more $\Theta( E/\Delta^{3})$ edges. 
-\end{claim}
-
-\begin{proof}
-  $E$ is connected. Let $T$ be its spanning tree. Now consider $Y$, a subset of edges obtained by colorizing from any vertex at an odd level of $T$ a single forward edge. And let $E^{\prime} = E/Y$. First, observes that $E$ is an $\alpha\Delta - 1$ connecnted componnent. On the otherhand: 
-  \begin{equation*}
-    \begin{split}
-      |Y| &= \frac{1}{\Delta-1}\sum_{i}^{h/2} E\left( T^{2i + 1} \right) =  \frac{1}{\Delta-1}\sum_{i}^{h/2} \frac{1}{2} \left( E\left( T^{2i + 1} \right)+ E\left( T^{2i + 1} \right) \right) \\  
-      & \ge \frac{1}{\Delta-1}\sum_{i}^{h/2} \frac{1}{2} \frac{1}{\Delta} \left( E\left( T^{2i + 1} \right)+ E\left( T^{2i} \right) \right) = \frac{1}{2 \left( \Delta - 1 \right) \Delta }|T| \\ 
-      & \ge \frac{1}{2 \left( \Delta - 1 \right) \Delta } \frac{1}{\Delta}|E| \ge \frac{1}{2\Delta^{3}}|E|  \\
-      & \left( \ge \frac{1}{2 (\Delta - 1) \Delta } \left( V(T) - 1 \right)     \right) 
-    \end{split}
-  \end{equation*}
-\end{proof}
+\tikz{ 
+  \node [draw] (A) at (0,1) { $\rho$ };
+  \node [draw] (B) at (0,5) { Decoding };
+  \node [draw] (C) at (0,9) { $p$-depololraized };
 
 
-\begin{proof}
-  Assume that $J$ is vertices subset that support an $\alpha\Delta$ connected $E$ in $G$, then it's also the support of $\alpha\Delta -1$ connected, denote by $E^{\prime}$ that sub componnent. So we can construct $E$ by first sample $E^{\prime}$ and then find a mathcing between the left veritcis. Thus:  
-  \begin{equation*}
-    \begin{split}
-      \Px{\alpha\Delta}{x} \le \Px{\alpha\Delta - 1}{x} \cdot (p)^{\frac{x}{2\Delta^{2}}} \le ( p)^{\frac{x}{2 \Delta^{2} } \alpha \Delta } =  ( p)^{\frac{\alpha \Delta }{2 } x}
-    \end{split}
-  \end{equation*}
-\end{proof}
-
-\begin{claim}
-  The ptobability to have $n^{\varepsilon}$ connencted component is: 
-\end{claim}
-\begin{proof}
-  \begin{equation*}
-    \begin{split}
-      \le &  n \sum_{n^{\varepsilon}}^{n} \sum_{v \in V}\Px{\alpha\Delta}{x}   
-      \le     n  \frac{  (\Delta p)^{\frac{n^{\varepsilon}}{2} \alpha \Delta }}{ 1  - (\Delta p)^{ \frac{1}{2}\alpha \Delta }} \rightarrow 0 
-    \end{split}
-  \end{equation*}<++>
-\end{proof}
+}
 
 
-
-
-
-
-
-
-  \newcommand{\sliceb}[1]{ \slice[style=blue, label style={inner sep=1pt,anchor=south west,rotate=40}]{#1}}
-
-%\slice{ $\gamma\left( c \alpha + p  \right) + p < \alpha $ error rate. }
-%\slice{ $c\alpha + p$ error rate.  } 
-  %row sep=0.3cm, column sep=0.7cm,
-%slice style=blue,slice label style={inner sep=1pt,anchor=south west,rotate=40}
-  % \slice{ $\rho$ at $\alpha$ error rate. }
-  \begin{figure}[h]
-    \centering
-    \begin{quantikz}[slice style=blue,slice label style={inner sep=1pt,anchor=south west,rotate=40}]
-      \lstick{$q_1$} & \qw & \qw & \qw &  \sliceb{  $ \rho$ at $\alpha$ error rate.  }  & \gate[wires=9][1.7cm]{U}  \sliceb{ $c\alpha + p$ error rate.  }  & \gate[wires=9][1.7cm]{ F }  & \gate{\mathcal{N}}  \sliceb{ $\gamma\left( c \alpha + p  \right) + p < \alpha $ error rate. }& \qw & \\
-  \lstick{$q_2$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & \\
-  \lstick{$q_3$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & \\
-  \lstick{$q_4$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & \\
-  \lstick{$q_5$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & \\
-  \lstick{$q_6$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & \\
-  \lstick{$q_7$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & \\
-  \lstick{$q_8$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & \\
-  \lstick{$q_9$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & 
-\end{quantikz}
-\caption{ Usage of  Ideal $(\beta,\gamma)$-Memory to obtain fault tolerance computation. }
-    \label{fig:mem}
-  \end{figure}
+  %\section{ Strategies to get \CDO. }  \label{sec:opt}
+ %
+%The second gadget is Memory, a particular type of code which allows restraining the error rate by exhibiting a constant depth procedure that, when promising that the error rate is below a threshold, suppresses the error by at least a constant factor. Using memory, we will be able to promise with high probability that the error rate is lower than some fraction. 
+%
+ %\subsection{Memory.} 
+ %\newcommand*{\DD}{\mathbf{D} }
+%Informal memory code is a code that stores a logical state for a long time while keeping the noise below a certain amount. We define it formally by saying that memory codes will reduce an error that affects at most $\beta$ portion of the qubits into an error that affects at most $\gamma$ portion of the qubits.
+%
+ %\begin{definition}[Ideal $(\beta,\gamma)$-Memory]
+   %We say that a (quantum) error correction code $C$ is an Ideal $(\beta,\gamma)$-Memory code if there is a constant depth procedure $\DD$ such that for any $I$ of size $|I| \ge (1 - \beta) n$ and a mixed states $\sigma$ and $\rho$ such $\sigma$ distributed over the $C$'s codewords $\sigma \in C$ and $\Tr_{I}\left(\rho\right) = \Tr_{I}\left(\sigma\right)$, we have that there is subset of qubits $J$ at size at least $(1-\gamma)n$:
+   %\begin{equation*}
+     %\begin{split}
+        %\Tr_{J} \DD \left(\rho\right) = \Tr_{J}\left(\sigma\right) 
+     %\end{split}
+   %\end{equation*}
+%
+ %\end{definition}
+%We would like to extend the memory gadgets to work with high probability, which motivates us to define the following:
+%\newcommand*{\Po}{\mathcal{P}_{1}}
+%\newcommand*{\Pt}{\mathcal{P}_{2}}
+%\newcommand*{\Nn}{\mathcal{N}}
+%\begin{definition}[ $\left(\Po,\Pt \right)$- thermal couple. ]
+%Let $\Po,\Pt$ be sets of density matrices induced over the $n$-qubit Hilbert space, and let $\Nn$ be a $p$-stochastic local noise channel for some constant $p \in (0,1)$. We say that the couple $\left(\Po,\Pt \right)$ is a thermal couple if for any $\rho \in \Pt$, we have $\Nn(\rho) \in \Po$ with high probability.
+%\end{definition}
+%
+ %\begin{definition}[$(\Po,\Pt)$-Memory]
+   %Consider a $\left(\Po,\Pt \right)$- thermal couple, We say that C is a $(\Po, \Pt)$-Memory if there is a constant depth procedure $\DD$, such that for any $\rho \in \Po$ we have $\DD\left( \rho \right) \in \Pt$, with high probability. 
+ %\end{definition}
+ %For example, consider a code $C$ with a $\Delta$-regular Tanner graph. Let $\Po$ be all the noisy states derived from codewords in $C$ such that the syndrome graph induced by them can be decomposed into disjoint $\Delta/2$-connected components $A_{1},A_{2},..A_{l}$, each of size at most $|A_{i}| < \beta \sqrt{n}$, and the $\Delta/2$-distance between any two of them $A_{i}, A_{j}$, namely the number of edges needed to add to merge them into one single $\Delta/2$-connected component, is at least $\theta \min \left( |A_{i}|, |A_{j}| \right)$. We call such decomposition characterization $(\beta \sqrt{n}, \theta )$ error decomposition. 
+%
+ %Now let $\Pt$ be all the deviations from $C$, such that the syndrome graph induced by them can be decomposed into $(\gamma \sqrt{n}, \frac{\beta}{\gamma}  \theta )$ error decomposition. The couple $\left( \Po, \Pt \right)$ is thermal couple, And combining the quantum expander code and the parallel small set-flip decoder \cite{grospellier:tel-03364419} they defines a $\left( \Po, \Pt \right)$-memory. 
+%
+%
+ %\newcommand{\Px}[2]{P^{(v)}_{#1}(#2)}
+%
+%\begin{claim}
+  %The probability to have $\Px{\alpha\Delta}{x} \le $ 
+%\end{claim}
+%
+%\begin{claim}
+  %Any $\alpha\Delta$-connected component $E$ can be decompized to $\alpha\Delta-1$ connected component and more $\Theta( E/\Delta^{3})$ edges. 
+%\end{claim}
+%
+%\begin{proof}
+  %$E$ is connected. Let $T$ be its spanning tree. Now consider $Y$, a subset of edges obtained by colorizing from any vertex at an odd level of $T$ a single forward edge. And let $E^{\prime} = E/Y$. First, observes that $E$ is an $\alpha\Delta - 1$ connecnted componnent. On the otherhand: 
+  %\begin{equation*}
+    %\begin{split}
+      %|Y| &= \frac{1}{\Delta-1}\sum_{i}^{h/2} E\left( T^{2i + 1} \right) =  \frac{1}{\Delta-1}\sum_{i}^{h/2} \frac{1}{2} \left( E\left( T^{2i + 1} \right)+ E\left( T^{2i + 1} \right) \right) \\  
+      %& \ge \frac{1}{\Delta-1}\sum_{i}^{h/2} \frac{1}{2} \frac{1}{\Delta} \left( E\left( T^{2i + 1} \right)+ E\left( T^{2i} \right) \right) = \frac{1}{2 \left( \Delta - 1 \right) \Delta }|T| \\ 
+      %& \ge \frac{1}{2 \left( \Delta - 1 \right) \Delta } \frac{1}{\Delta}|E| \ge \frac{1}{2\Delta^{3}}|E|  \\
+      %& \left( \ge \frac{1}{2 (\Delta - 1) \Delta } \left( V(T) - 1 \right)     \right) 
+    %\end{split}
+  %\end{equation*}
+%\end{proof}
+%
+%
+%\begin{proof}
+  %Assume that $J$ is vertices subset that support an $\alpha\Delta$ connected $E$ in $G$, then it's also the support of $\alpha\Delta -1$ connected, denote by $E^{\prime}$ that sub componnent. So we can construct $E$ by first sample $E^{\prime}$ and then find a mathcing between the left veritcis. Thus:  
+  %\begin{equation*}
+    %\begin{split}
+      %\Px{\alpha\Delta}{x} \le \Px{\alpha\Delta - 1}{x} \cdot (p)^{\frac{x}{2\Delta^{2}}} \le ( p)^{\frac{x}{2 \Delta^{2} } \alpha \Delta } =  ( p)^{\frac{\alpha \Delta }{2 } x}
+    %\end{split}
+  %\end{equation*}
+%\end{proof}
+%
+%\begin{claim}
+  %The ptobability to have $n^{\varepsilon}$ connencted component is: 
+%\end{claim}
+%\begin{proof}
+  %\begin{equation*}
+    %\begin{split}
+      %\le &  n \sum_{n^{\varepsilon}}^{n} \sum_{v \in V}\Px{\alpha\Delta}{x}   
+      %\le     n  \frac{  (\Delta p)^{\frac{n^{\varepsilon}}{2} \alpha \Delta }}{ 1  - (\Delta p)^{ \frac{1}{2}\alpha \Delta }} \rightarrow 0 
+    %\end{split}
+  %\end{equation*}<++>
+%\end{proof}
+%
+%
+%
+%
+%
+%
+%
+%
+  %\newcommand{\sliceb}[1]{ \slice[style=blue, label style={inner sep=1pt,anchor=south west,rotate=40}]{#1}}
+%
+%%\slice{ $\gamma\left( c \alpha + p  \right) + p < \alpha $ error rate. }
+%%\slice{ $c\alpha + p$ error rate.  } 
+  %%row sep=0.3cm, column sep=0.7cm,
+%%slice style=blue,slice label style={inner sep=1pt,anchor=south west,rotate=40}
+  %% \slice{ $\rho$ at $\alpha$ error rate. }
+  %\begin{figure}[h]
+    %\centering
+    %\begin{quantikz}[slice style=blue,slice label style={inner sep=1pt,anchor=south west,rotate=40}]
+      %\lstick{$q_1$} & \qw & \qw & \qw &  \sliceb{  $ \rho$ at $\alpha$ error rate.  }  & \gate[wires=9][1.7cm]{U}  \sliceb{ $c\alpha + p$ error rate.  }  & \gate[wires=9][1.7cm]{ F }  & \gate{\mathcal{N}}  \sliceb{ $\gamma\left( c \alpha + p  \right) + p < \alpha $ error rate. }& \qw & \\
+  %\lstick{$q_2$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & \\
+  %\lstick{$q_3$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & \\
+  %\lstick{$q_4$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & \\
+  %\lstick{$q_5$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & \\
+  %\lstick{$q_6$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & \\
+  %\lstick{$q_7$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & \\
+  %\lstick{$q_8$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & \\
+  %\lstick{$q_9$} & \qw & \qw & \qw &  &                  &    & \gate{\mathcal{N}} & \qw & 
+%\end{quantikz}
+%\caption{ Usage of  Ideal $(\beta,\gamma)$-Memory to obtain fault tolerance computation. }
+    %\label{fig:mem}
+  %\end{figure}
 
 \end{document}
 
