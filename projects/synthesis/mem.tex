@@ -95,7 +95,7 @@ First, let's bound the probability that the error after the decoding round ($E_{
     \prb{ \Su{} \left(E_{2}\right) = S } \le \prb{\text{any bit } v\in S_{c_{1}} \text{ sees majority of unstatisfied stabilizers   } } \le q^{\Delta |S|_{c_{1}}}
   \end{split}
 \end{equation*}
-Now, after observing a round of $p$-depolarized noise, we get:
+Now, for roughly analyzing the error after observing a round of $p$-depolarized noise, we consider a model in which new errors due to the depolarized channel don't correct previous errors. So we get:
 \begin{equation*}
   \begin{split}
     \prb{ \Su{} \left(E_{3}\right) = S   } &= \sum_{S^{\prime} \subset S}\prb{  \Su{} \left( E_{2} \right) = S^{\prime}  \cap \Su{} \left( E_{3}/E_{2}\right) = S/S^{\prime}   }\\ 
