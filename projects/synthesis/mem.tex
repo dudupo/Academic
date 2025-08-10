@@ -108,26 +108,7 @@ Now, for roughly analyzing the error after observing a round of $p$-depolarized 
   \end{split}
 \end{equation*}
 
-Let's bound the right term: 
-\begin{equation*}
-  \begin{split}
-    (R) = & \sum_{S^{\prime} \subset S \text{ and }  |S^{\prime}_{c_1}| < \frac{1}{4} |S^{\prime}|}{q^{\Delta |S^{\prime}_{c_1}|}p^{|S /S^{\prime}|}  } \le p^{|S|}\sum_{S^{\prime} \subset S \text{ and }  |S^{\prime}_{c_1}| < \frac{1}{4} |S^{\prime}|}{ \left( \frac{q^{\Delta}}{p} \right)^{ |S^{\prime}_{c_1}|}  }
-  \end{split}
-\end{equation*}
 
-
-\begin{equation*}
-  \begin{split}
-    & \le \sum_{S^{\prime} \subset S \text{ and }  |S^{\prime}_{c_1}| \ge \frac{1}{4} |S^{\prime}|}{q^{\Delta |S^{\prime}_{c_1}|}p^{|S /S^{\prime}|}  } + \prb{ |S^{\prime}_{c_1}| \ge \frac{1}{4} |S^{\prime}|} \cdot 1 \\ 
-    & \le \sum_{S^{\prime} \subset S }{q^{\Delta \frac{1}{4}|S^{\prime}|}p^{|S /S^{\prime}|}  } + \prb{ |S^{\prime}_{c_1}| \ge \frac{1}{4} |S^{\prime}|} \\ 
-    &\le \left( q^{\frac{1}{4}\Delta} + p \right)^{|S|}  + \prb{ |S^{\prime}_{c_1}| \ge \frac{1}{4} |S^{\prime}|}  
-    %\le  
-    %\begin{cases}
-      %\left( q^{\Delta} + p \right)^{\frac{1}{4} |S|}  &\text{ if } |S_{c_1}| \ge \frac{1}{4} |S| \\ 
-      %\star & \text{ else }
-    %\end{cases}
-  \end{split}
-\end{equation*}
 \newcommand*{\Pt}{\mathcal{P}}
 
 \ctt{Observes that for $\prb{ |S^{\prime}_{c_1}| \ge \frac{1}{4} |S^{\prime}|} $ being low, we might want the colorization $c_{1}$ to be made at random. Otherwise, $S$ could be picked such that $S_{c_1} = \emptyset$ and therefore for any subset $S^{\prime} \subset S$ it would also hold that $S^{\prime}_{c_1} = \emptyset$.}
