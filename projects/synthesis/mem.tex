@@ -98,9 +98,11 @@ First, let's bound the probability that the error after the decoding round ($E_{
 Now, for roughly analyzing the error after observing a round of $p$-depolarized noise, we consider a model in which new errors due to the depolarized channel don't correct previous errors. So we get:
 \begin{equation*}
   \begin{split}
-    \prb{ \Su{} \left(E_{3}\right) = S   } &= \sum_{S^{\prime} \subset S}\prb{  \Su{} \left( E_{2} \right) = S^{\prime}  \cap \Su{} \left( E_{3}/E_{2}\right) = S/S^{\prime}   }\\ 
-    & \le \sum_{S^{\prime} \subset S }{q^{\Delta |S^{\prime}_{c_1}|}p^{|S /S^{\prime}|}  } \\
-    & = \sum_{S^{\prime} \subset S \text{ and }  |S^{\prime}_{c_1}| \ge \frac{1}{4} |S^{\prime}|}{q^{\Delta |S^{\prime}_{c_1}|}p^{|S /S^{\prime}|}  } + \sum_{S^{\prime} \subset S \text{ and }  |S^{\prime}_{c_1}| < \frac{1}{4} |S^{\prime}|}{q^{\Delta |S^{\prime}_{c_1}|}p^{|S /S^{\prime}|}  }
+    \prb{ \Su{} \left(E_{3}\right) = S   } &= \sum_{S^{\prime} \subset S}\prb{  \Su{} \left( E_{2} \right) = S^{\prime}  \cap \Su{} \left( E_{3}/E_{2}\right) = S/S^{\prime} |  |S^{\prime}_{c_1}| \ge \frac{1}{4} |S^{\prime}|  }\\ 
+    & + \prb{ \Su{} \left( E_{2} \right) = S^{\prime} \text{ and } S^{\prime}_{c_1}| < \frac{1}{4} |S^{\prime}|} \\
+    %& \le \sum_{S^{\prime} \subset S }{q^{\Delta |S^{\prime}_{c_1}|}p^{|S /S^{\prime}|}  } \\
+    & = \sum_{S^{\prime} \subset S \text{ and }  |S^{\prime}_{c_1}| \ge \frac{1}{4} |S^{\prime}|}{q^{\Delta |S^{\prime}_{c_1}|}p^{|S /S^{\prime}|} } +  \prb{ \Su{} \left( E_{2} \right) = S^{\prime} \text{ and } S^{\prime}_{c_1}| < \frac{1}{4} |S^{\prime}|} 
+    %\sum_{S^{\prime} \subset S \text{ and }  |S^{\prime}_{c_1}| < \frac{1}{4} |S^{\prime}|}{q^{\Delta |S^{\prime}_{c_1}|}p^{|S /S^{\prime}|}  }
   \end{split}
 \end{equation*}
 
