@@ -52,7 +52,7 @@
 \newcommand*{\CDO} {CDFT} 
 
 
-\section{Notations and Definitions.} Consider a code with a 2-colorized ($k$-colorized) Tanner graph, such that any two left bits of the same color share no stabilizer. For a subset of bits $S$, we denote by $S_{c_1}$ its restriction to color $c_1$. We use the integer $\Delta$ to denote half of the stabilizers connected to a single bit. (We assume fixed left and right degree in the graph). Our computation is subjected to $p$-depolarized noise. We denote by $m$ the block length of the code. The decoder works as follows:
+\section{Notations and Definitions.} Consider a code with a 2-colorized ($k$-colorized) Tanner graph, such that any two left bits of the same color share no stabilizer (check). For a subset of bits $S$, we denote by $S_{c_1}$ its restriction to color $c_1$. We use the integer $\Delta$ to denote half of the stabilizers connected to a single bit. (We assume fixed left and right degree in the graph). Our computation is subjected to $p$-depolarized noise. We denote by $m$ the block length of the code. The decoder works as follows:
 \begin{enumerate}
   \item Pick a random color.
   \item For any (q)bit at that color, check if flipping it decreases the syndrome. If so, then flip it.
