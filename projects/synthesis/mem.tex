@@ -60,7 +60,7 @@
 We say that a density matrix $\rho$, induced on the $m$-length block, is a \textbf{good noisy distribution} if:
 \begin{enumerate}
   \item $\rho$ is subjected to $q$ - local stochastic noise. 
-  \item Denote by $S$ the support of an error occurring on $\rho$ (S is a random variable). Then, with high probability\footnote{I'm leaving specifying what it is to later.}, $|S_{c_{1}}| > \frac{1}{4} |S|$. ( \ctt{ See the comment in blue below, it gets complicated.} )
+  \item Denote by $S$ the support of an error occurring on $\rho$ (S is a random variable). Then, with high probability\footnote{I'm leaving specifying what it is to later.}, $|S_{c_{1}}| > \frac{1}{4} |S|$. 
 \end{enumerate}
 
 
@@ -104,7 +104,6 @@ Now, for roughly analyzing the error after observing a round of $p$-depolarized 
     & = \sum_{S^{\prime} \subset S \text{ and }  |S^{\prime}_{c_1}| \ge \frac{1}{4} |S^{\prime}|}{q^{\Delta |S^{\prime}_{c_1}|}p^{|S /S^{\prime}|} } +  \prb{  | \Su{} \left( E_{2} \right)_{c_1} | < \frac{1}{4} | \Su{} \left( E_{2} \right) |} \\
     & \le \sum_{S^{\prime} \subset S }{q^{\Delta \frac{1}{4}|S^{\prime}|}p^{|S /S^{\prime}|}  } +  \prb{  | \Su{} \left( E_{2} \right)_{c_1} | < \frac{1}{4} | \Su{} \left( E_{2} \right) |} \\
     &\le \left( q^{\frac{1}{4}\Delta} + p \right)^{|S|}  + \prb{  | \Su{} \left( E_{2} \right)_{c_1} | < \frac{1}{4} | \Su{} \left( E_{2} \right) |} 
-    %\sum_{S^{\prime} \subset S \text{ and }  |S^{\prime}_{c_1}| < \frac{1}{4} |S^{\prime}|}{q^{\Delta |S^{\prime}_{c_1}|}p^{|S /S^{\prime}|}  }
   \end{split}
 \end{equation*}
 
