@@ -233,6 +233,38 @@ There is a problem with the assumption that the new error spreads uniformly acro
     %\label{fig:mem}
   %\end{figure}
 
+( \ctt{ See the comment in blue below, it gets complicated.} )
+
+
+
+\textbf{Question.}  
+Consider the $n$-dimensional toric code, where qubits are placed on $k$-cells of the $n$-dimensional hypercubic lattice.  
+For an $i$-cell, denote by $\Delta_i^{+}$ the number of $(i{+}1)$-cells adjacent to it, and by $\Delta_i^{-}$ the number of $(i{-}1)$-cells adjacent to it.  
+For which values of $k$ do both of the following strict inequalities hold?
+\[
+\Delta_k^{+} > \Delta_{k+1}^{-}, \qquad \Delta_k^{-} > \Delta_{k-1}^{+}.
+\]
+
+\textbf{Answer.}  
+In an $n$-dimensional hypercubic lattice one has
+\[
+\Delta_i^{+} = 2\,(n-i), \qquad \Delta_i^{-} = 2\,i.
+\]
+Therefore, the two inequalities become
+\[
+2(n-k) > 2(k+1) \quad\iff\quad k < \tfrac{n-1}{2},
+\]
+\[
+2k > 2\bigl(n-(k-1)\bigr) \quad\iff\quad k > \tfrac{n+1}{2}.
+\]
+These conditions are mutually exclusive, since they require simultaneously
+\[
+k < \frac{n-1}{2} \quad \text{and} \quad k > \frac{n+1}{2}.
+\]
+Thus, there is no value of $k$ (for any dimension $n$) for which both inequalities hold at once.  
+
+In particular, for the $10$-dimensional toric code, condition (A) requires $k<4.5$ while condition (B) requires $k>5.5$, which is impossible. Hence, no such $k$ exists
+
 \end{document}
 
 
