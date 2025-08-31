@@ -157,6 +157,18 @@ We first show that the partition code has presentation (a check matrix) for whic
 \begin{proof} Easy.
 \end{proof}
 
+\begin{claim}
+  The repetition code has a representation, for which $\Delta > 4k$. 
+\end{claim}
+\begin{proof}
+  Denote by $H_{0}$ the checks obtained by treating the repetition code as Tanner code over the cyclic graph. Observes, that $k_{0} = 2$ and $\Delta_{0} = 2$.  
+
+  Now, let $V^{+}, V^{-}$ a partition of the bits according their color. Any check that of the form $v^{+} + v^{-}$ where $v^{\pm} \in V^{\pm}$ agrees with the coloring. So, by adding perfect matching we increase $\Delta$ by $1$ and keep the colorization. We have $(n/2!)$ such matchings, so we can add $100\Delta$ and gets the correction of the proof.   
+
+  Furthermore, the length of the transposed code increases by the number of the checks we add, and it's distance can't decrease. So, we get that the parameters of the transposed code are $[n + 100\Delta n, 1, \ge n ]$.    
+
+\end{proof
+
 
 So, it remains to show that property (2) still holds with high probability. The following is incorrect, yet almost correct. I want to say that a new error observed by the depolarized channel has to spread evenly on bits at color $c_{1}$, and by concentration get that they are far away from $\frac{1}{4}$ with probability less than $\text{exp}( - \varepsilon m )$.
 
