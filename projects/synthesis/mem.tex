@@ -143,6 +143,19 @@ So if $c_{1}$ is the color which maximize $|S|_{c_1}$ then:
 \newcommand*{\Pt}{\mathcal{P}}
 
 
+\section{Suitable Codes.}  
+We first show that the partition code has presentation (a check matrix) for which the induced $\TT$ satisfies the relation $\Delta > 4k$, and then show that the hypergraph product code defined by multiple the tanner graphs of that representation gives $\Delta > 2k$.
+
+\begin{claim}
+  Let $C$ be a code with a tanner graph $\TT$, denote by $\TT^\top$ the tanner graph of the transpose code and by $Q\left(\TT \times \TT^\top\right) $ the tanner graph obtained by the hypergraph product. Then:  
+  \begin{enumerate}
+    \item $ \Delta\left(Q\left(\TT \times \TT^\top\right)\right) = \max \{  \Delta(\TT), \Delta(\TT^{\top}) \} $ 
+    \item $ k\left(Q\left(\TT \times \TT^\top\right)\right) \le  k(\TT) + k(\TT^{\top})$ 
+  \end{enumerate}
+\end{claim}
+
+
+
 So, it remains to show that property (2) still holds with high probability. The following is incorrect, yet almost correct. I want to say that a new error observed by the depolarized channel has to spread evenly on bits at color $c_{1}$, and by concentration get that they are far away from $\frac{1}{4}$ with probability less than $\text{exp}( - \varepsilon m )$.
 
 Then, let $S^{t} = \Su \left(E\right) $ at time $t$ and denote by $\Pt_{t}$ the probability that $|S^{t}_{c_{1}}| > \frac{1}{4}|S^{t}|$. Then:
