@@ -78,17 +78,18 @@ That brings us to ask the following:
     \ctt{In the relaxed version: the 'right/best' color is given by the strong entity.} 
   \item For any (q)bit at that color, check if flipping it decreases the syndrome. If so, then flip it.
 \end{enumerate}
-We say that a density matrix $\rho$, induced on the $m$-length block, is a \textbf{good noisy distribution} if:
-\begin{enumerate}
-  \item $\rho$ is subjected to $q$ - local stochastic noise. 
-  \item Denote by $S$ the support of an error occurring on $\rho$ (S is a random variable). Then, with high probability\footnote{I'm leaving specifying what it is to later.}, $|S_{c_{1}}| > \frac{1}{4} |S|$. 
-\end{enumerate}
+
+
+%We say that a density matrix $\rho$, induced on the $m$-length block, is a \textbf{good noisy distribution} if:
+%\begin{enumerate}
+  %\item $\rho$ is subjected to $q$ - local stochastic noise. 
+  %\item Denote by $S$ the support of an error occurring on $\rho$ (S is a random variable). Then, with high probability\footnote{I'm leaving specifying what it is to later.}, $|S_{c_{1}}| > \frac{1}{4} |S|$. 
+%\end{enumerate}
 
 
 \begin{claim}
-Given density $\rho$, which is a \textbf{good noisy distribution}, then with high probability, after correction and noise accumulation, it will remain a \textbf{good noisy distribution}.
+  Let $\TT$ be a tanner graph such $\Delta > 2k$. There is $p_{0} \in (0,1)$ and $q \in (0,1)$ such for any $p < p_{0}$ and a density $\rho$, which is subjected to $q$-local stochastic noise, then, there is a color $c_{1}$ such after a cycle of absorbing $p$-depolarized noise and correcting according to the decoding rule when color$=c_{1}$, the result state $\rho^\prime$ will remain a subjected to $q$-local stochastic noise.  
 \end{claim}
-
 \begin{figure}[h]
   \begin{center}
   \tikz{ 
