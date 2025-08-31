@@ -51,7 +51,7 @@
 % Constant depth fault tolerance construction.   
 \newcommand*{\CDO} {CDFT} 
 
-\section{Relaxation to The Fault Tolerance Model.} We are interested in the following extension to the fault tolerance circuit model. We are equipped with additional type, in each turn a strong entity, on which we trust, set an hint $I_{t}$. We would like to minimize $|I| := \min_{t} |I_{t}|$. In particular, A fault tolerance construction in the standard model exhibits a fault tolerance construction in the relaxed model with $|I| = 0$.      
+\section{Relaxation to The Fault Tolerance Model.} We are interested in the following extension to the fault tolerance circuit model. We are equipped with additional type, in each turn a strong entity, on which we trust, set an hint $I_{t}$ on the type. We would like to minimize $|I| := \min_{t} |I_{t}|$. In particular, A fault tolerance construction in the standard model exhibits a fault tolerance construction in the relaxed model with $|I| = 0$.      
 
 Another example, is using the hints given by the strong entity for either  deciding what correction should be applied or what 'gate-teleportation correction' should be applied. It easy to check that previews constructions  gives relaxed fault tolerance such:     
 \begin{enumerate}
@@ -69,9 +69,11 @@ That brings us to ask the following:
   \end{equation*}
 \end{oproblem}
 
-\section{Notations and Definitions.} Consider a code with a 2-colorized ($k$-colorized) Tanner graph, such that any two left bits of the same color share no stabilizer (check). For a subset of bits $S$, we denote by $S_{c_1}$ its restriction to color $c_1$. We use the integer $\Delta$ to denote half of the stabilizers connected to a single bit. (We assume fixed left and right degree in the graph). Our computation is subjected to $p$-depolarized noise. We denote by $m$ the block length of the code. The decoder works as follows:
+\newcommand{\TT}{ \mathcal{T} }
+
+\section{Notations and Definitions.} Consider a code with a left $k$-colorized Tanner graph $\TT{}$, such that any two left bits of the same color share no check. For a subset of bits $S$, we denote by $S_{c_1}$ its restriction to color $c_1$. We use the integer $\Delta$ to denote the right degree of $\TT{}$. Our computation is subjected to $p$-depolarized noise. We denote by $m$ the block length of the code. The decoder works as follows:
 \begin{enumerate}
-  \item Pick a random color.
+  \item On the hint-type Pick a random color. 
   \item For any (q)bit at that color, check if flipping it decreases the syndrome. If so, then flip it.
 \end{enumerate}
 We say that a density matrix $\rho$, induced on the $m$-length block, is a \textbf{good noisy distribution} if:
