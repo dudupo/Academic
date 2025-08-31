@@ -73,7 +73,9 @@ That brings us to ask the following:
 
 \section{Notations and Definitions.} Consider a code with a left $k$-colorized Tanner graph $\TT{}$, such that any two left bits of the same color share no check. For a subset of bits $S$, we denote by $S_{c_1}$ its restriction to color $c_1$. We use the integer $\Delta$ to denote the right degree of $\TT{}$. Our computation is subjected to $p$-depolarized noise. We denote by $m$ the block length of the code. The decoder works as follows:
 \begin{enumerate}
-  \item On the hint-type Pick a random color. \ctt{In the relaxed version: the 'right/best' color is given by the strong entity.} 
+  \item On the hint-type Pick a random color. 
+
+    \ctt{In the relaxed version: the 'right/best' color is given by the strong entity.} 
   \item For any (q)bit at that color, check if flipping it decreases the syndrome. If so, then flip it.
 \end{enumerate}
 We say that a density matrix $\rho$, induced on the $m$-length block, is a \textbf{good noisy distribution} if:
