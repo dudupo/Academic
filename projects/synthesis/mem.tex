@@ -51,17 +51,17 @@
 % Constant depth fault tolerance construction.   
 \newcommand*{\CDO} {CDFT} 
 
-\section{Relaxation to The Fault Tolerance Model.} We are interested in the following extension to the fault tolerance circuit model. We are equipped with additional type, in each turn a strong entity, on which we trust, set an hint $I_{t}$ on the type. We would like to minimize $|I| := \min_{t} |I_{t}|$. In particular, A fault tolerance construction in the standard model exhibits a fault tolerance construction in the relaxed model with $|I| = 0$.      
+\section{Relaxation to The Fault Tolerance Model.} We are interested in the following extension to the fault-tolerant circuit model. We are equipped with an additional type; in each turn, a strong entity, which we trust, sets a hint $I_{t}$ on the type. We would like to minimize $|I| := \min_{t} |I_{t}|$. In particular, a fault-tolerant construction in the standard model exhibits a fault-tolerant construction in the relaxed model with $|I| = 0$.
 
-Another example, is using the hints given by the strong entity for either  deciding what correction should be applied or what 'gate-teleportation correction' should be applied. It easy to check that previews constructions  gives relaxed fault tolerance such:     
+Another example is using the hints given by the strong entity for either deciding what correction should be applied or what 'gate-teleportation correction' should be applied. It is easy to check that previous constructions give relaxed fault tolerance such that:     
 \begin{enumerate}
-  \item They output an encoded states with non-trivial distance. 
-  \item The exhibit only a constant overhead in depth. 
-  \item At each turn $|I_{t}| / \text{ logical qubits } $ depends on the code length.  
+  \item They output encoded states with non-trivial distance. 
+  \item They exhibit only a constant overhead in depth. 
+  \item At each turn, $|I_{t}| / \text{ logical qubits }$ depends on the code length.  
 \end{enumerate}
-That brings us to ask the following:
+That brings us to the following question:
 \begin{oproblem}
-  Is there a relaxed fault tolerance scheme that enjoys form the first and the second bullets above, yet requires hint at length which is constant per logical qubit? Namely:   
+Is there a relaxed fault tolerance scheme that benefits from the first and second bullets above, yet requires a hint at a length that is constant per logical qubit? Namely:
   \begin{equation*}
     \begin{split}
       \frac{ |I| } { \text{ logical qubits } } = O(1) ? 
@@ -71,7 +71,8 @@ That brings us to ask the following:
 
 \newcommand{\TT}{ \mathcal{T} }
 
-\section{Notations and Definitions.} Consider a code with a left $k$-colorized Tanner graph $\TT{}$, such that any two left bits of the same color share no check. For a subset of bits $S$, we denote by $S_{c_1}$ its restriction to color $c_1$. We use the integer $\Delta$ to denote the right degree of $\TT{}$. Our computation is subjected to $p$-depolarized noise. We denote by $m$ the block length of the code. The decoder works as follows:
+\section{Notations and Definitions.} 
+Consider a code with a left $k$-colorized Tanner graph $\TT{}$, such that any two left bits of the same color share no check. For a subset of bits $S$, we denote by $S_{c_1}$ its restriction to color $c_1$. We use the integer $\Delta$ to denote the right degree of $\TT{}$. Our computation is subject to $p$-depolarized noise. We denote by $m$ the block length of the code. The decoder works as follows:
 \begin{enumerate}
   \item On the hint-type Pick a random color. 
 
@@ -88,7 +89,7 @@ That brings us to ask the following:
 
 
 \begin{claim}
-  Let $\TT$ be a tanner graph such $\Delta > 2k$. There is $p_{0} \in (0,1)$ and $q \in (0,1)$ such for any $p < p_{0}$ and a density $\rho$, which is subjected to $q$-local stochastic noise, then, there is a color $c_{1}$ such after a cycle of absorbing $p$-depolarized noise and correcting according to the decoding rule when color$=c_{1}$, the result state $\rho^\prime$ will remain a subjected to $q$-local stochastic noise.  
+Let $\TT$ be a Tanner graph such that $\Delta > 2k$. There is $p_{0} \in (0,1)$ and $q \in (0,1)$ such that for any $p < p_{0}$ and a density $\rho$, which is subjected to $q$-local stochastic noise, there is a color $c_{1}$ such that after a cycle of absorbing $p$-depolarized noise and correcting according to the decoding rule when color $= c_{1}$, the resulting state $\rho^\prime$ will remain subjected to $q$-local stochastic noise.
 \end{claim}
 \begin{figure}[h]
   \begin{center}
@@ -111,13 +112,13 @@ That brings us to ask the following:
 \caption{Illustration of the cycle.}
 \end{figure}
 \subsection{Proof.}
-First, let's bound the probability that the error after the decoding round ($E_{2}$) is supported on $S$. (We use here the fact that views of the bits through their stabilizer don't overlap since we took only bits of the same color for the decoding):
+First, let's bound the probability that the error after the decoding round ($E_{2}$) is supported on $S$. (We use here the fact that views of the bits through their stabilizer don't overlap since we took only bits of the same color for the decoding.)
 \begin{equation*}
   \begin{split}
     \prb{ \Su{} \left(E_{2}\right) = S } \le \prb{\text{any bit } v\in S_{c_{1}} \text{ sees majority of satisfied checks   } } \le q^{\frac{1}{2}\Delta |S|_{c_{1}}}
   \end{split}
 \end{equation*}
-Now, for roughly analyzing the error after observing a round of $p$-depolarized noise, we consider a model in which new errors due to the depolarized channel don't correct previous errors. So we get:
+Now, to roughly analyze the error after observing a round of $p$-depolarized noise, we consider a model in which new errors due to the depolarized channel don't correct previous errors. Thus, we get:
 \begin{equation*}
   \begin{split}
     \prb{ \Su{} \left(E_{3}\right) = S   } & \le  \sum_{S^{\prime} \subset S }{q^{\frac{1}{2}\Delta|S^{\prime}|_{c_{1}}}p^{|S /S^{\prime}|}  }  %+  \prb{  | \Su{} \left( E_{2} \right)_{c_1} | < \frac{1}{4} | \Su{} \left( E_{2} \right) |} \\
@@ -132,7 +133,7 @@ On the other hand,
     & \Rightarrow \max_{c_i}|S|_{c_{i}} \ge \frac{1}{k}|S|
   \end{split}
 \end{equation*}
-So if $c_{1}$ is the color which maximize $|S|_{c_1}$ then:  
+So if $c_{1}$ is the color that maximizes $|S|_{c_1}$, then:
 
 \begin{equation*}
   \begin{split}
@@ -144,10 +145,10 @@ So if $c_{1}$ is the color which maximize $|S|_{c_1}$ then:
 
 
 \section{Suitable Codes.}  
-We first show that the partition code has presentation (a check matrix) for which the induced $\TT$ satisfies the relation $\Delta > 4k$, and then show that the hypergraph product code defined by multiple the tanner graphs of that representation gives $\Delta > 2k$.
+We first show that the partition code has a representation (a check matrix) for which the induced $\TT$ satisfies the relation $\Delta > 4k$, and then show that the hypergraph product code defined by multiplying the Tanner graphs of that representation gives $\Delta > 2k$.
 
 \begin{claim}
-  Let $C$ be a code with a tanner graph $\TT$, denote by $\TT^\top$ the tanner graph of the transpose code and by $Q\left(\TT \times \TT^\top\right) $ the tanner graph obtained by the hypergraph product. Then:  
+Let $C$ be a code with a Tanner graph $\TT$. Denote by $\TT^\top$ the Tanner graph of the transpose code and by $Q\left(\TT \times \TT^\top\right)$ the Tanner graph obtained by the hypergraph product. Then:
   \begin{enumerate}
     \item $ \Delta\left(Q\left(\TT \times \TT^\top\right)\right) = \max \{  \Delta(\TT), \Delta(\TT^{\top}) \} $ 
     \item $ k\left(Q\left(\TT \times \TT^\top\right)\right) \le  k(\TT) + k(\TT^{\top})$ 
@@ -158,24 +159,24 @@ We first show that the partition code has presentation (a check matrix) for whic
 \end{proof}
 
 \begin{claim}
-  The repetition code has a representation, for which $\Delta > 4k$. 
+The repetition code has a representation for which $\Delta > 4k$.
 \end{claim}
 \begin{proof}
-  Denote by $H_{0}$ the checks obtained by treating the repetition code as Tanner code over the cyclic graph. Observes, that $k_{0} = 2$ and $\Delta_{0} = 2$.  
+Denote by $H_{0}$ the checks obtained by treating the repetition code as a Tanner code over the cyclic graph. Observe that $k_{0} = 2$ and $\Delta_{0} = 2$.
 
-  Now, let $V^{+}, V^{-}$ a partition of the bits according their color. Any check that of the form $v^{+} + v^{-}$ where $v^{\pm} \in V^{\pm}$ agrees with the coloring. So, by adding perfect matching we increase $\Delta$ by $1$ and keep the colorization. We have $n/2!$ such matchings, so we can add $100\Delta$ and gets the correction of the proof.   
+Now, let $V^{+}, V^{-}$ be a partition of the bits according to their color. Any check of the form $v^{+} + v^{-}$ where $v^{\pm} \in V^{\pm}$ agrees with the coloring. So, by adding a perfect matching, we increase $\Delta$ by $1$ and keep the colorization. We have $\sim n/2!$ such matchings, so we can add $100\Delta$ and get the correction of the proof.
 
-  Furthermore, the length of the transposed code increases by the number of the checks we add, and it's distance can't decrease. So, we get that the parameters of the transposed code are $[n + 100\Delta n, 1, \ge n ]$.    
+Furthermore, the length of the transposed code increases by the number of checks we add, and its distance can't decrease. So, we get that the parameters of the transposed code are $[n + 100\Delta n, 1, \ge n]$.
 
 \end{proof}
 
-
+Hence, we have a simple code that can serve as memory in the relaxed setting. Yet, it doesn't provide a solution to the problem since the dimension of the code is non-trivial\footnote{Can be decreased to $ \Theta( \sqrt{n}) $ if we choose $C_1 = C$ and $C_{2}$ to be the transposed code instead of choosing $C_{1} = C_{2} = C$.}:
 \begin{equation*}
   \begin{split}
-    K_{Q} = K_{1}K_{2} + K_{1}^\top K_{2}^{\top}
+    K_{Q} = K_{1}K_{2} + K_{1}^\top K_{2}^{\top} \ge O(1) + \Theta(n)
   \end{split}
 \end{equation*}
-
+Thus, we will still need to perform a non-trivial computation for the gate-teleportation gadget.
 
 So, it remains to show that property (2) still holds with high probability. The following is incorrect, yet almost correct. I want to say that a new error observed by the depolarized channel has to spread evenly on bits at color $c_{1}$, and by concentration get that they are far away from $\frac{1}{4}$ with probability less than $\text{exp}( - \varepsilon m )$.
 
