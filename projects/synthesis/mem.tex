@@ -367,7 +367,25 @@ Yet, if one is willing to satisfy only the first inequality. Then:
 \begin{claim}
   Consider the tanner graph of the classic code $C_X$ which can be used to construct a quantum LDPC code. For any constant $c \in (0,1)$ there exist $\gamma < c$  and a subset of qubits $B$ at size  $B = \gamma n < c n$ such that $|\Gamma(B)| < \frac{1}{2} \Delta B$. 
 \end{claim}
+\begin{proof}
+  Easy. 
+\end{proof}
 
+Now consider the following construction, we pick $c = \frac{1}{\Delta^{2}}$, and $B$ at size lower than $\gamma n$, denote by $A$ the complement of $B$. Now pick $\Theta$ hash functions $ \Theta = \{ h : \Gamma(A) \rightarrow \Gamma (B) / \Gamma (A) \}$. 
+One one hand: 
+
+
+\begin{equation*}
+  \begin{split}
+    \frac{|\Gamma(A)|}{ |\Gamma(B)/\Gamma(A)| } & \ge  \frac{|\Gamma(A)|}{ |\Gamma(B)| } \ge    \frac{|\Gamma(A)|}{ \frac{1}{2}\Delta|(B)|}\\
+  & \ge \frac{\left( 1 - \gamma \right) n}{  \frac{1}{2} \gamma n  } \ge 2\Delta ( 1 - \frac{1}{\Delta} ) \ge \Delta
+  \end{split}
+\end{equation*}
+
+
+\begin{claim}
+  
+\end{claim}
 
 
 \end{document}
