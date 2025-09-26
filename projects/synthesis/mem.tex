@@ -412,7 +412,14 @@ On the other, after a decoding cycle the probability of an error is:
     \prb{ E_{2} = S  } &= q^{2X_{1} + 2X_{2} + 2X_{3}} = q^{|S| + X_{1} - X_{3}}  
   \end{split}
 \end{equation*}
-Now for $|S| \le n/3$ we have that $ \expp{X_{1}- X_{3}} \ge |S|/4 $.   
+Now for $|S| \le n/3$ we have that $ \expp{X_{1}- X_{3}} \ge |S|/4 $. \ctt{Require proof.}
+
+So, we find that after a cycle of correction and $p$-depolarized noise accumulation, we have:
+\begin{equation*}
+  \begin{split}
+    \prb{E_{3} = S} \le \left( q^{\frac{5}{4}} + p \right)^{|S|} \le q^{|S|}
+  \end{split}
+\end{equation*}
 
 \end{document}
 
