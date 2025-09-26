@@ -398,11 +398,21 @@ We add the following checks $ X_{i} \cdot X_{\theta(i)} $. The degree of the bit
   \item Else, namely $v \in B$, denote by $\Delta_{l}, \Delta_{r}$ the degree of $v$ when ristricted to $\Gamma(A)/\Gamma(B)$ and  $\Gamma(B)/\Gamma(A)$,and define $\xi = \Delta_{l} |\Theta|    + \Delta_{r}|\Theta| \cdot \left(  \frac{|\Gamma(A)|}{ |\Gamma(B)/\Gamma(A)| } \right)^{-1} $ then: $ \Delta + \xi   \ge \Delta(v) \ge \Delta + \frac{1}{2}\xi$.  
 \end{enumerate}
 
-
-\begin{claim}
   
-\end{claim}
-
+\section{Classical Case, Repetition Code.}
+In each decoding iteration, we pick random triples and set the values of their bits to the majority. Now, assume that the probability of a subset $S$ to be an error is less than $q^{|S|}$, And denote by $X_{i}$ the random variabilr that counts the number of triples which $i$ of their bits belong to $S$. On one hand: 
+\begin{equation*}
+  \begin{split}
+    |S| &= \sum_{i} i X_{i} = X_{1} + 2X_{2} + 3X_{3} 
+  \end{split}
+\end{equation*}
+On the other, after a decoding cycle the probability of an error is: 
+\begin{equation*}
+  \begin{split}
+    \prb{ E_{2} = S  } &= q^{2X_{1} + 2X_{2} + 2X_{3}} = q^{|S| + X_{1} - X_{3}}  
+  \end{split}
+\end{equation*}
+Now for $|S| \le n/3$ we have that $ \expp{X_{1}- X_{3}} \ge |S|/4 $.   
 
 \end{document}
 
