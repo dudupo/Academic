@@ -428,6 +428,15 @@ And if the distance of any small check is $d$, then we would find that the expon
   \end{split}
 \end{equation*}
 
+For expander checking\footnote{Two rounds of fixed checks are taken such that the parity check matrix is an expander according to some expansion measure.}, we have that having an error over $|S|$ qubits after a correction round implies that the error spread over $\left( 1 + \varepsilon \right)|S|$\footnote{Conditioned on the assumption that in the previous moment for the decoding there were fewer than $\gamma n$ faulty bits.}. Thus, we get that with high probability:
+
+\begin{equation*}
+  \begin{split}
+    \le \left( q^{1+\varepsilon} + p \right)^{|S|}
+  \end{split}
+\end{equation*}<++>
+
+
 \end{document}
 
 
