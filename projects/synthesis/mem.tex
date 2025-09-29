@@ -537,4 +537,27 @@ With high probability, lets say $1 - \frac{1}{2^{\frac{n}{t}}}$ at time $t$, we 
   \item If $S \subset \Omega_{\varepsilon} / \Omega_{0}$ then   $\prb{S} \le \left(\prbm{S}{\mathbf{B}_{p}}\right)^{1-\delta t}$  %   C_{z}^{\perp}$ 
 \end{enumerate}
 
+\section{Bounds, Bounds, Bounds.}
+
+\begin{claim}
+  Suppose that there is $p$ such that for any event $\omega \in M$ we have $\prb{\omega} \le \mathbf{B}_{p}(\omega)$ then: 
+
+  \begin{equation*}
+    \begin{split}
+
+  \prb{M} \le |M| 2^{n/2}
+    \end{split}
+  \end{equation*}
+
+\end{claim}
+\begin{proof}
+
+  \begin{equation*}
+    \begin{split}
+      \prb{M} & \le \sum \prb{\omega} \le |M| p^{pn}\left( 1 = p \right)^{(1-p)n} = |M| \left( 2^{H(p)} \right)^{n} \\
+      & \le |M| 2^{\frac{n}{2}}
+    \end{split}
+  \end{equation*}
+\end{proof}
+
 \end{document}
