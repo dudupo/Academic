@@ -518,6 +518,15 @@ Idea, instead of preserving a local stochastic noise, maybe preserving a monoton
   Let $\omega \in \Omega$ be an atomic event, then we would like to have that: $q(\omega) \le \mathbf{B}_{p}(\omega)$. 
 \end{definition}
 
-However that is impossible, what we can require is to have the above inequality for $\omega \in \Omega_{\varepsilon}$ where $\Omega_{\varepsilon}$ is the errors configurations. 
+However that is impossible, what we can require is to have the above inequality for $\omega \in \Omega_{\varepsilon}$ where $\Omega_{\varepsilon}$ is the errors configurations. For example: 
+
+
+\begin{equation*}
+  \begin{split}
+  \prb{Y > \xi }&=   \prb{Y > \xi | X \in C_{z}^{\perp} } \prb{ X \in C_{z}^{\perp}} +  \prb{Y > \xi | X \not{\in} C_{z}^{\perp} } \prb{ X \not{\in} C_{z}^{\perp}} \\
+  & \le \prb{Y > \xi | X \in C_{z}^{\perp} } \prb{ X \in C_{z}^{\perp}} + \prbm{ Y \ge \xi  }{ X \sim \mathbf{B}_{p}  } 
+  \end{split}
+\end{equation*}
+
 
 \end{document}
