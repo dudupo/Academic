@@ -503,4 +503,10 @@ Concentration in the random picking is given by:
 \href{https://www.cs.columbia.edu/~djhsu/coms4773-s24/lectures/mcdiarmid.pdf}{Mcdiarmid}
 \end{document}
 
-
+Then we need to show that montonic of random implies montonic of concentrations:
+\begin{equation*}
+  \begin{split}
+    \prb{E(S,S) \ge \xi } = \sum_{i \ge \xi}\prb{E(S,S) = i} \le \sum_{i \ge \xi}\prb{E(\tilde{S},\tilde{S}) = i} \le e^{-\Theta(n) }
+  \end{split}
+\end{equation*}
+\ctt{ The concentration holds if $|S| = \Theta(n)$, However that is going to case as in every time tick we obserb more $\sim pn$ noise. }
