@@ -395,7 +395,7 @@ Notice that if for any $B$ at the range $(1/\Delta^{3}, 1/\Delta^{2}) n$ we have
 We add the following checks $ X_{i} \cdot X_{\theta(i)} $. The degree of the bits changes as follow:   
 \begin{enumerate}
   \item If $v \in A$ then: $\Delta(v) = \Delta + |\Theta|\Delta $
-  \item Else, namely $v \in B$, denote by $\Delta_{l}, \Delta_{r}$ the degree of $v$ when ristricted to $\Gamma(A)/\Gamma(B)$ and  $\Gamma(B)/\Gamma(A)$,and define $\xi = \Delta_{l} |\Theta|    + \Delta_{r}|\Theta| \cdot \left(  \frac{|\Gamma(A)|}{ |\Gamma(B)/\Gamma(A)| } \right)^{-1} $ then: $ \Delta + \xi   \ge \Delta(v) \ge \Delta + \frac{1}{2}\xi$.  
+  \item Else, namely $v \in B$, denote by $\Delta_{l}, \Delta_{r}$ the degree of $v$ when restricted to $\Gamma(A)/\Gamma(B)$ and  $\Gamma(B)/\Gamma(A)$,and define $\xi = \Delta_{l} |\Theta|    + \Delta_{r}|\Theta| \cdot \left(  \frac{|\Gamma(A)|}{ |\Gamma(B)/\Gamma(A)| } \right)^{-1} $ then: $ \Delta + \xi   \ge \Delta(v) \ge \Delta + \frac{1}{2}\xi$.  
 \end{enumerate}
 
   
@@ -435,6 +435,38 @@ For expander checking\footnote{Two rounds of fixed checks are taken such that th
     \le \left( q^{1+\varepsilon} / \left( 1 - o(f) \right)   + p \right)^{|S|}
   \end{split}
 \end{equation*}
+
+
+\section{Another Decoder.}
+
+Consider the follow decoder: Any bit picks two random checks adjoin to it. If they both unsatisfied it flips itself. The idea, is that we might control the amount of independence. 
+
+\newcommand*{\Xuv}{X_{u}^{v}}
+
+Let $X_{u}^{v}$ be the indicator, indicating that the bits $v$ and $u$ choose checks that share a bit, we call it a collision, To compute he expected number of collisions, we define the graph given by $4$-steps walk over the Tanner graph. Then:  
+
+\begin{equation*}
+  \begin{split}
+    \sum \expp{X_{u}^{v}} = \frac{1}{\Delta^{2}} \cdot 1_{S}^{\top} A_{G} 1_{S} \le \frac{1}{\Delta^{2}} \frac{ \left( \Delta\Delta_{2} \right)^{2} |S|^{2} }{n} + \frac{1}{\Delta^{2}} \lambda \left( \Delta \Delta_{2} \right)^{2} |S|
+  \end{split}
+\end{equation*}
+Where $S$ is the subsets of the faulty bits. So if the $4$-steps graph is Ramanujan, namely $\lambda \approx \Delta \Delta_{2}$: 
+\begin{equation*}
+  \begin{split}
+    \approx \frac{\Delta_{2}^{2}|S| }{n} + \frac{\Delta_{2}}{\Delta} |S| \rightarrow  \frac{\Delta_{2}}{\Delta} |S| 
+  \end{split}
+\end{equation*}
+
+It's even easier to bound the expectation of the pairs $u$ and $v$ which share the same check. So given a checks choice, we have that the probability of error to kept: 
+\begin{equation*}
+  \begin{split}
+  \sim q^{ \left( 2 - \frac{\Delta_{2}}{\Delta} \right) |S| }
+  \end{split}
+\end{equation*}
+Conditioned on the case that the number of collision is not far from the expectation.  
+
+
+
 
 
 \end{document}
