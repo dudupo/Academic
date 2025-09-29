@@ -490,13 +490,13 @@ First, consider $\mathcal{D}$ that pick any vertex in probability $|S|/n + \vare
 \begin{equation*}
   \begin{split}
     \expp{E(S, S)} & \le \left( 1 - o(\star) \right)  \expp{E(\tilde{S}, \tilde{S})} \le \left( 1 - o(\star) \right) \sum_{i\sim j} A_{ij}\expp{x_{i}x_{j}}  \approx \left( \frac{|S|}{n } + \varepsilon \right)^{2} \cdot \Delta n \\
-    & \le \frac{|S|}{n}\left( 1 + \frac{\varepsilon n }{|S|} \right)^{2} \cdot |S|
+    & \le \frac{|S|}{n}\left( 1 + \frac{\varepsilon n }{|S|} \right)^{2} \cdot \Delta |S|
   \end{split}
 \end{equation*}
-In particular if $|S|/ n \le \delta $ then: 
+In particular if $|S|/ n \le \frac{\delta}{\Delta} $ then: 
 \begin{equation*}
   \begin{split}
-    \expp{E(S, S)} \approx \le (1 + \varepsilon \frac{n}{|S|} )^{2}  \delta \Delta |S|
+    \expp{E(S, S)} \approx \le (1 + \varepsilon \frac{n}{|S|} )^{2}  \delta |S|
   \end{split}
 \end{equation*}
 Concentration in the random picking is given by: 
