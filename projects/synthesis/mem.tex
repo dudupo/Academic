@@ -484,9 +484,20 @@ Other way, first use the Markov inequality to bound the space that $ \ge n\alpha
 \end{equation*}
 For big enough $\alpha$ we see that the probability decay exponentially. (An also way to prove that $q^{q} \ge \frac{1}{2}$). 
 
+\section{Bounding $E(S,S)$, fixed $|S|$, by Branuli Process. } 
 
-
-
+First, consider $\mathcal{D}$ that pick any vertex in probability $|S|/n + \varepsilon$. With hight probability all the assignments mark more than $|S|$ vertices. Denote by $\tilde{S}$ the drawn vertices, with high probability $E(S,S) \le E(\tilde{S}, \tilde{S})$, just by monotonically. On the other hand:  
+\begin{equation*}
+  \begin{split}
+    \expp{E(S, S)} & \le \left( 1 - o(\star) \right)  \expp{E(\tilde{S}, \tilde{S})} \le \left( 1 - o(\star) \right) \sum_{i\sim j} A_{ij}\expp{x_{i}x_{j}}  \approx \left( \frac{|S|}{n } + \varepsilon \right)^{2} \cdot \Delta |S| 
+  \end{split}
+\end{equation*}
+In particular if $|S|/ n \le \delta $ then: 
+\begin{equation*}
+  \begin{split}
+    \expp{E(S, S)} \approx \le (\delta + \varepsilon)^{2}\Delta |S|
+  \end{split}
+\end{equation*}
 
 \end{document}
 
