@@ -472,9 +472,17 @@ Denote by $\mu$ the expected flips, and by $\alpha,\beta < 1$ marginal parameter
 \begin{equation*}
   \begin{split}
     \prb{ \frac{|S|}{n} \ge \mu + \alpha }  & \le \sum_{m \ge \mu + \alpha } Cq^{n(\mu + \alpha)} \le q^{n(\alpha - \beta) }  \sum_{m \ge \mu + \alpha } \star \\ 
-      & \le  q^{n(\alpha - \beta) } \prb{  |\frac{|S|}{n} - \mu | \le \beta   }
+      & \le  q^{n(\alpha - \beta) } \prb{  |\frac{|S|}{n} - \mu | \le \beta   } 
   \end{split}
 \end{equation*}
+
+Other way, first use the Markov inequality to bound the space that $ \ge n\alpha $ so we get $\ge \frac{1}{2} \cdot \frac{1}{\alpha} \cdot 2^{n}$, and then use the local stochastic property:   
+\begin{equation*}
+  \begin{split}
+    \le C \frac{ \frac{1}{2} }{ \alpha } \cdot 2^{n} \cdot q^{\alpha n} = \frac{\alpha}{2} C \left( 2 q^{\alpha} \right)^{n}
+  \end{split}
+\end{equation*}
+For big enough $\alpha$ we see that the probability decay exponentially. 
 
 
 
