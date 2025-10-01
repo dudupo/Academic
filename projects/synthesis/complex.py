@@ -125,36 +125,41 @@ class KDgrid:
         """
         f = lambda : 1 if random() < p else 0
         if assignment is None:
-            return { key : f() for key in self.get_zerobits().keys() }
+            return { key : f() for key in self.zbits.keys() }
         else:
             for key,val in assignment.items():
                 assignment[key] ^= f()
             return assignment
             #return { key : f() ^ assignment[key] for key in self.get_zerobits().keys() }
 
+
+    def local_syndrom(self, _check, assignment):
+        bits = self.checks_to_bits[_check]
+        parity = 0 
+        for bit in bits:
+            parity ^= assignment[bit]
+        return parity
+
+    def syndrom_size(self, assignment):
+        ret = 0
+        for u in self.checks.keys():
+            ret += self.local_syndrom(u, assignment)
+        return ret
+
+
     def local_correaction(self, face, assignment):
-        stabilizers = self.face_to_vertex[face]
+        stabilizers = self.bits_to_checks[face]
         syndrom_diff = 0
         for stabilizer in stabilizers:
-            bits = self.views[stabilizer]
-            parity = 0 
-            for bit in bits:
-                parity ^= assignment[bit]
-            syndrom_diff += { 0 : 1 , 1 : -1}[parity]
-        if syndrom_diff < 0:
-            return True
+            syndrom_diff += { 0 : 1 , 1 : -1}[self.local_syndrom(stabilizer, assignment)]
+        return syndrom_diff < 0
 
     def local_correaction_D_random_pick(self, face, assignment):
-        random_stabilizers_pair = sample(self.face_to_vertex[face], 2)
+        random_stabilizers_pair = sample(self.bits_to_checks[face], 2)
         syndrom_diff = 0
         for stabilizer in random_stabilizers_pair:
-            bits = self.views[stabilizer]
-            parity = 0 
-            for bit in bits:
-                parity ^= assignment[bit]
-            syndrom_diff += { 0 : 1 , 1 : -1}[parity]
-        if syndrom_diff == -2:
-            return True
+            syndrom_diff += { 0 : 1 , 1 : -1}[self.local_syndrom(stabilizer, assignment)]
+        return syndrom_diff == -2
 
     def local_correaction_group(self, faces, assignment, local_decoder = None ):
         if local_decoder is None:
@@ -178,8 +183,8 @@ class KDgrid:
         for face in self.zbits.keys():
             notseen = [ True ] * _colors
             notseen[colorized[face]] = False
-            for stabilizer in self.face_to_vertex[face]:
-                for facej in self.views[stabilizer]:
+            for stabilizer in self.bits_to_checks[face]:
+                for facej in self.checks_to_bits[stabilizer]:
                     #if facej not in colorized:
                         #facej = facej[-1],facej[0]
                     if (facej != face) and (colorized[face] ==  colorized[facej]):

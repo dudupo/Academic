@@ -10,10 +10,10 @@ import matplotlib.pyplot as plt
 from complex import *
 from colorize_grids import *
 
-def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, time = 80, verbose=True):
+def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, time = 80, verbose=True, celldim=2, checksdim =0):
     plt.clf()
     for n,k in zip(ns, ks):
-        grid = KDgrid(n,k)
+        grid = KDgrid(n,k, celldim=celldim, checksdim=checksdim)
         for p in p_rates:
             error = [ 0 for _ in range(time) ]
             for __ in range(attempts):
@@ -21,7 +21,7 @@ def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, 
                     print(f"[#] Attempt number: {__}")
                 assign = grid.random_assignment(p, assignment = None)
                 for _ in range(time):
-                    error[_] +=  (sum(assign.values())/len(grid.zbits))/attempts
+                    error[_] +=  grid.syndrom_size(assign) / (len(grid.checks.keys()) * attempts)
                     assign =  {
                         "by_colors" : grid.correction_cycele(assign, color= ( _ % 32 ) ),
                         "all_major" : grid.correction_cycele_all_take_maj(assign),
@@ -39,7 +39,8 @@ def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, 
                 f"error rates        :{ p_rates}", 
                 f"error accumulation :{ accu}"
         ])
-        plt.text(0.02, 0.5, detail , fontsize=14, transform=plt.gcf().transFigure)
+        plt.text(0.1, 0.1, detail , fontsize=9, transform=plt.gcf().transFigure)
+        plt.subplots_adjust(bottom=0.3)
         plt.savefig(f"test_{title}.svg")
 
 def tests():
@@ -61,11 +62,15 @@ def tests():
         print()
         print(grid.views[ (0,0,1)])
 
-
         c = canvas.canvas()
         for face in grid.face_to_vertex.keys():
             projrct_face(face, c)
         c.writeSVGfile("test-3x3")
+    
+    def inital_samll_grid_var_cell_dim( ):
+        grid = KDgrid(5,3, celldim=2, checksdim = 1)
+        print(grid.checks_to_bits[ ( (0,0,0) , (0,0,1) ) ][0])
+        print(grid.checks_to_bits[ ( (0,0,0) , (0,0,1) ) ])
     
     def set_bitson_single_face():
 
@@ -135,12 +140,12 @@ def tests():
 
 
     def test_correction():
-        TestCase([8], [3], [0.02], "by_colors", "test_correction", accu = False)
+        TestCase([8], [3], [0.02], "by_colors", "test_correction", accu = False) 
         plt.show()
 
     def test_correction_random_pair():
-        TestCase([8], [3], [0.02], "rand_pair", "test_correction_rand", accu = False)
-        plt.show()
+        TestCase([8], [3], [0.0001, 0.001], "rand_pair", "test_correction_rand", accu = False)
+        #plt.show()
 
     def test_variable_noise_random_pair():
         TestCase([8], [3], [0.0001,0.001, 0.005, 0.02, 0.05], "rand_pair", "test_variable_noise_random_pair_no_accu", accu = False)
@@ -149,7 +154,7 @@ def tests():
         TestCase([3,4,5,7,8], [3,3,3,3,3], [0.02], "by_colors", "test_correction_error_accu", accu = True)
 
     def test_correction_error_accu_all_maj():
-        TestCase([8], [3], [0.0005, 0.005, 0.05], "all_major", "test_correction_error_accu_all_maj", accu = True)
+        TestCase([7, 14, 20, 30], [3,3,3,3], [0.0001], "all_major", "test_correction_error_accu_all_maj", accu = True)
 
     def test_correction_error_accu_random_pairs():
         TestCase([7, 14, 20, 30], [3,3,3,3,3], [0.0001], "rand_pair", "test_correction_error_accu_random_pairs", accu = True)
@@ -163,21 +168,42 @@ def tests():
     def test_correction_error_accu_low_noise():
         TestCase([5, 10], [3,3], [0.00001], "by_colors", "test_correction_error_accu_low_noise", accu = True, times = 500, attempts = 100)
 
+
+    def test_all_the_decoders_no_accu( ):
+        TestCase([8], [3], [0.001], "by_colors", "test_correction_colors_1", accu = False) 
+        TestCase([8], [3], [0.001], "all_major", "test_correction_all__1", accu = False)
+        TestCase([8], [3], [0.0001], "rand_pair", "test_correction_rand_1", accu = False)
+        TestCase([8, 16, 20], [3], [0.001], "by_colors", "test_correction_colors_2", accu = False) 
+        TestCase([8, 16, 20], [3], [0.001], "all_major", "test_correction_all__2", accu = False)
+        TestCase([8, 16, 20], [3], [0.0001], "rand_pair", "test_correction_rand_2", accu = False)
+        #plt.show()
+
+
+    def test_4D_toric_sanity():
+        #TestCase([8], [3], [0.001], "by_colors", "test_correction_colors_1", accu = False) 
+        TestCase([4], [4], [0.001], "all_major", "test_4D_toric_sanity", accu = False, celldim = 2 , checksdim= 1 )
+        #TestCase([8], [3], [0.0001], "rand_pair", "test_correction_rand_1", accu = False)
+
+    #def test_4D_toric_no_accu():
+
     #inital_samll_grid()
     #set_bitson_single_face()
     #test_random_error()
     #test_colorized_c()
     #test_correction_cycle()
     #test_correction_cycle_random_pair()
-    test_correction()
+    #test_correction()
+    #test_correction_error_accu_random_pairs()
+    #test_variable_noise_error_accu_random_pairs()
+    #test_correction_error_accu_low_noise()
+
+    #test_correction_error_accu_all_maj()
     #test_correction_random_pair()
     #test_variable_noise_random_pair()
     #test_correction_error_accu_random_pairs()
-    #test_variable_noise_error_accu_random_pairs()
-    #test_correction_error_accu_random_pairs()
-    #test_correction_error_accu_low_noise()
-    #test_correction_error_accu_all_maj()
 
-
+    #test_all_the_decoders_no_accu()
+    inital_samll_grid_var_cell_dim()
+    test_4D_toric_sanity()
 if __name__ == "__main__" :
     tests()
