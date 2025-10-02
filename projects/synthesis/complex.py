@@ -178,6 +178,7 @@ class KDgrid:
         def random_color(colors):
             return {  face : choice( range(colors)  ) for face in  self.zbits.keys()}
         _colors = 32
+        self._colors = _colors
         colorized = random_color(_colors)
         colorized_dic = { _ : [] for _ in range(_colors) }
         for face in self.zbits.keys():
@@ -200,6 +201,17 @@ class KDgrid:
     def correction_cycele(self, assignment, color=0):
         return self.local_correaction_group(self.colorized_dic[color], assignment)
     
+    def correction_cycele_max_color(self, assignment):
+        _maxcolor, _maxdecrease, ret = 0, 0, assignment
+        last_syndrom = self.syndrom_size(assignment)
+        for color in range(self._colors): 
+            suggested_correction = self.local_correaction_group(self.colorized_dic[color], deepcopy(assignment))
+            syndrom_diff = last_syndrom - self.syndrom_size(suggested_correction) 
+            if (color ==0) or ( _maxdecrease < syndrom_diff):
+                _maxdecrease, ret = syndrom_diff, suggested_correction 
+        return suggested_correction
+
+
     def correction_cycele_all_take_maj(self, assignment):
         return self.local_correaction_group(assignment.keys(), assignment)
 
