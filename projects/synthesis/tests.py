@@ -26,7 +26,8 @@ def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, 
                         "by_colors" : grid.correction_cycele(assign, color= ( _ % 32 ) ),
                         "all_major" : grid.correction_cycele_all_take_maj(assign),
                         "rand_pair" : grid.correction_cycele_random_pair(assign),
-                        "max_color" : grid.correction_cycele_max_color(assign)
+                        "max_color" : grid.correction_cycele_max_color(assign),
+                        "swift_rul" : grid.correction_cycele_swift_rule(assign)
                     }[decode_cycele]
                     if accu:
                         assign = grid.random_assignment(p, assignment = assign)
@@ -189,7 +190,9 @@ def tests():
 
 
     def test_by_max_color_many_30_no_accu( ):
-        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "max_color", "test_correction_by_MAX_2_8-20_30x4", accu = False, attempts=1, time = 500)
+        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "max_color", "test_correction_by_MAX_2_8-20_30x4", accu = False, attempts=1, time = 200)
+    def test_by_swift_rule_many_30_no_accu( ):
+        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4", accu = False, attempts=1, time = 200)
 
     def test_4D_toric_sanity():
         #TestCase([8], [3], [0.001], "by_colors", "test_correction_colors_1", accu = False) 
@@ -200,6 +203,10 @@ def tests():
         TestCase([8, 16, 20], [4, 4, 4], [0.0001], "by_colors", "test_4D_correction_colors_2", accu = False, celldim = 2 , checksdim= 1) 
         TestCase([8, 16, 20], [4, 4, 4], [0.0001], "all_major", "test_4D_correction_all__2", accu = False, celldim = 2 , checksdim= 1)
         TestCase([8, 16, 20], [4, 4, 4], [0.0001], "rand_pair", "test_4D_correction_rand_2", accu = False, celldim = 2 , checksdim= 1)
+    def test_4D_toric_no_accu_single_attempt():
+        TestCase([8, 16, 20, 20, 20, 20, 20], [4, 4, 4, 4, 4, 4], [0.001], "by_colors", "test_4D_correction_colors_2_single", accu = False, celldim = 2 , checksdim= 1, attempts=1) 
+        TestCase([8, 16, 20, 20, 20, 20, 20], [4, 4, 4, 4, 4, 4], [0.001], "all_major", "test_4D_correction_all__2_single", accu = False, celldim = 2 , checksdim= 1, attempts=1)
+        TestCase([8, 16, 20, 20, 20, 20 ,20], [4, 4, 4, 4, 4, 4], [0.001], "rand_pair", "test_4D_correction_rand_2_single", accu = False, celldim = 2 , checksdim= 1, attempts=1)
     #inital_samll_grid()
     #set_bitson_single_face()
     #test_random_error()
@@ -224,7 +231,8 @@ def tests():
     #test_4D_toric_sanity()
     #test_4D_toric_no_accu()
 
-    test_by_max_color_many_30_no_accu()
-
+    #test_by_max_color_many_30_no_accu()
+    #test_4D_toric_no_accu_single_attempt()
+    test_by_swift_rule_many_30_no_accu()
 if __name__ == "__main__" :
     tests()

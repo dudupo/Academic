@@ -5,6 +5,7 @@ from itertools import combinations, product
 from copy import deepcopy
 from random import random, shuffle, choice, sample
 import matplotlib.pyplot as plt
+import gc
 
 def _direct(i,k):
     ret = np.zeros(k, dtype=int)
@@ -14,11 +15,10 @@ def _direct(i,k):
 def directions_vec(k):
     return [ _direct(i, k)  for i in range(k) ]
 
-def faces_vec(k, vertex = None, sign=True, celldim=2):
-    '''
-        faces_vec, Given vertex and a cell-dim returns all
-        the cells on the vertex's local view.
-    '''
+
+
+def cells_neighbourhood( k, vertex = None, sign=True, celldim=2, _filter = lambda x : True ) :
+
     def totuple( vec ):
         return tuple( i for i in vec ) 
 
@@ -26,7 +26,7 @@ def faces_vec(k, vertex = None, sign=True, celldim=2):
     vertex = np.zeros(k, dtype=int) if vertex == None else  np.array(vertex, dtype=int)
     ret = [ ]
     for generators in combinations( range(k), celldim):
-        signs = product([-1,1], repeat=celldim) if sign else [  (1,1) ]
+        signs = filter(_filter, product([-1,1], repeat=celldim)) if sign else [  (1,1) ]
         for sign_conf in signs:
             left, right = deepcopy(vertex), deepcopy(vertex)
             for sign_i, gen_i in zip(sign_conf, generators):
@@ -36,6 +36,25 @@ def faces_vec(k, vertex = None, sign=True, celldim=2):
                     right += directions[gen_i]
             ret += [ ( totuple(left), totuple(right) ) ] 
     return ret
+
+
+
+def faces_vec(k, vertex = None, sign=True, celldim=2):
+    '''
+        faces_vec, Given vertex and a cell-dim returns all
+        the cells on the vertex's local view.
+    '''
+    return cells_neighbourhood(k, vertex=vertex, sign=sign, celldim=celldim)
+
+
+def positive_time_cells_on_vertex(k, vertex = None, sign=True , celldim =2):
+    '''
+        positive_time_cells_on_vertex, takes the 
+    '''
+    _filter = lambda x : sum(x) >= 0 
+    return cells_neighbourhood(k, vertex=vertex, sign=sign, celldim=celldim, _filter = _filter)
+
+
 
 
 class KDgrid:
@@ -171,8 +190,6 @@ class KDgrid:
             if flipped[face]:
                 assignment[face] ^= 1
         return assignment
-  
-
 
     def get_colorized(self):
         def random_color(colors):
@@ -209,7 +226,10 @@ class KDgrid:
             syndrom_diff = last_syndrom - self.syndrom_size(suggested_correction) 
             if (color ==0) or ( _maxdecrease < syndrom_diff):
                 _maxdecrease, ret = syndrom_diff, suggested_correction 
-        return suggested_correction
+            else:
+                del suggested_correction
+                gc.collect()
+        return ret
 
 
     def correction_cycele_all_take_maj(self, assignment):
@@ -218,6 +238,24 @@ class KDgrid:
     def correction_cycele_random_pair(self, assignment):
         return self.local_correaction_group(self.zbits.keys() ,assignment,  local_decoder = self.local_correaction_D_random_pick)
 
-    
+
+    def correction_cycele_swift_rule(self, assignment):
+        for vertex in self.vertices:
+            bits =  [self.on_the_grid( cell, req_depth=2) for cell in
+                        positive_time_cells_on_vertex(
+                            self.k, vertex = vertex, celldim =2)]
+            checks = set(sum([ self.bits_to_checks[bit] for bit in bits ], start=[]))
+            last_local_syndrom = None
+
+            temp_assignment, temp_syndrom = deepcopy(assignment), 0
+            for binary_assignment in  product([0,1], repeat = len(bits)):
+                for bit, value in zip(bits, binary_assignment):
+                    temp_assignment[bit] = value
+
+                for check in checks:
+                    temp_syndrom += self.local_syndrom(check, temp_assignment)
+                    if (last_local_syndrom is None) or  (temp_syndrom < last_local_syndrom):
+                        assignment = temp_assignment
+        return assignment
 
 
