@@ -7,6 +7,9 @@ from random import random, shuffle, choice, sample
 import matplotlib.pyplot as plt
 import gc
 
+from multiprocessing import Pool 
+
+
 def _direct(i,k):
     ret = np.zeros(k, dtype=int)
     ret[i] = 1
@@ -226,9 +229,9 @@ class KDgrid:
             syndrom_diff = last_syndrom - self.syndrom_size(suggested_correction) 
             if (color ==0) or ( _maxdecrease < syndrom_diff):
                 _maxdecrease, ret = syndrom_diff, suggested_correction 
-            else:
-                del suggested_correction
-                gc.collect()
+            #else:
+                #del suggested_correction
+                #gc.collect()
         return ret
 
 
@@ -240,7 +243,9 @@ class KDgrid:
 
 
     def correction_cycele_swift_rule(self, assignment):
-        for vertex in self.vertices:
+
+        def swift_vertex(vertex):
+            ret = deepcopy(assignment)
             bits =  [self.on_the_grid( cell, req_depth=2) for cell in
                         positive_time_cells_on_vertex(
                             self.k, vertex = vertex, celldim =2)]
@@ -248,14 +253,68 @@ class KDgrid:
             last_local_syndrom = None
 
             temp_assignment, temp_syndrom = deepcopy(assignment), 0
+            picked = None
             for binary_assignment in  product([0,1], repeat = len(bits)):
                 for bit, value in zip(bits, binary_assignment):
-                    temp_assignment[bit] = value
+                    temp_assignment[bit] ^= value
 
                 for check in checks:
                     temp_syndrom += self.local_syndrom(check, temp_assignment)
                     if (last_local_syndrom is None) or  (temp_syndrom < last_local_syndrom):
-                        assignment = temp_assignment
-        return assignment
+                        picked = binary_assignment
+
+            return zip(bits, picked)
+      
+        gens, ret_assign = [], deepcopy(assignment)
+        for vertex in self.vertices:
+            gens.append(swift_vertex(vertex))
+        for gen in gens:
+            for bit, value in gen:
+                ret_assign[bit] ^= value
+        return ret_assign
 
 
+'''
+
+        # -------------------- Multi processing -------------------- #
+        ret_assign = deepcopy(assignment)
+        restuls = [ ]
+
+        def swift_chunk(chunk):
+            ret = [ ]
+            for vertex in chunk:
+                ret += [ swift_vertex(vertex) ]
+            return ret
+
+        def split_chunks(lst, n):
+            """Yield successive n-sized chunks from lst."""
+            for i in range(0, len(lst), n):
+                yield lst[i:i + n]
+
+        processes_number = 30
+        with Pool(processes = processes_number) as pool:
+            gens = internal_func_map(pool, swift_chunk, [ list(chunk) for chunk in split_chunks(self.vertices, processes_number) ])
+            result = sum( gens, start = [])
+            for _gen in result:
+                for bit, value in _gen:
+                    ret_assign[bit] ^= value
+        return ret_assign
+        # -------------------- Multi processing -------------------- #
+
+import marshal
+import multiprocessing
+import types
+from functools import partial
+
+def internal_func_map(pool, f, gen):
+    marshaled = marshal.dumps(f.__code__)
+    return pool.map(partial(run_func, marshaled=marshaled), gen)
+
+
+def run_func(*args, **kwargs):
+    marshaled = kwargs.pop("marshaled")
+    func = marshal.loads(marshaled)
+
+    restored_f = types.FunctionType(func, globals())
+    return restored_f(*args, **kwargs)
+'''

@@ -1,0 +1,509 @@
+\documentclass{beamer}
+%\usepackage{split}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{braket}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usetikzlibrary{positioning,shapes,arrows.meta}
+%\usetikzlibrary{positioning,fit,backgrounds}
+\usepackage{quantikz}
+\usepackage[linesnumbered]{algorithm2e}
+\usepackage{hyperref}
+%\usepackage{hyperref,xcolor}
+%\usepackage[ocgcolorlinks]{ocgx2}
+\usepackage{cleveref}
+\usepackage[backend=biber,style=authoryear,sorting=ynt]{biblatex}
+\addbibresource{./sample.bib}
+
+
+\newcommand*{\QACze}{ \mathbf{QAC}_{0} }
+\newcommand*{\QNCzef}{ \mathbf{QNC}_{0,f} }
+\newcommand*{\QNCze}{ \mathbf{QNC}_{0} }
+\newcommand*{\QNCon}{ \mathbf{QNC}_{1} }
+\newcommand*{\NCon}{ \mathbf{NC}_{1} }
+\newcommand*{\noiseQNCon}{ noisy-$\QNCon$ }
+\newcommand*{\QNC}{ \mathbf{QNC} }
+\newcommand*{\QNCG}{ \mathbf{QNC_G} }
+\newcommand*{\NC}{\mathbf{NC}}
+\newcommand*{\QNCiG}{\mathbf{QNC_{G,i}}}
+
+
+\begin{document} 
+
+\newcommand*{\Tr}{\textbf{Tr }}
+
+
+\begin{frame}
+  \title{A Tale of Five Decoders.}
+    \author{David Ponarovsky}
+    \date{\today}
+    \titlepage
+\end{frame}
+
+
+\begin{frame}
+
+\frametitle{Introduction}
+\begin{block}{Today:}
+\begin{itemize}
+  \item Noisy Circuits.
+  \item  Definitions and Motivation.
+  \item  Pippenger Construction. (Classical, Fault Tolerance with constant overhead at depth ).
+  \item `Franch-line' works, modern fault tolerance methods and gadgets. ('log n' overhead at depth).  
+  \item An almost  $\QNCon =$ \noiseQNCon. 
+  \item Next week, directions and hints that might show separation. ($\neq$).
+\end{itemize}
+\end{block}
+\begin{block}{TAKEAWAYS:}
+\begin{itemize}
+  \item More about codes.
+  \item  First view to fault tolerance.  
+  \item Nice open problems. 
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+
+
+% test_correction_error_accu_all_maj.svg
+% test_correction_error_accu_random_pairs_var_length.svg
+% test_MAX_remote.svg
+% test_swift_remote.svg
+% test_test_4D_correction_colors_2_single.svg
+% test_test_4D_correction_colors_2.svg
+% test_test_4D_toric_sanity.svg
+% test_test_correction_accu_by_MAX_2_8-20_30x4.svg
+% test_test_correction_all__1.svg
+% test_test_correction_all__2.svg
+% test_test_correction_all_major_2_8-20_30x4.svg
+% test_test_correction_by_colors_2_8-20_30x4.svg
+% test_test_correction_by_MAX_2_8-20_30x4.svg
+% test_test_correction_by_SWIFT_2_5x7.svg
+% test_test_correction_by_SWIFT_2_8-20_30x4.svg
+% test_test_correction_colors_1.svg
+% test_test_correction_colors_2.svg
+% test_test_correction_error_accu_all_maj.svg
+% test_test_correction_error_accu_random_pairs.svg
+% test_test_correction_rand_1.svg
+% test_test_correction_rand_2_8-20_30x4.svg
+% test_test_correction_rand_2.svg
+% test_test_correction_rand.svg
+% test_test_correction.svg
+% test_test_variable_noise_random_pair_no_accu.svg
+
+
+\newcommand\DECSLIDE[2]{
+\begin{frame}
+\frametitle{Nosiy Circuit.}
+\begin{figure}[h]
+  \centering
+  \includegraphics{../synthesis/#1}
+  \caption{Decoder #2}
+  \label{fig:#2}
+\end{figure}
+\end{frame}
+}
+
+
+\DECSLIDE{test_test_correction_all_major_2_8-20_30x4.svg}{ Majoritiy }
+\DECSLIDE{test_test_correction_by_colors_2_8-20_30x4.svg}{ Colors }
+\DECSLIDE{test_test_correction_rand_2_8-20_30x4.svg}{ Picking Random }
+\DECSLIDE{test_test_correction_by_SWIFT_2_8-20_30x4.svg}{ SWIFT }
+\DECSLIDE{test_test_correction_by_MAX_2_8-20_30x4.svg}{ Max Color }
+
+
+
+
+\begin{frame}
+  \frametitle{Nosiy Circuit.}
+
+\begin{quantikz}[row sep=0.3cm, column sep=0.7cm]
+\lstick{$q_1$} & \gate[wires=8]{U_0} & \gate{\mathcal{N}} & \gate[wires=8]{U_1}   & \gate{\mathcal{N}} & \gate[wires=8]{U_2} & \gate{\mathcal{N}}& \qw \\
+\lstick{$q_2$} &                      & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} &                     & \gate{\mathcal{N}} & \qw \\
+\lstick{$q_3$} &                      & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} &                     & \gate{\mathcal{N}} & \qw \\
+\lstick{$q_4$} &                      & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} &                     & \gate{\mathcal{N}} & \qw \\
+\lstick{$q_5$} &                      & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} &                     & \gate{\mathcal{N}} & \qw \\
+\lstick{$q_6$} &                      & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} &                     & \gate{\mathcal{N}} & \qw \\
+\lstick{$q_7$} &                      & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} &                     & \gate{\mathcal{N}} & \qw \\
+\lstick{$q_8$} &                      & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} &                     & \gate{\mathcal{N}} & \qw
+\end{quantikz}
+\end{frame}
+
+\begin{frame}{Nosiy Circuit.}
+  \begin{definition}{ $p$- Depolarizing Channel. } 
+    The qubit depolarizing channel with parameter $ p \in [0,1] $ is the quantum channel $ \mathcal{D}_p $ defined by:
+\begin{equation*}
+  \begin{split}
+\mathcal{D}_p(\rho) = (1 - p) \rho + p \cdot \frac{I}{2}
+  \end{split}
+\end{equation*}
+
+where $ \rho $ is a single-qubit density matrix and $ I $ is the identity matrix.
+
+  \end{definition}
+  \begin{definition}{$p$-Noisy Circuit.}
+    Given a circuit $C$ (regardless of the model), its $p$-noisy version $\tilde{C}$ is the circuit obtained by alternately taking layers from $C$ and then passing each (qu)bit through a $p$-Depolarizing channel.
+  \end{definition}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Threshold Theorem.} 
+  \begin{theorem}[Threshold Theorem. Informal.]
+There is a universal $p_{th} \in (0,1)$ such that for any $p < p_{th}$, any circuit in BQP can be simulated by a $p$-noisy BQP circuit. The simulating circuit has a depth that is at most $\text{poly} \log n$ times the original depth.
+  \end{theorem}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{threshold.png}
+    \label{fig:your-label}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Definitions}
+%  \begin{block}{Definition}
+\begin{definition}[$\NC$ - Nick's Class]
+$\NC_i$ is the class of decision problems solvable by a uniform family of Boolean circuits, with polynomial size, depth $O(\log^i(n))$, and fan-in $2$. 
+\end{definition}
+
+\begin{definition}[$\QNC$]
+  The class of decision problems solvable by polylogarithmic-depth, and finate fan out/in quantum circuits with bounded probability of error. Similarly to $\NC_i$, $\QNC_i$ is the class where the decisdes the circuits have $\log^i (n)$ depth.  
+\end{definition}
+
+\begin{definition}[$\QNCG$]
+  For a fixing finate fan in/out gateset $G$, the class with deciding circuits composed only for gates in $G$ and at depth at most polylogaritmic. And in similar to $\QNC_{i}$, $\QNCiG$ is the restirction to circuits with depth at most $\log^{i}(n)$.  
+\end{definition}
+ % \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pippenger's Construction.} 
+  
+  \begin{theorem}[Threshold Theorem - Pippenger. Informal.]
+    There is fault tolerance construction with a constant depth overhead.
+  \end{theorem}
+  \begin{block}{Idea.}
+    \begin{itemize}
+      \item Encode each bit with the repetition code $0 \mapsto 0^{m}$, $1 \mapsto 1^{m}$.
+      \item The OR and the AND operations can be made in $O(1)$ depth (without decoding).
+        \uncover<+->{   
+          \begin{equation*}
+            \begin{split}
+              \mathbf{\bar{OR}}\left( \bar{x} , \bar{y} \right) &= \mathbf{OR}\left( x_{0}x_{0},x_{0}.. , y_{0}y_{0}y_{0} .. \right) \\
+              &= \mathbf{OR}\left( x_0,y_0 \right)\mathbf{OR}\left( x_0,y_0 \right)\mathbf{OR}\left( x_0,y_0 \right)..
+            \end{split}
+          \end{equation*}
+        }
+      \item Parital decoding. Keeping the error 'low', by a 'decoding' round. (Next slide).
+    \end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The 'Decoding' trick.} 
+  
+  \begin{lemma}
+    \label{lemma:reduce}
+There exists $\beta \in (0,1)$ such that if the error is at weight less than $\beta n$, then a single correction round reduces the error by at least a $\frac{1}{2}$ fraction.
+  \end{lemma}
+
+  %Suppose that a bit obserb a bit flip with probability $p$. So in expectation we expect that entire bolck at length $n$ will absorb $pn$ flips.  
+  %\begin{equation*}
+    %\begin{split}
+      %\eta \left( \beta + p  \right) n &\le \beta n \\ 
+      %\beta \ge \frac{p}{ 1 - \eta}
+    %\end{split}
+  %\end{equation*}
+  \begin{block}{Then}
+  \begin{center}
+\begin{tikzpicture}
+  \node (bit) [draw, rectangle] {The encoded block initially has $\beta n$ faults. };
+  \node (expectation) [draw, rectangle, below of=bit, yshift=-0.3cm] {Expected additional flips: $pn$, So $\rightarrow (\beta + p) n$.};
+  \node (inequality) [draw, rectangle, below of=expectation, yshift=-0.3cm] {After error reduction cycle: $\frac{1}{2} (\beta + p) n \le \beta n$};
+  \node (solution) [draw, rectangle, below of=inequality, yshift=-0.3cm] {So if $\beta \ge \frac{p}{1 - \frac{1}{2}}$ we keep the error rate below $\beta$.};
+
+  \draw [->] (bit) -- (expectation);
+  \draw [->] (expectation) -- (inequality);
+  \draw [->] (inequality) -- (solution);
+\end{tikzpicture}
+  \end{center}
+\end{block}
+
+
+\end{frame}
+
+\begin{frame}{The Decoding Algorithm.}
+  First noitce that the repetition code could be defined as Tanner code, for any $\Delta$-regular graph $G$ and local code $C_{0}$ which is the repetition over $\Delta$ bits.   
+
+
+  In particular $G$ could be a bipartite expander graph. Denote the right and the left vertices subsets by $V^{-}$ and $V^{+}$.
+  \begin{block}{Decoding:}
+    For $\Omega\left( \log n \right)$ iterations, do: 
+  \begin{enumerate}
+    \item In every even iteration, all the vertices in $V^{+}$ 'correct' their local view based on the majority.
+    \item In every odd iteration, all the vertices in $V^{-}$ 'correct' their local view based on the majority.
+  \end{enumerate}
+For having a constant depth error reduction procedure, it's enough to run the decoding above for two iterations.
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}{The Decoding Algorithm.}
+
+  
+  \begin{figure}[h]
+    \begin{subfigure}[h]{0.4\textwidth}
+
+    \label{alg:three}
+      \begin{algorithm}[H]
+    \KwData{ $x \in \mathbb{F}_{2}^{n}$ }
+    \For { $ v \in V^{+}$} {
+      $x^{\prime}_{v} \leftarrow \arg\min {\left\{  y \in C_{0} : |y + x|_{v} |  \right\} } $\\
+    }
+    \For { $ v \in V^{-}$} {
+      $x^{\prime}_{v} \leftarrow \arg\min {\left\{  y \in C_{0} : |y + x|_{v} |  \right\} } $\\
+    }
+    \Return  $x $
+
+  \end{algorithm}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.1\textwidth}
+      \
+    \end{subfigure}
+    \begin{subfigure}[h]{0.45\textwidth} 
+
+    \begin{tikzpicture}%[scale=2.5]
+\tikzstyle{every node}=[draw,shape=circle];
+
+\draw node (v0) at (0,1) {$u_1$};
+\draw node (v6) at (0,3) {$u_2$};
+\draw node foreach \x in {1,2,3,4,5} (v\x) at (3,\x) {$v_\x$};
+
+\draw (v0) -- (v1)
+(v0) -- (v2)
+(v0) -- (v5)
+(v6) -- (v3)
+(v6) -- (v4)
+(v6) -- (v1);
+\end{tikzpicture}
+    \label{fig:location}
+    \end{subfigure} 
+  \end{figure}
+
+\end{frame}
+
+\begin{frame}{The Decoding Algorithm.}
+  \begin{block}{Proof.}
+  Denote by $S^{(0)} \subset V^{+}$ and  $T^{(0)} \subset V^{-}$ the subsets of left and right vertices adjacent to the error. And denote by $T^{(1)} \subset T^{(0)}$ the right vertices such any of them is connect by at least $\frac{1}{2}\Delta$ edges to vertices at $S^{(0)}$. \\~\
+
+  Note that that any vertex in $V^{-}/T^{(1)}$ has on his local view less than $\frac{1}{2}\Delta$ faulty bits, So it corrects into his 'right' (codeword in $C_{0}$) local view in the first right correction round. \\~\
+
+  Therefore after the right correction round the error is set only on $T^{(1)}$'s neighbourhood, namely at size at most $\Delta|T^{(1)}|$. We will show:
+  \begin{equation*}
+    \begin{split}
+  \Delta|T^{(1)}| \le \text{constant} \cdot |e|
+    \end{split}
+  \end{equation*}
+\end{block}
+\end{frame}
+\begin{frame}
+
+  Using the expansion property we get an upper bound on $T^{(1)}$ size: \begin{equation*}
+  \begin{split} 
+    \frac{1}{2}\Delta |T^{(1)}| & \le \Delta \frac{|T^{(1)}||S^{(0)}|}{n} + \lambda\sqrt{|T^{(1)}||S^{(0)}|} \\ 
+  \left( \frac{1}{2}  \Delta - \frac{|S^{(0)}|}{n} \Delta \right) |T^{(1)}| & \le \lambda \sqrt{|T^{(1)}||S^{(0)}|} \\ 
+  \Delta^{2}|T^{(1)}| & \le \left( \frac{1}{2}  - \frac{|S^{(0)}|}{n}  \right)^{-2}\lambda^{2} |S^{(0)}| 
+  \end{split}
+\end{equation*}
+Since any left vertex adjoins to at least single faulty bit we have that $|S^{(0)}| \le |e|$. Combing with the inequality above we get:  
+
+\begin{equation*}
+  \begin{split}
+    \Delta |T^{(1)}| \le \left( \frac{1}{2}   - \frac{|e|}{n} \right)^{-2}\lambda^{2} \frac{|e|}{\Delta}
+  \end{split}
+\end{equation*}
+Hence for $|e|/n \le \beta =  \frac{1}{2}   - \sqrt{\frac{2\lambda^{2}}{\Delta}}$ it holds that $\Delta|T^{(1)}| \le \frac{1}{2}|e|$. \footnote{Reminder for David!!! Explain why $\lambda^2/\Delta \ge 1 $, and to describe how to correct the proof.}
+
+
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{The Franch's Construction.
+}
+
+  \begin{refsection}
+\cite{Tillich_2014} \cite{Leverrier_2015} \cite{grospellier:tel-03364419}
+  \printbibliography
+\end{refsection}
+
+\end{frame}
+
+
+\begin{frame}{The Franch's Construction.}
+ \begin{block}{Franch gadgets.}
+   \begin{itemize}
+     \item Encoded states and magic preparation (via original fault tolerance).
+     \item Hypergraph product code. (Quantum Expander Codes). $\left[ \left[ n, \Theta(n), \Theta(\sqrt{n}) \right] \right]$.
+   \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Theorem \footnote{Theorem 6.4 in \cite{grospellier:tel-03364419}}} There exists a threshold $p_{0}$ such that the following holds. Let $p < p_{0}$, let $\delta > 0$ and let $D$ be a circuit with $m$ qubits, with $T$ time steps and $|D|$ locations. We assume that the output of $D$ is a quantum state $\ket{\psi}$. 
+
+    Then there exists another circuit $D^{\prime}$ whose output is $\ket{\psi}$ and such that when $D^{\prime}$ is subjected to a local noise model with parameter $p$, there exists a $\mathcal{N}$ a local stochastic noise on the qubits of $\ket{\psi}$ with parameters $p^{\prime} = c \cdot p$ such that: 
+
+    \begin{equation*}
+      \begin{split}
+        \mathbf{Pr}[  \text{ output of } D^{\prime} \text { is not } \mathcal{N}\left( \ket{\psi} \right)   ]\le \delta
+      \end{split}
+    \end{equation*}
+    In addition $D^{\prime}$ has $m^{\prime}$ qubits and $T^{\prime}$ time steps where: 
+
+    \begin{equation*}
+      \begin{split}
+        m^{\prime} &= m \text{ polylog } \left( |D|/\delta \right) \\ 
+        T^{\prime} &= T \text{ polylog } \left( |D|/\delta \right) 
+      \end{split}
+    \end{equation*}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}{Proof Sketch.}
+
+  \scalebox{0.8}{
+\begin{quantikz}%[row sep=0.3cm, column sep=0.7cm]
+  \lstick{$q_1$} & \gate[wires=9][1.7cm]{\Phi^{k}(D)} & \gate{\mathcal{N}} &   \gate[wires=3]{\Phi^{k-1}(\mathcal{E}^{-1})} & \gate{\mathcal{N}} & \gate[wires=2]{\Phi^{k-2}(\mathcal{E}^{-1})}   & \gate{\mathcal{N}} & \qw &\\
+  \lstick{$q_2$} &                      & \gate{\mathcal{N}} &                & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} & \qw &\\
+  \lstick{$q_3$} &                      & \gate{\mathcal{N}} &                & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} & \qw &\\
+  \lstick{$q_4$} &                      & \gate{\mathcal{N}} &     \gate[wires=3]{\Phi^{k-1}(\mathcal{E}^{-1})} & \gate{\mathcal{N}} & \gate[wires=2]{\Phi^{k-2}(\mathcal{E}^{-1})}                                 & \gate{\mathcal{N}} & \qw &\\
+  \lstick{$q_5$} &                      & \gate{\mathcal{N}} &                & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} & \qw &\\
+  \lstick{$q_6$} &                      & \gate{\mathcal{N}} &                & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} & \qw &\\
+  \lstick{$q_7$} &                      & \gate{\mathcal{N}} &      \gate[wires=3]{\Phi^{k-1}(\mathcal{E}^{-1})} & \gate{\mathcal{N}} & \gate[wires=2]{\Phi^{k-2}(\mathcal{E}^{-1})}                                & \gate{\mathcal{N}} & \qw &\\
+  \lstick{$q_8$} &                      & \gate{\mathcal{N}} &                & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} & \qw &\\
+  \lstick{$q_9$} &                      & \gate{\mathcal{N}} &                & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} & \qw &
+\end{quantikz}
+}
+
+
+\end{frame}
+
+\begin{frame}{Proof Sketch.}
+
+The probability that the $i$th bit will absorb an error at the end is bounded by:
+  \begin{equation*}
+    \begin{split}
+      \left( cp \right)^{2^{k-1}} + \left( cp \right)^{2^{k-2}} + .. \left( cp \right)^{2^{k-3}} + .. +  cp \le c_{2}p 
+    \end{split}
+  \end{equation*}
+So we prepared the state $\ket{\psi}$, subjected to local noise (depolarizing noise) at rate $c_{2}p$. \\~\
+
+\begin{block}{Corollary}
+  We can assume that we have an accsess to polynomialy number of magic states encoded in whatever code we like.
+  Moreover, denote by $n$ the complexitiy parameter (input length). if the encoding gate (of the desired code) is $D$ and it's depth is $T$, such that 
+  \begin{equation*}
+    \begin{split}
+      T \mathbf{poly log} \left( |D| \right) = O(\log n)
+    \end{split}
+  \end{equation*}
+  then the preparation of the magic is in\noiseQNCon.
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hypergraph Product Code.}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Hypergraph_prod.png}
+    \caption{ Hypergraph Product code Tanner graph / stabilizers. }
+    \label{fig:your-label}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hypergraph Product Code.}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{toric_prod.png}
+    \caption{The Toric code can be thought of as the hypergraph product obtained by multiplying the repetition code with itself.}
+    \label{fig:your-label}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Error reduction in the Quantum Expander Code.}
+  \begin{block}{Quantum Expander Code.}
+    Consider $C_{1},C_{2}$ (classical) expanders codes\footnote{such $C_{1}^{\perp}, C_{2}^{\perp}$ also have a good distance.}. Consider the Hypergraph code defined by them.
+  \end{block}
+
+
+  \begin{block}{Proof Idea}
+    \begin{itemize}
+      \item First, proving that for adversarial errors with weight at most $\alpha \sqrt{n}$, the error can be reduced by a constant factor. The proof uses the expansion in classical codes.
+      \item Second, showing that with probability $1 - \Theta(e^{-\sqrt{n}})$, the error can be decomposed into disjoint errors, each with a size of at most $\alpha \sqrt{n}$.
+    \end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fault Tolerance at Constant Space Overhead.}
+
+  \begin{block}{Start.}
+    We preapere $\sqrt{n}$ blocks at length $\Theta(\sqrt{n})$ each, we do it sesenqutaly, so the preaperation requires $\Theta(\sqrt{n} \mathbf{ poly log} n)$ anciles. 
+  \end{block}
+ 
+  \begin{block}{Error reduction.}
+Constantly apply rounds of error reduction.
+  \end{block}
+  \begin{block}{Simulate a gate.}
+    \begin{itemize}
+      \item  If the gate is a logical Pauli, we apply it in a transversal manner.
+      \item We prepare the magic state suite for the gate and simulate the gate using the magic procedure - Entangle the states (through transversal CNOT), measure and decode the measurement. 
+
+        Then applying a correction which might be either transversal logical Pauli (if the gate were Clifford) or logical Clifford (if the gate were T). For the second we will have to reapet on the procedure. 
+    \end{itemize}
+  \end{block}
+
+
+\end{frame}
+
+\begin{frame}{Fault Tolerance at Constant Space Overhead.}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{magic_prod.png}
+    \label{fig:your-label}
+\end{figure}
+\end{frame}
+
+\begin{frame}{An almost $\QNCon =$ \noiseQNCon}
+  Encode each qubit by exapnder code at length $\Theta(\log^{10}(n))$. Prepere $2|D|$ magic states form each type in the beginning. \\~\ 
+
+Where did we cheat? \\~\
+
+Decide what correction to apply $UPU^{\dagger}$ given the measurement is not a trivial task. In particular, it isn't clear if it can be done in constant depth.
+\end{frame}
+
+
+\begin{frame}{Open Problems.}
+  \begin{itemize}
+    \item Is there a non-trivial lower bound for deciding $UPU^{\dagger}$?
+    \item Implementing logical gates natively without magic states at a constant depth.
+  \end{itemize}
+\end{frame}
+\end{document}

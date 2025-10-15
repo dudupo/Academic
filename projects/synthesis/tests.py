@@ -23,12 +23,12 @@ def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, 
                 for _ in range(time):
                     error[_] +=  grid.syndrom_size(assign) / (len(grid.checks.keys()) * attempts)
                     assign =  {
-                        "by_colors" : grid.correction_cycele(assign, color= ( _ % 32 ) ),
-                        "all_major" : grid.correction_cycele_all_take_maj(assign),
-                        "rand_pair" : grid.correction_cycele_random_pair(assign),
-                        "max_color" : grid.correction_cycele_max_color(assign),
-                        "swift_rul" : grid.correction_cycele_swift_rule(assign)
-                    }[decode_cycele]
+                        "by_colors" : lambda : grid.correction_cycele(assign, color= ( _ % 32 ) ),
+                        "all_major" : lambda : grid.correction_cycele_all_take_maj(assign),
+                        "rand_pair" : lambda : grid.correction_cycele_random_pair(assign),
+                        "max_color" : lambda : grid.correction_cycele_max_color(assign),
+                        "swift_rul" : lambda : grid.correction_cycele_swift_rule(assign)
+                    }[decode_cycele]()
                     if accu:
                         assign = grid.random_assignment(p, assignment = assign)
             plt.plot(error)
@@ -194,6 +194,8 @@ def tests():
     def test_by_swift_rule_many_30_no_accu( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4", accu = False, attempts=1, time = 200)
 
+    def test_by_swift_rule_small_size_8_no_accu( ):
+        TestCase([5, 5, 5, 5, 5, 5, 5], [3, 3, 3, 3, 3, 3, 3], [0.02], "swift_rul", "test_correction_by_SWIFT_2_5x7", accu = False, attempts=1, time = 200)
     def test_4D_toric_sanity():
         #TestCase([8], [3], [0.001], "by_colors", "test_correction_colors_1", accu = False) 
         TestCase([8], [4], [0.001], "all_major", "test_4D_toric_sanity", accu = False, celldim = 2 , checksdim= 1 )
@@ -233,6 +235,7 @@ def tests():
 
     #test_by_max_color_many_30_no_accu()
     #test_4D_toric_no_accu_single_attempt()
-    test_by_swift_rule_many_30_no_accu()
+    test_by_swift_rule_small_size_8_no_accu()
+    #test_correction( )
 if __name__ == "__main__" :
     tests()
