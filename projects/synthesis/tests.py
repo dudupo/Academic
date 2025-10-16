@@ -9,41 +9,57 @@ import matplotlib.pyplot as plt
 
 from complex import *
 from colorize_grids import *
+from multiprocessing import Process, Array
+
+def single_run(grid, p, decoding, error, time, attempts, attempt_number, verbose = None, accu = None):
+    if verbose:
+        print(f"[#] Attempt number: {attempt_number}")
+    assign = grid.random_assignment(p, assignment = None)
+    for _ in range(time):
+        error[_] +=  grid.syndrom_size(assign)  / (len(grid.checks.keys()) * attempts)
+        assign = decoding(_, assign) 
+        if accu:
+            assign = grid.random_assignment(p, assignment = assign)
 
 def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, time = 80, verbose=True, celldim=2, checksdim =0):
     plt.clf()
+    process = [ ]
+    errors = [ ]
     for n,k in zip(ns, ks):
         grid = KDgrid(n,k, celldim=celldim, checksdim=checksdim)
         for p in p_rates:
-            error = [ 0 for _ in range(time) ]
+            process_exp = [ ]
+            errors.append( Array('d', [ 0 for _ in range( time ) ] ))
             for __ in range(attempts):
-                if verbose:
-                    print(f"[#] Attempt number: {__}")
-                assign = grid.random_assignment(p, assignment = None)
-                for _ in range(time):
-                    error[_] +=  grid.syndrom_size(assign) / (len(grid.checks.keys()) * attempts)
-                    assign =  {
-                        "by_colors" : lambda : grid.correction_cycele(assign, color= ( _ % 32 ) ),
-                        "all_major" : lambda : grid.correction_cycele_all_take_maj(assign),
-                        "rand_pair" : lambda : grid.correction_cycele_random_pair(assign),
-                        "max_color" : lambda : grid.correction_cycele_max_color(assign),
-                        "swift_rul" : lambda : grid.correction_cycele_swift_rule(assign)
-                    }[decode_cycele]()
-                    if accu:
-                        assign = grid.random_assignment(p, assignment = assign)
-            plt.plot(error)
+                decoding = {
+                    "by_colors" : lambda x,y : grid.correction_cycele(y, color= ( x % 32 ) ),
+                    "all_major" : lambda x,y : grid.correction_cycele_all_take_maj(y),
+                    "rand_pair" : lambda x,y : grid.correction_cycele_random_pair(y),
+                    "max_color" : lambda x,y : grid.correction_cycele_max_color(y),
+                    "swift_rul" : lambda x,y : grid.correction_cycele_swift_rule(y)
+                    }[decode_cycele]
+                process_exp.append(Process(target = single_run, args= (grid, p, decoding, errors[-1], time, attempts, __ , verbose , accu ) ))
 
-        plt.title(f"{title} - {decode_cycele}") # fontsize=14, fontweight='bold', loc='center')
-        detail = "\n".join( [ 
+            process.append( process_exp ) 
+            for proc in process_exp:
+                proc.start()
 
-                f"side-length        :{ns}", 
-                f"grid dim           :{ks}", 
-                f"error rates        :{ p_rates}", 
-                f"error accumulation :{ accu}"
-        ])
-        plt.text(0.1, 0.1, detail , fontsize=9, transform=plt.gcf().transFigure)
-        plt.subplots_adjust(bottom=0.3)
-        plt.savefig(f"test_{title}.svg")
+    for j, process_exp in enumerate( process ):
+        for proc in  process_exp:
+            proc.join()
+        plt.plot(errors[j])
+
+    plt.title(f"{title} - {decode_cycele}") # fontsize=14, fontweight='bold', loc='center')
+    detail = "\n".join( [ 
+
+            f"side-length        :{ns}", 
+            f"grid dim           :{ks}", 
+            f"error rates        :{ p_rates}", 
+            f"error accumulation :{ accu}"
+    ])
+    plt.text(0.1, 0.1, detail , fontsize=9, transform=plt.gcf().transFigure)
+    plt.subplots_adjust(bottom=0.3)
+    plt.savefig(f"test_{title}.svg")
 
 def tests():
     def inital_samll_grid( ):
@@ -191,6 +207,8 @@ def tests():
 
     def test_by_max_color_many_30_no_accu( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "max_color", "test_correction_by_MAX_2_8-20_30x4", accu = False, attempts=1, time = 200)
+    def test_by_max_color_many_30_plus_accu( ):
+        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "max_color", "remote_correction_accu_by_MAX_2_8-20_30x4", accu = True, attempts=1, time = 2)
     def test_by_swift_rule_many_30_no_accu( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4", accu = False, attempts=1, time = 200)
 
@@ -235,7 +253,8 @@ def tests():
 
     #test_by_max_color_many_30_no_accu()
     #test_4D_toric_no_accu_single_attempt()
-    test_by_swift_rule_small_size_8_no_accu()
+    #test_by_swift_rule_small_size_8_no_accu()
     #test_correction( )
+    test_by_max_color_many_30_plus_accu()
 if __name__ == "__main__" :
     tests()
