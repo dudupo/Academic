@@ -115,7 +115,7 @@ Let $\TT$ be a Tanner graph such that $\Delta > 2k$. There is $p_{0} \in (0,1)$ 
 First, let's bound the probability that the error after the decoding round ($E_{2}$) is supported on $S$. (We use here the fact that views of the bits through their stabilizer don't overlap since we took only bits of the same color for the decoding.)
 \begin{equation*}
   \begin{split}
-    \prb{ \Su{} \left(E_{2}\right) = S } \le \prb{\text{any bit } v\in S_{c_{1}} \text{ sees majority of satisfied checks   } } \le q^{\frac{1}{2}\Delta |S|_{c_{1}}}
+    \prb{ \Su{} \left(E_{2}\right) = S } & \le \prb{\text{any bit } v\in S_{c_{1}} \text{ sees $\mu$-majority of satisfied checks   } } \le q^{\frac{1}{2}\Delta |S|_{c_{1}}}
   \end{split}
 \end{equation*}
 Now, to roughly analyze the error after observing a round of $p$-depolarized noise, we consider a model in which new errors due to the depolarized channel don't correct previous errors. Thus, we get:
@@ -398,8 +398,32 @@ We add the following checks $ X_{i} \cdot X_{\theta(i)} $. The degree of the bit
   \item Else, namely $v \in B$, denote by $\Delta_{l}, \Delta_{r}$ the degree of $v$ when restricted to $\Gamma(A)/\Gamma(B)$ and  $\Gamma(B)/\Gamma(A)$,and define $\xi = \Delta_{l} |\Theta|    + \Delta_{r}|\Theta| \cdot \left(  \frac{|\Gamma(A)|}{ |\Gamma(B)/\Gamma(A)| } \right)^{-1} $ then: $ \Delta + \xi   \ge \Delta(v) \ge \Delta + \frac{1}{2}\xi$.  
 \end{enumerate}
 
-  
+
+\section{Classical Case, attempt 1.} 
+Denote by $\Gamma(S)$ the neighbors of $S$, and by $\Gamma_{u}(S)$ the unique neighbors of $S$, namely the checks which are connected to $S$ by at most one bit of $S$. Let $S_{0}$ be the faulty qubits before the correction, and let $S_{1}$ be its complement (the unfaulty qubits), and denote by $S$ the faulty qubits after the correction.
+
+Now, consider qubit $v$. If $v \in S_{0}$, then it belongs to $S$ only if it sees a $\frac{1}{2} - \mu$ majority of satisfied checks. In addition, if $v$ were in $S_{1}$, then it could belong to $S$ only if it sees a $\frac{1}{2} + \mu$ majority of unsatisfied checks. Bound the probability from above by conditioning on the event in which all the non-unique neighbors are counted as satisfied or unsatisfied depending on whether they are connected to vertices in $S_0$ or $S_1$.
+
+So, in total we ask about the event in which at least $ A =  (\frac{1}{2} + \mu) |\Gamma(S_{0})| - |\Gamma_{\bar{u}}(S)| $ of the unique checks are satisfied, although they are connected to a faulty bit, and at least $ B =  (\frac{1}{2} - \mu) |\Gamma(S_{1})| - |\Gamma_{\bar{u}}(S)| $ of the unique checks are unsatisfied.
+
+Noitce that for unique checks, the events they will be satisfied/unsatisfied are independent. The probabiliys that one check in $S_{0}$ will be unsatisfied, and one check in $S_{1}$ are both can be bounded from above by the probability at least one of their bits, different the source (not in $S$) is faulty, namely: 
+\begin{equation*}
+  \begin{split}
+    \le C (\Delta_{2} - 1) q   
+  \end{split}
+\end{equation*}
+Thus, the uppr bound is summed up to: 
+\begin{equation*}
+  \begin{split}
+    q^{\left(  \log_{q} \left( C ( \Delta_{2} - 1) \right) (A+B)    \right)} 
+  \end{split}
+\end{equation*}
+
+
+
 \section{Classical Case, Repetition Code.}
+
+
 In each decoding iteration, we pick random triples and set the values of their bits to the majority. Now, assume that the probability of a subset $S$ being an error is less than $q^{|S|}$, and denote by $X_{i}$ the random variable that counts the number of triples for which $i$ of their bits belong to $S$. On one hand:
 \begin{equation*}
   \begin{split}
