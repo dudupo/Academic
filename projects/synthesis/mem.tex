@@ -421,6 +421,35 @@ Thus, the uppr bound is summed up to:
 
 
 
+\begin{claim}  
+  Let $Q$ be a subset of checks, and $S$ a subset of (qu)bits such that each check in $Q$ is adjoint to at most a single qubit in $S$. The probability that all the (qu)bits in $S$ are faulty at end of a correction round is: 
+
+  \begin{equation*}
+    \begin{split}
+      q^{\star}
+    \end{split}
+  \end{equation*}
+
+\end{claim}
+
+\begin{proof}
+  
+  For a cheack $c$, denote by $X_{c}$ the random variaible that counts how many faulty bits, not in $S$, are adjoint to $c$. 
+
+  \begin{equation*}
+    \begin{split}
+      \prb{ \text{  Any (qu)bit of }  S \text{ sees } \mu \text{-majority } } & \le \sum_{i = (\frac{1}{2} - \mu ) |Q|}{{|Q| \choose  i }  \prb{ i \text{ checks are satisfied } } }
+%        & \le  \sum_{i = (\frac{1}{2} - \mu ) |Q|} {   {|Q| \choose  i }   \prod_{\text{checks}} \prb{ X_{c} \ge 1 }   }  \\ 
+%      & \le  \sum_{i = (\frac{1}{2} - \mu ) |Q|} {   {|Q| \choose  i }  \prod_{\text{checks} \exp{ X_{c} }   }  \\ 
+%        & \le  \sum_{i = (\frac{1}{2} - \mu ) |Q|} {   {|Q| \choose  i }  \left( (\Delta_{2}-1)q \right)^{i}   }  \\ 
+%        & \le  \left( (\Delta_{2}-1)q \right)^{(\frac{1}{2} - \mu ) |Q|} \sum_{i = (\frac{1}{2} - \mu ) |Q|} {   {|Q| \choose  i } }  \\ 
+%        & \le  \left( (\Delta_{2}-1)q \right)^{(\frac{1}{2} - \mu ) |Q|} 2^{n} \frac{\frac{1}{2}}{\frac{1}{2} - \mu}
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+
+
 \section{Classical Case, Repetition Code.}
 
 
