@@ -438,11 +438,12 @@ Thus, the upper bound is summed up to:
   For a check $c$, denote by $X_{c}$ the random variable that counts how many faulty bits, not in $S$, adjoin to $c$. 
   \begin{equation*}
     \begin{split}
-      \prb{ \text{  Any (qu)bit of }  S \text{ sees } \mu \text{-majority } } & \le \sum_{i = (\frac{1}{2} - \mu ) |Q|}{{|Q| \choose  i }  \prb{ i \text{ checks are satisfied } } } \\ 
+      \prb{ \text{  Any (qu)bit of }  S \text{ sees } \mu \text{-majority } } &  \le  \prb{ \text{  More than  } \left( \frac{1}{2} - \mu \right)   \text{ portion of  } \mu \text{ are satisfied } }  \\
+      & \le \sum_{i = (\frac{1}{2} - \mu ) |Q|}{{|Q| \choose  i }  \prb{ i \text{ checks are satisfied } } } \\ 
       & \le  \sum_{i = (\frac{1}{2} - \mu ) |Q|} {   {|Q| \choose  i }  \left( 2^{\Delta_{2} - 1}\right)^{i} \cdot C q^{i}  } \\ 
         & \le  C \cdot \left( 2^{\Delta_{2} - 1} q \right)^{(\frac{1}{2} - \mu ) |Q|} \sum_{i = (\frac{1}{2} - \mu ) |Q|} {   {|Q| \choose  i } }  \\ 
         & \le    C \cdot \left( 2^{\Delta_{2} - 1} q \right)^{(\frac{1}{2} - \mu ) |Q|}  2^{|Q|} \frac{\frac{1}{2}}{\frac{1}{2} - \mu} \\ 
-        & = C \frac{\frac{1}{2}}{\frac{1}{2} - \mu} \left(  q^{     \left(   \left( \Delta_{2} - 1 \right) \log_{q}(2)  +   1 \right) (\frac{1}{2} - \mu ) + \log_{q}2              }    \right)^{|Q|}
+        & = C \frac{\frac{1}{2}}{\frac{1}{2} - \mu} \left(  q^{     \left(   \left( \Delta_{2} - 1 \right) \log_{q}(2)  +   1 \right) (\frac{1}{2} - \mu ) + \log_{q}2 } \right)^{|Q|}
     \end{split}
   \end{equation*}
 \end{proof}
@@ -462,7 +463,7 @@ The plot in \Cref{fig:qpow} illustrates the values of the exponent.
   \begin{equation*}
     \begin{split}
       |Q| & \mapsto \Delta |S| \\
-      \frac{1}{2} - \mu  & \mapsto  \left( \frac{1}{2} - \nonumber \right)\left( 1 - \varepsilon \right) - 2\varepsilon
+      \frac{1}{2} - \mu  & \mapsto  \left( \frac{1}{2} - \mu \right)\left( 1 - \varepsilon \right) - 2\varepsilon
     \end{split}
   \end{equation*}
 \end{claim}
@@ -477,7 +478,15 @@ The plot in \Cref{fig:qpow} illustrates the values of the exponent.
 |Q_{u}| & > (1 - 2\varepsilon)\Delta |S|.
     \end{split}
   \end{equation*}
-
+  Then, 
+  \begin{equation*}
+    \begin{split}
+      \prb{ \text{  Any (qu)bit of }  S \text{ sees } \mu \text{-majority } } & \le  \prb{ \text{  More than  } \left( \frac{1}{2} - \mu \right)   \text{ portion of  } \mu \text{ are satisfied } }  \\
+      &   \le \sum_{i = (\frac{1}{2} - \mu ) |Q|}{{|Q| \choose  i }  \prb{ i \text{ checks are satisfied } } } \\
+      &   \le \sum_{i = (\frac{1}{2} - \mu ) |Q|}{{|Q| \choose  i }  \prb{ i - |Q/Q_{u}| \text{ of the uniq checks are satisfied } } }  \\
+      &   = \sum_{i = (\frac{1}{2} - \mu ) |Q|}{{|Q| \choose  i }  \prb{ i - 2\varepsilon |Q| \text{ of the uniq checks are satisfied } } }  
+    \end{split}
+  \end{equation*}
 
 \end{proof}
 
