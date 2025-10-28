@@ -424,12 +424,6 @@ Thus, the upper bound is summed up to:
 \begin{claim}  
   \label{claim:ind}
   Let $Q$ be a subset of checks, and $S$ a subset of (qu)bits such that each check in $Q$ adjoins to at most a single qubit in $S$. The probability that all the (qu)bits in $S$ are faulty at end of a correction round is: 
-  \begin{equation*}
-    \begin{split}
-      |Q| & \mapsto \Delta |S| \\
-      \frac{1}{2} - \mu  & \mapsto  \left( \frac{1}{2} - \nonumber \right)\left( 1 - \varepsilon \right) - 2\varepsilon
-    \end{split}
-  \end{equation*}
 
   \begin{equation*}
     \begin{split}
@@ -464,6 +458,13 @@ The plot in \Cref{fig:qpow} illustrates the values of the exponent.
 
 \begin{claim}
   Suppose, that the Tanner graph $G = (L,R,E)$, is a $\varepsilon$-expander graph. Then, the probability that $S \subset L$ is the error, is lower by the same bound presented in \Cref{claim:ind} but the following substitution: 
+
+  \begin{equation*}
+    \begin{split}
+      |Q| & \mapsto \Delta |S| \\
+      \frac{1}{2} - \mu  & \mapsto  \left( \frac{1}{2} - \nonumber \right)\left( 1 - \varepsilon \right) - 2\varepsilon
+    \end{split}
+  \end{equation*}
 \end{claim}
 
 
