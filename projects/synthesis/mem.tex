@@ -457,7 +457,7 @@ The plot in \Cref{fig:qpow} illustrates the values of the exponent.
 \end{figure}
 
 \begin{claim}
-  Suppose, that the Tanner graph $G = (L,R,E)$, is a $\varepsilon$-expander graph. Then, the probability that $S \subset L$ is the error, is lower by the same bound presented in \Cref{claim:ind} but the following substitution: 
+  Suppose, that the Tanner graph $G = (L,R,E)$, is a $\varepsilon$-expander graph. Then, with high probability, the probability that $S \subset L$ is the error, is lower by the same bound presented in \Cref{claim:ind} but the following substitution: 
 
   \begin{equation*}
     \begin{split}
@@ -467,10 +467,19 @@ The plot in \Cref{fig:qpow} illustrates the values of the exponent.
   \end{equation*}
 \end{claim}
 
+\begin{proof}
+  First, notice that by the Markov inequality for $q$-local stochastic noise: \Cref{calim:markov}, we have that with with probability $|S| < \gamma n$. \ctt{ That argument should appear somewhere else}.
+
+  Thus the probability, Let $|Q|$ be the checks adjoin to $S$, and denote by $Q_{u}$ the checks which connected to at most one (qu)bit in $S$. Observes that by the expansion property:  
+  \begin{equation*}
+    \begin{split}
+|Q|  & \ge (1-\varepsilon) \Delta |S| \\
+|Q_{u}| & > (1 - 2\varepsilon)\Delta |S|.
+    \end{split}
+  \end{equation*}
 
 
-
-
+\end{proof}
 
 
 
@@ -543,24 +552,33 @@ It's even easier to bound the expectation of the pairs $u$ and $v$ which share t
 Conditioned on the case that the number of collision is not far from the expectation.  
 
 
-\section{Concentration in Local Stochastic Noise.} 
+\section{Concentration (Markov) in Local Stochastic Noise.} 
 
-Denote by $\mu$ the expected flips, and by $\alpha,\beta < 1$ marginal parameters such the volume of picking $(\mu - \beta, \mu + \beta)$ is larger than picking $( \ge \mu + \alpha)$. 
+
+\begin{claim}
+  \label{calim:markov}
+  For a state $\rho$ subjected to a $q$-local stochastic noise, we have that the probability to that the portion of the faulty bits is greater than $\alpha \in \left( 0, 1 \right)$ decay exponentially in $n$.
+\end{claim}
+
+\begin{proof}
+First use the Markov inequality to bound the space that $ \ge n\alpha $ so we get $\ge \frac{1}{2} \cdot \frac{1}{\alpha} \cdot 2^{n}$, and then use the local stochastic property:   
+\begin{equation*}
+  \begin{split}
+    \le C \frac{ \frac{1}{2} }{ \alpha } \cdot 2^{n} \cdot q^{\alpha n} = \frac{\alpha}{2} C \left( 2 q^{\alpha} \right)^{n}
+  \end{split}
+\end{equation*}
+For big enough $\alpha$ we see that the probability decay exponentially. (An also a way to prove that $q^{q} \ge \frac{1}{2}$). 
+
+\end{proof}
+
+
+\ctt{REMOVE:}Denote by $\mu$ the expected flips, and by $\alpha,\beta < 1$ marginal parameters such the volume of picking $(\mu - \beta, \mu + \beta)$ is larger than picking $( \ge \mu + \alpha)$. 
 \begin{equation*}
   \begin{split}
     \prb{ \frac{|S|}{n} \ge \mu + \alpha }  & \le \sum_{m \ge \mu + \alpha } Cq^{n(\mu + \alpha)} \le q^{n(\alpha - \beta) }  \sum_{m \ge \mu + \alpha } \star \\ 
       & \le  q^{n(\alpha - \beta) } \prb{  |\frac{|S|}{n} - \mu | \le \beta   } 
   \end{split}
 \end{equation*}
-
-Other way, first use the Markov inequality to bound the space that $ \ge n\alpha $ so we get $\ge \frac{1}{2} \cdot \frac{1}{\alpha} \cdot 2^{n}$, and then use the local stochastic property:   
-\begin{equation*}
-  \begin{split}
-    \le C \frac{ \frac{1}{2} }{ \alpha } \cdot 2^{n} \cdot q^{\alpha n} = \frac{\alpha}{2} C \left( 2 q^{\alpha} \right)^{n}
-  \end{split}
-\end{equation*}
-For big enough $\alpha$ we see that the probability decay exponentially. (An also way to prove that $q^{q} \ge \frac{1}{2}$). 
-
 \section{Bounding $E(S,S)$, fixed $|S|$, by Branuli Process. } 
 
 First, consider $\mathcal{D}$ that pick any vertex in probability $|S|/n + \varepsilon$. With hight probability all the assignments mark more than $|S|$ vertices. Denote by $\tilde{S}$ the drawn vertices, with high probability $E(S,S) \le E(\tilde{S}, \tilde{S})$, just by monotonically. On the other hand:  
