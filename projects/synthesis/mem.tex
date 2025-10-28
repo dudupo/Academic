@@ -412,7 +412,7 @@ Noitce that for unique checks, the events they will be satisfied/unsatisfied are
     \le C (\Delta_{2} - 1) q   
   \end{split}
 \end{equation*}
-Thus, the uppr bound is summed up to: 
+Thus, the upper bound is summed up to: 
 \begin{equation*}
   \begin{split}
     q^{\left(  \log_{q} \left( C ( \Delta_{2} - 1) + 1\right) (A+B)    \right)} 
@@ -422,7 +422,14 @@ Thus, the uppr bound is summed up to:
 
 
 \begin{claim}  
-  Let $Q$ be a subset of checks, and $S$ a subset of (qu)bits such that each check in $Q$ is adjoint to at most a single qubit in $S$. The probability that all the (qu)bits in $S$ are faulty at end of a correction round is: 
+  \label{claim:ind}
+  Let $Q$ be a subset of checks, and $S$ a subset of (qu)bits such that each check in $Q$ adjoins to at most a single qubit in $S$. The probability that all the (qu)bits in $S$ are faulty at end of a correction round is: 
+  \begin{equation*}
+    \begin{split}
+      |Q| & \mapsto \Delta |S| \\
+      \frac{1}{2} - \mu  & \mapsto  \left( \frac{1}{2} - \nonumber \right)\left( 1 - \varepsilon \right) - 2\varepsilon
+    \end{split}
+  \end{equation*}
 
   \begin{equation*}
     \begin{split}
@@ -434,7 +441,7 @@ Thus, the uppr bound is summed up to:
 
 \begin{proof}
   
-  For a cheack $c$, denote by $X_{c}$ the random variaible that counts how many faulty bits, not in $S$, are adjoint to $c$. 
+  For a check $c$, denote by $X_{c}$ the random variable that counts how many faulty bits, not in $S$, adjoin to $c$. 
   \begin{equation*}
     \begin{split}
       \prb{ \text{  Any (qu)bit of }  S \text{ sees } \mu \text{-majority } } & \le \sum_{i = (\frac{1}{2} - \mu ) |Q|}{{|Q| \choose  i }  \prb{ i \text{ checks are satisfied } } } \\ 
@@ -454,6 +461,14 @@ The plot in \Cref{fig:qpow} illustrates the values of the exponent.
   \caption{ So for values, $\mu = \frac{1}{10}$, $\Delta_{2}=4$ and $q< 0.05$ we have positive values.}
   \label{fig:qpow}
 \end{figure}
+
+\begin{claim}
+  Suppose, that the Tanner graph $G = (L,R,E)$, is a $\varepsilon$-expander graph. Then, the probability that $S \subset L$ is the error, is lower by the same bound presented in \Cref{claim:ind} but the following substitution: 
+\end{claim}
+
+
+
+
 
 
 
