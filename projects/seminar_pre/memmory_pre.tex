@@ -67,7 +67,17 @@
   \frametitle{Map}
 
   \begin{tikzpicture}
-      \node (v1) at (5,0) { Proving };
+      \node (v1) at (0,1) { Proving $A$ };
+      \node (v2) at (3,2) { Proving $B$ };
+      \node (v3) at (6,3) { Proving $C$ };
+      \node (v4) at (7,4) { Proving $D$ };
+      \node (v5) at (9,5) { Proving $E$ };
+
+      \draw [->] (v1) -- (v2) ; 
+      \draw [->] (v2) -- (v3) ; 
+      \draw [->] (v3) -- (v3) ; 
+      \draw [->] (v4) -- (v5) ; 
+      %\draw [->] (v5) -- (v2) ; 
   \end{tikzpicture}
 \end{frame}
 
