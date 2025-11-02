@@ -158,7 +158,7 @@
   \draw[domain=0:8,smooth,variable=\x,blue,name path=c1] plot ({\x},{ 2*tanh(\x + 0.5 ) }) node[above]{$f_1(n)$};
   \draw[domain=0:11,smooth,variable=\x,red,name path=c2] plot ({\x},{exp(-\x) })node[above]{$f_2(n)$};
 \end{tikzpicture}
-\begin{block}[colors]
+\begin{block}{colors}
 In { \color{red} red }, No accumulation of errors. 
 In { \color{blue} blue } decoding in the presence of noise. 
 \end{block}
