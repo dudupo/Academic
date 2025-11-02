@@ -156,7 +156,7 @@
 \draw[dashed] (0,4) -- (9,4)  node[anchor=west] { $ \hat{q}$ };
   \draw[dashed] (0,2) -- (9,2)  node[anchor=west] { $q$ };
   \draw[domain=0:8,smooth,variable=\x,blue,name path=c1] plot ({\x},{ 4*tanh(\x + 0.25) }) node[above]{$f_1(n)$};
-  \draw[domain=5:8,smooth,variable=\x,blue,name path=c1] plot ({\x},{ 2*tanh(\x + 0.5 ) }) node[above]{$f_1(n)$};
+  \draw[domain=0:5,smooth,variable=\x,blue,name path=c1] plot ({\x},{ 2*tanh(\x + 0.5 ) }) node[above]{$f_1(n)$};
   \draw[domain=5:8,smooth,variable=\x,blue,name path=c1] plot ({\x},{ 2 + 2*tanh((\x - 5) ) }) node[above]{$f_1(n)$};
   \draw[domain=0:11,smooth,variable=\x,red,name path=c2] plot ({\x},{exp(-\x) })node[above]{$f_2(n)$};
 \end{tikzpicture}
