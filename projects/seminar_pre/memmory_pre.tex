@@ -120,12 +120,19 @@
 % test_test_variable_noise_random_pair_no_accu.svg
 
 
+\newcommand*{\Axes}{
+
+    \draw[->]  (0,0)coordinate(O) -- (11,0) node[anchor=north] {$n$};
+    \draw[->]  (0,0) -- (0,5) node[anchor=west] { { \tiny \% unsatisfied checks } };
+  }
+
+
 \begin{frame}
   \frametitle{How to Read}
 
 \begin{tikzpicture}
-    \draw[->]  (0,0)coordinate(O) -- (11,0) node[anchor=north] {$n$};
-    \draw[->]  (0,0) -- (0,5) node[anchor=west] { { \tiny \% unsatisfied checks } };
+    \Axes
+
 
     \draw[domain=0:9,smooth,variable=\x,blue,name path=c1] plot ({\x},{ 4*tanh(0.4*\x) }) node[right]{$f_1(n)$};
     \draw[domain=0:11,smooth,variable=\x,red,name path=c2] plot ({\x},{0.5*(0.2*\x+0.5*sin(\x r)+2)})node[right]{$f_2(n)$};
@@ -144,10 +151,8 @@
 \begin{frame}
   \frametitle{Ideal Result.}
 \begin{tikzpicture}
-  \draw[dashed] (0,2) -- (4,2)  node[anchor=west] { 0.2 };
-    \draw[->]  (0,0)coordinate(O) -- (11,0) node[anchor=north] {$n$};
-    \draw[->]  (0,0) -- (0,5);
-
+\Axes
+  \draw[dashed] (0,2) -- (9,2)  node[anchor=west] { 0.2 };
     \draw[domain=0:6,smooth,variable=\x,blue,name path=c1] plot ({\x},{ tanh(\x) }) node[right]{$f_1(n)$};
     \draw[domain=0:11,smooth,variable=\x,red,name path=c2] plot ({\x},{0.5*(0.2*\x+0.5*sin(\x r)+2)})node[right]{$f_2(n)$};
 %\fill[red,name intersections={of=c1 and c2}]
