@@ -156,7 +156,7 @@
   \draw[dashed] (0,2) -- (9,2)  node[anchor=west] { $q$ };
   \draw[domain=0:6,smooth,variable=\x,blue,name path=c1] plot ({\x},{ 4*tanh(\x + 0.25) }) node[above]{$f_1(n)$};
   \draw[domain=0:6,smooth,variable=\x,blue,name path=c1] plot ({\x},{ 2*tanh(\x + 0.5 ) }) node[above]{$f_1(n)$};
-  \draw[domain=0:11,smooth,variable=\x,red,name path=c2] plot ({\x},{0.2* exp(-\x) })node[above]{$f_2(n)$};
+  \draw[domain=0:11,smooth,variable=\x,red,name path=c2] plot ({\x},{exp(-\x) })node[above]{$f_2(n)$};
 %\fill[red,name intersections={of=c1 and c2}]
  %  (intersection-1) circle (2pt);
 
