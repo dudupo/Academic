@@ -21,12 +21,12 @@ def single_run(grid, p, decoding, error, time, attempts, attempt_number, verbose
         if accu:
             assign = grid.random_assignment(p, assignment = assign)
 
-def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, time = 80, verbose=True, celldim=2, checksdim =0):
+def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, time = 80, verbose=True, celldim=2, checksdim =0, diff = 0):
     plt.clf()
     process = [ ]
     errors = [ ]
     for n,k in zip(ns, ks):
-        grid = KDgrid(n,k, celldim=celldim, checksdim=checksdim)
+        grid = KDgrid(n,k, celldim=celldim, checksdim=checksdim, diff = diff)
         for p in p_rates:
             process_exp = [ ]
             errors.append( Array('d', [ 0 for _ in range( time ) ] ))
@@ -201,17 +201,29 @@ def tests():
 
     def test_all_major_many_30_no_accu( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "all_major", "test_correction_all_major_2_8-20_30x4", accu = False, attempts=1, time = 500)
+    def test_all_major_many_30_plus_accu_diff_changed( ):
+        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "all_major", "test_correction_all_major_change_diff-2_accu_2_8-20_30x4", accu = True, attempts=1, time = 1000, diff = -2)
+    def test_all_major_many_30_plus_accu_diff_changed_vp( ):
+        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.0005], "all_major", "test_correction_all_major_change_diff-2_lower_noise_accu_2_8-20_30x4", accu = True, attempts=1, time = 1000, diff = -2)
+    def test_all_major_many_30_plus_accu_diff_changed_high_p( ):
+        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.01], "all_major", "test_correction_all_major_change_diff-2_high_noise_accu_2_8-20_30x4", accu = True, attempts=1, time = 1000, diff = -2)
     def test_by_colors_many_30_no_accu( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "by_colors", "test_correction_by_colors_2_8-20_30x4", accu = False, attempts=1, time = 500)
 
 
     def test_by_max_color_many_30_no_accu( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "max_color", "test_correction_by_MAX_2_8-20_30x4", accu = False, attempts=1, time = 200)
+    def test_by_max_color_many_30_no_accu_diff_change( ):
+        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "max_color", "test_correction_by_MAX_changed_diff-2_2_8-20_30x4", accu = False, attempts=1, time = 200, diff=-2)
+    def test_by_max_color_many_30_plus_accu_diff_change( ):
+        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "max_color", "remote_correction_accu_by_MAX_changed_diff-2_2_8-20_30x4", accu = True, attempts=1, time = 200, diff=-2)
     def test_by_max_color_many_30_plus_accu( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "max_color", "remote_correction_accu_by_MAX_2_8-20_30x4", accu = True, attempts=1, time = 2)
     def test_by_swift_rule_many_30_no_accu( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4", accu = False, attempts=1, time = 200)
 
+    def test_by_swift_rule_many_30_plus_accu( ):
+        TestCase([8, 16, 16, 16, 16, 16, 16], [3, 3, 3, 3, 3, 3, 3], [0.001], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4_plus_accu", accu = True, attempts=1, time = 200)
     def test_by_swift_rule_small_size_8_no_accu( ):
         TestCase([5, 5, 5, 5, 5, 5, 5], [3, 3, 3, 3, 3, 3, 3], [0.02], "swift_rul", "test_correction_by_SWIFT_2_5x7", accu = False, attempts=1, time = 200)
     def test_4D_toric_sanity():
@@ -255,6 +267,12 @@ def tests():
     #test_4D_toric_no_accu_single_attempt()
     #test_by_swift_rule_small_size_8_no_accu()
     #test_correction( )
-    test_by_max_color_many_30_plus_accu()
+    #test_by_max_color_many_30_plus_accu()
+    #test_all_major_many_30_plus_accu_diff_changed_vp()
+    #test_all_major_many_30_plus_accu_diff_changed_high_p()
+    #test_by_max_color_many_30_no_accu_diff_change()
+    #test_by_max_color_many_30_plus_accu_diff_change()
+    #test_by_swift_rule_many_30_no_accu()
+    test_by_swift_rule_many_30_plus_accu()
 if __name__ == "__main__" :
     tests()

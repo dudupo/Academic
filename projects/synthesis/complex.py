@@ -61,8 +61,9 @@ def positive_time_cells_on_vertex(k, vertex = None, sign=True , celldim =2):
 
 
 class KDgrid:
-    def __init__(self, n, k, celldim=2, checksdim =0):
+    def __init__(self, n, k, celldim=2, checksdim =0, diff = 0):
         self.n, self.k = n, k
+        self.diff = diff 
         self.celldim, self.checksdim = celldim, checksdim
         self.vertices = list( product(range(n), repeat=k) )
      
@@ -174,7 +175,7 @@ class KDgrid:
         syndrom_diff = 0
         for stabilizer in stabilizers:
             syndrom_diff += { 0 : 1 , 1 : -1}[self.local_syndrom(stabilizer, assignment)]
-        return syndrom_diff < 0
+        return syndrom_diff < self.diff
 
     def local_correaction_D_random_pick(self, face, assignment):
         random_stabilizers_pair = sample(self.bits_to_checks[face], 2)
