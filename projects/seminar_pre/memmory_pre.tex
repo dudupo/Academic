@@ -320,21 +320,21 @@ In {\color{blue} blue} decoding in the presence of noise.
 \frametitle{Max Color}
 
 \begin{block}{Alg.}
-  We change the setting. 
+  We change the setting. We back to the setting that allows a non-nosy computation aside, yet we would like to limit the communication to constant number of bits.
 \end{block}
 
 \begin{block}{Justification.}
   \begin{enumerate}
-    \item In the absence of noise, was proven to work. 
-    \item Considered a generalization of Toom's rule.
+    \item We don't have works about bounded communication fault tolerance.  
+    \item From mathematical point of view, if the number of colors is $c$, then we can handle a fraction of $1/c$ of the dirty bits.
   \end{enumerate}
 \end{block}
 
 \begin{block}{Bottom line.}
   \begin{itemize}
     \item Works in the absence of noise. 
-    \item Simulation are too slow for side length of $n > 16$
-    \item Don't have yet results for accumulating setting. 
+    \item 'Simulatable'. 
+    \item Should be try when vertices correct according to $(\frac{1}{2} + \mu )$ majority.  
   \end{itemize}
 \end{block}
 \end{frame}
