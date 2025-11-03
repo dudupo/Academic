@@ -175,8 +175,29 @@ In {\color{blue} blue} decoding in the presence of noise.
 
 
 
+\begin{frame}
+\frametitle{Majority}
 
-\DECSLIDE{test_test_correction_all_major_2_8-20_30x4.svg}{ Majoritiy }
+\begin{block}{Alg.}
+  Each bit looks at its neighbour checks, if the majority of them is unsatisfied, then it flip itself. 
+\end{block}
+
+\begin{block}{Justification.}
+  Was suggested in Dennis. 
+\end{block}
+
+\begin{block}{Bottom line.}
+  \begin{itemize}
+    \item Fails to correct, even in the absence of noise. 
+    \item Collisions.  
+    \item Gives better result when requiring $(\frac{1}{2} + \mu)$-majority. 
+  \end{itemize}
+\end{block}
+
+\end{frame}
+
+
+\DECSLIDE{test_test_correction_all_major_2_8-20_30x4.svg}{ Majority }
 \DECSLIDE{test_test_correction_by_colors_2_8-20_30x4.svg}{ Colors }
 \DECSLIDE{test_test_correction_rand_2_8-20_30x4.svg}{ Picking Random }
 \DECSLIDE{test_test_correction_by_SWIFT_2_8-20_30x4.svg}{ SWIFT }
