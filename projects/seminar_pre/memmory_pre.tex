@@ -224,6 +224,29 @@ In {\color{blue} blue} decoding in the presence of noise.
 \DECSLIDERAW{test_test_correction_all_major_change_diff-2_lower_noise_accu_2_8-20_30x4.svg}{test_test_correction_all_major_change_diff-2_accu_2_8-20_30x4.svg}{test_test_correction_all_major_change_diff-2_high_noise_accu_2_8-20_30x4.svg}{Majority}
 
 
+\begin{frame}
+\frametitle{Colors}
+
+\begin{block}{Alg.}
+  At the initialization, We divide the bits into subsets (colors). Bits of the same color don't share common check. Then, at the correction round $i$th only bits associated with the color $i \mod \textbf{COLORS}$ apply a correction. 
+\end{block}
+
+\begin{block}{Justification.}
+  \begin{enumerate}
+    \item No collisions, means that bits don't wait until they can read the syndrome.  
+    \item The independence might help when coming to the math. 
+  \end{enumerate} 
+\end{block}
+
+\begin{block}{Bottom line.}
+  \begin{itemize}
+    \item I took $32$ colors, and sample a random coloring. 
+    \item Fails to correct even in the absence of noise. 
+    \item Not tested yet when taking $(\frac{1}{2} + \mu)$-majority. 
+  \end{itemize}
+\end{block}
+
+\end{frame}
 
   \begin{frame}
     \frametitle{Colors}    
@@ -245,8 +268,77 @@ In {\color{blue} blue} decoding in the presence of noise.
 
 
 \DECSLIDE{test_test_correction_by_colors_2_8-20_30x4.svg}{ Colors }
+
+\begin{frame}
+\frametitle{Picking Random Pair}
+
+\begin{block}{Alg.}
+  Each bit pick two random neighbour checks, and then check if both of them are not satisfied. If so, then flip itself. 
+\end{block}
+
+\begin{block}{Justification.}
+  With good probability, no too many collisions. Yet, all the bits participate in each round. 
+\end{block}
+
+\begin{block}{Bottom line.}
+  \begin{itemize}
+    \item Fails to correct even in the absence of noise. 
+    \item Can we find an analog to $(\frac{1}{2} + \mu)$-majority? Maybe picking $3$? 
+  \end{itemize}
+\end{block}
+
+\end{frame}
 \DECSLIDE{test_test_correction_rand_2_8-20_30x4.svg}{ Picking Random }
+\begin{frame}
+\frametitle{Swift Rule}
+
+\begin{block}{Alg.}
+  We define a north vector $\mathbf{1} = (1,1,1..1)$, Then each vertex looks only on the cells on its neighbourhood such that they are positive relative to the north vector (Inner product of their (vertices $-$ the reference vertex) with north is positive). 
+
+  Then, the vertex suggest a correction over those cells, that decreases the local syndrome. 
+\end{block}
+
+\begin{block}{Justification.}
+  \begin{enumerate}
+    \item In the absence of noise, was proven to work. 
+    \item Considered a generalization of Toom's rule.
+  \end{enumerate}
+\end{block}
+
+\begin{block}{Bottom line.}
+  \begin{itemize}
+    \item Works in the absence of noise. 
+    \item Simulation are too slow for side length of $n > 16$
+    \item Don't have yet results for accumulating setting. 
+  \end{itemize}
+\end{block}
+
+\end{frame}
 \DECSLIDE{test_test_correction_by_SWIFT_2_8-20_30x4.svg}{ SWIFT }
+
+\begin{frame}
+\frametitle{Max Color}
+
+\begin{block}{Alg.}
+  We change the setting. 
+\end{block}
+
+\begin{block}{Justification.}
+  \begin{enumerate}
+    \item In the absence of noise, was proven to work. 
+    \item Considered a generalization of Toom's rule.
+  \end{enumerate}
+\end{block}
+
+\begin{block}{Bottom line.}
+  \begin{itemize}
+    \item Works in the absence of noise. 
+    \item Simulation are too slow for side length of $n > 16$
+    \item Don't have yet results for accumulating setting. 
+  \end{itemize}
+\end{block}
+\end{frame}
+
 \DECSLIDE{test_test_correction_by_MAX_2_8-20_30x4.svg}{ Max Color }
 \DECSLIDE{test_test_correction_accu_by_MAX_2_8-20_30x4.svg}{ Max Color }
 
