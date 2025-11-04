@@ -48,7 +48,7 @@
 
 
 \begin{frame}
-  \title{A Tale of Five Decoders.}
+  \title{A Tale of Five Decoders}
     \author{David Ponarovsky}
     \date{\today}
     \titlepage
@@ -60,9 +60,9 @@
 \frametitle{Introduction}
 \begin{block}{Today:}
 \begin{itemize}
-  \item Recap, and were we stood before the summer.  
-  \item Simulations Results. 
-  \item  Where we heading. 
+  \item Recap and where we stood before the summer.  
+  \item Simulations results. 
+  \item Where we heading. 
 \end{itemize}
 \end{block}
 %\begin{block}{TAKEAWAYS:}
@@ -77,12 +77,12 @@
   \frametitle{Map}
 
   \begin{tikzpicture}
-    \node[align=center] (v1) at (0,1) { Coming with $O(1)$-depth\\
-    gates for 'good' codes. };
-    \node (v2) at (3,2) { Is the $(d,k)$-Toric a MEM?  };
-      \node (v3) at (6,3) { Dennis at el? };
-      \node (v4) at (7,4) { Perskil and Swift Rule? };
-      \node (v5) at (7,5) { Simulations };
+    \node[align=center] (v1) at (0,5) { Coming with $O(1)$-depth\\
+    gates for 'good' codes is hard. };
+    \node (v2) at (0,4) { Is the $(d,k)$-Toric a MEM?  };
+    \node (v3) at (0,3) { Dennis at el? \Cref{Dennis_2002} };
+    \node (v4) at (0,2) { Swift-Rule? \Cref{Kubica_2019} };
+      \node (v5) at (0,1) { Simulations };
 
       \draw [->] (v1) -- (v2) ; 
       \draw [->] (v2) -- (v3) ; 
@@ -294,6 +294,7 @@ In {\color{blue} blue} decoding in the presence of noise.
 
 \begin{block}{Alg.}
   We define a north vector $\mathbf{1} = (1,1,1..1)$, Then each vertex looks only on the cells on its neighbourhood such that they are positive relative to $\mathbf{1}$.
+
 
   Then, the vertex suggest a correction over those cells, that decreases the local syndrome. 
 \end{block}
