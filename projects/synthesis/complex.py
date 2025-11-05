@@ -54,7 +54,7 @@ def positive_time_cells_on_vertex(k, vertex = None, sign=True , celldim =2):
     '''
         positive_time_cells_on_vertex, takes the 
     '''
-    _filter = lambda x : sum(x) >= 0 
+    _filter = lambda x : sum(x) > 0 
     return cells_neighbourhood(k, vertex=vertex, sign=sign, celldim=celldim, _filter = _filter)
 
 
@@ -81,6 +81,7 @@ class KDgrid:
                 self.checks[_check] = 0 
 
 
+        self.cache_table = { }
         self.face_to_vertex = { }
         self.views = { }
         self.check_to_vertex = { }
@@ -117,6 +118,9 @@ class KDgrid:
 
         self.colorized_dic = self.get_colorized()
 
+        self.vertex_to_positive_bits = { }
+        self.vertex_to_positive_checks = { }
+        self.vertex_to_local_view_bits = { }
     def _direct(self, i):
         return _direct(i, self.k)
 
@@ -243,28 +247,60 @@ class KDgrid:
         return self.local_correaction_group(self.zbits.keys() ,assignment,  local_decoder = self.local_correaction_D_random_pick)
 
 
+
     def correction_cycele_swift_rule(self, assignment):
 
         def swift_vertex(vertex):
-            ret = deepcopy(assignment)
-            bits =  [self.on_the_grid( cell, req_depth=2) for cell in
-                        positive_time_cells_on_vertex(
-                            self.k, vertex = vertex, celldim =2)]
-            checks = set(sum([ self.bits_to_checks[bit] for bit in bits ], start=[]))
-            last_local_syndrom = None
+            if vertex not in self.vertex_to_positive_bits:
+                bits =  [self.on_the_grid( cell, req_depth=2) for cell in
+                            positive_time_cells_on_vertex(
+                                self.k, vertex = vertex, celldim =2)]
+                self.vertex_to_positive_bits[vertex] = bits
+            else:
+                bits = self.vertex_to_positive_bits[vertex]
 
-            temp_assignment, temp_syndrom = deepcopy(assignment), 0
-            picked = None
-            for binary_assignment in  product([0,1], repeat = len(bits)):
-                for bit, value in zip(bits, binary_assignment):
-                    temp_assignment[bit] ^= value
+            if vertex not in self.vertex_to_positive_checks:
+                checks = set(sum([ self.bits_to_checks[bit] for bit in bits ], start=[]))
+                self.vertex_to_positive_checks[vertex] = checks
+            else:
+                checks = self.vertex_to_positive_checks[vertex]
+            
+            #if vertex not in self.vertex_to_local_view_bits:
+                #self.vertex_to_local_view_bits[vertex] = local_view_bits
+            #else:
+            #local_view_bits = self.vertex_to_local_view_bits[vertex]
 
-                for check in checks:
-                    temp_syndrom += self.local_syndrom(check, temp_assignment)
+            local_view_bits = tuple(assignment[bit] for bit in  set( sum([ self.checks_to_bits[check] for check in checks], start=[])) )
+            sig = vertex, local_view_bits
+            
+            if sig in self.cache_table:
+                return self.cache_table[sig]
+            else:
+
+                last_local_syndrom = None
+                temp_assignment, temp_syndrom = assignment, 0
+                picked = None
+                for binary_assignment in product([0,1], repeat = len(bits)):
+#                    print( f"\t\t[>] {vertex}, {binary_assignment}")
+                    for bit, value in zip(bits, binary_assignment):
+                        temp_assignment[bit] ^= value
+
+                    for check in checks:
+                        temp_syndrom += self.local_syndrom(check, temp_assignment)
+
                     if (last_local_syndrom is None) or  (temp_syndrom < last_local_syndrom):
+                        last_local_syndrom = temp_syndrom
                         picked = binary_assignment
-
-            return zip(bits, picked)
+                            
+                    for bit, value in zip(bits, binary_assignment):
+                        temp_assignment[bit] ^= value
+                    temp_syndrom = 0
+                self.cache_table[sig] = zip(bits, picked)
+                #print("-----")
+                #for x,y in zip(bits, picked):
+                    #print(x,y)
+                #print("-----")
+                return self.cache_table[sig]
       
         gens, ret_assign = [], deepcopy(assignment)
         for vertex in self.vertices:

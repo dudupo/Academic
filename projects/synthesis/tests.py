@@ -20,6 +20,8 @@ def single_run(grid, p, decoding, error, time, attempts, attempt_number, verbose
         assign = decoding(_, assign) 
         if accu:
             assign = grid.random_assignment(p, assignment = assign)
+        if verbose: 
+            print( f"\t[>] iteration number: {_}" )
 
 def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, time = 80, verbose=True, celldim=2, checksdim =0, diff = 0):
     plt.clf()
@@ -36,7 +38,8 @@ def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, 
                     "all_major" : lambda x,y : grid.correction_cycele_all_take_maj(y),
                     "rand_pair" : lambda x,y : grid.correction_cycele_random_pair(y),
                     "max_color" : lambda x,y : grid.correction_cycele_max_color(y),
-                    "swift_rul" : lambda x,y : grid.correction_cycele_swift_rule(y)
+                    "swift_rul" : lambda x,y : grid.correction_cycele_swift_rule(y),
+                    "none" : lambda x,y : y 
                     }[decode_cycele]
                 process_exp.append(Process(target = single_run, args= (grid, p, decoding, errors[-1], time, attempts, __ , verbose , accu ) ))
 
@@ -158,7 +161,7 @@ def tests():
 
 
     def test_correction():
-        TestCase([8], [3], [0.02], "by_colors", "test_correction", accu = False) 
+        TestCase([8, 16], [3, 3], [0.001], "by_colors", "test_correction", accu = False, attempts=1) 
         plt.show()
 
     def test_correction_random_pair():
@@ -201,6 +204,8 @@ def tests():
 
     def test_all_major_many_30_no_accu( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "all_major", "test_correction_all_major_2_8-20_30x4", accu = False, attempts=1, time = 500)
+    def test_all_major_many_30_plus_accu( ):
+        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "all_major", "test_correction_accu_all_major_2_8-20_30x4", accu = True, attempts=1, time = 500)
     def test_all_major_many_30_plus_accu_diff_changed( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "all_major", "test_correction_all_major_change_diff-2_accu_2_8-20_30x4", accu = True, attempts=1, time = 1000, diff = -2)
     def test_all_major_many_30_plus_accu_diff_changed_vp( ):
@@ -210,6 +215,8 @@ def tests():
     def test_by_colors_many_30_no_accu( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "by_colors", "test_correction_by_colors_2_8-20_30x4", accu = False, attempts=1, time = 500)
 
+    def test_by_colors_many_30_plus_accu( ):
+        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "by_colors", "test_correction_accu_by_colors_2_8-20_30x4", accu = True, attempts=1, time = 500)
 
     def test_by_max_color_many_30_no_accu( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "max_color", "test_correction_by_MAX_2_8-20_30x4", accu = False, attempts=1, time = 200)
@@ -218,14 +225,21 @@ def tests():
     def test_by_max_color_many_30_plus_accu_diff_change( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "max_color", "remote_correction_accu_by_MAX_changed_diff-2_2_8-20_30x4", accu = True, attempts=1, time = 200, diff=-2)
     def test_by_max_color_many_30_plus_accu( ):
-        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "max_color", "remote_correction_accu_by_MAX_2_8-20_30x4", accu = True, attempts=1, time = 2)
+        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "max_color", "remote_correction_accu_by_MAX_2_8-20_30x4", accu = True, attempts=1, time = 500)
     def test_by_swift_rule_many_30_no_accu( ):
-        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4", accu = False, attempts=1, time = 200)
+        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.02], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4", accu = False, attempts=1, time = 200)
 
     def test_by_swift_rule_many_30_plus_accu( ):
-        TestCase([8, 16, 16, 16, 16, 16, 16], [3, 3, 3, 3, 3, 3, 3], [0.001], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4_plus_accu", accu = True, attempts=1, time = 200)
+        TestCase([8, 16, 40], [3, 3, 3, 3, 3, 3, 3], [0.001], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4_plus_accu", accu = True, attempts=1, time = 200)
+
+    def test_by_swift_rule_many_50_plus_accu( ):
+        TestCase([8, 16, 50], [3, 3, 3, 3, 3, 3, 3], [0.001], "swift_rul", "test_correction_by_SWIFT_2_8-16-100_plus_accu", accu = True, attempts=1, time = 200)
+    def test_no_decoding_case( ):
+        TestCase([8, 16, 30, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "none", "test_correction_by_None_2_8-20_30x4_plus_accu", accu = True, attempts=1, time = 200)
+
+
     def test_by_swift_rule_small_size_8_no_accu( ):
-        TestCase([5, 5, 5, 5, 5, 5, 5], [3, 3, 3, 3, 3, 3, 3], [0.02], "swift_rul", "test_correction_by_SWIFT_2_5x7", accu = False, attempts=1, time = 200)
+        TestCase([8], [3, 3, 3, 3, 3, 3, 3], [0.02], "swift_rul", "test_correction_by_SWIFT_2_5x7", accu = False, attempts=1, time = 10, verbose=True)
     def test_4D_toric_sanity():
         #TestCase([8], [3], [0.001], "by_colors", "test_correction_colors_1", accu = False) 
         TestCase([8], [4], [0.001], "all_major", "test_4D_toric_sanity", accu = False, celldim = 2 , checksdim= 1 )
@@ -257,13 +271,13 @@ def tests():
 
     #test_all_the_decoders_no_accu()
     #test_rand_pair_many_30_no_accu()
-    #test_all_major_many_30_no_accu()
-    #test_by_colors_many_30_no_accu()
+#    test_all_major_many_30_plus_accu()
+#    test_by_colors_many_30_plus_accu()
     #inital_samll_grid_var_cell_dim()
     #test_4D_toric_sanity()
     #test_4D_toric_no_accu()
 
-    #test_by_max_color_many_30_no_accu()
+    #test_by_max_color_many_30_plus_accu()
     #test_4D_toric_no_accu_single_attempt()
     #test_by_swift_rule_small_size_8_no_accu()
     #test_correction( )
@@ -273,6 +287,8 @@ def tests():
     #test_by_max_color_many_30_no_accu_diff_change()
     #test_by_max_color_many_30_plus_accu_diff_change()
     #test_by_swift_rule_many_30_no_accu()
-    test_by_swift_rule_many_30_plus_accu()
+    test_by_swift_rule_many_50_plus_accu()
+    #test_by_swift_rule_small_size_8_no_accu()
+    #test_no_decoding_case()
 if __name__ == "__main__" :
     tests()
