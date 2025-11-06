@@ -77,8 +77,10 @@
   \frametitle{Map}
   \begin{center}
   \begin{tikzpicture}
-    \node[align=center] (v1) at (3,5) { Coming with $O(1)$-depth\\
-    gates for 'good' codes is hard. };
+    \begin{uncoverenv}<+->
+      \node[align=center] (v1) at (3,5) { Coming with $O(1)$-depth\\
+        gates for 'good' codes is hard. };
+  \end{uncoverenv}
     \node (v2) at (3,3.5) { Is the $(d,k)$-Toric a MEM?  };
     \node (v3) at (3,2) { Dennis at el? \cite{Dennis_2002} };
     \node (v4) at (3,0.5) { Swift-Rule? \cite{Kubica_2019} };
