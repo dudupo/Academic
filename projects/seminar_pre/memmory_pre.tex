@@ -145,8 +145,10 @@
 {\includesvg[width=0.5\textwidth]{../synthesis/time_simulations_graphs/test-3x3.svg}};
 \node[inner sep=0pt, align=left] (explainline) at (0,3)
 { The simulations are over the 3D-Toric\\where qubits set on faces\\ and checks on vertices. } ;
+  \begin{uncoverenv}<2->
 \node[inner sep=0pt] (codeline) at (0,1)
 { \includegraphics[width=0.7\textwidth]{../synthesis/KDgrid_sig.png} } ;
+\end{uncoverenv}
   \end{tikzpicture}
   \end{frame}
 
@@ -172,10 +174,13 @@
   \frametitle{Ideal Result.}
 \begin{tikzpicture}
 \Axes
+
+ \begin{uncoverenv}<2->
 \draw[dashed] (0,4) -- (9,4)  node[anchor=west] { $ \hat{q}$ };
   \draw[dashed] (0,2) -- (9,2)  node[anchor=west] { $q$ };
   \draw[domain=0:8,smooth,variable=\x,blue,name path=c3] plot ({\x},{ 4*tanh(\x + 0.25) }) node[above]{$f_1(n)$};
   \draw[domain=0:8,smooth,variable=\x,blue,name path=c1] plot ({\x},{ 2*tanh(\x + 0.5 ) }) node[above]{$f_1(n)$};
+\end{uncoverenv}
   %\draw[domain=5:8,smooth,variable=\x,blue,name path=c2] plot ({\x},{ 1.9 + 2.1*tanh((\x - 5) ) }) node[above]{$f_1(n)$};
   \draw[domain=0:11,smooth,variable=\x,red,name path=c4] plot ({\x},{exp(-\x) })node[above]{$f_2(n)$};
 %\fill[red,name intersections={of=c1 and c2}]
@@ -187,7 +192,9 @@
 In {\color{red} red}, No accumulation of errors. 
 
 
+ \begin{uncoverenv}<2->
 In {\color{blue} blue} decoding in the presence of noise. 
+\end{uncoverenv}
 \end{block}
 \end{frame}
 
