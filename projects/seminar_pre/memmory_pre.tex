@@ -77,19 +77,27 @@
   \frametitle{Map}
   \begin{center}
   \begin{tikzpicture}
-    \begin{uncoverenv}<2->
+    \begin{uncoverenv}<+->
       \node[align=center] (v1) at (3,5) { Coming with $O(1)$-depth\\
         gates for 'good' codes is hard. };
   \end{uncoverenv}
+  \begin{uncoverenv}<+->
     \node (v2) at (3,3.5) { Is the $(d,k)$-Toric a MEM?  };
+    \draw [->] (v1) -- (v2) ; 
+  \end{uncoverenv}
+  \begin{uncoverenv}<+->
     \node (v3) at (3,2) { Dennis at el? \cite{Dennis_2002} };
-    \node (v4) at (3,0.5) { Swift-Rule? \cite{Kubica_2019} };
-      \node (v5) at (3,-1) { Simulations };
-
-      \draw [->] (v1) -- (v2) ; 
       \draw [->] (v2) -- (v3) ; 
+  \end{uncoverenv}
+  \begin{uncoverenv}<+->
+    \node (v4) at (3,0.5) { Swift-Rule? \cite{Kubica_2019} };
       \draw [->] (v3) -- (v4) ; 
+  \end{uncoverenv}
+  \begin{uncoverenv}<+->
+      \node (v5) at (3,-1) { Simulations };
       \draw [->] (v4) -- (v5) ; 
+  \end{uncoverenv}
+  
       %\draw [->] (v5) -- (v2) ; 
   \end{tikzpicture}
 \end{center}
