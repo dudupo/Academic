@@ -255,7 +255,7 @@ In {\color{blue} blue} decoding in the presence of noise.
 \frametitle{Colors}
 
 \begin{block}{Alg.}
-  At the initialization, We divide the bits into subsets (colors). Bits of the same color don't share common check. Then, at the correction round $i$th only bits associated with the color $i \mod \textbf{COLORS}$ apply a correction. 
+  At the initialization, We divide the bits into subsets (colors). Bits of the same color don't share checks. Then, at $i$th correction round only bits associated with the $i$th color \footnote{$i \mod \textbf{COLORS}$} apply a correction. 
 \end{block}
 
 \begin{block}{Justification.}
