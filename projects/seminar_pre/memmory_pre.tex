@@ -42,6 +42,7 @@
 
 \usetikzlibrary{intersections}
 
+\usepackage{cancel}
 \begin{document} 
 
 \newcommand*{\Tr}{\textbf{Tr }}
@@ -320,7 +321,7 @@ In {\color{blue} blue} decoding in the presence of noise.
 \frametitle{Swift Rule}
 
 \begin{block}{Alg.}
-  We define a north vector $\mathbf{1} = (1,1,1..1)$, Then each vertex looks only on the cells on its neighbourhood such that they are positive relative to $\mathbf{1}$.
+  We define a north vector $\mathbf{1} = (1,1,1..1)$, Then each \textbf{vertex} looks only on the \textbf{cells} on its neighbourhood such that they are positive relative to $\mathbf{1}$.
 
 
   Then, the vertex suggest a correction over those cells, that decreases the local syndrome. 
@@ -336,8 +337,8 @@ In {\color{blue} blue} decoding in the presence of noise.
 \begin{block}{Bottom line.}
   \begin{itemize}
     \item Works in the absence of noise. 
-    \item Simulation are too slow for side length of $n > 16$
-    \item Don't have yet results for accumulating setting. 
+%    \item Simulation are too slow for side length of $n > 16$
+ %   \item Don't have yet results for accumulating setting.
   \end{itemize}
 \end{block}
 
@@ -346,43 +347,78 @@ In {\color{blue} blue} decoding in the presence of noise.
 \DECSLIDE{test_test_correction_by_SWIFT_2_8-20_30x4_plus_accu_t_100.svg} {SWIFT }
 \DECSLIDE{test_test_correction_by_SWIFT_2_8-20_30x4_plus_accu_fine} {SWIFT }
 \DECSLIDE{test_test_correction_by_SWIFT_2_8-20_30x4_plus_accu} {SWIFT }
+
 \begin{frame}
   \frametitle{SWIFT}
 
-  \begin{block}{The Bottleneck}
-    Running a SWIFT simulation requires more than weeks.   
+  \begin{block}{What did we learn?}
+\begin{enumerate}
+  \item Storing time is, likily, not $\Theta(L)$, might be. $\Theta(L^{\alpha})$ for $\alpha \in (0,1)$.   
+  \item $ \Rightarrow $  implies that the structure of the theorem/key-lemma is diffrernet than known refrigerator.  
+\end{enumerate}
   \end{block}
-  \includegraphics[width=\textwidth]{ ../synthesis/toomach_time.png}
 \end{frame}
+
+% ------------------------------------------------ $ 
+
+
+\begin{frame}
+  \frametitle{Bounded Communication Fault Tolerance} 
+
+  \begin{block}{Setting}
+    We allow a non-nosy, storng as we wish, classical computation aside. Yet we would like to limit the communication to a constant number of bits per logical qbit, in each round.
+\end{block}
+
+\begin{block}{Justification}
+  \begin{enumerate}
+    \item<+-> If we don't have a constant overhead in depth, in that model, $\Rightarrow$ we also don't have it in the standard model. 
+    \item<+-> In that model, gate teleportation for a constant dimension is easy. Namel, for the Topological codes the task reduced only to find a decoding with constant hint.  
+  \end{enumerate}
+\end{block}
+
+\end{frame}
+
 
 
 \begin{frame}
 \frametitle{Max Color}
 
 \begin{block}{Alg.}
-  We change the setting. We back to the setting that allows a non-nosy computation aside, yet we would like to limit the communication to constant number of bits.
+  In each round the classical computer, send us the color on which the error is supported the most. Then, each bit correct according majority.  
 \end{block}
 
 \begin{block}{Justification.}
   \begin{enumerate}
     \item We don't have works about bounded communication fault tolerance.  
-    \item From mathematical point of view, if the number of colors is $c$, then we can handle a fraction of $1/c$ of the dirty bits.
+    \item From mathematical point of view, if the number of colors is $c$, then we handle a fraction of at least $1/c$ of the dirty bits.
   \end{enumerate}
 \end{block}
 
 \begin{block}{Bottom line.}
   \begin{itemize}
     \item Works in the absence of noise. 
-    \item 'Simulatable'. 
-    \item Should be tried when vertices correct according to $(\frac{1}{2} + \mu )$ majority.  
+    %\item 'Simulatable'.
   \end{itemize}
 \end{block}
 \end{frame}
 
-
-
 \DECSLIDE{test_test_correction_by_MAX_2_8-20_30x4.svg}{ Max Color }
 \DECSLIDE{test_test_correction_accu_by_MAX_2_8-20_30x4.svg}{ Max Color }
+
+
+
+\begin{frame}
+  \frametitle{Max Color}
+
+  \begin{tikzpicture}
+
+    \node (math) at (0,0) {\includegraphics[width=0.8\textwidth]{../synthesis/math.png}};
+    \node (math2) at (0,0) { \includegraphics[width=0.5\textwidth]{../synthesis/math-2.png}};
+
+  \end{tikzpicture}
+\end{frame}
+
+
 
 
 \begin{frame}
