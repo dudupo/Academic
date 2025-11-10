@@ -1,0 +1,152 @@
+\documentclass{beamer}
+%\usepackage{split}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{braket}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{svg}
+\usetikzlibrary{positioning,shapes,arrows.meta}
+%\usetikzlibrary{positioning,fit,backgrounds}
+\usepackage{quantikz}
+\usepackage[linesnumbered]{algorithm2e}
+\usepackage{hyperref}
+%\usepackage{hyperref,xcolor}
+%\usepackage[ocgcolorlinks]{ocgx2}
+\usepackage{cleveref}
+\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+\addbibresource{./sample.bib}
+
+
+\newcommand*{\QACze}{ \mathbf{QAC}_{0} }
+\newcommand*{\QNCzef}{ \mathbf{QNC}_{0,f} }
+\newcommand*{\QNCze}{ \mathbf{QNC}_{0} }
+\newcommand*{\QNCon}{ \mathbf{QNC}_{1} }
+\newcommand*{\NCon}{ \mathbf{NC}_{1} }
+\newcommand*{\noiseQNCon}{ noisy-$\QNCon$ }
+\newcommand*{\QNC}{ \mathbf{QNC} }
+\newcommand*{\QNCG}{ \mathbf{QNC_G} }
+\newcommand*{\NC}{\mathbf{NC}}
+\newcommand*{\QNCiG}{\mathbf{QNC_{G,i}}}
+
+
+
+
+
+\usetikzlibrary{patterns, shapes.arrows}
+\usepackage{tkz-graph}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{tkz-berge}
+
+\usetikzlibrary{intersections}
+
+\usepackage{cancel}
+\begin{document} 
+
+\newcommand*{\Tr}{\textbf{Tr }}
+
+
+\begin{frame}
+  \title{Bounded Communication Fault Tolerance}
+    \author{David Ponarovsky}
+    \date{\today}
+    \titlepage
+\end{frame}
+
+
+\begin{frame}
+
+\frametitle{Introduction}
+\begin{block}{Today:}
+\begin{itemize}
+  \item Bounded Communication Fault Tolerance
+    \begin{enumerate}
+      \item Walktrough the math 
+      \item Alternative definition to Expander decomposition 
+      \item $(d,k)$ - Toric 
+    \end{enumerate}
+  \item New experimental results.  
+  \item Answering the code teleportation.  
+\end{itemize}
+\end{block}
+\end{frame}
+
+% ------------------------------------------------ $ 
+\begin{frame}
+  \frametitle{Bounded Communication Fault Tolerance} 
+
+  \begin{block}{Setting}
+    We allow a non-nosy, strong as we wish, classical computation aside. Yet we would like to limit the communication to a constant number of bits per logical qubit, in each round.
+\end{block}
+
+\begin{block}{Justification}
+  \begin{enumerate}
+    \item<+-> If we don't have a constant overhead in depth, in that model, $\Rightarrow$ we also don't have it in the standard model. 
+    \item<+-> In that model, gate teleportation for a constant dimension code is easy. Namely, for the Topological codes the task is reduced to finding a decoding with a constant-size hint.  
+  \end{enumerate}
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{ Max Color } 
+
+\begin{figure}[h]
+  \begin{center}
+  \tikz{ 
+    \node  (A) at (1,0) { Given - $\rho$ };
+    \node  (B) at (5,0) { Decoding };
+    \node  (C) at (9,0) { $p$-depololraized };
+    \draw[->] (A) to (B); 
+    \draw[->] (B) to (C); 
+
+    \node  (E) at (1,-1) { $E_{1}$ };
+    \node  (D) at (5,-1) { $E_{2}$ };
+    \node  (F) at (9,-1) { $E_{3}$ };
+
+    \draw[->] (A) to (E); 
+    \draw[->] (B) to (D); 
+    \draw[->] (C) to (F); 
+  }
+\end{center}
+\caption{Illustration of the cycle.}
+\end{figure}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{SWIFT}
+
+  \begin{block}{What did we learn?}
+\begin{enumerate}
+  \item Storing time is, likily, not $\Theta(e^{n})$, might be $\Theta(L^{\alpha})$ for $\alpha \in (0,1)$.   
+  \item $ \Rightarrow $  Implies that the structure of the theorem/key-lemma is different than the known refrigerators.  
+\end{enumerate}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Future}
+ \begin{block}{So What's Next?}
+   \begin{enumerate}
+     \item<+-> Moving forward with the experimental work? 
+       \begin{itemize}
+         \item More experiments, higher statistical standards?
+         \item Accelerate the decoder? Shifting to \textit{c/c++}? Parallelize it with GPUs? Do we have budget? 
+         %\item Publishing 'A Tale of Five Decoders'?
+       \end{itemize}
+     \item<+-> Dividing to colors - Expander Decomposition? What do we know about the expander decomposition of the periodic grid? 
+     \item<+-> How to use the fact our code is a quotient code? 
+   \end{enumerate}
+ \end{block}
+\end{frame}
+
+
+\end{document}
