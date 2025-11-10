@@ -165,7 +165,7 @@
 
 \begin{frame}
   \frametitle{Strategy}
-
+Suppose we have the following Lemma: 
   \begin{block}{Nice To Have Lemma.} There is a function $f : \mathbb{N} \rightarrow \mathbb{R}$, such that for any (encoded) $\rho$ which is subjected to $q$-local stochastic noise and a subset of qubits $S$ we have:  
     \begin{enumerate}
       \item With high probability ($1 - e^{-\sqrt{n}}$), after the decoding stage, the probability that the error is (completely) supported on $S$ is bounded by $q^{f(|S|)}$
@@ -174,8 +174,15 @@
   \end{block}
 \end{frame}
 
-
-
+\begin{frame}
+  \frametitle{Strategy}
+  The Nice-To-Have-Lemma implies that after decoding $+$ absorbing $p$-depolarized noise, we have with high probability:  
+\begin{equation*}
+  \begin{split}
+    \prb{S} &  \le \sum_{S^{\prime} \subset S }{q^{f(S^{\prime}) }p^{|S /S^{\prime}|}  } \le \left( q^{\alpha} + p \right)^{|S|} \le q^{|S|}
+  \end{split}
+\end{equation*}
+\end{frame}
 
 \begin{frame}
   \frametitle{SWIFT}
