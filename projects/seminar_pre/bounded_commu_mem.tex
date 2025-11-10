@@ -171,7 +171,7 @@
 Suppose we have the following Lemma: 
   \begin{block}{Nice To Have Lemma.} There is a function $f : \mathbb{N} \rightarrow \mathbb{R}$, such that for any (encoded) $\rho$ which is subjected to $q$-local stochastic noise and a subset of qubits $S$ we have:  
     \begin{enumerate}
-      \item With high probability ($1 - e^{-\sqrt{n}}$), after the decoding stage, the probability that the error is (completely) supported on $S$ is bounded by $q^{f(|S|)}$
+      \item With high probability ($1 - e^{-\sqrt{n}}$), after the decoding stage, the probability that the error is (partly) supported on $S$ is bounded by $C \cdot q^{f(|S|)}$
       \item $f(|S|) \ge \alpha|S|$ for some $\alpha > 0$. 
     \end{enumerate}
   \end{block}
@@ -181,7 +181,7 @@ Suppose we have the following Lemma:
   \frametitle{Strategy}
   The Nice-To-Have-Lemma implies that after decoding $+$ absorbing $p$-depolarized noise, we have with high probability:  
   \begin{align*}
-    \prb{S} &  \le \sum_{S^{\prime} \subset S }{q^{f(S^{\prime}) }p^{|S /S^{\prime}|}  } \le \left( q^{\alpha} + p \right)^{|S|} \le q^{|S|}
+    \prb{S} &  \le \sum_{S^{\prime} \subset S }{C\cdot q^{f(S^{\prime}) }p^{|S /S^{\prime}|}  } \le C \cdot \left( q^{\alpha} + p \right)^{|S|} \le C \cdot q^{|S|}
   \end{align*}
 \end{frame}
 
