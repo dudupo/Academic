@@ -143,18 +143,14 @@
 
     \begin{tikzpicture}%[scale=2.5]
       \draw node at (1.5,6) { simplified $(p^{\prime},q)$-model};
-\tikzstyle{every node}=[draw,shape=circle];
+      \draw node (v0) at (3,1) [draw,shape=rectangle, fill=yellow]{$u_1$};
+\draw node(v6) at (3,3) [draw,shape=rectangle]{$u_2$};
+\draw node foreach \x in {1,2,3} (v\x) at (0,\x) [draw,shape=circle]{$v_\x$};
 
-\draw node[fill=gray] (v0) at (3,1) {$u_1$};
-\draw node (v6) at (3,3) {$u_2$};
-\draw node foreach \x in {2,3,4,5} (v\x) at (0,\x) {$v_\x$};
-\draw node[fill=gray] (v1) at (0,1) {$v_1$};
 \draw (v0) -- (v1)
-(v0) -- (v2)
-(v0) -- (v5)
-(v6) -- (v3)
-(v6) -- (v4)
-(v6) -- (v1);
+  (v0) -- (v2)
+  (v6) -- (v2)
+  (v6) -- (v3);
 \end{tikzpicture}
     \label{fig:location}
     \end{subfigure} 
