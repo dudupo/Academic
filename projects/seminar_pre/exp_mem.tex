@@ -132,6 +132,7 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
   \begin{align*}
     \exppm{f}{\sim q^{(t)} } &=  \exppm{ \exppm{ f \circ D }{\sim p}  }{\sim q^{(t-1)} } \\
       & \le   \exppm{ \exppm{ f \circ D }{\sim p}  }{\sim p } + (t-1)| \exppm{f \circ D}{p}   | e^{- c \sqrt{n} } \\
+      & \le   \exppm{ f \circ D }{\sim 2p(1-p) } + (t-1)|f| e^{- c \sqrt{n} } \\
       & \le \exppm{ f }{ \sim p  } + t|f| e^{- \Theta( \sqrt{n}) }
   \end{align*}
 \end{frame}
