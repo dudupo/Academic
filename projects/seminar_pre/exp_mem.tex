@@ -220,8 +220,15 @@ So, for any $|S| > \alpha n$, with probability greater than $1 - e^{-\frac{2\alp
 
 \begin{frame}
   \frametitle{Lemma Proof}
+  Denote by $S$ the subset of the flipped qubits, and denote by $In(S)$ the number of dependent qubits in $S$. 
   \begin{align*}
-    \exppm{ f \circ D }{\sim 2p(1-p) } =  \exppm{ f \circ D }{\sim 2p(1-p) } 
+    \exppm{ f \circ D }{\sim 2p(1-p) } &=  \sum{ f\circ D (S)  \cdot \prb{S} } \\ 
+    & \le \sum_{|S| \ge \alpha n }{ f\circ D (S)  \cdot \prb{S } }  + |f|e^{-c\sqrt{n}} \\
+  & \le \sum_{|S| \ge \alpha n, Id(S) < \frac{1}{100}|S|  }{ f\circ D (S)  \cdot \prb{S } } + |f| e^{-c\sqrt{n}} + |f|e^{-c\sqrt{n}} \\
+  & \le \sum_{|S| \ge \alpha n, Id(S) < \frac{1}{100}|S|  }{ f (S) M(2p(1-p))^{\frac{99}{100}|S|}  } + |f| e^{-c\sqrt{n}} + |f|e^{-c\sqrt{n}}\\
+  & \le \sum_{|S| \ge \alpha n, Id(S) < \frac{1}{100}|S|  }{ f (S) p^{|S|} } + |f| e^{-c\sqrt{n}} + |f|e^{-c\sqrt{n}}\\
+  & \le \sum_{ S }{ f (S) p^{|S|} } + |f| e^{-c\sqrt{n}} + |f|e^{-c\sqrt{n}}\\
+  & \le \exppm{ f (S) }{\sim p } + |f| e^{-c\sqrt{n}} + |f|e^{-c\sqrt{n}}
   \end{align*}
 \end{frame}
 
