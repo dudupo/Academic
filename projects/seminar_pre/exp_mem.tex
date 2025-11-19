@@ -123,17 +123,22 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
       \exppm{f}{\sim q^{(t)} }  \le \exppm{ f }{ \sim p  } + t|f| e^{- \Theta( \sqrt{n}) }
     \end{equation*}
 \end{block}
+
+\begin{block}{Lemma} There exists a constant $c >0 $, such:
+    \begin{equation*}
+        \exppm{ f \circ D }{\sim 2p(1-p) } \le \exppm{ f \circ D }{\sim p } + |f| e^{- c \sqrt{n} } 
+    \end{equation*}
+\end{block}
 \end{frame}
 
 \begin{frame}
   \frametitle{Proof}
   By induction on $t$.
-
   \begin{align*}
     \exppm{f}{\sim q^{(t)} } &=  \exppm{ \exppm{ f \circ D }{\sim p}  }{\sim q^{(t-1)} } \\
       & \le   \exppm{ \exppm{ f \circ D }{\sim p}  }{\sim p } + (t-1)| \exppm{f \circ D}{p}   | e^{- c \sqrt{n} } \\
       & \le   \exppm{ f \circ D }{\sim 2p(1-p) } + (t-1)|f| e^{- c \sqrt{n} } \\
-      & \le \exppm{ f }{ \sim p  } + t|f| e^{- \Theta( \sqrt{n}) }
+      & \le \exppm{ f }{ \sim p  } + t|f| e^{- c \sqrt{n} }
   \end{align*}
 \end{frame}
 
