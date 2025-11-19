@@ -148,21 +148,24 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
   \frametitle{Dependence}
   \begin{figure}[h]
     \begin{tikzpicture}%[scale=2.5]
-      \draw node at (1.5,4.5) {$v_{2}$ is flipped.};
+      %\draw node at (1.5,4.5) {$v_{2}$ is flipped.};
 
-      \draw node (v0) at (3,1) [draw,shape=rectangle]{$u_1$};
-\draw node(v6) at (3,3) [draw,shape=rectangle]{$u_2$};
-\draw node foreach \x in {1,3} (v\x) at (0,\x) [draw,shape=circle, fill=gray]{$v_\x$};
-\draw node (v2) at (0,2) [draw,shape=circle, fill=gray]{$v_2$};
-\draw (v0) -- (v1)
-  (v0) -- (v2)
-  (v6) -- (v2)
-  (v6) -- (v3);
+\draw node (u1) at (3,1) [draw,shape=rectangle]{$u_1$};
+\draw node(u2) at (3,3) [draw,shape=rectangle]{$u_2$};
+\draw node (x) at (0,6) [draw,shape=circle]{$x$};
+\draw node (z) at (0,3) [draw,shape=circle]{$z$};
+\draw node (y) at (0,1) [draw,shape=circle]{$y$};
+\draw (u1) -- (x)
+  (u1) -- (z)
+  (u2) -- (y)
+  (u2) -- (z);
 \end{tikzpicture}
   \end{figure}
 
-
-  If the majority of bits in the local view of $v_{2}$ are flipped, then after decoding, $v_{2}$ will be also (remain) flipped.
+  \begin{align*}
+    \prb{ (x,y) \in e | z \text{is not flipped} } &= \prb{ x \in e | z \text{is not flipped} }\prb{ y \in e | z \text{is not flipped} } \\ 
+    & \le \prb{ x \in e }\prb{ y \in e }
+  \end{align*}
 
 \end{frame}
 
