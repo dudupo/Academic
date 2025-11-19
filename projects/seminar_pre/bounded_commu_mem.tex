@@ -187,9 +187,14 @@ Suppose we have the following Lemma:
 
 \begin{frame}
   \frametitle{Strategy}
-  \begin{block}{Demonstration on the classical case.}
-    Consider the classical expander code, defined via $(\gamma,\varepsilon)$- expander Tanner graph. Nemly, each subset on left at size at most $\gamma n$ sees $(1-2\varepsilon)\Delta$ uniq checks (checks that connected by single edge to the subset).
-    \end{block}
+  %\begin{block}{Demonstration on the classical case.}
+  Consider the classical expander code, defined via bipartite expander graph. The Tanner graph consists two subsets of checks $C_{+}$ and $C_{-}$, such that checks in each subset don't share bits. Each of the bits is connected to one check in $C_{-}$ and one check in $C_{+}$.
+
+
+  Then 
+
+    $(\gamma,\varepsilon)$- expander Tanner graph. Namely, each subset on left at size at most $\gamma n$ sees $(1-2\varepsilon)\Delta$ uniq checks (checks that connected by single edge to the subset).
+   % \end{block}
 
   \begin{align*}
     \prb{S} &  \le \sum_{S^{\prime} \subset S }{C\cdot q^{f(S^{\prime}) }p^{|S /S^{\prime}|}  } \le C \cdot \left( q^{\alpha} + p \right)^{|S|} \le C \cdot q^{|S|}

@@ -7,23 +7,70 @@ from copy import deepcopy
 from random import random, shuffle, choice
 import matplotlib.pyplot as plt
 
+from os import system
 from complex import *
 from colorize_grids import *
 from multiprocessing import Process, Array
 
-def single_run(grid, p, decoding, error, time, attempts, attempt_number, verbose = None, accu = None):
+def single_run(grid, p, decoding, error, time, attempts, attempt_number, verbose = None, accu = None, twoD_plot = False, treeD_plot = False):
     if verbose:
         print(f"[#] Attempt number: {attempt_number}")
     assign = grid.random_assignment(p, assignment = None)
+
+
     for _ in range(time):
+        if twoD_plot:
+            c = canvas.canvas()
+            for face in grid.face_to_vertex.keys():
+                twoD_grid_projrct_face(face, c)
+        elif treeD_plot:
+            c = canvas.canvas()
+            for face in grid.face_to_vertex.keys():
+                projrct_face(face, c)
         error[_] +=  grid.syndrom_size(assign)  / (len(grid.checks.keys()) * attempts)
+        if treeD_plot:
+            for edge in grid.get_syndrom(assign):
+                set_bit_on_edge(edge ,c)
         assign = decoding(_, assign) 
         if accu:
             assign = grid.random_assignment(p, assignment = assign)
         if verbose: 
             print( f"\t[>] iteration number: {_}" )
 
-def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, time = 80, verbose=True, celldim=2, checksdim =0, diff = 0):
+        if twoD_plot:
+            for face,val in assign.items():
+                twoD_grid_set_bit_on_face( face,val,c)
+            c.writeSVGfile(f"canvas_test_{grid.n}_i{_}_a{attempt_number}")
+        elif treeD_plot:
+            for bit in grid.debug_picked:
+                set_bit_on_face( bit, 1,c)
+            c.writeSVGfile(f"canvas_test_{grid.n}_{grid.k}_i{_}_a{attempt_number}")
+    if twoD_plot:
+        system(f"ffmpeg -start_number 1 -i canvas_test_{grid.n}_i%d_a{attempt_number}.svg -vcodec mpeg4 canvas_test_{grid.n}_{attempt_number}.avi")
+    if treeD_plot:
+        system(f"ffmpeg -start_number 1 -i canvas_test_{grid.n}_{grid.k}_i%d_a{attempt_number}.svg -vcodec mpeg4 canvas_test_{grid.n}_{grid.k}_{attempt_number}.avi")
+
+def single_run_count_X_gnes(grid, p, decoding, error, time, attempts, attempt_number, verbose = None, accu = None): 
+
+    if (grid.k != 3) or (grid.celldim != 2) or (grid.checksdim != 1):
+        raise Exception('Not 3D toric, checks should be set on the edges') 
+
+    if verbose:
+        print(f"[#] Attempt number: {attempt_number}")
+    assign = grid.random_assignment(p, assignment = None)
+    for _ in range(time):
+        if (_ ==0) or (error[_-1] == 0) :
+            if sum(  check_X_generators(grid, assign ) ) != 0 :
+                error[_] +=  1 / attempts
+        else:
+            error[_] += error[_-1]
+        assign = decoding(_, assign) 
+        if accu:
+            assign = grid.random_assignment(p, assignment = assign)
+        if verbose: 
+            print( f"\t[>] iteration number: {_}" )
+
+def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, time = 80, verbose=True, celldim=2, checksdim =0, diff = 0, twoD_plot = False, treeD_plot = False, count_X = False):
     plt.clf()
     process = [ ]
     errors = [ ]
@@ -41,7 +88,12 @@ def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, 
                     "swift_rul" : lambda x,y : grid.correction_cycele_swift_rule(y),
                     "none" : lambda x,y : y 
                     }[decode_cycele]
-                process_exp.append(Process(target = single_run, args= (grid, p, decoding, errors[-1], time, attempts, __ , verbose , accu ) ))
+                if not count_X:
+                    process_exp.append(Process(target = single_run,
+                                           args=(grid, p, decoding, errors[-1], time, attempts, __ , verbose , accu, twoD_plot, treeD_plot )))
+                else:
+                    process_exp.append(Process(target = single_run_count_X_gnes,
+                                           args=(grid, p, decoding, errors[-1], time, attempts, __ , verbose , accu )))
 
             process.append( process_exp ) 
             for proc in process_exp:
@@ -88,6 +140,16 @@ def tests():
             projrct_face(face, c)
         c.writeSVGfile("test-3x3")
     
+    def twoD_inital_samll_grid( ):
+        grid = KDgrid(5,2)
+        c = canvas.canvas()
+        for face in grid.face_to_vertex.keys():
+            twoD_grid_projrct_face(face, c)
+        c.writeSVGfile("test-5x5")
+    
+
+
+
     def inital_samll_grid_var_cell_dim( ):
         grid = KDgrid(5,3, celldim=2, checksdim = 1)
         print(grid.checks_to_bits[ ( (0,0,0) , (0,0,1) ) ][0])
@@ -203,7 +265,7 @@ def tests():
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "rand_pair", "test_correction_rand_2_8-20_30x4", accu = False, attempts=1, time = 500)
 
     def test_all_major_many_30_no_accu( ):
-        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "all_major", "test_correction_all_major_2_8-20_30x4", accu = False, attempts=1, time = 500)
+        TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.01], "all_major", "test_correction_all_major_2_8-20_30x4_p0.01", accu = False, attempts=1, time = 500)
     def test_all_major_many_30_plus_accu( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "all_major", "test_correction_accu_all_major_2_8-20_30x4", accu = True, attempts=1, time = 500)
     def test_all_major_many_30_plus_accu_diff_changed( ):
@@ -230,10 +292,24 @@ def tests():
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.02], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4", accu = False, attempts=1, time = 200)
 
     def test_by_swift_rule_many_30_plus_accu( ):
-        TestCase([8, 16, 40], [3, 3, 3, 3, 3, 3, 3], [0.001], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4_plus_accu", accu = True, attempts=1, time = 200)
+        p =[0.01]
+        TestCase([8, 16, 30], [3, 3, 3, 3, 3, 3, 3], p, "swift_rul", f"test_correction_by_SWIFT_2_8-20_30x4_plus_accu_{p[0]}", accu = True, attempts=1, time = 100, checksdim=1)
 
+    def test_by_swift_rule_many_30_plus_accu_countX( ):
+        p =[0.01]
+        TestCase([8, 16, 30], [3, 3, 3, 3, 3, 3, 3], p, "swift_rul", f"test_correction_by_SWIFT_2_8-20_30x4_plus_accu_countX", accu = True, attempts=10, time = 40, checksdim=1, count_X = True)
+    def test_by_swift_rule_many_30_canvas( ):
+        TestCase([16], [3, 3, 3, 3, 3, 3, 3], [0.05], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4_canvas", accu = False, attempts=1, time = 40, treeD_plot=True, checksdim = 1 )
+    def test_by_swift_rule_many_30_plus_accu_canvas( ):
+        TestCase([16], [3, 3, 3, 3, 3, 3, 3], [0.001], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4_canvas", accu = True, attempts=1, time = 40, treeD_plot=True, checksdim = 1 )
+    def test_classic_by_tooms_rule_many_30_plus_accu( ):
+        TestCase([10, 100, 200] , [2, 2, 2, 2, 2, 2, 2] , [0.01], "swift_rul", "test_classic_by_tooms_rule_many_30_plus_accu", accu = True, attempts=25, time = 20, celldim=2, checksdim =1)
+    def test_classic_by_tooms_rule_many_30_canvas( ):
+        TestCase([100] , [2, 2, 2, 2, 2, 2, 2] , [0.3], "swift_rul", "test_classic_by_tooms_rule_many_30", accu = False, attempts=1, time = 100, celldim=2, checksdim =1, twoD_plot = True)
+    def test_classic_by_tooms_rule_many_30_plus_accu_canvas( ):
+        TestCase([100] , [2, 2, 2, 2, 2, 2, 2] , [0.05], "swift_rul", "test_classic_by_tooms_rule_many_30_plus_accu", accu = True, attempts=1, time = 100, celldim=2, checksdim =1, twoD_plot = True)
     def test_by_swift_rule_many_50_plus_accu( ):
-        TestCase([8, 16, 50], [3, 3, 3, 3, 3, 3, 3], [0.001], "swift_rul", "test_correction_by_SWIFT_2_8-16-100_plus_accu", accu = True, attempts=1, time = 200)
+        TestCase([8, 16, 50], [3, 3, 3, 3, 3, 3, 3], [0.001], "swift_rul", "test_correction_by_SWIFT_2_8-16-100_plus_accu", accu = True, attempts=1, time = 200 )
     def test_no_decoding_case( ):
         TestCase([8, 16, 30, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "none", "test_correction_by_None_2_8-20_30x4_plus_accu", accu = True, attempts=1, time = 200)
 
@@ -271,6 +347,7 @@ def tests():
 
     #test_all_the_decoders_no_accu()
     #test_rand_pair_many_30_no_accu()
+    #test_all_major_many_30_no_accu()
 #    test_all_major_many_30_plus_accu()
 #    test_by_colors_many_30_plus_accu()
     #inital_samll_grid_var_cell_dim()
@@ -287,8 +364,18 @@ def tests():
     #test_by_max_color_many_30_no_accu_diff_change()
     #test_by_max_color_many_30_plus_accu_diff_change()
     #test_by_swift_rule_many_30_no_accu()
-    test_by_swift_rule_many_50_plus_accu()
+    #test_by_swift_rule_many_50_plus_accu()
+    #test_by_swift_rule_many_30_plus_accu()
     #test_by_swift_rule_small_size_8_no_accu()
     #test_no_decoding_case()
+    #test_classic_by_tooms_rule_many_30_canvas()
+    #test_classic_by_tooms_rule_many_30_plus_accu_canvas()
+    #twoD_inital_samll_grid()
+    #test_by_swift_rule_many_30_canvas()
+    #test_by_swift_rule_many_30_plus_accu_canvas()
+    
+
+    test_by_swift_rule_many_30_plus_accu_countX()
 if __name__ == "__main__" :
     tests()
+    system('rm canvas_test_*')

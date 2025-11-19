@@ -7,8 +7,11 @@ from random import random, shuffle, choice, sample
 import matplotlib.pyplot as plt
 import gc
 
+from operator import __add__ , __sub__
 from multiprocessing import Pool 
 
+
+DEBUG = False
 
 def _direct(i,k):
     ret = np.zeros(k, dtype=int)
@@ -58,6 +61,45 @@ def positive_time_cells_on_vertex(k, vertex = None, sign=True , celldim =2):
     return cells_neighbourhood(k, vertex=vertex, sign=sign, celldim=celldim, _filter = _filter)
 
 
+def positive_time_checks_on_vertex(k, vertex = None, sign=True , checksdim = 0):
+    '''
+        positive_time_cells_on_vertex, takes the 
+    '''
+    _filter = lambda x : sum(x) > 0 
+    return cells_neighbourhood(k, vertex=vertex, sign=sign, celldim=checksdim, _filter = _filter)
+
+def Zgenrators_for_3D_cells_on_faces_checks_on_edges(n):
+    k, celldim, checksdim = 3, 2, 1
+    origin = (0,0,0)
+    positive_cells  = cells_neighbourhood(k, celldim=celldim, _filter = lambda x : sum(x) > 0)
+    positive_checks = cells_neighbourhood(k, celldim=checksdim, _filter = lambda x : sum(x) > 0)
+
+    def progress_face_by_g(face, generator, times):
+        return tuple( tuple(x + times*y for  x,y in zip(v,generator)) for v in face)
+    
+    Zgenerators = []
+    for i in range(3):
+        Zgenerators.append([])
+        for _ in range(n):
+            Zgenerators[-1].append(progress_face_by_g(positive_cells[i], positive_checks[(i+2) % 3][-1], _))
+
+    return Zgenerators
+
+def check_X_generators(grid, assignment):
+    if (grid.k != 3) or (grid.celldim != 2) or (grid.checksdim != 1):
+        raise Exception('Not 3D toric, checks should be set on the edges') 
+    temp_assignment = deepcopy(assignment)
+    counter = 0 
+    while(grid.syndrom_size(temp_assignment) > 0):
+        temp_assignment = grid.correction_cycele_swift_rule(temp_assignment)
+        counter += 1
+        if counter > grid.n:
+            return [2,2,2]
+    ret = [0,0,0]
+    for j,zgen in enumerate(Zgenrators_for_3D_cells_on_faces_checks_on_edges(grid.n)):
+        for bit in zgen:
+            ret[j] ^= temp_assignment[grid.on_the_grid(bit, req_depth=2)]
+    return ret
 
 
 class KDgrid:
@@ -117,10 +159,14 @@ class KDgrid:
 #------------------------- generalized Toric ------------------------------------------# 
 
         self.colorized_dic = self.get_colorized()
-
+        
         self.vertex_to_positive_bits = { }
         self.vertex_to_positive_checks = { }
+        self.vertex_to_checks = { }
         self.vertex_to_local_view_bits = { }
+
+        self.debug_picked = [ ]
+
     def _direct(self, i):
         return _direct(i, self.k)
 
@@ -172,7 +218,12 @@ class KDgrid:
         for u in self.checks.keys():
             ret += self.local_syndrom(u, assignment)
         return ret
-
+    def get_syndrom(self, assignment):
+        ret = []
+        for u in self.checks.keys():
+            if self.local_syndrom(u, assignment) != 0:
+                ret.append(u)
+        return ret
 
     def local_correaction(self, face, assignment):
         stabilizers = self.bits_to_checks[face]
@@ -250,64 +301,126 @@ class KDgrid:
 
     def correction_cycele_swift_rule(self, assignment):
 
+        self.debug_picked = [ ]
+
+        def diff_referance(bit, u, op=__sub__):
+            return tuple( tuple( op(x,y) % self.n for x,y in zip(v,u) ) for v in bit )
+        def diff_referance_bits(bits, u, op=__sub__):
+            return [ diff_referance(bit, u) for bit in bits ]
+
+        #def diamond_contained(bits, checks):
+            #bits_diamond = self.face_to_vertex(
+
         def swift_vertex(vertex):
             if vertex not in self.vertex_to_positive_bits:
                 bits =  [self.on_the_grid( cell, req_depth=2) for cell in
                             positive_time_cells_on_vertex(
-                                self.k, vertex = vertex, celldim =2)]
+                                self.k, vertex = vertex, celldim = self.celldim)]
                 self.vertex_to_positive_bits[vertex] = bits
             else:
                 bits = self.vertex_to_positive_bits[vertex]
 
             if vertex not in self.vertex_to_positive_checks:
-                checks = set(sum([ self.bits_to_checks[bit] for bit in bits ], start=[]))
+                checks = [self.on_the_grid( cell, req_depth=2) for cell in
+                            positive_time_checks_on_vertex(
+                                self.k, vertex = vertex, checksdim = self.checksdim )]
+                all_checks_around_vertex =  [self.on_the_grid( cell, req_depth=2) for cell in
+                            faces_vec( self.k, vertex = vertex, celldim = self.checksdim )]
+
+
                 self.vertex_to_positive_checks[vertex] = checks
+                self.vertex_to_checks[vertex] = all_checks_around_vertex
             else:
                 checks = self.vertex_to_positive_checks[vertex]
+                all_checks_around_vertex = self.vertex_to_checks[vertex] 
             
-            #if vertex not in self.vertex_to_local_view_bits:
-                #self.vertex_to_local_view_bits[vertex] = local_view_bits
-            #else:
-            #local_view_bits = self.vertex_to_local_view_bits[vertex]
-
-            local_view_bits = tuple(assignment[bit] for bit in  set( sum([ self.checks_to_bits[check] for check in checks], start=[])) )
-            sig = vertex, local_view_bits
             
-            if sig in self.cache_table:
-                return self.cache_table[sig]
-            else:
 
-                last_local_syndrom = None
-                temp_assignment, temp_syndrom = assignment, 0
-                picked = None
+            all_local_checks = set(sum([ self.bits_to_checks[bit] for bit in bits ], start=[]))
+            not_positive_checks = set(all_checks_around_vertex)- set(checks)
+
+
+            local_view_syndrom = tuple( ( diff_referance(check, vertex), self.local_syndrom(check, assignment ) ) for 
+                                        check in all_local_checks)
+
+            sig = local_view_syndrom
+
+            temp_assignment, temp_syndrom = assignment, 0
+            last_local_syndrom = 0
+            syndrom_word = [ ] 
+            for check in checks:
+                temp = self.local_syndrom(check, temp_assignment)
+                syndrom_word.append(temp)
+                last_local_syndrom += temp
+
+            picked = [0] * len(bits)
+            trailing = (all(self.local_syndrom(check, temp_assignment) == 0 for check in not_positive_checks)) and  (last_local_syndrom > 0)
+            if trailing:
+                if sig in self.cache_table:
+                    return self.cache_table[sig]
+                
+                #print(f"trailing - {sig}")
                 for binary_assignment in product([0,1], repeat = len(bits)):
-#                    print( f"\t\t[>] {vertex}, {binary_assignment}")
+                    if DEBUG:
+                        if 1 in syndrom_word:
+                            print(f"domain wall {syndrom_word}")
+                            print( f"\t\t[>] {vertex}, {binary_assignment}")
+                    in_domain_wall = True
                     for bit, value in zip(bits, binary_assignment):
                         temp_assignment[bit] ^= value
 
-                    for check in checks:
-                        temp_syndrom += self.local_syndrom(check, temp_assignment)
+                    for j, check in enumerate(checks):
+                        check_syndrom = self.local_syndrom(check, temp_assignment)
+                        if check_syndrom != 0: # syndrom_word[j]:
+                            in_domain_wall = False
+                        temp_syndrom += check_syndrom
 
-                    if (last_local_syndrom is None) or  (temp_syndrom < last_local_syndrom):
-                        last_local_syndrom = temp_syndrom
-                        picked = binary_assignment
-                            
+                    if in_domain_wall:
+                        if temp_syndrom <= last_local_syndrom:
+                            if temp_syndrom != 0:
+                                raise Exception(f'syndrom:{temp_syndrom}')
+                            if (temp_syndrom < last_local_syndrom) or (sum(binary_assignment) < sum(picked)): 
+                                last_local_syndrom = temp_syndrom
+                                picked = binary_assignment
+
                     for bit, value in zip(bits, binary_assignment):
                         temp_assignment[bit] ^= value
                     temp_syndrom = 0
-                self.cache_table[sig] = zip(bits, picked)
-                #print("-----")
-                #for x,y in zip(bits, picked):
-                    #print(x,y)
-                #print("-----")
+                self.cache_table[sig] = list(zip( diff_referance_bits(bits, vertex), picked))
+                if DEBUG:
+                    if 1 in syndrom_word:
+                        print(f"domain wall {syndrom_word}")
+                        print( f"\t\t[p] {vertex}, {picked}")
                 return self.cache_table[sig]
+                #return list(zip( diff_referance_bits(bits, vertex), picked))
+            else:
+                return list(zip( diff_referance_bits(bits, vertex), picked))
+
       
         gens, ret_assign = [], deepcopy(assignment)
+        assigned = set()
         for vertex in self.vertices:
-            gens.append(swift_vertex(vertex))
-        for gen in gens:
-            for bit, value in gen:
+            for rbit, value in swift_vertex(vertex):
+                bit = diff_referance(rbit, vertex, op=__add__)
+                if DEBUG:
+                    if value == 1:
+                        self.debug_picked.append(bit)
+                    if bit in assigned:
+                        raise Exception()
+                    assigned.add(bit)
                 ret_assign[bit] ^= value
+
+        not_assigned = set()
+        
+        if DEBUG:
+            for bit in self.zbits.keys():
+                if bit not in assigned:
+                    not_assigned.add(bit)
+            if len(not_assigned) > 0:
+                print("#####################################################")
+                print("\n".join( str(x) for x in not_assigned))
+                raise Exception(f'no value were assigned') 
+
         return ret_assign
 
 
@@ -355,3 +468,8 @@ def run_func(*args, **kwargs):
     restored_f = types.FunctionType(func, globals())
     return restored_f(*args, **kwargs)
 '''
+
+
+if __name__ == "__main__":
+    Zgenrators_for_3D_cells_on_faces_checks_on_edges(2)
+

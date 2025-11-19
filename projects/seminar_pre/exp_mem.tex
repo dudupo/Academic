@@ -1,0 +1,93 @@
+\documentclass{beamer}
+%\usepackage{split}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{braket}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{svg}
+\usetikzlibrary{positioning,shapes,arrows.meta}
+%\usetikzlibrary{positioning,fit,backgrounds}
+\usepackage{quantikz}
+\usepackage[linesnumbered]{algorithm2e}
+\usepackage{hyperref}
+%\usepackage{hyperref,xcolor}
+%\usepackage[ocgcolorlinks]{ocgx2}
+\usepackage{cleveref}
+\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+\addbibresource{./sample.bib}
+
+
+\input{newcommands}
+
+
+\newcommand*{\QACze}{ \mathbf{QAC}_{0} }
+\newcommand*{\QNCzef}{ \mathbf{QNC}_{0,f} }
+\newcommand*{\QNCze}{ \mathbf{QNC}_{0} }
+\newcommand*{\QNCon}{ \mathbf{QNC}_{1} }
+\newcommand*{\NCon}{ \mathbf{NC}_{1} }
+\newcommand*{\noiseQNCon}{ noisy-$\QNCon$ }
+\newcommand*{\QNC}{ \mathbf{QNC} }
+\newcommand*{\QNCG}{ \mathbf{QNC_G} }
+\newcommand*{\NC}{\mathbf{NC}}
+\newcommand*{\QNCiG}{\mathbf{QNC_{G,i}}}
+
+
+
+
+
+\usetikzlibrary{patterns, shapes.arrows}
+\usepackage{tkz-graph}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{tkz-berge}
+
+\usetikzlibrary{intersections}
+
+\usepackage{cancel}
+\begin{document} 
+
+\newcommand*{\Tr}{\textbf{Tr }}
+
+
+\begin{frame}
+  \title{Bounded Communication Fault Tolerance}
+    \author{David Ponarovsky}
+    \date{\today}
+    \titlepage
+\end{frame}
+
+
+\begin{frame}
+
+\frametitle{Introduction}
+\begin{block}{Today:}
+\begin{itemize}
+  \item Bounded Communication Fault Tolerance
+    \begin{enumerate}
+      \item Walktrough the math 
+      \item Alternative definition to Expander decomposition 
+      \item $(d,k)$ - Toric 
+    \end{enumerate}
+  \item New experimental results.  
+  \item Answering the code teleportation.  
+\end{itemize}
+\end{block}
+\end{frame}
+
+% ------------------------------------------------ $ 
+\begin{frame}  
+  \frametitle{The Theorem} 
+
+  \begin{block}{Theorem}
+    For any function (r,v) $f$:
+    \begin{equation*}
+      \begin{split}
+        \exppm{ f   }{ \sim q^{(t)}  } \le \exppm{ f   }{ \sim p  } + t|f| e^{- \Theta( \sqrt{n}) }
+      \end{split}
+    \end{equation*}
+\end{block}
+\end{frame}
+
+\end{document}
