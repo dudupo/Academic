@@ -154,10 +154,10 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
 \draw node(u2) at (3,3) [draw,shape=rectangle]{$u_2$};
 \draw node (x) at (0,6) [draw,shape=circle]{$x$};
 \draw node (z) at (0,3) [draw,shape=circle]{$z$};
-\draw node (y) at (0,1) [draw,shape=circle]{$y$};
-\draw (u1) -- (x)
+\draw node (y) at (0,0) [draw,shape=circle]{$y$};
+\draw (u1) -- (y)
   (u1) -- (z)
-  (u2) -- (y)
+  (u2) -- (x)
   (u2) -- (z);
 \end{tikzpicture}
   \end{figure}
