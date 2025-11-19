@@ -225,11 +225,17 @@ So, for any $|S| > \alpha n$, with probability greater than $1 - e^{-\frac{2\alp
     & \exppm{ f \circ D }{\sim 2p(1-p) } =  \sum{ f\circ D (S)  \cdot \prb{S} } \\ 
     & \le \sum_{|S| \ge \alpha n }{ f\circ D (S)  \cdot \prb{S } }  + |f|e^{-c\sqrt{n}} \\
   & \le \sum_{|S| \ge \alpha n, Id(S) < \frac{1}{100}|S|  }{ f\circ D (S)  \cdot \prb{S } } + |f| e^{-c\sqrt{n}} + |f|e^{-c\sqrt{n}} \\
-  & \le \sum_{|S| \ge \alpha n, Id(S) < \frac{1}{100}|S|  }{ f (S) M(2p(1-p))^{\frac{99}{100}|S|}  } + |f| e^{-c\sqrt{n}} + |f|e^{-c\sqrt{n}}\\
+  & \le \sum_{|S| \ge \alpha n, Id(S) < \frac{1}{100}|S|  }{ f (S) M(2p(1-p))^{\frac{99}{100}|S|}  } + |f| e^{-c\sqrt{n}} + |f|e^{-c\sqrt{n}}
+  \end{align*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lemma Proof}
+  \begin{align*}
   & \le \sum_{|S| \ge \alpha n, Id(S) < \frac{1}{100}|S|  }{ f (S) p^{|S|} } + |f| e^{-c\sqrt{n}} + |f|e^{-c\sqrt{n}}\\
   & \le \sum_{ S }{ f (S) p^{|S|} } + |f| e^{-c\sqrt{n}} + |f|e^{-c\sqrt{n}}\\
   & \le \exppm{ f (S) }{\sim p } + |f| e^{-c\sqrt{n}} + |f|e^{-c\sqrt{n}}
-  \end{align*}
+\end{align*}
 \end{frame}
 
 \begin{frame}
