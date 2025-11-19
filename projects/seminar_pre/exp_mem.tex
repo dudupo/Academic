@@ -132,7 +132,7 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
 \end{frame}
 
 \begin{frame}
-  \frametitle{Proof}
+  \frametitle{Theorem Proof}
   By induction on $t$.
   \begin{align*}
     \exppm{f}{\sim q^{(t)} } &=  \exppm{ \exppm{ f \circ D }{\sim p}  }{\sim q^{(t-1)} } \\
@@ -140,6 +140,7 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
       & \le   \exppm{ f \circ D }{\sim 2p(1-p) } + (t-1)|f| e^{- c \sqrt{n} } \\
       & \le \exppm{ f }{ \sim p  } + t|f| e^{- c \sqrt{n} }
   \end{align*}
+  When in the last transition we used the lemma. 
 \end{frame}
 
 
