@@ -174,21 +174,31 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
   \frametitle{Dependence}
 
   \begin{block}{Claim}
-  Consider application of $2p(1-p)$-depolarized channel, followed by decoding $D$. For any subset of qubits $S$, the probability that there are more than $\frac{1}{100}$ dependents qubits in $S$ is less than $e^{-c\sqrt{n}}$. 
+Consider the application of a $2p(1-p)$-depolarizing channel, followed by decoding $D$. For any subset of qubits $S$, the probability that there are more than $\frac{1}{100}$ dependent qubits in $S$ is less than $e^{-c\sqrt{n}}$.
   \end{block}
 
   \begin{block}{Proof}
-    ddfdfsd
+    First, for an arbitrary $S$, denote by $J$ the qubits that depend on qubits in $S$. Then, the expected number of dependent qubits in $S$ is:
+    \begin{align*}
+      & \exppm{  \text{dependent qubits in} S  }{ \sim 2p(1-p) } \\ 
+      & \le \exppm{  |J|  }{ \sim 2p(1-p) } \\
+      & = 2p(1-p) \Delta^{l} |S| \rightarrow \frac{1}{100} |S|
+    \end{align*}
   \end{block}
-
 \end{frame}
 
-
-
 \begin{frame}
-  \frametitle{Lemma Proof}
+  \frametitle{Dependence}
   We are going to use the following inequality:
   \includegraphics[width=\textwidth]{ineq.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Dependence}
+  Thus, the probability that the number of dependent qubits in $S$ is $|S|^{\frac{3}{4}}$ far from the expectation: 
+  \begin{align*}
+    \prbm{ \# - \expp{\#}  }{\sim 2p(1-p)}% \le e^{-2\frac{|S|^{\frac{2}{3}}{n \Delta^{l} }}}
+  \end{align*}
 \end{frame}
 
 
