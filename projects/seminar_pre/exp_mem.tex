@@ -53,7 +53,7 @@
 
 
 \begin{frame}
-  \title{Bounded Communication Fault Tolerance}
+  \title{Topological Memory.}
     \author{David Ponarovsky}
     \date{\today}
     \titlepage
@@ -65,11 +65,11 @@
 \frametitle{Introduction}
 \begin{block}{Today:}
 \begin{itemize}
-  \item Bounded Communication Fault Tolerance
+  \item Proof. 
     \begin{enumerate}
       \item Walktrough the math 
-      \item Alternative definition to Expander decomposition 
-      \item $(d,k)$ - Toric 
+      \item A 
+      \item B
     \end{enumerate}
   \item New experimental results.  
   \item Answering the code teleportation.  
@@ -78,17 +78,67 @@
 \end{frame}
 
 % ------------------------------------------------ $ 
+
+
+\begin{frame}
+  \frametitle{Our Code}
+
+  \begin{block}{Code}
+    In this session, we consider LDPC codes, where each bit adjoins to $\Delta_{1}$ checks, and each check adjoins to $\Delta_{2}$ bits. We denote by $\Delta = \Delta_{1}\Delta_{2}$.
+  \end{block}
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Local Decoder} 
+  
+  \begin{block}{definition}
+    We say that $D$ is a local decoder if when applied against $2p(1-p)$-depolarized channel: 
+    \begin{itemize}
+      \item  There exists function $M : (0,1) \rightarrow (0,1) $ such that the probability of each bit being flipped is $M(2p(1-p)) < p$.
+      \item There is a constant $l$ such that for any bit, there are only $(\Delta)^{l}$ bits on which the event of it being flipped depends.
+    \end{itemize}
+For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then both the swift rule-and the flip upon majority are local decoders.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Storing Logical State}
+
+  \begin{block}{Logical State}
+    For a random variable $X$ we denote by: 
+    \begin{enumerate}
+      \item $\exppm{X}{ \sim p  }$ - its expectation when measured after a single application of the $p$-depolarizing channel.
+      \item $\exppm{X}{ \sim q^{(t)}  }$ - its expectation when measured after $t$ rounds, each initiated by a $p$-depolarized channel followed by an application of local decoder $D$.
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+
 \begin{frame}  
   \frametitle{The Theorem} 
-
-  \begin{block}{Theorem}For any function (r,v) $f$ and $\exppm{f}{a} $:
-    
+  \begin{block}{Theorem} Let $f$ be any function with bounded value, denote by $|f|$ it's supremum, Then:
     \begin{equation*}
-      %\begin{split}
       \exppm{f}{\sim q^{(t)} }  \le \exppm{ f }{ \sim p  } + t|f| e^{- \Theta( \sqrt{n}) }
-      %\end{split}
     \end{equation*}
 \end{block}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Proof}
+  By induction on $t$.
+
+  \begin{equation*}
+    \exppm{f}{\sim q^{(t)} } =  \exppm{ \expp{ f \circ D }{\sim p}  }{\sim q^{(t-1)} } \le   \exppm{ \expp{ f \circ D }{\sim p}  }{\sim p } + (t-1)| \exppm{f \circ D}{p}   | e^{- c \sqrt{n} } 
+      \le \exppm{ f }{ \sim p  } + t|f| e^{- \Theta( \sqrt{n}) }
+  \end{equation*}
+\end{frame}
+
+
+\begin{frame}
+
+\end{frame}
+
 
 \end{document}
