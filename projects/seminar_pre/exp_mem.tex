@@ -36,9 +36,6 @@
 
 
 
-
-
-
 \usetikzlibrary{patterns, shapes.arrows}
 \usepackage{tkz-graph}
 \usetikzlibrary{decorations.pathmorphing}
@@ -78,8 +75,7 @@
 \end{frame}
 
 % ------------------------------------------------ $ 
-
-
+  
 \begin{frame}
   \frametitle{Our Code}
 
@@ -218,12 +214,12 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
   \frametitle{Dependence}
   Thus, the probability that the number of dependent qubits in $S$ is $|S|^{\frac{3}{4}}$ far from the expectation: 
   \begin{align*}
-  \prbm{ \# - \expp{\#}  }{\sim 2p(1-p)} \le e^{-2\frac{|S|^{\frac{2}{3}}}{n \Delta^{l} }}
+    \prbm{ \# - \expp{\#} \ge |S|^{\frac{3}{4}} }{\sim 2p(1-p)} \le e^{-2\frac{|S|^{\frac{3}{2}}}{n \Delta^{l} }}
   \end{align*}
 
   So, for any $|S| > \alpha n$ we have: 
   \begin{align*}
-    \prbm{ \# - \expp{\#}  }{\sim 2p(1-p)} \le e^{-\frac{2\alpha^{\frac{2}{3}} }{ \Delta^{l} }\sqrt{n} }
+    \prbm{ \# - \expp{\#} \ge |S|^{\frac{3}{4}}  }{\sim 2p(1-p)} \le e^{-\frac{2\alpha^{\frac{2}{3}} }{ \Delta^{l} }\sqrt{n} }
   \end{align*}
 \end{frame}
 
