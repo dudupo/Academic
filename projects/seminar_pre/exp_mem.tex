@@ -217,16 +217,14 @@ For a subset of qubits $S$, we say that a qubit $x \in S$ is dependent if there 
     First, for an arbitrary $S$, denote by $J$ the qubits that depend on qubits in $S$. Then, the expected number of dependent qubits in $S$ is:
     \begin{align*}
       & \exppm{  \text{Type I dependent qubits in} S  }{ \sim 2p(1-p) } \\ 
-      & \le \exppm{  |J|  }{ \sim 2p(1-p) } \\
-      & = 2p(1-p) \Delta^{l} |S| 
+      & \le \exppm{  |J|  }{ \sim 2p(1-p) } = 2p(1-p) \Delta^{l} |S| 
     \end{align*}
     
     Similarly, let $J\prime$ be the qubits in $S$ that connected to unsatisfied check, then:
 
     \begin{align*}
       & \exppm{  \text{Type II dependent qubits in} S  }{ \sim 2p(1-p) } \\ 
-      & \le \exppm{  |J|^{\prime}  }{ \sim 2p(1-p) } \\
-      & = \frac{1 - ( 1-2p)^{\Delta_{2}} }{2} \Delta^{l} |S| 
+      & \le \exppm{  |J|^{\prime}  }{ \sim 2p(1-p) }  = \frac{1 - ( 1-2p)^{\Delta_{2}} }{2} \Delta^{l} |S| 
     \end{align*}
   \end{block}
 \end{frame}
