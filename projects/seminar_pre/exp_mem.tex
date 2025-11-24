@@ -145,7 +145,7 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
 
 
 \begin{frame}
-  \frametitle{Dependence}
+  \frametitle{Dependence Type I}
   \begin{figure}[h]
     \begin{tikzpicture}[scale=0.7]
       %\draw node at (1.5,4.5) {$v_{2}$ is flipped.};
@@ -170,6 +170,27 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
 
 \end{frame}
 
+\begin{frame}
+  \frametitle{Dependence Type II}
+  \begin{figure}[h]
+    \begin{tikzpicture}[scale=0.7]
+      %\draw node at (1.5,4.5) {$v_{2}$ is flipped.};
+
+\draw node (u1) at (3,3) [draw,shape=rectangle]{$u_1$};
+\draw node (x) at (0,6) [draw,shape=circle]{$x$};
+\draw node (y) at (0,0) [draw,shape=circle]{$y$};
+\draw (u1) -- (y)
+  (u1) -- (x);
+\end{tikzpicture}
+  \end{figure}
+
+  \begin{align*}
+    & \prb{ (x,y) \in e | u_{1} \text{ is satisfied} }  \\
+    & = \prb{ x \in e | u_{1} \text{ is satisfied}  }  \prb{ y \in e | u_{1} \text{ is satisfied}  } \\ 
+    & \le \prb{ x \in e }\prb{ y \in e }
+  \end{align*}
+
+\end{frame}
 \begin{frame}
   \frametitle{Dependence}
 
