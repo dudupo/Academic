@@ -188,18 +188,39 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
 \end{frame}
 
 \begin{frame}
+  \begin{block}{Definition}
+Consider the moment after the application of the depolarizing channel, and right before the correction by the decoder.
+
+For a subset of qubits $S$, we say that a qubit $x \in S$ is dependent if there exists $y \in S$ such:
+\begin{enumerate}
+  \item Either $x$ and $y$ share a check that is not satisfied. (Type I)  
+  \item Or, $x$ and $y$ have checks which share a bit that was flipped by the application of the channel. (Type II)
+\end{enumerate}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
   \frametitle{Dependence}
 
   \begin{block}{Claim}
-    Consider the application of a $2p(1-p)$-depolarizing channel, followed by decoding $D$. Let $S$ be a subset of qubits chosen uniformly random \footnote{each qubit is taken with probability $\frac{1}{2}$}, the probability that there are more than $\frac{1}{100}$ dependent qubits in $S$ is less than $e^{-c\sqrt{n}}$.
+    Consider the application of a $2p(1-p)$-depolarizing channel. Let $S$ be a subset of qubits chosen uniformly random \footnote{each qubit is taken with probability $\frac{1}{2}$}, then the probability that there are more than $\frac{1}{100}$ dependent qubits in $S$ is less than $e^{-c\sqrt{n}}$.
   \end{block}
 
   \begin{block}{Proof}
     First, for an arbitrary $S$, denote by $J$ the qubits that depend on qubits in $S$. Then, the expected number of dependent qubits in $S$ is:
     \begin{align*}
-      & \exppm{  \text{dependent qubits in} S  }{ \sim 2p(1-p) } \\ 
+      & \exppm{  \text{Type I dependent qubits in} S  }{ \sim 2p(1-p) } \\ 
       & \le \exppm{  |J|  }{ \sim 2p(1-p) } \\
-      & = 2p(1-p) \Delta^{l} |S| \rightarrow \frac{1}{100} |S|
+      & = 2p(1-p) \Delta^{l} |S| 
+    \end{align*}
+    
+    Similarly, let $J\prime$ be the qubits in $S$ that connected to unsatisfied check, then:
+
+    \begin{align*}
+      & \exppm{  \text{Type II dependent qubits in} S  }{ \sim 2p(1-p) } \\ 
+      & \le \exppm{  |J|^{\prime}  }{ \sim 2p(1-p) } \\
+      & = \frac{1 - ( 1-2p)^{\Delta_{2}} }{2} \Delta^{l} |S| 
     \end{align*}
   \end{block}
 \end{frame}
