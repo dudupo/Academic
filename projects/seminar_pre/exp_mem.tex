@@ -46,7 +46,7 @@
 \usepackage{cancel}
 \begin{document} 
 
-\newcommand*{\Tr}{\textbf{Tr }}
+%\newcommand*{\Tr}{\textbf{Tr }}
 
 
 \begin{frame}
@@ -285,7 +285,12 @@ For a subset of qubits $S$, we say that a qubit $x \in S$ is depended if there e
   \frametitle{Storing Logical State - Quantum Statement}
 
   \begin{block}{Logical State}
-    For a random variable $X$ we denote by: 
+    Let $\rho^{(0)}$ be a mixed state over codewords. Define:
+
+    \begin{equation*}
+        \rho^{(t)} =  D \circ \mathcal{N} \rho^{(t-1)} 
+    \end{equation*}
+
     \begin{enumerate}
       \item $\exppm{X}{ \sim p  }$ - its expectation when measured after a single application of the $p$-depolarizing channel.
       \item $\exppm{X}{ \sim q^{(t)}  }$ - its expectation when measured after $t$ rounds, each initiated by a $p$-depolarized channel followed by an application of local decoder $D$.
@@ -296,15 +301,15 @@ For a subset of qubits $S$, we say that a qubit $x \in S$ is depended if there e
 
 \begin{frame}  
   \frametitle{The Theorem - Quantum Statement} 
-  \begin{block}{Theorem} There is $p_{\text{th}} \in (0,1)$ such that for any $p < p_{\text{th}}$ and any bounded function $f$ with a supremum $|f|$ it holds:
+  \begin{block}{Theorem} There is $p_{\text{th}} \in (0,1)$ such that for any $p < p_{\text{th}}$ and any bounded Hermitian operator $X$ we have: 
     \begin{equation*}
-      \exppm{f}{\sim q^{(t)} }  \le \exppm{ f }{ \sim p  } + t|f| e^{- \Theta( \sqrt{n}) }
+      \Tr X\rho^{(t)} \le \Tr X  \mathcal{N}_{p} \left( \rho \right)  + t||X|| e^{- \Theta( \sqrt{n}) }
     \end{equation*}
 \end{block}
 
 \begin{block}{Lemma} There exists a constant $c >0 $, such:
     \begin{equation*}
-        \exppm{ f \circ D }{\sim 2p(1-p) } \le \exppm{ f }{\sim p } + |f| e^{- c \sqrt{n} } 
+      \Tr X  D \circ \mathcal{N}_{2p(1-p)} \left( \rho \right)  \le \Tr X  \mathcal{N}_{p} \left( \rho \right)  + 2||X|| e^{- \Theta( \sqrt{n}) }
     \end{equation*}
 \end{block}
 \end{frame}
