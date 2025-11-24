@@ -334,4 +334,18 @@ For a subset of qubits $S$, we say that a qubit $x \in S$ is depended if there e
 
 \end{frame}
 
+\begin{frame}
+  \frametitle{Corollary II}
+
+  \begin{align*}
+    & \Tr  X I D \mathcal{N}_{p} I D \mathcal{N}_{p}I D \mathcal{N}_{p} .. I D \mathcal{N}_{p} \hat{U} D \mathcal{N}_{p} I D \mathcal{N}_{p} .. I D \mathcal{N}_{p}\rho  \\ 
+    & \le \Tr  X I D \mathcal{N}_{p} I D \mathcal{N}_{p}I D \mathcal{N}_{p} .. I D \mathcal{N}_{p} \hat{U} \mathcal{N}_{p}\rho  + e^{-\sqrt{n}} t_{1}  \\
+    & \le \Tr  X I D \mathcal{N}_{p} I D \mathcal{N}_{p}I D \mathcal{N}_{p} .. I D \mathcal{N}_{p} \left( \hat{U} + [\hat{U} ,\mathcal{N}_{p}] \right) \rho  + e^{-\sqrt{n}} t_{1}  \\ 
+    & = \Tr  X I D \mathcal{N}_{p} I D \mathcal{N}_{p}I D \mathcal{N}_{p} .. I D \mathcal{N}_{p} \rho_{2} \\
+    & \ \ \ +  \Tr  X I D \mathcal{N}_{p} I D \mathcal{N}_{p}I D \mathcal{N}_{p} .. I D \mathcal{N}_{p} [\hat{U} ,\mathcal{N}_{p}]  \rho+ e^{-\sqrt{n}} t_{1}  \\ 
+    & = \Tr  X \mathcal{N}_{p} \rho_{2}  + e^{-\sqrt{n}} \left( t_{2} - t_{1} \right) + e^{-\sqrt{n}} t_{1}  \\ 
+ & \ \ \ + \Tr  X I D \mathcal{N}_{p} I D \mathcal{N}_{p}I D \mathcal{N}_{p} .. I D \mathcal{N}_{p} [\hat{U} ,\mathcal{N}_{p}] \\
+  \end{align*}
+
+\end{frame}
 \end{document}
