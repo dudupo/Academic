@@ -216,14 +216,14 @@ For a subset of qubits $S$, we say that a qubit $x \in S$ is depended if there e
   \begin{block}{Proof}
     First, for an arbitrary $S$, denote by $J$ the qubits that depend on qubits in $S$. Then, the expected number of depended qubits in $S$ is:
     \begin{align*}
-      & \exppm{  \text{Type II dependent qubits in} S  }{ \sim 2p(1-p) } \\ 
+      & \exppm{  \text{Type II depended qubits in} S  }{ \sim 2p(1-p) } \\ 
       & \le \exppm{  |J|  }{ \sim 2p(1-p) } \le 2p(1-p) \Delta^{l} |S| 
     \end{align*}
     
     Similarly, let $J\prime$ be the qubits in $S$ that connected to unsatisfied check, then:
 
     \begin{align*}
-      & \exppm{  \text{Type I dependent qubits in} S  }{ \sim 2p(1-p) } \\ 
+      & \exppm{  \text{Type I depended qubits in} S  }{ \sim 2p(1-p) } \\ 
       & \le \exppm{  |J|^{\prime}  }{ \sim 2p(1-p) } \le \frac{1 - ( 1-2p)^{\Delta_{2}} }{2} \Delta^{l} |S| 
     \end{align*}
   \end{block}
@@ -265,16 +265,16 @@ For a subset of qubits $S$, we say that a qubit $x \in S$ is depended if there e
   Denote by $S$ the subset of the flipped qubits, and denote by $de(S)$ the number of depended qubits in $S$. 
   \begin{align*}
     & \exppm{ f \circ D }{\sim 2p(1-p) } =  \sum{ f\circ D (S)  \cdot \prb{S} } \\ 
-    & \le \sum_{|S| \ge \alpha n }{ f\circ D (S)  \cdot \prb{S } }  + |f|e^{-c\sqrt{n}} \\
-  & \le \sum_{|S| \ge \alpha n, de(S) < \frac{1}{100}|S|  }{ f\circ D (S)  \cdot \prb{S } } + |f| e^{-c\sqrt{n}} + |f|e^{-c\sqrt{n}} \\
-  & \le \sum_{|S| \ge \alpha n, de(S) < \frac{1}{100}|S|  }{ f (S) M(2p(1-p))^{\frac{99}{100}|S|}  } + 2|f| e^{-c\sqrt{n}}
+   % & \le \sum_{|S| \ge \alpha n }{ f\circ D (S)  \cdot \prb{S } }  + |f|e^{-c\sqrt{n}} \\
+    & \le \sum_{ \substack{ de(S) < \frac{1}{100}|S| \\ |S| \ge \alpha n }  }{ f\circ D (S)  \cdot \prb{S } } + 2|f| e^{-c\sqrt{n}} \\ 
+  & \le \sum_{\substack{ de(S) < \frac{1}{100}|S| \\ |S| \ge \alpha n } }{ f (S) M(2p(1-p))^{\frac{99}{100}|S|}  } + 2|f| e^{-c\sqrt{n}}
   \end{align*}
 \end{frame}
 
 \begin{frame}
   \frametitle{Lemma Proof}
   \begin{align*}
-  & \le \sum_{|S| \ge \alpha n, de(S) < \frac{1}{100}|S|  }{ f (S) p^{|S|} } + 2|f| e^{-c\sqrt{n}}\\
+  & \le \sum_{\substack{ de(S) < \frac{1}{100}|S| \\ |S| \ge \alpha n } }{ f (S) p^{|S|} } + 2|f| e^{-c\sqrt{n}}\\
   & \le \sum_{ S }{ f (S) p^{|S|} } + 2|f| e^{-c\sqrt{n}}\\
   & \le \exppm{ f (S) }{\sim p } + 2|f| e^{-c\sqrt{n}}
 \end{align*}
