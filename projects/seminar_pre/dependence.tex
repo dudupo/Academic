@@ -145,11 +145,55 @@ Consider two (qu)bits $x,y$. We say that $z$ is a \textbf{linked node} between $
   \begin{align*}
     &\prb{x_{1},x_{2}, .. x_{k}, x_{k+1}, .. x_{l} \in e | z_{1},z_{2},..z_{m} }  \\
     = & \prod_{i}\prb{x_{i} \in e | z_{1},z_{2},..z_{m} } \\ 
-    = & \prod_{i}\prb{x_{i} \in e | z_{i} \in \Gamma(x_{i}) } \\ 
+    = & \prod_{i}\prb{x_{i} \in e | z \in \Gamma(x_{i}) } \\ 
     \le & \prod_{i}^{k}\prb{x_{i} \in e} \prod_{i=k+1}^{l}\prb{x_{i} \in e | z_{i} \in \Gamma(x_{i}) } \\ 
     \le & M(p)^{k}  
   \end{align*}
 
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{McDiarmid's Inequality - Local Stochastic Noise}
+
+  
+  \begin{block}{$C_{1},C_{2}$- local stochastic noise}
+    Let $C_{1}, C_{2} > 0$. We say that $\rho$ is subjected to $C_{1},C_{2}$- local stochastic noise, if for any subset of qubits $S$ the probability they will be faulty is bounded by:  
+    \begin{align*}
+      C_{1}p^{|S|} \le \prb{S \in e} \le C_{2}p^{|S|} 
+    \end{align*}
+  \end{block}
+  
+
+  \begin{block}{Lemma: McDiarmid's Inequality}
+    McDiarmid's Inequality is correct for $C_{1},C_{2}$- local stochastic noise. 
+  \end{block}
+
+\end{frame}
+\begin{frame}
+  \frametitle{
+  \begin{block}{Proof}
+    %Consider \href{https://people.eecs.berkeley.edu/~bartlett/courses/281b-sp06/bdddiff.pdf}. We have to bound:
+    \begin{align*}
+      \star = \sup_{x,\bar{x}}\expp{f|X_{1},..X_{i-1},x} - \expp{f|X_{1},..X_{i-1},\bar{x}}
+\end{align*}
+
+First we show that: 
+
+    \begin{align*}
+      &  \frac{C_{2}}{C_{1}}p^{|Z|}   & \le \prb{z_{i+1},..z_{n}|X_{1},..X_{i-1},x} & \le \frac{C_{2}}{C_{1}}p^{|Z|} \\ 
+      &  \frac{C_{2}}{C_{1}}p^{|Z|}   & \le \prb{z_{i+1},..z_{n}|X_{1},..X_{i-1},\bar{x}} & \le \frac{C_{2}}{C_{1}}p^{|Z|} 
+\end{align*}
+
+And then we get that: 
+
+\begin{align*}
+  \star & \le \sum_{Z}p^{|Z|}\left( \frac{C_{2}}{C_{1}} -  \frac{C_{1}}{C_{2}} \right) c \\
+  & \le c\left( \frac{C_{2}}{C_{1}} -  \frac{C_{1}}{C_{2}} \right) \frac{1}{1 - p }
+\end{align*}
+
+  \end{block}
 \end{frame}
 
 \begin{frame}
