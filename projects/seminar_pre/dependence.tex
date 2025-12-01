@@ -200,6 +200,29 @@ And then we get that:
 
 \end{frame}
 
+
+\begin{frame}
+  \frametitle{Trick.}
+Suppose that $\prb{S}$ is not bounded from beneath by $C_{1}p^{|S|}$. Then one can define the distribution $\mathcal{D}^{\prime}$ such that:
+  \begin{align*}
+    \mathcal{D}^{\prime}(S) = \begin{cases}
+      \mathcal{D}(S) & \text{if }\mathcal{D}(S) > C_{1}p^{|S|} \\
+      C_{1}p^{|S|} & \text{else} 
+    \end{cases}
+  \end{align*}
+  
+And notice that probabilities might sum up to more than $1$. Then: 
+\begin{align*}
+  \prbm{f - \exppm{f}{ \sim\mathcal{D} } > t }{\mathcal{D}} \le \prbm{f - \exppm{f}{ \sim\mathcal{D} } > t }{\mathcal{D}^{\prime}} 
+\end{align*}
+
+ 
+\end{frame}
+
+
+
+
+
 \begin{frame}
   \frametitle{Local Decoder} 
   
