@@ -210,6 +210,13 @@ Suppose that $\prb{S}$ is not bounded from beneath by $C_{1}p^{|S|}$. Then one c
       C_{1}p^{|S|} & \text{else} 
     \end{cases}
   \end{align*}
+  Normalize by: 
+
+  \begin{align*}
+    \xi & =  \sum_{ \prb{\mathcal{D}(S) < C_{1}p^{|S|}}} C_{1}p^{|S|} + \prb{\mathcal{D}(S) < C_{1}p^{|S|}} \\
+     & \le  \prb{\mathcal{D}(S) < C_{1}p^{|S|}} C_{1} + \prb{\mathcal{D}(S) < C_{1}p^{|S|}} \\
+     &  \le C_{1} + 1
+  \end{align*}
 \end{frame}
 \begin{frame}
 
@@ -217,7 +224,8 @@ Suppose that $\prb{S}$ is not bounded from beneath by $C_{1}p^{|S|}$. Then one c
 And notice that probabilities might sum up to more than $1$. Then: 
 \begin{align*}
   & \prbm{f - \exppm{f}{ \sim\mathcal{D} } > t }{\sim\mathcal{D}} \\
-  \le & \prbm{f - \exppm{f}{ \sim\mathcal{D} } > t }{\sim\mathcal{D}^{\prime}} \\ 
+  \le & \prbm{f - \exppm{f}{ \sim\mathcal{D} } > t }{\sim\mathcal{D}^{\prime} \text{not normalized} } \\ 
+  \le & \prbm{f - \exppm{f}{ \sim\mathcal{D} } > t }{\sim\mathcal{D}^{\prime} } \\ 
   = & \prbm{f - \exppm{f}{ \sim\mathcal{D}^{\prime} } > t + \exppm{f}{ \sim\mathcal{D}^{\prime} } -  \exppm{f}{ \sim\mathcal{D} } }{\sim\mathcal{D}^{\prime}} \\ 
 \le &\prbm{f - \exppm{f}{ \sim\mathcal{D}^{\prime} } > t - \frac{C_{2} - C_{1}}{C_{2}}\exppm{f}{ \sim\mathcal{D} }}{\sim\mathcal{D}^{\prime}} \\
 \le &\prbm{f - \exppm{f}{ \sim\mathcal{D}^{\prime} } > \frac{t}{2} }{\sim\mathcal{D}^{\prime}} 
