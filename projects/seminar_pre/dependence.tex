@@ -215,7 +215,8 @@ And notice that probabilities might sum up to more than $1$. Then:
 \begin{align*}
   & \prbm{f - \exppm{f}{ \sim\mathcal{D} } > t }{\sim\mathcal{D}} \le \prbm{f - \exppm{f}{ \sim\mathcal{D} } > t }{\sim\mathcal{D}^{\prime}} \\ 
   = & \prbm{f - \exppm{f}{ \sim\mathcal{D}^{\prime} } > t + \exppm{f}{ \sim\mathcal{D}^{\prime} } -  \exppm{f}{ \sim\mathcal{D} } }{\sim\mathcal{D}^{\prime}} \\ 
-  \le &\prbm{f - \exppm{f}{ \sim\mathcal{D}^{\prime} } > \frac{t}{2} }{\sim\mathcal{D}^{\prime}} 
+\le &\prbm{f - \exppm{f}{ \sim\mathcal{D}^{\prime} } > t - \frac{C_{1} - C_{2}}{C_{1}}\exppm{f}{ \sim\mathcal{D} }}{\sim\mathcal{D}^{\prime}} \\
+\le &\prbm{f - \exppm{f}{ \sim\mathcal{D}^{\prime} } > \frac{t}{2} }{\sim\mathcal{D}^{\prime}} 
 \end{align*}
 
  
