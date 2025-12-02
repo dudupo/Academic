@@ -221,6 +221,17 @@ Suppose that $\prb{S}$ is not bounded from beneath by $C_{1}p^{|S|}$. Then one c
         & \ge C_{1}
   \end{align*}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Trick.}
+  So for $C_{1} > 1$ we have: 
+  \begin{align*}
+    &\exppm{ f }{\sim \mathcal{D}^{\prime} } = \frac{1}{\xi} \sum_{ \prb{\mathcal{D}(S) < C_{1}p^{|S|}}} f(S)C_{1}p^{|S|} + \sum_{ \prb{\mathcal{D}(S) \ge C_{1}p^{|S|}}}f(S)D(S) \\
+    \le & \frac{1}{\xi}\exppm{ f }{\sim \mathcal{D} } \\
+    \le & \exppm{ f }{\sim \mathcal{D} }
+  \end{align*}
+
+\end{frame}
 \begin{frame}
 
   \frametitle{Trick.}
@@ -229,9 +240,7 @@ And notice that probabilities might sum up to more than $1$. Then:
   & \prbm{f - \exppm{f}{ \sim\mathcal{D} } > t }{\sim\mathcal{D}} \\
   \le & \prbm{f - \exppm{f}{ \sim\mathcal{D} } > t }{\sim\mathcal{D}^{\prime} \text{not normalized} } \\ 
   \le & \frac{1}{C_{1}}\prbm{f - \exppm{f}{ \sim\mathcal{D} } > t }{\sim\mathcal{D}^{\prime} } \\ 
-  = &\frac{1}{C_{1}} \prbm{f - \exppm{f}{ \sim\mathcal{D}^{\prime} } > t + \exppm{f}{ \sim\mathcal{D}^{\prime} } -  \exppm{f}{ \sim\mathcal{D} } }{\sim\mathcal{D}^{\prime}} \\ 
-\le &\frac{1}{C_{1}}\prbm{f - \exppm{f}{ \sim\mathcal{D}^{\prime} } > t - \frac{C_{2} - C_{1}}{C_{2}}\exppm{f}{ \sim\mathcal{D} }}{\sim\mathcal{D}^{\prime}} \\
-\le &\frac{1}{C_{1}}\prbm{f - \exppm{f}{ \sim\mathcal{D}^{\prime} } > \frac{t}{2} }{\sim\mathcal{D}^{\prime}} 
+  \le & \prbm{f - \exppm{f}{ \sim\mathcal{D} } > t }{\sim\mathcal{D}^{\prime} } 
 \end{align*}
 
  
