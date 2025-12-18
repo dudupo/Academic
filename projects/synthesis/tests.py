@@ -12,9 +12,9 @@ from complex import *
 from colorize_grids import *
 from multiprocessing import Process, Array
 
-def single_run(grid, p, decoding, error, time, attempts, attempt_number, verbose = None, accu = None, twoD_plot = False, treeD_plot = False):
+def single_run(grid, p, decoding, error, time, attempts, attempt_number, verbose = None, accu = None, twoD_plot = False, treeD_plot = False ):
     if verbose:
-        print(f"[#] Attempt number: {attempt_number}")
+        print(f"[#] Attempt number: {attempt_number}, p: {p}")
     assign = grid.random_assignment(p, assignment = None)
 
 
@@ -50,7 +50,7 @@ def single_run(grid, p, decoding, error, time, attempts, attempt_number, verbose
     if treeD_plot:
         system(f"ffmpeg -start_number 1 -i canvas_test_{grid.n}_{grid.k}_i%d_a{attempt_number}.svg -vcodec mpeg4 canvas_test_{grid.n}_{grid.k}_{attempt_number}.avi")
 
-def single_run_count_X_gnes(grid, p, decoding, error, time, attempts, attempt_number, verbose = None, accu = None): 
+def single_run_count_X_gnes(grid, p, decoding, error, time, attempts, attempt_number, verbose = None, accu = None, histogram=True): 
 
     if (grid.k != 3) or (grid.celldim != 2) or (grid.checksdim != 1):
         raise Exception('Not 3D toric, checks should be set on the edges') 
@@ -58,19 +58,25 @@ def single_run_count_X_gnes(grid, p, decoding, error, time, attempts, attempt_nu
     if verbose:
         print(f"[#] Attempt number: {attempt_number}")
     assign = grid.random_assignment(p, assignment = None)
+    lost = False
     for _ in range(time):
-        if (_ ==0) or (error[_-1] == 0) :
+        if not lost :
             if sum(  check_X_generators(grid, assign ) ) != 0 :
-                error[_] +=  1 / attempts
+                for __ in range(_, time):
+                    if not histogram:
+                        error[__] +=  1.0 / attempts
+                print('shit')
+                lost = True
+                break
         else:
-            error[_] += error[_-1]
+            error[_] +=  1.0 / attempts
         assign = decoding(_, assign) 
         if accu:
             assign = grid.random_assignment(p, assignment = assign)
         if verbose: 
             print( f"\t[>] iteration number: {_}" )
 
-def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, time = 80, verbose=True, celldim=2, checksdim =0, diff = 0, twoD_plot = False, treeD_plot = False, count_X = False):
+def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, time = 80, verbose=True, celldim=2, checksdim =0, diff = 0, twoD_plot = False, treeD_plot = False, count_X = False, histogram= True):
     plt.clf()
     process = [ ]
     errors = [ ]
@@ -93,16 +99,18 @@ def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, 
                                            args=(grid, p, decoding, errors[-1], time, attempts, __ , verbose , accu, twoD_plot, treeD_plot )))
                 else:
                     process_exp.append(Process(target = single_run_count_X_gnes,
-                                           args=(grid, p, decoding, errors[-1], time, attempts, __ , verbose , accu )))
+                                           args=(grid, p, decoding, errors[-1], time, attempts, __ , verbose , accu, histogram )))
 
             process.append( process_exp ) 
             for proc in process_exp:
                 proc.start()
+                proc.join()
 
     for j, process_exp in enumerate( process ):
-        for proc in  process_exp:
-            proc.join()
-        plt.plot(errors[j])
+#        for proc in  process_exp:
+#            proc.join()
+        plt.plot(errors[j], label =f'{j}')
+    plt.legend()
 
     plt.title(f"{title} - {decode_cycele}") # fontsize=14, fontweight='bold', loc='center')
     detail = "\n".join( [ 
@@ -114,7 +122,7 @@ def TestCase(ns, ks, p_rates, decode_cycele, title, accu = True, attempts = 80, 
     ])
     plt.text(0.1, 0.1, detail , fontsize=9, transform=plt.gcf().transFigure)
     plt.subplots_adjust(bottom=0.3)
-    plt.savefig(f"test_{title}.svg")
+    plt.savefig(f"test_{title}-t:{time}-a:{attempts}-p:{p_rates}.svg")
 
 def tests():
     def inital_samll_grid( ):
@@ -264,6 +272,10 @@ def tests():
     def test_rand_pair_many_30_no_accu( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.001], "rand_pair", "test_correction_rand_2_8-20_30x4", accu = False, attempts=1, time = 500)
 
+    def test_by_rand_pair_many_30_plus_accu_countX( ):
+        p =[0.001]
+        TestCase([8], [3, 3, 3, 3, 3, 3, 3], p, "rand_pair", f"test_correction_rand_2_8-20_30x4_plus_accu_countX", accu = True, attempts=10, time = 100, checksdim=1, count_X = True)
+
     def test_all_major_many_30_no_accu( ):
         TestCase([8, 16, 20, 30, 30, 30, 30], [3, 3, 3, 3, 3, 3, 3], [0.01], "all_major", "test_correction_all_major_2_8-20_30x4_p0.01", accu = False, attempts=1, time = 500)
     def test_all_major_many_30_plus_accu( ):
@@ -296,12 +308,17 @@ def tests():
         TestCase([8, 16, 30], [3, 3, 3, 3, 3, 3, 3], p, "swift_rul", f"test_correction_by_SWIFT_2_8-20_30x4_plus_accu_{p[0]}", accu = True, attempts=1, time = 100, checksdim=1)
 
     def test_by_swift_rule_many_30_plus_accu_countX( ):
-        p =[0.01]
-        TestCase([8, 16, 30], [3, 3, 3, 3, 3, 3, 3], p, "swift_rul", f"test_correction_by_SWIFT_2_8-20_30x4_plus_accu_countX", accu = True, attempts=10, time = 40, checksdim=1, count_X = True)
+        p =[0.001]
+        TestCase([12, 18], [3, 3, 3, 3, 3, 3, 3], p, "swift_rul", f"test_correction_by_SWIFT_2_8-20_30x4_plus_accu_countX", accu = True, attempts=10, time = 40, checksdim=1, count_X = True)
+
+    def test_by_majority_many_30_plus_accu_countX( ):
+        p =[0.0035]
+        TestCase([12, 18], [3, 3, 3, 3, 3, 3, 3], p, "all_major", f"test_correction_by_all_major_2_8-20_30x4_plus_accu_countX", accu = True, attempts=1000, time = 40, checksdim=1, count_X = True)
+
     def test_by_swift_rule_many_30_canvas( ):
         TestCase([16], [3, 3, 3, 3, 3, 3, 3], [0.05], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4_canvas", accu = False, attempts=1, time = 40, treeD_plot=True, checksdim = 1 )
     def test_by_swift_rule_many_30_plus_accu_canvas( ):
-        TestCase([16], [3, 3, 3, 3, 3, 3, 3], [0.001], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4_canvas", accu = True, attempts=1, time = 40, treeD_plot=True, checksdim = 1 )
+        TestCase([30], [3, 3, 3, 3, 3, 3, 3], [0.001], "swift_rul", "test_correction_by_SWIFT_2_8-20_30x4_canvas", accu = True, attempts=1, time = 40, treeD_plot=True, checksdim = 1 )
     def test_classic_by_tooms_rule_many_30_plus_accu( ):
         TestCase([10, 100, 200] , [2, 2, 2, 2, 2, 2, 2] , [0.01], "swift_rul", "test_classic_by_tooms_rule_many_30_plus_accu", accu = True, attempts=25, time = 20, celldim=2, checksdim =1)
     def test_classic_by_tooms_rule_many_30_canvas( ):
@@ -372,10 +389,11 @@ def tests():
     #test_classic_by_tooms_rule_many_30_plus_accu_canvas()
     #twoD_inital_samll_grid()
     #test_by_swift_rule_many_30_canvas()
-    #test_by_swift_rule_many_30_plus_accu_canvas()
-    
 
-    test_by_swift_rule_many_30_plus_accu_countX()
+    test_by_majority_many_30_plus_accu_countX()
+    #test_by_rand_pair_many_30_plus_accu_countX()
+    #test_by_swift_rule_many_30_plus_accu_countX()
+    #test_by_swift_rule_many_30_plus_accu_canvas()
 if __name__ == "__main__" :
     tests()
     system('rm canvas_test_*')

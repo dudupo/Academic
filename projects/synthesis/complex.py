@@ -12,6 +12,7 @@ from multiprocessing import Pool
 
 
 DEBUG = False
+DEBUG2 = True
 
 def _direct(i,k):
     ret = np.zeros(k, dtype=int)
@@ -93,13 +94,31 @@ def check_X_generators(grid, assignment):
     while(grid.syndrom_size(temp_assignment) > 0):
         temp_assignment = grid.correction_cycele_swift_rule(temp_assignment)
         counter += 1
-        if counter > grid.n:
+        if counter > (grid.n ** 3):
+            print("2,2,2")
             return [2,2,2]
     ret = [0,0,0]
+
+    if DEBUG2:
+        taken = set( )
+
     for j,zgen in enumerate(Zgenrators_for_3D_cells_on_faces_checks_on_edges(grid.n)):
         for bit in zgen:
+            if DEBUG2:
+                if grid.on_the_grid(bit, req_depth=2) in taken:
+                    raise Exception('take duplicate bit for parity')
+                taken.add( grid.on_the_grid(bit, req_depth=2) )
             ret[j] ^= temp_assignment[grid.on_the_grid(bit, req_depth=2)]
     return ret
+
+
+
+def sample_3_connected_bits(grid, sym=False):
+    if sym:
+        stabilizer = list(grid.checks.keys())[0]
+    else:
+        stabilizer = choice(list(grid.checks.keys()))
+    return sample(grid.checks_to_bits[stabilizer], 3)
 
 
 class KDgrid:
@@ -297,7 +316,7 @@ class KDgrid:
     def correction_cycele_random_pair(self, assignment):
         return self.local_correaction_group(self.zbits.keys() ,assignment,  local_decoder = self.local_correaction_D_random_pick)
 
-
+    
 
     def correction_cycele_swift_rule(self, assignment):
 
@@ -423,6 +442,20 @@ class KDgrid:
 
         return ret_assign
 
+    def stabilizers_iterator(self, count=100):
+        m = len(self.checks.items())
+        
+        logic_stabilizers = [  [ choice([0,1]) for _ in range(m) ] for __ in range(count) ]
+
+        for logic_stabilizer in logic_stabilizers:
+            ret = deepcopy(self.zbits)
+            for i, check in zip(logic_stabilizer, self.checks.keys()):
+                for bit in self.checks_to_bits[ check ]: 
+                    if i == 1:
+                        ret[bit] ^= 1
+
+            yield ret
+
 
 '''
 
@@ -469,7 +502,85 @@ def run_func(*args, **kwargs):
     return restored_f(*args, **kwargs)
 '''
 
+class FingerPrint(dict):
+    def __init__(self, *arg, **kw):
+        self.tracking = False
+        self.tupped = set( )
+        super(FingerPrint, self).__init__(*arg, **kw)
+       
+
+    def __getitem__(self, key):
+        if self.tracking:
+            self.tupped.add(key)
+        return super(FingerPrint, self).__getitem__(key)
+    def start_track(self):
+        self.tracking = True
+        self.tupped = set( )
+    def get_tracks(self):
+        self.tracking = False
+        return list(self.tupped)
+
+cache_light_cone = { }
+def test_hypotesis( ):
+
+    def single_test(grid, p, cond = False):
+        x,y,z = sample_3_connected_bits(grid, sym = True)
+        
+        if (x,y) in cache_light_cone:
+            light_cone = cache_light_cone[(x,y)]
+        elif (y,x) in cache_light_cone:
+            light_cone = cache_light_cone[(y,x)]
+        else:
+            temp = FingerPrint( deepcopy(grid.zbits) ) 
+            temp.start_track()
+            grid.local_correaction_group( [x,y] , temp) 
+            light_cone = { bit : 0 for bit in temp.get_tracks() }
+            cache_light_cone[(x,y)] = light_cone
+
+        assign = grid.random_assignment(p, assignment = deepcopy(light_cone))
+        if cond and z in light_cone:
+            assign[z] = 1
+        assign = grid.local_correaction_group( [x,y] , assign) 
+        if assign[x] == 0 and assign[y] == 0:
+            return 0
+        return 1
+
+    grid = KDgrid(4,4, checksdim =1)
+    
+    
+    attempts = 1000000
+
+    p0, p1, ps = [], [], list(np.linspace(0.001, 0.0025, num = 5))
+    for p in ps:
+        print(p)
+        p0x, p1x = 0, 0
+        for i in range(attempts):
+            if i % 1000 == 0:
+                print(i)
+            p0x += single_test(grid, p)
+            p1x += single_test(grid, p, cond = True)
+        p0x, p1x = p0x/attempts, p1x/attempts
+        p0.append(p0x)
+        p1.append(p1x)
+    
+    eps = 0.01
+    p2 = [ p**(2+eps) for p in ps ] 
+    plt.plot(ps, p0)
+    plt.plot(ps, p1)
+    plt.plot(ps, p2)
+    #plt.ylim(0, 4*1e-5)
+    plt.show()
+
+
 
 if __name__ == "__main__":
-    Zgenrators_for_3D_cells_on_faces_checks_on_edges(2)
 
+    test_hypotesis()
+
+    #print(len(Zgenrators_for_3D_cells_on_faces_checks_on_edges(29)[0]))
+    #print(Zgenrators_for_3D_cells_on_faces_checks_on_edges(30)[0])
+
+    
+#    for i, stab in enumerate(grid.stabilizers_iterator(count=100)):
+#        r = sum(stab.values())
+#        print(f'{i} := {r}, {r%4}')

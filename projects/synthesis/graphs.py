@@ -25,7 +25,42 @@ def qp_diff(q, p, n, t):
         z = q**b #+ p 
         return [z] + qp_diff(z,p,n,t-1)
 
+
+
+
+
+def check_fail(delta = 8):
+
+    Y1, Y2 = [ ], [ ]
+    for p in np.linspace(0.0001, 0.001, num = 1000):
+        Y2.append( ( 0.5* ( 1 - ( 1 - 2*p)**delta ) )**2 ) 
+        Y1.append(  p ) 
+
+
+    plt.plot(Y1)
+    plt.plot(Y2)
+    plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
 if __name__ == "__main__":
+
+
+
+    check_fail()
+
+    exit(0)
+
     #Y = list(range(100,10000,50))
     X, Z = [], []
     for n in [100, 200, 400, 500, 700, 800, 900, 1000, 1200, 1300, 1400, 1500]: 
