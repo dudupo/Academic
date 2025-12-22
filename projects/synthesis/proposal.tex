@@ -344,7 +344,14 @@ Then, we present a connection between the ability to compute Toffoli transversel
 Let $P$ be a logical Pauli in a stabilizer code $C$. Denote by $\Gamma_{c}(P)$ the $c$-disjointness of $P$, which is defined to be the size of the maximal subset of $P$-representations such that each qubit touches at most $c$ of them, divided by $c$. 
 
 
-The $c$-disjointness of $C$ is defined to be the minimum of $c$-disjointness, where the minimization is taken over all the logical Paulis of $C$.
+The $c$-disjointness of $C$ is defined to be the minimum of $c$-disjointness, where the minimization is taken over all the logical Paulis of $C$. \cite{Jochym_O_Connor_2018} proves the following: let $d_{\uparrow}$ and $d_{\downarrow}$ be the maximal and minimal weights of a codeword in $C$. Then all the logical operators in $C$ are in the   
+\begin{equation*}
+  \begin{split}
+     1 + \lceil \log_{\Delta}\frac{d_{\uparrow} }{d_{\downarrow} } \rceil
+  \end{split}
+\end{equation*}
+Clifford hierarchy.
+
 \end{definition}
 
 \begin{enumerate}
