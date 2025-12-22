@@ -377,7 +377,7 @@ Yet, for $\Delta_{2}$, we have from the same arguments as presented previously t
 
 
 
-While the disjointness property is a property of a code and therefore can be thought of as a computational restriction, one can also ask if there are informational obstacles. In [newman2017limitationstransversalcomputationquantum], the authors succeeded in linking a transversal Toffoli to extremely low overhead homomorphic computation, what in turns contradict a known information theoretic bounds. 
+While the disjointness property is a property of a code and therefore can be thought of as a computational restriction, one can also ask if there are informational obstacles. In \cite{newman2017limitationstransversalcomputationquantum}, the authors succeeded in linking a transversal Toffoli to extremely low overhead homomorphic computation, what in turn contradicts a known information theoretic bounds. 
 \begin{definition}
   A quantum code is an $r$-fold quantum code, if it's codewords can be written as product over $r$ subsystems: 
   \begin{equation*}
@@ -386,6 +386,12 @@ While the disjointness property is a property of a code and therefore can be tho
     \end{split}
   \end{equation*} When we think of the states in each subsystem as codewords of subcodes, note that any code is at least a $1$-fold code. If each of the subcodes has distance $1$, then we call the code a maximally redundant code. An example of a maximally redundant code is the Shor code.
 \end{definition}
+
+\Cref{fig:ensch} outlines the encoding in the suggested homomorphic scheme. The input is encoded via the $r$-fold code (in the figure $r=1$), and then we think of the qubits as arranged in a matrix, each row is matched to a logical qubit, and the $i$th row consists of all of the $i$th physical qubits of each logical qubit. Then, any $i$th row of qubits, except the last one, is transplanted in the place of a random column of an $n\times n$-qubit mixed state. Those qubits are sent to the prover. (For $r > 1$, we spare a qubit from each subsystem.)
+
+Observe that any transversal gate in the original code can be implemented by transversal application over each of the \(n \times n\) separation bulk. So having transversal Toffoli enables the prover to simulate any classical computation while keeping the mixed structure.  
+
+
 It was shown in \cite{newman2017limitationstransversalcomputationquantum} that any binary code which is not a maximally redundant code cannot offer transversal logical Toffoli; otherwise, it implies the existence of a relatively low-resource consuming homomorphic protocol which violates Nayak's bound \cite{nayak1999optimallowerboundsquantum}.
 
 
