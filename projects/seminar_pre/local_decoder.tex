@@ -141,12 +141,13 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
   \draw[step=1cm,gray,very thin] (4,0) grid (7,3);
   \draw  (1,1) -- (2,1);
   \draw  (5,1) -- (6,1);
-  \foreach \x in {0,1,2}
-  \foreach \y in {0,1,2}
-  {
-  \node[draw,circle,inner sep=2pt,fill] at (\x,\y) {};
-}
-
+  \node[draw,circle,inner sep=2pt,fill] at (1,1) {};
+  \node[draw,circle,inner sep=2pt,fill] at (2,1) {};
+  \node[draw,circle,inner sep=2pt,fill] at (5,1) {};
+  \node[draw,circle,inner sep=2pt,fill] at (6,1) {};
+  \node[draw,circle,inner sep=2pt,fill] at (5,0) {};
+  \node[draw,circle,inner sep=2pt,fill] at (5,2) {};
+  \node[draw,circle,inner sep=2pt,fill] at (6,0) {};
 \end{tikzpicture}
 \caption{On the left is the Toric Graph. On the right are cross and face checks.}
 \label{fig:Toric}
