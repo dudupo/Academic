@@ -166,6 +166,9 @@ If both checks are unsatisfied, then flip the bit. Denote by $\kappa$ the number
     \end{split}
   \end{equation*}
   For $p$ small enough. 
+
+
+  \inb{ Also correct for the local stochastic noise model. $\le Cp^{2}2^{\kappa}$. }
 \end{frame}
 
 
@@ -195,6 +198,21 @@ If both checks are unsatisfied, then flip the bit. Denote by $\kappa$ the number
 \end{figure}
 
 \end{frame}
+
+\begin{frame}
+  Denote by $\kappa^{\prime}$ the number of bits adjacent to a check that is adjacent to $x$ but not to $y$ ($\kappa^{\prime} = \kappa -1$). The probability that $D$ fails to 'correct' both $x$ and $y$, conditioned on no (q)bit in the intersection of their light cone being flipped, is less than:
+
+\begin{equation*}
+  \begin{split}
+    &(1-p)^{2} \left(2^{\kappa^{\prime}}p^{2}\right)^{2} + 2(1-p)p \left( 2^{\kappa^{\prime}} p \cdot 2^{\kappa^{\prime}} p^{2}  \right) \\
+    & + p^{2}\left( 2^{\kappa^{\prime}} p \right)^{2} \\ 
+    \le & \left( (1-p)2^{\kappa - 1} \cdot p^{2} + p 2^{\kappa-1} p \le p^{2} 2^{\kappa} \right)^{2} \\
+    \le \left( p^{\frac{100}{99}} \right)^{2}
+  \end{split}
+\end{equation*}
+  \inb{ In the local stochastic noise model the $C$ is outside the power namely. $\le C \left( p^{\frac{100}{99}} \right)^{2}$ }
+\end{frame}
+
 
 
 \begin{frame}
