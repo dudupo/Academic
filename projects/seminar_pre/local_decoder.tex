@@ -206,7 +206,7 @@ If both checks are unsatisfied, then flip the bit. Denote by $\kappa$ the number
   \begin{split}
     &(1-p)^{2} \left(2^{\kappa^{\prime}-1}p^{2}\right)^{2} + 2(1-p)p \left( 2^{\kappa^{\prime}-1} p \cdot 2^{\kappa^{\prime}-1} p^{2}  \right) \\
     & + p^{2}\left( 2^{\kappa^{\prime}-1} p \right)^{2} \\ 
-    \le & \left( (1-p)2^{\kappa - 1} \cdot p^{2} + p 2^{\kappa-1} p \le p^{2} 2^{\kappa} \right)^{2} \\
+    \le & \left( (1-p)2^{\kappa - 1} \cdot p^{2} + p 2^{\kappa-1} p \right)^{2} \\
     \le & \left( p^{\frac{100}{99}} \right)^{2}
   \end{split}
 \end{equation*}
@@ -251,7 +251,7 @@ In the above case, where $y$ is in the light cone of $x$ and vice versa, the con
  \begin{block}{Generalization}
 Consider a subset of qubits $S$. Suppose that for no two of them, all the qubits in the intersection of their light cones were flipped.
 
-Then the probability that $D$ fails to 'correct' all the qubits in $S$ is less than $p^{\frac{100}{99} \cdot |S|}$. \inb{( $C p^{\frac{100}{99} \cdot |S|}$.}
+Then the probability that $D$ fails to 'correct' all the qubits in $S$ is less than $p^{\frac{100}{99} \cdot |S|}$. \inb{( $C p^{\frac{100}{99} \cdot |S|}$. ) }
 \end{block}
 
 \end{frame}
@@ -260,7 +260,18 @@ Then the probability that $D$ fails to 'correct' all the qubits in $S$ is less t
 \begin{frame}
 
   \begin{block}{Proof}
- If there are two qubits that share a check, then the decoder doesn't fail to 'correct' them, and therefore the probability that the decoder fail to 'correct' all the qubits in $S$ is $0$. So, assume that 
+ 
+If there are two qubits that share a check, then the decoder doesn't fail to 'correct' them, and therefore the probability that the decoder fails to 'correct' all the qubits in $S$ is $0$.
+
+So, assume that the light cones of any two of them share only (q)bits. Thus, the probability is less than
+ 
+ \begin{equation*}
+   \begin{split}
+     & \inb{C} \left( (1-p)2^{\kappa^\prime - 1} \cdot p^{2} + p 2^{\kappa^\prime-1} p \right)^{|S|} \\
+     \le & \inb{C} \left( p^{\frac{100}{99}} \right)^{|S|}
+   \end{split}
+ \end{equation*}
+
  \end{block}
 \end{frame}
 
