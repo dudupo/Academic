@@ -2,3 +2,38 @@
 
 
 \section{Memory}
+
+
+\begin{definition} 
+    Let $\rho^{(0)}$ be a mixed state over codewords. Define:
+
+    \begin{equation*}
+        \rho^{(t)} =  D \circ \mathcal{N} \rho^{(t-1)} 
+    \end{equation*}
+\end{definition}
+
+  \begin{theorem} There is $p_{\text{th}} \in (0,1)$ such that for any $p < p_{\text{th}}$ and any bounded Hermitian operator $X$ we have: 
+    \begin{equation*}
+      \Tr X\rho^{(t)} \le \Tr X  \mathcal{N}_{p} \left( \rho \right)  + t||X|| e^{- \Theta( \sqrt{n}) }
+    \end{equation*}
+\end{theorem}
+
+\begin{lemma} There exists a constant $c >0 $, such:
+    \begin{equation*}
+      \Tr X  D \circ \mathcal{N}_{p} \circ \mathcal{N}_{p} \left( \rho \right)  \le \Tr X  \mathcal{N}_{p} \left( \rho \right)  + 2||X|| e^{- \Theta( \sqrt{n}) }
+    \end{equation*}
+\end{lemma}
+
+\begin{proof}
+  By induction on $t$.
+  \begin{align*}
+    \Tr X\rho^{(t)}  &=  \Tr X D \circ \mathcal{N}_{p} \rho^{(t-1)} \\
+      & \le   \Tr X D \circ  \mathcal{N}_{p} \circ \mathcal{N}_{p} \left( \rho \right)  + (t-1)||X|| e^{- \Theta( \sqrt{n}) } \\
+      & \le \Tr X  \mathcal{N}_{p} \left( \rho \right)  + t||X|| e^{- \Theta( \sqrt{n}) }
+  \end{align*}
+  When in the last transition we used the lemma. 
+\end{proof}
+
+
+
+
