@@ -20,7 +20,9 @@
     \end{equation*}
 \end{theorem}
 
-\begin{lemma} There exists a constant $c >0 $, such:
+\begin{lemma} 
+  \label{lemma:steplemma}
+  There exists a constant $c >0 $, such:
     \begin{equation*}
       \Tr X  D \circ \mathcal{N}_{p} \circ \mathcal{N}_{p} \left( \rho \right)  \le \Tr X  \mathcal{N}_{p} \left( \rho \right)  + 2||X|| e^{- \Theta( \sqrt{n}) }
     \end{equation*}
@@ -33,7 +35,7 @@
       & \le   \Tr X D \circ  \mathcal{N}_{p} \circ \mathcal{N}_{p} \left( \rho \right)  + (t-1)||X|| e^{- \Theta( \sqrt{n}) } \\
       & \le \Tr X  \mathcal{N}_{p} \left( \rho \right)  + t||X|| e^{- \Theta( \sqrt{n}) }
   \end{align*}
-  When in the last transition we used the lemma. 
+  When in the last transition we used \Cref{lemma:steplemma}. 
 \end{proof}
 
 
