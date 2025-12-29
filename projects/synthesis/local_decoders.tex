@@ -145,10 +145,10 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
 
 
   \begin{proof}
-    Let $S$ be an arbitrary subsets of qubits. For each qubit $q$ in $S$ define the indicator $X_{q}$ that gets $1$ if there is $q^{\prime} \neq q$ in $S$ such $D_{[q,q^{\prime}]}$ is $0$-dirty. So $J = \sum_{q\in S}X_{q}$.  the qubits that depend on qubits in $S$. Then, the expected number of dependent qubits in $S$ is:
+    Let $S$ be an arbitrary subsets of qubits. For each qubit $q$ in $S$ define the indicator $X_{q}$ that gets $1$ if there is $q^{\prime} \neq q$ in $S$ such $D_{[q,q^{\prime}]}$ is $0$-dirty. So $J = \sum_{q\in S}X_{q}$ and in expectation we have:
     \begin{align*}
-      & \exppm{  \text{Type II dependent qubits in} S  }{ \sim 2p(1-p) } \\ 
-      & \le \exppm{  |J|  }{ \sim 2p(1-p) } \le 2p(1-p) \Delta^{l} |S| 
+      & \exppm{|J| }{ \sim 2p(1-p) } =  \sum_{q\in S}\exppm{X_{q} }{ \sim 2p(1-p) } \le  \sum_{q\in S}|D_{[q]}| 2p \\
+      & \le 2p(1-p) l|S| 
     \end{align*}
     
     Similarly, let $J\prime$ be the qubits in $S$ that connected to unsatisfied check, then:
