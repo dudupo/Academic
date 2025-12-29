@@ -93,6 +93,7 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
 
 
 \begin{definition} 
+  \label{def:locald}
 Let $C$ be a quantum error correction code, let $D$ be a quantum gate, and let $\mathcal{N}$ be a $2p(1-p)$-depolarizing channel (local stochastic). Consider the following setting: $D$ is fed by a quantum state encoded in $C$ through input locations. $\mathcal{N}$ is applied only on the input locations and on the inter locations of $D$; in particular, the output locations are not affected by $\mathcal{N}$. Then $C$ is a local decoder for $C$ if, under that setting, the following holds:
   \begin{enumerate}
     \item \textbf{Local improvement.} There exists function $M : (0,1) \rightarrow (0,1) $ such that the probability of any output location  $q$ being $1$-dirty is upper bounded by 
@@ -102,7 +103,7 @@ Let $C$ be a quantum error correction code, let $D$ be a quantum gate, and let $
         \end{split}
       \end{equation*}
 
-    \item \textbf{Locality computation.} There is a constant $l$ such that for any qubit $q$, there are  $ |D_{[q]}| \le l $. 
+    \item \textbf{Locality computation.} There is a constant $l$ such that for any qubit $q$, there are at most $l$ location in its light cone $ |D_{[q]}| \le l $, and in addition, any location is contained in the light cone of at most $l$ qubits.  
     \item \textbf{$0$-clean intersection implies 'independence'. } For any subsets of qubits $q_{1},q_{2},..,q_{k}$ on $D$ output, if the light cones intersection of any two of them $D_{[q_{1},q_{2}]}$ is $0$-clean, Then the probability that they all belong to $1$-action, i.e not corrected or being faulty, is bounded as follow:  
       \begin{equation*}
         \begin{split}
@@ -147,7 +148,7 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
   \begin{proof}
     Let $S$ be an arbitrary subsets of qubits. For each qubit $q$ in $S$ define the indicator $X_{q}$ that gets $1$ if there is $q^{\prime} \neq q$ in $S$ such $D_{[q,q^{\prime}]}$ is $0$-dirty. So $J = \sum_{q\in S}X_{q}$ and in expectation we have:
     \begin{align*}
-      & \exppm{|J| }{ \mathcal{N}_{p} } =  \sum_{q\in S}\exppm{X_{q} }{ \sim \mathcal{N}_{p} } \le  \sum_{q\in S} \left(  |D_{[q]}| \times \overbrace{ 2 }^{\text{input locations}} \right) p \\
+      & \exppm{|J| }{ \sim \mathcal{N}_{p} } =  \sum_{q\in S}\exppm{X_{q} }{ \sim \mathcal{N}_{p} } \le  \sum_{q\in S} \left(  |D_{[q]}| \times \overbrace{ 2 }^{\text{input locations}} \right) p \\
       & \le 2pl|S| 
     \end{align*}
     
@@ -163,9 +164,12 @@ whenever the vectors \( x \) and \( x' \) differ only in the \( i \)-th coordina
 for all \( t > 0 \).
 \end{theorem}
 
-  Thus, the probability that the number of dependent qubits in $S$ is $|S|^{\frac{3}{4}}$ far from the expectation: 
+\ctt{Right only in the independent case.} For a fixed $S$, we have that $|J|$ is a function of the $0$-action in the running of $\left( \mathcal{N}_{p} \circ D \right)   \left( \mathcal{N}_{p} \sigma \right)$. Furthermore $N_{p}$ is a depolarized channel, We have that $0$-dirty locations distributed independently. Lastly, since $D$ is a local decoder \Cref{def:locald},  each location is contained in light cone of at most $l$ qubits we have that adding or removing a single location from a given assignment of $0$-action can differ $|J|$ by at most $l$. 
+
+
+Therefore the probability that $|J|$ is $|S|^{\frac{3}{4}}$ far from the expected is bounded by: 
   \begin{align*}
-    \prbm{ \# - \expp{\#} \ge |S|^{\frac{3}{4}} }{\sim 2p(1-p)} \le e^{-2\frac{|S|^{\frac{3}{2}}}{n \Delta^{l} }}
+    \prbm{ |J| - \expp{|J|} \ge |S|^{\frac{3}{4}} }{\sim 2p(1-p)} \le e^{-2\frac{|S|^{\frac{3}{2}}}{ \sum_{\text{locations}}l^{2}   }} \le e^{-2\frac{|S|^{\frac{3}{2}}}{ n (l+1) l^{2}   }}
   \end{align*}
 
   So, for any $|S| > \alpha n$, such $\alpha > 2p(1-p)/2$ we have: 
