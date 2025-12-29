@@ -2,14 +2,6 @@
 \section{Local Decoders}
 
 
-\begin{definition}
-  Let $U$ be a quantum gate (not necessary unitary) , $x$ a location of $U$, and $X$ a single-qubit superoperator. Define $U[(x,X)]$ to be the quantum gate obtained from $U$ by placing $X$ at location $x$ as follows: 
-  \begin{enumerate}
-    \item If $x$ is a wait location, then we set $X$ to act at location $x$ instead. 
-    \item If $x$ is a gate location, then we replace the gate with the gate which first applies $X$ and then applies the original gate.  
-  \end{enumerate}
-\end{definition}
-
 \begin{definition}[DAG representation of quantum Gate]
 Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a set of locations $V$. We define the directed graph $G_{U} = (V,E)$ such that the vertices are associated with the locations, and for locations $x,y \in V$, there is an edge $(x,y) \in E$ if and only if one of the following holds:
   \begin{enumerate}
@@ -32,6 +24,33 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
 \end{definition}
 
 
+\begin{definition}[configuration]
+  Let $U$ be a quantum gate (not necessary unitary) , $x_{1}$ a location of $U$, and $X_1$ a single-qubit superoperator. Define $U[(x_1,X_1)]$ to be the quantum gate obtained from $U$ by placing $X_1$ at location $x_1$ as follows: 
+  \begin{enumerate}
+    \item If $x_1$ is a wait location, then we set $X_1$ to act at location $x_1$ instead. 
+    \item If $x_1$ is a gate location, then we replace the gate with the gate which first applies $X_1$ and then applies the original gate.  
+  \end{enumerate}
+  For a set $X = \{ (x_{i},X_{i}) \}$ such that the $x_{i}$'s are locations and the $X_{i}$'s are single qubits superoperators. We denote by  $U[X]$ the $X$-configuration of $U$ defined to by placing each $X_{i}$ at the $x_{i}$ location. 
+  \ctt{Grammar}
+\end{definition}
+
+\begin{definition}[Propgation]
+
+  
+\end{definition}
+
+
+\begin{definition}[0/1-action of a Noise Channel]
+  A noise channel $\mathcal{N} : L(\mathcal{H}) \rightarrow L(\mathcal{H})$ is superoperator that maps quantum circuit $U$ to a distribution over its possible configurations.  
+
+  Fix an outcome of that distribution, namely a configuration $U[X]$, We define the $0$-action of $\mathcal{N}$ to be all locations in $U[X]$ that deviate from the locations on $U$, which are all the locations in $X$.  
+
+  Similarly, we define the $1$-action of $\mathcal{N}$ to be all the locations  
+
+
+  \ctt{Grammar}
+\end{definition}
+
 \begin{definition}[0-Clean/Dirty Locations] Let $S$ be a subset of locations, and let $\mathcal{N}$ a noise channel acting on the quantum circuit. We define the event \textbf{$S$ is $0$-clean} to refer to all configurations in which $\mathcal{N}$ acts trivially on $S$.
 
   Similarly, We define the event \textbf{ $S$ is $0$-dirty } to refer to all configurations for which at least one qubit in $S$ gets a non-trivial application by $\mathcal{N}$.  
@@ -48,10 +67,13 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
   \ctt{Grammar}
 \end{remark}
 
+\begin{definition}[1-Clean/Dirty Location] Let $S$ be a subset of locations, and let $\mathcal{N}$ a noise channel acting on the quantum circuit. We define the event \textbf{$S$ is $1$-clean} to refer to all configurations in which $\mathcal{N}$ acts trivially on $S$.
 
-\begin{definition}[Noise Channel]
+  Similarly, We define the event \textbf{ $S$ is $1$-dirty } to refer to all configurations for which at least one qubit in $S$ gets a non-trivial application by $\mathcal{N}$.  
   
+  \ctt{Grammar}
 \end{definition}
+
 
 
 \begin{definition}[Local Stochastic Noise]
@@ -67,9 +89,9 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
 
 
 \begin{definition} 
-    We say that $D$ is a local decoder if when applied against $2p(1-p)$-depolarized channel: 
+  Let $C$ be a quantum error correction code. We say that $D$ is a local decoder for $C$ if when applied against $2p(1-p)$-depolarized channel (local stochastic), the following holds:
     \begin{itemize}
-      \item  There exists function $M : (0,1) \rightarrow (0,1) $ such that the probability of each bit being flipped is $M(2p(1-p)) < p^{\frac{100}{99}}$.
+      \item \textbf{Local improvement.} There exists function $M : (0,1) \rightarrow (0,1) $ such that the probability of each bit being faulty is $M(2p(1-p)) < p^{\frac{100}{99}}$.
       \item There is a constant $l$ such that for any bit, there are only $(\Delta)^{l}$ bits on which the event of it being flipped depends.
     \end{itemize}
 For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then both the swift-rule and the flip upon majority are local decoders.
