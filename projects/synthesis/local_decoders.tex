@@ -164,15 +164,16 @@ whenever the vectors \( x \) and \( x' \) differ only in the \( i \)-th coordina
 for all \( t > 0 \).
 \end{theorem}
 
-\ctt{Right only in the independent case.} For a fixed $S$, we have that $|J|$ is a function of the $0$-action in the running of $\left( \mathcal{N}_{p} \circ D \right)   \left( \mathcal{N}_{p} \sigma \right)$. Furthermore $N_{p}$ is a depolarized channel, We have that $0$-dirty locations distributed independently. Lastly, since $D$ is a local decoder \Cref{def:locald},  each location is contained in light cone of at most $l$ qubits we have that adding or removing a single location from a given assignment of $0$-action can differ $|J|$ by at most $l$. 
+\ctt{Right only in the independent case.}
+For a fixed $S$, we have that $|J|$ is a function of the $0$-action in the running of $\left( \mathcal{N}_{p} \circ D \right) \left( \mathcal{N}_{p} \sigma \right)$. Furthermore, $N_{p}$ is a depolarized channel. We have that $0$-dirty locations are distributed independently. Lastly, since $D$ is a local decoder \Cref{def:locald}, each location is contained in the light cone of at most $l$ qubits. We have that adding or removing a single location from a given assignment of $0$-action can differ $|J|$ by at most $l$.
 
 
-Therefore the probability that $|J|$ is $|S|^{\frac{3}{4}}$ far from the expected is bounded by: 
+Therefore, the probability that $|J|$ is $|S|^{\frac{3}{4}}$ away from the expected is bounded by: 
   \begin{align*}
     \prbm{ |J| - \expp{|J|} \ge |S|^{\frac{3}{4}} }{\sim 2p(1-p)} \le e^{-2\frac{|S|^{\frac{3}{2}}}{ \sum_{\text{locations}}l^{2}   }} \le e^{-2\frac{|S|^{\frac{3}{2}}}{ n (l+1) l^{2}   }}
   \end{align*}
 
-  So, for any $|S| > \alpha n$, such $\alpha > 2p(1-p)/2$ we have: 
+  In particular, for any $|S| > \alpha n$, such $\alpha > 2p(1-p)/2$ we have: 
   \begin{align*}
     \prbm{ \# - \expp{\#} \ge |S|^{\frac{3}{4}}  }{\sim 2p(1-p)} \le e^{-\frac{2\alpha^{\frac{2}{3}} }{ \Delta^{l} }\sqrt{n} }
   \end{align*}
