@@ -3,7 +3,7 @@
 
 
 \begin{definition}
-  Let $U$ be a quantum gate (not necessary unitary) , $x$ a location of $U$, and $X$ a single-qubit superoperator. Define $U_{[(x,X)]}$ to be the quantum gate obtained from $U$ by placing $X$ at location $x$ as follows: 
+  Let $U$ be a quantum gate (not necessary unitary) , $x$ a location of $U$, and $X$ a single-qubit superoperator. Define $U[(x,X)]$ to be the quantum gate obtained from $U$ by placing $X$ at location $x$ as follows: 
   \begin{enumerate}
     \item If $x$ is a wait location, then we set $X$ to act at location $x$ instead. 
     \item If $x$ is a gate location, then we replace the gate with the gate which first applies $X$ and then applies the original gate.  
@@ -32,14 +32,36 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
 \end{definition}
 
 
-\begin{definition}[Clean/Dirty Locations] Let $S$ be a subset of locations, and let $\mathcal{N}$ a noise channel acting on the quantum circuit. We define the event \textbf{$S$ is clean} to refer to all configurations in which $\mathcal{N}$ acts trivially on $S$.
+\begin{definition}[0-Clean/Dirty Locations] Let $S$ be a subset of locations, and let $\mathcal{N}$ a noise channel acting on the quantum circuit. We define the event \textbf{$S$ is $0$-clean} to refer to all configurations in which $\mathcal{N}$ acts trivially on $S$.
 
-  Similarly, We define the event \textbf{ $S$ is dirty } to refer to all configurations for which at least one qubit in $S$ gets a non-trivial application by $\mathcal{N}$.  
+  Similarly, We define the event \textbf{ $S$ is $0$-dirty } to refer to all configurations for which at least one qubit in $S$ gets a non-trivial application by $\mathcal{N}$.  
 
-  When, $S$ is single a location associated with a qubit or a classical bit $q$, and the location is clear form the context, we will abuse the notation and use \textbf{$q$ is clean/dirty} to refer the event describing the whether or not $\mathcal{N}$ acts on the location.  
+  When, $S$ is single a location associated with a qubit or a classical bit $q$, and the location is clear form the context, we will abuse the notation and use \textbf{$q$ is $0$-clean/dirty} to refer the event describing the whether or not $\mathcal{N}$ acts on the location.  
 
-  In addition, we will use the notations to refer events describing light cones, for example, for a quantum gate $U$ and two qubits $q_{1}$ and $q_{2}$ the event \textbf{Their light cones intersections is clean} refer to all configurations in which $\mathcal{N}$ acts trivially on that intersection. 
+  In addition, we will use the notations to refer events describing light cones, for example, for a quantum gate $U$ and two qubits $q_{1}$ and $q_{2}$ the event \textbf{Their light cones intersections is $0$-clean} refer to all configurations in which $\mathcal{N}$ acts trivially on that intersection. 
   
+  \ctt{Grammar}
+\end{definition}
+
+\begin{remark}
+  We add the digit $0$ at the beginning of the status to emphasis that the notation describes the influence of the channel independent to the computation defines by $U$. In particular, if location $y$ is in the light cone of $x$, and $y$ is dirty, then it doesn't implies that $x$ is also dirty.    
+  \ctt{Grammar}
+\end{remark}
+
+
+\begin{definition}[Noise Channel]
+  
+\end{definition}
+
+
+\begin{definition}[Local Stochastic Noise]
+  Let $U$ be a quantum gate with a set of locations $\mathcal{L}$, we say that a channel $\mathcal{N}$ is a \textbf{local stochastic noise} channel if there exist a constant $p \in (0,1)$ such that $\mathcal{N}(U)$ defines a probability space in which for any $S \subset \mathcal{L}$, the probability that all the qubits in $S$ are $0$-dirty is upper bounded by $p^{|S|}$.
+  \ctt{Grammar}
+\end{definition}
+
+
+\begin{definition}[$p$-Depolarized Noise]
+  Let $U$ be a quantum gate with a set of locations $\mathcal{L}$, for a constant $p\in(0,1)$ we say that a channel $\mathcal{N}$ is a \textbf{$p$-depolarized noise} channel, if the event that a location $x$ is $0$-dirty is distributed by \textbf{Ber}$(p)$. In particular, the location are distributed independently.   
   \ctt{Grammar}
 \end{definition}
 
