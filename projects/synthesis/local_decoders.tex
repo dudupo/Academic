@@ -69,7 +69,7 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
 \end{definition}
 
 \begin{remark}
-  We add the digit $0$ at the beginning of the status to emphasis that the notation describes the influence of the channel independent to the computation defines by $U$. In particular, if location $y$ is in the light cone of $x$, and $y$ is dirty, then it doesn't implies that $x$ is also dirty.    
+  We add the digit $0$ at the beginning of the status to emphasis that the notation describes the influence of the channel independent to the computation defines by $U$. In particular, if location $y$ is in the light cone of $x$, and $y$ is $0$-dirty, then it doesn't implies that $x$ is also $0$-dirty.    
   \ctt{Grammar}
 \end{remark}
 
@@ -111,10 +111,24 @@ Let $C$ be a quantum error correction code, let $D$ be a quantum gate, and let $
         \end{split}
       \end{equation*}
   \end{enumerate}
+We require one more additional requirement - \textbf{Logical computation.} If we denote by $\sigma$ and $\rho$ the input and the output states, and $\sigma$ is a codeword of $C$, then an ideal running of $D$ over $\sigma$ results in an encoded codeword, namely $\rho$ is also a codeword.
+  
+
+
 For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then both the swift-rule and the flip upon majority are local decoders.
+
   \ctt{Grammar}
 \end{definition}
 
+
+
+\begin{lemma} 
+  \label{lemma:steplemma}
+Consider a code $C$ with a local decoder $D$, and let $\sigma$ and $\rho$ be $n$-qubit quantum states such that $\rho = D\sigma$. If $\sigma$ is a codeword of $C$, then there exists a constant $c > 0$, such that for any bounded norm Hermitian operator $X$, it holds that:
+    \begin{equation*}
+      \Tr X  D \circ \mathcal{N}_{p} \circ \mathcal{N}_{p} \left( \rho \right)  \le \Tr X  \mathcal{N}_{p} \left( \rho \right)  + 2||X|| e^{- \Theta( \sqrt{n}) }
+    \end{equation*}
+\end{lemma}
 
   \begin{definition}
 Consider the moment after the application of the depolarizing channel, and right before the correction by the decoder.
