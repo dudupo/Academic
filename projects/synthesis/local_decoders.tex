@@ -20,10 +20,27 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
 
 \begin{definition}[Light Cone] Let $U$ be a quantum gate, and let $q$ be a qubit on $U$ output corresponds to the output location $x_{q}$. We say that a location $x$ of $U$ \textbf{affects} $q$ if in $G_{U}$ there is a directed path between $x$ to $q$.  
 
-  The \textbf{light cone} of $q$ respecting to $U$ is the union of all the locations of $U$ that affect $q$. When $U$ is clear from the context, we will refer to the light cone respecting to it just as the \textbf{light cone of $q$}.
+  The \textbf{light cone} of $q$ respecting to $U$ is the union of all the locations of $U$ that affect $q$. We denote it by $U_{[q]}$ When $U$ is clear from the context, we will refer to the light cone respecting to it just as the \textbf{light cone of $q$}.
   
   \ctt{Grammar}
 \end{definition}
+
+\begin{definition}[Light Cones Intersections] 
+  Let $U$ be a quantum gate, and let $q_{1}, q_{2}$ be two qubits on its output. We define the \textbf{light cones intersections} of $q_{1}$ and $q_{2}$ to be all the locations which affect both $q_{1}$ and $q_{2}$. We denote it by $U_{[q_{1},q_{2}]}$.  
+  
+  \ctt{Grammar}
+\end{definition}
+
+
+\begin{definition}[Clean/Dirty Light Cone] Let $S$ be a subset of locations, and let $\mathcal{N}$ a noise channel acting on the quantum circuit. We define the event \textbf{$S$ is clean} to refer to all configurations in which $\mathcal{N}$ acts trivially on $S$.
+
+  Similarly, We define the event \textbf{ $S$ is dirty } to refer to all configurations for which at least one qubit in $S$ gets a non-trivial application by $\mathcal{N}$.  
+
+  In addition, we will use the notations to refer events describing light cones, for example, for a quantum gate $U$ and two qubits $q_{1}$ and $q_{2}$ the event \textbf{Their light cones intersections is clean} refer to all configurations in which $\mathcal{N}$ acts trivially on that intersection. 
+  
+  \ctt{Grammar}
+\end{definition}
+
 
 \begin{definition} 
     We say that $D$ is a local decoder if when applied against $2p(1-p)$-depolarized channel: 
