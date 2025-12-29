@@ -97,7 +97,7 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
     \item \textbf{$0$-clean intersection implies 'independence'. } For any subsets of qubits $q_{1},q_{2},..,q_{k}$ on $D$ output, if the light cones intersection of any two of them $D_{[q_{1},q_{2}]}$ is $0$-clean, Then the probability that they all belong to $1$-action, i.e not corrected or being faulty, is bounded as follow:  
       \begin{equation*}
         \begin{split}
-          & \prb{ q_{1},q_{2},..,q_{k} \text{ are } 1\text{-dirty}   | \bigcup_{q^{\prime}_{1}\neq q^{\prime}_{2}\in q_{1},..,q_{k}} D_{[q^{\prime}_{1},q^{\prime}_{2}]} \text{ is } 0\text{-clean}} \\ 
+          & \prb{ q_{1},q_{2},..,q_{k} \text{ are } 1\text{-dirty}   | \bigcap_{q^{\prime}_{1}\neq q^{\prime}_{2}\in q_{1},..,q_{k}} D_{[q^{\prime}_{1},q^{\prime}_{2}]} \text{ is } 0\text{-clean}} \\ 
           \le & \prod_{q_{i} \in q_{1},..,q_{k}} \prb{ q_{1} \text{ is } 1 \text{-dirty} } 
         \end{split}
       \end{equation*}
