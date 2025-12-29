@@ -124,11 +124,93 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
 
 \begin{lemma} 
   \label{lemma:steplemma}
-Consider a code $C$ with a local decoder $D$, and let $\sigma$ and $\rho$ be $n$-qubit quantum states such that $\rho = D\sigma$. If $\sigma$ is a codeword of $C$, then there exists a constant $c > 0$, such that for any bounded norm Hermitian operator $X$, it holds that:
+Consider a code $C$ with a local decoder $D$, and let $\sigma$ and $\rho$ be $n$-qubit quantum states such that under an ideal running $\rho = D\sigma$. If $\sigma$ is a codeword of $C$, then there exists a constant $c > 0$, such that for any bounded norm Hermitian operator $X$, it holds that:
     \begin{equation*}
       \Tr X  \left( \mathcal{N}_{p} \circ D \right)   \left( \mathcal{N}_{p} \sigma \right)  \le \Tr X  \mathcal{N}_{p} \left( \rho \right)  + 2||X|| e^{- \Theta( \sqrt{n}) }
     \end{equation*}
 \end{lemma}
+
+
+
+  \begin{claim}
+    Consider the application of a $2p(1-p)$-depolarizing channel. Let $S$ be a subset of qubits chosen uniformly random \footnote{each qubit is taken with probability $\frac{1}{2}$}, then the probability that there are more than $\frac{1}{100}$ dependent qubits in $S$ is less than $2e^{-c\sqrt{n}}$.
+  \end{claim}
+
+
+
+  \begin{proof}
+    First, for an arbitrary $S$, denote by $J$ the qubits that depend on qubits in $S$. Then, the expected number of dependent qubits in $S$ is:
+    \begin{align*}
+      & \exppm{  \text{Type II dependent qubits in} S  }{ \sim 2p(1-p) } \\ 
+      & \le \exppm{  |J|  }{ \sim 2p(1-p) } \le 2p(1-p) \Delta^{l} |S| 
+    \end{align*}
+    
+    Similarly, let $J\prime$ be the qubits in $S$ that connected to unsatisfied check, then:
+
+    \begin{align*}
+      & \exppm{  \text{Type I dependent qubits in} S  }{ \sim 2p(1-p) } \\ 
+      & \le \exppm{  |J|^{\prime}  }{ \sim 2p(1-p) } \le \frac{1 - ( 1-4p(1-p))^{\Delta_{2}} }{2} \Delta^{l} |S| 
+    \end{align*}
+   
+
+  We are going to use the following inequality:
+  \ctt{ Add Macidirimi ineq } 
+
+
+  \begin{theorem}[MacDiarmid's inequality] For independent random variables \( X_1, X_2, \ldots, X_n \) taking values in a set \( A \), and for any function \( f: A^n \to \mathbb{R} \) satisfying the bounded differences condition:
+\[
+|f(x) - f(x')| \leq c_i
+\]
+whenever the vectors \( x \) and \( x' \) differ only in the \( i \)-th coordinate, the inequality is given by:
+\[
+  \prb{f(X_1, X_2, \ldots, X_n) - \expp{f(X_1, X_2, \ldots, X_n)} \geq t} \leq \exp\left(-\frac{2t^2}{\sum_{i=1}^n c_i^2}\right)
+\]
+for all \( t > 0 \).
+\end{theorem}
+
+
+  Thus, the probability that the number of dependent qubits in $S$ is $|S|^{\frac{3}{4}}$ far from the expectation: 
+  \begin{align*}
+    \prbm{ \# - \expp{\#} \ge |S|^{\frac{3}{4}} }{\sim 2p(1-p)} \le e^{-2\frac{|S|^{\frac{3}{2}}}{n \Delta^{l} }}
+  \end{align*}
+
+  So, for any $|S| > \alpha n$, such $\alpha > 2p(1-p)/2$ we have: 
+  \begin{align*}
+    \prbm{ \# - \expp{\#} \ge |S|^{\frac{3}{4}}  }{\sim 2p(1-p)} \le e^{-\frac{2\alpha^{\frac{2}{3}} }{ \Delta^{l} }\sqrt{n} }
+  \end{align*}
+
+
+  Thus for small enough  $p \in (0,1)$, with probability greater than $1 - 2e^{-\frac{2\alpha^{\frac{2}{3}}}{\Delta^{l}}\sqrt{n}}$, the number of dependent bits is less than:
+  \begin{align*}
+    \left( 2p(1-p) + \frac{1 - ( 1-4p(1-p))^{\Delta_{2}} }{2} \right) \Delta^{l} |S| + |S|^{\frac{3}{4}} \rightarrow \frac{|S|}{100}
+  \end{align*}
+
+
+  \end{proof}
+
+
+  \textbf{Lemma Proof:}
+  \begin{proof}
+    
+  Denote by $S$ the subset of the flipped qubits, and denote by $de(S)$ the number of dependent qubits in $S$. 
+  \begin{align*}
+    & \exppm{ f \circ D }{\sim 2p(1-p) } =  \sum{ f\circ D (S)  \cdot \prb{S} } \\ 
+   % & \le \sum_{|S| \ge \alpha n }{ f\circ D (S)  \cdot \prb{S } }  + |f|e^{-c\sqrt{n}} \\
+    & \le \sum_{ \substack{ de(S) < \frac{1}{100}|S| \\ |S| \ge \alpha n }  }{ f\circ D (S)  \cdot \prb{S } } + 2|f| e^{-c\sqrt{n}} \\ 
+  & \le \sum_{\substack{ de(S) < \frac{1}{100}|S| \\ |S| \ge \alpha n } }{ f (S) M(2p(1-p))^{\frac{99}{100}|S|}  } + 2|f| e^{-c\sqrt{n}}
+  \end{align*}
+
+  \begin{align*}
+  & \le \sum_{\substack{ de(S) < \frac{1}{100}|S| \\ |S| \ge \alpha n } }{ f (S) p^{|S|} } + 2|f| e^{-c\sqrt{n}}\\
+  & \le \sum_{ S }{ f (S) p^{|S|} } + 2|f| e^{-c\sqrt{n}}\\
+  & \le \exppm{ f (S) }{\sim p } + 2|f| e^{-c\sqrt{n}}
+\end{align*}
+
+
+  \end{proof}
+
+
+
 
   \begin{definition}
 Consider the moment after the application of the depolarizing channel, and right before the correction by the decoder.
