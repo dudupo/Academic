@@ -159,9 +159,15 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
 |f(x) - f(x')| \leq c_i
 \]
 whenever the vectors \( x \) and \( x' \) differ only in the \( i \)-th coordinate, the inequality is given by:
-\[
-  \prb{f(X_1, X_2, \ldots, X_n) - \expp{f(X_1, X_2, \ldots, X_n)} \geq t} \leq \exp\left(-\frac{2t^2}{\sum_{i=1}^n c_i^2}\right)
-\]
+
+
+ \begin{equation*}
+   \begin{split}
+ & \prb{f(X_1, X_2, \ldots, X_n) - \expp{f(X_1, X_2, \ldots, X_n)} \geq t} \leq \exp\left(-\frac{2t^2}{\sum_{i=1}^n c_i^2}\right) \\
+ & \prb{f(X_1, X_2, \ldots, X_n) - \expp{f(X_1, X_2, \ldots, X_n)} \le -t} \leq \exp\left(-\frac{2t^2}{\sum_{i=1}^n c_i^2}\right) 
+   \end{split}
+ \end{equation*}
+
 for all \( t > 0 \).
 \end{theorem}
 
@@ -189,7 +195,7 @@ Therefore, the probability that $|J|$ is $|S|^{\frac{3}{4}}$ away from the expec
   \end{proof}
 
   \begin{claim}
-    Consider the notations in \Cref{claim:no_intersect}, denote by $S$ the output locations in the $1$-action, then there is an $\alpha$ such that: 
+    Consider the notations in \Cref{claim:no_intersect}, denote by $S$ the output locations in the $1$-action, namely the qubits which at the end of the running deviate from the result of the ideal running. Then there is an $\alpha$ such that: 
 
     \begin{equation*}
       \begin{split}
@@ -197,6 +203,23 @@ Therefore, the probability that $|J|$ is $|S|^{\frac{3}{4}}$ away from the expec
       \end{split}
     \end{equation*}
   \end{claim}
+
+  \begin{proof}
+    For any qubit, denote by $X_{q}$ the indicator that indicates that the output location associated with $q$ is $1$-dirty. The probability that $X_{q} = 1$ is greater than the probability that all of the locations in $D_{[q]}$ belong to the $0$-action \footnote{If the code is not trivial}. Thus: 
+    \begin{equation*}
+      \begin{split}
+        & \exppm{|S| }{ \sim \mathcal{N}_{p} } = \sum_{q\in S}\exppm{X_{q} }{ \sim \mathcal{N}_{p} } \ge  \sum_{q\in S} p^{\left(  |D_{[q]}| \times \overbrace{ 2 }^{\text{input locations}} \right)}  \\
+        \ge & n p^{2l} 
+      \end{split}
+    \end{equation*}
+    Using again MacDiarmid's inequality we have that: 
+
+    \begin{equation*}
+      \begin{split}
+        & \prbm{|S| \le n p^{2l}}{\sim \mathcal{N}_p} = \prbm{|S| - \expp{|S|} \le  -\frac{1}{2} n p^{2l}}{\sim \mathcal{N}_p} \le  e^{-\frac{2 \left( \frac{1}{2}p^{l} \right)^{2} n }{ (l+1)l^{2} } }
+      \end{split}
+    \end{equation*}
+  \end{proof}
 
 
   \textbf{Lemma Proof:}
