@@ -126,7 +126,7 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
   \label{lemma:steplemma}
 Consider a code $C$ with a local decoder $D$, and let $\sigma$ and $\rho$ be $n$-qubit quantum states such that $\rho = D\sigma$. If $\sigma$ is a codeword of $C$, then there exists a constant $c > 0$, such that for any bounded norm Hermitian operator $X$, it holds that:
     \begin{equation*}
-      \Tr X  D \circ \mathcal{N}_{p} \circ \mathcal{N}_{p} \left( \rho \right)  \le \Tr X  \mathcal{N}_{p} \left( \rho \right)  + 2||X|| e^{- \Theta( \sqrt{n}) }
+      \Tr X  \left( \mathcal{N}_{p} \circ D \right)   \left( \mathcal{N}_{p} \sigma \right)  \le \Tr X  \mathcal{N}_{p} \left( \rho \right)  + 2||X|| e^{- \Theta( \sqrt{n}) }
     \end{equation*}
 \end{lemma}
 
