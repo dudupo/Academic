@@ -124,16 +124,22 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
 
 \begin{lemma} 
   \label{lemma:steplemma}
-  Consider a code $C$ with a local decoder $D$, and let $\sigma$ and $\rho$ be $n$-qubit quantum states such that under an ideal running $\rho = D \left( \sigma \otimes \ket{0}\bra{0}  \right) $. If $\sigma$ is a codeword of $C$, then there exists a constant $c > 0$, such that for any bounded norm Hermitian operator $X$, it holds that:
+  Consider a code $C$ with a local decoder $D$, and let $\sigma$ and $\rho$ be $n$-qubit quantum states such that under an ideal running $\rho = D \left( \sigma  \right) $. If $\sigma$ is a codeword of $C$, then there exists a constant $c > 0$, such that for any bounded norm Hermitian operator $X$, it holds that:
     \begin{equation*}
-      \Tr X  \left( \mathcal{N}_{p} \circ D \right)   \left( \mathcal{N}_{p} \left( \sigma \otimes \ket{0}\bra{0} \right) \right)  \le \Tr X  \mathcal{N}_{p} \left( \rho \right)  + 2||X|| e^{- \Theta( \sqrt{n}) }
+      \Tr X  \left( \mathcal{N}_{p} \circ D \right)   \left( \mathcal{N}_{p} \sigma \right)  \le \Tr X  \mathcal{N}_{p} \left( \rho \right)  + 2||X|| e^{- \Theta( \sqrt{n}) }
     \end{equation*}
 \end{lemma}
 
 
 
   \begin{claim}
-    Consider the application of a $2p(1-p)$-depolarizing channel. Let $S$ be a subset of qubits chosen uniformly random \footnote{each qubit is taken with probability $\frac{1}{2}$}, then the probability that there are more than $\frac{1}{100}$ dependent qubits in $S$ is less than $2e^{-c\sqrt{n}}$.
+    Consider the running of $\left( \mathcal{N}_{p} \circ D \right)   \left( \mathcal{N}_{p} \sigma \right)$, using the notations in \Cref{lemma:steplemma}. Let $S$ be a subset of qubits chosen uniformly random \footnote{each qubit is taken with probability $\frac{1}{2}$}. And let $J$ be a subset of $S$ such that for any $q \in J$ there is another qubit $q^{\prime}\neq q$ in $J$, such $D_{[q,q^{\prime}]}$ is $0$-dirty. Then:
+    \begin{equation*}
+      \begin{split}
+        \prb{|J| \ge \frac{1}{100} |S|} \le 2e^{-c\sqrt{n}}
+      \end{split}
+    \end{equation*}
+
   \end{claim}
 
 
