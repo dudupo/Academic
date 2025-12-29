@@ -151,18 +151,7 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
       & \le 2pl|S| 
     \end{align*}
     
-    Similarly, let $J\prime$ be the qubits in $S$ that connected to unsatisfied check, then:
-
-    \begin{align*}
-      & \exppm{  \text{Type I dependent qubits in} S  }{ \sim 2p(1-p) } \\ 
-      & \le \exppm{  |J|^{\prime}  }{ \sim 2p(1-p) } \le \frac{1 - ( 1-4p(1-p))^{\Delta_{2}} }{2} \Delta^{l} |S| 
-    \end{align*}
-   
-
-  We are going to use the following inequality:
-  \ctt{ Add Macidirimi ineq } 
-
-
+    Now we are about to use the MacDiarmid's inequality, stated as follow: 
   \begin{theorem}[MacDiarmid's inequality] For independent random variables \( X_1, X_2, \ldots, X_n \) taking values in a set \( A \), and for any function \( f: A^n \to \mathbb{R} \) satisfying the bounded differences condition:
 \[
 |f(x) - f(x')| \leq c_i
@@ -173,7 +162,6 @@ whenever the vectors \( x \) and \( x' \) differ only in the \( i \)-th coordina
 \]
 for all \( t > 0 \).
 \end{theorem}
-
 
   Thus, the probability that the number of dependent qubits in $S$ is $|S|^{\frac{3}{4}}$ far from the expectation: 
   \begin{align*}
