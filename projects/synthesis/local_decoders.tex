@@ -25,6 +25,7 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
 
 
 \begin{definition}[$U$-configurations]
+  \label{def:config}
   Let $U$ be a quantum gate (not necessary unitary) , $x_{1}$ a location of $U$, and $X_1$ a single-qubit superoperator. Define $U[(x_1,X_1)]$ to be the quantum gate obtained from $U$ by placing $X_1$ at location $x_1$ as follows: 
   \begin{enumerate}
     \item If $x_1$ is a wait location, then we set $X_1$ to act at location $x_1$ instead. 
@@ -35,18 +36,18 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
 \end{definition}
 
 \begin{definition}[Propgation]
-
-  
+  Let $U, X$ as in \Cref{def:config}, and let $Y=\{(y_{i},Y_i)\}$ be a set of pairs composed by locations and superoperators. We say that $U[Y]$ is a propagation of $U[X]$ if $U[X] = U[Y]$.  
 \end{definition}
 
 
 \begin{definition}[0/1-action of a Noise Channel]
   A noise channel $\mathcal{N} : L(\mathcal{H}) \rightarrow L(\mathcal{H})$ is superoperator that maps quantum circuit $U$ to a distribution over its possible configurations.  
 
-  Fix an outcome of that distribution, namely a configuration $U[X]$, We define the $0$-action of $\mathcal{N}$ to be all locations in $U[X]$ that deviate from the locations on $U$, which are all the locations in $X$.  
-
-  Similarly, we define the $1$-action of $\mathcal{N}$ to be all the locations  
-
+  Fix an outcome of that distribution, namely a configuration $U[X]$, then: 
+  \begin{enumerate}
+      \item We define the $0$-action of $\mathcal{N}$ to be all locations in $U[X]$ that deviate from the locations on $U$, which are all the locations in $X$.  
+      \item On the other hand, we define the $1$-action of $\mathcal{N}$ to be a set of locations, such for each location there exists at least one configuration $Y = \{(y_{i},Y_{i})\}$ such that $Y$ contains it and $U[Y]$ is a propagation of $U[X]$.
+  \end{enumerate}
 
   \ctt{Grammar}
 \end{definition}
@@ -76,7 +77,7 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
 
 
 
-\begin{definition}[Local Stochastic Noise]
+\begin{definition}[$p$-Local Stochastic Noise]
   Let $U$ be a quantum gate with a set of locations $\mathcal{L}$, we say that a channel $\mathcal{N}$ is a \textbf{local stochastic noise} channel if there exist a constant $p \in (0,1)$ such that $\mathcal{N}(U)$ defines a probability space in which for any $S \subset \mathcal{L}$, the probability that all the qubits in $S$ are $0$-dirty is upper bounded by $p^{|S|}$.
   \ctt{Grammar}
 \end{definition}
