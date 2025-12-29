@@ -145,7 +145,7 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
 
 
   \begin{proof}
-    First, for an arbitrary $S$, denote by $J$ the qubits that depend on qubits in $S$. Then, the expected number of dependent qubits in $S$ is:
+    Let $S$ be an arbitrary subsets of qubits. For each qubit $q$ in $S$ define the indicator $X_{q}$ that gets $1$ if there is $q^{\prime} \neq q$ in $S$ such $D_{[q,q^{\prime}]}$ is $0$-dirty. So $J = \sum_{q\in S}X_{q}$.  the qubits that depend on qubits in $S$. Then, the expected number of dependent qubits in $S$ is:
     \begin{align*}
       & \exppm{  \text{Type II dependent qubits in} S  }{ \sim 2p(1-p) } \\ 
       & \le \exppm{  |J|  }{ \sim 2p(1-p) } \le 2p(1-p) \Delta^{l} |S| 
