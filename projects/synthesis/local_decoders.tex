@@ -1,8 +1,28 @@
 
 \section{Local Decoders}
 
+
 \begin{definition}
-  Light cone,
+  Let $U$ be a quantum gate (not necessary unitary) , $x$ a location of $U$, and $X$ a single-qubit superoperator. Define $U_{[(x,X)]}$ to be the quantum gate obtained from $U$ by placing $X$ at location $x$ as follows: 
+  \begin{enumerate}
+    \item If $x$ is a wait location, then we set $X$ to act at location $x$ instead. 
+    \item If $x$ is a gate location, then we replace the gate with the gate which first applies $X$ and then applies the original gate.  
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}[DAG representation of quantum Gate]
+Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a set of locations $V$. We define the directed graph $G_{U} = (V,E)$ such that the vertices are associated with the locations, and for locations $x,y \in V$, there is an edge $(x,y) \in E$ if and only if one of the following holds:
+  \begin{enumerate}
+    \item $x$ and $y$ correspond to two consecutive time steps of the same qubit. Namely, $y$ is the successor time location for $x$.
+    \item There is a local gate $U_{i} \in U$ that acts at locations $x$ and $y$.
+  \end{enumerate} 
+\end{definition}
+
+\begin{definition}[Light Cone] Let $U$ be a quantum gate, and let $q$ be a qubit on $U$ output corresponds to the output location $x_{q}$. We say that a location $x$ of $U$ \textbf{affects} $q$ if in $G_{U}$ there is a directed path between $x$ to $q$.  
+
+  The \textbf{light cone} of $q$ respecting to $U$ is the union of all the locations of $U$ that affect $q$. When $U$ is clear from the context, we will refer to the light cone respecting to it just as the \textbf{light cone of $q$}.
+  
+  \ctt{Grammar}
 \end{definition}
 
 \begin{definition} 
