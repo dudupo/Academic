@@ -190,10 +190,14 @@ Therefore, the probability that $|J|$ is $|S|^{\frac{3}{4}}$ away from the expec
 
   \textbf{Lemma Proof:}
   \begin{proof}
-    
+    Denote by $\mathcal{F}$ the faulty paths such that each faulty path $f \in \mathcal{F}$ satisfies: 
+    \begin{enumerate}
+      \item  
+    \end{enumerate}
+
   Denote by $S$ the subset of the flipped qubits, and denote by $de(S)$ the number of dependent qubits in $S$. 
   \begin{align*}
-    & \exppm{ f \circ D }{\sim 2p(1-p) } =  \sum{ f\circ D (S)  \cdot \prb{S} } \\ 
+    &   \Tr X  \left( \mathcal{N}_{p} \circ D \right)   \left( \mathcal{N}_{p} \sigma \right) =  \\ 
    % & \le \sum_{|S| \ge \alpha n }{ f\circ D (S)  \cdot \prb{S } }  + |f|e^{-c\sqrt{n}} \\
     & \le \sum_{ \substack{ de(S) < \frac{1}{100}|S| \\ |S| \ge \alpha n }  }{ f\circ D (S)  \cdot \prb{S } } + 2|f| e^{-c\sqrt{n}} \\ 
   & \le \sum_{\substack{ de(S) < \frac{1}{100}|S| \\ |S| \ge \alpha n } }{ f (S) M(2p(1-p))^{\frac{99}{100}|S|}  } + 2|f| e^{-c\sqrt{n}}
