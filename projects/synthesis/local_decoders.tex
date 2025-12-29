@@ -95,7 +95,13 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
 \begin{definition} 
 Let $C$ be a quantum error correction code, let $D$ be a quantum gate, and let $\mathcal{N}$ be a $2p(1-p)$-depolarizing channel (local stochastic). Consider the following setting: $D$ is fed by a quantum state encoded in $C$ through input locations. $\mathcal{N}$ is applied only on the input locations and on the inter locations of $D$; in particular, the output locations are not affected by $\mathcal{N}$. Then $C$ is a local decoder for $C$ if, under that setting, the following holds:
   \begin{enumerate}
-    \item \textbf{Local improvement.} There exists function $M : (0,1) \rightarrow (0,1) $ such that the probability of each of the output location being $1$-dirty is $M(2p(1-p)) < p^{\frac{100}{99}}$.
+    \item \textbf{Local improvement.} There exists function $M : (0,1) \rightarrow (0,1) $ such that the probability of any output location  $q$ being $1$-dirty is upper bounded by 
+      \begin{equation*}
+        \begin{split}
+          \prb{ q_{1} \text{ is } 1 \text{-dirty} } =  M(2p(1-p)) < p^{\frac{100}{99}}
+        \end{split}
+      \end{equation*}
+
     \item \textbf{Locality computation.} There is a constant $l$ such that for any qubit $q$, there are  $ |D_{[q]}| \le l $. 
     \item \textbf{$0$-clean intersection implies 'independence'. } For any subsets of qubits $q_{1},q_{2},..,q_{k}$ on $D$ output, if the light cones intersection of any two of them $D_{[q_{1},q_{2}]}$ is $0$-clean, Then the probability that they all belong to $1$-action, i.e not corrected or being faulty, is bounded as follow:  
       \begin{equation*}
