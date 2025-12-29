@@ -1,6 +1,9 @@
 
 \section{Local Decoders}
+\begin{definition}[Locations]
 
+  
+\end{definition}
 
 \begin{definition}[DAG representation of quantum Gate]
 Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a set of locations $V$. We define the directed graph $G_{U} = (V,E)$ such that the vertices are associated with the locations, and for locations $x,y \in V$, there is an edge $(x,y) \in E$ if and only if one of the following holds:
@@ -90,7 +93,7 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
 
 
 \begin{definition} 
-Let $C$ be a quantum error correction code, let $D$ be a quantum gate, and $\mathcal{N}$ a $2p(1-p)$-depolarized channel (local stochastic). Consider the following setting, $D$ is feed by a quantum state encoded in $C$, through inputs location, $\mathcal{N}$ is applied only on the input locations and on the middle locations of $D$. Then $C$ is a local decoder for $C$ if under that that setting the following holds:
+Let $C$ be a quantum error correction code, let $D$ be a quantum gate, and let $\mathcal{N}$ be a $2p(1-p)$-depolarizing channel (local stochastic). Consider the following setting: $D$ is fed by a quantum state encoded in $C$ through input locations. $\mathcal{N}$ is applied only on the input locations and on the inter locations of $D$; in particular, the output locations are not affected by $\mathcal{N}$. Then $C$ is a local decoder for $C$ if, under that setting, the following holds:
   \begin{enumerate}
     \item \textbf{Local improvement.} There exists function $M : (0,1) \rightarrow (0,1) $ such that the probability of each of the output location being $1$-dirty is $M(2p(1-p)) < p^{\frac{100}{99}}$.
     \item \textbf{Locality computation.} There is a constant $l$ such that for any qubit $q$, there are  $ |D_{[q]}| \le l $. 
