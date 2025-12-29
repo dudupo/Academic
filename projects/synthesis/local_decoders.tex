@@ -32,9 +32,11 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
 \end{definition}
 
 
-\begin{definition}[Clean/Dirty Light Cone] Let $S$ be a subset of locations, and let $\mathcal{N}$ a noise channel acting on the quantum circuit. We define the event \textbf{$S$ is clean} to refer to all configurations in which $\mathcal{N}$ acts trivially on $S$.
+\begin{definition}[Clean/Dirty Locations] Let $S$ be a subset of locations, and let $\mathcal{N}$ a noise channel acting on the quantum circuit. We define the event \textbf{$S$ is clean} to refer to all configurations in which $\mathcal{N}$ acts trivially on $S$.
 
   Similarly, We define the event \textbf{ $S$ is dirty } to refer to all configurations for which at least one qubit in $S$ gets a non-trivial application by $\mathcal{N}$.  
+
+  When, $S$ is single a location associated with a qubit or a classical bit $q$, and the location is clear form the context, we will abuse the notation and use \textbf{$q$ is clean/dirty} to refer the event describing the whether or not $\mathcal{N}$ acts on the location.  
 
   In addition, we will use the notations to refer events describing light cones, for example, for a quantum gate $U$ and two qubits $q_{1}$ and $q_{2}$ the event \textbf{Their light cones intersections is clean} refer to all configurations in which $\mathcal{N}$ acts trivially on that intersection. 
   
