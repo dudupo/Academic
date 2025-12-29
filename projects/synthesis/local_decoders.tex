@@ -195,11 +195,11 @@ Therefore, the probability that $|J|$ is $|S|^{\frac{3}{4}}$ away from the expec
   \end{proof}
 
   \begin{claim}
-    Consider the notations in \Cref{claim:no_intersect}, denote by $S$ the output locations in the $1$-action, namely the qubits which at the end of the running deviate from the result of the ideal running. Then there is an $\alpha$ such that: 
+    Consider the notations in \Cref{claim:no_intersect}, denote by $S$ the output locations in the $1$-action, namely the qubits which at the end of the running deviate from the result of the ideal running. Then:
 
     \begin{equation*}
       \begin{split}
-        \prbm{|S| \ge \alpha n }{\mathcal{N}_{p}} \ge 1 - e^{ \beta \sqrt{n}} 
+        \prbm{|S| \ge \frac{1}{2}p^{l} n }{\mathcal{N}_{p}} \ge 1 - e^{-\frac{2 \left( \frac{1}{2}p^{l} \right)^{2} n }{ (l+1)l^{2} } }
       \end{split}
     \end{equation*}
   \end{claim}
@@ -216,7 +216,7 @@ Therefore, the probability that $|J|$ is $|S|^{\frac{3}{4}}$ away from the expec
 
     \begin{equation*}
       \begin{split}
-        & \prbm{|S| \le n p^{2l}}{\sim \mathcal{N}_p} = \prbm{|S| - \expp{|S|} \le  -\frac{1}{2} n p^{2l}}{\sim \mathcal{N}_p} \le  e^{-\frac{2 \left( \frac{1}{2}p^{l} \right)^{2} n }{ (l+1)l^{2} } }
+        & \prbm{|S| \le \frac{1}{2} n p^{2l}}{\sim \mathcal{N}_p} le \prbm{|S| - \expp{|S|} \le  -\frac{1}{2} n p^{2l}}{\sim \mathcal{N}_p} \le  e^{-\frac{2 \left( \frac{1}{2}p^{l} \right)^{2} n }{ (l+1)l^{2} } }
       \end{split}
     \end{equation*}
   \end{proof}
