@@ -134,6 +134,7 @@ For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then bo
 
 
   \begin{claim}
+    \label{claim:no_intersect}
     Consider the running of $\left( \mathcal{N}_{p} \circ D \right)   \left( \mathcal{N}_{p} \sigma \right)$, using the notations in \Cref{lemma:steplemma}. Let $S$ be a subset of qubits chosen uniformly random \footnote{each qubit is taken with probability $\frac{1}{2}$}. And let $J$ be a subset of $S$ such that for any $q \in J$ there is another qubit $q^{\prime}\neq q$ in $J$, such $D_{[q,q^{\prime}]}$ is $0$-dirty. Then:
     \begin{equation*}
       \begin{split}
@@ -186,6 +187,16 @@ Therefore, the probability that $|J|$ is $|S|^{\frac{3}{4}}$ away from the expec
 
 
   \end{proof}
+
+  \begin{claim}
+    Consider the notations in \Cref{claim:no_intersect}, denote by $S$ the output locations in the $1$-action, then there is an $\alpha$ such that: 
+
+    \begin{equation*}
+      \begin{split}
+        \prbm{|S| \ge \alpha n }{\mathcal{N}_{p}} \ge 1 - e^{ \beta \sqrt{n}} 
+      \end{split}
+    \end{equation*}
+  \end{claim}
 
 
   \textbf{Lemma Proof:}
