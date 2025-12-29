@@ -195,11 +195,12 @@ Therefore, the probability that $|J|$ is $|S|^{\frac{3}{4}}$ away from the expec
   \end{proof}
 
   \begin{claim}
-    Consider the notations in \Cref{claim:no_intersect}, denote by $S$ the output locations in the $1$-action, namely the qubits which at the end of the running deviate from the result of the ideal running. Then:
+    \label{claim:bigsubsets}
+    Consider the notations in \Cref{claim:no_intersect}, denote by $K$ the output locations in the $1$-action, namely the qubits which at the end of the running deviate from the result of the ideal running. Then:
 
     \begin{equation*}
       \begin{split}
-        \prbm{|S| \ge \frac{1}{2}p^{l} n }{\mathcal{N}_{p}} \ge 1 - e^{-\frac{2 \left( \frac{1}{2}p^{l} \right)^{2} n }{ (l+1)l^{2} } }
+        \prbm{|K| \ge \frac{1}{2}p^{l} n }{\mathcal{N}_{p}} \ge 1 - e^{-\frac{2 \left( \frac{1}{2}p^{l} \right)^{2} n }{ (l+1)l^{2} } }
       \end{split}
     \end{equation*}
   \end{claim}
@@ -208,7 +209,7 @@ Therefore, the probability that $|J|$ is $|S|^{\frac{3}{4}}$ away from the expec
     For any qubit, denote by $X_{q}$ the indicator that indicates that the output location associated with $q$ is $1$-dirty. The probability that $X_{q} = 1$ is greater than the probability that all of the locations in $D_{[q]}$ belong to the $0$-action \footnote{If the code is not trivial}. Thus: 
     \begin{equation*}
       \begin{split}
-        & \exppm{|S| }{ \sim \mathcal{N}_{p} } = \sum_{q\in S}\exppm{X_{q} }{ \sim \mathcal{N}_{p} } \ge  \sum_{q\in S} p^{\left(  |D_{[q]}| \times  2  \right)}  \\
+        & \exppm{|K| }{ \sim \mathcal{N}_{p} } = \sum_{q\in K}\exppm{X_{q} }{ \sim \mathcal{N}_{p} } \ge  \sum_{q\in K} p^{\left(  |D_{[q]}| \times  2  \right)}  \\
         & \ge  n p^{2l} 
       \end{split}
     \end{equation*}
@@ -216,11 +217,20 @@ Therefore, the probability that $|J|$ is $|S|^{\frac{3}{4}}$ away from the expec
 
     \begin{equation*}
       \begin{split}
-        & \prbm{|S| \le \frac{1}{2} n p^{2l}}{\sim \mathcal{N}_p} \le \prbm{|S| - \expp{|S|} \le  -\frac{1}{2} n p^{2l}}{\sim \mathcal{N}_p} \le  e^{-\frac{2 \left( \frac{1}{2}p^{l} \right)^{2} n }{ (l+1)l^{2} } }
+        & \prbm{|K| \le \frac{1}{2} n p^{2l}}{\sim \mathcal{N}_p} \le \prbm{|K| - \expp{|K|} \le  -\frac{1}{2} n p^{2l}}{\sim \mathcal{N}_p} \le  e^{-\frac{2 \left( \frac{1}{2}p^{l} \right)^{2} n }{ (l+1)l^{2} } }
       \end{split}
     \end{equation*}
   \end{proof}
 
+\begin{corollary} 
+  By \Cref{claim:bigsubsets} and \Cref{claim:no_intersect}, we get that 
+  \begin{equation*}
+    \begin{split}
+      & \sum_{S \subset [n]}\prbm{S = K }{\mathcal{N}_{p}} \le \sum_{  \substack{ S \subset [n] \\ |S|\ge \frac{1}{2}p^{l} n} }\prbm{S = K }{\mathcal{N}_{p}} + e^{-\frac{2 \left( \frac{1}{2}p^{l} \right)^{2} n }{ (l+1)l^{2} } } \\ 
+      & \le  \sum_{ \substack{ S \subset [n] \\ |S|\ge \frac{1}{2}p^{l} n } }\prbm{S = K \big| |J| \le \frac{1}{100}|S| }{\mathcal{N}_{p}} + e^{-\frac{2 \left( \frac{1}{2}p^{l} \right)^{2} n }{ (l+1)l^{2} } } 
+    \end{split}
+  \end{equation*}
+\end{corollary} 
 
   \textbf{Lemma Proof:}
   \begin{proof}
