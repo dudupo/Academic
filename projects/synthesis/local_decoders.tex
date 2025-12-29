@@ -94,10 +94,11 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
   \begin{enumerate}
     \item \textbf{Local improvement.} There exists function $M : (0,1) \rightarrow (0,1) $ such that the probability of each of the output location being $1$-dirty is $M(2p(1-p)) < p^{\frac{100}{99}}$.
     \item \textbf{Locality computation.} There is a constant $l$ such that for any qubit $q$, there are  $ |D_{[q]}| \le l $. 
-    \item \textbf{$0$-clean intersection implies 'independence'. } For any two qubits $q_{1},q_{2}$ on $D$ output, if their light cones intersection $D_{[q_{1},q_{2}]}$ is $0$-clean. Then:  
+    \item \textbf{$0$-clean intersection implies 'independence'. } For any subsets of qubits $q_{1},q_{2},..,q_{k}$ on $D$ output, if the light cones intersection of any two of them $D_{[q_{1},q_{2}]}$ is $0$-clean, Then the probability that they all belong to $1$-action, i.e not corrected or being faulty, is bounded as follow:  
       \begin{equation*}
         \begin{split}
-          \prb{ \text{both } q_{1},q_{2} \text{ are } 1\text{-dirty}   |  D_{[q_{1},q_{2}]} \text{ is } 0\text{-clean}} \le \prb{ q_{1} \text{ is } 1 \text{-dirty} } \cdot  \prb{ q_{2} \text{ is } 1 \text{-dirty} } 
+          & \prb{ q_{1},q_{2},..,q_{k} \text{ are } 1\text{-dirty}   | \bigcup_{q^{\prime}_{1}\neq q^{\prime}_{2}\in q_{1},..,q_{k}} D_{[q^{\prime}_{1},q^{\prime}_{2}]} \text{ is } 0\text{-clean}} \\ 
+          \le & \prod_{q_{i} \in q_{1},..,q_{k}} \prb{ q_{1} \text{ is } 1 \text{-dirty} } 
         \end{split}
       \end{equation*}
   \end{enumerate}
