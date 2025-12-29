@@ -94,7 +94,12 @@ Let $U$ be a quantum gate, composed of local gates $U_{1}, \ldots, U_{m}$, and a
   \begin{enumerate}
     \item \textbf{Local improvement.} There exists function $M : (0,1) \rightarrow (0,1) $ such that the probability of each of the output location being $1$-dirty is $M(2p(1-p)) < p^{\frac{100}{99}}$.
     \item \textbf{Locality computation.} There is a constant $l$ such that for any qubit $q$, there are  $ |D_{[q]}| \le l $. 
-    \item \textbf{$0$-clean intersection implies independence. }
+    \item \textbf{$0$-clean intersection implies 'independence'. } For any two qubits $q_{1},q_{2}$ on $D$ output, if their light cones intersection $D_{[q_{1},q_{2}]}$ is $0$-clean. Then:  
+      \begin{equation*}
+        \begin{split}
+          \prb{ \text{both } q_{1},q_{2} \text{ are } 1\text{-dirty}   |  D_{[q_{1},q_{2}]} \text{ is } 0\text{-clean}} \le \prb{ q_{1} \text{ is } 1 \text{-dirty} } \cdot  \prb{ q_{2} \text{ is } 1 \text{-dirty} } 
+        \end{split}
+      \end{equation*}
   \end{enumerate}
 For example, if we take $k$ large enough and consider the $(n,k)$-Toric, then both the swift-rule and the flip upon majority are local decoders.
 \end{definition}
