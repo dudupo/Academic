@@ -247,6 +247,24 @@ Hence we get that:
 
 \end{corollary} 
 
+
+\begin{claim}
+  \label{calim:markov}
+  For a state $\rho$ subjected to a $q$-local stochastic noise, we have that the probability to that the portion of the faulty bits is greater than $\alpha \in \left( 0, 1 \right)$ decay exponentially in $n$.
+\end{claim}
+
+\begin{proof}
+First use the Markov inequality to bound the space that $ \ge n\alpha $ so we get $\ge \frac{1}{2} \cdot \frac{1}{\alpha} \cdot 2^{n}$, and then use the local stochastic property:   
+\begin{equation*}
+  \begin{split}
+    \le C \frac{ \frac{1}{2} }{ \alpha } \cdot 2^{n} \cdot q^{\alpha n} = \frac{\alpha}{2} C \left( 2 q^{\alpha} \right)^{n}
+  \end{split}
+\end{equation*}
+For big enough $\alpha$ we see that the probability decay exponentially. (An also a way to prove that $q^{q} \ge \frac{1}{2}$). 
+
+\end{proof}
+
+
   \textbf{Lemma Proof:}
   \begin{proof}
 
