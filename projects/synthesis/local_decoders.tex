@@ -250,7 +250,13 @@ Hence we get that:
   \textbf{Lemma Proof:}
   \begin{proof}
 
-    For a subset of qubits $S \subset [n]$, let $\rho^{S}$ be the density matrix obtained from $\left( \mathcal{N}_{p} \circ D \right) \left( \mathcal{N}_{p} \sigma \right)$ conditioned on the event that the \ctt{ Should define it.} output $1$-action lies on $S$.
+    For a subset of qubits $S \subset [n]$, let $\rho^{S}$ be the density matrix obtained from $ \rho =  \left( \mathcal{N}_{p} \circ D \right) \left( \mathcal{N}_{p} \sigma \right)$ conditioned on the event that the \ctt{ Should define it.} output $1$-action lies on $S$. Thus, $\rho$ can be written as: 
+   \begin{equation*}
+      \begin{split}
+        & \rho = \sum_{S \subset [n]} \rho^{S}\prbm{S = K }{\sim\mathcal{N}_{p}}  
+      \end{split}
+    \end{equation*}
+
 
     Denote by $\mathcal{F}$ the faulty paths such that each faulty path $f \in \mathcal{F}$ satisfies: 
     \begin{enumerate}
