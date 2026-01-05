@@ -21,7 +21,7 @@
 \begin{document}
 \input{newcommands}
 %\title{ $\textbf{QNC}_{1} \subset $ noisy-\textbf{BQP}}
-\title{ Research Proposal - Fault-Tolerainzing Shallow Circuits. }
+\title{ Research Proposal - Complexity Costs of Fault-Tolerated Circuits. }
 \author{Michael Ben-Or \ \ David Ponarovsky}
 \maketitle
 
@@ -53,7 +53,10 @@
 
 
 
-\abstract{We study the overall depth overhead cost required for constructing fault-tolerant circuits. We focus on shallow depth circuit classes, in particular, $\QACze{}, \QNCzef{}$, $\QNCon{}$, and '$\QNC{}$ without reset gates', and certain known problem candidates for demonstrating quantum advantage such as factoring \cite{Shor_1997} and Instantaneous Quantum Polynomial-time \cite{Bremner_2017}, \cite{Paletta_2024}. We aim to answer whether there exists a fault tolerance with only constant overhead at the circuit's depth. A positive answer implies that computing logarithmic depth circuits when subjected to noise is not harder than computing in an ideal environment.
+\abstract{
+We study the overhead costs of fault-tolerant circuits in terms of both depth and width expansions. This means we ask what the optimal cost factor is, in each of the parameters alone, that one can hope to achieve, and also raise the question about the trade-off relation between the two. We ask these questions from both classical and quantum perspectives. The following proposal formulates the problems and states subproblems that might shed light on the answer.
+
+  We focus on shallow depth circuit classes, in particular, $\QACze{}, \QNCzef{}$, $\QNCon{}$, and '$\QNC{}$ without reset gates', and certain known problem candidates for demonstrating quantum advantage such as factoring \cite{Shor_1997} and Instantaneous Quantum Polynomial-time \cite{Bremner_2017}, \cite{Paletta_2024}. We aim to answer whether there exists a fault tolerance with only constant overhead at the circuit's depth. A positive answer implies that computing logarithmic depth circuits when subjected to noise is not harder than computing in an ideal environment.
 
   \section{Introduction.} 
   
