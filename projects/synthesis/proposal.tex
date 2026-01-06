@@ -94,13 +94,22 @@ Zooming out from the operations over code blocks raises the question in the cont
 Furthermore, \cite{10.1007/11672142_44} exhibits a trade-off in a model in which the given input is already encoded. In that model, they provide a fault-tolerant circuit with a width overhead of the circuit being $\Theta(\frac{\log n}{\log \log n})$, while the depth overhead is $\Theta(\log \log n)$. So, it's attempting to ask if for any $w$ and $d$ such that $w \cdot d = \log(n)$, a fault-tolerant circuit with $w$ and $d$ width and depth overhead can be realized:
 
 \begin{openproblem}
-Consider a circuit over $n$ classical (quantum) bits. What are the domains of depth $d$ and width $w$ for which the circuit can be fault-toleraized at the cost of $w$ and $d$ width and depth overheads?
+Consider a circuit over $n$ classical (quantum) bits. What are the domains of depth $d$ and width $w$ for which the circuit can be fault-toleraized at the cost of $w$ and $d$ width and depth overheads? How does the answer change if we assume encoded input?
 \end{openproblem}
+
 \inb{
+The questions above address the fault tolerance of general circuits, but focusing on shallow circuits also attracts special interest, particularly for near-term applications. Since today's quantum machines struggle to maintain quantum states for extended periods, researchers were motivated to define \textbf{NISQ}, which stands for Noisy Intermediate-Scale Quantum, referring to the current era of quantum computing characterized by quantum processors with a limited number of qubits and susceptibility to errors due to noise. 
+
+\begin{openproblem}
+
+\end{openproblem}
 }
 
-Moreover, even the depth overhead is particularly interesting as today's quantum machines are challenged to maintain quantum states for a long time. The limitations of these machines have motivated research to define NISQ, which stands for Noisy Intermediate-Scale Quantum, referring to the current era of quantum computing characterized by quantum processors that have a limited number of qubits and are prone to errors due to noise. In addition to NISQ, another common characterization for limited quantum computation is computation without reset gates, which has been proved to be impossible when restricted to polynomial space \cite{aharonov1996limitationsnoisyreversiblecomputation}. Having a constant depth-overhead fault tolerance scheme would imply the feasibility of log depth computation in that model.
+In addition to NISQ, another common characterization for limited quantum computation is computation without reset gates, which has been proved to be impossible when restricted to polynomial space \cite{aharonov1996limitationsnoisyreversiblecomputation}. Having a constant depth-overhead fault tolerance scheme would imply the feasibility of log depth computation in that model.
   
+\begin{openproblem}
+  Computing without reset gates.  
+\end{openproblem}
 %This work address the above, We ask whether a magnitude depth overhead is an unavoidable price that one has to pay. And, in particular, whether an ideal $\QNCon$, the class of problem can be decided by logarithmic depth quntum circuits, can be computed in noisy-$\QNCon$ circuits. We show how using the ideas presented in \cite{grospellier:tel-03364419} and \cite{Pippenger} gives almost immediately $\QNCzef \subset$ \noiseQNCon and that sampling from IQP, Instantaneous Quantum Polynomial-time \cite{Bremner_2017}, \cite{Paletta_2024}, also can be done in logarithmic depth circuits.    
 This work addresses the above. We ask whether a magnitude depth overhead is an unavoidable price that one has to pay, If a Constant Depth Fault Tolerance Construction (\CDO{}) exists, and if so, how to construct it. In particular, whether an ideal $\QNCon{}$, the class of problems that can be decided by logarithmic depth quantum circuits, can be computed in noisy-$\QNCon{}$ circuits.
 
