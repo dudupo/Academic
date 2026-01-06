@@ -73,8 +73,14 @@ We stress that in all the mentioned constructions, the original constant-depth g
 
 Such an expansion prevents any construction that merely shifts presentations without interfering with the logical computation path of the original circuits from reaching a constant depth overhead. Previous works have made way to bypass this obstacle; notably, \cite{nguyen2024goodbinaryquantumcodes} and \cite{li2025poincaredualitymultiplicativestructures} present good error correction codes with transversal $\mathbf{CCZ}$ gates, and the series of works by Bombin \cite{PhysRevLett.97.180501}, \cite{PhysRevA.81.032301}, \cite{Bombín_2015} yield the 2D-color and 3D-color codes, which can be embedded on low-dimensional lattices (2D and 3D) and offer transversal gate implementation, where the first offers the whole Clifford group and the second the $\mathbf{T}$ gate. However, no code with a non-trivial distance and $O(1)$-depth implementation for a complete universal gate set is known what raises our following open problem:
 \begin{openproblem}
+  \label{openproblem:constantd}
   Is there an error correction code with non-trivial distance for which a full universal gate set over the logical qubits can be realized at constant depth? 
 \end{openproblem}
+Since error correction codes with trivial distance might have a constant depth realization of a universal gate set (take, for example, the code where any codeword consists of a single physical qubit that encodes the logical state, adjacent to garbage), it is also interesting to ask whether there is a turning point:
+\begin{openproblem}
+If the answer to \Cref{openproblem:constantd} is yes, what is the minimum distance for which there exists a code with that distance, and the code provides a universal gate set realization at constant depth?
+\end{openproblem}
+
 }
 
 Moreover, even the depth overhead is particularly interesting as today's quantum machines are challenged to maintain quantum states for a long time. The limitations of these machines have motivated research to define NISQ, which stands for Noisy Intermediate-Scale Quantum, referring to the current era of quantum computing characterized by quantum processors that have a limited number of qubits and are prone to errors due to noise. In addition to NISQ, another common characterization for limited quantum computation is computation without reset gates, which has been proved to be impossible when restricted to polynomial space \cite{aharonov1996limitationsnoisyreversiblecomputation}. Having a constant depth-overhead fault tolerance scheme would imply the feasibility of log depth computation in that model.
