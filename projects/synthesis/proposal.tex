@@ -107,7 +107,14 @@ Hence, it is interesting to ask what both quantum and classical low-resource fau
 Does sampling from $\mathbf{IQP}$ have a fault-tolerant realization using $\log n$ depth circuits, namely an $O(1)$-depth overhead? Or at least, is it possible to postpone all the classical computation until after the qubits are measured?
 Are there any other candidates for demonstrating quantum advantage that can be realized using shallow circuits?
 \end{openproblem}
+
+Another application that uses logarithmic depth is encoding. It was shown in \cite{moore1998parallel} that stabilizer codes can be prepared at logarithmic depth. Therefore, it is interesting to ask about the synthesis of encoded codewords.
+
+
 }
+
+
+
 
 In addition to NISQ, another common characterization for limited quantum computation is computation without reset gates, which has been proved to be impossible when restricted to polynomial space \cite{aharonov1996limitationsnoisyreversiblecomputation}. Having a constant depth-overhead fault tolerance scheme would imply the feasibility of log depth computation in that model.
   
