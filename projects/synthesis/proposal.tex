@@ -99,9 +99,13 @@ Consider a circuit over $n$ classical (quantum) bits. What are the domains of de
 
 \inb{
 The questions above address the fault tolerance of general circuits, but focusing on shallow circuits also attracts special interest, particularly for near-term applications. Since today's quantum machines struggle to maintain quantum states for extended periods, researchers were motivated to define \textbf{NISQ}, which stands for Noisy Intermediate-Scale Quantum, referring to the current era of quantum computing characterized by quantum processors with a limited number of qubits and susceptibility to errors due to noise. 
+Nevertheless, there are certain known problem candidates for demonstrating quantum advantage, such as factoring \cite{Shor_1997} and Instantaneous Quantum Polynomial-time \cite{Bremner_2017}, \cite{Paletta_2024}, which have been proven to be solvable by sampling from logarithmic-depth quantum circuits.
+We emphasize that in \cite{Paletta_2024} they showed a realization that uses constant quantum depth circuits with the intermediation of a polynomial classical circuit in the middle. From a technical perspective, that means that to implement the protocol, one has to protect the quantum state for the time that the classical routine lasts.
+Hence, it is interesting to ask what both quantum and classical low-resource fault-tolerant realizations can be designed for those particular problems.
 
 \begin{openproblem}
-
+Does sampling from $\mathbf{IQP}$ have a fault-tolerant realization using $\log n$ depth circuits, namely an $O(1)$-depth overhead? Or at least, is it possible to postpone all the classical computation until after the qubits are measured?
+Are there any other candidates for demonstrating quantum advantage that can be realized using shallow circuits?
 \end{openproblem}
 }
 
