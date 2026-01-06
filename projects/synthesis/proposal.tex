@@ -81,6 +81,12 @@ Since error correction codes with trivial distance might have a constant depth r
 If the answer to \Cref{openproblem:constantd} is yes, what is the minimum distance for which there exists a code with that distance, and the code provides a universal gate set realization at constant depth?
 \end{openproblem}
 
+
+Similarly, one can also ask whether the code dimension plays a role in the feasibility of realizing logical gates. Recent work provides a first result regarding the width-depth tradeoff. Specifically, they show that for classical codes with distance $d$, for any logical qubit $i$, there exists a logical qubit $j \neq i$ such that the code offers the $\mathbf{CX_{i,j}}$ logical gate at most at $l$-depth. Then, it must hold that $k = O\left(\frac{n}{d^{2^{-l}}}\right)$. They also mention that their proof does not imply an analogous tradeoff relation for quantum codes. This brings us to ask if the result can be generalized to the implementation of general gates and to quantum error correction codes.
+
+\begin{openproblem}
+Whether there is a relation between the depth of a logical gate of an error correction code and the dimension and depth of that code. Is that relation identical for both classical and quantum codes? If not, how does the trade-off behave in each case?
+\end{openproblem}
 }
 
 Moreover, even the depth overhead is particularly interesting as today's quantum machines are challenged to maintain quantum states for a long time. The limitations of these machines have motivated research to define NISQ, which stands for Noisy Intermediate-Scale Quantum, referring to the current era of quantum computing characterized by quantum processors that have a limited number of qubits and are prone to errors due to noise. In addition to NISQ, another common characterization for limited quantum computation is computation without reset gates, which has been proved to be impossible when restricted to polynomial space \cite{aharonov1996limitationsnoisyreversiblecomputation}. Having a constant depth-overhead fault tolerance scheme would imply the feasibility of log depth computation in that model.
@@ -96,9 +102,7 @@ Additionally, we extend the question beyond the standard classes and ask about f
 
 
 
-Classical Lower bounds \cite{AnnaGal}, \cite{185425}. \cite{10.1007/11672142_44} shows that a tradeof in model in which the given input is already encoded. Then the width overhead of the circuit is $\Theta(\frac{\log n}{\log \log n})$ while the depth overhead is $\Theta(\log \log n)$. \ctt{ Re-write this.} \cite{krishna2025tradeoffsvolumefaulttolerantcircuits}, A work that studied width-depth tradeoff, and shows that codes with non-trivial rate and distance, can not offer the control-X gate for any pair of logical bits.  
-
-
+Classical Lower bounds \cite{AnnaGal}, \cite{185425}. \cite{10.1007/11672142_44} shows that a tradeof in model in which the given input is already encoded. Then the width overhead of the circuit is $\Theta(\frac{\log n}{\log \log n})$ while the depth overhead is $\Theta(\log \log n)$. \ctt{ Re-write this.}
 
 Something about the importance of fault tolerance computation to PCP construction. New classical \cite{bafna2024quasilinearsizepcpssmall}, and quantum construction \cite{Anshu_2024}. \cite{10.1145/195058.195132} Seems like a construction that based on the fact that the previews circuit was fault tolerance. 
 
