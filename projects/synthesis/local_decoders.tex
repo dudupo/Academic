@@ -288,16 +288,17 @@ Fix a subset of qubits $S \subseteq n$. Denote by $J$ the qubits in $S$ such tha
       \end{split}
     \end{equation*}
 Therefore:
+\newcommand*{\correctionterm}{2 || X || e^{-\frac{2\left( \frac{1}{2} p^{l} \right)^{\frac{2}{3}} }{ (l+1)l^{2} }\sqrt{n} }}
 
   \begin{align*}
     &   \Tr X  \left( \mathcal{N}_{p} \circ D \right)   \left( \mathcal{N}_{p} \sigma \right) =   \sum_{S \subset [n]} \Tr \left( X \rho^{S} \right) \prbm{S = K }{\sim\mathcal{N}_{p}}  \\
     & \le  \sum_{ \substack{ S \subset [n] \\ |S|\ge \frac{1}{2}p^{l} n } } \Tr \left( X \rho^{S} \right)   \prbm{S = K \big| |J| \le \frac{1}{100}|S| }{\sim\mathcal{N}_{p}}\\
     & \le  \sum_{ \substack{ S \subset [n] \\ |S|\ge \frac{1}{2}p^{l} n } } \Tr \left( X \rho^{S} \right) M(2p(1-p))^{\frac{99}{100}|S|}  
-    + 2 || X || e^{-\frac{2\left( \frac{1}{2} p^{l} \right)^{\frac{2}{3}} }{ (l+1)l^{2} }\sqrt{n} } \\
+    + \correctionterm \\
     & \le  \sum_{ \substack{ S \subset [n] \\ |S|\ge \frac{1}{2}p^{l} n } } \Tr \left( X \rho^{S} \right) \left(p^{\frac{100}{99}}\right)^{\frac{99}{100}|S|}  
-    + 2 || X || e^{-\frac{2\left( \frac{1}{2} p^{l} \right)^{\frac{2}{3}} }{ (l+1)l^{2} }\sqrt{n} } \\
+    + \correctionterm \\
     & \le  \sum_{ \substack{ S \subset [n] \\ |S|\ge \frac{1}{2}p^{l} n } } \Tr \left( X \rho^{S} \right) p^{|S|}  
-    + 2 || X || e^{-\frac{2\left( \frac{1}{2} p^{l} \right)^{\frac{2}{3}} }{ (l+1)l^{2} }\sqrt{n} } \\
+    + \correctionterm \\
   & \le \Tr X  \left( \mathcal{N}_{p} \circ D \right) 
     + 2 || X || e^{-\frac{2\left( \frac{1}{2} p^{l} \right)^{\frac{2}{3}} }{ (l+1)l^{2} }\sqrt{n} } \\
   \end{align*}
