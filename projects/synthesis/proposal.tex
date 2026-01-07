@@ -109,16 +109,14 @@ Are there any other candidates for demonstrating quantum advantage that can be r
 \end{openproblem}
 
 
-Another application that uses logarithmic depth is encoding. It was shown in \cite{moore1998parallel} that stabilizer codes can be prepared at logarithmic depth. Therefore, it is interesting to ask about the synthesis of encoded codewords. By synthesis, we mean generating the encoded codeword itself and not a logical representation of it (not a concatenation with another code).
+Another application that uses logarithmic depth is encoding. It was shown in \cite{moore1998parallel} that stabilizer codes can be prepared at logarithmic depth, and not only that, but the preparation circuit is composed of only Hadamard and controlled-Pauli gates. In other words, the family of encoder circuits is much less rich than general circuits, and therefore, it is interesting to ask about the synthesis of encoded codewords. By synthesis, we mean generating the encoded codeword itself and not a logical representation of it (not a concatenation with another code).
 
 \begin{openproblem}
-Do encoders have a fault-tolerant realization at the costs of $O(1)$-depth overhead?  
+Do encoders have a fault-tolerant realization with an $O(1)$-depth overhead?
 \end{openproblem}
 
 
 }
-
-
 
 
 In addition to NISQ, another common characterization for limited quantum computation is computation without reset gates, which has been proved to be impossible when restricted to polynomial space \cite{aharonov1996limitationsnoisyreversiblecomputation}. Having a constant depth-overhead fault tolerance scheme would imply the feasibility of log depth computation in that model.
