@@ -97,7 +97,6 @@ Furthermore, \cite{10.1007/11672142_44} exhibits a trade-off in a model in which
 Consider a circuit over $n$ classical (quantum) bits. What are the domains of depth $d$ and width $w$ for which the circuit can be fault-toleraized at the cost of $w$ and $d$ width and depth overheads? How does the answer change if we assume encoded input?
 \end{openproblem}
 
-\inb{
 The questions above address the fault tolerance of general circuits, but focusing on shallow circuits also attracts special interest, particularly for near-term applications. Since today's quantum machines struggle to maintain quantum states for extended periods, researchers were motivated to define \textbf{NISQ}, which stands for Noisy Intermediate-Scale Quantum, referring to the current era of quantum computing characterized by quantum processors with a limited number of qubits and susceptibility to errors due to noise. 
 Nevertheless, there are certain known problem candidates for demonstrating quantum advantage, such as factoring \cite{Shor_1997} and Instantaneous Quantum Polynomial-time \cite{Bremner_2017}, \cite{Paletta_2024}, which have been proven to be solvable by sampling from logarithmic-depth quantum circuits.
 We emphasize that in \cite{Paletta_2024} they showed a realization that uses constant quantum depth circuits with the intermediation of a polynomial classical circuit in the middle. From a technical perspective, that means that to implement the protocol, one has to protect the quantum state for the time that the classical routine lasts.
@@ -127,7 +126,6 @@ Last but not least, we would like to connect fault-tolerance results to complexi
 \begin{openproblem}
 Whether fault-tolerant construction can help to design a verification scheme? Does an analog to the robustness routing protocol exist for verifying quantum computations? What else can be borrowed from the fault-tolerant world for the use of quantum PCP?
 \end{openproblem}
-}
 
 
 %This work address the above, We ask whether a magnitude depth overhead is an unavoidable price that one has to pay. And, in particular, whether an ideal $\QNCon$, the class of problem can be decided by logarithmic depth quntum circuits, can be computed in noisy-$\QNCon$ circuits. We show how using the ideas presented in \cite{grospellier:tel-03364419} and \cite{Pippenger} gives almost immediately $\QNCzef \subset$ \noiseQNCon and that sampling from IQP, Instantaneous Quantum Polynomial-time \cite{Bremner_2017}, \cite{Paletta_2024}, also can be done in logarithmic depth circuits.    
