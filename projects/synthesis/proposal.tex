@@ -115,15 +115,16 @@ Another application that uses logarithmic depth is encoding. It was shown in \ci
 Do encoders have a fault-tolerant realization with an $O(1)$-depth overhead?
 \end{openproblem}
 
+}
+
+In addition to NISQ, another common characterization for limited quantum computation is computation without reset gates — namely, the gates which initialize qubits to the zero state $\ket{0}$. It was proved that in this model, when restricted to polynomial space, any computation that lasts longer than logarithmic depth results in noise \cite{aharonov1996limitationsnoisyreversiblecomputation}. Having a constant depth-overhead fault tolerance scheme would imply the feasibility of log depth computation in that model.
+  
+\begin{openproblem}
+Assuming there are $\Theta(\log(n))$-depth circuits that can be fault-tolerized at the cost of $O(1)$-depth overhead, could those constructions be generalized to hold in the non-reset gates regime?
+\end{openproblem}
 
 }
 
-
-In addition to NISQ, another common characterization for limited quantum computation is computation without reset gates, which has been proved to be impossible when restricted to polynomial space \cite{aharonov1996limitationsnoisyreversiblecomputation}. Having a constant depth-overhead fault tolerance scheme would imply the feasibility of log depth computation in that model.
-  
-\begin{openproblem}
-  Computing without reset gates.  
-\end{openproblem}
 %This work address the above, We ask whether a magnitude depth overhead is an unavoidable price that one has to pay. And, in particular, whether an ideal $\QNCon$, the class of problem can be decided by logarithmic depth quntum circuits, can be computed in noisy-$\QNCon$ circuits. We show how using the ideas presented in \cite{grospellier:tel-03364419} and \cite{Pippenger} gives almost immediately $\QNCzef \subset$ \noiseQNCon and that sampling from IQP, Instantaneous Quantum Polynomial-time \cite{Bremner_2017}, \cite{Paletta_2024}, also can be done in logarithmic depth circuits.    
 This work addresses the above. We ask whether a magnitude depth overhead is an unavoidable price that one has to pay, If a Constant Depth Fault Tolerance Construction (\CDO{}) exists, and if so, how to construct it. In particular, whether an ideal $\QNCon{}$, the class of problems that can be decided by logarithmic depth quantum circuits, can be computed in noisy-$\QNCon{}$ circuits.
 
@@ -139,12 +140,13 @@ Additionally, we extend the question beyond the standard classes and ask about f
 Something about the importance of fault tolerance computation to PCP construction. New classical \cite{bafna2024quasilinearsizepcpssmall}, and quantum construction \cite{Anshu_2024}. \cite{10.1145/195058.195132} Seems like a construction that based on the fact that the previews circuit was fault tolerance. 
 
 
+
+\ifdefined\DEBUG
   
   
 The proposal is organized as follows. \Cref{sec:nota} presents the notations, formal definitions, and states the open problems that will be studied through the research. Then, \Cref{sec:opt} describes strategies to prove \CDO{}. In particular, it lists primitives that can be used to achieve it and discusses how far we are from obtaining them. Having said that, \Cref{sec:passi} presents the first cues against the possibility of \CDO{} and provides the entry points to prove the impossibility claim. Finally, \Cref{sec:app} discusses the applications and implications of either the correctness of \CDO{} or the impossibility of \CDO{}, from both theoretical and practical views.
 
 
-\ifdefined\DEBUG
 
 
 
