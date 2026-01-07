@@ -62,7 +62,7 @@ We aim to study the overhead costs of fault-tolerant circuits in terms of both d
   
 The Quantum Computation model is widely believed to be superior to classical models, offering asymptotic speedup in tasks such as factoring \cite{Shor_1997}, searching \cite{grover1996fast}, simulating, and more relative to the best-known classical solutions. Yet even though there is almost complete agreement about the superiority of the ideal quantum model, there is still a debate over whether it is possible to implement complex computation in the real world, where the qubits and gates are subject to faults. Similarly, the feasibility of realizing classical computation has also been an open question, In fact the question about the feasibility of computation under noise is almost as ancient as the computer science field itself, initialized by Von Neumann \cite{Neumann+1956+43+98} at the time that classical computation putted in debuts. Time been pass and the followed works had pointed that not even a polynomial computation in the presence of noise is still reasonable but one can implement a fault tolerance version at a most constant times cost at the circuits depth \cite{Pippenger}. Or in asymptotic sense, classical computation in the presence of noise is as exactly hard as computation in ideal environment.  
 
-Recently, the feasibility question has been raised again, this time regarding quantum circuits, and while an intensive work has been done, and also succeed to prove that polynomial quantum computation can be made fault tolerance, \cite{aharonov1999faulttolerant},\cite{gottesman2014faulttolerant} and even with only constant overhead at the original circuit width \cite{grospellier:tel-03364419},  polylogarithmic depth  \cite{tamiya2024polylogtimeconstantspaceoverheadfaulttolerantquantum}, and logarithmic depth \cite{Nguyen2024QuantumFT}. 
+Recently, the feasibility question has been raised again, this time regarding quantum circuits, and while an intensive work has been done, and also succeed to prove that polynomial quantum computation can be made fault tolerance, \cite{aharonov1999faulttolerant},\cite{gottesman2014faulttolerant} and even with an only constant overhead at the original circuit width \cite{grospellier:tel-03364419},  polylogarithmic depth  \cite{tamiya2024polylogtimeconstantspaceoverheadfaulttolerantquantum}, and logarithmic depth \cite{Nguyen2024QuantumFT}. 
 Yet the minimal required depth overhead is still not well understood.
 That raises our first open problem:
 \begin{openproblem}
@@ -122,19 +122,17 @@ In addition to NISQ, another common characterization for limited quantum computa
 Assuming there are $\Theta(\log(n))$-depth circuits that can be fault-tolerized at the cost of $O(1)$-depth overhead, could those constructions be generalized to hold in the non-reset gates regime?
 \end{openproblem}
 
-
-Last but not least, we would like to connect fault-tolerance results to complexity theory in a broad manner. Historically, new inventions of error correction codes stimulate advances in PCP theory and vice versa. For instance, the left-right Cayley complex \cite{Dinur}, \cite{leverrier2022quantum}, \cite{Pavel}, was used recently in \cite{bafna2024quasilinearsizepcpssmall} to design a routing net that is robust to collapses, which in turn was used to construct a proof-checking scheme in a similar fashion to the Polishchuk-Spielman manner \cite{10.1145/195058.195132}. Another recent result showed that having an $O(1)$-depth overhead fault tolerance protocol implies that quantum PCP with logarithmic soundness could be achieved \cite{Anshu_2024}. Thus, we ask the following:
+Last but not least, we would like to connect fault-tolerance results to complexity theory in a broad manner. Historically, new inventions of error correction codes have stimulated advances in PCP theory and vice versa. For instance, the left-right Cayley complex \cite{Dinur}, \cite{leverrier2022quantum}, \cite{Pavel} was used recently in \cite{bafna2024quasilinearsizepcpssmall} to design a routing net that is robust to collapses, which in turn was used to construct a proof-checking scheme in a manner similar to the Polishchuk-Spielman approach \cite{10.1145/195058.195132}. Another recent result showed that having an $O(1)$-depth overhead fault tolerance protocol implies that quantum PCP with logarithmic soundness could be achieved \cite{Anshu_2024}. Thus, we suggest the following vague question:
 
 \begin{openproblem}
-Assuming there are $\Theta(\log(n))$-depth circuits that can be fault-tolerized at the cost of $O(1)$-depth overhead, could those constructions be generalized to hold in the non-reset gates regime?
+Whether fault-tolerant construction can help to design a verification scheme? Does an analog to the robustness routing protocol exist for verifying quantum computations? What else can be borrowed from the fault-tolerant world for the use of quantum PCP?
 \end{openproblem}
 }
 
-Something about the importance of fault tolerance computation to PCP construction. New classical \cite{bafna2024quasilinearsizepcpssmall}, and quantum construction . \cite{10.1145/195058.195132} Seems like a construction that based on the fact that the previews circuit was fault tolerance. 
-%This work address the above, We ask whether a magnitude depth overhead is an unavoidable price that one has to pay. And, in particular, whether an ideal $\QNCon$, the class of problem can be decided by logarithmic depth quntum circuits, can be computed in noisy-$\QNCon$ circuits. We show how using the ideas presented in \cite{grospellier:tel-03364419} and \cite{Pippenger} gives almost immediately $\QNCzef \subset$ \noiseQNCon and that sampling from IQP, Instantaneous Quantum Polynomial-time \cite{Bremner_2017}, \cite{Paletta_2024}, also can be done in logarithmic depth circuits.    
-This work addresses the above. We ask whether a magnitude depth overhead is an unavoidable price that one has to pay, If a Constant Depth Fault Tolerance Construction (\CDO{}) exists, and if so, how to construct it. In particular, whether an ideal $\QNCon{}$, the class of problems that can be decided by logarithmic depth quantum circuits, can be computed in noisy-$\QNCon{}$ circuits.
 
-Additionally, we extend the question beyond the standard classes and ask about fault-tolerant sampling. Specifically, we consider several sampling processes by shallow quantum circuits, which are believed to be infeasible for classical circuits, such as Instantaneous Quantum Polynomial-time \cite{Bremner_2017}, \cite{Paletta_2024}, and ask about the depth efficiency of their fault-tolerant version.
+%This work address the above, We ask whether a magnitude depth overhead is an unavoidable price that one has to pay. And, in particular, whether an ideal $\QNCon$, the class of problem can be decided by logarithmic depth quntum circuits, can be computed in noisy-$\QNCon$ circuits. We show how using the ideas presented in \cite{grospellier:tel-03364419} and \cite{Pippenger} gives almost immediately $\QNCzef \subset$ \noiseQNCon and that sampling from IQP, Instantaneous Quantum Polynomial-time \cite{Bremner_2017}, \cite{Paletta_2024}, also can be done in logarithmic depth circuits.    
+
+
 
 %$\QNCzef \subset$ \noiseQNCon 
 %
@@ -149,7 +147,10 @@ Additionally, we extend the question beyond the standard classes and ask about f
 
 \ifdefined\DEBUG
   
-  
+Additionally, we extend the question beyond the standard classes and ask about fault-tolerant sampling. Specifically, we consider several sampling processes by shallow quantum circuits, which are believed to be infeasible for classical circuits, such as Instantaneous Quantum Polynomial-time \cite{Bremner_2017}, \cite{Paletta_2024}, and ask about the depth efficiency of their fault-tolerant version.
+
+ This work addresses the above. We ask whether a magnitude depth overhead is an unavoidable price that one has to pay, If a Constant Depth Fault Tolerance Construction (\CDO{}) exists, and if so, how to construct it. In particular, whether an ideal $\QNCon{}$, the class of problems that can be decided by logarithmic depth quantum circuits, can be computed in noisy-$\QNCon{}$ circuits. 
+
 The proposal is organized as follows. \Cref{sec:nota} presents the notations, formal definitions, and states the open problems that will be studied through the research. Then, \Cref{sec:opt} describes strategies to prove \CDO{}. In particular, it lists primitives that can be used to achieve it and discusses how far we are from obtaining them. Having said that, \Cref{sec:passi} presents the first cues against the possibility of \CDO{} and provides the entry points to prove the impossibility claim. Finally, \Cref{sec:app} discusses the applications and implications of either the correctness of \CDO{} or the impossibility of \CDO{}, from both theoretical and practical views.
 
 
