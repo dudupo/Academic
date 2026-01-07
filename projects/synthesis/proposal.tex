@@ -65,67 +65,67 @@ The Quantum Computation model is widely believed to be superior to classical mod
 Recently, the feasibility question has been raised again, this time regarding quantum circuits, and while an intensive work has been done, and also succeed to prove that polynomial quantum computation can be made fault tolerance, \cite{aharonov1999faulttolerant},\cite{gottesman2014faulttolerant} and even with an only constant overhead at the original circuit width \cite{grospellier:tel-03364419},  polylogarithmic depth  \cite{tamiya2024polylogtimeconstantspaceoverheadfaulttolerantquantum}, and logarithmic depth \cite{Nguyen2024QuantumFT}. 
 Yet the minimal required depth overhead is still not well understood.
 That raises our first open problem:
-\begin{openproblem}
+\begin{oproblem}
 Is there a fault-tolerance scheme that maps circuits to noise-tolerant versions with a depth that is at most a constant times more? If not, what is the lower bound for depth overhead?
-\end{openproblem}
+\end{oproblem}
 
 We stress that in all the mentioned constructions, the original constant-depth gates are mapped to logical presentations whose underlying implementation has asymptotically growing depth. This is in contrast to Pippenger \cite{Pippenger}, where the logical gates are $O(1)$-depth circuits.
 
 Such an expansion prevents any construction that merely shifts presentations without interfering with the logical computation path of the original circuits from reaching a constant depth overhead. Previous works have made way to bypass this obstacle; notably, \cite{nguyen2024goodbinaryquantumcodes} and \cite{li2025poincaredualitymultiplicativestructures} present good error correction codes with transversal $\mathbf{CCZ}$ gates, and the series of works by Bombin \cite{PhysRevLett.97.180501}, \cite{PhysRevA.81.032301}, \cite{Bombín_2015} yield the 2D-color and 3D-color codes, which can be embedded on low-dimensional lattices (2D and 3D) and offer transversal gate implementation, where the first offers the whole Clifford group and the second the $\mathbf{T}$ gate. However, no code with a non-trivial distance and $O(1)$-depth implementation for a complete universal gate set is known what raises our following open problem:
-\begin{openproblem}
-  \label{openproblem:constantd}
+\begin{oproblem}
+  \label{oproblem:constantd}
   Is there an error correction code with non-trivial distance for which a full universal gate set over the logical qubits can be realized at constant depth? 
-\end{openproblem}
+\end{oproblem}
 Since error correction codes with trivial distance might have a constant depth realization of a universal gate set (take, for example, the code where any codeword consists of a single physical qubit that encodes the logical state, adjacent to garbage), it is also interesting to ask whether there is a turning point:
-\begin{openproblem}
-If the answer to \Cref{openproblem:constantd} is yes, what is the minimum distance for which there exists a code with that distance, and the code provides a universal gate set realization at constant depth?
-\end{openproblem}
+\begin{oproblem}
+If the answer to \Cref{oproblem:constantd} is yes, what is the minimum distance for which there exists a code with that distance, and the code provides a universal gate set realization at constant depth?
+\end{oproblem}
 
 
 Similarly, one can also ask whether the code dimension plays a role in the feasibility of realizing logical gates. Recent work provides a first result regarding the width-depth tradeoff. Specifically, they show that for classical codes with distance $d$, for any logical qubit $i$, there exists a logical qubit $j \neq i$ such that the code offers the $\mathbf{CX_{i,j}}$ logical gate at most at $l$-depth. Then, it must hold that $k = O\left(\frac{n}{d^{2^{-l}}}\right)$. They also mention that their proof does not imply an analogous tradeoff relation for quantum codes. This brings us to ask if the result can be generalized to the implementation of general gates and to quantum error correction codes.
 
-\begin{openproblem}
+\begin{oproblem}
 Whether there is a relation between the depth of a logical gate of an error correction code and the dimension and depth of that code. Is that relation identical for both classical and quantum codes? If not, how does the trade-off behave in each case?
-\end{openproblem}
+\end{oproblem}
 
 
 Zooming out from the operations over code blocks raises the question in the context of fault-tolerant circuits. In classical settings, lower bounds on the overall circuit size were established. A series of works \cite{AnnaGal}, \cite{185425}, showed that fault-tolerant circuits that compute Boolean functions that are $s$-sensitive, meaning that a change in one of $s$ bits in the input leads to a different output, must exhibit at least $\Omega(s \log s)$ size. In particular, a fault-tolerant circuit that computes the $n$-bit $\mathbf{Xor}$ function must have $\Omega(n \log n)$ size. 
 
 Furthermore, \cite{10.1007/11672142_44} exhibits a trade-off in a model in which the given input is already encoded. In that model, they provide a fault-tolerant circuit with a width overhead of the circuit being $\Theta(\frac{\log n}{\log \log n})$, while the depth overhead is $\Theta(\log \log n)$. So, it's attempting to ask if for any $w$ and $d$ such that $w \cdot d = \log(n)$, a fault-tolerant circuit with $w$ and $d$ width and depth overhead can be realized:
 
-\begin{openproblem}
+\begin{oproblem}
 Consider a circuit over $n$ classical (quantum) bits. What are the domains of depth $d$ and width $w$ for which the circuit can be fault-toleraized at the cost of $w$ and $d$ width and depth overheads? How does the answer change if we assume encoded input?
-\end{openproblem}
+\end{oproblem}
 
 The questions above address the fault tolerance of general circuits, but focusing on shallow circuits also attracts special interest, particularly for near-term applications. Since today's quantum machines struggle to maintain quantum states for extended periods, researchers were motivated to define \textbf{NISQ}, which stands for Noisy Intermediate-Scale Quantum, referring to the current era of quantum computing characterized by quantum processors with a limited number of qubits and susceptibility to errors due to noise. 
 Nevertheless, there are certain known problem candidates for demonstrating quantum advantage, such as factoring \cite{Shor_1997} and Instantaneous Quantum Polynomial-time \cite{Bremner_2017}, \cite{Paletta_2024}, which have been proven to be solvable by sampling from logarithmic-depth quantum circuits.
 We emphasize that in \cite{Paletta_2024} they showed a realization that uses constant quantum depth circuits with the intermediation of a polynomial classical circuit in the middle. From a technical perspective, that means that to implement the protocol, one has to protect the quantum state for the time that the classical routine lasts.
 Hence, it is interesting to ask what both quantum and classical low-resource fault-tolerant realizations can be designed for those particular problems.
 
-\begin{openproblem}
+\begin{oproblem}
 Does sampling from $\mathbf{IQP}$ have a fault-tolerant realization using $\log n$ depth circuits, namely an $O(1)$-depth overhead? Or at least, is it possible to postpone all the classical computation until after the qubits are measured?
 Are there any other candidates for demonstrating quantum advantage that can be realized using shallow circuits?
-\end{openproblem}
+\end{oproblem}
 
 
 Another application that uses logarithmic depth is encoding. It was shown in \cite{moore1998parallel} that stabilizer codes can be prepared at logarithmic depth, and not only that, but the preparation circuit is composed of only Hadamard and controlled-Pauli gates. In other words, the family of encoder circuits is much less rich than general circuits, and therefore, it is interesting to ask about the synthesis of encoded codewords. By synthesis, we mean generating the encoded codeword itself and not a logical representation of it (not a concatenation with another code).
 
-\begin{openproblem}
+\begin{oproblem}
 Do encoders have a fault-tolerant realization with an $O(1)$-depth overhead?
-\end{openproblem}
+\end{oproblem}
 
 
 In addition to NISQ, another common characterization for limited quantum computation is computation without reset gates — namely, the gates which initialize qubits to the zero state $\ket{0}$. It was proved that in this model, when restricted to polynomial space, any computation that lasts longer than logarithmic depth results in noise \cite{aharonov1996limitationsnoisyreversiblecomputation}. Having a constant depth-overhead fault tolerance scheme would imply the feasibility of log depth computation in that model.
   
-\begin{openproblem}
+\begin{oproblem}
 Assuming there are $\Theta(\log(n))$-depth circuits that can be fault-tolerized at the cost of $O(1)$-depth overhead, could those constructions be generalized to hold in the non-reset gates regime?
-\end{openproblem}
+\end{oproblem}
 
 Last but not least, we would like to connect fault-tolerance results to complexity theory in a broad manner. Historically, new inventions of error correction codes have stimulated advances in PCP theory and vice versa. For instance, the left-right Cayley complex \cite{Dinur}, \cite{leverrier2022quantum}, \cite{Pavel} was used recently in \cite{bafna2024quasilinearsizepcpssmall} to design a routing net that is robust to collapses, which in turn was used to construct a proof-checking scheme in a manner similar to the Polishchuk-Spielman approach \cite{10.1145/195058.195132}. Another recent result showed that having an $O(1)$-depth overhead fault tolerance protocol implies that quantum PCP with logarithmic soundness could be achieved \cite{Anshu_2024}. Thus, we suggest the following vague question:
 
-\begin{openproblem}
+\begin{oproblem}
 Whether fault-tolerant construction can help to design a verification scheme? Does an analog to the robustness routing protocol exist for verifying quantum computations? What else can be borrowed from the fault-tolerant world for the use of quantum PCP?
-\end{openproblem}
+\end{oproblem}
 
 
 %This work address the above, We ask whether a magnitude depth overhead is an unavoidable price that one has to pay. And, in particular, whether an ideal $\QNCon$, the class of problem can be decided by logarithmic depth quntum circuits, can be computed in noisy-$\QNCon$ circuits. We show how using the ideas presented in \cite{grospellier:tel-03364419} and \cite{Pippenger} gives almost immediately $\QNCzef \subset$ \noiseQNCon and that sampling from IQP, Instantaneous Quantum Polynomial-time \cite{Bremner_2017}, \cite{Paletta_2024}, also can be done in logarithmic depth circuits.    
@@ -559,17 +559,17 @@ Having a \CDO{} is the first stage in realizing a quantum advantage when restric
   %For a fixing finate fan in/out gateset $G$, the class with deciding circuits composed only for gates in $G$ and at depath at most polylogaritmic. And in similar to $\QNC_{i}$, $\QNCiG$ is the restirction to circuits with depath at most $\log^{i}(n)$.  
 %\end{definition}
 %
-%\begin{openproblem}
+%\begin{oproblem}
 %Consider a fault tolerance scheme $\tilde{C}$ for a logical circuit $C$ which uses the logical gateset $V_{1}, V_{2}, .. V_{t}$. Given a set of fault tolerance logical gates $U_{1}, U_{2}, .. U_{t}$, how would the fault tolerance version of $C$ look when using $U_{1}, U_{2}, .. U_{t}$? Specifically, is rewriting the Solovay-Kitaev again might give a lower depth ciruit?
-%\end{openproblem}
+%\end{oproblem}
 %
-%\begin{openproblem}
+%\begin{oproblem}
 %Given a code with non-trivial distance, what is the complexity of performing gate teleportation, specifically computing the $T$ gate? Or computing a gate which is at the $j$-level of the Clifford hierarchy? What is the classical computation time needed to perform the correction? (Find the right Clifford gate for fixing the computation).
-%\end{openproblem}
+%\end{oproblem}
 %
-%\begin{openproblem}
+%\begin{oproblem}
   %Is it possible to compute fault tolerance without paying a significant overhead at the depth of the circuits? In particular, Is it $\QNCon \subset \text{noisy}-\QNCon$.
-%\end{openproblem}
+%\end{oproblem}
 %
 %
 %\section{Todo:}
