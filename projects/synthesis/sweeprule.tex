@@ -178,7 +178,6 @@ Consider the assignment of bits at time $t-1$ over the complex, and consider the
 
     \item  Else, if for any $u$ it holds that $\hat{u}|_{e} = \emptyset$, then it must be that $e \in H_{e}$ because $\hat{v}$ can only decrease the syndrome on $v$. Moreover, it follows that $\hat{v} = \emptyset$ (otherwise, the suggestion would zero out the syndrome on $\uparrow(v) \cap lk_{2}$). Thus, $\sigma_{v} \not\subset \uparrow(v) \cap lk_{2} \Rightarrow$ there is also an edge $e^{\prime} \in H_{e}$ where $e^{\prime} \in \downarrow(v)$. In that case, take $e \in H_{e}$ as the edge satisfies the first $d$ equalities and $e^{\prime}$ for satisfying the $d+1$th inequality.
   \end{enumerate}
-\end{proof}
 
 
 \begin{figure}[h]
@@ -204,8 +203,9 @@ Consider the assignment of bits at time $t-1$ over the complex, and consider the
 \fill (0,1,0) circle (0.5pt);
 \fill (0,2,1) circle (0.5pt);
 \end{tikzpicture} 
-  \caption{SWEEP rule}
-  \label{fig:sweep}
+\caption{  The induction base: In red, we have the faces on the support of $u$. The blue edge has the same $x$-coordinate as $e$. Any attempt to zero out the syndrome on the edge results in adding a face that is at least 2-far from $u$. Any configuration which is at most 1-far from $u$ has to have that local view, yet might be connected to more faces which don't adjoin the blue edge. }
+  \label{fig:base}
 \end{figure}
 
+\end{proof}
 \end{document}
