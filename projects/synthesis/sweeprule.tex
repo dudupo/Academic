@@ -159,7 +159,7 @@ Numerically, we show that the span property holds for the checks. Namely, let $e
 \begin{proof}
   Consider a vertex $v$ which at time $t$ adjoins to an unsatisfied edge $e$, let $u,w$ be vertices which have a positive faces that adjoin to $e$. 
   \begin{enumerate}
-    \item If $\hat{u}|_{e} \neq \emptyset$, 
+    \item If $\hat{u}|_{e} \neq \emptyset$. Idea: At least two (tree in 4D) directions are taken by faces on $u$, then we track over a faces paths that is positive in the remain direction, we know that we always can go forward, otherwize we close a stabilizer what contradicts .. (Require refiname, couse we can go backward yet don't expect to back to the starting point). 
     \item  Else, if for any $u$ it holds that $\hat{u}|_{e} = \emptyset$, then it must be that $e \in H_{e}$ because $\hat{v}$ can only decrease the syndrome on $v$. Moreover, it follows that $\hat{v} = \emptyset$ (otherwise, the suggestion would zero out the syndrome on $\uparrow(v) \cap lk_{2}$). Thus, $\sigma_{v} \not\subset \uparrow(v) \cap lk_{2} \Rightarrow$ there is also an edge $e^{\prime} \in H_{e}$ where $e^{\prime} \in \downarrow(v)$. In that case, take $e \in H_{e}$ as the edge satisfies the first $d$ equalities and $e^{\prime}$ for satisfying the $d+1$th inequality.
   \end{enumerate}
 \end{proof}
