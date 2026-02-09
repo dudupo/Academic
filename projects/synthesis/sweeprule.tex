@@ -185,9 +185,10 @@ Consider the assignment of bits at time $t-1$ over the complex, and consider the
   \centering
   \begin{tikzpicture}[scale=3]
 
-%\fill[red!30]
- % (1,1,0) -- (2,1,0) -- (2,2,0) -- (1,2,0) -- cycle;
-% draw grid lines
+\fill[red!30]
+  (0,1,1) -- (0,1,0) -- (0,2,0) -- (0,2,1) -- cycle;
+\fill[red!30]
+  (0,1,1) -- (1,1,1) -- (1,2,1) -- (0,2,1) -- cycle;
 
 % draw lattice points
 \draw[gray] (1,1,1) -- (1,2,1);
