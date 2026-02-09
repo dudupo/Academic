@@ -221,6 +221,11 @@ Consider the assignment of bits at time $t-1$ over the complex, and consider the
     let $Q \leftarrow $ queue $\{ e \}$\\
     \While{ $Q$ is not empty  }{
       $e^{\prime} \leftarrow $ dequeue $Q$ \\
+      \If { $e^{\prime} \notin $ Error }{
+        $e_{1},..,e_{l} \leftarrow $ Excuse( $e^{\prime}$ ) \\
+        Insert $\{e_{i}, e^{\prime} \}$ to Arrows\\
+        Insert $\{e_{i}, e_{j} \}$ to Forks
+      }
     }
     \caption{Investigation}
   \end{algorithm}
