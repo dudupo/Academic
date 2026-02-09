@@ -1,0 +1,83 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+\documentclass[manuscript,screen,review]{acmart}
+
+\else
+ \documentclass[14pt]{article}
+%\usepackage{libertine}
+\usepackage{cuted}%\usepackage{widetext}
+\input{./usepackage}
+\usepackage{cancel}
+\usepackage{subcaption}
+\addbibresource{./sample.bib}
+
+\fi
+
+\begin{document}
+\input{newcommands}
+%\title{ $\textbf{QNC}_{1} \subset $ noisy-\textbf{BQP}}
+\title{ SWEEP rule on the KD-Toric code }
+%\author{Michael Ben-Or \ \ David Ponarovsky}
+\maketitle
+
+\newcommand*{\Mbas}{\mathcal{X}^\prime}
+\newcommand*{\bas}{\mathcal{X}}
+\newcommand*{\sMbas}{\Mbas}
+\newcommand*{\QQ}{C_{X}/C_{Z}^\perp }
+\newcommand*{\trig}{ Triorthogonal }
+\newcommand*{\Hyp}{ Hyperproduct }
+\newcommand*{\Cin}{ C_{\text{initial}} }
+\newcommand*{\Ctan}{ C_{\text{Tan}} }
+
+
+
+\newcommand*{\QACze}{\mathbf{QAC}_{0}}
+\newcommand*{\QNCzef}{\mathbf{QNC}_{0,f}}
+\newcommand*{\QNCze}{\mathbf{QNC}_{0}}
+\newcommand*{\QNCon}{\mathbf{QNC}_{1}}
+\newcommand*{\NCon}{\mathbf{NC}_{1}}
+\newcommand*{\noiseQNCon}{noisy-$\QNCon$}
+\newcommand*{\QNC}{\mathbf{QNC}}
+\newcommand*{\QNCG}{\mathbf{QNC_G}}
+\newcommand*{\NC}{\mathbf{NC}}
+\newcommand*{\QNCiG}{\mathbf{QNC_{G,i}}}
+
+
+% Constant depth fault tolerance construction.   
+\newcommand*{\CDO} {CDFT} 
+\newcommand*{\xb}{\mathbf{x}}
+\section{Span Expansion}
+
+Define the potentials functions $L_{i} : \mathbb{R}^{d} \rightarrow \mathbb{R}$ as follow\footnote{Notice that we use opposite signs relative to Berman and Peter Gacs, yet we agree with Perskil.}: 
+\begin{equation*}
+  \begin{split}
+L_{i}(\xb{}) =    \begin{cases}
+  \xb{}_{i} & i < d + 1 \\ 
+  - \braket{\mathbf{1}, \xb{}} & i = d+1
+\end{cases}
+  \end{split}
+\end{equation*}
+The \textbf{Size} of a subset $S$ is defined as:   
+\begin{equation*}
+  \begin{split}
+  \mathbf{Size}(S) = \sum_{i}\max_{\xb{} \in S} L_{i}(\xb{})
+  \end{split}
+\end{equation*}
+Numerically, we show that the span property holds for the checks. Namely, let $e$ be an unsatisfied check at time $t$, and let $H_{e}$ be the unsatisfied checks at time $t-1$. Then there is a set $H^{\prime}_{e} \subset H_{e}$ such that:
+\begin{enumerate}
+  \item For any $i < d + 1$ there exists $e^{\prime} \in H^{\prime}_{e}$ such $L_{i}(e^{\prime}) \ge L_{i}(e)$. 
+  \item There exists $e^{\prime} \in H^{\prime}_{e}$ such that $L_{d+1}(e^{\prime}) \le L_{d+1}(e) + 1 $. 
+\end{enumerate}
+
+\begin{proof}
+  
+\end{proof}
+
+
+
+\end{document}
