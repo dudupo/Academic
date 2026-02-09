@@ -210,8 +210,22 @@ Consider the assignment of bits at time $t-1$ over the complex, and consider the
 
     \item  Else, if for any $u \in \downarrow(u) \cap lk_{1}$ it holds that $\hat{u}|_{e} = \emptyset$, then it must be that $e \in H_{e}$ because $\hat{v}$ can only decrease the syndrome on $v$. Moreover, it follows that $\hat{v} = \emptyset$ (otherwise, the suggestion would zero out the syndrome on $\uparrow(v) \cap lk_{2}$). Thus, $\sigma_{v} \not\subset \uparrow(v) \cap lk_{2} \Rightarrow$ there is also an edge $e^{\prime} \in H_{e}$ where $e^{\prime} \in \downarrow(v)$. In that case, take $e \in H_{e}$ as the edge satisfies the first $d$ equalities and $e^{\prime}$ for satisfying the $d+1$th inequality.
   \end{enumerate}
-
-
-
 \end{proof}
+
+\begin{definition}[Investigation]
+  For any unsatisfied check $e$ at time $t$, we define $V$ (the set of checks which participated in 'misleading' of $e$), and two sets of edges on $V$, Arrows and Forks via the following algorithm: 
+
+
+  \begin{algorithm}[H]
+    let $V = \{e\}$, Arrows $= \emptyset$, Forks $= \emptyset$\\
+    let $Q \leftarrow $ queue $\{ e \}$\\
+    \While{ $Q$ is not empty  }{
+      $e^{\prime} \leftarrow $ dequeue $Q$ \\
+    }
+    \caption{Investigation}
+  \end{algorithm}
+  
+
+\end{definition}
+
 \end{document}
