@@ -159,19 +159,21 @@ Numerically, we show that the span property holds for the checks. Namely, let $e
 \begin{proof}
   Consider a vertex $v$ which at time $t$ adjoins to an unsatisfied edge $e$, let $u,w$ be vertices which have a positive faces that adjoin to $e$. 
   \begin{enumerate}
-    \item If $\hat{u}|_{e} \neq \emptyset$. Idea: At least two (tree in 4D) directions are taken by faces on $u$, then we track over a faces paths that is positive in the remain direction, we know that we always can go forward, otherwise we close a stabilizer what contradicts .. (Require refine, cause we can go backward yet don't expect to back to the starting point). 
+    \item If $\hat{u}|_{e} \neq \emptyset$, then the parallel edge to $e$ going out from $u$ belongs to $H_{e}$. Denote it by $e_u$, taking $e_{u}$ satisfies at least two (three in 4D) of the first $d$ inequalities and the last $d+1$th inequality. Denote by $x \in [d]$ the index of the inequality which isn't satisfied by $e_{u}$. So it remains to prove the existence of $e^{\prime} \in H_{e}$ for which $L_X(e^{\prime}) \ge L_{X}(e)$.
 
-      Let $G \subset \mathcal{F}$ be a connected component of faces that contains $b_u$. We say that $G$ is $d$ far from $u$ if   
+Consider the assignment of bits at time $t-1$ over the complex, and consider the graph $G = \left( \mathcal{F}, E \right)$ induced by associating vertices with any face that is set to $1$ by the assignment. Two vertices are connected if their origin faces share an edge. Let $K \subset \mathcal{F}$ be a connected component of faces that contains the faces supported on $u$.
+
+      We say that $K$ is $d$ far from $u$ if:   
       \begin{equation*}
         \begin{split}
-          \max_{f \in G} | f_{x} - u_{x} | \le d
+          \max_{f \in K} | f_{x} - u_{x} | \le d
         \end{split}
       \end{equation*}
-      Now, we will prove by induction on $d$ that there is a face $f \in G$ with $f_{x} \ge v_{x}$ such one of its edge is not satisfied. 
+      Now, we will prove by induction on $d$ that there is a face $f \in K$ with $f_{x} \ge v_{x}$ such one of its edge is not satisfied. 
       \begin{enumerate}
         \item \textbf{Base.} The edge from $v$ which point at the $\hat{z}$ direction must not be satisfied.   
-        \item \textbf{Assumption.} Assume that for any $G$ which is at most $d$ far from $u$ there is a face, with adjoins edge that is both has a $x$-coordinate that is greater than $u_{x}$ and is not satisfied.   
-        \item \textbf{Induction Step.} Notice that if by substitute a stabilizer from $G$ we get $G^{\prime}$ that is at most $d^{\prime}$ far from $u$ for some $d^{\prime} < d$ then we done.  
+        \item \textbf{Assumption.} Assume that for any $K$ which is at most $d$ far from $u$ there is a face, with adjoins edge that is both has a $x$-coordinate that is greater than $u_{x}$ and is not satisfied.   
+        \item \textbf{Induction Step.} Notice that if by substitute a stabilizer from $K$ we get $G^{\prime}$ that is at most $d^{\prime}$ far from $u$ for some $d^{\prime} < d$ then we done.  
       \end{enumerate}
 
     \item  Else, if for any $u$ it holds that $\hat{u}|_{e} = \emptyset$, then it must be that $e \in H_{e}$ because $\hat{v}$ can only decrease the syndrome on $v$. Moreover, it follows that $\hat{v} = \emptyset$ (otherwise, the suggestion would zero out the syndrome on $\uparrow(v) \cap lk_{2}$). Thus, $\sigma_{v} \not\subset \uparrow(v) \cap lk_{2} \Rightarrow$ there is also an edge $e^{\prime} \in H_{e}$ where $e^{\prime} \in \downarrow(v)$. In that case, take $e \in H_{e}$ as the edge satisfies the first $d$ equalities and $e^{\prime}$ for satisfying the $d+1$th inequality.
