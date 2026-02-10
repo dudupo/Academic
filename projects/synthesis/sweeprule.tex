@@ -315,19 +315,24 @@ We say that a check $e \in $ Error, if there is a face $f$ that adjoin to $e$ an
   \end{figure}
 
 
-  \begin{definition}[History, slice.] $G_{u}$ is the subgraph of $\braket{V, \text{Arrows} }$ induced by $ \{ v~\in V~:~\mathbf{Time}(v)~\le~\mathbf{Time}(u)\}$. $\mathbf{History}(u)$ is the connecting connected component of $G_{u}$ containing $u$. A slice is an equivalence class of the relation $u \equiv v$ iff $\mathbf{History}(u) = \mathbf{History}(v)$.
+  \begin{definition}[History, slice.]
+
+    $G_{u}$ is the subgraph of $\braket{V, \text{Arrows} }$ induced by $ \{ v~\in V~:~\mathbf{Time}(v)~\le~\mathbf{Time}(u)\}$. $\mathbf{History}(u)$ is the connecting connected component of $G_{u}$ containing $u$. A slice is an equivalence class of the relation $u \equiv v$ iff $\mathbf{History}(u) = \mathbf{History}(v)$.
 
       Notice that if $u$ and $v$ are in the same slice $K$, then $\mathbf{Time}(u) = \mathbf{Time}(v)$. Thus we can write $\mathbf{Time}(K)$ and $\mathbf{History}(K)$ without ambiguity. 
   \end{definition}
 
   \begin{claim} 
+
     If for two different slices $K_{1}$ and $K_{2}$ we have that $\mathbf{Time}(K_{1}) = \mathbf{Time}(K_{2})$, then $\mathbf{History}(K_{1})$ and $\mathbf{History}(K_{2})$ are disjoint. 
   \end{claim}
   \begin{proof}
     Directly from definitions. 
   \end{proof}
 
-  \begin{definition}[The graph of slice] For a slice $K$ we define the graph $G_{K} = \braket{V_{K}, E_{K}}$ as follows:
+  \begin{definition}[The graph of slice]
+
+    For a slice $K$ we define the graph $G_{K} = \braket{V_{K}, E_{K}}$ as follows:
     \begin{enumerate}
       \item $V_{K} = \{ \text{slice } R : R \subset \mathbf{History}(K) \text{ and } \mathbf{Time}(R) = \mathbf{Time}(K) - 1 \}$
       \item $ \{ R, S \} \in E_{K} $ iff $R,S \in V_{K}$ and for some $\{v,w\} \in \text{Forks}$ we have $v\in R$ and $w \in S$.
