@@ -318,7 +318,9 @@ We say that a check $e \in $ Error, if there is a face $f$ that adjoin to $e$ an
   \newcommand{\History}[1]{\mathbf{History}(#1)}
   \newcommand{\Time}[1]{\mathbf{Time}(#1)}
   \newcommand{\Excuse}[1]{\mathbf{Excuse}(#1)}
+  \newcommand{\Excusei}[1]{\mathbf{Excuse}_{i}(#1)}
   \newcommand{\Size}[1]{\mathbf{Size}(#1)}
+  \newcommand{\Span}[1]{\mathbf{Span}(#1)}
 
   \begin{definition}[History, slice.]
 
@@ -375,7 +377,22 @@ If for two different slices $K_{1}$ and $K_{2}$ we have that $\Time{K_1}) = \Tim
     \end{equation*}
   \end{proof}
 
+  \begin{claim}
+    Let $K = \braket{K, v_{1}, .. v_{d+1}}$ be a spanned slice of the investigation such that $K \neq \History{K}$. Then for some $k$ there exist spanned slices $K_{0}, ..,K_{k}$ and Forks $F_{1},..,F_{k}$ such that:
+    \begin{enumerate}
+      \item $ \Excusei{v_{i}} $ belongs to poles of $K_{0},..,K_{k}$.  
+      \item Introduce an edge between $K_{i}$ and $K_{j}$ iff one of the Forks $F_{1},..,F_{k}$ consists of a pole of $K_{i}$ and a pole of $K_{j}$. Then the graph formed from $K_{0},..,K_{k}$ is connected.  
+      \item $\sum_{i=0}^{k}\Span{K_{i}} \ge \Span{K} + 1 - k $
+    \end{enumerate}
+  \end{claim}
+  \begin{proof}
+    First Notice that $K$ doesn't contain points for which \textbf{Error} is true: they would not connected to any other points in $\History{K}$ via arrows. Thus $\Excusei{v_{i}}$ is defined for $i=1,..,d+1$. Next consider the graph $G_{K}=\braket{V_{K},E_{K}}$ from \Cref{claim:}. $V_{K}$ consists of those $R$ for which $\Time{R} + 1 = \Time{K}$ and which are contained in $\History{K}$. Since $\{ v_{i}, \Excusei{v_{i}} \}$ is an arrow $\Excusei{v_{i}}$ belongs to a slice $R_{i}$ from $V_{K}$, for $i=1,..,d+1$. 
 
+    Since $G_{K}$ is connected and its edges are realized by forks, there exist a minimal collection $\{K_{0},..,K_{k}\}$ of slices form $V_{K}$ which contains $R_{1},R_{2},..R_{d+1}$, and which is connected in $G_{K}$. We pick a set of forks $\mathbf{F} = \{F_{1},..,F_{k} \}$ which realizes a spanning tree for this collection of slices. Later we will identify edges from this spanning tree with the forks from $\mathbf{F}$.  
+
+  
+
+  \end{proof}
 
 
 
