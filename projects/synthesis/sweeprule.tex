@@ -421,7 +421,23 @@ If for two different slices $K_{1}$ and $K_{2}$ we have that $\Time{K_1}) = \Tim
   \begin{proof}
     Let $h = \Time{K} - \min_{u \in \History{K}}\Time{u}$. The proof is by induction on $h$. 
     \begin{enumerate}
-      \item Base. $h=0$. 
+      \item Base. $h=0$. Then no arrows can connect points of $\History{K}$, Thus $\History{K}$, as well as $\mathbf{K}$ consists of a single point $u$ such that $u \in $ Error \ctt{Leaves}. In that case $U = W = \{u\}$, $m=1, s =0$ and $|R|,|F| = 0$ satisfies the required.  
+      \item Induction Step. Now, we know that $K \neq \History{K}$. Thus, by \Cref{claim:}, we know that for some $k$ there exist spanned slices $K_{0}, .., K_{k}$ and forks $F_{1},..,F_{k}$ that satisfy \Cref{claim:}. 
+
+        Let $s_{i} = \Span{K_{i}}$. By the inductive hypothesis, we know that $K_{i}$ has an explanation $\mathbf{W}_{i}, \mathbf{R}_{i}, \mathbf{F}_{i}$. For $m_{i} =|\mathbf{W}_{i}|$, the sets $R_{i}$ and $F_{i}$ have at most $\alpha m_{i} - \beta s_{i}$ and $m_{i}-1$ leaves. We define:
+        \begin{enumerate}
+          \item $\mathbf{W} = \cup_{i=0}^{k} \mathbf{W}_{i}$, with $m = \sum_{i=0}^{k}m_{i}$ leaves. Notice that $\mathbf{W}_{i} \subset K_{i}$ and that $\Time{K_{i}} = \Time{K_{j}}$ for all $i,j$, thus by \Cref{claim:} $\mathbf{W}$ is a union of disjoint set. 
+          \item $\mathbf{F} = \{ F_{1},..,F_{k} \} \cup_{i = 0}^{k}\mathbf{F}_{i}$ with at most $ k + \sum_{i=0}^{k}{m_{i} -1 } = m- 1$ elements. 
+          \item $\mathbf{R} = \{ \{v_{i}, \Excusei{v_{i}} \} \} \cup_{i=0}^{k}{ \mathbf{R}_{i} }$ with at most 
+            \begin{equation*}
+              \begin{split}
+                & d+1 + \sum^{k}_{i=0}{\alpha m_{i} - \beta s_{i} } \le d+1 + \alpha m - \beta\left(s - 1 + k \cdot \Span{\text{fork}}  \right) \\
+                = & \alpha m - \beta s + \left( d+1 + \beta - \beta k \cdot \Span{\text{fork}} \right)
+              \end{split}
+            \end{equation*}
+        \end{enumerate}<++>
+
+
     \end{enumerate}
 
   \end{proof}
