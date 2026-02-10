@@ -402,6 +402,9 @@ If for two different slices $K_{1}$ and $K_{2}$ we have that $\Time{K_1}) = \Tim
   \end{proof}
 
   \section{Explantation of a Spanned Slice}
+
+  \ctt{Here we follow the original proof, but change the triminalogy, $m$ will be the number of leaves in the explanation, then in the end we conclude that the number of faults is at least $m/\Delta$. So $|R| \le f(\frac{m}{\Delta})$. }
+
   \begin{definition}
     Given sets $W$ of points, $R$ of arrows and $F$ of forks, we define $U$ as the set of vertices of the graph induced by the edges of $R \cup F$. The sets $W,R$ and $F$ form an explanation of a spanned slice $K = \braket{ K, v_{1}, .., v_{d+1}}$ iff: 
     \begin{enumerate}
@@ -414,5 +417,13 @@ If for two different slices $K_{1}$ and $K_{2}$ we have that $\Time{K_1}) = \Tim
   \begin{claim}
     Every spanned slice $K = \braket{K,v_{1},..,v_{d+1}}$ has an explanation.
   \end{claim}
+
+  \begin{proof}
+    Let $h = \Time{K} - \min_{u \in \History{K}}\Time{u}$. The proof is by induction on $h$. 
+    \begin{enumerate}
+      \item Base. $h=0$. 
+    \end{enumerate}
+
+  \end{proof}
 
 \end{document}
