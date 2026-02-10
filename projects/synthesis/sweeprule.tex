@@ -318,6 +318,7 @@ We say that a check $e \in $ Error, if there is a face $f$ that adjoin to $e$ an
   \newcommand{\History}[1]{\mathbf{History}(#1)}
   \newcommand{\Time}[1]{\mathbf{Time}(#1)}
   \newcommand{\Excuse}[1]{\mathbf{Excuse}(#1)}
+  \newcommand{\Size}[1]{\mathbf{Size}(#1)}
 
   \begin{definition}[History, slice.]
 
@@ -359,6 +360,23 @@ If for two different slices $K_{1}$ and $K_{2}$ we have that $\Time{K_1}) = \Tim
         By the induction hypothesis, $R$ and $T$ are in the same connected component of $G_{K}$, and so are $U$ and $S$. On the other hand, $\{T,U\} \in E_{K}$.
     \end{enumerate}
   \end{proof}
+
+  \begin{claim}
+    Let $\mathbf{S} = \{ S_{1}, S_{2} , .. , S_{k} \}$ where $S_{i} \subset \mathbb{R}^{d}$, introduce an edge between $S_{i}$ and $S_{j}$ iff $\S_{i} \cap S_{j} \neq \emptyset$. Assume that $\mathbf{S}$ is connected. Then $\Size{\cup^{k}_{i=1} S_{i}} \le \sum^{k}_{i=1}{\Size{S_{i}}}$. 
+  \end{claim}
+  \begin{proof}
+    It suffices to prove that if $R_{1} \cap R_{2} \neq \emptyset$, then $\Size{R_{1} \cup R_{2}} \le \Size{R_{1}} + \Size{R_{2}}$. Let $a_{i,j} = \max_{v \in R_{j}}L_{i}(v)$. Then for any $w \in R_{1}\cap R_{2}$ we have:  
+    \begin{equation*}
+      \begin{split}
+        \Size{R_{1} \cap R_{2}} &= \sum_{i}^{d+1}{\max{ a_{i,1},a_{i,2} } } =  \sum_{i}^{d+1}{a_{i,1} + a_{i,2} - \min{ a_{i,1},a_{i,2} } } \\
+        & \le   \sum_{i}^{d+1}{a_{i,1} + a_{i,2} - L_{i}(w) } = \Size{R_{1}} + \Size{R_{2}} - \Size{w}  \\
+        &  = \Size{R_{1}} + \Size{R_{2}} 
+      \end{split}
+    \end{equation*}
+  \end{proof}
+
+
+
 
 
 \end{document}
