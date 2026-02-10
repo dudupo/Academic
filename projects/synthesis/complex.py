@@ -14,6 +14,11 @@ from multiprocessing import Pool
 DEBUG = False
 DEBUG2 = True
 
+def diff_referance(bit, u, n, op=__sub__):
+    return tuple( tuple( op(x,y) % n for x,y in zip(v,u) ) for v in bit )
+def diff_referance_bits(bits, u, n, op=__sub__):
+    return [ diff_referance(bit, u, n, op=op) for bit in bits ]
+
 def _direct(i,k):
     ret = np.zeros(k, dtype=int)
     ret[i] = 1
@@ -22,7 +27,9 @@ def _direct(i,k):
 def directions_vec(k):
     return [ _direct(i, k)  for i in range(k) ]
 
-
+def local_gen(local_bits):
+    for binary_assignment in product([0,1], repeat = len(local_bits)):
+        yield binary_assignment 
 
 def cells_neighbourhood( k, vertex = None, sign=True, celldim=2, _filter = lambda x : True ) :
 
@@ -322,10 +329,6 @@ class KDgrid:
 
         self.debug_picked = [ ]
 
-        def diff_referance(bit, u, op=__sub__):
-            return tuple( tuple( op(x,y) % self.n for x,y in zip(v,u) ) for v in bit )
-        def diff_referance_bits(bits, u, op=__sub__):
-            return [ diff_referance(bit, u) for bit in bits ]
 
         #def diamond_contained(bits, checks):
             #bits_diamond = self.face_to_vertex(
@@ -359,7 +362,7 @@ class KDgrid:
             not_positive_checks = set(all_checks_around_vertex)- set(checks)
 
 
-            local_view_syndrom = tuple( ( diff_referance(check, vertex), self.local_syndrom(check, assignment ) ) for 
+            local_view_syndrom = tuple( ( diff_referance(check, vertex, self.n), self.local_syndrom(check, assignment ) ) for 
                                         check in all_local_checks)
 
             sig = local_view_syndrom
@@ -373,7 +376,7 @@ class KDgrid:
                 last_local_syndrom += temp
 
             picked = [0] * len(bits)
-            trailing = (all(self.local_syndrom(check, temp_assignment) == 0 for check in not_positive_checks)) and  (last_local_syndrom > 0)
+            trailing = last_local_syndrom > 0 #(all(self.local_syndrom(check, temp_assignment) == 0 for check in not_positive_checks)) and  (last_local_syndrom > 0)
             if trailing:
                 if sig in self.cache_table:
                     return self.cache_table[sig]
@@ -405,22 +408,22 @@ class KDgrid:
                     for bit, value in zip(bits, binary_assignment):
                         temp_assignment[bit] ^= value
                     temp_syndrom = 0
-                self.cache_table[sig] = list(zip( diff_referance_bits(bits, vertex), picked))
+                self.cache_table[sig] = list(zip( diff_referance_bits(bits, vertex, self.n), picked))
                 if DEBUG:
                     if 1 in syndrom_word:
                         print(f"domain wall {syndrom_word}")
                         print( f"\t\t[p] {vertex}, {picked}")
                 return self.cache_table[sig]
-                #return list(zip( diff_referance_bits(bits, vertex), picked))
+                #return list(zip( diff_referance_bits(bits, vertex, self.n), picked))
             else:
-                return list(zip( diff_referance_bits(bits, vertex), picked))
+                return list(zip( diff_referance_bits(bits, vertex, self.n), picked))
 
       
         gens, ret_assign = [], deepcopy(assignment)
         assigned = set()
         for vertex in self.vertices:
             for rbit, value in swift_vertex(vertex):
-                bit = diff_referance(rbit, vertex, op=__add__)
+                bit = diff_referance(rbit, vertex, self.n, op=__add__)
                 if DEBUG:
                     if value == 1:
                         self.debug_picked.append(bit)
@@ -540,6 +543,8 @@ def test_hypotesis( ):
         assign = grid.random_assignment(p, assignment = deepcopy(light_cone))
         if cond and z in light_cone:
             assign[z] = 1
+        if (not cond) and z in light_cone:
+            assign[z] = 0
         assign = grid.local_correaction_group( [x,y] , assign) 
         if assign[x] == 0 and assign[y] == 0:
             return 0
@@ -548,9 +553,9 @@ def test_hypotesis( ):
     grid = KDgrid(4,4, checksdim =1)
     
     
-    attempts = 1000000
+    attempts = 1000
 
-    p0, p1, ps = [], [], list(np.linspace(0.001, 0.0025, num = 5))
+    p0, p1, ps = [], [], list(np.linspace(0.001, 0.0025, num = 50))
     for p in ps:
         print(p)
         p0x, p1x = 0, 0
@@ -563,10 +568,11 @@ def test_hypotesis( ):
         p0.append(p0x)
         p1.append(p1x)
     
-    eps = 0.01
+    eps = 0 #0.01
     p2 = [ p**(2+eps) for p in ps ] 
+    #p2 = [ p for p in ps ] 
     plt.plot(ps, p0)
-    plt.plot(ps, p1)
+    #plt.plot(ps, p1)
     plt.plot(ps, p2)
     #plt.ylim(0, 4*1e-5)
     plt.show()

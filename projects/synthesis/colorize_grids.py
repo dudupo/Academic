@@ -68,6 +68,41 @@ def stroke_path(x0,y0,x1, y1, canvas, _color=None):
     else:
         _color = [style.linewidth(0.05),color.rgb.black] if _color is None else _color
         return (path.line(x0,y0, x1,y1),  _color)
+
+def projrct_edge_3dcolor_code(edge, canvas, stroke=True):
+    x,y = edge
+    ax,bx,cx = x
+    ay,by,cy = y
+#    if ax == ay:
+#        A = (ax,bx,cx)
+#        B = (ax,by,cx)
+#        C = (ax,by,cy)
+#        D = (ax,bx,cy)
+#    elif bx == by:
+#        A = (ax,bx,cx)
+#        B = (ay,bx,cx)
+#        C = (ay,bx,cy)
+#        D = (ax,bx,cy)
+#    else:
+#        A = (ax,bx,cx)
+#        B = (ay,bx,cx)
+#        C = (ay,by,cx)
+#        D = (ax,by,cx)
+    #else:
+     #   return
+    #_A,_B,_C,_D = (project2D(I) for I in [A,B,C,D])
+    _A,_B = (project2D(I) for I in [x,y])
+
+    if stroke:
+        #for X,Y in [(_A,_B), (_B,_C), (_C,_D), (_D,_A)]:
+        canvas.stroke(*stroke_path(*_A, *_B ,canvas))
+#    else:
+#        _path, _ = stroke_path( *_A, *_B,canvas)
+#        for X,Y in [(_B,_C), (_C,_D), (_D,_A) ]:
+#            p, _ = stroke_path( *X, *Y,canvas)
+#            _path = _path << p
+#        #_path.append(path.closepath() )
+#        canvas.fill( _path, [ color.cmyk.Yellow])
 def projrct_face(face, canvas, stroke=True):
     x,y = face
     ax,bx,cx = x
