@@ -401,6 +401,18 @@ If for two different slices $K_{1}$ and $K_{2}$ we have that $\Time{K_1}) = \Tim
     Now we describe the selection of poles. Since we have to span..
   \end{proof}
 
+  \section{Explantation of a Spanned Slice}
+  \begin{definition}
+    Given sets $W$ of points, $R$ of arrows and $F$ of forks, we define $U$ as the set of vertices of the graph induced by the edges of $R \cup F$. The sets $W,R$ and $F$ form an explanation of a spanned slice $K = \braket{ K, v_{1}, .., v_{d+1}}$ iff: 
+    \begin{enumerate}
+      \item $W \cup \{v_{1} ,.., v_{d+1}\} \subset U \subset \History{K}$ and the graph $\braket{U, R\cup F}$ is connected. 
+      \item All elements of $W$ are errors. 
+      \item For $m = |W|$ and $s=\Span{K}$ we have $|R| \le \alpha m - \beta s $ and $|F| < m -1 $. 
+    \end{enumerate}
+  \end{definition}
 
+  \begin{claim}
+    Every spanned slice $K = \braket{K,v_{1},..,v_{d+1}}$ has an explanation.
+  \end{claim}
 
 \end{document}
