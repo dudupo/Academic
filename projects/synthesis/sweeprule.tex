@@ -364,7 +364,7 @@ If for two different slices $K_{1}$ and $K_{2}$ we have that $\Time{K_1}) = \Tim
   \end{proof}
 
   \begin{claim}
-    Let $\mathbf{S} = \{ S_{1}, S_{2} , .. , S_{k} \}$ where $S_{i} \subset \mathbb{R}^{d}$, introduce an edge between $S_{i}$ and $S_{j}$ iff $\S_{i} \cap S_{j} \neq \emptyset$. Assume that $\mathbf{S}$ is connected. Then $\Size{\cup^{k}_{i=1} S_{i}} \le \sum^{k}_{i=1}{\Size{S_{i}}}$. 
+    Let $\mathbf{S} = \{ S_{1}, S_{2} , .. , S_{k} \}$ where $S_{i} \subset \mathbb{R}^{d}$, introduce an edge between $S_{i}$ and $S_{j}$ iff $S_{i} \cap S_{j} \neq \emptyset$. Assume that $\mathbf{S}$ is connected. Then $\Size{\cup^{k}_{i=1} S_{i}} \le \sum^{k}_{i=1}{\Size{S_{i}}}$. 
   \end{claim}
   \begin{proof}
     It suffices to prove that if $R_{1} \cap R_{2} \neq \emptyset$, then $\Size{R_{1} \cup R_{2}} \le \Size{R_{1}} + \Size{R_{2}}$. Let $a_{i,j} = \max_{v \in R_{j}}L_{i}(v)$. Then for any $w \in R_{1}\cap R_{2}$ we have:  
@@ -382,7 +382,7 @@ If for two different slices $K_{1}$ and $K_{2}$ we have that $\Time{K_1}) = \Tim
     \begin{enumerate}
       \item $ \Excusei{v_{i}} $ belongs to poles of $K_{0},..,K_{k}$.  
       \item Introduce an edge between $K_{i}$ and $K_{j}$ iff one of the Forks $F_{1},..,F_{k}$ consists of a pole of $K_{i}$ and a pole of $K_{j}$. Then the graph formed from $K_{0},..,K_{k}$ is connected.  
-      \item $\sum_{i=0}^{k}\Span{K_{i}} \ge \Span{K} + 1 - k $
+      \item $\sum_{i=0}^{k}\Span{K_{i}} +  \sum^{k}_{i=1}\Span{F_{i}} \ge \Span{K} + 1 $
     \end{enumerate}
   \end{claim}
   \begin{proof}
@@ -390,8 +390,15 @@ If for two different slices $K_{1}$ and $K_{2}$ we have that $\Time{K_1}) = \Tim
 
     Since $G_{K}$ is connected and its edges are realized by forks, there exist a minimal collection $\{K_{0},..,K_{k}\}$ of slices form $V_{K}$ which contains $R_{1},R_{2},..R_{d+1}$, and which is connected in $G_{K}$. We pick a set of forks $\mathbf{F} = \{F_{1},..,F_{k} \}$ which realizes a spanning tree for this collection of slices. Later we will identify edges from this spanning tree with the forks from $\mathbf{F}$.  
 
-  
+    For $i=1,..,d+1$ we set $\Excusei{v_{i}}$ to be the $i$th pole of $R_{i}$, This assures (1). The set of remaining poles for $K_0, ..,K_{k}$ will be equal to $\cup^{k}_{i=k}F_{i}$. This will assure (ii), We will also select poles for $F_{1}, ..,F_{k}$ to form 'spanned forks' $F_{1}, \cdots,F_{k}$ in such way that:  
+    \begin{equation*}
+      \begin{split}
+        \sum^{k}_{i=0}\Span{K_{i}} + \sum^{k}_{i=1}\Span{F_{i}} = \sum_{i=1}^{d+1}L_{i}\left( \Excusei{v_{i}} \right) \ge \Span{K} + 1
+      \end{split}
+    \end{equation*}
+    This will assure (3). 
 
+    Now we describe the selection of poles. Since we have to span..
   \end{proof}
 
 
