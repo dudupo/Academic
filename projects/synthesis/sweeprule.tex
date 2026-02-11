@@ -444,4 +444,18 @@ If for two different slices $K_{1}$ and $K_{2}$ we have that $\Time{K_1}) = \Tim
     \end{enumerate}
   \end{proof}
 
+\newpage 
+
+\section{Tanner - History Connected Equivalency}
+Imagine the following process, we apply $t$ noisy iterations of the SWEEP rule, and then a single ideal (without noise) iteration. Denote by $\xi$ a deviated configuration (can be either bits or checks), and by $\xi^{\prime}$ the result of applying an ideal SWEEP rule on $\xi$. Notice that if $\xi$ is connected in the Tanner graph then $\xi^{\prime}$ is connected in the History graph \ctt{Require proof, For the classical case enumerate all the options can be done by hand}. Thus:
+\begin{equation*}
+  \begin{split}
+    \prb{\xi \text{ connected in Tanner}} & \le \prb{\xi^{\prime} \text{ connected in Time } | \text{ no noise at the } t+1 \text{ iteration}  }\\
+    & \le \prb{\xi^{\prime} \text{ connected in Time }} \le q^{\Span{\xi^{\prime}}} \le q^{\Span{\xi} - 1 }
+  \end{split}
+\end{equation*}
+
+
+
+
 \end{document}
