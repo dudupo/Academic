@@ -457,4 +457,30 @@ Imagine the following process, we apply $t$ noisy iterations of the SWEEP rule, 
   \end{split}
 \end{equation*}
 
+\section{Intermediate Step Lemma}
+Let $\xi$ be a subset that connected component in the Tanner graph with a span $>\frac{d}{4}$ at time $t$, and let $\sigma_{i}$ the event that at time $i$ a connected with span at least $\sqrt{d}$ belongs to the error. Then: 
+
+\begin{equation*}
+  \begin{split}
+    \prb{\xi} & =  \prb{\xi \cap \cup^{t}_{i} \sigma_{i} } +  \prb{\xi \cap \cap^{t}_{i} \bar{\sigma}_{i} } 
+  \end{split}
+\end{equation*}
+
+
+\begin{equation*}
+  \begin{split}
+    \tau\left( \sqrt{d} + 1 \right) \ge \frac{1}{4} d \Rightarrow \tau \ge \frac{1}{8} \sqrt{d}
+  \end{split}
+\end{equation*}
+
+
+\begin{equation*}
+  \begin{split}
+    \prb{\xi | \cap^{t}_{i} \bar{\sigma}_{i} } & \le \sum_{\xi^{(t-1)}} \prb{\xi | \xi^{(t-1)}}\prb{\xi^{(t-1)} \cap  \cap^{t}_{i} \bar{\sigma}_{i} }  \\ 
+    & \le \sum_{\xi^{(t-1)}} p^{\frac{1}{8} \sqrt{d}} \prb{\xi^{(t-1)} \cap  \cap^{t}_{i} \bar{\sigma}_{i} }  
+  \end{split}
+\end{equation*}
+
+
+
 \end{document}
