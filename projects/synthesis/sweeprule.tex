@@ -466,21 +466,26 @@ Let $\xi$ be a subset that connected component in the Tanner graph with a span $
   \end{split}
 \end{equation*}
 
-
+So denote by $\tau$ the number of bits that require to be flipped in order to merge the flipped connected component to a one with a span greater than $d/4$, So $\tau$ has to be at least:   
 \begin{equation*}
   \begin{split}
     \tau\left( \sqrt{d} + 1 \right) \ge \frac{1}{4} d \Rightarrow \tau \ge \frac{1}{8} \sqrt{d}
   \end{split}
 \end{equation*}
-
-
+Therefore: 
 \begin{equation*}
   \begin{split}
-    \prb{\xi | \cap^{t}_{i} \bar{\sigma}_{i} } & \le \sum_{\xi^{(t-1)}} \prb{\xi | \xi^{(t-1)}}\prb{\xi^{(t-1)} \cap  \cap^{t}_{i} \bar{\sigma}_{i} }  \\ 
-    & \le \sum_{\xi^{(t-1)}} p^{\frac{1}{8} \sqrt{d}} \prb{\xi^{(t-1)} \cap  \cap^{t}_{i} \bar{\sigma}_{i} }  
+    \prb{\xi \cap \cap^{t}_{i} \bar{\sigma}_{i} } & \le \sum_{\xi^{(t-1)}} \prb{\xi | \xi^{(t-1)}}\prb{\xi^{(t-1)} \cap  \cap^{t}_{i} \bar{\sigma}_{i} }  \\ 
+    & \le \sum_{\xi^{(t-1)}} p^{\frac{1}{8} \sqrt{d}} \prb{\xi^{(t-1)} \cap  \cap^{t}_{i} \bar{\sigma}_{i} } \le p^{\frac{1}{8} \sqrt{d}} 
   \end{split}
 \end{equation*}
 
 
+\begin{equation*}
+  \begin{split}
+    \prb{\xi} & =  \prb{\xi \cap \cup^{t}_{i} \sigma_{i} } +  \prb{\xi \cap \cap^{t}_{i} \bar{\sigma}_{i} } \\
+    & \le t \prb{ \sigma_{1} } + p^{\frac{1}{8} \sqrt{d}}  
+  \end{split}
+\end{equation*}
 
 \end{document}
