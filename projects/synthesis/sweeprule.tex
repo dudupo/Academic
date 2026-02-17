@@ -458,7 +458,7 @@ Let $T = \left( V, E \right)$ be a $\Delta + 1$-regular tree, and let $k$ be an 
     By induction on $k$:
     \begin{equation*}
       \begin{split}
-        f(k) & \sum_{i=1}^{\Delta} { \Delta \choose i } {  \sum_{\sum x_{j} = k - i } \prod f(x_{j})  }  \\
+        f(k) = & \sum_{i=1}^{\Delta} { \Delta \choose i } {  \sum_{\sum x_{j} = k - i } \prod f(x_{j})  }  \le \sum_{i=1}^{\Delta} { \Delta \choose i } {  \sum_{\sum x_{j} = k - i } \alpha^{k-i} }  \\
          & \le \sum_{i=1}^{\Delta} {\Delta \choose i } \alpha^{k-i} = \left( \left(\sum_{i=0}^{\Delta} {\Delta \choose i }  \alpha^{i} \right) -1\right) \alpha^{k} \\ 
         & = \left( \left( 1 + \alpha^{-1} \right) - 1 \right) \alpha^{k}
       \end{split}
