@@ -420,12 +420,19 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
     For $i=1,..,d+1$ we set $\prei{v_{i}}$ to be the $i$th pole of $R_{i}$, This assures (1). The set of remaining poles for $\hat{K}_0, ..,\hat{K}_{k}$ will be equal to $\cup^{k}_{i=k}F_{i}$. This will assure (ii), We will also select poles for $F_{1}, ..,F_{k}$ to form 'spanned forks' $\hat{F}_{1}, \cdots,\hat{F}_{k}$ in such way that:  
     \begin{equation*}
       \begin{split}
-        \sum^{k}_{i=0}\Size{\hat{K}_{i}} + \sum^{k}_{i=1}\Size{\hat{F}_{i}} = \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) \ge \Size{\hat{K}} + 1
+        \sum^{k}_{i=0}\Size{\hat{K}_{i}} + \sum^{k}_{i=1}\Size{\hat{F}_{i}} \ge \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) \ge \Size{\hat{K}} + 1
       \end{split}
     \end{equation*}
     This will assure (3). 
 
-    Now we describe the selection of poles. Since we have to span..
+    %Now we describe the selection of poles. Since we have to span..
+    Let us denote by $J_{0},..,J_{2k}$ the enumarated union $K_{0},..K_{k},F_{1},..,F_{k}$. Observes that for any choise of $(d+1)(2k+1)$ elements in $\mathbb{R}^{d}$, $z_{0}^{1},z_{0}^{2}, z_{0}^{3},..,z_{0}^{d+1}..,z_{2k}^{d+1}$ such that $z_{j}^{i} \in J_{j}$ it holds that:
+    \begin{equation*}
+      \begin{split}
+         \sum^{k}_{i=0}\Size{\hat{K}_{i}} + \sum^{k}_{i=1}\Size{\hat{F}_{i}}  \ge \sum_{j,i}L_{i}(z_{j}^{i})
+      \end{split}
+    \end{equation*}
+
   \end{proof}
 
   \section{Explantation of a Spanned Slice}
