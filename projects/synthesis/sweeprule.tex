@@ -337,7 +337,7 @@ We will call to $T$ time-function, to $A$ arrows, and to $F$ forks. Observes tha
   \end{definition}
 % that since $(V,A)$ is a DAG it defines a partial order on $V$, let us denote $u \le v$ for $u,v \in V$ if there is a directed path from $u$ to  
   \begin{definition}[History, slice.]
-  For a time graph $(G,T)$, and a vertex $u\in V$ let $G_{u}$ be the subgraph of $(V,A)$ induced by $ \{ v\in V:\Time{v}\le\Time{u}\}$.  We will denote by $\History{u}$ the 'History of $u$' which is the connecting connected component of $G_{u}$ containing $u$. A slice is an equivalence class of the relation $u \equiv v$ iff $\History{u} = \History{v}$. Notice that if $u$ and $v$ are in the same slice $K$, then $\Time{u} = \Time{v}$. Thus we can write $\Time{K}$ and $\History{K}$ without ambiguity. 
+For a time graph $(G,T)$ and a vertex $u \in V$, let $G_{u}$ be the subgraph of $(V,A)$ induced by $\{ v \in V : \Time{v} \le \Time{u} \}$. We will denote by $\History{u}$ the 'History of $u$', which is the set of vertices that have a directed path from them to $u$. A slice is an equivalence class of the relation $u \equiv v$ iff $\History{u} = \History{v}$. Notice that if $u$ and $v$ are in the same slice $K$, then $\Time{u} = \Time{v}$. Thus we can write $\Time{K}$ and $\History{K}$ without ambiguity. 
   \end{definition}
 
   \begin{claim} 
