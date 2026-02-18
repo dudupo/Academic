@@ -404,9 +404,9 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
   \begin{claim}
     Consider a time graph $(G,T)$, an embedding $f : G \rightarrow \mathbb{R}^{d}$, such that.. , Let $K$ be a slice in $G$, and let $\hat{K} = \braket{K, x_{1}, .. x_{d+1}}$ be a spanned slice of $K$ such that $K \neq \History{K}$. Then for some integer $k$ there exist spanned slices $\hat{K}_{0} = \braket{K_{0}, \cdot}, ..,\hat{K}_{k}=\braket{K_{k}, \cdot }$ and Forks $F_{1},..,F_{k}$ such that:
     \begin{enumerate}
-      \item For $i \in [d+1]$ $ \prei{x_{i}} $ belongs to the poles $K_{0},..,K_{k}$.  
-      \item Introduce an edge between $K_{i}$ and $K_{j}$ iff one of the Forks $F_{1},..,F_{k}$ consists of a pole of $K_{i}$ and a pole of $K_{j}$. Then the graph formed from $K_{0},..,K_{k}$ is connected.  
-      \item $\sum_{i=0}^{k}\Span{K_{i}} +  \sum^{k}_{i=1}\Span{F_{i}} \ge \Span{K} + 1 $
+      \item For $i \in [d+1]$ $ \prei{x_{i}} $ belongs to the poles $\hat{K}_{0},..,\hat{K}_{k}$.  
+      \item Introduce an edge between $\hat{K}_{i}$ and $\hat{K}_{j}$ if and only if one of the Forks $F_{1},..,F_{k}$ consists of a pole of $\hat{K}_{i}$ and a pole of $\hat{K}_{j}$. Then the graph formed from $\hat{K}_{0},..,\hat{K}_{k}$ is connected.  
+      \item $\sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}} + 1 $
     \end{enumerate}
   \end{claim}
   \begin{proof}
