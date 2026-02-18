@@ -330,7 +330,7 @@ We say that a check $e \in $ Error, if there is a face $f$ that adjoin to $e$ an
   \begin{definition}
     Consider a graph $G = (V, A, F)$, where $V$ is a set of vertices, and $A$, $F$ are sets of undirected edges. For $v \in V$, denote by $\pre{v} = \{ u \in V : \{u,v\} \in A \}$, we extend the notion for subsets of vertices $X \subset V$ by $\pre{X} = \bigcup_{v \in X} \pre{v}$. Let $ T : V \rightarrow \mathbb{N}$, We say that $(G,T)$ is a time graph iff:
 \begin{enumerate}
-  \item $\{x,y\} \in A \Rightarrow \Time{y} = \Time{x}+1$  
+  \item $\{x,y\} \in A \Rightarrow \Time{y} = \Time{x} \pm 1$  
   \item For $x,y \in V $  $\{x,y\} \in F $ iff there exists $z \in V $ such both $\{x,z\},\{y,z\} \in A$. 
 \end{enumerate}
 We will call to $T$ time-function, to $A$ arrows, and to $F$ forks. Observes that from the second requirement it follows that forks can connect only vertices that have the same time value (set by $T$). 
@@ -360,12 +360,12 @@ Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \His
 
     \begin{enumerate}
       \item Base. $k=0$, In this case, the path from $r$ to $s$ lies within $G_{r} (= G_{s})$. Hence $\History{r} = \History{s}$, So $R = S$. 
-      \item Induction step. There exists $y$ on the path from $r$ to $s$ such that $\Time{y} = \Time{K}$. Let $x$ be the point which precedes $y$ on the path, and $z$ the point that follows $y$. Since the values of $T$ at the two ends of an arrow differ by $1$, and since $\Time{y}$ gets the maximal $T$ value in $\History{K}$ it follows that: 
+      \item Induction step. There exists $y$ on the path from $r$ to $s$ such that $\Time{y} = \Time{K}$. Let $x$ be the point which precedes $y$ on the path, and $z$ the point that follows $y$. Since the values of $T$ at the two ends of an arrow differ by $1$, and since $y$ gets the maximal $T$ value in $\History{K}$ it follows that: 
         \begin{enumerate}
           \item $\{x,z\} \subset \pre{y} \Rightarrow \{x,z\} \in F$. 
           \item The slices of $x$ and $z$, say $K_{x}$ and $K_{z}$ has time value $\Time{K_{x}} = \Time{K_{z}} = \Time{K} -1$, Namely they are both members of $V_{K}$. 
         \end{enumerate}
-        Since the path connecting $r,x$ in $\History{K}$ has $k-1$ vertices with $\Time{\cdot} = \Time{K}$, then by the induction hypothesis, $R$ and $K_{x}$ are connected in $G_{K}$, and by similar argument so are $K_{z}$ and $S$. On the other hand, $ \{x,z\} \Rightarrow \{K_{x},K_{z}\} \in E_{K}$. Thus, $R$ and $S$ are connected in  $G_{K}$.
+        Since the path connecting $r,x$ in $\History{K}$ has $k-1$ vertices with $\Time{\cdot} = \Time{K}$, then by the induction hypothesis, $R$ and $K_{x}$ are connected in $G_{K}$, and by similar argument so are $K_{z}$ and $S$. On the other hand, $ \{x,z\} \Rightarrow \{K_{x},K_{z}\} \in E_{K}$. Thus, $R$ and $S$ are connected in $G_{K}$.
     \end{enumerate}
   \end{proof}
 
@@ -389,6 +389,11 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
       \end{split}
     \end{equation*}
   \end{proof}
+
+  \begin{definition}[Spanned Set]
+Consider an embedding $f : \star \hookrightarrow \mathbb{R}^{d}$, a subset of $f$'s domain $S \subset \star$, and $d+1$ points $x_{1}, \ldots, x_{d+1}$. We say that $\braket{S, x_{1}, \ldots, x_{d+1}}$ is a spanned set of $S$ if for any $i \in [d+1]$ and $s \in S$, it holds that $L(f(s)) \le L_{i}(x_{i})$. We extend the notation to a spanned slice when $S$ is a slice of some time-graph.
+  \end{definition}
+
 
   \begin{claim}
     Let $K = \braket{K, v_{1}, .. v_{d+1}}$ be a spanned slice of the investigation such that $K \neq \History{K}$. Then for some $k$ there exist spanned slices $K_{0}, ..,K_{k}$ and Forks $F_{1},..,F_{k}$ such that:
