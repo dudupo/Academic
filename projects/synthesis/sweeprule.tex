@@ -344,7 +344,7 @@ For a time graph $(G,T)$ and a vertex $u \in V$, let $G_{u}$ be the subgraph of 
     Consider slices $K_{1}, K_{2}$ such that $\Time{K_1} = \Time{K_2}$, then either $K_{1}=K_{2}$ or $\History{K_1}, \History{K_2}$ are disjoint.
   \end{claim}
   \begin{proof}
-    Since slice is an equivalence class a non-empty intersection $z \in K_{1}\cap K_{2}$ implies that for any $x \in K_{1}$ and $y \in K_{2}$ $\History{x}= \History{z} = \History{y}$ and therefore $x$ and $y$ are in the same class, namely $K_{1} = K_{2}$.  
+    Since slice is an equivalence class a non-empty intersection $z \in \History{K_{1}}\cap \History{K_{2}}$ implies that for any $x \in K_{1}$ and $y \in K_{2}$ $\History{x}= \History{z} = \History{y}$ and therefore $x$ and $y$ are in the same class, namely $K_{1} = K_{2}$.  
   \end{proof}
 
   \begin{definition}[The graph of slice]
