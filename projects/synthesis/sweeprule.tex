@@ -349,6 +349,7 @@ Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \His
   \end{proof}
 
   \begin{definition}[The graph of slice]
+    \label{def:gslice}
     Let $K$ be a slice. The graph of $K$, denoted by $G_{K} = (V_{K}, E_{K})$, is the graph whose vertices are slices $R \subset \History{K}$ with $\Time{R} = \Time{K} - 1$. Two vertices are connected by an edge if and only if there is a fork whose ends belong to the slices associated with them. Namely, $S, R \in V_{K}$ are connected in $G_{K}$ if and only if there is $\{s, r\} = f \in F$ such that $s \in S$ and $r \in R$.
   \end{definition}
 
@@ -410,7 +411,7 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
     \end{enumerate}
   \end{claim}
   \begin{proof}
-    First Notice that $K$ doesn't contain points for which \textbf{Error} is true: they would not connected to any other points in $\History{K}$ via arrows. Thus $\Excusei{v_{i}}$ is defined for $i=1,..,d+1$. Next consider the graph $G_{K}=\braket{V_{K},E_{K}}$ from \Cref{claim:}. $V_{K}$ consists of those $R$ for which $\Time{R} + 1 = \Time{K}$ and which are contained in $\History{K}$. Since $\{ v_{i}, \Excusei{v_{i}} \}$ is an arrow $\Excusei{v_{i}}$ belongs to a slice $R_{i}$ from $V_{K}$, for $i=1,..,d+1$. 
+    First Notice that $K$ doesn't contain leaves in $(V,A)$, since a leaf is connected only to itself via arrows, and therefore its 'slice' equals to its 'History'. Thus $\prei{x_{i}}$ is not empty for $i=1,..,d+1$. Next consider the graph $G_{K}= (V_{K},E_{K})$ from \Cref{def:gslice}. $V_{K}$ consists of those $R$ for which $\Time{R} + 1 = \Time{K}$ and which are contained in $\History{K}$. Since $\{ v_{i}, \Excusei{v_{i}} \}$ is an arrow $\Excusei{v_{i}}$ belongs to a slice $R_{i}$ from $V_{K}$, for $i=1,..,d+1$. 
 
     Since $G_{K}$ is connected and its edges are realized by forks, there exist a minimal collection $\{K_{0},..,K_{k}\}$ of slices form $V_{K}$ which contains $R_{1},R_{2},..R_{d+1}$, and which is connected in $G_{K}$. We pick a set of forks $\mathbf{F} = \{F_{1},..,F_{k} \}$ which realizes a spanning tree for this collection of slices. Later we will identify edges from this spanning tree with the forks from $\mathbf{F}$.  
 
