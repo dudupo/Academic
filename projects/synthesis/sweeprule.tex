@@ -348,13 +348,11 @@ Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \His
   \end{proof}
 
   \begin{definition}[The graph of slice]
-
-    For a slice $K$ we define the graph $G_{K} = \braket{V_{K}, E_{K}}$ as follows:
+    For a slice $K$ we define the graph $G_{K} = (V_{K}, E_{K})$ as follows:
     \begin{enumerate}
       \item $V_{K} = \{ \text{slice } R : R \subset \History{K} \text{ and } \Time{R} = \Time{K} - 1 \}$
-      \item $ \{ R, S \} \in E_{K} $ iff $R,S \in V_{K}$ and for some $\{v,w\} \in \text{Forks}$ we have $v\in R$ and $w \in S$.
+      \item $ \{ R, S \} \in E_{K} $ iff $R,S \in V_{K}$ and for some $\{v,w\} \in F$ we have $v\in R$ and $w \in S$.
     \end{enumerate}
-    
   \end{definition}
 
   \begin{claim}
