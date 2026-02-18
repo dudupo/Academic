@@ -348,11 +348,7 @@ Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \His
   \end{proof}
 
   \begin{definition}[The graph of slice]
-    For a slice $K$ we define the graph $G_{K} = (V_{K}, E_{K})$ as follows:
-    \begin{enumerate}
-      \item $V_{K} = \{ \text{slice } R : R \subset \History{K} \text{ and } \Time{R} = \Time{K} - 1 \}$
-      \item $ \{ R, S \} \in E_{K} $ iff $R,S \in V_{K}$ and for some $\{v,w\} \in F$ we have $v\in R$ and $w \in S$.
-    \end{enumerate}
+Let $K$ be a slice. The graph of $K$, denoted by $G_{K} = (V_{K}, E_{K})$, is the graph whose vertices are slices $R \subset \History{K}$ with $\Time{R} = \Time{K} - 1$. Two vertices are connected by an edge if and only if there is a fork whose ends belong to the slices associated with them. Namely, $S, R \in V_{K}$ are connected if and only if there is $\{s, r\} = f \in F$ such that $s \in S$ and $r \in R$.
   \end{definition}
 
   \begin{claim}
