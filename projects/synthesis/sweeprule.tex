@@ -470,8 +470,13 @@ If for two different slices $K_{1}$ and $K_{2}$ we have that $\Time{K_1}) = \Tim
     \end{equation*}
 
   \end{proof}
-  Now, from here we get an upper bound on number of subgraphs that connected $l$ vertices at the top level. We bound it from above by counting combination of rooted subtrees, such the vertices are their root and the overall edges number is summed up to $k$. Thus   
+  Now, from here we get an upper bound on number of subgraphs that connected $l$ vertices at the top level. We bound it from above by counting combination of rooted subtrees, such the vertices are their root and the overall edges number is summed up to $k$. Thus: 
 
+  \begin{equation*}
+    \begin{split}
+      \le \zeta (\frac{3}{2}) { k - 1 \choose l - 1 } \frac{\Delta^{2k}}{\sqrt{\pi}\log^{\frac{3}{2}} \Delta}
+    \end{split}
+  \end{equation*}<++>
   \section{Tree Separator Lemma}
 
 
