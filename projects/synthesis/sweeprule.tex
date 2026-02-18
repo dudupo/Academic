@@ -354,6 +354,7 @@ Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \His
   \end{definition}
 
   \begin{claim}
+    \label{claim:connected}
     $G_{K}$ is connected. 
   \end{claim}
 
@@ -413,7 +414,7 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
   \begin{proof}
     First Notice that $K$ doesn't contain leaves in $(V,A)$, since a leaf is connected only to itself via arrows, and therefore its 'slice' equals to its 'History'. Thus $\prei{x_{i}}$ is not empty for $i=1,..,d+1$. Next consider the graph $G_{K}= (V_{K},E_{K})$ from \Cref{def:gslice}. Since $\{ v_{i}, \prei{v_{i}} \}$ is an arrow $\prei{v_{i}}$ belongs to a slice $R_{i}$ from $V_{K}$, for $i=1,..,d+1$. 
 
-    Since $G_{K}$ is connected and its edges are realized by forks, there exist a minimal collection $\{K_{0},..,K_{k}\}$ of slices form $V_{K}$ which contains $R_{1},R_{2},..R_{d+1}$, and which is connected in $G_{K}$. We pick a set of forks $\mathbf{F} = \{F_{1},..,F_{k} \}$ which realizes a spanning tree for this collection of slices. Later we will identify edges from this spanning tree with the forks from $\mathbf{F}$.  
+    By \Cref{claim:connected} $G_{K}$ is connected and its edges are realized by forks, there exist a minimal collection $\{K_{0},..,K_{k}\}$ of slices form $V_{K}$ which contains $R_{1},R_{2},..R_{d+1}$, and which is connected in $G_{K}$. We pick a set of forks $\mathbf{F} = \{F_{1},..,F_{k} \}$ which realizes a spanning tree for this collection of slices. Later we will identify edges from this spanning tree with the forks from $\mathbf{F}$.  
 
     For $i=1,..,d+1$ we set $\Excusei{v_{i}}$ to be the $i$th pole of $R_{i}$, This assures (1). The set of remaining poles for $K_0, ..,K_{k}$ will be equal to $\cup^{k}_{i=k}F_{i}$. This will assure (ii), We will also select poles for $F_{1}, ..,F_{k}$ to form 'spanned forks' $F_{1}, \cdots,F_{k}$ in such way that:  
     \begin{equation*}
