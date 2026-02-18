@@ -447,11 +447,19 @@ If for two different slices $K_{1}$ and $K_{2}$ we have that $\Time{K_1}) = \Tim
   \section{Counting Trees.} 
 
   \begin{claim}
-    Let $T = \left( V, E \right)$ be a $\Delta + 1$-regular tree, and let $k$ be an integer less than $|E|$. Fix a vertex $r \in V$. The number of subtrees rooted at $r$ is at most $\alpha^{k}$.
+    Let $G = \left( V, E \right)$ be a $\Delta + 1$-regular graph, and let $k$ be an integer less than $|E|$. Fix a vertex $r \in V$. The number of subtrees rooted at $r$ is at most $\alpha^{k}$.
   \end{claim}
 
 
   \begin{proof}
+    Denote by $T_{\Delta}$ and $T_{2}$ the infinity $\Delta$ and binary tress. There is an injection between the subtrees of $G$, rooted at $v$, with at most $k$ edges, to the subtrees of $T_{\Delta}$ rooted at $v$, with at most $k$ edges. Moreover, there is ab injection from the subtrees of $T_{\Delta}$ rooted at $v$, with at most $k$ edges to the subtrees of $T_{2}$, rooted at $v$, with at most $k \log \Delta$ edges. \ctt{Require Proof}. 
+
+    Thus, it's enough to bound the number of of subtrees in $T_{2}$ rooted at $v$, with at most $ k \log \Delta $ edges, that number is less than the number of binary tress with $k \log \Delta + 1$ leaves, namely the $k \log \Delta$ Catalan number, which its limit is:   
+    \begin{equation*}
+      \begin{split}
+        \sim \frac{4^{k \log \Delta}}{\left( k \log \Delta \right)^{\frac{3}{2}} \sqrt{\pi} }
+      \end{split}
+    \end{equation*}
    Reference for unbounded degree : \href{ https://mathworld.wolfram.com/RootedTree.html}{ wolfram}
   
 
