@@ -344,11 +344,11 @@ We will call to $T$ time-function, to $A$ arrows, and to $F$ forks. Observes tha
     Consider slices $K_{1}, K_{2}$ such that $\Time{K_1} = \Time{K_2}$, then either $K_{1}=K_{2}$ or $\History{K_1}, \History{K_2}$ are disjoint.
   \end{claim}
   \begin{proof}
-Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \History{K_{2}}$ such that for any $x \in K_{1}$ and $y \in K_{2}$, there exist paths $z \rightarrow x$ and $z \rightarrow y$. Thus, for any $w \in \History{K_{1}}$, one can concatenate a path $w \rightarrow x \rightarrow z \rightarrow y$ and conclude that $y \in \History{K_{2}}$.
+Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \History{K_{2}}$ such that for any $x \in K_{1}$ and $y \in K_{2}$, there exist arrow-paths $z \rightarrow x$ and $z \rightarrow y$. Thus, for any $w \in \History{K_{1}}$, one can concatenate a path $w \rightarrow x \rightarrow z \rightarrow y$ and conclude that $y \in \History{K_{2}}$.
   \end{proof}
 
   \begin{definition}[The graph of slice]
-Let $K$ be a slice. The graph of $K$, denoted by $G_{K} = (V_{K}, E_{K})$, is the graph whose vertices are slices $R \subset \History{K}$ with $\Time{R} = \Time{K} - 1$. Two vertices are connected by an edge if and only if there is a fork whose ends belong to the slices associated with them. Namely, $S, R \in V_{K}$ are connected if and only if there is $\{s, r\} = f \in F$ such that $s \in S$ and $r \in R$.
+    Let $K$ be a slice. The graph of $K$, denoted by $G_{K} = (V_{K}, E_{K})$, is the graph whose vertices are slices $R \subset \History{K}$ with $\Time{R} = \Time{K} - 1$. Two vertices are connected by an edge if and only if there is a fork whose ends belong to the slices associated with them. Namely, $S, R \in V_{K}$ are connected in $G_{K}$ if and only if there is $\{s, r\} = f \in F$ such that $s \in S$ and $r \in R$.
   \end{definition}
 
   \begin{claim}
@@ -356,16 +356,16 @@ Let $K$ be a slice. The graph of $K$, denoted by $G_{K} = (V_{K}, E_{K})$, is th
   \end{claim}
 
   \begin{proof}
-    Assume $R$ and $S$ are from $V_{K}$ and that $v \in R, w \in S$. Since $v,w \in \History{K} $, there exists a path from $v$ to $w$ in $\History{K}$ consisting of arrows. Select this path in such a way that it contains the minimal number of points $x$ such that $\Time{x} = \Time{K}$. By induction on the number $k$ of such points we prove that $R$ and $S$ are in the same connected component of $G_{K}$. 
+    Let $R, S \in V_{K}$ and consider $r,s \in V$ such that $r \in R, s \in S$. Recall that $R,S \subset \History{K}$ and therefore $r,s \in \History{K}$, Thus, by definition of the 'History' there exists a path, passing trough arrows only, from $r$ to $s$ in $\History{K}$. Consider such a path that is minimal in the number of points $x$ belong to it, with $\Time{x} = \Time{K}$. By induction on the number $k$ of such points we prove that $R$ and $S$ are connected in $G_{K}$. 
 
     \begin{enumerate}
-      \item Base. $k=0$, In this case, the path from $v$ to $w$ lies within $G_{v} (= G_{w})$. Hence $\History{v} = \History{w}$ which means that the slices $R$ and $S$ are the identical. 
-      \item Induction step. There exists $y$ on the path from $v$ to $w$ such that $\Time{y} = \Time{K}$. Let $x$ be the point which precedes $y$ on the path, and $z$ the point that follows $y$. Since the values of $\mathbf{Time}$ at the two ends of an arrow differ by $1$, and since $\Time{y}$ is minimal, we know that: 
+      \item Base. $k=0$, In this case, the path from $r$ to $s$ lies within $G_{r} (= G_{s})$. Hence $\History{r} = \History{s}$, So $R = S$. 
+      \item Induction step. There exists $y$ on the path from $r$ to $s$ such that $\Time{y} = \Time{K}$. Let $x$ be the point which precedes $y$ on the path, and $z$ the point that follows $y$. Since the values of $T$ at the two ends of an arrow differ by $1$, and since $\Time{y}$ gets the maximal $\Time{}$ value in $\History{K}$ it follows that: 
         \begin{enumerate}
-          \item $\Excuse{y} = \braket{x,z}$ or $\Excuse{y} = \braket{z,x}$, thus $\{x,z\}$ is a fork. 
-          \item The slices of $x$ and $z$, say $T$ and $U$, are both members of $V_{K}$. 
+          \item $\{x,z\} \subset \pre{y} \Rightarrow \{x,z\} \in F$. 
+          \item The slices of $x$ and $z$, say $K_{x}$ and $K_{z}$ has time value $\Time{K_{x}} = \Time{K_{z}} = \Time{K} -1$, Namely they are both members of $V_{K}$. 
         \end{enumerate}
-        By the induction hypothesis, $R$ and $T$ are in the same connected component of $G_{K}$, and so are $U$ and $S$. On the other hand, $\{T,U\} \in E_{K}$.
+        Since the path connecting $r,x$ in $\History{K}$ has $k-1$ vertices with $\Time{\cdot} = \Time{K}$, then by the induction hypothesis, $R$ and $K_{x}$ are connected in $G_{K}$, and by similar argument so are $K_{z}$ and $S$. On the other hand, $ \{x,z\} \Rightarrow \{K_{x},K_{z}\} \in E_{K}$. Thus, $R$ and $S$ are connected in  $G_{K}$.
     \end{enumerate}
   \end{proof}
 
