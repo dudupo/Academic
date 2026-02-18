@@ -452,7 +452,9 @@ If for two different slices $K_{1}$ and $K_{2}$ we have that $\Time{K_1}) = \Tim
 
 
   \begin{proof}
-    Denote by $T_{\Delta}$ and $T_{2}$ the infinity $\Delta$ and binary tress. There is an injection between the subtrees of $G$, rooted at $v$, with at most $k$ edges, to the subtrees of $T_{\Delta}$ rooted at $v$, with at most $k$ edges. Moreover, there is an injection from the subtrees of $T_{\Delta}$ rooted at $v$, with at most $k$ edges to the subtrees of $T_{2}$, rooted at $v$, with at most $k \log \Delta$ edges. \ctt{Require Proof}. 
+    Denote by $T_{\Delta}$ and $T_{2}$ the infinity $\Delta$ and binary tress. There is an injection between the subtrees of $G$, rooted at $v$, with at most $k$ edges, to the subtrees of $T_{\Delta}$ rooted at $v$, with at most $k$ edges. Moreover, there is an injection from the subtrees of $T_{\Delta}$ rooted at $v$, with at most $k$ edges to the subtrees of $T_{2}$, rooted at $v$, with at most $k \log \Delta$ edges. 
+
+    \ctt{In the second map, we think on replacing each of the vertex with $\Delta-1$-leaves binary tree, each leaf is associated with a outgoing edge.  }. 
 
     Thus, it's enough to bound the number of of subtrees in $T_{2}$ rooted at $v$, with at most $ k \log \Delta $ edges, that number is less than the number of binary tress with $k \log \Delta + 1$ leaves, namely the $k \log \Delta$ Catalan number, which its limit is:   
     \begin{equation*}
