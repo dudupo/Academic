@@ -328,23 +328,23 @@ We say that a check $e \in $ Error, if there is a face $f$ that adjoin to $e$ an
   \newcommand{\pre}[1]{\text{pre}(#1)}
 
   \begin{definition}
-    Consider a graph $G = (V, A, F)$, where $V$ is a set of vertices, $A$ is a set of directed edges, and $F$ is a set of undirected edges. For $v \in V$, denote by $\pre{v} = \{ u \in V : \{u,v\} \in A \}$, we extend the notion for subsets of vertices $X \subset V$ by $\pre{X} = \bigcup_{v \in X} \pre{v}$. Let $ T : V \rightarrow \mathbb{N}$, We say that $(G,T)$ is a time graph iff:
+    Consider a graph $G = (V, A, F)$, where $V$ is a set of vertices, and $A$, $F$ are sets of undirected edges. For $v \in V$, denote by $\pre{v} = \{ u \in V : \{u,v\} \in A \}$, we extend the notion for subsets of vertices $X \subset V$ by $\pre{X} = \bigcup_{v \in X} \pre{v}$. Let $ T : V \rightarrow \mathbb{N}$, We say that $(G,T)$ is a time graph iff:
 \begin{enumerate}
-  \item The subgraph $(V,A)$ is a DAG and $\{x,y\} \in A \Rightarrow \Time{y} = \Time{x}+1$  
+  \item $\{x,y\} \in A \Rightarrow \Time{y} = \Time{x}+1$  
   \item For $x,y \in V $  $\{x,y\} \in F $ iff there exists $z \in V $ such both $\{x,z\},\{y,z\} \in A$. 
 \end{enumerate}
 We will call to $T$ time-function, to $A$ arrows, and to $F$ forks. Observes that from the second requirement it follows that forks can connect only vertices that have the same time value (set by $T$). 
   \end{definition}
 % that since $(V,A)$ is a DAG it defines a partial order on $V$, let us denote $u \le v$ for $u,v \in V$ if there is a directed path from $u$ to  
   \begin{definition}[History, slice.]
-For a time graph $(G,T)$ and a vertex $u \in V$, let $G_{u}$ be the subgraph of $(V,A)$ induced by $\{ v \in V : \Time{v} \le \Time{u} \}$. We will denote by $\History{u}$ the 'History of $u$', which is the set of vertices that have a directed path from them to $u$. A slice is an equivalence class of the relation $u \equiv v$ iff $\History{u} = \History{v}$. Notice that the time function is constant on a slice, since passing through an arrow increases the time, and passing through a fork doesn't change it. Hence, a directed path must increase the time value. So two vertices with different time values cannot be simultaneously directly connected. Thus, we can extend the time function and the history to slices and write for a slice $K$: $\Time{K}$ and $\History{K}$.
+    For a time graph $(G,T)$ and a vertex $u \in V$, let $G_{u}$ be the subgraph of $(V,A)$ induced by $\{ v \in V : \Time{v} \le \Time{u} \}$. We will denote by $\History{u}$ the 'History of $u$', which is the set of vertices that are connected to $u$ in $G_{u}$. A slice is an equivalence class of the relation $u \equiv v$ iff $\History{u} = \History{v}$. Notice that the time function has to be constant on a slice, to see this consider vertices  $x,y$ with $T(x) > T(y)$, thus $x \notin G_{y}$ and therefore $x \in \History{x}/\History{y}$ So they are belong to different classes. Thus, we can extend the time function and the history to slices and write for a slice $K$: $\Time{K}$ and $\History{K}$.
   \end{definition}
 
   \begin{claim} 
     Consider slices $K_{1}, K_{2}$ such that $\Time{K_1} = \Time{K_2}$, then either $K_{1}=K_{2}$ or $\History{K_1}, \History{K_2}$ are disjoint.
   \end{claim}
   \begin{proof}
-    Since slice is an equivalence class a non-empty intersection $z \in \History{K_{1}}\cap \History{K_{2}}$ implies that for any $x \in K_{1}$ and $y \in K_{2}$ $\History{x}= \History{z} = \History{y}$ and therefore $x$ and $y$ are in the same class, namely $K_{1} = K_{2}$.  
+Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \History{K_{2}}$ such that for any $x \in K_{1}$ and $y \in K_{2}$, there exist paths $z \rightarrow x$ and $z \rightarrow y$. Thus, for any $w \in \History{K_{1}}$, one can concatenate a path $w \rightarrow x \rightarrow z \rightarrow y$ and conclude that $y \in \History{K_{2}}$.
   \end{proof}
 
   \begin{definition}[The graph of slice]
