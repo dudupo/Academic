@@ -432,7 +432,10 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
          \sum^{k}_{i=0}\Size{\hat{K}_{i}} + \sum^{k}_{i=1}\Size{\hat{F}_{i}}  \ge \sum_{j,i}L_{i}(z_{j}^{i})
       \end{split}
     \end{equation*}
-We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that has not been set yet. If $J_{j} = R_{i}$, then set $z_{j}^{i} \leftarrow \prei{x_{i}}$; otherwise, consider the path from $J_{j}$ to $R_{i}$. Let $J_{t}$ be the successor on the path, then pick $z_{j}^{i} = J_{j} \cap J_{t}$ according to some deterministic rule dependent on $J_{j}, J_{t}$.
+    We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that has not been set yet. If $J_{j} = R_{i}$, then set $z_{j}^{i} \leftarrow \prei{x_{i}}$; otherwise, consider the path from $J_{j}$ to $R_{i}$. Let $J_{t}$ be the successor on the path, then pick $z_{j}^{i} \in J_{j} \cap J_{t}$ according to some deterministic rule dependent on $J_{j}, J_{t}$. 
+
+    Observes that $z_{t}^{i}$ will not be set to $J_{j} \cap J_{t}$.
+We claim that for non poles points,  
   \end{proof}
 
   \section{Explantation of a Spanned Slice}
