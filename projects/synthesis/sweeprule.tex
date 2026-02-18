@@ -360,7 +360,7 @@ Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \His
 
     \begin{enumerate}
       \item Base. $k=0$, In this case, the path from $r$ to $s$ lies within $G_{r} (= G_{s})$. Hence $\History{r} = \History{s}$, So $R = S$. 
-      \item Induction step. There exists $y$ on the path from $r$ to $s$ such that $\Time{y} = \Time{K}$. Let $x$ be the point which precedes $y$ on the path, and $z$ the point that follows $y$. Since the values of $T$ at the two ends of an arrow differ by $1$, and since $\Time{y}$ gets the maximal $\Time{}$ value in $\History{K}$ it follows that: 
+      \item Induction step. There exists $y$ on the path from $r$ to $s$ such that $\Time{y} = \Time{K}$. Let $x$ be the point which precedes $y$ on the path, and $z$ the point that follows $y$. Since the values of $T$ at the two ends of an arrow differ by $1$, and since $\Time{y}$ gets the maximal $T$ value in $\History{K}$ it follows that: 
         \begin{enumerate}
           \item $\{x,z\} \subset \pre{y} \Rightarrow \{x,z\} \in F$. 
           \item The slices of $x$ and $z$, say $K_{x}$ and $K_{z}$ has time value $\Time{K_{x}} = \Time{K_{z}} = \Time{K} -1$, Namely they are both members of $V_{K}$. 
