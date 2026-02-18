@@ -321,7 +321,7 @@ We say that a check $e \in $ Error, if there is a face $f$ that adjoin to $e$ an
     Consider a graph $G = (V, A, F)$, where $V$ is a set of vertices, $A$ is a set of directed edges, and $F$ is a set of undirected edges. For $v \in V$, denote by $\pre{v} = \{ u \in V : \{u,v\} \in A \}$. Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each element of $V \cup A \cup F$ to a point in $\mathbb{R}^{d}$. 
 We say that $\left( G, \mathbb{R}^{d} \right) $ is a space-time graph iff: 
 \begin{enumerate}
-  \item The point set by $f$ for an edge is the mean of its endpoints' images, that it for $e = \{x,y\}$ we have $f(e) = \frac{1}{2}\left(f(x) + f(y) \right)$.
+  \item The point set by $f$ for an edge is the mean of its endpoints' images; that is, for $e = \{x,y\} \in A \cup F$, we have $f(e) = \frac{1}{2}\left(f(x) + f(y)\right)$.
   \item For $x,y \in V $  $\{x,y\} \in F $ iff there exists $z \in V $ such both $\{x,z\},\{y,z\} \in A$. 
 \end{enumerate}
 
