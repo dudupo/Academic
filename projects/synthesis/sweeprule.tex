@@ -437,7 +437,12 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
     Observes that $z_{t}^{i}$ will not be set to $J_{j} \cap J_{t}$ since $J_{j}$ can't be the successor of $J_{t}$ on the path to $R_{i}$, Thus for a fixed $i$ there is no more $j^{\prime}$ such $z_{j^{\prime}}^{i} = z_{j}^{i}$. 
 
 
-    Now consider a non trivial intersrion $\bigcap_{j \in X} J_{j}$, we claim that for any $i$, there is $t \in X$ such that $J_{t}$ is the succsessor of $J_{j}$ on the path to $R_{i}$ for any $j \in X/\{t\}$. If not, namely there are $j_{1}, j_{2}$ such that $J_{t}$ is the succsessor to $J_{j_{1}}$ but not the successor of $J_{j_{2}}$ then one can close a cycle by concatinating $J_{t} \rightarrow R_{i} \rightarrow J_{j_{2}} \rightarrow J_{t}$ which is a contradiction to the minimality. Thus, $z_{X}$ will appers $|X|-1$ in $\{ z_{j}^{i} : j \in X \}$ for any $i$. 
+    Now consider a non trivial intersrion $\bigcap_{j \in X} J_{j}$, we claim that for any $i$, there is $t \in X$ such that $J_{t}$ is the succsessor of $J_{j}$ on the path to $R_{i}$ for any $j \in X/\{t\}$.
+   
+    First, for any $i$ there is $t$, and at least one $j$, such that $J_{t}$ is the succsessor of $J_{j}$, For see that just consider a path from the $i$th pole that pass trough the juction $\bigcap_{j \in X} J_{j}$, since the graph is connected and covers all the poles, then there is must to be path from $i$th to any of the intrsected spanned-sets, denote them as $P_{1}$ and $P_{2}$. In addition, since the graph, is minimal.  if there is sach a path, then the two spanned-sets consist the 
+
+
+    If not, namely there are $j_{1}, j_{2}$ such that $J_{t}$ is the succsessor to $J_{j_{1}}$ but not the successor of $J_{j_{2}}$ then one can close a cycle by concatinating $J_{t} \rightarrow R_{i} \rightarrow J_{j_{2}} \rightarrow J_{t}$ which is a contradiction to the minimality. Thus, $z_{X}$ will appers $|X|-1$ in $\{ z_{j}^{i} : j \in X \}$ for any $i$. 
   \end{proof}
 
   \section{Explantation of a Spanned Slice}
