@@ -459,16 +459,14 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
     Now, since, the graph, is tree, the spanning tree reuturned by the BFS precedure is alawas the same. Thus, no matther the what is the local edges orinatation, the $t \in X$ for which $J_{t}$ is colored by $0$ is always the same. Pick it to be $J_{t}$. 
 
 
-    claim, suppose that $\{u,v\}\in E$ and $d(u,s) = d(v,s)$ then there is a cycle in the graph. 
+    claim,  suppose that $\{u,v\}\in E$ and $d(u,s) = d(v,s)$ then there is a cycle in the graph. Suppose that the min is not uniqe, then their is a cycle. 
+    Consider the BFS ruuning starting at the $i$th pole as a source, and let $\tau$ be the minimal distance from $s$ to one of the vertices in the junction, then there is exectly one vertex in $X$ whoose distance is $\tau$.
+
+    Proof. Suppose that there are two vertices at distance $\tau$ from$s$. Since, the distances are minimal, those path cann't crose the junction, otherwise, suppose that the path to $u$ pass trough the junction, then we could obtains a distance $\tau -1$ path to $v$ by earasing the the $\{v,u\}$ edge fron the path to $u$.   
 
     Consider the graph $G^{\prime} = (V^{\prime}, E^{\prime})$, such that $V^{\prime} = \{J_{j}\}_{j} \cup {v}$. where to any $x\in X $ we have $ \{ J_{x}, v\} \in E^{\prime}$ and for any $x,y$ such $y\notin X$, and $J_{x}\cap J_{y} \neq \emptyset$, then  $\{ J_{x}, J_{y} \} \in E^{\prime}$. \ctt{Should split any junction}. 
-
-
-
-
+    
     Since, the graph is tree, 
-
-
   \end{proof}
 
   \section{Explantation of a Spanned Slice}
