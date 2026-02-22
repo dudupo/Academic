@@ -453,6 +453,22 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
 
 
     If not, namely there are $j_{1}, j_{2}$ such that $J_{t}$ is the succsessor to $J_{j_{1}}$ but not the successor of $J_{j_{2}}$ then one can close a cycle by concatinating $J_{t} \rightarrow R_{i} \rightarrow J_{j_{2}} \rightarrow J_{t}$ which is a contradiction to the minimality. Thus, $z_{X}$ will appers $|X|-1$ in $\{ z_{j}^{i} : j \in X \}$ for any $i$. 
+
+    consider the following routine, we start in the $i$th pole, and then start to scan the graph in BFS manner. Then we associate a coloer either $0$ or $1$ accoridng the following rule, until uncovering one onf the nodes form $X$, we assign $0$, after the uncovering of one the vertices in the junction, we first colorize the first uncovered nodes by $0$ and then we coloraize any of the other nodes do be meet with $1$. 
+
+    Now, since, the graph, is tree, the spanning tree reuturned by the BFS precedure is alawas the same. Thus, no matther the what is the local edges orinatation, the $t \in X$ for which $J_{t}$ is colored by $0$ is always the same. Pick it to be $J_{t}$. 
+
+
+    claim, suppose that $\{u,v\}\in E$ and $d(u,s) = d(v,s)$ then there is a cycle in the graph. 
+
+    Consider the graph $G^{\prime} = (V^{\prime}, E^{\prime})$, such that $V^{\prime} = \{J_{j}\}_{j} \cup {v}$. where to any $x\in X $ we have $ \{ J_{x}, v\} \in E^{\prime}$ and for any $x,y$ such $y\notin X$, and $J_{x}\cap J_{y} \neq \emptyset$, then  $\{ J_{x}, J_{y} \} \in E^{\prime}$. \ctt{Should split any junction}. 
+
+
+
+
+    Since, the graph is tree, 
+
+
   \end{proof}
 
   \section{Explantation of a Spanned Slice}
