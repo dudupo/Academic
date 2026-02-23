@@ -432,11 +432,23 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
          \sum^{k}_{i=0}\Size{\hat{K}_{i}} + \sum^{k}_{i=1}\Size{\hat{F}_{i}}  \ge \sum_{j,i}L_{i}(z_{j}^{i})
       \end{split}
     \end{equation*}
-    We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that has not been set yet. If $J_{j} = R_{i}$, then set $z_{j}^{i} \leftarrow \prei{x_{i}}$; otherwise, consider the path from $J_{j}$ to $R_{i}$ (by connectivity it has to be such one, and by minimality there is exactly one). Let $J_{t}$ be the successor on the path, then pick $z_{j}^{i} \in J_{j} \cap J_{t}$ according to some deterministic rule dependent on $J_{j}, J_{t}$. 
+    We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that has not been set yet. If $J_{j} = R_{i}$, then set $z_{j}^{i} \leftarrow \prei{x_{i}}$; otherwise, consider the path from $J_{j}$ to $R_{i}$ (by connectivity it has to be such one, and by minimality there is exactly one). Let $J_{t}$ be the successor on the path, then pick $z_{j}^{i} \in J_{j} \cap J_{t}$ according to some deterministic rule dependenting only on $J_{j}, J_{t}$. 
 
     Observes that $z_{t}^{i}$ will not be set to $J_{j} \cap J_{t}$ since $J_{j}$ can't be the successor of $J_{t}$ on the path to $R_{i}$, Thus for a fixed $i$ there is no more $j^{\prime}$ such $z_{j^{\prime}}^{i} = z_{j}^{i}$. 
 
-Now consider a non-trivial intersection $\bigcap_{j \in X} J_{j}$. We claim that for any $i$, there is $t \in X$ such that $J_{t}$ is the successor of $J_{j}$ on the path to $R_{i}$ for any $j \in X/\{t\}$. Assume not. Let $x, y \in X$, and denote the paths from $J_{x}, J_{y}$ to the $i$th pole by $\braket{J_{x}, J_{x_2}, \ldots, R_{i}}$, $\braket{J_{y}, J_{y_2}, \ldots, R_{i}}$, such that $J_{y} \neq J_{x_{2}}$. If $y = x_{2}$, $y_{2} = x$, or $x_{2} = y_{2} \in X$, then pick other $x, y$ (if there is no such, we get an immediate contradiction). In that case, $\braket{J_{x}, J_{y}, J_{y_{2}}, \ldots, R_{i}}$ is a path from $J_{x}$ to $R_{i}$ which is different from $\braket{J_{x}, J_{x_{2}}, \ldots, R_{i}}$. Therefore, there are at least two paths from $J_{x}$ to the $i$th pole, namely, there is a cycle in contradiction to the minimality of $K_{0}, \ldots, K_{k}$.
+    Now consider a non-trivial maximal intersection $\bigcap_{j \in X} J_{j}$, the intersection is maximal in the sense that for any $j^{\prime} \notint X$ it holds that .$\bigcap_{j \in X\cup \{j^{\prime} \}} J_{j} = \emptyset$. We claim that for any $i$ and for any such $X$, there is $t \in X$ such that $J_{t}$ is the successor of $J_{j}$ on the path to $R_{i}$ for any $j \in X/\{t\}$. Assume not. Let $x, y \in X$, and denote the paths from $J_{x}, J_{y}$ to the $i$th pole by $\braket{J_{x}, J_{x_2}, \ldots, R_{i}}$, $\braket{J_{y}, J_{y_2}, \ldots, R_{i}}$, such that $J_{y} \neq J_{x_{2}}$. If $y = x_{2}$, $y_{2} = x$, or $x_{2} = y_{2} \in X$, then pick other $x, y$ (if there is no such, we get an immediate contradiction). In that case, $\braket{J_{x}, J_{y}, J_{y_{2}}, \ldots, R_{i}}$ is a path from $J_{x}$ to $R_{i}$ which is different from $\braket{J_{x}, J_{x_{2}}, \ldots, R_{i}}$. Therefore, there are at least two paths from $J_{x}$ to the $i$th pole, namely, there is a cycle in contradiction to the minimality of $K_{0}, \ldots, K_{k}$.
+
+
+    In addition since, in a tree, the number of leavs is at least greater than the maximal degree, then we have that each $J_{j}$ intersects with at most $d+1$ elements. 
+
+
+    \begin{equation*}
+      \begin{split}
+       & L + \Delta_{\max} + 2(n - L -1) \le \sum_{v\in V}\text{deg}(v) = 2 (n-1)\\
+       \Rightarrow & L \ge \Delta_{max}
+      \end{split}
+    \end{equation*}
+
 
   \end{proof}
 
