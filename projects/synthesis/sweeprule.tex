@@ -452,10 +452,7 @@ Later, we are going to take the points $\{z_{j}^{i}\}$ from the intersection of 
        \Rightarrow & L \ge \Delta_{max}
       \end{split}
     \end{equation*}
-    We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that has not been set yet. If $J_{j} = R_{i}$, then set $z_{j}^{i} \leftarrow \prei{x_{i}}$ - we call this type-1 assignment. Otherwise, consider the path from $J_{j}$ to $R_{i}$ (by connectivity it has to be such one, and by minimality there is exactly one). Let $J_{t}$ be the successor on the path, then pick $z_{j}^{i} \in J_{j} \cap J_{t}$ - similarly, we call this assignment, a type-2 assignment. 
-
-    %according to some deterministic rule dependenting only on $J_{j}, J_{t}$. 
-
+We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that has not been set yet. If $J_{j} = R_{i}$, then set $z_{j}^{i} \leftarrow \prei{x_{i}}$ - we call this a type-1 assignment. Otherwise, consider the path from $J_{j}$ to $R_{i}$ (by connectivity, it has to be such a one, and by minimality, there is exactly one). Let $J_{t}$ be the successor on the path, then pick $z_{j}^{i} \in J_{j} \cap J_{t}$ - similarly, we call this assignment a type-2 assignment. Since any type-2 assignment is associated with a non-trivial intersection, and any non-trivial intersection induces a type-2 assignment for all $i$'s (since for all $i$'s, one of the $J_{j}$ on its support is a successor of the rest on their path to the $i$th pole), we have that:
     \begin{equation*}
       \begin{split}
         \sum_{j,i}L_{i}(z_{j}^{i}) &= \sum_{j,i, z_{j}^{i} \in \text{type-1}}L_{i}(z_{j}^{i}) + \sum_{j,i, z_{j}^{i} \in \text{type-2}}L_{i}(z_{j}^{i}) \\
