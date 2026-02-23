@@ -436,8 +436,12 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
 
     Observes that $z_{t}^{i}$ will not be set to $J_{j} \cap J_{t}$ since $J_{j}$ can't be the successor of $J_{t}$ on the path to $R_{i}$, Thus for a fixed $i$ there is no more $j^{\prime}$ such $z_{j^{\prime}}^{i} = z_{j}^{i}$. 
 
+    Now consider a non trivial intersecion $\bigcap_{j \in X} J_{j}$, we claim that for any $i$, there is $t \in X$ such that $J_{t}$ is the succsessor of $J_{j}$ on the path to $R_{i}$ for any $j \in X/\{t\}$.
+    Assume not, let $x,y \in X$, and denote the paths from $J_{x}, J_{y}$ to the $i$th pole, by $\braket{J_{x},J_{x_2},..,R_{i} }$, $\braket{J_{y},J_{y_2},..,R_{i} }$, such that $J_{y} \neq J_{x_{2}}$. 
 
-    Now consider a non trivial intersrion $\bigcap_{j \in X} J_{j}$, we claim that for any $i$, there is $t \in X$ such that $J_{t}$ is the succsessor of $J_{j}$ on the path to $R_{i}$ for any $j \in X/\{t\}$.
+    \begin{definition}
+      A short path in the system $\{J_{t}\}$ from $s$ to $v$ is $\braket{v_{1},..,v_{l}}$, if $ v_{i} \cap v_{i+1} \neq \emptyset$, and $v_{i} \cap v_{i+2} = \emptyset$.
+    \end{definition}
 
 
     By induction, on the number of the poles: $(d+1)$.   
@@ -472,7 +476,7 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
     Now, consider the vertices in $L[G]$, associated with the vertices $\{J_{j}\}_{j\in X}$. Since $L[G]$ is a tree, there is a 'closest' vertex to the $i$th pole in that subset. 
 
 
-
+    \ctt{ Consider the line graph of the orignal graph, before treat to the forks as spanned sets.}
 
   \end{proof}
 
