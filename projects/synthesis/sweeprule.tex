@@ -405,6 +405,7 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
  Another example is referring to $x_{i}$ as a vertex, so when saying 'For $x_{i} \in V_{k}$' or 'For $\{x_{i},u\} \in F$', we refer to the associated vertex or the edge connecting it to $u$.
 
   \begin{claim}
+    \label{claim:prevslices}
     Consider a time graph $(G,T)$, an embedding $f : G \rightarrow \mathbb{R}^{d}$, such that.. , Let $K$ be a slice in $G$, and let $\hat{K} = \braket{K, x_{1}, .. x_{d+1}}$ be a spanned slice of $K$ such that $K \neq \History{K}$. Then for some integer $k$ there exist spanned slices $\hat{K}_{0} = \braket{K_{0}, \cdot}, ..,\hat{K}_{k}=\braket{K_{k}, \cdot }$ and Forks $F_{1},..,F_{k}$ such that:
     \begin{enumerate}
       \item For $i \in [d+1]$ $ \prei{x_{i}} $ belongs to the poles $\hat{K}_{0},..,\hat{K}_{k}$.  
@@ -475,8 +476,8 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
   \begin{proof}
     Let $h = \Time{K} - \min_{u \in \History{K}}\Time{u}$. The proof is by induction on $h$. 
     \begin{enumerate}
-      \item Base. $h=0$. Then no arrows can connect points of $\History{K}$, Thus $\History{K}$, as well as $\mathbf{K}$ consists of a single point $u$ such that $u \in $ Error \ctt{Leaves}. In that case $U = W = \{u\}$, $m=1, s =0$ and $|R|,|F| = 0$ satisfies the required.  
-      \item Induction Step. Now, we know that $K \neq \History{K}$. Thus, by \Cref{claim:}, we know that for some $k$ there exist spanned slices $K_{0}, .., K_{k}$ and forks $F_{1},..,F_{k}$ that satisfy \Cref{claim:}. 
+      \item Base: $h=0$, namely $T$ is constant on $\History{K}$, so no arrows connect points of $\History{K}$. Thus, $\History{K}$, as well as $\mathbf{K}$, consists only of leaves. In that case, $U = W = \{u\}$, $m=1$, $s=0$, and $|R|, |F| = 0$ satisfy the requirement.
+      \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. Thus, by \Cref{claim:prevslices}, we know that for some $k$ there exist spanned slices $\hat{K}_{0}, .., \hat{K}_{k}$ and forks $F_{1},..,F_{k}$ that satisfy \Cref{claim:prevslices}. 
 
         Let $s_{i} = \Span{K_{i}}$. By the inductive hypothesis, we know that $K_{i}$ has an explanation $\mathbf{W}_{i}, \mathbf{R}_{i}, \mathbf{F}_{i}$. For $m_{i} =|\mathbf{W}_{i}|$, the sets $R_{i}$ and $F_{i}$ have at most $\alpha m_{i} - \beta s_{i}$ and $m_{i}-1$ leaves. We define:
         \begin{enumerate}
