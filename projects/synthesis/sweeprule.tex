@@ -436,48 +436,7 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
 
     Observes that $z_{t}^{i}$ will not be set to $J_{j} \cap J_{t}$ since $J_{j}$ can't be the successor of $J_{t}$ on the path to $R_{i}$, Thus for a fixed $i$ there is no more $j^{\prime}$ such $z_{j^{\prime}}^{i} = z_{j}^{i}$. 
 
-    Now consider a non trivial intersecion $\bigcap_{j \in X} J_{j}$, we claim that for any $i$, there is $t \in X$ such that $J_{t}$ is the succsessor of $J_{j}$ on the path to $R_{i}$ for any $j \in X/\{t\}$.
-    Assume not, let $x,y \in X$, and denote the paths from $J_{x}, J_{y}$ to the $i$th pole, by $\braket{J_{x},J_{x_2},..,R_{i} }$, $\braket{J_{y},J_{y_2},..,R_{i} }$, such that $J_{y} \neq J_{x_{2}}$. If $y=x_{2}$, $y_{2}=x$ or $x_{2}=y_{2} \in X$, then pick others $x,y$ (If there is not we get an immideate contradiction). 
-
-
-    \begin{definition}
-      A short path in the system $\{J_{t}\}$ from $s$ to $v$ is $\braket{v_{1},..,v_{l}}$, if $ v_{i} \cap v_{i+1} \neq \emptyset$, and $v_{i} \cap v_{i+2} = \emptyset$.
-    \end{definition}
-
-
-    By induction, on the number of the poles: $(d+1)$.   
-
-    \begin{enumerate}
-      \item Base for $d + 1  = 3 $, proven in the original work of Berman. 
-      \item Induction Step. Consider $d+1$, Consider the collection $J^{\prime}$ botained by erasison minimal number of spannsed sets (including spanned forks) such that the $d+1$ th pole is not connected any more. Form the intersection, we removed at most one.    $|X|=x$, 
-    \end{enumerate}
-
-
-
-    First, for any $i$ there is $t$, and at least one $j$, such that $J_{t}$ is the succsessor of $J_{j}$, For see that just consider a path from the $i$th pole that pass trough the juction $\bigcap_{j \in X} J_{j}$, since the graph is connected and covers all the poles, then there is must to be path from $i$th to any of the intrsected spanned-sets, denote them as $P_{1}$ and $P_{2}$. In addition, since the graph, is minimal.  if there is sach a path, then the two spanned-sets consist the 
-
-
-    If not, namely there are $j_{1}, j_{2}$ such that $J_{t}$ is the succsessor to $J_{j_{1}}$ but not the successor of $J_{j_{2}}$ then one can close a cycle by concatinating $J_{t} \rightarrow R_{i} \rightarrow J_{j_{2}} \rightarrow J_{t}$ which is a contradiction to the minimality. Thus, $z_{X}$ will appers $|X|-1$ in $\{ z_{j}^{i} : j \in X \}$ for any $i$. 
-
-    consider the following routine, we start in the $i$th pole, and then start to scan the graph in BFS manner. Then we associate a coloer either $0$ or $1$ accoridng the following rule, until uncovering one onf the nodes form $X$, we assign $0$, after the uncovering of one the vertices in the junction, we first colorize the first uncovered nodes by $0$ and then we coloraize any of the other nodes do be meet with $1$. 
-
-    Now, since, the graph, is tree, the spanning tree reuturned by the BFS precedure is alawas the same. Thus, no matther the what is the local edges orinatation, the $t \in X$ for which $J_{t}$ is colored by $0$ is always the same. Pick it to be $J_{t}$. 
-
-
-    claim,  suppose that $\{u,v\}\in E$ and $d(u,s) = d(v,s)$ then there is a cycle in the graph. Suppose that the min is not uniqe, then their is a cycle. 
-    Consider the BFS ruuning starting at the $i$th pole as a source, and let $\tau$ be the minimal distance from $s$ to one of the vertices in the junction, then there is exectly one vertex in $X$ whoose distance is $\tau$.
-
-    Proof. Suppose that there are two vertices at distance $\tau$ from$s$. Since, the distances are minimal, those path cann't crose the junction, otherwise, suppose that the path to $u$ pass trough the junction, then we could obtains a distance $\tau -1$ path to $v$ by earasing the the $\{v,u\}$ edge fron the path to $u$. 
-
-    The problem here, is that we don't have the graph stracture, to work with. So, what do we need is 
-
-    Consider the line graph $ L[G'] = (V', E') $. If $ L[G] $ is not a tree, it means there is a cycle, which implies that in $ G $, there is a cycle. This means that in $\{K, \ldots\}$, when forks are edges, there is a cycle, which contradicts the minimality of $\{K, \ldots\}$.
-
-
-    Now, consider the vertices in $L[G]$, associated with the vertices $\{J_{j}\}_{j\in X}$. Since $L[G]$ is a tree, there is a 'closest' vertex to the $i$th pole in that subset. 
-
-
-    \ctt{ Consider the line graph of the orignal graph, before treat to the forks as spanned sets.}
+Now consider a non-trivial intersection $\bigcap_{j \in X} J_{j}$. We claim that for any $i$, there is $t \in X$ such that $J_{t}$ is the successor of $J_{j}$ on the path to $R_{i}$ for any $j \in X/\{t\}$. Assume not. Let $x, y \in X$, and denote the paths from $J_{x}, J_{y}$ to the $i$th pole by $\braket{J_{x}, J_{x_2}, \ldots, R_{i}}$, $\braket{J_{y}, J_{y_2}, \ldots, R_{i}}$, such that $J_{y} \neq J_{x_{2}}$. If $y = x_{2}$, $y_{2} = x$, or $x_{2} = y_{2} \in X$, then pick other $x, y$ (if there is no such, we get an immediate contradiction). In that case, $\braket{J_{x}, J_{y}, J_{y_{2}}, \ldots, R_{i}}$ is a path from $J_{x}$ to $R_{i}$ which is different from $\braket{J_{x}, J_{x_{2}}, \ldots, R_{i}}$. Therefore, there are at least two paths from $J_{x}$ to the $i$th pole, namely, there is a cycle in contradiction to the minimality of $K_{0}, \ldots, K_{k}$.
 
   \end{proof}
 
