@@ -427,11 +427,12 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
 
     %Now we describe the selection of poles. Since we have to span..
     Let us denote by $J_{0},..,J_{2k}$ the enumarated union $K_{0},..K_{k},F_{1},..,F_{k}$. Observes that for any choise of $(d+1)(2k+1)$ elements $z_{0}^{1},z_{0}^{2}, z_{0}^{3},..,z_{0}^{d+1}..,z_{2k}^{d+1}$ in $\mathbb{R}^{d}$, such that $z_{j}^{i} \in J_{j}$ it holds that:
-    \begin{equation*}
+    \begin{equation}
+      \label{equ:spanlow}
       \begin{split}
          \sum^{k}_{i=0}\Size{\hat{K}_{i}} + \sum^{k}_{i=1}\Size{\hat{F}_{i}}  \ge \sum_{j,i}L_{i}(z_{j}^{i})
       \end{split}
-    \end{equation*}
+    \end{equation}
 
 Later, we are going to take the points $\{z_{j}^{i}\}$ from the intersection of $J_{j}$'s. For convenience, let us assume that for the index subset $X \subset [2k]\cup\{0\}$, the intersection $\bigcap_{j \in X}J_{j}$ returns a single point. If there is more than one, then decide on the point in a way that all the chosen points simultaneously satisfy that for any index subsets $Y, X$, such that $X \cap Y$ and they both introduce a non-trivial intersection $\bigcap_{j \in Z} J_{j} : Z\in \{X,Y\}$, then:
     \begin{equation*}
@@ -451,10 +452,7 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
         &=\sum_{i}^{d+1}L_{i}\left( \prei{x_{i}} \right) 
       \end{split}
     \end{equation*}
-
-
-    Observes that $z_{t}^{i}$ will not be set to $J_{j} \cap J_{t}$ since $J_{j}$ can't be the successor of $J_{t}$ on the path to $R_{i}$, Thus for a fixed $i$ there is no more $j^{\prime}$ such $z_{j^{\prime}}^{i} = z_{j}^{i}$. 
-
+    Plugging it into \Cref{equ:spanlow} gives the desired.
   \end{proof}
 
   \section{Explantation of a Spanned Slice}
