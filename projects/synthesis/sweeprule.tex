@@ -391,7 +391,7 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
     It suffices to prove that if $R_{1} \cap R_{2} \neq \emptyset$, then $\Size{R_{1} \cup R_{2}} \le \Size{R_{1}} + \Size{R_{2}}$. Let $a_{i,j} = \max_{v \in R_{j}}L_{i}(v)$. Then for any $w \in R_{1}\cap R_{2}$ we have:  
     \begin{equation*}
       \begin{split}
-        \Size{R_{1} \cap R_{2}} &= \sum_{i}^{d+1}{\max{ a_{i,1},a_{i,2} } } =  \sum_{i}^{d+1}{a_{i,1} + a_{i,2} - \min{ a_{i,1},a_{i,2} } } \\
+        \Size{R_{1} \cup R_{2}} &= \sum_{i}^{d+1}{\max{ a_{i,1},a_{i,2} } } =  \sum_{i}^{d+1}{a_{i,1} + a_{i,2} - \min{ a_{i,1},a_{i,2} } } \\
         & \le   \sum_{i}^{d+1}{a_{i,1} + a_{i,2} - L_{i}(w) } = \Size{R_{1}} + \Size{R_{2}} - \Size{w}  \\
         &  = \Size{R_{1}} + \Size{R_{2}} 
       \end{split}
@@ -477,7 +477,7 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
     Let $h = \Time{K} - \min_{u \in \History{K}}\Time{u}$. The proof is by induction on $h$. 
     \begin{enumerate}
       \item Base: $h=0$, namely $T$ is constant on $\History{K}$, so no arrows connect points of $\History{K}$. Thus, $\History{K}$, as well as $\mathbf{K}$, consists only of leaves. In that case, $U = W = \{u\}$, $m=1$, $s=0$, and $|R|, |F| = 0$ satisfy the requirement.
-      \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. Thus, by \Cref{claim:prevslices}, we know that for some $k$ there exist spanned slices $\hat{K}_{0}, .., \hat{K}_{k}$ and forks $F_{1},..,F_{k}$ that satisfy \Cref{claim:prevslices}. 
+      \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. Thus, by \cref{claim:prevslices}, we know that for some $k$ there exist spanned slices $\hat{K}_{0}, .., \hat{K}_{k}$ and forks $F_{1},..,F_{k}$ that satisfy \cref{claim:prevslices}. 
 
         Let $s_{i} = \Span{K_{i}}$. By the inductive hypothesis, we know that $K_{i}$ has an explanation $\mathbf{W}_{i}, \mathbf{R}_{i}, \mathbf{F}_{i}$. For $m_{i} =|\mathbf{W}_{i}|$, the sets $R_{i}$ and $F_{i}$ have at most $\alpha m_{i} - \beta s_{i}$ and $m_{i}-1$ leaves. We define:
         \begin{enumerate}
