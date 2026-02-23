@@ -489,14 +489,14 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
               \begin{split}
                 & d+1 + \sum^{k}_{i=0}{\alpha (m_{i}-1)  - s_{i} } \\ 
                 \le & d+1 + \alpha m - \alpha(k+1) - \left(s - \xi + k \cdot \Size{\text{fork}}  \right) \\
-                = & \alpha m - s + \left( d+1 - (k+1) \alpha + \xi -  k \cdot \Size{\text{fork}} \right)
+                = & \alpha \left(m - 1\right) - s + \left(\alpha + d+1 - (k+1) \alpha + \xi -  k \cdot \Size{\text{fork}} \right)
               \end{split}
             \end{equation*}
             So its enough to show that for any $k \ge 1$: 
             \begin{equation*}
               \begin{split}
-                & d+ 1 + \xi - (k+1) \alpha  -  k \Size{\text{fork}} \le 0 \\ 
-                \Rightarrow &  \alpha \ge \frac{ d+ 1 + \xi - k \Size{\text{fork}}}{k+1}
+                & \alpha + d+ 1 + \xi - (k+1) \alpha  -  k \Size{\text{fork}} \le 0 \\ 
+                \Rightarrow &  \alpha \ge \frac{ d+ 1 + \xi - k \Size{\text{fork}}}{k}
               \end{split}
             \end{equation*}
         \end{enumerate}
