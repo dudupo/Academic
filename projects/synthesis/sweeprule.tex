@@ -443,15 +443,6 @@ Later, we are going to take the points $\{z_{j}^{i}\}$ from the intersection of 
     Now consider a non-trivial maximal intersection $\bigcap_{j \in X} J_{j}$, the intersection is maximal in the sense that for any $j^{\prime} \notin X$ it holds that .$\bigcap_{j \in X\cup \{j^{\prime} \}} J_{j} = \emptyset$. We claim that for any $i$ and for any such $X$, there is $t \in X$ such that $J_{t}$ is the successor of $J_{j}$ on the path to $R_{i}$ for any $j \in X/\{t\}$. Assume not. Let $x, y \in X$, and denote the paths from $J_{x}, J_{y}$ to the $i$th pole by $\braket{J_{x}, J_{x_2}, \ldots, R_{i}}$, $\braket{J_{y}, J_{y_2}, \ldots, R_{i}}$, such that $J_{y} \neq J_{x_{2}}$. If $y = x_{2}$, $y_{2} = x$, or $x_{2} = y_{2} \in X$, then pick other $x, y$ (if there is no such, we get an immediate contradiction). In that case, $\braket{J_{x}, J_{y}, J_{y_{2}}, \ldots, R_{i}}$ is a path from $J_{x}$ to $R_{i}$ which is different from $\braket{J_{x}, J_{x_{2}}, \ldots, R_{i}}$. Therefore, there are at least two paths from $J_{x}$ to the $i$th pole, namely, there is a cycle in contradiction to the minimality of $K_{0}, \ldots, K_{k}$.
 
 
-    In addition since, in a tree, the number of leavs is at least greater than the maximal degree, then we have that each $J_{j}$ intersects with at most $d+1$ elements. 
-
-
-    \begin{equation*}
-      \begin{split}
-       & L + \Delta_{\max} + 2(n - L -1) \le \sum_{v\in V}\text{deg}(v) = 2 (n-1)\\
-       \Rightarrow & L \ge \Delta_{max}
-      \end{split}
-    \end{equation*}
 We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that has not been set yet. If $J_{j} = R_{i}$, then set $z_{j}^{i} \leftarrow \prei{x_{i}}$ - we call this a type-1 assignment. Otherwise, consider the path from $J_{j}$ to $R_{i}$ (by connectivity, it has to be such a one, and by minimality, there is exactly one). Let $J_{t}$ be the successor on the path, then pick $z_{j}^{i} \in J_{j} \cap J_{t}$ - similarly, we call this assignment a type-2 assignment. Since any type-2 assignment is associated with a non-trivial intersection, and any non-trivial intersection induces a type-2 assignment for all $i$'s (since for all $i$'s, one of the $J_{j}$ on its support is a successor of the rest on their path to the $i$th pole), we have that:
     \begin{equation*}
       \begin{split}
@@ -595,5 +586,16 @@ Therefore:
 
 \section{Configuration up to $C_{z}^\perp$ }
 
+\section{Drafts:}
+
+    In addition since, in a tree, the number of leavs is at least greater than the maximal degree, then we have that each $J_{j}$ intersects with at most $d+1$ elements. 
+
+
+    \begin{equation*}
+      \begin{split}
+       & L + \Delta_{\max} + 2(n - L -1) \le \sum_{v\in V}\text{deg}(v) = 2 (n-1)\\
+       \Rightarrow & L \ge \Delta_{max}
+      \end{split}
+    \end{equation*}
 
 \end{document}
