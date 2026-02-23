@@ -488,19 +488,19 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
             \begin{equation*}
               \begin{split}
                 & d+1 + \sum^{k}_{i=0}{\alpha (m_{i}-1)  - s_{i} } \\ 
-                \le & d+1 + \alpha m - \alpha(k+1) - \left(s - 1 + k \cdot \Size{\text{fork}}  \right) \\
-                = & \alpha m - s + \left( d+1 - (k+1) \alpha + 1 -  k \cdot \Size{\text{fork}} \right)
+                \le & d+1 + \alpha m - \alpha(k+1) - \left(s - \xi + k \cdot \Size{\text{fork}}  \right) \\
+                = & \alpha m - s + \left( d+1 - (k+1) \alpha + \xi -  k \cdot \Size{\text{fork}} \right)
               \end{split}
             \end{equation*}
             So its enough to show that for any $k \ge 1$: 
             \begin{equation*}
               \begin{split}
-                & d+2 - (k+1) \alpha  -  k \Size{\text{fork}} \le 0 \\ 
-                \Rightarrow &  \alpha \ge \frac{ d+2 - k \Size{\text{fork}}}{k+1}
+                & d+ 1 + \xi - (k+1) \alpha  -  k \Size{\text{fork}} \le 0 \\ 
+                \Rightarrow &  \alpha \ge \frac{ d+ 1 + \xi - k \Size{\text{fork}}}{k+1}
               \end{split}
             \end{equation*}
         \end{enumerate}
-        And that holds for $\alpha = d+2$, Finally, by \cref{claim:prevslices}, the graphs induced by $\mathbf{R}_{i} \cup \mathbf{F}_{i}$ are connected, thus the graph induced by $\mathbf{R}\cup \mathbf{F}$ is also connected. Therefore, $\mathbf{W}, \mathbf{R}, \mathbf{F}$ form an explanation of $K$. 
+        And that holds for $\alpha = d+1 + \xi$, Finally, by \cref{claim:prevslices}, the graphs induced by $\mathbf{R}_{i} \cup \mathbf{F}_{i}$ are connected, thus the graph induced by $\mathbf{R}\cup \mathbf{F}$ is also connected. Therefore, $\mathbf{W}, \mathbf{R}, \mathbf{F}$ form an explanation of $K$. 
     \end{enumerate}
   \end{proof}
 
