@@ -462,7 +462,7 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
   \ctt{Here we follow the original proof, but change the triminalogy, $m$ will be the number of leaves in the explanation, then in the end we conclude that the number of faults is at least $m/\Delta$. So $|R| \le f(\frac{m}{\Delta})$. }
 
   \begin{definition}
-    Consider a time graph $(G,T)$, an embedding $f : G \rightarrow \mathbb{R}^{d}$, such that.. Let $\alpha = d+2$. Given sets $W$ of points, $R$ of arrows and $F$ of forks, we define $U$ as the set of vertices of the graph induced by the edges of $R \cup F$. The sets $W,R$ and $F$ form an explanation of a spanned slice $\hat{K} = \braket{ K, v_{1}, .., v_{d+1}}$ if and only if: 
+    Consider a time graph $(G,T)$, an embedding $f : G \rightarrow \mathbb{R}^{d}$, such that.. Let $\beta = \frac{d+1}{\xi}$ and $\alpha = \beta \Size{\text{fork}}$. Given sets $W$ of points, $R$ of arrows and $F$ of forks, we define $U$ as the set of vertices of the graph induced by the edges of $R \cup F$. The sets $W,R$ and $F$ form an explanation of a spanned slice $\hat{K} = \braket{ K, v_{1}, .., v_{d+1}}$ if and only if: 
     \begin{enumerate}
       \item $W \cup \{v_{1} ,.., v_{d+1}\} \subset U \subset \History{K}$ and the graph $(U, R\cup F)$ is connected. 
       \item All elements of $W$ are leaves. 
@@ -503,7 +503,6 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
         And that holds for $\alpha = d+1 - \xi + \Size{\text{fork}}$, Finally, by \cref{claim:prevslices}, the graphs induced by $\mathbf{R}_{i} \cup \mathbf{F}_{i}$ are connected, thus the graph induced by $\mathbf{R}\cup \mathbf{F}$ is also connected. Therefore, $\mathbf{W}, \mathbf{R}, \mathbf{F}$ form an explanation of $K$. 
     \end{enumerate}
 
-    \ctt{Address the case where $k=0$. Key point.}
   \end{proof}
 
   \section{Counting Subtrees.} 
