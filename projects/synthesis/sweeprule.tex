@@ -227,14 +227,25 @@ We generalize Toom's rule in the following manner: Each plaquette asks if both o
 
 %We say that an edge $e$ can be the prev of $e^{\prime}$ if they both share a placket, $e$ is a positive edge relative to the placket while $e^{\prime}$ is negative relative to it. 
 
-Let $\sigma^{(t)}$ be a domain wall at time $t$, and let $\Gamma^{t} = \{ v : \exists \{v,u\} \in \sigma^{t} \}$, where we treat to the edges in a direct manner, means $\{u,v\} \neq \{v,u\}$. We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of applying the Toom's rule at time $t$, and by $\phi_{v}$ the bits which are flipped by vertex $v$. We say that $u$ is added to $\Gamma^{t+1}$ by $v$ at time $t$, if $u\in \Gamma^{t+1} / \Gamma^{t}$ and $u \in V(\phi_{v})$. When it clear form the context, we will omit the time, and say that $u$ is added by $v$. 
+Let $\sigma^{(t)}$ be a domain wall at time $t$, and let $\Gamma^{t} = \{ v : \exists \{v,u\} \in \sigma^{t} \}$, where we treat to the edges in a direct manner, means $\{u,v\} \neq \{v,u\}$. We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of applying the Toom's rule at time $t$, and by $\phi_{v}$ the bits which are flipped by vertex $v$. We say that $u$ is added to $\Gamma^{t+1}$ by $v$ at time $t$, if $u\in \Gamma^{t+1}$ and $u \in V(\phi_{v})$. When it clear form the context, we will omit the time, and say that $u$ is added by $v$. 
 
 
 \begin{claim}
 Let $v \in \Gamma^{t}$ for any $u$ that is added by $v$, and for any $x \in [d+1]$, we have $L_{x}(u) \le L_{x}(v) + 1$.
 \end{claim}
 \begin{proof}
-  By definition of the Toom's rule, any $u$ that is added by $v$.
+By definition, any $u$ that is added by $v$ is of the form $v + \sum \alpha_{j}1_{j}$, where $\alpha_{j} \in \{0,1\}$ and $\sum \alpha_j \le 2$. Thus, for any $x \in [d]$:
+  \begin{equation*}
+    \begin{split}
+      L_{x}(u) = \braket{1_{x}, v + \sum \alpha_{j}1_{j}} = \braket{1_{x},v} +\alpha_{x} \le L_{x}(v) + 1 
+    \end{split}
+  \end{equation*}
+For $x = d+1$ we have: 
+  \begin{equation*}
+    \begin{split}
+      L_{x}(u) = \braket{-\mathbf{1}, v + \sum \alpha_{j}1_{j}} = \braket{-\mathbf{1},v} - \sum_{j}\alpha_{j} \le L_{x}(v) 
+    \end{split}
+  \end{equation*}
 \end{proof}
 \begin{claim}
   Let $v \in \Gamma^{t}$ such that $L_{d+1}(v)$ is a (local) maxima in $\Gamma^{t}$ then for any $u$ which is added by $v$ we have $L_{d+1}(u) \le L_{d+1}(v) - 1$. 
