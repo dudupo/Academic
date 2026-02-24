@@ -133,7 +133,7 @@ The decoder works as follows: each vertex $v$ looks for a suggestion $\hat{v}$ o
 
 
 
-\section{Span Expansion}
+\section{Span Shrinking}
 
 Define the potentials functions $L_{i} : \mathbb{R}^{d} \rightarrow \mathbb{R}$ as follow\footnote{Notice that we use opposite signs relative to Berman and Peter Gacs, yet we agree with Perskil.}: 
 \begin{equation*}
@@ -215,6 +215,16 @@ Consider the assignment of bits at time $t-1$ over the complex, and consider the
     \item  Else, if for any $u \in \downarrow(u) \cap lk_{1}$ it holds that $\hat{u}|_{e} = \emptyset$, then it must be that $e \in H_{e}$ because $\hat{v}$ can only decrease the syndrome on $v$. Moreover, it follows that $\hat{v} = \emptyset$ (otherwise, the suggestion would zero out the syndrome on $\uparrow(v) \cap lk_{2}$). Thus, $\sigma_{v} \not\subset \uparrow(v) \cap lk_{2} \Rightarrow$ there is also an edge $e^{\prime} \in H_{e}$ where $e^{\prime} \in \downarrow(v)$. In that case, take $e \in H_{e}$ as the edge satisfies the first $d$ equalities and $e^{\prime}$ for satisfying the $d+1$th inequality.
   \end{enumerate}
 \end{proof}
+
+
+\section{SWEEP Rule Decoder on the Toric, version II.}
+Consider the following generalization of the Tooms rule, each placket checks if both of its positive edges point on syndrome. If yes, then the bit flip itself. Consider an embedding of the $d$ Toric into $\mathbb{R}^{d}$, the coordinate of an edge is the mean of its ends.  
+
+We say that an edge $e$ can be the prev of $e^{\prime}$ if they both share a placket, $e$ is a positive edge relative to the placket while $e^{\prime}$ is negative relative to it. 
+
+
+
+
 
 \newpage
 \section{Investigation}
