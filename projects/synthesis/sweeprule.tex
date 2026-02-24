@@ -255,13 +255,14 @@ For $x = d+1$ we have:
   We will prove that $v \notin \Gamma^{t+1}$, and then by repeating on \cref{claim:toombound} where $\sum_{\alpha_{j}} \ge 1$, we get the desired result. Assume, toward contradiction, that $v \in \Gamma^{t+1}$, and denote by $w$ the vertex that adds $v$. If $w \neq v$, then there is at least one coordinate $i$ for which $w_{i} < v_{i}$, thus $L_{d+1}(w) > L_{d+1}(v)$, in contradiction to $L_{d+1}(v)$ being a maximum in $\Gamma^{t}$. In the other case, where $v$ adds itself, it follows that $\sigma_{v}$ can't be decomposed into pairs of unsatisfied checks; namely, $|\sigma_{v}|$ is odd. We show by induction that impossible,namely that $|\sigma_{v}|$ is always even. The induction is over the size of the plaquettes subset that induce the boundary $\sigma$.
   \begin{enumerate}
     \item Base. Consider a boundary that induced by a single plaquette, in that case it obvious that  $|\sigma_{v}|$ is either zero (where $v$ is not belong to the plaquette) or $2$. 
-    \item Assume for any boundary that induced by at most $k$ plaquettes, and consider a boundary $\sigma$ which is induced by $k+1$ plaquettes, name this subset $F$ and observes that $F$ can be decomposed to a sum of two disjoint subsets $A$ and $B$. Now: 
+    \item Assume for any boundary that induced by at most $k$ plaquettes, and consider a boundary $\sigma$ which is induced by $k+1$ plaquettes, name this subset $F$ and observes that $F$ can be decomposed to a sum of two disjoint subsets $A$ and $B$, each with less than $k+1$ plaquettes, Now: 
       \begin{equation*}
         \begin{split}
           \sigma_{v} &= \left(\partial A \right)_{v} \cup \left(\partial B \right)_{v} \\
-          \Rightarrow |\sigma_{v}| &=   | \left(\partial A \right)_{v} | + | \left(\partial B \right)_{v} | - 2 |\left(\partial A \right)_{v} \cap \left(\partial B \right)_{v}|   
+          \Rightarrow |\sigma_{v}| &=   | \left(\partial A \right)_{v} | + | \left(\partial B \right)_{v} | - 2 |\left(\partial A \right)_{v} \cap \left(\partial B \right)_{v}|  = \text{even} 
         \end{split}
       \end{equation*}
+      Where we used the induction assumption, which tells that $| \left(\partial A \right)_{v} |$ and $| \left(\partial B \right)_{v} |$ are even numbers.
   \end{enumerate}
 
 
