@@ -462,7 +462,7 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
   \ctt{Here we follow the original proof, but change the triminalogy, $m$ will be the number of leaves in the explanation, then in the end we conclude that the number of faults is at least $m/\Delta$. So $|R| \le f(\frac{m}{\Delta})$. }
 
   \begin{definition}
-    Consider a time graph $(G,T)$, an embedding $f : G \rightarrow \mathbb{R}^{d}$, such that.. Let $\alpha = d+2$. Given sets $W$ of points, $R$ of arrows and $F$ of forks, we define $U$ as the set of vertices of the graph induced by the edges of $R \cup F$. The sets $W,R$ and $F$ form an explanation of a spanned slice $\hat{K} = \braket{ K, v_{1}, .., v_{d+1}}$ iff: 
+    Consider a time graph $(G,T)$, an embedding $f : G \rightarrow \mathbb{R}^{d}$, such that.. Let $\alpha = d+2$. Given sets $W$ of points, $R$ of arrows and $F$ of forks, we define $U$ as the set of vertices of the graph induced by the edges of $R \cup F$. The sets $W,R$ and $F$ form an explanation of a spanned slice $\hat{K} = \braket{ K, v_{1}, .., v_{d+1}}$ if and only if: 
     \begin{enumerate}
       \item $W \cup \{v_{1} ,.., v_{d+1}\} \subset U \subset \History{K}$ and the graph $(U, R\cup F)$ is connected. 
       \item All elements of $W$ are leaves. 
@@ -492,11 +492,15 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
                 = & \alpha \left(m - 1\right) - s + \left(\alpha + d+1 - (k+1) \alpha - \xi + k \cdot \Size{\text{fork}} \right)
               \end{split}
             \end{equation*}
-            So its enough to show that for any $k \ge 1$: 
+            So its enough to show that for any $k \ge 0$: 
             \begin{equation*}
               \begin{split}
                 & \alpha + d+ 1 - \xi - (k+1) \alpha  +  k \Size{\text{fork}} \le 0 \\ 
-                \Rightarrow &  \alpha \ge \frac{ d+ 1 - \xi }{k} + \Size{\text{fork}}
+                \Rightarrow &   \begin{cases}
+                 \alpha \ge \frac{ d+ 1 - \xi }{k} + \Size{\text{fork}}
+& k\ge 1 \\ 
+                \xi \ge d+1 & k =0
+                \end{cases}
               \end{split}
             \end{equation*}
         \end{enumerate}
