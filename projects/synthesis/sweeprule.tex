@@ -249,6 +249,7 @@ For $x = d+1$ we have:
   \end{equation*}
 \end{proof}
 \begin{claim}
+  \label{claim:toomb}
   Let $v \in \Gamma^{t}$ such that $L_{d+1}(v)$ is a (local) maxima in $\Gamma^{t}$ then for any $u$ which is added by $v$ we have $L_{d+1}(u) \le L_{d+1}(v) - 1$. 
 \end{claim}
 \begin{proof}
@@ -269,6 +270,7 @@ For $x = d+1$ we have:
 \end{proof}
 
 \begin{claim}
+  \label{claim:toomc}
   Let $x \in [d]$ and let $v \in \Gamma^{t}$ such that $L_{x}(v)$ is a (local) maxima in $\Gamma^{t}$ then for any $u$ which is added by $v$ we have $L_{x}(u) \le L_{x}(v)$. 
 \end{claim}
 
@@ -283,10 +285,10 @@ Hence, any plaquette that is being flipped by $v$ lies on edges associated with 
 \end{proof}
 
 \begin{claim}
-Let $\Gamma^{t}$ be the vertices in the support of the domain wall $\sigma^{t}$. Denote $v_i = \arg \max_{v \in \Gamma^{t}} L_{i}(v)$. Then for any $i \in [d]$, one can find $u \in \Gamma^{t-1}$ such that $u$ adds $v_i$ and $L_{i}(u) \ge L_{i}(v_{i})$. In addition, one can find $u_{d+1} \in \Gamma^{t-1}$ such that $u_{d+1}$ adds $v_{d+1}$ and $L_{d+1}(u_{d+1}) = L_{d+1}(v_{d+1}) + 1$.
+Let $\Gamma^{t}$ be the vertices in the support of the domain wall $\sigma^{t}$. Denote $v_i = \arg \max_{v \in \Gamma^{t}} L_{i}(v)$. Then for any $i \in [d]$, one can find $u \in \Gamma^{t-1}$ such that $u$ adds $v_i$ and $L_{i}(u) \ge L_{i}(v_{i})$. In addition, one can find $u_{d+1} \in \Gamma^{t-1}$ such that $u_{d+1}$ adds $v_{d+1}$ and $L_{d+1}(u_{d+1}) = L_{d+1}(v_{d+1}) + 1$. 
 \end{claim}
 \begin{proof}
-  
+Just take $u_{i}$ to be any vertex that adds $v_{i}$. By claims \cref{claim:toombound}, \cref{claim:toomb}, and \cref{claim:toomc}, we get the desired result.
 \end{proof}
 
 \ctt{$V(\phi_{v})$ was not defined. $v \le w$ also not defined.} 
