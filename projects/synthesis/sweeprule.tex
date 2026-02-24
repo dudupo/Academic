@@ -487,20 +487,16 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
           \item $\mathbf{R} = \{ \{v_{i}, \prei{v_{i}} \} \} \cup_{i=0}^{k}{ \mathbf{R}_{i} }$ with at most 
             \begin{equation*}
               \begin{split}
-                & d+1 + \sum^{k}_{i=0}{\alpha (m_{i}-1)  - s_{i} } \\ 
-                \le & d+1 + \alpha m - \alpha(k+1) - \left(s + \xi - k \cdot \Size{\text{fork}}  \right) \\
-                = & \alpha \left(m - 1\right) - s + \left(\alpha + d+1 - (k+1) \alpha - \xi + k \cdot \Size{\text{fork}} \right)
+                & d+1 + \sum^{k}_{i=0}{\alpha (m_{i}-1)  - \beta s_{i} } \\ 
+                \le & d+1 + \alpha m - \alpha(k+1) - \beta\left(s + \xi - k \cdot \Size{\text{fork}}  \right) \\
+                = & \alpha \left(m - 1\right) - \beta s + \left(\alpha + d+1 - (k+1) \alpha - \beta \xi + \beta k \cdot \Size{\text{fork}} \right)
               \end{split}
             \end{equation*}
-            So its enough to show that for any $k \ge 0$: 
+            So its enough to show that for $k\ge 0$ the term in the closure is negative, We do that by showing that the slop is negative, and then the value of the term at zero is negative: 
             \begin{equation*}
               \begin{split}
-                & \alpha + d+ 1 - \xi - (k+1) \alpha  +  k \Size{\text{fork}} \le 0 \\ 
-                \Rightarrow &   \begin{cases}
-                 \alpha \ge \frac{ d+ 1 - \xi }{k} + \Size{\text{fork}}
-& k\ge 1 \\ 
-                \xi \ge d+1 & k =0
-                \end{cases}
+                &  - \alpha  +  \beta \Size{\text{fork}} \le 0 \Rightarrow   \Size{\text{fork}} \le \frac{\alpha}{\beta} \\ 
+                &  d + 1  -\beta \xi \le 0 \Rightarrow \xi \ge \frac{d+1}{\beta}
               \end{split}
             \end{equation*}
         \end{enumerate}
