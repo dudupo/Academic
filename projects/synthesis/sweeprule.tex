@@ -150,12 +150,16 @@ The \textbf{Size} of a subset $S$ is defined as:
   \mathbf{Size}(S) = \sum_{i}\max_{\xb{} \in S} L_{i}(\xb{})
   \end{split}
 \end{equation*}
-Numerically, we show that the span property holds for the checks. Namely, let $e$ be an unsatisfied check at time $t$, and let $H_{e}$ be the unsatisfied checks at time $t-1$. Then there is a set $H^{\prime}_{e} \subset H_{e}$ such that:
+\begin{claim}[Span Shrinking Property]
+ Namely, let $e$ be an unsatisfied check at time $t$, and let $H_{e}$ be the unsatisfied checks at time $t-1$. Then there is a set $H^{\prime}_{e} \subset H_{e}$ such that:
 \begin{enumerate}
   \item For any $i < d + 1$ there exists $e^{\prime} \in H^{\prime}_{e}$ such $L_{i}(e^{\prime}) \ge L_{i}(e)$. 
   \item There exists $e^{\prime} \in H^{\prime}_{e}$ such that $L_{d+1}(e^{\prime}) \le L_{d+1}(e) + 1 $. 
 \end{enumerate}
-
+\end{claim}
+\begin{remark}
+Numerically, we showed that the 'span shrinking property' holds for the checks on the 3D Toric (it required running over $\sim 2^{11}$ assignments of bits over the local environment of the check).
+\end{remark}
 \begin{proof}
   Consider a vertex $v$ which at time $t$ adjoins to an unsatisfied edge $e$, let $u,w$ be vertices which have a positive faces that adjoin to $e$. 
   \begin{enumerate}
