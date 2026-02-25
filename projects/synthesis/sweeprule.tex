@@ -419,8 +419,7 @@ We say that a check $e \in $ Error, if there is a face $f$ that adjoin to $e$ an
 \begin{enumerate}
   \item $\{x,y\} \in A \Rightarrow \Time{y} = \Time{x} \pm 1$  
   \item For $x,y \in V $  $\{x,y\} \in F $ iff there exists $z \in V $ such both $\{x,z\},\{y,z\} \in A$. 
-\end{enumerate}
-We will call to $T$ time-function, to $A$ arrows, and to $F$ forks. Observes that from the second requirement it follows that forks can connect only vertices that have the same time value (set by $T$). 
+\end{enumerate will call to $T$ time-function, to $A$ arrows, and to $F$ forks. Observes that from the second requirement it follows that forks can connect only vertices that have the same time value (set by $T$). 
   \end{definition}
 % that since $(V,A)$ is a DAG it defines a partial order on $V$, let us denote $u \le v$ for $u,v \in V$ if there is a directed path from $u$ to  
   \begin{definition}[History, slice.]
@@ -557,6 +556,7 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
   \end{definition}
 
   \begin{claim}
+    \label{claim:edgesin}
     Every spanned slice $K = \braket{K,v_{1},..,v_{d+1}}$ has an explanation.
   \end{claim}
 
@@ -636,6 +636,23 @@ Imagine the following process, we apply $t$ noisy iterations of the SWEEP rule, 
     & \le \sum^{\infty}_{m} | \{ \text{ explanation to } \xi^{\prime} \text{ over } m \text{ leaves restricted to no noise at the final iteration } \} | p^{\frac{m}{\Delta}} \\ 
     & \le \sum^{\infty}_{m} | \{ \text{ explanation to } \xi^{\prime} \text{ over } m \text{ leaves } \} | p^{\frac{m}{\Delta}} \\ 
     & \le \prb{\xi^{\prime} \text{ connected in Time } \textbf{ - Upper Bound }  } \le q^{\Span{\xi^{\prime}}} \le q^{\Span{\xi} - 1 }
+  \end{split}
+\end{equation*}
+
+\subsection{Another Idea.}
+Reconsider the construction of the explanation. We could add at the top an imaginary layer in which all the vertices at time $ t $ are connected by arrows to all the vertices (at time $ t+1 $) which are adjacent to them in the Tanner graph. For the last layer we might gets that the span of a slice is expand, instead of shrinking, namely \cref{claim:prevslices} for the final slices would change to: 
+
+\begin{equation*}
+  \begin{split}
+\sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}} - \xi 
+  \end{split}
+\end{equation*}
+Thus, following the computation at the induction stage in \cref{claim:edgesin}, the number of arrows is bounded by: 
+
+\begin{equation*}
+  \begin{split}
+    & \alpha \left(m - 1\right) - \beta s + d+1+ \alpha + \beta \xi \\
+    & \alpha \left(m - 1\right) - \beta s + O(1) 
   \end{split}
 \end{equation*}
 
