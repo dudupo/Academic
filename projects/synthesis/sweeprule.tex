@@ -624,7 +624,11 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
     \end{split}
   \end{equation*}
   \section{Tree Separator Lemma}
+  
 
+  \begin{claim}
+    Let $T$ be a tree with $m$ leaves and $\tau$ edges, then it has a subtree with $m^{\prime} \in (m/3, \frac{2}{3}m)$ leaves and at most $ \frac{m^{\prime}}{m} \tau$ edges. 
+  \end{claim}
 
 \newpage 
 
@@ -640,14 +644,14 @@ Imagine the following process, we apply $t$ noisy iterations of the SWEEP rule, 
 \end{equation*}
 
 \subsection{Another Idea.}
-Reconsider the construction of the explanation. We could add at the top an imaginary layer in which all the vertices at time $ t $ are connected by arrows to all the vertices (at time $ t+1 $) which are adjacent to them in the Tanner graph. For the last layer we might gets that the span of a slice is expand, instead of shrinking, namely \cref{claim:prevslices} for the final slices would change to: 
+Reconsider the construction of the explanation. We could add at the top an imaginary layer in which all the vertices at time $t$ are connected by arrows to all the vertices (at time $t+1$) that are adjacent to them in the Tanner graph. For the last layer, we might find that the span of a slice expands instead of shrinking. Namely, \cref{claim:prevslices} for the final slices would change to:
 
 \begin{equation*}
   \begin{split}
 \sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}} - \xi 
   \end{split}
 \end{equation*}
-Thus, following the computation at the induction stage in \cref{claim:edgesin}, the number of arrows is bounded by: 
+Thus, following the computation at the induction stage in \cref{claim:edgesin}, the number of arrows is bounded by:
 
 \begin{equation*}
   \begin{split}
