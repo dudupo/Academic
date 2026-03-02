@@ -631,9 +631,16 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
     Let $T = (V,E)$ be a tree with $m$ leaves and $\tau$ edges, then it has a subtree with $m^{\prime} \in ( \frac{1}{3}m, \frac{2}{3}m)$ leaves and at most $ \frac{m^{\prime}}{m} \tau$ edges. 
   \end{claim}
   \begin{proof}
-Order the vertices according to their heights. Denote by $v \in V$ the lowest vertex for which the subtree rooted at $v$ has at least $\frac{1}{3}m$ leaves. Now denote by $T_{1}$ the subtree obtained by the following iterative process over the subtrees of the subtree rooted at $v$: For the $i$th subtree, we check if erasing it doesn't decrease the number of leaves below $\frac{1}{3}m$. If so, then we update $T_{1}$ to be the result of the erasure. Note that the collection of subtrees is updated to exclude subtrees that belong to the erased tree.
+Order the vertices according to their heights. Denote by $v \in V$ the lowest vertex for which the subtree rooted at $v$ has at least $\frac{1}{3}m$ leaves. Now, denote by $T_{1}$ the subtree obtained through the following iterative process over $v$'s children:
+\begin{enumerate}
+  \item Initialize $T_{1}$ as the subtree rooted at $v$.
+  \item For a child $u$ of $v$:
+    \begin{enumerate}
+      \item Check if erasing from $T_{1}$ the subtree rooted at $u$ doesn't decrease the number of leaves below $\frac{1}{3}m$. If so, then we update $T_{1}$ to be the result of the erasure.
+    \end{enumerate}
+\end{enumerate}
+Clearly, the algorithm is defined such that $ T_{1} $ has to have at least $\frac{m}{3}$ leaves. Furthermore, since any child of $ v $ is a root of a subtree with fewer than $\frac{m}{3}$ leaves (otherwise we get a contradiction to the minimality of $ v $'s height), we have that if $ T_{1} $ would have more than $\frac{2}{3}m$ leaves, then the subtraction of any of its children would yield a tree with at least $\frac{2}{3}m - \frac{1}{3}m = \frac{1}{3}m$ leaves. Namely, $ v $ has in $ T_{1} $ a child $ u $ such that the subtraction of the subtree rooted at $ u $ from $ T_{1} $ results in a subtree with more than $\frac{1}{3}m$ leaves. But if indeed there were such a child, then the algorithm would erase it, so there is not. 
 
-Since any descendant of $v$ is a root of a subtree with fewer than $m/3$ leaves (otherwise we get a contradiction to the minimality of $v$'s height), we have that, in particular, no child of $v$ is a root of $m/3$ leaves. Thus, $v$ cannot have more than $\frac{2}{3}m$ leaves.
   \end{proof}
 
 \newpage 
