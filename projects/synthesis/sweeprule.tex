@@ -628,7 +628,7 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
 
 
   \begin{claim}
-    Let $T = (V,E)$ be a tree with $m$ leaves and $\tau$ edges, then it has a subtree with $m^{\prime} \in ( \frac{1}{3}m, \frac{2}{3}m)$ leaves and at most $ \frac{m^{\prime}}{m} \tau$ edges. 
+    Let $T = (V,E)$ be a tree with $m > 3$ leaves and $\tau$ edges, then it has a subtree with $m^{\prime} \in ( \frac{1}{3}m, \frac{2}{3}m)$ leaves and at most $ \frac{m^{\prime}}{m} \tau$ edges. 
   \end{claim}
   \begin{proof}
 Order the vertices according to their heights. Denote by $v \in V$ the lowest vertex for which the subtree rooted at $v$ has at least $\frac{1}{3}m$ leaves. Now, denote by $T_{1}$ the subtree obtained through the following iterative process over $v$'s children:
@@ -654,7 +654,7 @@ Namely, $\frac{\tau}{m}$ is a weighted average of $\frac{\tau_{1}}{m_{1}}$ and $
   \end{proof}
 By repeating recursively on the above construction, we get the following corollary:
   \begin{corollary}
-Let $T = (V,E)$ be a tree with $m > n$ leaves and $\tau$ edges. Then, for any $\alpha > 0$, it has a subtree with $m^{\prime} \in \left( \frac{1}{3}\alpha m, \frac{2}{3} \alpha m \right)$ leaves and at most $\frac{m^{\prime}}{m} \tau$ edges.
+Let $T = (V,E)$ be a tree with $m$ leaves and $\tau$ edges. Then, for any $\alpha > 0$, it has a subtree with $m^{\prime} \in \left( \frac{1}{3}\alpha m, \frac{2}{3} \alpha m \right)$ leaves and at most $\frac{m^{\prime}}{m} \tau$ edges.
   \end{corollary}
 
 \newpage 
