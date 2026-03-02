@@ -695,8 +695,12 @@ Thus, following the computation at the induction stage in \cref{claim:edgesin}, 
 Let $G = (B,C,E)$ be a Tanner graph of a code, and let $f : G \rightarrow \mathbb{R}^{d+1}$ be an embedding of the graph into $\mathbb{R}^{d+1}$. For $s \in \mathbb{R}$, we say that $X \subset B$ is a connected cluster of $G$ with span $s$ regarding $f$ if $X$ is connected in $G$ (where two bits are connected if there is a check that connects both of them in $E$) and $f(X) \subset \mathbb{R}^{d+1}$ has $\Size{f(X)} \le s$. When it's clear from the context which $G$ and $f$ are, we will call $X$ in brief a connected cluster with span $s$.
 \end{definition}
 
+\begin{definition}
+The model, computation, and noise are tossed, and then a correction is made.
+\end{definition}
+
 \begin{claim}  
-Let $\xi$ be the event in which, at time $t$, the error contains a connected cluster with a span greater than $\frac{d}{4}$, and for $i \in [t]$, let $\sigma_{i}$ be the event in which, at time $i$, there is a connected cluster with a span of at least $\sqrt{d}$ that belongs to the error. Then:
+  Let $\xi$ be the event in which, at the \textbf{beginning} of time $t$, the error contains a connected cluster with a span greater than $\frac{d}{4}$, and for $i \in [t]$, let $\sigma_{i}$ be the event in which, at the \textbf{end} time $i$, there is a connected cluster with a span of at least $\sqrt{d}$ that belongs to the error. Then:
 \begin{equation*}
   \begin{split}
     & \prb{\xi} \le t\prb{ \sigma_{1} } + p^{\frac{1}{8}\sqrt{d}}  
@@ -704,15 +708,13 @@ Let $\xi$ be the event in which, at time $t$, the error contains a connected clu
 \end{equation*}
 \end{claim}
 \begin{proof}
-  
-
+ By the law of total probability it hodls: 
 \begin{equation*}
   \begin{split}
     \prb{\xi} & =  \prb{\xi \cap \bigcup^{t}_{i} \sigma_{i} } +  \prb{\xi \cap \bigcap^{t}_{i} \bar{\sigma}_{i} } 
   \end{split}
 \end{equation*}
-
-So denote by $\tau$ the number of bits that require to be flipped in order to merge the flipped connected component to a one with a span greater than $d/4$, So $\tau$ has to be at least:   
+First, let us bound from above the probability of the right intersection, In that case, at time $t-1$, the erorr consists of clusters each at span less than $\sqrt{d}$, and by .  So denote by $\tau$ the number of bits that require to be flipped in order to merge the flipped connected component to a one with a span greater than $d/4$, So $\tau$ has to be at least:   
 \begin{equation*}
   \begin{split}
     \tau\left( \sqrt{d} + 1 \right) \ge \frac{1}{4} d \Rightarrow \tau \ge \frac{1}{8} \sqrt{d}
