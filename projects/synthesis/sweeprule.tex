@@ -695,7 +695,16 @@ Thus, following the computation at the induction stage in \cref{claim:edgesin}, 
 Let $G = (B,C,E)$ be a Tanner graph of a code, and let $f : G \rightarrow \mathbb{R}^{d+1}$ be an embedding of the graph into $\mathbb{R}^{d+1}$. For $s \in \mathbb{R}$, we say that $X \subset B$ is a connected cluster of $G$ with span $s$ regarding $f$ if $X$ is connected in $G$ (where two bits are connected if there is a check that connects both of them in $E$) and $f(X) \subset \mathbb{R}^{d+1}$ has $\Size{f(X)} \le s$. When it's clear from the context which $G$ and $f$ are, we will call $X$ in brief a connected cluster with span $s$.
 \end{definition}
 
-Let $\xi$ the event in which, at the time $t$, the error contains a connected component in the Tanner graph with a span $>\frac{d}{4}$, and let $\sigma_{i}$ the event that at time $i$ a connected with span at least $\sqrt{d}$ belongs to the error. Then: 
+\begin{claim}  
+  Let $\xi$ be the event in which, at the time $t$, the error contains a connected cluster with span greater than $\frac{d}{4}$, and for $i\in [t]$, let $\sigma_{i}$ the event in which at time $i$ there is a connected cluster with span at least $\sqrt{d}$ which belongs to the error. Then: 
+
+\begin{equation*}
+  \begin{split}
+    & \prb{\xi} \le t\prb{ \sigma_{1} } + p^{\frac{1}{8}\sqrt{d}}  
+  \end{split}
+\end{equation*}
+\end{claim}
+
 
 \begin{equation*}
   \begin{split}
