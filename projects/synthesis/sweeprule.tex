@@ -700,7 +700,7 @@ The model, computation, and noise are tossed, and then a correction is made.
 \end{definition}
 
 \begin{claim}  
-  Let $\xi$ be the event in which, at the \textbf{beginning} of time $t$, the error contains a connected cluster with a span greater than $\frac{d}{4}$, and for $i \in [t]$, let $\sigma_{i}$ be the event in which, at the \textbf{end} time $i$, there is a connected cluster with a span of at least $\sqrt{d}$ that belongs to the error. Then:
+  Let $\xi$ be the event in which, at the \textbf{beginning} of time $t$, the error contains a connected cluster with a span greater than $\frac{d}{4}$, and for $i \in [t]$, let $\sigma_{i}$ be the event in which, at the \textbf{end} of time $i$, there is a connected cluster with a span of at least $\sqrt{d}$ that belongs to the error. Then:
 \begin{equation*}
   \begin{split}
     & \prb{\xi} \le t\prb{ \sigma_{1} } + p^{\frac{1}{8}\sqrt{d}}  
@@ -714,7 +714,17 @@ The model, computation, and noise are tossed, and then a correction is made.
     \prb{\xi} & =  \prb{\xi \cap \bigcup^{t}_{i} \sigma_{i} } +  \prb{\xi \cap \bigcap^{t}_{i} \bar{\sigma}_{i} } 
   \end{split}
 \end{equation*}
-First, let us bound from above the probability of the right intersection, In that case, at time $t-1$, the erorr consists of clusters each at span less than $\sqrt{d}$, and by .  So denote by $\tau$ the number of bits that require to be flipped in order to merge the flipped connected component to a one with a span greater than $d/4$, So $\tau$ has to be at least:   
+First, let us bound from above the probability of the right intersection, In that case, at the \textbf{end} of time $t-1$, the erorr consists of clusters each at span less than $\sqrt{d}$, Thus, .  So denote by $\tau$ the number of bits that require to be flipped in order to merge the flipped connected component to a one with a span greater than $d/4$, So $\tau$ has to be at least:   
+
+
+\begin{equation*}
+  \begin{split}
+    & \sum\Size{X_{i} } \le n \Rightarrow m \le \frac{n}{\sqrt{d}}\\
+    & p \frac{n}{\sqrt{d}}  le \sqrt{d}
+  \end{split}
+\end{equation*}
+
+
 \begin{equation*}
   \begin{split}
     \tau\left( \sqrt{d} + 1 \right) \ge \frac{1}{4} d \Rightarrow \tau \ge \frac{1}{8} \sqrt{d}
