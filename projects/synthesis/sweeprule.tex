@@ -690,7 +690,12 @@ Thus, following the computation at the induction stage in \cref{claim:edgesin}, 
 \section{Intermediate Step Lemma}
 
 \ctt{ The idea of this step is also to bound the case that all the bits are flipped at once, So checks are satisfied (and the argue above is not applied directly). }
-Let $\xi$ be a subset that connected component in the Tanner graph with a span $>\frac{d}{4}$ at time $t$, and let $\sigma_{i}$ the event that at time $i$ a connected with span at least $\sqrt{d}$ belongs to the error. Then: 
+
+\begin{definition}[Connected Cluster With Span $s$]
+Let $G = (B,C,E)$ be a Tanner graph of a code, and let $f : G \rightarrow \mathbb{R}^{d+1}$ be an embedding of the graph into $\mathbb{R}^{d+1}$. For $s \in \mathbb{R}$, we say that $X \subset B$ is a connected cluster of $G$ with span $s$ regarding $f$ if $X$ is connected in $G$ (where two bits are connected if there is a check that connects both of them in $E$) and $f(X) \subset \mathbb{R}^{d+1}$ has $\Size{f(X)} \le s$. When it's clear from the context which $G$ and $f$ are, we will call $X$ in brief a connected cluster with span $s$.
+\end{definition}
+
+Let $\xi$ the event in which, at the time $t$, the error contains a connected component in the Tanner graph with a span $>\frac{d}{4}$, and let $\sigma_{i}$ the event that at time $i$ a connected with span at least $\sqrt{d}$ belongs to the error. Then: 
 
 \begin{equation*}
   \begin{split}
