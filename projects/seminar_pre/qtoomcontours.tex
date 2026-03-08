@@ -311,17 +311,55 @@ Let $\Gamma^{t}$ be the vertices in the support of the domain wall $\sigma^{t}$.
 
 \begin{frame}
 
-  \title{Part II}
+  \title{Part II - Enumerate Explanations. }
     \titlepage
 
+
+\end{frame}
+
+  %\newcommand{\History}[1]{\mathbf{History}(#1)}
+\newcommand{\History}[1]{H_{#1}}
+  %\newcommand{\Time}[1]{\mathbf{Time}(#1)}
+  \newcommand{\Time}[1]{T(#1)}
+  \newcommand{\Excuse}[1]{\mathbf{Excuse}(#1)}
+  \newcommand{\Excusei}[1]{\mathbf{Excuse}_{i}(#1)}
+  \newcommand{\Size}[1]{\mathbf{Size}(#1)}
+  \newcommand{\Span}[1]{\mathbf{Span}(#1)}
+  \newcommand{\pre}[1]{\text{pre}(#1)}
+  \newcommand{\prei}[1]{\text{pre}_{i}(#1)}
+
+\begin{frame}
+  \frametitle{ Time Grpah $(G,T)$} 
+
+    Consider a graph $G = (V, A, F)$, where $V$ is a set of vertices, and $A$, $F$ are sets of undirected edges. For $v \in V$, denote by $\pre{v} = \{ u \in V : \{u,v\} \in A \}$, we extend the notion for subsets of vertices $X \subset V$ by $\pre{X} = \bigcup_{v \in X} \pre{v}$. Let $ T : V \rightarrow \mathbb{N}$, We say that $(G,T)$ is a time graph iff:
+\begin{enumerate}
+  \item $\{x,y\} \in A \Rightarrow \Time{y} = \Time{x} \pm 1$  
+  \item For $x,y \in V $  $\{x,y\} \in F $ iff there exists $z \in V $ such both $\{x,z\},\{y,z\} \in A$. 
+\end{enumerate} We will call to $T$ time-function, to $A$ arrows, and to $F$ forks. Observes that from the second requirement it follows that forks can connect only vertices that have the same time value (set by $T$). 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Title} 
 
 \end{frame}
 
 \begin{frame}
   \frametitle{Title} 
 
+\end{frame}
 
+\begin{frame}
+  \frametitle{Title} 
 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Title} 
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Title} 
 
 \end{frame}
 
