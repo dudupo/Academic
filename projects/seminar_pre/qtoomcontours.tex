@@ -136,14 +136,26 @@ Let $\sigma^{(t)}$ be a domain wall at time $t$, and let $\Gamma^{t} = \{ v : \e
 
 \begin{frame}
   \frametitle{Title} 
-
-
-Let $\sigma^{(t)}$ be a domain wall at time $t$, and let $\Gamma^{t} = \{ v : \exists \{v,u\} \in \sigma^{t} \}$.
+Define the potentials functions $L_{i} : \mathbb{R}^{d} \rightarrow \mathbb{R}$ as follow\footnote{Notice that we use opposite signs relative to Berman and Peter Gacs, yet we agree with Perskil.}: 
+\begin{equation*}
+  \begin{split}
+L_{i}(\xb{}) =    \begin{cases}
+  \xb{}_{i} & i < d + 1 \\ 
+  - \braket{\mathbf{1}, \xb{}} & i = d+1
+\end{cases}
+  \end{split}
+\end{equation*}
+The \textbf{Size} of a subset $S$ is defined as:   
+\begin{equation*}
+  \begin{split}
+  \mathbf{Size}(S) = \sum_{i}\max_{\xb{} \in S} L_{i}(\xb{})
+  \end{split}
+\end{equation*}
 
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.15]{./domainwall_pot.png}
+  \includegraphics[scale=0.1]{./domainwall_pot.png}
   \caption{Example in 2D. $A$ is the flipped droplet, $L_{x}(A) = \max_{v \in \Gamma^{t}} v_{x} = w$.    }
   \label{fig:fig1}
 \end{figure}
