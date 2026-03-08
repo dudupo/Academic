@@ -181,7 +181,7 @@ The \textbf{Size} of a subset $S$ is defined as:
 Let $v \in \Gamma^{t}$ for any $u$ that is added by $v$, and for any $x \in [d+1]$, we have $L_{x}(u) \le L_{x}(v) + 1$.
 \end{block}
 \begin{block}{proof}
-By definition, any $u$ that is added by $v$ is of the form $v + \sum \alpha_{j}1_{j}$, where $\alpha_{j} \in \{0,1\}$ and $\sum \alpha_j \le 2$. Thus, for any $x \in [d]$:
+  By definition, any $u$ that is added by $v$ is of the form $v + \sum_{j \in [d]} \alpha_{j}1_{j}$, where $\alpha_{j} \in \{0,1\}$ and $\sum \alpha_j \le 2$. Thus, for any $x \in [d]$:
   \begin{equation*}
     \begin{split}
       L_{x}(u) = \braket{1_{x}, v + \sum \alpha_{j}1_{j}} = \braket{1_{x},v} +\alpha_{x} \le L_{x}(v) + 1 
@@ -214,6 +214,14 @@ For $x = d+1$ we have:
   \begin{block}{proof}
 
   In the other case, where $v$ adds itself, it follows that $\sigma_{v}$ can't be decomposed into pairs of unsatisfied checks; namely, $|\sigma_{v}|$ is odd. We show by induction that impossible,namely that $|\sigma_{v}|$ is always even. The induction is over the size of the plaquettes subset that induce the boundary $\sigma$.
+
+\end{block}
+\end{frame}
+\begin{frame}
+  \frametitle{Shrinking Lemmas} 
+
+  \begin{block}{proof}
+
   \begin{enumerate}
     \item Base. Consider a boundary that induced by a single plaquette, in that case it obvious that  $|\sigma_{v}|$ is either zero (where $v$ is not belong to the plaquette) or $2$. 
     \item Assume for any boundary that induced by at most $k$ plaquettes, and consider a boundary $\sigma$ which is induced by $k+1$ plaquettes, name this subset $F$ and observes that $F$ can be decomposed to a sum of two disjoint subsets $A$ and $B$, each with less than $k+1$ plaquettes, Now: 
