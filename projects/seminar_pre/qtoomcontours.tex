@@ -339,8 +339,9 @@ Let $\Gamma^{t}$ be the vertices in the support of the domain wall $\sigma^{t}$.
 \end{frame}
 
 \begin{frame}
-  \frametitle{Title} 
+  \frametitle{History and Slice} 
 
+    For a time graph $(G,T)$ and a vertex $u \in V$, let $G_{u}$ be the subgraph of $(V,A)$ induced by $\{ v \in V : \Time{v} \le \Time{u} \}$. We will denote by $\History{u}$ the 'History of $u$', which is the set of vertices that are connected to $u$ in $G_{u}$. A slice is an equivalence class of the relation $u \equiv v$ iff $\History{u} = \History{v}$. Notice that the time function has to be constant on a slice, to see this consider vertices  $x,y$ with $T(x) > T(y)$, thus $x \notin G_{y}$ and therefore $x \in \History{x}/\History{y}$ So they are belong to different classes. Thus, we can extend the time function and the history to slices and write for a slice $K$: $\Time{K}$ and $\History{K}$.
 \end{frame}
 
 \begin{frame}
