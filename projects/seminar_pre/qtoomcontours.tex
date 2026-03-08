@@ -92,11 +92,16 @@
 
 \begin{frame}
   \frametitle{Local Decoder} 
+
   
+  \begin{block}{Positive edge}
     We say that an edge $\{x, y\}$ is positive relative to a plaquette $\{v, g_{1}v, g_{2}g_{1}v, g_{2}v\}$, defined by a rooted vertex $v \in \mathbb{Z}_{n}^{d}$ and the generators $g_{1}\neq g_{2} \in S$, if $x = v$ and $y$ is either $g_{1}v$ or $g_{2}v$.
 
+  \end{block}
 
+  \begin{block}{Toom's rule}
 We generalize Toom's rule in the following manner: Each plaquette asks if both of its positive edges point to a syndrome, namely unsatisfied. If so, then the bit flips itself; for convenience, we will think of the vertex at the end of the positive edges as the vertex which makes the decision and flips the plaquette.
+\end{block}
 
 \end{frame}
 
