@@ -253,7 +253,7 @@ For $x = d+1$ we have:
   Let $v \in \Gamma^{t}$ such that $L_{d+1}(v)$ is a (local) maxima in $\Gamma^{t}$ then for any $u$ which is added by $v$ we have $L_{d+1}(u) \le L_{d+1}(v) - 1$. 
 \end{claim}
 \begin{proof}
-  We will prove that $v \notin \Gamma^{t+1}$, and then by repeating on \cref{claim:toombound} where $\sum_{\alpha_{j}} \ge 1$, we get the desired result. Assume, toward contradiction, that $v \in \Gamma^{t+1}$, and denote by $w$ the vertex that adds $v$. If $w \neq v$, then there is at least one coordinate $i$ for which $w_{i} < v_{i}$, thus $L_{d+1}(w) > L_{d+1}(v)$, in contradiction to $L_{d+1}(v)$ being a maximum in $\Gamma^{t}$. In the other case, where $v$ adds itself, it follows that $\sigma_{v}$ can't be decomposed into pairs of unsatisfied checks; namely, $|\sigma_{v}|$ is odd. We show by induction that impossible,namely that $|\sigma_{v}|$ is always even. The induction is over the size of the plaquettes subset that induce the boundary $\sigma$.
+  We will prove that $v \notin \Gamma^{t+1}$, and then by repeating on \cref{claim:toombound} where $\sum{\alpha_{j}} \ge 1$, we get the desired result. Assume, toward contradiction, that $v \in \Gamma^{t+1}$, and denote by $w$ the vertex that adds $v$. If $w \neq v$, then there is at least one coordinate $i$ for which $w_{i} < v_{i}$, thus $L_{d+1}(w) > L_{d+1}(v)$, in contradiction to $L_{d+1}(v)$ being a maximum in $\Gamma^{t}$. In the other case, where $v$ adds itself, it follows that $\sigma_{v}$ can't be decomposed into pairs of unsatisfied checks; namely, $|\sigma_{v}|$ is odd. We show by induction that impossible,namely that $|\sigma_{v}|$ is always even. The induction is over the size of the plaquettes subset that induce the boundary $\sigma$.
   \begin{enumerate}
     \item Base. Consider a boundary that induced by a single plaquette, in that case it obvious that  $|\sigma_{v}|$ is either zero (where $v$ is not belong to the plaquette) or $2$. 
     \item Assume for any boundary that induced by at most $k$ plaquettes, and consider a boundary $\sigma$ which is induced by $k+1$ plaquettes, name this subset $F$ and observes that $F$ can be decomposed to a sum of two disjoint subsets $A$ and $B$, each with less than $k+1$ plaquettes, Now: 
@@ -513,7 +513,7 @@ Let $f : G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each elemen
     This will assure (3). 
 
     %Now we describe the selection of poles. Since we have to span..
-    Let us denote by $J_{0},..,J_{2k}$ the enumarated union $K_{0},..K_{k},F_{1},..,F_{k}$. Observes that for any choise of $(d+1)(2k+1)$ elements $z_{0}^{1},z_{0}^{2}, z_{0}^{3},..,z_{0}^{d+1}..,z_{2k}^{d+1}$ in $\mathbb{R}^{d}$, such that $z_{j}^{i} \in J_{j}$ it holds that:
+    Let us denote by $J_{0},..,J_{2k}$ the enumerated union $K_{0},..K_{k},F_{1},..,F_{k}$. Observes that for any choice of $(d+1)(2k+1)$ elements $z_{0}^{1},z_{0}^{2}, z_{0}^{3},..,z_{0}^{d+1}..,z_{2k}^{d+1}$ in $\mathbb{R}^{d}$, such that $z_{j}^{i} \in J_{j}$ it holds that:
     \begin{equation}
       \label{equ:spanlow}
       \begin{split}
@@ -717,7 +717,7 @@ The model, computation, and noise are tossed, and then a correction is made.
 First, let us bound from above the probability of the right intersection, In that case, at the \textbf{end} of time $t-1$, the erorr consists of clusters each at span less than $\sqrt{d}$. Let $m$ be the number the clusters and denote them by $X_{1},..,X_{m}$. Now since the clusters are disjoint, the sum of their $\Size{X_{i}}$ is lower than the total number of the bits, namely: $
 \begin{equation*}
   \begin{split}
-    & \sum_{1}^{m}\Size{X_{i} } \le n \Rightarrow m \le \frac{n}{\sqrt{d}} //
+    & \sum_{1}^{m}\Size{X_{i} } \le n \Rightarrow m \le \frac{n}{\sqrt{d}} \\
     & p \frac{n}{\sqrt{d}}  \le \sqrt{d}
   \end{split}
 \end{equation*}
@@ -749,6 +749,17 @@ Therefore:
 \end{equation*}
 
 \end{proof}
+
+Define the bits-cluster graphs $G=(V,E)$, such that the vertices are connected clusters at different times $\{A_{i}^{t}\}$, and there is an edge between $A_{i}^{t}$ and $A_{j}^{t-1}$ only if $\Pi_{x} A_{i}^{t} \cap \Pi_{x}A_{j}^{t-1} \meq \emptyset $. 
+
+
+
+
+
+
+
+
+
 \section{Configuration up to $C_{z}^\perp$ }
 
 \section{Drafts:}
