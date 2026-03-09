@@ -773,17 +773,17 @@ Define the bits-cluster graphs $G=(V,E)$ such that the vertices are connected bi
 \begin{proof}
   We prove it by induction on time $t$.
   \begin{enumerate}
-    \item Base case, $t=1$. We will construct $\psi$ in the following iterative manner. First, let $\psi$ be the identity. Then, while there are slices that are not connected on $\mathbb{Z}_{n}^{d}$, do the following: Let $K$ be a slice that is not connected on $\mathbb{Z}_{n}^{d}$. Then it can be decomposed into a disjoint union $K= K_{1} \cup K_{2}$ such that $K_{1}$ and $K_{2}$ are connected on $\mathbb{Z}$. Assume, without loss of generality, that for a coordinate $x \in [d]$, it holds that for any $a \in K_{1}$ and $b \in K_{2}$, we have $a_{x} < b_{x}$. Then define:
+    \item Base case, $t=1$. We will construct $\psi$ in the following iterative manner. First, let $\psi$ be the identity. Then, while there are slices that are not connected on $\mathbb{Z}_{2n}^{d}$, do the following: Let $K$ be a slice that is not connected on $\mathbb{Z}_{2n}^{d}$. Then it can be decomposed into a disjoint union $K= K_{1} \cup K_{2}$ such that $K_{1}$ and $K_{2}$ are connected on $\mathbb{Z}_{2n^{d}}$. Assume, without loss of generality, that for a coordinate $x \in [d]$, it holds that for any $a \in K_{1}$ and $b \in K_{2}$, we have $a_{x} < b_{x}$. Then define:
       \begin{equation*}
         \begin{split}
           \psi(z) \leftarrow 
           \begin{cases}
             \psi(z) & z \cap K_{1} = \emptyset \\ 
-            z + n & \text{ else }
+            z + n \mathbf{1}_{x} & \text{ else }
           \end{cases}
         \end{split}
       \end{equation*}
-    
+Repeat the above for other coordinates if $\psi(K)$ is still not connected in $\mathbb{Z}_{2n}^{d}$.
   \end{enumerate}
 
 \end{proof}
