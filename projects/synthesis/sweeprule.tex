@@ -749,6 +749,12 @@ Therefore:
 \end{equation*}
 
 \end{proof}
+
+\begin{definition}
+The atomic events are the sets of space-time locations in which faults occur. A run $\omega$ is the sequence of states (assignment of all the bits) induced by an atomic event (and the transition function of the machine). We say that a run $\omega$ closes a non-trivial cycle if it contains a state in which there is a connected cluster $A$ such that its boundary is not a co-boundary.
+\end{definition}
+
+
 Define the bits-cluster graphs $G=(V,E)$ such that the vertices are connected bit-clusters at different times $\{A_{i}^{t}\}$, and there is an edge between $A_{i}^{t}$ and $A_{j}^{t-1}$ only if $\Pi_{x} A_{i}^{t} \cap \Pi_{x} A_{j}^{t-1} \neq \emptyset$. Given a state at time $t-1$ such that no connected component in $G$ forms a closed non-trival circle, consider $\tilde{A}_{i}^{t}$ constructed as follows: perform the application of either noise or Toom's correction in an arbitrary order and stop right before $\tilde{A}_{i}^{t}$ forms a closed non-trivial circle.
 
 \begin{claim}
