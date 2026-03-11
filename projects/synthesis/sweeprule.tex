@@ -320,19 +320,21 @@ For a time $t$, we define the function $P_{t} : V \rightarrow 2^{V}$ that, for a
 To prove it, we will need the following claim:
 \begin{claim}
   \label{claim:inprev}
-For any $u \in \Gamma^{* (t)}$, there has to be a vertex $v$ such that $v < u$ and $v \in P_{t}(u)$.
+  For any $u \in \Gamma^{* (t)}$, there exists $f \in D^{(t-1)}$ such that for any vertex $v \in f$, it holds that $v < u$. Notice that its not necessarily that $u \in f$. 
 \end{claim}
 \begin{proof}
-  Consider $u \in \Gamma^{* (t)}$. By \cref{claim:inprev} there is $v \in P_{t}(u)$ satisfies $v < u$, choose it to be $v_{d+1}$. Recall that since the vertices are the points of the d-dimensional lattice embedded in $\mathbb{R}^{d}$, the inequality $v <u$ implies that there exists at least single $i \in[d]$ such $ v+ \mathbf{1}_{i} \le u$. Therefore we get: 
+  Consider $u \in \Gamma^{* (t)}$. By \cref{claim:inprev} there is at least one $v \in P_{t}(u)$ satisfies $v < u$, choose it to be $v_{d+1}$. Recall that since the vertices are the points of the d-dimensional lattice embedded in $\mathbb{R}^{d}$, the inequality $v <u$ implies that there exists at least single $i \in[d]$ such $ v+ \mathbf{1}_{i} \le u$. Therefore we get: 
   \begin{equation*}
     \begin{split}
       L_{d+1}(v_{d+1}) = -\braket{ \mathbf{1}, v_{d+1} } = -\sum_{j \in [d]}v_{j} =  -\sum_{j \in [d]/i}v_{j} - v_{i} \ge  -\braket{ \mathbf{1}, u } + 1 = L_{d+1}(u) + 1
     \end{split}
   \end{equation*}
-  Now lets split to cases upon whehter $u \in \Gamma^{(t-1)}$. 
+  Now let's split to cases upon whether $u \in \Gamma^{(t-1)}$. 
   \begin{itemize}
     \item If $u \in \Gamma^{(t-1)}$ then picking it for the vertices $v_{1},..,v_{d}$ finishes the proof.
-    \item Else, since $u \notin \Gamma^{(t-1)}$, and by \cref{claim:inprev} 
+    \item Else, there has to be a plaquette $f \in D^{(t)}/D^{(t-1)}$ such that $v \in f$. Thus $f$ was been flipped at time $t$. Since, by the definition of the Toom's rule, a plaquette is getting flipped only if two of its edges are unsatisfied \footnote{Here the argue works no matter what edges that been flipped are.}, we get that at least three vertices of $f$ adjacent to unsatisfied checks at time $t-1$, namely adjacent to plaquettes in $D^{(t-1)}$\footnote{Those plaquettes are adjacent to $f$.}. 
+
+      Since 
   \end{itemize}
 \end{proof}
 
