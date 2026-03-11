@@ -293,9 +293,23 @@ Just take $u_{i}$ to be any vertex that adds $v_{i}$. By claims \cref{claim:toom
 
 \ctt{$V(\phi_{v})$ was not defined. $v \le w$ also not defined.} 
 
+\section{SWEEP Rule Decoder on the Toric, version III}.
+
+As in the previews version we are going to track over the vertices, yet instead defining $\Gamma^{t}$ as the vertices on the domain wall $\sigma$, we define it as the vertices which are adjacent to a faulty bit.
+Now $v$ add $u$ at time $t$, if:
+\begin{enumerate}
+  \item $v \in \Gamma^{t-1}, u \in \Gamma^{t}$
+  \item $v$ and $u$ share a placket 
+  \item $v \le u $, namely $v_{i} \le u_{i}$ for any $i\in [d]$.
+\end{enumerate}
 
 
-
+\begin{claim}
+  The shrinking holds in the broad sense.
+\end{claim}
+\begin{proof}
+  Consider $u \in \Gamma^{t}$, such $u$ is not marked by a flip (namely it has history). First observes that there is must to be $v \neq u$ that adds $u$, otherwise, all the positive edges of $u$ adjacent to bits  
+\end{proof}
 
 
 \newpage
