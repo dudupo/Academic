@@ -704,7 +704,7 @@ Now let $T_{2} = T/T_{1} \cup {v}$, namly the tree induced by the subtraction of
 To see this, denote by $m_{1},m_{2}$ and by $ \tau_{1}, \tau_{2} $ the nodes and the edges in $T_{1},T_{2}$ respectively. Now:
 \begin{equation*}
   \begin{split}
-    \frac{\tau}{m} &= \frac{\tau_{1} + \tau_{2} }{m_{1} + m_{2}} =  \frac{m_{1} }{m_{1} + m_{2}} \frac{\tau_{1} }{m_{1}}  + \frac{m_{2} }{m_{1} + m_{2}} \frac{\tau_{2} }{m_{2}} 
+    \frac{\tau}{m} &= \frac{\tau_{1} + \tau_{2} }{m_{1} + m_{2}-1} \ge  \frac{\tau_{1} + \tau_{2} }{m_{1} + m_{2}} =  \frac{m_{1} }{m_{1} + m_{2}} \frac{\tau_{1} }{m_{1}}  + \frac{m_{2} }{m_{1} + m_{2}} \frac{\tau_{2} }{m_{2}} 
   \end{split}
 \end{equation*}
 Namely, $\frac{\tau}{m}$ is a weighted average of $\frac{\tau_{1}}{m_{1}}$ and $\frac{\tau_{2}}{m_{2}}$, and therefore it is greater than their minimum. Peak the subtree with the minimal quotient.
