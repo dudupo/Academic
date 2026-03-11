@@ -298,6 +298,7 @@ Consider the presentation of a $d$-dimensional torus by the Cayley graph of the 
 
 In our code, bits are set on the plaquette, and the edges correspond to checks that restrict the parity of the bits on their support to be even. Denote the set of plaquettes by $\mathcal{F}$, and let us abuse the notation by using it to refer also to the bits.
 
+
 We generalize Toom's rule in the following manner: Each plaquette asks if both of its positive edges point to a syndrome, namely, are unsatisfied. If so, then the bit flips itself; for convenience, we will think of the vertex at the end of the positive edges (in the 2D bottom-left corner) as the vertex that makes the decision and flips, or does not flip, the plaquette. For a vertex $ v \in [n]^{d} $ and plaquette $ f \in \mathcal{F} $, we say that $ v \in f $ if and only if $ v $ is one of the four vertices on $ f $'s corners.
 
 \begin{definition}[$v$ adds $u$ at time $t$]
