@@ -320,8 +320,15 @@ For a time $t$, we define the function $P_{t} : V \rightarrow 2^{V}$ that, for a
 To prove it, we will need the following claim:
 \begin{claim}
   \label{claim:inprev}
-  For any $u \in \Gamma^{* (t)}$, there exists $f \in D^{(t-1)}$ such that for any vertex $v \in f$, it holds that $v < u$. Notice that its not necessarily that $u \in f$. 
+For any $u \in \Gamma^{* (t)}$, there is at least one $v \in P_{t}(u)$ such that $v < u$.
 \end{claim}
+\begin{proof}
+  Since $u \in \Gamma^{*(t)}$ there must be $f \in D^{(t)}/\mathcal{E}^{(t)}$ such $u \in f$.
+  \begin{itemize}
+    \item If $f \in D^{(t-1)}$, then it least one of its positive edge
+  \end{itemize}
+\end{proof}
+
 \begin{proof}
   Consider $u \in \Gamma^{* (t)}$. By \cref{claim:inprev} there is at least one $v \in P_{t}(u)$ satisfies $v < u$, choose it to be $v_{d+1}$. Recall that since the vertices are the points of the d-dimensional lattice embedded in $\mathbb{R}^{d}$, the inequality $v <u$ implies that there exists at least single $i \in[d]$ such $ v+ \mathbf{1}_{i} \le u$. Therefore we get: 
   \begin{equation*}
@@ -678,23 +685,23 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
 
 
   \begin{claim}
-    Let $T = (V,E)$ be a tree with $m > 3$ leaves and $\tau$ edges, then it has a subtree with $m^{\prime} \in ( \frac{1}{3}m, \frac{2}{3}m)$ leaves and at most $ \frac{m^{\prime}}{m} \tau$ edges. 
+    Let $T = (V,E)$ be a tree with $m > 3$ nodes and $\tau$ edges, then it has a subtree with $m^{\prime} \in ( \frac{1}{3}m, \frac{2}{3}m)$ nodes and at most $ \frac{m^{\prime}}{m} \tau$ edges. 
   \end{claim}
   \begin{proof}
-Order the vertices according to their heights. Denote by $v \in V$ the lowest vertex for which the subtree rooted at $v$ has at least $\frac{1}{3}m$ leaves. Now, denote by $T_{1}$ the subtree obtained through the following iterative process over $v$'s children:
+Order the vertices according to their heights. Denote by $v \in V$ the lowest vertex for which the subtree rooted at $v$ has at least $\frac{1}{3}m$ nodes. Now, denote by $T_{1}$ the subtree obtained through the following iterative process over $v$'s children:
 \begin{enumerate}
   \item Initialize $T_{1}$ as the subtree rooted at $v$.
   \item For a child $u$ of $v$:
     \begin{enumerate}
-      \item Check if erasing from $T_{1}$ the subtree rooted at $u$ doesn't decrease the number of leaves below $\frac{1}{3}m$. If so, then we update $T_{1}$ to be the result of the erasure.
+      \item Check if erasing from $T_{1}$ the subtree rooted at $u$ doesn't decrease the number of nodes below $\frac{1}{3}m$. If so, then we update $T_{1}$ to be the result of the erasure.
     \end{enumerate}
 \end{enumerate}
-Clearly, the algorithm is defined such that $ T_{1} $ has to have at least $\frac{m}{3}$ leaves. Furthermore, since any child of $ v $ is a root of a subtree with fewer than $\frac{m}{3}$ leaves (otherwise we get a contradiction to the minimality of $ v $'s height), we have that if $ T_{1} $ would have more than $\frac{2}{3}m$ leaves, then the subtraction of any of its children would yield a tree with at least $\frac{2}{3}m - \frac{1}{3}m = \frac{1}{3}m$ leaves. Namely, $ v $ has in $ T_{1} $ a child $ u $ such that the subtraction of the subtree rooted at $ u $ from $ T_{1} $ results in a subtree with more than $\frac{1}{3}m$ leaves. But if indeed there were such a child, then the algorithm would erase it, so there is not. 
+Clearly, the algorithm is defined such that $ T_{1} $ has to have at least $\frac{m}{3}$ nodes. Furthermore, since any child of $ v $ is a root of a subtree with fewer than $\frac{m}{3}$ nodes (otherwise we get a contradiction to the minimality of $ v $'s height), we have that if $ T_{1} $ would have more than $\frac{2}{3}m$ nodes, then the subtraction of any of its children would yield a tree with at least $\frac{2}{3}m - \frac{1}{3}m = \frac{1}{3}m$ nodes. Namely, $ v $ has in $ T_{1} $ a child $ u $ such that the subtraction of the subtree rooted at $ u $ from $ T_{1} $ results in a subtree with more than $\frac{1}{3}m$ nodes. But if indeed there were such a child, then the algorithm would erase it, so there is not. 
 
 
-Now let $T_{2} = T/T_{1} \cup {v}$, namly the tree induced by the subtraction of $T_{1}$'s edges from $T$. Observes that since the summation of leaves in $T_{1}$ and $T_{2}$ is the leaves in $T$, and $T_{1}$ has no more than $\frac{2}{3}m$ leaves, and no less than $\frac{1}{3}$ leaves, it holds that the number of leaves in $T_{2}$ is also in the range $(\frac{1}{3}m, \frac{2}{3}m)$. We claim that at least one of the  subtrees has fewer than $\frac{m^{\prime}}{m} \tau$ edges. 
+Now let $T_{2} = T/T_{1} \cup {v}$, namly the tree induced by the subtraction of $T_{1}$'s edges from $T$. Observes that since the summation of nodes in $T_{1}$ and $T_{2}$ is the nodes in $T$, and $T_{1}$ has no more than $\frac{2}{3}m$ nodes, and no less than $\frac{1}{3}$ nodes, it holds that the number of nodes in $T_{2}$ is also in the range $(\frac{1}{3}m, \frac{2}{3}m)$. We claim that at least one of the  subtrees has fewer than $\frac{m^{\prime}}{m} \tau$ edges. 
 
-To see this, denote by $m_{1},m_{2}$ and by $ \tau_{1}, \tau_{2} $ the leaves and the edges in $T_{1},T_{2}$ respectively. Now:
+To see this, denote by $m_{1},m_{2}$ and by $ \tau_{1}, \tau_{2} $ the nodes and the edges in $T_{1},T_{2}$ respectively. Now:
 \begin{equation*}
   \begin{split}
     \frac{\tau}{m} &= \frac{\tau_{1} + \tau_{2} }{m_{1} + m_{2}} =  \frac{m_{1} }{m_{1} + m_{2}} \frac{\tau_{1} }{m_{1}}  + \frac{m_{2} }{m_{1} + m_{2}} \frac{\tau_{2} }{m_{2}} 
@@ -704,7 +711,7 @@ Namely, $\frac{\tau}{m}$ is a weighted average of $\frac{\tau_{1}}{m_{1}}$ and $
   \end{proof}
 By repeating recursively on the above construction, we get the following corollary:
   \begin{corollary}
-Let $T = (V,E)$ be a tree with $m$ leaves and $\tau$ edges. Then, for any $\alpha > 0$, it has a subtree with $m^{\prime} \in \left( \frac{1}{3}\alpha m, \frac{2}{3} \alpha m \right)$ leaves and at most $\frac{m^{\prime}}{m} \tau$ edges.
+Let $T = (V,E)$ be a tree with $m$ nodes and $\tau$ edges. Then, for any $\alpha > 0$, it has a subtree with $m^{\prime} \in \left( \frac{1}{3}\alpha m, \frac{2}{3} \alpha m \right)$ nodes and at most $\frac{m^{\prime}}{m} \tau$ edges.
   \end{corollary}
 
 \newpage 
