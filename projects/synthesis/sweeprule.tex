@@ -332,10 +332,19 @@ To prove it, we will need the following claim:
   Now let's split to cases upon whether $u \in \Gamma^{(t-1)}$. 
   \begin{itemize}
     \item If $u \in \Gamma^{(t-1)}$ then picking it for the vertices $v_{1},..,v_{d}$ finishes the proof.
-    \item Else, there has to be a plaquette $f \in D^{(t)}/D^{(t-1)}$ such that $v \in f$. Thus $f$ was been flipped at time $t$. Since, by the definition of the Toom's rule, a plaquette is getting flipped only if two of its edges are unsatisfied \footnote{Here the argue works no matter what edges that been flipped are.}, we get that at least three vertices of $f$ adjacent to unsatisfied checks at time $t-1$, namely adjacent to plaquettes in $D^{(t-1)}$\footnote{Those plaquettes are adjacent to $f$.}. 
-
-      Since 
+    \item Else, there has to be a plaquette $f \in D^{(t)}/D^{(t-1)}$ such that $v \in f$. Thus, $f$ was flipped at time $t$. Since, by the definition of Toom's rule, a plaquette is flipped only if two of its edges are unsatisfied\footnote{Here the argument works no matter which edges have been flipped.}, we get that at least three vertices of $f$ are adjacent to unsatisfied checks at time $t-1$, namely adjacent to plaquettes in $D^{(t-1)}$\footnote{Those plaquettes are adjacent to $f$.}.
+      
+Since those vertices are the vertices of $f / \{u\}$, two of them, let's say $a$ and $b$, differ from $u$ at only one coordinate, let's say $j_{a}$ and $j_{b}$, respectively. Therefore, define:
+      \begin{equation*}
+        \begin{split} v_{i} = 
+          \begin{cases}
+            v_{a} & a \neq j_{a} \\ 
+            v_{b} & \text{else}
+          \end{cases}
+        \end{split}
+      \end{equation*}
   \end{itemize}
+  Clearly, we got the equalities for $i \le d$.
 \end{proof}
 
 
