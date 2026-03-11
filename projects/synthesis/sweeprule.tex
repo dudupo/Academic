@@ -303,21 +303,21 @@ We generalize Toom's rule in the following manner: Each plaquette asks if both o
 
 
 \begin{definition}[$v$ adds $u$ at time $t$]
-  Let $D^{(t)} \subset \mathcal{F}$ be the bits that deviate from the ideal running at time $t$ \ctt{Define it!}. Let $\Gamma^{(t)} \subset V$ be the vertices that support the plaquettes in $D^{(t)}$. Namely, $\Gamma^{(t)} = \{ v : \exists f \in D^{(t)} \text{ s.t. } v \in f\}$. In other words, $\Gamma^{(t)}$ are the vertices that, at time $t$, are adjacent to a deviated bit. Similarly, denote by $\Gamma^{* (t)}$ the vertices that at time $t$ adjacent to deviate bits which are not belongs to the faults, i.e $\Gamma^{(t)} = \{ v : \exists f \in D^{(t)} / \mathcal{E}^{(t)}\text{ s.t. } v \in f\}$
+  Let $D^{(t)} \subset \mathcal{F}$ be the bits that deviate from the ideal running at time $t$ \ctt{Define it!}. Let $\Gamma^{(t)} \subset V$ be the vertices that support the plaquettes in $D^{(t)}$. Namely, $\Gamma^{(t)} = \{ v : \exists f \in D^{(t)} \text{ s.t. } v \in f\}$. In other words, $\Gamma^{(t)}$ are the vertices that, at time $t$, are adjacent to a deviated bit. Similarly, denote by $\Gamma^{* (t)}$ the vertices that at time $t$ adjacent to deviate bits which are not belongs to the faults, i.e $\Gamma^{*(t)} = \{ v : \exists f \in D^{(t)} / \mathcal{E}^{(t)}\text{ s.t. } v \in f\}$
 We say that for vertices $v, u \in V$, $v$ adds $u$ at time $t$, if the following conditions hold:
 \begin{enumerate}
   \item $v \in \Gamma^{t-1}$  and $ u \in \Gamma^{* (t)}$
   \item There exists $f \in \mathcal{F}$ such that  $v, u \in f$.  
   \item $v \le u $, namely $v_{i} \le u_{i}$ for any $i\in [d]$.
 \end{enumerate}
-For a time $t$, we define the function $P_{t} : V \rightarrow 2^{V}$ that, upon vertex $u$, returns the set of vertices that add $u$. 
+For a time $t$, we define the function $P_{t} : V \rightarrow 2^{V}$ that, for a vertex $u$, returns the set of vertices that add $u$.
 \end{definition}
 
 \begin{claim}[Shrinking Lemma]
-For any $u \in \Gamma^{t}$, there are $v_{1}, \ldots, v_{d+1} \in P_{t}(u)$, not necessarily different, such that for any $i \le d$, it holds that $L_{i}(v_{i}) = L_{i}(u)$, and for $i = d+1$, it holds that $L_{d+1}(v_{d+1}) = L_{d+1}(u) + 1$.
+  For any $u \in \Gamma^{(*) t}$, there are $v_{1}, \ldots, v_{d+1} \in P_{t}(u)$, not necessarily different, such that for any $i \le d$, it holds that $L_{i}(v_{i}) = L_{i}(u)$, and for $i = d+1$, it holds that $L_{d+1}(v_{d+1}) = L_{d+1}(u) + 1$.
 \end{claim}
 \begin{proof}
-  Consider $u \in \Gamma^{t}$, and recall that $u \in D^{(t)}/\mathcal{E}^{(t)}$, Thus . First observes that there is must to be $v < u$ in $P_{t}(u)$, otherwise, all the positive edges getting out of $u$ adjacent, at time $t -1$, to bits $\in D $
+  Consider $u \in \Gamma^{* (t)}$, and recall that $u \in D^{(t)}/\mathcal{E}^{(t)}$, Thus . First observes that there is must to be $v < u$ in $P_{t}(u)$, otherwise, all the positive edges getting out of $u$ adjacent, at time $t -1$, to bits $\in D $
 \end{proof}
 
 
