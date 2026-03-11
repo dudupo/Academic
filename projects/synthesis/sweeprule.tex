@@ -302,7 +302,7 @@ In our code, bits are set on the plaquette, and the edges correspond to checks t
 We generalize Toom's rule in the following manner: Each plaquette asks if both of its positive edges point to a syndrome, namely, are unsatisfied. If so, then the bit flips itself; for convenience, we will think of the vertex at the end of the positive edges (in the 2D bottom-left corner) as the vertex that makes the decision and flips, or does not flip, the plaquette. For a vertex $ v \in V $ and plaquette $ f \in \mathcal{F} $, we say that $ v \in f $ if and only if $ v $ is one of the four vertices on $ f $'s corners.
 
 \begin{definition}[$v$ adds $u$ at time $t$]
-  Let $D^{(t)} \subset \mathcal{F}$ be the bits that deviate from the ideal running \ctt{Define it!}. Let $\Gamma^{(t)} \subset V$ be the vertices that support the plaquettes in $D^{(t)}$. Namely, $\Gamma^{(t)} = \{ v : \exists f \in D^{(t)} \text{ s.t. } v \in f\}$. In other words, $D^{(t)}$ are the vertices that, at time $t$, are adjacent to a deviated bit.
+  Let $D^{(t)} \subset \mathcal{F}$ be the bits that deviate from the ideal running \ctt{Define it!}. Let $\Gamma^{(t)} \subset V$ be the vertices that support the plaquettes in $D^{(t)} / \mathcal{E}^{(t)}$. Namely, $\Gamma^{(t)} = \{ v : \exists f \in D^{(t)} / \mathcal{E}^{(t)} \text{ s.t. } v \in f\}$. In other words, $D^{(t)}$ are the vertices that, at time $t$, are adjacent to a deviated bit.
 We say that for vertices $v, u \in V$, $v$ adds $u$ at time $t$, if the following conditions hold:
 \begin{enumerate}
   \item $v \in \Gamma^{t-1}$  and $ u \in \Gamma^{t}$
@@ -312,8 +312,8 @@ We say that for vertices $v, u \in V$, $v$ adds $u$ at time $t$, if the followin
 For a time $t$, we define the function $P_{t} : V \rightarrow 2^{V}$ that, upon vertex $u$, returns the set of vertices that add $u$. 
 \end{definition}
 
-\begin{claim}
-  The shrinking holds in the broad sense.
+\begin{claim}[Shrinking Lemma]
+For any $u \in \Gamma^{t}$, there are $v_{1}, \ldots, v_{d+1} \in P_{t}(u)$, not necessarily different, such that for any $i \le d$, it holds that $L_{i}(v_{i}) = L_{i}(u)$, and for $i = d+1$, it holds that $L_{d+1}(v_{d+1}) = L_{d+1}(u) + 1$.
 \end{claim}
 \begin{proof}
   Consider $u \in \Gamma^{t}$, such $u$ is not marked by a flip (namely it has history). First observes that there is must to be $v \neq u$ that adds $u$, otherwise, all the positive edges of $u$ adjacent to bits  
