@@ -300,14 +300,16 @@ In our code, bits are set on the plaquette, and the edges correspond to checks t
 
 We generalize Toom's rule in the following manner: Each plaquette asks if both of its positive edges point to a syndrome, namely, are unsatisfied. If so, then the bit flips itself; for convenience, we will think of the vertex at the end of the positive edges (in the 2D bottom-left corner) as the vertex that makes the decision and flips, or does not flip, the plaquette. For a vertex $ v \in [n]^{d} $ and plaquette $ f \in \mathcal{F} $, we say that $ v \in f $ if and only if $ v $ is one of the four vertices on $ f $'s corners.
 
-Let $D^{(t)} \subset \mathcal{F}$ be the bits that deviate from the ideal running \ctt{Define it!}. Let $\Gamma^{(t)} \subset [n]^{d}$ be the vertices that support the plaquettes in $D^{(t)}$. Namely, $\Gamma^{(t)} = \{ v : \exists f \in D^{(t)} \text{ s.t. } v \in f\}$. In other words, $D^{(t)}$ are the vertices that, at time $t$, are adjacent to a deviated bit.
+\begin{definition}[$v$ adds $u$ at time $t$]
+  Let $D^{(t)} \subset \mathcal{F}$ be the bits that deviate from the ideal running \ctt{Define it!}. Let $\Gamma^{(t)} \subset [n]^{d}$ be the vertices that support the plaquettes in $D^{(t)}$. Namely, $\Gamma^{(t)} = \{ v : \exists f \in D^{(t)} \text{ s.t. } v \in f\}$. In other words, $D^{(t)}$ are the vertices that, at time $t$, are adjacent to a deviated bit.
 
-Now $v$ add $u$ at time $t$, if:
+  We say that for vertices $v, u \in [n]^{d}$, $v$ adds $u$ at time $t$, if the following condition hold:
 \begin{enumerate}
-  \item $v \in \Gamma^{t-1}, u \in \Gamma^{t}$
-  \item $v$ and $u$ share a placket 
+  \item $v \in \Gamma^{t-1}$  and $ u \in \Gamma^{t}$
+  \item $v$ and $u$ share a plaquette.  
   \item $v \le u $, namely $v_{i} \le u_{i}$ for any $i\in [d]$.
 \end{enumerate}
+\end{definition}
 
 
 \begin{claim}
