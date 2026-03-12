@@ -685,6 +685,7 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
 
 
   \begin{claim}
+    \label{claim:tree_separator}
     Let $T = (V,E)$ be a tree with $m > 3$ leaves and $\tau$ edges, then it has a subtree with $m^{\prime} \in ( \frac{1}{3}m, \frac{2}{3}m)$ leaves and at most $ \frac{m^{\prime}}{m} \tau$ edges. 
   \end{claim}
   \begin{proof}
@@ -714,6 +715,20 @@ By repeating recursively on the above construction, we get the following corolla
 Let $T = (V,E)$ be a tree with $m$ leaves and $\tau$ edges. Then, for any $\alpha > 0$, it has a subtree with $m^{\prime} \in \left( \frac{1}{3}\alpha m, \frac{2}{3} \alpha m \right)$ leaves and at most $\frac{m^{\prime}}{m} \tau$ edges.
   \end{corollary}
 
+  \begin{claim}
+Let $\gamma, \beta \in \mathbb{R}_{>0}$ and $n$ be a positive integer. For any tree $T$ with $\tau \ge \beta n$ edges and $m$ leaves such that $\tau \le \gamma m$, there is a subtree $T^{\prime}$ of $T$ with a number of edges $\tau^{\prime}$ less than $\frac{\beta}{2}n$ and a number of leaves greater than $\frac{\beta}{4\gamma} n$.
+  \end{claim}
+\begin{proof}
+Since the construction of \cref{claim:tree_separator} preserves the ratio of edges to leaves, we have that for a $T^{\prime}$ obtained using the construction, the number of edges satisfies $\tau^{\prime} \le \gamma m^{\prime}$. So, it's enough to look for the maximal $\alpha$ such that:
+    \begin{equation*}
+      \begin{split}
+        \gamma m^{\prime} & \le \gamma \frac{2}{3}\alpha m \le \frac{\beta}{2} n \\
+        \Rightarrow \alpha & = \frac{3 \beta}{4\gamma} \frac{n}{m} 
+      \end{split}
+    \end{equation*}
+    Which gives $m^{\prime} \ge \frac{1}{3}\alpha m = \frac{\beta}{4\gamma} n$.
+
+\end{proof}
 \newpage 
 
 \section{Tanner - History Connected Equivalency}
