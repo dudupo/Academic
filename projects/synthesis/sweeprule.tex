@@ -732,12 +732,12 @@ Since the construction of \cref{claim:tree_separator} preserves the ratio of edg
 \end{proof}
 
 \begin{claim}
-Consider a probability space, $(\Omega, \mathbf{Pr})$, for which the atomic events are subgraphs of $G = (V = \mathbb{T}_{n}^{d} \times \mathbb{Z}_{t}, E)$, where two vertices might be connected only if their difference in the time coordinate is at most $1$ and their Hamming distance in the toric coordinate is at most $2$. We say that a vertex of such a subgraph is a time-leaf if and only if it is not connected to vertices with a lower time coordinate. Suppose that the following two conditions hold:
+Consider a probability space, $(\Omega, \mathbf{Pr})$, for which the atomic events are subgraphs of $G = (V = \mathbb{Z}^{d} \times \mathbb{Z}_{t}, E)$, where two vertices might be connected only if their difference in the time coordinate is at most $1$ and their Hamming distance in the space coordinate is at most $2$. We say that a vertex of such a subgraph is a time-leaf if and only if it is not connected to vertices with a lower time coordinate. Suppose that the following two conditions hold:
 \begin{enumerate}
-  \item Probability function $\mathbf{Pr}$ induces a locally stochastic noise bound over the time-leaves. Namely, there is $p \in (0,1)$ such that for any $S \subset V$, the probability that $S$ are time-leaves of an outcome subgraph is less than:
+  \item There exists $n \in \mathbb{N}$ such that the probability function $\mathbf{Pr}$ induces a locally stochastic noise bound over the time-leaves, which are different in their space coordination module $n$. Namely, there is $p \in (0,1)$ such that for any $S \subset V$, with a maximal subset $S^{\prime} \subset S$, such that for any $v = (v_{x},v_{t}), u = (u_{x},u_{t}) \in S^{\prime}$ it holds that $v_{x} \mod n \neq u_{x} \mod n$, the probability that $S$ are time-leaves of an outcome subgraph is less than:
     \begin{equation*}
       \begin{split}
-        \prb{S \text{ are time-leaves } } \le p^{|S|}
+        \prb{S \text{ are time-leaves } } \le p^{|S^{\prime}|}
       \end{split}
     \end{equation*}
   \item For any subgraph $\omega \in \Theta$ the ratio of edges to time-leaves is at most $\gamma$. 
@@ -749,7 +749,10 @@ Then there is $p_{c} \in (0,1)$ such that for $p < p_{c}$, the probability of sa
   \end{split}
 \end{equation*}
 \begin{proof}
-  Let $\omega \in \Omega$ with more than $\beta n$ vertices, observes that a spanning tree of $\omega$ has a ratio of edges to time-leaves which is at most $\omega$'s ratio, and number of edges equals to $\omega$'s vertices - 1. Therefore, by \cref{claim:big_subtree}, $\omega$ has a subtree with less than $\frac{\beta}{2}n$ edges and at least $\frac{\beta}{4\gamma} n$ time-leaves.  that any by \cref{claim:counting_trees}  
+  Let $\omega \in \Omega$ with more than $\beta n$ vertices, observes that a spanning tree of $\omega$ has a ratio of edges to time-leaves which is at most $\omega$'s ratio, and number of edges equals to $\omega$'s vertices - 1. In addition the time-leaves of such spanning tree are just leaves. Therefore, by \cref{claim:big_subtree}, $\omega$ has a subtree with less than $\frac{\beta}{2}n$ edges and at least $\frac{\beta}{4\gamma} n$ time-leaves. 
+  Now, since any two connected vertices are at a space-distance of at most $2$, it follows that all the leaves in the subtree are at a space-distance of at most $\beta n$ from each other. Thus, if $\beta < 1$, no two of them have the same space-coordinate modulo $n$, and therefore the probability to have such subtree is at most $p^{\frac{\beta}{4\gamma}}n $.  
+
+  That any by \cref{claim:counting_trees}  
 \end{proof}
 
 
