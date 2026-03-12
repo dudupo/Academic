@@ -651,6 +651,7 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
   \section{Counting Subtrees.} 
 
   \begin{claim}
+    \label{claim:counting_trees}
     Let $G = \left( V, E \right)$ be a $\Delta + 1$-regular graph, and let $k$ be an integer less than $|E|$. Fix a vertex $r \in V$. The number of subtrees rooted at $r$ is at most $\alpha^{k}$.
   \end{claim}
 
@@ -716,6 +717,7 @@ Let $T = (V,E)$ be a tree with $m$ leaves and $\tau$ edges. Then, for any $\alph
   \end{corollary}
 
   \begin{claim}
+    \label{claim:big_subtree}
 Let $\gamma, \beta \in \mathbb{R}_{>0}$ and $n$ be a positive integer. For any tree $T$ with $\tau \ge \beta n$ edges and $m$ leaves such that $\tau \le \gamma m$, there is a subtree $T^{\prime}$ of $T$ with a number of edges $\tau^{\prime}$ less than $\frac{\beta}{2}n$ and a number of leaves greater than $\frac{\beta}{4\gamma} n$.
   \end{claim}
 \begin{proof}
@@ -746,7 +748,9 @@ Then there is $p_{c} \in (0,1)$ such that for $p < p_{c}$, the probability of sa
     t n^{d} q^{n}
   \end{split}
 \end{equation*}
-
+\begin{proof}
+  by \cref{claim:counting_trees} \cref{claim:big_subtree}. 
+\end{proof}
 
 
 
