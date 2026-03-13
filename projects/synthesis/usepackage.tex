@@ -51,8 +51,8 @@
 \theoremstyle{definition}
 
 \newcommand{\mynewtheorem}[2]{  
-  \newtheorem{#1}{#2}
-  \numberwithin{theorem}{section}
+  \newtheorem{#1}{#2}[theorem]
+  %\numberwithin{#1}{section}
 
 }
 \newcommand{\mynewtheoremstar}[2]{  
