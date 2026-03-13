@@ -51,7 +51,7 @@
 \theoremstyle{definition}
 
 \newcommand{\mynewtheorem}[2]{  
-  \newtheorem{#1}{#2}[theorem]
+  \newtheorem{#1}[theorem]{#2}
   %\numberwithin{#1}{section}
 
 }
@@ -59,7 +59,8 @@
   \newtheorem*{#1}{#2}
 
 }
-\mynewtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+%\mynewtheorem{theorem}{Theorem}
 \mynewtheorem{corollary}{Corollary}
 \mynewtheorem{definition}{Definition}
 \mynewtheorem{example}{Example}
