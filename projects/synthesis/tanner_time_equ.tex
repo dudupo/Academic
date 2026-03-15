@@ -1,76 +1,4 @@
 
-
-%\newcommand*{\ACM}{}%
-
-\ifdefined\ACM
-
-%\documentclass[sigplan,screen]{acmart}
-\documentclass[manuscript,screen,review]{acmart}
-
-\else
- \documentclass[12pt]{extarticle}
-%\usepackage{libertine}
-\usepackage{cuted}%\usepackage{widetext}
-\input{./usepackage}
-\usepackage{cancel}
-\usepackage{tikz-3dplot}
-\usepackage{subcaption}
-\addbibresource{./sample.bib}
-
-\fi
-
-\begin{document}
-\input{newcommands}
-\title{ SWEEP rule on the KD-Toric code }
-%\author{Michael Ben-Or \ \ David Ponarovsky}
-\maketitle
-
-% Constant depth fault tolerance construction.   
-\newcommand*{\xb}{\mathbf{x}}
-
-\ifdefined\SWEEPHEA
-\else 
-  \newcommand*{SWEEPHEA}{}
-
-
-  %\newcommand{\History}[1]{\mathbf{History}(#1)}
-\newcommand{\History}[1]{H_{#1}}
-  %\newcommand{\Time}[1]{\mathbf{Time}(#1)}
-  \newcommand{\Time}[1]{T(#1)}
-  \newcommand{\Excuse}[1]{\mathbf{Excuse}(#1)}
-  \newcommand{\Excusei}[1]{\mathbf{Excuse}_{i}(#1)}
-  \newcommand{\Size}[1]{\mathbf{Size}(#1)}
-  \newcommand{\Span}[1]{\mathbf{Span}(#1)}
-  \newcommand{\pre}[1]{\text{pre}(#1)}
-  \newcommand{\prei}[1]{\text{pre}_{i}(#1)}
-\fi
-
-
-
-\ifdefined\FULL
-
-\input{shrink_v1.tex}
-\fi
-
-
-\input{shrink_v2.tex}
-
-
-\ifdefined\FULL
-
-\input{shrink_v3.tex}
-\input{investigation.tex}
-\fi
-
-%\newpage
-\input{space_time_graphs.tex}
-\input{minimal_explanation_form.tex}
-\input{counting_subgraphs.tex}
-\input{tree_sparator.tex}
-\input{plane_to_toric.tex}
-\input{time_unfolding.tex}
-\input{tanner_time_equ.tex}
-
 \section{Tanner - History Connected Equivalency}
 Imagine the following process, we apply $t$ noisy iterations of the SWEEP rule, and then a single ideal (without noise) iteration. Denote by $\xi$ a deviated configuration (can be either bits or checks), and by $\xi^{\prime}$ the result of applying an ideal SWEEP rule on $\xi$. Notice that if $\xi$ is connected in the Tanner graph then $\xi^{\prime}$ is connected in the History graph \ctt{Require proof, For the classical case enumerate all the options can be done by hand}. Thus:
 \begin{equation*}
@@ -248,5 +176,3 @@ Now, since no slice in the investigation of $M$ closes a non-trivial cycle then 
        \Rightarrow & L \ge \Delta_{max}
       \end{split}
     \end{equation*}
-
-\end{document}
