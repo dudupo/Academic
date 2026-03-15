@@ -1,0 +1,50 @@
+ \section{Explantation of a Spanned Slice}
+
+  \ctt{Here we follow the original proof, but change the triminalogy, $m$ will be the number of leaves in the explanation, then in the end we conclude that the number of faults is at least $m/\Delta$. So $|R| \le f(\frac{m}{\Delta})$. }
+
+  \begin{definition}
+    Consider a time graph $(G,T)$, an embedding $f \colon G \rightarrow \mathbb{R}^{d}$, such that.. Let $\beta = \frac{d+1}{\xi}$ and $\alpha = \beta \Size{\text{fork}}$. Given sets $W$ of points, $R$ of arrows and $F$ of forks, we define $U$ as the set of vertices of the graph induced by the edges of $R \cup F$. The sets $W,R$ and $F$ form an explanation of a spanned slice $\hat{K} = \braket{ K, v_{1}, .., v_{d+1}}$ if and only if: 
+    \begin{enumerate}
+      \item $W \cup \{v_{1} ,.., v_{d+1}\} \subset U \subset \History{K}$ and the graph $(U, R\cup F)$ is connected. 
+      \item All elements of $W$ are leaves. 
+      \item For $m = |W|$ and $s=\Size{K}$ we have $|R| \le \alpha (m-1) - s $ and $|F| < m -1 $. 
+    \end{enumerate}
+  \end{definition}
+
+  \begin{claim}
+    \label{claim:edgesin}
+    Every spanned slice $K = \braket{K,v_{1},..,v_{d+1}}$ has an explanation.
+  \end{claim}
+
+  \begin{proof}
+    Let $h = \Time{K} - \min_{u \in \History{K}}\Time{u}$. The proof is by induction on $h$. 
+    \begin{enumerate}
+      \item Base: $h=0$, namely $T$ is constant on $\History{K}$, so no arrows connect points of $\History{K}$. Thus, $\History{K}$, as well as $\mathbf{K}$, consists only of leaves. In that case, $U = W = \{u\}$, $m=1$, $s=0$, and $|R|, |F| = 0$ satisfy the requirement.
+      \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. Thus, by \cref{claim:prevslices}, we know that for some $k$ there exist spanned slices $\hat{K}_{0}, .., \hat{K}_{k}$ and forks $F_{1},..,F_{k}$ that satisfy \cref{claim:prevslices}. 
+
+        Consider $i \in 0,..,k$, denote by $s_{i} = \Size{\hat{K}_{i}}$. By the inductive hypothesis and since $\Time{K_{i}} = \Time{K} - 1$, we know that $\hat{K}_{i}$ has an explanation formed by a set of leaves $\mathbf{W}_{i}$, a set of arrows $\mathbf{R}_{i}$ and a set of forks $\mathbf{F}_{i}$. Let $m_{i} =|\mathbf{W}_{i}|$, So the sets $R_{i}$ and $F_{i}$ have at most $\alpha m_{i} - s_{i}$ and $m_{i}-1$ leaves. We define:
+        \begin{enumerate}
+          \item $\mathbf{W} = \cup_{i=0}^{k} \mathbf{W}_{i}$, Notice that $\mathbf{W}_{i} \subset K_{i}$ and that $\Time{K_{i}} = \Time{K_{j}}$ for all $i,j$, thus by \cref{cref:disj} $\mathbf{W}$ is a union of disjoint set, Hence $W$ contains  $m = \sum_{i=0}^{k}m_{i}$ leaves. 
+          \item $\mathbf{F} = \{ F_{1},..,F_{k} \} \cup_{i = 0}^{k}\mathbf{F}_{i}$ with at most $ k + \sum_{i=0}^{k}{m_{i} -1 } = m- 1$ elements. 
+          \item $\mathbf{R} = \{ \{v_{i}, \prei{v_{i}} \} \} \cup_{i=0}^{k}{ \mathbf{R}_{i} }$ with at most 
+            \begin{equation*}
+              \begin{split}
+                & d+1 + \sum^{k}_{i=0}{\alpha (m_{i}-1)  - \beta s_{i} } \\ 
+                \le & d+1 + \alpha m - \alpha(k+1) - \beta\left(s + \xi - k \cdot \Size{\text{fork}}  \right) \\
+                = & \alpha \left(m - 1\right) - \beta s + \left(\alpha + d+1 - (k+1) \alpha - \beta \xi + \beta k \cdot \Size{\text{fork}} \right)
+              \end{split}
+            \end{equation*}
+            So its enough to show that for $k\ge 0$ the term in the closure is negative, We do that by showing that the slop is negative, and then the value of the term at zero is negative: 
+            \begin{equation*}
+              \begin{split}
+                  - \alpha  +  \beta \Size{\text{fork}} \le 0 & \Rightarrow   \Size{\text{fork}} \le \frac{\alpha}{\beta} \\ 
+                 d + 1  -\beta \xi \le 0 & \Rightarrow \frac{d+1}{\beta} \le \xi
+              \end{split}
+            \end{equation*}
+        \end{enumerate}
+        And those inequalities hold for $\beta = \frac{d+1}{\xi}$ and $\alpha = \beta \Size{\text{fork}}$. Finally, by \cref{claim:prevslices}, the graphs induced by $\mathbf{R}_{i} \cup \mathbf{F}_{i}$ are connected, thus the graph induced by $\mathbf{R}\cup \mathbf{F}$ is also connected. Therefore, $\mathbf{W}, \mathbf{R}, \mathbf{F}$ form an explanation of $K$. 
+    \end{enumerate}
+
+  \end{proof}
+
+
