@@ -1,0 +1,167 @@
+
+
+
+
+\section{SWEEP Rule Decoder on the Toric}
+The decoder works as follows: each vertex $v$ looks for a suggestion $\hat{v}$ on $\uparrow{(v)}\cap lk_{2}$ that matches $\sigma_{v}^{+}$. If there are more than one, then pick the one which has the minimal weight.
+
+%\tdplotsetmaincoords{70}{120}
+
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+
+\fill[red!30]
+  (1,1,0) -- (2,1,0) -- (2,2,0) -- (1,2,0) -- cycle;
+% draw grid lines
+\foreach \x in {0,1,2} {
+  \foreach \y in {0,1,2} {
+    \draw[gray] (\x,\y,0) -- (\x,\y,2);
+  }
+}
+
+\foreach \x in {0,1,2} {
+  \foreach \z in {0,1,2} {
+    \draw[gray] (\x,0,\z) -- (\x,2,\z);
+  }
+}
+
+\foreach \y in {0,1,2} {
+  \foreach \z in {0,1,2} {
+    \draw[gray] (0,\y,\z) -- (2,\y,\z);
+  }
+}
+
+% draw lattice points
+\foreach \x in {0,1,2} {
+  \foreach \y in {0,1,2} {
+    \foreach \z in {0,1,2} {
+      \fill (\x,\y,\z) circle (1.5pt);
+    }
+  }
+}
+
+\draw (2.5,1) node { $\rightarrow$ };
+\end{tikzpicture} \begin{tikzpicture}[scale=1.5]
+
+\fill[red!30]
+  (1,1,0) -- (2,1,0) -- (2,2,0) -- (1,2,0) -- cycle;
+% draw grid lines
+\foreach \x in {0,1,2} {
+  \foreach \y in {0,1,2} {
+    \draw[gray] (\x,\y,0) -- (\x,\y,2);
+  }
+}
+
+\foreach \x in {0,1,2} {
+  \foreach \z in {0,1,2} {
+    \draw[gray] (\x,0,\z) -- (\x,2,\z);
+  }
+}
+
+\foreach \y in {0,1,2} {
+  \foreach \z in {0,1,2} {
+    \draw[gray] (0,\y,\z) -- (2,\y,\z);
+  }
+}
+
+% draw lattice points
+\foreach \x in {0,1,2} {
+  \foreach \y in {0,1,2} {
+    \foreach \z in {0,1,2} {
+      \fill (\x,\y,\z) circle (1.5pt);
+    }
+  }
+}
+\end{tikzpicture}
+  \caption{SWEEP rule}
+  \label{fig:sweep}
+\end{figure}
+
+
+
+\section{Span Shrinking}
+
+Define the potentials functions $L_{i} \colon \mathbb{R}^{d} \rightarrow \mathbb{R}$ as follow\footnote{Notice that we use opposite signs relative to Berman and Peter Gacs, yet we agree with Perskil.}: 
+\begin{equation*}
+  \begin{split}
+L_{i}(\xb{}) =    \begin{cases}
+  \xb{}_{i} & i < d + 1 \\ 
+  - \braket{\mathbf{1}, \xb{}} & i = d+1
+\end{cases}
+  \end{split}
+\end{equation*}
+The \textbf{Size} of a subset $S$ is defined as:   
+\begin{equation*}
+  \begin{split}
+  \mathbf{Size}(S) = \sum_{i}\max_{\xb{} \in S} L_{i}(\xb{})
+  \end{split}
+\end{equation*}
+\begin{claim}[Span Shrinking Property]
+ Namely, let $e$ be an unsatisfied check at time $t$, and let $H_{e}$ be the unsatisfied checks at time $t-1$. Then there is a set $H^{\prime}_{e} \subset H_{e}$ such that:
+\begin{enumerate}
+  \item For any $i < d + 1$ there exists $e^{\prime} \in H^{\prime}_{e}$ such $L_{i}(e^{\prime}) \ge L_{i}(e)$. 
+  \item There exists $e^{\prime} \in H^{\prime}_{e}$ such that $L_{d+1}(e^{\prime}) \le L_{d+1}(e) + 1 $. 
+\end{enumerate}
+\end{claim}
+\begin{remark}
+Numerically, we showed that the 'span shrinking property' holds for the checks on the 3D Toric (it required running over $\sim 2^{11}$ assignments of bits over the local environment of the check).
+\end{remark}
+\begin{proof}
+  Consider a vertex $v$ which at time $t$ adjoins to an unsatisfied edge $e$, let $u,w$ be vertices which have a positive faces that adjoin to $e$. 
+  \begin{enumerate}
+    \item If $\hat{u}|_{e} \neq \emptyset$, then the parallel edge to $e$ going out from $u$ belongs to $H_{e}$. Denote it by $e_u$, taking $e_{u}$ satisfies at least two (three in 4D) of the first $d$ inequalities and the last $d+1$th inequality. Denote by $x \in [d]$ the index of the inequality which isn't satisfied by $e_{u}$. So it remains to prove the existence of $e^{\prime} \in H_{e}$ for which $L_x(e^{\prime}) \ge L_{x}(e)$.
+
+Consider the assignment of bits at time $t-1$ over the complex, and consider the graph $G = \left( \mathcal{F}, E \right)$ induced by associating vertices with any face that is set to $1$ by the assignment. Two vertices are connected if their origin faces share an edge. Let $K \subset \mathcal{F}$ be a connected component of faces that contains the faces supported on $u$.
+
+      We say that $K$ is $d$ far from $u$ if:   
+      \begin{equation*}
+        \begin{split}
+          \max_{f \in K} | f_{x} - u_{x} | \le d
+        \end{split}
+      \end{equation*}
+      Now, we will prove by induction on $d$ that there is a face $f \in K$ with $f_{x} \ge v_{x}$ such one of its edge is not satisfied. 
+      \begin{enumerate}
+        \item \textbf{Base.} The edge from $v$ which point at the $\hat{z}$ direction must not be satisfied.  
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[scale=3]
+
+\fill[red!30]
+  (0,1,1) -- (0,1,0) -- (0,2,0) -- (0,2,1) -- cycle;
+\fill[red!30]
+  (0,1,1) -- (1,1,1) -- (1,2,1) -- (0,2,1) -- cycle;
+
+% draw lattice points
+\draw[blue] (1,1,1) -- (1,2,1);
+\draw[gray] (1,1,1) -- (1,1,0);
+\draw[gray] (1,1,1) -- (0,1,1);
+\draw[gray] (0,1,1) -- (0,2,1);
+\draw[gray] (0,1,1) -- (0,1,0);
+\draw[gray] (0,1,0) -- (0,2,0);
+\draw[gray] (0,2,1) -- (1,2,1);
+    \draw (1,1,1) node { $v$} ;
+    \draw (1,1,0.5) node { $e$} ;
+\fill (1,2,1) circle (0.5pt);
+    \draw (0,1,1) node { $u$ } ;
+%\fill (0,1,1) circle (1.5pt);
+\fill (0,1,0) circle (0.5pt);
+\fill (0,2,1) circle (0.5pt);
+\end{tikzpicture} 
+\caption{ The induction base: In red, we have the faces on the support of $u$. The blue edge has the same $x$-coordinate as $e$. Any attempt to zero out the syndrome on the edge results in adding a face that is at least 2-far from $u$. Any configuration which is at most 1-far from $u$ has to have that local view, yet might be connected to more faces which don't adjoin the blue edge. }
+  \label{fig:base}
+\end{figure}
+        \item \textbf{Assumption.} Assume that for any $K$ which is at most $d-1$ far from $u$ there is a face, with adjoins edge that is both has a $x$-coordinate that is greater than $u_{x}$ and is not satisfied.   
+        \item \textbf{Induction Step.} Consider a connected component $K$ that is $d$-far from $u$. Notice that if by substitute a co-boundary (stabilizer) from $K$ we get $K^{\prime}$ that is at most $d^{\prime}$ far from $u$ for some $d^{\prime} < d$ then we done. That because: $\partial_{2} K^{\prime} = \partial_{2} (K + z) = \partial_{2} K$ for some $z \in \ker \partial_{2} $. 
+          
+
+          On the other hand, \ctt{Finish that.} 
+      \end{enumerate}
+
+    \item  Else, if for any $u \in \downarrow(u) \cap lk_{1}$ it holds that $\hat{u}|_{e} = \emptyset$, then it must be that $e \in H_{e}$ because $\hat{v}$ can only decrease the syndrome on $v$. Moreover, it follows that $\hat{v} = \emptyset$ (otherwise, the suggestion would zero out the syndrome on $\uparrow(v) \cap lk_{2}$). Thus, $\sigma_{v} \not\subset \uparrow(v) \cap lk_{2} \Rightarrow$ there is also an edge $e^{\prime} \in H_{e}$ where $e^{\prime} \in \downarrow(v)$. In that case, take $e \in H_{e}$ as the edge satisfies the first $d$ equalities and $e^{\prime}$ for satisfying the $d+1$th inequality.
+  \end{enumerate}
+\end{proof}
+
+
