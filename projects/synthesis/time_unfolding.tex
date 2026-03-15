@@ -29,9 +29,27 @@ There was no turn in which it had a configuration that was connected at the time
 \newcommand{\comDAG}{\pi[C,\mathcal{E}]} 
 Informally, a quantum circuit is a placement of a collection of quantum gates, taken from a finite set, in different space-time locations. Each space-time location, associated with a gate, encodes the time of the application and the qubits in the support of the gate. Formally
 \begin{definition}[Quantum Circuit]
-A space-time location $l$ is a tuple that encodes in its first coordinate time, and in its second coordinate a subset of integers referring to a support of (q)bits. For a collection of quantum gates $\mathcal{G} = \{ g \colon L(\mathcal{H}_{2}^{\otimes \Delta} ) \rightarrow L(\mathcal{H}_{2}^{\otimes \Delta} ) \}$, a quantum circuit $C$, with depth $d$ and width $w$, is a collection of tuples $\{ u_{i} = (g_{i},l_{i}) \}$, where $u_{i}$ are the gates of $C$ and each $u_{i}$ is composed of a gate $g_{i} \in \mathcal{G}$ and a space-time location $l_{i} \in \mathbb{Z}_{d} \times \mathbb{Z}_{w}^{\Delta}$. The gates of $C$ have to satisfy the constraint that for every two gates with the same time coordinate, there cannot be a non-empty intersection in their space coordinate, namely for $u_{i}=(g_{i},l_{i}),u_{j}=(g_{j},l_{j}) \in C$, the equality $l_{i,1} = l_{j,1}$ implies $l_{i,2} \cap l_{j,2} = \emptyset$.
+  A space-time location $l$ is a tuple that encodes in its first coordinate time, and in its second coordinate a subset of integers referring to a support of (q)bits. 
+  For a collection of quantum gates $\mathcal{G} = \{ g \colon L(\mathcal{H}_{2}^{\otimes \Delta} ) \rightarrow L(\mathcal{H}_{2}^{\otimes \Delta} ) \}$, and integers $w,d \in \mathbb{N}$ a quantum circuit $C$, with depth $d$ and width $w$, is a collection of tuples $\{ u_{i} = (g_{i},l_{i}) \}$, where $u_{i}$ are the gates of $C$ and each $u_{i}$ is composed of a gate $g_{i} \in \mathcal{G}$ and a space-time location $l_{i} \in \mathbb{Z}_{d} \times \mathbb{Z}_{w}^{\Delta}$. The gates of $C$ have to satisfy the constraint that for every two gates with the same time coordinate, there cannot be a non-empty intersection in their space coordinate, namely for $u_{i}=(g_{i},l_{i}),u_{j}=(g_{j},l_{j}) \in C$, the equality $l_{i,1} = l_{j,1}$ implies $l_{i,2} \cap l_{j,2} = \emptyset$.
+\end{definition}
+To define the running of a quantum circuit $C$ on a given (mixed) quantum state, we will need to have the notion of the acyclic directed graph associated with $C$.
 
+\begin{definition}[Associated Computation DAG]
+Let $C = \{u_{i}\}$ be a quantum circuit with depth $d$ and width $w$. We define the associated computation DAG of $C$, denoted by $\pi_{C}$, to be the acyclic directed graph $\pi_{C} = (\mathcal{U}, E)$ as follows:
+  \begin{enumerate}
+    \item The vertex set $\mathcal{U}$ is the gate set of $C$, namely $\mathcal{U} = \{u_{i}\}$.
+    \item For $u_{i}= (g_{i},l_{i}), u_{j}= (g_{j},l_{j})$, There is an edge $\{u_{i},u_{j}\} \in E$ if and only if:
+      \begin{equation*}
+        \begin{split}
+          j \in \arg \min_{j} \{ l_{j,1} : l_{j,1} > l_{i,1} \text{ and } l_{j,2}\cap l_{i,2} \neq \emptyset  \}
+        \end{split}
+      \end{equation*}
+Note that there might be multiple indices that get the minimum, so the out degree might be greater than one.
+  \end{enumerate}
+\end{definition}
 
+\begin{definition}
+Let $\rho$ be a density matrix over $w$ qubits, and let $C = \{u_{i}\}$ be a quantum circuit with depth $d$ and width $w$. For any density matrix $\sigma$, quantum gate $g \in \mathcal{G}$, and location $l$, the application of the gate-location tuple $(g,l)$ on $\sigma$, denoted by $(g,l) \circ \sigma$, is the application of $g$ on $\sigma$ where wires are ordered such that the first qubit in the input to $g$ is $l_{2,1}$, the second is $l_{2,2}$, and so on. The result of the application of $C$ on $\rho$, denoted by $C \circ \rho$, is given by iterative applications of the gates $\{u_{i}\}$ on $\rho$, according to a topological order induced by $\pi_{C}$.
 \end{definition}
 
 
