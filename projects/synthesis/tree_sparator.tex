@@ -1,0 +1,50 @@
+
+  \section{Tree Separator Lemma}
+ For a tree $T = (V, E)$ and a vertex $v \in V$, we call the subtree obtained by taking the descendants of $v$ the subtree rooted at $v$.
+
+
+  \begin{claim}
+    \label{claim:tree_separator}
+    Let $T = (V,E)$ be a tree with $m > 3$ leaves and $\tau$ edges, then it has a subtree with $m^{\prime} \in ( \frac{1}{3}m, \frac{2}{3}m)$ leaves and at most $ \frac{m^{\prime}}{m} \tau$ edges. 
+  \end{claim}
+  \begin{proof}
+Order the vertices according to their heights. Denote by $v \in V$ the lowest vertex for which the subtree rooted at $v$ has at least $\frac{1}{3}m$ leaves. Now, denote by $T_{1}$ the subtree obtained through the following iterative process over $v$'s children:
+\begin{enumerate}
+  \item Initialize $T_{1}$ as the subtree rooted at $v$.
+  \item For a child $u$ of $v$:
+    \begin{enumerate}
+      \item Check if erasing from $T_{1}$ the subtree rooted at $u$ doesn't decrease the number of leaves below $\frac{1}{3}m$. If so, then we update $T_{1}$ to be the result of the erasure.
+    \end{enumerate}
+\end{enumerate}
+Clearly, the algorithm is defined such that $ T_{1} $ has to have at least $\frac{m}{3}$ leaves. Furthermore, since any child of $ v $ is a root of a subtree with fewer than $\frac{m}{3}$ leaves (otherwise we get a contradiction to the minimality of $ v $'s height), we have that if $ T_{1} $ would have more than $\frac{2}{3}m$ leaves, then the subtraction of any of its children would yield a tree with at least $\frac{2}{3}m - \frac{1}{3}m = \frac{1}{3}m$ leaves. Namely, $ v $ has in $ T_{1} $ a child $ u $ such that the subtraction of the subtree rooted at $ u $ from $ T_{1} $ results in a subtree with more than $\frac{1}{3}m$ leaves. But if indeed there were such a child, then the algorithm would erase it, so there is not. 
+
+
+Now let $T_{2} = T/T_{1} \cup {v}$, namly the tree induced by the subtraction of $T_{1}$'s edges from $T$. Observes that since the summation of leaves in $T_{1}$ and $T_{2}$ is the leaves in $T$, and $T_{1}$ has no more than $\frac{2}{3}m$ leaves, and no less than $\frac{1}{3}$ leaves, it holds that the number of leaves in $T_{2}$ is also in the range $(\frac{1}{3}m, \frac{2}{3}m)$. We claim that at least one of the  subtrees has fewer than $\frac{m^{\prime}}{m} \tau$ edges. 
+
+To see this, denote by $m_{1},m_{2}$ and by $ \tau_{1}, \tau_{2} $ the leaves and the edges in $T_{1},T_{2}$ respectively. Now:
+\begin{equation*}
+  \begin{split}
+    \frac{\tau}{m} &= \frac{\tau_{1} + \tau_{2} }{m_{1} + m_{2}} =  \frac{m_{1} }{m_{1} + m_{2}} \frac{\tau_{1} }{m_{1}}  + \frac{m_{2} }{m_{1} + m_{2}} \frac{\tau_{2} }{m_{2}} 
+  \end{split}
+\end{equation*}
+Namely, $\frac{\tau}{m}$ is a weighted average of $\frac{\tau_{1}}{m_{1}}$ and $\frac{\tau_{2}}{m_{2}}$, and therefore it is greater than their minimum. Peak the subtree with the minimal quotient.
+  \end{proof}
+By repeating recursively on the above construction, we get the following corollary:
+  \begin{corollary}
+Let $T = (V,E)$ be a tree with $m$ leaves and $\tau$ edges. Then, for any $\alpha > 0$, it has a subtree with $m^{\prime} \in \left( \frac{1}{3}\alpha m, \frac{2}{3} \alpha m \right)$ leaves and at most $\frac{m^{\prime}}{m} \tau$ edges.
+  \end{corollary}
+
+  \begin{claim}
+    \label{claim:big_subtree}
+Let $\gamma, \beta \in \mathbb{R}_{>0}$ and $n$ be a positive integer. For any tree $T$ with $\tau \ge \beta n$ edges and $m$ leaves such that $\tau \le \gamma m$, there is a subtree $T^{\prime}$ of $T$ with a number of edges $\tau^{\prime}$ less than $\frac{\beta}{2}n$ and a number of leaves greater than $\frac{\beta}{4\gamma} n$.
+  \end{claim}
+\begin{proof}
+Since the construction of \cref{claim:tree_separator} preserves the ratio of edges to leaves, we have that for a $T^{\prime}$ obtained using the construction, the number of edges satisfies $\tau^{\prime} \le \gamma m^{\prime}$. So, it's enough to look for the maximal $\alpha$ such that:
+    \begin{equation*}
+      \begin{split}
+        \gamma m^{\prime}  \le \gamma \frac{2}{3}\alpha m \le \frac{\beta}{2} n \Rightarrow \alpha  = \frac{3 \beta}{4\gamma} \frac{n}{m} 
+      \end{split}
+    \end{equation*}
+    Which gives $m^{\prime} \ge \frac{1}{3}\alpha m = \frac{\beta}{4\gamma} n$.
+
+\end{proof}
