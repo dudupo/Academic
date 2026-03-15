@@ -57,7 +57,17 @@ We say that $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ is a computation prefix if $\
 
 
 \begin{definition}[Associated Computation DAG]
-  Let $C$ be a quantum circuit, with depth $d$ and width $w$. For a set of faults location $\mathcal{E} \subset [d] \times [w] $ we define the associated computation DAG of $(C,\mathcal{E})$ to be the acyiclic directed graph $\comDAG = (\mathcal{U}, E)$ as follow: 
+Let $C = \{ u_{i} \}$ be a quantum circuit with depth $d$ and width $w$. For a set of fault locations $\mathcal{E} \subset [d] \times [w]$, we define the quantum circuit $C[\mathcal{E}] = \{ u^{\prime}_{i} \}$ to be the result of the following map:
+  \begin{equation*}
+    \begin{split}
+      u_{i}=(g_{i},(l_{i,1}, l_{i,2})) & \mapsto   
+      \begin{cases}
+        (g_{i},( \inb{2} l_{i,1}, l_{i,2})) & u_{i} \in C \\ 
+        (g_{i},( \inb{2} l_{i,1} \inb{ - 1 }, l_{i,2})) & u_{i} \in \mathcal{E}
+      \end{cases}
+    \end{split}
+  \end{equation*}
+  associated computation DAG of $(C,\mathcal{E})$ to be the acyiclic directed graph $\comDAG = (\mathcal{U}, E)$ as follow: 
   \begin{enumerate}
     \item The vertices set $\mathcal{U}$ equals $G[C] \cup \{ N_{\text{loc} } \colon \text{loc } \in \mathcal{E}$, namely the union of the gates of $C$ and the faults in $\mathcal{E}$. 
       \item 
