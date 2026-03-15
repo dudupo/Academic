@@ -50,6 +50,8 @@ Note that there might be multiple indices that get the minimum, so the out degre
 
 \begin{definition}
 Let $\rho$ be a density matrix over $w$ qubits, and let $C = \{u_{i}\}$ be a quantum circuit with depth $d$ and width $w$. For any density matrix $\sigma$, quantum gate $g \in \mathcal{G}$, and location $l$, the application of the gate-location tuple $(g,l)$ on $\sigma$, denoted by $(g,l) \circ \sigma$, is the application of $g$ on $\sigma$ where wires are ordered such that the first qubit in the input to $g$ is $l_{2,1}$, the second is $l_{2,2}$, and so on. The result of the application of $C$ on $\rho$, denoted by $C \circ \rho$, is given by iterative applications of the gates $\{u_{i}\}$ on $\rho$, according to a topological order induced by $\pi_{C}$.
+
+We say that $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ is a computation prefix if $\rho_{1} = \rho$ and $\rho_{i+1} = u^\prime_{i} \circ \rho_{i}$, where $\{u^{\prime}_{i}\}$ is a prefix of a topological ordering of $\{u_{i}\}$. If $\{u^{\prime}_{i}\}$ contains all the gates in $\{u_{i}\}$, then we call $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ a running.
 \end{definition}
 
 
