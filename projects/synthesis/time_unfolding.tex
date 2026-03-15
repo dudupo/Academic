@@ -1,0 +1,28 @@
+
+\section{The Turns Idea.}
+The main problem we have is that, for now, the history is defined only for configurations that, at time $t$, see a non-trivial syndrome. What we can do is imagine that at each turn we flip the bits according to a fixed order. We think of the basic time unit as a turn, and each real-time iteration contains $t n^{d}$ turns. Now, if a bulk of bits $A$ is flipped at time $t$, then there must be a turn $\tau \le t n^{d}$ such that at that turn there was a configuration that has a history.
+
+Now we would like to describe what the history of that configuration looks like, and we do that by connecting the turn $\tau$ to the closest $t^{\prime}n^{d}$. The idea is that we cann't ensure the shrinking lemma. Yet we can tell for sure that if there is expansion then its limited.  
+
+
+I have also the felling that the shrinking works, and the idea goes as follow, assume that $v \in \Gamma^{(t-1)}$ gets the maximum of $L_{i}$ either we stop before flipping a bit that is 'supported' on $v$ or not, in the first case, we get that any $u$ that is added by $v^{\prime}$ might has $L_{i}(u) = L_{i}(v^{\prime}) < L_{i}(v)$, in the second case we have already handled. 
+
+The turn machinery makes sense only in the finite case. Yet, we can back to the Tree Separator Section, and show that with probability  
+\begin{equation*}
+  \begin{split}
+    n^{d} \cdot  t n^{d} q^{n}
+  \end{split}
+\end{equation*}
+We don't have a big trees which implies independence. Then we can show that with probability:  
+\begin{equation*}
+  \begin{split}
+    n^{d}t (n^{d})^{2}q^{\prime \delta n}
+  \end{split}
+\end{equation*}
+There was no turn in which it had a configuration that was connected at the time, saw a syndrome, and had a side-length that behaved like $\Theta(n)$.
+
+\ctt{ The model has to redefined again such it will be clear that outcomes are possibles running of the system. Currently this can not be inferred. }
+
+\begin{claim}
+  Let $\omega \in \Omega$ be an outcome, 
+\end{claim}
