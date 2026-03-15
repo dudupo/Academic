@@ -1,5 +1,6 @@
 
 \section{The Turns Idea.}
+
 The main problem we have is that, for now, the history is defined only for configurations that, at time $t$, see a non-trivial syndrome. What we can do is imagine that at each turn we flip the bits according to a fixed order. We think of the basic time unit as a turn, and each real-time iteration contains $t n^{d}$ turns. Now, if a bulk of bits $A$ is flipped at time $t$, then there must be a turn $\tau \le t n^{d}$ such that at that turn there was a configuration that has a history.
 
 Now we would like to describe what the history of that configuration looks like, and we do that by connecting the turn $\tau$ to the closest $t^{\prime}n^{d}$. The idea is that we cann't ensure the shrinking lemma. Yet we can tell for sure that if there is expansion then its limited.  
@@ -22,6 +23,35 @@ We don't have a big trees which implies independence. Then we can show that with
 There was no turn in which it had a configuration that was connected at the time, saw a syndrome, and had a side-length that behaved like $\Theta(n)$.
 
 \ctt{ The model has to redefined again such it will be clear that outcomes are possibles running of the system. Currently this can not be inferred. }
+
+
+
+\newcommand{\comDAG}{\pi[C,\mathcal{E}]} 
+Informally, a quantum circuit is a placement of a collection of quantum gates, taken from a finite set, in different space-time locations. Each space-time location, associated with a gate, encodes the time of the application and the qubits in the support of the gate. Formally
+\begin{definition}[Quantum Circuit]
+A space-time location $l$ is a tuple that encodes in its first coordinate time, and in its second coordinate a subset of integers referring to a support of (q)bits. For a collection of quantum gates $\mathcal{G} = \{ g \colon L(\mathcal{H}_{2}^{\otimes \Delta} ) \rightarrow L(\mathcal{H}_{2}^{\otimes \Delta} ) \}$, a quantum circuit $C$, with depth $d$ and width $w$, is a collection of tuples $\{ u_{i} = (g_{i},l_{i}) \}$, where $u_{i}$ are the gates of $C$ and each $u_{i}$ is composed of a gate $g_{i} \in \mathcal{G}$ and a space-time location $l_{i} \in \mathbb{Z}_{d} \times \mathbb{Z}_{w}^{\Delta}$. The gates of $C$ have to satisfy the constraint that for every two gates with the same time coordinate, there cannot be a non-empty intersection in their space coordinate, namely for $u_{i}=(g_{i},l_{i}),u_{j}=(g_{j},l_{j}) \in C$, the equality $l_{i,1} = l_{j,1}$ implies $l_{i,2} \cap l_{j,2} = \emptyset$.
+
+
+\end{definition}
+
+
+
+\begin{definition}[Associated Computation DAG]
+  Let $C$ be a quantum circuit, with depth $d$ and width $w$. For a set of faults location $\mathcal{E} \subset [d] \times [w] $ we define the associated computation DAG of $(C,\mathcal{E})$ to be the acyiclic directed graph $\comDAG = (\mathcal{U}, E)$ as follow: 
+  \begin{enumerate}
+    \item The vertices set $\mathcal{U}$ equals $G[C] \cup \{ N_{\text{loc} } \colon \text{loc } \in \mathcal{E}$, namely the union of the gates of $C$ and the faults in $\mathcal{E}$. 
+      \item 
+  \end{enumerate}
+\end{definition}
+
+
+\begin{definition}[Unfolded configuration]  
+  For a quantum circuit $C$, and a set of faults $\mathcal{E}$, Let $\comDAG = (\mathcal{U},E)$ be their associated computation DAG. Let $f$
+  For a running configuration $\omega \in \Omega$ we define the unfolded-configuration. 
+\end{definition}
+
+
+
 
 \begin{claim}
   Let $\omega \in \Omega$ be an outcome, 
