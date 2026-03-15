@@ -106,14 +106,18 @@ We will denote the associated computation DAG of $C$ affected by $\mathcal{E}$ a
 \begin{definition}
 Using the same notations as in \Cref{def:deviation}, for a set of unitary operators $\mathcal{S} = \{s \colon \mathcal{H}_{2}^{w} \rightarrow \mathcal{H}_{2}^{w} \}$, we define the propagated error up to stabilizers in $\mathcal{S}$ as $X^{t}[S] \colonequals \min_{s \in \mathcal{S}} \{ w(sX) \}$. Then, we define the deviation of $C[\mathcal{E}]$ from $C$ at time $t$ up to stabilizers in $\mathcal{S}$ to be the subset of coordinates on which $X^{t}[S]$ acts non-trivially.
 \end{definition}
+
+\begin{claim}
+  Let $c \in \mathbb{R}$ be a constant, and let $f$ be a function such, 
+  \begin{equation*}
+    \begin{split}
+      |f\left( u_{1},..,u_{k+1} \right) - f\left( u_{1},..,u_{k} \right)| \le c
+    \end{split}
+  \end{equation*}
+  Suppose that $f(u_{1}) = 0,$
+
+\end{claim}
 \begin{definition}[Unfolded configuration]  
   For a quantum circuit $C$, and a set of faults $\mathcal{E}$, Let $\comDAG = (\mathcal{U},E)$ be their associated computation DAG. Let $f$
   For a running configuration $\omega \in \Omega$ we define the unfolded-configuration. 
 \end{definition}
-
-
-
-
-\begin{claim}
-  Let $\omega \in \Omega$ be an outcome, 
-\end{claim}
