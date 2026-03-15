@@ -30,7 +30,8 @@ There was no turn in which it had a configuration that was connected at the time
 Informally, a quantum circuit is a placement of a collection of quantum gates, taken from a finite set, in different space-time locations. Each space-time location, associated with a gate, encodes the time of the application and the qubits in the support of the gate. Formally
 \begin{definition}[Quantum Circuit]
   A space-time location $l$ is a tuple that encodes in its first coordinate time, and in its second coordinate a subset of integers referring to a support of (q)bits. 
-  For a collection of quantum gates $\mathcal{G} = \{ g \colon L(\mathcal{H}_{2}^{\otimes \Delta} ) \rightarrow L(\mathcal{H}_{2}^{\otimes \Delta} ) \}$, and integers $w,d \in \mathbb{N}$ a quantum circuit $C$, with depth $d$ and width $w$, is a collection of tuples $\{ u_{i} = (g_{i},l_{i}) \}$, where $u_{i}$ are the gates of $C$ and each $u_{i}$ is composed of a gate $g_{i} \in \mathcal{G}$ and a space-time location $l_{i} \in \mathbb{Z}_{d} \times \mathbb{Z}_{w}^{\Delta}$. The gates of $C$ have to satisfy the constraint that for every two gates with the same time coordinate, there cannot be a non-empty intersection in their space coordinate, namely for $u_{i}=(g_{i},l_{i}),u_{j}=(g_{j},l_{j}) \in C$, the equality $l_{i,1} = l_{j,1}$ implies $l_{i,2} \cap l_{j,2} = \emptyset$.
+  For a collection of quantum gates $\mathcal{G} = \{ g \colon L(\mathcal{H}_{2}^{\otimes \Delta} ) \rightarrow L(\mathcal{H}_{2}^{\otimes \Delta} ) \}$, and integers $w,d \in \mathbb{N}$ a quantum circuit $C$, with depth $d$ and width $w$, is a collection of tuples $\{ u_{i} = (g_{i},l_{i}) \}$, where $u_{i}$ are the gates of $C$ and each $u_{i}$ is composed of a gate $g_{i} \in \mathcal{G}$ and a space-time location $l_{i} \in \mathbb{Z}_{d} \times \mathbb{Z}_{w}^{\Delta}$. The gates of $C$ have to satisfy the constraint that for every two gates with the same time coordinate, there cannot be a non-empty intersection in their space coordinate, namely for $u_{i}=(g_{i},l_{i}),u_{j}=(g_{j},l_{j}) \in C$, the equality $l_{i,1} = l_{j,1}$ implies $l_{i,2} \cap l_{j,2} = \emptyset$. 
+  We define the $t$-cut of $C$ to be $C|_{t} \colonequals \{ u_{i} = (g_{i},l_{i}) \colon u_{i} \in C \text{ and } l_{i,1} = t \}$.
 \end{definition}
 To define the running of a quantum circuit $C$ on a given (mixed) quantum state, we will need to have the notion of the acyclic directed graph associated with $C$.
 
@@ -69,7 +70,27 @@ Let $C = \{ u_{i} \}$ be a quantum circuit with depth $d$ and width $w$. For a s
   \end{equation*}
 We will denote the associated computation DAG of $C$ affected by $\mathcal{E}$ as $\comDAG$.
 \end{definition}
-
+\begin{definition}[Faults Propagation to Time $t$]
+  For a quantum circuit $C=\{u_{i}\}$, with depth $d$, and gate $u_{j}$ in $C$, a propagation of $u_{j}$ to time $t$ is the quantum circuit    obtained by the follow process: 
+  \begin{enumerate}
+    \item First define $C_{0}$ to be the quantum circuit which is the result of the map: 
+  \begin{equation*}
+    \begin{split}
+      u_{i}=(g_{i},(l_{i,1}, l_{i,2})) & \mapsto   
+      \begin{cases}
+        (g_{i},( l_{i,1}, l_{i,2})) & l_{i,1} \le l_{j,1}  \text{ and } u_{i} \neq u_{j} \\ 
+        (g_{i},(  l_{i,1} \inb{ + 1 }, l_{i,2})) & \text{else}
+      \end{cases}
+    \end{split}
+  \end{equation*}
+\item Then, for $k \le t - l_{j,1}$, construct $C_{k}$ from $C_{k-1}$ as follows: Denote $\tau = k + l_{j,1}$, and look for an operator $X \colon L(\mathcal{H}_{2}^{w}) \rightarrow L(\mathcal{H}_{2}^{w})$, such that $C_{k-1}|_{\tau}C_{k-1}|_{\tau+1} = C_{k-1}|_{\tau+1}X$. Then define
+  \begin{equation*}
+    \begin{split}
+      C_{k} = C_{k-1}|_{1},C_{k-1}|_{2},..,C_{k-1}|_{\tau-1},C_{k-1}|_{\tau+1},X,C_{k-1}|_{\tau+2},..,C_{k-1}|_{d+1}
+    \end{split}
+  \end{equation*}
+  \end{enumerate}
+\end{definition}
 
 \begin{definition}[Unfolded configuration]  
   For a quantum circuit $C$, and a set of faults $\mathcal{E}$, Let $\comDAG = (\mathcal{U},E)$ be their associated computation DAG. Let $f$
