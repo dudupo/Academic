@@ -99,6 +99,13 @@ We will denote the associated computation DAG of $C$ affected by $\mathcal{E}$ a
   \end{equation*}
 \end{definition}
 
+\begin{definition}[Deviation]
+  \label{def:deviation}
+  For a quantum circuit $C$, a set of faults $\mathcal{E}$, and time $t$, let $X^{t}$ be the propagated error at time $t$. We define the deviation of $C[\mathcal{E}]$ from $C$ at time $t$ by the set of indices on which $X^{t}$ acts non-trivially. 
+\end{definition}
+\begin{definition}
+Using the same notations as in \Cref{def:deviation}, for a set of unitary operators $\mathcal{S} = \{s \colon \mathcal{H}_{2}^{w} \rightarrow \mathcal{H}_{2}^{w} \}$, we define the propagated error up to stabilizers in $\mathcal{S}$ as $X^{t}[S] \colonequals \min_{s \in \mathcal{S}} \{ w(sX) \}$. Then, we define the deviation of $C[\mathcal{E}]$ from $C$ at time $t$ up to stabilizers in $\mathcal{S}$ to be the subset of coordinates on which $X^{t}[S]$ acts non-trivially.
+\end{definition}
 \begin{definition}[Unfolded configuration]  
   For a quantum circuit $C$, and a set of faults $\mathcal{E}$, Let $\comDAG = (\mathcal{U},E)$ be their associated computation DAG. Let $f$
   For a running configuration $\omega \in \Omega$ we define the unfolded-configuration. 
