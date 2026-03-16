@@ -104,30 +104,16 @@ We will denote the associated computation DAG of $C$ affected by $\mathcal{E}$ a
 \end{definition}
 
 \begin{definition}[Faults Propagation to a Step $\tau$]
-  For a quantum circuit $C=\{u_{i}\}$, with depth $d$, an order $J = \{ j_{1}, j_{2}, \ldots, j_{k} \} \subset [|C|]$ that agrees with $\pi_{C}$, and gate $u_{j}$ in $C$, a propagation of a gate $u_{j} \in C$ to step $\tau$ is the quantum circuit obtained by the follow process: 
+  For a quantum circuit $C=\{u_{i}\}$, with depth $d$, an order $J = \{ j_{1}, j_{2}, \ldots, j_{k} \} \subset [|C|]$ that agrees with $\pi_{C}$, and gate $u_{i}$ in $C$, a propagation of a gate $u_{i} \in C$ to step $\tau$ is the quantum operator $X\colon L(\mathcal{H}_{2}^{w}) \rightarrow L(\mathcal{H}_{2}^{w})$ obtained by the follow process: 
   \begin{enumerate}
-    \item First check if $j$ precedes $\tau$ in $J$, if not then return $C$. Else, define $C_{0}$ to be the quantum circuit which is the result of the map: 
-  \begin{equation*}
-    \begin{split}
-      u_{i}=(g_{i},(l_{i,1}, l_{i,2})) & \mapsto   
-      \begin{cases}
-        (g_{i},( l_{i,1}, l_{i,2})) & l_{i,1} \le l_{j,1}  \text{ and } u_{i} \neq u_{j} \\ 
-        (g_{i},(  l_{i,1} \inb{ + 1 }, l_{i,2})) & \text{else}
-      \end{cases}
-    \end{split}
-  \end{equation*}
-\item Then, for $k \le t - l_{j,1}$, construct $C_{k}$ from $C_{k-1}$ as follows: Denote $\tau = k + l_{j,1}$, and look for an operator $X \colon L(\mathcal{H}_{2}^{w}) \rightarrow L(\mathcal{H}_{2}^{w})$, such that $C_{k-1}|_{\tau}C_{k-1}|_{\tau+1} = C_{k-1}|_{\tau+1}X$. Then define
-  \begin{equation*}
-    \begin{split}
-      C_{k} = C_{k-1}|_{1},C_{k-1}|_{2},..,C_{k-1}|_{\tau-1},C_{k-1}|_{\tau+1},X,C_{k-1}|_{\tau+2},..,C_{k-1}|_{d+1}
-    \end{split}
-  \end{equation*}
-\item At the final stage of the process, namely where $k = t - l_{j,1}$, we define $X$ to be the propagation of $u_{j}$ to time $t$.
+    \item First, check if $i$ precedes $\tau$ in $J$. If not, then return $X = I$. Otherwise, denote $j_{l} = i$, and look for an operator $X_{1}$ such that $u_{j_{l}}u_{j_{l+1}} = u_{j_{l+1}}X_{1}$.
+    \item Then, for $k \le \tau - l$, look for an operator $X_{k} \colon L(\mathcal{H}_{2}^{w}) \rightarrow L(\mathcal{H}_{2}^{w})$, such that  $X_{k-1}u_{j_{l+1}} =  u_{j_{l+1}}X_{k}$.
+    \item At the final stage of the process, namely where $k = \tau - l$, we define $X \colonequals X_{k}$ to be the propagation of $u_{j}$ to step $\tau$.
   \end{enumerate}
-  For a quantum circuit $C$ and a set of faults $\mathcal{E} = \{ e_{i} \}$, denote by $X_{e_{i}}^{t}$ the propagation of $e_{i} \in \mathcal{E}$ in $C[\mathcal{E}]$. Let $j_{1}, j_{2}, \ldots, j_{l}$ be the indices of the faults in $\mathcal{E}$ such that their time coordinate is lower than $t$, ordered according to the reverse topological order induced by $\pi_{\mathcal{E}}$. The propagated error to time $t$ is defined by
+For a quantum circuit $C$, a set of faults $\mathcal{E} = \{ e_{i} \}$, an order $J \subset [|C[\mathcal{E}]|]$ that agrees with $\pi_{C[\mathcal{E}]}$, and a step $\tau \in J$, denote by $X_{e_{i}}^{\tau}$ the propagation of $e_{i} \in \mathcal{E}$ in $C[\mathcal{E}]$ to step $\tau$. Let $j^{\prime}_{1}, j^{\prime}_{2}, \ldots, j^{\prime}_{l}$ be the indices of the faults in $\mathcal{E}$ such that their corresponding positions in $J$ precede $\tau$, ordered according to the reverse topological order induced by $\pi_{\mathcal{E}}$. The propagated error to step $\tau$ is defined by
   \begin{equation*}
     \begin{split}
-      X^{t} \colonequals \prod_{i} X_{e_{j_{i}}}^{t} 
+      X^{t} \colonequals \prod_{i} X_{e_{j^{\prime}_{i}}}^{\tau} 
     \end{split}
   \end{equation*}
 \end{definition}
