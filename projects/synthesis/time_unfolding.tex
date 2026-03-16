@@ -139,7 +139,8 @@ For a quantum circuit $C$, a register $R$ of $C$, and a set of faults $\mathcal{
        \Rightarrow \max_{j}|Y_{j}| & \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}} |Y_{i}^{(\tau_{1})} |
     \end{split}
   \end{equation}
-  To get the seconed inequality, we use that fact that $u$ a unitray gate, in pariticular $u$ is reversible. Let $C_{J,\tau_{1} } = u_{1},..,u_{\tau_{1}}$ be the partial computation circuit until step $\tau_{1}$. Observes that $C_{J,\tau_{1}-1}$ is obtained by stacking $u_{\tau_{1}^{\dagger}}$ as a final stage to $C_{J,\tau_{1}}$, denote it by $u^{\dagger} \circ C_{J,\tau_{1}}$. Thus, the deviation from $C_{J,\tau_{1}}$ at step $\tau_{1} -1$ equals to the deviation from $ u^{\dagger} \circ C_{J,\tau_{1}}$ at step $\tau_{1}+1$. By \cref{equ:upstep}, 
+  \inb{Complete the second inequality. Should consider to erase what have already written about it.}
+To get the second inequality, we use the fact that $u$ is a unitary gate, in particular, $u$ is reversible. Let $C_{J,\tau_{1}} = u_{1},..,u_{\tau_{1}}$ be the partial computation circuit until step $\tau_{1}$. Observe that $C_{J,\tau_{1}-1}$ is obtained by stacking $u_{\tau_{1}}^{\dagger}$ as a final stage to $C_{J,\tau_{1}}$, denoted by $u^{\dagger} \circ C_{J,\tau_{1}}$. Thus, the deviation from $C_{J,\tau_{1}}$ at step $\tau_{1} -1$ equals the deviation from $u^{\dagger} \circ C_{J,\tau_{1}}$ at step $\tau_{1}+1$. By \cref{equ:upstep},
 \end{proof}
 
 \begin{corollary}
