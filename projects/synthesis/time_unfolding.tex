@@ -47,12 +47,11 @@ Let $C = \{u_{i}\}$ be a quantum circuit with depth $d$ and width $w$. We define
       \end{equation*}
 Note that there might be multiple indices that get the minimum, so the out degree might be greater than one.
   \end{enumerate}
-In addition, suppose that $J = \{ j_{1}, j_{2}, \ldots, j_{k} \} \subset [|C|]$ is an order of the indices of the gates in $C$ according to the topological order induced by $\pi_{C}$. Then, we say that $J$ is an order of indices that agrees with $\pi_{C}$ and define the series of circuit $C_{J}$:
+  In addition, suppose that $J = \{ j_{1}, j_{2}, \ldots, j_{k} \} \subset [|C|]$ is an order of the indices of the gates in $C$ according to the topological order induced by $\pi_{C}$. Then, we say that $J$ is an order of indices that agrees with $\pi_{C}$ and define the series of circuit $C_{J} = \{ C_{J,i} \}$ as follows:
   \begin{enumerate}
-    \item $C_{J,1} = \{ u_{j_{1}} \}$ 
-    \item $C_{J,i+1} = C_{J,i} \cup \{ u_{j_{i}} \}$ 
+    \item The first element: $C_{J,1} = \{ u_{j_{1}} \}$ 
+    \item Then, $C_{J,i+1} = C_{J,i} \cup \{ u_{j_{i}} \}$ 
   \end{enumerate}
-  
 \end{definition}
 
 \begin{definition}
