@@ -107,19 +107,19 @@ For a quantum circuit $C$, a register $R$ of $C$, and a set of faults $\mathcal{
 
 \begin{claim}
 Let $C$ be a quantum circuit composed of gates with bounded fan degree $\Delta \in \mathbb{N}$. In addition, let $R$ be a quantum register encoded by a quantum error correction code $\mathcal{C}$ with Tanner graph $\mathcal{T}$ that has left and right degrees $\Delta_{1}$ and $\Delta_{2}$. For any $\tau$, denote by $Y_{1}^{(\tau)}, Y_{2}^{(\tau)}, \ldots, Y_{l}^{(\tau)}$ the deviation clusters at step $\tau$. Assume that at step $\tau_{1}$ there is a deviation cluster $Y_{i}^{(\tau_{1})}$ of size $|Y_{i}^{(\tau_{1})}| > \xi$. Then there is a deviation cluster at step $\tau_{1}-1$, let's denote it by $Z$, of size at least:
-  \begin{equation*}
+  \begin{equation}
     \label{equ:upstep}
     \begin{split}
       |Z| \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}} |Y_{i}^{(\tau_{1})}|
     \end{split}
-  \end{equation*}
+  \end{equation}
   Furthermore there is a deviation cluster at step $\tau_{1}-1$, let's denote it by $Z^\prime$, of size at most:
-  \begin{equation*}
+  \begin{equation}
     \label{equ:dostep}
     \begin{split}
       |Z^{\prime}| \le \Delta\Delta_{1}\Delta_{2} |Y_{i}^{(\tau_{1})}|
     \end{split}
-  \end{equation*}
+  \end{equation}
 \end{claim}
 \begin{proof}
   Denote by $u=(g,l)$ the gate at step $\tau$. If $u$ acts trivially on the (q)bits in $Y_{i}^{(\tau_{1})}$ then they also belong to deviation on register $R$ at step $\tau_{1}-1$, Since they are connected in $\mathcal{T}$ they form a deviation cluster on register $R$ at step $\tau_{1}-1$ and we got the desired. Thus it is left to handle the case in which $u$ acts non-trivaily on (q)bits in $Y_{i}^{(\tau_{1})}$.
