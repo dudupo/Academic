@@ -113,7 +113,7 @@ We will denote the associated computation DAG of $C$ affected by $\mathcal{E}$ a
 For a quantum circuit $C$, a set of faults $\mathcal{E} = \{ e_{i} \}$, an order $J \subset [|C[\mathcal{E}]|]$ that agrees with $\pi_{C[\mathcal{E}]}$, and a step $\tau \in J$, denote by $X_{e_{i}}^{\tau}$ the propagation of $e_{i} \in \mathcal{E}$ in $C[\mathcal{E}]$ to step $\tau$. Let $j^{\prime}_{1}, j^{\prime}_{2}, \ldots, j^{\prime}_{l}$ be the indices of the faults in $\mathcal{E}$ such that their corresponding positions in $J$ precede $\tau$, ordered according to the reverse topological order induced by $\pi_{\mathcal{E}}$. The propagated error to step $\tau$ is defined by
   \begin{equation*}
     \begin{split}
-      X^{t} \colonequals \prod_{i} X_{e_{j^{\prime}_{i}}}^{\tau} 
+      X^{\tau} \colonequals \prod_{i} X_{e_{j^{\prime}_{i}}}^{\tau} 
     \end{split}
   \end{equation*}
 \end{definition}
