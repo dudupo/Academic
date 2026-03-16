@@ -106,7 +106,7 @@ For a quantum circuit $C$, a register $R$ of $C$, and a set of faults $\mathcal{
 \end{definition}
 
 \begin{claim}
-  Let $C$ be a quantum circuit composed by gates with bounded-fan degree $\Delta \in \mathbb{N}$, in addition let $R$ be a quantum register, encoded by a quantum error correction code $\mathcal{C}$ with Tanner graph $\mathcal{T}$ that has $\Delta_{1},\Delta_{2}$ left and right degree. For any $\tau$, denote by $Y_{1}^{(\tau)}, Y_{2}^{(\tau)},..,Y_{l}^{(\tau)}$ the deviation clusters at step $\tau$. Assume that at step $\tau_{1}$ there is a deviation cluster $Y_{i}^{(\tau_{1})}$ at size $|Y_{i}^{(\tau_{1})}| > \xi$ then there is a deviation clusters at step $\tau_{1}-1$, lets denote it by $Z$at size greater than: 
+Let $C$ be a quantum circuit composed of gates with bounded fan degree $\Delta \in \mathbb{N}$. In addition, let $R$ be a quantum register encoded by a quantum error correction code $\mathcal{C}$ with Tanner graph $\mathcal{T}$ that has left and right degrees $\Delta_{1}$ and $\Delta_{2}$. For any $\tau$, denote by $Y_{1}^{(\tau)}, Y_{2}^{(\tau)}, \ldots, Y_{l}^{(\tau)}$ the deviation clusters at step $\tau$. Assume that at step $\tau_{1}$ there is a deviation cluster $Y_{i}^{(\tau_{1})}$ of size $|Y_{i}^{(\tau_{1})}| > \xi$. Then there is a deviation cluster at step $\tau_{1}-1$, let's denote it by $Z$, of size at least:
   \begin{equation*}
     \begin{split}
       |Z| \ge \frac{1}{\Delta( 1 + \Delta_{1}\Delta_{2})} |Y_{i}^{(\tau_{1})}|
