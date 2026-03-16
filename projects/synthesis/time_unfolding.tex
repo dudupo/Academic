@@ -50,7 +50,7 @@ Note that there might be multiple indices that get the minimum, so the out degre
   In addition, suppose that $J = \{ j_{1}, j_{2}, \ldots, j_{k} \} \subset [|C|]$ is an order of the indices of the gates in $C$ according to the topological order induced by $\pi_{C}$. Then, we say that $J$ is an order of indices that agrees with $\pi_{C}$ and define the series of circuit $C_{J} = \{ C_{J,i} \}$ as follows:
   \begin{enumerate}
     \item The first element: $C_{J,1} = \{ u_{j_{1}} \}$ 
-    \item Then, $C_{J,i+1} = C_{J,i} \cup \{ u_{j_{i}} \}$ 
+    \item Then, $C_{J,i+1} = C_{J,i} \cup \{ u_{j_{i}} \}$. We name $C_{J,i}$ the partial computation circuit until step $i$.  
   \end{enumerate}
 \end{definition}
 
@@ -108,12 +108,14 @@ For a quantum circuit $C$, a register $R$ of $C$, and a set of faults $\mathcal{
 \begin{claim}
 Let $C$ be a quantum circuit composed of gates with bounded fan degree $\Delta \in \mathbb{N}$. In addition, let $R$ be a quantum register encoded by a quantum error correction code $\mathcal{C}$ with Tanner graph $\mathcal{T}$ that has left and right degrees $\Delta_{1}$ and $\Delta_{2}$. For any $\tau$, denote by $Y_{1}^{(\tau)}, Y_{2}^{(\tau)}, \ldots, Y_{l}^{(\tau)}$ the deviation clusters at step $\tau$. Assume that at step $\tau_{1}$ there is a deviation cluster $Y_{i}^{(\tau_{1})}$ of size $|Y_{i}^{(\tau_{1})}| > \xi$. Then there is a deviation cluster at step $\tau_{1}-1$, let's denote it by $Z$, of size at least:
   \begin{equation*}
+    \label{equ:upstep}
     \begin{split}
       |Z| \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}} |Y_{i}^{(\tau_{1})}|
     \end{split}
   \end{equation*}
   Furthermore there is a deviation cluster at step $\tau_{1}-1$, let's denote it by $Z^\prime$, of size at most:
   \begin{equation*}
+    \label{equ:dostep}
     \begin{split}
       |Z^{\prime}| \le \Delta\Delta_{1}\Delta_{2} |Y_{i}^{(\tau_{1})}|
     \end{split}
@@ -131,9 +133,12 @@ Let $C$ be a quantum circuit composed of gates with bounded fan degree $\Delta \
   deviation clusters at step $\tau_{1} -1$. Let $l$ be integer no greater than $\Delta\Delta_{1}\Delta_{2}$ and let $Y_{1}, Y_{2}, \ldots, Y_{l}$ be the deviation cluster, on register $R$, at step $\tau_{1} - 1$, on which $u$ acts non trivialiy, since $Y_{i}^{(\tau_{1})} \subset \bigcup_{j} Y_{j}$. We have that: 
   \begin{equation*}
     \begin{split}
-     |Y_{i}^{(\tau_{1})} | \le \sum |
+       |Y_{i}^{(\tau_{1})} | & \le \sum_{j} |Y_{j}| \le \Delta\Delta_{1}\Delta_{2} \max_{j} |Y_{j}| \\
+       \Rightarrow \max_{j}|Y_{j}| \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}} |Y_{i}^{(\tau_{1})} |
     \end{split}
   \end{equation*}
+  To get the seconed inequality, we use that fact that $u$ a unitray gate, in pariticular $u$ is reversible. Denote by $J$ the order that induces the computation steps, and let $C_{J,\tau_{1} } = u_{1},..,u_{\tau_{1}}$ be the partial computation circuit until step $\tau_{1}$. Observes that $C_{J,\tau_{1}-1}$ is obtained by stacking $u_{\tau_{1}^{\dagger}}$ as a final stage to $C_{J,\tau_{1}}$, denote it by $u^{\dagger} \circ C_{J,\tau_{1}}$. Thus, by \Cref{equ:upstep},  the deviation at stage $\tau_{1} -1$ is  
+
 \end{proof}
 
 \begin{corollary}
