@@ -61,7 +61,6 @@ We say that $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ is a computation prefix if $\
 \end{definition}
 
 
-
 \begin{definition}[Associated Computation DAG]
 Let $C = \{ u_{i} \}$ be a quantum circuit with depth $d$ and width $w$. For a set of fault locations $\mathcal{E} \subset [d] \times [w]$, we define the quantum circuit $C[\mathcal{E}] = \{ u^{\prime}_{i} \}$ to be the result of the following map:
   \begin{equation*}
@@ -111,6 +110,15 @@ We will denote the associated computation DAG of $C$ affected by $\mathcal{E}$ a
 \begin{definition}
 Using the same notations as in \Cref{def:deviation}, for a set of unitary operators $\mathcal{S} = \{s \colon \mathcal{H}_{2}^{w} \rightarrow \mathcal{H}_{2}^{w} \}$, we define the propagated error up to stabilizers in $\mathcal{S}$ as $X^{t}[S] \colonequals \min_{s \in \mathcal{S}} \{ w(sX) \}$. Then, we define the deviation of $C[\mathcal{E}]$ from $C$ at time $t$ up to stabilizers in $\mathcal{S}$ to be the subset of coordinates on which $X^{t}[S]$ acts non-trivially.
 \end{definition}
+
+\begin{definition}[Generalized Tanner Graph]
+  For registers $a$ and $b$, their generalized Tanner graph is their 'union' $\mathcal{T}_{a} \cup \mathcal{T}_{b}$. This allows us to define the Tanner graph of a quantum circuit $C$, at time $t$, by stacking together Tanner graphs. This also allows us to define the Tanner graph if a register. \inb{rewrite.} \inb{add definition for a register $R$ of quantum circuit $C$.} 
+\end{definition}
+
+\begin{definition}[Clustered Deviation]
+For a quantum circuit $C$, a register $R$ of $C$, and a set of faults $\mathcal{E}$, let $\mathcal{T}_{R}$ be the Tanner graph of $R$, and let $\mathcal{D}_{t}$ be the deviation of $C[\mathcal{E}]$ from $C$ on $R$ at time $t$. Denote by $\mathcal{T}_{R}|_{\mathcal{D}_{t}}$ the subgraph of $\mathcal{T}_{R}$ induced by the restriction of the left vertices (bits) to the indices in $\mathcal{D}_{t}$. Let us abuse and extend the connection notion to Tanner graphs by defining that two left vertices are connected if and only if they share a right neighbor. We define the deviation clusters at time $t$ to be the connected components of $\mathcal{T}_{R}|_{\mathcal{D}_{t}}$. The size of each deviation cluster is the number of right vertices it contains.
+\end{definition}
+
 
 \begin{claim}
   Let $c \in \mathbb{R}$ be a constant, and let $f$ be a function such, 
