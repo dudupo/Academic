@@ -106,20 +106,21 @@ For a quantum circuit $C$, a register $R$ of $C$, and a set of faults $\mathcal{
 \end{definition}
 
 \begin{claim}
-Let $C$ be a quantum circuit composed of gates with bounded fan degree $\Delta \in \mathbb{N}$. In addition, let $R$ be a quantum register encoded by a quantum error correction code $\mathcal{C}$ with Tanner graph $\mathcal{T}$ that has left and right degrees $\Delta_{1}$ and $\Delta_{2}$. For any $\tau$, denote by $Y_{1}^{(\tau)}, Y_{2}^{(\tau)}, \ldots, Y_{l}^{(\tau)}$ the deviation clusters at step $\tau$. Assume that at step $\tau_{1}$ there is a deviation cluster $Y_{i}^{(\tau_{1})}$ of size $|Y_{i}^{(\tau_{1})}| > \xi$. Then there is a deviation cluster at step $\tau_{1}-1$, let's denote it by $Z$, of size at least:
-  \begin{equation}
-    \label{equ:upstep}
+  Let $C$ be a quantum circuit composed of gates with bounded fan degree $\Delta \in \mathbb{N}$. In addition, let $R$ be a quantum register encoded by a quantum error correction code $\mathcal{C}$ with Tanner graph $\mathcal{T}$ that has left and right degrees $\Delta_{1}$ and $\Delta_{2}$. Fix a set of faults $\mathcal{E}$, and an order $J$ that agrees with $\pi_{C[\mathcal{E}]}$. For any $\tau$, denote by $Y_{1}^{(\tau)}, Y_{2}^{(\tau)}, \ldots, Y_{l}^{(\tau)}$ the deviation clusters at step $\tau \in J$. Assume that at step $\tau_{1} \in J$ there is a deviation cluster $Y_{i}^{(\tau_{1})}$ of size $|Y_{i}^{(\tau_{1})}| $. Then there is a deviation cluster at step $\tau_{1}-1$, let's denote it by $Z$, such $Z \cap Y_{i}^{(\tau_{1})} \neq \emptyset$ and $Z$ is of size at least:
+  \begin{equation*}
     \begin{split}
       |Z| \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}} |Y_{i}^{(\tau_{1})}|
     \end{split}
-  \end{equation}
-  Furthermore there is a deviation cluster at step $\tau_{1}-1$, let's denote it by $Z^\prime$, of size at most:
-  \begin{equation}
-    \label{equ:dostep}
+  \end{equation*}
+  Furthermore there is a deviation cluster at step $\tau_{1}-1$, let's denote it by $Z^\prime$, such $Z^{\prime} \cap Y_{i}^{(\tau_{1})} \neq \emptyset$, and $Z^{\prime}$ is of size at most:
+  \begin{equation*}
     \begin{split}
       |Z^{\prime}| \le \Delta\Delta_{1}\Delta_{2} |Y_{i}^{(\tau_{1})}|
     \end{split}
-  \end{equation}
+  \end{equation*}
+  \inb{
+    Add: that when it isn't mentioned, we assume that the error at time $t$ can be decomposed into a product $\Rightarrow$ at each step, a fault is supported on at most one (q)bit.
+  }
 \end{claim}
 \begin{proof}
   Denote by $u=(g,l)$ the gate at step $\tau$. If $u$ acts trivially on the (q)bits in $Y_{i}^{(\tau_{1})}$ then they also belong to deviation on register $R$ at step $\tau_{1}-1$, Since they are connected in $\mathcal{T}$ they form a deviation cluster on register $R$ at step $\tau_{1}-1$ and we got the desired. Thus it is left to handle the case in which $u$ acts non-trivaily on (q)bits in $Y_{i}^{(\tau_{1})}$.
@@ -131,14 +132,14 @@ Let $C$ be a quantum circuit composed of gates with bounded fan degree $\Delta \
   \end{equation*}
 
   deviation clusters at step $\tau_{1} -1$. Let $l$ be integer no greater than $\Delta\Delta_{1}\Delta_{2}$ and let $Y_{1}, Y_{2}, \ldots, Y_{l}$ be the deviation cluster, on register $R$, at step $\tau_{1} - 1$, on which $u$ acts non trivialiy, since $Y_{i}^{(\tau_{1})} \subset \bigcup_{j} Y_{j}$. We have that: 
-  \begin{equation*}
+  \begin{equation}
+    \label{equ:upstep}
     \begin{split}
        |Y_{i}^{(\tau_{1})} | & \le \sum_{j} |Y_{j}| \le \Delta\Delta_{1}\Delta_{2} \max_{j} |Y_{j}| \\
        \Rightarrow \max_{j}|Y_{j}| & \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}} |Y_{i}^{(\tau_{1})} |
     \end{split}
-  \end{equation*}
-  To get the seconed inequality, we use that fact that $u$ a unitray gate, in pariticular $u$ is reversible. Denote by $J$ the order that induces the computation steps, and let $C_{J,\tau_{1} } = u_{1},..,u_{\tau_{1}}$ be the partial computation circuit until step $\tau_{1}$. Observes that $C_{J,\tau_{1}-1}$ is obtained by stacking $u_{\tau_{1}^{\dagger}}$ as a final stage to $C_{J,\tau_{1}}$, denote it by $u^{\dagger} \circ C_{J,\tau_{1}}$. Thus, by \cref{equ:upstep},  the deviation at stage $\tau_{1} -1$ is  
-
+  \end{equation}
+  To get the seconed inequality, we use that fact that $u$ a unitray gate, in pariticular $u$ is reversible. Let $C_{J,\tau_{1} } = u_{1},..,u_{\tau_{1}}$ be the partial computation circuit until step $\tau_{1}$. Observes that $C_{J,\tau_{1}-1}$ is obtained by stacking $u_{\tau_{1}^{\dagger}}$ as a final stage to $C_{J,\tau_{1}}$, denote it by $u^{\dagger} \circ C_{J,\tau_{1}}$. Thus, the deviation from $C_{J,\tau_{1}}$ at step $\tau_{1} -1$ equals to the deviation from $ u^{\dagger} \circ C_{J,\tau_{1}}$ at step $\tau_{1}+1$. By \cref{equ:upstep}, 
 \end{proof}
 
 \begin{corollary}
