@@ -103,6 +103,34 @@ We will denote the associated computation DAG of $C$ affected by $\mathcal{E}$ a
   \end{equation*}
 \end{definition}
 
+\begin{definition}[Faults Propagation to a Step $\tau$]
+  For a quantum circuit $C=\{u_{i}\}$, with depth $d$, an order $J = \{ j_{1}, j_{2}, \ldots, j_{k} \} \subset [|C|]$ that agrees with $\pi_{C}$, and gate $u_{j}$ in $C$, a propagation of a gate $u_{j} \in C$ to step $\tau$ is the quantum circuit obtained by the follow process: 
+  \begin{enumerate}
+    \item First check if $j$ precedes $\tau$ in $J$, if not then return $C$. Else, define $C_{0}$ to be the quantum circuit which is the result of the map: 
+  \begin{equation*}
+    \begin{split}
+      u_{i}=(g_{i},(l_{i,1}, l_{i,2})) & \mapsto   
+      \begin{cases}
+        (g_{i},( l_{i,1}, l_{i,2})) & l_{i,1} \le l_{j,1}  \text{ and } u_{i} \neq u_{j} \\ 
+        (g_{i},(  l_{i,1} \inb{ + 1 }, l_{i,2})) & \text{else}
+      \end{cases}
+    \end{split}
+  \end{equation*}
+\item Then, for $k \le t - l_{j,1}$, construct $C_{k}$ from $C_{k-1}$ as follows: Denote $\tau = k + l_{j,1}$, and look for an operator $X \colon L(\mathcal{H}_{2}^{w}) \rightarrow L(\mathcal{H}_{2}^{w})$, such that $C_{k-1}|_{\tau}C_{k-1}|_{\tau+1} = C_{k-1}|_{\tau+1}X$. Then define
+  \begin{equation*}
+    \begin{split}
+      C_{k} = C_{k-1}|_{1},C_{k-1}|_{2},..,C_{k-1}|_{\tau-1},C_{k-1}|_{\tau+1},X,C_{k-1}|_{\tau+2},..,C_{k-1}|_{d+1}
+    \end{split}
+  \end{equation*}
+\item At the final stage of the process, namely where $k = t - l_{j,1}$, we define $X$ to be the propagation of $u_{j}$ to time $t$.
+  \end{enumerate}
+  For a quantum circuit $C$ and a set of faults $\mathcal{E} = \{ e_{i} \}$, denote by $X_{e_{i}}^{t}$ the propagation of $e_{i} \in \mathcal{E}$ in $C[\mathcal{E}]$. Let $j_{1}, j_{2}, \ldots, j_{l}$ be the indices of the faults in $\mathcal{E}$ such that their time coordinate is lower than $t$, ordered according to the reverse topological order induced by $\pi_{\mathcal{E}}$. The propagated error to time $t$ is defined by
+  \begin{equation*}
+    \begin{split}
+      X^{t} \colonequals \prod_{i} X_{e_{j_{i}}}^{t} 
+    \end{split}
+  \end{equation*}
+\end{definition}
 \begin{definition}[Deviation]
   \label{def:deviation}
   For a quantum circuit $C$, a set of faults $\mathcal{E}$, and time $t$, let $X^{t}$ be the propagated error at time $t$. We define the deviation of $C[\mathcal{E}]$ from $C$ at time $t$ by the set of indices on which $X^{t}$ acts non-trivially. 
@@ -112,12 +140,16 @@ Using the same notations as in \Cref{def:deviation}, for a set of unitary operat
 \end{definition}
 
 \begin{definition}[Generalized Tanner Graph]
-  For registers $a$ and $b$, their generalized Tanner graph is their 'union' $\mathcal{T}_{a} \cup \mathcal{T}_{b}$. This allows us to define the Tanner graph of a quantum circuit $C$, at time $t$, by stacking together Tanner graphs. This also allows us to define the Tanner graph if a register. \inb{rewrite.} \inb{add definition for a register $R$ of quantum circuit $C$.} 
+  For registers $a$ and $b$, their generalized Tanner graph is their 'union' $\mathcal{T}_{a} \cup \mathcal{T}_{b}$. This allows us to define the Tanner graph of a quantum circuit $C$, at step $t$, by stacking together Tanner graphs. This also allows us to define the Tanner graph if a register. \inb{rewrite.} \inb{add definition for a register $R$ of quantum circuit $C$.} 
 \end{definition}
 
 \begin{definition}[Clustered Deviation]
-For a quantum circuit $C$, a register $R$ of $C$, and a set of faults $\mathcal{E}$, let $\mathcal{T}_{R}$ be the Tanner graph of $R$, and let $\mathcal{D}_{t}$ be the deviation of $C[\mathcal{E}]$ from $C$ on $R$ at time $t$. Denote by $\mathcal{T}_{R}|_{\mathcal{D}_{t}}$ the subgraph of $\mathcal{T}_{R}$ induced by the restriction of the left vertices (bits) to the indices in $\mathcal{D}_{t}$. Let us abuse and extend the connection notion to Tanner graphs by defining that two left vertices are connected if and only if they share a right neighbor. We define the deviation clusters at time $t$ to be the connected components of $\mathcal{T}_{R}|_{\mathcal{D}_{t}}$. The size of each deviation cluster is the number of right vertices it contains.
+For a quantum circuit $C$, a register $R$ of $C$, and a set of faults $\mathcal{E}$, let $\mathcal{T}_{R}$ be the Tanner graph of $R$, and let $\mathcal{D}_{\tau}$ be the deviation of $C[\mathcal{E}]$ from $C$ on $R$ at step $\tau$. Denote by $\mathcal{T}_{R}|_{\mathcal{D}_{\tau}}$ the subgraph of $\mathcal{T}_{R}$ induced by the restriction of the left vertices (bits) to the indices in $\mathcal{D}_{\tau}$. Let us abuse and extend the connection notion to Tanner graphs by defining that two left vertices are connected if and only if they share a right neighbor. We define the deviation clusters at step $\tau$ to be the connected components of $\mathcal{T}_{R}|_{\mathcal{D}_{\tau}}$. The size of each deviation cluster is the number of right vertices it contains.
 \end{definition}
+
+\begin{claim}
+  Let $C$ be a quantum circuit composed by gates with bounded-fan degree $\Delta \in \mathbb{N}$, in addition let $R$ be a quantum register, encoded by a quantum error correction code $\mathcal{C}$ with Tanner graph $\mathcal{T}$ that has $\Delta_{1},\Delta_{2}$ left and right degree. For any $t$, denote by $X_{1}^{(t)}, X_{2}^{(t)},..,X_{l}^{(t)}$ the deviation clusters at time $t$. Assume that at time 
+\end{claim}
 
 
 \begin{claim}
