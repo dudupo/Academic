@@ -12,6 +12,16 @@ We model the qubits on the finite toric with a side length $n$ by the projection
 \inb{ Rewrite when we talk about the first time we have deviation clusters of size $\in (\alpha d, d)$. The reason is that having those assumptions means all the droplets in the past shrank; thus, we can use the ratio of edges to time-leaves in the big subgraph.} 
 
 \begin{claim}
+  Let $\hat{K}$ be a spanned slice, and let $\omega$ be an explanation for $\hat{K}$. Assume that:
+  \begin{itemize}
+    \item  The number of edges in $w$ is greater than $\beta n$.
+    \item For any spanned slice $\hat{K}^{\prime} \in \omega$ such $\hat{K}^{\prime}\neq \hat{K}$ it holds that $\Size{\hat{K}^{\prime}}< \delta n$.
+  \end{itemize}
+Then there is a subgraph (subtree) $\omega^{\prime}$ of $\omega$ such that $\omega^{\prime}$ has less than $\frac{\beta}{2}n$ edges and at least $\frac{\beta}{4\gamma} n$ leaves.
+\end{claim}
+
+
+\begin{claim}
   Consider a probability space, $(\Omega, \mathbf{Pr})$, for which the atomic events are subgraphs of $G = (V = \mathbb{Z}^{d} \times \mathbb{Z}_{t}, E)$, where two vertices might be connected only if their difference in the time coordinate is at most $1$ and their Hamming distance in the space coordinate is at most $2$. We say that a vertex of such a subgraph is a time-leaf if and only if it is not connected to vertices with a lower time coordinate. Notice that an outcome $\omega \in \Omega$ does not have to be connected. Suppose that the following three conditions hold:
 \begin{enumerate}
     \item There exists $n \in \mathbb{N}$ such that $\omega$ is invariant under shifting by $n \cdot \mathbf{1}_{i}$ for any $i \in [d]$. 
