@@ -12,29 +12,9 @@ We model the qubits on the finite toric with a side length $n$ by the projection
 \inb{ Rewrite when we talk about the first time we have deviation clusters of size $\in (\alpha d, d)$. The reason is that having those assumptions means all the droplets in the past shrank; thus, we can use the ratio of edges to time-leaves in the big subgraph.} 
 
 \begin{claim}
-  Assume that until step $\tau$, there was no a deviation cluster of size greater than $d$.  Let $\hat{K}$ be a spanned slice induced by a deviation of a cluster state at step $\tau$ and let $\omega$ be an explanation for $\hat{K}$ such that the number of edges in $w$ is greater than $\beta n$. Then there is a subgraph (subtree) $\omega^{\prime}$ of $\omega$ such that $\omega^{\prime}$ has less than $\frac{\beta}{2}n$ edges and at least $\frac{\beta}{4\gamma} n$ leaves.
+Assume that until step $\tau$, there was no deviation cluster of size greater than $d$. Let $\hat{K}$ be a spanned slice induced by a deviation of a cluster state at step $\tau$, and let $\omega$ be an explanation for $\hat{K}$ such that the number of edges in $\omega$ is greater than $\beta n$. Then there is a subgraph (subtree) $\omega^{\prime}$ of $\omega$ such that $\omega^{\prime}$ has fewer than $\frac{\beta}{2}n$ edges and at least $\frac{\beta}{4\gamma} n$ leaves.
 \end{claim}
 
-
-\begin{claim}
-  Consider a probability space, $(\Omega, \mathbf{Pr})$, for which the atomic events are subgraphs of $G = (V = \mathbb{Z}^{d} \times \mathbb{Z}_{t}, E)$, where two vertices might be connected only if their difference in the time coordinate is at most $1$ and their Hamming distance in the space coordinate is at most $2$. We say that a vertex of such a subgraph is a time-leaf if and only if it is not connected to vertices with a lower time coordinate. Notice that an outcome $\omega \in \Omega$ does not have to be connected. Suppose that the following three conditions hold:
-\begin{enumerate}
-    \item There exists $n \in \mathbb{N}$ such that $\omega$ is invariant under shifting by $n \cdot \mathbf{1}_{i}$ for any $i \in [d]$. 
-
-    \item The probability function $\mathbf{Pr}$ induces a locally stochastic noise bound over the time-leaves, which are different in their space coordination module $n$. Namely, there is $p \in (0,1)$ such that for any $S \subset V$, with a maximal subset $S^{\prime} \subset S$, such that for any $v = (v_{x},v_{t}), u = (u_{x},u_{t}) \in S^{\prime}$ it holds that $v_{x} \mod n \neq u_{x} \mod n$, the probability that $S$ are time-leaves of an outcome subgraph is less than:
-    \begin{equation*}
-      \begin{split}
-        \prb{S \text{ are time-leaves } } \le p^{|S^{\prime}|}
-      \end{split}
-    \end{equation*}
-  \item For any subgraph $\omega \in \Omega$, and for any $\omega^{\prime} \subset \omega$ such $\omega^\prime$ is connected. The ratio of edges to time-leaves of $\omega^{\prime}$ is at most $\gamma$. 
-\end{enumerate}
-Then there is $p_{c} \in (0,1)$ such that for $p < p_{c}$, the probability of sampling a subgraph with more than $\beta n$ vertices is less than:
-\begin{equation*}
-  \begin{split}
-    t n^{d} q^{n}
-  \end{split}
-\end{equation*}
 \begin{proof}
   Let $\omega \in \Omega$ with more than $\beta n$ vertices, observes that a spanning tree of $\omega$ has a ratio of edges to time-leaves which is at most $\omega$'s ratio, and number of edges equals to $\omega$'s vertices - 1. In addition the time-leaves of such spanning tree are just leaves. Therefore, by \cref{claim:big_subtree}, $\omega$ has a subtree with less than $\frac{\beta}{2}n$ edges and at least $\frac{\beta}{4\gamma} n$ time-leaves. 
   Now, since any two connected vertices are at a space-distance of at most $1$, it follows that all the leaves in the subtree are at a space-distance of at most $\beta n$ from each other. Thus, if $\beta < 1$, no two of them have the same space-coordinate modulo $n$. And therefore the probability to have such subtree is at most $p^{\frac{\beta}{4\gamma}n} $. 
