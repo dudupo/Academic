@@ -65,6 +65,14 @@ We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $
 Let $\sigma^{(t)}$ be a domain wall at time $t$, and let $\Gamma^{t} = \{ v \colon \exists \{v,u\} \in \sigma^{t} \}$. We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of applying the Toom's rule at time $t$, and by $\phi_{v}$ the bits which are flipped by vertex $v$. We say that $u$ is added to $\Gamma^{t+1}$ by $v$ at time $t$, if $u\in \Gamma^{t+1}$ and $u \in V(\phi_{v})$. When it clear form the context, we will omit the time, and say that $u$ is added by $v$. 
 \end{definition}
 
+\begin{claim}
+Suppose that $v$ is a local maximum of $L_{d+1}$. Then the syndrome is supported only on the positive edges of $v$.
+\end{claim}
+
+\begin{claim}
+  Suppose that $v$ is a local max of $L_{d+1}$, then there is $S_{1},..,S_{k}$ such that $\partial \cup_{i \in [k]} \theta_{v,S_{i}} = \partail_{v}$. 
+\end{claim}
+
 
 \begin{claim}
   \label{claim:toombound}
