@@ -9,9 +9,7 @@
 \inb{add: something that connects between the size of the droplet to the fact it shrinks. [v2] Seems it doesn't necessary since the boundary is always shrinking, yet the Toom application might advance the state to close a logical error. }
 
 \begin{definition}[$d$-Dimensional Plaquettes Toric Complex] 
-  For integers $d$ and $n$, denote the group resulting from the $d$-directed power of the cyclic group of order $n$ by $\mathcal{G}_{n}^{d} = \mathbb{Z}_{n}^{\times d}$, and denote the standard generating set of $\mathcal{G}_{n}^{d}$ by $S = \{ 1_{i} \colon i \in [d] \}$. We define the \textit{$d$-dimensional plaquettes toric complex} to be the hypergraph obtained from the Cayley graph $\text{Cay}(\mathcal{G}_{n}^{d}, S)$ by taking its vertices as the $0$-facets and for any $i \in [d-1]$ we define the $i$-facets as follow:
-
-  First, for a vertex $v \in \mathcal{G}_{n}^{d}$ and for a subset of generators $S^{\prime} \subset S$ of size $|S^{\prime}| = i$, the $i$-facet rooted at $v$ and spanned by $S^{\prime}$, denoted by $\theta_{v, S^{\prime}}$, is:
+  For integers $d$ and $n$, denote the group resulting from the $d$-directed power of the cyclic group of order $n$ by $\mathcal{G}_{n}^{d} = \mathbb{Z}_{n}^{\times d}$, and denote the standard generating set of $\mathcal{G}_{n}^{d}$ by $S = \{ 1_{i} \colon i \in [d] \}$. We define the \textit{$d$-dimensional plaquettes toric complex} to be the hypergraph obtained from the Cayley graph $\text{Cay}(\mathcal{G}_{n}^{d}, S)$ by taking its vertices as the $0$-facets and for any $i \in [d-1]$ we define the $i$-facets as follow: First, for a vertex $v \in \mathcal{G}_{n}^{d}$ and for a subset of generators $S^{\prime} \subset S$ of size $|S^{\prime}| = i$, the $i$-facet rooted at $v$ and spanned by $S^{\prime}$, denoted by $\theta_{v, S^{\prime}}$, is:
   \begin{equation*}
     \begin{split}
       \theta_{v,S^{\prime}} \colonequals \bigcup_{I \subset S^{\prime}} \left\{  \left(\prod_{g \in S^{\prime}} g \right) v  \right\}
@@ -19,7 +17,7 @@
   \end{equation*}
 The $i$-facets of the complex are the collection of all the possible rooted spanned $i$-facets induced by $\text{Cay}(\mathcal{G}_{n}^{d})$.
 
-  For $v \in \mathcal{G}_{n}^{d}$ and $g_{1} \neq g_{2} \in S$, consider the plaquette $\theta = \{v, g_{1}v, g_{2}g_{1}v, g_{2}v\}$. For $x, y \in \mathcal{G}_{n}^{d}$, we say that an edge $\{x, y\}$ is \textit{positive relative to a plaquette} $\theta$ if $x = v$ and $y$ is either $g_{1}v$ or $g_{2}v$. When the plaquette is clear from the context, we will abbreviate and say that $\{x, y\}$ is \textit{positive}.
+For $v,u \in \mathcal{G}_{n}^{d}$ and $g_{1} \neq g_{2} \in S$, consider the plaquette $\theta = \{v, g_{1}v, g_{2}g_{1}v, g_{2}v\}$. For $x, y \in \mathcal{G}_{n}^{d}$, we say that an edge $\{x, y\}$ is \textit{positive relative to a plaquette} $\theta$ if $x = v$ and $y$ is either $g_{1}v$ or $g_{2}v$. When the plaquette is clear from the context, we will abbreviate and say that $\{x, y\}$ is \textit{positive}.
  
   We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $1$, and $2$ facets.
 \end{definition}
