@@ -19,8 +19,8 @@
   The $i$-facets of the complex are the collection of all the possible rooted spanned $i$-facets induced by $\text{Cay}(\mathcal{G}_{n}^{d})$. We will denote them by $\mathcal{F}_{i}$.
 
 \end{definition}
-\begin{definition}[Positive Edge]
-For $u,v \in \mathcal{G}_{n}^{d}$, and $S^{\prime}_{1},S^{\prime}_{2} \subset [d]$, with sizes $|S^{\prime}_{1}| = |S^{\prime}_{2}| = i$, we say that the $i$-facets $\theta_{v,S^{\prime}_{1}}$ and $\theta_{u,S^{\prime}_{2}}$ are adjacent if the intersection $\theta_{v,S^{\prime}_{1}} \cap \theta_{u,S^{\prime}_{2}}$ is an $i-1$-facet. In addition, if $\theta_{1}$ and $\theta_{2}$ are $i$ and $i-1$-facets such that $\theta_{2} \subset \theta_{1}$, then we say that $\theta_{2}$ is a \textit{positive edge relative to facet} $\theta_{1}$ if they are rooted at the same vertex. When the $i$-facet is clear from the context, we will abbreviate and say that $\theta_{2}$ is \textit{positive}.
+\begin{definition}[Positive Edges and Cubes]
+  For $u,v \in \mathcal{G}_{n}^{d}$, and $S^{\prime}_{1},S^{\prime}_{2} \subset [d]$, with sizes $|S^{\prime}_{1}| = |S^{\prime}_{2}| = i$, we say that the $i$-facets $\theta_{v,S^{\prime}_{1}}$ and $\theta_{u,S^{\prime}_{2}}$ are adjacent if the intersection $\theta_{v,S^{\prime}_{1}} \cap \theta_{u,S^{\prime}_{2}}$ is an $i-1$-facet. In addition, if $\theta_{1}$ and $\theta_{2}$ are $i$ and $i-1$-facets such that $\theta_{2} \subset \theta_{1}$, then we say that $\theta_{2}$ is a \textit{positive edge relative to facet} $\theta_{1}$ if they are rooted at the same vertex. Furthermore, we say that $\theta_{1}$ is a \textit{positive cube} of $\theta_{2}$. When the $i$-facet is clear from the context, we will abbreviate and say that $\theta_{2}$ is \textit{positive}.
 \end{definition}
 \begin{example}
   For example, let $v, u \in \mathcal{G}_{n}^{d}$ and $g_{1} \neq g_{2} \in S$. Consider the 2-facet $\theta = \{v, g_{1}v, g_{2}g_{1}v, g_{2}v\}$. Then, for $x, y \in \mathcal{G}_{n}^{d}$, we say that an edge (1-facet) $\{x, y\}$ is \textit{positive relative to the facet} $\theta$ if $x = v$ and $y$ is either $g_{1}v$ or $g_{2}v$.
@@ -35,7 +35,7 @@ We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $
 \end{definition}
 
 \begin{definition}[Toom's Rule]
-  We generalize Toom's rule in the following manner: Each plaquette asks if both of its positive edges point to a syndrome, namely unsatisfied. If so, then the bit flips itself; for convenience, we will think of the vertex at the end of the positive edges as the vertex which makes the decision and flips the plaquette.
+  We generalize Toom's rule in the following manner: First we measure the $X$-syndrom, Then each for each $d^{\prime}$-facet $f \in \mathcal{F}_{d^{\prime}}$, we ask if all of its positive edges are unsatisfied . If so, then the we flip the (q)bit associate with $f$. For convenience, we will think of the vertex for which $f$ is rooted at, as the vertex which makes the decision and flips the (q)bit. 
 \end{definition}
 
 
