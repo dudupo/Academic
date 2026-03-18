@@ -20,13 +20,15 @@ The $i$-facets of the complex are the collection of all the possible rooted span
 \end{definition}
 \begin{definition}[Positive Edge]
   For $u,v \in \mathcal{G}_{n}^{d}$, and $S^{\prime}_{1},S^{\prime}_{2} \subset [d]$, at sizes $ |S^{\prime}_{1}| = |S^{\prime}_{2}| = i$, We say that the $i$-facets $\theta_{v,S^{\prime}_{1}}$ and $\theta_{u, S^{\prime}_{2}}$ adjecent if the intersection $\theta_{v,S^{\prime}_{1}} \cap \theta_{u}, S^{\prime}_{2}$ is a $i-1$ facet.  In addition, if $\theta_{1}$ and $\theta_{2}$ are $i$, and $i-1$ facets such $\theta_{2} \subset \theta_{1}$ then we say that $\theta_{2}$ is a \textit{positive edge relative to facet} $\theta_{1}$ if they rooted at the same element.  
-  We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $1$, and $2$ facets.
-\textit{$d$-dimensional plaquettes toric complex} 
+  
 \end{definition}
 \begin{example}
 For example, let $v,u \in \mathcal{G}_{n}^{d}$ and $g_{1} \neq g_{2} \in S$, consider the $2$-facet $\theta = \{v, g_{1}v, g_{2}g_{1}v, g_{2}v\}$. For $x, y \in \mathcal{G}_{n}^{d}$, we say that an edge $\{x, y\}$ is \textit{positive relative to the facet} $\theta$ if $x = v$ and $y$ is either $g_{1}v$ or $g_{2}v$. When the plaquette is clear from the context, we will abbreviate and say that $\{x, y\}$ is \textit{positive}.
 \end{example}
 
+We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $1$, and $2$ facets.
+
+\textit{$d$-dimensional plaquettes toric complex} 
 
 \begin{definition}[Plaquettes Code] \cite{Dennis_2002}
   Let $d$ and $n$ be integers and let $G = (V,E,F)$ be the $d$-dimensional plaquettes toric complex obtained from $\mathcal{G}_{n}^{d}$. We define the \textit{plaquettes code}, denoted by $\mathcal{C}$, to be the quantum code, constructed as follow: We assosicate the (q)bits with plaquettes of $G$, the $X$-checks with edges, and the $Z$-checks with the cubes.  our code, bits are set on the plaquette, and the edges correspond to checks that restrict the parity of the bits on their support to be even.
