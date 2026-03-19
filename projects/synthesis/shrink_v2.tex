@@ -38,6 +38,9 @@ We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $
   We generalize Toom's rule in the following manner: First we measure the $X$-syndrom, Then each for each $d^{\prime}$-facet $f \in \mathcal{F}_{d^{\prime}}$, we ask if all of its positive edges are unsatisfied . If so, then the we flip the (q)bit associate with $f$. For convenience, we will think of the vertex for which $f$ is rooted at, as the vertex which makes the decision and flips the (q)bit.   
 \end{definition}
 
+\inb{
+Change the Sweep rule to: For any vertex, check if it is a (strictly) local maximum of \(L_{d+1}\). If so, then it flips a subset of bits that are rooted in it. By doing so, we almost trivially get that \(L_{d+1}\) decreases. The problem in the 2D Toric is that a local max of \(L_{x}\) can also be a local max of \(L_{d+1}\).
+}
 
 \inb{Below, a semi proof that in CSS code partial correction $Z^{e} \rightarrow Z^{\hat{e}}$ doesn't add bit flip errors. It might adds a global phase. I should enter it in a section about CSS coding. }
 
