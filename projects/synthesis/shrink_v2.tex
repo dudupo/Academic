@@ -68,12 +68,21 @@ Change the Sweep rule to: For any vertex, check if it is a (strictly) local maxi
 Let $\sigma^{(t)}$ be a domain wall at time $t$, and let $\Gamma^{t} = \{ v \colon \exists \{v,u\} \in \sigma^{t} \}$. We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of applying the Toom's rule at time $t$, and by $\phi_{v}$ the bits which are flipped by vertex $v$. We say that $u$ is added to $\Gamma^{t+1}$ by $v$ at time $t$, if $u\in \Gamma^{t+1}$ and $u \in V(\phi_{v})$. When it clear form the context, we will omit the time, and say that $u$ is added by $v$. 
 \end{definition}
 
+\begin{definition}[Reduced subset with boundrey at $v$]
+  
+\end{definition}
+
 \begin{claim}
-Suppose that $v$ is a local maximum of $L_{d+1}$. Then the syndrome is supported only on the positive edges of $v$.
+  Denote by $\mathcal{S}$ the generators $\mathcal{S} = \cup_{i\in[d]}\{ \mathbf{1}_{i} \}$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$, and let $z \subset \mathcal{F}_{d}$ be a reduced subset of bits with a boundary at $v$. Suppose that $v$ is a (strict) local maximum of $L_{d+1}$. Then there is $J \subset \mathcal{P}( \mathcal{S} )$ such that:
+  \begin{equation*}
+    \begin{split}
+      z = \sum_{S^{\prime} \in J} \theta_{v,S^{\prime}}
+    \end{split}
+  \end{equation*}
 \end{claim}
 
 \begin{claim}
-  Suppose that $v$ is a local max of $L_{d+1}$, then there is $S_{1},..,S_{k}$ such that $\partial \cup_{i \in [k]} \theta_{v,S_{i}} = \partial_{v}$. 
+  For $d^{\prime} > 1$ if $v$ is a (strict) local max of $L_{d+1}$, then it is not a local max of $L_{x}$. 
 \end{claim}
 
 
