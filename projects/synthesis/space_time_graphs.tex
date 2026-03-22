@@ -28,6 +28,10 @@ Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \His
     Let $K$ be a slice. The graph of $K$, denoted by $G_{K} = (V_{K}, E_{K})$, is the graph whose vertices are slices $R \subset \History{K}$ with $\Time{R} = \Time{K} - 1$. Two vertices are connected by an edge if and only if there is a fork whose ends belong to the slices associated with them. Namely, $S, R \in V_{K}$ are connected in $G_{K}$ if and only if there is $\{s, r\} = f \in F$ such that $s \in S$ and $r \in R$.
   \end{definition}
 
+
+  \inb{ The connection property is crucial, In our construction, there are not neutral forks, and we will have to find way to overcome it, one way is to take $\arg \min_{u \in \sigma_{1}, v \in \sigma_{2}} d(u,v) $ and connect the by fork. More thought should be invested here. }
+
+
   \begin{claim}
     \label{claim:connected}
     $G_{K}$ is connected. 
