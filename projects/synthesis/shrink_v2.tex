@@ -166,7 +166,9 @@ Let $\sigma_{0}$ be a boundary at time $t$, and let $\sigma_{1}, \ldots, \sigma_
 \begin{definition}[Fork]
 Let $u, v$ be such that $u \in \sigma_{1}$ and $v \in \sigma_{2} \neq \sigma_{1}$. If there exist $w \in \phi(v)$ and $z \in \phi(u)$ such that $\{w, z\} \in \mathcal{F}_{1}$, then there is a fork between $v$ and $u$.
 \end{definition}
-
+\begin{proof}
+  Idea: Suppose not, then $\sigma_{0} = \phi(\sigma_{1}) \cup \phi(\sigma_{2}) $ is not connected.  
+\end{proof}
 \begin{claim}
 Assume that $\sigma_{1}, \sigma_{2} \rightarrow \sigma_{0}$, then there is a fork between $\sigma_{1}$ and $\sigma_{2}$. So if we keep to extent the history in a recursive manner, then we get a connected graph.
 \end{claim}
