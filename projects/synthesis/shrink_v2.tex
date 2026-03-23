@@ -161,7 +161,13 @@ We say that $\sigma_{1}$ precedes $\sigma_{0}$ if, for any $v \in \sigma_{1}$, i
 \begin{definition}[Explanation.]
 Let $\sigma_{0}$ be a boundary at time $t$, and let $\sigma_{1}, \ldots, \sigma_{k}$ be boundaries at time $t-1$, such that for $i \in [k]$, it holds that $\sigma_{i}$ precedes $\sigma_{0}$. Then the explanation for $\sigma_{0}$ is the subgraph induced by the vertices of $\sigma_{0}, \sigma_{1}, \ldots, \sigma_{k}$, the edges $\{u,v\} \in \sigma_{i}$, and the arrows $\{v,u\}$ for $v \in \cup\sigma_{i}$ and $u \in \phi(v)$.
 \end{definition}
-\inb{ The number of edges above is not lineary bounded by the leaves. Yet it also seems not minimal. }
+\inb{ The number of edges above is not lineary bounded by the leaves. Yet it also seems not minimal. So what we would like to do is to keep the poles, then to connect the islands by fork. So what is it a fork? } 
 
+\begin{definition}[Fork]
+Let $u, v$ be such that $u \in \sigma_{1}$ and $v \in \sigma_{2} \neq \sigma_{1}$. If there exist $w \in \phi(v)$ and $z \in \phi(u)$ such that $\{w, z\} \in \mathcal{F}_{1}$, then there is a fork between $v$ and $u$.
+\end{definition}
 
+\begin{claim}
+Assume that $\sigma_{1}, \sigma_{2} \rightarrow \sigma_{0}$, then there is a fork between $\sigma_{1}$ and $\sigma_{2}$. So if we keep the history extant in a recursive manner, then we get a connected graph.
+\end{claim}
 
