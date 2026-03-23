@@ -153,3 +153,14 @@ Just take $u_{i}$ to be any vertex that adds $v_{i}$. By claims \cref{claim:toom
 \end{proof}
 
 \ctt{$V(\phi_{v})$ was not defined. $v \le w$ also not defined.} 
+
+
+\begin{definition}[$\sigma_{1}$ Precedes $\sigma_{0}$]
+We say that $\sigma_{1}$ precedes $\sigma_{0}$ if, for any $v \in \sigma_{1}$, it holds that $\phi(v) \subset \sigma_{0}$.
+\end{definition}
+\begin{definition}[Explanation.]
+Let $\sigma_{0}$ be a boundary at time $t$, and let $\sigma_{1}, \ldots, \sigma_{k}$ be boundaries at time $t-1$, such that for $i \in [k]$, it holds that $\sigma_{i}$ precedes $\sigma_{0}$. Then the explanation for $\sigma_{0}$ is the subgraph induced by the vertices of $\sigma_{0}, \sigma_{1}, \ldots, \sigma_{k}$, the edges $\{u,v\} \in \sigma_{i}$, and the arrows $\{v,u\}$ for $v \in \cup\sigma_{i}$ and $u \in \phi(v)$.
+\end{definition}
+
+
+
