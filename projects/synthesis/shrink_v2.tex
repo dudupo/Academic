@@ -138,7 +138,7 @@ We say that a quantum circuit $C$ is \textit{$\infty$-compatible} if, for any se
 Let $C_{1}, C_{2}$ be quantum circuits such that they are both $\infty$-compatible. Then $C_{2} \circ C_{1}$ is $\infty$-compatible.
 \end{claim}
 \begin{proof}
- It's enough to prove for  
+  Let $u_{1},u_{2}$ be the gates which which act non-trivial on the qubits at $[w]$. It's enough to prove for  
  \begin{equation*}
    \begin{split}
    \Trr{}_{/[w+\epsilon]}\left( \rho_{\infty} \right) &= \Trr{}_{/[w+\epsilon]}\left( \prod_{j = -\infty}^{\infty} u_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty}^{\infty} u_{j}^{\dagger} \right) \\ 
