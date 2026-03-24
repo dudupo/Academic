@@ -67,8 +67,23 @@ Change the Sweep rule to: For any vertex, check if it is a (strictly) local maxi
 
 \section{Infinite Torics}
 
-\begin{definition}[Registers Coordinates]
-  Registers Coordinates, \inb{ Space locations are mapped such that the first coordinate of the register is the register identifier $1_{R}$, and the rest match the qubit inside the register. }
+\begin{definition}[Registers Coordinates System]
+Let $C = \{u_{i}\}$ be a quantum circuit, with width $w$ and registers $\mathcal{R} = R_{1}, \ldots, R_{k}$, each of length at most $n$. For register $R_{i}$, we define the register identifier $\mathbf{1}_{R_{i}} = \mathbf{1}_{i}$. Then, we define the map $\phi_{\mathcal{R}} \colon \mathbb{Z}_{w} \rightarrow \mathbb{Z}_{R} \times \mathbb{Z}_{n}$ to return, for a space-location coordinate $x \in \mathbb{Z}_{w}$, the tuple consisting of the identifier of the register containing $x$, and its relative coordinate within the register. Namely,
+\begin{equation*}
+  \begin{split}
+    \psi_{\mathcal{R}}(x) = (\mathbf{1}_{R_{j}}, x^{\prime})
+  \end{split}
+\end{equation*} 
+Where $R_{j}$ is the register containing $x$, and $x^{\prime}$ is the index of the qubit, set at the $x$ location, in $R_{j}$.
+The presentation of $C$ in the \textit{registers coordinate system} is the encoding by a set of gates $\{u^{\prime}_{j}\}$, which is the result of replacing each space-location of the original gates with the applications of $\psi_{\mathcal{R}}$ on them. Namely, for each $u_{i} = (g_{i}, l_{i}) \in C$, we map its space-location coordinate $l_{i_{2}} = (l_{i_{2}}^{(1)}, \ldots, l_{i_{2}}^{(\Delta)})$ to:
+      \begin{equation*}
+        \begin{split}
+          l_{i}_{2} \maps ( \psi_{\mathcal{R}}(l_{i}_{2}^(1)), ..,\psi_{\mathcal{R}}( l_{i}_{2}^(\Delta)))
+        \end{split}
+      \end{equation*}
+For brevity, we name the first and second coordinates in the result of $\psi_{R}$ the \textit{register coordinate} and the \textit{inner coordinate}.
+    \end{definition}
+    \begin{definition}[Shifting in Registers System]
   Shifting in register system, we define the $r$-shifting function $\text{Sh}_{r} \colon $:   
   \begin{equation*}
     \begin{split}
