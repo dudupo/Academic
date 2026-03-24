@@ -101,7 +101,7 @@ Consider the register coordinate system induced by a quantum circuit of width $w
 \begin{definition}
   Let $n$ be an integer, and let $C = \{u_{i} \}$ be a quantum circuit such that each of its registers $\mathcal{R} = R_{1},..,R_{k}$ is at length at most $n$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
   \begin{enumerate}
-    \item Each register $R_{i}$ of $C$ is mapped to a register $R^{\prime}_{i}$ with infinite length. If $R_{i}$ is an encoded register by code $\mathcal{C}$, then a check $c_{x} = (x_{1},..,x_{\Delta})$ of the code is mapped to the collection of checks: 
+    \item Each register $R_{i}$ of $C$ is mapped to a register $R^{\prime}_{i}$ with infinite length. If $R_{i}$ is an encoded register by code $\mathcal{C}$, then a check $c_{x} = (x_{1},..,x_{\Delta}) \subset \mathbb{Z}_{n}^{\Delta} $ of the code is mapped to the collection of checks: 
       \begin{equation*}
         \begin{split}
           c_{x} = (x_{1},..,x_{\Delta}) \mapsto \bigcup_{j = - \infty}^{\infty}\left\{ (x_{1} + jn,..,x_{\Delta} +jn)   \right\}
@@ -119,7 +119,12 @@ For a set of faults $\mathcal{E} = \{ f_{i} \}$, we denote by $C^{\infty}[\mathc
 \end{definition}
 
 \begin{definition}
-
+  We say that a quantum circuit $C$ is $\infty$-compatible, if for any set of faults $\mathcal{E} = \{ f_{i} \}$ it holds that: 
+  \begin{equation*}
+    \begin{split}
+      \Tr{}\left( A  C[\mathcal{E}] \ket{0}\bra{0} C[\mathcal{E}]^{\dagger} \right) =  \Tr{}_{/[w]}\left( A C^{\infty}[\mathcal{E}^{\infty}]\ket{0}\bra{0}\left(C^{\infty}[\mathcal{E}^{\infty}]\right)^{\dagger} \right) 
+    \end{split}
+  \end{equation*}
 \end{definition}
 
 
