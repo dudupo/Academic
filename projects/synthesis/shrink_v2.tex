@@ -119,10 +119,17 @@ For a set of faults $\mathcal{E} = \{ f_{i} \}$, we denote by $C^{\infty}[\mathc
 \end{definition}
 
 \begin{definition}
-  We say that a quantum circuit $C$ is $\infty$-compatible, if for any set of faults $\mathcal{E} = \{ f_{i} \}$ it holds that: 
+For a quantum circuit $C$ and a set of faults $\mathcal{E}$, denote:
   \begin{equation*}
     \begin{split}
-      \Tr{}\left( A  C[\mathcal{E}] \ket{0}\bra{0} C[\mathcal{E}]^{\dagger} \right) =  \Tr{}_{/[w]}\left( A C^{\infty}[\mathcal{E}^{\infty}]\ket{0}\bra{0}\left(C^{\infty}[\mathcal{E}^{\infty}]\right)^{\dagger} \right) 
+      \rho & \colonequals C[\mathcal{E}] \ket{0}\bra{0} C[\mathcal{E}]^{\dagger} \\
+      \rho_{\infty} & \colonequals C^{\infty}[\mathcal{E}^{\infty}]\ket{0}\bra{0}\left(C^{\infty}[\mathcal{E}^{\infty}]\right)^{\dagger}
+    \end{split}
+  \end{equation*}
+We say that a quantum circuit $C$ is \textit{$\infty$-compatible} if, for any set of faults $\mathcal{E} = \{ f_{i} \}$, it holds that:
+  \begin{equation*}
+    \begin{split}
+      \Tr{}\left( A \rho \right) =  \Tr{}_{/[w]}\left( A \rho_{\infty} \right) 
     \end{split}
   \end{equation*}
 \end{definition}
