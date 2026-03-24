@@ -99,19 +99,27 @@ Consider the register coordinate system induced by a quantum circuit of width $w
 \end{definition}
 
 \begin{definition}
-  Let $n$ be an integer, and let $C = \{u_{i} \}$ be a quantum circuit such that each of its registers is encoded by a $(d,d^{\prime})$-dimensional toric code, at length $n$. For a set of faults $\mathcal{E} = \{ f_{i} \} $, we define the \textit{$\infty$-extensions of $C,\mathcal{E}$}, denoted by $C^{\infty}, \mathcal{E}^{\infty}$, and the \textit{$\infty$-extension of $C[\mathcal{E}]$}, denoted by $C^{\infty}[\mathcal{E}^{\infty}]$, as follows:
+  Let $n$ be an integer, and let $C = \{u_{i} \}$ be a quantum circuit such that each of its registers $\matchal{R} = R_{1},..,R_{k}$ is at length at most $n$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
   \begin{enumerate}
-    \item $C^{\infty}$ is obtained from $C$, by mapping any $(d,d^{\prime})$-dimensional toric encoded register $R$, to $\infty$-length $(d,d^{\prime})$-dimensional toric encoded register and mapping each gate $u_{i} \in C$ as follow:     
+    \item Each register $R_{i}$ of $C$ is mapped to a register $R^{\prime}_{i}$ with infinite length. If $R_{i}$ is an encoded register by code $\mathcal{C}$, then a check $c_{x} = (x_{1},..,x_{\Delta})$ of the code is mapped to the collection of checks: 
+      \begin{equation*}
+        \begin{split}
+          c_{x} = (x_{1},..,x_{\Delta}) \mapsto \bigcup_{j = - \infty}^{\infty}\left\{ (x_{1} + jn,..,x_{\Delta} +jn)   \right\}
+        \end{split}
+      \end{equation*}
+    \item Each gate $u_{i} \in C$ is mapped by:     
       \begin{equation*}
         \begin{split}
           u_{i} & = (g_{i},l_{i}) \mapsto  
           \bigcup_{j = -\infty}^{\infty}\left\{ (g_{i},( \text{Sh}_{jn}(l_{i})) \right\}
         \end{split}
       \end{equation*}
-    \item 
-    \item $C^{\infty}[\mathcal{E}^{\infty}]$ is the circuit $C^{\infty}$ subjected to $\mathcal{E}$.
   \end{enumerate}
- 
+For a set of faults $\mathcal{E} = \{ f_{i} \}$, we denote by $C^{\infty}[\mathcal{E}^{\infty}]$ the \textit{$\infty$-extension of $C[\mathcal{E}]$}.
+\end{definition}
+
+\begin{definition}
+
 \end{definition}
 
 
