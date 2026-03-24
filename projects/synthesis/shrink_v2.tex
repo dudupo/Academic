@@ -165,13 +165,13 @@ Let $v \in \Gamma^{t}$ for any $u$ that is added by $v$, and for any $x \in [d+1
 By definition, any $u$ that is added by $v$ is of the form $v + \sum \alpha_{j}1_{j}$, where $\alpha_{j} \in \{0,1\}$ and $\sum \alpha_j \le 2$. Thus, for any $x \in [d]$:
   \begin{equation*}
     \begin{split}
-      L_{x}(u) = \braket*{1_{x}, v + \sum \alpha_{j}1_{j}} = \braket*{1_{x},v} +\alpha_{x} \le L_{x}(v) + 1 
+      L_{x}(u) = \expval*{1_{x}, v + \sum \alpha_{j}1_{j}} = \expval*{1_{x},v} +\alpha_{x} \le L_{x}(v) + 1 
     \end{split}
   \end{equation*}
 For $x = d+1$ we have: 
   \begin{equation*}
     \begin{split}
-      L_{x}(u) = \braket*{-\mathbf{1}, v + \sum \alpha_{j}1_{j}} = \braket*{-\mathbf{1},v} - \sum_{j}\alpha_{j} \le L_{x}(v) 
+      L_{x}(u) = \expval*{-\mathbf{1}, v + \sum \alpha_{j}1_{j}} = \expval*{-\mathbf{1},v} - \sum_{j}\alpha_{j} \le L_{x}(v) 
     \end{split}
   \end{equation*}
 \end{proof}
