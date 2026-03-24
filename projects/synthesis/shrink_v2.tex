@@ -77,11 +77,8 @@ Change the Sweep rule to: For any vertex, check if it is a (strictly) local maxi
     \item $C^{\infty}$ is obtained from $C$, by mapping any $(d,d^{\prime})$-dimensional toric encoded register $R$, to $\infty$-length $(d,d^{\prime})$-dimensional toric encoded register and mapping each gate $u_{i} \in C$ as follow:     
       \begin{equation*}
         \begin{split}
-          u_{i} & = (g_{i},(l_{i,1}, \mathbf{1}_{R_{i}},l_{i,2})) \mapsto \\ 
-          & \begin{cases}
-            \{ .., ,.., ,(g_{i},(l_{i,1}, \mathbf{1}_{R_{i}},l_{i,2} - n )), (g_{i},(l_{i,1}, \mathbf{1}_{R_{i}},l_{i,2} - n )), (g_{i},(l_{i,1}, \mathbf{1}_{R_{i}},l_{i,2} - n ))  .., .., \}& x \\ 
-           x & x
-          \end{cases}
+          u_{i} & = (g_{i},(l_{i,1}, \mathbf{1}_{R_{i}},l_{i,2})) \mapsto  
+            \bigcup_{j = -\infty}^{\infty}\left\{ (g_{i},(l_{i,1}, \mathbf{1}_{R_{i}},l_{i,2} + jn )) \right\}
         \end{split}
       \end{equation*}
     \item 
