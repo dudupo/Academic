@@ -141,11 +141,10 @@ Let $C_{1}, C_{2}$ be quantum circuits such that they are both $\infty$-compatib
  It's enough to prove for  
  \begin{equation*}
    \begin{split}
-   \Trr{}_{/[w+\epsilon]}\left( \rho_{\infty} \right) &= \Trr{}_{/[w]}\left( \prod_{j = -\infty}^{\infty} u_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty}^{\infty} u_{j}^{\dagger} \right) \\ 
+   \Trr{}_{/[w+\epsilon]}\left( \rho_{\infty} \right) &= \Trr{}_{/[w+\epsilon]}\left( \prod_{j = -\infty}^{\infty} u_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty}^{\infty} u_{j}^{\dagger} \right) \\ 
    &= u_{1}u_{2}\Trr{}_{/[w+ \epsilon]}\left( \prod_{j = -\infty, j \neq 1,2}^{\infty} u_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty, j \neq 1,2}^{\infty} u_{j}^{\dagger} \right) u_{1}^{\dagger}u_{2}^{\dagger} \\
    &= u_{1}u_{2}\Trr{}_{/[w+\epsilon]}\left( \prod_{j = -\infty, j \neq 1,2}^{\infty} u_{j}^{\dagger} \prod_{j = -\infty, j \neq 1,2}^{\infty} u_{j} \rho_{\infty}^{\prime} \right) u_{1}^{\dagger}u_{2}^{\dagger} \\
    &= u_{1}u_{2}\Trr{}_{/[w+\epsilon]}\left( \rho_{\infty}^{\prime} \right) u_{1}^{\dagger}u_{2}^{\dagger} 
-
    \end{split}
  \end{equation*}
 \end{proof}
