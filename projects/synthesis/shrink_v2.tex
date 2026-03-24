@@ -69,6 +69,17 @@ Change the Sweep rule to: For any vertex, check if it is a (strictly) local maxi
 
 \begin{definition}[Registers Coordinates]
   Registers Coordinates, \inb{ Space locations are mapped such that the first coordinate of the register is the register identifier $1_{R}$, and the rest match the qubit inside the register. }
+  Shifting in register system, we define the $r$-shifting function $\text{Sh}_{r} \colon $:   
+  \begin{equation*}
+    \begin{split}
+      & \text{Sh}_{r}( l_{1}, .., l_{k} ) = ( \text{Sh}_{r}(l_{1}), .., \text{Sh}_{r}(l_{k}) ) \\ 
+      & \text{ Where } \text{Sh}_{r}(l_{i}) = 
+      \begin{cases}
+        l_{i} + r & \text{ if } l_{i} \text{ is an inner space-coordinate } \\ 
+        l_{i}& \text{ else }
+      \end{cases}
+    \end{split}
+  \end{equation*}
 \end{definition}
 
 \begin{definition}
@@ -77,8 +88,8 @@ Change the Sweep rule to: For any vertex, check if it is a (strictly) local maxi
     \item $C^{\infty}$ is obtained from $C$, by mapping any $(d,d^{\prime})$-dimensional toric encoded register $R$, to $\infty$-length $(d,d^{\prime})$-dimensional toric encoded register and mapping each gate $u_{i} \in C$ as follow:     
       \begin{equation*}
         \begin{split}
-          u_{i} & = (g_{i},(l_{i,1}, \mathbf{1}_{R_{i}},l_{i,2})) \mapsto  
-            \bigcup_{j = -\infty}^{\infty}\left\{ (g_{i},(l_{i,1}, \mathbf{1}_{R_{i}},l_{i,2} + jn )) \right\}
+          u_{i} & = (g_{i},l_{i}) \mapsto  
+          \bigcup_{j = -\infty}^{\infty}\left\{ (g_{i},( \text{Sh}_{jn}(l_{i})) \right\}
         \end{split}
       \end{equation*}
     \item 
