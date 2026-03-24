@@ -84,13 +84,14 @@ The presentation of $C$ in the \textit{registers coordinate system} is the encod
 For brevity, we name the first and second coordinates in the result of $\psi_{R}$ the \textit{register coordinate} and the \textit{inner coordinate}.
     \end{definition}
     \begin{definition}[Shifting in Registers System]
-  Shifting in register system, we define the $r$-shifting function $\text{Sh}_{r} \colon $:   
+      
+Consider the register coordinate system induced by a quantum circuit of width $w$, with $R$ registers, each of length at most $n$. For an integer $r \in \mathbb{Z}$, we define the $r$-shifting function $\text{Sh}_{r} \colon (\mathbb{Z}_{R} \times \mathbb{Z}_{n})^{\times \Delta} \rightarrow (\mathbb{Z}_{R} \times \mathbb{Z})^{\times \Delta}$ to act on space-location coordinates as follows:
   \begin{equation*}
     \begin{split}
       & \text{Sh}_{r}( l_{1}, .., l_{k} ) = ( \text{Sh}_{r}(l_{1}), .., \text{Sh}_{r}(l_{k}) ) \\ 
       & \text{ Where } \text{Sh}_{r}(l_{i}) = 
       \begin{cases}
-        l_{i} + r & \text{ if } l_{i} \text{ is an inner space-coordinate } \\ 
+        l_{i} + r & \text{ if } l_{i} \text{ is an inner coordinate } \\ 
         l_{i}& \text{ else }
       \end{cases}
     \end{split}
