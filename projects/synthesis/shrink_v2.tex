@@ -159,6 +159,15 @@ Let $C_{1}, C_{2}$ be quantum circuits such that they are both $\infty$-compatib
 \end{proof}
 
 
+\begin{equation*}
+  \begin{split}
+    \rho &= \sum_{x,y}\alpha_{x,y}\ketbra{x_{1},..,x_{w}}{y_{1},..,y_{w}} \\ 
+    \rho_{\infty} &= \sum_{x,y}\alpha_{x,y}\ketbra{..,x_{1},..,x_{w},x_{1},..,x_{w},..}{..,y_{1},..,y_{w},y_{1}..,y_{w},..} 
+  \end{split}
+\end{equation*}
+
+
+
 \begin{definition}
 Let $\sigma^{(t)}$ be a domain wall at time $t$, and let $\Gamma^{t} = \{ v \colon \exists \{v,u\} \in \sigma^{t} \}$. We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of applying the Toom's rule at time $t$, and by $\phi_{v}$ the bits which are flipped by vertex $v$. We say that $u$ is added to $\Gamma^{t+1}$ by $v$ at time $t$, if $u\in \Gamma^{t+1}$ and $u \in V(\phi_{v})$. When it clear form the context, we will omit the time, and say that $u$ is added by $v$. 
 \end{definition}
