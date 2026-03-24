@@ -36,8 +36,8 @@ We say that $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ is a computation prefix if $\
 \end{definition}
 
 
-\begin{definition}[Associated Computation DAG]
-Let $C = \{ u_{i} \}$ be a quantum circuit with depth $d$ and width $w$. For a set of fault locations $\mathcal{E} \subset [d] \times [w]$, we define the quantum circuit $C[\mathcal{E}] = \{ u^{\prime}_{i} \}$ to be the result of the following map:
+\begin{definition}[$C$ Subjected to $\mathcal{E}$]
+Let $C = \{ u_{i} \}$ be a quantum circuit with depth $d$ and width $w$. For a set of fault locations $\mathcal{E} \subset [d] \times [w]$, we define the quantum circuit \textit{$C$ subjected to $\mathcal{E}$}, denoted by $C[\mathcal{E}] = \{ u^{\prime}_{i} \}$, to be the quantum circuit that is the result of the following map:
   \begin{equation*}
     \begin{split}
       u_{i}=(g_{i},(l_{i,1}, l_{i,2})) & \mapsto   

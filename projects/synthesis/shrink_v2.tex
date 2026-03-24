@@ -67,6 +67,29 @@ Change the Sweep rule to: For any vertex, check if it is a (strictly) local maxi
 
 \section{Infinite Torics}
 
+\begin{definition}[Registers Coordinates]
+  Registers Coordinates, \inb{ Space locations are mapped such that the first coordinate of the register is the register identifier $1_{R}$, and the rest match the qubit inside the register. }
+\end{definition}
+
+\begin{definition}
+  Let $n$ be an integer, and let $C = \{u_{i} \}$ be a quantum circuit such that each of its registers is encoded by a $(d,d^{\prime})$-dimensional toric code, at length $n$. For a set of faults $\mathcal{E} = \{ f_{i} \} $, we define the \textit{$\infty$-extensions of $C,\mathcal{E}$}, denoted by $C^{\infty}, \mathcal{E}^{\infty}$, and the \textit{$\infty$-extension of $C[\mathcal{E}]$}, denoted by $C^{\infty}[\mathcal{E}^{\infty}]$, as follows:
+  \begin{enumerate}
+    \item $C^{\infty}$ is obtained from $C$, by mapping any $(d,d^{\prime})$-dimensional toric encoded register $R$, to $\infty$-length $(d,d^{\prime})$-dimensional toric encoded register and mapping each gate $u_{i} \in C$ as follow:     
+      \begin{equation*}
+        \begin{split}
+          u_{i} & = (g_{i},(l_{i,1}, \mathbf{1}_{R_{i}},l_{i,2})) \mapsto \\ 
+          & \begin{cases}
+            \{ .., ,.., ,(g_{i},(l_{i,1}, \mathbf{1}_{R_{i}},l_{i,2} - n )), (g_{i},(l_{i,1}, \mathbf{1}_{R_{i}},l_{i,2} - n )), (g_{i},(l_{i,1}, \mathbf{1}_{R_{i}},l_{i,2} - n ))  .., .., \}& x \\ 
+           x & x
+          \end{cases}
+        \end{split}
+      \end{equation*}
+    \item 
+    \item $C^{\infty}[\mathcal{E}^{\infty}]$ is the circuit $C^{\infty}$ subjected to $\mathcal{E}$.
+  \end{enumerate}
+ 
+\end{definition}
+
 
 \begin{definition}
 Let $\sigma^{(t)}$ be a domain wall at time $t$, and let $\Gamma^{t} = \{ v \colon \exists \{v,u\} \in \sigma^{t} \}$. We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of applying the Toom's rule at time $t$, and by $\phi_{v}$ the bits which are flipped by vertex $v$. We say that $u$ is added to $\Gamma^{t+1}$ by $v$ at time $t$, if $u\in \Gamma^{t+1}$ and $u \in V(\phi_{v})$. When it clear form the context, we will omit the time, and say that $u$ is added by $v$. 
