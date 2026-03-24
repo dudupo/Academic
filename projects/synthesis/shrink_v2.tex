@@ -130,7 +130,7 @@ For a quantum circuit $C$ and a set of faults $\mathcal{E}$, denote:
 We say that a quantum circuit $C$ is \textit{$\infty$-compatible} if, for any set of faults $\mathcal{E} = \{ f_{i} \}$, it holds that:
   \begin{equation*}
     \begin{split}
-      \Trr{}\left( A \rho \right) =  \Trr{}_{/[w]}\left( A \rho_{\infty} \right) 
+      \rho =  \Trr{}_{/[w]}\left( \rho_{\infty} \right) 
     \end{split}
   \end{equation*}
 \end{definition}
@@ -138,7 +138,16 @@ We say that a quantum circuit $C$ is \textit{$\infty$-compatible} if, for any se
 Let $C_{1}, C_{2}$ be quantum circuits such that they are both $\infty$-compatible. Then $C_{2} \circ C_{1}$ is $\infty$-compatible.
 \end{claim}
 \begin{proof}
-  
+ It's enough to prove for  
+ \begin{equation*}
+   \begin{split}
+   \Trr{}_{/[w+\epsilon]}\left( \rho_{\infty} \right) &= \Trr{}_{/[w]}\left( \prod_{j = -\infty}^{\infty} u_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty}^{\infty} u_{j}^{\dagger} \right) \\ 
+   &= u_{1}u_{2}\Trr{}_{/[w+ \epsilon]}\left( \prod_{j = -\infty, j \neq 1,2}^{\infty} u_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty, j \neq 1,2}^{\infty} u_{j}^{\dagger} \right) u_{1}^{\dagger}u_{2}^{\dagger} \\
+   &= u_{1}u_{2}\Trr{}_{/[w+\epsilon]}\left( \prod_{j = -\infty, j \neq 1,2}^{\infty} u_{j}^{\dagger} \prod_{j = -\infty, j \neq 1,2}^{\infty} u_{j} \rho_{\infty}^{\prime} \right) u_{1}^{\dagger}u_{2}^{\dagger} \\
+   &= u_{1}u_{2}\Trr{}_{/[w+\epsilon]}\left( \rho_{\infty}^{\prime} \right) u_{1}^{\dagger}u_{2}^{\dagger} 
+
+   \end{split}
+ \end{equation*}
 \end{proof}
 
 
