@@ -207,35 +207,7 @@ Moreover, since $v_{0}$ and $v_{1}$ are a plantation of $g$ in locations $\text{
    \end{equation*}
   \end{enumerate}
   \end{enumerate}
-
- \begin{equation*}
-   \begin{split}
-   \Trr{}_{/[w+\epsilon]}\left( \rho_{\infty} \right) &= \Trr{}_{/[w+\epsilon]}\left( \prod_{j = -\infty}^{\infty} u_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty}^{\infty} u_{j}^{\dagger} \right) \\ 
-   &= u_{1}u_{2}\Trr{}_{/[w+ \epsilon]}\left( \prod_{j = -\infty, j \neq 1,2}^{\infty} u_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty, j \neq 1,2}^{\infty} u_{j}^{\dagger} \right) u_{1}^{\dagger}u_{2}^{\dagger} \\
-   &= u_{1}u_{2}\Trr{}_{/[w+\epsilon]}\left( \prod_{j = -\infty, j \neq 1,2}^{\infty} u_{j}^{\dagger} \prod_{j = -\infty, j \neq 1,2}^{\infty} u_{j} \rho_{\infty}^{\prime} \right) u_{1}^{\dagger}u_{2}^{\dagger} \\
-   &= u_{1}u_{2}\Trr{}_{/[w+\epsilon]}\left( \rho_{\infty}^{\prime} \right) u_{1}^{\dagger}u_{2}^{\dagger} \\
-   &= u_{1}u_{2}\Trr{}_{/[w+\epsilon]}\left( \rho_{\infty}^{\prime} \right) u_{1}^{\dagger}u_{2}^{\dagger} 
-   \end{split}
- \end{equation*}
-
- \begin{equation*}
-   \begin{split}
-     \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= \Trr{}_{[\epsilon]}\Trr{}_{/[w+\epsilon]}\left( \rho_{\infty} \right) \\
-   &= \Trr{}_{[\epsilon]}u_{1}u_{2}\Trr{}_{/[w+\epsilon]}\left( \rho_{\infty}^{\prime} \right) u_{1}^{\dagger}u_{2}^{\dagger} \\
-   &= \Trr{}_{/[w]}\left( u_{1}u_{2} \rho_{\infty}^{\prime} u_{1}^{\dagger}u_{2}^{\dagger}\right) 
-   \end{split}
- \end{equation*}
 \end{proof}
-
-
-\begin{equation*}
-  \begin{split}
-    \rho &= \sum_{x,y}\alpha_{x,y}\ketbra{x_{1},..,x_{w}}{y_{1},..,y_{w}} \\ 
-    \rho_{\infty} &= \sum_{x,y}\alpha_{x,y}\ketbra{..,x_{1},..,x_{w},x_{1},..,x_{w},..}{..,y_{1},..,y_{w},y_{1}..,y_{w},..} 
-  \end{split}
-\end{equation*}
-
-\inb{ First, we decide on the faults $\mathcal{E}$, then we consider the equivalent circuit, in which instead of computing the 'decoding,' we just apply the correction. This version contains only CNOTs and single qubits. Then we extend it to infinity.}
 
 
 \begin{definition}
