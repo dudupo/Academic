@@ -57,8 +57,24 @@ Change the Sweep rule to: For any vertex, check if it is a (strictly) local maxi
   \end{split}
 \end{equation*}
 
+\begin{definition}[Decoding Gadget]
+  Consider a quantum circuit $C$, for a quantum gate $u$ in $C$, with fun-in $\Delta$, we say that $u$ is a \textit{decoding gadget} if it has the following form: 
+  \begin{enumerate}
+    \item The wires of $u$ wires can be decomposed into two subsets $A$ and $B$ such that the wires in $A$ are reset wires, and there exists an encoded register $R$ in $C$ such that the wires in $B$ are all set in $R$.
+    \item For a set of faults $\mathcal{E}$, there is a Pauli gate $u^\prime$ that acts only on $B$ such that the action of $u$ in $C[\mathcal{E}]$ equals $u^{\prime}$. Put differently, the quantum circuit obtained from $C[\mathcal{E}]$ by replacing $u$ with $u^{\prime}$ equals $C[\mathcal{E}]$.
+  \end{enumerate}
+\end{definition}
 
+\begin{claim}
+  The local gates performing Toom's rule are decoding gadgets. 
+\end{claim}
+\begin{proof}
+  \inb{proof that.}
+\end{proof}
 
+\begin{definition}[Unitary Decoding Representation]
+Let $C = \{u_{i}\}$ be a quantum circuit, and let $\mathcal{U} = \{u^{\prime}_{i}\} \subset C$ be a subset of the gates in $C$ that are decoding gadgets. For a set of faults $\mathcal{E}$, we define the \textit{unitary decoding representation} of $C[\mathcal{E}]$ to be the quantum circuit obtained by replacing each of the gates in $\mathcal{U}$ with their corresponding Pauli gate according to $\mathcal{E}$.
+\end{definition}
 
 
 %Consider an embedding of the $d$ Toric into $\mathbb{R}^{d}$, the coordinate of an edge is the mean of its ends.  
