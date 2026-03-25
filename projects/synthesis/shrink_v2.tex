@@ -156,7 +156,7 @@ Let $C_{1}, C_{2}$ be quantum circuits such that they are both $\infty$-compatib
   Its enough to prove the claim for circuits in their unitary decoding representation. We prove it by induction on the number of the gates.
 
   \begin{enumerate}
-    \item Base. For an empty circuit, $\rho_{\infty}$ is just the infinite string of zeros; thus, the restriction of it to $[w]$ locations yields a $w$-length string of zeros, which is exactly $\rho$.
+    \item Base. For an empty circuit, $\rho_{\infty}$ is just the infinite string of zeros; thus, the restriction of it to $[w]$ locations, namely $ \Trr{}_{/[w]}( \rho_{\infty} ) $, yields a single matrix element corresponds to the $w$-length string of zeros, which is exactly $\rho$.
     \item Step. Assume the correction of the claim for any circuit, with less than $\tau$ steps, and consider a circuit $C$ with $\tau$ steps. Denote by $C^{\prime}$ the circuit obtained form $C$ by erasing the last gate in $C$, observes that $C^{\prime}$ is a circuit with $\tau - 1$ steps. Denote by $\rho^{\prime}$ and $\rho^{\prime}_{\infty}$ the: \inb{Enter it}.  
       By the induction assumption we have:
   \begin{equation*}
