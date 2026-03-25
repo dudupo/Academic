@@ -185,7 +185,8 @@ Denote the last gate in $C$ by $u$, and by $I = \{v_{j}\}_{-\infty}^{\infty}$ th
    \end{split}
  \end{equation*}
 
- \item In the case that $u$ is a decoding code. 
+ \item In the case that $u$ is a decoding gate, observe that there are at most two gates in $I$ that have support on the qubits with space-location in $[w]$. If there is exactly one, then repeating the non-decoding gate case while setting this gate as $v_{0}$ gives the desired result. 
+Else, in the case where two gates act non-trivially on qubits at $[w]$, denote those gates by $v_{1}, v_{2}$. Since we assumed that $C$ is given in its unitary decoding representation, it holds that $v_{1}, v_{2}$ are Paulis.
   \end{enumerate}
 
   \end{enumerate}
