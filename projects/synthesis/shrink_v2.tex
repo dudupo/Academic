@@ -116,7 +116,7 @@ Consider the register coordinate system induced by a quantum circuit of width $w
 \end{definition}
 
 \begin{definition}
-  \label{claim:extension}
+  \label{def:extension}
 Let $n$ be an integer, and let $C = \{u_{i}\}$ be a quantum circuit with registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ is a toric encoding with a side length $n$. In addition, all the decoding gadgets of $C$ are sweep rule gadgets; let us denote them by $\mathcal{U}$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
   \begin{enumerate}
     \item For a register $R_{i} \in \mathcal{R}$, denote by $d_{i}, d_{i}^{\prime}$ the dimension of the toric complex that induces the code, and the dimension of the facets that are associated with the bits. Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, which is a $(d_{i}, d_{i}^\prime)$-dimensional, infinite side length, toric encoding. Since the mapping between registers is one-to-one, we use the identifier $\mathbf{1}_{R_{i}}$ to identify also $R^{\prime}_{i}$.
@@ -140,7 +140,7 @@ For a set of faults $\mathcal{E} = \{ f_{i} \}$, we denote by $C^{\infty}[\mathc
 
 
 \begin{definition}
-  For a quantum circuit $C$, of the form defined in \Cref{claim:extension}, and a set of faults $\mathcal{E}$, denote:
+  For a quantum circuit $C$, of the form defined in \Cref{def:extension}, and a set of faults $\mathcal{E}$, denote:
   \begin{equation*}
     \begin{split}
       \rho & \colonequals C[\mathcal{E}] \ketbra{0}{0} C[\mathcal{E}]^{\dagger} \\
@@ -155,11 +155,9 @@ We say that a quantum circuit $C$ is \textit{$\infty$-compatible} if, for any se
   \end{equation*}
 \end{definition}
 \begin{claim}
-Let $C_{1}, C_{2}$ be quantum circuits such that they are both $\infty$-compatible. Then $C_{2} \circ C_{1}$ is $\infty$-compatible.
+  Let $C$ be quantum circuit of the form defined in \Cref{def:extension}. Then $C$ is $\infty$-compatible.
 \end{claim}
 \begin{proof}
-  Let $u_{1},u_{2}$ be the gates which which act non-trivial on the qubits at $[w]$. \inb{We have to rewrite the $\infty$-extension such that the decoding is a unitary operation, the syndrome is written.}
-
   Its enough to prove the claim for circuits in their unitary decoding representation. We prove it by induction on the number of the gates.
 
   \begin{enumerate}
