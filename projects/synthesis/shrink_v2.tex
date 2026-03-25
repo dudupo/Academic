@@ -132,6 +132,13 @@ Let $n$ be an integer, and let $C = \{u_{i}\}$ be a quantum circuit with registe
 For a set of faults $\mathcal{E} = \{ f_{i} \}$, we denote by $C^{\infty}[\mathcal{E}^{\infty}]$ the \textit{$\infty$-extension of $C[\mathcal{E}]$}.
 \end{definition}
 
+
+\begin{claim}
+\label{claim:pauli_back}
+  Let $ u = (g,l)$ and $v_{0},v_{\pm 1}$ plantation of $u$ at locations $\text{root}(u)$ and $\text{root(u)} \pm n$. Then $v_{0}v_{\pm 1}|_{[w]} = u$.
+\end{claim}
+
+
 \begin{definition}
   For a quantum circuit $C$, of the form defined in \Cref{claim:extension}, and a set of faults $\mathcal{E}$, denote:
   \begin{equation*}
@@ -186,9 +193,21 @@ Denote the last gate in $C$ by $u$, and by $I = \{v_{j}\}_{-\infty}^{\infty}$ th
  \end{equation*}
 
  \item In the case that $u$ is a decoding gate, observe that there are at most two gates in $I$ that have support on the qubits with space-location in $[w]$. If there is exactly one, then repeating the non-decoding gate case while setting this gate as $v_{0}$ gives the desired result. 
-   Else, in the case where two gates act non-trivially on qubits at $[w]$, denote those gates by $v_{0}, v_{1}$. Since we assumed that $C$ is given in its unitary decoding representation, it holds that $v_{0}, v_{1}$ are Paulis. Moreover, since $v_{0}$ and $v_{1}$ are a translation of $g$ in locations $\text{root}(u)$ and $\text{root(u)} \pm n$. 
+Else, in the case where two gates act non-trivially on qubits at $[w]$, denote those gates by $v_{0}, v_{1}$. Since we assumed that $C$ is given in its unitary decoding representation, it holds that $v_{0}, v_{1}$ are Paulis, in particular a product operator. Denote their product decompositions by $v_{0} = \prod_{k}v_{0}^{(k)}$ and $v_{1} = \prod_{k}v_{1}^{(k)}$. Thus, by repeating the non-decoding case, but extracting from the infinite product only the terms in $v_{0}$ and $v_{1}$ that act non-trivially at $[w]$, we get:
+   \begin{equation*}
+     \begin{split}
+       \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= v_{0}v_{1}|_{[w]} \rho^{\prime} \left(v_{0}v_{1}|_{[w]}\right)^{\dagger} 
+     \end{split}
+   \end{equation*}
+Moreover, since $v_{0}$ and $v_{1}$ are a plantation of $g$ in locations $\text{root}(u)$ and $\text{root}(u) \pm n$, then by \Cref{claim:pauli_back}, we have that $u = \Trr{}_{/[w]}\left( \rho_{\infty} \right)$; therefore:
+   \begin{equation*}
+     \begin{split}
+       \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= v_{0}v_{1}|_{[w]} \rho^{\prime} \left(v_{0}v_{1}|_{[w]}\right)^{\dagger} \\
+       &= u \rho^{\prime} u^{\dagger} \\
+   &= \rho 
+     \end{split}
+   \end{equation*}
   \end{enumerate}
-
   \end{enumerate}
 
  \begin{equation*}
