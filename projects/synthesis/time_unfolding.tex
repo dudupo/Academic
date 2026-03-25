@@ -3,6 +3,9 @@
 
 \newcommand{\comDAG}{\pi[C,\mathcal{E}]} 
 Informally, a quantum circuit is a placement of a collection of quantum gates, taken from a finite set, in different space-time locations. Each space-time location, associated with a gate, encodes the time of the application and the qubits in the support of the gate. Formally
+
+\inb{ Separate between an element gate $g \in \mathcal{G}$ and a gate, which also has a space-time location. }
+
 \begin{definition}[Quantum Circuit]
   A space-time location $l$ is a tuple that encodes in its first coordinate time, and in its second coordinate a subset of integers referring to a support of (q)bits. 
   For a collection of quantum gates $\mathcal{G} = \{ g \colon L(\mathcal{H}_{2}^{\otimes \Delta} ) \rightarrow L(\mathcal{H}_{2}^{\otimes \Delta} ) \}$, and integers $w,d \in \mathbb{N}$ a quantum circuit $C$, with depth $d$ and width $w$, is a collection of tuples $\{ u_{i} = (g_{i},l_{i}) \}$, where $u_{i}$ are the gates of $C$ and each $u_{i}$ is composed of a gate $g_{i} \in \mathcal{G}$ and a space-time location $l_{i} \in \mathbb{Z}_{d} \times \mathbb{Z}_{w}^{\Delta}$. The gates of $C$ have to satisfy the constraint that for every two gates with the same time coordinate, there cannot be a non-empty intersection in their space coordinate, namely for $u_{i}=(g_{i},l_{i}),u_{j}=(g_{j},l_{j}) \in C$, the equality $l_{i,1} = l_{j,1}$ implies $l_{i,2} \cap l_{j,2} = \emptyset$. 

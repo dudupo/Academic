@@ -164,6 +164,30 @@ Let $C_{1}, C_{2}$ be quantum circuits such that they are both $\infty$-compatib
       \rho^{\prime} =  \Trr{}_{/[w]}\left( \rho^{\prime}_{\infty} \right) 
     \end{split}
   \end{equation*}
+Denote the last gate in $C$ by $u$, and by $I = \{v_{j}\}_{-\infty}^{\infty}$ the collection of gates in $C^{\infty}$ to which $u$ is mapped. Let us split into cases, depending on whether $u$ is or is not a decoding gate.
+  \begin{enumerate}
+    \item Suppose that $u$ is not a decoding gate. Let $g$ and $l$ be the gate element and the location of $u$. By the definition of $\infty$-extension, $I$ equals:
+      \begin{equation*}
+        \begin{split}
+              I = \bigcup_{j = -\infty}^{\infty}\left\{ (g,( \text{Sh}_{jn}(l)) \right\}
+        \end{split}
+      \end{equation*}
+      So there is only one gate in $I$, corresponding to $j=0$, that has support on qubits with spatial location in the range $[w]$. Denote that gate by $v_{0}$. 
+
+ \begin{equation*}
+   \begin{split}
+   \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= \Trr{}_{/[w]}\left( \prod_{j = -\infty}^{\infty} v_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty}^{\infty} v_{j}^{\dagger} \right) \\ 
+   &= v_{1}\Trr{}_{/[w]}\left( \prod_{j = -\infty, j \neq 1,2}^{\infty} v_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty, j \neq 1,2}^{\infty} v_{j}^{\dagger} \right) v_{1}^{\dagger} \\
+   &= v_{1}\Trr{}_{/[w]}\left( \prod_{j = -\infty, j \neq 1,2}^{\infty} v_{j}^{\dagger} \prod_{j = -\infty, j \neq 1,2}^{\infty} v_{j} \rho_{\infty}^{\prime} \right) v_{1}^{\dagger} \\
+   &= v_{1}\Trr{}_{/[w]}\left( \rho_{\infty}^{\prime} \right) v_{1}^{\dagger} \\
+   &= v_{1} \rho^{\prime} v_{1}^{\dagger} \\
+   &= \rho 
+   \end{split}
+ \end{equation*}
+
+ \item In the case that $u$ is a decoding code. 
+  \end{enumerate}
+
   \end{enumerate}
 
  \begin{equation*}
