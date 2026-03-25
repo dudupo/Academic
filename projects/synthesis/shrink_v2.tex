@@ -16,8 +16,9 @@
       \theta_{v,S^{\prime}} \colonequals \bigcup_{I \subset S^{\prime}} \left\{  \left(\prod_{g \in I} g \right) v  \right\}
     \end{split}
   \end{equation*}
-  The $i$-facets of the complex are the collection of all the possible rooted spanned $i$-facets induced by $\text{Cay}(\mathcal{G}_{n}^{d})$. We will denote them by $\mathcal{F}_{i}$.
+  The $i$-facets of the complex are the collection of all the possible rooted spanned $i$-facets induced by $\text{Cay}(\mathcal{G}_{n}^{d})$. We will denote them by $\mathcal{F}_{i}$. 
 
+  Additionally, we name $n$ and $d$, the \textit{side length} and the \textit{dimension} of the complex.  
 \end{definition}
 \begin{definition}[Positive Edges and Cubes]
   For $u,v \in \mathcal{G}_{n}^{d}$, and $S^{\prime}_{1},S^{\prime}_{2} \subset [d]$, with sizes $|S^{\prime}_{1}| = |S^{\prime}_{2}| = i$, we say that the $i$-facets $\theta_{v,S^{\prime}_{1}}$ and $\theta_{u,S^{\prime}_{2}}$ are adjacent if the intersection $\theta_{v,S^{\prime}_{1}} \cap \theta_{u,S^{\prime}_{2}}$ is an $i-1$-facet. In addition, if $\theta_{1}$ and $\theta_{2}$ are $i$ and $i-1$-facets such that $\theta_{2} \subset \theta_{1}$, then we say that $\theta_{2}$ is a \textit{positive edge relative to facet} $\theta_{1}$ if they are rooted at the same vertex. Furthermore, we say that $\theta_{1}$ is a \textit{positive cube} of $\theta_{2}$. When the $i$-facet is clear from the context, we will abbreviate and say that $\theta_{2}$ is \textit{positive}.
@@ -69,7 +70,7 @@ Change the Sweep rule to: For any vertex, check if it is a (strictly) local maxi
   The local gates performing Toom's rule are decoding gadgets. 
 \end{claim}
 \begin{proof}
-  \inb{proof that.}
+  \inb{prove that.}
 \end{proof}
 
 \begin{definition}[Unitary Decoding Representation]
@@ -115,22 +116,17 @@ Consider the register coordinate system induced by a quantum circuit of width $w
 \end{definition}
 
 \begin{definition}
-  Let $n$ be an integer, and let $C = \{u_{i} \}$ be a quantum circuit such that each of its registers $\mathcal{R} = R_{1},..,R_{k}$ is at length at most $n$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
+Let $n$ be an integer, and let $C = \{u_{i}\}$ be a quantum circuit with registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ is a toric encoding with a side length $n$. In addition, all the decoding gadgets of $C$ are sweep rule gadgets; let us denote them by $\mathcal{U}$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
   \begin{enumerate}
-    \item Each register $R_{i}$ of $C$ is mapped to a register $R^{\prime}_{i}$ with infinite length. If $R_{i}$ is an encoded register by code $\mathcal{C}$, then a check $c_{x} = (x_{1},..,x_{\Delta}) \subset \mathbb{Z}_{n}^{\Delta} $ of the code is mapped to the collection of checks: 
-      \begin{equation*}
-        \begin{split}
-          c_{x} = (x_{1},..,x_{\Delta}) \mapsto \bigcup_{j = - \infty}^{\infty}\left\{ (x_{1} + jn,..,x_{\Delta} +jn)   \right\}
-        \end{split}
-      \end{equation*}
-    \item Each gate $u_{i} \in C$ is mapped by:     
+    \item For a register $R_{i} \in \mathcal{R}$, denote by $d_{i}, d_{i}^{\prime}$ the dimension of the toric complex that induces the code, and the dimension of the facets that are associated with the bits. Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, which is a $(d_{i}, d_{i}^\prime)$-dimensional, infinite side length, toric encoding. Since the mapping between registers is one-to-one, we use the identifier $\mathbf{1}_{R_{i}}$ to identify also $\mathbf{1}_{R^{\prime}_{i}}$.
+    \item Each gate $u_{i} \in C / \mathcal{U}$ is mapped to:     
       \begin{equation*}
         \begin{split}
           u_{i} & = (g_{i},l_{i}) \mapsto  
           \bigcup_{j = -\infty}^{\infty}\left\{ (g_{i},( \text{Sh}_{jn}(l_{i})) \right\}
         \end{split}
       \end{equation*}
-    \item \inb{Now I understand that this is not what I wanted. The mapping should be defined such that the basic gate $g_{i}$ is rooted in $x + jn$. So, we would like to have a notation of rooted gates. }
+    \item Each gate $ u \in \mathcal{U} $ is mapped to the collection of sweep rule gadgets $\{ v_{j} \}_{-\infty}^{\infty}$ such that each of them has the same time coordinate as $ u $, is in the register that corresponds to the image of $ u $'s register, and is rooted at $\text{root}(v) + j n$.
   \end{enumerate}
 For a set of faults $\mathcal{E} = \{ f_{i} \}$, we denote by $C^{\infty}[\mathcal{E}^{\infty}]$ the \textit{$\infty$-extension of $C[\mathcal{E}]$}.
 \end{definition}
