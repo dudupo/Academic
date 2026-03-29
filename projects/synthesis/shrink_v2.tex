@@ -220,20 +220,8 @@ Moreover, since $v_{0}$ and $v_{1}$ are a plantation of $g$ in locations $\text{
 Let $\sigma^{(t)}$ be a domain wall at time $t$, and let $\Gamma^{t} = \{ v \colon \exists \{v,u\} \in \sigma^{t} \}$. We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of applying the Toom's rule at time $t$, and by $\phi_{v}$ the bits which are flipped by vertex $v$. We say that $u$ is added to $\Gamma^{t+1}$ by $v$ at time $t$, if $u\in \Gamma^{t+1}$ and $u \in V(\phi_{v})$. When it clear from the context, we will omit the time, and say that $u$ is added by $v$. 
 \end{definition}
 
-\begin{definition}[Reduced subset with boundrey at $v$]
-  
-\end{definition}
 
-\begin{claim}
-  Denote by $\mathcal{S}$ the generators $\mathcal{S} = \cup_{i\in[d]}\{ \mathbf{1}_{i} \}$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$, and let $z \subset \mathcal{F}_{d}$ be a reduced subset of bits with a boundary at $v$. Suppose that $v$ is a (strict) local maximum of $L_{d+1}$. Then there is $J \subset \mathcal{P}( \mathcal{S} )$ such that:
-  \begin{equation*}
-    \begin{split}
-      z = \sum_{S^{\prime} \in J} \theta_{v,S^{\prime}}
-    \end{split}
-  \end{equation*}
-\end{claim}
-
-\begin{claim}
+\begin{claim}\label{claim:extermal}
 Suppose that $d^{\prime} > 1$ and a vertex $v \in \mathcal{G}^{d}_{\infty}$ is also adjacent to the domain wall, namely $v \in \Gamma$. It holds that $v$ cannot be simultaneously both a (strict) local max of $L_{d+1}$ and a local min of $L_{d+1}$.
 \end{claim}
 
@@ -253,6 +241,23 @@ Thus, there is a subset of generators $S^{\prime} \subset S$, of size $d^{\prime
 Write a remark indicating that when $d^\prime = 1$, meaning qubits are on the edges (2D toric), the claim is not true.
 }
 \end{remark}
+
+\begin{definition}[Reduced subset with boundrey at $v$]
+  
+\end{definition}
+
+\begin{claim}
+  Denote by $\mathcal{S}$ the generators $\mathcal{S} = \cup_{i\in[d]}\{ \mathbf{1}_{i} \}$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$, and let $z \subset \mathcal{F}_{d}$ be a reduced subset of bits with a boundary at $v$. Suppose that $v$ is a (strict) local maximum of $L_{d+1}$. Then there is $J \subset \mathcal{P}( \mathcal{S} )$ such that:
+  \begin{equation*}
+    \begin{split}
+      z = \sum_{S^{\prime} \in J} \theta_{v,S^{\prime}}
+    \end{split}
+  \end{equation*}
+\end{claim}
+
+\begin{proof}
+  As exectly as in the proof of  \Cref{claim:extermal}, there is $\theta_{v,S^{\prime}}$. \inb{ Substitute it from the local view, We should show that the weight decrease.} 
+\end{proof}
 
 
 \begin{claim}
