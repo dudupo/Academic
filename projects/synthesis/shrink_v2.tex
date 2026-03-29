@@ -246,15 +246,19 @@ Write a remark indicating that when $d^\prime = 1$, meaning qubits are on the ed
   
 \end{definition}
 
+\begin{definition}
+  $L_{I}(v) = - \sum_{i \in I}v_{i}$
+\end{definition}
+
 \begin{claim}
-  Denote by $\mathcal{S}$ the generators $\mathcal{S} = \cup_{i\in[d]}\{ \mathbf{1}_{i} \}$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$, and let $z \subset \mathcal{F}_{d}$ be a reduced subset of bits with a boundary at $v$. Suppose that $v$ is a (strict) local maximum of $L_{d+1}$. Then there is $J \subset \mathcal{P}( \mathcal{S} )$ such that:
+  Denote by $\mathcal{S}$ the generators $\mathcal{S} = \cup_{i\in[d]}\{ \mathbf{1}_{i} \}$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$. For $I \subset [d]$ at size $|I| \ge d^{\prime}$, Suppose that $v$ is a (strict) local maximum of $L_{I}$. Then there is a subset of $d$-facets $w$, supported only on generators in $I$ such that:
   \begin{equation*}
     \begin{split}
-      z = \sum_{S^{\prime} \in J} \theta_{v,S^{\prime}}
+      z|_{v}  & = \left( \partial w \right)|_{v} \\
+      & \sum_{S^{\prime} \in J} \theta_{v,S^{\prime}}
     \end{split}
   \end{equation*}
 \end{claim}
-
 \begin{proof}
   As exectly as in the proof of  \Cref{claim:extermal}, there is $\theta_{v,S^{\prime}}$. \inb{ Substitute it from the local view, We should show that the weight decrease.} 
 \end{proof}
