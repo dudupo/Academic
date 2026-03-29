@@ -251,6 +251,7 @@ Write a remark indicating that when $d^\prime = 1$, meaning qubits are on the ed
 \end{definition}
 
 \begin{claim}
+  \label{claim:contain}
   Let $I \subset [d]$. Suppose that $v$ is a \inb{ (strict) }local maximum of $L_{I}$. Then, for any $I^{\prime} \subset I$, it holds that $v$ is also a \inb{ (strict) }local maximum of $L_{I^{\prime}}$. 
 \inb{ Rewrite it. }
 \end{claim}
@@ -266,7 +267,28 @@ Assume, toward contradiction, that $v$ has a neighbor $u$ such that $L_{I^{\prim
   In contradiction to $v$ be a \inb{ (strict) }local maximum of $L_{I}$. 
 \end{proof}
 
-\inb{The claim above helps to use induction}
+\begin{claim}
+  A vertex $v$ can not be simultaneously both a local maximum of $L_{x}$ and a \inb{ strict } local maximum of $L_{\{x\}}$.
+\end{claim}
+\begin{proof}
+  Assume towards contradiction that there are a vertex $v$ and a coordinate $x$ such $v$ is both a strict local maximum to $L_{\{x\}}$ and a local maximum to $L_{x}$. Thus for any $u\sim v$ we have both:
+  \begin{equation*}
+    \begin{split}
+      u_{x} &> v_{x} \\
+      u_{x} & \le v_{x}
+    \end{split}
+  \end{equation*}
+  And that it a contradiction. 
+\end{proof}
+
+\begin{claim}
+  There is no a coordinates subset $I \subset [d]$, a coordinate $x \in I$, and a vertex $v$ such $v$ is both strict local maximum to $L_{\{x\}}$ and a local maximum to $L_{x}$. 
+\end{claim}
+\begin{proof}
+  Direct result of \Cref{claim:contain}.
+\end{proof}
+
+
 
 \begin{claim}
   Denote by $\mathcal{S}$ the generators $\mathcal{S} = \cup_{i\in[d]}\{ \mathbf{1}_{i} \}$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$. For $I \subset [d]$ at size $|I| \ge d^{\prime}$, Suppose that $v$ is a (strict) local maximum of $L_{I}$. Then there is a subset of $d$-facets $w$, supported only on generators in $I$ such that:
