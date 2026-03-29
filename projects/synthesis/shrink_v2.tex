@@ -211,11 +211,13 @@ Moreover, since $v_{0}$ and $v_{1}$ are a plantation of $g$ in locations $\text{
   \end{enumerate}
 \end{proof}
 
+\inb{ add that the computation graph is lifted naturally to the $\infty$-extension, since the image of a mapping are overlapped gates, we can execute them simultaneously.  }  
+
 \section{Shrinking}
 
 
 \begin{definition}
-Let $\sigma^{(t)}$ be a domain wall at time $t$, and let $\Gamma^{t} = \{ v \colon \exists \{v,u\} \in \sigma^{t} \}$. We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of applying the Toom's rule at time $t$, and by $\phi_{v}$ the bits which are flipped by vertex $v$. We say that $u$ is added to $\Gamma^{t+1}$ by $v$ at time $t$, if $u\in \Gamma^{t+1}$ and $u \in V(\phi_{v})$. When it clear form the context, we will omit the time, and say that $u$ is added by $v$. 
+Let $\sigma^{(t)}$ be a domain wall at time $t$, and let $\Gamma^{t} = \{ v \colon \exists \{v,u\} \in \sigma^{t} \}$. We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of applying the Toom's rule at time $t$, and by $\phi_{v}$ the bits which are flipped by vertex $v$. We say that $u$ is added to $\Gamma^{t+1}$ by $v$ at time $t$, if $u\in \Gamma^{t+1}$ and $u \in V(\phi_{v})$. When it clear from the context, we will omit the time, and say that $u$ is added by $v$. 
 \end{definition}
 
 \begin{definition}[Reduced subset with boundrey at $v$]
@@ -232,12 +234,26 @@ Let $\sigma^{(t)}$ be a domain wall at time $t$, and let $\Gamma^{t} = \{ v \col
 \end{claim}
 
 \begin{claim}
-  For $d^{\prime} > 1$ if $v$ is a (strict) local max of $L_{d+1}$, then it is not a local max of $L_{x}$. 
+Suppose that $d^{\prime} > 1$ and a vertex $v \in \mathcal{G}^{d}_{\infty}$ is also adjacent to the domain wall, namely $v \in \Gamma$. It holds that $v$ cannot be simultaneously both a (strict) local max of $L_{d+1}$ and a local min of $L_{d+1}$.
 \end{claim}
+
+
+\begin{proof}
+  Let $v \in \Gamma$ be a local maximum point of $L_{d+1}$, It means that:
+  \begin{enumerate}
+    \item The vertex $v$ is adjacent to a $d^{\prime - 1}$-facet which is unsatisfied. 
+   \item That facet is rooted in $v$; otherwise, the root of the facet is a vertex in $\Gamma$ with a higher value of $L_{d+1}$, in contradiction to $v$ being a local maximum.
+  \end{enumerate}
+Thus, there is a subset of generators $S^{\prime} \subset S$, of size $d^{\prime} - 1 > 0$, such that the unsatisfied check set is on the facet $\theta_{v,S^{\prime}}$. Given $d^{\prime} > 1$, we have that $S^{\prime}$ contains at least one more element besides the empty set, denoted by $g$. Now, consider the vertex $gv$. Since $gv$ is adjacent to $\theta_{v,S^{\prime}}$, then $gv \in \Gamma$. On the other hand, $L_{d+1}(gv) = L_{d+1}(v) - 1$. In other words, $gv$ is a neighbor of $v$ with a lower value of $L_{d+1}$, and thus $v$ cannot be a local minimum of $L_{d+1}$.
+\end{proof}
+
+\begin{remark}
 
 \inb{
 Write a remark indicating that when $d^\prime = 1$, meaning qubits are on the edges (2D toric), the claim is not true.
 }
+\end{remark}
+
 
 \begin{claim}
   \label{claim:toombound}
