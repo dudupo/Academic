@@ -251,7 +251,7 @@ Write a remark indicating that when $d^\prime = 1$, meaning qubits are on the ed
 \end{definition}
 
 \begin{claim}
-Let $I \subset [d]$. Suppose that $v$ is a local maximum of $L_{I}$. Then, for any $I^{\prime} \subset I$, it holds that $v$ is also a local maximum of $L_{I^{\prime}}$. 
+  Let $I \subset [d]$. Suppose that $v$ is a \inb{ (strict) }local maximum of $L_{I}$. Then, for any $I^{\prime} \subset I$, it holds that $v$ is also a \inb{ (strict) }local maximum of $L_{I^{\prime}}$. 
 \inb{ Rewrite it. }
 \end{claim}
 
@@ -259,13 +259,14 @@ Let $I \subset [d]$. Suppose that $v$ is a local maximum of $L_{I}$. Then, for a
 Assume, toward contradiction, that $v$ has a neighbor $u$ such that $L_{I^{\prime}}(u) > L_{I^{\prime}}(v)$. By neighborhood, $v$ and $u$ differ in exactly one coordinate. Thus, for any $i \not\in I^{\prime}$, we have $v_{i} = u_{i}$. So,
   \begin{equation*}
     \begin{split}
-      L_{I}(u) = L_{I^{\prime}}(u) - u_{l} >  L_{I^{\prime}}(v) - u_{l} = L_{I^{\prime}}(v) - v_{l} = L_{I}(v) 
+      L_{I}(u) = L_{I^{\prime}}(u) - u_{l} >  L_{I^{\prime}}(v) - u_{l} = L_{I^{\prime}}(v) - v_{l} = L_{I}(v) \\
+      L_{I}(u) = L_{I^{\prime}}(u) - u_{l} \inb{ \ge }  L_{I^{\prime}}(v) - u_{l} = L_{I^{\prime}}(v) - v_{l} = L_{I}(v) 
     \end{split}
   \end{equation*}
-  In contradiction to $v$ be a local maximum of $L_{I}$. 
+  In contradiction to $v$ be a \inb{ (strict) }local maximum of $L_{I}$. 
 \end{proof}
 
-
+\inb{The claim above helps to use induction}
 
 \begin{claim}
   Denote by $\mathcal{S}$ the generators $\mathcal{S} = \cup_{i\in[d]}\{ \mathbf{1}_{i} \}$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$. For $I \subset [d]$ at size $|I| \ge d^{\prime}$, Suppose that $v$ is a (strict) local maximum of $L_{I}$. Then there is a subset of $d$-facets $w$, supported only on generators in $I$ such that:
