@@ -292,9 +292,9 @@ Assume, toward contradiction, that $v$ has a neighbor $u$ such that $L_{I^{\prim
 \begin{proof}
   Direct result of \Cref{claim:contain}.
 \end{proof}
-\inb{define a connected assignment.}
+\inb{define a connected assignment. I field to prove it as it stated in the current version. Yet, what we can do is to prove that the correction is rooted at $v$ (and not necessarily restricted) }
 \begin{claim}
-  Let $z$ be a connected assignment on the $d^{\prime}$-facet at finite size, and let $\Gamma$ be the set of vertices which are adjacent to unsatisfied checks induced by $\Gamma$. Let $I \subset [d]$, be a subset of coordinates at size $|I| \ge d^{\prime}$, and let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$ such that $v$ is a strong global maximum of $L_{I}$, at $\Gamma$. Then there is a rooted assignment $\tilde{z}$ at $v$, restricted to $I$, such that $z_{v} = \tilde{z}_{v}$. 
+  Let $z$ be a connected assignment on the $d^{\prime}$-facet at finite size, and let $\Gamma$ be the set of vertices which are adjacent to unsatisfied checks induced by $\Gamma$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$ such that $v$ is a strong global maximum of $L_{S}$, at $\Gamma$. Then there is a rooted assignment $\tilde{z}$ at $v$ such that $z_{v} = \tilde{z}_{v}$. 
 \end{claim}
 \begin{proof}
   Let $\theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the collection of $d$-facets forms $z$, namely:  
@@ -309,13 +309,14 @@ Assume, toward contradiction, that $v$ has a neighbor $u$ such that $L_{I^{\prim
       z_{j} = \sum_{i=1}^{j}\theta_{v_{i},S^{\prime}_{i}}
     \end{split}
   \end{equation*}
-  We prove the claim by induction on $j$. Note that different $z_j$s, namely different prefixes, induce different $\Gamma$s, a different potential walls $L_{I}$, and different global max points for those potentials. For each $j$,  we denote correspond elements by $\Gamma_{j}, I_{j}$ and $u_{j}$. 
+  We prove the claim by induction on $j$. Note that different $z_j$s, namely different prefixes, induce different $\Gamma$s and different global max points for the potential wall $L_{S}$. For each $j$, we denote correspond elements by $\Gamma_{j}$ and $u_{j}$. 
 \begin{enumerate}
-  \item Base. $z_1 = \theta_{v_{1},S^{\prime}_{1}}$. In that case, any $d-1$ facet that is adjacent to $\theta_{v_{1},S^{\prime}_{1}}$ is unsatisfied, and it is easy to see that $v_{1}$ gets the global maximum of $L_{S^{\prime}_{1}}$, namely $u_{1}=v_{1}$ and $I_{1} = S^{\prime}_{1}$.
-  \item The induction step. Consider $z_{j}$, assume that 
+  \item Base. $z_1 = \theta_{v_{1},S^{\prime}_{1}}$. In that case, any $d-1$ facet that is adjacent to $\theta_{v_{1},S^{\prime}_{1}}$ is unsatisfied, and it is easy to see that $v_{1}$ gets the global maximum of $L_{S}$, namely $u_{1}=v_{1}$. Thus $\tilde{z}_{1} = \theta_{v_{1}, S^{\prime}_{1}}$ gives the desired. 
+  \item The induction step. Consider $z_{j}$, let us split to case depandeing whether $u_{j}$ equals $u_{j-1}$ or not. If $u_{j}$   
 
 \end{enumerate}
 \end{proof}
+
 
 \section{Alternative Proof For $d^{\prime} = 2$.}
 
