@@ -297,8 +297,24 @@ Assume, toward contradiction, that $v$ has a neighbor $u$ such that $L_{I^{\prim
   Let $z$ be a connected assignment on the $d^{\prime}$-facet at finite size, and let $\Gamma$ be the set of vertices which are adjacent to unsatisfied checks induced by $\Gamma$. Let $I \subset [d]$, be a subset of coordinates at size $|I| \ge d^{\prime}$, and let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$ such that $v$ is a strong global maximum of $L_{I}$, at $\Gamma$. Then there is a rooted assignment $\tilde{z}$ at $v$, restricted to $I$, such that $z_{v} = \tilde{z}_{v}$. 
 \end{claim}
 \begin{proof}
-  Since $v$ is a global maximum to $L_{I}$, for any $u$ such $L_{I}(u) \ge L_{I}$. 
-  As exectly as in the proof of  \Cref{claim:extermal}, there is $\theta_{v,S^{\prime}}$. \inb{ Substitute it from the local view, We should show that the weight decrease.} 
+  Let $\theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the collection of $d$-facets forms $z$, namely:  
+  \begin{equation*}
+    \begin{split}
+      z = \sum_{i=1}^{k}\theta_{v_{i},S^{\prime}_{i}}
+    \end{split}
+  \end{equation*}
+  For $j \in [k]$, denote by $z_{j}$, the partial sum of the first $j$ elements, namely: 
+  \begin{equation*}
+    \begin{split}
+      z_{j} = \sum_{i=1}^{j}\theta_{v_{i},S^{\prime}_{i}}
+    \end{split}
+  \end{equation*}
+  We prove the claim by induction on $j$. Note that different $z_j$s, namely different prefixes, induce different $\Gamma$s, a different potential walls $L_{I}$, and different global max points for those potentials. For each $j$,  we denote correspond elements by $\Gamma_{j}, I_{j}$ and $u_{j}$. 
+\begin{enumerate}
+  \item Base. $z_1 = \theta_{v_{1},S^{\prime}_{1}}$. In that case, any $d-1$ facet that is adjacent to $\theta_{v_{1},S^{\prime}_{1}}$ is unsatisfied, and it is easy to see that $v_{1}$ gets the global maximum of $L_{S^{\prime}_{1}}$, namely $u_{1}=v_{1}$ and $I_{1} = S^{\prime}_{1}$.
+  \item The induction step. Consider $z_{j}$. 
+
+\end{enumerate}
 \end{proof}
 
 \section{Alternative Proof For $d^{\prime} = 2$.}
