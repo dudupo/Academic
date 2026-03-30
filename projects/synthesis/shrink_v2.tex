@@ -6,8 +6,6 @@
 
 \section{The $(d,d^{\prime})$-Dimensional Toric Code and the SWEEP Rule}
 
-\inb{add: something that connects between the size of the droplet to the fact it shrinks. [v2] Seems it doesn't necessary since the boundary is always shrinking, yet the Toom application might advance the state to close a logical error. }
-
 \begin{definition}[$d$-Dimensional Toric Complex] 
   \label{def:toric_complex}
   For integers $d$ and $n$, denote the group resulting from the $d$-directed power of the cyclic group of order $n$ by $\mathcal{G}_{n}^{d} = \mathbb{Z}_{n}^{\times d}$, and denote the standard generating set of $\mathcal{G}_{n}^{d}$ by $S = \{ 1_{i} \colon i \in [d] \}$. We define the \textit{$d$-dimensional toric complex} to be the hypergraph obtained from the Cayley graph $\text{Cay}(\mathcal{G}_{n}^{d}, S)$ by taking its vertices as the $0$-facets and for any $i \in [d-1]$ we define the $i$-facets as follow: First, for a vertex $v \in \mathcal{G}_{n}^{d}$ and for a subset of generators $S^{\prime} \subset S$ of size $|S^{\prime}| = i$, the $i$-facet rooted at $v$ and spanned by $S^{\prime}$, denoted by $\theta_{v, S^{\prime}}$, is:
@@ -77,20 +75,6 @@ Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v \in 
 We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of applying the Toom's rule at time $t$, and by $\phi_{v}$ the bits which are flipped by vertex $v$. We say that $u$ is added to $\Gamma^{t+1}$ by $v$ at time $t$, if $u\in \Gamma^{t+1}$ and $u \in V(\phi_{v})$. When it clear from the context, we will omit the time, and say that $u$ is added by $v$. 
 \end{definition}
 
-\inb{Below, a semi proof that in CSS code partial correction $Z^{e} \rightarrow Z^{\hat{e}}$ doesn't add bit flip errors. It might adds a global phase. I should enter it in a section about CSS coding. }
-
-\begin{equation*}
-  \begin{split}
-     & X^{f}Z^{e} \ket { w + C_{z}^{\perp} } \\
-     = & X^{f}Z^{e}X^{w} \ket { C_{z}^{\perp} } \\
-     \text{apply } H^{\otimes n } \mapsto & Z^{f}X^{e}Z^{w}\ket { C_{z} } \\
-     = & (-1)^{e \cdot w} Z^{f}Z^{w}X^{e}\ket { C_{z} } \\
-     \text{ partial correction } X^{e +\hat{e}} \mapsto & (-1)^{(e+\hat{e}) (f+w) } (-1)^{e \cdot w} Z^{f}Z^{w}X^{\hat{e}}\ket { C_{z} } \\
-     \text{apply } H^{\otimes n } \mapsto & (-1)^{(e+\hat{e}) (f+w) } (-1)^{e \cdot w} X^{f}X^{w}Z^{\hat{e}}\ket { C_{z}^{\perp} } \\
-     = & (-1)^{(e+\hat{e}) (f+w) } (-1)^{e \cdot w} (-1)^{\hat{e} \cdot w} X^{f}Z^{\hat{e}}X^{w}\ket { C_{z}^{\perp} } \\
-     = & (-1)^{(e+\hat{e}) f } X^{f}Z^{\hat{e}}\ket { w + C_{z}^{\perp}  } \\
-  \end{split}
-\end{equation*}
 
 \begin{definition}[Decoding Gadget]
   Consider a quantum circuit $C$, for a quantum gate $u$ in $C$, with fun-in $\Delta$, we say that $u$ is a \textit{decoding gadget} if it has the following form: 
