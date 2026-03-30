@@ -52,16 +52,11 @@ Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v \in 
       z = \sum_{i}^{k}\theta_{v,S^{\prime}_{i}}
     \end{split}
   \end{equation*}
-  Put differently, $z$ is the result of taking a collection of $d$-facets that are rooted at $v$.
+  Put differently, $z$ is the result of taking a collection of $d^{\prime}$-facets that are rooted at $v$.
 \end{definition}
 
-\begin{definition}
-  Let $\sigma^{(t)}$ be a domain wall at time $t$, and let $\Gamma^{t} = \{ v \colon \exists \{v,u\} \in \sigma^{t} \}$.
-
-\end{definition}
-\inb{below, define what is it $\Gamma$}
 \begin{definition}[Sweep Rule]
-  The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$ defining as follow: 
+  Let $z$ be an assignment over the $d^\prime$-facets, and denote by $\Gamma$ the set of vertices that are adjacent to unsatisfied checks induced by $z$. The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$ defining as follow: 
   \begin{enumerate}
     \item First, look for the maximal size coordinate subset $I \subset [d]$ such that $L_{I}$ is a strong local maximum of $L_{I}$ in $\Gamma$.
     \item Then, check if there is a rooted assignment $\tilde{z}$ at $v$ such that $\tilde{z}_{v} = z_{v}$. If there is, then flip $z$.
