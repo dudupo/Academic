@@ -68,14 +68,10 @@ Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v \in 
   The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$ defining as follow: 
   \begin{enumerate}
     \item First, look for the maximal size coordinate subset $I \subset [d]$ such that $L_{I}$ is a strong local maximum of $L_{I}$ in $\Gamma$.
-    \item Then, check if there is a rooted assignment $\tilde{z}$ at $v$ such that $\tilde{z}_{v} = z_{v}$. If there is, then flip it.
+    \item Then, check if there is a rooted assignment $\tilde{z}$ at $v$ such that $\tilde{z}_{v} = z_{v}$. If there is, then flip $z$.
   \end{enumerate}
-  We generalize Toom's rule in the following manner: First we measure the $X$-syndrom, Then each for each $d^{\prime}$-facet $f \in \mathcal{F}_{d^{\prime}}$, we ask if all of its positive edges are unsatisfied . If so, then the we flip the (q)bit associate with $f$. For convenience, we will think of the vertex for which $f$ is rooted at, as the vertex which makes the decision and flips the (q)bit.   
+  %We generalize Toom's rule in the following manner: First we measure the $X$-syndrom, Then each for each $d^{\prime}$-facet $f \in \mathcal{F}_{d^{\prime}}$, we ask if all of its positive edges are unsatisfied . If so, then the we flip the (q)bit associate with $f$. For convenience, we will think of the vertex for which $f$ is rooted at, as the vertex which makes the decision and flips the (q)bit.   
 \end{definition}
-
-\inb{
-Change the Sweep rule to: For any vertex, check if it is a (strictly) local maximum of \(L_{d+1}\). If so, then it flips a subset of bits that are rooted in it. By doing so, we almost trivially get that \(L_{d+1}\) decreases. The problem in the 2D Toric is that a local max of \(L_{x}\) can also be a local max of \(L_{d+1}\).
-}
 
 \begin{definition}
 We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of applying the Toom's rule at time $t$, and by $\phi_{v}$ the bits which are flipped by vertex $v$. We say that $u$ is added to $\Gamma^{t+1}$ by $v$ at time $t$, if $u\in \Gamma^{t+1}$ and $u \in V(\phi_{v})$. When it clear from the context, we will omit the time, and say that $u$ is added by $v$. 
