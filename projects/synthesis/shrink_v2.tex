@@ -197,14 +197,14 @@ For a subset of vertices $\Gamma \subset \mathcal{G}_{n}^{d}$, a vertex $v \in \
 \end{definition}
 
 
-\begin{definition}[Rooted Assignment at $v$]
+\begin{definition}[Rooted and Restricted Assignment]
 Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S_{1}, \ldots, S_{k} \subset S^{\times k}$ such that $z$ can be decomposed as:
   \begin{equation*}
     \begin{split}
       z = \sum_{i}^{k}\theta_{v,S^{\prime}_{i}}
     \end{split}
   \end{equation*}
-  Put differently, $z$ is the result of taking a collection of $d^{\prime}$-facets that are rooted at $v$.
+  Put differently, $z$ is the result of taking a collection of $d^{\prime}$-facets that are rooted at $v$. In addition, for a set of coordinates $I \subset S$, we say that $z$ is a \textit{restricted assignment} if for any $i \in k$, it holds that $S_{i} \subset I$.
 \end{definition}
 
 \inb{ 
@@ -292,15 +292,13 @@ Assume, toward contradiction, that $v$ has a neighbor $u$ such that $L_{I^{\prim
 \begin{proof}
   Direct result of \Cref{claim:contain}.
 \end{proof}
-
+\inb{define a connected assignment.}
 \begin{claim}
-  Denote by $\mathcal{S}$ the generators $\mathcal{S} = \cup_{i\in[d]}\{ \mathbf{1}_{i} \}$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$. For $I \subset [d]$ at size $|I| \ge d^{\prime}$, Suppose that $v$ is a (strong) local maximum of $L_{I}$. Then there is a subset of $d$-facets $w$, supported only on generators in $I$ such that:
-  \begin{equation*}
-    \begin{split}
-      z|_{v}  & = \left( \partial w \right)|_{v} \\
-      & \sum_{S^{\prime} \in J} \theta_{v,S^{\prime}}
-    \end{split}
-  \end{equation*}
+  Let $z$ be a connected assignment on the $d^{\prime}$-facet, and let $\Gamma$ be the set of vertices which are adjacent to unsatisfied checks induced by $\Gamma$. Let $I \subset [d]$, be a subset of coordinates at size $|I| \ge d^{\prime}$, and let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$ such that $v$ is a strong global maximum of $L_{I}$, at $\Gamma$. Then there is a rooted assignment $\tilde{z}$ at $v$ such  that: 
+  \begin{enumerate}
+    \item $z_{v} = \tilde{z}_{v}$
+    \item $z$ is restricted to $I$. 
+  \end{enumerate}
 \end{claim}
 \begin{proof}
   As exectly as in the proof of  \Cref{claim:extermal}, there is $\theta_{v,S^{\prime}}$. \inb{ Substitute it from the local view, We should show that the weight decrease.} 
