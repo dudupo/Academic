@@ -67,10 +67,9 @@ Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v \in 
 \begin{definition}[Sweep Rule]
   The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$ defining as follow: 
   \begin{enumerate}
-    \item First looks for the maximal size coordinate subset $I \subset [d] $ such that $L_{I}$ is a strong local maximum of $L_{I}$ in $\Gamma$. 
-    \item Then, check if there is a rooted assignment $\tilde{z}$, such that $z + \tilde{z}$. 
+    \item First, look for the maximal size coordinate subset $I \subset [d]$ such that $L_{I}$ is a strong local maximum of $L_{I}$ in $\Gamma$.
+    \item Then, check if there is a rooted assignment $\tilde{z}$ at $v$ such that $\tilde{z}_{v} = z_{v}$. If there is, then flip it.
   \end{enumerate}
-
   We generalize Toom's rule in the following manner: First we measure the $X$-syndrom, Then each for each $d^{\prime}$-facet $f \in \mathcal{F}_{d^{\prime}}$, we ask if all of its positive edges are unsatisfied . If so, then the we flip the (q)bit associate with $f$. For convenience, we will think of the vertex for which $f$ is rooted at, as the vertex which makes the decision and flips the (q)bit.   
 \end{definition}
 
