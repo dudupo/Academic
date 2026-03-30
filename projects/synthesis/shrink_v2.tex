@@ -33,41 +33,6 @@ We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $
   Let $d, d^{\prime}$ be integers such that $1 < d^{\prime} < d$. For any integer $n$, we construct the $n$th instance of the quantum code family $(d,d^{\prime})$ \textit{Toric Code} as follows: Let $G = (\mathcal{F}_{0}, \ldots, \mathcal{F}_{d})$ be the $d$-dimensional toric complex obtained from $\mathcal{G}_{n}^{d}$ as defined in \Cref{def:toric_complex}. We associate the (q)bits with the $\mathcal{F}_{d^{\prime}}$, the $X$-checks with the $\mathcal{F}_{d^{\prime}-1}$, and the $Z$-checks with the $\mathcal{F}_{d^{\prime}+1}$. An $X$-check, $c_{x}$, is satisfied if the parity of (q)bits set on the $d^{\prime}$-facet containing $c_{x}$ is even. Similarly, a $Z$-check, $c_{z}$, is satisfied if the parity, in the Hadamard basis, of the (q)bits set on the $d^{\prime}$-facets contained in $c_{z}$ is even.
 \end{definition}
 
-\inb{ consider changing the name to something like hight lines / contour in order to hint on the similarity to topography map. In addition, the embedding inside $\mathbb{R}^{d}$ should appears before that definition.  }
-\begin{definition}[Potential Walls]
-  We define the potential walls to be a functions collection from the vertices of $\mathcal{G}_{n}^{d}$ to the reals as follow:
-  \begin{enumerate}
-    \item For any coordinate $i \in [d]$, we define $L_{i} \colon \mathcal{G}_{n}^{d} \rightarrow \mathbb{R}$ to act as $L_{i}(v) = v_{i}$.
-    \item For any subset of coordinates $I \subset [d]$ we define $L_{I} \colon  \mathcal{G}_{n}^{d} \rightarrow \mathbb{R}$ to act as $L_{I}(v) = -\sum_{i \in I}v_{i}$. 
-  \end{enumerate}
-For a subset of vertices $\Gamma \subset \mathcal{G}_{n}^{d}$, a vertex $v \in \Gamma$, and a potential wall $l \colon \mathcal{G}_{n}^{d} \rightarrow \mathbb{R}$, we say that $v$ is a \textit{local maximum} of $l$ in $\Gamma$ if for any neighbor $u$ of $v$, such that $u \in \Gamma$, we have $l(v) \ge l(u)$. We say that $v$ is a strong local maximum if the inequality is strict, namely $l(v) > l(u)$. When the subset $\Gamma$ is clear from the context, we might omit it and briefly say that $v$ is a local maximum of $l$.
-
-\end{definition}
-
-
-\begin{definition}[Rooted Assignment at $v$]
-Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S_{1}, \ldots, S_{k} \subset S^{\times k}$ such that $z$ can be decomposed as:
-  \begin{equation*}
-    \begin{split}
-      z = \sum_{i}^{k}\theta_{v,S^{\prime}_{i}}
-    \end{split}
-  \end{equation*}
-  Put differently, $z$ is the result of taking a collection of $d^{\prime}$-facets that are rooted at $v$.
-\end{definition}
-
-\begin{definition}[Sweep Rule]
-  Let $z$ be an assignment over the $d^\prime$-facets, and denote by $\Gamma$ the set of vertices that are adjacent to unsatisfied checks induced by $z$. The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$ defining as follow: 
-  \begin{enumerate}
-    \item First, look for the maximal size coordinate subset $I \subset [d]$ such that $L_{I}$ is a strong local maximum of $L_{I}$ in $\Gamma$.
-    \item Then, check if there is a rooted assignment $\tilde{z}$ at $v$ such that $\tilde{z}_{v} = z_{v}$. If there is, then flip $z$.
-  \end{enumerate}
-  %We generalize Toom's rule in the following manner: First we measure the $X$-syndrom, Then each for each $d^{\prime}$-facet $f \in \mathcal{F}_{d^{\prime}}$, we ask if all of its positive edges are unsatisfied . If so, then the we flip the (q)bit associate with $f$. For convenience, we will think of the vertex for which $f$ is rooted at, as the vertex which makes the decision and flips the (q)bit.   
-\end{definition}
-
-\begin{definition}
-We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of applying the Toom's rule at time $t$, and by $\phi_{v}$ the bits which are flipped by vertex $v$. We say that $u$ is added to $\Gamma^{t+1}$ by $v$ at time $t$, if $u\in \Gamma^{t+1}$ and $u \in V(\phi_{v})$. When it clear from the context, we will omit the time, and say that $u$ is added by $v$. 
-\end{definition}
-
 
 \begin{definition}[Decoding Gadget]
   Consider a quantum circuit $C$, for a quantum gate $u$ in $C$, with fun-in $\Delta$, we say that $u$ is a \textit{decoding gadget} if it has the following form: 
@@ -77,12 +42,6 @@ We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of app
   \end{enumerate}
 \end{definition}
 
-\begin{claim}
-  The local gates performing Toom's rule are decoding gadgets. 
-\end{claim}
-\begin{proof}
-  \inb{prove that.}
-\end{proof}
 
 \begin{definition}[Unitary Decoding Representation]
 Let $C = \{u_{i}\}$ be a quantum circuit, and let $\mathcal{U} = \{u^{\prime}_{i}\} \subset C$ be a subset of the gates in $C$ that are decoding gadgets. For a set of faults $\mathcal{E}$, we define the \textit{unitary decoding representation} of $C[\mathcal{E}]$ to be the quantum circuit obtained by replacing each of the gates in $\mathcal{U}$ with their corresponding Pauli gate according to $\mathcal{E}$.
@@ -226,7 +185,47 @@ Moreover, since $v_{0}$ and $v_{1}$ are a plantation of $g$ in locations $\text{
 
 \section{Shrinking}
 
+\inb{ consider changing the name to something like hight lines / contour in order to hint on the similarity to topography map. In addition, the embedding inside $\mathbb{R}^{d}$ should appears before that definition.  }
+\begin{definition}[Potential Walls]
+  We define the potential walls to be a functions collection from the vertices of $\mathcal{G}_{n}^{d}$ to the reals as follow:
+  \begin{enumerate}
+    \item For any coordinate $i \in [d]$, we define $L_{i} \colon \mathcal{G}_{n}^{d} \rightarrow \mathbb{R}$ to act as $L_{i}(v) = v_{i}$.
+    \item For any subset of coordinates $I \subset [d]$ we define $L_{I} \colon  \mathcal{G}_{n}^{d} \rightarrow \mathbb{R}$ to act as $L_{I}(v) = -\sum_{i \in I}v_{i}$. 
+  \end{enumerate}
+For a subset of vertices $\Gamma \subset \mathcal{G}_{n}^{d}$, a vertex $v \in \Gamma$, and a potential wall $l \colon \mathcal{G}_{n}^{d} \rightarrow \mathbb{R}$, we say that $v$ is a \textit{local maximum} of $l$ in $\Gamma$ if for any neighbor $u$ of $v$, such that $u \in \Gamma$, we have $l(v) \ge l(u)$. We say that $v$ is a strong local maximum if the inequality is strict, namely $l(v) > l(u)$. When the subset $\Gamma$ is clear from the context, we might omit it and briefly say that $v$ is a local maximum of $l$.
 
+\end{definition}
+
+
+\begin{definition}[Rooted Assignment at $v$]
+Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S_{1}, \ldots, S_{k} \subset S^{\times k}$ such that $z$ can be decomposed as:
+  \begin{equation*}
+    \begin{split}
+      z = \sum_{i}^{k}\theta_{v,S^{\prime}_{i}}
+    \end{split}
+  \end{equation*}
+  Put differently, $z$ is the result of taking a collection of $d^{\prime}$-facets that are rooted at $v$.
+\end{definition}
+
+\begin{definition}[Sweep Rule]
+  Let $z$ be an assignment over the $d^\prime$-facets, and denote by $\Gamma$ the set of vertices that are adjacent to unsatisfied checks induced by $z$. The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$ defining as follow: 
+  \begin{enumerate}
+    \item First, look for the maximal size coordinate subset $I \subset [d]$ such that $L_{I}$ is a strong local maximum of $L_{I}$ in $\Gamma$.
+    \item Then, check if there is a rooted assignment $\tilde{z}$ at $v$ such that $\tilde{z}_{v} = z_{v}$. If there is, then flip $z$.
+  \end{enumerate}
+  %We generalize Toom's rule in the following manner: First we measure the $X$-syndrom, Then each for each $d^{\prime}$-facet $f \in \mathcal{F}_{d^{\prime}}$, we ask if all of its positive edges are unsatisfied . If so, then the we flip the (q)bit associate with $f$. For convenience, we will think of the vertex for which $f$ is rooted at, as the vertex which makes the decision and flips the (q)bit.   
+\end{definition}
+
+\begin{definition}
+We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of applying the Toom's rule at time $t$, and by $\phi_{v}$ the bits which are flipped by vertex $v$. We say that $u$ is added to $\Gamma^{t+1}$ by $v$ at time $t$, if $u\in \Gamma^{t+1}$ and $u \in V(\phi_{v})$. When it clear from the context, we will omit the time, and say that $u$ is added by $v$. 
+\end{definition}
+
+\begin{claim}
+  The local gates performing Toom's rule are decoding gadgets. 
+\end{claim}
+\begin{proof}
+  \inb{prove that.}
+\end{proof}
 
 \begin{claim}\label{claim:extermal}
 Suppose that $d^{\prime} > 1$ and a vertex $v \in \mathcal{G}^{d}_{\infty}$ is also adjacent to the domain wall, namely $v \in \Gamma$. It holds that $v$ cannot be simultaneously both a (strict) local max of $L_{d+1}$ and a local min of $L_{d+1}$.
