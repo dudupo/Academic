@@ -207,6 +207,10 @@ Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v \in 
   Put differently, $z$ is the result of taking a collection of $d^{\prime}$-facets that are rooted at $v$.
 \end{definition}
 
+\inb{ 
+  The definition beneath induces a cyclic definition, since the $L_I$ is defined only for the infinite toric. We should fix it. 
+} 
+
 \begin{definition}[Sweep Rule]
   Let $z$ be an assignment over the $d^\prime$-facets, and denote by $\Gamma$ the set of vertices that are adjacent to unsatisfied checks induced by $z$. The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$ defining as follow: 
   \begin{enumerate}
@@ -288,8 +292,6 @@ Assume, toward contradiction, that $v$ has a neighbor $u$ such that $L_{I^{\prim
 \begin{proof}
   Direct result of \Cref{claim:contain}.
 \end{proof}
-
-
 
 \begin{claim}
   Denote by $\mathcal{S}$ the generators $\mathcal{S} = \cup_{i\in[d]}\{ \mathbf{1}_{i} \}$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$. For $I \subset [d]$ at size $|I| \ge d^{\prime}$, Suppose that $v$ is a (strong) local maximum of $L_{I}$. Then there is a subset of $d$-facets $w$, supported only on generators in $I$ such that:
