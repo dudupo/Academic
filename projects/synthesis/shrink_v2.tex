@@ -235,7 +235,6 @@ We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of app
 Suppose that $d^{\prime} > 1$ and a vertex $v \in \mathcal{G}^{d}_{\infty}$ is also adjacent to the domain wall, namely $v \in \Gamma$. It holds that $v$ cannot be simultaneously both a (strong) local max of $L_{d+1}$ and a local min of $L_{d+1}$.
 \end{claim}
 
-
 \begin{proof}
   Let $v \in \Gamma$ be a local maximum point of $L_{d+1}$, It means that:
   \begin{enumerate}
@@ -248,50 +247,35 @@ Thus, there is a subset of generators $S^{\prime} \subset S$, of size $d^{\prime
 \begin{remark}
 
 \inb{
-Write a remark indicating that when $d^\prime = 1$, meaning qubits are on the edges (2D toric), the claim is not true.
+  That claim alone gives a decoder in the clean setting. Write a remark indicating that when $d^\prime = 1$, meaning qubits are on the edges (2D toric), the claim is not true.
 }
 \end{remark}
+
+
+\begin{claim}
+  \label{claim:localmax}
+Let $z$ be an assignment, and let $\Gamma$ be the set of vertices adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\Gamma$, and let $g$ be a coordinate in $S$ such that $v$ is a local maximum of $L_{g}$. Then $gv \notin \Gamma$.
+\end{claim}
+\begin{proof}
+  Suppose $gv \in \Gamma$, then 
+  \begin{equation*}
+    \begin{split}
+
+      L_{g}(gv) = (gv)_{g} = 1 + v_{g} = 1 + L_{g}(v)
+    \end{split}
+  \end{equation*}
+In contradiction to $v$ being a local maximum of $L_{g}$ in $\Gamma$.
+\end{proof}
+\begin{claim}
+Let $z$ be an assignment, and let $\Gamma$ be the set of vertices adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\Gamma$, and let $g$ be a coordinate in $S$ such that $v$ is a local maximum of $L_{g}$. Then for any check associated with a $d^{\prime}-1$ face rooted at $v$ that contains $gv$, it is satisfied.
+\end{claim}
+\begin{proof}
+Assume, through contradiction, the existence of an unsatisfied check associated with a $d^{\prime}-1$ positive face rooted at $v$, which contains $gv$. This implies $gv \in \Gamma$, contradicting \Cref{claim:localmax}.
+\end{proof}
 
 \begin{definition}[Reduced subset with boundrey at $v$]
   
 \end{definition}
-\begin{claim}
-  \label{claim:contain}
-  Let $I \subset [d]$. Suppose that $v$ is a  (strong) local maximum of $L_{I}$. Then, for any $I^{\prime} \subset I$, it holds that $v$ is also a  (strong) local maximum of $L_{I^{\prime}}$.  \
-\inb{ Rewrite it. }
-\end{claim}
-
-\begin{proof}
-Assume, toward contradiction, that $v$ has a neighbor $u$ such that $L_{I^{\prime}}(u) > L_{I^{\prime}}(v)$. By neighborhood, $v$ and $u$ differ in exactly one coordinate. Thus, for any $i \not\in I^{\prime}$, we have $v_{i} = u_{i}$. So,
-  \begin{equation*}
-    \begin{split}
-      L_{I}(u) &= L_{I^{\prime}}(u) - u_{l} >  L_{I^{\prime}}(v) - u_{l} = L_{I^{\prime}}(v) - v_{l} = L_{I}(v) \\
-      L_{I}(u) &= L_{I^{\prime}}(u) - u_{l} \inb{  \ge  }  L_{I^{\prime}}(v) - u_{l} = L_{I^{\prime}}(v) - v_{l} = L_{I}(v) 
-    \end{split}
-  \end{equation*}
-  In contradiction to $v$ be a  (strong) local maximum of $L_{I}$. 
-\end{proof}
-
-\begin{claim}
-  A vertex $v$ can not be simultaneously both a local maximum of $L_{x}$ and a  strong  local maximum of $L_{\{x\}}$.
-\end{claim}
-\begin{proof}
-  Assume towards contradiction that there are a vertex $v$ and a coordinate $x$ such $v$ is both a strong local maximum to $L_{\{x\}}$ and a local maximum to $L_{x}$. Thus for any $u\sim v$ we have both:
-  \begin{equation*}
-    \begin{split}
-      u_{x} &> v_{x} \\
-      u_{x} & \le v_{x}
-    \end{split}
-  \end{equation*}
-  And that is a contradiction. 
-\end{proof}
-
-\begin{claim}
-  There is no a coordinates subset $I \subset [d]$, a coordinate $x \in I$, and a vertex $v$ such $v$ is both strong local maximum to $L_{\{x\}}$ and a local maximum to $L_{x}$. 
-\end{claim}
-\begin{proof}
-  Direct result of \Cref{claim:contain}.
-\end{proof}
 \inb{define a connected assignment. I field to prove it as it stated in the current version. Yet, what we can do is to prove that the correction is rooted at $v$ (and not necessarily restricted) }
 \begin{claim}
   Let $z$ be a connected assignment on the $d^{\prime}$-facet at finite size, and let $\Gamma$ be the set of vertices which are adjacent to unsatisfied checks induced by $\Gamma$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$ such that $v$ is a strong global maximum of $L_{S}$, at $\Gamma$. Then there is a rooted assignment $\tilde{z}$ at $v$ such that $z_{v} = \tilde{z}_{v}$. 
