@@ -385,7 +385,7 @@ For $x = d+1$ we have:
 Hence, any plaquette that is being flipped by $v$ lies on edges associated with $1_{j}$ such that $j \neq x$. Thus, any vertex $u$ that is added by $v$ has the form $v + \sum_{j \in [d] \setminus \{x\}} \alpha_{j}1_{j}$, where $\alpha_{j} \in \{0,1\}$ and $\sum \alpha_j \le 2$. So:
   \begin{equation*}
     \begin{split}
-      L_{x}(u) = \braket{1_{x}, v + \sum_{j \in [d]/x} \alpha_{j}1_{j}} = \braket{1_{x},v} = L_{x}(v) 
+      L_{x}(u) = \expval*{1_{x}, v + \sum_{j \in [d]/x} \alpha_{j}1_{j}} = \expval*{1_{x},v} = L_{x}(v) 
     \end{split}
   \end{equation*}
 \end{proof}
