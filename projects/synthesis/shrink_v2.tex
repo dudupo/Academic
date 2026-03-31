@@ -195,7 +195,20 @@ Moreover, since $v_{0}$ and $v_{1}$ are a plantation of $g$ in locations $\text{
 For a subset of vertices $\Gamma \subset \mathcal{G}_{n}^{d}$, a vertex $v \in \Gamma$, and a potential wall $l \colon \mathcal{G}_{n}^{d} \rightarrow \mathbb{R}$, we say that $v$ is a \textit{local maximum} of $l$ in $\Gamma$ if for any neighbor $u$ of $v$, such that $u \in \Gamma$, we have $l(v) \ge l(u)$. We say that $v$ is a strong local maximum if the inequality is strict, namely $l(v) > l(u)$. When the subset $\Gamma$ is clear from the context, we might omit it and briefly say that $v$ is a local maximum of $l$.
 
 \inb{An alternative definition:}
-Let $z$ be a connected assignment, and let $\Gamma$ be the set of vertices adjacent to unsatisfied checks induced by $z$. For a generator $g \in S$, we say that $v$ is a $g$-pole if $v \in \Gamma$ and $gv \notin \Gamma$. Furthermore, if there is a vertex $v \in \Gamma$ such that for any $g \in S$, we have $g^{-1}v \notin \Gamma$, then we say that $v$ is an infimum of $z$.
+Let $z$ be a connected assignment, and let $\Gamma$ be the set of vertices adjacent to unsatisfied checks induced by $z$. For a generator $g \in S$, we say that $v$ is a $g$-pole if $v \in \Gamma$ and $gv \notin \Gamma$. Furthermore, if there is a vertex $v \in \Gamma$ such that for any $g \in S$, we have $g^{-1}v \notin \Gamma$, then we say that $v$ is a local minimum of $z$. 
+
+Let $x_{1},..,x_{k} \subset \{\pm \}^{k}$ and let $p = \prod_{i}^{k}g_{i}^{x_{i}}v$ we say that $p$ is a forward path in $z$ if  it holds that: 
+\begin{enumerate}
+  \item Any partial product of the first $j$ elements $\prod_{i}^{j}g_{i}^{x_{i}}v$ is a vertex in $z$. 
+  \item
+For any $g \in S$, we have that the sign of the sum of the exponents of the powers of the elements in the product associated with $g$ is positive. Namely:
+    \begin{equation*}
+      \begin{split}
+        \sum_{i : g_{i} = g}x_{i} > 0
+      \end{split}
+    \end{equation*}
+\end{enumerate}
+Similarly, we say that $p$ is a backward path if the above holds, but the sign in the second condition is negative.
 \end{definition}
 
 
