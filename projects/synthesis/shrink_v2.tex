@@ -185,22 +185,6 @@ Moreover, since $v_{0}$ and $v_{1}$ are a plantation of $g$ in locations $\text{
 
 \section{Shrinking}
 
-\begin{definition}
-Let $z$ be a connected assignment, and let $\Gamma$ be the set of vertices adjacent to unsatisfied checks induced by $z$. For a generator $g \in S$, we say that $v$ is a $g$-pole if $v \in \Gamma$ and $gv \notin \Gamma$. Furthermore, if there is a vertex $v \in \Gamma$ such that for any $g \in S$, we have $g^{-1}v \notin \Gamma$, then we say that $v$ is a local minimum of $z$. 
-
-Let $x_{1},..,x_{k} \subset \{\pm \}^{k}$ and let $p = \prod_{i}^{k}g_{i}^{x_{i}}v$ we say that $p$ is a forward path in $z$ if  it holds that: 
-\begin{enumerate}
-  \item Any partial product of the first $j$ elements $\prod_{i}^{j}g_{i}^{x_{i}}v$ is a vertex in $z$. 
-  \item
-For any $g \in S$, we have that the sign of the sum of the exponents of the powers of the elements in the product associated with $g$ is positive. Namely:
-    \begin{equation*}
-      \begin{split}
-        \sum_{i : g_{i} = g}x_{i} > 0
-      \end{split}
-    \end{equation*}
-\end{enumerate}
-Similarly, we say that $p$ is a backward path if the above holds, but the sign in the second condition is either negative or zero. The infimums of $z$ are defined to be the set of vertices $U \subset z$ such that for any $u \in U$ and $v \in z$, other vertices in $z$, there is a forward path starting at $u$ and ending at $v$.
-\end{definition}
 
 \inb{ consider changing the name to something like hight lines / contour in order to hint on the similarity to topography map. In addition, the embedding inside $\mathbb{R}^{d}$ should appears before that definition. }
 \begin{definition}[Potential Walls]
@@ -334,88 +318,4 @@ So, we find that $v$ is also the maximum of $L_{d+1}$ in $z$. Therefore, we have
 \end{proof}
 
 
-\section{Alternative Proof For $d^{\prime} = 2$.}
-
-\begin{claim}
-  \label{claim:toombound}
-Let $v \in \Gamma^{t}$ for any $u$ that is added by $v$, and for any $x \in [d+1]$, we have $L_{x}(u) \le L_{x}(v) + 1$.
-\end{claim}
-\begin{proof}
-By definition, any $u$ that is added by $v$ is of the form $v + \sum \alpha_{j}1_{j}$, where $\alpha_{j} \in \{0,1\}$ and $\sum \alpha_j \le 2$. Thus, for any $x \in [d]$:
-  \begin{equation*}
-    \begin{split}
-      L_{x}(u) = \expval*{1_{x}, v + \sum \alpha_{j}1_{j}} = \expval*{1_{x},v} +\alpha_{x} \le L_{x}(v) + 1 
-    \end{split}
-  \end{equation*}
-For $x = d+1$ we have: 
-  \begin{equation*}
-    \begin{split}
-      L_{x}(u) = \expval*{-\mathbf{1}, v + \sum \alpha_{j}1_{j}} = \expval*{-\mathbf{1},v} - \sum_{j}\alpha_{j} \le L_{x}(v) 
-    \end{split}
-  \end{equation*}
-\end{proof}
-\begin{claim}
-  \label{claim:toomb}
-  Let $v \in \Gamma^{t}$ such that $L_{d+1}(v)$ is a (local) maxima in $\Gamma^{t}$ then for any $u$ which is added by $v$ we have $L_{d+1}(u) \le L_{d+1}(v) - 1$. 
-\end{claim}
-\begin{proof}
-  We will prove that $v \notin \Gamma^{t+1}$, and then by repeating on \cref{claim:toombound} where $\sum{\alpha_{j}} \ge 1$, we get the desired result. Assume, toward contradiction, that $v \in \Gamma^{t+1}$, and denote by $w$ the vertex that adds $v$. If $w \neq v$, then there is at least one coordinate $i$ for which $w_{i} < v_{i}$, thus $L_{d+1}(w) > L_{d+1}(v)$, in contradiction to $L_{d+1}(v)$ being a maximum in $\Gamma^{t}$. In the other case, where $v$ adds itself, it follows that $\sigma_{v}$ can't be decomposed into pairs of unsatisfied checks; namely, $|\sigma_{v}|$ is odd. We show by induction that impossible,namely that $|\sigma_{v}|$ is always even. The induction is over the size of the plaquettes subset that induce the boundary $\sigma$.
-  \begin{enumerate}
-    \item Base. Consider a boundary that induced by a single plaquette, in that case it obvious that  $|\sigma_{v}|$ is either zero (where $v$ is not belong to the plaquette) or $2$. 
-    \item Assume for any boundary that induced by at most $k$ plaquettes, and consider a boundary $\sigma$ which is induced by $k+1$ plaquettes, name this subset $F$ and observes that $F$ can be decomposed to a sum of two disjoint subsets $A$ and $B$, each with less than $k+1$ plaquettes, Now: 
-      \begin{equation*}
-        \begin{split}
-          \sigma_{v} &= \left(\partial A \right)_{v} \cup \left(\partial B \right)_{v} \\
-          \Rightarrow |\sigma_{v}| &=   | \left(\partial A \right)_{v} | + | \left(\partial B \right)_{v} | - 2 |\left(\partial A \right)_{v} \cap \left(\partial B \right)_{v}|  = \text{even} 
-        \end{split}
-      \end{equation*}
-      Where we used the induction assumption, which tells that $| \left(\partial A \right)_{v} |$ and $| \left(\partial B \right)_{v} |$ are even numbers.
-  \end{enumerate}
-
-
-\end{proof}
-
-\begin{claim}
-  \label{claim:toomc}
-  Let $x \in [d]$ and let $v \in \Gamma^{t}$ such that $L_{x}(v)$ is a (local) maxima in $\Gamma^{t}$ then for any $u$ which is added by $v$ we have $L_{x}(u) \le L_{x}(v)$. 
-\end{claim}
-
-\begin{proof}
-  Since $L_{x}(v)$ is maximal, $v$ doesn't see edges that goes from it at the positive $x$-direction, otherwise denote it by $e$ and denote by $w$ the second vertex at the end of $e$, $w$ has an $x$-coordinate which is greater than $v$'s $x$-coordinate by $1$ and in addition $w \in \Gamma^{t}$ (since it lays on the support of $e$). Therefore $L_{x}(w) > L_{x}(v)$ in contradiction to $L_{x}(v)$ be maximal in $\Gamma^{t}$. 
-Hence, any plaquette that is being flipped by $v$ lies on edges associated with $1_{j}$ such that $j \neq x$. Thus, any vertex $u$ that is added by $v$ has the form $v + \sum_{j \in [d] \setminus \{x\}} \alpha_{j}1_{j}$, where $\alpha_{j} \in \{0,1\}$ and $\sum \alpha_j \le 2$. So:
-  \begin{equation*}
-    \begin{split}
-      L_{x}(u) = \expval*{1_{x}, v + \sum_{j \in [d]/x} \alpha_{j}1_{j}} = \expval*{1_{x},v} = L_{x}(v) 
-    \end{split}
-  \end{equation*}
-\end{proof}
-
-\begin{claim}
-  \label{claim:total_shrinking}
-Let $\Gamma^{t}$ be the vertices in the support of the domain wall $\sigma^{t}$. Denote $v_i = \arg \max_{v \in \Gamma^{t}} L_{i}(v)$. Then for any $i \in [d]$, one can find $u \in \Gamma^{t-1}$ such that $u$ adds $v_i$ and $L_{i}(u) \ge L_{i}(v_{i})$. In addition, one can find $u_{d+1} \in \Gamma^{t-1}$ such that $u_{d+1}$ adds $v_{d+1}$ and $L_{d+1}(u_{d+1}) = L_{d+1}(v_{d+1}) + 1$. 
-\end{claim}
-\begin{proof}
-Just take $u_{i}$ to be any vertex that adds $v_{i}$. By claims \cref{claim:toombound}, \cref{claim:toomb}, and \cref{claim:toomc}, we get the claim.
-\end{proof}
-
-\ctt{$V(\phi_{v})$ was not defined. $v \le w$ also not defined.} 
-
-
-\begin{definition}[$\sigma_{1}$ Precedes $\sigma_{0}$]
-We say that $\sigma_{1}$ precedes $\sigma_{0}$ if, for any $v \in \sigma_{1}$, it holds that $\phi(v) \subset \sigma_{0}$.
-\end{definition}
-\begin{definition}[Explanation.]
-Let $\sigma_{0}$ be a boundary at time $t$, and let $\sigma_{1}, \ldots, \sigma_{k}$ be boundaries at time $t-1$, such that for $i \in [k]$, it holds that $\sigma_{i}$ precedes $\sigma_{0}$. Then the explanation for $\sigma_{0}$ is the subgraph induced by the vertices of $\sigma_{0}, \sigma_{1}, \ldots, \sigma_{k}$, the edges $\{u,v\} \in \sigma_{i}$, and the arrows $\{v,u\}$ for $v \in \cup\sigma_{i}$ and $u \in \phi(v)$.
-\end{definition}
-\inb{ The number of edges above is not lineary bounded by the leaves. Yet it also seems not minimal. So what we would like to do is to keep the poles, then to connect the islands by fork. So what is it a fork? } 
-
-\begin{definition}[Fork]
-Let $u, v$ be such that $u \in \sigma_{1}$ and $v \in \sigma_{2} \neq \sigma_{1}$. If there exist $w \in \phi(v)$ and $z \in \phi(u)$ such that $\{w, z\} \in \mathcal{F}_{1}$, then there is a fork between $v$ and $u$.
-\end{definition}
-\begin{proof}
-  Idea: Suppose not, then $\sigma_{0} = \phi(\sigma_{1}) \cup \phi(\sigma_{2}) $ is not connected.  
-\end{proof}
-\begin{claim}
-Assume that $\sigma_{1}, \sigma_{2} \rightarrow \sigma_{0}$, then there is a fork between $\sigma_{1}$ and $\sigma_{2}$. So if we keep to extent the history in a recursive manner, then we get a connected graph.
-\end{claim}
 
