@@ -324,10 +324,12 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
       z = \sum_{i=1}^{k}\theta_{v_{i},S^{\prime}_{i}}
     \end{split}
   \end{equation*}
-  Since $z$ is finate, there it has maximum for $L_{d+1}$, denote by $u$ the vertex that gets the maximum, and denote by $\theta_{u,J_{1}}, .., \theta_{u,J_{l}}$ the $d$-faces in $\Theta$ that are rooted at $u$. 
+  Furthermore, let us assume without lost of generality that no subset of $\theta_{v_{1},S^{\prime}_{1}},..,\theta_{v_{k},S^{\prime}_{k}}$ is linearly dependent.
+  
+Since $z$ is finite, it has a maximum for $L_{d+1}$. Denote by $u$ the vertex that gets the maximum, and denote by $\theta_{u,J_{1}}, \ldots, \theta_{u,J_{l}}$ the $d$-faces in $\Theta$ that are rooted at $u$.
 We claim that $u = v$. Suppose not, namely $u \notin \Gamma$. Then it means that any $d-1$ face containing $u$ is satisfied. Observe that $\sum \theta_{u,J_{i}} \neq 0$; otherwise, it would contradict the non-independence. So, consider a $d-1$ face rooted at $u$, contained in $\sum \theta_{u,J_{i}}$, denote it by $\theta_{u,J^{\prime}}$. We know for sure that there is such a face since a non-trivial assignment rooted at a vertex induces a boundary, \ctt{get the help of algebraic topology}. Since $\theta_{u,J^{\prime}}$ is satisfied, it has to be adjacent to a turned bit, namely a $d$ face in $z$, not in $\theta_{u,J_{1}}, \ldots, \theta_{u,J_{l}}$. Denote that $d$ face by $f$. Yet, since $\theta_{u,J^{\prime}}$ is rooted at $u$, it contains $u$, and therefore $f$ contains $u$. Now, if $f$ is rooted at $u$, then it is a contradiction that $\theta_{u,J_{1}}, \ldots, \theta_{u,J_{l}}$ are all the $d^{\prime}$ faces in $z$ rooted at $u$. If $f$ is not rooted at $u$, denote its root by $w$, so there is $g \in S$ such that $gw = u$, and $w \in z$, in contradiction to $u$ being maximum for $L_{d+1}$.
 
-  Furthermore, let us assume without lost of generality that no subset of $\theta_{v_{1},S^{\prime}_{1}},..,\theta_{v_{k},S^{\prime}_{k}}$ is linearly dependent. For $j \in [k]$, denote by $z_{j}$, the partial sum of the first $j$ elements, namely: 
+ For $j \in [k]$, denote by $z_{j}$, the partial sum of the first $j$ elements, namely: 
   \begin{equation*}
     \begin{split}
       z_{j} = \sum_{i=1}^{j}\theta_{v_{i},S^{\prime}_{i}}
