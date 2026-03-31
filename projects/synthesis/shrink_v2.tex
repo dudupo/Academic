@@ -52,6 +52,31 @@ Let $C = \{u_{i}\}$ be a quantum circuit, and let $\mathcal{U} = \{u^{\prime}_{i
 
 %We say that an edge $e$ can be the prev of $e^{\prime}$ if they both share a placket, $e$ is a positive edge relative to the placket while $e^{\prime}$ is negative relative to it. 
 
+
+\begin{definition}[Rooted Assignment at $v$]
+Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S_{1}, \ldots, S_{k} \subset S^{\times k}$ such that $z$ can be decomposed as:
+  \begin{equation*}
+    \begin{split}
+      z = \sum_{i}^{k}\theta_{v,S^{\prime}_{i}}
+    \end{split}
+  \end{equation*}
+  Put differently, $z$ is the result of taking a collection of $d^{\prime}$-facets that are rooted at $v$.
+\end{definition}
+
+\begin{definition}[Sweep Rule]
+  Let $z$ be an assignment over the $d^\prime$-facets, The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$ defining as follow: 
+  \begin{enumerate}
+    \item Check if there is a rooted assignment $\tilde{z}$ at $v$ such that $\tilde{z}_{v} = z_{v}$. If there is, then flip $z$.
+  \end{enumerate}
+\end{definition}
+
+\begin{claim}
+  The local gates performing Toom's rule are decoding gadgets. 
+\end{claim}
+\begin{proof}
+  \inb{prove that.}
+\end{proof}
+
 \section{Infinite Torics}
 
 \begin{definition}[Registers Coordinates System]
@@ -197,21 +222,6 @@ For a subset of vertices $\Gamma \subset \mathcal{G}_{n}^{d}$, a vertex $v \in \
 
 \end{definition}
 
-
-\begin{definition}[Rooted and Restricted Assignment]
-Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S_{1}, \ldots, S_{k} \subset S^{\times k}$ such that $z$ can be decomposed as:
-  \begin{equation*}
-    \begin{split}
-      z = \sum_{i}^{k}\theta_{v,S^{\prime}_{i}}
-    \end{split}
-  \end{equation*}
-  Put differently, $z$ is the result of taking a collection of $d^{\prime}$-facets that are rooted at $v$. In addition, for a set of coordinates $I \subset S$, we say that $z$ is a \textit{restricted assignment} if for any $i \in k$, it holds that $S_{i} \subset I$.
-\end{definition}
-
-\inb{ 
-  The definition beneath induces a cyclic definition, since the $L_I$ is defined only for the infinite toric. We should fix it. 
-} 
-
 \inb{define a connected assignment. I field to prove it as it stated in the current version. Yet, what we can do is to prove that the correction is rooted at $v$ (and not necessarily restricted). 
 Enter the decomposition form as definition. }
 
@@ -234,25 +244,6 @@ Enter the decomposition form as definition. }
 \end{proof}
 
 
-\begin{definition}[Sweep Rule]
-  Let $z$ be an assignment over the $d^\prime$-facets, and denote by $\Gamma$ the set of vertices that are adjacent to unsatisfied checks induced by $z$. The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$ defining as follow: 
-  \begin{enumerate}
-    %\item First, look for the maximal size coordinate subset $I \subset [d]$ such that $L_{I}$ is a strong local maximum of $L_{I}$ in $\Gamma$.
-    \item Check if there is a rooted assignment $\tilde{z}$ at $v$ such that $\tilde{z}_{v} = z_{v}$. If there is, then flip $z$.
-  \end{enumerate}
-  %We generalize Toom's rule in the following manner: First we measure the $X$-syndrom, Then each for each $d^{\prime}$-facet $f \in \mathcal{F}_{d^{\prime}}$, we ask if all of its positive edges are unsatisfied . If so, then the we flip the (q)bit associate with $f$. For convenience, we will think of the vertex for which $f$ is rooted at, as the vertex which makes the decision and flips the (q)bit.   
-\end{definition}
-
-\begin{definition}
-We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of applying the Toom's rule at time $t$, and by $\phi_{v}$ the bits which are flipped by vertex $v$. We say that $u$ is added to $\Gamma^{t+1}$ by $v$ at time $t$, if $u\in \Gamma^{t+1}$ and $u \in V(\phi_{v})$. When it clear from the context, we will omit the time, and say that $u$ is added by $v$. 
-\end{definition}
-
-\begin{claim}
-  The local gates performing Toom's rule are decoding gadgets. 
-\end{claim}
-\begin{proof}
-  \inb{prove that.}
-\end{proof}
 
 \begin{claim}\label{claim:extermal}
 Suppose that $d^{\prime} > 1$ and a vertex $v \in \mathcal{G}^{d}_{\infty}$ is also adjacent to the domain wall, namely $v \in \Gamma$. It holds that $v$ cannot be simultaneously both a (strong) local max of $L_{d+1}$ and a local min of $L_{d+1}$.
