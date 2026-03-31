@@ -185,16 +185,7 @@ Moreover, since $v_{0}$ and $v_{1}$ are a plantation of $g$ in locations $\text{
 
 \section{Shrinking}
 
-\inb{ consider changing the name to something like hight lines / contour in order to hint on the similarity to topography map. In addition, the embedding inside $\mathbb{R}^{d}$ should appears before that definition.  }
-\begin{definition}[Potential Walls]
-  We define the potential walls to be a functions collection from the vertices of $\mathcal{G}_{n}^{d}$ to the reals as follow:
-  \begin{enumerate}
-    \item For any coordinate $i \in [d]$, we define $L_{i} \colon \mathcal{G}_{n}^{d} \rightarrow \mathbb{R}$ to act as $L_{i}(v) = v_{i}$.
-    \item For any subset of coordinates $I \subset [d]$ we define $L_{I} \colon  \mathcal{G}_{n}^{d} \rightarrow \mathbb{R}$ to act as $L_{I}(v) = -\sum_{i \in I}v_{i}$. 
-  \end{enumerate}
-For a subset of vertices $\Gamma \subset \mathcal{G}_{n}^{d}$, a vertex $v \in \Gamma$, and a potential wall $l \colon \mathcal{G}_{n}^{d} \rightarrow \mathbb{R}$, we say that $v$ is a \textit{local maximum} of $l$ in $\Gamma$ if for any neighbor $u$ of $v$, such that $u \in \Gamma$, we have $l(v) \ge l(u)$. We say that $v$ is a strong local maximum if the inequality is strict, namely $l(v) > l(u)$. When the subset $\Gamma$ is clear from the context, we might omit it and briefly say that $v$ is a local maximum of $l$.
-
-\inb{An alternative definition:}
+\begin{definition}
 Let $z$ be a connected assignment, and let $\Gamma$ be the set of vertices adjacent to unsatisfied checks induced by $z$. For a generator $g \in S$, we say that $v$ is a $g$-pole if $v \in \Gamma$ and $gv \notin \Gamma$. Furthermore, if there is a vertex $v \in \Gamma$ such that for any $g \in S$, we have $g^{-1}v \notin \Gamma$, then we say that $v$ is a local minimum of $z$. 
 
 Let $x_{1},..,x_{k} \subset \{\pm \}^{k}$ and let $p = \prod_{i}^{k}g_{i}^{x_{i}}v$ we say that $p$ is a forward path in $z$ if  it holds that: 
@@ -211,6 +202,17 @@ For any $g \in S$, we have that the sign of the sum of the exponents of the powe
 Similarly, we say that $p$ is a backward path if the above holds, but the sign in the second condition is either negative or zero. The infimums of $z$ are defined to be the set of vertices $U \subset z$ such that for any $u \in U$ and $v \in z$, other vertices in $z$, there is a forward path starting at $u$ and ending at $v$.
 \end{definition}
 
+\inb{ consider changing the name to something like hight lines / contour in order to hint on the similarity to topography map. In addition, the embedding inside $\mathbb{R}^{d}$ should appears before that definition. }
+\begin{definition}[Potential Walls]
+  We define the potential walls to be a functions collection from the vertices of $\mathcal{G}_{n}^{d}$ to the reals as follow:
+  \begin{enumerate}
+    \item For any coordinate $i \in [d]$, we define $L_{i} \colon \mathcal{G}_{n}^{d} \rightarrow \mathbb{R}$ to act as $L_{i}(v) = v_{i}$.
+    \item For any subset of coordinates $I \subset [d]$ we define $L_{I} \colon  \mathcal{G}_{n}^{d} \rightarrow \mathbb{R}$ to act as $L_{I}(v) = -\sum_{i \in I}v_{i}$. 
+  \end{enumerate}
+For a subset of vertices $\Gamma \subset \mathcal{G}_{n}^{d}$, a vertex $v \in \Gamma$, and a potential wall $l \colon \mathcal{G}_{n}^{d} \rightarrow \mathbb{R}$, we say that $v$ is a \textit{local maximum} of $l$ in $\Gamma$ if for any neighbor $u$ of $v$, such that $u \in \Gamma$, we have $l(v) \ge l(u)$. We say that $v$ is a strong local maximum if the inequality is strict, namely $l(v) > l(u)$. When the subset $\Gamma$ is clear from the context, we might omit it and briefly say that $v$ is a local maximum of $l$.
+
+\end{definition}
+
 
 \begin{definition}[Rooted and Restricted Assignment]
 Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S_{1}, \ldots, S_{k} \subset S^{\times k}$ such that $z$ can be decomposed as:
@@ -225,6 +227,27 @@ Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v \in 
 \inb{ 
   The definition beneath induces a cyclic definition, since the $L_I$ is defined only for the infinite toric. We should fix it. 
 } 
+
+\inb{define a connected assignment. I field to prove it as it stated in the current version. Yet, what we can do is to prove that the correction is rooted at $v$ (and not necessarily restricted). 
+Enter the decomposition form as definition. }
+
+\begin{definition}[Decomposition Form]
+   Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let $\theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the collection of $d$-facets forms $z$, namely:  
+  \begin{equation*}
+    \begin{split}
+      z = \sum_{i=1}^{k}\theta_{v_{i},S^{\prime}_{i}}
+    \end{split}
+  \end{equation*}
+\end{definition}
+
+
+\begin{claim}
+  Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let the collection $\Theta = \theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the decomposition forms $z$. Denote by $\Gamma$ the set of vertices adjacent to unsatisfied check induced by $z$. Then $\Theta$ is acyclic, if and only if $z$ has at least one Infimum. 
+\end{claim}
+\begin{proof}
+  
+\end{proof}
+
 
 \begin{definition}[Sweep Rule]
   Let $z$ be an assignment over the $d^\prime$-facets, and denote by $\Gamma$ the set of vertices that are adjacent to unsatisfied checks induced by $z$. The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$ defining as follow: 
@@ -290,25 +313,6 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
 \begin{definition}[Reduced subset with boundrey at $v$]
   
 \end{definition}
-\inb{define a connected assignment. I field to prove it as it stated in the current version. Yet, what we can do is to prove that the correction is rooted at $v$ (and not necessarily restricted). 
-Enter the decomposition form as definition. }
-
-\begin{definition}[Decomposition Form]
-   Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let $\theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the collection of $d$-facets forms $z$, namely:  
-  \begin{equation*}
-    \begin{split}
-      z = \sum_{i=1}^{k}\theta_{v_{i},S^{\prime}_{i}}
-    \end{split}
-  \end{equation*}
-\end{definition}
-
-
-\begin{claim}
-  Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let the collection $\Theta = \theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the decomposition forms $z$. Denote by $\Gamma$ the set of vertices adjacent to unsatisfied check induced by $z$. Suppose that $\Theta$ is acyclic, then $z$ has an Infimum. 
-\end{claim}
-\begin{proof}
-  
-\end{proof}
 \begin{claim}
   Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let $\Gamma$ be the set of vertices which are adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$ such that $v$ is a strong global maximum of $L_{d+1}$, at $\Gamma$. Then there is a rooted assignment $\tilde{z}$ at $v$ such that $z_{v} = \tilde{z}_{v}$. 
 \end{claim}
