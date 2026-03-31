@@ -194,6 +194,8 @@ Moreover, since $v_{0}$ and $v_{1}$ are a plantation of $g$ in locations $\text{
   \end{enumerate}
 For a subset of vertices $\Gamma \subset \mathcal{G}_{n}^{d}$, a vertex $v \in \Gamma$, and a potential wall $l \colon \mathcal{G}_{n}^{d} \rightarrow \mathbb{R}$, we say that $v$ is a \textit{local maximum} of $l$ in $\Gamma$ if for any neighbor $u$ of $v$, such that $u \in \Gamma$, we have $l(v) \ge l(u)$. We say that $v$ is a strong local maximum if the inequality is strict, namely $l(v) > l(u)$. When the subset $\Gamma$ is clear from the context, we might omit it and briefly say that $v$ is a local maximum of $l$.
 
+\inb{An alternative definition:}
+Let $z$ be a connected assignment, and let $\Gamma$ be the set of vertices adjacent to unsatisfied checks induced by $z$. For a generator $g \in S$, we say that $v$ is a $g$-pole if $v \in \Gamma$ and $gv \notin \Gamma$. Furthermore, if there is a vertex $v \in \Gamma$ such that for any $g \in S$, we have $g^{-1}v \notin \Gamma$, then we say that $v$ is an infimum of $z$.
 \end{definition}
 
 
@@ -298,7 +300,7 @@ Enter the decomposition form as definition. }
   Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let $\Gamma$ be the set of vertices which are adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$ such that $v$ is a strong global maximum of $L_{d+1}$, at $\Gamma$. Then there is a rooted assignment $\tilde{z}$ at $v$ such that $z_{v} = \tilde{z}_{v}$. 
 \end{claim}
 \begin{proof}
-  Let $\theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the collection of $d$-facets forms $z$, namely:  
+  Let $ \Theta = \theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the decomposition forms $z$, namely:  
   \begin{equation*}
     \begin{split}
       z = \sum_{i=1}^{k}\theta_{v_{i},S^{\prime}_{i}}
