@@ -54,13 +54,23 @@ Let $C = \{u_{i}\}$ be a quantum circuit, and let $\mathcal{U} = \{u^{\prime}_{i
 
 
 \begin{definition}[Rooted Assignment at $v$]
-Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S_{1}, \ldots, S_{k} \subset S^{\times k}$ such that $z$ can be decomposed as:
+  Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S^{\prime}_{1}, \ldots, S^{\prime}_{k} \subset S^{\times k}$ such that $z$ can be decomposed as:
   \begin{equation*}
     \begin{split}
       z = \sum_{i}^{k}\theta_{v,S^{\prime}_{i}}
     \end{split}
   \end{equation*}
   Put differently, $z$ is the result of taking a collection of $d^{\prime}$-facets that are rooted at $v$.
+\end{definition}
+
+\begin{definition}[Front View at $v$]
+Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v$. We define the \textit{front view at} $v$ to be all the unsatisfied checks rooted at $v$. We denote it by $z_{v}$.
+
+\begin{equation*}
+  \begin{split}
+    z_{v} & =  \sum_{ \substack{\phi \partial z \\ \phi \in r(v) } }  \phi
+  \end{split}
+\end{equation*}
 \end{definition}
 
 \begin{definition}[Sweep Rule]
@@ -264,6 +274,12 @@ Thus, there is a subset of generators $S^{\prime} \subset S$, of size $d^{\prime
   That claim alone gives a decoder in the clean setting. Write a remark indicating that when $d^\prime = 1$, meaning qubits are on the edges (2D toric), the claim is not true.
 }
 \end{remark}
+
+\inb{
+  What we want is that if a bit contains both $v, gv$ then there will be a check that contains both $v, gv$, that is true if $d^{\prime}  > 1$, then it means that we can earse from the bit a vertex which it is not $gv$. 
+
+}
+
 
 
 \begin{claim}
