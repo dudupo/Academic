@@ -35,7 +35,8 @@ Let $\mathcal{T}$ be a $d$-dimensional complex. Each of its $i$-face sets natura
     \begin{split}
     \left\{ \theta_{v,S^{\prime}} : v \in \mathcal{F}_{0}, S^{\prime} \subset S \text{ s.t } |S^{^\prime}| = i  \right\}
     \end{split}
-  \end{equation*} is a base to $\mathbb{F}_{2}^{|\mathcal{F}_{i}|}$. For $i > 0$, we define the linear map $\partial: \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i-1}|}$ such that
+  \end{equation*} is a base to $\mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ \inb{ Not exactly base, they are linear dependent}.
+  For $i > 0$, we define the linear map $\partial: \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i-1}|}$ such that
   \begin{equation*}
     \begin{split}
       \partial \theta_{v,S^{\prime}} = \sum_{g \in S^{\prime}} \theta_{v, S^{\prime}/g} + \sum_{g \in S^{\prime}} \theta_{gv, S^{\prime}/g} 
@@ -61,7 +62,7 @@ Let $\mathcal{T}$ be a $d$-dimensional complex. Each of its $i$-face sets natura
       \end{cases}
     \end{split}
   \end{equation*}
-
+We say that an assignment $z$ is connected if the graph is induced by taking the faces that support $z$ as vertices and defining the edges to be the adjacency relation.
 \end{definition}
 
 \textit{$d$-dimensional plaquettes toric complex} 
