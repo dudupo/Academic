@@ -295,6 +295,11 @@ Let $z$ be an assignment, and let $\Gamma$ be the set of vertices adjacent to un
 Assume, through contradiction, the existence of an unsatisfied check associated with a $d^{\prime}-1$ positive face rooted at $v$, which contains $gv$. This implies $gv \in \Gamma$, contradicting \Cref{claim:localmax}.
 \end{proof}
 
+\begin{claim} \label{claim:syn_edge}
+Suppose $v \in z$ and for any $g \in S$, we have $g^{-1}v \notin z$, then there is $\rotf{v,J} \in \partial z$.
+\end{claim}
+
+
 \begin{claim}
   Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let $\Gamma$ be the set of vertices which are adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$ such that $v$ is a strong global maximum of $L_{d+1}$, at $\Gamma$. Then there is a rooted assignment $\tilde{z}$ at $v$ such that $z_{v} = \tilde{z}_{v}$. 
 \end{claim}
@@ -310,7 +315,9 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
   Since $z$ is finite, it has a maximum for $L_{d+1}$. Denote by $u$ the vertex that gets the maximum, and denote by $\theta_{u,J_{1}}, \ldots, \theta_{u,J_{l}}$ the $d^{\prime}$-faces in $\Theta$ that are rooted at $u$.
 We claim that $u = v$.
 
-Suppose not, namely $u \notin \Gamma$. Then it means that any $d^{\prime}-1$ face containing $u$ is satisfied. Observe that $\sum \theta_{u,J_{i}} \neq 0$; otherwise, it would contradict the non-independence. So, consider a $d^{\prime}-1$ face rooted at $u$, contained in $\sum \theta_{u,J_{i}}$, denote it by $\theta_{u,J^{\prime}}$. We know for sure that there is such a face since a non-trivial assignment rooted at a vertex induces a boundary, \ctt{get the help of algebraic topology}. Since $\theta_{u,J^{\prime}}$ is satisfied, it has to be adjacent to a turned bit, namely a $d^{\prime}$ face in $z$, not in $\theta_{u,J_{1}}, \ldots, \theta_{u,J_{l}}$. Denote that $d^{\prime}$ face by $f$. Yet, since $\theta_{u,J^{\prime}}$ is rooted at $u$, it contains $u$, and therefore $f$ contains $u$. Now, if $f$ is rooted at $u$, then it is a contradiction that $\theta_{u,J_{1}}, \ldots, \theta_{u,J_{l}}$ are all the $d^{\prime}$ faces in $z$ rooted at $u$. If $f$ is not rooted at $u$, denote its root by $w$, so there is $g \in S$ such that $gw = u$, and $w \in z$, in contradiction to $u$ being maximum for $L_{d+1}$.
+Suppose not, namely $u \notin \Gamma$. Then it means that any $d^{\prime}-1$ face containing $u$ is satisfied. Observe that $\sum \theta_{u,J_{i}} \neq 0$; otherwise, it would contradict the non-independence. So, by \Cref{claim:syn_edge} there exists a $d^{\prime}-1$ face rooted at $u$, contained in $\sum \theta_{u,J_{i}}$, denote it by $\theta_{u,J^{\prime}}$.
+
+Since $\theta_{u,J^{\prime}}$ is satisfied, it has to be adjacent to a turned bit, namely a $d^{\prime}$ face in $z$, not in $\theta_{u,J_{1}}, \ldots, \theta_{u,J_{l}}$. Denote that $d^{\prime}$ face by $f$. Yet, since $\theta_{u,J^{\prime}}$ is rooted at $u$, it contains $u$, and therefore $f$ contains $u$. Now, if $f$ is rooted at $u$, then it is a contradiction that $\theta_{u,J_{1}}, \ldots, \theta_{u,J_{l}}$ are all the $d^{\prime}$ faces in $z$ rooted at $u$. If $f$ is not rooted at $u$, denote its root by $w$, so there is $g \in S$ such that $gw = u$, and $w \in z$, in contradiction to $u$ being maximum for $L_{d+1}$.
 
 
 So, we find that $v$ is also the maximum of $L_{d+1}$ in $z$. Therefore, we have that $\tilde{z} = \sum \theta_{u, J_{i}}$ zeros out $z_{v}$.
