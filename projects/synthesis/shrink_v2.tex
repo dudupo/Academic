@@ -62,10 +62,16 @@ We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $
       \end{cases}
     \end{split}
   \end{equation*}
-We say that an assignment $z$ is connected if the graph that is induced by taking the faces that support $z$ as vertices and defining the edges to be the adjacency relation between them is connected. We define the connected components of $z$ to be its subsets such that each of them is a connected assignment. For a $j$-face $f$, we say that $f \in z$ if $z$ has a support on $\rotfvs{}$ such that $f \in \rotfs{}$.
+  We say that an assignment $z$ is \textit{connected} if the graph that is induced by taking the faces that support $z$ as vertices and defining the edges to be the adjacency relation between them is connected. We define the connected components of $z$ to be its subsets such that each of them is a connected assignment. For a $j$-face $f$, we say that $f \in z$ if $z$ has a support on $\rotfvs{}$ such that $f \in \rotfs{}$. Consider an assignment $z \in \mathbb{F}_{2}^{\mathcal{F}_{i}}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S^{\prime}_{1}, \ldots, S^{\prime}_{k} \subset S^{\times k}$ such that each of $S^{\prime}_{j}$ is at size $i$ and $z$ can be decomposed as:
+  \begin{equation*}
+    \begin{split}
+    z = \sum_{j}^{k}\rotfv{v}{S^{\prime}_{j}}
+    \end{split}
+  \end{equation*}
+  Put differently, $z$ is the result of taking a collection of $i$-faces that are rooted at $v$.
 \end{definition}
 
-\textit{$d$-dimensional plaquettes toric complex} 
+
 \inb{Need to decide on what should I elaborate, for example should I provide a proof for the distance and the rate of the code? }\cite{Dennis_2002}
 \begin{definition}[$(d,d^{\prime})$ Toric Code] 
   Let $d, d^{\prime}$ be integers such that $1 < d^{\prime} < d$. For any integer $n$, we construct the $n$th instance of the quantum code family $(d,d^{\prime})$ \textit{Toric Code} as follows: Let $G = (\mathcal{F}_{0}, \ldots, \mathcal{F}_{d})$ be the $d$-dimensional toric complex obtained from $\mathcal{G}_{n}^{d}$ as defined in \Cref{def:toric_complex}. We associate the (q)bits with the $\mathcal{F}_{d^{\prime}}$, the $X$-checks with the $\mathcal{F}_{d^{\prime}-1}$, and the $Z$-checks with the $\mathcal{F}_{d^{\prime}+1}$. An $X$-check, $c_{x}$, is satisfied if the parity of (q)bits set on the $d^{\prime}$-face containing $c_{x}$ is even. Similarly, a $Z$-check, $c_{z}$, is satisfied if the parity, in the Hadamard basis, of the (q)bits set on the $d^{\prime}$-faces contained in $c_{z}$ is even.
@@ -85,31 +91,6 @@ We say that an assignment $z$ is connected if the graph that is induced by takin
 Let $C = \{u_{i}\}$ be a quantum circuit, and let $\mathcal{U} = \{u^{\prime}_{i}\} \subset C$ be a subset of the gates in $C$ that are decoding gadgets. For a set of faults $\mathcal{E}$, we define the \textit{unitary decoding representation} of $C[\mathcal{E}]$ to be the quantum circuit obtained by replacing each of the gates in $\mathcal{U}$ with their corresponding Pauli gate according to $\mathcal{E}$.
 \end{definition}
 
-
-%Consider an embedding of the $d$ Toric into $\mathbb{R}^{d}$, the coordinate of an edge is the mean of its ends.  
-
-%We say that an edge $e$ can be the prev of $e^{\prime}$ if they both share a placket, $e$ is a positive edge relative to the placket while $e^{\prime}$ is negative relative to it. 
-
-
-\begin{definition}[Rooted Assignment at $v$]
-  Consider a subset of $d$-faces $z \subset \mathcal{F}_{d}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S^{\prime}_{1}, \ldots, S^{\prime}_{k} \subset S^{\times k}$ such that $z$ can be decomposed as:
-  \begin{equation*}
-    \begin{split}
-      z = \sum_{i}^{k}\theta_{v,S^{\prime}_{i}}
-    \end{split}
-  \end{equation*}
-  Put differently, $z$ is the result of taking a collection of $d^{\prime}$-faces that are rooted at $v$.
-\end{definition}
-
-\begin{definition}[Front View at $v$]
-Consider a subset of $d$-faces $z \subset \mathcal{F}_{d}$ and a vertex $v$. We define the \textit{front view at} $v$ to be all the unsatisfied checks rooted at $v$. We denote it by $z_{v}$.
-
-\begin{equation*}
-  \begin{split}
-    z_{v} & =  \sum_{ \substack{\phi \in \partial z \\ \phi \in r(v) } }  \phi
-  \end{split}
-\end{equation*}
-\end{definition}
 
 \begin{definition}[Sweep Rule]
   Let $z$ be an assignment over the $d^\prime$-faces, The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$ defining as follow: 
