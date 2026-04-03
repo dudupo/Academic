@@ -39,15 +39,15 @@ We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $
   For $i > 0$, we define the linear map $\partial: \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i-1}|}$ such that
   \begin{equation*}
     \begin{split}
-      \partial \theta_{v,S^{\prime}} = \sum_{g \in S^{\prime}} \theta_{v, S^{\prime}/g} + \sum_{g \in S^{\prime}} \theta_{gv, S^{\prime}/g} 
+    \partial \rotfvs{} = \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} + \sum_{g \in S^{\prime}} \rotfv{gv}{S^{\prime}/g} 
     \end{split}
   \end{equation*}
   We define the \textit{restriction of $z$ to a vertex $v$} to be the linear map $\mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ such that: 
   \begin{equation*}
     \begin{split}
-      \theta_{u,S^{\prime}} \mapsto    
+    \rotfv{u}{S^{\prime}} \mapsto    
       \begin{cases}
-       \theta_{u,S^{\prime}}  & v \in \theta_{u,S^{\prime}}  \\ 
+      \rotfv{u}{S^{\prime}}  & v \in \theta_{u,S^{\prime}}  \\ 
         0 & \text{ else }
       \end{cases}
     \end{split}
@@ -55,9 +55,9 @@ We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $
   We define the \textit{front of $z$ to a vertex $v$} to be the linear map $\mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ such that: 
   \begin{equation*}
     \begin{split}
-      \theta_{u,S^{\prime}} \mapsto    
+    \rotfv{u}{S^{\prime}} \mapsto    
       \begin{cases}
-       \theta_{u,S^{\prime}}  & u = v \\ 
+      \rotfv{u}{S^{\prime}}  & u = v \\ 
         0 & \text{ else }
       \end{cases}
     \end{split}
