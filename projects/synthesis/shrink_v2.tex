@@ -35,7 +35,13 @@ We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $
     \begin{split}
       \left\{ \rotfvs{} : v \in \mathcal{F}_{0}, S^{\prime} \subset S \text{ s.t } |S^{^\prime}| = i  \right\}
     \end{split}
-  \end{equation*} is a base to $\mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ \inb{ Not exactly base, they are linear dependent}.
+  \end{equation*} is a base to $\mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ \inb{ Not exactly base, they are linear dependent}. Let $z$ be an assignment on the $d^{\prime}$-faces at finite size, and let $\theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the collection of $d$-faces forms $z$, namely:  
+  \begin{equation*}
+    \begin{split}
+      z = \sum_{i=1}^{k}\theta_{v_{i},S^{\prime}_{i}}
+    \end{split}
+  \end{equation*}
+
   For $i > 0$, we define the linear map $\partial: \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i-1}|}$ such that
   \begin{equation*}
     \begin{split}
@@ -264,14 +270,6 @@ For a subset of vertices $\Gamma \subset \mathcal{G}_{n}^{d}$, a vertex $v \in \
 \inb{define a connected assignment. I field to prove it as it stated in the current version. Yet, what we can do is to prove that the correction is rooted at $v$ (and not necessarily restricted). 
 Enter the decomposition form as definition. }
 
-\begin{definition}[Decomposition Form]
-   Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let $\theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the collection of $d$-faces forms $z$, namely:  
-  \begin{equation*}
-    \begin{split}
-      z = \sum_{i=1}^{k}\theta_{v_{i},S^{\prime}_{i}}
-    \end{split}
-  \end{equation*}
-\end{definition}
 
 
 \begin{claim}
