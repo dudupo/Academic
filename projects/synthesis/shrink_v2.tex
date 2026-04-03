@@ -268,36 +268,6 @@ For a subset of vertices $\Gamma \subset \mathcal{G}_{n}^{d}$, a vertex $v \in \
 
 \end{definition}
 
-\begin{claim}
-  Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let the collection $\Theta = \theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the decomposition forms $z$. Denote by $\Gamma$ the set of vertices adjacent to unsatisfied check induced by $z$. Then $\Theta$ is acyclic, if and only if $z$ has at least one Infimum. 
-\end{claim}
-\begin{proof}
-  First, suppose that $z$ has at least one Infimum. Let $u$ be an infimum in $z$.. 
-  Second, suppose that $\Theta$ is acyclic. 
-\end{proof}
-
-
-
-\begin{claim}\label{claim:extermal}
-Suppose that $d^{\prime} > 1$ and a vertex $v \in \mathcal{G}^{d}_{\infty}$ is also adjacent to the domain wall, namely $v \in \Gamma$. It holds that $v$ cannot be simultaneously both a (strong) local max of $L_{d+1}$ and a local min of $L_{d+1}$.
-\end{claim}
-
-\begin{proof}
-  Let $v \in \Gamma$ be a local maximum point of $L_{d+1}$, It means that:
-  \begin{enumerate}
-    \item The vertex $v$ is adjacent to a $d^{\prime - 1}$-face which is unsatisfied. 
-   \item That face is rooted in $v$; otherwise, the root of the face is a vertex in $\Gamma$ with a higher value of $L_{d+1}$, in contradiction to $v$ being a local maximum.
-  \end{enumerate}
-Thus, there is a subset of generators $S^{\prime} \subset S$, of size $d^{\prime} - 1 > 0$, such that the unsatisfied check set is on the face $\theta_{v,S^{\prime}}$. Given $d^{\prime} > 1$, we have that $S^{\prime}$ contains at least one more element besides the empty set, denoted by $g$. Now, consider the vertex $gv$. Since $gv$ is adjacent to $\theta_{v,S^{\prime}}$, then $gv \in \Gamma$. On the other hand, on the infinite toric $\mathcal{G}^{d}_{\infty}$, moving along the grid generator decreases $L_{d+1}$ by one, so $L_{d+1}(gv) = L_{d+1}(v) - 1$. In other words, $gv$ is a neighbor of $v$ with a lower value of $L_{d+1}$, and thus $v$ cannot be a local minimum of $L_{d+1}$.
-\end{proof}
-
-\begin{remark}
-
-\inb{
-  That claim alone gives a decoder in the clean setting. Write a remark indicating that when $d^\prime = 1$, meaning qubits are on the edges (2D toric), the claim is not true.
-}
-\end{remark}
-
 \inb{
   What we want is that if a bit contains both $v, gv$ then there will be a check that contains both $v, gv$, that is true if $d^{\prime}  > 1$, then it means that we can earse from the bit a vertex which it is not $gv$. 
 
@@ -347,5 +317,35 @@ We claim that $u = v$. Suppose not, namely $u \notin \Gamma$. Then it means that
 So, we find that $v$ is also the maximum of $L_{d+1}$ in $z$. Therefore, we have that $\tilde{z} = \sum \theta_{u, J_{i}}$ zeros out $z_{v}$.
 \end{proof}
 
+
+\begin{claim}
+  Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let the collection $\Theta = \theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the decomposition forms $z$. Denote by $\Gamma$ the set of vertices adjacent to unsatisfied check induced by $z$. Then $\Theta$ is acyclic, if and only if $z$ has at least one Infimum. 
+\end{claim}
+\begin{proof}
+  First, suppose that $z$ has at least one Infimum. Let $u$ be an infimum in $z$.. 
+  Second, suppose that $\Theta$ is acyclic. 
+\end{proof}
+
+
+
+\begin{claim}\label{claim:extermal}
+Suppose that $d^{\prime} > 1$ and a vertex $v \in \mathcal{G}^{d}_{\infty}$ is also adjacent to the domain wall, namely $v \in \Gamma$. It holds that $v$ cannot be simultaneously both a (strong) local max of $L_{d+1}$ and a local min of $L_{d+1}$.
+\end{claim}
+
+\begin{proof}
+  Let $v \in \Gamma$ be a local maximum point of $L_{d+1}$, It means that:
+  \begin{enumerate}
+    \item The vertex $v$ is adjacent to a $d^{\prime - 1}$-face which is unsatisfied. 
+   \item That face is rooted in $v$; otherwise, the root of the face is a vertex in $\Gamma$ with a higher value of $L_{d+1}$, in contradiction to $v$ being a local maximum.
+  \end{enumerate}
+Thus, there is a subset of generators $S^{\prime} \subset S$, of size $d^{\prime} - 1 > 0$, such that the unsatisfied check set is on the face $\theta_{v,S^{\prime}}$. Given $d^{\prime} > 1$, we have that $S^{\prime}$ contains at least one more element besides the empty set, denoted by $g$. Now, consider the vertex $gv$. Since $gv$ is adjacent to $\theta_{v,S^{\prime}}$, then $gv \in \Gamma$. On the other hand, on the infinite toric $\mathcal{G}^{d}_{\infty}$, moving along the grid generator decreases $L_{d+1}$ by one, so $L_{d+1}(gv) = L_{d+1}(v) - 1$. In other words, $gv$ is a neighbor of $v$ with a lower value of $L_{d+1}$, and thus $v$ cannot be a local minimum of $L_{d+1}$.
+\end{proof}
+
+\begin{remark}
+
+\inb{
+  That claim alone gives a decoder in the clean setting. Write a remark indicating that when $d^\prime = 1$, meaning qubits are on the edges (2D toric), the claim is not true.
+}
+\end{remark}
 
 
