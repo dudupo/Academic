@@ -86,7 +86,7 @@ We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $
 \begin{definition}[Sweep Rule]
   Let $z$ be an assignment over the $d^\prime$-faces, The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$ defining as follow: 
   \begin{enumerate}
-    \item Check if there is a rooted assignment $\tilde{z}$ at $v$ such that $\tilde{z}_{v} = z_{v}$. If there is, then flip $z$.
+    \item Look for a rooted assignment $\tilde{z}$ at $v$ such that $\tilde{z}|_{v+} = z|_{v+}$. If there is, then flip $\tilde{z}$.
   \end{enumerate}
 \end{definition}
 
