@@ -8,24 +8,24 @@
 
 \begin{definition}[$d$-Dimensional Toric Complex] 
   \label{def:toric_complex}
-  For integers $d$ and $n$, denote the group resulting from the $d$-directed power of the cyclic group of order $n$ by $\mathcal{G}_{n}^{d} = \mathbb{Z}_{n}^{\times d}$, and denote the standard generating set of $\mathcal{G}_{n}^{d}$ by $S = \{ 1_{i} \colon i \in [d] \}$. We define the \textit{$d$-dimensional toric complex} to be the hypergraph obtained from the Cayley graph $\text{Cay}(\mathcal{G}_{n}^{d}, S)$ by taking its vertices as the $0$-facets and for any $i \in [d-1]$ we define the $i$-facets as follow: First, for a vertex $v \in \mathcal{G}_{n}^{d}$ and for a subset of generators $S^{\prime} \subset S$ of size $|S^{\prime}| = i$, the $i$-facet rooted at $v$ and spanned by $S^{\prime}$, denoted by $\theta_{v, S^{\prime}}$, is:
+  For integers $d$ and $n$, denote the group resulting from the $d$-directed power of the cyclic group of order $n$ by $\mathcal{G}_{n}^{d} = \mathbb{Z}_{n}^{\times d}$, and denote the standard generating set of $\mathcal{G}_{n}^{d}$ by $S = \{ 1_{i} \colon i \in [d] \}$. We define the \textit{$d$-dimensional toric complex} to be the hypergraph obtained from the Cayley graph $\text{Cay}(\mathcal{G}_{n}^{d}, S)$ by taking its vertices as the $0$-faces and for any $i \in [d-1]$ we define the $i$-faces as follow: First, for a vertex $v \in \mathcal{G}_{n}^{d}$ and for a subset of generators $S^{\prime} \subset S$ of size $|S^{\prime}| = i$, the $i$-face rooted at $v$ and spanned by $S^{\prime}$, denoted by $\theta_{v, S^{\prime}}$, is:
   \begin{equation*}
     \begin{split}
       \theta_{v,S^{\prime}} \colonequals \bigcup_{I \subset S^{\prime}} \left\{  \left(\prod_{g \in I} g \right) v  \right\}
     \end{split}
   \end{equation*}
-  The $i$-facets of the complex are the collection of all the possible rooted spanned $i$-facets induced by $\text{Cay}(\mathcal{G}_{n}^{d})$. We will denote them by $\mathcal{F}_{i}$. 
+  The $i$-faces of the complex are the collection of all the possible rooted spanned $i$-faces induced by $\text{Cay}(\mathcal{G}_{n}^{d})$. We will denote them by $\mathcal{F}_{i}$. 
 
   Additionally, we name $n$ and $d$, the \textit{side length} and the \textit{dimension} of the complex.  
 \end{definition}
 \begin{definition}[Positive Edges and Cubes]
-  For $u,v \in \mathcal{G}_{n}^{d}$, and $S^{\prime}_{1},S^{\prime}_{2} \subset [d]$, with sizes $|S^{\prime}_{1}| = |S^{\prime}_{2}| = i$, we say that the $i$-facets $\theta_{v,S^{\prime}_{1}}$ and $\theta_{u,S^{\prime}_{2}}$ are adjacent if the intersection $\theta_{v,S^{\prime}_{1}} \cap \theta_{u,S^{\prime}_{2}}$ is an $i-1$-facet. In addition, if $\theta_{1}$ and $\theta_{2}$ are $i$ and $i-1$-facets such that $\theta_{2} \subset \theta_{1}$, then we say that $\theta_{2}$ is a \textit{positive edge relative to facet} $\theta_{1}$ if they are rooted at the same vertex. Furthermore, we say that $\theta_{1}$ is a \textit{positive cube} of $\theta_{2}$. When the $i$-facet is clear from the context, we will abbreviate and say that $\theta_{2}$ is \textit{positive}.
+  For $u,v \in \mathcal{G}_{n}^{d}$, and $S^{\prime}_{1},S^{\prime}_{2} \subset [d]$, with sizes $|S^{\prime}_{1}| = |S^{\prime}_{2}| = i$, we say that the $i$-faces $\theta_{v,S^{\prime}_{1}}$ and $\theta_{u,S^{\prime}_{2}}$ are adjacent if the intersection $\theta_{v,S^{\prime}_{1}} \cap \theta_{u,S^{\prime}_{2}}$ is an $i-1$-face. In addition, if $\theta_{1}$ and $\theta_{2}$ are $i$ and $i-1$-faces such that $\theta_{2} \subset \theta_{1}$, then we say that $\theta_{2}$ is a \textit{positive edge relative to face} $\theta_{1}$ if they are rooted at the same vertex. Furthermore, we say that $\theta_{1}$ is a \textit{positive cube} of $\theta_{2}$. When the $i$-face is clear from the context, we will abbreviate and say that $\theta_{2}$ is \textit{positive}.
 \end{definition}
 \begin{example}
-  For example, let $v, u \in \mathcal{G}_{n}^{d}$ and $g_{1} \neq g_{2} \in S$. Consider the 2-facet $\theta = \{v, g_{1}v, g_{2}g_{1}v, g_{2}v\}$. Then, for $x, y \in \mathcal{G}_{n}^{d}$, we say that an edge (1-facet) $\{x, y\}$ is \textit{positive relative to the facet} $\theta$ if $x = v$ and $y$ is either $g_{1}v$ or $g_{2}v$.
+  For example, let $v, u \in \mathcal{G}_{n}^{d}$ and $g_{1} \neq g_{2} \in S$. Consider the 2-face $\theta = \{v, g_{1}v, g_{2}g_{1}v, g_{2}v\}$. Then, for $x, y \in \mathcal{G}_{n}^{d}$, we say that an edge (1-face) $\{x, y\}$ is \textit{positive relative to the face} $\theta$ if $x = v$ and $y$ is either $g_{1}v$ or $g_{2}v$.
 \end{example}
 
-We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $1$, and $2$ facets.
+We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $1$, and $2$ faces.
 
 \inb{Add a paragraph that explains that we choose not to use a chain-complex since we earn nothing from it i.e don't care about topology properties. Yet mention that chain-complex formulation proved itself as an effective tool to compute the properties of the codes we use. }
 
@@ -68,7 +68,7 @@ Let $\mathcal{T}$ be a $d$-dimensional complex. Each of its $i$-face sets natura
 \textit{$d$-dimensional plaquettes toric complex} 
 \inb{Need to decide on what should I elaborate, for example should I provide a proof for the distance and the rate of the code? }\cite{Dennis_2002}
 \begin{definition}[$(d,d^{\prime})$ Toric Code] 
-  Let $d, d^{\prime}$ be integers such that $1 < d^{\prime} < d$. For any integer $n$, we construct the $n$th instance of the quantum code family $(d,d^{\prime})$ \textit{Toric Code} as follows: Let $G = (\mathcal{F}_{0}, \ldots, \mathcal{F}_{d})$ be the $d$-dimensional toric complex obtained from $\mathcal{G}_{n}^{d}$ as defined in \Cref{def:toric_complex}. We associate the (q)bits with the $\mathcal{F}_{d^{\prime}}$, the $X$-checks with the $\mathcal{F}_{d^{\prime}-1}$, and the $Z$-checks with the $\mathcal{F}_{d^{\prime}+1}$. An $X$-check, $c_{x}$, is satisfied if the parity of (q)bits set on the $d^{\prime}$-facet containing $c_{x}$ is even. Similarly, a $Z$-check, $c_{z}$, is satisfied if the parity, in the Hadamard basis, of the (q)bits set on the $d^{\prime}$-facets contained in $c_{z}$ is even.
+  Let $d, d^{\prime}$ be integers such that $1 < d^{\prime} < d$. For any integer $n$, we construct the $n$th instance of the quantum code family $(d,d^{\prime})$ \textit{Toric Code} as follows: Let $G = (\mathcal{F}_{0}, \ldots, \mathcal{F}_{d})$ be the $d$-dimensional toric complex obtained from $\mathcal{G}_{n}^{d}$ as defined in \Cref{def:toric_complex}. We associate the (q)bits with the $\mathcal{F}_{d^{\prime}}$, the $X$-checks with the $\mathcal{F}_{d^{\prime}-1}$, and the $Z$-checks with the $\mathcal{F}_{d^{\prime}+1}$. An $X$-check, $c_{x}$, is satisfied if the parity of (q)bits set on the $d^{\prime}$-face containing $c_{x}$ is even. Similarly, a $Z$-check, $c_{z}$, is satisfied if the parity, in the Hadamard basis, of the (q)bits set on the $d^{\prime}$-faces contained in $c_{z}$ is even.
 \end{definition}
 
 
@@ -92,17 +92,17 @@ Let $C = \{u_{i}\}$ be a quantum circuit, and let $\mathcal{U} = \{u^{\prime}_{i
 
 
 \begin{definition}[Rooted Assignment at $v$]
-  Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S^{\prime}_{1}, \ldots, S^{\prime}_{k} \subset S^{\times k}$ such that $z$ can be decomposed as:
+  Consider a subset of $d$-faces $z \subset \mathcal{F}_{d}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S^{\prime}_{1}, \ldots, S^{\prime}_{k} \subset S^{\times k}$ such that $z$ can be decomposed as:
   \begin{equation*}
     \begin{split}
       z = \sum_{i}^{k}\theta_{v,S^{\prime}_{i}}
     \end{split}
   \end{equation*}
-  Put differently, $z$ is the result of taking a collection of $d^{\prime}$-facets that are rooted at $v$.
+  Put differently, $z$ is the result of taking a collection of $d^{\prime}$-faces that are rooted at $v$.
 \end{definition}
 
 \begin{definition}[Front View at $v$]
-Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v$. We define the \textit{front view at} $v$ to be all the unsatisfied checks rooted at $v$. We denote it by $z_{v}$.
+Consider a subset of $d$-faces $z \subset \mathcal{F}_{d}$ and a vertex $v$. We define the \textit{front view at} $v$ to be all the unsatisfied checks rooted at $v$. We denote it by $z_{v}$.
 
 \begin{equation*}
   \begin{split}
@@ -112,7 +112,7 @@ Consider a subset of $d$-facets $z \subset \mathcal{F}_{d}$ and a vertex $v$. We
 \end{definition}
 
 \begin{definition}[Sweep Rule]
-  Let $z$ be an assignment over the $d^\prime$-facets, The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$ defining as follow: 
+  Let $z$ be an assignment over the $d^\prime$-faces, The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$ defining as follow: 
   \begin{enumerate}
     \item Check if there is a rooted assignment $\tilde{z}$ at $v$ such that $\tilde{z}_{v} = z_{v}$. If there is, then flip $z$.
   \end{enumerate}
@@ -162,7 +162,7 @@ Consider the register coordinate system induced by a quantum circuit of width $w
   \label{def:extension}
 Let $n$ be an integer, and let $C = \{u_{i}\}$ be a quantum circuit with registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ is a toric encoding with a side length $n$. In addition, all the decoding gadgets of $C$ are sweep rule gadgets; let us denote them by $\mathcal{U}$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
   \begin{enumerate}
-    \item For a register $R_{i} \in \mathcal{R}$, denote by $d_{i}, d_{i}^{\prime}$ the dimension of the toric complex that induces the code, and the dimension of the facets that are associated with the bits. Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, which is a $(d_{i}, d_{i}^\prime)$-dimensional, infinite side length, toric encoding. Since the mapping between registers is one-to-one, we use the identifier $\mathbf{1}_{R_{i}}$ to identify also $R^{\prime}_{i}$.
+    \item For a register $R_{i} \in \mathcal{R}$, denote by $d_{i}, d_{i}^{\prime}$ the dimension of the toric complex that induces the code, and the dimension of the faces that are associated with the bits. Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, which is a $(d_{i}, d_{i}^\prime)$-dimensional, infinite side length, toric encoding. Since the mapping between registers is one-to-one, we use the identifier $\mathbf{1}_{R_{i}}$ to identify also $R^{\prime}_{i}$.
     \item Each gate $u_{i} \in C / \mathcal{U}$ is mapped to:     
       \begin{equation*}
         \begin{split}
@@ -274,7 +274,7 @@ For a subset of vertices $\Gamma \subset \mathcal{G}_{n}^{d}$, a vertex $v \in \
 Enter the decomposition form as definition. }
 
 \begin{definition}[Decomposition Form]
-   Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let $\theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the collection of $d$-facets forms $z$, namely:  
+   Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let $\theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the collection of $d$-faces forms $z$, namely:  
   \begin{equation*}
     \begin{split}
       z = \sum_{i=1}^{k}\theta_{v_{i},S^{\prime}_{i}}
@@ -300,10 +300,10 @@ Suppose that $d^{\prime} > 1$ and a vertex $v \in \mathcal{G}^{d}_{\infty}$ is a
 \begin{proof}
   Let $v \in \Gamma$ be a local maximum point of $L_{d+1}$, It means that:
   \begin{enumerate}
-    \item The vertex $v$ is adjacent to a $d^{\prime - 1}$-facet which is unsatisfied. 
-   \item That facet is rooted in $v$; otherwise, the root of the facet is a vertex in $\Gamma$ with a higher value of $L_{d+1}$, in contradiction to $v$ being a local maximum.
+    \item The vertex $v$ is adjacent to a $d^{\prime - 1}$-face which is unsatisfied. 
+   \item That face is rooted in $v$; otherwise, the root of the face is a vertex in $\Gamma$ with a higher value of $L_{d+1}$, in contradiction to $v$ being a local maximum.
   \end{enumerate}
-Thus, there is a subset of generators $S^{\prime} \subset S$, of size $d^{\prime} - 1 > 0$, such that the unsatisfied check set is on the facet $\theta_{v,S^{\prime}}$. Given $d^{\prime} > 1$, we have that $S^{\prime}$ contains at least one more element besides the empty set, denoted by $g$. Now, consider the vertex $gv$. Since $gv$ is adjacent to $\theta_{v,S^{\prime}}$, then $gv \in \Gamma$. On the other hand, on the infinite toric $\mathcal{G}^{d}_{\infty}$, moving along the grid generator decreases $L_{d+1}$ by one, so $L_{d+1}(gv) = L_{d+1}(v) - 1$. In other words, $gv$ is a neighbor of $v$ with a lower value of $L_{d+1}$, and thus $v$ cannot be a local minimum of $L_{d+1}$.
+Thus, there is a subset of generators $S^{\prime} \subset S$, of size $d^{\prime} - 1 > 0$, such that the unsatisfied check set is on the face $\theta_{v,S^{\prime}}$. Given $d^{\prime} > 1$, we have that $S^{\prime}$ contains at least one more element besides the empty set, denoted by $g$. Now, consider the vertex $gv$. Since $gv$ is adjacent to $\theta_{v,S^{\prime}}$, then $gv \in \Gamma$. On the other hand, on the infinite toric $\mathcal{G}^{d}_{\infty}$, moving along the grid generator decreases $L_{d+1}$ by one, so $L_{d+1}(gv) = L_{d+1}(v) - 1$. In other words, $gv$ is a neighbor of $v$ with a lower value of $L_{d+1}$, and thus $v$ cannot be a local minimum of $L_{d+1}$.
 \end{proof}
 
 \begin{remark}
