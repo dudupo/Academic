@@ -77,6 +77,7 @@ We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $
   Put differently, $z$ is the result of taking a collection of $i$-faces that are rooted at $v$.
 \end{definition}
 
+\inb{Add a proof for $\partial \rotfvs \cdot \partial^{*} \rotfv{u}{S^{\prime\prime}} = 0 $. }
 
 \inb{Need to decide on what should I elaborate, for example should I provide a proof for the distance and the rate of the code? }\cite{Dennis_2002}
 \begin{definition}[$(d,d^{\prime})$ Toric Code] 
@@ -84,9 +85,9 @@ We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $
 \end{definition}
 
 \begin{definition}[Sweep Rule]
-  Let $z$ be an assignment over the $d^\prime$-faces, The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$ defining as follow: 
+  Let $z$ be an assignment over the $d^\prime$-faces, The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$, for the $X$ codes, defining as follow: 
   \begin{enumerate}
-    \item Look for a rooted assignment $\tilde{z}$ at $v$ such that $\tilde{z}|_{v+} = z|_{v+}$. If there is, then flip $\tilde{z}$.
+    \item Look for a rooted assignment $\tilde{z}$ at $v$ such that $(\partial\tilde{z})|_{v+} = \partial(z)|_{v+}$. Namely, the checks rooted at $v$ get the same syndromes for $z$ and $\tilde{z}$. If there is one, then flip $\tilde{z}$.
   \end{enumerate}
 \end{definition}
 
