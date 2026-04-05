@@ -295,6 +295,22 @@ Let $z$ be an assignment, and let $\Gamma$ be the set of vertices adjacent to un
 Assume, through contradiction, the existence of an unsatisfied check associated with a $d^{\prime}-1$ positive face rooted at $v$, which contains $gv$. This implies $gv \in \Gamma$, contradicting \Cref{claim:localmax}.
 \end{proof}
 
+
+\begin{claim}
+  Let $z$ an assignment rooted at vertex $v$, such $\partial z |_{v+} = 0$. Then $z$ is a stabilizer. 
+\end{claim}
+
+\begin{proof}
+Denote by $F$ the faces in $z$, and by $J$ the collection of generators that support $F$. We claim that $|J| \ge d^{\prime}+1$.
+
+Clearly, $|J| \ge d^{\prime}$, since each face is defined by a root vertex and $d^{\prime}$ generators. Yet, observe that if $|J|$ equals exactly $d^{\prime}$, then $z$ contains a single $d^{\prime}$-face, denote it by $f$. Then, any check associated with a $d^{\prime}-1$ face of $f$ is unsatisfied, in particular the $d^{\prime}-1$ faces that are rooted at $v$, in contradiction to $\partial z|_{v+} = 0$. 
+
+
+Now, one can choose $J^{\prime} \subset J$ of size $d^{\prime}+1$, and define the stabilizer $w = \theta_{v,J^{\prime}}$.
+    
+\end{proof}
+
+
 \begin{claim} \label{claim:syn_edge}
 Suppose $v \in z$ and for any $g \in S$, we have $g^{-1}v \notin z$, then there is $\rotf{v}{J} \in \partial z$.
 \end{claim}
