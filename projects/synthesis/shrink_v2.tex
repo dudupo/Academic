@@ -297,7 +297,30 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
 
 
 \begin{claim}
-  Let $z$ an assignment rooted at vertex $v$, such $\partial z |_{v+} = 0$. Then $z$ is a stabilizer. 
+  Let $z$ be an assignment. There is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that for any vertex $v \in \tilde{z}$, which is a local maximum of $L_{d+1}$ in $\Gamma_{\tilde{z}}$, it holds that $v$ is also a local maximum of $L_{d+1}$ in $\tilde{z}$.
+\end{claim}
+\begin{proof}
+  \inb { For $d = 4, d^{\prime}= 2$.} Denote the bits, rooted at $v$ and spanned by generators $g_{i},g_{j}$ by $g_{ij} = g_{ji}$. 
+  The restrictions: 
+  \begin{equation*}
+    \begin{split}
+      r_{i} \colon \sum_{j\neq i} g_{ij}
+    \end{split}
+  \end{equation*}
+  Thus we get
+  \begin{equation*}
+    \begin{split}
+      \sum_{i}^{n}r_{i} & = \sum_{i}^{n} \sum^{j \neq i }^{n+1} g_{ij} \\
+      & =   \sum_{i}^{n}\sum_{j < i}^{n} g_{i,j} + g_{j,i} +   \sum_{i}^{n}  g_{i,n+1} \\
+      & = r_{n+1}
+    \end{split}
+  \end{equation*}
+
+\end{proof}
+
+
+\begin{claim}
+  Let $z$ an assignment rooted at vertex $v$, such $\partial z |_{v+} = 0$. Then there is a stabilizer $w$, rooted at $v$, such that $w|_{v+} = z$.  
 \end{claim}
 
 \begin{proof}
