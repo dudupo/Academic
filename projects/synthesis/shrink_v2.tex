@@ -300,7 +300,11 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
   Let $z$ be an assignment. There is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that for any vertex $v \in \tilde{z}$, which is a local maximum of $L_{d+1}$ in $\Gamma_{\tilde{z}}$, it holds that $v$ is also a local maximum of $L_{d+1}$ in $\tilde{z}$.
 \end{claim}
 \begin{proof}
-  \inb { For $d = 4, d^{\prime}= 2$.} Denote the bits, rooted at $v$ and spanned by generators $g_{i},g_{j}$ by $g_{ij} = g_{ji}$. 
+  \inb { For $d = 4, d^{\prime}= 2$.} 
+
+For a vertex $v$, we define the \textit{small code at vertex} $v$ to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy the $\mathcal{C}_{X}$'s restrictions rooted at $v$ ($d^{\prime}-1$ faces). We denote by $\mathcal{C}_{v}$ the small code at $v$. By definition, if $v \notin \Gamma_{z}$ and $v$ is a local maximum of $L_{d+1}$ in $z$, then $z|_{v+} = z|_{v} \in \mathcal{C}_{v}$.
+
+  Denote the bits, rooted at $v$ and spanned by generators $g_{i},g_{j}$ by $g_{ij} = g_{ji}$. 
   The restrictions: 
   \begin{equation*}
     \begin{split}
