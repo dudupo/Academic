@@ -306,7 +306,10 @@ For a vertex $v$, we define the \textit{small code at vertex} $v$ to be the bina
 
 For $i,j \in [d]$, such that $i \neq j$, denote the bit rooted at $v$ and spanned by generators $g_{i}, g_{j} \in S$, namely $\theta_{v,\{ g_{i},g_{j} \}}$, by $g_{ij} = g_{ji}$. On one hand, for any stabilizer $w$ rooted at $v$, we have $(\partial w)|_{v} = 0$; particularly, $(\partial w)|_{v+} = 0$, and therefore $w|_{v} \in \mathcal{C}_{v}$. We claim that, on the other hand, $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$. Then, since $z|_{v} \in \mathcal{C}|_{v}$, it follows, that there is must to be a stabilizer $w \in \text{Stab}_{v}$ such $ w|_{v} = z|_{v}$.
 
-Set $\tilde{z} \leftarrow z + w$, since $w$ is a stabilizer, we have $\partial \tilde{z} = \partial ( z + w ) = \partial z$, and hence $\Gamma_{z} = \Gamma_{\tilde{z}}$. 
+
+Set $\tilde{z} \leftarrow z + w$. Since $w$ is a stabilizer, we have $\partial \tilde{z} = \partial (z + w) = \partial z$, and hence $\Gamma_{z} = \Gamma_{\tilde{z}}$. Yet $\tilde{z}|_{v} = (z + w)|_{v} = 0$. Thus, $v \notin \tilde{z}$. If there are no more vertices $u \in \tilde{z}$ such that $u$ is a local maximum of $L_{d+1}$ in $\tilde{z}$ but not a local maximum at $\Gamma_{\tilde{z}}$, then we finish. Else, we peak such $u$, and repeat on the above where $u$ plays the role of $v$. 
+
+We argue that the process it terminate, assume that $u \in \tilde{z}/z$, meaning that $u \in w|_{v}$ which implies that there is $g \in S$ such that $u = gv$, and therefore $L_{d+1}(u) = 1 + L_{d+1}(v)$.
 
 It's left to prove that $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$. The restrictions: 
   \begin{equation*}
