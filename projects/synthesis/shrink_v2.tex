@@ -306,6 +306,8 @@ For a vertex $v$, we define the \textit{small code at vertex} $v$ to be the bina
 
 For $i,j \in [d]$, such that $i \neq j$, denote the bit rooted at $v$ and spanned by generators $g_{i}, g_{j} \in S$, namely $\theta_{v,\{ g_{i},g_{j} \}}$, by $g_{ij} = g_{ji}$. On one hand, for any stabilizer $w$ rooted at $v$, we have $(\partial w)|_{v} = 0$; particularly, $(\partial w)|_{v+} = 0$, and therefore $w|_{v} \in \mathcal{C}_{v}$. We claim that, on the other hand, $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$. Then, since $z|_{v} \in \mathcal{C}|_{v}$, it follows, that there is must to be a stabilizer $w \in \text{Stab}_{v}$ such $ w|_{v} = z|_{v}$.
 
+Set $\tilde{z} \leftarrow z + w$, since $w$ is a stabilizer, we have $\partial \tilde{z} = \partial ( z + w ) = \partial z$, and hence $\Gamma_{z} = \Gamma_{\tilde{z}}$. 
+
 It's left to prove that $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$. The restrictions: 
   \begin{equation*}
     \begin{split}
