@@ -301,16 +301,22 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
 \end{definition}
 
 \begin{claim}
-  Let $z$ be a finite assignment. Suppose that $\arg \max_{v \in z} L_{d+1} \notin \partial z$, Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that $ \max_{v \in \tilde{z}} L_{d+1} < \max_{v \in z} L_{d+1} - 1$.
+  Let $z$ be a finite assignment. Suppose that $\max_{v \in z} L_{d+1}(v) > \max_{ v \in \partial z}L_{d+1}(v)$, Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that $ \max_{v \in \tilde{z}} L_{d+1} < \max_{v \in z} L_{d+1} - 1$.
 \end{claim}
 \begin{proof}
-  
-  Let $v$ be a vertex in $z$ which gets the maximum for $L_{d+1}$, namely $v = \arg \max_{v\in z}L_{d+1}(v)$, and assume that that $v \notin \partial z$. By definition, since $v \notin \partial z$, we have $(\partial z|_{v})|_{v} = 0$, and since $v$ is a maximum point of $L_{d+1}$ in $z$, then it also a local maximum, and therefore $z|_{v+} = z|_{v}$. Combining the two, we get that $z|_{v}$ is a codeword of the small code at $v$, namely $z|_{v} \in \mathcal{C}_{v}$.
-
-On one hand, for any stabilizer $w$ rooted at $v$, we have $(\partial w)|_{v} = 0$; particularly, $(\partial w)|_{v+} = 0$, and therefore $w|_{v} \in \mathcal{C}_{v}$. On the other hand, we claim that, $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$. Then, since $z|_{v} \in \mathcal{C}|_{v}$, it follows, that there is must to be a stabilizer $w \in \text{Stab}_{v}$ such $w$ and $z$ agree on the positives faces of $v$ namely $ w|_{v} = z|_{v}$. We prove that $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$ below, for now assume it is correct.
+  Let $v_{1},v_{2},..,v_{k}$ be the vertices in $z$ that get the maximum for $L_{d+1}$, namely $v_{1},v_{2},..,v_{k} = \arg \max_{v\in z}L_{d+1}(v)$, and assume that that  $v_{i} \notin \partial z$ for any $i \in [k]$. By definition, since $v_{i} \notin \partial z$, we have $(\partial z|_{v_{i}})|_{v_{i}} = 0$, and since $v_{i}$ is a maximum point of $L_{d+1}$ in $z$, then it also a local maximum, and therefore $z|_{v_{i}+} = z|_{v_{i}}$. Combining the two, we get that $z|_{v_{i}}$ is a codeword of the small code at $v$, namely $z|_{v_{i}} \in \mathcal{C}_{v_{i}}$. On one hand, for any stabilizer $w$ rooted at $v$, we have $(\partial w)|_{v_{i}} = 0$; particularly, $(\partial w)|_{v_{i}+} = 0$, and therefore $w|_{v_{i}} \in \mathcal{C}_{v}$. On the other hand $\dim \mathcal{C}_{v_{i}} = \dim \text{Stab}_{v_{i}}$. Then, since $z|_{v_{i}} \in \mathcal{C}|_{v_{i}}$, it follows, that there is must to be a stabilizer $w \in \text{Stab}_{v_{i}}$ such $w$ and $z$ agree on the positives faces of $v_{i}$ namely $ w|_{v_{i}} = z|_{v_{i}}$. 
 
  
-Set $\tilde{z} \leftarrow z + w$. Since $w$ is a stabilizer, we have $\partial \tilde{z} = \partial (z + w) = \partial z$, and hence $\partial z = \partial \tilde{z}$. Yet $\tilde{z}|_{v} = (z + w)|_{v} = 0$. Thus, $v \notin \tilde{z}$. We say that the \textit{termination-condition} holds if: For any vertex $u \in \tilde{z}$ such that $u$ is a local maximum of $L_{d+1}$ in $\tilde{z}$ but not a local maximum at $\partial \tilde{z}$ it holds that 
+Set $\tilde{z} \leftarrow z + w$. Since $w$ is a stabilizer, we have $\tilde{z} \sim_{C_{X}} z$. In addition, $\tilde{z}|_{v} = (z + w)|_{v} = 0$ namely $v \notin \tilde{z}$, thus: 
+
+\begin{equation*}
+  \begin{split}
+    \max_{u \in \tilde{z}}L_{d+1}(z) &= \max_{u \in \tilde{z} }L_{d+1}(z) 
+  \end{split}
+\end{equation*}
+
+
+We say that the \textit{termination-condition} holds if: For any vertex $u \in \tilde{z}$ such that $u$ is a local maximum of $L_{d+1}$ in $\tilde{z}$ but not a local maximum at $\partial \tilde{z}$ it holds that 
 
 
 %\begin{algorithm}[H] 
@@ -384,6 +390,7 @@ So the dimension of the stabilizer is $3$, and for any stabilizer $w$ rooted at 
 We repeat the process while possible; namely, we stop when all the local maxima of $L_{d+1}$ are in $\partial$.
 \end{proof}
 
+We prove that $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$ below, for now assume it is correct.
 \inb{ 
 We continue by using the fact that if, for a local maximum $v$ in $\partial$, it holds that $z|_{v}$ is rooted at $v$, then the decoder will find bits rooted at $v$ such that their $\partial$ agrees with $\partial$.
 }
