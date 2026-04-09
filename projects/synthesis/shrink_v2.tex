@@ -300,38 +300,15 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
   For a vertex $v$, we define the \textit{small code at vertex} $v$ to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy the $\mathcal{C}_{X}$'s restrictions rooted at $v$ ($d^{\prime}-1$ faces). We denote by $\mathcal{C}_{v}$ the small code at $v$. 
 \end{definition}
 
+\begin{definition}
+  We define $\text{Stab}_{v}$ to be the stabilizers rooted at vertex $v$.
+\end{definition}
+
 \begin{claim}
-  Let $z$ be a finite assignment. Suppose that $\max_{v \in z} L_{d+1}(v) > \max_{ v \in \partial z}L_{d+1}(v)$, Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that $ \max_{v \in \tilde{z}} L_{d+1} < \max_{v \in z} L_{d+1} - 1$.
+  $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$
 \end{claim}
 \begin{proof}
-  Let $v_{1},v_{2},..,v_{k}$ be the vertices in $z$ that get the maximum for $L_{d+1}$, namely $v_{1},v_{2},..,v_{k} = \arg \max_{v\in z}L_{d+1}(v)$, and assume that $v_{i} \notin \partial z$ for any $i \in [k]$. By definition, since $v_{i} \notin \partial z$, we have $(\partial z|_{v_{i}})|_{v_{i}} = 0$, and since $v_{i}$ is a maximum point of $L_{d+1}$ in $z$, then it also a local maximum, and therefore $z|_{v_{i}+} = z|_{v_{i}}$. Combining the two, we get that $z|_{v_{i}}$ is a codeword of the small code at $v$, namely $z|_{v_{i}} \in \mathcal{C}_{v_{i}}$. On one hand, for any stabilizer $w$ rooted at $v$, we have $(\partial w)|_{v_{i}} = 0$; particularly, $(\partial w)|_{v_{i}+} = 0$, and therefore $w|_{v_{i}} \in \mathcal{C}_{v}$. On the other hand $\dim \mathcal{C}_{v_{i}} = \dim \text{Stab}_{v_{i}}$. Then, since $z|_{v_{i}} \in \mathcal{C}|_{v_{i}}$, it follows, that there is must to be a stabilizer $w_{i} \in \text{Stab}_{v_{i}}$ such $w_{i}$ and $z$ agree on the positives faces of $v_{i}$ namely $ w_{i}|_{v_{i}} = z|_{v_{i}}$. 
-
- 
-  Set $\tilde{z} \leftarrow z + \sum_{i}w_{i}$. Since $\sum_{i}w_{i}$ is a stabilizer, we have $\tilde{z} \sim_{C_{X}} z$. In addition, since for any $j\neq i$, $v_{j} \notin w_{i}$ we have $\tilde{z}|_{v_{i}} = (z + w_{i})|_{v_{i}} = 0$ namely $v_{i} \notin \tilde{z}$, thus: 
-
-\begin{equation*}
-  \begin{split}
-    \max_{u \in \tilde{z}}L_{d+1}(u) & \le \max_{u \in z \cup_{i}w_{i}/ \cup v_{i} }L_{d+1}(u) <  \max_{u \in z}L_{d+1}(u) - 1
-  \end{split}
-\end{equation*}
-
-
-\end{proof}
-
-\begin{proof}
-  
-
-%\begin{algorithm}[H] 
-%  $\gamma \leftarrow \min_{v \in \partial z} L_{d+1}(v)$\\ 
-%  $\mathcal{U} \leftarrow \left\{ u : u \in \text{lmax}\left( L_{d+1}, z \right)    \right\} $
-%  \While {
-%
-%  } 
-%\end{algorithm}
-
-
-
-It's left to prove that $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$. \inb { For $d = 4, d^{\prime}= 2$.} For $i,j \in [d]$, such that $i \neq j$, denote the bit rooted at $v$ and spanned by generators $g_{i}, g_{j} \in S$, namely $\theta_{v,\{ g_{i},g_{j} \}}$, by $g_{ij} = g_{ji}$. The restrictions: 
+ \inb { For $d = 4, d^{\prime}= 2$.} For $i,j \in [d]$, such that $i \neq j$, denote the bit rooted at $v$ and spanned by generators $g_{i}, g_{j} \in S$, namely $\theta_{v,\{ g_{i},g_{j} \}}$, by $g_{ij} = g_{ji}$. The restrictions: 
   \begin{equation*}
     \begin{split}
       r_{i} \colon \sum_{j\neq i} g_{ij}
@@ -366,6 +343,39 @@ It's left to prove that $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$. \inb { Fo
       s_{4} = s_{1}+s_{2}+s_{3}
     \end{split}
   \end{equation*}
+\end{proof}
+
+\begin{claim}
+  Let $z$ be a finite assignment. Suppose that $\max_{v \in z} L_{d+1}(v) > \max_{ v \in \partial z}L_{d+1}(v)$, Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that $ \max_{v \in \tilde{z}} L_{d+1} < \max_{v \in z} L_{d+1} - 1$.
+\end{claim}
+\begin{proof}
+  Let $v_{1},v_{2},..,v_{k}$ be the vertices in $z$ that get the maximum for $L_{d+1}$, namely $v_{1},v_{2},..,v_{k} = \arg \max_{v\in z}L_{d+1}(v)$, and assume that $v_{i} \notin \partial z$ for any $i \in [k]$. By definition, since $v_{i} \notin \partial z$, we have $(\partial z|_{v_{i}})|_{v_{i}} = 0$, and since $v_{i}$ is a maximum point of $L_{d+1}$ in $z$, then it also a local maximum, and therefore $z|_{v_{i}+} = z|_{v_{i}}$. Combining the two, we get that $z|_{v_{i}}$ is a codeword of the small code at $v$, namely $z|_{v_{i}} \in \mathcal{C}_{v_{i}}$. On one hand, for any stabilizer $w$ rooted at $v$, we have $(\partial w)|_{v_{i}} = 0$; particularly, $(\partial w)|_{v_{i}+} = 0$, and therefore $w|_{v_{i}} \in \mathcal{C}_{v}$. On the other hand $\dim \mathcal{C}_{v_{i}} = \dim \text{Stab}_{v_{i}}$. Then, since $z|_{v_{i}} \in \mathcal{C}|_{v_{i}}$, it follows, that there is must to be a stabilizer $w_{i} \in \text{Stab}_{v_{i}}$ such $w_{i}$ and $z$ agree on the positives faces of $v_{i}$ namely $ w_{i}|_{v_{i}} = z|_{v_{i}}$. 
+
+ 
+  Set $\tilde{z} \leftarrow z + \sum_{i}w_{i}$. Since $\sum_{i}w_{i}$ is a stabilizer, we have $\tilde{z} \sim_{C_{X}} z$. In addition, since for any $j\neq i$, $v_{j} \notin w_{i}$ we have $\tilde{z}|_{v_{i}} = (z + w_{i})|_{v_{i}} = 0$ namely $v_{i} \notin \tilde{z}$, thus: 
+
+\begin{equation*}
+  \begin{split}
+    \max_{u \in \tilde{z}}L_{d+1}(u) & \le \max_{u \in z \cup_{i}w_{i}/ \cup v_{i} }L_{d+1}(u) <  \max_{u \in z}L_{d+1}(u) - 1
+  \end{split}
+\end{equation*}
+
+
+\end{proof}
+
+\begin{proof}
+  
+
+%\begin{algorithm}[H] 
+%  $\gamma \leftarrow \min_{v \in \partial z} L_{d+1}(v)$\\ 
+%  $\mathcal{U} \leftarrow \left\{ u : u \in \text{lmax}\left( L_{d+1}, z \right)    \right\} $
+%  \While {
+%
+%  } 
+%\end{algorithm}
+
+
+
 
 
 \begin{equation*}
