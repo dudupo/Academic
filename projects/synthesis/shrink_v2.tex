@@ -305,21 +305,21 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
 \end{claim}
 \begin{proof}
   
-Let $v$ be a vertex in $z/ \parital z$ such that $v$ is a local maximum of $L_{d+1}$ in $z$. By definition, since $v \notin \parital z$, we have $(\partial z|_{v})|_{v} = 0$, and since $v$ is a local maximum of $L_{d+1}$ in $z$, it holds that $z|_{v+} = z|_{v}$. Combining the two, we get that $z|_{v}$ is a codeword of the small code at $v$, namely $z|_{v} \in \mathcal{C}_{v}$.
+Let $v$ be a vertex in $z/ \partial z$ such that $v$ is a local maximum of $L_{d+1}$ in $z$. By definition, since $v \notin \partial z$, we have $(\partial z|_{v})|_{v} = 0$, and since $v$ is a local maximum of $L_{d+1}$ in $z$, it holds that $z|_{v+} = z|_{v}$. Combining the two, we get that $z|_{v}$ is a codeword of the small code at $v$, namely $z|_{v} \in \mathcal{C}_{v}$.
 
 On one hand, for any stabilizer $w$ rooted at $v$, we have $(\partial w)|_{v} = 0$; particularly, $(\partial w)|_{v+} = 0$, and therefore $w|_{v} \in \mathcal{C}_{v}$. On the other hand, we claim that, $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$. Then, since $z|_{v} \in \mathcal{C}|_{v}$, it follows, that there is must to be a stabilizer $w \in \text{Stab}_{v}$ such $w$ and $z$ agree on the positives faces of $v$ namely $ w|_{v} = z|_{v}$. We prove that $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$ below, for now assume it is correct.
 
  
-Set $\tilde{z} \leftarrow z + w$. Since $w$ is a stabilizer, we have $\partial \tilde{z} = \partial (z + w) = \partial z$, and hence $\parital z = \parital \tilde{z}$. Yet $\tilde{z}|_{v} = (z + w)|_{v} = 0$. Thus, $v \notin \tilde{z}$. We say that the \textit{termination-condition} holds if: For any vertex $u \in \tilde{z}$ such that $u$ is a local maximum of $L_{d+1}$ in $\tilde{z}$ but not a local maximum at $\parital \tilde{z}$ it holds that 
+Set $\tilde{z} \leftarrow z + w$. Since $w$ is a stabilizer, we have $\partial \tilde{z} = \partial (z + w) = \partial z$, and hence $\partial z = \partial \tilde{z}$. Yet $\tilde{z}|_{v} = (z + w)|_{v} = 0$. Thus, $v \notin \tilde{z}$. We say that the \textit{termination-condition} holds if: For any vertex $u \in \tilde{z}$ such that $u$ is a local maximum of $L_{d+1}$ in $\tilde{z}$ but not a local maximum at $\partial \tilde{z}$ it holds that 
 \begin{equation*}
   \begin{split}
-    L_{d+1}(u) \le \min_{v \in \parital z} L_{d+1}(v)
+    L_{d+1}(u) \le \min_{v \in \partial z} L_{d+1}(v)
   \end{split}
 \end{equation*}
-Observes that if the \textit{termination-condition} holds then any local maximum of $L_{d+1}$ in $\parital z$ is also a local maximum of $L_{d+1}$ in $\tilde{z}$ and we finish. Consider the other case, namely there is at least one vertex $u \in \tilde{z}/\parital z$ such that $u$ is a local maximum for $L_{d+1}$ and 
+Observes that if the \textit{termination-condition} holds then any local maximum of $L_{d+1}$ in $\partial z$ is also a local maximum of $L_{d+1}$ in $\tilde{z}$ and we finish. Consider the other case, namely there is at least one vertex $u \in \tilde{z}/\partial z$ such that $u$ is a local maximum for $L_{d+1}$ and 
 \begin{equation*}
   \begin{split}
-    L_{d+1}(u) > \min_{v \in \parital z} L_{d+1}(v)
+    L_{d+1}(u) > \min_{v \in \partial z} L_{d+1}(v)
   \end{split}
 \end{equation*}
 In that case, we peak such $u$, and looking for stabilizer $w$ such $u \notin \tilde{z} + w$ by repeating over the above procedure where $u$ plays the role of $v$. We keep repeating on the procedure until the \textit{termination-condition} holds. 
@@ -330,7 +330,7 @@ Hence, since $z$ is finite.
 
 
 %\begin{algorithm}[H] 
-%  $\gamma \leftarrow \min_{v \in \parital z} L_{d+1}(v)$\\ 
+%  $\gamma \leftarrow \min_{v \in \partial z} L_{d+1}(v)$\\ 
 %  $\mathcal{U} \leftarrow \left\{ u : u \in \text{lmax}\left( L_{d+1}, z \right)    \right\} $
 %  \While {
 %
