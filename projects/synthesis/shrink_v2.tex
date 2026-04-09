@@ -366,6 +366,7 @@ Let $v_{1}, v_{2}, \ldots, v_{k}$ be the vertices in $z$ that achieve the maximu
 \end{proof}
 
 \begin{claim}
+  \label{claim:extermum}
   Let $z$ be a finite assignment. Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that $ \max_{v \in \tilde{z}} L_{d+1} = \max_{v \in \partial \tilde{z}} L_{d+1}$.
 \end{claim}
 \begin{proof}
@@ -380,7 +381,7 @@ Let $z$ and $\xi$ be the assignment and the result of the application of the Swe
   \end{enumerate}
 \end{claim}
 \begin{proof}
-First, since the Sweep rule is invariant to stabilizers, for any $\tilde{z}$ such that $\tilde{z} \sim_{C_{X}} z$, the correction applied by the Sweep rule on $\tilde{z}$ is the same as the application on $z$.
+  First, since the Sweep rule is invariant to stabilizers, for any $\tilde{z}$ such that $\tilde{z} \sim_{C_{X}} z$, the correction applied by the Sweep rule on $\tilde{z}$ is the same as the application on $z$. Thus, $\partial \tilde{\xi} = \partial \xi$, and we can assume by \Cref{claim:extermum} that $\max_{v \in z} L_{d+1} = \max_{v \in \partial z} L_{d+1}$. 
 \end{proof}
 
 
