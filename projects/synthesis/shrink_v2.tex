@@ -301,32 +301,16 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
 \end{definition}
 
 \begin{claim}
-  Let $z$ be an assignment. Suppose that $\arg \max_{v \in z} L_{d+1} \notin \partial z$, Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that $ \max_{v \in \tilde{z}} L_{d+1} < \max_{v \in z} L_{d+1} - 1$.
+  Let $z$ be a finite assignment. Suppose that $\arg \max_{v \in z} L_{d+1} \notin \partial z$, Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that $ \max_{v \in \tilde{z}} L_{d+1} < \max_{v \in z} L_{d+1} - 1$.
 \end{claim}
 \begin{proof}
   
-Let $v$ be a vertex in $z/ \partial z$ such that $v$ is a local maximum of $L_{d+1}$ in $z$. By definition, since $v \notin \partial z$, we have $(\partial z|_{v})|_{v} = 0$, and since $v$ is a local maximum of $L_{d+1}$ in $z$, it holds that $z|_{v+} = z|_{v}$. Combining the two, we get that $z|_{v}$ is a codeword of the small code at $v$, namely $z|_{v} \in \mathcal{C}_{v}$.
+  Let $v$ be a vertex in $z$ which gets the maximum for $L_{d+1}$, namely $v = \arg \max_{v\in z}L_{d+1}(v)$, and assume that that $v \notin \partial z$. By definition, since $v \notin \partial z$, we have $(\partial z|_{v})|_{v} = 0$, and since $v$ is a maximum point of $L_{d+1}$ in $z$, then it also a local maximum, and therefore $z|_{v+} = z|_{v}$. Combining the two, we get that $z|_{v}$ is a codeword of the small code at $v$, namely $z|_{v} \in \mathcal{C}_{v}$.
 
 On one hand, for any stabilizer $w$ rooted at $v$, we have $(\partial w)|_{v} = 0$; particularly, $(\partial w)|_{v+} = 0$, and therefore $w|_{v} \in \mathcal{C}_{v}$. On the other hand, we claim that, $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$. Then, since $z|_{v} \in \mathcal{C}|_{v}$, it follows, that there is must to be a stabilizer $w \in \text{Stab}_{v}$ such $w$ and $z$ agree on the positives faces of $v$ namely $ w|_{v} = z|_{v}$. We prove that $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$ below, for now assume it is correct.
 
  
 Set $\tilde{z} \leftarrow z + w$. Since $w$ is a stabilizer, we have $\partial \tilde{z} = \partial (z + w) = \partial z$, and hence $\partial z = \partial \tilde{z}$. Yet $\tilde{z}|_{v} = (z + w)|_{v} = 0$. Thus, $v \notin \tilde{z}$. We say that the \textit{termination-condition} holds if: For any vertex $u \in \tilde{z}$ such that $u$ is a local maximum of $L_{d+1}$ in $\tilde{z}$ but not a local maximum at $\partial \tilde{z}$ it holds that 
-\begin{equation*}
-  \begin{split}
-    L_{d+1}(u) \le \min_{v \in \partial z} L_{d+1}(v)
-  \end{split}
-\end{equation*}
-Observes that if the \textit{termination-condition} holds then any local maximum of $L_{d+1}$ in $\partial z$ is also a local maximum of $L_{d+1}$ in $\tilde{z}$ and we finish. Consider the other case, namely there is at least one vertex $u \in \tilde{z}/\partial z$ such that $u$ is a local maximum for $L_{d+1}$ and 
-\begin{equation*}
-  \begin{split}
-    L_{d+1}(u) > \min_{v \in \partial z} L_{d+1}(v)
-  \end{split}
-\end{equation*}
-In that case, we peak such $u$, and looking for stabilizer $w$ such $u \notin \tilde{z} + w$ by repeating over the above procedure where $u$ plays the role of $v$. We keep repeating on the procedure until the \textit{termination-condition} holds. 
-
-We argue that the process indeed terminates. Consider a vertex $u$ such that $u$ is a local maximum of $L_{d+1}$ in $\tilde{z}$ and $u$ is not a local maximum of $L_{d+1}$ at $z$. Put differently, $u$ becomes a local maximum as a result of adding $w$ to $z$. Thus, $u$ has to belong to $w|_{v} \setminus v$, which implies that there is a non-empty subset of generators $I \subset S$ such that $u = (\prod_{g \in I} g)v$, and therefore $L_{d+1}(u) \le -1 + L_{d+1}(v)$. 
-
-Hence, since $z$ is finite.  
 
 
 %\begin{algorithm}[H] 
@@ -374,6 +358,26 @@ It's left to prove that $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$. \inb { Fo
       s_{4} = s_{1}+s_{2}+s_{3}
     \end{split}
   \end{equation*}
+
+
+\begin{equation*}
+  \begin{split}
+    L_{d+1}(u) \le \min_{v \in \partial z} L_{d+1}(v)
+  \end{split}
+\end{equation*}
+Observes that if the \textit{termination-condition} holds then any local maximum of $L_{d+1}$ in $\partial z$ is also a local maximum of $L_{d+1}$ in $\tilde{z}$ and we finish. Consider the other case, namely there is at least one vertex $u \in \tilde{z}/\partial z$ such that $u$ is a local maximum for $L_{d+1}$ and 
+\begin{equation*}
+  \begin{split}
+    L_{d+1}(u) > \min_{v \in \partial z} L_{d+1}(v)
+  \end{split}
+\end{equation*}
+In that case, we peak such $u$, and looking for stabilizer $w$ such $u \notin \tilde{z} + w$ by repeating over the above procedure where $u$ plays the role of $v$. We keep repeating on the procedure until the \textit{termination-condition} holds. 
+
+We argue that the process indeed terminates. Consider a vertex $u$ such that $u$ is a local maximum of $L_{d+1}$ in $\tilde{z}$ and $u$ is not a local maximum of $L_{d+1}$ at $z$. Put differently, $u$ becomes a local maximum as a result of adding $w$ to $z$. Thus, $u$ has to belong to $w|_{v} \setminus v$, which implies that there is a non-empty subset of generators $I \subset S$ such that $u = (\prod_{g \in I} g)v$, and therefore $L_{d+1}(u) \le -1 + L_{d+1}(v)$. 
+
+Hence, since $z$ is finite.  
+
+
 So the dimension of the stabilizer is $3$, and for any stabilizer $w$ rooted at $v$, we have that $w|_{v}$ is a codeword of the small code at $v$. Thus, we can extend $z_{v}$ to $w$ such that $z_{v} = w_{v}$. Since $v$ is a local maximum of $L_{d+1}$, it follows that $z|_{v}$ is rooted at $v$. Therefore, $(z + w)|_{v} = 0$, namely $v \notin z+w$. Moreover, any $u \in w / w_{v}$ belongs to $\theta_{gv, J}$, thus $L_{d+1}(u) < L_{d+1}(v)$.
   
   
