@@ -372,6 +372,18 @@ Let $v_{1}, v_{2}, \ldots, v_{k}$ be the vertices in $z$ that achieve the maximu
   Apply \Cref{claim:reduce_stab} multiple times. 
 \end{proof}
 
+\begin{claim}
+Let $z$ and $\xi$ be the assignment and the result of the application of the Sweep rule on it. Then:
+  \begin{enumerate}
+    \item For any $i \in [d]$, $\max_{v \in \partial z } L_{i}(v) = \max_{v \in \partial \xi } L_{i}(v)$. 
+    \item $\max_{v \in \partial z } L_{d+1}(v) > \max_{v \in \partial \xi } L_{d+1}(v) + 1$. 
+  \end{enumerate}
+\end{claim}
+\begin{proof}
+First, since the Sweep rule is invariant to stabilizers, for any $\tilde{z}$ such that $\tilde{z} \sim_{C_{X}} z$, the correction applied by the Sweep rule on $\tilde{z}$ is the same as the application on $z$.
+\end{proof}
+
+
 
 
 \begin{proof}
