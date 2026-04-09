@@ -346,6 +346,7 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
 \end{proof}
 
 \begin{claim}
+  \label{claim:reduce_stab}
   Let $z$ be a finite assignment. Suppose that $\max_{v \in z} L_{d+1}(v) > \max_{ v \in \partial z}L_{d+1}(v)$, Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that $ \max_{v \in \tilde{z}} L_{d+1} < \max_{v \in z} L_{d+1} - 1$.
 \end{claim}
 \begin{proof}
@@ -367,6 +368,12 @@ Let $v_{1}, v_{2}, \ldots, v_{k}$ be the vertices in $z$ that achieve the maximu
 \begin{claim}
   Let $z$ be a finite assignment. Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that $ \max_{v \in \tilde{z}} L_{d+1} = \max_{v \in \partial \tilde{z}} L_{d+1}$.
 \end{claim}
+\begin{proof}
+  Apply \Cref{claim:reduce_stab} multiple times. 
+\end{proof}
+
+
+
 \begin{proof}
   
 
