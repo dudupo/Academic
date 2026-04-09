@@ -304,13 +304,13 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
   Let $z$ be an assignment. There is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that for any vertex $v \in \tilde{z}$, which is a local maximum of $L_{d+1}$ in $\Gamma_{\tilde{z}}$, it holds that $v$ is also a local maximum of $L_{d+1}$ in $\tilde{z}$.
 \end{claim}
 \begin{proof}
-  \inb { For $d = 4, d^{\prime}= 2$.} 
+  
 Let $v$ be a vertex in $z/ \Gamma_{z}$ such that $v$ is a local maximum of $L_{d+1}$ in $z$. By definition, since $v \notin \Gamma_{z}$, we have $(\partial z|_{v})|_{v} = 0$, and since $v$ is a local maximum of $L_{d+1}$ in $z$, it holds that $z|_{v+} = z|_{v}$. Combining the two, we get that $z|_{v}$ is a codeword of the small code at $v$, namely $z|_{v} \in \mathcal{C}_{v}$.
 
-For $i,j \in [d]$, such that $i \neq j$, denote the bit rooted at $v$ and spanned by generators $g_{i}, g_{j} \in S$, namely $\theta_{v,\{ g_{i},g_{j} \}}$, by $g_{ij} = g_{ji}$. On one hand, for any stabilizer $w$ rooted at $v$, we have $(\partial w)|_{v} = 0$; particularly, $(\partial w)|_{v+} = 0$, and therefore $w|_{v} \in \mathcal{C}_{v}$. On the other hand, we claim that, $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$. Then, since $z|_{v} \in \mathcal{C}|_{v}$, it follows, that there is must to be a stabilizer $w \in \text{Stab}_{v}$ such $w$ and $z$ agree on the positives faces of $v$ namely $ w|_{v} = z|_{v}$. We prove that $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$ below, for now assume it corrects.
+On one hand, for any stabilizer $w$ rooted at $v$, we have $(\partial w)|_{v} = 0$; particularly, $(\partial w)|_{v+} = 0$, and therefore $w|_{v} \in \mathcal{C}_{v}$. On the other hand, we claim that, $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$. Then, since $z|_{v} \in \mathcal{C}|_{v}$, it follows, that there is must to be a stabilizer $w \in \text{Stab}_{v}$ such $w$ and $z$ agree on the positives faces of $v$ namely $ w|_{v} = z|_{v}$. We prove that $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$ below, for now assume it corrects.
 
  
-Set $\tilde{z} \leftarrow z + w$. Since $w$ is a stabilizer, we have $\partial \tilde{z} = \partial (z + w) = \partial z$, and hence $\Gamma_{z} = \Gamma_{\tilde{z}}$. Yet $\tilde{z}|_{v} = (z + w)|_{v} = 0$. Thus, $v \notin \tilde{z}$. If say that the \textit{termination-condition} holds if: For any vertex $u \in \tilde{z}$ such that $u$ is a local maximum of $L_{d+1}$ in $\tilde{z}$ but not a local maximum at $\Gamma_{\tilde{z}}$ it holds that 
+Set $\tilde{z} \leftarrow z + w$. Since $w$ is a stabilizer, we have $\partial \tilde{z} = \partial (z + w) = \partial z$, and hence $\Gamma_{z} = \Gamma_{\tilde{z}}$. Yet $\tilde{z}|_{v} = (z + w)|_{v} = 0$. Thus, $v \notin \tilde{z}$. We say that the \textit{termination-condition} holds if: For any vertex $u \in \tilde{z}$ such that $u$ is a local maximum of $L_{d+1}$ in $\tilde{z}$ but not a local maximum at $\Gamma_{\tilde{z}}$ it holds that 
 \begin{equation*}
   \begin{split}
     L_{d+1}(u) \le \min_{v \in \Gamma_{z}} L_{d+1}(v)
@@ -326,7 +326,20 @@ In that case, we peak such $u$, and looking for stabilizer $w$ such $u \notin \t
 
 We argue that the process indeed terminates. Consider a vertex $u$ such that $u$ is a local maximum of $L_{d+1}$ in $\tilde{z}$ and $u$ is not a local maximum of $L_{d+1}$ at $z$. Put differently, $u$ becomes a local maximum as a result of adding $w$ to $z$. Thus, $u$ has to belong to $w|_{v} \setminus v$, which implies that there is a non-empty subset of generators $I \subset S$ such that $u = (\prod_{g \in I} g)v$, and therefore $L_{d+1}(u) \le -1 + L_{d+1}(v)$. 
 
-It's left to prove that $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$. The restrictions: 
+Hence, since $z$ is finite.  
+
+
+\begin{algorithm}[H] 
+  $\gamma \leftarrow \min_{v \in \Gamma_{z}} L_{d+1}(v)$\\ 
+  $\mathcal{U} \leftarrow \left\{ u : u \in \text{lmax}\left( L_{d+1}, z \right)    \right\} $
+  \While {
+
+  } 
+\end{algorithm}
+
+
+
+It's left to prove that $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$. \inb { For $d = 4, d^{\prime}= 2$.} For $i,j \in [d]$, such that $i \neq j$, denote the bit rooted at $v$ and spanned by generators $g_{i}, g_{j} \in S$, namely $\theta_{v,\{ g_{i},g_{j} \}}$, by $g_{ij} = g_{ji}$. The restrictions: 
   \begin{equation*}
     \begin{split}
       r_{i} \colon \sum_{j\neq i} g_{ij}
