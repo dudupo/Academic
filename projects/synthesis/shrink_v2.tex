@@ -297,7 +297,7 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
 
 
 \begin{definition}[Small Code at Vertex $v$]
-  For a vertex $v$, we define the \textit{small code at vertex} $v$ to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy the $\mathcal{C}_{X}$'s restrictions rooted at $v$ ($d^{\prime}-1$ faces). We denote by $\mathcal{C}_{v}$ the small code at $v$. 
+For a vertex $v$, we define the \textit{$X$-small code at vertex $v$} to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy $\mathcal{C}_{X}$'s restrictions rooted at $v$ ($d^{\prime}-1$ faces). Similarly, we define the \textit{$Z$-small code at vertex $v$} to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy $\mathcal{C}_{Z}$'s restrictions rooted at $v$ ($d^{\prime}+1$ faces). We denote by $\mathcal{C}_{v}^{-}$ and $\mathcal{C}_{v}^{+}$ the $X$-small code at $v$ and $Z$-small code at $v$.
 \end{definition}
 
 \inb{ Do something with that.} And clearly $\text{Stab}_{v}$ is collection of stabilizers since for any $S^{\prime} \subset S$ such $|S^{\prime}|=d^{\prime}+1$ we have:
@@ -310,23 +310,23 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
   \end{equation*}
 Where we used that the term in the closure is invariant to sweeping between $g$ and $g^\prime$, and therefore any term in the sum appears twice.
 \begin{definition}
-  \inb{Should rewrite it better.} We define $\text{Stab}_{v}$ and $\text{Stab}_{v}^{*}$ as the following linear codes: 
+  \inb{Should rewrite it better.} We define $\text{Stab}_{v}^{-}$ and $\text{Stab}_{v}^{+}$ as the following linear codes: 
   \begin{align*}
-      \text{Stab}_{v} \colonequals  \bigl\{ z : \partial z  &= 0 \text{ and } \\
+    \text{Stab}_{v}^{-} \colonequals  \bigl\{ z : \partial z  &= 0 \text{ and } \\
       & z \in \text{Span} \left( \left\{ \rotfv{v}{S^{\prime}/g}, \rotfv{gv}{S^{\prime}/g} \text{ for } S^{\prime} \subset S , |S^{\prime}|=d^{\prime}+1, g \in S^{\prime} \right\} \right) \bigr\}
   \end{align*}
   \begin{align*}
-    \text{Stab}_{v}^{*} \colonequals  \bigl\{ z : \partial^{*} z  &= 0 \text{ and } \\
+    \text{Stab}_{v}^{+} \colonequals  \bigl\{ z : \partial^{*} z  &= 0 \text{ and } \\
       & z \in \text{Span} \left( \left\{ \rotfv{v}{S^{\prime}/g}, \rotfv{gv}{S^{\prime}/g} \text{ for } S^{\prime} \subset S , |S^{\prime}|=d^{\prime}+1, g \in S^{\prime} \right\} \right) \bigr\}
   \end{align*}
 \end{definition}
 
 \begin{claim}
   \label{claim:agreement}
-Let $v$ be a vertex. For any $z \in \mathcal{C}_{v}$, there is a stabilizer $w \in \text{Stab}_{v}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$.
+  Let $v$ be a vertex. For any $z \in \mathcal{C}_{v}^{\pm}$, there is a stabilizer $w \in \text{Stab}_{v}^{\pm}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$.
 \end{claim}
 \begin{proof}
-  We will show that codes obtained from $\text{Stab}_{v}$ and $\text{Stab}_{v}^{*}$ by forcing the faces rooted at $v$ to $z|_{v}$ have non-zero dimensions. Then it follows that any code word of $\mathcal{C}_{v}$ could be extend to codewords in $\text{Stab}_{v}$ and $\text{Stab}_{v}^{*}$. The number of bits in both $\text{Stab}_{v}$ and $\text{Stab}_{v}^{*}$ is:
+  We will show that codes obtained from $\text{Stab}_{v}^{-}$ and $\text{Stab}_{v}^{+}$ by forcing the faces rooted at $v$ to $z|_{v}$ have non-zero dimensions. Then it follows that any code word of $\mathcal{C}_{v}^{\pm}$ could be extend to codewords in $\text{Stab}_{v}^{-}$ and $\text{Stab}_{v}^{+}$. The number of bits in both $\text{Stab}_{v}^{\pm}$ is:
 \begin{equation*}
   \begin{split}
     { d \choose d^{\prime} }  +  d { d - 1 \choose d^{\prime} } 
