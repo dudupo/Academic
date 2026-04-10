@@ -300,13 +300,7 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
   For a vertex $v$, we define the \textit{small code at vertex} $v$ to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy the $\mathcal{C}_{X}$'s restrictions rooted at $v$ ($d^{\prime}-1$ faces). We denote by $\mathcal{C}_{v}$ the small code at $v$. 
 \end{definition}
 
-\begin{definition}
-We define $\text{Stab}_{v}$ as the following collection of assignments rooted at vertex $v$: 
-  \begin{align*}
-      \text{Stab}_{v} \colonequals  \bigl\{ z : \partial z  &= 0 \text{ and } \\
-      & z \in \text{Span} \left( \left\{ \rotfv{v}{S^{\prime}/g}, \rotfv{gv}{S^{\prime}/g} \text{ for } S^{\prime} \subset S , |S^{\prime}|=d^{\prime}+1, g \in S^{\prime} \right\} \right) \bigr\}
-  \end{align*}
-  And clearly $\text{Stab}_{v}$ is collection of stabilizers since for any $S^{\prime} \subset S$ such $|S^{\prime}|=d^{\prime}+1$ we have:
+\inb{ Do something with that.} And clearly $\text{Stab}_{v}$ is collection of stabilizers since for any $S^{\prime} \subset S$ such $|S^{\prime}|=d^{\prime}+1$ we have:
   \begin{equation*}
     \begin{split}
       \partial \left(   \partial \rotfvs{} \right) & = \partial \left( \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} + \sum_{g \in S^{\prime}} \rotfv{gv}{S^{\prime}/g}  \right) \\
@@ -315,6 +309,12 @@ We define $\text{Stab}_{v}$ as the following collection of assignments rooted at
     \end{split}
   \end{equation*}
 Where we used that the term in the closure is invariant to sweeping between $g$ and $g^\prime$, and therefore any term in the sum appears twice.
+\begin{definition}
+We define $\text{Stab}_{v}$ as the following collection of assignments rooted at vertex $v$: 
+  \begin{align*}
+      \text{Stab}_{v} \colonequals  \bigl\{ z : \partial z  &= 0 \text{ and } \\
+      & z \in \text{Span} \left( \left\{ \rotfv{v}{S^{\prime}/g}, \rotfv{gv}{S^{\prime}/g} \text{ for } S^{\prime} \subset S , |S^{\prime}|=d^{\prime}+1, g \in S^{\prime} \right\} \right) \bigr\}
+  \end{align*}
 \end{definition}
 
 \begin{claim}
