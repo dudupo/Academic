@@ -301,10 +301,17 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
 \end{definition}
 
 \begin{definition}
-  We define $\text{Stab}_{v}$ to be the stabilizers rooted at vertex $v$, namely 
+  We define $\text{Stab}_{v}$ to be the following collection of assignments rooted at vertex $v$: 
   \begin{equation*}
     \begin{split}
       \text{Stab}_{v} \colonequals \text{Span} \left( \left\{ z : z = \partial \rotfvs{} , S^{\prime} \subset S , |S^{\prime}|=d^{\prime}+1 \right\} \right)
+    \end{split}
+  \end{equation*}
+  And clearly $\text{Stab}_{v}$ is collection of stabilizers since for any $S^{\prime} \subset S$ such $|S^{\prime}|=d^{\prime}+1$ we have:
+  \begin{equation*}
+    \begin{split}
+      \partial \left(   \partial \rotfvs{} \right) & = \partial \left( \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} + \sum_{g \in S^{\prime}} \rotfv{gv}{S^{\prime}/g}  \right) \\
+      & = \sum_{ \substack{ g^{\prime},g \in S^{\prime} \\ g^{\prime}\neq g } } \left( \rotfv{v}{S^{\prime}/\{ g,g^{\prime} \} } +   \rotfv{g^{\prime}v}{S^{\prime}/\{ g,g^{\prime} \} }+ \rotfv{gv}{S^{\prime}/\{ g,g^{\prime} \} } + \rotfv{g^{\prime}gv}{S^{\prime}/\{ g, g^{\prime}\}} \right) 
     \end{split}
   \end{equation*}
 \end{definition}
