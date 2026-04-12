@@ -1,0 +1,257 @@
+
+
+\inb{
+  Change letters: the $d$ in the model section refers to a size that is comparable to the code distance where here $d$ refers to the dimension of the Toric complex
+} 
+
+\section{The $(d,d^{\prime})$-Dimensional Toric Code and the SWEEP Rule}
+
+\begin{definition}[$d$-Dimensional Toric Complex] 
+  \label{def:toric_complex}
+  For integers $d$ and $n$, denote the group resulting from the $d$-directed power of the cyclic group of order $n$ by $\mathcal{G}_{n}^{d} = \mathbb{Z}_{n}^{\times d}$, and denote the standard generating set of $\mathcal{G}_{n}^{d}$ by $S = \{ 1_{i} \colon i \in [d] \}$. We define the \textit{$d$-dimensional toric complex} to be the hypergraph obtained from the Cayley graph $\text{Cay}(\mathcal{G}_{n}^{d}, S)$ by taking its vertices as the $0$-faces and for any $i \in [d-1]$ we define the $i$-faces as follow: First, for a vertex $v \in \mathcal{G}_{n}^{d}$ and for a subset of generators $S^{\prime} \subset S$ of size $|S^{\prime}| = i$, the $i$-face rooted at $v$ and spanned by $S^{\prime}$, denoted by $\theta_{v, S^{\prime}}$, is:
+  \begin{equation*}
+    \begin{split}
+      \theta_{v,S^{\prime}} \colonequals \bigcup_{I \subset S^{\prime}} \left\{  \left(\prod_{g \in I} g \right) v  \right\}
+    \end{split}
+  \end{equation*}
+  The $i$-faces of the complex are the collection of all the possible rooted spanned $i$-faces induced by $\text{Cay}(\mathcal{G}_{n}^{d})$. We will denote them by $\mathcal{F}_{i}$. 
+
+  Additionally, we name $n$ and $d$, the \textit{side length} and the \textit{dimension} of the complex.  
+\end{definition}
+\begin{definition}[Positive Edges and Cubes]
+  For $u,v \in \mathcal{G}_{n}^{d}$, and $S^{\prime}_{1},S^{\prime}_{2} \subset [d]$, with sizes $|S^{\prime}_{1}| = |S^{\prime}_{2}| = i$, we say that the $i$-faces $\theta_{v,S^{\prime}_{1}}$ and $\theta_{u,S^{\prime}_{2}}$ are adjacent if the intersection $\theta_{v,S^{\prime}_{1}} \cap \theta_{u,S^{\prime}_{2}}$ is an $i-1$-face. In addition, if $\theta_{1}$ and $\theta_{2}$ are $i$ and $i-1$-faces such that $\theta_{2} \subset \theta_{1}$, then we say that $\theta_{2}$ is a \textit{positive edge relative to face} $\theta_{1}$ if they are rooted at the same vertex. Furthermore, we say that $\theta_{1}$ is a \textit{positive cube} of $\theta_{2}$. When the $i$-face is clear from the context, we will abbreviate and say that $\theta_{2}$ is \textit{positive}.
+\end{definition}
+\begin{example}
+  For example, let $v, u \in \mathcal{G}_{n}^{d}$ and $g_{1} \neq g_{2} \in S$. Consider the 2-face $\theta = \{v, g_{1}v, g_{2}g_{1}v, g_{2}v\}$. Then, for $x, y \in \mathcal{G}_{n}^{d}$, we say that an edge (1-face) $\{x, y\}$ is \textit{positive relative to the face} $\theta$ if $x = v$ and $y$ is either $g_{1}v$ or $g_{2}v$.
+\end{example}
+
+We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $1$, and $2$ faces.
+
+\inb{Add a paragraph that explains that we choose not to use a chain-complex since we earn nothing from it i.e don't care about topology properties. Yet mention that chain-complex formulation proved itself as an effective tool to compute the properties of the codes we use. }
+
+\begin{definition}[Assignment on The $(d^{\prime},d)$-Toric Complex]
+  Let $\mathcal{T}$ be a $d$-dimensional complex. Each of its $i$-face sets naturally induces a vector space $\mathbb{F}_{2}^{|\mathcal{F}_{i}|}$. We call a binary vector $z \in \mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ an assignment on the $i$-faces of $\mathcal{T}$. For a vertex $v$ and a subset of generators $S^{\prime} \subset S$ of size $|S^{\prime}|=i$, we use the notation $\rotfvs{}$ to represent the unit vector in $\mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ that has $0$ in every coordinate except the one associated with the $i$-face $\rotfs{}$. Then
+  \begin{equation*}
+    \begin{split}
+      \left\{ \rotfvs{} : v \in \mathcal{F}_{0}, S^{\prime} \subset S \text{ s.t } |S^{^\prime}| = i  \right\}
+    \end{split}
+  \end{equation*} is a base to $\mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ \inb{ Not exactly base, they are linear dependent}.
+Let $z$ be an assignment on the $i$-faces. Let $v_{1}, \ldots, v_{k} \in \mathcal{F}_{0}$ and $S_{1}, \ldots, S_{k} \subset S^{\times k}$ be the generator subsets such that $\theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}}, \ldots, \theta_{v_{k},S^{\prime}_{k}}$ are the collection of $i$-faces that support $z$, namely:
+  \begin{equation*}
+    \begin{split}
+    z = \sum_{i=1}^{k}\rotfv{v_{i}}{S^{\prime}_{i}}
+    \end{split}
+  \end{equation*} 
+  We refer to $\theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}}, \ldots, \theta_{v_{k},S^{\prime}_{k}}$ as the collection of faces that form $z$, or briefly, the faces form $z$.
+  For $i > 0$, we define the linear map $\partial: \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i-1}|}$ such that
+  \begin{equation*}
+    \begin{split}
+    \partial \rotfvs{} \colonequals \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} + \sum_{g \in S^{\prime}} \rotfv{gv}{S^{\prime}/g} 
+    \end{split}
+  \end{equation*}
+  For $i < d$, we define the linear map $\partial^{*}: \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i+1}|}$ such that
+  \begin{equation*}
+    \begin{split}
+      \partial^{*} \rotfvs{} \colonequals \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g} 
+    \end{split}
+  \end{equation*}
+  We define the \textit{restriction of $z$ to a vertex $v$} to be the linear map $|_{v} \colon \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ such that: 
+  \begin{equation*}
+    \begin{split}
+      \rotfv{u}{S^{\prime}} |_{v} \colonequals    
+      \begin{cases}
+      \rotfv{u}{S^{\prime}}  & v \in \theta_{u,S^{\prime}}  \\ 
+        0 & \text{ else }
+      \end{cases}
+    \end{split}
+  \end{equation*}
+  We define the \textit{front of $z$ to a vertex $v$} to be the linear map $|_{v+} \colon \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ such that: 
+  \begin{equation*}
+    \begin{split}
+      \rotfv{u}{S^{\prime}} |_{v+} \colonequals    
+      \begin{cases}
+      \rotfv{u}{S^{\prime}}  & u = v \\ 
+        0 & \text{ else }
+      \end{cases}
+    \end{split}
+  \end{equation*}
+  We say that an assignment $z$ is \textit{connected} if the graph that is induced by taking the faces that support $z$ as vertices and defining the edges to be the adjacency relation between them is connected. We define the connected components of $z$ to be its subsets such that each of them is a connected assignment. For a $j$-face $f$, we say that $f \in z$ if $z$ has a support on $\rotfvs{}$ such that $f \in \rotfs{}$. Consider an assignment $z \in \mathbb{F}_{2}^{\mathcal{F}_{i}}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S^{\prime}_{1}, \ldots, S^{\prime}_{k} \subset S^{\times k}$ such that each of $S^{\prime}_{j}$ is at size $i$ and $z$ is decomposed as:
+  \begin{equation*}
+    \begin{split}
+    z = \sum_{j}^{k}\rotfv{v}{S^{\prime}_{j}}
+    \end{split}
+  \end{equation*}
+  Put differently, $z$ is the result of taking a collection of $i$-faces that are rooted at $v$.
+\end{definition}
+
+\inb{Add a proof for $\partial \rotfvs \cdot \partial^{*} \rotfv{u}{S^{\prime\prime}} = 0 \Rightarrow $  gives a CSS code.}
+
+\inb{Need to decide on what should I elaborate, for example should I provide a proof for the distance and the rate of the code? }\cite{Dennis_2002}
+\begin{definition}[$(d,d^{\prime})$ Toric Code] 
+  Let $d, d^{\prime}$ be integers such that $1 < d^{\prime} < d$. For any integer $n$, we construct the $n$th instance of the quantum code family $(d,d^{\prime})$ \textit{Toric Code} as follows: Let $G = (\mathcal{F}_{0}, \ldots, \mathcal{F}_{d})$ be the $d$-dimensional toric complex obtained from $\mathcal{G}_{n}^{d}$ as defined in \Cref{def:toric_complex}. We associate the (q)bits with the $\mathcal{F}_{d^{\prime}}$, the $X$-checks with the $\mathcal{F}_{d^{\prime}-1}$, and the $Z$-checks with the $\mathcal{F}_{d^{\prime}+1}$. An $X$-check, $c_{x}$, is satisfied if the parity of (q)bits set on the $d^{\prime}$-face containing $c_{x}$ is even. Similarly, a $Z$-check, $c_{z}$, is satisfied if the parity, in the Hadamard basis, of the (q)bits set on the $d^{\prime}$-faces contained in $c_{z}$ is even.
+\end{definition}
+
+\begin{definition}[Sweep Rule]
+  Let $z$ be an assignment over the $d^\prime$-faces, The \textit{sweep rule decoding procedure} at vertex $v \in \mathcal{G}_{n}^{d}$, defining as follow: 
+  \begin{enumerate}
+    \item For the $\mathcal{C}_{X}$ code. Look for a rooted assignment $\tilde{z}$ at $v$ such that $(\partial\tilde{z})|_{v+} = \partial(z)|_{v+}$. Namely, the $X$-checks rooted at $v$ get the same syndromes for $z$ and $\tilde{z}$. If there is one, then flip $\tilde{z}$. 
+    \item Apply the Hadamard gate on any $d^{\prime}$ face containing $v$.
+    \item For the $\mathcal{C}_{Z}$ code. Look for a rooted assignment $\tilde{z}$ at $v$ such that $(\partial^{*}\tilde{z})|_{v+} = \partial^{*}(z)|_{v+}$. Namely, the $Z$-checks rooted at $v$ get the same syndromes for $z$ and $\tilde{z}$. If there is one, then flip $\tilde{z}$.
+    \item Apply the Hadamard gate again on any $d^{\prime}$ face containing $v$ to reverse the second stage.
+  \end{enumerate}
+  Stages $1$ and $3$ involve measurement of stabilizers.
+\end{definition}
+
+\begin{definition}[Decoding Gadget]
+  Consider a quantum circuit $C$, for a quantum gate $u$ in $C$, with fun-in $\Delta$, we say that $u$ is a \textit{decoding gadget} if it has the following form: 
+  \begin{enumerate}
+    \item The wires of $u$ wires can be decomposed into two subsets $A$ and $B$ such that the wires in $A$ are reset wires, and there exists an encoded register $R$ in $C$ such that the wires in $B$ are all set in $R$.
+    \item For a set of faults $\mathcal{E}$, there is a Pauli gate $u^\prime$ that acts only on $B$ such that the action of $u$ in $C[\mathcal{E}]$ equals $u^{\prime}$. Put differently, the quantum circuit obtained from $C[\mathcal{E}]$ by replacing $u$ with $u^{\prime}$ equals $C[\mathcal{E}]$.
+  \end{enumerate}
+\end{definition}
+
+
+\begin{definition}[Unitary Decoding Representation]
+Let $C = \{u_{i}\}$ be a quantum circuit, and let $\mathcal{U} = \{u^{\prime}_{i}\} \subset C$ be a subset of the gates in $C$ that are decoding gadgets. For a set of faults $\mathcal{E}$, we define the \textit{unitary decoding representation} of $C[\mathcal{E}]$ to be the quantum circuit obtained by replacing each of the gates in $\mathcal{U}$ with their corresponding Pauli gate according to $\mathcal{E}$.
+\end{definition}
+
+
+\begin{claim}
+  The local gates performing Toom's rule are decoding gadgets. 
+\end{claim}
+\begin{proof}
+  \inb{prove that.}
+\end{proof}
+
+\section{Infinite Torics}
+
+\begin{definition}[Registers Coordinates System]
+Let $C = \{u_{i}\}$ be a quantum circuit, with width $w$ and registers $\mathcal{R} = R_{1}, \ldots, R_{k}$, each of length at most $n$. For register $R_{i}$, we define the register identifier $\mathbf{1}_{R_{i}} = \mathbf{1}_{i}$. Then, we define the map $\phi_{\mathcal{R}} \colon \mathbb{Z}_{w} \rightarrow \mathbb{Z}_{R} \times \mathbb{Z}_{n}$ to return, for a space-location coordinate $x \in \mathbb{Z}_{w}$, the tuple consisting of the identifier of the register containing $x$, and its relative coordinate within the register. Namely,
+\begin{equation*}
+  \begin{split}
+    \psi_{\mathcal{R}}(x) = (\mathbf{1}_{R_{j}}, x^{\prime})
+  \end{split}
+\end{equation*} 
+Where $R_{j}$ is the register containing $x$, and $x^{\prime}$ is the index of the qubit, set at the $x$ location, in $R_{j}$.
+The presentation of $C$ in the \textit{registers coordinate system} is the encoding by a set of gates $\{u^{\prime}_{j}\}$, which is the result of replacing each space-location of the original gates with the applications of $\psi_{\mathcal{R}}$ on them. Namely, for each $u_{i} = (g_{i}, l_{i}) \in C$, we map its space-location coordinate $l_{i_{2}} = (l_{i_{2}}^{(1)}, \ldots, l_{i_{2}}^{(\Delta)})$ to:
+      \begin{equation*}
+        \begin{split}
+          l_{i_{2}} \mapsto ( \psi_{\mathcal{R}}(l_{i_{2}}^{(1)}), ..,\psi_{\mathcal{R}}( l_{i_{2}}^{(\Delta)}))
+        \end{split}
+      \end{equation*}
+For brevity, we name the first and second coordinates in the result of $\psi_{R}$ the \textit{register coordinate} and the \textit{inner coordinate}.
+    \end{definition}
+    \begin{definition}[Shifting in Registers System]
+      
+Consider the register coordinate system induced by a quantum circuit of width $w$, with $R$ registers, each of length at most $n$. For an integer $r \in \mathbb{Z}$, we define the $r$-shifting function $\text{Sh}_{r} \colon (\mathbb{Z}_{R} \times \mathbb{Z}_{n})^{\times \Delta} \rightarrow (\mathbb{Z}_{R} \times \mathbb{Z})^{\times \Delta}$ to act on space-location coordinates as follows:
+  \begin{equation*}
+    \begin{split}
+      & \text{Sh}_{r}( l_{1}, .., l_{k} ) = ( \text{Sh}_{r}(l_{1}), .., \text{Sh}_{r}(l_{k}) ) \\ 
+      & \text{ Where } \text{Sh}_{r}(l_{i}) = 
+      \begin{cases}
+        l_{i} + r & \text{ if } l_{i} \text{ is an inner coordinate } \\ 
+        l_{i}& \text{ else }
+      \end{cases}
+    \end{split}
+  \end{equation*}
+\end{definition}
+
+\begin{definition}
+  \label{def:extension}
+Let $n$ be an integer, and let $C = \{u_{i}\}$ be a quantum circuit with registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ is a toric encoding with a side length $n$. In addition, all the decoding gadgets of $C$ are sweep rule gadgets; let us denote them by $\mathcal{U}$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
+  \begin{enumerate}
+    \item For a register $R_{i} \in \mathcal{R}$, denote by $d_{i}, d_{i}^{\prime}$ the dimension of the toric complex that induces the code, and the dimension of the faces that are associated with the bits. Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, which is a $(d_{i}, d_{i}^\prime)$-dimensional, infinite side length, toric encoding. Since the mapping between registers is one-to-one, we use the identifier $\mathbf{1}_{R_{i}}$ to identify also $R^{\prime}_{i}$.
+    \item Each gate $u_{i} \in C / \mathcal{U}$ is mapped to:     
+      \begin{equation*}
+        \begin{split}
+          u_{i} & = (g_{i},l_{i}) \mapsto  
+          \bigcup_{j = -\infty}^{\infty}\left\{ (g_{i},( \text{Sh}_{jn}(l_{i})) \right\}
+        \end{split}
+      \end{equation*}
+    \item Each gate $ u \in \mathcal{U} $ is mapped to the collection of sweep rule gadgets $\{ v_{j} \}_{-\infty}^{\infty}$ such that each of them has the same time coordinate as $ u $, is in the register that corresponds to the image of $ u $'s register, and is rooted at $\text{root}(v) + j n$.
+  \end{enumerate}
+For a set of faults $\mathcal{E} = \{ f_{i} \}$, we denote by $C^{\infty}[\mathcal{E}^{\infty}]$ the \textit{$\infty$-extension of $C[\mathcal{E}]$}.
+\end{definition}
+
+
+\begin{claim}
+\label{claim:pauli_back}
+  Let $ u = (g,l)$ and $v_{0},v_{\pm 1}$ plantation of $u$ at locations $\text{root}(u)$ and $\text{root(u)} \pm n$. Then $v_{0}v_{\pm 1}|_{[w]} = u$.
+\end{claim}
+\begin{proof}
+  \inb{Prove it}
+\end{proof}
+
+\begin{definition}
+  For a quantum circuit $C$, of the form defined in \Cref{def:extension}, and a set of faults $\mathcal{E}$, denote:
+  \begin{equation*}
+    \begin{split}
+      \rho & \colonequals C[\mathcal{E}] \ketbra{0}{0} C[\mathcal{E}]^{\dagger} \\
+      \rho_{\infty} & \colonequals C^{\infty}[\mathcal{E}^{\infty}]\ketbra{0}{0}\left(C^{\infty}[\mathcal{E}^{\infty}]\right)^{\dagger}
+    \end{split}
+  \end{equation*}
+We say that a quantum circuit $C$ is \textit{$\infty$-compatible} if, for any set of faults $\mathcal{E} = \{ f_{i} \}$, it holds that:
+  \begin{equation*}
+    \begin{split}
+      \rho =  \Trr{}_{/[w]}\left( \rho_{\infty} \right) 
+    \end{split}
+  \end{equation*}
+\end{definition}
+\begin{claim}
+  Let $C$ be quantum circuit of the form defined in \Cref{def:extension}. Then $C$ is $\infty$-compatible.
+\end{claim}
+\begin{proof}
+  Its enough to prove the claim for circuits in their unitary decoding representation. We prove it by induction on the number of the gates.
+
+  \begin{enumerate}
+    \item Base. For an empty circuit, $\rho_{\infty}$ is just the infinite string of zeros; thus, the restriction of it to $[w]$ locations, namely $ \Trr{}_{/[w]}( \rho_{\infty} ) $, yields a single matrix element corresponds to the $w$-length string of zeros, which is exactly $\rho$.
+    \item Step. Assume the correction of the claim for any circuit, with less than $\tau$ steps, and consider a circuit $C$ with $\tau$ steps. Denote by $C^{\prime}$ the circuit obtained form $C$ by erasing the last gate in $C$, observes that $C^{\prime}$ is a circuit with $\tau - 1$ steps. Denote by $\rho^{\prime}$ and $\rho^{\prime}_{\infty}$ the: \inb{Enter it}.  
+      By the induction assumption we have:
+  \begin{equation*}
+    \begin{split}
+      \rho^{\prime} =  \Trr{}_{/[w]}\left( \rho^{\prime}_{\infty} \right) 
+    \end{split}
+  \end{equation*}
+Denote the last gate in $C$ by $u$, and by $I = \{v_{j}\}_{-\infty}^{\infty}$ the collection of gates in $C^{\infty}$ to which $u$ is mapped. Let us split into cases, depending on whether $u$ is or is not a decoding gate.
+  \begin{enumerate}
+    \item Suppose that $u$ is not a decoding gate. Let $g$ and $l$ be the gate element and the location of $u$. By the definition of $\infty$-extension, $I$ equals:
+      \begin{equation*}
+        \begin{split}
+              I = \bigcup_{j = -\infty}^{\infty}\left\{ (g,( \text{Sh}_{jn}(l)) \right\}
+        \end{split}
+      \end{equation*}
+      So there is only one gate in $I$, corresponding to $j=0$, that has support on qubits with spatial location in the range $[w]$. Denote that gate by $v_{0}$. 
+
+ \begin{equation*}
+   \begin{split}
+   \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= \Trr{}_{/[w]}\left( \prod_{j = -\infty}^{\infty} v_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty}^{\infty} v_{j}^{\dagger} \right) \\ 
+   &= v_{0}\Trr{}_{/[w]}\left( \prod_{j = -\infty, j \neq 0}^{\infty} v_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty, j \neq 0}^{\infty} v_{j}^{\dagger} \right) v_{0}^{\dagger} \\
+   &= v_{0}\Trr{}_{/[w]}\left( \prod_{j = -\infty, j \neq 0}^{\infty} v_{j}^{\dagger} \prod_{j = -\infty, j \neq 0}^{\infty} v_{j} \rho_{\infty}^{\prime} \right) v_{0}^{\dagger} \\
+   &= v_{0}\Trr{}_{/[w]}\left( \rho_{\infty}^{\prime} \right) v_{0}^{\dagger} \\
+   &= v_{0} \rho^{\prime} v_{0}^{\dagger} \\
+   &= \rho 
+   \end{split}
+ \end{equation*}
+
+ \item In the case that $u$ is a decoding gate, observe that there are at most two gates in $I$ that have support on the qubits with space-location in $[w]$. If there is exactly one, then repeating the non-decoding gate case while setting this gate as $v_{0}$ gives the desired result. 
+Else, in the case where two gates act non-trivially on qubits at $[w]$, denote those gates by $v_{0}, v_{1}$. Since we assumed that $C$ is given in its unitary decoding representation, it holds that $v_{0}, v_{1}$ are Paulis, in particular a product operator. Denote their product decompositions by $v_{0} = \prod_{k}v_{0}^{(k)}$ and $v_{1} = \prod_{k}v_{1}^{(k)}$. Thus, by repeating the non-decoding case, but extracting from the infinite product only the terms in $v_{0}$ and $v_{1}$ that act non-trivially at $[w]$, we get:
+   \begin{equation*}
+     \begin{split}
+       \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= v_{0}v_{1}|_{[w]} \rho^{\prime} \left(v_{0}v_{1}|_{[w]}\right)^{\dagger} 
+     \end{split}
+   \end{equation*}
+Moreover, since $v_{0}$ and $v_{1}$ are a plantation of $g$ in locations $\text{root}(u)$ and $\text{root}(u) \pm n$, then by \Cref{claim:pauli_back}, we have that $u = v_{0}v_{1}|_{[w]}$; therefore:
+   \begin{equation*}
+     \begin{split}
+       \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= v_{0}v_{1}|_{[w]} \rho^{\prime} \left(v_{0}v_{1}|_{[w]}\right)^{\dagger} \\
+       &= u \rho^{\prime} u^{\dagger} \\
+   &= \rho 
+     \end{split}
+   \end{equation*}
+  \end{enumerate}
+  \end{enumerate}
+\end{proof}
+
+\inb{ add that the computation graph is lifted naturally to the $\infty$-extension, since the image of a mapping are overlapped gates, we can execute them simultaneously.  }  
+
+
