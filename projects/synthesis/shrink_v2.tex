@@ -44,15 +44,6 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
 For a vertex $v$, we define the \textit{$X$-small code at vertex $v$} to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy $\mathcal{C}_{X}$'s restrictions rooted at $v$ ($d^{\prime}-1$ faces). Similarly, we define the \textit{$Z$-small code at vertex $v$} to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy $\mathcal{C}_{Z}$'s restrictions rooted at $v$ ($d^{\prime}+1$ faces). We denote by $\mathcal{C}_{v}^{-}$ and $\mathcal{C}_{v}^{+}$ the $X$-small code at $v$ and $Z$-small code at $v$.
 \end{definition}
 
-\inb{ Do something with that.} And clearly $\text{Stab}_{v}$ is collection of stabilizers since for any $S^{\prime} \subset S$ such $|S^{\prime}|=d^{\prime}+1$ we have:
-  \begin{equation*}
-    \begin{split}
-      \partial \left(   \partial \rotfvs{} \right) & = \partial \left( \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} + \sum_{g \in S^{\prime}} \rotfv{gv}{S^{\prime}/g}  \right) \\
-      & = \sum_{ \substack{ g^{\prime},g \in S^{\prime} \\ g^{\prime}\neq g } } \left( \rotfv{v}{S^{\prime}/\{ g,g^{\prime} \} } +   \rotfv{g^{\prime}v}{S^{\prime}/\{ g,g^{\prime} \} }+ \rotfv{gv}{S^{\prime}/\{ g,g^{\prime} \} } + \rotfv{g^{\prime}gv}{S^{\prime}/\{ g, g^{\prime}\}} \right) \\
-      & = 0
-    \end{split}
-  \end{equation*}
-Where we used that the term in the closure is invariant to sweeping between $g$ and $g^\prime$, and therefore any term in the sum appears twice.
 \begin{definition}
   \inb{Should rewrite it better.} We define $\text{Stab}_{v}^{-}$ and $\text{Stab}_{v}^{+}$ as the following linear codes: 
   \begin{align*}
