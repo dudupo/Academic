@@ -104,15 +104,15 @@ So there is at least $2^{d}$ stabilizers $w \in \text{Stab}_{v}$ that agree with
 \end{claim}
 \begin{proof}
   
-  Let $v_{1}, v_{2}, \ldots, v_{k}$ be the vertices in $z$ that achieve the maximum for $L_{d+1}$, namely $v_{1}, v_{2}, \ldots, v_{k} = \arg \max_{v \in z} L_{d+1}(v)$, and assume that $v_{i} \notin \partial z$ for any $i \in [k]$. Consider the $i$th vertex $v_{i}$, by definition, since $v_{i} \notin \partial z$, we have $(\partial z)|_{v_{i}} = 0$, and since $v_{i}$ is a maximum point of $L_{d+1}$ in $z$, it is also a local maximum, and therefore $z|_{v_{i}+} = z|_{v_{i}}$. Combining the two, we get that $z|_{v_{i}}$ is a codeword of the small code at $v_{i}$, namely $z|_{v_{i}} \in \mathcal{C}_{v_{i}}$. Thus by \Cref{claim:agreement}, there is a stabilizer $w_{i} \in \text{Stab}_{v_{i}}$ such that $w_{i}$ and $z$ agree on the positive faces of $v_{i}$, namely $w_{i}|_{v_{i}} = z|_{v_{i}}$.  Set $\tilde{z} \leftarrow z + \sum_{i}w_{i}$. Since $\sum_{i}w_{i}$ is a stabilizer, we have $\tilde{z} \sim_{C_{X}} z$. In addition, since for any $j\neq i$, $v_{j} \notin w_{i}$ we have $\tilde{z}|_{v_{i}} = (z + w_{i})|_{v_{i}} = 0$ namely $v_{i} \notin \tilde{z}$, thus: 
-
+  Let $v_{1}, v_{2}, \ldots, v_{k}$ be the vertices in $z$ that achieve the maximum for $L_{d+1}$, namely $v_{1}, v_{2}, \ldots, v_{k} = \arg \max_{v \in z} L_{d+1}(v)$, and assume that $v_{i} \notin \partial z$ for any $i \in [k]$. Consider the $i$th vertex $v_{i}$, by definition, since $v_{i} \notin \partial z$, we have $(\partial z)|_{v_{i}} = 0$, and since $v_{i}$ is a maximum point of $L_{d+1}$ in $z$, it is also a local maximum, and therefore $z|_{v_{i}+} = z|_{v_{i}}$.
+  Combining the two, we get that $z|_{v_{i}}$ is a codeword of the small code at $v_{i}$, namely $z|_{v_{i}} \in \mathcal{C}_{v_{i}}$. Thus by \Cref{claim:agreement}, there is a stabilizer $w_{i} \in \text{Stab}_{v_{i}}$ such that $w_{i}$ and $z$ agree on the positive faces of $v_{i}$, namely $w_{i}|_{v_{i}} = z|_{v_{i}}$.  Set $\tilde{z} \leftarrow z + \sum_{i}w_{i}$. Since $\sum_{i}w_{i}$ is a stabilizer, we have $\tilde{z} \sim_{C_{X}} z$. 
+In addition, for any $j \neq i$, it follows that $v_{j} \notin w_{i}$. Otherwise, there exists $S^{\prime} \subset S$ such that $v_{j} \in \rotf{v_{i}}{S^{\prime}}$, and therefore $L_{d+1}(v_{j}) > L_{d+1}(v_{i})$, in contradiction to $v_{i}$ and $v_{j}$ being both global maximum points for $L_{d+1}$ in $\partial^{\pm} z$.
+  Thus we have $\tilde{z}|_{v_{i}} = (z + w_{i})|_{v_{i}} = 0$ namely $v_{i} \notin \tilde{z}$, Hence we get: 
 \begin{equation*}
   \begin{split}
     \max_{u \in \tilde{z}}L_{d+1}(u) & \le \max_{u \in z \cup_{i}w_{i}/ \cup v_{i} }L_{d+1}(u) <  \max_{u \in z}L_{d+1}(u) - 1
   \end{split}
 \end{equation*}
-
-
 \end{proof}
 
 \begin{claim}
