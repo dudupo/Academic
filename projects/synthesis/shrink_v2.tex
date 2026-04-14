@@ -73,13 +73,14 @@ Where we used that the term in the closure is invariant to sweeping between $g$ 
   We will show that codes obtained from $\text{Stab}_{v}^{-}$ and $\text{Stab}_{v}^{+}$ by forcing the faces rooted at $v$ to $z|_{v}$ have non-zero dimensions. Then it follows that any code word of $\mathcal{C}_{v}^{\pm}$ could be extend to codewords in $\text{Stab}_{v}^{-}$ and $\text{Stab}_{v}^{+}$. The number of bits in both $\text{Stab}_{v}^{\pm}$ is:
 \begin{equation*}
   \begin{split}
-    { d \choose d^{\prime} }  +  d { d - 1 \choose d^{\prime} } 
+  
+    \overbrace{ { d \choose d^{\prime} } }^{ \text{ bits of the form }  \rotfv{v}{S^{\prime}/g} }   +\overbrace{d { d - 1 \choose d^{\prime} } }^{\text{ bits of the form } \rotfv{gv}{S^{\prime}/g}}    
   \end{split}
 \end{equation*}
 The numbers of checks for $\text{Stab}_{\pm}$ are:
 \begin{equation*}
   \begin{split}
- { d \choose d^{\prime} \pm 1 } + d { d-1  \choose d^{\prime} \pm 1 }  
+    \overbrace{{ d \choose d^{\prime} \pm 1 }}^{  \text{ checks of the form } }  +\overbrace{d { d-1  \choose d^{\prime} \pm 1 }}^{ \text{checks of the form   } }    
  \end{split}
 \end{equation*}
 The restriction to $z|_{v}$ sets the bits rooted at $v$, and satisfies the checks that are rooted at $v$, so the checks of the form $\rotfvs{}$ for $|S^{\prime}| = d^{\prime} \pm 1$ are degenerate, and the dimension that remains is:
