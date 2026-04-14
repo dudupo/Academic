@@ -185,7 +185,15 @@ Let $z$ be a finite assignment and let $\xi$ be the result of the application of
   \end{enumerate}
 \end{claim}
 \begin{proof}
-  First, since the Sweep rule is invariant to an addition by stabilizers, for any $\tilde{z}$ such that $\tilde{z} \sim_{C_{X}} z$, the correction applied by the Sweep rule on $\tilde{z}$ is the same as the application on $z$. Thus, $\partial \tilde{\xi} = \partial \xi$, and we can assume by \Cref{claim:extermum} that $\max_{v \in z} L_{d+1} = \max_{v \in \partial z} L_{d+1}$. 
+  First, since the Sweep rule is invariant to an addition by stabilizers, for any $\tilde{z}$ such that $\tilde{z} \sim_{C_{X}} z$, the correction applied by the Sweep rule on $\tilde{z}$ is the same as the application on $z$. Let $\tilde{\xi} = \xi + z + \tilde{z}$, namely, $\tilde{\xi}$ is obtained from $\xi$, by shifting it by the same stabilizer shift between $z$ and $\tilde{z}$. Thus
+  \begin{equation*}
+    \begin{split}
+      \partial \tilde{\xi} & = \partial \left( \xi + z + \tilde{z} \right) \\
+         & = \partial \xi + \partial z + \partial z \\
+         & = \partial \xi 
+    \end{split}
+  \end{equation*}
+  and we can assume by \Cref{claim:extermum} that $\max_{v \in z} L_{d+1} = \max_{v \in \partial z} L_{d+1}$. 
 
 
   \begin{equation*}
