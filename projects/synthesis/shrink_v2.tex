@@ -129,7 +129,12 @@ Namely, for any $i$, the $i$th vertex $v_{i}$ is not in $\tilde{z}$. Hence, the 
 
 \begin{claim}
   \label{claim:extermum}
-  Let $z$ be a finite assignment. Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that $ \max_{v \in \tilde{z}} L_{d+1} = \max_{v \in \partial \tilde{z}} L_{d+1}$.
+  Let $z$ be a finite assignment. Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that 
+  \begin{equation*}
+    \begin{split}
+      \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} = \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} z \big\}
+    \end{split}
+  \end{equation*}
 \end{claim}
 \begin{proof}
 Let $z$ be a finite assignment, and let $k$ be an integer such that $k \ge 1$ and
@@ -199,25 +204,12 @@ First, since the Sweep rule is invariant to addition by stabilizers, for any $\t
       \partial \tilde{\xi} = \partial \left( \tilde{z} + \phi \right) = \partial \left( z + \phi \right) = \partial \xi
     \end{split}
   \end{equation*}
-      $\xi + z + \tilde{z}$, namely, $\tilde{\xi}$ is obtained from $\xi$, by shifting it by the same stabilizer shift between $z$ and $\tilde{z}$. Thus
+  So since $\partial \tilde{ z} = \partial z$ and  $\partial \tilde{\xi} = \partial \xi$ proving the claim for $\tilde{z}$ is sufficient. By \Cref{claim:extermum} there is $\tilde{z}$ such: 
   \begin{equation*}
     \begin{split}
-      \partial \tilde{\xi} & = \partial \left( \xi + z + \tilde{z} \right) \\
-         & = \partial \xi + \partial z + \partial z \\
-         & = \partial \xi 
+      \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} = \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} z \big\}
     \end{split}
   \end{equation*}
-  and we can assume by \Cref{claim:extermum} that $\max_{v \in z} L_{d+1} = \max_{v \in \partial z} L_{d+1}$. 
-
-
-  \begin{equation*}
-    \begin{split}
-      & \xi = z + \phi \\
-      \Rightarrow & \xi + w = z + w + \phi \\ 
-      & \tilde{\xi} = \tilde{z} + \phi
-    \end{split}
-  \end{equation*}
-
 
   \inb{Thus, the local view around the edge $v$ of $\partial z$ is rooted at $v$, therefore, $v$ can flip by that and local view and get $v \notin z \rightarrow v \notin \partial z $, and eventually we repeat on the same max inequality above to show that $L_{d+1}$ decreases. }
 \end{proof}
