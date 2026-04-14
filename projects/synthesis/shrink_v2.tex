@@ -185,7 +185,21 @@ Let $z$ be a finite assignment and let $\xi$ be the result of the application of
   \end{enumerate}
 \end{claim}
 \begin{proof}
-  First, since the Sweep rule is invariant to an addition by stabilizers, for any $\tilde{z}$ such that $\tilde{z} \sim_{C_{X}} z$, the correction applied by the Sweep rule on $\tilde{z}$ is the same as the application on $z$. Let $\tilde{\xi} = \xi + z + \tilde{z}$, namely, $\tilde{\xi}$ is obtained from $\xi$, by shifting it by the same stabilizer shift between $z$ and $\tilde{z}$. Thus
+First, since the Sweep rule is invariant to addition by stabilizers, for any $\tilde{z}$ such that $\tilde{z} \sim_{C_{X}} z$, the correction applied by the Sweep rule on $\tilde{z}$ is the same as the application on $z$. Denote by $\phi$ the correction, by $\tilde{\xi}$ the result of applying the Sweep rule on $\tilde{z}$, and by $w$ the stabilizer which is the difference between $z$ and $\tilde{z}$, namely:
+  \begin{equation*}
+    \begin{split}
+      \xi &= z + \phi \\
+      \tilde{\xi} &= \tilde{z} + \phi \\
+      \tilde{z} &= z + w
+    \end{split}
+  \end{equation*}
+  The $\partial^{\pm}$ boundary of $\tilde{\xi}$ equals:
+  \begin{equation*}
+    \begin{split}
+      \partial \tilde{\xi} = \partial \left( \tilde{z} + \phi \right) = \partial \left( z + \phi \right) = \partial \xi
+    \end{split}
+  \end{equation*}
+      $\xi + z + \tilde{z}$, namely, $\tilde{\xi}$ is obtained from $\xi$, by shifting it by the same stabilizer shift between $z$ and $\tilde{z}$. Thus
   \begin{equation*}
     \begin{split}
       \partial \tilde{\xi} & = \partial \left( \xi + z + \tilde{z} \right) \\
@@ -202,7 +216,7 @@ Let $z$ be a finite assignment and let $\xi$ be the result of the application of
       \Rightarrow & \xi + w = z + w + \phi \\ 
       & \tilde{\xi} = \tilde{z} + \phi
     \end{split}
-  \end{equation*}<++>
+  \end{equation*}
 
 
   \inb{Thus, the local view around the edge $v$ of $\partial z$ is rooted at $v$, therefore, $v$ can flip by that and local view and get $v \notin z \rightarrow v \notin \partial z $, and eventually we repeat on the same max inequality above to show that $L_{d+1}$ decreases. }
