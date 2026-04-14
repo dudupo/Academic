@@ -132,7 +132,13 @@ Namely, for any $i$, the $i$th vertex $v_{i}$ is not in $\tilde{z}$. Hence, the 
   Let $z$ be a finite assignment. Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that $ \max_{v \in \tilde{z}} L_{d+1} = \max_{v \in \partial \tilde{z}} L_{d+1}$.
 \end{claim}
 \begin{proof}
-  Apply \Cref{claim:reduce_stab} multiple times. 
+Let $z$ be a finite assignment, and let $k$ be an integer such that $k \ge 1$ and
+  \begin{equation*}
+    \begin{split}
+            \max \big\{ L_{d+1}(u) :  u \in z \big\} =  \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} z \big\} + k
+    \end{split}
+  \end{equation*}
+Consider the assignment $\tilde{z}$ obtained by applying the construction given in \Cref{claim:reduce_stab} $k$ times. Clearly,
 \end{proof}
 
 \begin{claim}
