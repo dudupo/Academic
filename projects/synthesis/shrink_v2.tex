@@ -100,7 +100,9 @@ Consider the $i$th vertex $v_{i}$. By definition, since $v_{i} \notin \partial z
 Combining the two, we get that $z|_{v_{i}}$ is a codeword of the small code at $v_{i}$, namely $z|_{v_{i}} \in \mathcal{C}_{v_{i}}$. Thus, by \Cref{claim:agreement}, there is a stabilizer $w_{i} \in \text{Stab}_{v_{i}}$ such that $w_{i}$ and $z$ agree on the positive faces of $v_{i}$, namely $w_{i}|_{v_{i}} = z|_{v_{i}}$. 
 
 Set $\tilde{z} \leftarrow z + \sum_{i}w_{i}$. Since $\sum_{i}w_{i}$ is a stabilizer, we have $\tilde{z} \sim_{C_{X}} z$. In addition, for any $j \neq i$, it follows that $v_{j} \notin w_{i}$.
-Otherwise, there exists $S^{\prime} \subset S$ such that $v_{j} \in \rotf{v_{i}}{S^{\prime}}$, and therefore $L_{d+1}(v_{j}) > L_{d+1}(v_{i})$, in contradiction to $v_{i}$ and $v_{j}$ being both maximum points for $L_{d+1}$ in $\partial^{\pm} z$. Thus, we have $\tilde{z}|_{v_{i}} = (z + w_{i})|_{v_{i}} = 0$, namely $v_{i} \notin \tilde{z}$. Hence, we get:
+Otherwise, there exists $S^{\prime} \subset S$ such that $v_{j} \in \rotf{v_{i}}{S^{\prime}}$, and therefore $L_{d+1}(v_{j}) > L_{d+1}(v_{i})$, in contradiction to $v_{i}$ and $v_{j}$ being both maximum points for $L_{d+1}$ in $\partial^{\pm} z$. 
+
+Thus, we have $\tilde{z}|_{v_{i}} = (z + w_{i})|_{v_{i}} = 0$, namely $v_{i} \notin \tilde{z}$. Hence, we get:
 \begin{equation*}
   \begin{split}
     \max \left\{ L_{d+1}(u) : u \in \tilde{z} \right\} & \le \max \big\{ L_{d+1}(u) : u \in z \bigcup_{i}\left(w_{i}/ v_{i}\right) \big\}  \\ 
