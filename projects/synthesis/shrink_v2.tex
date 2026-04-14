@@ -91,7 +91,18 @@ So there is at least $2^{d}$ stabilizers $w \in \text{Stab}_{v}$ that agree with
 
 \begin{claim}
   \label{claim:reduce_stab}
-  Let $z$ be a finite assignment. Suppose that $\max_{v \in z} L_{d+1}(v) > \max_{ v \in \partial^{\pm} z}L_{d+1}(v)$, Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that $ \max_{v \in \tilde{z}} L_{d+1} < \max_{v \in z} L_{d+1} - 1$.
+  Let $z$ be a finite assignment. Suppose that 
+  \begin{equation*}
+    \begin{split}
+            \max \big\{ L_{d+1}(u) :  u \in z \big\} > \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} z \big\}
+    \end{split}
+  \end{equation*}
+  , Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that:
+\begin{equation*}
+  \begin{split}
+    \max \left\{ L_{d+1}(u) : u \in \tilde{z} \right\} & \le  \max \big\{ L_{d+1}(u) : u \in z \big\} - 1
+  \end{split}
+\end{equation*}
 \end{claim}
 \begin{proof}
 Let $v_{1}, v_{2}, \ldots, v_{k}$ be the vertices in $z$ that achieve the maximum for $L_{d+1}$, namely $v_{1}, v_{2}, \ldots, v_{k} = \arg \max_{v \in z} L_{d+1}(v)$, and assume that $v_{i} \notin \partial^{\pm} z$ for any $i \in [k]$.
