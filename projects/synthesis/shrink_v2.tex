@@ -33,6 +33,7 @@ Let $z$ be an assignment, and let $\partial z$ be the set of vertices adjacent t
 In contradiction to $v$ being a local maximum of $L_{g}$ in $\partial z$.
 \end{proof}
 \begin{claim}
+  \label{claim:edge_pole}
 Let $z$ be an assignment, and let $\partial z$ be the set of vertices adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\partial z$, and let $g$ be a coordinate in $S$ such that $v$ is a local maximum of $L_{g}$. Then for any check associated with a $d^{\prime}-1$ face rooted at $v$ that contains $gv$, it is satisfied.
 \end{claim}
 \begin{proof}
@@ -224,6 +225,10 @@ Namely, for any $i$, the $i$th vertex $v_{i}$ is not in $\tilde{\xi}$. For any v
     & \le  \max \big\{ L_{d+1}(u) : u \in \partial \tilde{z} \big\} - 1
   \end{split}
 \end{equation*}
+
+By \Cref{claim:edge_pole}, dsfd
+
+
 \end{proof}
 \newpage
 
