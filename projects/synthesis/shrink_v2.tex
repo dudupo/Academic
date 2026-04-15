@@ -161,7 +161,7 @@ Let $z$ be a finite assignment, and let $k$ be an integer such that $k \ge 1$ an
 If the $i-1$th element doesn't satisfies $\star$, then set $l = i -1$.
 \item If the $k$th element was defined, set $l = k$.
   \end{itemize}
-Since $\sim_{C_{X}}$ is a transitive relation, we have that for any $i \in [l]$, $z \sim_{C_{X}} \tilde{z}_{i}$. If $l \neq k$, then there exists $\tilde{z}_{i}$ such that $\tilde{z}_{i} \sim_{C_{X}}$ and $\tilde{z}_{i}$ satisfies $\star$, namely $\tilde{z}_{i}$ gives the desired result, and by setting $\tilde{z} = \tilde{z}_{i}$, we are done.
+Since $\sim_{C_{X}}$ is a transitive relation, we have that for any $i \in [l]$, $z \sim_{C_{X}} \tilde{z}_{i}$. If $l \neq k$, then there exists $\tilde{z}_{i}$ such that $\tilde{z}_{i} \sim_{C_{X}}$ and $\tilde{z}_{i}$ satisfies $\star$, namely by setting $\tilde{z} = \tilde{z}_{i}$, we get the desired.
 So, it is left to handle the case where $l = k$. In that case, set $\tilde{z} = \tilde{z}_{k}$. By \Cref{claim:reduce_stab}:
 \begin{equation*}
   \begin{split}
@@ -185,8 +185,18 @@ Therefore, we have the equality:
 \begin{claim}
 Let $z$ be a finite assignment and let $\xi$ be the result of the application of the Sweep rule on it. Then: 
   \begin{enumerate}
-    \item For any $i \in [d]$, $\max_{v \in \partial z } L_{i}(v) = \max_{v \in \partial \xi } L_{i}(v)$. 
-    \item $\max_{v \in \partial z } L_{d+1}(v) > \max_{v \in \partial \xi } L_{d+1}(v) + 1$. 
+    \item For any $i \in [d]$: 
+      \begin{equation*}
+        \begin{split}
+      \max \big\{ L_{i}(v) : v \in \partial z \big\} = \max \big\{ L_{i}(v) : v \in \partial \xi \big\}  
+        \end{split}
+      \end{equation*}
+    \item And for $i = d+1$ 
+      \begin{equation*}
+        \begin{split}
+      \max \big\{ L_{d+1}(v)  : v \in \partial z \big\} > \max \big\{  L_{d+1}(v) : v \in \partial \xi \big\} + 1
+        \end{split}
+      \end{equation*}
   \end{enumerate}
 \end{claim}
 \begin{proof}
