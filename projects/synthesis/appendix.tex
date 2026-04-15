@@ -118,3 +118,176 @@ Let $u, v$ be such that $u \in \sigma_{1}$ and $v \in \sigma_{2} \neq \sigma_{1}
 Assume that $\sigma_{1}, \sigma_{2} \rightarrow \sigma_{0}$, then there is a fork between $\sigma_{1}$ and $\sigma_{2}$. So if we keep to extent the history in a recursive manner, then we get a connected graph.
 \end{claim}
 
+\section{Garbage} 
+
+\begin{proof}
+  
+
+%\begin{algorithm}[H] 
+%  $\gamma \leftarrow \min_{v \in \partial z} L_{d+1}(v)$\\ 
+%  $\mathcal{U} \leftarrow \left\{ u : u \in \text{lmax}\left( L_{d+1}, z \right)    \right\} $
+%  \While {
+%
+%  } 
+%\end{algorithm}
+
+
+
+
+
+\begin{equation*}
+  \begin{split}
+    L_{d+1}(u) \le \min_{v \in \partial z} L_{d+1}(v)
+  \end{split}
+\end{equation*}
+Observes that if the \textit{termination-condition} holds then any local maximum of $L_{d+1}$ in $\partial z$ is also a local maximum of $L_{d+1}$ in $\tilde{z}$ and we finish. Consider the other case, namely there is at least one vertex $u \in \tilde{z}/\partial z$ such that $u$ is a local maximum for $L_{d+1}$ and 
+\begin{equation*}
+  \begin{split}
+    L_{d+1}(u) > \min_{v \in \partial z} L_{d+1}(v)
+  \end{split}
+\end{equation*}
+In that case, we peak such $u$, and looking for stabilizer $w$ such $u \notin \tilde{z} + w$ by repeating over the above procedure where $u$ plays the role of $v$. We keep repeating on the procedure until the \textit{termination-condition} holds. 
+
+We argue that the process indeed terminates. Consider a vertex $u$ such that $u$ is a local maximum of $L_{d+1}$ in $\tilde{z}$ and $u$ is not a local maximum of $L_{d+1}$ at $z$. Put differently, $u$ becomes a local maximum as a result of adding $w$ to $z$. Thus, $u$ has to belong to $w|_{v} \setminus v$, which implies that there is a non-empty subset of generators $I \subset S$ such that $u = (\prod_{g \in I} g)v$, and therefore $L_{d+1}(u) \le -1 + L_{d+1}(v)$. 
+
+Hence, since $z$ is finite.  
+
+
+
+  
+  
+We repeat the process while possible; namely, we stop when all the local maxima of $L_{d+1}$ are in $\partial$.
+\end{proof}
+
+We prove that $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$ below, for now assume it is correct.
+\inb{ 
+We continue by using the fact that if, for a local maximum $v$ in $\partial$, it holds that $z|_{v}$ is rooted at $v$, then the decoder will find bits rooted at $v$ such that their $\partial$ agrees with $\partial$.
+}
+
+
+To generalize, one might think that it has to complete the local view on $v$ such that all the checks are satisfied. For $C_{X}$, it sums up to show that the following dimension is positive. Yet the trick fails for $C_{Z}$, where we need to think of a different idea.
+\begin{equation*}
+  \begin{split}
+    d { d - 1 \choose d^{\prime} } - { d \choose d^{\prime} - 1 } - d { d-1  \choose d^{\prime} - 1 }  
+  \end{split}
+\end{equation*}
+
+
+\begin{claim}
+  Let $z$ an assignment rooted at vertex $v$, such $\partial z |_{v+} = 0$. Then there is a stabilizer $w$, rooted at $v$, such that $w|_{v+} = z$.  
+\end{claim}
+
+\begin{proof}
+Denote by $F$ the faces in $z$, and by $J$ the collection of generators that support $F$. We claim that $|J| \ge d^{\prime}+1$.
+
+Clearly, $|J| \ge d^{\prime}$, since each face is defined by a root vertex and $d^{\prime}$ generators. Yet, observe that if $|J|$ equals exactly $d^{\prime}$, then $z$ contains a single $d^{\prime}$-face, denote it by $f$. Then, any check associated with a $d^{\prime}-1$ face of $f$ is unsatisfied, in particular the $d^{\prime}-1$ faces that are rooted at $v$, in contradiction to $\partial z|_{v+} = 0$. 
+
+
+Now, one can choose $J^{\prime} \subset J$ of size $d^{\prime}+1$, and define the stabilizer $w = \theta_{v,J^{\prime}}$.
+    
+\end{proof}
+
+
+\begin{claim} \label{claim:syn_edge}
+Suppose $v \in z$ and for any $g \in S$, we have $g^{-1}v \notin z$, then there is $\rotf{v}{J} \in \partial z$.
+\end{claim}
+\begin{proof}
+  
+  \begin{equation*}
+    \begin{split}
+      \partial z = \sum_{S^{\prime}} \rotfv{v}{S^{\prime}} + .. 
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+
+\begin{claim}
+  Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let $\Gamma$ be the set of vertices which are adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$ such that $v$ is a strong global maximum of $L_{d+1}$, at $\Gamma$. Then there is a rooted assignment $\tilde{z}$ at $v$ such that $z_{v} = \tilde{z}_{v}$. 
+\end{claim}
+\begin{proof}
+  Let $ \Theta = \theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the faces forms $z$. 
+
+
+  Since $z$ is finite, it has a maximum for $L_{d+1}$. Denote by $u$ the vertex that gets the maximum, and denote by $\theta_{u,J_{1}}, \ldots, \theta_{u,J_{l}}$ the $d^{\prime}$-faces in $z$ that are rooted at $u$. We claim that $u = v$.
+
+  Suppose not, namely $u \notin \Gamma$. Then it means that any $d^{\prime}-1$ face containing $u$ is satisfied. Observe that $\sum \theta_{u,J_{i}} \neq 0$; otherwise, it would contradict the non linearity independence of  $\rotfv{v_{1}}{S^{\prime}_{1}}, \rotfv{v_{2}}{S^{\prime}_{2}},.. \rotfv{v_{k}}{S^{\prime}_{k}}$. So, by \Cref{claim:syn_edge} there exists a $d^{\prime}-1$ face rooted at $u$, contained in $\sum \theta_{u,J_{i}}$. Let us denote it by $\theta_{u,J^{\prime}}$.
+
+Since $\theta_{u,J^{\prime}}$ is satisfied, it has to be adjacent to a turned bit, namely a $d^{\prime}$ face in $z$, not in $\theta_{u,J_{1}}, \ldots, \theta_{u,J_{l}}$. Denote that $d^{\prime}$ face by $f$. Yet, since $\theta_{u,J^{\prime}}$ is rooted at $u$, it contains $u$, and therefore $f$ contains $u$. Now, if $f$ is rooted at $u$, then it is a contradiction that $\theta_{u,J_{1}}, \ldots, \theta_{u,J_{l}}$ are all the $d^{\prime}$ faces in $z$ rooted at $u$. If $f$ is not rooted at $u$, denote its root by $w$, so there is $g \in S$ such that $gw = u$, and $w \in z$, in contradiction to $u$ being maximum for $L_{d+1}$.
+
+
+So, we find that $v$ is also the maximum of $L_{d+1}$ in $z$. Therefore, we have that $\tilde{z} = \sum \theta_{u, J_{i}}$ zeros out $z_{v}$.
+\end{proof}
+
+
+
+
+
+\begin{claim}
+  Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let the collection $\Theta = \theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the decomposition forms $z$. Denote by $\Gamma$ the set of vertices adjacent to unsatisfied check induced by $z$. Then $\Theta$ is acyclic, if and only if $z$ has at least one Infimum. 
+\end{claim}
+\begin{proof}
+  First, suppose that $z$ has at least one Infimum. Let $u$ be an infimum in $z$.. 
+  Second, suppose that $\Theta$ is acyclic. 
+\end{proof}
+
+
+
+\begin{claim}\label{claim:extermal}
+Suppose that $d^{\prime} > 1$ and a vertex $v \in \mathcal{G}^{d}_{\infty}$ is also adjacent to the domain wall, namely $v \in \Gamma$. It holds that $v$ cannot be simultaneously both a (strong) local max of $L_{d+1}$ and a local min of $L_{d+1}$.
+\end{claim}
+
+\begin{proof}
+  Let $v \in \Gamma$ be a local maximum point of $L_{d+1}$, It means that:
+  \begin{enumerate}
+    \item The vertex $v$ is adjacent to a $d^{\prime - 1}$-face which is unsatisfied. 
+   \item That face is rooted in $v$; otherwise, the root of the face is a vertex in $\Gamma$ with a higher value of $L_{d+1}$, in contradiction to $v$ being a local maximum.
+  \end{enumerate}
+Thus, there is a subset of generators $S^{\prime} \subset S$, of size $d^{\prime} - 1 > 0$, such that the unsatisfied check set is on the face $\theta_{v,S^{\prime}}$. Given $d^{\prime} > 1$, we have that $S^{\prime}$ contains at least one more element besides the empty set, denoted by $g$. Now, consider the vertex $gv$. Since $gv$ is adjacent to $\theta_{v,S^{\prime}}$, then $gv \in \Gamma$. On the other hand, on the infinite toric $\mathcal{G}^{d}_{\infty}$, moving along the grid generator decreases $L_{d+1}$ by one, so $L_{d+1}(gv) = L_{d+1}(v) - 1$. In other words, $gv$ is a neighbor of $v$ with a lower value of $L_{d+1}$, and thus $v$ cannot be a local minimum of $L_{d+1}$.
+\end{proof}
+
+\begin{remark}
+
+\inb{
+  That claim alone gives a decoder in the clean setting. Write a remark indicating that when $d^\prime = 1$, meaning qubits are on the edges (2D toric), the claim is not true.
+}
+\end{remark}
+
+ \inb { For $d = 4, d^{\prime}= 2$.} For $i,j \in [d]$, such that $i \neq j$, denote the bit rooted at $v$ and spanned by generators $g_{i}, g_{j} \in S$, namely $\theta_{v,\{ g_{i},g_{j} \}}$, by $g_{ij} = g_{ji}$. The restrictions: 
+  \begin{equation*}
+    \begin{split}
+      r_{i} \colon \sum_{j\neq i} g_{ij}
+    \end{split}
+  \end{equation*}
+  Thus we get
+  \begin{equation*}
+    \begin{split}
+      \sum_{i}^{n}r_{i} & = \sum_{i}^{n} \sum_{j \neq i }^{n+1} g_{ij} \\
+      & =   \sum_{i}^{n}\sum_{j < i}^{n} g_{i,j} + g_{j,i} +   \sum_{i}^{n}  g_{i,n+1} \\
+      & = r_{n+1}
+    \end{split}
+  \end{equation*}
+  Thus the dimension of the small code at $v$ is at least: 
+  \begin{equation*}
+    \begin{split}
+      { d \choose 2 } - (d-1) = 3 
+    \end{split}
+  \end{equation*}
+  We have $ { 4 \choose 3 } = 4 $ stabilizers rooted at $v$ (each for each cube). Yet:  
+  \begin{equation*}
+    \begin{split}
+      s_{1} &= g_{1,2} + g_{2,3} + g_{1,3} \\
+      s_{2} &= g_{1,2} + g_{2,4} + g_{1,4} \\
+      s_{3} &= g_{1,3} + g_{3,4} + g_{1,4} \\
+      s_{4} &= g_{2,3} + g_{3,4} + g_{2,4} 
+    \end{split}
+  \end{equation*}
+  And clearly 
+  \begin{equation*}
+    \begin{split}
+      s_{4} = s_{1}+s_{2}+s_{3}
+    \end{split}
+  \end{equation*}
+
+\begin{definition}[Reduced subset with boundrey at $v$]
+  
+\end{definition}
