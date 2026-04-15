@@ -210,9 +210,21 @@ First, since the Sweep rule is invariant to addition by stabilizers, for any $\t
       \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} = \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} \tilde{z} \big\}
     \end{split}
   \end{equation*}
-
+  
+  For each $\tilde{z}$, any maximum of $L_{d+1}$ in $ \partial \tilde{z} $, is also a maximum in $\tilde{z}$. Denote by $v_{1},..,v_{k}$ the maximum points in $\partial \tilde{z}$. Since they are maximum points in $\tilde{z}$, it holds that for each $i \in [k]$, $\tilde{z}|_{v_{i}} = \tilde{z}|_{v_{i}+}$, and hence $\partial \tilde{z}|_{v_{i}} = \partial \tilde{z}|_{v_{i}+}$. Since $\tilde{z}|_{v_{i}+}$ is an assignment rooted at $v_{i}$, then $v_{i}$ can suggest $\tilde{z}|_{v_{i} +}$, namely the condtion in Sweep rule is satisfied for vertex $v_{i}$. Thus:
+\begin{equation*}
+  \begin{split}
+\partial\tilde{\xi}|_{v_{i}} =  \partial\tilde{z}|_{v_{i}} + \partial\phi|_{v_{i}} = 0
+  \end{split}
+\end{equation*}
+Namely, for any $i$, the $i$th vertex $v_{i}$ is not in $\tilde{\xi}$. Hence, the vertex domain of $\tilde{\xi}$ is contained in the union of the vertices of $\tilde{z}$ with the vertices of $\phi_{1}, \phi_{2}, \ldots, \phi_{k}$, substituting $v_{1}, v_{2}, \ldots, v_{k}$. Overall, we get:
+\begin{equation*}
+  \begin{split}
+  \max \left\{ L_{d+1}(u) : u \in \tilde{z} \right\} & \le \max \big\{ L_{d+1}(u) : u \in z \bigcup_{i} w_{i} \big/ \bigcup_{i} v_{i} \big\}  \\ 
+     & \le  \max \big\{ L_{d+1}(u) : u \in z \big\} - 1
+  \end{split}
+\end{equation*}
 \end{proof}
-
 \newpage
 
 
