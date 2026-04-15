@@ -239,13 +239,19 @@ By \Cref{claim:edge_pole} $\partial \tilde{z}|_{gv} = 0 $, Hence:
   & = 0 
   \end{split}
 \end{equation*}
-Thus if  $g \notin \cup S^{\prime}_{i}$, Then: 
+Thus if  $g  \in \cup S^{\prime}_{i}$, Then: 
 \begin{equation*}
   \begin{split}
     \rotfv{gv}{S^{\prime}_{i}/g}  \in \partial \phi_{v}|_{gv} 
   \end{split}
 \end{equation*}
-So for $\rotfv{gv}{S^{\prime}_{i}/g} = 0$, it must appear at least twice in the sum, yet the left terms in the sum cannot contain it (they differ by the root vertex), and if there is a right term $\rotfv{gv}{S^{\prime}_{j}/g} = \rotfv{gv}{S^{\prime}_{i}/g}$, then it implies that $S_{j} = S_{i}$.
+So for $\rotfv{gv}{S^{\prime}_{i}/g} = 0$, it must appear at least twice in the sum, yet the left terms in the sum cannot contain it (they differ by the root vertex), and if there is a right term $\rotfv{gv}{S^{\prime}_{j}/g} = \rotfv{gv}{S^{\prime}_{i}/g}$, then it implies that $S_{j} = S_{i}$. Which is contradiction, therefore: $g \notin \cup S^{\prime}_{i}$ and $gv \notin \phi_{v}$. 
+\begin{equation*}
+  \begin{split}
+    \max \left\{ L_{g}(u) : u \in \partial \tilde{\xi} \right\} & \le \max \big\{ L_{g}(u) : u \in  \partial \tilde{z} \bigcup_{v \in \partial \tilde{z} } \phi_{v} \big/ \bigcup_{i} v_{i} \big\}  \\ 
+    & \le  \max \big\{ L_{g}(u) : u \in \partial \tilde{z} \big\} + 1 - 1
+  \end{split}
+\end{equation*}
 \end{proof}
 \newpage
 
