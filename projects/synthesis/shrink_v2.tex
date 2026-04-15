@@ -217,10 +217,10 @@ First, since the Sweep rule is invariant to addition by stabilizers, for any $\t
 \partial\tilde{\xi}|_{v_{i}} =  \partial\tilde{z}|_{v_{i}} + \partial\phi|_{v_{i}} = 0
   \end{split}
 \end{equation*}
-Namely, for any $i$, the $i$th vertex $v_{i}$ is not in $\tilde{\xi}$. For any vertex $v$ denote by $\phi_{v}$ the correction made by the vertex $v$, namely $\phi = \sum_{v \in \partial z} \phi_{v}$. Hence, the vertex domain of $\tilde{\xi}$ is contained in the union of the vertices of $\tilde{z}$ with the vertices of $ \cup_{v \in V} \phi_{v} $, substituting maximum points $v_{1}, v_{2}, \ldots, v_{k}$. Overall, we get:
+Namely, for any $i$, the $i$th vertex $v_{i}$ is not in $\tilde{\xi}$. For any vertex $v$ denote by $\phi_{v}$ the correction made by the vertex $v$, namely $\phi = \sum_{v \in \partial \tilde{z}} \phi_{v}$. Hence, the vertex domain of $\tilde{\xi}$ is contained in the union of the vertices of $\tilde{z}$ with the vertices of $ \cup_{v \in V} \phi_{v} $, substituting maximum points $v_{1}, v_{2}, \ldots, v_{k}$. Overall, we get:
 \begin{equation*}
   \begin{split}
-    \max \left\{ L_{d+1}(u) : u \in \partial \tilde{\xi} \right\} & \le \max \big\{ L_{d+1}(u) : u \in  \partial \tilde{z} \bigcup_{i} \phi_{i} \big/ \bigcup_{i} v_{i} \big\}  \\ 
+    \max \left\{ L_{d+1}(u) : u \in \partial \tilde{\xi} \right\} & \le \max \big\{ L_{d+1}(u) : u \in  \partial \tilde{z} \bigcup_{v \in \partial \tilde{z} } \phi_{v} \big/ \bigcup_{i} v_{i} \big\}  \\ 
     & \le  \max \big\{ L_{d+1}(u) : u \in \partial \tilde{z} \big\} - 1
   \end{split}
 \end{equation*}
