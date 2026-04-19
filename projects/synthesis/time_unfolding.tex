@@ -100,6 +100,7 @@ For a quantum circuit $C$, a register $R$ of $C$, and a set of faults $\mathcal{
 \end{definition}
 
 \begin{claim}
+  \label{claim:deviation_clusters}
   Let $C$ be a quantum circuit composed of gates with bounded fan degree $\Delta \in \mathbb{N}$. In addition, let $R$ be a quantum register encoded by a quantum error correction code $\mathcal{C}$ with Tanner graph $\mathcal{T}$ that has left and right degrees $\Delta_{1}$ and $\Delta_{2}$. Fix a set of faults $\mathcal{E}$, and an order $J$ that agrees with $\pi_{C[\mathcal{E}]}$. For any $\tau$, denote by $Y_{1}^{(\tau)}, Y_{2}^{(\tau)}, \ldots, Y_{l}^{(\tau)}$ the deviation clusters at step $\tau \in J$. Assume that at step $\tau_{1} \in J$ there is a deviation cluster $Y_{i}^{(\tau_{1})}$ of size $|Y_{i}^{(\tau_{1})}| $. Then there is a deviation cluster at step $\tau_{1}-1$, let's denote it by $Z$, such $Z \cap Y_{i}^{(\tau_{1})} \neq \emptyset$ and $Z$ is of size at least:
   \begin{equation*}
     \begin{split}
@@ -137,11 +138,11 @@ For a quantum circuit $C$, a register $R$ of $C$, and a set of faults $\mathcal{
 To get the second inequality, we use the fact that $u$ is a unitary gate, in particular, $u$ is reversible. Let $C_{J,\tau_{1}} = u_{1},..,u_{\tau_{1}}$ be the partial computation circuit until step $\tau_{1}$. Observe that $C_{J,\tau_{1}-1}$ is obtained by stacking $u_{\tau_{1}}^{\dagger}$ as a final stage to $C_{J,\tau_{1}}$, denoted by $u^{\dagger} \circ C_{J,\tau_{1}}$. Thus, the deviation from $C_{J,\tau_{1}}$ at step $\tau_{1} -1$ equals the deviation from $u^{\dagger} \circ C_{J,\tau_{1}}$ at step $\tau_{1}+1$. By \cref{equ:upstep},
 \end{proof}
 
-\begin{corollary}
-  Let $\alpha = 1 /(\Delta\Delta_{1}\Delta_{2}) $. Assume that at the initial step $j_{1}$ there is no deviation cluster of size more than $\alpha d$, and that at a step $\tau_{1} \in J$ there is a deviation cluster $Y_{i}^{(\tau_{1})}$ of size $|Y_{i}^{(\tau_{1})}| > d$. Then there is a step $\tau_{o} < \tau_{1}, \tau_{o} \in J$ for which there is a deviation cluster $Z$ at step $\tau_{o}$, such that the size of $Z$ is in the range $(\alpha d, d)$.
+\begin{corollary}[Intermediate Value Theorem]
+Let $\alpha = 1 / (\Delta\Delta_{1}\Delta_{2})$. Assume that at the initial step $\tau_{o}$, there is no deviation cluster of size more than $\alpha d$, and that at a step $\tau_{1} \in J$, such that $\tau_{1} > \tau_{o}$, there is a deviation cluster $Y_^{(\tau_{1})}$ of size $|Y^{(\tau_{1})}| > d$. Then there is a step $\tau_{\star} \in J$ such that $\tau_{o} < \tau_{\star} < \tau_{1}$ for which there is a deviation cluster $Z$ at step $\tau_{\star}$, satisfying that the size of $Z$ is in the range $(\alpha d, d)$.
 \end{corollary}
 \begin{proof}
-  
+Assume through contradiction that for any turn $\tau \in (\tau_{o}, \tau_{1})$, all the deviation clusters are of size smaller than $\alpha d$. Particularly, at turn $\tau_{1}-1$, all the deviation clusters are of size smaller than $\alpha d$. Yet, by claim \Cref{claim:deviation_clusters}, the existence of the deviation cluster $Y^{(\tau_{1})}$, at size $d$, implies the existence of a deviation cluster at turn $\tau_{1} - 1$, of size at least $\alpha d$, which leads to a contradiction.
 \end{proof}
 
 \begin{claim}
