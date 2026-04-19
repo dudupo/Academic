@@ -77,7 +77,7 @@ We will denote the associated computation DAG of $C$ affected by $\mathcal{E}$ a
 
 The following, extends the notion of Tanner graphs to the context of quantum circuits. 
 
-\begin{definition}[Tanner Graph of Register]
+\begin{definition}[Tanner Graph of a Register]
   For a quantum circuit $C$, a register $R$ is a subset of qubits in $C$. The \textit{Tanner graph} at step $\tau$ of register $R$, denoted by $\mathcal{T}_{R, \tau}$, is the graph defined as follows:
   \begin{enumerate}
     \item If there is a code $\mathcal{C}$, such that at turn $\tau$, the qubits in $C$ are an encoding of $\mathcal{C}$, then $\mathcal{T}_{R, \tau}$ is the Tanner graph of $\mathcal{C}$.
@@ -85,11 +85,11 @@ The following, extends the notion of Tanner graphs to the context of quantum cir
   \end{enumerate}
 Where we consider a range of turns in which $R$ is encoded in the same code, and the turn is clear from the context, we will be brief by omitting the turn subscript.
 \end{definition}
-\begin{definition}[Generalized Tanner Graph of Circuit]
+\begin{definition}[Generalized Tanner Graph of a Circuit]
 For a quantum circuit $C$, and registers $a$ and $b$ in $C$, the \textit{generalized Tanner graph} of the register obtained by taking their union $a \cup b$ is $\mathcal{T}_{a \cup b} \colonequals \mathcal{T}_{a} \cup \mathcal{T}_{b}$. For a partition of the qubits into registers $\{R_{i}\}_{i=1}$, the \textit{generalized Tanner graph} of a quantum circuit $C$, at step $\tau$, according to the partition $\{R_{i}\}_{i=1}$, is the graph obtained by:
   \begin{equation*}
     \begin{split}
-      \mathcal{T}_{C, \{R_{i}\}_{i=1}, \tau } \colonequals \bigcup_{i=1} \mathcal{T}_{R_{i}}
+      \mathcal{T}_{C, \{R_{i}\}_{i=1}, \tau } \colonequals \bigcup_{i=1} \mathcal{T}_{R_{i}, \tau}
     \end{split}
   \end{equation*}
 When the partition is clear, we will brief and use $\mathcal{T}_{C}$ to define the generalized Tanner graph of $C$.
