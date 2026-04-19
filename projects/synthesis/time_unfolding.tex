@@ -75,8 +75,23 @@ We will denote the associated computation DAG of $C$ affected by $\mathcal{E}$ a
   Using the same notations as in \Cref{def:deviation}, for a set of unitary operators $\mathcal{S} = \{s_{i} \colon \mathcal{H}_{2}^{w} \rightarrow \mathcal{H}_{2}^{w} \}_{i=1}$, we define the propagated error up to stabilizers in $\mathcal{S}$ as $X^{\tau}[S] \colonequals \min_{s \in \mathcal{S}} \{ w(sX) \}$. Then, we define the deviation of $C[\mathcal{E}]$ from $C$ at step $\tau$ up to stabilizers in $\mathcal{S}$ to be the subset of coordinates on which $X^{\tau}[S]$ acts non-trivially.
 \end{definition}
 
-\begin{definition}[Generalized Tanner Graph]
-  For registers $a$ and $b$, their generalized Tanner graph is their 'union' $\mathcal{T}_{a} \cup \mathcal{T}_{b}$. This allows us to define the Tanner graph of a quantum circuit $C$, at step $\tau$, by stacking together Tanner graphs. This also allows us to define the Tanner graph if a register. \inb{rewrite.} \inb{add definition for a register $R$ of quantum circuit $C$.} 
+The following, extends the notion of Tanner graphs to the context of quantum circuits. 
+
+\begin{definition}[Tanner Graph of Register]
+  For a quantum circuit $C$, a register $R$ is a subset of qubits in $C$. The \textit{Tanner graph} at step $\tau$ of register $R$, denoted by $\mathcal{T}_{R, \tau}$, is the graph defined as follows:
+  \begin{enumerate}
+    \item If there is a code $\mathcal{C}$, such that at turn $\tau$, the qubits in $C$ are an encoding of $\mathcal{C}$, then $\mathcal{T}_{R, \tau}$ is the Tanner graph of $\mathcal{C}$.
+    \item Otherwise, $\mathcal{T}_{R, \tau}$ is the empty graph.
+  \end{enumerate}
+Where we consider a range of turns in which $R$ is encoded in the same code, and the turn is clear from the context, we will be brief by omitting the turn subscript.
+\end{definition}
+\begin{definition}[Generalized Tanner Graph of Circuit]
+  For a quantum circuit $C$, and registers $a$ and $b$ in $C$, the \textit{generalized Tanner graph} of the register that obtained by taking their union $a\cup b$ id $ \mathcal{T}_{a\cupb} \colonequals \mathcal{T}_{a} \cup \mathcal{T}_{b}$. For a partition of the qubits into registers $\{R_{i}\}_{i=1}$, The \textit{generalized Tanner graph} of a quantum circuit $C$, at step $\tau$, according to the partition $\{R_{i}\}_{i=1}$, is the graph obtained by:
+  \begin{equation*}
+    \begin{split}
+      \mathcal{T}_{C} = \bigcup_{i=1} \mathcal{T}_{R_{i}}
+    \end{split}
+  \end{equation*}
 \end{definition}
 
 \begin{definition}[Clustered Deviation]
