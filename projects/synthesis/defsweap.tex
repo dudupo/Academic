@@ -112,7 +112,7 @@ Let $z$ be an assignment on the $i$-faces. Let $v_{1}, \ldots, v_{k} \in \mathca
 
 
 \begin{definition}[Unitary Decoding Representation]
-Let $C = \{u_{i}\}$ be a quantum circuit, and let $\mathcal{U} = \{u^{\prime}_{i}\} \subset C$ be a subset of the gates in $C$ that are decoding gadgets. For a set of faults $\mathcal{E}$, we define the \textit{unitary decoding representation} of $C[\mathcal{E}]$ to be the quantum circuit obtained by replacing each of the gates in $\mathcal{U}$ with their corresponding Pauli gate according to $\mathcal{E}$.
+  Let $C = \{u_{i}\}_{i=1}$ be a quantum circuit, and let $\mathcal{U} = \{u^{\prime}_{i}\}_{i=1} \subset C$ be a subset of the gates in $C$ that are decoding gadgets. For a set of faults $\mathcal{E}$, we define the \textit{unitary decoding representation} of $C[\mathcal{E}]$ to be the quantum circuit obtained by replacing each of the gates in $\mathcal{U}$ with their corresponding Pauli gate according to $\mathcal{E}$.
 \end{definition}
 
 
@@ -126,14 +126,14 @@ Let $C = \{u_{i}\}$ be a quantum circuit, and let $\mathcal{U} = \{u^{\prime}_{i
 \section{Infinite Torics}
 
 \begin{definition}[Registers Coordinates System]
-Let $C = \{u_{i}\}$ be a quantum circuit, with width $w$ and registers $\mathcal{R} = R_{1}, \ldots, R_{k}$, each of length at most $n$. For register $R_{i}$, we define the register identifier $\mathbf{1}_{R_{i}} = \mathbf{1}_{i}$. Then, we define the map $\phi_{\mathcal{R}} \colon \mathbb{Z}_{w} \rightarrow \mathbb{Z}_{R} \times \mathbb{Z}_{n}$ to return, for a space-location coordinate $x \in \mathbb{Z}_{w}$, the tuple consisting of the identifier of the register containing $x$, and its relative coordinate within the register. Namely,
+  Let $C = \{u_{i}\}_{i=1}$ be a quantum circuit, with width $w$ and registers $\mathcal{R} = R_{1}, \ldots, R_{k}$, each of length at most $n$. For register $R_{i}$, we define the register identifier $\mathbf{1}_{R_{i}} = \mathbf{1}_{i}$. Then, we define the map $\phi_{\mathcal{R}} \colon \mathbb{Z}_{w} \rightarrow \mathbb{Z}_{R} \times \mathbb{Z}_{n}$ to return, for a space-location coordinate $x \in \mathbb{Z}_{w}$, the tuple consisting of the identifier of the register containing $x$, and its relative coordinate within the register. Namely,
 \begin{equation*}
   \begin{split}
     \psi_{\mathcal{R}}(x) = (\mathbf{1}_{R_{j}}, x^{\prime})
   \end{split}
 \end{equation*} 
 Where $R_{j}$ is the register containing $x$, and $x^{\prime}$ is the index of the qubit, set at the $x$ location, in $R_{j}$.
-The presentation of $C$ in the \textit{registers coordinate system} is the encoding by a set of gates $\{u^{\prime}_{j}\}$, which is the result of replacing each space-location of the original gates with the applications of $\psi_{\mathcal{R}}$ on them. Namely, for each $u_{i} = (g_{i}, l_{i}) \in C$, we map its space-location coordinate $l_{i_{2}} = (l_{i_{2}}^{(1)}, \ldots, l_{i_{2}}^{(\Delta)})$ to:
+The presentation of $C$ in the \textit{registers coordinate system} is the encoding by a set of gates $\{u^{\prime}_{j}\}_{j=1}$, which is the result of replacing each space-location of the original gates with the applications of $\psi_{\mathcal{R}}$ on them. Namely, for each $u_{i} = (g_{i}, l_{i}) \in C$, we map its space-location coordinate $l_{i_{2}} = (l_{i_{2}}^{(1)}, \ldots, l_{i_{2}}^{(\Delta)})$ to:
       \begin{equation*}
         \begin{split}
           l_{i_{2}} \mapsto ( \psi_{\mathcal{R}}(l_{i_{2}}^{(1)}), ..,\psi_{\mathcal{R}}( l_{i_{2}}^{(\Delta)}))
@@ -158,7 +158,7 @@ Consider the register coordinate system induced by a quantum circuit of width $w
 
 \begin{definition}
   \label{def:extension}
-Let $n$ be an integer, and let $C = \{u_{i}\}$ be a quantum circuit with registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ is a toric encoding with a side length $n$. In addition, all the decoding gadgets of $C$ are sweep rule gadgets; let us denote them by $\mathcal{U}$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
+  Let $n$ be an integer, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ is a toric encoding with a side length $n$. In addition, all the decoding gadgets of $C$ are sweep rule gadgets; let us denote them by $\mathcal{U}$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
   \begin{enumerate}
     \item For a register $R_{i} \in \mathcal{R}$, denote by $d_{i}, d_{i}^{\prime}$ the dimension of the toric complex that induces the code, and the dimension of the faces that are associated with the bits. Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, which is a $(d_{i}, d_{i}^\prime)$-dimensional, infinite side length, toric encoding. Since the mapping between registers is one-to-one, we use the identifier $\mathbf{1}_{R_{i}}$ to identify also $R^{\prime}_{i}$.
     \item Each gate $u_{i} \in C / \mathcal{U}$ is mapped to:     
@@ -168,9 +168,9 @@ Let $n$ be an integer, and let $C = \{u_{i}\}$ be a quantum circuit with registe
           \bigcup_{j = -\infty}^{\infty}\left\{ (g_{i},( \text{Sh}_{jn}(l_{i})) \right\}
         \end{split}
       \end{equation*}
-    \item Each gate $ u \in \mathcal{U} $ is mapped to the collection of sweep rule gadgets $\{ v_{j} \}_{-\infty}^{\infty}$ such that each of them has the same time coordinate as $ u $, is in the register that corresponds to the image of $ u $'s register, and is rooted at $\text{root}(v) + j n$.
+    \item Each gate $ u \in \mathcal{U} $ is mapped to the collection of sweep rule gadgets $\{ v_{j} \}_{j = -\infty}^{\infty}$ such that each of them has the same time coordinate as $ u $, is in the register that corresponds to the image of $ u $'s register, and is rooted at $\text{root}(v) + j n$.
   \end{enumerate}
-For a set of faults $\mathcal{E} = \{ f_{i} \}$, we denote by $C^{\infty}[\mathcal{E}^{\infty}]$ the \textit{$\infty$-extension of $C[\mathcal{E}]$}.
+  For a set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, we denote by $C^{\infty}[\mathcal{E}^{\infty}]$ the \textit{$\infty$-extension of $C[\mathcal{E}]$}.
 \end{definition}
 
 
@@ -190,7 +190,7 @@ For a set of faults $\mathcal{E} = \{ f_{i} \}$, we denote by $C^{\infty}[\mathc
       \rho_{\infty} & \colonequals C^{\infty}[\mathcal{E}^{\infty}]\ketbra{0}{0}\left(C^{\infty}[\mathcal{E}^{\infty}]\right)^{\dagger}
     \end{split}
   \end{equation*}
-We say that a quantum circuit $C$ is \textit{$\infty$-compatible} if, for any set of faults $\mathcal{E} = \{ f_{i} \}$, it holds that:
+  We say that a quantum circuit $C$ is \textit{$\infty$-compatible} if, for any set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, it holds that:
   \begin{equation*}
     \begin{split}
       \rho =  \Trr{}_{/[w]}\left( \rho_{\infty} \right) 
