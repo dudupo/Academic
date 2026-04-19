@@ -8,24 +8,24 @@ Informally, a quantum circuit is a placement of a collection of quantum gates, t
 
 \begin{definition}[Quantum Circuit]
   A space-time location $l$ is a tuple that encodes in its first coordinate time, and in its second coordinate a subset of integers referring to a support of (q)bits. 
-  For a collection of quantum gates $\mathcal{G} = \{ g \colon L(\mathcal{H}_{2}^{\otimes \Delta} ) \rightarrow L(\mathcal{H}_{2}^{\otimes \Delta} ) \}$, and integers $w,d \in \mathbb{N}$ a quantum circuit $C$, with depth $d$ and width $w$, is a collection of tuples $\{ u_{i} = (g_{i},l_{i}) \}$, where $u_{i}$ are the gates of $C$ and each $u_{i}$ is composed of a gate $g_{i} \in \mathcal{G}$ and a space-time location $l_{i} \in \mathbb{Z}_{d} \times \mathbb{Z}_{w}^{\Delta}$. The gates of $C$ have to satisfy the constraint that for every two gates with the same time coordinate, there cannot be a non-empty intersection in their space coordinate, namely for $u_{i}=(g_{i},l_{i}),u_{j}=(g_{j},l_{j}) \in C$, the equality $l_{i,1} = l_{j,1}$ implies $l_{i,2} \cap l_{j,2} = \emptyset$. 
+  For a collection of quantum gates $\mathcal{G} = \{ g \colon L(\mathcal{H}_{2}^{\otimes \Delta} ) \rightarrow L(\mathcal{H}_{2}^{\otimes \Delta} ) \}$, and integers $w,d \in \mathbb{N}$ a quantum circuit $C$, with depth $d$ and width $w$, is a collection of tuples $\{ u_{i} = (g_{i},l_{i}) \}_{i=1}$, where $u_{i}$ are the gates of $C$ and each $u_{i}$ is composed of a gate $g_{i} \in \mathcal{G}$ and a space-time location $l_{i} \in \mathbb{Z}_{d} \times \mathbb{Z}_{w}^{\Delta}$. The gates of $C$ have to satisfy the constraint that for every two gates with the same time coordinate, there cannot be a non-empty intersection in their space coordinate, namely for $u_{i}=(g_{i},l_{i}),u_{j}=(g_{j},l_{j}) \in C$, the equality $l_{i,1} = l_{j,1}$ implies $l_{i,2} \cap l_{j,2} = \emptyset$. 
   We define the $t$-cut of $C$ to be $C|_{t} \colonequals \{ u_{i} = (g_{i},l_{i}) \colon u_{i} \in C \text{ and } l_{i,1} = t \}$.
 \end{definition}
 To define the running of a quantum circuit $C$ on a given (mixed) quantum state, we will need to have the notion of the acyclic directed graph associated with $C$.
 
 \begin{definition}[Associated Computation DAG]
-Let $C = \{u_{i}\}$ be a quantum circuit with depth $d$ and width $w$. We define the associated computation DAG of $C$, denoted by $\pi_{C}$, to be the acyclic directed graph $\pi_{C} = (\mathcal{U}, E)$ as follows:
+  Let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with depth $d$ and width $w$. We define the associated computation DAG of $C$, denoted by $\pi_{C}$, to be the acyclic directed graph $\pi_{C} = (\mathcal{U}, E)$ as follows:
   \begin{enumerate}
-    \item The vertex set $\mathcal{U}$ is the gate set of $C$, namely $\mathcal{U} = \{u_{i}\}$.
+    \item The vertex set $\mathcal{U}$ is the gate set of $C$, namely $\mathcal{U} = \{u_{i}\}_{i=1}$.
     \item For $u_{i}= (g_{i},l_{i}), u_{j}= (g_{j},l_{j})$, There is an edge $\{u_{i},u_{j}\} \in E$ if and only if:
       \begin{equation*}
         \begin{split}
-          j \in \arg \min_{j} \{ l_{j,1} : l_{j,1} > l_{i,1} \text{ and } l_{j,2}\cap l_{i,2} \neq \emptyset  \}
+          j \in \arg \min_{k} \big\{ l_{k,1} : (g_{k},l_{k})\in \mathcal{U}, l_{k,1} > l_{i,1} \text{ and } l_{k,2}\cap l_{i,2} \neq \emptyset  \big\}
         \end{split}
       \end{equation*}
 Note that there might be multiple indices that get the minimum, so the out degree might be greater than one.
   \end{enumerate}
-  In addition, suppose that $J = \{ j_{1}, j_{2}, \ldots, j_{k} \} \subset [|C|]$ is an order of the indices of the gates in $C$ according to the topological order induced by $\pi_{C}$. Then, we say that $J$ is an order of indices that agrees with $\pi_{C}$ and define the series of circuit $C_{J} = \{ C_{J,i} \}$ as follows:
+  In addition, suppose that $J = \{ j_{1}, j_{2}, \ldots, j_{k} \} \subset [|C|]$ is an order of the indices of the gates in $C$ according to the topological order induced by $\pi_{C}$. Then, we say that $J$ is an order of indices that agrees with $\pi_{C}$ and define the series of circuit $C_{J} = \{ C_{J,i} \}_{i=1}$ as follows:
   \begin{enumerate}
     \item The first element: $C_{J,1} = \{ u_{j_{1}} \}$ 
     \item Then, $C_{J,i+1} = C_{J,i} \cup \{ u_{j_{i}} \}$. We name $C_{J,i}$ the partial computation circuit until step $i$.  
@@ -33,14 +33,14 @@ Note that there might be multiple indices that get the minimum, so the out degre
 \end{definition}
 
 \begin{definition}
-Let $\rho$ be a density matrix over $w$ qubits, and let $C = \{u_{i}\}$ be a quantum circuit with depth $d$ and width $w$. For any density matrix $\sigma$, quantum gate $g \in \mathcal{G}$, and location $l$, the application of the gate-location tuple $(g,l)$ on $\sigma$, denoted by $(g,l) \circ \sigma$, is the application of $g$ on $\sigma$ where wires are ordered such that the first qubit in the input to $g$ is $l_{2,1}$, the second is $l_{2,2}$, and so on. The result of the application of $C$ on $\rho$, denoted by $C \circ \rho$, is given by iterative applications of the gates $\{u_{i}\}$ on $\rho$, according to a topological order induced by $\pi_{C}$.
+  Let $\rho$ be a density matrix over $w$ qubits, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with depth $d$ and width $w$. For any density matrix $\sigma$, quantum gate $g \in \mathcal{G}$, and location $l$, the application of the gate-location tuple $(g,l)$ on $\sigma$, denoted by $(g,l) \circ \sigma$, is the application of $g$ on $\sigma$ where wires are ordered such that the first qubit in the input to $g$ is $l_{2,1}$, the second is $l_{2,2}$, and so on. The result of the application of $C$ on $\rho$, denoted by $C \circ \rho$, is given by iterative applications of the gates $\{u_{i}\}_{i=1}$ on $\rho$, according to a topological order induced by $\pi_{C}$.
 
-We say that $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ is a computation prefix if $\rho_{1} = \rho$ and $\rho_{i+1} = u^\prime_{i} \circ \rho_{i}$, where $\{u^{\prime}_{i}\}$ is a prefix of a topological ordering of $\{u_{i}\}$. If $\{u^{\prime}_{i}\}$ contains all the gates in $\{u_{i}\}$, then we call $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ a running.
+  We say that $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ is a computation prefix if $\rho_{1} = \rho$ and $\rho_{i+1} = u^\prime_{i} \circ \rho_{i}$, where $\{u^{\prime}_{i}\}_{i=1}$ is a prefix of a topological ordering of $\{u_{i}\}_{i=1}$. If $\{u^{\prime}_{i}\}_{i=1}$ contains all the gates in $\{u_{i}\}_{i=1}$, then we call $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ a running.
 \end{definition}
 
 
 \begin{definition}[$C$ Subjected to $\mathcal{E}$]
-Let $C = \{ u_{i} \}$ be a quantum circuit with depth $d$ and width $w$. For a set of fault locations $\mathcal{E} \subset [d] \times [w]$, we define the quantum circuit \textit{$C$ subjected to $\mathcal{E}$}, denoted by $C[\mathcal{E}] = \{ u^{\prime}_{i} \}$, to be the quantum circuit that is the result of the following map:
+  Let $C = \{ u_{i} \}_{i=1}$ be a quantum circuit with depth $d$ and width $w$. For a set of fault locations $\mathcal{E} \subset [d] \times [w]$, we define the quantum circuit \textit{$C$ subjected to $\mathcal{E}$}, denoted by $C[\mathcal{E}] = \{ u^{\prime}_{i} \}_{i=1}$, to be the quantum circuit that is the result of the following map:
   \begin{equation*}
     \begin{split}
       u_{i}=(g_{i},(l_{i,1}, l_{i,2})) & \mapsto   
@@ -54,13 +54,13 @@ We will denote the associated computation DAG of $C$ affected by $\mathcal{E}$ a
 \end{definition}
 
 \begin{definition}[Faults Propagation to a Step $\tau$]
-  For a quantum circuit $C=\{u_{i}\}$, with depth $d$, an order $J = \{ j_{1}, j_{2}, \ldots, j_{k} \} \subset [|C|]$ that agrees with $\pi_{C}$, and gate $u_{i}$ in $C$, a propagation of a gate $u_{i} \in C$ to step $\tau$ is the quantum operator $X\colon L(\mathcal{H}_{2}^{w}) \rightarrow L(\mathcal{H}_{2}^{w})$ obtained by the follow process: 
+  For a quantum circuit $C=\{u_{i}\}_{i=1}$, with depth $d$, an order $J = \{ j_{1}, j_{2}, \ldots, j_{k} \} \subset [|C|]$ that agrees with $\pi_{C}$, and gate $u_{i}$ in $C$, a propagation of a gate $u_{i} \in C$ to step $\tau$ is the quantum operator $X\colon L(\mathcal{H}_{2}^{w}) \rightarrow L(\mathcal{H}_{2}^{w})$ obtained by the follow process: 
   \begin{enumerate}
     \item First, check if $i$ precedes $\tau$ in $J$. If not, then return $X = I$. Otherwise, denote $j_{l} = i$, and look for an operator $X_{1}$ such that $u_{j_{l}}u_{j_{l+1}} = u_{j_{l+1}}X_{1}$.
     \item Then, for $k \le \tau - l$, look for an operator $X_{k} \colon L(\mathcal{H}_{2}^{w}) \rightarrow L(\mathcal{H}_{2}^{w})$, such that  $X_{k-1}u_{j_{l+1}} =  u_{j_{l+1}}X_{k}$.
     \item At the final stage of the process, namely where $k = \tau - l$, we define $X \colonequals X_{k}$ to be the propagation of $u_{j}$ to step $\tau$.
   \end{enumerate}
-For a quantum circuit $C$, a set of faults $\mathcal{E} = \{ e_{i} \}$, an order $J \subset [|C[\mathcal{E}]|]$ that agrees with $\pi_{C[\mathcal{E}]}$, and a step $\tau \in J$, denote by $X_{e_{i}}^{\tau}$ the propagation of $e_{i} \in \mathcal{E}$ in $C[\mathcal{E}]$ to step $\tau$. Let $j^{\prime}_{1}, j^{\prime}_{2}, \ldots, j^{\prime}_{l}$ be the indices of the faults in $\mathcal{E}$ such that their corresponding positions in $J$ precede $\tau$, ordered according to the reverse topological order induced by $\pi_{\mathcal{E}}$. The propagated error to step $\tau$ is defined by
+  For a quantum circuit $C$, a set of faults $\mathcal{E} = \{ e_{i} \}_{i=1}$, an order $J \subset [|C[\mathcal{E}]|]$ that agrees with $\pi_{C[\mathcal{E}]}$, and a step $\tau \in J$, denote by $X_{e_{i}}^{\tau}$ the propagation of $e_{i} \in \mathcal{E}$ in $C[\mathcal{E}]$ to step $\tau$. Let $j^{\prime}_{1}, j^{\prime}_{2}, \ldots, j^{\prime}_{l}$ be the indices of the faults in $\mathcal{E}$ such that their corresponding positions in $J$ precede $\tau$, ordered according to the reverse topological order induced by $\pi_{\mathcal{E}}$. The propagated error to step $\tau$ is defined by
   \begin{equation*}
     \begin{split}
       X^{\tau} \colonequals \prod_{i} X_{e_{j^{\prime}_{i}}}^{\tau} 
@@ -72,7 +72,7 @@ For a quantum circuit $C$, a set of faults $\mathcal{E} = \{ e_{i} \}$, an order
   For a quantum circuit $C$, a set of faults $\mathcal{E}$, and step $\tau$, let $X^{\tau}$ be the propagated error at step $\tau$. We define the deviation of $C[\mathcal{E}]$ from $C$ at step $\tau$ by the set of indices on which $X^{\tau}$ acts non-trivially. 
 \end{definition}
 \begin{definition}
-Using the same notations as in \Cref{def:deviation}, for a set of unitary operators $\mathcal{S} = \{s \colon \mathcal{H}_{2}^{w} \rightarrow \mathcal{H}_{2}^{w} \}$, we define the propagated error up to stabilizers in $\mathcal{S}$ as $X^{\tau}[S] \colonequals \min_{s \in \mathcal{S}} \{ w(sX) \}$. Then, we define the deviation of $C[\mathcal{E}]$ from $C$ at step $\tau$ up to stabilizers in $\mathcal{S}$ to be the subset of coordinates on which $X^{\tau}[S]$ acts non-trivially.
+  Using the same notations as in \Cref{def:deviation}, for a set of unitary operators $\mathcal{S} = \{s_{i} \colon \mathcal{H}_{2}^{w} \rightarrow \mathcal{H}_{2}^{w} \}_{i=1}$, we define the propagated error up to stabilizers in $\mathcal{S}$ as $X^{\tau}[S] \colonequals \min_{s \in \mathcal{S}} \{ w(sX) \}$. Then, we define the deviation of $C[\mathcal{E}]$ from $C$ at step $\tau$ up to stabilizers in $\mathcal{S}$ to be the subset of coordinates on which $X^{\tau}[S]$ acts non-trivially.
 \end{definition}
 
 \begin{definition}[Generalized Tanner Graph]
