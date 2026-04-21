@@ -146,7 +146,7 @@ Assume through contradiction that for any turn $\tau \in (\tau_{o}, \tau_{1})$, 
 \end{proof}
 
 \begin{claim}
-Let $A$ be the event in which, until time $t$, there is a time $t^{\prime}$ such that there is a deviation cluster of size greater than $d$. For any $\tau$, let $B_{\tau}$ be the event that step $\tau$ is the first step to has a deviation cluster of size in the range $(\alpha d, d)$. Then:
+Let $C$ be a quantum circuit, and let $\mathcal{E} \sim \mathcal{N}_{\mathcal{E}}$, so the circuit $C[\mathcal{E}]$ is a random variable. Let $A$ be the event in which, until time $t$, there is a time $t^{\prime} \le t$ such that there is a deviation cluster of size greater than $d$. For any step $\tau$, let $B_{\tau}$ be the event that step $\tau$ is the first step to have a deviation cluster of size in the range $(\alpha d, d)$. Then:
   \begin{equation*}
     \begin{split}
       \prb{A} \le 2wd\max_{\tau \in [2wd]}\prb{B_{\tau}}
