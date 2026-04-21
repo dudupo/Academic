@@ -139,6 +139,7 @@ To get the second inequality, we use the fact that $u$ is a unitary gate, in par
 \end{proof}
 
 \begin{corollary}[Intermediate Value Theorem]
+  \label{claim:inter}
   Let $\alpha = 1 / (\Delta\Delta_{1}\Delta_{2})$, and let $x$ be an integer. Assume that at the initial step $\tau_{o}$, there is no deviation cluster of size more than $\alpha x$, and that at a step $\tau_{1} \in J$, such that $\tau_{1} > \tau_{o}$, there is a deviation cluster $Y^{(\tau_{1})}$ of size $|Y^{(\tau_{1})}| > x$. Then there is a step $\tau_{\star} \in J$ such that $\tau_{o} < \tau_{\star} < \tau_{1}$ for which there is a deviation cluster $Z$ at step $\tau_{\star}$, satisfying that the size of $Z$ is in the range $(\alpha x, x)$.
 \end{corollary}
 \begin{proof}
@@ -154,11 +155,17 @@ Assume through contradiction that for any turn $\tau \in (\tau_{o}, \tau_{1})$, 
   \end{equation*}
 \end{claim}
 \begin{proof}
-  We use the union bound, 
+  By \Cref{claim:inter}, we have that the occurrence of a divation cluster of size grether than $x$, before time time $t$ implies that there is a step $\tau \in J$, such $\tau \le 2wt$, in which there is a divation cluster of size greather than $\alpha x$. Thus, 
   \begin{equation*}
     \begin{split}
-      \prb{A} & \le  \prb{\bigcup_{t^{\prime} \le t} \text{ There is a deviation cluster of size greater than $x$, at time $t^{\prime}$. } } \\
-              & \le \prb{\bigcup_{\tau} B_{\tau} }  \le 2wd\max_{\tau \in [2wd]}\prb{B_{\tau}}
+      A \subset \bigcup_{\tau \in [2wt]} B_{\tau} \le \bigcup_{\tau \in [2wd]} B_{\tau}
+    \end{split}
+  \end{equation*}
+  So by using the union bound we get:
+  \begin{equation*}
+    \begin{split}
+      \prb{A} & \le \prb{\bigcup_{\tau \in [2wd]} B_{\tau} } \le \sum{\tau \in [2wd]}\prb{ B_{\tau} } \\
+      &\le 2wd\max_{\tau \in [2wd]}\prb{B_{\tau}}
     \end{split}
   \end{equation*}
 \end{proof}
