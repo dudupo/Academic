@@ -139,14 +139,14 @@ To get the second inequality, we use the fact that $u$ is a unitary gate, in par
 \end{proof}
 
 \begin{corollary}[Intermediate Value Theorem]
-Let $\alpha = 1 / (\Delta\Delta_{1}\Delta_{2})$. Assume that at the initial step $\tau_{o}$, there is no deviation cluster of size more than $\alpha d$, and that at a step $\tau_{1} \in J$, such that $\tau_{1} > \tau_{o}$, there is a deviation cluster $Y^{(\tau_{1})}$ of size $|Y^{(\tau_{1})}| > d$. Then there is a step $\tau_{\star} \in J$ such that $\tau_{o} < \tau_{\star} < \tau_{1}$ for which there is a deviation cluster $Z$ at step $\tau_{\star}$, satisfying that the size of $Z$ is in the range $(\alpha d, d)$.
+  Let $\alpha = 1 / (\Delta\Delta_{1}\Delta_{2})$, and let $x$ be an integer. Assume that at the initial step $\tau_{o}$, there is no deviation cluster of size more than $\alpha x$, and that at a step $\tau_{1} \in J$, such that $\tau_{1} > \tau_{o}$, there is a deviation cluster $Y^{(\tau_{1})}$ of size $|Y^{(\tau_{1})}| > x$. Then there is a step $\tau_{\star} \in J$ such that $\tau_{o} < \tau_{\star} < \tau_{1}$ for which there is a deviation cluster $Z$ at step $\tau_{\star}$, satisfying that the size of $Z$ is in the range $(\alpha x, x)$.
 \end{corollary}
 \begin{proof}
-Assume through contradiction that for any turn $\tau \in (\tau_{o}, \tau_{1})$, all the deviation clusters are of size smaller than $\alpha d$. Particularly, at turn $\tau_{1}-1$, all the deviation clusters are of size smaller than $\alpha d$. Yet, by \Cref{claim:deviation_clusters}, the existence of the deviation cluster $Y^{(\tau_{1})}$, at size $d$, implies the existence of a deviation cluster at turn $\tau_{1} - 1$, of size at least $\alpha d$, which leads to a contradiction.
+Assume through contradiction that for any turn $\tau \in (\tau_{o}, \tau_{1})$, all the deviation clusters are of size smaller than $\alpha x$. Particularly, at turn $\tau_{1}-1$, all the deviation clusters are of size smaller than $\alpha x$. Yet, by \Cref{claim:deviation_clusters}, the existence of the deviation cluster $Y^{(\tau_{1})}$, at size $d$, implies the existence of a deviation cluster at turn $\tau_{1} - 1$, of size at least $\alpha x$, which leads to a contradiction.
 \end{proof}
 
 \begin{claim}
-Let $C$ be a quantum circuit, and let $\mathcal{E} \sim \mathcal{N}_{\mathcal{E}}$, so the circuit $C[\mathcal{E}]$ is a random variable. Let $A$ be the event in which, until time $t$, there is a time $t^{\prime} \le t$ such that there is a deviation cluster of size greater than $d$. For any step $\tau$, let $B_{\tau}$ be the event that step $\tau$ is the first step to have a deviation cluster of size in the range $(\alpha d, d)$. Then:
+  Let $C$ be a quantum circuit, with order $J$ and depth $d$, and let $\mathcal{E} \sim \mathcal{N}_{\mathcal{E}}$, so the circuit $C[\mathcal{E}]$ is a random variable. For a time $t \le 2d$ and integer $x \in \mathbb{N}$ let $A$ be the event in which, until time $t$, there is a time $t^{\prime} \le t$ such that there is a deviation cluster of size greater than $x$. For any step $\tau \in J$, let $B_{\tau}$ be the event that step $\tau$ is the first step to have a deviation cluster of size in the range $(\alpha x, x)$. Then:
   \begin{equation*}
     \begin{split}
       \prb{A} \le 2wd\max_{\tau \in [2wd]}\prb{B_{\tau}}
@@ -154,9 +154,11 @@ Let $C$ be a quantum circuit, and let $\mathcal{E} \sim \mathcal{N}_{\mathcal{E}
   \end{equation*}
 \end{claim}
 \begin{proof}
+  We use the union bound, 
   \begin{equation*}
     \begin{split}
-      \prb{A} &\le  \prb{\bigcup_{\tau} B_{\tau} }  \le 2wd\max_{\tau \in [2wd]}\prb{B_{\tau}}
+      \prb{A} & \le  \prb{\bigcup_{t^{\prime} \le t} \text{ There is a deviation cluster of size greater than $x$, at time $t^{\prime}$. } } \\
+              & \le \prb{\bigcup_{\tau} B_{\tau} }  \le 2wd\max_{\tau \in [2wd]}\prb{B_{\tau}}
     \end{split}
   \end{equation*}
 \end{proof}
