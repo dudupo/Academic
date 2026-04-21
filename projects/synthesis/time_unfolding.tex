@@ -147,7 +147,7 @@ Assume through contradiction that for any turn $\tau \in (\tau_{o}, \tau_{1})$, 
 \end{proof}
 
 \begin{claim}
-  Let $C$ be a quantum circuit, with order $J$ and depth $d$, and let $\mathcal{E} \sim \mathcal{N}_{\mathcal{E}}$, so the circuit $C[\mathcal{E}]$ is a random variable. For a time $t \le 2d$ and integer $x \in \mathbb{N}$ let $A$ be the event in which, until time $t$, there is a time $t^{\prime} \le t$ such that there is a deviation cluster of size greater than $x$. For any step $\tau \in J$, let $B_{\tau}$ be the event that step $\tau$ is the first step to have a deviation cluster of size in the range $(\alpha x, x)$. Then:
+Let $C$ be a quantum circuit with order $J$ and depth $d$, and let $\mathcal{E} \sim \mathcal{N}_{\mathcal{E}}$, so the circuit $C[\mathcal{E}]$ is a random variable. For a time $t \le 2d$ and an integer $x \in \mathbb{N}$, let $A$ be the event in which, until time $t$, there is a time $t^{\prime} \le t$ such that there is a deviation cluster of size greater than $x$. For any step $\tau \in J$, let $B_{\tau}$ be the event that step $\tau$ is the first step to have a deviation cluster of size in the range $(\alpha x, x)$. Then:
   \begin{equation*}
     \begin{split}
       \prb{A} \le 2wd\max_{\tau \in [2wd]}\prb{B_{\tau}}
@@ -155,7 +155,7 @@ Assume through contradiction that for any turn $\tau \in (\tau_{o}, \tau_{1})$, 
   \end{equation*}
 \end{claim}
 \begin{proof}
-  By \Cref{claim:inter}, we have that the occurrence of a divation cluster of size grether than $x$, before time time $t$ implies that there is a step $\tau \in J$, such $\tau \le 2wt$, in which there is a divation cluster of size greather than $\alpha x$. Thus, 
+By \Cref{claim:inter}, we have that the occurrence of a deviation cluster of size greater than $x$ before time $t$ implies that there is a step $\tau \in J$, such that $\tau \le 2wt$, in which there is a deviation cluster of size greater than $\alpha x$. Thus,
   \begin{equation*}
     \begin{split}
       A \subset \bigcup_{\tau \in [2wt]} B_{\tau} \le \bigcup_{\tau \in [2wd]} B_{\tau}
