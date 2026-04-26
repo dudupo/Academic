@@ -150,8 +150,12 @@ For brevity, we name the first and second coordinates in the result of $\psi_{R}
           \item There is a Toric code $\mathcal{C}$ such that the qubits of $\mathcal{C}$ can be partitioned into registers $R_{1}, \ldots, R_{k}$, and each of the registers is encoded by $\mathcal{C}$.   
           \item The gates in $C$ with even time coordinates are sweep decoding gates.
         \end{enumerate} 
-        For a set of faults $\mathcal{E}$ the gates in $C[\mathcal{E}]$ can be decomposed to cycles, of the following form $\Lambda, P, D$.  
-
+        For a set of faults $\mathcal{E}$ the gates in $C[\mathcal{E}]$ can be decomposed to cycles, of the following form:
+        \begin{equation*}
+          \begin{split}
+            C =     D_{l}P_{l}\Lambda_{l},..,D_{1} P_{1} \Lambda_{1}
+          \end{split}
+        \end{equation*}
     \end{definition}
 
   \begin{definition}[Base graph $G_{o}$]
