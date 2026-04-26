@@ -136,7 +136,7 @@ Let $z$ be an assignment on the $i$-faces. Let $v_{1}, \ldots, v_{k} \in \mathca
       \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}_{1}, \ldots, \mathcal{G}_{k}$ with the addition that any two vertices, in preceding times $t$ and $t+1$, that support qubits (faces) such that $C$ acts non-trivially on those qubits at time $t$ are also connected by an edge. Namely:
         \begin{equation*}
           \begin{split}
-            E_{o} \colonequals \big\{ \{(v,t), (u,t^{\prime}) \} : &  \text{ if }     \\ 
+            E_{o} & \colonequals \big\{ \{(v,t), (u,t^{\prime}) \} :  \text{ if }     \\ 
               & \text{either there exists } i \text{ such }  \{v,u\} \in \mathcal{G}_{i} \text{ and } t^{\prime} = t,t+1 \\
              & \text{or there exists } u_i = (g_{i},l_{i}) \in C \text{ such }  v,u \in l_{i,2} \text{ and } t = l_{i,1}, t^{\prime} = l_{i,1}+1 t \big\} 
           \end{split}
