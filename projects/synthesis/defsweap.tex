@@ -125,7 +125,23 @@ Let $z$ be an assignment on the $i$-faces. Let $v_{1}, \ldots, v_{k} \in \mathca
 
 
   \begin{definition}[Base graph $G_{o}$]
-    Let $C$ be a quantum circuit with registers $R_{1}, \ldots, R_{k}$, all of which are encoded by Toric codes with the same parameters (i.e., dimension, length, etc.). We define the base graph of $C$, denoted by $G_{o}$.  
+    Let $C$ be a quantum circuit, at depth $d$, with registers $R_{1}, \ldots, R_{k}$, all of which are encoded by Toric codes with the same parameters (i.e., dimension, length, etc.). Let's denote by $\mathcal{G}_{1}, .., \mathcal{G}_{k}$ the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o},E_{o})$ as follows: 
+    \begin{enumerate}
+      \item The vertices $V_{o}$ are tuples, where the first coordinates correspond to a vertex in the union over the vertices in $\mathcal{G}_{1}, \ldots, \mathcal{G}_{k}$, and the second coordinate is associated with a time. Namely:
+        \begin{equation*}
+          \begin{split}
+            V_{o} \colonequals \big\{ (v,t) : t \in [d], v \in \bigcup_{i} \mathcal{G}_{i} \big\}
+          \end{split}
+        \end{equation*}
+      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}_{1}, \ldots, \mathcal{G}_{k}$ with the addition that any two vertices, in preceding times $t$ and $t+1$, that support qubits (faces) such that $C$ acts non-trivially on those qubits at time $t$ are also connected by an edge. Namely:
+        \begin{equation*}
+          \begin{split}
+            E_{o} \colonequals \big\{ \{(v,t), (u,t^{\prime}) \} : &  \text{ if }     \\ 
+              \text{either} &  \text{there exists } i \text{ such }  \{v,u\} \in \mathcal{G}_{i} \text{ and } t^{\prime} = t,t+1 \\
+            \text{or} &  \text{there exists } u_i = (g_{i},l_{i}) \text{ such }  v,u \in l_{i,2} \text{ and } t = l_{i,1}, t^{\prime} = l_{i,1}+1 t \\big\} 
+          \end{split}
+        \end{equation*}
+    \end{enumerate} 
   \end{definition}
 
 
