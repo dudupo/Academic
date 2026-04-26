@@ -145,9 +145,6 @@ Let $z$ be an assignment on the $i$-faces. Let $v_{1}, \ldots, v_{k} \in \mathca
   \end{definition}
 
 
-
-\section{Infinite Torics}
-
 \begin{definition}[Registers Coordinates System]
   Let $C = \{u_{i}\}_{i=1}$ be a quantum circuit, with width $w$ and registers $\mathcal{R} = R_{1}, \ldots, R_{k}$, each of length at most $n$. For register $R_{i}$, we define the register identifier $\mathbf{1}_{R_{i}} = \mathbf{1}_{i}$. Then, we define the map $\phi_{\mathcal{R}} \colon \mathbb{Z}_{w} \rightarrow \mathbb{Z}_{R} \times \mathbb{Z}_{n}$ to return, for a space-location coordinate $x \in \mathbb{Z}_{w}$, the tuple consisting of the identifier of the register containing $x$, and its relative coordinate within the register. Namely,
 \begin{equation*}
@@ -164,6 +161,9 @@ The presentation of $C$ in the \textit{registers coordinate system} is the encod
       \end{equation*}
 For brevity, we name the first and second coordinates in the result of $\psi_{R}$ the \textit{register coordinate} and the \textit{inner coordinate}.
     \end{definition}
+
+\section{Infinite Torics}
+
     \begin{definition}[Shifting in Registers System]
       
 Consider the register coordinate system induced by a quantum circuit of width $w$, with $R$ registers, each of length at most $n$. For an integer $r \in \mathbb{Z}$, we define the $r$-shifting function $\text{Sh}_{r} \colon (\mathbb{Z}_{R} \times \mathbb{Z}_{n})^{\times \Delta} \rightarrow (\mathbb{Z}_{R} \times \mathbb{Z})^{\times \Delta}$ to act on space-location coordinates as follows:
