@@ -143,6 +143,17 @@ The presentation of $C$ in the \textit{registers coordinate system} is the encod
 For brevity, we name the first and second coordinates in the result of $\psi_{R}$ the \textit{register coordinate} and the \textit{inner coordinate}.
     \end{definition}
     \ctt{ Choose one of the following definitions for the base graph $G_{o}$. Pitori Berman and Peter Gacs chose the second, namely the projected version, yet if I had to guess, I would say that the first gives an advantage. Furthermore, We might want to fold computation stages, such that we have GATE $\rightarrow$ NOISE $\rightarrow$ DECODING, and after each such cycle freeze the state of the graphs. } 
+
+    \begin{definition}[Troic Encoded Circuit]
+      Let $C$ be a quantum circuit. We say that $C$ is \textit{Toric encoded} if the following holds:
+      \begin{enumerate}
+          \item There is a Toric code $\mathcal{C}$ such that the qubits of $\mathcal{C}$ can be partitioned into registers $R_{1}, \ldots, R_{k}$, and each of the registers is encoded by $\mathcal{C}$.   
+          \item The gates in $C$ with even time coordinates are sweep decoding gates.
+        \end{enumerate} 
+        For a set of faults $\mathcal{E}$ the gates in $C[\mathcal{E}]$ can be decomposed to cycles, of the following form $\Lambda, P, D$.  
+
+    \end{definition}
+
   \begin{definition}[Base graph $G_{o}$]
     Let $C$ be a quantum circuit, at depth $d$, with registers $R_{1}, \ldots, R_{k}$, all of which are encoded by Toric codes with the same parameters (i.e., dimension, length, etc.). Let's denote by $\mathcal{G}_{1}, .., \mathcal{G}_{k}$ the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o},E_{o})$ as follows: 
     \begin{enumerate}
