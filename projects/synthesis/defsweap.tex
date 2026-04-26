@@ -172,7 +172,7 @@ Let $C = \{u_{i}\}_{i=1}^{n}$ be a quantum circuit, at depth $d$, with registers
             V_{o} \colonequals \big\{ (v,t) : t \in [d], v \in \mathcal{G} \big\}
           \end{split}
         \end{equation*}
-      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}$, with the addition that any two vertices in preceding times $t$ and $t+1$ for which there exists support qubits (faces) such that $C$ acts non-trivially on those qubits at time $t$ are also connected by an edge. Namely:
+      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}$, with the addition that any two vertices in preceding times $t$ and $t+1$, for which there exists registers $R_{1}, R_{2}$, and a faces $f_{1}, f_{2} \in \mathcal{G}$, such that:  $C$ acts non-trivially on those qubits at time $t$ are also connected by an edge. Namely:
         \begin{equation*}
           \begin{split}
             E_{o} & \colonequals \big\{ \{(v,t), (u,t^{\prime}) \} :  \text{ if }     \\ 
