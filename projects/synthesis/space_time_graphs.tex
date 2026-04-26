@@ -20,15 +20,20 @@ In the shrinking, we have a finite assignment $z$. After applying the sweep rule
 
 
   \begin{definition}[Time Graph of $C(\mathcal{E})$]
-    For a quantum circuit $C$ and noise $\mathcal{E}$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. For each time $t$, denote the deviation induced by $\mathcal{E}$ at time $t$ by $\mathcal{D}_{t}$. We define the history graph $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
+    For a quantum circuit $C$ and set of faults $\mathcal{E}$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. For each time $t$, denote the deviation induced by $\mathcal{E}$ at time $t$ by $\mathcal{D}_{t}$. We define the history graph $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
     \begin{enumerate}
-      \item The vertices $V_{\mathcal{H}}$ are taken to be the vertices of $G_{o}$ that correspond  $(v,t) \in V$ if at time $t$ (namely immediately after time $t$), there is a face (qubit) of $f \in G_{o}$, such that $v \in f \in \mathcal{D}_{t}$. 
+      \item The vertices $V_{\mathcal{H}}$ are taken to be the vertices of $G_{o}$, namely tuples $(v,t) \in V_{o}$, that satisfy that $v$ belongs to a face associated with a qubit, which, at time $t$, belongs to the deviation. Namely:
         \begin{equation*}
           \begin{split}
             \big\{ v_{t} : v_{t}=(v,t) \in V_{o} \text{ and there exists a qubit } f \in C \text{ such } v \in f \in \mathcal{D}_{t} \big\}
           \end{split}
         \end{equation*}
-      \item We connect edges as follows: if $u_{t-1} = (u,t-1)$ and $v_{t} = (v,t)$ are both in $V$, $v_{t} \notin \mathcal{E}$, and $u$ and $v$ are connected in $G_{o}$, then we connect them by an arrow. We name the set of arrow edges $A$. Moreover, for vertices $u_{t}$ and $w_{t}$, if there exists $v_{t+1}$ such that $\{u_{t},v_{t+1}\}, \{w_{t}, v_{t+1} \} \in A$, then we connect $u_{t}$ and $w_{t}$ by a fork. 
+      \item The edges $E_{\mathcal{H}}$ are the edges in $E_{o}$ restricted to $V_{\mathcal{H}}$. Namely:
+        \begin{equation*}
+          \begin{split}
+            E_{\mathcal{H}} = \big\{ e = \{u_{t},v_{t^{\prime}}\} \in E_{o} :  u_{t},v_{t^{\prime} \in V_{\mathcal{H}}}\big\}
+          \end{split}
+        \end{equation*}
     \end{enumerate}
     By definition, the construction $G_{\mathcal{H}}$ is a time-graph.
 \end{definition}
