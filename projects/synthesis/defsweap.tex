@@ -172,7 +172,7 @@ Let $C = \{u_{i}\}_{i=1}^{n}$ be a quantum circuit, at depth $d$, with registers
             V_{o} \colonequals \big\{ (v,t) : t \in [d], v \in \mathcal{G} \big\}
           \end{split}
         \end{equation*}
-      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}$, with the addition of edges of the following form: For two vertices at preceding times $t$ and $t+1$, let's denote them by $(v_{1},t)$ and $(v_{2},t+1)$, for which there exist registers $R^{\prime}_{1}, R^{\prime}_{2}$, and faces $f_{1}, f_{2} \in \mathcal{G}$, such that $v_{1} \in f_{1}, v_{2} \in f_{2}$ and $C$ contains a gate that acts non-trivially on the locations $(t,f_{1},R^{\prime}_{1})$ and $(t,f_{2},R^{\prime}_{2})$ at time $t$, are also connected by an edge. Namely:
+      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}$, with the addition of edges of the following form: For two vertices at preceding times $t$ and $t+1$, let's denote them by $(v_{1},t)$ and $(v_{2},t+1)$, for which there exist registers $R^{\prime}_{1}, R^{\prime}_{2}$, and faces $f_{1}, f_{2} \in \mathcal{G}$, such that $v_{1} \in f_{1}, v_{2} \in f_{2}$ and $C$ contains a gate that acts non-trivially on the locations $(t,f_{1},\mathbf{1}_{R^{\prime}_{1}})$ and $(t,f_{2},\mathbf{1}_{R^{\prime}_{2}})$ at time $t$, are also connected by an edge. Namely:
         \begin{equation*}
           \begin{split}
             E_{o} & \colonequals \big\{ \{(v,t), (u,t^{\prime}) \} :  \text{ if }     \\ 
