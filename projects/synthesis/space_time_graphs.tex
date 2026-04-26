@@ -19,24 +19,6 @@ In the shrinking, we have a finite assignment $z$. After applying the sweep rule
   \end{definition}
 
 
-  \begin{definition}[Time Graph of $C(\mathcal{E})$]
-    For a quantum circuit $C$ and set of faults $\mathcal{E}$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. For each time $t$, denote the deviation induced by $\mathcal{E}$ at time $t$ by $\mathcal{D}_{t}$. We define the history graph $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
-    \begin{enumerate}
-      \item The vertices $V_{\mathcal{H}}$ are taken to be the vertices of $G_{o}$, namely tuples $(v,t) \in V_{o}$, that satisfy that $v$ belongs to a face associated with a qubit, which, at time $t$, belongs to the deviation. Namely:
-        \begin{equation*}
-          \begin{split}
-            \big\{ v_{t} : v_{t}=(v,t) \in V_{o} \text{ and there exists a qubit } f \in C \text{ such } v \in f \in \mathcal{D}_{t} \big\}
-          \end{split}
-        \end{equation*}
-      \item The edges $E_{\mathcal{H}}$ can be parttion to two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$,  the edges in $E_{o}$ restricted to $V_{\mathcal{H}}$. Namely:
-        \begin{equation*}
-          \begin{split}
-          E_{\mathcal{H}} = \big\{ e = \{u_{t},v_{t^{\prime}}\} \in E_{o} :  u_{t},v_{t^{\prime}} \in V_{\mathcal{H}}\big\}
-          \end{split}
-        \end{equation*}
-    \end{enumerate}
-    By definition, the construction $G_{\mathcal{H}}$ is a time-graph.
-\end{definition}
 
 
 % that since $(V,A)$ is a DAG it defines a partial order on $V$, let us denote $u \le v$ for $u,v \in V$ if there is a directed path from $u$ to  
@@ -92,19 +74,6 @@ Let $f \colon G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each e
   \end{definition}
 
 
-  \begin{claim}
-    Let $\mathbf{S} = \{ S_{1}, S_{2} , .. , S_{k} \}$ where $S_{i} \subset \mathbb{R}^{d}$, introduce an edge between $S_{i}$ and $S_{j}$ iff $S_{i} \cap S_{j} \neq \emptyset$. Assume that $\mathbf{S}$ is connected. Then $\Size{\cup^{k}_{i=1} S_{i}} \le \sum^{k}_{i=1}{\Size{S_{i}}}$. 
-  \end{claim}
-  \begin{proof}
-    It suffices to prove that if $R_{1} \cap R_{2} \neq \emptyset$, then $\Size{R_{1} \cup R_{2}} \le \Size{R_{1}} + \Size{R_{2}}$. Let $a_{i,j} = \max_{v \in R_{j}}L_{i}(v)$. Then for any $w \in R_{1}\cap R_{2}$ we have:  
-    \begin{equation*}
-      \begin{split}
-        \Size{R_{1} \cup R_{2}} &= \sum_{i}^{d+1}{\max{ a_{i,1},a_{i,2} } } =  \sum_{i}^{d+1}{a_{i,1} + a_{i,2} - \min{ a_{i,1},a_{i,2} } } \\
-        & \le   \sum_{i}^{d+1}{a_{i,1} + a_{i,2} - L_{i}(w) } = \Size{R_{1}} + \Size{R_{2}} - \Size{w}  \\
-        &  = \Size{R_{1}} + \Size{R_{2}} 
-      \end{split}
-    \end{equation*}
-  \end{proof}
 
   \begin{definition}[Spanned Set]
     Consider an embedding $f \colon \star \hookrightarrow \mathbb{R}^{d}$, a subset of $f$'s domain $S \subset \star$, and $d+1$ points $x_{1}, \ldots, x_{d+1}$. We say that $\expval*{S, x_{1}, \ldots, x_{d+1}}$ is a spanned set of $S$ if for any $i \in [d+1]$ and $s \in S$, it holds that $L(f(s)) \le L_{i}(x_{i})$ and in addition there are $v_{1},..v_{d+1} \in V$, not necessary different, that achieve the equalities $L_{i}(x_{i}) = L_{i}(f(x_{i}))$.  We name $x_{1}, \ldots, x_{d+1}$ the poles of $S$. Furthermore, we extend the notation to a spanned slice when $S$ is a slice of some time-graph. Notice that saying $\expval*{S, x_{1}, \ldots, x_{d+1}}$ is a spanned set means that $\Size{S} = \Size{ \{x_{1}, \ldots, x_{d+1}\}}$.
