@@ -20,7 +20,12 @@ In the shrinking, we have a finite assignment $z$. After applying the sweep rule
 
 
   \begin{definition}[Time Graph of $C(\mathcal{E})$]
- For a quantum circuit $C$ and noise $\mathcal{E}$, for each time $t$, they induce deviation $\mathcal{D}_{t}$. Let $G_{o}$ be a base graph. We define the history graph as follows: The vertices $(v,t) \in V$ if at time $t$ (namely immediately after time $t$), there is a face (qubit) of $f \in G_{o}$, such that $v \in f \in \mathcal{D}_{t}$. We connect edges as follows: if $u_{t-1} = (u,t-1)$ and $v_{t} = (v,t)$ are both in $V$, $v_{t} \notin \mathcal{E}$, and $u$ and $v$ are connected in $G_{o}$, then we connect them by an arrow. We name the set of arrow edges $A$. Moreover, for vertices $u_{t}$ and $w_{t}$, if there exists $v_{t+1}$ such that $\{u_{t},v_{t+1}\}, \{w_{t}, v_{t+1} \} \in A$, then we connect $u_{t}$ and $w_{t}$ by a fork. 
+    For a quantum circuit $C$ and noise $\mathcal{E}$, let the base graph of $C[\mathcal{E}]$ denoted by $G_{o}$. For each time $t$, denote the deviation induced by $\mathcal{E}$ at time $t$ by $\mathcal{D}_{t}$. We define the history graph $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
+    \begin{enumerate}
+      \item The vertices $(v,t) \in V$ if at time $t$ (namely immediately after time $t$), there is a face (qubit) of $f \in G_{o}$, such that $v \in f \in \mathcal{D}_{t}$. 
+      \item We connect edges as follows: if $u_{t-1} = (u,t-1)$ and $v_{t} = (v,t)$ are both in $V$, $v_{t} \notin \mathcal{E}$, and $u$ and $v$ are connected in $G_{o}$, then we connect them by an arrow. We name the set of arrow edges $A$. Moreover, for vertices $u_{t}$ and $w_{t}$, if there exists $v_{t+1}$ such that $\{u_{t},v_{t+1}\}, \{w_{t}, v_{t+1} \} \in A$, then we connect $u_{t}$ and $w_{t}$ by a fork. 
+    \end{enumerate}
+    By definition, the construction $G_{\mathcal{H}}$ is a time-graph.
 \end{definition}
 
 
