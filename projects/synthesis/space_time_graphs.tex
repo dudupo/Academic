@@ -18,7 +18,7 @@ In the shrinking, we have a finite assignment $z$. After applying the sweep rule
 \end{enumerate} We will call to $T$ time-function, to $A$ arrows, and to $F$ forks. Observes that from the second requirement it follows that forks can connect only vertices that have the same time value (set by $T$). 
   \end{definition}
 
-  \begin{definition}[Time Graph of $C\left[\mathcal{E}\right]$]
+  \begin{definition}[Time Graph of $C\[\mathcal{E}\]$]
  For a quantum circuit $C$ and noise $\mathcal{E}$, for each time $t$, they induce deviation $\mathcal{D}_{t}$. Let $G_{o}$ be a base graph. We define the history graph as follows: The vertices $(v,t) \in V$ if at time $t$ (namely immediately after time $t$), there is a face (qubit) of $f \in G_{o}$, such that $v \in f \in \mathcal{D}_{t}$. We connect edges as follows: if $u_{t-1} = (u,t-1)$ and $v_{t} = (v,t)$ are both in $V$, $v_{t} \notin \mathcal{E}$, and $u$ and $v$ are connected in $G_{o}$, then we connect them by an arrow. We name the set of arrow edges $A$. Moreover, for vertices $u_{t}$ and $w_{t}$, if there exists $v_{t+1}$ such that $\{u_{t},v_{t+1}\}, \{w_{t}, v_{t+1} \} \in A$, then we connect $u_{t}$ and $w_{t}$ by a fork. 
 \end{definition}
 
