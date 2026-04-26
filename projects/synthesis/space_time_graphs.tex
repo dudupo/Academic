@@ -8,7 +8,6 @@
 In the shrinking, we have a finite assignment $z$. After applying the sweep rule $\rightarrow \xi$, we then look at a slice $\xi^{\prime}$, which is connected by arrows. We find that $\xi^{\prime} \subset \xi$.
 
 
-For a quantum circuit $C$ and noise $\mathcal{E}$, for each time $t$, they induce deviation $\mathcal{D}_{t}$. Let $G_{o}$ be a base graph. We define the history graph as follows: The vertices $(v,t) \in V$ if at time $t$ (namely immediately after time $t$), there is a face (qubit) of $f \in G_{o}$, such that $v \in f \in \mathcal{D}_{t}$. We connect edges as follows: if $u_{t-1} = (u,t-1)$ and $v_{t} = (v,t)$ are both in $V$, $v_{t} \notin \mathcal{E}$, and $u$ and $v$ are connected in $G_{o}$, then we connect them by an arrow. We name the set of arrow edges $A$. Moreover, for vertices $u_{t}$ and $w_{t}$, if there exists $v_{t+1}$ such that $\{u_{t},v_{t+1}\}, \{w_{t}, v_{t+1} \} \in A$, then we connect $u_{t}$ and $w_{t}$ by a fork.
 
 
   \begin{definition}
@@ -18,6 +17,12 @@ For a quantum circuit $C$ and noise $\mathcal{E}$, for each time $t$, they induc
   \item For $x,y \in V $  $\{x,y\} \in F $ if and only if there exists $z \in V $ such both $\{x,z\},\{y,z\} \in A$. 
 \end{enumerate} We will call to $T$ time-function, to $A$ arrows, and to $F$ forks. Observes that from the second requirement it follows that forks can connect only vertices that have the same time value (set by $T$). 
   \end{definition}
+
+  \begin{definition}[Time Graph of $C[\mathcal{E}]$]
+ For a quantum circuit $C$ and noise $\mathcal{E}$, for each time $t$, they induce deviation $\mathcal{D}_{t}$. Let $G_{o}$ be a base graph. We define the history graph as follows: The vertices $(v,t) \in V$ if at time $t$ (namely immediately after time $t$), there is a face (qubit) of $f \in G_{o}$, such that $v \in f \in \mathcal{D}_{t}$. We connect edges as follows: if $u_{t-1} = (u,t-1)$ and $v_{t} = (v,t)$ are both in $V$, $v_{t} \notin \mathcal{E}$, and $u$ and $v$ are connected in $G_{o}$, then we connect them by an arrow. We name the set of arrow edges $A$. Moreover, for vertices $u_{t}$ and $w_{t}$, if there exists $v_{t+1}$ such that $\{u_{t},v_{t+1}\}, \{w_{t}, v_{t+1} \} \in A$, then we connect $u_{t}$ and $w_{t}$ by a fork. 
+\end{definition}
+
+
 % that since $(V,A)$ is a DAG it defines a partial order on $V$, let us denote $u \le v$ for $u,v \in V$ if there is a directed path from $u$ to  
   \begin{definition}[History, slice.]
     For a time graph $(G,T)$ and a vertex $u \in V$, let $G_{u}$ be the subgraph of $(V,A)$ induced by $\{ v \in V \colon \Time{v} \le \Time{u} \}$. We will denote by $\History{u}$ the 'History of $u$', which is the set of vertices that are connected to $u$ in $G_{u}$. A slice is an equivalence class of the relation $u \equiv v$ if and only if $\History{u} = \History{v}$. Notice that the time function has to be constant on a slice, to see this consider vertices  $x,y$ with $T(x) > T(y)$, thus $x \notin G_{y}$ and therefore $x \in \History{x}/\History{y}$ So they are belong to different classes. Thus, we can extend the time function and the history to slices and write for a slice $K$, $\Time{K}$ and $\History{K}$.
