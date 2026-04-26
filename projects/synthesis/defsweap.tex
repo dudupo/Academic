@@ -172,12 +172,14 @@ Let $C = \{u_{i}\}_{i=1}^{n}$ be a quantum circuit, at depth $d$, with registers
             V_{o} \colonequals \big\{ (v,t) : t \in [d], v \in \mathcal{G} \big\}
           \end{split}
         \end{equation*}
-      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}$, with the addition that any two vertices in preceding times $t$ and $t+1$, for which there exists registers $R_{1}, R_{2}$, and a faces $f_{1}, f_{2} \in \mathcal{G}$, such that:  $C$ acts non-trivially on those qubits at time $t$ are also connected by an edge. Namely:
+      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}$, with the addition of edges of the following form: For two vertices at preceding times $t$ and $t+1$, let's denote them by $(v_{1},t)$ and $(v_{2},t+1)$, for which there exist registers $R^{\prime}_{1}, R^{\prime}_{2}$, and faces $f_{1}, f_{2} \in \mathcal{G}$, such that $v_{1} \in f_{1}, v_{2} \in f_{2}$ and $C$ contains a gate that acts non-trivially on the locations $(t,f_{1},R^{\prime}_{1})$ and $(t,f_{2},R^{\prime}_{2})$ at time $t$, are also connected by an edge. Namely:
         \begin{equation*}
           \begin{split}
             E_{o} & \colonequals \big\{ \{(v,t), (u,t^{\prime}) \} :  \text{ if }     \\ 
-              & \text{either there exists } i \text{ such }  \{v,u\} \in \mathcal{G}_{i} \text{ and } t^{\prime} = t,t+1 \\
-             & \text{or there exists } u_i = (g_{i},l_{i}) \in C \text{ such }  v,u \in l_{i,2} \text{ and } t = l_{i,1}, t^{\prime} = l_{i,1}+1  \big\} 
+              & \text{either}  \{v,u\} \in \mathcal{G} \text{ and } t^{\prime} = t,t+1 \\
+              & \text{or there exists } u_i = (g_{i},l_{i}) \in C, f_{1},f_{2} \in \mtahcal{G}, \text{ and }  R^{\prime}_{1} R^{\prime}_{2} \\
+          & \ \ \text{ such }  v\in f_{1} ,u\in f_{2}, t = l_{i,1}, t^{\prime} = l_{i,1}+1 \\ 
+        & \ \ \text{ and } (f_{1},\mathbf{1}_{R^{\prime}_{1}}), (f_{2},\mathbf{1}_{R^{\prime}_{2}}) \in l_{i}_{2} \big\} 
           \end{split}
         \end{equation*}
     \end{enumerate} 
