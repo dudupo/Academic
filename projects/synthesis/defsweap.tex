@@ -142,7 +142,7 @@ The presentation of $C$ in the \textit{registers coordinate system} is the encod
       \end{equation*}
 For brevity, we name the first and second coordinates in the result of $\psi_{R}$ the \textit{register coordinate} and the \textit{inner coordinate}.
     \end{definition}
-
+    \ctt{ Choose one of the following definitions for the base graph $G_{o}$. Pitori Berman and Peter Gacs chose the second, namely the projected version, yet if I had to guess, I would say that the first gives an advantage.} 
   \begin{definition}[Base graph $G_{o}$]
     Let $C$ be a quantum circuit, at depth $d$, with registers $R_{1}, \ldots, R_{k}$, all of which are encoded by Toric codes with the same parameters (i.e., dimension, length, etc.). Let's denote by $\mathcal{G}_{1}, .., \mathcal{G}_{k}$ the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o},E_{o})$ as follows: 
     \begin{enumerate}
@@ -153,6 +153,26 @@ For brevity, we name the first and second coordinates in the result of $\psi_{R}
           \end{split}
         \end{equation*}
       \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}_{1}, \ldots, \mathcal{G}_{k}$, with the addition that any two vertices in preceding times $t$ and $t+1$ that support qubits (faces) such that $C$ acts non-trivially on those qubits at time $t$ are also connected by an edge. Namely:
+        \begin{equation*}
+          \begin{split}
+            E_{o} & \colonequals \big\{ \{(v,t), (u,t^{\prime}) \} :  \text{ if }     \\ 
+              & \text{either there exists } i \text{ such }  \{v,u\} \in \mathcal{G}_{i} \text{ and } t^{\prime} = t,t+1 \\
+             & \text{or there exists } u_i = (g_{i},l_{i}) \in C \text{ such }  v,u \in l_{i,2} \text{ and } t = l_{i,1}, t^{\prime} = l_{i,1}+1  \big\} 
+          \end{split}
+        \end{equation*}
+    \end{enumerate} 
+  \end{definition}
+
+  \begin{definition}[Base graph $G_{o}$]
+Let $C = \{u_{i}\}_{i=1}^{n}$ be a quantum circuit, at depth $d$, with registers $R_{1}, \ldots, R_{k}$, all of which are encoded by Toric codes with the same parameters (i.e., dimension, length, etc.). Let's denote by $\mathcal{G}$ the Toric complex that induces the codes, and suppose that the locations of the gates in $C$ are given in registers' coordinate systems. We define the base graph of $C$, denoted by $G_{o} = (V_{o},E_{o})$ as follows: 
+    \begin{enumerate}
+      \item The vertices $V_{o}$ are tuples, where the first coordinates correspond to a vertex in $\mathcal{G}$, and the second coordinate is associated with a time. Namely:
+        \begin{equation*}
+          \begin{split}
+            V_{o} \colonequals \big\{ (v,t) : t \in [d], v \in \mathcal{G} \big\}
+          \end{split}
+        \end{equation*}
+      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}$, with the addition that any two vertices in preceding times $t$ and $t+1$ for which there exists support qubits (faces) such that $C$ acts non-trivially on those qubits at time $t$ are also connected by an edge. Namely:
         \begin{equation*}
           \begin{split}
             E_{o} & \colonequals \big\{ \{(v,t), (u,t^{\prime}) \} :  \text{ if }     \\ 
