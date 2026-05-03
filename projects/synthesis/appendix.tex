@@ -291,3 +291,27 @@ Thus, there is a subset of generators $S^{\prime} \subset S$, of size $d^{\prime
 \begin{definition}[Reduced subset with boundrey at $v$]
   
 \end{definition}
+
+
+  \begin{definition}[Base graph $G_{o}$]
+Let $C = \{u_{i}\}_{i=1}^{n}$ be a quantum circuit, at depth $d$, with registers $R_{1}, \ldots, R_{k}$, all of which are encoded by Toric codes with the same parameters (i.e., dimension, length, etc.). Let's denote by $\mathcal{G}$ the Toric complex that induces the codes, and suppose that the locations of the gates in $C$ are given in registers' coordinate systems. We define the base graph of $C$, denoted by $G_{o} = (V_{o},E_{o})$ as follows: 
+    \begin{enumerate}
+      \item The vertices $V_{o}$ are tuples, where the first coordinates correspond to a vertex in $\mathcal{G}$, and the second coordinate is associated with a time. Namely:
+        \begin{equation*}
+          \begin{split}
+            V_{o} \colonequals \bigcup_{i}V(\mathcal{G}_{i}) \times [d] % \big\{ (v,t) : t \in [d], v \in \mathcal{G} \big\}
+          \end{split}
+        \end{equation*}
+      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}$, with the addition of edges of the following form: For two vertices at preceding times $t$ and $t+1$, let's denote them by $(v_{1},t)$ and $(v_{2},t+1)$, for which there exist registers $R^{\prime}_{1}, R^{\prime}_{2}$, and faces $f_{1}, f_{2} \in \mathcal{G}$, such that $v_{1} \in f_{1}, v_{2} \in f_{2}$ and $C$ contains a gate that acts non-trivially on the locations $(t,f_{1},\mathbf{1}_{R^{\prime}_{1}})$ and $(t,f_{2},\mathbf{1}_{R^{\prime}_{2}})$ at time $t$, are also connected by an edge. Namely:
+        \begin{equation*}
+          \begin{split}
+            E_{o} & \colonequals \big\{ \{(v,t), (u,t^{\prime}) \} :  \text{ if }     \\ 
+              & \text{either}  \{v,u\} \in \mathcal{G} \text{ and } t^{\prime} = t,t+1 \\
+              & \text{or there exists } u_i = (g_{i},l_{i}) \in C, f_{1},f_{2} \in \mathcal{G}, \text{ and }  R^{\prime}_{1} R^{\prime}_{2} \\
+          & \ \ \text{ such }  v\in f_{1} ,u\in f_{2}, t = l_{i,1}, t^{\prime} = l_{i,1}+1 \\ 
+        & \ \ \text{ and } (f_{1},\mathbf{1}_{R^{\prime}_{1}}), (f_{2},\mathbf{1}_{R^{\prime}_{2}}) \in l_{i,2} \big\} 
+          \end{split}
+        \end{equation*}
+    \end{enumerate} 
+  \end{definition}
+
