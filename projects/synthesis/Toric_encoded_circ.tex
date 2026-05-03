@@ -51,10 +51,11 @@
             \big\{ v_{t} : v_{t}=(v,t) \in V_{o} \text{ and there exists a qubit } f \in C \text{ such } v \in f \in \mathcal{D}_{t} \big\}
           \end{split}
         \end{equation*}
-      \item The edges $E_{\mathcal{H}}$ can be parttion to two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$,  the edges in $E_{o}$ restricted to $V_{\mathcal{H}}$. Namely:
+      \item The edges $E_{\mathcal{H}}$ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$, where $A_{\mathcal{H}}$ are the edges in $E_{o}$ restricted to $V_{\mathcal{H}}$ and $F_{\mathcal{H}}$ are defined to be the . Namely:
         \begin{equation*}
           \begin{split}
-          E_{\mathcal{H}} = \big\{ e = \{u_{t},v_{t^{\prime}}\} \in E_{o} :  u_{t},v_{t^{\prime}} \in V_{\mathcal{H}}\big\}
+            A_{\mathcal{H}} &= \big\{ e = \{u,v\} \in E_{o} :  u,v \in V_{\mathcal{H}}\big\} \\
+            F_{\mathcal{H}} &= \big\{ e = \{u,v\} : \text{ exists } w \in V_{\mathcal{H}} \text{ such } \{v,w\},\{u,w\} \in A_{\mathcal{H}} \big\} 
           \end{split}
         \end{equation*}
     \end{enumerate}
