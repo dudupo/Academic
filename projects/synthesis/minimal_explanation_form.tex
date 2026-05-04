@@ -65,7 +65,13 @@
                 & \Rightarrow \alpha \ge \beta \Size{\text{fork}} + d+1
               \end{split}
             \end{equation*}
-            That is not satisfying the inequalities, one way to try to bypass it is treating to $O(d)$ SWEEP RUlE operations as a constant depth operation, then $\xi = O(d)$. 
+            That is not satisfying the inequalities, one way to try to bypass it is treating to $O(d)$ SWEEP RUlE operations as a constant depth operation, then $\xi = O(d)$. For that we need the follow property, for every subset of qubits $S$, there is subset of qubits $S^{\prime}$ at size at least $(1-\gamma)|S|$ such that for $S$ to be deviated, all the qubits in $S^{\prime}$ have to absorb fault. Now suppose that the gate is at depth at most $\Delta$, and the fanning is at most $c_{f}$, then we get: 
+            \begin{equation*}
+              \begin{split}
+                & \prb{ S \in \mathcal{D}} \le (c_{f}^{\Delta} p)^{|S^{\prime}|} \le (c_{f}^{\Delta} p)^{(1-\gamma)|S|} \\
+                \Rightarrow & p \rightarrow (c_{f}^{\Delta} p)^{1-\gamma} 
+              \end{split}
+            \end{equation*}
 }
 
 
