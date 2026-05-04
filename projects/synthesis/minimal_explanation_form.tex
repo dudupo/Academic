@@ -47,4 +47,16 @@
 
   \end{proof}
 
+\ctt{ 
+  Consider the proof above, when we run two sequences steps, the first is not shrinking, namely $\xi = 0$, and the second is shrinking $\xi \neq 0$. Each of the proceeding slices $K_{0}, .., K_{k}$ has its own $k_i$ proceeding slices $K_{i}^{0}, .., K_{i}^{k_{i}}$. We count the number of arrows in $K$ by adding the arrows resulting in those two steps $d+1 + (k+1)\cdot(d+1)$ to the arrows in each of the explanation of the $K_{i}^{j}$ slices. So: 
+            \begin{equation*}
+              \begin{split}
+                &  (k+2)(d+1) + \sum_{i,j=0}{\alpha (m_{i}^{j}-1)  - \beta s^{j}_{i} } \\ 
+                \le & (k+2)(d+1) + \alpha m - \alpha\sum_{i=0}^{k}k_{i} - \beta\left(s + \xi - \left(\sum_{i=0}^{k}k_{i}\right) \cdot \Size{\text{fork}}  \right) \\
+                = & \alpha \left(m - 1\right) - \beta s + \left(\alpha + (k+2)(d+1) - \alpha\sum_{i=0}^{k}k_{i} - \beta \xi + \beta \sum_{i=0}^{k}k_{i} \cdot \Size{\text{fork}} \right)
+              \end{split}
+            \end{equation*}
+}
+
+
 
