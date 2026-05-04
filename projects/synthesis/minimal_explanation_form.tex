@@ -52,8 +52,8 @@
             \begin{equation*}
               \begin{split}
                 &  (k+2)(d+1) + \sum_{i,j=0}{\alpha (m_{i}^{j}-1)  - \beta s^{j}_{i} } \\ 
-                \le & (k+2)(d+1) + \alpha m - \alpha\sum_{i=0}^{k}k_{i} - \beta\left(s + \xi - \left(k + \sum_{i=1}^{k}k_{i}\right) \cdot \Size{\text{fork}}  \right) \\
-                = & \alpha \left(m - 1\right) - \beta s + \left(\alpha + (k+2)(d+1) - \alpha\sum_{i=0}^{k}k_{i} - \beta \xi + \beta\left( k + \sum_{i=1}^{k}k_{i} \cdot \Size{\text{fork}} \right) \right)
+                \le & (k+2)(d+1) + \alpha m - \alpha\sum_{i=0}^{k}k_{i} - \beta\left(s + \xi - \left(k + \sum_{i=0}^{k}k_{i} - 1\right) \cdot \Size{\text{fork}}  \right) \\
+                \le & \alpha \left(m - 1\right) - \beta s + \left(\alpha + (k+2)(d+1) - \alpha\sum_{i=0}^{k}k_{i} - \beta \xi + \beta\left( \sum_{i=0}^{k}k_{i} \cdot \Size{\text{fork}} \right) \right)
               \end{split}
             \end{equation*}
             Now, we want to show that the left term, the linear line, is always negative. For this we look for parameters such when $k=0, \sum k_i =0 $ it results with negative value and that the 'slope' of it is negative. For showing negative slope, we use the fact that $\sum_{i}k_{i} \ge k$.
