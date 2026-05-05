@@ -255,6 +255,9 @@ Observes that a quantum circuit $C$ and a noise channel $\mathcal{N}_{\mathcal{E
                 { \Lambda(S) \choose |S^{\prime}| } p^{|S^{\prime}|} \sim 2^{|S|h(\alpha)}p^{|S^{\prime}|}   
               \end{split}
             \end{equation*}
-
+            \ctt{
+Denote by $\Lambda(S)$ the light cone of $S$. We need to iterate over all the minimal subsets of qubits that have to be flipped to make all the qubits in $S$ flipped. We bound this number from above by the binomial coefficient, and then by the entropy function.
+We have to add a definition of minimal subset. In addition, bring all the definitions about layer propagations here, and add a paragraph that explains that we separate the two notations on purpose, as each one of them is defined to prove a different theorem.
+            }
 
 
