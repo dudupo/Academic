@@ -62,9 +62,9 @@ Where $r$ is not mentioned, we mean $r = \frac{1}{2}$, and the result of the sub
   We define the propagated computation graph $(\mathcal{U}^{\prime},E^{\prime})$, resulted by the propagation of $u_{i}$ to step $\tau$, as follow: Let $u_{i} = u_{j_{l}},..,u_{\tau}$, be the gates at steps between $i$ to $\tau$, and let $X$ be the propagation of $u_{i}$ to step $\tau$. Consider the tree rooted at $u_{i}$ restricted to $u_{j_{l}},..,u_{\tau}$, denote it by $T$ and it leaves by $L_{T}$. Set $\mathcal{U}^{\prime} = \mathcal{U}/u_{i} \cup X $ and:  
   \begin{equation*}
     \begin{split}
-      & \big\{  \{X, v\} : u \in L_{T}, \{u,v\} \in E  \big\} \\
-      & \big\{  \{u, X\} : u \in L_{T} \big\} \\
-      & \big\{  \{u, v\} : \{u,v\} \in E \big\}
+      E^{\prime} = & \big\{  \{X, v\} : u \in L_{T}, \{u,v\} \in E  \big\} \\
+      \cup & \big\{  \{u, X\} : u \in L_{T} \big\} \\
+      \cup & \big\{  \{u, v\} : \{u,u_{i}\}, \{u_{i},v\} \in E \big\}
     \end{split}
   \end{equation*}
 
