@@ -230,7 +230,12 @@ Observes that a quantum circuit $C$ and a noise channel $\mathcal{N}_{\mathcal{E
 \end{claim}
 \begin{proof}
   We need to show that any subjection outcome $C[\mathcal{E}]$ can be transformed by propagation to a circuit $C^{\prime}$ that is also a result of subjecting $C$ to a set of faults $\mathcal{E}^{\prime}$ at frequency $\frac{1}{c}$, and that $\mathcal{E}^{\prime}$ satisfies the local noise property with a noise rate $q$.
-  Assume that $c$ is even, and consider the layer propagations $U_{i} \rightarrow i+c$.   
+  Assume that $c$ is even, and consider the layer propagations $U_{i} \rightarrow i+c$.
+  \begin{equation*}
+    \begin{split}
+      U_{0},U_{1},U_{2},..,U_{c-1},U_{c},U_{c+1},.., U_{c} \mapsto U_{0},U_{1},U_{3},U_{5},..,U_{c-1},U_{2},U_{4},..,U_{c-2},U_{c},U_{c+1},U_{c+3},..
+    \end{split}
+  \end{equation*}
 \end{proof}
 
  For that we need the follow property, for every subset of qubits $S$, there is subset of qubits $S^{\prime}$ at size at least $(1-\gamma)|S|$ such that for $S$ to be deviated, all the qubits in $S^{\prime}$ have to absorb fault. Now suppose that the gate is at depth at most $\Delta$, and the fanning is at most $c_{f}$, then we get: 
