@@ -193,10 +193,10 @@ For every subset of locations $S \subset \mathbb{N} \times \mathbb{N}$, whose lo
 Observes that a quantum circuit $C$ and a noise channel $\mathcal{N}_{\mathcal{E}}$ induce a subjection of $C[\mathcal{E}]$, which is a random variable. 
 
 \begin{claim}
-  Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with noise rate $p$, let $C$ be a quantum circuit with bounded fanning $\Delta$, and let $c$ be an integer. We define $q$ to be the number that depends on $p$, $\Delta$, and $c$ as: $q \colonequals (\Delta^{c} p)^{\frac{1}{\Delta^{c}}}$. There is a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$, with noise rate $q$ such that:  
+Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with noise rate $p$, let $C$ be a quantum circuit with bounded fan-in $\Delta$, and let $c$ be an integer. We define $q$ to be the number that depends on $p$, $\Delta$, and $c$ as: $q \colonequals (\Delta^{c} p)^{\frac{1}{\Delta^{c}}}$. There is a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$, with noise rate $q$, such that any subjection at frequency $\frac{1}{2}$ of $C$ is equivalent by propagation to subjection at frequency $\frac{1}{c}$ by $\mathcal{N}_{\mathcal{E}_{q}}$, namely:
   \begin{equation*}
     \begin{split}
-      C[\mathcal{E}]_{\frac{1}{2}} \sim C[\mathcal{E}_{q}]_{\frac{1}{c}}
+      C[\mathcal{E}]_{\frac{1}{2}} \sim_{P} C[\mathcal{E}_{q}]_{\frac{1}{c}}
     \end{split}
   \end{equation*}
 \end{claim}
