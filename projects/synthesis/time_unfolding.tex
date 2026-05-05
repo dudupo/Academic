@@ -238,7 +238,7 @@ Observes that a quantum circuit $C$ and a noise channel $\mathcal{N}_{\mathcal{E
       & V^{(0)},U_{1},U_{3},U_{5},..,U_{c-1},V^{(1)},U_{c+1},U_{c+3},.. \mapsto
     \end{split}
   \end{equation*}
-  We grouped the errors together. 
+  We grouped the errors together into $V^{(i)}$. Now, $\mathcal{E}^{\prime} = \{ V^{(i)} \}_{i=1}$, and  
 \end{proof}
 
  For that we need the follow property, for every subset of qubits $S$, there is subset of qubits $S^{\prime}$ at size at least $(1-\gamma)|S|$ such that for $S$ to be deviated, all the qubits in $S^{\prime}$ have to absorb fault. Now suppose that the gate is at depth at most $\Delta$, and the fanning is at most $c_{f}$, then we get: 
