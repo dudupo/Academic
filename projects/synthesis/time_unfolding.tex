@@ -59,6 +59,15 @@ Where $r$ is not mentioned, we mean $r = \frac{1}{2}$, and the result of the sub
     \item Then, for $k \le \tau - l$, look for an operator $X_{k} \colon L(\mathcal{H}_{2}^{w}) \rightarrow L(\mathcal{H}_{2}^{w})$, such that  $X_{k-1}u_{j_{l+1}} =  u_{j_{l+1}}X_{k}$.
     \item At the final stage of the process, namely where $k = \tau - l$, we define $X \colonequals X_{k}$ to be the propagation of $u_{j}$ to step $\tau$.
   \end{enumerate}
+  We define the propagated computation graph $(\mathcal{U}^{\prime},E^{\prime})$, resulted by the propagation of $u_{i}$ to step $\tau$, as follow: Let $u_{i} = u_{j_{l}},..,u_{\tau}$, be the gates at steps between $i$ to $\tau$, and let $X$ be the propagation of $u_{i}$ to step $\tau$. Consider the tree rooted at $u_{i}$ restricted to $u_{j_{l}},..,u_{\tau}$, denote it by $T$ and it leaves by $L_{T}$. Set $\mathcal{U}^{\prime} = \mathcal{U}/u_{i} \cup X $ and:  
+  \begin{equation*}
+    \begin{split}
+      & \big\{  \{X, v\} : u \in L_{T}, \{u,v\} \in E  \big\} \\
+      & \big\{  \{u, X\} : u \in L_{T} \big\} \\
+      & \big\{  \{u, v\} : \{u,v\} \in E \big\}
+    \end{split}
+  \end{equation*}
+
   For a quantum circuit $C$, a set of faults $\mathcal{E} = \{ e_{i} \}_{i=1}$, an order $J \subset [|C[\mathcal{E}]|]$ that agrees with $\pi_{C[\mathcal{E}]}$, and a step $\tau \in J$, denote by $X_{e_{i}}^{\tau}$ the propagation of $e_{i} \in \mathcal{E}$ in $C[\mathcal{E}]$ to step $\tau$. Let $j^{\prime}_{1}, j^{\prime}_{2}, \ldots, j^{\prime}_{l}$ be the indices of the faults in $\mathcal{E}$ such that their corresponding positions in $J$ precede $\tau$, ordered according to the reverse topological order induced by $\pi_{\mathcal{E}}$. The propagated error to step $\tau$ is defined by
   \begin{equation*}
     \begin{split}
@@ -201,7 +210,8 @@ Observes that a quantum circuit $C$ and a noise channel $\mathcal{N}_{\mathcal{E
   \end{equation*}
 \end{claim}
 \begin{proof}
-  We need to show that any subjection outcome $C[\mathcal{E}]$ can be transformed by propagation to a circuit $C^{\prime}$ that is also a result of subjecting $C$ to a set of faults $\mathcal{E}^{\prime}$ at frequency $\frac{1}{c}$, and that $\mathcal{E}^{\prime}$ satisfies the local noise property with a noise rate $q$. 
+  We need to show that any subjection outcome $C[\mathcal{E}]$ can be transformed by propagation to a circuit $C^{\prime}$ that is also a result of subjecting $C$ to a set of faults $\mathcal{E}^{\prime}$ at frequency $\frac{1}{c}$, and that $\mathcal{E}^{\prime}$ satisfies the local noise property with a noise rate $q$.
+  Consider the 
 \end{proof}
 
  For that we need the follow property, for every subset of qubits $S$, there is subset of qubits $S^{\prime}$ at size at least $(1-\gamma)|S|$ such that for $S$ to be deviated, all the qubits in $S^{\prime}$ have to absorb fault. Now suppose that the gate is at depth at most $\Delta$, and the fanning is at most $c_{f}$, then we get: 
