@@ -38,19 +38,18 @@ Note that there might be multiple indices that get the minimum, so the out degre
   We say that $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ is a computation prefix if $\rho_{1} = \rho$ and $\rho_{i+1} = u^\prime_{i} \circ \rho_{i}$, where $\{u^{\prime}_{i}\}_{i=1}$ is a prefix of a topological ordering of $\{u_{i}\}_{i=1}$. If $\{u^{\prime}_{i}\}_{i=1}$ contains all the gates in $\{u_{i}\}_{i=1}$, then we call $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ a running.
 \end{definition}
 
-
-\begin{definition}[$C$ Subjected to $\mathcal{E}$]
-  Let $C = \{ u_{i} \}_{i=1}$ be a quantum circuit with depth $d$ and width $w$. For a set of fault locations $\mathcal{E} \subset [d] \times [w]$, we define the quantum circuit \textit{$C$ subjected to $\mathcal{E}$}, denoted by $C[\mathcal{E}] = \{ u^{\prime}_{i} \}_{i=1}$, to be the quantum circuit that is the result of the following map:
+\begin{definition}[$C$ Subjected to $\mathcal{E}$ at frequency $r$]
+  Let $C = \{ u_{i} \}_{i=1}$ be a quantum circuit with depth $d$ and width $w$. For a set of fault locations $\mathcal{E} \subset [d] \times [w]$, and a number $r \in (0,1)$ satisfies $r^{-1} \in \mathbb{N}$, we define the quantum circuit \textit{$C$ subjected to $\mathcal{E}$ at frequency $r$}, denoted by $C[\mathcal{E}]_{r} = \{ u^{\prime}_{i} \}_{i=1}$, to be the quantum circuit that is the result of the following map:
   \begin{equation*}
     \begin{split}
-      u_{i}=(g_{i},(l_{i,1}, l_{i,2})) & \mapsto   
+      u_{i}=(g_{i},(l_{i,1}, l_{i,2})) & =
       \begin{cases}
-        (g_{i},( \inb{2} l_{i,1}, l_{i,2})) & u_{i} \in C \\ 
-        (g_{i},( \inb{2} l_{i,1} \inb{ - 1 }, l_{i,2})) & u_{i} \in \mathcal{E}
+        (g_{i},(  l_{i,1} + \inb{ \lfloor r * l_{i,1} \rfloor + 1 }, l_{i,2})) & u_{i} \in C \\ 
+        (g_{i},( \inb{r^{-1}} l_{i,1}, l_{i,2})) & u_{i} \in \mathcal{E}
       \end{cases}
     \end{split}
-  \end{equation*}
-We will denote the associated computation DAG of $C$ affected by $\mathcal{E}$ as $\comDAG$.
+  \end{equation*} 
+Where $r$ is not mentioned, we mean $r = \frac{1}{2}$, and the result of the subjection is the circuit whose gates on the odd time coordinates are the gates of $C$, and whose gates on the even time coordinates are the gates of $\mathcal{E}$. We will denote the associated computation DAG of $C$ affected by $\mathcal{E}$ as $\comDAG$.
 \end{definition}
 
 \begin{definition}[Faults Propagation to a Step $\tau$]
@@ -118,15 +117,15 @@ For a quantum circuit $C$, a register $R$ of $C$, and a set of faults $\mathcal{
   }
 \end{claim}
 \begin{proof}
-  Denote by $u=(g,l)$ the gate at step $\tau$. If $u$ acts trivially on the (q)bits in $Y_{i}^{(\tau_{1})}$ then they also belong to deviation on register $R$ at step $\tau_{1}-1$, Since they are connected in $\mathcal{T}$ they form a deviation cluster on register $R$ at step $\tau_{1}-1$ and we got the desired. Thus it is left to handle the case in which $u$ acts non-trivaily on (q)bits in $Y_{i}^{(\tau_{1})}$.
-  Since $u$ acts on at most $\Delta$ qubits, and each qubit has at most $\Delta_{1}(\Delta_{2} -1)$ neighbors at $\mathcal{T}$ it follows that $u$ acts non trivialy on at most
+  Denote by $u=(g,l)$ the gate at step $\tau$. If $u$ acts trivially on the (q)bits in $Y_{i}^{(\tau_{1})}$ then they also belong to deviation on register $R$ at step $\tau_{1}-1$, Since they are connected in $\mathcal{T}$ they form a deviation cluster on register $R$ at step $\tau_{1}-1$ and we got the desired. Thus it is left to handle the case in which $u$ acts non-trivially on (q)bits in $Y_{i}^{(\tau_{1})}$.
+  Since $u$ acts on at most $\Delta$ qubits, and each qubit has at most $\Delta_{1}(\Delta_{2} -1)$ neighbors at $\mathcal{T}$ it follows that $u$ acts non trivially on at most
   \begin{equation*}
     \begin{split}
       \Delta + \Delta\Delta_{1}\left( \Delta_{2} - 1 \right) \le \Delta\Delta_{1}\Delta_{2}
     \end{split}
   \end{equation*}
 
-  deviation clusters at step $\tau_{1} -1$. Let $l$ be integer no greater than $\Delta\Delta_{1}\Delta_{2}$ and let $Y_{1}, Y_{2}, \ldots, Y_{l}$ be the deviation cluster, on register $R$, at step $\tau_{1} - 1$, on which $u$ acts non trivialiy, since $Y_{i}^{(\tau_{1})} \subset \bigcup_{j} Y_{j}$. We have that: 
+  deviation clusters at step $\tau_{1} -1$. Let $l$ be integer no greater than $\Delta\Delta_{1}\Delta_{2}$ and let $Y_{1}, Y_{2}, \ldots, Y_{l}$ be the deviation cluster, on register $R$, at step $\tau_{1} - 1$, on which $u$ acts non trivially, since $Y_{i}^{(\tau_{1})} \subset \bigcup_{j} Y_{j}$. We have that: 
   \begin{equation}
     \label{equ:upstep}
     \begin{split}
@@ -169,3 +168,37 @@ By \Cref{claim:inter}, we have that the occurrence of a deviation cluster of siz
     \end{split}
   \end{equation*}
 \end{proof}
+
+
+\begin{definition}[Local Stochastic Nosie] 
+  
+\end{definition}
+
+\begin{claim}
+  Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with noise rate $p$ and let $C$ be a quantum circuit, with bounded fanning $\Delta$. For any integer $c$, we define   
+  \begin{equation*}
+    \begin{split}
+      q_{\Delta, c_{f}} \colonequals (c_{f}^{\Delta} p)^{\frac{1}{c_{f}^{\Delta}}} 
+    \end{split}
+  \end{equation*}
+  and let $\mathcal{E}_{\Delta, c_{f}}$ be a local stochastic channel, with noise rate $q_{\Delta, c_{f}}$. 
+  \begin{equation*}
+    \begin{split}
+      C[\mathcal{E}]_{\frac{1}{2}} \sim C[\mathcal{E}_{q}]_{\frac{1}{c}}
+    \end{split}
+  \end{equation*}
+\end{claim}
+
+
+ For that we need the follow property, for every subset of qubits $S$, there is subset of qubits $S^{\prime}$ at size at least $(1-\gamma)|S|$ such that for $S$ to be deviated, all the qubits in $S^{\prime}$ have to absorb fault. Now suppose that the gate is at depth at most $\Delta$, and the fanning is at most $c_{f}$, then we get: 
+            \begin{equation*}
+              \begin{split}
+                & \prb{ S \in \mathcal{D}} \le (c_{f}^{\Delta} p)^{|S^{\prime}|} \le (c_{f}^{\Delta} p)^{(1-\gamma)|S|} \\
+                \Rightarrow & p \rightarrow (c_{f}^{\Delta} p)^{1-\gamma} 
+              \end{split}
+            \end{equation*}
+            A trivial lower bound for $1 - \gamma$ is $ $.
+
+
+
+
