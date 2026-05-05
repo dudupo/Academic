@@ -67,10 +67,10 @@ Where $r$ is not mentioned, we mean $r = \frac{1}{2}$, and the result of the sub
   \end{equation*}
 \end{definition}
 
-\begin{definition}[ $C \sim C^{\prime}$]
-We define the equivalence relation over quantum circuits $\sim$ to be satisfied if any of them can be obtained from the other by propagating gates. Namely, for quantum circuits $C, C^{\prime}$, we have $C \sim C^{\prime}$ if there is a subset of gates $\{ u_{i} \}_{i=1} \subset C$ and subsets of turns $\{ \tau_{i} \}_{i=1}$ such that $C^{\prime}$ is the result of propagating $u_{i}$ to turn $\tau_{i}$ in $C$ according to the order indexed by $i$.
+\begin{definition}[ $C \sim_P C^{\prime}$]
+We define the equivalence relation over quantum circuits $\sim_P$ to be satisfied if any of them can be obtained from the other by propagating gates. Namely, for quantum circuits $C, C^{\prime}$, we have $C \sim_P C^{\prime}$ if there is a subset of gates $\{ u_{i} \}_{i=1} \subset C$ and subsets of turns $\{ \tau_{i} \}_{i=1}$ such that $C^{\prime}$ is the result of propagating $u_{i}$ to turn $\tau_{i}$ in $C$ according to the order indexed by $i$.
 \end{definition}
-Note that, by definition, we find that equivalence between quantum circuits by $\sim$ implies an equivalence of their action. More specifically, for a mixed state $\rho$ and quantum circuits $C$ and $C^{\prime}$ such that $C\sim C^{\prime}$, we have:
+Note that, by definition, we find that equivalence between quantum circuits by $\sim_P$ implies an equivalence of their action. More specifically, for a mixed state $\rho$ and quantum circuits $C$ and $C^{\prime}$ such that $C\sim_P C^{\prime}$, we have:
 \begin{equation*}
   \begin{split}
     C\rho C^{\dagger} = C^{\prime} \rho C^{\prime \dagger} 
