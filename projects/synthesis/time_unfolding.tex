@@ -66,6 +66,11 @@ Where $r$ is not mentioned, we mean $r = \frac{1}{2}$, and the result of the sub
     \end{split}
   \end{equation*}
 \end{definition}
+
+\begin{definition}[ $C \sim C^{\prime}$]
+We define the equivalence relation over quantum circuits $\sim$ to be satisfied if any of them can be obtained from the other by propagating gates. Namely, for quantum circuits $C, C^{\prime}$, we have $C \sim C^{\prime}$ if there is a subset of gates $\{ u_{i} \}_{i=1} \subset C$ and subsets of turns $\{ \tau_{i} \}_{i=1}$ such that $C^{\prime}$ is the result of propagating $u_{i}$ to turn $\tau_{i}$ in $C$ according to the order indexed by $i$.
+\end{definition}
+
 \begin{definition}[Deviation]
   \label{def:deviation}
   For a quantum circuit $C$, a set of faults $\mathcal{E}$, and step $\tau$, let $X^{\tau}$ be the propagated error at step $\tau$. We define the deviation of $C[\mathcal{E}]$ from $C$ at step $\tau$ by the set of indices on which $X^{\tau}$ acts non-trivially. 
