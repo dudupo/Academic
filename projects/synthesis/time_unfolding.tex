@@ -92,6 +92,8 @@ For $i^{\prime} > i$, the \textit{forward layer propagation} of $U_{i}$ \textit{
   The result of forward layer propagation has a bounded fan-in.
 \end{claim}
 
+\ctt{ Prove it. }
+
 \begin{definition}[ $C \sim_P C^{\prime}$]
 We define the equivalence relation over quantum circuits $\sim_P$ to be satisfied if any of them can be obtained from the other by propagating layers. Namely, for quantum circuits $C, C^{\prime}$, such that the partition of $C$ into layers is $U_{1}, \ldots, U_{d}$, we have $C \sim_P C^{\prime}$ if there is a subset of layers $\{ U_{i} \}_{i=1} \subset \{U_{1}, \ldots, U_{d}\}$ and subsets of time points $\{ t_{i} \}_{i=1}$ such that $C^{\prime}$ is the result of propagating each of the $U_{i}$ to time $t_{i}$ in $C$ according to the order indexed by $i$.
 
@@ -228,7 +230,7 @@ Observes that a quantum circuit $C$ and a noise channel $\mathcal{N}_{\mathcal{E
 \end{claim}
 \begin{proof}
   We need to show that any subjection outcome $C[\mathcal{E}]$ can be transformed by propagation to a circuit $C^{\prime}$ that is also a result of subjecting $C$ to a set of faults $\mathcal{E}^{\prime}$ at frequency $\frac{1}{c}$, and that $\mathcal{E}^{\prime}$ satisfies the local noise property with a noise rate $q$.
-  Consider the 
+  Assume that $c$ is even, and consider the layer propagations $U_{i} \rightarrow i+c$.   
 \end{proof}
 
  For that we need the follow property, for every subset of qubits $S$, there is subset of qubits $S^{\prime}$ at size at least $(1-\gamma)|S|$ such that for $S$ to be deviated, all the qubits in $S^{\prime}$ have to absorb fault. Now suppose that the gate is at depth at most $\Delta$, and the fanning is at most $c_{f}$, then we get: 
