@@ -175,14 +175,7 @@ By \Cref{claim:inter}, we have that the occurrence of a deviation cluster of siz
 \end{definition}
 
 \begin{claim}
-  Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with noise rate $p$ and let $C$ be a quantum circuit, with bounded fanning $\Delta$. For any integer $c$, we define  $q \colonequals (\Delta^{c} p)^{\frac{1}{\Delta^{c}}} 
-  $.
-  \begin{equation*}
-    \begin{split}
-      q \colonequals (\Delta^{c} p)^{\frac{1}{\Delta^{c}}} 
-    \end{split}
-  \end{equation*}
-  and let $\mathcal{E}_{\Delta, c_{f}}$ be a local stochastic channel, with noise rate $q_{\Delta, c_{f}}$. 
+  Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with noise rate $p$, let $C$ be a quantum circuit with bounded fanning $\Delta$, and let $c$ be an integer. We define $q$ to be the number that depends on $p$, $\Delta$, and $c$ as: $q \colonequals (\Delta^{c} p)^{\frac{1}{\Delta^{c}}}$. There is a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$, with noise rate $q$ such that:  
   \begin{equation*}
     \begin{split}
       C[\mathcal{E}]_{\frac{1}{2}} \sim C[\mathcal{E}_{q}]_{\frac{1}{c}}
