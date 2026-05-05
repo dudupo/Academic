@@ -190,17 +190,19 @@ For every subset of locations $S \subset \mathbb{N} \times \mathbb{N}$, whose lo
     \end{split}
   \end{equation*}
 \end{definition}
-Observes that a quantum circuit $C$ and a noise channel $\mathcal{N}_{\mathcal{E}}$ induce a subjection of $C[\mathcal{E}]$, which is a random variable. 
+Observes that a quantum circuit $C$ and a noise channel $\mathcal{N}_{\mathcal{E}}$ induce a subjection $C[\mathcal{E}]$, which is a random variable. 
 
 \begin{claim}
-  Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with noise rate $p$, let $C$ be a quantum circuit with bounded fan-in $\Delta$, and let $c$ be an integer. We define $q$ to be the number that depends on $p$, $\Delta$, and $c$ as: $q \colonequals (\Delta^{c} p)^{\frac{1}{\Delta^{c}}}$. There is a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$, with noise rate $q$, such that any subjection at frequency $\frac{1}{2}$ of $C$ by $\mathcal{E} \sim \mathcal{N}_{\mathcal{E}}$ is equivalent by propagation to subjection at frequency $\frac{1}{c}$ by $ \mathcal{E}_{q} \sim \mathcal{N}_{\mathcal{E}_{q}}$, namely:
+  Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with noise rate $p$, let $C$ be a quantum circuit with bounded fan-in $\Delta$, and let $c$ be an integer. We define $q$ to be the number that depends on $p$, $\Delta$, and $c$ as: $q \colonequals (\Delta^{c} p)^{\frac{1}{\Delta^{c}}}$. There is a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$, with noise rate $q$ that induces a subjection $C[\mathcal{E}_{q}]_{\frac{1}{c}}$ such that: 
   \begin{equation*}
     \begin{split}
       C[\mathcal{E}]_{\frac{1}{2}} \sim_{P} C[\mathcal{E}_{q}]_{\frac{1}{c}}
     \end{split}
   \end{equation*}
 \end{claim}
-
+\begin{proof}
+  We need to show that any subjection outcome $ C[\mathcal{E}] $.   
+\end{proof}
 
  For that we need the follow property, for every subset of qubits $S$, there is subset of qubits $S^{\prime}$ at size at least $(1-\gamma)|S|$ such that for $S$ to be deviated, all the qubits in $S^{\prime}$ have to absorb fault. Now suppose that the gate is at depth at most $\Delta$, and the fanning is at most $c_{f}$, then we get: 
             \begin{equation*}
