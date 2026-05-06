@@ -78,32 +78,6 @@ Where $r$ is not mentioned, we mean $r = \frac{1}{2}$, and the result of the sub
   \end{equation*}
 \end{definition}
 
-\begin{definition}[Layer Propagation.]
-  Let $C = \{ u_{i} \}_{i=1}$ be a quantum circuit, and let $U_{1}, U_{2}, \ldots, U_{d}$ be a partition of the gates in $C$ according to their time coordination. We name such a partition the \textit{partition of $C$ into layers}. The \textit{forward layer propagation} of $U_{i}$ is defined to be the action that results in the quantum circuit such that its partition into layers is $U_{1}, \ldots, U_{i-1}, U_{i+1}, V, U_{i+2}, \ldots, U_{t}$, where $V$ is a collection of quantum gates, such that
-  \begin{equation*}
-    \begin{split}
-        \prod_{u \in U_{i}}u\prod_{u \in U_{i+1}} u= \prod_{u \in U_{i+1}} u\prod_{u\in V}u
-    \end{split}
-  \end{equation*}
-For $i^{\prime} > i$, the \textit{forward layer propagation} of $U_{i}$ \textit{to time} $i^{\prime}$ is defined by propagating $U_{i}$ forward for $i^{\prime} - i$ times. In the resulting circuits of the layer propagation actions, we update the time coordinates to match their application turn.
-\end{definition}
-
-\begin{claim}
-  The result of forward layer propagation has a bounded fan-in.
-\end{claim}
-
-\ctt{ Prove it. }
-
-\begin{definition}[ $C \sim_P C^{\prime}$]
-We define the equivalence relation over quantum circuits $\sim_P$ to be satisfied if any of them can be obtained from the other by propagating layers. Namely, for quantum circuits $C, C^{\prime}$, such that the partition of $C$ into layers is $U_{1}, \ldots, U_{d}$, we have $C \sim_P C^{\prime}$ if there is a subset of layers $\{ U_{i} \}_{i=1} \subset \{U_{1}, \ldots, U_{d}\}$ and subsets of time points $\{ t_{i} \}_{i=1}$ such that $C^{\prime}$ is the result of propagating each of the $U_{i}$ to time $t_{i}$ in $C$ according to the order indexed by $i$.
-
-\end{definition}
-Note that, by definition, we find that equivalence between quantum circuits by $\sim_P$ implies an equivalence of their action. More specifically, for a mixed state $\rho$ and quantum circuits $C$ and $C^{\prime}$ such that $C\sim_P C^{\prime}$, we have:
-\begin{equation*}
-  \begin{split}
-    C\rho C^{\dagger} = C^{\prime} \rho C^{\prime \dagger} 
-  \end{split}
-\end{equation*}
 
 \begin{definition}[Deviation]
   \label{def:deviation}
@@ -207,8 +181,34 @@ By \Cref{claim:inter}, we have that the occurrence of a deviation cluster of siz
     \end{split}
   \end{equation*}
 \end{proof}
+\ctt{ Separate the above from the beneath. Explain that we introduce two notions of propagation on purpose. }
 
+\begin{definition}[Layer Propagation.]
+  Let $C = \{ u_{i} \}_{i=1}$ be a quantum circuit, and let $U_{1}, U_{2}, \ldots, U_{d}$ be a partition of the gates in $C$ according to their time coordination. We name such a partition the \textit{partition of $C$ into layers}. The \textit{forward layer propagation} of $U_{i}$ is defined to be the action that results in the quantum circuit such that its partition into layers is $U_{1}, \ldots, U_{i-1}, U_{i+1}, V, U_{i+2}, \ldots, U_{t}$, where $V$ is a collection of quantum gates, such that
+  \begin{equation*}
+    \begin{split}
+        \prod_{u \in U_{i}}u\prod_{u \in U_{i+1}} u= \prod_{u \in U_{i+1}} u\prod_{u\in V}u
+    \end{split}
+  \end{equation*}
+For $i^{\prime} > i$, the \textit{forward layer propagation} of $U_{i}$ \textit{to time} $i^{\prime}$ is defined by propagating $U_{i}$ forward for $i^{\prime} - i$ times. In the resulting circuits of the layer propagation actions, we update the time coordinates to match their application turn.
+\end{definition}
 
+\begin{claim}
+  The result of forward layer propagation has a bounded fan-in.
+\end{claim}
+
+\ctt{ Prove it. }
+
+\begin{definition}[ $C \sim_P C^{\prime}$]
+We define the equivalence relation over quantum circuits $\sim_P$ to be satisfied if any of them can be obtained from the other by propagating layers. Namely, for quantum circuits $C, C^{\prime}$, such that the partition of $C$ into layers is $U_{1}, \ldots, U_{d}$, we have $C \sim_P C^{\prime}$ if there is a subset of layers $\{ U_{i} \}_{i=1} \subset \{U_{1}, \ldots, U_{d}\}$ and subsets of time points $\{ t_{i} \}_{i=1}$ such that $C^{\prime}$ is the result of propagating each of the $U_{i}$ to time $t_{i}$ in $C$ according to the order indexed by $i$.
+
+\end{definition}
+Note that, by definition, we find that equivalence between quantum circuits by $\sim_P$ implies an equivalence of their action. More specifically, for a mixed state $\rho$ and quantum circuits $C$ and $C^{\prime}$ such that $C\sim_P C^{\prime}$, we have:
+\begin{equation*}
+  \begin{split}
+    C\rho C^{\dagger} = C^{\prime} \rho C^{\prime \dagger} 
+  \end{split}
+\end{equation*}
 \begin{definition}[Noise Channel and The Local Stochastic Nosie Property] 
   A \textit{noise channel} $\mathcal{N}_{\mathcal{E}}$ is a distribution over sets of faults, we will denote the outcome of $\mathcal{N}_{\mathcal{E}}$ by $\mathcal{E}$. For $p \in (0,1)$ we say that a noise channel $\mathcal{N}_{\mathcal{E}}$ is a \textit{local stochastic}, with noise rate $p$, if the following holds: 
 For every subset of locations $S \subset \mathbb{N} \times \mathbb{N}$, whose locations have the same time coordinate, the probability that $S$ is covered by $\mathcal{E}$ is less than:
