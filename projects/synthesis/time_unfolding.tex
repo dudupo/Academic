@@ -228,7 +228,7 @@ Observes that a quantum circuit $C$ and a noise channel $\mathcal{N}_{\mathcal{E
 
 
 \begin{claim}
-Let $c$ be an even integer greater than 2, let $C$ be a quantum circuit at depth $c/2$, and let $\mathcal{E}$ be a set of faults. Consider the partition of $C[\mathcal{E}]$ into layers: $U_{0}, U_{1}, \ldots, U_{c-1}$, where the even layers $U_{2i}$ and the odd layers $U_{2i+1}$ belong to $\mathcal{E}$ and $C$, respectively. Consider the circuit that results from propagating the layers of faults, namely the even layers $U_{2}, \ldots$, beyond the last layer of $C$, namely $U_{c-1}$. We propagate the layers in reverse order, starting with $U_{c-2}$ and ending at $U_{2}$. Let us denote by $V_{2i}$ the propagation expression of $U_{2i}$, so the mapping is written as:
+  Let $c$ be an even integer greater than 2, let $C$ be a quantum circuit at depth $c/2$, and let $\mathcal{E}$ be a set of faults. Consider the partition of $C[\mathcal{E}]$ into layers: $U_{0}, U_{1}, \ldots, U_{c-1}$, where the even layers $U_{2i}$ and the odd layers $U_{2i+1}$ belong to $\mathcal{E}$ and $C$, respectively. Consider the circuit that results from propagating the layers of faults, namely the even layers $U_{2}, \ldots$, beyond the last layer of $C$, namely $U_{c-1}$. We propagate the layers in reverse order, starting with $U_{c-2}$ and ending at $U_{2}$. Let us denote by $V_{2i}$ the \textit{propagation expression} of $U_{2i}$, so the mapping is written as:
   \begin{equation*}
     \begin{split}
       U_{0},& U_{1},U_{2},..,U_{c-1},U_{c} \mapsto \\ 
