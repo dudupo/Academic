@@ -211,7 +211,7 @@ Note that, by definition, we find that equivalence between quantum circuits by $
 \end{equation*}
 \begin{definition}[Noise Channel and The Local Stochastic Nosie Property] 
   A \textit{noise channel} $\mathcal{N}_{\mathcal{E}}$ is a distribution over sets of faults, we will denote the outcome of $\mathcal{N}_{\mathcal{E}}$ by $\mathcal{E}$. For $p \in (0,1)$ we say that a noise channel $\mathcal{N}_{\mathcal{E}}$ is a \textit{local stochastic}, with noise rate $p$, if the following holds: 
-For every subset of locations $S \subset \mathbb{N} \times \mathbb{N}$, whose locations have the same time coordinate, the probability that $S$ is covered by $\mathcal{E}$ is less than:
+For every subset of locations $S \subset \mathbb{N} \times \mathbb{N}$, the probability that $S$ is covered by $\mathcal{E}$ is less than:
   \begin{equation*}
     \begin{split}
       \prbm{ S \subset \mathcal{E} }{ \mathcal{E} \sim \mathcal{N}_{\mathcal{E}}} \le p^{|S|}
