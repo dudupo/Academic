@@ -222,6 +222,19 @@ Observes that a quantum circuit $C$ and a noise channel $\mathcal{N}_{\mathcal{E
 
 
 \begin{claim}
+  Let $c$ be an even integer greater than $2$, let $C$ be a quantum circuit, at depth $c/2$, and let $\mathcal{E}$ be a set of fault. Consider the partition of $C[\mathcal{E}]$ into layers: $U_{0},U_{1},..,U_{c-1}$, where the even layers $U_{2i}$ and the odd layers $U_{2i+1}$ belong to $\mathcal{E}$ and $C$ respectively. Consider the circuit that resulted by propagating the layers of faults, namely the even layers $U_{0},U_{2},..$, beyond the last layer of $C$, namely $U_{c-1}$. Let us denote so the mapping is written by: 
+  \begin{equation*}
+    \begin{split}
+      U_{0},& U_{1},U_{2},..,U_{c-1},U_{c} \mapsto \\ 
+      & U_{0},U_{1},U_{3},U_{5},..,U_{c-1},V_{2},V_{4},..,V_{c-2},U_{c}
+    \end{split}
+  \end{equation*}
+  Let us group the operators in $V_{2},..,V_{c-2},U_{c}$ to a single layer $V^{(1)}$, so we get: 
+  \begin{equation*}
+    \begin{split}
+      & V^{(0)},U_{1},U_{3},U_{5},..,U_{c-1},V^{(1)}
+    \end{split}
+  \end{equation*}
   If $S \subset V^{(1)}$ then for any $i \in S$ there is $j\in S$ and $U_{2k}$ such that $j \in U_{2k}$ and $U_{2k}$ is connect to $i$ in $\pi|_{\le c}$. 
 \end{claim}
 
