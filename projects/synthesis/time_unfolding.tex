@@ -255,7 +255,7 @@ Observes that a quantum circuit $C$ and a noise channel $\mathcal{N}_{\mathcal{E
   Where we grouped $V_{2},V_{4},V_{6},V_{c-2}$ together into $V^{(i)}$. Now, $\mathcal{E}^{\prime} = \{ V^{(i)} \}_{i=1}$, Now we argue that  
   \begin{equation*}
     \begin{split}
-      \prb{S \subset V^{(i)}}  \le & \prb{ \bigcup_{ \substack{ S^{\prime} \in \Lambda(S) \\ |S^{\prime}| = \nu |S|} }{ \big\{ S^{\prime}  \subset \bigcup U_{2k} \big\} } } \\
+      \prb{S \subset V^{(i)}}  \le & \prb{ \cup_{ \substack{ S^{\prime} \in \Lambda(S) \\ |S^{\prime}| = \nu |S|} }{ \big\{ S^{\prime}  \subset \cup U_{2k} \big\} } } \\
       \le & { \Lambda(S) \choose |S^{\prime}| } p^{|S^{\prime}|} \sim 2^{|S|h(\alpha)}p^{|S^{\prime}|}   
     \end{split}
   \end{equation*}
