@@ -220,6 +220,19 @@ For every subset of locations $S \subset \mathbb{N} \times \mathbb{N}$, whose lo
 \end{definition}
 Observes that a quantum circuit $C$ and a noise channel $\mathcal{N}_{\mathcal{E}}$ induce a subjection $C[\mathcal{E}]$, which is a random variable. 
 
+
+\begin{claim}
+  If $S \subset V^{(1)}$ then for any $i \in S$ there is $j\in S$ and $U_{2k}$ such that $j \in U_{2k}$ and $U_{2k}$ is connect to $i$ in $\pi|_{\le c}$. 
+\end{claim}
+
+\begin{claim}
+  If $S \subset V^{(1)}$, then there is subset $S^{\prime} \subset \bigcup U_{2k}$ at size: $X$. 
+\end{claim}
+\begin{proof}
+  Suppose not, since the fan-in is at most $\Delta$, we get that size of a connected component is at most $|S^{\prime}|\Delta^{c} < |S|$, thus there is must to be bit in $S$ which is not connected and therefore $S \not{ \subset } V^{(1)}$. 
+\end{proof}
+
+
 \begin{claim}
   Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with noise rate $p$, let $C$ be a quantum circuit with bounded fan-in $\Delta$, and let $c$ be an integer. We define $q$ to be the number that depends on $p$, $\Delta$, and $c$ as: $q \colonequals (\Delta^{c} p)^{\frac{1}{\Delta^{c}}}$. There is a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$, with noise rate $q$ that induces a subjection $C[\mathcal{E}_{q}]_{\frac{1}{c}}$ such that: 
   \begin{equation*}
