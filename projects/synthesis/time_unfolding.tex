@@ -190,7 +190,13 @@ By \Cref{claim:inter}, we have that the occurrence of a deviation cluster of siz
         \prod_{u \in U_{i}}u\prod_{u \in U_{i+1}} u= \prod_{u \in U_{i+1}} u\prod_{u\in V}u
     \end{split}
   \end{equation*}
-For $i^{\prime} > i$, the \textit{forward layer propagation} of $U_{i}$ \textit{to time} $i^{\prime}$ is defined by propagating $U_{i}$ forward for $i^{\prime} - i$ times. In the resulting circuits of the layer propagation actions, we update the time coordinates to match their application turn.
+For $i^{\prime} > i$, the \textit{forward layer propagation} of $U_{i}$ \textit{to time} $i^{\prime}$ is defined by propagating $U_{i}$ forward for $i^{\prime} - i$ times. Using the notions defined above, the mapping is sketched by:
+  \begin{equation*}
+    \begin{split}
+      U_{1}, U_{2}, \ldots, U_{d} \mapsto U_{1}, \ldots, U_{i-1}, U_{i+1}, \ldots, U_{i^{\prime}}, V, U_{i^{\prime}+1}, \ldots, U_{t}
+    \end{split}
+  \end{equation*}
+In both types of layer propagation, we call $V$ the propagation expression of $U_{i}$. In the resulting circuits of the layer propagation actions, we update the time coordinates to match their application turn.
 \end{definition}
 
 \begin{claim}
@@ -222,7 +228,7 @@ Observes that a quantum circuit $C$ and a noise channel $\mathcal{N}_{\mathcal{E
 
 
 \begin{claim}
-  Let $c$ be an even integer greater than $2$, let $C$ be a quantum circuit, at depth $c/2$, and let $\mathcal{E}$ be a set of fault. Consider the partition of $C[\mathcal{E}]$ into layers: $U_{0},U_{1},..,U_{c-1}$, where the even layers $U_{2i}$ and the odd layers $U_{2i+1}$ belong to $\mathcal{E}$ and $C$ respectively. Consider the circuit that resulted by propagating the layers of faults, namely the even layers $U_{0},U_{2},..$, beyond the last layer of $C$, namely $U_{c-1}$. Let us denote so the mapping is written by: 
+Let $c$ be an even integer greater than 2, let $C$ be a quantum circuit at depth $c/2$, and let $\mathcal{E}$ be a set of faults. Consider the partition of $C[\mathcal{E}]$ into layers: $U_{0}, U_{1}, \ldots, U_{c-1}$, where the even layers $U_{2i}$ and the odd layers $U_{2i+1}$ belong to $\mathcal{E}$ and $C$, respectively. Consider the circuit that results from propagating the layers of faults, namely the even layers $U_{2}, \ldots$, beyond the last layer of $C$, namely $U_{c-1}$. We propagate the layers in reverse order, starting with $U_{c-2}$ and ending at $U_{2}$. Let us denote by $V_{2i}$ the propagation expression of $U_{2i}$, so the mapping is written as:
   \begin{equation*}
     \begin{split}
       U_{0},& U_{1},U_{2},..,U_{c-1},U_{c} \mapsto \\ 
