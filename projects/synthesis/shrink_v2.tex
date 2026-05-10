@@ -70,6 +70,13 @@ For a vertex $v$, we define the \textit{$X$-small code at vertex $v$} to be the 
       \partial^{+} \rotfv{g_{2}g_{1}v}{S^{\prime}} &=  \sum_{g\in S/S^{\prime}} \rotfv{g_{2}g_{1}v}{S^{\prime} \cup g } +  \sum_{g\in S/S^{\prime}} \rotfv{g^{-1}g_{2}g_{1}v}{S^{\prime} \cup g }  
     \end{split}
   \end{equation*}
+  Now, any term in the left closure is a bit beyond the scope of the bits in $\text{Stab}_{v}^{-}$, thus, we are zeroing them out. The bits, on the right closers are in the scope, only if $g \in \{g_{1}, g_{2}$. Thus, in total the check is equivalence to: 
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \rotfv{g_{2}g_{1}v}{S^{\prime}} &=  \rotfv{g_{1}v}{S^{\prime} \cup g_{2} } \cdot \mathbf{1}_{g_{2} \notin S^{\prime}} \\
+      & +\rotfv{g_{2}v}{S^{\prime} \cup g_{1} } \cdot \mathbf{1}_{g_{1} \notin S^{\prime}} 
+    \end{split}
+  \end{equation*}
   Note that since we talk on mapping checks $\rightarrow$ bits, we use the $\partial^{+}$. Eventually, we need to use the poincare duality $H^{d^{\prime}} \rightarrow H_{d - d^{\prime}}$, the duality also should be used to define the SWEEP rule to $C_{Z}$. I didn't successes to do it other way. 
 }
 
