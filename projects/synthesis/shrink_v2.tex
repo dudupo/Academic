@@ -104,7 +104,12 @@ For a vertex $v$, we define the \textit{$X$-small code at vertex $v$} to be the 
       &=  \partial^{+} \sum_{g^{\prime} \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime}} + \partial^{+}\rotfv{v}{S^{\prime}} 
     \end{split}
   \end{equation*}
-  Thus, we find more ${ d \choose d^{\prime} - 1 }$ restriction over the checks. [We need to show that those restrictions are independent]. 
+  Thus, we find more ${ d \choose d^{\prime} - 1 }$ restriction over the checks. [We need to show that those restrictions are independent]. In addition:
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \sum_{S^{\prime}}\sum_{g^{\prime} < g \in S/S^{\prime}}\rotfv{g^{\prime}gv}{S^{\prime}} &= 0
+    \end{split}
+  \end{equation*}
   \begin{equation*}
     \begin{split}
       \partial^{+} \rotfv{g_{2}g_{1}v}{S} = \partial^{+} \rotfv{g_{1}v}{(S/ g_{3}) \cup g_{2} } +  \partial^{+} \rotfv{g_{2}v}{(S / g_{3}) \cup g_{1}} 
