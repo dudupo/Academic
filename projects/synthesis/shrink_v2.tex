@@ -17,7 +17,7 @@ We are going to show that the SWEEP decoder 'shrinks' the error by proving that 
 
 \begin{claim}
   \label{claim:localmax}
-Let $z$ be an assignment, and let $\partial z$ be the set of vertices adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\partial z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$ in $\partial z$. Then $gv \notin \partial z$.
+Let $z$ be an assignment, and recall that the vertices in $\partial z$ are the set of vertices adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\partial z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$ in $\partial z$. Then $gv \notin \partial z$.
 \end{claim}
 \begin{proof}
   Suppose $gv \in \partial z$, then 
@@ -30,12 +30,13 @@ In contradiction to $v$ being a local maximum of $L_{g}$ in $\partial z$.
 \end{proof}
 \begin{claim}
   \label{claim:edge_pole}
-Let $z$ be an assignment, and let $\partial z$ be the set of vertices adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\partial z$, and let $g$ be a coordinate in $S$ such that $v$ is a local maximum of $L_{g}$. Then for any check associated with a $d^{\prime}-1$ face rooted at $v$ that contains $gv$, it is satisfied.
+Let $z$ be an assignment, let $v$ be a vertex in $\partial z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$. Then, for any check associated with a $d^{\prime}-1$ face rooted at $v$ that contains $gv$, it is satisfied.
 \end{claim}
 \begin{proof}
 Assume, through contradiction, the existence of an unsatisfied check associated with a $d^{\prime}-1$ positive face rooted at $v$, which contains $gv$. This implies $gv \in \partial z$, contradicting \Cref{claim:localmax}.
 \end{proof}
 
+We first going to show that,... 
 
 \begin{definition}[Small Code at Vertex $v$]
 For a vertex $v$, we define the \textit{$X$-small code at vertex $v$} to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy $\mathcal{C}_{X}$'s restrictions rooted at $v$ ($d^{\prime}-1$ faces). Similarly, we define the \textit{$Z$-small code at vertex $v$} to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy $\mathcal{C}_{Z}$'s restrictions rooted at $v$ ($d^{\prime}+1$ faces). We denote by $\mathcal{C}_{v}^{-}$ and $\mathcal{C}_{v}^{+}$ the $X$-small code at $v$ and $Z$-small code at $v$.
