@@ -58,34 +58,11 @@ For a vertex $v$, we define the \textit{$X$-small code at vertex $v$} to be the 
   \label{claim:agreement}
   Let $v$ be a vertex. For any $z \in \mathcal{C}_{v}^{\pm}$, there is a stabilizer $w \in \text{Stab}_{v}^{\pm}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$.
 \end{claim}
+
 \begin{proof}
-  We will show that codes obtained from $\text{Stab}_{v}^{\pm}$ by forcing the faces rooted at $v$ to $z|_{v}$ have non-zero dimensions. Then it follows that any code word of $\mathcal{C}_{v}^{\pm}$ could be extend to codewords in $\text{Stab}_{v}^{\pm}$. The number of bits in both $\text{Stab}_{v}^{\pm}$ is:
-\begin{equation*}
-  \begin{split}
-      { d \choose d^{\prime} }  +  d { d - 1 \choose d^{\prime} } 
-  \end{split}
-\end{equation*}
-The numbers of checks for $\text{Stab}_{\pm}$ are:
-\begin{equation*}
-  \begin{split}
- { d \choose d^{\prime} \pm 1 } + d { d-1  \choose d^{\prime} \pm 1 }  
- \end{split}
-\end{equation*}
-The restriction to $z|_{v}$ sets the bits rooted at $v$ and satisfies the checks that are rooted at $v$, so the checks of the form $\rotfvs{}$ for $|S^{\prime}| = d^{\prime} \pm 1$ are degenerate, and the dimension that remains is:
-\begin{equation*}
-  \begin{split}
-    \dim \ge d { d - 1 \choose d^{\prime} } - d { d-1  \choose d^{\prime} \pm 1 }  
-  \end{split}
-\end{equation*}
-In the case that $d^\prime = (d-1)/2$, then for any $x \in [d-1]$ we have $ { d - 1 \choose d^{\prime} } >  { d-1 \choose x  }  $ therefore:
-\begin{equation*}
-  \begin{split}
-    \dim &\ge d { d - 1 \choose d/2 } - d { d-1  \choose d/2 \pm 1 } \\
-    & > d
-  \end{split}
-\end{equation*}
-So there is at least $2^{d}$ stabilizers $w \in \text{Stab}_{v}$ that agree with $z$. 
+  
 \end{proof}
+
 
 \begin{claim}
   \label{claim:reduce_stab}
@@ -326,5 +303,33 @@ So for $\rotfv{gv}{S^{\prime}_{i}/g} = 0$, it must appear at least twice in the 
   Note that since we talk on mapping checks $\rightarrow$ bits, we use the $\partial^{+}$. Eventually, we need to use the poincare duality $H^{d^{\prime}} \rightarrow H_{d - d^{\prime}}$, the duality also should be used to define the SWEEP rule to $C_{Z}$. I didn't successes to do it other way. 
 }
 
-
+A wrong proof of \Cref{claim:agreement}
+\begin{proof}
+  We will show that codes obtained from $\text{Stab}_{v}^{\pm}$ by forcing the faces rooted at $v$ to $z|_{v}$ have non-zero dimensions. Then it follows that any code word of $\mathcal{C}_{v}^{\pm}$ could be extend to codewords in $\text{Stab}_{v}^{\pm}$. The number of bits in both $\text{Stab}_{v}^{\pm}$ is:
+\begin{equation*}
+  \begin{split}
+      { d \choose d^{\prime} }  +  d { d - 1 \choose d^{\prime} } 
+  \end{split}
+\end{equation*}
+The numbers of checks for $\text{Stab}_{\pm}$ are:
+\begin{equation*}
+  \begin{split}
+ { d \choose d^{\prime} \pm 1 } + d { d-1  \choose d^{\prime} \pm 1 }  
+ \end{split}
+\end{equation*}
+The restriction to $z|_{v}$ sets the bits rooted at $v$ and satisfies the checks that are rooted at $v$, so the checks of the form $\rotfvs{}$ for $|S^{\prime}| = d^{\prime} \pm 1$ are degenerate, and the dimension that remains is:
+\begin{equation*}
+  \begin{split}
+    \dim \ge d { d - 1 \choose d^{\prime} } - d { d-1  \choose d^{\prime} \pm 1 }  
+  \end{split}
+\end{equation*}
+In the case that $d^\prime = (d-1)/2$, then for any $x \in [d-1]$ we have $ { d - 1 \choose d^{\prime} } >  { d-1 \choose x  }  $ therefore:
+\begin{equation*}
+  \begin{split}
+    \dim &\ge d { d - 1 \choose d/2 } - d { d-1  \choose d/2 \pm 1 } \\
+    & > d
+  \end{split}
+\end{equation*}
+So there is at least $2^{d}$ stabilizers $w \in \text{Stab}_{v}$ that agree with $z$. 
+\end{proof}
 
