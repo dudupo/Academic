@@ -67,8 +67,12 @@ The checks of the codes, are of the following three types:
   \item Checks that rooted at $v$:  
     \begin{equation*}
       \begin{split}
-       & \big\{ \rotfvs{}: S^{\prime} \subset S , |S^{\prime}|=d^{\prime}-1  \big\} \\ 
-       \big( \partial \rotfvs{} \big)|_{\text{Stab}_{v}^{\pm}} = &  \big(   \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} + \sum_{g \in S^{\prime}} \rotfv{gv}{S^{\prime}/g} \big)|_{\text{Stab}_{v}^{\pm}} =  \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} 
+        \big\{ \rotfvs{}: S^{\prime} \subset S , |S^{\prime}|=d^{\prime}-1  \big\} 
+      \end{split}
+    \end{equation*}
+    \begin{equation*}
+      \begin{split}
+       \big( \partial \rotfvs{} \big)|_{\text{Stab}_{v}^{\pm}} & =  \big(   \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} + \sum_{g \in S^{\prime}} \rotfv{gv}{S^{\prime}/g} \big)|_{\text{Stab}_{v}^{\pm}} =  \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} 
       \end{split}
     \end{equation*}
   \item Checks that rooted at positive sibling of $v$, 
@@ -77,10 +81,20 @@ The checks of the codes, are of the following three types:
         \big\{ \rotfvs{}: S^{\prime} \subset S , |S^{\prime}|=d^{\prime}-1  \big\}
       \end{split}
     \end{equation*}
+    \begin{equation*}
+      \begin{split}
+        \big( \partial \rotfv{gv}{S^{\prime}} \big)|_{\text{Stab}_{v}^{\pm}} & =  \big(   \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} + \sum_{g \in S^{\prime}} \rotfv{gv}{S^{\prime}/g} \big)|_{\text{Stab}_{v}^{\pm}} =  \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} 
+      \end{split}
+    \end{equation*}
   \item Checks that their root are at two-step distance from $v$:
     \begin{equation*}
       \begin{split}
         \big\{ \rotfvs{}: S^{\prime} \subset S , |S^{\prime}|=d^{\prime}-1  \big\}
+      \end{split}
+    \end{equation*}
+    \begin{equation*}
+      \begin{split}
+        \big( \partial \rotfv{g^{\prime}gv}{S^{\prime}}  \big)|_{\text{Stab}_{v}^{\pm}} & =  \big(   \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} + \sum_{g \in S^{\prime}} \rotfv{gv}{S^{\prime}/g} \big)|_{\text{Stab}_{v}^{\pm}} =  \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} 
       \end{split}
     \end{equation*}
 \end{enumerate}
