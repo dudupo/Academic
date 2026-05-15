@@ -54,78 +54,6 @@ For a vertex $v$, we define the \textit{$X$-small code at vertex $v$} to be the 
   \end{align*}
 \end{definition}
 
-\ctt{
-  Regarding the beneath, The number of restriction in $\partial^{+}$ case was counted in negligently. In addition, we should show that for the $\partial^{-}$ case, restrictions of the form $\rotfv{g_{2}g_{1}v}{S}$ are degenerate. In the bottom line it's look like:  
-  \begin{equation*}
-    \begin{split}
-      \partial^{+} \rotfv{g_{2}g_{1}v}{S} = \partial^{+} \rotfv{g_{1}v}{(S/ g_{3}) \cup g_{2} } +  \partial^{+} \rotfv{g_{2}v}{(S / g_{3}) \cup g_{1}} 
-    \end{split}
-  \end{equation*}
-  Lets develop it, consider a restriction rooted at $g_{2}g_{1}v$, and let's look on it's boundary:
-  \begin{equation*}
-    \begin{split}
-      \partial^{+} \rotfv{g_{2}g_{1}v}{S^{\prime}} &=  \sum_{g\in S/S^{\prime}} \rotfv{g_{2}g_{1}v}{S^{\prime} \cup g } +  \sum_{g\in S/S^{\prime}} \rotfv{g^{-1}g_{2}g_{1}v}{S^{\prime} \cup g }  
-    \end{split}
-  \end{equation*}
-  Now, any term in the left closure is a bit beyond the scope of the bits in $\text{Stab}_{v}^{-}$, thus, we are zeroing them out. The bits, on the right closers are in the scope, only if $g \in \{g_{1}, g_{2}$. Thus, in total the check is equivalence to: 
-  \begin{equation*}
-    \begin{split}
-      \partial^{+} \rotfv{g_{2}g_{1}v}{S^{\prime}} &=  \rotfv{g_{1}v}{S^{\prime} \cup g_{2} } \cdot \mathbf{1}_{g_{2} \notin S^{\prime}} \\
-      & +\rotfv{g_{2}v}{S^{\prime} \cup g_{1} } \cdot \mathbf{1}_{g_{1} \notin S^{\prime}} 
-    \end{split}
-  \end{equation*}
-  \begin{equation*}
-    \begin{split}
-      \partial^{+} \rotfv{g_{1}v}{(S^{\prime}/ g_{3}) \cup g_{2} } &= \sum_{g\in S/S^{\prime}} \rotfv{g_{1}v}{(S^{\prime}/ g_{3}) \cup g_{2}   \cup g } +  \sum_{g\in S/S^{\prime}} \rotfv{g^{-1}g_{1}v}{(S^{\prime}/ g_{3}) \cup g_{2}   \cup g }  \\
-      \partial^{+} \rotfv{g_{2}v}{(S / g_{3}) \cup g_{1}} &= \sum_{g\in S/S^{\prime}} \rotfv{g_{2}v}{(S^{\prime}/ g_{3}) \cup g_{1}   \cup g } +  \sum_{g\in S/S^{\prime}} \rotfv{g^{-1}g_{2}v}{(S^{\prime}/ g_{3}) \cup g_{1}   \cup g }  \\
-    \end{split}
-  \end{equation*}
-  \begin{equation*}
-    \begin{split}
-      \partial^{+} \rotfv{g_{1}v}{(S^{\prime}/ g_{3}) \cup g_{2} } &= \left(\sum_{g\in S/S^{\prime}} \rotfv{g_{1}v}{(S^{\prime}/ g_{3}) \cup g_{2}   \cup g } \right) +  \rotfv{v}{(S^{\prime}/ g_{3}) \cup \{ g_{2}, g_{1} \} }  \\
-    \partial^{+} \rotfv{g_{2}v}{(S / g_{3}) \cup g_{1}} &= \left( \sum_{g\in S/S^{\prime}} \rotfv{g_{2}v}{(S^{\prime}/ g_{3}) \cup g_{1}   \cup g } \right) + \rotfv{v}{(S^{\prime}/ g_{3}) \cup \{g_{1},g_{2}\} }  \\
-    \end{split}
-  \end{equation*}
-  Other way: 
-  \begin{equation*}
-    \begin{split}
-      \partial^{+} \sum_{g^{\prime} \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime}} &= \sum_{g^{\prime} \neq g \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime}\cup g} + \sum_{g \in S/S^{\prime}}\rotfv{v}{S^{\prime} \cup g} \\
-      &= \sum_{g^{\prime} \neq g \in S/S^{\prime}}\rotfv{g^{\prime}v}{S\cup g} + \partial^{+}\rotfv{v}{S^{\prime}} 
-    \end{split}
-  \end{equation*}
-  Where we use the fact that if $g = g^{\prime}$ then the bit is beyond the scope. In addition: 
-  \begin{equation*}
-    \begin{split}
-      \partial^{+} \sum_{g^{\prime} < g \in S/S^{\prime}}\rotfv{g^{\prime}gv}{S^{\prime}} &=\sum_{g^{\prime} < g \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime} \cup g} + \rotfv{gv}{S^{\prime} \cup g^{\prime}} \\
-      &= \sum_{g^{\prime} \neq g \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime} \cup g} \\
-      &=  \partial^{+} \sum_{g^{\prime} \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime}} + \partial^{+}\rotfv{v}{S^{\prime}} 
-    \end{split}
-  \end{equation*}
-  Thus, we find more ${ d \choose d^{\prime} - 1 }$ restriction over the checks. [We need to show that those restrictions are independent]. In addition:
-  \begin{equation*}
-    \begin{split}
-      \partial^{+} \sum_{S^{\prime}}\sum_{g^{\prime} < g \in S/S^{\prime}}\rotfv{g^{\prime}gv}{S^{\prime}} &= 0
-    \end{split}
-  \end{equation*}
-  \begin{equation*}
-    \begin{split}
-      \partial^{+} \rotfv{g_{2}g_{1}v}{S} = \partial^{+} \rotfv{g_{1}v}{(S/ g_{3}) \cup g_{2} } +  \partial^{+} \rotfv{g_{2}v}{(S / g_{3}) \cup g_{1}} 
-    \end{split}
-  \end{equation*}
-  I don't succes to advance the idea more than that, So in the end I believe that I will do is to say that the diminsion of $\text{Stab}_{v}^{-}$ is at least ${ d \choose d^{\prime}+ 1 } $. And by fixing coordinates we add more ${ d \choose d^{\prime} } $ restriction. So the dimension becomes: 
-  \begin{equation*}
-    \begin{split}
-     & { d \choose d^{\prime}+1 } - { d \choose d^{\prime} } \\
-    \end{split}
-  \end{equation*}
-  \begin{equation*}
-    \begin{split}
-      & { d \choose d^{\prime}+1 } - { d \choose d^{\prime} } + { d \choose d^{\prime} - 1   } \\
-    \end{split}
-  \end{equation*}
-  Note that since we talk on mapping checks $\rightarrow$ bits, we use the $\partial^{+}$. Eventually, we need to use the poincare duality $H^{d^{\prime}} \rightarrow H_{d - d^{\prime}}$, the duality also should be used to define the SWEEP rule to $C_{Z}$. I didn't successes to do it other way. 
-}
-
 \begin{claim}
   \label{claim:agreement}
   Let $v$ be a vertex. For any $z \in \mathcal{C}_{v}^{\pm}$, there is a stabilizer $w \in \text{Stab}_{v}^{\pm}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$.
@@ -322,6 +250,81 @@ So for $\rotfv{gv}{S^{\prime}_{i}/g} = 0$, it must appear at least twice in the 
   \end{split}
 \end{equation*}
 \end{proof}
+
+
+\subsection{Drafts-Garbage}
+
+\ctt{
+  Regarding the \Cref{claim:agreement}, The number of restriction in $\partial^{+}$ case was counted in negligently. In addition, we should show that for the $\partial^{-}$ case, restrictions of the form $\rotfv{g_{2}g_{1}v}{S}$ are degenerate. In the bottom line it's look like:  
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \rotfv{g_{2}g_{1}v}{S} = \partial^{+} \rotfv{g_{1}v}{(S/ g_{3}) \cup g_{2} } +  \partial^{+} \rotfv{g_{2}v}{(S / g_{3}) \cup g_{1}} 
+    \end{split}
+  \end{equation*}
+  Lets develop it, consider a restriction rooted at $g_{2}g_{1}v$, and let's look on it's boundary:
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \rotfv{g_{2}g_{1}v}{S^{\prime}} &=  \sum_{g\in S/S^{\prime}} \rotfv{g_{2}g_{1}v}{S^{\prime} \cup g } +  \sum_{g\in S/S^{\prime}} \rotfv{g^{-1}g_{2}g_{1}v}{S^{\prime} \cup g }  
+    \end{split}
+  \end{equation*}
+  Now, any term in the left closure is a bit beyond the scope of the bits in $\text{Stab}_{v}^{-}$, thus, we are zeroing them out. The bits, on the right closers are in the scope, only if $g \in \{g_{1}, g_{2}$. Thus, in total the check is equivalence to: 
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \rotfv{g_{2}g_{1}v}{S^{\prime}} &=  \rotfv{g_{1}v}{S^{\prime} \cup g_{2} } \cdot \mathbf{1}_{g_{2} \notin S^{\prime}} \\
+      & +\rotfv{g_{2}v}{S^{\prime} \cup g_{1} } \cdot \mathbf{1}_{g_{1} \notin S^{\prime}} 
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \rotfv{g_{1}v}{(S^{\prime}/ g_{3}) \cup g_{2} } &= \sum_{g\in S/S^{\prime}} \rotfv{g_{1}v}{(S^{\prime}/ g_{3}) \cup g_{2}   \cup g } +  \sum_{g\in S/S^{\prime}} \rotfv{g^{-1}g_{1}v}{(S^{\prime}/ g_{3}) \cup g_{2}   \cup g }  \\
+      \partial^{+} \rotfv{g_{2}v}{(S / g_{3}) \cup g_{1}} &= \sum_{g\in S/S^{\prime}} \rotfv{g_{2}v}{(S^{\prime}/ g_{3}) \cup g_{1}   \cup g } +  \sum_{g\in S/S^{\prime}} \rotfv{g^{-1}g_{2}v}{(S^{\prime}/ g_{3}) \cup g_{1}   \cup g }  \\
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \rotfv{g_{1}v}{(S^{\prime}/ g_{3}) \cup g_{2} } &= \left(\sum_{g\in S/S^{\prime}} \rotfv{g_{1}v}{(S^{\prime}/ g_{3}) \cup g_{2}   \cup g } \right) +  \rotfv{v}{(S^{\prime}/ g_{3}) \cup \{ g_{2}, g_{1} \} }  \\
+    \partial^{+} \rotfv{g_{2}v}{(S / g_{3}) \cup g_{1}} &= \left( \sum_{g\in S/S^{\prime}} \rotfv{g_{2}v}{(S^{\prime}/ g_{3}) \cup g_{1}   \cup g } \right) + \rotfv{v}{(S^{\prime}/ g_{3}) \cup \{g_{1},g_{2}\} }  \\
+    \end{split}
+  \end{equation*}
+  Other way: 
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \sum_{g^{\prime} \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime}} &= \sum_{g^{\prime} \neq g \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime}\cup g} + \sum_{g \in S/S^{\prime}}\rotfv{v}{S^{\prime} \cup g} \\
+      &= \sum_{g^{\prime} \neq g \in S/S^{\prime}}\rotfv{g^{\prime}v}{S\cup g} + \partial^{+}\rotfv{v}{S^{\prime}} 
+    \end{split}
+  \end{equation*}
+  Where we use the fact that if $g = g^{\prime}$ then the bit is beyond the scope. In addition: 
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \sum_{g^{\prime} < g \in S/S^{\prime}}\rotfv{g^{\prime}gv}{S^{\prime}} &=\sum_{g^{\prime} < g \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime} \cup g} + \rotfv{gv}{S^{\prime} \cup g^{\prime}} \\
+      &= \sum_{g^{\prime} \neq g \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime} \cup g} \\
+      &=  \partial^{+} \sum_{g^{\prime} \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime}} + \partial^{+}\rotfv{v}{S^{\prime}} 
+    \end{split}
+  \end{equation*}
+  Thus, we find more ${ d \choose d^{\prime} - 1 }$ restriction over the checks. [We need to show that those restrictions are independent]. In addition:
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \sum_{S^{\prime}}\sum_{g^{\prime} < g \in S/S^{\prime}}\rotfv{g^{\prime}gv}{S^{\prime}} &= 0
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \rotfv{g_{2}g_{1}v}{S} = \partial^{+} \rotfv{g_{1}v}{(S/ g_{3}) \cup g_{2} } +  \partial^{+} \rotfv{g_{2}v}{(S / g_{3}) \cup g_{1}} 
+    \end{split}
+  \end{equation*}
+  I don't succes to advance the idea more than that, So in the end I believe that I will do is to say that the diminsion of $\text{Stab}_{v}^{-}$ is at least ${ d \choose d^{\prime}+ 1 } $. And by fixing coordinates we add more ${ d \choose d^{\prime} } $ restriction. So the dimension becomes: 
+  \begin{equation*}
+    \begin{split}
+     & { d \choose d^{\prime}+1 } - { d \choose d^{\prime} } \\
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      & { d \choose d^{\prime}+1 } - { d \choose d^{\prime} } + { d \choose d^{\prime} - 1   } \\
+    \end{split}
+  \end{equation*}
+  Note that since we talk on mapping checks $\rightarrow$ bits, we use the $\partial^{+}$. Eventually, we need to use the poincare duality $H^{d^{\prime}} \rightarrow H_{d - d^{\prime}}$, the duality also should be used to define the SWEEP rule to $C_{Z}$. I didn't successes to do it other way. 
+}
 
 
 
