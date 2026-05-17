@@ -52,16 +52,6 @@ For a vertex $v$, we define the \textit{$X$-small code at vertex $v$} to be the 
     \text{Stab}_{v}^{+} \colonequals  \bigl\{ z : \partial^{*} z  &= 0 \text{ and } \\
       & z \in \text{Span} \left( \left\{ \rotfv{v}{S^{\prime}/g}, \rotfv{gv}{S^{\prime}/g} \text{ for } S^{\prime} \subset S , |S^{\prime}|=d^{\prime}+1, g \in S^{\prime} \right\} \right) \bigr\}
   \end{align*}
-\end{definition}
-
-\begin{claim}
-  \label{claim:agreement}
-  Let $v$ be a vertex. For any $z \in \mathcal{C}_{v}^{\pm}$, there is a stabilizer $w \in \text{Stab}_{v}^{\pm}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$.
-\end{claim}
-
-\begin{proof}
-We argue that the restriction of the generating matrix of $\text{Stab}_{v}^{\pm}$ equals the generating matrix of $\mathcal{C}_{v}^{\pm}$. This means that any codeword of $\text{Stab}_{v}^{\pm}$ is an extension of a codeword of $\mathcal{C}_{v}^{\pm}$.
-
 The checks of the codes, are of the following three types: 
 \begin{enumerate}
   \item Checks that are rooted at $v$, each identified by choosing $d-1$ generators from $S$. Namely: 
@@ -104,6 +94,16 @@ The checks of the codes, are of the following three types:
       \end{split}
     \end{equation*}
 \end{enumerate}
+\end{definition}
+
+\begin{claim}
+  \label{claim:agreement}
+  Let $v$ be a vertex. For any $z \in \mathcal{C}_{v}^{\pm}$, there is a stabilizer $w \in \text{Stab}_{v}^{\pm}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$.
+\end{claim}
+
+\begin{proof}
+We argue that the restriction of the generating matrix of $\text{Stab}_{v}^{\pm}$ equals the generating matrix of $\mathcal{C}_{v}^{\pm}$. This means that any codeword of $\text{Stab}_{v}^{\pm}$ is an extension of a codeword of $\mathcal{C}_{v}^{\pm}$.
+
 
 
 \end{proof}
