@@ -99,4 +99,12 @@ An action $g$ is be said size invariant action if, for any assignment $z$, it ho
 
   \ctt{Eventually, we might not used the projected graph, and then we will split to history of the slices lemma for 3 parts. The first is when time $=3t$, in that we apply an invariant action so. }
 
-
+    \begin{figure}[h]
+        \centering 
+        \begin{quantikz}
+        \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{S} &  &&&&&&&&&&&&& \\
+\lstick{$\ket{T}$} & \targ{} & \meter{} \wire[u][1]{c}    \\
+        \end{quantikz}
+        \caption{ Simulating the $T$-gate, using the $\ket{T}$ magic state. }   
+\label{fig:magic}
+\end{figure}
