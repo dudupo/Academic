@@ -52,8 +52,8 @@
       \item The edges $E_{\mathcal{H}}$ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$, where $A_{\mathcal{H}}$ are the edges in $E_{o}$ restricted to $V_{\mathcal{H}}$ and $F_{\mathcal{H}}$ are defined to be the . Namely:
         \begin{equation*}
           \begin{split}
-            A_{\mathcal{H}} &= \big\{ e = \{u,v\} \in E_{o} :  u,v \in V_{\mathcal{H}}\big\} \\
-            F_{\mathcal{H}} &= \big\{ e = \{u,v\} : \text{ exists } w \in V_{\mathcal{H}} \text{ such } \{v,w\},\{u,w\} \in A_{\mathcal{H}} \big\} 
+            A_{\mathcal{H}} &= \big\{ e = \{u,v\} \in E_{o} :  u,v \in V_{\mathcal{H}} \text{and} \Time{v} = \Time{u}\pm 1 \big\} \\
+            F_{\mathcal{H}} &= \big\{ e = \{u,v\} \in E_{o} : \text{ exists } w \in V_{\mathcal{H}} \text{ such } \{v,w\},\{u,w\} \in A_{\mathcal{H}} \big\} 
           \end{split}
         \end{equation*}
     \end{enumerate}
