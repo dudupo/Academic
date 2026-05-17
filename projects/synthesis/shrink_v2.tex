@@ -98,11 +98,11 @@ The checks of the codes, are of the following three types:
 \end{definition}
 \begin{claim}
   \label{claim:agreement}
-  Let $v$ be a vertex. For any $z \in \mathcal{C}_{v}^{\pm}$, there is a stabilizer $w \in \text{Stab}_{v}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$.
+  Let $v$ be a vertex. For any $z \in \mathcal{C}_{v}$, there is a stabilizer $w \in \text{Stab}_{v}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$.
 \end{claim}
 
 \begin{proof}
-We argue that the restriction of the generating matrix of $\text{Stab}_{v}$ equals the generating matrix of $\mathcal{C}_{v}^{\pm}$. This means that any codeword of $\text{Stab}_{v}$ is an extension of a codeword of $\mathcal{C}_{v}^{\pm}$.
+We argue that the restriction of the generating matrix of $\text{Stab}_{v}$ equals the generating matrix of $\mathcal{C}_{v}$. This means that any codeword of $\text{Stab}_{v}$ is an extension of a codeword of $\mathcal{C}_{v}$.
 
 
 
@@ -350,7 +350,7 @@ So for $\rotfv{gv}{S^{\prime}_{i}/g} = 0$, it must appear at least twice in the 
 
 A wrong proof of \Cref{claim:agreement}
 \begin{proof}
-  We will show that codes obtained from $\text{Stab}_{v}$ by forcing the faces rooted at $v$ to $z|_{v}$ have non-zero dimensions. Then it follows that any code word of $\mathcal{C}_{v}^{\pm}$ could be extend to codewords in $\text{Stab}_{v}$. The number of bits in both $\text{Stab}_{v}$ is:
+  We will show that codes obtained from $\text{Stab}_{v}$ by forcing the faces rooted at $v$ to $z|_{v}$ have non-zero dimensions. Then it follows that any code word of $\mathcal{C}_{v}$ could be extend to codewords in $\text{Stab}_{v}$. The number of bits in both $\text{Stab}_{v}$ is:
 \begin{equation*}
   \begin{split}
       { d \choose d^{\prime} }  +  d { d - 1 \choose d^{\prime} } 
