@@ -60,10 +60,10 @@ The checks of the codes, are of the following three types:
         \big\{ \rotfvs{}: S^{\prime} \subset S , |S^{\prime}|=d^{\prime}-1  \big\} 
       \end{split}
     \end{equation*}
-    For each check, the bits that connect to it, are given by restricting the coboundary of the check to bits domain of $\text{Stab}_{v}^{\pm}$:  
+    For each check, the bits that connect to it, are given by restricting the coboundary of the check to bits domain of $\text{Stab}_{v}$:  
     \begin{equation*}
       \begin{split}
-       \big( \partial \rotfvs{} \big)|_{\text{Stab}_{v}^{\pm}} & =  \big(   \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g}  \big)|_{\text{Stab}_{v}^{\pm}} =     \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} 
+       \big( \partial \rotfvs{} \big)|_{\text{Stab}_{v}} & =  \big(   \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g}  \big)|_{\text{Stab}_{v}} =     \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} 
       \end{split}
     \end{equation*}
   \item Checks are rooted at the positive sibling of $v$. Consider such a sibling, let's say $gv$ (namely the vertex that is given by stepping in the direction $g \in S$ from $v$). Notice that any face rooted at $gv$ that contains $ggv$ cannot be contained in faces rooted at $v$. Thus, the checks of $gv$ correspond to choosing subsets from $S/g$. Namely:
@@ -75,8 +75,8 @@ The checks of the codes, are of the following three types:
     And each check is supported by:
     \begin{equation*}
       \begin{split}
-        \big( \partial \rotfv{gv}{S^{\prime}} \big)|_{\text{Stab}_{v}^{\pm}} & = 
-        \big(   \sum_{g^{\prime} \in S/S^{\prime}} \rotfv{gv}{S^{\prime} \cup g^{\prime}} + \sum_{g^{\prime} \in S^{\prime}} \rotfv{g^{\prime -1}v}{S^{\prime}\cup g^{\prime}} \big)|_{\text{Stab}_{v}^{\pm}} \\
+        \big( \partial \rotfv{gv}{S^{\prime}} \big)|_{\text{Stab}_{v}} & = 
+        \big(   \sum_{g^{\prime} \in S/S^{\prime}} \rotfv{gv}{S^{\prime} \cup g^{\prime}} + \sum_{g^{\prime} \in S^{\prime}} \rotfv{g^{\prime -1}v}{S^{\prime}\cup g^{\prime}} \big)|_{\text{Stab}_{v}} \\
         &  =    \sum_{g^{\prime} \in S/S^{\prime}} \rotfv{g v}{S^{\prime} \cup g} + \rotfv{g^{-1}v}{S^{\prime}\cup g}
       \end{split}
     \end{equation*}
@@ -89,7 +89,7 @@ The checks of the codes, are of the following three types:
   And for each check, its support is:
     \begin{equation*}
       \begin{split}
-        \big( \partial \rotfv{g^{\prime}gv}{S^{\prime}}  \big)|_{\text{Stab}_{v}^{\pm}} & =  \big(    \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g} \big)|_{\text{Stab}_{v}^{\pm}}\\
+        \big( \partial \rotfv{g^{\prime}gv}{S^{\prime}}  \big)|_{\text{Stab}_{v}} & =  \big(    \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g} \big)|_{\text{Stab}_{v}}\\
         &=    \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g}   
       \end{split}
     \end{equation*}
@@ -98,11 +98,11 @@ The checks of the codes, are of the following three types:
 
 \begin{claim}
   \label{claim:agreement}
-  Let $v$ be a vertex. For any $z \in \mathcal{C}_{v}^{\pm}$, there is a stabilizer $w \in \text{Stab}_{v}^{\pm}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$.
+  Let $v$ be a vertex. For any $z \in \mathcal{C}_{v}^{\pm}$, there is a stabilizer $w \in \text{Stab}_{v}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$.
 \end{claim}
 
 \begin{proof}
-We argue that the restriction of the generating matrix of $\text{Stab}_{v}^{\pm}$ equals the generating matrix of $\mathcal{C}_{v}^{\pm}$. This means that any codeword of $\text{Stab}_{v}^{\pm}$ is an extension of a codeword of $\mathcal{C}_{v}^{\pm}$.
+We argue that the restriction of the generating matrix of $\text{Stab}_{v}$ equals the generating matrix of $\mathcal{C}_{v}^{\pm}$. This means that any codeword of $\text{Stab}_{v}$ is an extension of a codeword of $\mathcal{C}_{v}^{\pm}$.
 
 
 
@@ -350,7 +350,7 @@ So for $\rotfv{gv}{S^{\prime}_{i}/g} = 0$, it must appear at least twice in the 
 
 A wrong proof of \Cref{claim:agreement}
 \begin{proof}
-  We will show that codes obtained from $\text{Stab}_{v}^{\pm}$ by forcing the faces rooted at $v$ to $z|_{v}$ have non-zero dimensions. Then it follows that any code word of $\mathcal{C}_{v}^{\pm}$ could be extend to codewords in $\text{Stab}_{v}^{\pm}$. The number of bits in both $\text{Stab}_{v}^{\pm}$ is:
+  We will show that codes obtained from $\text{Stab}_{v}$ by forcing the faces rooted at $v$ to $z|_{v}$ have non-zero dimensions. Then it follows that any code word of $\mathcal{C}_{v}^{\pm}$ could be extend to codewords in $\text{Stab}_{v}$. The number of bits in both $\text{Stab}_{v}$ is:
 \begin{equation*}
   \begin{split}
       { d \choose d^{\prime} }  +  d { d - 1 \choose d^{\prime} } 
