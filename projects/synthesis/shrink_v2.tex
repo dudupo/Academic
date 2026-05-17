@@ -37,12 +37,7 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
 \end{proof}
 
 We first going to show that,... 
-
-\begin{definition}[Small Code at Vertex $v$]
-For a vertex $v$, we define the \textit{$X$-small code at vertex $v$} to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy $\mathcal{C}_{X}$'s restrictions rooted at $v$ ($d^{\prime}-1$ faces). Similarly, we define the \textit{$Z$-small code at vertex $v$} to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy $\mathcal{C}_{Z}$'s restrictions rooted at $v$ ($d^{\prime}+1$ faces). We denote by $\mathcal{C}_{v}^{-}$ and $\mathcal{C}_{v}^{+}$ the $X$-small code at $v$ and $Z$-small code at $v$.
-\end{definition}
-
-\begin{definition}
+\begin{definition}[Stabilizers Code at Vertex $v$]
   \inb{Should rewrite it better.} We define $\text{Stab}_{v}^{-}$ and $\text{Stab}_{v}^{+}$ as the following linear codes: 
   \begin{align*}
     \text{Stab}_{v}^{-} \colonequals  \bigl\{ z : \partial z  &= 0 \text{ and } \\
@@ -96,6 +91,9 @@ The checks of the codes, are of the following three types:
 \end{enumerate}
 \end{definition}
 
+\begin{definition}[Small Code at Vertex $v$]
+For a vertex $v$, we define the \textit{$X$-small code at vertex $v$} to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy $\mathcal{C}_{X}$'s restrictions rooted at $v$ ($d^{\prime}-1$ faces). Similarly, we define the \textit{$Z$-small code at vertex $v$} to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy $\mathcal{C}_{Z}$'s restrictions rooted at $v$ ($d^{\prime}+1$ faces). We denote by $\mathcal{C}_{v}^{-}$ and $\mathcal{C}_{v}^{+}$ the $X$-small code at $v$ and $Z$-small code at $v$.
+\end{definition}
 \begin{claim}
   \label{claim:agreement}
   Let $v$ be a vertex. For any $z \in \mathcal{C}_{v}^{\pm}$, there is a stabilizer $w \in \text{Stab}_{v}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$.
