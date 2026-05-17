@@ -8,7 +8,7 @@ We are going to show that the SWEEP decoder 'shrinks' the error by proving that 
   We define the \textit{potential walls} to be the $d+1$ functions $L_{1},L_{2},..,L_{d+1}$, from the vertices of $\mathcal{G}_{n}^{d}$ to the reals as follow:
   \begin{enumerate}
     \item For any coordinate $i \in [d]$, we define $L_{i} \colon \mathcal{G}^{d} \rightarrow \mathbb{R}$ as $L_{i}(v) \colonequals v_{i}$. In addition, for the generator $g \in S$ which is mapped to $i$, i.e $g \rightarrow i $, we identify $L_{g} = L_{i}$. 
-    \item We define $L_{d+1} \colon \mathcal{G}^{d} \rightarrow \mathbb{R}$ by $L_{d+1}(v) = \sum_{i = 1}^{d}v_{i}$.
+    \item We define $L_{d+1} \colon \mathcal{G}^{d} \rightarrow \mathbb{R}$ by $L_{d+1}(v) \colonequals \sum_{i = 1}^{d}v_{i}$.
   \end{enumerate}
   Consider an assignment $z$ over the faces. For a vertex $v \in z$, and a potential wall $l \in \{ L_{1},..,L_{d+1}\} $, we say that $v$ is a \textit{local maximum} of $l$ in $z$ if for any neighbor $u$ of $v$, such that $u \in z$, we have $l(v) \ge l(u)$. We say that $v$ is a \textit{strong local maximum} if the inequality is strict, namely $l(v) > l(u)$. When the assignment $z$ is clear from the context, we might omit it and briefly say that $v$ is a local maximum of $l$.
 
@@ -64,12 +64,13 @@ We argue that the restriction of the generating matrix of $\text{Stab}_{v}^{\pm}
 
 The checks of the codes, are of the following three types: 
 \begin{enumerate}
-  \item Checks that rooted at $v$:  
+  \item Checks that are rooted at $v$, each identified by choosing $d-1$ generators from $S$.
     \begin{equation*}
       \begin{split}
         \big\{ \rotfvs{}: S^{\prime} \subset S , |S^{\prime}|=d^{\prime}-1  \big\} 
       \end{split}
     \end{equation*}
+    The bits that connect to the checks, are given by restricting the coboundary of the check to bits domain of $\text{Stab}_{v}^{\pm}$:  
     \begin{equation*}
       \begin{split}
        \big( \partial \rotfvs{} \big)|_{\text{Stab}_{v}^{\pm}} & =  \big(   \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g}  \big)|_{\text{Stab}_{v}^{\pm}} =     \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} 
