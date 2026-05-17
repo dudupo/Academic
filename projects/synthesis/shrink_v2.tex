@@ -64,24 +64,25 @@ We argue that the restriction of the generating matrix of $\text{Stab}_{v}^{\pm}
 
 The checks of the codes, are of the following three types: 
 \begin{enumerate}
-  \item Checks that are rooted at $v$, each identified by choosing $d-1$ generators from $S$.
+  \item Checks that are rooted at $v$, each identified by choosing $d-1$ generators from $S$. Namely: 
     \begin{equation*}
       \begin{split}
         \big\{ \rotfvs{}: S^{\prime} \subset S , |S^{\prime}|=d^{\prime}-1  \big\} 
       \end{split}
     \end{equation*}
-    The bits that connect to the checks, are given by restricting the coboundary of the check to bits domain of $\text{Stab}_{v}^{\pm}$:  
+    For each check, the bits that connect to it, are given by restricting the coboundary of the check to bits domain of $\text{Stab}_{v}^{\pm}$:  
     \begin{equation*}
       \begin{split}
        \big( \partial \rotfvs{} \big)|_{\text{Stab}_{v}^{\pm}} & =  \big(   \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g}  \big)|_{\text{Stab}_{v}^{\pm}} =     \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} 
       \end{split}
     \end{equation*}
-  \item Checks that rooted at positive sibling of $v$, 
+  \item Checks are rooted at the positive sibling of $v$. Consider such a sibling, let's say $gv$ (namely the vertex that is given by stepping in the direction $g \in S$ from $v$). Notice that any face rooted at $gv$ that contains $ggv$ cannot be contained in faces rooted at $v$. Thus, the checks of $gv$ correspond to choosing subsets from $S/g$. Namely:
     \begin{equation*}
       \begin{split}
-        \big\{ \rotfvs{}: S^{\prime} \subset S , |S^{\prime}|=d^{\prime}-1  \big\}
+      \bigcup_{g \in S}\big\{ \rotfv{gv}{S^{\prime}}: S^{\prime} \subset S/g , |S^{\prime}|=d^{\prime}-1  \big\}
       \end{split}
     \end{equation*}
+    And each check is supported by:
     \begin{equation*}
       \begin{split}
         \big( \partial \rotfv{gv}{S^{\prime}} \big)|_{\text{Stab}_{v}^{\pm}} & = 
@@ -89,12 +90,13 @@ The checks of the codes, are of the following three types:
         &  =    \sum_{g^{\prime} \in S/S^{\prime}} \rotfv{g v}{S^{\prime} \cup g} + \rotfv{g^{-1}v}{S^{\prime}\cup g}
       \end{split}
     \end{equation*}
-  \item Checks that their root are at two-step distance from $v$:
+  \item Checks that their roots are at a two-step distance from $v$, namely vertices of the form $g, g^{\prime} \in S$, where $g \neq g^{\prime}$. By the arguments presented in the second type, the checks are the $d^{\prime}-1$ faces which do not have the generators on the path leading from $v$ to them, i.e., $g, g^{\prime}$, in their generator set.
     \begin{equation*}
       \begin{split}
-        \big\{ \rotfvs{}: S^{\prime} \subset S , |S^{\prime}|=d^{\prime}-1  \big\}
+        \bigcup_{g,g^{\prime} in S^{\prime} }\big\{ \rotfv{g^{\prime}gv}{S^{\prime}}: S^{\prime} \subset S/\{ g, g^{\prime} \} , |S^{\prime}|=d^{\prime}-1  \big\}
       \end{split}
     \end{equation*}
+  And for each check, its support is:
     \begin{equation*}
       \begin{split}
         \big( \partial \rotfv{g^{\prime}gv}{S^{\prime}}  \big)|_{\text{Stab}_{v}^{\pm}} & =  \big(    \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g} \big)|_{\text{Stab}_{v}^{\pm}}\\
