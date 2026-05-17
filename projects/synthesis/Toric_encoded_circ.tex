@@ -45,9 +45,9 @@ So the map sends bits to bits and checks to checks.
   And: 
   \begin{equation*}
     \begin{split}
-      \partial^{+} \rotfv{v}{\phi(S^{\prime})} &=  \partial \big( \sum_{g \in S/\phi(S^{\prime})} \rotfv{v}{\phi(S^{\prime}) \cup g} + \sum_{g \in \phi(S^{\prime})} \rotfv{g^{-1}v}{\phi(S^{\prime})\cup g} \big) \\ 
-       &= \partial \big( \sum_{g \in S/\phi(S^{\prime})} \rotfv{v}{\phi(S^{\prime}) \cup g} + \sum_{g \in \phi(S^{\prime})} \rotfv{g^{-1}v}{\phi(S^{\prime})\cup g} \big) \\ 
-      &= \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g} = 0 
+      \partial^{+} \rotfv{v}{\phi(S^{\prime})} &=  \partial \big( \sum_{g \in S/\phi(S^{\prime})} \rotfv{v}{\phi(S^{\prime}) \cup g} + \sum_{g \in S/ \phi(S^{\prime})} \rotfv{g^{-1}v}{\phi(S^{\prime})\cup g} \big) \\ 
+       &= \partial \big( \sum_{g \in S/\phi(S^{\prime})} \rotfv{v}{\phi(S^{\prime}) \cup g} + \sum_{g \in S/ \phi(S^{\prime})} \rotfv{g^{-1}v}{\phi(S^{\prime})\cup g} \big) \\ 
+      &= \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S/S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g} = 0 
     \end{split}
   \end{equation*}
 \end{proof}
