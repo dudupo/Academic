@@ -39,11 +39,12 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
 For the $(d+1)$th potential wall, we would like to have a stronger claim that implies the error cluster shrinks. For this, we start by showing that any error is equivalent, up to stabilizer addition, to an error whose left-corner edge sees a syndrome. We present two notations of local codes that describe the local view of a $(d+1)$th edge that sees no syndrome. They are the \textit{stabilizers code at vertex} $v$ and the \textit{small code at vertex} $v$. The first corresponds to stabilizers rooted at the vertex, while the second is the collection of local views on its positive faces that satisfy its positive checks. Then, in \Cref{claim:agreement}, we consider a vertex which is a $(d+1)$th edge and doesn't see a syndrome, meaning that its local view is in its \textit{small code}, and show that there is a codeword of its \textit{stabilizers code} that agrees with its positive faces. Addition by that stabilizer yields a new assignment excluding $v$.
 
 \begin{definition}[Stabilizers Code at Vertex $v$]
-  We define \textit{stabilizers code at vertex} $v$, denoted by $\text{Stab}_{v}$, as the restriction of the $(d,d^{\prime})$-Toric code, to the $d^{\prime}$-dimensional faces such that their vertices are at distance of at most most one positive step, in each direction, form $v$. Namely: 
+We define \textit{stabilizer code at vertex} $v$, denoted by $\text{Stab}_{v}$, as the restriction of the $(d,d^{\prime})$-Toric code to the $d^{\prime}$-dimensional faces such that their vertices are at a distance of at most one positive step in each direction from $v$. That is equivalent to the union of all the positive $d^{\prime}$-dimensional faces of $v$ with the $d$-dimensional faces of each of its sibling $gv$, excluding faces containing $g$ as their generator. Namely:
   \begin{align*}
     \text{Stab}_{v} \colonequals  \bigl\{ z : \partial^{-} z  &= 0 \text{ and } \\
     & z \in \text{Span} \left( \bigcup_{g \in S} \left\{ \rotfv{v}{S^{\prime}/g}, \rotfv{gv}{S^{\prime}/g} \text{ for } S^{\prime} \subset S , |S^{\prime}|=d^{\prime}+1 \right\} \right) \bigr\}
   \end{align*}
+\end{definition}
 The checks of the codes, are of the following three types: 
 \begin{enumerate}
   \item Checks that are rooted at $v$, each identified by choosing $d-1$ generators from $S$. Namely: 
@@ -86,7 +87,6 @@ The checks of the codes, are of the following three types:
       \end{split}
     \end{equation*}
 \end{enumerate}
-\end{definition}
 
 \begin{definition}[Small Code at Vertex $v$]
 For a vertex $v$, we define the \textit{$X$-small code at vertex $v$} to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy $\mathcal{C}_{X}$'s restrictions rooted at $v$ ($d^{\prime}-1$ faces). Similarly, we define the \textit{$Z$-small code at vertex $v$} to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy $\mathcal{C}_{Z}$'s restrictions rooted at $v$ ($d^{\prime}+1$ faces). We denote by $\mathcal{C}_{v}^{-}$ and $\mathcal{C}_{v}^{+}$ the $X$-small code at $v$ and $Z$-small code at $v$.
