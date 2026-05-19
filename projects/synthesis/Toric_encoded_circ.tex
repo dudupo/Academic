@@ -2,23 +2,24 @@
 
 \section{Hadamard and S Gates}
 
-$X$-Codewords: 
+
+\begin{claim}
+For any generator subset $S^{\prime}$ of size $d^{\prime}$, denote by $X_{S^{\prime}}$ and $Z_{S^{\prime}}$ the following assignments:
 \begin{equation*}
   \begin{split}
-    \sum_{u \in \expval*{S^{\prime}} }\rotfv{u v}{S^{\prime}} \sim  \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}} 
+    X_{S^{\prime}} & \colonequals \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}} 
+    Z_{S^{\prime}} & \colonequals \sum_{u \in \expval*{S/S^{\prime}} }\rotfv{u}{S^{\prime}} 
   \end{split}
 \end{equation*}
+Then $X_{S^{\prime}}$ and $Z_{S^{\prime}}$ are binary representations of anticommuting logical codewords of the $(d,d^{\prime})$-Toric code. In particular, $X_{S^{\prime}} \in \mathcal{C}_{X}/\mathcal{C}_{Z}^{\perp}$, $Z_{S^{\prime}} \in \mathcal{C}_{Z}/\mathcal{C}_{X}^{\perp}$, and $X_{S^{\prime}} Z_{S^{\prime}} = 1$.
+\end{claim}
+\begin{proof}
+  By definition $X_{S^{\prime}}$ and $Z_{S^{\prime}}$ are binary assignments on the $d^{\prime}$-dimensional faces. We start by showing that $X_{S^{\prime}} \in \mathcal{C}_{X}$ and $Z_{S^{\prime}}\in \mathcal{C}_{Z}$: 
 \begin{equation*}
   \begin{split}
     \partial^{-} \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}} &=  \sum_{u \in \expval*{S^{\prime}} } \sum_{g\in S^{\prime}} \rotfv{ u}{S^{\prime}/g} +  \rotfv{gu}{S^{\prime}/g} \\
      &=  \sum_{g\in S^{\prime}} \sum_{u \in \expval*{S^{\prime}} } \rotfv{ u}{S^{\prime}/g} +  \sum_{u \in \expval*{S^{\prime}} }\rotfv{gu}{S^{\prime}/g} \\
      &=  \sum_{g\in S^{\prime}} \sum_{u \in \expval*{S^{\prime}} } \rotfv{ u}{S^{\prime}/g} +  \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}/g} = 0 
-  \end{split}
-\end{equation*}
-$Z$-Codewords: 
-\begin{equation*}
-  \begin{split}
-    \sum_{u \in \expval*{S^{\prime}} }\rotfv{u v}{S/S^{\prime}} \sim  \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S/ S^{\prime}} 
   \end{split}
 \end{equation*}
 \begin{equation*}
@@ -28,26 +29,12 @@ $Z$-Codewords:
      &=  \sum_{g\in S^{\prime}} \sum_{u \in \expval*{S^{\prime}} } \rotfv{ u}{S^{\prime}\cup g} +  \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime} \cup g} = 0 
   \end{split}
 \end{equation*}
-and we get $x\cdot z$ equals:
+Thus $X_{S^{\prime}} \in \mathcal{C}_{X}$ and $Z_{S^{\prime}}\in \mathcal{C}_{Z}$, now for showing that they are not binary representations of stabiliers, it's enough to show they admit no vanishing product.  
 \begin{equation*}
   \begin{split}
-     \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}} \sum_{u \in \expval*{S/S^{\prime}} }\rotfv{u}{S^{\prime}} = \rotfv{e}{S^{\prime}} \rotfv{e}{S^{\prime}} = 1
+    X_{S^{\prime}}Z_{S^{\prime}} = \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}} \sum_{u \in \expval*{S/S^{\prime}} }\rotfv{u}{S^{\prime}} = \rotfv{e}{S^{\prime}} \rotfv{e}{S^{\prime}} = 1
   \end{split}
 \end{equation*}
-We have to show that is also correct when adding stabilizers.
-
-
-\begin{claim}
-   The above does not have a presentation as a sum of stabilizers. 
-\end{claim}
-\begin{proof}
-  Assume there is: 
-  \begin{equation*}
-    \begin{split}
-    \partial^{-} \sum \rotfv{u}{J} = \sum \rotfv{u}{J/g} +  \rotfv{gu}{J/g} 
-    \end{split}
-  \end{equation*}
-  \ctt{Should think about that.}
 \end{proof}
 
 
