@@ -42,17 +42,17 @@ Let $d, d^{\prime}$ be integers, and let $\mathcal{G}$ be a $(d, d^{\prime})$-To
       \phi(\rotfv{v}{S^{\prime}}) \rightarrow \rotfv{\phi(v)}{S/S^{\prime}} 
     \end{split}
   \end{equation*}
-Notice that for $d^{\prime} = d - d^{\prime}$, the transpose map sends bits to bits.
+Notice that for $d^{\prime} = d - d^{\prime}$, the transpose map is a permutation over the bits.
 \end{definition}
 
 \begin{claim}
-  For $d^{\prime} = d/2$, the $H$ gate, can be computed transversally by, applying $H^{\otimes N}$ and then $\phi$.  
+  For $d^{\prime} = d - d^{\prime}$, the logical Hadamard gate $H$, can be computed transversally by, first applying $H$ over all the physical qubits,and then permuting them by the transpose map $\phi$.  
 \end{claim}
 \begin{proof}
-  The action of the permutation $g_{a} \leftrightarrow g_{b}$, $v = $, sends checks to checks.  
+  Clearly, for any subset of generators $S^{\prime} \subset S$, the map $\phi$ sends $X_{S^{\prime}}$ to $Z_{S/S^{\prime}}$:
   \begin{equation*}
     \begin{split}
-      \rotfvs{ } \rightarrow \rotfv{v}{\phi(S^{\prime})}
+      \phi(X_{S^{\prime}}) = \phi(  \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}}   ) =  \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}} 
     \end{split}
   \end{equation*}
   And: 
