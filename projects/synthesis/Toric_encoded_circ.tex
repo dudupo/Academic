@@ -2,12 +2,27 @@
 
 \section{Hadamard and S Gates}
 
-Codewords: 
+$X$-Codewords: 
 \begin{equation*}
   \begin{split}
-    \sum_{u \in \expval*{S^{\prime}} }\rotfv{u v}{S^{\prime}}
+    \sum_{u \in \expval*{S^{\prime}} }\rotfv{u v}{S^{\prime}} \sim  \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}} 
   \end{split}
 \end{equation*}
+$Z$-Codewords: 
+\begin{equation*}
+  \begin{split}
+    \sum_{u \in \expval*{S / S^{\prime}} }\rotfv{u v}{S^{\prime}} \sim  \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S/ S^{\prime}} 
+  \end{split}
+\end{equation*}
+and we get $x\cdot z$ equals:
+\begin{equation*}
+  \begin{split}
+     \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}} \sum_{u \in \expval*{S/S^{\prime}} }\rotfv{u}{S^{\prime}} = \rotfv{e}{S^{\prime}} \rotfv{e}{S^{\prime}} = 1
+  \end{split}
+\end{equation*}
+We have to show that is also correct when adding stabilizers.
+
+
 \begin{claim}
    The above does not have a presentation as a sum of stabilizers. 
 \end{claim}
