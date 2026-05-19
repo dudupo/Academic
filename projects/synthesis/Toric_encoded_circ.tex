@@ -45,23 +45,8 @@ Let $d, d^{\prime}$ be integers, and let $\mathcal{G}$ be a $(d, d^{\prime})$-To
 Notice that for $d^{\prime} = d - d^{\prime}$, the transpose map sends bits to bits.
 \end{definition}
 
-\begin{equation*}
-  \begin{split}
-    \phi_{g_{a} \leftrightarrow g_{b}}(v u) = \phi_{g_{a} \leftrightarrow g_{b}}( \prod_{i \in [d]} (g_{i})^{x_{i} + y_{i}} ) = \prod_{i \in [d]/\{a,b\}} (g_{i})^{x_{i}+y_{i}} g_{a}^{x_{b}+y_{b}}g_{b}^{x_{a}+y_{a}} = \phi_{g_{a} \leftrightarrow g_{b}}(v)\phi_{g_{a} \leftrightarrow g_{b}}(u)
-  \end{split}
-\end{equation*}
-
-\begin{equation*}
-  \begin{split}
-      \phi(\theta_{v,S^{\prime}} )_{g_{a} \leftrightarrow g_{b}} &=  \phi(\bigcup_{I \subset S^{\prime}} \left\{  \left(\prod_{g \in I} g \right) v  \right\})_{g_{a} \leftrightarrow g_{b}} \\
-      &= (\bigcup_{I \subset S^{\prime}} \left\{  \phi( \left(\prod_{g \in I} g \right) v )_{g_{a} \leftrightarrow g_{b}}\right\} \\
-      &= (\bigcup_{I \subset S^{\prime}} \left\{  \phi( \left(\prod_{g \in I} g \right) v )_{g_{a} \leftrightarrow g_{b}}\right\} \\
-    &= \theta_{\phi(v)_{g_{a} \leftrightarrow g_{b}} ,\phi(S^{\prime} )_{g_{a} \leftrightarrow g_{b}}  } 
-  \end{split}
-\end{equation*}
-So the map sends bits to bits and checks to checks. 
 \begin{claim}
-  For $d^{\prime} = d/2$, the $H$ gate, can be computed transversally. 
+  For $d^{\prime} = d/2$, the $H$ gate, can be computed transversally by, applying $H^{\otims N}$ and then $\phi$.  
 \end{claim}
 \begin{proof}
   The action of the permutation $g_{a} \leftrightarrow g_{b}$, $v = $, sends checks to checks.  
