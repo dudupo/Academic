@@ -55,13 +55,13 @@ For $ d' = d - d' $, we define the logical Hadamard-type gate $ H_{\phi} \colon 
   \end{equation*}
 \end{definition}
 \begin{claim}
-The Hadamard-type gate $ H_{\phi} $ has a fold-transversal implementation by, first applying $H^{n}$ over all the physical qubits,and then permuting them by the transpose map $\phi$, namely $\hat{H}_{\phi} = \phi \circ H^{n}$.
+The Hadamard-type gate $ H_{\phi} $ has a fold-transversal implementation by, first applying $H^{n}$ over all the physical qubits, and then permuting them by the transpose map $\phi$, namely $\hat{H}_{\phi} = \phi \circ H^{n}$.
 \end{claim}
 \begin{proof}
-  Clearly, for any subset of generators $S^{\prime} \subset S$, the map $\phi$ sends $X_{S^{\prime}}$ to $Z_{S/S^{\prime}}$:
+  Clearly, for any subset of generators $S^{\prime} \subset S$, the map $\phi$ sends $x_{S^{\prime}}$ to $z_{S/S^{\prime}}$:
   \begin{equation*}
     \begin{split}
-      \phi(X_{S^{\prime}}) = \phi(  \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}}   ) =  \sum_{u \in \expval*{S/S^{\prime}} }\rotfv{u}{S^{\prime}} 
+      \phi(x_{S^{\prime}}) = \phi(  \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}}   ) =  \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S/S^{\prime}} = z_{S/S^{\prime}}
     \end{split}
   \end{equation*}
   And: 
