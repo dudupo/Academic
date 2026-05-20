@@ -75,7 +75,17 @@ Moreover, $\phi$ sends binary representations of $Z$-stabilizers to binary repre
 And since $\phi \circ \phi = I$, we also have that $\phi\left( \partial^{+} \rotfv{v^{-1}}{S/S^{\prime}} \right)$. Thus, $H^{\otimes n} \circ \phi$ sends $Z$-stabilizers to $X$-stabilizers and vice versa, thereby preserving the code space. Combining this with the above, $H^{\otimes n} \circ \phi$ realizes the logical form $H_{\phi}$ in the $(d,d/2)$-Toric code.
 \end{proof}
 
-
+\begin{corollary}
+For the $(d,d/2)$-Toric code, consider the gate $CZ_{S^{\prime}\rightarrow S/S^{\prime}} \colon L^{\otimes 2} \rightarrow L^{\otimes 2}$, defined to act on two encoded registers by applying $Z_{S/S^{\prime}}$ on the second register, controlled by whether the logical $X_{S^{\prime}}$ is turned on in the first register. Then $CZ_{S^{\prime}\rightarrow S/S^{\prime}}$  has a fold-transversal realization. 
+\end{corollary}
+\begin{proof}
+Consider the following circuit, 
+\begin{enumerate}
+  \item Apply $H^{n}$ on the second register.  
+  \item For any bit $\rotfv{v}{S^{\prime}}$, apply $CX$ from $\rotfv{v}{S^{\prime}}$ in the first register into $\phi(\rotfv{v}{S^{\prime}})$ in the second register.
+  \item Again apply $H^{n}$ on the second register.  
+\end{enumerate}
+\end{proof}
 
 \begin{claim}
   The $S$ gate can be computed transversally. 
