@@ -96,13 +96,16 @@ Consider the following circuit,
     \end{split}
   \end{equation*}
 \end{definition}
-
-
 \begin{claim}
-  Fix a subset $S^{\prime} \subset S$, at size $d^{\prime}$ and encode the , Given a resource state, the logical $\mathbf{S}$ gate can be computed transversally. 
+  Given a resource state, the nice encoding has a fold-transversal realization of the logical $\mathbf{S}$ gate. 
 \end{claim}
-
-
+\begin{proof}
+ Consider the resource state defined by:  
+ \begin{equation*}
+   \begin{split}
+     \ket{\mathbf{S}} = \ket{ \bar{0} } + i \ket{ \bar{0} + x_{S^{\prime}}}
+   \end{split}
+ \end{equation*}
     \begin{figure}[h]
         \centering 
         \begin{quantikz}
@@ -112,6 +115,9 @@ Consider the following circuit,
         \caption{ Simulating the $S$-gate, using the $\ket{S}$ magic state. }   
 \label{fig:magic}
 \end{figure}
+\end{proof}
+
+
 \section{Toric Encoded Circuits}
 
     \begin{definition}[Troic Encoded Circuit]
