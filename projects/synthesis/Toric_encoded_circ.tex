@@ -109,8 +109,8 @@ Consider the following circuit,
     \begin{figure}[h]
         \centering 
         \begin{quantikz}
-        \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{Z} &  &&&&&&&&&&&&& \\
-\lstick{$\ket{S}$} & \targ{} & \meter{} \wire[u][1]{c}    \\
+          \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{Z_{S^{\prime}\rightarrow S/S^{\prime}}} &  &&&&&&&&&&&&& \\
+        \lstick{$\ket{\mathbf{S}}$} & \targ{} & \meter{} \wire[u][1]{c}    \\
         \end{quantikz}
         \caption{ Simulating the $S$-gate, using the $\ket{S}$ magic state. }   
 \label{fig:magic}
