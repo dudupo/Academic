@@ -109,7 +109,8 @@ Fix a generator subset $S^{\prime}$ of size $d^{\prime}$, and consider a permuta
   \begin{split}
       \varphi \left( \partial^{-}  \rotfv{v}{J} \right) &=  \varphi\left( \sum_{g\in J} \rotfv{v}{J/g} +  \rotfv{gv}{J/g}  \right) \\
       & = \sum_{g\in J} \rotfv{\varphi(v)}{ \varphi(J / g)} +  \rotfv{\varphi(g)\varphi(v)}{\varphi(J / g) }  \\ 
-      &= \partial^{+} \rotfv{v^{-1}}{S/J}
+      & = \sum_{g\in \varphi(J)} \rotfv{\varphi(v)}{ \varphi(J)/g} +  \rotfv{g\varphi(v)}{\varphi(J)/g }  \\ 
+      &= \partial^{-} \rotfv{\varphi(v)}{\varphi(J)}
   \end{split}
 \end{equation*}
 
