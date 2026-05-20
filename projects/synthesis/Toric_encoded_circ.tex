@@ -88,13 +88,21 @@ Consider the following circuit,
 \end{proof}
 
 \begin{definition}[The $\varphi$ Rotation]
-  Consider a permutation from the generators set to itself $\pi \colon S \rightarrow S$. We define the rotation mapping by $\pi$, denoted by $\varphi_{\pi}$ to act on the $d^{\prime}$-dimensional as follow: 
+Consider a permutation from the generator set to itself $\pi \colon S \rightarrow S$. The permutation $\pi$ induces a natural isomorphism by substituting generators of the product representation with their corresponding images according to $\phi$. We define the \textit{$\varphi_{\pi}$ rotation}, $\varphi_{\pi} : \mathcal{F}^{d^{\prime}} \rightarrow \mathcal{F}^{d^{\prime}}$, to act on the $d^{\prime}$-dimensional faces as follows:
   \begin{equation*}
     \begin{split}
       \varphi_{\pi} \left(  \rotfv{v}{S^{\prime}}  \right) \colonequals \rotfv{\pi(v)}{\pi(S^{\prime})}
     \end{split}
   \end{equation*}
 \end{definition}
+\begin{claim}
+Fix a generator subset $S^{\prime}$ of size $d^{\prime}$, and consider a permutation $\pi : S \rightarrow S$, such that $\pi : S^{\prime} \rightarrow S / S^{\prime}$. 
+\begin{equation*}
+  \begin{split}
+    \varphi_{\pi}\left( x_{S}  \right) = \varphi_{\pi}\left( \sum_{u\in \expval*{S^{\prime}}}\rotfv{u}{S^{\prime}}  \right) =  \sum_{u\in \expval*{S/S^{\prime}}}\rotfv{u}{S/S^{\prime}} = x_{S/S^{\prime}}
+  \end{split}
+\end{equation*}
+\end{claim}
 
 
 \begin{definition}[The Nice Encoding]
