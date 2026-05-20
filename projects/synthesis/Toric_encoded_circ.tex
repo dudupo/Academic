@@ -103,7 +103,7 @@ Consider the following circuit,
  Consider the resource state defined by:  
  \begin{equation*}
    \begin{split}
-     \ket{\mathbf{S}} = \ket{ \bar{0} } + i \ket{ \bar{0} + x_{S^{\prime}}}
+     \ket{\mathbf{S}} = \frac{1}{\sqrt{2}}\left(\ket{ \bar{0} } + i \ket{ \bar{0} + x_{S^{\prime}}}\right)
    \end{split}
  \end{equation*}
     \begin{figure}[h]
@@ -115,6 +115,14 @@ Consider the following circuit,
         \caption{ Simulating the $\mathbf{S}$-gate, using the $\ket{\mathbf{S}}$ magic state. }   
 \label{fig:magic}
 \end{figure}
+
+
+\begin{equation*}
+  \begin{split}
+    \ket{\psi}\ket{\mathbf{S}} &=   \left(\alpha \ket{\bar{0}} + \beta \ket{\bar{0} + x_{S^{\prime}} + x_{S/S^{\prime}}} \right)  \frac{1}{\sqrt{2}}\left(\ket{ \bar{0} } + i \ket{ \bar{0} + x_{S^{\prime}}}\right)
+  \end{split}
+\end{equation*}
+
 \end{proof}
 
 
