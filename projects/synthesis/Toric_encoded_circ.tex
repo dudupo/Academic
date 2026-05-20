@@ -4,7 +4,7 @@
 
 
 \begin{claim}
-For any generator subset $S^{\prime}$ of size $d^{\prime}$, denote by $X_{S^{\prime}}$ and $Z_{S^{\prime}}$ the following assignments:
+For any generator subset $S^{\prime}$ of size $d^{\prime}$, denote by $x_{S^{\prime}}$ and $z_{S^{\prime}}$ the following assignments:
 \begin{equation*}
   \begin{split}
     x_{S^{\prime}}  \colonequals \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}} \ \ \ z_{S^{\prime}} \colonequals \sum_{u \in \expval*{S/S^{\prime}} }\rotfv{u}{S^{\prime}} 
@@ -87,8 +87,19 @@ Consider the following circuit,
 \end{enumerate}
 \end{proof}
 
+\begin{definition}[The Nice Encoding]
+  Consider $(d,d/2)$-Toric code and fix a subset $S^{\prime} \subset S$, at size $d^{\prime}$. We define the \textit{nice encoding} to be the subsystem code, which encodes a single logical qubit as follow: 
+  \begin{equation*}
+    \begin{split}
+      \ket{ 0 } &= \ket{ \mathcal{C}_{Z}^{\perp} } \\ 
+      \ket{ 1 } &= \ket{ x_{S^{\prime}} + x_{S/S^{\prime}} \mathcal{C}_{Z}^{\perp} } 
+    \end{split}
+  \end{equation*}
+\end{definition}
+
+
 \begin{claim}
-  The $S$ gate can be computed transversally. 
+  Fix a subset $S^{\prime} \subset S$, at size $d^{\prime}$ and encode the , Given a resource state, the logical $\mathbf{S}$ gate can be computed transversally. 
 \end{claim}
 
 
