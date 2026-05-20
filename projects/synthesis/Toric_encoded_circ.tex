@@ -114,6 +114,14 @@ Fix a generator subset $S^{\prime}$ of size $d^{\prime}$, and consider a permuta
   \end{split}
 \end{equation*}
 
+\begin{equation*}
+  \begin{split}
+    \varphi \left( \partial^{+}  \rotfv{v}{J} \right) &=  \varphi\left( \sum_{g\in S/J} \rotfv{v}{J \cup g} +  \rotfv{g^{-1}v}{J \cup g}  \right) \\
+    & = \sum_{g\in J} \rotfv{\varphi(v)}{ \varphi(J \cup g)} +  \rotfv{\varphi(g^{-1})\varphi(v)}{\varphi(J \cup g) }  \\ 
+    & = \sum_{g\in S/\varphi(J)} \rotfv{\varphi(v)}{ \varphi(J)\cup g} +  \rotfv{g^{-1}\varphi(v)}{\varphi(J)\cup g }  \\ 
+      &= \partial^{+} \rotfv{\varphi(v)}{\varphi(J)}
+  \end{split}
+\end{equation*}
 
 \begin{definition}[The Nice Encoding]
   Consider $(d,d/2)$-Toric code and fix a subset $S^{\prime} \subset S$, at size $d^{\prime}$. We define the \textit{nice encoding} to be the subsystem code, which encodes a single logical qubit as follow: 
