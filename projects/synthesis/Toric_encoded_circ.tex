@@ -96,6 +96,7 @@ Consider a permutation from p he generator set to itself $\pi \colon S \rightarr
   \end{equation*}
 \end{definition}
 \begin{claim}
+  \label{claim:permuaction}
   Fix a permutation $\pi : S \rightarrow S$. Then $\varphi_{\pi}$ satisfies the following:
   \begin{enumerate}
     \item $\varphi_{\pi}$ sends the binary representation of $X$-stabilizers to themselves, and similarly for the binary representations of the $Z$-stabilizers.
@@ -130,47 +131,54 @@ So, we have that $\varphi_{\pi}$ sends binary representations of stabilizers to 
 \end{equation*}
 \end{proof}
 \begin{corollary}
-  For a $d^{\prime} = d - d^{\prime}$ and a fixed generator set $S^{\prime}\subset S$, at size $d^{\prime}$, 
+  For a $d^{\prime} = d - d^{\prime}$ and a fixed generator set $S^{\prime}\subset S$, at size $d^{\prime}$, consider the logical $H_{}<++>$ 
 \end{corollary}
 
 
 \begin{definition}[The Nice Encoding]
-  Consider $(d,d/2)$-Toric code and fix a subset $S^{\prime} \subset S$, at size $d^{\prime}$. We define the \textit{nice encoding} to be the subsystem code, which encodes a single logical qubit as follow: 
+  Consider $(d,d/2)$-Toric code and fix a subset $S^{\prime} \subset S$, at size $d^{\prime}$. We define the \textit{nice encoding} to be the subsystem code, which uses $x_{S^{\prime}}$ to encode a single logical qubit. Namely, the logical codewords are: 
   \begin{equation*}
     \begin{split}
       \ket{ \bar{0} } &= \ket{ \mathcal{C}_{Z}^{\perp} } \\ 
-      \ket{ \bar{1} } &= \ket{ x_{S^{\prime}} + x_{S/S^{\prime}} + \mathcal{C}_{Z}^{\perp} } 
+      \ket{ \bar{1} } &= \ket{ x_{S^{\prime}} + \mathcal{C}_{Z}^{\perp} } 
     \end{split}
   \end{equation*}
 \end{definition}
 \begin{claim}
-  Given a resource state, the nice encoding has a fold-transversal realization of the logical $\mathbf{S}$ gate. 
+  The nice encoding, admit fold-transversal realization of $X$, $CX$ and $CZ$. Moreover, given a resource state, the nice encoding has a fold-transversal realization of the logical $\mathbf{S}$ gate. 
 \end{claim}
 \begin{proof}
- Consider the resource state defined by:  
+  We realize the gates as follow:
+  \begin{enumerate}
+    \item The logical $X$ gate is implemented by applying the physical $X$ operator over any non-trivial coordinate of $x_{S^{\prime}}$.
+    \item The $CX$ gate is realized by applying physical $CX$ pair-wise.
+    \item For the $CZ$ gate, consider the permutation $\pi: S\rightarrow S$, such that it maps the generators in $S^{\prime}$ to its complement, namely $\pi(S^{\prime}) = S/S^{\prime}$. We first swap the qubits in the first register according to $\varphi_{\pi}$, then apply $CZ_{S^{\prime}\rightarrow S/S^{\prime}}$, and eventually invert the permutation on the first register. Since, by \Cref{claim:permuaction}, $\varphi_{\pi}$ acts trivially on stabilizers and sends $X_{S^{\prime}}$ to $X_{S/S^{\prime}}$, we get that the second step $CZ_{S^{\prime}\rightarrow S/S^{\prime}}$ conditions $Z_{S^{\prime}}$ application on whether the first register initially contained $X_{S^{\prime}}\ket{\bar{0}} = \ket{\bar{1}}$. The final inversion doesn't impact the second register.
+    \item For the $\mathbf{S}$ gate, we use the gate teleportation implementation, which uses logical $CX$, logical $CZ$, and the logical resource state $\ket{\mathbf{S}}$ defined by:
  \begin{equation*}
    \begin{split}
-     \ket{\mathbf{S}} = \frac{1}{\sqrt{2}}\left(\ket{ \bar{0} } + i \ket{ \bar{0} + x_{S^{\prime}}}\right)
+     \ket{\mathbf{S}} \colonequals \frac{1}{\sqrt{2}}\left(\ket{ \bar{0} } + i \ket{ \bar{0} + x_{S^{\prime}}}\right)
    \end{split}
  \end{equation*}
+ \Cref{fig:magic} gives a description of the logical gate teleportation protocol.   
     \begin{figure}[h]
         \centering 
         \begin{quantikz}
-          \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{Z_{S^{\prime}\rightarrow S/S^{\prime}}} &  &&&&&&&&&&&&& \\
+          \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{Z} &  &&&&&&&&&&&&& \\
         \lstick{$\ket{\mathbf{S}}$} & \targ{} & \meter{} \wire[u][1]{c}    \\
         \end{quantikz}
-        \caption{ Simulating the $\mathbf{S}$-gate, using the $\ket{\mathbf{S}}$ magic state. }   
+        \caption{ Simulating the $\mathbf{S}$-gate, using the $\ket{\mathbf{S}}$ resource state. }   
 \label{fig:magic}
 \end{figure}
+  \end{enumerate}
+  
 
-
-\begin{equation*}
-  \begin{split}
-    \ket{\psi}\ket{\mathbf{S}} &=   \left(\alpha \ket{\bar{0}} + \beta \ket{\bar{0} + x_{S^{\prime}} + x_{S/S^{\prime}}} \right)  \frac{1}{\sqrt{2}}\left(\ket{ \bar{0} } + i \ket{ \bar{0} + x_{S^{\prime}}}\right) \\ 
-    & \mapsto  \frac{1}{\sqrt{2}} \big( \alpha \ket{\bar{0}} \ket{\bar{0}} + i\alpha  \ket{\bar{0}} \ket{\bar{0} + x_{S^{\prime}}} \\
-    & \ \ \  + \beta \ket{\bar{0} + x_{S^{\prime}} + x_{S/S^{\prime}}} \ket{\bar{0}+ x_{S^{\prime}} + x_{S/S^{\prime}}} + i\beta \ket{\bar{0} + x_{S^{\prime}} + x_{S/S^{\prime}}} \ket{ \bar{0} + x_{S/S^{\prime}}} \big)   
-  \end{split}
-\end{equation*}
+%\begin{equation*}
+%  \begin{split}
+%    \ket{\psi}\ket{\mathbf{S}} &=   \left(\alpha \ket{\bar{0}} + \beta \ket{\bar{0} + x_{S^{\prime}} + x_{S/S^{\prime}}} \right)  \frac{1}{\sqrt{2}}\left(\ket{ \bar{0} } + i \ket{ \bar{0} + x_{S^{\prime}}}\right) \\ 
+%    & \mapsto  \frac{1}{\sqrt{2}} \big( \alpha \ket{\bar{0}} \ket{\bar{0}} + i\alpha  \ket{\bar{0}} \ket{\bar{0} + x_{S^{\prime}}} \\
+%    & \ \ \  + \beta \ket{\bar{0} + x_{S^{\prime}} + x_{S/S^{\prime}}} \ket{\bar{0}+ x_{S^{\prime}} + x_{S/S^{\prime}}} + i\beta \ket{\bar{0} + x_{S^{\prime}} + x_{S/S^{\prime}}} \ket{ \bar{0} + x_{S/S^{\prime}}} \big)   
+%  \end{split}
+%\end{equation*}
 
 \end{proof}
 
