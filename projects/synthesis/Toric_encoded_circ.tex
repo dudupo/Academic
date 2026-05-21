@@ -96,7 +96,7 @@ Consider a permutation from p he generator set to itself $\pi \colon S \rightarr
   \end{equation*}
 \end{definition}
 \begin{claim}
-For $d^{\prime} = d - d^{\prime}$, fix a generator subset $S^{\prime}$ of size $d^{\prime}$, and consider a permutation $\pi : S \rightarrow S$ such that $\pi(S^{\prime}) \subseteq S \setminus S^{\prime}$. Then $\varphi_{\pi}$ satisfies the following:
+  For $d^{\prime} = d - d^{\prime}$, fix a generator subset $S^{\prime}$ of size $d^{\prime}$, and consider a permutation $\pi : S \rightarrow S$ such that $\pi(S^{\prime}) = S \setminus S^{\prime}$. Then $\varphi_{\pi}$ satisfies the following:
   \begin{enumerate}
     \item $\varphi_{\pi}$ sends the binary representation of $X$-stabilizers to themselves, and similarly for the binary representations of the $Z$-stabilizers.
     \item $\varphi_{\pi}$ sends $x_{S^{\prime}}$ to $X_{S/S^{\prime}}$ and vice versa. 
@@ -104,11 +104,8 @@ For $d^{\prime} = d - d^{\prime}$, fix a generator subset $S^{\prime}$ of size $
 \end{claim}
 
 \begin{proof}
-\begin{equation*}
-  \begin{split}
-    \varphi_{\pi}\left( x_{S}  \right) = \varphi_{\pi}\left( \sum_{u\in \expval*{S^{\prime}}}\rotfv{u}{S^{\prime}}  \right) =  \sum_{u\in \expval*{S/S^{\prime}}}\rotfv{u}{S/S^{\prime}} = x_{S/S^{\prime}}
-  \end{split}
-\end{equation*}
+  
+First, notice that we require the condition $d^{\prime} = d - d^{\prime}$ to define $\pi$; otherwise, no permutation $\pi$ satisfies that $\pi(S^{\prime}) = S/S^{\prime}$. For the first part of the claim, consider an arbitrary subset of generators $J \subset S$ of size $d^{\prime}+1$, and notice that for any generator $g \in J$, we have $\varphi_{\pi}(J/g) = \varphi_{\pi}(J) / \varphi_{\pi}(g)$. Thus:
 \begin{equation*}
   \begin{split}
       \varphi \left( \partial^{-}  \rotfv{v}{J} \right) &=  \varphi\left( \sum_{g\in J} \rotfv{v}{J/g} +  \rotfv{gv}{J/g}  \right) \\
@@ -117,13 +114,19 @@ For $d^{\prime} = d - d^{\prime}$, fix a generator subset $S^{\prime}$ of size $
       &= \partial^{-} \rotfv{\varphi(v)}{\varphi(J)}
   \end{split}
 \end{equation*}
-
+Similarly we get that for any generators subset $J \subset S$ at size $d^{\prime}-1$:  
 \begin{equation*}
   \begin{split}
     \varphi \left( \partial^{+}  \rotfv{v}{J} \right) &=  \varphi\left( \sum_{g\in S/J} \rotfv{v}{J \cup g} +  \rotfv{g^{-1}v}{J \cup g}  \right) \\
     & = \sum_{g\in J} \rotfv{\varphi(v)}{ \varphi(J \cup g)} +  \rotfv{\varphi(g^{-1})\varphi(v)}{\varphi(J \cup g) }  \\ 
     & = \sum_{g\in S/\varphi(J)} \rotfv{\varphi(v)}{ \varphi(J)\cup g} +  \rotfv{g^{-1}\varphi(v)}{\varphi(J)\cup g }  \\ 
       &= \partial^{+} \rotfv{\varphi(v)}{\varphi(J)}
+  \end{split}
+\end{equation*}
+So, we got that $\varphi_{\pi}$ sends binary representations to representations of the same type.
+\begin{equation*}
+  \begin{split}
+    \varphi_{\pi}\left( x_{S}  \right) = \varphi_{\pi}\left( \sum_{u\in \expval*{S^{\prime}}}\rotfv{u}{S^{\prime}}  \right) =  \sum_{u\in \expval*{S/S^{\prime}}}\rotfv{u}{S/S^{\prime}} = x_{S/S^{\prime}}
   \end{split}
 \end{equation*}
 \end{proof}
