@@ -108,22 +108,22 @@ Consider a permutation from p he generator set to itself $\pi \colon S \rightarr
 First, notice that we require the condition $d^{\prime} = d - d^{\prime}$ to define $\pi$; otherwise, no permutation $\pi$ satisfies that $\pi(S^{\prime}) = S/S^{\prime}$. For the first part of the claim, consider an arbitrary subset of generators $J \subset S$ of size $d^{\prime}+1$, and notice that for any generator $g \in J$, we have $\varphi_{\pi}(J/g) = \varphi_{\pi}(J) / \varphi_{\pi}(g)$. Thus:
 \begin{equation*}
   \begin{split}
-      \varphi \left( \partial^{-}  \rotfv{v}{J} \right) &=  \varphi\left( \sum_{g\in J} \rotfv{v}{J/g} +  \rotfv{gv}{J/g}  \right) \\
-      & = \sum_{g\in J} \rotfv{\varphi(v)}{ \varphi(J / g)} +  \rotfv{\varphi(g)\varphi(v)}{\varphi(J / g) }  \\ 
-      & = \sum_{g\in \varphi(J)} \rotfv{\varphi(v)}{ \varphi(J)/g} +  \rotfv{g\varphi(v)}{\varphi(J)/g }  \\ 
-      &= \partial^{-} \rotfv{\varphi(v)}{\varphi(J)}
+      \varphi_{\pi} \left( \partial^{-}  \rotfv{v}{J} \right) &=  \varphi_{\pi}\left( \sum_{g\in J} \rotfv{v}{J/g} +  \rotfv{gv}{J/g}  \right) \\
+      & = \sum_{g\in J} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(J / g)} +  \rotfv{\varphi_{\pi}(g)\varphi_{\pi}(v)}{\varphi_{\pi}(J / g) }  \\ 
+      & = \sum_{g\in \varphi_{\pi}(J)} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(J)/g} +  \rotfv{g\varphi_{\pi}(v)}{\varphi_{\pi}(J)/g }  \\ 
+      &= \partial^{-} \rotfv{\varphi_{\pi}(v)}{\varphi_{\pi}(J)}
   \end{split}
 \end{equation*}
 Similarly, we find that for any subset of generators $J \subset S$ of size $d^{\prime}-1$:
 \begin{equation*}
   \begin{split}
-    \varphi \left( \partial^{+}  \rotfv{v}{J} \right) &=  \varphi\left( \sum_{g\in S/J} \rotfv{v}{J \cup g} +  \rotfv{g^{-1}v}{J \cup g}  \right) \\
-    & = \sum_{g\in J} \rotfv{\varphi(v)}{ \varphi(J \cup g)} +  \rotfv{\varphi(g^{-1})\varphi(v)}{\varphi(J \cup g) }  \\ 
-    & = \sum_{g\in S/\varphi(J)} \rotfv{\varphi(v)}{ \varphi(J)\cup g} +  \rotfv{g^{-1}\varphi(v)}{\varphi(J)\cup g }  \\ 
-      &= \partial^{+} \rotfv{\varphi(v)}{\varphi(J)}
+    \varphi_{\pi} \left( \partial^{+}  \rotfv{v}{J} \right) &=  \varphi_{\pi}\left( \sum_{g\in S/J} \rotfv{v}{J \cup g} +  \rotfv{g^{-1}v}{J \cup g}  \right) \\
+    & = \sum_{g\in J} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(J \cup g)} +  \rotfv{\varphi_{\pi}(g^{-1})\varphi_{\pi}(v)}{\varphi_{\pi}(J \cup g) }  \\ 
+    & = \sum_{g\in S/\varphi_{\pi}(J)} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(J)\cup g} +  \rotfv{g^{-1}\varphi_{\pi}(v)}{\varphi_{\pi}(J)\cup g }  \\ 
+      &= \partial^{+} \rotfv{\varphi_{\pi}(v)}{\varphi_{\pi}(J)}
   \end{split}
 \end{equation*}
-So, we got that $\varphi_{\pi}$ sends binary representations to representations of the same type.
+So, we have that $\varphi_{\pi}$ sends binary representations of stabilizers to representations of stabilizers of the same type. For the second part, observe that under the automorphism induced by $\pi$, the subgroup $\expval*{S^{\prime}}$ maps to $\expval*{S/S^{\prime}}$, Therefore: 
 \begin{equation*}
   \begin{split}
     \varphi_{\pi}\left( x_{S}  \right) = \varphi_{\pi}\left( \sum_{u\in \expval*{S^{\prime}}}\rotfv{u}{S^{\prime}}  \right) =  \sum_{u\in \expval*{S/S^{\prime}}}\rotfv{u}{S/S^{\prime}} = x_{S/S^{\prime}}
