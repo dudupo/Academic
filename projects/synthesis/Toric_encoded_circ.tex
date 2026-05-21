@@ -96,10 +96,10 @@ Consider a permutation from p he generator set to itself $\pi \colon S \rightarr
   \end{equation*}
 \end{definition}
 \begin{claim}
-  For $d^{\prime} = d - d^{\prime}$, fix a generator subset $S^{\prime}$ of size $d^{\prime}$, and consider a permutation $\pi : S \rightarrow S$ such that $\pi(S^{\prime}) = S \setminus S^{\prime}$. Then $\varphi_{\pi}$ satisfies the following:
+  Fix a generator subset $S^{\prime}$ of size $d^{\prime}$, and consider a permutation $\pi : S \rightarrow S$. Then $\varphi_{\pi}$ satisfies the following:
   \begin{enumerate}
     \item $\varphi_{\pi}$ sends the binary representation of $X$-stabilizers to themselves, and similarly for the binary representations of the $Z$-stabilizers.
-    \item $\varphi_{\pi}$ sends $x_{S^{\prime}}$ to $X_{S/S^{\prime}}$ and vice versa. 
+    \item $\varphi_{\pi}$ sends $x_{S^{\prime}}$ to $x_{\pi(S^{\prime})}$ and vice versa. 
   \end{enumerate}
 \end{claim}
 
@@ -123,13 +123,18 @@ Similarly, we find that for any subset of generators $J \subset S$ of size $d^{\
       &= \partial^{+} \rotfv{\varphi_{\pi}(v)}{\varphi_{\pi}(J)}
   \end{split}
 \end{equation*}
-So, we have that $\varphi_{\pi}$ sends binary representations of stabilizers to representations of stabilizers of the same type. For the second part, observe that under the automorphism induced by $\pi$, the subgroup $\expval*{S^{\prime}}$ maps to $\expval*{S/S^{\prime}}$, Therefore: 
+So, we have that $\varphi_{\pi}$ sends binary representations of stabilizers to representations of stabilizers of the same type. For the second part, observe that under the automorphism induced by $\pi$, the subgroup $\expval*{S^{\prime}}$ maps to $\expval*{\pi(S^{\prime})}$, Therefore: 
 \begin{equation*}
   \begin{split}
-    \varphi_{\pi}\left( x_{S}  \right) = \varphi_{\pi}\left( \sum_{u\in \expval*{S^{\prime}}}\rotfv{u}{S^{\prime}}  \right) =  \sum_{u\in \expval*{S/S^{\prime}}}\rotfv{u}{S/S^{\prime}} = x_{S/S^{\prime}}
+    \varphi_{\pi}\left( x_{S}  \right) = \varphi_{\pi}\left( \sum_{u\in \expval*{S^{\prime}}}\rotfv{u}{S^{\prime}}  \right) =  \sum_{u\in \expval*{\pi(S^{\prime})}}\rotfv{u}{\pi(S^{\prime})} = x_{\pi(S^{\prime})}
   \end{split}
 \end{equation*}
 \end{proof}
+\begin{corollary}
+  For a $d^{\prime} = d - d^{\prime}$ and a fixed generator set $S^{\prime}\subset S$, at size $d^{\prime}$, 
+\end{corollary}
+
+
 \begin{definition}[The Nice Encoding]
   Consider $(d,d/2)$-Toric code and fix a subset $S^{\prime} \subset S$, at size $d^{\prime}$. We define the \textit{nice encoding} to be the subsystem code, which encodes a single logical qubit as follow: 
   \begin{equation*}
