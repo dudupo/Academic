@@ -96,37 +96,36 @@ Consider a permutation from p he generator set to itself $\pi \colon S \rightarr
   \end{equation*}
 \end{definition}
 \begin{claim}
-  Fix a generator subset $S^{\prime}$ of size $d^{\prime}$, and consider a permutation $\pi : S \rightarrow S$. Then $\varphi_{\pi}$ satisfies the following:
+  Fix a permutation $\pi : S \rightarrow S$. Then $\varphi_{\pi}$ satisfies the following:
   \begin{enumerate}
     \item $\varphi_{\pi}$ sends the binary representation of $X$-stabilizers to themselves, and similarly for the binary representations of the $Z$-stabilizers.
-    \item $\varphi_{\pi}$ sends $x_{S^{\prime}}$ to $x_{\pi(S^{\prime})}$ and vice versa. 
+    \item For any generator subset $S^{\prime} \subset S$, of size $d^{\prime}$, the map $\varphi_{\pi}$ sends $x_{S^{\prime}}$ and $z_{S^{\prime}}$ to $x_{\pi(S^{\prime})}$ and $z_{\pi(S^{\prime})}$ respectively.
   \end{enumerate}
 \end{claim}
-
 \begin{proof}
-  
-First, notice that we require the condition $d^{\prime} = d - d^{\prime}$ to define $\pi$; otherwise, no permutation $\pi$ satisfies that $\pi(S^{\prime}) = S/S^{\prime}$. For the first part of the claim, consider an arbitrary subset of generators $J \subset S$ of size $d^{\prime}+1$, and notice that for any generator $g \in J$, we have $\varphi_{\pi}(J/g) = \varphi_{\pi}(J) / \varphi_{\pi}(g)$. Thus:
+  For the first part of the claim, consider an arbitrary subset of generators $S^{\prime} \subset S$ of size $d^{\prime}+1$, and notice that for any generator $g \in S^{\prime}$, we have $\varphi_{\pi}(S^{\prime}/g) = \varphi_{\pi}(S^{\prime}) / \varphi_{\pi}(g)$. Thus:
 \begin{equation*}
   \begin{split}
-      \varphi_{\pi} \left( \partial^{-}  \rotfv{v}{J} \right) &=  \varphi_{\pi}\left( \sum_{g\in J} \rotfv{v}{J/g} +  \rotfv{gv}{J/g}  \right) \\
-      & = \sum_{g\in J} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(J / g)} +  \rotfv{\varphi_{\pi}(g)\varphi_{\pi}(v)}{\varphi_{\pi}(J / g) }  \\ 
-      & = \sum_{g\in \varphi_{\pi}(J)} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(J)/g} +  \rotfv{g\varphi_{\pi}(v)}{\varphi_{\pi}(J)/g }  \\ 
-      &= \partial^{-} \rotfv{\varphi_{\pi}(v)}{\varphi_{\pi}(J)}
+      \varphi_{\pi} \left( \partial^{-}  \rotfv{v}{S^{\prime}} \right) &=  \varphi_{\pi}\left( \sum_{g\in S^{\prime}} \rotfv{v}{S^{\prime}/g} +  \rotfv{gv}{S^{\prime}/g}  \right) \\
+      & = \sum_{g\in S^{\prime}} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(S^{\prime} / g)} +  \rotfv{\varphi_{\pi}(g)\varphi_{\pi}(v)}{\varphi_{\pi}(S^{\prime} / g) }  \\ 
+      & = \sum_{g\in \varphi_{\pi}(S^{\prime})} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(S^{\prime})/g} +  \rotfv{g\varphi_{\pi}(v)}{\varphi_{\pi}(S^{\prime})/g }  \\ 
+      &= \partial^{-} \rotfv{\varphi_{\pi}(v)}{\varphi_{\pi}(S^{\prime})}
   \end{split}
 \end{equation*}
-Similarly, we find that for any subset of generators $J \subset S$ of size $d^{\prime}-1$:
+Similarly, we find that for any subset of generators $S^{\prime} \subset S$ of size $d^{\prime}-1$:
 \begin{equation*}
   \begin{split}
-    \varphi_{\pi} \left( \partial^{+}  \rotfv{v}{J} \right) &=  \varphi_{\pi}\left( \sum_{g\in S/J} \rotfv{v}{J \cup g} +  \rotfv{g^{-1}v}{J \cup g}  \right) \\
-    & = \sum_{g\in J} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(J \cup g)} +  \rotfv{\varphi_{\pi}(g^{-1})\varphi_{\pi}(v)}{\varphi_{\pi}(J \cup g) }  \\ 
-    & = \sum_{g\in S/\varphi_{\pi}(J)} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(J)\cup g} +  \rotfv{g^{-1}\varphi_{\pi}(v)}{\varphi_{\pi}(J)\cup g }  \\ 
-      &= \partial^{+} \rotfv{\varphi_{\pi}(v)}{\varphi_{\pi}(J)}
+    \varphi_{\pi} \left( \partial^{+}  \rotfv{v}{S^{\prime}} \right) &=  \varphi_{\pi}\left( \sum_{g\in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} +  \rotfv{g^{-1}v}{S^{\prime} \cup g}  \right) \\
+    & = \sum_{g\in S^{\prime}} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(S^{\prime} \cup g)} +  \rotfv{\varphi_{\pi}(g^{-1})\varphi_{\pi}(v)}{\varphi_{\pi}(S^{\prime} \cup g) }  \\ 
+    & = \sum_{g\in S/\varphi_{\pi}(S^{\prime})} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(S^{\prime})\cup g} +  \rotfv{g^{-1}\varphi_{\pi}(v)}{\varphi_{\pi}(S^{\prime})\cup g }  \\ 
+      &= \partial^{+} \rotfv{\varphi_{\pi}(v)}{\varphi_{\pi}(S^{\prime})}
   \end{split}
 \end{equation*}
 So, we have that $\varphi_{\pi}$ sends binary representations of stabilizers to representations of stabilizers of the same type. For the second part, observe that under the automorphism induced by $\pi$, the subgroup $\expval*{S^{\prime}}$ maps to $\expval*{\pi(S^{\prime})}$, Therefore: 
 \begin{equation*}
   \begin{split}
-    \varphi_{\pi}\left( x_{S}  \right) = \varphi_{\pi}\left( \sum_{u\in \expval*{S^{\prime}}}\rotfv{u}{S^{\prime}}  \right) =  \sum_{u\in \expval*{\pi(S^{\prime})}}\rotfv{u}{\pi(S^{\prime})} = x_{\pi(S^{\prime})}
+    \varphi_{\pi}\left( x_{S}  \right) &= \varphi_{\pi}\left( \sum_{u\in \expval*{S^{\prime}}}\rotfv{u}{S^{\prime}}  \right) =  \sum_{u\in \expval*{\pi(S^{\prime})}}\rotfv{u}{\pi(S^{\prime})} = x_{\pi(S^{\prime})} \\
+    \varphi_{\pi}\left( z_{S}  \right) &= \varphi_{\pi}\left( \sum_{u\in \expval*{S/S^{\prime}}}\rotfv{u}{S^{\prime}}  \right) =  \sum_{u\in \expval*{S/\pi(S^{\prime})}}\rotfv{u}{\pi(S^{\prime})} = z_{\pi(S^{\prime})} \\
   \end{split}
 \end{equation*}
 \end{proof}
