@@ -88,7 +88,7 @@ Consider the following circuit,
 \end{proof}
 
 \begin{definition}[The $\varphi$ Rotation]
-Consider a permutation from the generator set to itself $\pi \colon S \rightarrow S$. The permutation $\pi$ induces a natural isomorphism by substituting generators of the product representation with their corresponding images according to $\phi$. We define the \textit{$\varphi_{\pi}$ rotation}, $\varphi_{\pi} : \mathcal{F}^{d^{\prime}} \rightarrow \mathcal{F}^{d^{\prime}}$, to act on the $d^{\prime}$-dimensional faces as follows:
+Consider a permutation from p he generator set to itself $\pi \colon S \rightarrow S$. The permutation $\pi$ induces a natural isomorphism by substituting generators of the product representation with their corresponding images according to $\pi$. We define the \textit{$\varphi_{\pi}$ rotation}, $\varphi_{\pi} : \mathcal{F}^{d^{\prime}} \rightarrow \mathcal{F}^{d^{\prime}}$, to act on the $d^{\prime}$-dimensional faces as follows:
   \begin{equation*}
     \begin{split}
       \varphi_{\pi} \left(  \rotfv{v}{S^{\prime}}  \right) \colonequals \rotfv{\pi(v)}{\pi(S^{\prime})}
@@ -96,15 +96,19 @@ Consider a permutation from the generator set to itself $\pi \colon S \rightarro
   \end{equation*}
 \end{definition}
 \begin{claim}
-Fix a generator subset $S^{\prime}$ of size $d^{\prime}$, and consider a permutation $\pi : S \rightarrow S$, such that $\pi : S^{\prime} \rightarrow S / S^{\prime}$. 
+For $d^{\prime} = d - d^{\prime}$, fix a generator subset $S^{\prime}$ of size $d^{\prime}$, and consider a permutation $\pi : S \rightarrow S$ such that $\pi(S^{\prime}) \subseteq S \setminus S^{\prime}$. Then $\varphi_{\pi}$ satisfies the following:
+  \begin{enumerate}
+    \item $\varphi_{\pi}$ sends the binary representation of $X$-stabilizers to themselves, and similarly for the binary representations of the $Z$-stabilizers.
+    \item $\varphi_{\pi}$ sends $x_{S^{\prime}}$ to $X_{S/S^{\prime}}$ and vice versa. 
+  \end{enumerate}
+\end{claim}
+
+\begin{proof}
 \begin{equation*}
   \begin{split}
     \varphi_{\pi}\left( x_{S}  \right) = \varphi_{\pi}\left( \sum_{u\in \expval*{S^{\prime}}}\rotfv{u}{S^{\prime}}  \right) =  \sum_{u\in \expval*{S/S^{\prime}}}\rotfv{u}{S/S^{\prime}} = x_{S/S^{\prime}}
   \end{split}
 \end{equation*}
-\end{claim}
-\ctt{ Show that the code space is preserved under the application of $\varphi_{\pi}$.}
-
 \begin{equation*}
   \begin{split}
       \varphi \left( \partial^{-}  \rotfv{v}{J} \right) &=  \varphi\left( \sum_{g\in J} \rotfv{v}{J/g} +  \rotfv{gv}{J/g}  \right) \\
@@ -122,7 +126,7 @@ Fix a generator subset $S^{\prime}$ of size $d^{\prime}$, and consider a permuta
       &= \partial^{+} \rotfv{\varphi(v)}{\varphi(J)}
   \end{split}
 \end{equation*}
-
+\end{proof}
 \begin{definition}[The Nice Encoding]
   Consider $(d,d/2)$-Toric code and fix a subset $S^{\prime} \subset S$, at size $d^{\prime}$. We define the \textit{nice encoding} to be the subsystem code, which encodes a single logical qubit as follow: 
   \begin{equation*}
