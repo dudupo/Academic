@@ -5,6 +5,29 @@
 
 \ctt{ We should mention, that in any time that we call to $H^{\otimes n}$, even if its only for moving to the dual space, we immediately apply after the $\phi$-transpose mapping. The idea is that it will allow to us to ensure that the $X$-errors are always bounded by upper-right tingle and the $Z$-errors are always bounded by lower-left triangles.} 
 
+\begin{definition}[$\Size{ }$-Function]
+Consider a $(d,d^{\prime})$-Toric complex $\mathcal{G}$, and let $S$ be a subset of vertices, $S \subset \mathcal{G}$. We define the \textit{size} of $S$ to be:
+  \begin{equation*}
+    \begin{split}
+      \Size{S} \colonequals \sum_{i}^{d+1} \max_{v \in S} L_{i}(v) 
+    \end{split}
+  \end{equation*}
+Furthermore, we extend the notion to binary assignment over the $i$th faces of a complex $z : \mathcal{F}^{(i)} \rightarrow \mathbb{F}_{2}$ by associating $\Size{z}$ with the size of the vertex subset supporting $z$.
+\end{definition}
+
+  \begin{claim}
+    Let $\mathbf{S} = \{ S_{1}, S_{2} , .. , S_{k} \}$ where $S_{i} \subset \mathbb{R}^{d}$, introduce an edge between $S_{i}$ and $S_{j}$ iff $S_{i} \cap S_{j} \neq \emptyset$. Assume that $\mathbf{S}$ is connected. Then $\Size{\cup^{k}_{i=1} S_{i}} \le \sum^{k}_{i=1}{\Size{S_{i}}}$. 
+  \end{claim}
+  \begin{proof}
+    It suffices to prove that if $R_{1} \cap R_{2} \neq \emptyset$, then $\Size{R_{1} \cup R_{2}} \le \Size{R_{1}} + \Size{R_{2}}$. Let $a_{i,j} = \max_{v \in R_{j}}L_{i}(v)$. Then for any $w \in R_{1}\cap R_{2}$ we have:  
+    \begin{equation*}
+      \begin{split}
+        \Size{R_{1} \cup R_{2}} &= \sum_{i}^{d+1}{\max{ a_{i,1},a_{i,2} } } =  \sum_{i}^{d+1}{a_{i,1} + a_{i,2} - \min{ a_{i,1},a_{i,2} } } \\
+        & \le   \sum_{i}^{d+1}{a_{i,1} + a_{i,2} - L_{i}(w) } = \Size{R_{1}} + \Size{R_{2}} - \Size{w}  \\
+        &  = \Size{R_{1}} + \Size{R_{2}} 
+      \end{split}
+    \end{equation*}
+  \end{proof}
 
 \begin{definition}
   error clusters $(K_{1},..,K_{l}, J_{1}, .., J_{l^{\prime}})$.
@@ -90,29 +113,6 @@
 \end{definition}
 
 
-\begin{definition}[$\Size{ }$-Function]
-  Let $S$ be a subset of vertices, we define the \textit{size} of $S$ to be:
-  \begin{equation*}
-    \begin{split}
-      \Size{S} \colonequals \sum_{i}^{d+1} \max_{v \in S} L_{i}(v) 
-    \end{split}
-  \end{equation*}
-\end{definition}
-
-
-  \begin{claim}
-    Let $\mathbf{S} = \{ S_{1}, S_{2} , .. , S_{k} \}$ where $S_{i} \subset \mathbb{R}^{d}$, introduce an edge between $S_{i}$ and $S_{j}$ iff $S_{i} \cap S_{j} \neq \emptyset$. Assume that $\mathbf{S}$ is connected. Then $\Size{\cup^{k}_{i=1} S_{i}} \le \sum^{k}_{i=1}{\Size{S_{i}}}$. 
-  \end{claim}
-  \begin{proof}
-    It suffices to prove that if $R_{1} \cap R_{2} \neq \emptyset$, then $\Size{R_{1} \cup R_{2}} \le \Size{R_{1}} + \Size{R_{2}}$. Let $a_{i,j} = \max_{v \in R_{j}}L_{i}(v)$. Then for any $w \in R_{1}\cap R_{2}$ we have:  
-    \begin{equation*}
-      \begin{split}
-        \Size{R_{1} \cup R_{2}} &= \sum_{i}^{d+1}{\max{ a_{i,1},a_{i,2} } } =  \sum_{i}^{d+1}{a_{i,1} + a_{i,2} - \min{ a_{i,1},a_{i,2} } } \\
-        & \le   \sum_{i}^{d+1}{a_{i,1} + a_{i,2} - L_{i}(w) } = \Size{R_{1}} + \Size{R_{2}} - \Size{w}  \\
-        &  = \Size{R_{1}} + \Size{R_{2}} 
-      \end{split}
-    \end{equation*}
-  \end{proof}
 
   \begin{definition}[Size Invariant Action]
 \ctt{Here we classify both transversal gates, and rotation on the Toric. }
