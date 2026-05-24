@@ -1,19 +1,7 @@
 \section{Shrinking}
-We are going to show that the SWEEP decoder 'shrinks' the error by proving that the edges/poles of error clusters get closer as a result of a decoding step. For that, we consider the standard embedding of the grid in $\mathbb{R}^{d}$ and use the term of potential walls.
-\begin{definition}[The standart embedding]
-  Consider the $d$-dimensional infinite grid $\mathcal{G}^{d}$. The \textit{standard embedding} $\mathcal{G}^{d} \rightarrow \mathbb{R}^{d}$ is given by fixing a vertex in $\mathcal{G}^{d}$ to be sent to the origin and then mapping the generators of the grid to the standard basis. We extend notation as follows: for a vertex $v \in \mathcal{G}^{d}$, a generator $g \in S$, and a coordinate $i \in [d]$, such that under the embedding $g \rightarrow i$, we denote by $v_{i} = v_{g}$ the $i$'th coordinate of the image of $v$.
-\end{definition}
+%We are going to show that the SWEEP decoder 'shrinks' the error by proving that the edges/poles of error clusters get closer as a result of a decoding step. For that, we consider the standard embedding of the grid in $\mathbb{R}^{d}$ and use the term of potential walls.
 
-\begin{definition}[Potential Walls]
-  We define the \textit{potential walls} to be the $d+1$ functions $L_{1},L_{2},..,L_{d+1}$, from the vertices of $\mathcal{G}_{n}^{d}$ to the reals as follow:
-  \begin{enumerate}
-    \item For any coordinate $i \in [d]$, we define $L_{i} \colon \mathcal{G}^{d} \rightarrow \mathbb{R}$ as $L_{i}(v) \colonequals v_{i}$. In addition, for the generator $g \in S$ which is mapped to $i$, i.e $g \rightarrow i $, we identify $L_{g} = L_{i}$. 
-    \item We define $L_{d+1} \colon \mathcal{G}^{d} \rightarrow \mathbb{R}$ by $L_{d+1}(v) \colonequals \sum_{i = 1}^{d}v_{i}$.
-  \end{enumerate}
-  Consider an assignment $z$ over the faces. For a vertex $v \in z$, and a potential wall $l \in \{ L_{1},..,L_{d+1}\} $, we say that $v$ is a \textit{local maximum} of $l$ in $z$ if for any neighbor $u$ of $v$, such that $u \in z$, we have $l(v) \ge l(u)$. We say that $v$ is a \textit{strong local maximum} if the inequality is strict, namely $l(v) > l(u)$. When the assignment $z$ is clear from the context, we might omit it and briefly say that $v$ is a local maximum of $l$.
-
-\end{definition}
-With the assistance of potential walls, we can discuss the endpoint of a bunch of bits, which will soon become error clusters. The following two claims relate the local maximum points of $L_{1}, \ldots, L_{d}$ in an assignment $z$ to the structure of the syndrome they observe. Later, we will use that relation to infer that the decoding step of the SWEEP rule can't spread the error to a vertex\footnote{To faces whose vertices have higher values of $L_{1}, \ldots, L_{d}$ than the current global maximum values.} with a higher value than the current global maximum of $L_{1}, \ldots, L_{d}$. In other words, the error does not spread in the positive directions.
+The following two claims relate the local maximum points of $L_{1}, \ldots, L_{d}$ in an assignment $z$ to the structure of the syndrome they observe. Later, we will use that relation to infer that the decoding step of the SWEEP rule can't spread the error to a vertex\footnote{To faces whose vertices have higher values of $L_{1}, \ldots, L_{d}$ than the current global maximum values.} with a higher value than the current global maximum of $L_{1}, \ldots, L_{d}$. In other words, the error does not spread in the positive directions.
 
 \begin{claim}
   \label{claim:localmax}
