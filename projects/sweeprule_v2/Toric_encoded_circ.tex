@@ -40,9 +40,6 @@
 
   \end{definition}
 
-
-
-
   \begin{definition}[Time Graph of $C(\mathcal{E})$]
     For a quantum circuit $C$ and set of faults $\mathcal{E}$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. For each time $t$, denote the deviation induced by $\mathcal{E}$ at time $t$ by $\mathcal{D}_{t}$, so $\partial\mathcal{D}_{t}$ is the syndrome that the qubits in the deviation admit. We define the history graph $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
     \begin{enumerate}
@@ -62,4 +59,26 @@
     \end{enumerate}
     By definition of the construction, $G_{\mathcal{H}}$ is a time-graph.
 \end{definition}
+
+
+
+\begin{definition}[Time Graph of $C(\mathcal{E})$]
+  For a quantum circuit $C$ and set of faults $\mathcal{E}$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. For each time $t$, denote the deviation induced by $\mathcal{E}$ at time $t$ by $\mathcal{D}_{t}$, so $\partial\mathcal{D}_{t}$ is the syndrome that the qubits in the deviation admit, denote by $\partial\mathcal{D}_{t}^{X}$ and by $\partial\mathcal{D}_{t}^{Z}$ the $X-Z$ decomposition of $\partial\mathcal{D}_{t}$. We define the history graph $\mathcal{H} = ( V_{\mathcal{H},X} \cup V_{\mathcal{H},Z}, E_{\mathcal{H}})$, in recursive manner as follow: 
+  \begin{enumerate}
+    \item For the empty circuit. The vertices in $V_{\mathcal{H}, X} $ are the vertices of $V_{o}|_{1}$ that support $\partial D_{t}^{X}$. Similarly, the vertices of $V_{\mathcal{H,Z}}$ are the vertices of $V_{o}|_{1}$ that support $\partial D_{t}^{Z}$. 
+    \item Let $\mathcal{H}$ be the history graph of $C[\mathcal{E}]$ restricted to the first $d-1$ layers. Let $U$ be the $d$-layer, then define the history graph corresponding to the first $d$ layers of $C[\mathcal{E}]$ to be obtained by adding vertices and edges to $\mathcal{H}$ as follows:
+      \begin{enumerate}
+        \item If $U$ is a noise layer, namely $U \subset \mathcal{E}$, then denote by $\mathcal{E}_{t}^{X}$ and $\mathcal{E}_{t}^{Z}$ the $X,Z$ decomposition of $\mathcal{E}_{t}$. Then, for any vertex in $\mathcal{G}$
+      \end{enumerate}<++>
+  \end{enumerate}
+
+
+
+\end{definition}
+
+
+
+
+
+
 
