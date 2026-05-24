@@ -1,0 +1,81 @@
+
+
+
+
+\section{Toric Encoded Circuits}
+
+    \begin{definition}[Troic Encoded Circuit]
+      Let $C$ be a quantum circuit. We say that $C$ is \textit{Toric encoded} if the following holds:
+      \begin{enumerate}
+          \item There is a Toric code $\mathcal{C}$ such that the qubits of $\mathcal{C}$ can be partitioned into registers $R_{1}, \ldots, R_{k}$, and each of the registers is encoded by $\mathcal{C}$.   
+          \item The gates in $C$ with even time coordinates are sweep decoding gates.
+        \end{enumerate} 
+        For a set of faults $\mathcal{E}$ the gates in $C[\mathcal{E}]$ can be decomposed to cycles, of the following form:
+        \begin{equation*}
+          \begin{split}
+            C =     D_{l}P_{l}\Lambda_{l},..,D_{1} P_{1} \Lambda_{1}
+          \end{split}
+        \end{equation*}
+    \end{definition}
+
+  \begin{definition}[Base graph $G_{o}$]
+    Let $C$ be a quantum circuit, at depth $d$, with registers $R_{1}, \ldots, R_{k}$, all of which are encoded by Toric codes with the same parameters (i.e., dimension, length, etc.). Let's denote by $\mathcal{G}_{1}, .., \mathcal{G}_{k}$ the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o},E_{o})$ as follows: 
+    \begin{enumerate}
+      \item The vertices $V_{o}$ are tuples, where the first coordinates correspond to a vertex in the union over the vertices in $\mathcal{G}_{1}, \ldots, \mathcal{G}_{k}$, and the second coordinate is associated with a time. Namely:
+        \begin{equation*}
+          \begin{split}
+            V_{o} \colonequals \bigsqcup_{i} V(\mathcal{G}_{i}) \times [d]
+          \end{split}
+        \end{equation*}
+      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}_{1}, \ldots, \mathcal{G}_{k}$, with the addition that any two vertices in preceding times $t$ and $t+1$ that support qubits (faces) such that $C$ acts non-trivially on those qubits at time $t$ are also connected by an edge. Namely:
+        \begin{equation*}
+          \begin{split}
+            E_{o} & \colonequals \big\{ \{(v,t), (u,t^{\prime}) \} :  \text{ if }     \\ 
+              & \text{either there exists } i \text{ such }  \{v,u\} \in \mathcal{G}_{i} \text{ and } t^{\prime} = t,t+1 \\
+             & \text{or there exists } u_i = (g_{i},l_{i}) \in C \text{ such }  v,u \in l_{i,2} \text{ and } t = l_{i,1}, t^{\prime} = l_{i,1}+1  \big\} 
+          \end{split}
+        \end{equation*}
+    \end{enumerate} 
+\ctt{Here we should add that a vertex $v$ belongs to location $l$ if there is a qubit $f$ that $v$ belongs to its associated face. }
+
+  \end{definition}
+
+
+
+
+  \begin{definition}[Time Graph of $C(\mathcal{E})$]
+    For a quantum circuit $C$ and set of faults $\mathcal{E}$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. For each time $t$, denote the deviation induced by $\mathcal{E}$ at time $t$ by $\mathcal{D}_{t}$, so $\partial\mathcal{D}_{t}$ is the syndrome that the qubits in the deviation admit. We define the history graph $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
+    \begin{enumerate}
+      \item The vertices $V_{\mathcal{H}}$ are taken to be the vertices of $G_{o}$, namely tuples $(v,t) \in V_{o}$, that satisfy that $v$ belongs to a face associated with a check, which, at time $t$, belongs to the $\partial \mathcal{D}_{t}$. Namely:
+        \begin{equation*}
+          \begin{split}
+            \big\{ v_{t} : v_{t}=(v,t) \in V_{o} \text{ and there exists a check } f \in C \text{ such } v \in f \in \partial \mathcal{D}_{t} \big\}
+          \end{split}
+        \end{equation*}
+      \item The edges $E_{\mathcal{H}}$ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$, where $A_{\mathcal{H}}$ are the edges in $E_{o}$ restricted to $V_{\mathcal{H}}$ and $F_{\mathcal{H}}$ are defined to be the . Namely:
+        \begin{equation*}
+          \begin{split}
+            A_{\mathcal{H}} &= \big\{ e = \{u,v\} \in E_{o} :  u,v \in V_{\mathcal{H}} \text{ and } \Time{v} = \Time{u}\pm 1 \big\} \\
+            F_{\mathcal{H}} &= \big\{ e = \{u,v\} \in E_{o} : \text{ exists } w \in V_{\mathcal{H}} \text{ such } \{v,w\},\{u,w\} \in A_{\mathcal{H}} \big\} 
+          \end{split}
+        \end{equation*}
+    \end{enumerate}
+    By definition of the construction, $G_{\mathcal{H}}$ is a time-graph.
+\end{definition}
+
+
+
+  \begin{definition}[Size Invariant Action]
+\ctt{Here we classify both transversal gates, and rotation on the Toric. }
+An action $g$ is be said size invariant action if, for any assignment $z$, it holds that $\Size{gz} = \Size{z}$. 
+  \end{definition}
+
+  \begin{claim}
+    The sweep rule is Size $\xi$-shrinking.
+  \end{claim}
+  \begin{proof}
+    
+  \end{proof}
+
+  \ctt{Eventually, we might not used the projected graph, and then we will split to history of the slices lemma for 3 parts. The first is when time $=3t$, in that we apply an invariant action so. }
+

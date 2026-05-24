@@ -1,0 +1,38 @@
+
+\inb{ Move this definition to the beginning of the paper. }
+\begin{definition}
+We model the qubits on the finite toric with a side length $n$ by the projection:
+  \begin{equation*}
+    \begin{split}
+      (x_{1}, x_{2}, .., x_{d}) \mapsto (x_{1}\bmod n, x_{2}\bmod n, .., x_{d}\bmod n) 
+    \end{split}
+  \end{equation*}
+\end{definition}
+
+\inb{ Rewrite when we talk about the first time we have deviation clusters of size $\in (\alpha d, d)$. The reason is that having those assumptions means all the droplets in the past shrank; thus, we can use the ratio of edges to time-leaves in the big subgraph.} 
+
+\begin{claim}
+Assume that until step $\tau$, there was no deviation cluster of size greater than $d$. Let $\hat{K}$ be a spanned slice induced by a deviation of a cluster state at step $\tau$, and let $\omega$ be an explanation for $\hat{K}$ such that the number of vertices in $\omega$ is greater than $\beta n$. Then there is a subgraph (subtree) $\omega^{\prime}$ of $\omega$ such that $\omega^{\prime}$ has fewer than $\frac{\beta}{2}n$ edges and at least $\frac{\beta}{4\gamma} n$ leaves.
+\end{claim}
+
+\inb{ The connection between the size of the clusters and whether they shrink or not has not been written yet. Moreover, it seems that there might be confusion since two disjoint clusters might be time-connected. It seems that might be a problem.}
+
+\begin{proof}
+Let $\omega$ be an explanation of $\hat{K}$ with more than $\beta n$ vertices. Since there is no deviation cluster of size greater than $d$ until step $\tau$, we have that every vertex of $\omega$ is a spanned slice induced by a boundary of a deviation cluster of size at most $d$. Thus, $\omega$ satisfies the shrink property in \Cref{claim:total_shrinking}, and by \Cref{claim:edgesin}, the ratio of edges to leaves of $\omega$ is at most $\gamma$.
+Observe that a spanning tree of $\omega$ has a ratio of edges to leaves that is at most $\omega$'s ratio, and the number of edges equals $\omega$'s vertices minus 1. Therefore, by applying \Cref{claim:big_subtree} on $\omega$'s spanning tree, $\omega$ has a subtree with less than $\frac{\beta}{2}n$ edges and at least $\frac{\beta}{4\gamma} n$ leaves. 
+  \end{proof}
+
+  \inb{ State a claim, and notice that in the new version we are not only interested in trees whose root is a single vertex.}
+
+  \begin{proof}
+  Now, since any two connected vertices are at a space-distance of at most $1$, it follows that all the leaves in the subtree are at a space-distance of at most $\beta n$ from each other. Thus, if $\beta < 1$, no two of them have the same space-coordinate modulo $n$. And therefore the probability to have such subtree is at most $p^{\frac{\beta}{4\gamma}n} $. 
+  
+Because any $\omega$ with more than $\beta n$ vertices implies the existence of a subtree with size less than $\frac{\beta}{2}n$, it's enough to bound the probability of having such a subtree. Considering that the trees are invariant to shifting by $n \cdot \mathbf{1}_{i}$, we have that it's sufficient to show that there are no such trees which are rooted in the finite cube $\mathbb{Z}_{n}^{d} \times \mathbb{Z}_{t}$. Finally, we use \cref{claim:counting_trees} to bound the number of such trees given a fixed root. Overall, we get:
+  \begin{equation*}
+    \begin{split}
+      \prb{\text{No } \omega \text{s with more than  } \beta n \text{ vertices} } \le n^{d} t  \left( \xi^{2}  p^{\frac{\beta}{4\gamma}} \right)^{n}   
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+

@@ -1,0 +1,13 @@
+
+
+\section{Decoder Phase}
+In the general picture, I would like to use the 4D toric code to encode in any target code. We use the original fault tolerance construction (the concatenation construction) to encode into and decode from the 4D toric code. So, for the decoding phase, we need to have a decoder which, in the ideal setting, runs in less than logarithmic time.
+
+What we know so far: 
+\begin{enumerate}
+  \item We can assume that two unsatisfied checks are belong to the same history with probability less than $\sim q^{|u - v|}$. 
+  \item There is a $\log^{2}(n)$ depth algorithm to find the perfect/max matching in a general graph. From first check, the known algorithms to deal with the weight matching are based on LP.    
+  \item Applying Toom's/Sweep rule will require at least linear depth.  
+  \item Having an algorithm that succeeds with constant probability $\frac{1}{2} + \epsilon$ might be enough (Anyway the qubit at the result of the decoding is going to absorb $p$-noise).  
+
+\end{enumerate}

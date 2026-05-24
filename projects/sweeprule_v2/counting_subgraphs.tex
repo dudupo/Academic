@@ -1,0 +1,35 @@
+
+   \section{Counting Subtrees.} 
+
+  \begin{claim}
+    \label{claim:counting_trees}
+    Let $G = \left( V, E \right)$ be a $\Delta + 1$-regular graph, and let $k$ be an integer less than $|E|$. Fix a vertex $r \in V$. The number of subgraphs rooted at $r$ with less than $k$ edges is at most $\alpha^{k}$.
+  \end{claim}
+
+
+  \begin{proof}
+    Denote by $T_{\Delta}$ and $T_{2}$ the infinity $\Delta$ and binary tress. There is an injection between the subtrees of $G$, rooted at $v$, with at most $k$ edges, to the subtrees of $T_{\Delta}$ rooted at $v$, with at most $k$ edges. Moreover, there is an injection from the subtrees of $T_{\Delta}$ rooted at $v$, with at most $k$ edges to the subtrees of $T_{2}$, rooted at $v$, with at most $k \log \Delta$ edges. 
+
+    \ctt{In the second map, we think on replacing each of the vertex with $\Delta-1$-leaves binary tree, each leaf is associated with a outgoing edge.  }. 
+
+    Thus, it's enough to bound the number of of subtrees in $T_{2}$ rooted at $v$, with at most $ k \log \Delta $ edges, that number is less than the number of binary tress with $k \log \Delta + 1$ leaves. For exact leaves number we get the $k \log \Delta$ Catalan number, which its limit is:   
+    \begin{equation*}
+      \begin{split}
+          \sim \frac{4^{k \log \Delta}}{\left( k \log \Delta \right)^{\frac{3}{2}} \sqrt{\pi} } \le \frac{\Delta^{2k}}{\left( k \log \Delta \right)^{\frac{3}{2}} \sqrt{\pi} } 
+      \end{split}
+    \end{equation*}
+    Therefore we can bound by:
+    \begin{equation*}
+      \begin{split}
+        \sum_{j=1}^{k} \frac{\Delta^{2j}}{\left( j \log \Delta \right)^{\frac{3}{2}} \sqrt{\pi} }  \le \frac{\Delta^{2k}}{\sqrt{\pi}\log^{\frac{3}{2}} \Delta}\sum_{j=1}^{k} \frac{1}{ j^{\frac{3}{2}} }  \le \zeta (\frac{3}{2}) \cdot \frac{\Delta^{2k}}{\sqrt{\pi}\log^{\frac{3}{2}} \Delta}
+      \end{split}
+    \end{equation*}
+
+  \end{proof}
+  Now, from here we get an upper bound on the number of subgraphs that connected $l$ vertices at the top level. We bound it from above by counting combination of rooted subtrees, such the vertices are their root and the overall edges number is summed up to $k$. Thus: 
+  \begin{equation*}
+    \begin{split}
+      \le \zeta (\frac{3}{2}) { k - 1 \choose l - 1 } \frac{\Delta^{2k}}{\sqrt{\pi}\log^{\frac{3}{2}} \Delta}
+    \end{split}
+  \end{equation*}
+

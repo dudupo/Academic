@@ -1,0 +1,356 @@
+\section{Shrinking}
+We are going to show that the SWEEP decoder 'shrinks' the error by proving that the edges/poles of error clusters get closer as a result of a decoding step. For that, we consider the standard embedding of the grid in $\mathbb{R}^{d}$ and use the term of potential walls.
+\begin{definition}[The standart embedding]
+  Consider the $d$-dimensional infinite grid $\mathcal{G}^{d}$. The \textit{standard embedding} $\mathcal{G}^{d} \rightarrow \mathbb{R}^{d}$ is given by fixing a vertex in $\mathcal{G}^{d}$ to be sent to the origin and then mapping the generators of the grid to the standard basis. We extend notation as follows: for a vertex $v \in \mathcal{G}^{d}$, a generator $g \in S$, and a coordinate $i \in [d]$, such that under the embedding $g \rightarrow i$, we denote by $v_{i} = v_{g}$ the $i$'th coordinate of the image of $v$.
+\end{definition}
+
+\begin{definition}[Potential Walls]
+  We define the \textit{potential walls} to be the $d+1$ functions $L_{1},L_{2},..,L_{d+1}$, from the vertices of $\mathcal{G}_{n}^{d}$ to the reals as follow:
+  \begin{enumerate}
+    \item For any coordinate $i \in [d]$, we define $L_{i} \colon \mathcal{G}^{d} \rightarrow \mathbb{R}$ as $L_{i}(v) \colonequals v_{i}$. In addition, for the generator $g \in S$ which is mapped to $i$, i.e $g \rightarrow i $, we identify $L_{g} = L_{i}$. 
+    \item We define $L_{d+1} \colon \mathcal{G}^{d} \rightarrow \mathbb{R}$ by $L_{d+1}(v) \colonequals \sum_{i = 1}^{d}v_{i}$.
+  \end{enumerate}
+  Consider an assignment $z$ over the faces. For a vertex $v \in z$, and a potential wall $l \in \{ L_{1},..,L_{d+1}\} $, we say that $v$ is a \textit{local maximum} of $l$ in $z$ if for any neighbor $u$ of $v$, such that $u \in z$, we have $l(v) \ge l(u)$. We say that $v$ is a \textit{strong local maximum} if the inequality is strict, namely $l(v) > l(u)$. When the assignment $z$ is clear from the context, we might omit it and briefly say that $v$ is a local maximum of $l$.
+
+\end{definition}
+With the assistance of potential walls, we can discuss the endpoint of a bunch of bits, which will soon become error clusters. The following two claims relate the local maximum points of $L_{1}, \ldots, L_{d}$ in an assignment $z$ to the structure of the syndrome they observe. Later, we will use that relation to infer that the decoding step of the SWEEP rule can't spread the error to a vertex\footnote{To faces whose vertices have higher values of $L_{1}, \ldots, L_{d}$ than the current global maximum values.} with a higher value than the current global maximum of $L_{1}, \ldots, L_{d}$. In other words, the error does not spread in the positive directions.
+
+\begin{claim}
+  \label{claim:localmax}
+Let $z$ be an assignment, and recall that the vertices in $\partial z$ are the set of vertices adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\partial z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$ in $\partial z$. Then $gv \notin \partial z$.
+\end{claim}
+\begin{proof}
+  Suppose $gv \in \partial z$, then 
+  \begin{equation*}
+    \begin{split}
+      L_{g}(gv) = (gv)_{g} = 1 + v_{g} = 1 + L_{g}(v)
+    \end{split}
+  \end{equation*}
+In contradiction to $v$ being a local maximum of $L_{g}$ in $\partial z$.
+\end{proof}
+\begin{claim}
+  \label{claim:edge_pole}
+Let $z$ be an assignment, let $v$ be a vertex in $\partial z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$. Then, for any check associated with a $d^{\prime}-1$ face rooted at $v$ that contains $gv$, it is satisfied.
+\end{claim}
+\begin{proof}
+Assume, through contradiction, the existence of an unsatisfied check associated with a $d^{\prime}-1$ positive face rooted at $v$, which contains $gv$. This implies $gv \in \partial z$, contradicting \Cref{claim:localmax}.
+\end{proof}
+
+For the $(d+1)$th potential wall, we would like to have a stronger claim that implies the error cluster shrinks. For this, we start by showing that any error is equivalent, up to stabilizer addition, to an error whose left-corner edge sees a syndrome. We present two notations of local codes that describe the local view of a $(d+1)$th edge that sees no syndrome. They are the \textit{stabilizers code at vertex} $v$ and the \textit{small code at vertex} $v$. The first corresponds to stabilizers rooted at the vertex, while the second is the collection of local views on its positive faces that satisfy its positive checks. Then, in \Cref{claim:agreement}, we consider a vertex which is a $(d+1)$th edge and doesn't see a syndrome, meaning that its local view is in its \textit{small code}, and show that there is a codeword of its \textit{stabilizers code} that agrees with its positive faces. Addition by that stabilizer yields a new assignment excluding $v$.
+
+\begin{definition}[Stabilizers Code at Vertex $v$]
+We define \textit{stabilizer code at vertex} $v$, denoted by $\text{Stab}_{v}$, as the restriction of the $(d,d^{\prime})$-Toric code to the $d^{\prime}$-dimensional faces such that their vertices are at a distance of at most one positive step in each direction from $v$. That is equivalent to the union of all the positive $d^{\prime}$-dimensional faces of $v$ with the $d$-dimensional faces of each of its sibling $gv$, excluding faces containing $g$ as their generator. Namely:
+  \begin{align*}
+    \text{Stab}_{v} \colonequals  \bigl\{ z : \partial^{-} z  &= 0 \text{ and } \\
+    & z \in \text{Span} \big(  \big\{  \rotfvs{} : S^{\prime} \subset S, |S^{\prime}| = d^{\prime}  \big\} \\
+   & \ \ \ \ \ \ \ \ \ \ \ \ \  \bigcup_{g \in S} \big\{ \rotfv{gv}{S^{\prime}/g} : S^{\prime} \subset S/g , |S^{\prime}|=d^{\prime} \big\} \big) \bigr\}
+  \end{align*}
+\end{definition}
+The checks of the code, are of the following three types: 
+\begin{enumerate}
+  \item Checks that are rooted at $v$, each identified by choosing $d-1$ generators from $S$. Namely: 
+    \begin{equation*}
+      \begin{split}
+        \big\{ \rotfvs{}: S^{\prime} \subset S , |S^{\prime}|=d^{\prime}-1  \big\} 
+      \end{split}
+    \end{equation*}
+    For each check, the bits that connect to it, are given by restricting the coboundary of the check to bits domain of $\text{Stab}_{v}$:  
+    \begin{equation*}
+      \begin{split}
+       \big( \partial \rotfvs{} \big)|_{\text{Stab}_{v}} & =  \big(   \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g}  \big)|_{\text{Stab}_{v}} =     \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} 
+      \end{split}
+    \end{equation*}
+  \item Checks are rooted at the positive sibling of $v$. Consider such a sibling, let's say $gv$ (namely the vertex that is given by stepping in the direction $g \in S$ from $v$). Notice that any face rooted at $gv$ that contains $ggv$ cannot be contained in faces rooted at $v$. Thus, the checks of $gv$ correspond to choosing subsets from $S/g$. Namely:
+    \begin{equation*}
+      \begin{split}
+      \bigcup_{g \in S}\big\{ \rotfv{gv}{S^{\prime}}: S^{\prime} \subset S/g , |S^{\prime}|=d^{\prime}-1  \big\}
+      \end{split}
+    \end{equation*}
+    And each check is supported by:
+    \begin{equation*}
+      \begin{split}
+        \big( \partial \rotfv{gv}{S^{\prime}} \big)|_{\text{Stab}_{v}} & = 
+        \big(   \sum_{g^{\prime} \in S/S^{\prime}} \rotfv{gv}{S^{\prime} \cup g^{\prime}} + \sum_{g^{\prime} \in S^{\prime}} \rotfv{g^{\prime -1}v}{S^{\prime}\cup g^{\prime}} \big)|_{\text{Stab}_{v}} \\
+        &  =    \sum_{g^{\prime} \in S/S^{\prime}} \rotfv{g v}{S^{\prime} \cup g} + \rotfv{g^{-1}v}{S^{\prime}\cup g}
+      \end{split}
+    \end{equation*}
+  \item Checks that their roots are at a two-step distance from $v$, namely vertices of the form $g, g^{\prime} \in S$, where $g \neq g^{\prime}$. By the arguments presented in the second type, the checks are the $d^{\prime}-1$ faces which do not have the generators on the path leading from $v$ to them, i.e., $g, g^{\prime}$, in their generator set.
+    \begin{equation*}
+      \begin{split}
+        \bigcup_{g,g^{\prime} in S^{\prime} }\big\{ \rotfv{g^{\prime}gv}{S^{\prime}}: S^{\prime} \subset S/\{ g, g^{\prime} \} , |S^{\prime}|=d^{\prime}-1  \big\}
+      \end{split}
+    \end{equation*}
+  And for each check, its support is:
+    \begin{equation*}
+      \begin{split}
+        \big( \partial \rotfv{g^{\prime}gv}{S^{\prime}}  \big)|_{\text{Stab}_{v}} & =  \big(    \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g} \big)|_{\text{Stab}_{v}}\\
+        &=    \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g}   
+      \end{split}
+    \end{equation*}
+\end{enumerate}
+
+\begin{definition}[Small Code at Vertex $v$]
+  For a vertex $v$, we denote by $\mathcal{C}_{v}$ the \textit{small code at vertex $v$}, which is defined to be the binary assignments over the bits ($d^{\prime}$ faces) rooted at $v$ that satisfy the positive checks of $v$, namely:   
+  \begin{align*}
+    \mathcal{C}_{v} \colonequals  \bigl\{ z : \partial^{-} z  &= 0 \text{ and } \\
+    & z \in \text{Span} \big(  \big\{  \rotfvs{} : S^{\prime} \subset S, |S^{\prime}| = d^{\prime}  \big\} \big) \bigr\} 
+  \end{align*}
+The checks of the code are exactly the first type checks of $\text{Stab}_{v}$.
+\end{definition}
+\begin{claim}
+  \label{claim:agreement}
+  Assume $d=4$ and $d^{\prime}=2$. Let $v$ be a vertex. For any $z \in \mathcal{C}_{v}$, there is a stabilizer $w \in \text{Stab}_{v}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$.
+\end{claim}
+
+\begin{proof}
+We argue that the top six rows of the generating matrix of $\text{Stab}_{v}$ are exactly the generating matrix of $\mathcal{C}_{v}$. This means that any codeword of $\text{Stab}_{v}$ is an extension of a codeword of $\mathcal{C}_{v}$. Denote by $H_{\mathcal{C}_{v}}$ and $H_{\text{Stab}_{v}}$ the parity check matrices of $\mathcal{C}_{v}$ and $\text{Stab}_{v}$ respectively. Similarly, denote by $G_{\mathcal{C}_{v}}$ and $G_{\text{Stab}_{v}}$ their generating matrices. The parity check matrices are:
+\setcounter{MaxMatrixCols}{40}
+\begin{equation*}
+  \begin{split}
+    H_{\mathcal{C}_{v}} = \begin{bmatrix}
+  1  &  1  &  1  &  0  &  0  &  0 \\
+  1  &  0  &  0  &  1  &  1  &  0 \\
+  0  &  1  &  0  &  1  &  0  &  1 \\
+  0  &  0  &  1  &  0  &  1  &  1
+\end{bmatrix} 
+\ \ \ \ \ H_{\text{Stab}_{v}} = \begin{bmatrix}
+  \inb{1}  &  \inb{1}  &  \inb{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+  \inb{1}  &  0  &  0  &  \inb{1}  &  \inb{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+  0  &  \inb{1}  &  0  &  \inb{1}  &  0  &  \inb{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+  0  &  0  &  \inb{1}  &  0  &  \inb{1}  &  \inb{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0 \\
+  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0 \\
+  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0  &  0 \\
+  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  \inbr{1}  &  0  &  0  &  0 \\
+  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0 \\
+  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0 \\
+  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  \inbr{1} \\
+  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1} \\
+  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0 \\
+  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0 \\
+  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0 \\
+  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0 \\
+  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0 \\
+  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}  &  0  &  0  &  0 \\
+  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0 \\
+  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  \inr{1} \\
+  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}  &  0 \\
+  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}
+\end{bmatrix}
+  \end{split}
+\end{equation*}
+Where we mark in \inb{blue}, \inbr{brown}, and \inr{red} the \inb{first}, \inbr{second}, and \inr{third} types of checks.
+
+
+\begin{equation*}
+  \begin{split}
+    G_{\mathcal{C}_{v}} =   \begin{bmatrix}
+  1  &  0  &  0 \\
+  0  &  1  &  0 \\
+  1  &  1  &  0 \\
+  0  &  0  &  1 \\
+  1  &  0  &  1 \\
+  0  &  1  &  1
+\end{bmatrix} \ \ \ \ \  \ \ \
+G_{\text{Stab}_{v}} = 
+\begin{bmatrix}
+  1  &  0  &  0  &  0 \\
+  0  &  1  &  0  &  0 \\
+  1  &  1  &  0  &  0 \\
+  0  &  0  &  1  &  0 \\
+  1  &  0  &  1  &  0 \\
+  0  &  1  &  1  &  0 \\
+  0  &  0  &  0  &  1 \\
+  1  &  0  &  0  &  1 \\
+  0  &  1  &  0  &  1 \\
+  0  &  0  &  0  &  1 \\
+  1  &  0  &  0  &  1 \\
+  0  &  0  &  1  &  1 \\
+  0  &  0  &  0  &  1 \\
+  0  &  1  &  0  &  1 \\
+  0  &  0  &  1  &  1 \\
+  1  &  0  &  0  &  1 \\
+  0  &  1  &  0  &  1 \\
+  0  &  0  &  1  &  1
+\end{bmatrix}
+  \end{split}
+\end{equation*}
+
+\end{proof}
+\begin{conjecture} 
+For any integers $d$ and $d^{\prime} < d$, $G_{\mathcal{C}_{v}}$ is contained in $G_{\text{Stab}_{v}}$. In particular, \Cref{claim:agreement} holds for any dimension.
+\end{conjecture} 
+
+\begin{claim}
+  \label{claim:reduce_stab}
+  Let $z$ be a finite assignment. Suppose that 
+  \begin{equation*}
+    \begin{split}
+            \max \big\{ L_{d+1}(u) :  u \in z \big\} > \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} z \big\}
+    \end{split}
+  \end{equation*}
+  Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that:
+\begin{equation*}
+  \begin{split}
+    \max \left\{ L_{d+1}(u) : u \in \tilde{z} \right\} & \le  \max \big\{ L_{d+1}(u) : u \in z \big\} - 1
+  \end{split}
+\end{equation*}
+\end{claim}
+\begin{proof}
+Let $v_{1}, v_{2}, \ldots, v_{k}$ be the vertices in $z$ that achieve the maximum for $L_{d+1}$, namely $v_{1}, v_{2}, \ldots, v_{k} = \arg \max_{v \in z} L_{d+1}(v)$, and assume that $v_{i} \notin \partial^{\pm} z$ for any $i \in [k]$.
+
+Consider the $i$th vertex $v_{i}$. By definition, since $v_{i} \notin \partial^{\pm} z$, we have $\partial^{\pm} z|_{v_{i}} = 0$, and since $v_{i}$ is a maximum point of $L_{d+1}$ in $z$, it is also a local maximum, and therefore $z|_{v_{i}+} = z|_{v_{i}}$. 
+Combining the two, we get that $z|_{v_{i}}$ is a codeword of the small code at $v_{i}$, namely $z|_{v_{i}} \in \mathcal{C}_{v_{i}}^{\pm}$. Thus, by \Cref{claim:agreement}, there is a stabilizer $w_{i} \in \text{Stab}_{v_{i}}^{\pm}$ such that $w_{i}$ and $z$ agree on the positive faces of $v_{i}$, namely $w_{i}|_{v_{i}} = z|_{v_{i}}$. 
+
+Set $\tilde{z} \leftarrow z + \sum_{i}w_{i}$. Since $\sum_{i}w_{i}$ is a stabilizer, we have $\tilde{z} \sim_{C_{X}} z$. In addition, for any $j \neq i$, it follows that $v_{j} \notin w_{i}$.
+Otherwise, there exists $S^{\prime} \subset S$ such that $v_{j} \in \rotf{v_{i}}{S^{\prime}}$, and therefore $L_{d+1}(v_{j}) > L_{d+1}(v_{i})$, in contradiction to $v_{i}$ and $v_{j}$ being both maximum points for $L_{d+1}$ in $\partial^{\pm} z$. 
+Thus, we have:
+\begin{equation*}
+  \begin{split}
+    \tilde{z}|_{v_{i}} = (z + \sum_{i}w_{i})|_{v_{i}} + (z + w_{i})|_{v_{i}} = 0
+  \end{split}
+\end{equation*}
+Namely, for any $i$, the $i$th vertex $v_{i}$ is not in $\tilde{z}$. Hence, the vertex domain of $\tilde{z}$ is contained in the union of the vertices of $z$ with the vertices of $w_{1}, w_{2}, \ldots, w_{k}$, substituting $v_{1}, v_{2}, \ldots, v_{k}$. Overall, we get:
+\begin{equation*}
+  \begin{split}
+  \max \left\{ L_{d+1}(u) : u \in \tilde{z} \right\} & \le \max \big\{ L_{d+1}(u) : u \in z \bigcup_{i} w_{i} \big/ \bigcup_{i} v_{i} \big\}  \\ 
+     & \le  \max \big\{ L_{d+1}(u) : u \in z \big\} - 1
+  \end{split}
+\end{equation*}
+\end{proof}
+
+\begin{claim}
+  \label{claim:extermum}
+  Let $z$ be a finite assignment. Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that 
+  \begin{equation*}
+    \begin{split}
+      \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} = \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} z \big\}
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+Let $z$ be a finite assignment, and let $k$ be an integer such that $k \ge 1$ and
+  \begin{equation*}
+    \begin{split}
+            \max \big\{ L_{d+1}(u) :  u \in z \big\} =  \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} z \big\} + k
+    \end{split}
+  \end{equation*}
+  For an integer $l \le k$, consider the assignments $\tilde{z}_{0},\tilde{z}_{1},..,\tilde{z}_{l}$ defined as follow: 
+  \begin{itemize}
+    \item The first element, $\tilde{z}_{0} = z$. 
+    \item If the $i-1$th element satisfies 
+  \begin{equation*}
+    \begin{split}
+      (\star ) \ \ \max \big\{ L_{d+1}(u) :  u \in \tilde{z}_{i-1} \big\} > \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} \tilde{z}_{i-1} \big\} 
+    \end{split}
+  \end{equation*}
+      Then define the $i$th element, $\tilde{z}_{i}$, to be the result of applying the construction, given in \Cref{claim:reduce_stab}, on $\tilde{z}_{i-1}$ , namely  $\partial \tilde{z}_{i+1} = \partial z_{i}$ and  
+\begin{equation*}
+  \begin{split}
+    \max \big\{ L_{d+1}(u) :  u \in \tilde{z}_{i} \big\} \le  \max \big\{ L_{d+1}(u) : u \in \tilde{z}_{i-1} \big\} - 1
+  \end{split}
+\end{equation*}
+If the $i-1$th element doesn't satisfies $\star$, then set $l = i -1$.
+\item If the $k$th element was defined, set $l = k$.
+  \end{itemize}
+Since $\sim_{C_{X}}$ is a transitive relation, we have that for any $i \in [l]$, $z \sim_{C_{X}} \tilde{z}_{i}$. If $l \neq k$, then there exists $\tilde{z}_{i}$ such that $\tilde{z}_{i} \sim_{C_{X}}$ and $\tilde{z}_{i}$ satisfies $\star$, namely by setting $\tilde{z} = \tilde{z}_{i}$, we get the desired.
+So, it is left to handle the case where $l = k$. In that case, set $\tilde{z} = \tilde{z}_{k}$. By \Cref{claim:reduce_stab}:
+\begin{equation*}
+  \begin{split}
+    \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} \le  \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} z \big\}
+  \end{split}
+\end{equation*}
+Yet, since $\tilde{z} \sim_{C_{X}} z$, it follows that $\partial \tilde{z} = \partial z$, So: 
+\begin{equation*}
+  \begin{split}
+     \max \big\{ L_{d+1}(u) :  u \in \partial^{\pm} z \big\} = \max \big\{ L_{d+1}(u) :  u \in  \partial^{\pm} \tilde{z} \big\} \le \max \big\{ L_{d+1}(u) : u \in z \big\} 
+  \end{split}
+\end{equation*}
+Therefore, we have the equality:
+\begin{equation*}
+  \begin{split}
+    \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} = \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} z \big\}
+  \end{split}
+\end{equation*}
+\end{proof}
+
+\begin{claim}
+Let $z$ be a finite assignment and let $\xi$ be the result of the application of the Sweep rule on it. Then: 
+  \begin{enumerate}
+    \item For any $i \in [d]$: $\max \big\{ L_{i}(v) : v \in \partial z \big\} = \max \big\{ L_{i}(v) : v \in \partial \xi \big\}  $
+    \item And for $i = d+1$ : $ \max \big\{ L_{d+1}(v)  : v \in \partial z \big\} > \max \big\{  L_{d+1}(v) : v \in \partial \xi \big\} + 1$
+  \end{enumerate}
+\end{claim}
+\begin{proof}
+First, since the Sweep rule is invariant to addition by stabilizers, for any $\tilde{z}$ such that $\tilde{z} \sim_{C_{X}} z$, the correction applied by the Sweep rule on $\tilde{z}$ is the same as the application on $z$. Denote by $\phi$ the correction, by $\tilde{\xi}$ the result of applying the Sweep rule on $\tilde{z}$, and by $w$ the stabilizer which is the difference between $z$ and $\tilde{z}$, namely:
+  \begin{equation*}
+    \begin{split}
+      \xi &= z + \phi \\
+      \tilde{\xi} &= \tilde{z} + \phi \\
+      \tilde{z} &= z + w
+    \end{split}
+  \end{equation*}
+  The $\partial^{\pm}$ boundary of $\tilde{\xi}$ equals:
+  \begin{equation*}
+    \begin{split}
+      \partial \tilde{\xi} = \partial \left( \tilde{z} + \phi \right) = \partial \left( z + \phi \right) = \partial \xi
+    \end{split}
+  \end{equation*}
+  So, in total, we have that for any $\tilde{z}$ such that $\tilde{z} \sim_{C_{X}} z$, it holds that $\partial \tilde{z} = \partial z$ and $\partial \tilde{\xi} = \partial \xi$. Therefore, showing that there exists $\tilde{z} \sim_{C_{X}} z$ for which the claim holds proves the claim for $z$. By \Cref{claim:extermum}, there is $\tilde{z} \sim_{C_{X}} z$ such that:
+  \begin{equation*}
+    \begin{split}
+      \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} = \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} \tilde{z} \big\}
+    \end{split}
+  \end{equation*}
+  
+  For such $\tilde{z}$, any maximum of $L_{d+1}$ in $ \partial \tilde{z} $, is also a maximum in $\tilde{z}$. Denote by $v_{1},..,v_{k}$ the maximum points in $\partial \tilde{z}$. Since they are maximum points in $\tilde{z}$, it holds that for each $i \in [k]$, $\tilde{z}|_{v_{i}} = \tilde{z}|_{v_{i}+}$, and hence $\partial \tilde{z}|_{v_{i}} = \partial \tilde{z}|_{v_{i}+}$. Since $\tilde{z}|_{v_{i}+}$ is an assignment rooted at $v_{i}$, then $v_{i}$ can suggest $\tilde{z}|_{v_{i} +}$, namely the condtion in Sweep rule is satisfied for vertex $v_{i}$. Thus:
+\begin{equation*}
+  \begin{split}
+\partial\tilde{\xi}|_{v_{i}} =  \partial\tilde{z}|_{v_{i}} + \partial\phi|_{v_{i}} = 0
+  \end{split}
+\end{equation*}
+Namely, for any $i$, the $i$th vertex $v_{i}$ is not in $\tilde{\xi}$. For any vertex $v$ denote by $\phi_{v}$ the correction made by the vertex $v$, namely $\phi = \sum_{v \in \partial \tilde{z}} \phi_{v}$. Hence, the vertex domain of $\tilde{\xi}$ is contained in the union of the vertices of $\tilde{z}$ with the vertices of $ \cup_{v \in V} \phi_{v} $, substituting maximum points $v_{1}, v_{2}, \ldots, v_{k}$. Overall, we get:
+\begin{equation*}
+  \begin{split}
+    \max \left\{ L_{d+1}(u) : u \in \partial \tilde{\xi} \right\} & \le \max \big\{ L_{d+1}(u) : u \in  \partial \tilde{z} \bigcup_{v \in \partial \tilde{z} } \phi_{v} \big/ \bigcup_{i} v_{i} \big\}  \\ 
+    & \le  \max \big\{ L_{d+1}(u) : u \in \partial \tilde{z} \big\} - 1
+  \end{split}
+\end{equation*}
+Let $v$ be a vertex that is a maximum of $L_{g}$ in $\partial \tilde{z}$ , maximum points of $L_{g}$ do not see syndrome at the $g$ direction. If  and: 
+\begin{equation*}
+  \begin{split}
+    \phi_{v} &= \sum \rotfv{v}{S^{\prime}_{i}} 
+  \end{split}
+\end{equation*}
+By \Cref{claim:edge_pole} $\partial \tilde{z}|_{gv} = 0 $, Hence: 
+\begin{equation*}
+  \begin{split}
+    \partial \phi_{v}|_{gv} &= \left( \partial \sum \rotfv{v}{S^{\prime}_{i}} \right)|_{gv} \\
+    &=  \left(  \sum_{S^{\prime}_{i}} \sum_{g^{\prime} \in S^{\prime}_{i} }\rotfv{v}{S^{\prime}_{i}/g^{\prime}} +\rotfv{g^{\prime}v}{S^{\prime}_{i}/g^{\prime}} \right)|_{gv} \\ 
+  & = 0 
+  \end{split}
+\end{equation*}
+Thus if  $g  \in \cup S^{\prime}_{i}$, Then: 
+\begin{equation*}
+  \begin{split}
+    \rotfv{gv}{S^{\prime}_{i}/g}  \in \partial \phi_{v}|_{gv} 
+  \end{split}
+\end{equation*}
+So for $\rotfv{gv}{S^{\prime}_{i}/g} = 0$, it must appear at least twice in the sum, yet the left terms in the sum cannot contain it (they differ by the root vertex), and if there is a right term $\rotfv{gv}{S^{\prime}_{j}/g} = \rotfv{gv}{S^{\prime}_{i}/g}$, then it implies that $S_{j} = S_{i}$. Which is a contradiction, therefore: $g \notin \cup S^{\prime}_{i}$ and $gv \notin \phi_{v}$. 
+\begin{equation*}
+  \begin{split}
+    \max \left\{ L_{g}(u) : u \in \partial \tilde{\xi} \right\} & \le \max \big\{ L_{g}(u) : u \in  \partial \tilde{z} \bigcup_{v \in \partial \tilde{z} } \phi_{v} \big/ \bigcup_{i} v_{i} \big\}  \\ 
+    & \le  \max \big\{ L_{g}(u) : u \in \partial \tilde{z} \big\} + 1 - 1
+  \end{split}
+\end{equation*}
+\end{proof}
+
+
+
+
