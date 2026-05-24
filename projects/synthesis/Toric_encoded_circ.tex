@@ -30,7 +30,11 @@ Furthermore, we extend the notion to binary assignment over the $i$th faces of a
   \end{proof}
 
 \begin{definition}
-  error clusters $(K_{1},..,K_{l}, J_{1}, .., J_{l^{\prime}})$.
+  We say that a Pauli operator $P$ is an \textit{$X$-type error} if it consists of a multiplication of single-qubit Pauli $X$ and identities. Similarly, we say that $P$ is a \textit{$Z$-type error} if it consists of a multiplication of single-qubit Pauli $Z$ and identities. For a binary assignment over the $d^{\prime}$-faces, $z : \mathcal{F}^{(i)} \rightarrow \mathbb{F}_{2}$ we say that $z$ is the \textit{underline assignment} of $P$ if $z$ is the support of the non-trivial coordinates of $P$. We extend the size function to $X/Z$-types errors as follow: 
+  \begin{enumerate}
+    \item If $P$ is a $X$-type error, then $\Size{P} \colonequals \Size{z}$. 
+    \item Else, namely $P$ is a $Z$-type error, then $\Size{P} \colonequals \Size{\phi(z)}$. 
+  \end{enumerate}
 \end{definition}
 
 
