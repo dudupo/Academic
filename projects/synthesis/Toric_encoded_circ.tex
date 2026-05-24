@@ -27,7 +27,7 @@ Furthermore, we extend the notion to binary assignment over the $i$th faces of a
   \end{proof}
 
 \begin{definition}
-  We say that a Pauli operator $P$ is an \textit{$X$-type error} if it consists of a multiplication of single-qubit Pauli $X$ and identities. Similarly, we say that $P$ is a \textit{$Z$-type error} if it consists of a multiplication of single-qubit Pauli $Z$ and identities. For a binary assignment over the $d^{\prime}$-faces, $z : \mathcal{F}^{(i)} \rightarrow \mathbb{F}_{2}$ we say that $z$ is the \textit{underline assignment} of $P$ if $z$ is the support of the non-trivial coordinates of $P$. We extend the size function to $X/Z$-types errors as follow: 
+  We say that a Pauli operator $P$ is an \textit{$X$-type error} if it consists of a multiplication of single-qubit Pauli $X$ and identities. Similarly, we say that $P$ is a \textit{$Z$-type error} if it consists of a multiplication of single-qubit Pauli $Z$ and identities. For a binary assignment over the $d^{\prime}$-faces, $z : \mathcal{F}^{(d^{\prime})} \rightarrow \mathbb{F}_{2}$ we say that $z$ is the \textit{underline assignment} of $P$ if $z$ is the support of the non-trivial coordinates of $P$. We extend the size function to $X/Z$-types errors as follow: 
   \begin{enumerate}
     \item If $P$ is a $X$-type error, then $\Size{P} \colonequals \Size{z}$. 
     \item Else, namely $P$ is a $Z$-type error, then $\Size{P} \colonequals \Size{\phi(z)}$. 
@@ -43,7 +43,7 @@ Furthermore, we extend the notion to binary assignment over the $i$th faces of a
   \end{enumerate}
 \end{claim}
 \begin{proof}
-  Let $z$ be a binary assignment over the $d^{\prime}$-faces, $z : \mathcal{F}^{(i)} \rightarrow \mathbb{F}_{2}$, and let $P$ be the $X$-type error which $z$ is its underline assignment. Let $ Q = \phi \circ H^{\otimes n} P $, and denote by $z_{Q}$ the underline assignment of $Q$. 
+  Let $z$ be a binary assignment over the $d^{\prime}$-faces, $z : \mathcal{F}^{(d^{\prime})} \rightarrow \mathbb{F}_{2}$, and let $P$ be the $X$-type error which $z$ is its underline assignment. Let $ Q = \phi \circ H^{\otimes n} P $, and denote by $z_{Q}$ the underline assignment of $Q$. 
 \begin{equation*}
   \begin{split}
     Q \ket{\psi} & = \phi \circ H^{\otimes n} P \ket{\psi} = \phi \circ H^{\otimes n} X_{z} \ket{\psi} \\ 
