@@ -41,7 +41,14 @@ Furthermore, we extend the notion to binary assignment over the $i$th faces of a
     \item  $\mathbf{CX}$ and $\varphi$ send $X$-type triangles to the same size $X$-type triangles. Similarly, they send $Z$-types triangles to the same size $Z$-type triangles.  
   \end{enumerate}
 \end{claim}
-
+\begin{proof}
+Let $z$ be a binary assignment over the $d^{\prime}$-faces, $z : \mathcal{F}^{(i)} \rightarrow \mathbb{F}_{2}$, and let $P$ be the Pauli product obtained by imposing a single-qubit Pauli $X$ on every non-trivial coordinate of $z$. Then, $\phi \circ H P$ 
+\begin{equation*}
+  \begin{split}
+    L_{g}\left( \phi (z)  \right) &= \max_{v \in \phi(z)} v_{g} = \max_{v^{-1} \in z} -v_{g} 
+  \end{split}
+\end{equation*}
+\end{proof}
 
 
 
