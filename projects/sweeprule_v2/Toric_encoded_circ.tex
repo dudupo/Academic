@@ -68,8 +68,9 @@
     \item For the empty circuit. The vertices in $V_{\mathcal{H}, X} $ are the vertices of $V_{o}|_{1}$ that support $\partial D_{t}^{X}$. Similarly, the vertices of $V_{\mathcal{H,Z}}$ are the vertices of $V_{o}|_{1}$ that support $\partial D_{t}^{Z}$. 
     \item Let $\mathcal{H}$ be the history graph of $C[\mathcal{E}]$ restricted to the first $d-1$ layers. Let $U$ be the $d$-layer, then define the history graph corresponding to the first $d$ layers of $C[\mathcal{E}]$ to be obtained by adding vertices and edges to $\mathcal{H}$ as follows:
       \begin{enumerate}
-        \item If $U$ is a noise layer, namely $U \subset \mathcal{E}$, then denote by $\mathcal{E}_{t}^{X}$ and $\mathcal{E}_{t}^{Z}$ the $X,Z$ decomposition of $\mathcal{E}_{t}$. Then, for any vertex in $\mathcal{G}$
-      \end{enumerate}<++>
+        \item If $U$ is a noise gate, namely $U \subset \mathcal{E}$, then denote by $\mathcal{E}_{t}^{X}$ and $\mathcal{E}_{t}^{Z}$ the $X,Z$ decomposition of $\mathcal{E}_{t}$. Then, for any vertex in $\mathcal{G}$
+        \item Else, denote by $U_{1},..,U_{l}$ the gates in $U$. If $U_{1}$ is a $\mathbf{CX}^{\otimes n}$ gate acting on registers $R_{1}$ into $R_{2}$, then for each vertex $v \in V_{\mathcal{H},X}|_{R_{1}, t=d-1}$ add the counter parts of $v$ in $R_{1}$,$R_{2}$ at time $t=d+1$ into $V_{\mathcal{H} ,X}$ and connect them by arrows to $v$. Similarly, for any vertex $v \in V_{\mathcal{H},Z}|_{R_{2}, t=d-1}$ add the counter parts of $v$ in $R_{2}$,$R_{2}$ at time $t=d+1$ into $V_{\mathcal{H} ,X}$ and connect them by arrows to $v$.
+      \end{enumerate}
   \end{enumerate}
 
 
