@@ -59,10 +59,19 @@ Where $\ket{\psi_{2}}$ is a codeword. Thus, $Q$ is a $Z$-type error with underli
     \Size{Q} = \Size{\phi(z_{Q})} = \Size{\phi^{2}(z) } = \Size{z} = \Size{P}
   \end{split}
 \end{equation*}
-For the second part, we consider two registers, $R_1$ and $R_2$. The $\mathbf{CX}$ acts transversally on the registers, and it's clear, by commutation relations, that it duplicates $X$-type errors from $R_1$ to their counterparts on $R_2$. Similarly, $\mathbf{CX}$ duplicates $Z$-type errors from $R_2$ into their counterparts on $R_1$.
+For $\mathbf{CX}$, we consider two registers, $R_1$ and $R_2$. The $\mathbf{CX}$ acts transversally on the registers, and it's clear, by commutation relations, that it duplicates $X$-type errors from $R_1$ to their counterparts on $R_2$. Similarly, $\mathbf{CX}$ duplicates $Z$-type errors from $R_2$ into their counterparts on $R_1$.
+Lastly, for $\varphi$, denote the permutation that induces $\varphi$ by $\pi : S \rightarrow S$. Observes that for any subsets of vertices $U\subset \mathcal{G}$, we have:   
 \begin{equation*}
   \begin{split}
-    \Size{ \varphi P } &= \Size{ \varphi (X_{z}) } = \Size{ X_{\varphi(z)} } 
+    \sum_{g \in S}L_{g}(\varphi(U) )  &= \sum_{g \in S}L_{\pi(g)}(U ) = \sum_{g \in \pi(S)}L_{g}(U ) =\sum_{g \in S}L_{g}(U ) \\
+    L_{d+1}(\varphi(U) ) &= \max_{v \in \varphi(U) } - \sum_{g \in S} v_{g} = \max_{v \in U } - \sum_{g \in S} v_{\pi(g)} = L_{d+1}(U)
+  \end{split}
+\end{equation*}
+
+
+\begin{equation*}
+  \begin{split}
+    \Size{ \varphi (P) } &= \Size{ \varphi (X_{z}) } = \Size{ X_{\varphi(z)} } = \sum_{g \in S} L_{g}(\varphi(z) ) +
   \end{split}
 \end{equation*}
 \end{proof}
