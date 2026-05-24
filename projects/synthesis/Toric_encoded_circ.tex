@@ -78,18 +78,13 @@ Namely, the size function is invariant to $\varphi$-rotations, $\Size{\varphi(U)
 \end{proof}
 
 \begin{corollary}
-Consider two registers $R_{1}, R_{2}$, and let $A$ be a logical operator which is realized by applications of $\psi \circ H^{\otimes n}, \mathbf{CX}^{\otimes n}$, and $\varphi$. Assuming that prior to an application of $A$, the total error over the two registers could be decomposed into $X/Z$-type errors $\mathbf{P} = P_{1}, \ldots, P_{l}$, then the error after the application of $A$ over the first (second) register can be decomposed into fewer than $l$ $X/Z$-type errors $\mathbf{P^{\prime}} = P^{\prime}_{1}, \ldots, P^{\prime}_{l^{\prime}}$. There is an injective $h : \mathbf{P^{\prime}} \rightarrow \mathbf{P}$ such that for any $P \in \mathbf{P^{\prime}}$, we have:
+Consider two registers $R_{1}, R_{2}$, and let $A$ be a logical operator which is realized by applications of $\phi \circ H^{\otimes n}, \mathbf{CX}^{\otimes n}$, and $\varphi$. Assuming that prior to an application of $A$, the total error over the two registers could be decomposed into $X/Z$-type errors $\mathbf{P} = P_{1}, \ldots, P_{l}$, then the error after the application of $A$ over the first (second) register can be decomposed into fewer than $l$ $X/Z$-type errors $\mathbf{P^{\prime}} = P^{\prime}_{1}, \ldots, P^{\prime}_{l^{\prime}}$. There is an injective $h : \mathbf{P^{\prime}} \rightarrow \mathbf{P}$ such that for any $P \in \mathbf{P^{\prime}}$, we have:
   \begin{equation*}
     \begin{split}
       \Size{P} = \Size{ h(P) }
     \end{split}
   \end{equation*}
 \end{corollary}
-
-\begin{claim}
-  Let $R_{1}, R_{2}$ be two registers, then any logical operator in $\mathcal{O}$ sends error cluster to an error cluster as follows: 
-\end{claim}
-
 
 
 \section{Toric Encoded Circuits}
