@@ -5,6 +5,7 @@
 Informally, a quantum circuit is a placement of a collection of quantum gates, taken from a finite set, at different space-time locations. Each such location records when the gate is applied and on which qubits it acts. Formally:
 
 \begin{definition}[Quantum Circuit]
+  \label{def:quantcirc}
   A \emph{space-time location} is a pair $l=(t,S)$, where $t$ is a time coordinate and $S=(s_{1},\ldots,s_{\Delta})$ is an ordered tuple of qubit indices. For a finite collection of quantum gates
   \begin{equation*}
     \begin{split}
@@ -17,17 +18,13 @@ Informally, a quantum circuit is a placement of a collection of quantum gates, t
       C=\{u_i=(g_i,l_i)\}_i,
     \end{split}
   \end{equation*}
-  where each $g_i\in\mathcal{G}$ and each location $l_i=(l_{i,1},l_{i,2})$ belongs to $\mathbb{Z}_{d}\times \mathbb{Z}_{w}^{\Delta}$. We call the tuples $u_i$ the gates of $C$. They must satisfy the following compatibility condition: if two gates have the same time coordinate, then their supports are disjoint. Namely, for $u_i=(g_i,l_i),u_j=(g_j,l_j)\in C$, the equality $l_{i,1}=l_{j,1}$ implies that the sets of qubit indices appearing in $l_{i,2}$ and $l_{j,2}$ are disjoint.
-
-  We denote by
+  where each $g_i\in\mathcal{G}$ and each location $l_i=(l_{i,1},l_{i,2})$ belongs to $\mathbb{Z}_{d}\times \mathbb{Z}_{w}^{\Delta}$. We call the tuples $u_i$ \textit{the gates of $C$}. They must satisfy the following compatibility condition: if two gates have the same time coordinate, then their supports are disjoint. Namely, for $u_i=(g_i,l_i),u_j=(g_j,l_j)\in C$, the equality $l_{i,1}=l_{j,1}$ implies that the sets of qubit indices appearing in $l_{i,2}$ and $l_{j,2}$ are disjoint. We denote by
   \begin{equation*}
     \begin{split}
       \operatorname{Loc}(C) \colonequals \{l_i : u_i=(g_i,l_i)\in C\}
     \end{split}
   \end{equation*}
-  the set of locations occupied by the gates of $C$.
-
-  We define the $t$-cut of $C$ by
+  the set of locations occupied by the gates of $C$. We define the \textit{$t$-layer} of $C$ to be its restriction to gates at time $t$:
   \begin{equation*}
     \begin{split}
       C|_{t} \colonequals \{u_i=(g_i,l_i)\colon u_i\in C \text{ and } l_{i,1}=t\}.
@@ -76,38 +73,35 @@ To define the action of a quantum circuit $C$ on a given mixed state, we first a
       d_m \colonequals \left\lceil \frac{d}{m} \right\rceil.
     \end{split}
   \end{equation*}
-  Let $\mathcal{L}\subset [d_m]\times [w]$ be a set of fault locations, where the first coordinate records the block index of a fault layer. For each location $(b,q)\in\mathcal{L}$, choose a one-qubit fault gate $e_{(b,q)}$ acting on qubit $q$. We denote by
-  \begin{equation*}
-    \begin{split}
-      \mathcal{E}=\{(e_{(b,q)},(b,\{q\})):(b,q)\in\mathcal{L}\}
-    \end{split}
-  \end{equation*}
-  the corresponding fault circuit. Its location set is
-  \begin{equation*}
-    \begin{split}
-      \operatorname{Loc}(\mathcal{E}) = \mathcal{L}.
-    \end{split}
-  \end{equation*}
-
+  Let $\mathcal{L}\subset [d_m]\times [w]$ be a set of locations, and let $\mathcal{E}$ be a quantum circuit, such $\text{Loc}(\mathcal{E}) = \mathcal{L}$. We name $\mathcal{E}$ \textit{subsets of faults}, and we name the layers of $\mathcal{E}$ \textit{fault layers}.
   The circuit \textit{$C$ subjected to $\mathcal{E}$ every $m$ computational layers}, denoted by $C[\mathcal{E}]_{m}$, is obtained by keeping the order of the computational layers of $C$ and inserting one fault layer after every block of $m$ consecutive computational layers. Thus the first fault layer is inserted after the computational layers $1,\ldots,m$, the second is inserted after the computational layers $m+1,\ldots,2m$, and so on. Concretely, each computational gate $u_i=(g_i,(t_i,S_i))$ of $C$ is moved to the time coordinate
   \begin{equation*}
     \begin{split}
       t_i + \left\lfloor \frac{t_i-1}{m} \right\rfloor,
     \end{split}
   \end{equation*}
-  while each fault gate $(e_{(b,q)},(b,\{q\}))\in\mathcal{E}$ is placed at time coordinate
+  while each fault gate $(g,(t,S))\in\mathcal{E}$ is placed at time coordinate
   \begin{equation*}
     \begin{split}
-      b(m+1).
+      t(m+1).
     \end{split}
   \end{equation*}
-  Equivalently, for each block index $b\in[d_m]$, the computational layers with original times
+  Equivalently, for each time index $t\in[d_m]$, the computational layers with original times
   \begin{equation*}
     \begin{split}
-      (b-1)m+1,\ldots,\min\{bm,d\}
+      (t-1)m+1,\ldots,\min\{tm,d\}
     \end{split}
   \end{equation*}
-  appear consecutively and are followed by the fault layer at time $b(m+1)$. In particular, when $m=3$, the computational layers are sent to the times
+  appear consecutively and are followed by the fault layer at time $b(m+1)$.
+  When $m=1$, the computational gates occupy the odd time coordinates and the fault layers occupy the even time coordinates. When the parameter is omitted, we mean $m=1$. We denote the associated computation DAG of $C[\mathcal{E}]_{m}$ by $\comDAG$.
+\end{definition}
+
+\begin{remark}
+  Formally, a fault circuit is just a particular quantum circuit whose gates are interpreted as faults rather than as computational operations. Thus the distinction between a quantum circuit and a fault circuit is semantic rather than structural: both are circuits in the sense of \Cref{def:quantcirc}, but they play different roles in the analysis.
+\end{remark}
+
+\begin{example}
+  When $m=3$, the computational layers are sent to the times
   \begin{equation*}
     \begin{split}
       1,2,3,5,6,7,9,10,11,\ldots,
@@ -119,13 +113,8 @@ To define the action of a quantum circuit $C$ on a given mixed state, we first a
       4,8,12,\ldots.
     \end{split}
   \end{equation*}
+\end{example}
 
-  When $m=1$, the computational gates occupy the odd time coordinates and the fault layers occupy the even time coordinates. When the parameter is omitted, we mean $m=1$. We denote the associated computation DAG of $C[\mathcal{E}]_{m}$ by $\comDAG$.
-\end{definition}
-
-\begin{remark}
-  Formally, a fault circuit is just a particular quantum circuit whose gates are interpreted as faults rather than as computational operations. Thus the distinction between a quantum circuit and a fault circuit is semantic rather than structural: both are circuits in the sense of the preceding definition, but they play different roles in the analysis.
-\end{remark}
 
 The chapter uses two different notions of propagation. They are related, but they serve different analytical purposes. The first notion does not rewrite the circuit and does not change the time coordinates. Instead, it propagates part of the error inside a fixed running of the computation and asks what the accumulated effect looks like at a chosen step $\tau$. In particular, this notion applies not only to a single fault, but also to a collection of faults propagated one after another according to the computation DAG. This is the right framework when one wants to speak about the size of the syndrome or of the deviation \emph{at an actual intermediate time} of the computation.
 
