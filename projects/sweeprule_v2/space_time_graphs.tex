@@ -3,7 +3,7 @@
   \subsection{Space-Time Graph}
     
   \begin{definition}
-    Consider a graph $G = (V, A, F)$, where $V$ is a set of vertices, $A$ is a set of directed edges, and $F$ is a set of undirected edges. For $v \in V$, denote by $\pre{v} = \{ u \in V \colon \{u,v\} \in A \}$, we extend the notion for subsets of vertices $X \subset V$ by $\pre{X} = \bigcup_{v \in X} \pre{v}$. Let $ T \colon V \rightarrow \mathbb{N}$, We say that $(G,T)$ is a time graph if and only if:
+    Consider a graph $G = (V, A, F)$, where $V$ is a set of vertices, and $A$ and $F$ are sets of undirected edges. For $v \in V$, denote by $\pre{v} = \{ u \in V \colon \{u,v\} \in A \}$, we extend the notion for subsets of vertices $X \subset V$ by $\pre{X} = \bigcup_{v \in X} \pre{v}$. Let $ T \colon V \rightarrow \mathbb{N}$, We say that $(G,T)$ is a time graph if and only if:
 \begin{enumerate}
   \item $\{x,y\} \in A \Rightarrow \Time{y} = \Time{x} + 1$  
   \item For $x,y \in V $  $\{x,y\} \in F $ if and only if there exists $z \in V $ such both $\{x,z\},\{y,z\} \in A$. 
@@ -20,7 +20,6 @@
   \begin{claim} 
     \label{claim:disj}
     Consider slices $K_{1}, K_{2}$ such that $\Time{K_1} = \Time{K_2}$, then either $K_{1}=K_{2}$ or $\History{K_1}, \History{K_2}$ are disjoint.
-  \ctt{ Is not correct when $A$ is directed. }
   \end{claim}
   \begin{proof}
 Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \History{K_{2}}$ such that for any $x \in K_{1}$ and $y \in K_{2}$, there exist arrow-paths $z \rightarrow x$ and $z \rightarrow y$. Thus, for any $w \in \History{K_{1}}$, one can concatenate a path $w \rightarrow x \rightarrow z \rightarrow y$ and conclude that $y \in \History{K_{2}}$.
@@ -119,6 +118,14 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
       \end{split}
     \end{equation*}
 After the application of $\phi \circ \mathbf{H}$ the slices in the history of $X$ slice are $Z$-slices. 
+It seems that the most continent way to handle the case is when we map the errors to:  
+\begin{equation*}
+  \begin{split}
+    X_{f} & \rightarrow X_{f}Z_{\psi(f)} \\
+    Z_{f} & \rightarrow Z_{f}X_{\psi(f)} \\
+  \end{split}
+\end{equation*}
+By that, we earn that when moving the dual system the error remains the same. For that to work it seems that we have also to say something like for $\mathcal{E}^{\prime} \subset \mathcal{E}$ if things work to $\mathcal{E}$ then they also should work for $\mathcal{E}^{\prime}$. 
   }
   \begin{definition}
 Let $C$ be a toric encoded circuit, let $\mathcal{E}$ be a set of faults, and consider Toom's contour $G_{\mathcal{H}}$ defined by it. We extend the slice definition into the language of $X/Z$-type error clusters as follows: We define an \textit{$X$-slice} to be a slice that is supported only on the vertices in $V_{\mathcal{H},X}$. Similarly, a \textit{$Z$-slice} is a slice that is supported only on the vertices of $V_{\mathcal{H},Z}$. As in $X/Z$-type error clusters, we define the size function to be conditioned on the type.
