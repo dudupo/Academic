@@ -7,8 +7,9 @@
     \begin{definition}[Troic Encoded Circuit]
       Let $C$ be a quantum circuit. We say that $C$ is \textit{Toric encoded} if the following holds:
       \begin{enumerate}
-          \item There is a Toric code $\mathcal{C}$ such that the qubits of $\mathcal{C}$ can be partitioned into registers $R_{1}, \ldots, R_{k}$, and each of the registers is encoded by $\mathcal{C}$.   
+        \item There is a Toric code $\mathcal{C}$ such that the qubits of $\mathcal{C}$ can be partitioned into registers $R_{1}, \ldots, R_{k}$, and, at any time, each of the registers is encoded either by $\mathcal{C}$ or by $\phi \circ H (\mathcal{C})$\footnote{Notice that although the code space is invariant to the application of $\phi \circ \mathbf{H}$, the positive direction of the underlying Toric complex is flipped.}.
           \item The layers in $C$ with an even time coordinates are sweep-cycle.
+          \item The layers in $C$ with an odd time coordinates are one of $\mathbf{H},\mathbf{S},\mathbf{CX},\mathbf{X},\mathbf{Z}$.
         \end{enumerate} 
         For a set of faults $\mathcal{E}$ the gates in $C[\mathcal{E}]$ can be decomposed to cycles, of the following form:
         \begin{equation*}
@@ -17,6 +18,10 @@
           \end{split}
         \end{equation*}
     \end{definition}
+
+\begin{definition}[The Boundery of Deviation $\partial D_{t}$  ] 
+  Let $C$ be a Toric encoded circuit, and let $\mathcal{E}$ be a set of faults. Denote by $\mathcal{D}_{t}$ the deviation in $C[\mathcal{E}]$ at time $t$. We define the $X$-type, and the $Z$-type boundaries of $\mathcal{D}_{t}$, denoted by $\partial{D}^{X}_{t}$ and $\partial{D}^{Z}_{t}$. As, 
+\end{definition}
 
   \begin{definition}[Base graph $G_{o}$]
     Let $C$ be a quantum circuit, at depth $d$, with registers $R_{1}, \ldots, R_{k}$, all of which are encoded by Toric codes with the same parameters (i.e., dimension, length, etc.). Let's denote by $\mathcal{G}_{1}, .., \mathcal{G}_{k}$ the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o},E_{o})$ as follows: 
@@ -40,6 +45,7 @@
 
   \end{definition}
 
+
   \begin{definition}[Time Graph of $C(\mathcal{E})$]
     For a quantum circuit $C$ and set of faults $\mathcal{E}$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. For each time $t$, denote the deviation induced by $\mathcal{E}$ at time $t$ by $\mathcal{D}_{t}$, so $\partial\mathcal{D}_{t}$ is the syndrome that the qubits in the deviation admit. We define the history graph $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
     \begin{enumerate}
@@ -61,7 +67,6 @@
     \end{enumerate}
     By definition of the construction, $G_{\mathcal{H}}$ is a time-graph.
 \end{definition}
-
 
 
 \begin{definition}[Time Graph of $C(\mathcal{E})$]
