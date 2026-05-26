@@ -44,14 +44,14 @@
 
   \end{definition}
 
-
-  \begin{definition}[Time Graph of $C(\mathcal{E})$]
-    For a quantum circuit $C$ and set of faults $\mathcal{E}$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. For each time $t$, denote the deviation induced by $\mathcal{E}$ at time $t$ by $\mathcal{D}_{t}$, so $\partial\mathcal{D}_{t}$ is the syndrome that the qubits in the deviation admit. We define the history graph $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
+  \begin{definition}[Tooms Contour Graph of $C[\mathcal{E}]$]
+    For a quantum circuit $C$ and set of faults $\mathcal{E}$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. For each time $t$, denote the deviation induced by $\mathcal{E}$ at time $t$ by $\mathcal{D}_{t}$, so $\partial\mathcal{D}_{t}$ is the syndrome that the qubits in the deviation admit. We define the \textit{Tooms contour graph} $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
     \begin{enumerate}
-      \item The vertices $V_{\mathcal{H}}$ are partitioned into two types $X$-type vertices $V_{\mathcal{H},X}$ and $Z$-type vertices $V_{\mathcal{H},Z}$. The $X$-type vertices $V_{\mathcal{H},X}$ are taken to be the vertices of $G_{o}$, namely tuples $(v,t) \in V_{o}$, that satisfy that $v$ belongs to a face associated with a check, which, at time $t$, belongs to the $\left(\partial \mathcal{D}_{t} \right)|_{X}$. Namely:
+      \item The vertices $V_{\mathcal{H}}$ are partitioned into two types, $X$-type vertices $V_{\mathcal{H},X}$ and $Z$-type vertices $V_{\mathcal{H},Z}$. Each of the $X/Z$-type corresponds to the vertices supporting the $X/Z$-boundary of $\mathcal{D}$. Namely:
         \begin{equation*}
           \begin{split}
-            \big\{ v_{t} : v_{t}=(v,t) \in V_{o} \text{ and there exists a check } f \in C \text{ such } v \in f \in \left( \partial \mathcal{D}_{t} \right)|_{X} \big\}
+            V_{\mathcal{H},X} &\colonequals \big\{ v_{t} : v_{t}=(v,t) \in V_{o} \text{ and there exists a face } f \in \partial \mathcal{D}^{X}_{t} \text{ such } v \in f \big\} \\
+            V_{\mathcal{H},Z} &\colonequals \big\{ v_{t} : v_{t}=(v,t) \in V_{o} \text{ and there exists a face } f \in \partial \mathcal{D}^{Z}_{t} \text{ such } v \in f \big\} 
           \end{split}
         \end{equation*}
         Similarly, the $Z$-type vertices $V_{\mathcal{H}, Z}$ are the vertices $(v,t) \in V_{o}$, that satisfy that $v$ belongs to a face associated with a check, which, at time $t$, belongs to the $\left(\partial D_{t} \right)|_{Z}$. 
