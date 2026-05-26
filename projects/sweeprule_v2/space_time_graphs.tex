@@ -54,21 +54,9 @@ Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \His
     \end{enumerate}
   \end{proof}
 
-  \begin{definition}
-Let $f \colon G \hookrightarrow \mathbb{R}^{d}$ be an embedding that maps each element of $V \cup A \cup F$ to a point in $\mathbb{R}^{d}$. We say that $\left( G, \mathbb{R}^{d} \right) $ is a space-time graph if and only if: 
-\begin{enumerate}
-  \item \item The point set by $f$ for an edge is the mean of its endpoints' images; that is, for $e = \{x,y\} \in A \cup F$, we have $f(e) = \frac{1}{2}\left(f(x) + f(y)\right)$.
-\end{enumerate}
-  \end{definition}
-
-  \begin{definition}
-    Define $\prei{v} = \arg\max_{u \in \pre{v}}L_{i}(f(u))$
-  \end{definition}
-
-
 
   \begin{definition}[Spanned Set]
-    Consider an embedding $f \colon \star \hookrightarrow \mathbb{R}^{d}$, a subset of $f$'s domain $S \subset \star$, and $d+1$ points $x_{1}, \ldots, x_{d+1}$. We say that $\expval*{S, x_{1}, \ldots, x_{d+1}}$ is a spanned set of $S$ if for any $i \in [d+1]$ and $s \in S$, it holds that $L(f(s)) \le L_{i}(x_{i})$ and in addition there are $v_{1},..v_{d+1} \in V$, not necessary different, that achieve the equalities $L_{i}(x_{i}) = L_{i}(f(x_{i}))$.  We name $x_{1}, \ldots, x_{d+1}$ the poles of $S$. Furthermore, we extend the notation to a spanned slice when $S$ is a slice of some time-graph. Notice that saying $\expval*{S, x_{1}, \ldots, x_{d+1}}$ is a spanned set means that $\Size{S} = \Size{ \{x_{1}, \ldots, x_{d+1}\}}$.
+    Consider a subset $S \subset \star$, and $d+1$ points $x_{1}, \ldots, x_{d+1}$. We say that $\expval*{S, x_{1}, \ldots, x_{d+1}}$ is a spanned set of $S$ if for any $i \in [d+1]$ and $s \in S$, it holds that $L(f(s)) \le L_{i}(x_{i})$ and in addition there are $v_{1},..v_{d+1} \in V$, not necessary different, that achieve the equalities $L_{i}(x_{i}) = L_{i}(f(x_{i}))$.  We name $x_{1}, \ldots, x_{d+1}$ the poles of $S$. Furthermore, we extend the notation to a spanned slice when $S$ is a slice of some time-graph. Notice that saying $\expval*{S, x_{1}, \ldots, x_{d+1}}$ is a spanned set means that $\Size{S} = \Size{ \{x_{1}, \ldots, x_{d+1}\}}$.
   \end{definition}
   Observe that in the case where the subset $S$ is a slice. Each of these poles can be associated with a vertex of $G$ that gives the equality. If there are multiple vertices whose images by $f$ give equality, associate the point with one of them arbitrarily. We will use the notion of applying functions originally defined over vertices to the poles, referring to the application over the vertices associated with them. For example $\pre{x_{i}} = \pre{v}$ for the vertex $v \in S$ which satisfies $L_{i}(f(v)) = L_{i}(x_i)$ and therefore is associated with the pole $x_{i}$. 
  Another example is referring to $x_{i}$ as a vertex, so when saying 'For $x_{i} \in V_{k}$' or 'For $\{x_{i},u\} \in F$', we refer to the associated vertex or the edge connecting it to $u$.
