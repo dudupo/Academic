@@ -28,7 +28,7 @@
       \item The vertices $V_{o}$ are tuples, where the first coordinates correspond to a vertex in the union over the vertices in $\mathcal{G}_{1}, \ldots, \mathcal{G}_{k}$, and the second coordinate is associated with a time. Namely:
         \begin{equation*}
           \begin{split}
-            V_{o} \colonequals \bigsqcup_{i} V(\mathcal{G}_{i}) \times [d]
+            V_{o} \colonequals \bigcup_{i} V(\mathcal{G}_{i}) \times [d]
           \end{split}
         \end{equation*}
       \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}_{1}, \ldots, \mathcal{G}_{k}$, with the addition that any two vertices in preceding times $t$ and $t+1$ that support qubits (faces) such that $C$ acts non-trivially on those qubits at time $t$ are also connected by an edge. Namely:
