@@ -24,7 +24,7 @@
 
         Consider $i \in 0,..,k$, denote by $s_{i} = \Size{\hat{K}_{i}}$. By the inductive hypothesis and since $\Time{K_{i}} = \Time{K} - 1$, we know that $\hat{K}_{i}$ has an explanation formed by a set of leaves $\mathbf{W}_{i}$, a set of arrows $\mathbf{R}_{i}$ and a set of forks $\mathbf{F}_{i}$. Let $m_{i} =|\mathbf{W}_{i}|$, So the sets $R_{i}$ and $F_{i}$ have at most $\alpha m_{i} - s_{i}$ and $m_{i}-1$ leaves. We define:
         \begin{enumerate}
-          \item $\mathbf{W} = \cup_{i=0}^{k} \mathbf{W}_{i}$, Notice that $\mathbf{W}_{i} \subset K_{i}$ and that $\Time{K_{i}} = \Time{K_{j}}$ for all $i,j$, thus by \cref{cref:disj} $\mathbf{W}$ is a union of disjoint set, Hence $W$ contains  $m = \sum_{i=0}^{k}m_{i}$ leaves. 
+          \item $\mathbf{W} = \cup_{i=0}^{k} \mathbf{W}_{i}$, Notice that $\mathbf{W}_{i} \subset K_{i}$ and that $\Time{K_{i}} = \Time{K_{j}}$ for all $i,j$, thus by \Cref{claim:disj} $\mathbf{W}$ is a union of disjoint set, Hence $W$ contains  $m = \sum_{i=0}^{k}m_{i}$ leaves. 
           \item $\mathbf{F} = \{ F_{1},..,F_{k} \} \cup_{i = 0}^{k}\mathbf{F}_{i}$ with at most $ k + \sum_{i=0}^{k}{m_{i} -1 } = m- 1$ elements. 
           \item $\mathbf{R} = \{ \{v_{i}, \prei{v_{i}} \} \} \cup_{i=0}^{k}{ \mathbf{R}_{i} }$ with at most 
             \begin{equation*}
