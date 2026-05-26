@@ -79,6 +79,7 @@
                 & \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f\text{ and } u,v \in V_{\mathcal{H},Z} \bigr\} 
               \end{split}
             \end{equation*}
+          \item If $g$ is the logical $\mathbf{S}$ on register $R$, using a magic state encoded in register $R_{\mathbf{S}}$, then we connect edges by following the connection rules: first applying logical $\mathbf{CX}$ from $R$ into $R_{\mathbf{S}}$, then applying logical $\phi \circ \mathbf{H}$ on $R_{\mathbf{S}}$, and then applying logical $\mathbf{CX}$ from $R_{\mathbf{S}}$ into $R$.
         \end{enumerate}
         In addition for any fault $g$ of $\mathcal{E}$, that is applied at time $t$, and any faces $f_{1} \notin \text{Sup}_{X}(g)$ and $f_{2} \notin \text{Sup}_{Z}(g)$, we add the edges:
             \begin{equation*}
