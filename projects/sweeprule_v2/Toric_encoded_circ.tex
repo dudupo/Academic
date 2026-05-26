@@ -72,14 +72,7 @@
                 & \bigl\{  \{(u,t),(v,t+1)\} : u \in f, v \in \phi(f) \text{ and } v \in V_{\mathcal{H},X} ,u \in V_{\mathcal{H},Z} \bigr\} 
               \end{split}
             \end{equation*}
-          \item If $g$ is one of logical $X,Z,I$ then for any face $f$, in the register on which acts $g$, we add: 
-            \begin{equation*}
-              \begin{split}
-                & \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f \text{ and } u,v \in V_{\mathcal{H},X} \bigr\} \\
-                & \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f\text{ and } u,v \in V_{\mathcal{H},Z} \bigr\} 
-              \end{split}
-            \end{equation*}
-          \item If $g$ is a sweep-cycle $f$, in the register on which acts $g$, we add: 
+          \item If $g$ is one of logical $X,Z,I$ or a sweep-cycle, then for any face $f$, in the register on which acts $g$, we add: 
             \begin{equation*}
               \begin{split}
                 & \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f \text{ and } u,v \in V_{\mathcal{H},X} \bigr\} \\
@@ -87,32 +80,21 @@
               \end{split}
             \end{equation*}
         \end{enumerate}
-        In addition for any fault $g$ of $\mathcal{E}$, that is applied at time $t$, and any face $f \not \text{Sup}(g)$, we add the edges:
-
+        In addition for any fault $g$ of $\mathcal{E}$, that is applied at time $t$, and any faces $f_{1} \notin \text{Sup}_{X}(g)$ and $f_{2} \notin \text{Sup}_{Z}(g)$, we add the edges:
+            \begin{equation*}
+              \begin{split}
+                & \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f_{1} \text{ and } u,v \in V_{\mathcal{H},X} \bigr\} \\
+                & \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f_{2}\text{ and } u,v \in V_{\mathcal{H},Z} \bigr\} 
+              \end{split}
+            \end{equation*}
+            To construct $F_{\mathcal{H}}$, we connect any pair of vertices $(v,t)$, $(u,t)$ if there exists a vertex $(w,t+1)$ such both of them are connected to it trough $A_{\mathcal{H}}$. Namely: 
         \begin{equation*}
           \begin{split}
-            A_{\mathcal{H}} &= \big\{ e = \{u,v\} \in E_{o} :  u,v \in V_{\mathcal{H}} \text{ and } \Time{v} = \Time{u}\pm 1 \big\} \\
             F_{\mathcal{H}} &= \big\{ e = \{u,v\} \in E_{o} : \text{ exists } w \in V_{\mathcal{H}} \text{ such } \{v,w\},\{u,w\} \in A_{\mathcal{H}} \big\} 
           \end{split}
         \end{equation*}
     \end{enumerate}
-    By definition of the construction, $G_{\mathcal{H}}$ is a time-graph.
-\end{definition}
-
-
-\begin{definition}[Time Graph of $C(\mathcal{E})$]
-  For a quantum circuit $C$ and set of faults $\mathcal{E}$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. For each time $t$, denote the deviation induced by $\mathcal{E}$ at time $t$ by $\mathcal{D}_{t}$, so $\partial\mathcal{D}_{t}$ is the syndrome that the qubits in the deviation admit, denote by $\partial\mathcal{D}_{t}^{X}$ and by $\partial\mathcal{D}_{t}^{Z}$ the $X-Z$ decomposition of $\partial\mathcal{D}_{t}$. We define the history graph $\mathcal{H} = ( V_{\mathcal{H},X} \cup V_{\mathcal{H},Z}, E_{\mathcal{H}})$, in recursive manner as follow: 
-  \begin{enumerate}
-    \item For the empty circuit. The vertices in $V_{\mathcal{H}, X} $ are the vertices of $V_{o}|_{1}$ that support $\partial D_{t}^{X}$. Similarly, the vertices of $V_{\mathcal{H,Z}}$ are the vertices of $V_{o}|_{1}$ that support $\partial D_{t}^{Z}$. 
-    \item Let $\mathcal{H}$ be the history graph of $C[\mathcal{E}]$ restricted to the first $d-1$ layers. Let $U$ be the $d$-layer, then define the history graph corresponding to the first $d$ layers of $C[\mathcal{E}]$ to be obtained by adding vertices and edges to $\mathcal{H}$ as follows:
-      \begin{enumerate}
-        \item If $U$ is a noise gate, namely $U \subset \mathcal{E}$, then denote by $\mathcal{E}_{t}^{X}$ and $\mathcal{E}_{t}^{Z}$ the $X,Z$ decomposition of $\mathcal{E}_{t}$. Then, for any vertex in $\mathcal{G}$
-        \item Else, denote by $U_{1},..,U_{l}$ the gates in $U$. If $U_{1}$ is a $\mathbf{CX}^{\otimes n}$ gate acting on registers $R_{1}$ into $R_{2}$, then for each vertex $v \in V_{\mathcal{H},X}|_{R_{1}, t=d-1}$ add the counter parts of $v$ in $R_{1}$,$R_{2}$ at time $t=d+1$ into $V_{\mathcal{H} ,X}$ and connect them by arrows to $v$. Similarly, for any vertex $v \in V_{\mathcal{H},Z}|_{R_{2}, t=d-1}$ add the counter parts of $v$ in $R_{2}$,$R_{2}$ at time $t=d+1$ into $V_{\mathcal{H} ,X}$ and connect them by arrows to $v$.
-      \end{enumerate}
-  \end{enumerate}
-
-
-
+    We call $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$ the \textit{arrows} and \textit{forks} edges respectively. By definition of the construction, $G_{\mathcal{H}}$ is a time-graph.
 \end{definition}
 
 \ctt{ What we have to do is take the first definition, but split the vertex into $X$-type and $Z$-type. Then we connect the boundary of two registers in time if the gate applied is $I$ or $\mathbf{CX}$; otherwise, in case we apply Hadamard, we cross the type. If we apply a Sweep cycle, then again we connect only vertices of the same type.} 
