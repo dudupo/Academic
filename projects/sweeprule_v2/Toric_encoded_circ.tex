@@ -5,21 +5,21 @@
 \section{Toric Encoded Circuits}
 
     \begin{definition}[Troic Encoded Circuit]
-      Let $C$ be a quantum circuit. We say that $C$ is \textit{Toric encoded} if the following holds:
+      Let $C$ be a quantum circuit. We say that $C$ is a \textit{Toric encoded circuit} if the following holds:
       \begin{enumerate}
         \item There is a Toric code $\mathcal{C}$ such that the qubits of $\mathcal{C}$ can be partitioned into registers $R_{1}, \ldots, R_{k}$, and, at any time, each of the registers is encoded either by the \textit{nice encoding of} $\mathcal{C}$ or by the \textit{nice encoding of} $\phi \circ H (\mathcal{C})$\footnote{Notice that although the code space is invariant to the application of $\phi \circ \mathbf{H}$, the positive direction of the underlying Toric complex is flipped.}. At time $t=0$, the registers are initialized to be either $\ket{\bar{0}}$ or encoded $\ket{\mathbf{S}}$.
         \item The layers of $C$ at even times are sweep-cycles, and the layers at odd times are realizations of one of the logical $\mathbf{H}, \mathbf{S}, \mathbf{CX}, \mathbf{X}$, or $\mathbf{Z}$ gates.
         \end{enumerate} 
-        For a set of faults $\mathcal{E}$ the gates in $C[\mathcal{E}]$ can be decomposed to cycles, of the following form:
-        \begin{equation*}
-          \begin{split}
-            C =     D_{l}P_{l}\Lambda_{l},..,D_{1} P_{1} \Lambda_{1}
-          \end{split}
-        \end{equation*}
     \end{definition}
 
-\begin{definition}[The Boundery of Deviation $\partial D_{t}$  ] 
-  Let $C$ be a Toric encoded circuit, and let $\mathcal{E}$ be a set of faults. Denote by $\mathcal{D}_{t}$ the deviation in $C[\mathcal{E}]$ at time $t$. We define the $X$-type, and the $Z$-type boundaries of $\mathcal{D}_{t}$, denoted by $\partial{D}^{X}_{t}$ and $\partial{D}^{Z}_{t}$. As, 
+\begin{definition}[The Boundery of Deviation $\partial D_{t}$  ]  \ 
+  Let $C$ be a Toric encoded circuit, with registers $R_{1},..,R_{l}$ and let $\mathcal{E}$ be a set of faults. Consider the subjection $C[\mathcal{E}]$, For a time $t$, let $A_{t},B_{t} \subset \{R_{1},..,R_{l}\}$ be the registers that encoded, at time $t$ in $C[\mathcal{E}]$, by $\mathcal{C}$ and $\phi \circ \mathbf{H}$ respectively. Denote by $\mathcal{D}_{t}$ the deviation in $C[\mathcal{E}]$ at time $t$. We define the \textit{$X$-type, and the $Z$-type boundaries} of $\mathcal{D}_{t}$, denoted by $\partial{D}^{X}_{t}$ and $\partial{D}^{Z}_{t}$, as follow:   
+  \begin{equation*}
+    \begin{split}
+      \partial \mathcal{D}^{X}_{t}  & \colonequals \bigcup_{R_{i} \in A_{t}} \partial \ket{R_{i,t}} \cup\bigcup_{R_{i} \in B_{t}} \partial \phi \circ \mathbf{H} \ket{R_{i,t}} \\
+      \partial \mathcal{D}^{Z}_{t}  & \colonequals \bigcup_{R_{i} \in B_{t}} \partial \ket{R_{i,t}} \cup\bigcup_{R_{i} \in A_{t}} \partial \phi \circ \mathbf{H} \ket{R_{i,t}} 
+    \end{split}
+  \end{equation*}
 \end{definition}
 
   \begin{definition}[Base graph $G_{o}$]
