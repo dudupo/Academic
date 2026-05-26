@@ -56,7 +56,18 @@
         \end{equation*}
         Similarly, the $Z$-type vertices $V_{\mathcal{H}, Z}$ are the vertices $(v,t) \in V_{o}$, that satisfy that $v$ belongs to a face associated with a check, which, at time $t$, belongs to the $\left(\partial D_{t} \right)|_{Z}$. 
 
-      \item The edges $E_{\mathcal{H}}$ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$, where $A_{\mathcal{H}}$ are the edges in $E_{o}$ restricted to $V_{\mathcal{H}}$ and $F_{\mathcal{H}}$ are defined to be the . Namely:
+      \item The edges $E_{\mathcal{H}}$ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$, where for any physical gate of $(g,l=(t,S))$ of $C[\mathcal{E}]$ we add edge to $A_{\mathcal{H}}$ as follow: 
+        \begin{enumerate}
+          \item If $g$ is physical $\mathbf{CX}$ between faces $f_{1}$ into $f_{2}$ at time $t$ then we add: 
+            \begin{equation*}
+              \begin{split}
+               & \bigl\{  \{(u,t),(v,t+1)\} : u \in f_{1}, v \in f_{1}\cup f_{2} \text{ and } v,u \in V_{\mathcal{H},X} \bigr\} \\
+               & \bigl\{  \{(u,t),(v,t+1)\} : u \in f_{2}, v \in f_{1}\cup f_{2} \text{ and } v,u \in V_{\mathcal{H},Z} \bigr\} 
+              \end{split}
+            \end{equation*}
+          \item If $g$ is physical $\phi \circ \mathbf{H}$. 
+        \end{enumerate}
+
         \begin{equation*}
           \begin{split}
             A_{\mathcal{H}} &= \big\{ e = \{u,v\} \in E_{o} :  u,v \in V_{\mathcal{H}} \text{ and } \Time{v} = \Time{u}\pm 1 \big\} \\
