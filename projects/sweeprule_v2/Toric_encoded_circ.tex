@@ -7,9 +7,8 @@
     \begin{definition}[Troic Encoded Circuit]
       Let $C$ be a quantum circuit. We say that $C$ is \textit{Toric encoded} if the following holds:
       \begin{enumerate}
-        \item There is a Toric code $\mathcal{C}$ such that the qubits of $\mathcal{C}$ can be partitioned into registers $R_{1}, \ldots, R_{k}$, and, at any time, each of the registers is encoded either by $\mathcal{C}$ or by $\phi \circ H (\mathcal{C})$\footnote{Notice that although the code space is invariant to the application of $\phi \circ \mathbf{H}$, the positive direction of the underlying Toric complex is flipped.}.
-          \item The layers in $C$ with an even time coordinates are sweep-cycle.
-          \item The layers in $C$ with an odd time coordinates are one of $\mathbf{H},\mathbf{S},\mathbf{CX},\mathbf{X},\mathbf{Z}$.
+        \item There is a Toric code $\mathcal{C}$ such that the qubits of $\mathcal{C}$ can be partitioned into registers $R_{1}, \ldots, R_{k}$, and, at any time, each of the registers is encoded either by the \textit{nice encoding of} $\mathcal{C}$ or by the \textit{nice encoding of} $\phi \circ H (\mathcal{C})$\footnote{Notice that although the code space is invariant to the application of $\phi \circ \mathbf{H}$, the positive direction of the underlying Toric complex is flipped.}. At time $t=0$, the registers are initialized to be either $\ket{\bat{0}}$ or encoded $\ket{\mathbf{S}}$.
+        \item The layers of $C$ at even times are sweep-cycles, and the layers at odd times are realizations of one of the logical $\mathbf{H}, \mathbf{S}, \mathbf{CX}, \mathbf{X}$, or $\mathbf{Z}$ gates.
         \end{enumerate} 
         For a set of faults $\mathcal{E}$ the gates in $C[\mathcal{E}]$ can be decomposed to cycles, of the following form:
         \begin{equation*}
