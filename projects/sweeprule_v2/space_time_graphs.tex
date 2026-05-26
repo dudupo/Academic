@@ -9,11 +9,10 @@
   \item For $x,y \in V $  $\{x,y\} \in F $ if and only if there exists $z \in V $ such both $\{x,z\},\{y,z\} \in A$. 
 \end{enumerate} We will call to $T$ time-function, to $A$ arrows, and to $F$ forks. Observes that from the second requirement it follows that forks can connect only vertices that have the same time value (set by $T$). 
   \end{definition}
+  \begin{remark}
+    The Toom's contour graph defined in \Cref{def:contour} is, by definition of it's construction, a time-graph.
+\end{remark}
 
-
-
-
-% that since $(V,A)$ is a DAG it defines a partial order on $V$, let us denote $u \le v$ for $u,v \in V$ if there is a directed path from $u$ to  
   \begin{definition}[History, slice.]
     For a time graph $(G,T)$ and a vertex $u \in V$, let $G_{u}$ be the subgraph of $(V,A)$ induced by $\{ v \in V \colon \Time{v} \le \Time{u} \}$. We will denote by $\History{u}$ the 'History of $u$', which is the set of vertices that are connected to $u$ in $G_{u}$. A slice is an equivalence class of the relation $u \equiv v$ if and only if $\History{u} = \History{v}$. Notice that the time function has to be constant on a slice, to see this consider vertices  $x,y$ with $T(x) > T(y)$, thus $x \notin G_{y}$ and therefore $x \in \History{x}/\History{y}$ So they are belong to different classes. Thus, we can extend the time function and the history to slices and write for a slice $K$, $\Time{K}$ and $\History{K}$.
   \end{definition}
