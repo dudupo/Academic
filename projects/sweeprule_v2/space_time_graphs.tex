@@ -115,12 +115,12 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
   \end{definition}
 
   \begin{corollary}
-    Consider a spanned slice $\hat{K}$, and let $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ be the \textit{predecessor decomposition} of $\hat{K}$. 
+    Consider a spanned slice $\hat{K}$, and let $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ be the predecessor decomposition of $\hat{K}$. 
     \begin{enumerate}
-      \item If $\hat{K}$ is a result of $\eta$-sweep-cycle, then: 
+      \item If $\hat{K}$ is a result of $\xi$-sweep-cycle, then: 
         \begin{equation*}
           \begin{split}
-            \sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}} + \eta
+            \sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}} + \xi
           \end{split}
         \end{equation*}
           \item If $\hat{K}$ is a result of either faults or a logical operation, then: 
@@ -138,7 +138,9 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
     \end{enumerate}
   \end{proof}
 
-
+  \begin{corollary}
+    For any $i \in [k]$, denote by $\hat{K}_{0}^{i},..,\hat{K}_{k_{i}}^{i},F_{1}^{i},..,F_{k_{i}}^{i}$ the be the predecessor decomposition of $\hat{K}_{i}$. Then if $\hat{K}$ is a result of..
+  \end{corollary}
   \ctt{ 
     Same proof works when after the application of $\phi \circ \mathbf{H}$, then $\prei{x_{i}} = \phi(x_{i})$.  
     \begin{equation*}
