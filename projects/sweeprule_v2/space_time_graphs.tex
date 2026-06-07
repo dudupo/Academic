@@ -110,25 +110,26 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
   \end{proof}
 
   \begin{definition}
-  Let $\hat{K}$ be a spanned slice, and let $\hat{K}_{0}, \ldots, \hat{K}_{k}$ be spanned slices in $H_{K}$, and let $F_{1}, \ldots, F_{k}$ be spanned forks, such that $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ satisfy the conditions in \Cref{claim:prevslices}. We call $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ the \textit{predecessor decomposition} of $\hat{K}$. 
-  
-Furthermore, we say that $\hat{K}$ is a result of a \textit{sweep-cycle}, \textit{faults}, or a \textit{logical operation} if the layer at time $T(\hat{K}) - 1$ consists of sweep-cycle gates, fault gates (whose source is $\mathcal{E}$), or logical gates.
+  Let $\hat{K}$ be a spanned slice, and let $\hat{K}_{0}, \ldots, \hat{K}_{k}$ be spanned slices in $H_{K}$, and let $F_{1}, \ldots, F_{k}$ be spanned forks, such that $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ satisfy the conditions in \Cref{claim:prevslices}. We call $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ the \textit{predecessor decomposition} of $\hat{K}$.  
+  Furthermore, we say that $\hat{K}$ is a result of a \textit{sweep-cycle}, \textit{faults}, or a \textit{logical operation} if the layer at time $T(\hat{K}) - 1$ consists of sweep-cycle gates, fault gates (whose source is $\mathcal{E}$), or logical gates.
   \end{definition}
 
   \begin{corollary}
     Consider a spanned slice $\hat{K}$, and let $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ be the \textit{predecessor decomposition} of $\hat{K}$. 
     \begin{enumerate}
-      \item If , namely at the end of 
-          \item If $t$ is the 
+      \item If $\mathcal{K}$ is a result of sweep-cycle, then: 
+        \begin{equation*}
+          \begin{split}
+            \sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}} + 1 
+          \end{split}
+        \end{equation*}
+          \item If $\mathcal{K}$ is a result of either faults or a logical operation, then: 
+        \begin{equation*}
+          \begin{split}
+            \sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}}  
+          \end{split}
+        \end{equation*}
       \end{enumerate}
-
-    at the end of even layer, namely at the end of the sweep-cycle. Let $g$ be the logical gate applied preceding to the sweep-cycle. Denote by $\hat{K_{0}},..,\hat{K_{l}}$ the decomposition, according to .., and for and for any $i \in 0,..,l$, let $\hat{K_{0}}^{i},..\hat{K_{l_{i}}}^{i}$ be the decomposition of $\hat{K_{i}}$. Then: 
-    \begin{equation*}
-      \begin{split}
-        & \sum^{k}_{i,j=0}\Size{\hat{K}_{j}^{i}} + \sum^{k}_{ \substack{ i=0 \\ j = 1} }\Size{\hat{F}_{j}^{i} } + \sum^{k}_{ j = 1 }\Size{\hat{F}_{j}} \ge  \sum^{k}_{i=0}\Size{\hat{K}_{i}} + \sum^{k}_{ j = 1 }\Size{\hat{F}_{j}} \\
-        &\ge  \Size{K} + 1
-      \end{split}
-    \end{equation*}
   \end{corollary}
   \begin{proof}
     By \Cref{claim:bounded_size}
@@ -136,7 +137,6 @@ Furthermore, we say that $\hat{K}$ is a result of a \textit{sweep-cycle}, \texti
       \item For $g = \varphi$ and $g = \phi \circ \mathbf{H}$, the gates apply 
     \end{enumerate}
   \end{proof}
-
 
 
   \ctt{ 
