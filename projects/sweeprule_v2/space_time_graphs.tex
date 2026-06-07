@@ -110,7 +110,7 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
   \end{proof}
 
   \begin{definition}
-   The decomposition in \Cref{claim:prevslices} calls the .., 
+   The decomposition in \Cref{claim:prevslices} calls the ..,  
   \end{definition}
 
   \begin{claim}
@@ -121,6 +121,21 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
       \end{enumerate}
   \end{claim}
 
+  \begin{corollary}
+    Consider a spanned slice $\hat{K}$, at the end of even layer, namely at the end of the sweep-cycle. Let $g$ be the logical gate applied preceding to the sweep-cycle. Denote by $\hat{K_{0}},..,\hat{K_{l}}$ the decomposition, according to .., and for and for any $i \in 0,..,l$, let $\hat{K_{0}}^{i},..\hat{K_{l_{i}}}^{i}$ be the decomposition of $\hat{K_{i}}$. Then: 
+    \begin{equation*}
+      \begin{split}
+        & \sum^{k}_{i,j=0}\Size{\hat{K}_{j}^{i}} + \sum^{k}_{ \substack{ i=0 \\ j = 1} }\Size{\hat{F}_{j}^{i} } + \sum^{k}_{ j = 1 }\Size{\hat{F}_{j}} \ge  \sum^{k}_{i=0}\Size{\hat{K}_{i}} + \sum^{k}_{ j = 1 }\Size{\hat{F}_{j}} \\
+        &\ge  \Size{K} + 1
+      \end{split}
+    \end{equation*}
+  \end{corollary}
+  \begin{proof}
+    By \Cref{claim:bounded_size}
+    \begin{enumerate}
+      \item For $g = \varphi$ and $g = \phi \circ \mathbf{H}$, the gates apply 
+    \end{enumerate}
+  \end{proof}
 
   \ctt{ 
     Same proof works when after the application of $\phi \circ \mathbf{H}$, then $\prei{x_{i}} = \phi(x_{i})$.  
@@ -153,20 +168,5 @@ Let $C$ be a toric encoded circuit, let $\mathcal{E}$ be a set of faults, and co
     Let $K$ be an $X$-slice, such that the logical gate preceding it is $\phi \circ \mathbf{H}$. Observes that by \cref{def:contour}, that the slices in $G_{K}$ are $Z$-slices.   
   \end{claim}
 
-  \begin{corollary}
-    Consider a spanned slice $K$, at the end of even layer, namely at the end of the sweep-cycle. Let $g$ be the logical gate applied preceding to the sweep-cycle. Denote by $\hat{K_{0}},..,\hat{K_{l}}$ the decomposition, according to .., and for and for any $i \in 0,..,l$, let $\hat{K_{0}}^{i},..\hat{K_{l_{i}}}^{i}$ be the decomposition of $\hat{K_{i}}$. Then: 
-    \begin{equation*}
-      \begin{split}
-        & \sum^{k}_{i,j=0}\Size{\hat{K}_{j}^{i}} + \sum^{k}_{ \substack{ i=0 \\ j = 1} }\Size{\hat{F}_{j}^{i} } + \sum^{k}_{ j = 1 }\Size{\hat{F}_{j}} \ge  \sum^{k}_{i=0}\Size{\hat{K}_{i}} + \sum^{k}_{ j = 1 }\Size{\hat{F}_{j}} \\
-        &\ge  \Size{K} + 1
-      \end{split}
-    \end{equation*}
-  \end{corollary}
-  \begin{proof}
-    By \Cref{claim:bounded_size}
-    \begin{enumerate}
-      \item For $g = \varphi$ and $g = \phi \circ \mathbf{H}$, the gates apply 
-    \end{enumerate}
-  \end{proof}
 
 
