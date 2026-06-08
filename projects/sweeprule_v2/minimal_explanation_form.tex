@@ -94,55 +94,5 @@ The first three inequalities hold by the definitions of the $\mathcal{X}_{r}$, t
     \ctt{ Check what happened if we set $\xi = \sqrt{d}, \beta = \sqrt{d}$ is that better? }
   \end{proof}
 
-\ctt{ 
-  Consider the proof above, when we run two sequences steps, the first is not shrinking, namely $\xi = 0$, and the second is shrinking $\xi \neq 0$. Each of the proceeding slices $K_{0}, .., K_{k}$ has its own $k_i$ proceeding slices $K_{i}^{0}, .., K_{i}^{k_{i}}$. We count the number of arrows in $K$ by adding the arrows resulting in those two steps $d+1 + (k+1)\cdot(d+1)$ to the arrows in each of the explanation of the $K_{i}^{j}$ slices. So: 
-            \begin{equation*}
-              \begin{split}
-                &  (k+2)(d+1) + \sum_{i,j=0}{\alpha (m_{i}^{j}-1)  - \beta s^{j}_{i} } \\ 
-                \le & (k+2)(d+1) + \alpha m - \alpha\sum_{i=0}^{k}k_{i} - \beta\left(s + \xi - \left(k + \sum_{i=0}^{k}k_{i} - 1\right) \cdot \Size{\text{fork}}  \right) \\
-                \le & \alpha \left(m - 1\right) - \beta s + \left(\alpha + (k+2)(d+1) - \alpha\sum_{i=0}^{k}k_{i} - \beta \xi + \beta\left( \sum_{i=0}^{k}k_{i} \cdot \Size{\text{fork}} \right) \right)
-              \end{split}
-            \end{equation*}
-            Now, we want to show that the left term, the linear line, is always negative. For this we look for parameters such when $k=0, \sum k_i =0 $ it results with negative value and that the 'slope' of it is negative. For showing negative slope, we use the fact that $\sum_{i}k_{i} \ge k$.
-            \begin{equation*}
-              \begin{split}
-                k = 0 & \Rightarrow \alpha  - \beta \xi \le 0 \Rightarrow   \xi \ge \frac{\alpha}{\beta} \\ 
-                &  \alpha + (k+2)(d+1) - \beta \xi  - k \left( \alpha -  \beta\cdot \Size{\text{fork}} \right)  \\ 
-                & \Rightarrow d+1 - \left( \alpha -  \beta\cdot \Size{\text{fork}} \right) \le 0 \\
-                & \Rightarrow \alpha \ge \beta \Size{\text{fork}} + d+1
-              \end{split}
-            \end{equation*}
-            That is not satisfying the inequalities, one way to try to bypass it is treating to $O(d)$ SWEEP RUlE operations as a constant depth operation, then $\xi = O(d)$. For that we need the follow property, for every subset of qubits $S$, there is subset of qubits $S^{\prime}$ at size at least $(1-\gamma)|S|$ such that for $S$ to be deviated, all the qubits in $S^{\prime}$ have to absorb fault. Now suppose that the gate is at depth at most $\Delta$, and the fanning is at most $c_{f}$, then we get: 
-            \begin{equation*}
-              \begin{split}
-                & \prb{ S \in \mathcal{D}} \le (c_{f}^{\Delta} p)^{|S^{\prime}|} \le (c_{f}^{\Delta} p)^{(1-\gamma)|S|} \\
-                \Rightarrow & p \rightarrow (c_{f}^{\Delta} p)^{1-\gamma} 
-              \end{split}
-            \end{equation*}
-            A trivial lower bound for $1 - \gamma$ is $ \frac{1}{c_{f}^{\Delta}}$.
-            \begin{equation*}
-              \begin{split}
-                & d+1 + \sum^{k}_{i=0}{\alpha (m_{i}-\mathcal{X}_{r-1})  - \beta s_{i} } \\ 
-                \le & d+1 + \alpha m - \mathcal{X}_{r-1}\alpha(k+1) - \beta\left(s + \xi - k \cdot \Size{\text{fork}}  \right) \\
-                = & \alpha \left(m - \mathcal{X}_{r}\right) - \beta s + \left( (\mathcal{X}_{r}-\mathcal{X}_{r-1}) \alpha + d+1 - \mathcal{X}_{r-1}k \alpha - \beta \xi + \beta k \cdot \Size{\text{fork}} \right)
-              \end{split}
-            \end{equation*}
-            \begin{equation*}
-              \begin{split}
-                - \alpha \mathcal{X}_{r-1}  +  \beta \Size{\text{fork}} \le 0 & \Rightarrow   \Size{\text{fork}} \le \frac{\alpha}{\beta} \mathcal{X}_{r-1} \\ 
-                (\mathcal{X}_{r}-\mathcal{X}_{r-1}) \alpha  + d + 1  \le 0 & \Rightarrow \mathcal{X}_{r} \le  \mathcal{X}_{r-1} - \frac{d+1}{\alpha}  \\
-& \Rightarrow \mathcal{X}_{1} \le  \mathcal{X}_{0} - \frac{d+1}{\alpha}  \\
-& \Rightarrow \mathcal{X}_{2} \le  \mathcal{X}_{0} - 2\frac{d+1}{\alpha}  \\
-(\mathcal{X}_{3}-\mathcal{X}_{2}) \alpha  + d + 1  -\beta \xi \le 0 & \Rightarrow \mathcal{X}_{3} \le  \mathcal{X}_{0} - 3\frac{d+1}{\alpha} + \frac{\beta}{\alpha}\xi  \\
-& \Rightarrow \mathcal{X}_{0} \le  \mathcal{X}_{0} - 4\frac{d+1}{\alpha}  + \frac{\beta}{\alpha}\xi \\
-              \end{split}
-            \end{equation*}
-            \begin{equation*}
-              \begin{split}
-                1 \le \frac{\alpha}{\beta}\left( 1 - 3 \frac{d+1}{\alpha} \right)
-              \end{split}
-            \end{equation*}
-            That holds for $\alpha = d^{2}, \beta = \frac{1}{2}d^{2}, $
-          }
 
 
