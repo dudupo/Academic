@@ -37,7 +37,6 @@
         \begin{equation*}
           \begin{split}
             \sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}} + \xi = \Size{\hat{K}} + 2
-
           \end{split}
         \end{equation*}
         Consider $i \in \{0, \ldots, k\}$, and denote $s_{i} = \Size{\hat{K}_{i}}$. By the inductive hypothesis and since $\Time{K_{i}} = \Time{K} - 1$, we know that $\hat{K}_{i}$ has an explanation formed by a set of leaves $\mathbf{W}_{i}$, a set of arrows $\mathbf{R}_{i}$, and a set of forks $\mathbf{F}_{i}$. Let $m_{i} = |\mathbf{W}_{i}|$. Thus, the sets $\mathbf{R}_{i}$ and $\mathbf{F}_{i}$ have at most $\alpha (m_{i} - \mathcal{X}_{r-1}) - \beta s_{i}$ arrows and $m_{i} - 1$ forks. We define:
