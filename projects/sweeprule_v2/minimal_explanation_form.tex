@@ -3,7 +3,7 @@
   \ctt{Here we follow the original proof, but change the triminalogy, $m$ will be the number of leaves in the explanation, then in the end we conclude that the number of faults is at least $m/\Delta$. So $|R| \le f(\frac{m}{\Delta})$. }
 
   \begin{definition}
-    Consider a Tooms contour graph induced by Toric encoded circuit, with sweep-cycle parameter $\xi = 2\sqrt{d}$, and  let $\alpha, \beta$ be constants and $\mathcal{X}_{0}, \mathcal{X}_{1}, \mathcal{X}_{2}, \mathcal{X}_{3} \in \mathbb{R}$ be quadruple, defining such:
+    Consider a Tooms contour graph induced by Toric encoded circuit, with sweep-cycle parameter $\xi = 4\sqrt{d+1}$, and  let $\alpha, \beta$ be constants and $\mathcal{X}_{0}, \mathcal{X}_{1}, \mathcal{X}_{2}, \mathcal{X}_{3} \in \mathbb{R}$ be quadruple, defining such:
     \begin{equation*}
       \begin{split}
         \alpha &\colonequals 10(d+1), \ \ \  \beta \colonequals 5 \sqrt{d+1} \\
@@ -36,7 +36,7 @@
         Whereas, for $r=3$: 
         \begin{equation*}
           \begin{split}
-            \sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}} + \xi = \Size{\hat{K}} + 2\sqrt{d}
+            \sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}} + \xi = \Size{\hat{K}} + 4\sqrt{d + 1}
           \end{split}
         \end{equation*}
         Consider $i \in \{0, \ldots, k\}$, and denote $s_{i} = \Size{\hat{K}_{i}}$. By the inductive hypothesis and since $\Time{K_{i}} = \Time{K} - 1$, we know that $\hat{K}_{i}$ has an explanation formed by a set of leaves $\mathbf{W}_{i}$, a set of arrows $\mathbf{R}_{i}$, and a set of forks $\mathbf{F}_{i}$. Let $m_{i} = |\mathbf{W}_{i}|$. Thus, the sets $\mathbf{R}_{i}$ and $\mathbf{F}_{i}$ have at most $\alpha (m_{i} - \mathcal{X}_{r-1}) - \beta s_{i}$ arrows and $m_{i} - 1$ forks. We define:
