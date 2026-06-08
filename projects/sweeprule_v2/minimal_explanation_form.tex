@@ -3,10 +3,10 @@
   \ctt{Here we follow the original proof, but change the triminalogy, $m$ will be the number of leaves in the explanation, then in the end we conclude that the number of faults is at least $m/\Delta$. So $|R| \le f(\frac{m}{\Delta})$. }
 
   \begin{definition}
-    Consider a Tooms contour graph induced by Toric encoded circuit, with sweep-cycle parameter $\xi = 8$, and  let $\alpha, \beta$ be constants and $\mathcal{X}_{0}, \mathcal{X}_{1}, \mathcal{X}_{2}, \mathcal{X}_{3} \in \mathbb{R}$ be quadruple, defining such:
+    Consider a Tooms contour graph induced by Toric encoded circuit, with sweep-cycle parameter $\xi = 32$, and  let $\alpha, \beta$ be constants and $\mathcal{X}_{0}, \mathcal{X}_{1}, \mathcal{X}_{2}, \mathcal{X}_{3} \in \mathbb{R}$ be quadruple, defining such:
     \begin{equation*}
       \begin{split}
-      \alpha &\colonequals 10(d+1)^{2}, \ \ \  \beta \colonequals 5 (d+1) \\
+      \alpha &\colonequals 40(d+1)^{2}, \ \ \  \beta \colonequals 5 (d+1) \\
       \mathcal{X}_{r} &\colonequals 1 - r \frac{d+1}{\alpha} = 1 -  \frac{r}{10(d+1)}
       \end{split}
     \end{equation*}
@@ -36,7 +36,7 @@
         Whereas, for $r=3$: 
         \begin{equation*}
           \begin{split}
-            \sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}} + \xi = \Size{\hat{K}} + 8
+            \sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}} + \xi = \Size{\hat{K}} + 32
           \end{split}
         \end{equation*}
         Consider $i \in \{0, \ldots, k\}$, and denote $s_{i} = \Size{\hat{K}_{i}}$. By the inductive hypothesis and since $\Time{K_{i}} = \Time{K} - 1$, we know that $\hat{K}_{i}$ has an explanation formed by a set of leaves $\mathbf{W}_{i}$, a set of arrows $\mathbf{R}_{i}$, and a set of forks $\mathbf{F}_{i}$. Let $m_{i} = |\mathbf{W}_{i}|$. Thus, the sets $\mathbf{R}_{i}$ and $\mathbf{F}_{i}$ have at most $\alpha (m_{i} - \mathcal{X}_{r-1}) - \beta s_{i}$ arrows and $m_{i} - 1$ forks. We define:
@@ -87,7 +87,7 @@ So in total:
  & \Size{\text{fork}} \le \frac{\alpha}{\beta} \mathcal{X}_{r} 
   \end{split}
 \end{equation*}
-The first three inequalities hold by the definitions of the $\mathcal{X}_{r}$, the fourth is satisfied since $\frac{\beta}{\alpha}\xi = 4 \frac{d+1}{\alpha}$, the last is obtained by the fact that the maximal size of a fork equals $d$ (which matches the fork between two extremums of a face), and that $\frac{\alpha}{\beta}\mathcal{X}_{r}$ is greater than $2d$.
+The first three inequalities hold by the definitions of the $\mathcal{X}_{r}$, the fourth is satisfied since $\frac{\beta}{\alpha}\xi = 4 \frac{d+1}{\alpha}$, the last is obtained due to \Cref{claim:maxfork}, that states that the maximal size of a fork equals $4d$, and that $\frac{\alpha}{\beta}\mathcal{X}_{r}$ is greater than $4d$.
         \end{enumerate}
          Finally, by \cref{claim:prevslices}, the graphs induced by $\mathbf{R}_{i} \cup \mathbf{F}_{i}$ are connected, thus the graph induced by $\mathbf{R}\cup \mathbf{F}$ is also connected. Therefore, $\mathbf{W}, \mathbf{R}, \mathbf{F}$ form an explanation of $K$. 
     \end{enumerate}
