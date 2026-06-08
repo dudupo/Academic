@@ -110,19 +110,22 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
   \end{proof}
 
 \begin{claim}
-  The maximal size of a fork is $2d$. 
+  The maximal size of a fork is $8d^{\prime}$. 
 \end{claim}
 \begin{proof}
 Consider the rules of forks connecting in \Cref{def:contour}. For forks obtained by rules (a), (b), (d), or as a result of a fault, it's clear that their vertices at their ends are on intersecting faces (when projecting the vertices on $\mathcal{G}$). The maximal fork, in those cases, has the form of:
   \begin{equation*}
     \begin{split}
-    \bigl\{ v , \bigl( \prod_{g \in S^{\prime}_{1}} g\bigr) \bigl(  \prod_{g \in S^{\prime}_{2}} g \bigr) v    \bigr\}
+   F =  \bigl\{ v , \bigl( \prod_{g \in S^{\prime}_{1}} g\bigr) \bigl(  \prod_{g \in S^{\prime}_{2}} g \bigr) v    \bigr\}
     \end{split}
   \end{equation*}
-Where $S^{\prime}_{1}, S^{\prime}_{2}$ are subsets of $S$ of size $d^{\prime}$, and their total size is $2d^{\prime}$.
+  Where $S^{\prime}_{1}, S^{\prime}_{2}$ are subsets of $S$ of size $d^{\prime}$, and therefore the total size of such forks is $\Size{F} = 2d^{\prime}$.
  
 
-For rule number (c), consider a fork connecting two vertices $u_{1}, u_{2}$ that are both connected to a third vertex $v$ by arrow according to (c)-rule. By definition of the rule there are two faces $f_{1}, f_{2}$ such that $u_{i} \in f_{i}$ and $v \in \phi(f_{i})$.  
+For rule number (c), consider a fork connecting two vertices $u_{1}, u_{2}$ that are both connected to a third vertex $v$ by an arrow according to the (c)-rule. By definition of the rule, there are two faces $f_{1}, f_{2}$ such that $u_{i} \in f_{i}$ and $v \in \phi(f_{i})$. Thus, $\phi^{-1}(v) \in f_{1} \cap f_{2}$, or in other words, $u_{1}, u_{2}$ belong to two intersecting faces, and we return to the previous cases.
+
+
+For rule number (e), we use the fact that in realizing logical gate $\mathbf{S}$, we concatenate three layers (logical $\mathbf{CX}$, $\phi \circ \mathbf{H}$, and $\mathbf{CX}$). Thus, by a light cone argument, the ends of the forks are far away from each other by at most $2^{3}$ faces, so the sizes of forks are at most $8d^{\prime}$.
 \end{proof}
   \begin{definition}
   Let $\hat{K}$ be a spanned slice, and let $\hat{K}_{0}, \ldots, \hat{K}_{k}$ be spanned slices in $H_{K}$, and let $F_{1}, \ldots, F_{k}$ be spanned forks, such that $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ satisfy the conditions in \Cref{claim:prevslices}. We call $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ the \textit{predecessor decomposition} of $\hat{K}$.  
