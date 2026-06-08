@@ -43,12 +43,12 @@
         \begin{enumerate}
           \item $\mathbf{W} = \cup_{i=0}^{k} \mathbf{W}_{i}$, Notice that $\mathbf{W}_{i} \subset K_{i}$ and that $\Time{K_{i}} = \Time{K_{j}}$ for all $i,j$, thus by \Cref{claim:disj} $\mathbf{W}$ is a union of disjoint set, Hence $W$ contains  $m = \sum_{i=0}^{k}m_{i}$ leaves. 
           \item $\mathbf{F} = \{ F_{1},..,F_{k} \} \cup_{i = 0}^{k}\mathbf{F}_{i}$ with at most $ k + \sum_{i=0}^{k}{m_{i} -1 } = m- 1$ elements. 
-          \item $\mathbf{R} = \{ \{v_{i}, \prei{v_{i}} \} \} \cup_{i=0}^{k}{ \mathbf{R}_{i} }$ with at most 
+          \item $\mathbf{R} = \{ \{v_{i}, \prei{v_{i}} \} \} \cup_{i=0}^{k}{ \mathbf{R}_{i} }$. For bounding the number of arrows in $\mathbf{R}$ we condition upon whether $r = 3$, For convenient, let us denote by $Y$ the indicator, which indicate if $r = 3$.   
             \begin{equation*}
               \begin{split}
-                & d+1 + \sum^{k}_{i=0}{\alpha (m_{i}-1)  - \beta s_{i} } \\ 
-                \le & d+1 + \alpha m - \alpha(k+1) - \beta\left(s + \xi - k \cdot \Size{\text{fork}}  \right) \\
-                = & \alpha \left(m - 1\right) - \beta s + \left(\alpha + d+1 - (k+1) \alpha - \beta \xi + \beta k \cdot \Size{\text{fork}} \right)
+                & d+1 + \sum^{k}_{i=0}{\alpha (m_{i}-\mathcak{X}_{r-1})  - \beta s_{i} } \\ 
+                \le & d+1 + \alpha m - \mathcal{X}_{r-1}\alpha(k+1) - \beta\left(s + Y\xi - k \cdot \Size{\text{fork}}  \right) \\
+                = & \alpha \left(m - \mathcal{X}_{r}\right) - \beta s + \left(\alpha ( \mathcal{X}_{r} - \mathcal{X}_{r-1} ) + d+1 -  \mathcal{X}_{r-1} k \alpha - \beta \xi + \beta k \cdot \Size{\text{fork}} \right)
               \end{split}
             \end{equation*}
             So its enough to show that for $k\ge 0$ the term in the closure is negative, We do that by showing that the slop is negative, and then the value of the term at zero is negative: 
