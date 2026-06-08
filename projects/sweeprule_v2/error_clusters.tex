@@ -73,6 +73,20 @@ Where $\ket{\psi_{2}}$ is a codeword. Thus, $Q$ is a $Z$-type error with underli
 \end{equation*}
 
 
+Now, consider two disjoint subsets of $z$, which are not connected by vertices, denoted by $z_{1}, z_{2} \subset z$. Assume through contradiction that $\phi(z_{1}), \phi(z_{2})$ are connected by vertices. Let $v \in \mathcal{G}$ be a vertex on their intersection; namely, there are faces $f_{1}, f_{2} \in \mathcal{F}^{(d^{\prime})}$ such that $f_{1} \in \phi(z_{1})$, $f_{2} \in \phi(z_{2})$, and $v \in f_{1}, f_{2}$. Consider the rooted presentation of the faces, $f_{i} = \rotfv{u_{i}}{S^{\prime}_{i}}$.
+
+\begin{equation*}
+  \begin{split}
+    & \bigl(\prod_{g \in I_{1}} g \bigr) u_{1}  =   \bigl(\prod_{g \in I_{2}} g \bigr) u_{2}  \\
+    \Rightarrow & \bigl(\prod_{g \in I_{1}} g \bigr)^{-1} u^{-1}_{1}  =   \bigl(\prod_{g \in I_{2}} g \bigr)^{-1} u^{-1}_{2}  \\
+    \Rightarrow & \bigl(\prod_{g \in I_{1}} g \bigr)^{-1} u^{-1}_{1}  =   \bigl(\prod_{g \in I_{2}} g \bigr)^{-1} u^{-1}_{2}  
+  \end{split}
+\end{equation*}
+
+But then $\phi^{-1}(f) \in z_{1} \cap z_{2}$. 
+
+
+
 For $\mathbf{CX}^{\otimes n}$, we consider two registers, $R_1$ and $R_2$. The $\mathbf{CX}^{\otimes n}$ acts transversally on the registers by applying physical $\mathbf{CX}$ gates pairwise from $R_1$ to $R_2$, and it's clear, by commutation relations, that it duplicates $X$-type errors from $R_1$ to their counterparts on $R_2$. Similarly, $\mathbf{CX}^{\otimes n}$ duplicates $Z$-type errors from $R_2$ to their counterparts on $R_1$.
 
 
