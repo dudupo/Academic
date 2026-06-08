@@ -3,10 +3,12 @@
   \ctt{Here we follow the original proof, but change the triminalogy, $m$ will be the number of leaves in the explanation, then in the end we conclude that the number of faults is at least $m/\Delta$. So $|R| \le f(\frac{m}{\Delta})$. }
 
   \begin{definition}
-Consider a time graph $(G,T)$. Let $\alpha, \beta$ be constants such that $\beta = \frac{d+1}{\xi}$ and $\alpha = \beta \Size{\text{fork}}$. Also, let $\mathcal{X}_{0}, \mathcal{X}_{1}, \mathcal{X}_{2}, \mathcal{X}_{3} \in \mathbb{R}$ be the quadruple, such that:
+    Consider a Tooms contour graph induced by Toric encoded circuit, with sweep-cycle parameter $\xi = 2$, and  let $\alpha, \beta$ be constants and $\mathcal{X}_{0}, \mathcal{X}_{1}, \mathcal{X}_{2}, \mathcal{X}_{3} \in \mathbb{R}$ be quadruple, defining such:
     \begin{equation*}
       \begin{split}
-        \mathcal{X}_{r} \colonequals 1 - r \frac{d+1}{\alpha}
+        \alpha &\colonequals 10(d+1) \\
+        \beta &\colonequals 5(d+1) \\
+        \mathcal{X}_{r} &\colonequals 1 - r \frac{d+1}{\alpha} = 1 -  \frac{r}{10}
       \end{split}
     \end{equation*}
     Given sets $W$ of points, $R$ of arrows and $F$ of forks, we define $U$ as the set of vertices of the graph induced by the edges of $R \cup F$. The sets $W,R$ and $F$ form an explanation of a spanned slice $\hat{K} = \expval*{ K, v_{1}, .., v_{d+1}}$ of order $\text{order}(\hat{K}) = r$, if and only if: 
