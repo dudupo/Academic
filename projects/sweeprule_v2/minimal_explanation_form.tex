@@ -67,20 +67,26 @@ So it's left to show that the term in the closure is negative for all integers $
             \begin{equation*}
               \begin{split}
                 (\mathcal{X}_{r}-\mathcal{X}_{r-1})  & \alpha  + d + 1  \le 0 
-                \\ &  \Rightarrow \mathcal{X}_{r} \le  \mathcal{X}_{r-1} - \frac{d+1}{\alpha}  \\
-& \Rightarrow \mathcal{X}_{1} \le  \mathcal{X}_{0} - \frac{d+1}{\alpha}  \\
-& \Rightarrow \mathcal{X}_{2} \le  \mathcal{X}_{1} - \frac{d+1}{\alpha} \le  \mathcal{X}_{0} - 2\frac{d+1}{\alpha}  \\ 
-& \Rightarrow \mathcal{X}_{0} \le  \mathcal{X}_{3} - \frac{d+1}{\alpha}  
+                \\ &  \Rightarrow \mathcal{X}_{r} \le  \mathcal{X}_{r-1} - \frac{d+1}{\alpha}  
   \end{split}
 \end{equation*}
 And for $r =3$:
 \begin{equation*}
   \begin{split}
 (\mathcal{X}_{3}-\mathcal{X}_{2}) & \alpha  + d + 1  -\beta \xi \le 0  \\ 
-& \Rightarrow \mathcal{X}_{3} \le  \mathcal{X}_{0} - 3\frac{d+1}{\alpha} + \frac{\beta}{\alpha}\xi  \\
-& \Rightarrow \mathcal{X}_{0} \le  \mathcal{X}_{0} - 4\frac{d+1}{\alpha}  + \frac{\beta}{\alpha}\xi 
+& \Rightarrow \mathcal{X}_{3} \le  \mathcal{X}_{0} - 3\frac{d+1}{\alpha} + \frac{\beta}{\alpha}\xi  
               \end{split}
             \end{equation*}
+So in total: 
+\begin{equation*}
+  \begin{split}
+& \Rightarrow \mathcal{X}_{1} \le  \mathcal{X}_{0} - \frac{d+1}{\alpha}  \\
+& \Rightarrow \mathcal{X}_{2} \le  \mathcal{X}_{1} - \frac{d+1}{\alpha} \le  \mathcal{X}_{0} - 2\frac{d+1}{\alpha}  \\ 
+& \Rightarrow \mathcal{X}_{0} \le  \mathcal{X}_{3} - \frac{d+1}{\alpha}  \\
+& \Rightarrow \mathcal{X}_{3} \le  \mathcal{X}_{0} - 3\frac{d+1}{\alpha} + \frac{\beta}{\alpha}\xi  \\
+& \Rightarrow \mathcal{X}_{0} \le  \mathcal{X}_{0} - 4\frac{d+1}{\alpha}  + \frac{\beta}{\alpha}\xi 
+  \end{split}
+\end{equation*}<++>
             \begin{equation*}
               \begin{split}
                   - \alpha  +  \beta \Size{\text{fork}} \le 0 & \Rightarrow   \Size{\text{fork}} \le \frac{\alpha}{\beta} \\ 
