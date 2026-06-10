@@ -377,7 +377,7 @@ Let $z$ be an assignment. Then apply $\phi$, sweep-rule in the negative directio
 Let $z$ be an assignment. Then for any $g \in S$ it holds that: 
       \begin{equation*}
         \begin{split}
-          \max_{v^{\prime} \in \partial^{-}z }L(v^{\prime}) \ge  \max_{v^{\prime} \in \partial^{+} \phi(z) } - L(v^{\prime}) 
+          \max_{v^{\prime} \in \partial^{-}z }L_{g}(v^{\prime}) \ge  \max_{v^{\prime} \in \partial^{+} \phi(z) } - L_{g}(v^{\prime}) 
         \end{split}
       \end{equation*}
 \end{claim}
@@ -388,21 +388,39 @@ Let $u$ be a local maximum of $-L_{g}$ in $\partial^{+} \phi(z)$. Let $v$ be a v
     \item Assume that $g \notin S^{\prime}$; thus, $L_{g}(v) = L_{g}(u)$. Since $\phi$-transpose sends checks to checks, we have that the check $\partial^{-} \rotfv{v^{-1}}{S/S^{\prime}} = \phi(\partial^{+}\rotfv{v}{S^{\prime}})$ is not satisfied, and therefore any vertex $w \in \rotfv{v^{-1}}{S/S^{\prime}}$ also belongs to $\partial^{-}(z)$. Combining that $g \notin S^{\prime}$ and therefore $g \in S/S^{\prime}$, we get that $gv^{-1} \in \partial^{-}(z)$. In particular:
       \begin{equation*}
         \begin{split}
-          \max_{v^{\prime} \in \partial^{-}z }L(v^{\prime}) \ge  L_{g}(gv^{-1}) = 1 + L_{g}(v^{-1}) = 1 - L_{g}(u) 
+          \max_{v^{\prime} \in \partial^{-}z }L_{g}(v^{\prime}) \ge  L_{g}(gv^{-1}) = 1 + L_{g}(v^{-1}) = 1 - L_{g}(u) 
         \end{split}
       \end{equation*}
     \item Assume that $g \in S^{\prime}$. Then $u \neq gv$ (otherwise $-L_{g}(u) < -L_{g}(v)$), and again $L_{g}(u) = L_{g}(v)$. By repeating the argument above, we get that $v^{-1} \in \partial^{-}z$, and therefore:
       \begin{equation*}
         \begin{split}
-          \max_{v^{\prime} \in \partial^{-}z }L(v^{\prime}) \ge  L_{g}(v^{-1}) = - L_{g}(u) 
+          \max_{v^{\prime} \in \partial^{-}z }L_{g}(v^{\prime}) \ge  L_{g}(v^{-1}) = - L_{g}(u) 
         \end{split}
       \end{equation*}
       So in overall we get that: 
       \begin{equation*}
         \begin{split}
-          \max_{v^{\prime} \in \partial^{-}z }L(v^{\prime}) \ge  \max_{v^{\prime} \in \partial^{+} \phi(z) } - L(v^{\prime}) 
+          \max_{v^{\prime} \in \partial^{-}z }L_{g}(v^{\prime}) \ge  \max_{v^{\prime} \in \partial^{+} \phi(z) } - L_{g}(v^{\prime}) 
         \end{split}
       \end{equation*}
   \end{enumerate}
 
 \end{proof}
+
+
+
+Let $u$ be a maximum of $-L_{d+1}$ in $\partial^{+} \phi(z)$. Let $v$ be a vertex and let $S^{\prime} \subset S$ be a subset of generators, of size $d^{\prime}-1$, such that $\rotfv{v}{S^{\prime}}$ is an unsatisfied check, induced by $\phi(z)$, containing $u$. Clearly, it must holds that: 
+\begin{equation*}
+  \begin{split}
+    u = \bigl(\prod_{g \in S^{\prime}}g\bigr) v
+  \end{split}
+\end{equation*}
+Now $\rotfv{v^{-1}}{S/S^{\prime}}$ is an unsatisfied check in $\partial^{-}z$, and $v^{-1}$ is a maximum of $L_{d+1}$ in $\partial^{-}z$. To see this, assume through contradiction that the maximum of $L_{d+1}$ in $\partial^{+} z$ is different from $v^{-1}$ and denote it by $v^{\prime}$. Then there is an unsatisfied check containing $v^{\prime}$ where $v^{\prime}$ is its root. By moving again to the transposed image by $\phi$, we find an unsatisfied check induced by $\phi(z)$ which is rooted in $v^{\prime}$, and the extremum vertex on it has a higher $-L_{d+1}$ than $u$.
+
+Therefore we get the strict equality: 
+      \begin{equation*}
+        \begin{split}
+          \max_{v^{\prime} \in \partial^{-}z }L_{d+1}(v^{\prime}) = L_{d+1}(v^{-1}) = - L_{d+1}(v) = - ( L_{d+1}(u) - (d^{\prime}-1) ) =  \bigl( \max_{v^{\prime} \in \partial^{+} \phi(z) } - L_{d+1}(v^{\prime}) \bigr) + d^{\prime} - 1
+        \end{split}
+      \end{equation*}
+
