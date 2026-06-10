@@ -7,8 +7,8 @@
     \begin{definition}[Troic Encoded Circuit]
       Let $C$ be a quantum circuit. We say that $C$ is a \textit{Toric encoded circuit} if the following holds:
       \begin{enumerate}
-        \item There is a Toric code $\mathcal{C}$ such that the qubits of $\mathcal{C}$ can be partitioned into registers $R_{1}, \ldots, R_{k}$, and, at any time, each of the registers is encoded either by the \textit{nice encoding of} $\mathcal{C}$ or by the \textit{nice encoding of} $\phi \circ H (\mathcal{C})$\footnote{Notice that although the code space is invariant to the application of $\phi \circ \mathbf{H}$, the positive direction of the underlying Toric complex is flipped.}. At time $t=0$, the registers are initialized to be either $\ket{\bar{0}}$ or encoded $\ket{\mathbf{S}}$.
-        \item The layers of $C$ at even times are sweep-cycles, and the layers at odd times are realizations of one of the logical $\mathbf{H}, \mathbf{S}, \mathbf{CX}, \mathbf{X}$, or $\mathbf{Z}$ gates.
+        \item Any layer of the circuit consists of classical and quantum registers, such that there is a Toric code $\mathcal{C}$ such that the quantum registers are encoded by the \textit{nice encoding of} $\mathcal{C}$. At time $t=0$, the quantum registers are initialized to be either $\ket{\bar{0}}$, encoded $\ket{\mathbf{H}}$, encoded $\ket{\mathbf{S}}$, or encoded $\ket{\mathbf{T}}$. The classical registers are initialized to be zeros.
+        \item The layers of $C$ on the quantum registers at even times are sweep-cycles, and the layers at odd times are realizations of either logical Paulis, $\mathbf{CX}$, or measurements in the computational and parity bases. On the classical registers, including the measured register, we allow any two-bit gates.
         \end{enumerate} 
     \end{definition}
 
