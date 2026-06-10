@@ -52,6 +52,11 @@ For $ d' = d - d' $, we define the logical Hadamard-type gate $ H_{\phi} \colon 
     \end{split}
   \end{equation*}
 \end{definition}
+
+\ctt{Change the definition above such that it will be about moving to the dual code $C_{X}/C_{Z}^{\perp} \rightarrow C_{Z}/C_{X}^{\perp}$. And not about the logical Hadamard. }
+
+
+
 \begin{claim}
 The Hadamard-type gate $ H_{\phi} $ has a fold-transversal implementation by, first applying $H^{n}$ over all the physical qubits, and then permuting them by the transpose map $\phi$, namely $\hat{H}_{\phi} = \phi \circ H^{n}$.
 \end{claim}
@@ -73,65 +78,6 @@ Moreover, $\phi$ sends binary representations of $Z$-stabilizers to binary repre
 And since $\phi \circ \phi = I$, we also have that $\phi\left( \partial^{+} \rotfv{v^{-1}}{S/S^{\prime}} \right)$. Thus, $H^{\otimes n} \circ \phi$ sends $Z$-stabilizers to $X$-stabilizers and vice versa, thereby preserving the code space. Combining this with the above, $H^{\otimes n} \circ \phi$ realizes the logical form $H_{\phi}$ in the $(d,d/2)$-Toric code.
 \end{proof}
 
-\begin{corollary}
-For the $(d,d/2)$-Toric code, consider the gate $CZ_{S^{\prime}\rightarrow S/S^{\prime}} \colon L^{\otimes 2} \rightarrow L^{\otimes 2}$, defined to act on two encoded registers by applying $Z_{S/S^{\prime}}$ on the second register, controlled by whether the logical $X_{S^{\prime}}$ is turned on in the first register. Then $CZ_{S^{\prime}\rightarrow S/S^{\prime}}$  has a fold-transversal realization. 
-\end{corollary}
-\begin{proof}
-Consider the following circuit, 
-\begin{enumerate}
-  \item Apply $H^{n}$ on the second register.  
-  \item For any bit $\rotfv{v}{S^{\prime}}$, apply $CX$ from $\rotfv{v}{S^{\prime}}$ in the first register into $\phi(\rotfv{v}{S^{\prime}})$ in the second register.
-  \item Again apply $H^{n}$ on the second register.  
-\end{enumerate}
-\end{proof}
-
-\begin{definition}[The $\varphi$ Rotation]
-Consider a permutation from p he generator set to itself $\pi \colon S \rightarrow S$. The permutation $\pi$ induces a natural isomorphism by substituting generators of the product representation with their corresponding images according to $\pi$. We define the \textit{$\varphi_{\pi}$ rotation}, $\varphi_{\pi} : \mathcal{F}^{d^{\prime}} \rightarrow \mathcal{F}^{d^{\prime}}$, to act on the $d^{\prime}$-dimensional faces as follows:
-  \begin{equation*}
-    \begin{split}
-      \varphi_{\pi} \left(  \rotfv{v}{S^{\prime}}  \right) \colonequals \rotfv{\pi(v)}{\pi(S^{\prime})}
-    \end{split}
-  \end{equation*}
-\end{definition}
-\begin{claim}
-  \label{claim:permuaction}
-  Fix a permutation $\pi : S \rightarrow S$. Then $\varphi_{\pi}$ satisfies the following:
-  \begin{enumerate}
-    \item $\varphi_{\pi}$ sends the binary representation of $X$-stabilizers to themselves, and similarly for the binary representations of the $Z$-stabilizers.
-    \item For any generator subset $S^{\prime} \subset S$, of size $d^{\prime}$, the map $\varphi_{\pi}$ sends $x_{S^{\prime}}$ and $z_{S^{\prime}}$ to $x_{\pi(S^{\prime})}$ and $z_{\pi(S^{\prime})}$ respectively.
-  \end{enumerate}
-\end{claim}
-\begin{proof}
-  For the first part of the claim, consider an arbitrary subset of generators $S^{\prime} \subset S$ of size $d^{\prime}+1$, and notice that for any generator $g \in S^{\prime}$, we have $\varphi_{\pi}(S^{\prime}/g) = \varphi_{\pi}(S^{\prime}) / \varphi_{\pi}(g)$. Thus:
-\begin{equation*}
-  \begin{split}
-      \varphi_{\pi} \left( \partial^{-}  \rotfv{v}{S^{\prime}} \right) &=  \varphi_{\pi}\left( \sum_{g\in S^{\prime}} \rotfv{v}{S^{\prime}/g} +  \rotfv{gv}{S^{\prime}/g}  \right) \\
-      & = \sum_{g\in S^{\prime}} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(S^{\prime} / g)} +  \rotfv{\varphi_{\pi}(g)\varphi_{\pi}(v)}{\varphi_{\pi}(S^{\prime} / g) }  \\ 
-      & = \sum_{g\in \varphi_{\pi}(S^{\prime})} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(S^{\prime})/g} +  \rotfv{g\varphi_{\pi}(v)}{\varphi_{\pi}(S^{\prime})/g }  \\ 
-      &= \partial^{-} \rotfv{\varphi_{\pi}(v)}{\varphi_{\pi}(S^{\prime})}
-  \end{split}
-\end{equation*}
-Similarly, we find that for any subset of generators $S^{\prime} \subset S$ of size $d^{\prime}-1$:
-\begin{equation*}
-  \begin{split}
-    \varphi_{\pi} \left( \partial^{+}  \rotfv{v}{S^{\prime}} \right) &=  \varphi_{\pi}\left( \sum_{g\in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} +  \rotfv{g^{-1}v}{S^{\prime} \cup g}  \right) \\
-    & = \sum_{g\in S^{\prime}} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(S^{\prime} \cup g)} +  \rotfv{\varphi_{\pi}(g^{-1})\varphi_{\pi}(v)}{\varphi_{\pi}(S^{\prime} \cup g) }  \\ 
-    & = \sum_{g\in S/\varphi_{\pi}(S^{\prime})} \rotfv{\varphi_{\pi}(v)}{ \varphi_{\pi}(S^{\prime})\cup g} +  \rotfv{g^{-1}\varphi_{\pi}(v)}{\varphi_{\pi}(S^{\prime})\cup g }  \\ 
-      &= \partial^{+} \rotfv{\varphi_{\pi}(v)}{\varphi_{\pi}(S^{\prime})}
-  \end{split}
-\end{equation*}
-So, we have that $\varphi_{\pi}$ sends binary representations of stabilizers to representations of stabilizers of the same type. For the second part, observe that under the automorphism induced by $\pi$, the subgroup $\expval*{S^{\prime}}$ maps to $\expval*{\pi(S^{\prime})}$, Therefore: 
-\begin{equation*}
-  \begin{split}
-    \varphi_{\pi}\left( x_{S}  \right) &= \varphi_{\pi}\left( \sum_{u\in \expval*{S^{\prime}}}\rotfv{u}{S^{\prime}}  \right) =  \sum_{u\in \expval*{\pi(S^{\prime})}}\rotfv{u}{\pi(S^{\prime})} = x_{\pi(S^{\prime})} \\
-    \varphi_{\pi}\left( z_{S}  \right) &= \varphi_{\pi}\left( \sum_{u\in \expval*{S/S^{\prime}}}\rotfv{u}{S^{\prime}}  \right) =  \sum_{u\in \expval*{S/\pi(S^{\prime})}}\rotfv{u}{\pi(S^{\prime})} = z_{\pi(S^{\prime})} \\
-  \end{split}
-\end{equation*}
-\end{proof}
-\begin{corollary}
-  For a $d^{\prime} = d - d^{\prime}$ and a fixed generator set $S^{\prime}\subset S$, at size $d^{\prime}$, consider the logical $H_{}<++>$ 
-\end{corollary}
-
 
 \begin{definition}[The Nice Encoding]
   Consider $(d,d/2)$-Toric code and fix a subset $S^{\prime} \subset S$, at size $d^{\prime}$. We define the \textit{nice encoding} to be the subsystem code, which uses $x_{S^{\prime}}$ to encode a single logical qubit. Namely, the logical codewords are: 
@@ -142,44 +88,8 @@ So, we have that $\varphi_{\pi}$ sends binary representations of stabilizers to 
     \end{split}
   \end{equation*}
 \end{definition}
-\begin{claim}
-  The nice encoding, admit fold-transversal realization of $X$, $CX$ and $CZ$. Moreover, given a resource state, the nice encoding has a fold-transversal realization of the logical $\mathbf{S}$ gate. 
-\end{claim}
-\begin{proof}
-  We realize the gates as follow:
-  \begin{enumerate}
-    \item The logical $X$ gate is implemented by applying the physical $X$ operator over any non-trivial coordinate of $x_{S^{\prime}}$.
-    \item The $CX$ gate is realized by applying physical $CX$ pair-wise.
-    \item For the $CZ$ gate, consider the permutation $\pi: S\rightarrow S$, such that it maps the generators in $S^{\prime}$ to its complement, namely $\pi(S^{\prime}) = S/S^{\prime}$. We first swap the qubits in the first register according to $\varphi_{\pi}$, then apply $CZ_{S^{\prime}\rightarrow S/S^{\prime}}$, and eventually invert the permutation on the first register.
 
-      Since, by \Cref{claim:permuaction}, $\varphi_{\pi}$ acts trivially on stabilizers and sends $X_{S^{\prime}}$ to $X_{S/S^{\prime}}$, we get that the second step $CZ_{S^{\prime}\rightarrow S/S^{\prime}}$ conditions $Z_{S^{\prime}}$ application on whether the first register initially contained $X_{S^{\prime}}\ket{\bar{0}} = \ket{\bar{1}}$. The final inversion doesn't impact the second register.
-    \item For the $\mathbf{S}$ gate, we use the gate teleportation implementation, which uses logical $CX$, logical $CZ$, and the logical resource state $\ket{\mathbf{S}}$ defined by:
- \begin{equation*}
-   \begin{split}
-     \ket{\mathbf{S}} \colonequals \frac{1}{\sqrt{2}}\left(\ket{ \bar{0} } + i \ket{ \bar{1}}\right)
-   \end{split}
- \end{equation*}
- \Cref{fig:magic} gives a description of the logical gate teleportation protocol.   
-    \begin{figure}[h]
-        \centering 
-        \begin{quantikz}
-          \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{Z} &  &&&&&&&&&&&&& \\
-        \lstick{$\ket{\mathbf{S}}$} & \targ{} & \meter{} \wire[u][1]{c}    \\
-        \end{quantikz}
-        \caption{ Simulating the $\mathbf{S}$-gate, using the $\ket{\mathbf{S}}$ resource state. }   
-\label{fig:magic}
-\end{figure}
-  \end{enumerate}
-  
 
-%\begin{equation*}
-%  \begin{split}
-%    \ket{\psi}\ket{\mathbf{S}} &=   \left(\alpha \ket{\bar{0}} + \beta \ket{\bar{0} + x_{S^{\prime}} + x_{S/S^{\prime}}} \right)  \frac{1}{\sqrt{2}}\left(\ket{ \bar{0} } + i \ket{ \bar{0} + x_{S^{\prime}}}\right) \\ 
-%    & \mapsto  \frac{1}{\sqrt{2}} \big( \alpha \ket{\bar{0}} \ket{\bar{0}} + i\alpha  \ket{\bar{0}} \ket{\bar{0} + x_{S^{\prime}}} \\
-%    & \ \ \  + \beta \ket{\bar{0} + x_{S^{\prime}} + x_{S/S^{\prime}}} \ket{\bar{0}+ x_{S^{\prime}} + x_{S/S^{\prime}}} + i\beta \ket{\bar{0} + x_{S^{\prime}} + x_{S/S^{\prime}}} \ket{ \bar{0} + x_{S/S^{\prime}}} \big)   
-%  \end{split}
-%\end{equation*}
 
-\end{proof}
 
 
