@@ -12,16 +12,6 @@
         \end{enumerate} 
     \end{definition}
 
-\begin{definition}[The Boundery of Deviation $\partial D_{t}$  ]  \ 
-  Let $C$ be a Toric encoded circuit, with registers $R_{1},..,R_{l}$ and let $\mathcal{E}$ be a set of faults. Consider the subjection $C[\mathcal{E}]$, For a time $t$, let $A_{t},B_{t} \subset \{R_{1},..,R_{l}\}$ be the registers that encoded, at time $t$ in $C[\mathcal{E}]$, by $\mathcal{C}$ and $\phi \circ \mathbf{H}$ respectively. Denote by $\mathcal{D}_{t}$ the deviation in $C[\mathcal{E}]$ at time $t$. We define the \textit{$X$-type, and the $Z$-type boundaries} of $\mathcal{D}_{t}$, denoted by $\partial{D}^{X}_{t}$ and $\partial{D}^{Z}_{t}$, as follow:   
-  \begin{equation*}
-    \begin{split}
-      \partial \mathcal{D}^{X}_{t}  & \colonequals \bigcup_{R_{i} \in A_{t}} \partial \ket{R_{i,t}} \cup\bigcup_{R_{i} \in B_{t}} \partial \left(\phi \circ \mathbf{H}\right) \ket{R_{i,t}} \\
-    \partial \mathcal{D}^{Z}_{t}  & \colonequals \bigcup_{R_{i} \in B_{t}} \partial \ket{R_{i,t}} \cup\bigcup_{R_{i} \in A_{t}} \partial \left( \phi \circ \mathbf{H}\right) \ket{R_{i,t}} 
-    \end{split}
-  \end{equation*}
-\end{definition}
-
   \begin{definition}[Base graph $G_{o}$]
     Let $C$ be a quantum circuit, at depth $d$, with registers $R_{1}, \ldots, R_{k}$, all of which are encoded by Toric codes with the same parameters (i.e., dimension, length, etc.). Let's denote by $\mathcal{G}_{1}, .., \mathcal{G}_{k}$ the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o},E_{o})$ as follows: 
     \begin{enumerate}
