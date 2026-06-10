@@ -340,40 +340,6 @@ So for $\rotfv{gv}{S^{\prime}_{i}/g} = 0$, it must appear at least twice in the 
 \end{proof}
 
 \begin{claim}
-Let $z$ be an assignment. Then apply $\phi$, sweep-rule in the negative direction, and then $\phi$ again.
-\end{claim}
-\begin{proof}
-  Since $\phi$ sends the Toric code to itself, 
-
-  We argue that:
-  \begin{enumerate}
-    \item \begin{equation*}
-    \begin{split}
-      \max_{v \in z} L_{d+1}(v) = \max_{v \in \phi(z)} -L_{d+1}(v) 
-    \end{split}
-  \end{equation*}
-\item For any $g \in S$ there exists $g^{\prime} \in S$, such that: 
- \begin{equation*}
-    \begin{split}
-      \max_{v \in z} L_{g}(v) = \max_{v \in \phi(z)} -L_{g^{\prime}}(v) 
-    \end{split}
-  \end{equation*}
-  \end{enumerate}
-  Let $v$ be the maximum of $L_{d+1}$ in $z$, thus $z|_{v} = z|_{v+}$. Denote by $z|_{v} = \sum_{S^{\prime} \in I }\rotfv{v}{I}$, under the action of $\phi$, we have $\phi(z|_{v}) = \sum_{S^{\prime} \in I }\rotfv{v^{-1}}{S/I}$. 
-
-  Assume that $u \in \partial^{+} \phi(z)$ such that $ - L(u) > - L(v^{-1})$.
-
-  Let $v$ be a local max of $L_{g}$ in $\partial^{-} z $, therefore
-  \begin{equation*}
-    \begin{split}
-      & \partial^{-}\rotfv{v}{S^{\prime}} = \sum_{g^{\prime} \in S^\prime}\rotfv{v}{S^{\prime}/g^{\prime}} + \rotfv{g^{\prime}v}{S^{\prime}/g^{\prime}}  \rightarrow_{\phi} \sum_{g^{\prime} \in S^\prime}\rotfv{v^{-1}}{(S/S^{\prime})\cup g^{\prime}} + \rotfv{g^{\prime -1}v^{-1}}{(S/S^{\prime})\cup g^{\prime}}  \\
-      & u \in   \bigl\{ \prod_{g^{\prime} \in S/S^{\prime} \cup g  } v^{-1}   \bigr\}
-    \end{split}
-  \end{equation*}
-
-\end{proof}
-
-\begin{claim}
 Let $z$ be an assignment. Then:
 \begin{enumerate}
   \item For any $g \in S$ it holds that: 
