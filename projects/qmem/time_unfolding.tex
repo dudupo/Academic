@@ -1,0 +1,460 @@
+
+\section{Computation Model}
+
+\newcommand{\comDAG}{\pi[C,\mathcal{E}]} 
+Informally, a quantum circuit is a placement of a collection of quantum gates, taken from a finite set, at different space-time locations. Each such location records when the gate is applied and on which qubits it acts. Formally:
+
+\begin{definition}[Quantum Circuit]
+  \label{def:quantcirc}
+  A \emph{space-time location} is a pair $l=(t,S)$, where $t$ is a time coordinate and $S=(s_{1},\ldots,s_{\Delta})$ is an ordered tuple of qubit indices. For a finite collection of quantum gates
+  \begin{equation*}
+    \begin{split}
+      \mathcal{G} \subset \Big\{ g \colon L(\mathcal{H}_{2}^{\otimes \Delta}) \to L(\mathcal{H}_{2}^{\otimes \Delta}) \Big\},
+    \end{split}
+  \end{equation*}
+  and integers $w,d\in\mathbb{N}$, a quantum circuit $C$ of depth $d$ and width $w$ is a collection of tuples
+  \begin{equation*}
+    \begin{split}
+      C=\{u_i=(g_i,l_i)\}_i,
+    \end{split}
+  \end{equation*}
+  where each $g_i\in\mathcal{G}$ and each location $l_i=(l_{i,1},l_{i,2})$ belongs to $\mathbb{Z}_{d}\times \mathbb{Z}_{w}^{\Delta}$. We call the tuples $u_i$ \textit{the gates of $C$}. They must satisfy the following compatibility condition: if two gates have the same time coordinate, then their supports are disjoint. Namely, for $u_i=(g_i,l_i),u_j=(g_j,l_j)\in C$, the equality $l_{i,1}=l_{j,1}$ implies that the sets of qubit indices appearing in $l_{i,2}$ and $l_{j,2}$ are disjoint. We denote by
+  \begin{equation*}
+    \begin{split}
+      \operatorname{Loc}(C) \colonequals \{l_i : u_i=(g_i,l_i)\in C\}
+    \end{split}
+  \end{equation*}
+  the set of locations occupied by the gates of $C$. We define the \textit{$t$-layer} of $C$ to be its restriction to gates at time $t$:
+  \begin{equation*}
+    \begin{split}
+      C|_{t} \colonequals \{u_i=(g_i,l_i)\colon u_i\in C \text{ and } l_{i,1}=t\}.
+    \end{split}
+  \end{equation*}
+\end{definition}
+
+To define the action of a quantum circuit $C$ on a given mixed state, we first associate to $C$ a directed acyclic graph.
+
+\begin{definition}[Associated Computation DAG]
+  Let $C=\{u_i\}_i$ be a quantum circuit with depth $d$ and width $w$. We define the associated computation DAG of $C$, denoted by $\pi_C$, to be the directed acyclic graph $\pi_C=(\mathcal{U},E)$ as follows:
+  \begin{enumerate}
+    \item The vertex set is the gate set of $C$, namely $\mathcal{U}=\{u_i\}_i$.
+    \item For $u_i=(g_i,l_i)$ and $u_j=(g_j,l_j)$, there is a directed edge $(u_i,u_j)\in E$ if and only if $j$ is one of the minimizers of
+      \begin{equation*}
+        \begin{split}
+          \big\{ l_{k,1} : (g_k,l_k)\in \mathcal{U},\ l_{k,1}>l_{i,1},\ l_{k,2}\cap l_{i,2}\neq\emptyset \big\}.
+        \end{split}
+      \end{equation*}
+      Equivalently, $u_j$ is one of the earliest later gates whose support intersects the support of $u_i$. There may be more than one such minimizer, so the out-degree may exceed one.
+  \end{enumerate}
+
+  Suppose that $J=(j_1,j_2,\ldots,j_k)$ is an ordering of the gate indices that agrees with a topological order induced by $\pi_C$. Then we define the associated partial circuits $C_J=\{C_{J,i}\}_{i=1}^{k}$ by
+  \begin{enumerate}
+    \item $C_{J,1}=\{u_{j_1}\}$.
+    \item For $1\le i<k$, set
+      \begin{equation*}
+        \begin{split}
+          C_{J,i+1}=C_{J,i}\cup\{u_{j_{i+1}}\}.
+        \end{split}
+      \end{equation*}
+      We call $C_{J,i}$ the partial computation circuit up to step $i$.
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}
+  Let $\rho$ be a density matrix over $w$ qubits, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with depth $d$ and width $w$. For any density matrix $\sigma$, quantum gate $g \in \mathcal{G}$, and location $l$, the application of the gate-location tuple $(g,l)$ on $\sigma$, denoted by $(g,l) \circ \sigma$, is the application of $g$ on $\sigma$ where wires are ordered such that the first qubit in the input to $g$ is $l_{2,1}$, the second is $l_{2,2}$, and so on. The result of the application of $C$ on $\rho$, denoted by $C \circ \rho$, is given by iterative applications of the gates $\{u_{i}\}_{i=1}$ on $\rho$, according to a topological order induced by $\pi_{C}$.
+
+  We say that $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ is a computation prefix if $\rho_{1} = \rho$ and $\rho_{i+1} = u^\prime_{i} \circ \rho_{i}$, where $\{u^{\prime}_{i}\}_{i=1}$ is a prefix of a topological ordering of $\{u_{i}\}_{i=1}$. If $\{u^{\prime}_{i}\}_{i=1}$ contains all the gates in $\{u_{i}\}_{i=1}$, then we call $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ a running.
+\end{definition}
+
+\begin{definition}[$C$ subjected to $\mathcal{E}$ every $m$ computational layers]
+  Let $C=\{u_i\}_i$ be a quantum circuit with depth $d$ and width $w$, let $m\in\mathbb{N}$, and set
+  \begin{equation*}
+    \begin{split}
+      d_m \colonequals \left\lceil \frac{d}{m} \right\rceil.
+    \end{split}
+  \end{equation*}
+  Let $\mathcal{L}\subset [d_m]\times [w]$ be a set of locations, and let $\mathcal{E}$ be a quantum circuit, such $\text{Loc}(\mathcal{E}) = \mathcal{L}$. We name $\mathcal{E}$ \textit{subsets of faults}, and we name the layers of $\mathcal{E}$ \textit{fault layers}.
+  The circuit \textit{$C$ subjected to $\mathcal{E}$ every $m$ computational layers}, denoted by $C[\mathcal{E}]_{m}$, is obtained by keeping the order of the computational layers of $C$ and inserting one fault layer after every block of $m$ consecutive computational layers. Thus the first fault layer is inserted after the computational layers $1,\ldots,m$, the second is inserted after the computational layers $m+1,\ldots,2m$, and so on. Concretely, each computational gate $u_i=(g_i,(t_i,S_i))$ of $C$ is moved to the time coordinate
+  \begin{equation*}
+    \begin{split}
+      t_i + \left\lfloor \frac{t_i-1}{m} \right\rfloor,
+    \end{split}
+  \end{equation*}
+  while each fault gate $(g,(t,S))\in\mathcal{E}$ is placed at time coordinate
+  \begin{equation*}
+    \begin{split}
+      t(m+1).
+    \end{split}
+  \end{equation*}
+  Equivalently, for each time index $t\in[d_m]$, the computational layers with original times
+  \begin{equation*}
+    \begin{split}
+      (t-1)m+1,\ldots,\min\{tm,d\}
+    \end{split}
+  \end{equation*}
+  appear consecutively and are followed by the fault layer at time $b(m+1)$.
+  When $m=1$, the computational gates occupy the odd time coordinates and the fault layers occupy the even time coordinates. When the parameter is omitted, we mean $m=1$. We denote the associated computation DAG of $C[\mathcal{E}]_{m}$ by $\comDAG$.
+\end{definition}
+
+\begin{remark}
+  Formally, a fault circuit is just a particular quantum circuit whose gates are interpreted as faults rather than as computational operations. Thus the distinction between a quantum circuit and a fault circuit is semantic rather than structural: both are circuits in the sense of \Cref{def:quantcirc}, but they play different roles in the analysis.
+\end{remark}
+
+\begin{example}
+  When $m=3$, the computational layers are sent to the times
+  \begin{equation*}
+    \begin{split}
+      1,2,3,5,6,7,9,10,11,\ldots,
+    \end{split}
+  \end{equation*}
+  while the fault layers are sent to the times
+  \begin{equation*}
+    \begin{split}
+      4,8,12,\ldots.
+    \end{split}
+  \end{equation*}
+\end{example}
+
+
+The chapter uses two different notions of propagation. They are related, but they serve different analytical purposes. The first notion does not rewrite the circuit and does not change the time coordinates. Instead, it propagates part of the error inside a fixed running of the computation and asks what the accumulated effect looks like at a chosen step $\tau$. In particular, this notion applies not only to a single fault, but also to a collection of faults propagated one after another according to the computation DAG. This is the right framework when one wants to speak about the size of the syndrome or of the deviation \emph{at an actual intermediate time} of the computation.
+
+This distinction is essential for statements such as the intermediate value theorem proved below. For example, a codeword may absorb noise during one time unit and be mapped to another codeword. If one only commutes whole fault layers forward, then one reorganizes the circuit globally and may lose the ability to point to the time at which a large syndrome first appears. The first notion of propagation avoids this problem: by propagating only part of the error while keeping the underlying time axis fixed, it lets us identify intermediate steps where a medium-size or large deviation must already be visible.
+
+The second notion is more global. There we swap entire layers and then update the time coordinates accordingly. Its role is not to locate when a syndrome becomes large, but rather to compare different time-unfoldings of the same noisy circuit and to coarse-grain the noise into sparser effective layers. In particular, once the theorem proved using this second notion is established, any constant-depth collection of gates may be treated as a single time step for the purpose of the noise analysis: up to the corresponding effective rescaling of the noise rate, we may ignore the faults that occur during the internal application of those gates and replace them by an effective fault layer acting only before or after that constant-depth subcircuit. Moreover, this effective rescaling is correct with respect to local stochastic noise channels: a local stochastic noise channel is mapped to another local stochastic noise channel, with a rescaled noise rate.
+
+For readability, we therefore separate the discussion into two subsections. The first subsection develops propagation inside a fixed running and is tailored to the deviation-cluster bounds, while the second develops layer propagation and is tailored to the coarse-graining argument.
+
+\subsection{Local Propagation Along a Running}
+
+\begin{definition}[Fault propagation to a step $\tau$]
+  Let $C=\{u_i\}_i$ be a quantum circuit, let $J=(j_1,\ldots,j_k)$ be an order agreeing with $\pi_C$, and let $u_i\in C$. Suppose that $u_i=u_{j_l}$ in this order. If $l>\tau$, we define the propagation of $u_i$ to step $\tau$ to be the identity operator.
+
+  Otherwise, define operators $X_0,X_1,\ldots,X_{\tau-l}$ recursively by setting $X_0=u_{j_l}$ and requiring that for every $1\le s\le \tau-l$,
+  \begin{equation*}
+    \begin{split}
+      X_{s-1}u_{j_{l+s}} = u_{j_{l+s}}X_s.
+    \end{split}
+  \end{equation*}
+  We then define the \emph{propagation of $u_i$ to step $\tau$} to be the operator
+  \begin{equation*}
+    \begin{split}
+      X \colonequals X_{\tau-l}.
+    \end{split}
+  \end{equation*}
+
+  Now let $C[\mathcal{E}]$ be a noisy circuit, let $J$ be an order agreeing with $\pi_{C[\mathcal{E}]}$, and let $\tau$ be a step in that order. For each fault gate $e\in\mathcal{E}$ that occurs no later than step $\tau$, denote by $X^{\tau}_{e}$ its propagation to step $\tau$. We define the propagated error at step $\tau$ by multiplying these propagated faults in reverse topological order:
+  \begin{equation*}
+    \begin{split}
+      X^{\tau} \colonequals \prod_{e\preceq \tau} X^{\tau}_{e}.
+    \end{split}
+  \end{equation*}
+\end{definition}
+
+
+\begin{definition}[Deviation]
+  \label{def:deviation}
+  For a quantum circuit $C$, a set of faults $\mathcal{E}$, and step $\tau$, let $X^{\tau}$ be the propagated error at step $\tau$. We define the deviation of $C[\mathcal{E}]$ from $C$ at step $\tau$ by the set of indices on which $X^{\tau}$ acts non-trivially. 
+\end{definition}
+\begin{definition}
+  Using the same notations as in \Cref{def:deviation}, for a set of unitary operators $\mathcal{S} = \{s_{i} \colon \mathcal{H}_{2}^{w} \rightarrow \mathcal{H}_{2}^{w} \}_{i=1}$, we define the propagated error up to stabilizers in $\mathcal{S}$ as $X^{\tau}[S] \colonequals \min_{s \in \mathcal{S}} \{ w(sX) \}$. Then, we define the deviation of $C[\mathcal{E}]$ from $C$ at step $\tau$ up to stabilizers in $\mathcal{S}$ to be the subset of coordinates on which $X^{\tau}[S]$ acts non-trivially.
+\end{definition}
+
+The following definitions extend the notion of a Tanner graph to the setting of quantum circuits.
+
+\begin{definition}[Tanner graph of a register]
+  Let $C$ be a quantum circuit and let $R$ be a register, namely a subset of qubits of $C$. The \textit{Tanner graph} of $R$ at step $\tau$, denoted by $\mathcal{T}_{R,\tau}$, is defined as follows:
+  \begin{enumerate}
+    \item If at step $\tau$ the register $R$ is encoded by a code $\mathcal{C}$, then $\mathcal{T}_{R,\tau}$ is the Tanner graph of $\mathcal{C}$.
+    \item Otherwise, $\mathcal{T}_{R,\tau}$ is the empty graph.
+  \end{enumerate}
+  When the step is clear from the context, we omit the subscript $\tau$.
+\end{definition}
+
+\begin{definition}[Generalized Tanner graph of a circuit]
+  Let $C$ be a quantum circuit. For registers $A$ and $B$ in $C$, define the generalized Tanner graph of their union by
+  \begin{equation*}
+    \begin{split}
+      \mathcal{T}_{A\cup B,\tau} \colonequals \mathcal{T}_{A,\tau}\cup \mathcal{T}_{B,\tau}.
+    \end{split}
+  \end{equation*}
+  More generally, for a partition of the qubits into registers $\{R_i\}_i$, the generalized Tanner graph of $C$ at step $\tau$ is
+  \begin{equation*}
+    \begin{split}
+      \mathcal{T}_{C,\{R_i\},\tau} \colonequals \bigcup_i \mathcal{T}_{R_i,\tau}.
+    \end{split}
+  \end{equation*}
+  When the partition and the step are clear, we abbreviate this notation to $\mathcal{T}_C$.
+\end{definition}
+
+\begin{definition}[Clustered deviation]
+  Let $C$ be a quantum circuit, let $R$ be a register of $C$, and let $\mathcal{E}$ be a fault set. Let $\mathcal{T}_{R,\tau}$ be the Tanner graph of $R$ at step $\tau$, and let $\mathcal{D}_{\tau}$ be the deviation of $C[\mathcal{E}]$ from $C$ on $R$ at step $\tau$. Denote by $\mathcal{T}_{R,\tau}|_{\mathcal{D}_{\tau}}$ the subgraph induced on the left vertices corresponding to the qubits in $\mathcal{D}_{\tau}$.
+
+  We say that two left vertices are connected if they share a common right neighbor. The \textit{deviation clusters} at step $\tau$ are the connected components of $\mathcal{T}_{R,\tau}|_{\mathcal{D}_{\tau}}$. The size of a deviation cluster is the number of right vertices it contains.
+\end{definition}
+
+\begin{claim}
+  \label{claim:deviation_clusters}
+  Let $C$ be a quantum circuit whose gates act on at most $\Delta$ qubits. Let $R$ be a quantum register encoded by a quantum error-correcting code whose Tanner graph has left degree at most $\Delta_{1}$ and right degree at most $\Delta_{2}$. Fix a fault set $\mathcal{E}$ and an order $J$ agreeing with $\pi_{C[\mathcal{E}]}$. For a step $\tau\in J$, let $Y_{1}^{(\tau)},Y_{2}^{(\tau)},\ldots$ denote the deviation clusters at step $\tau$.
+
+  Suppose that at step $\tau_{1}$ there is a deviation cluster $Y_i^{(\tau_{1})}$. Then there exist deviation clusters $Z$ and $Z'$ at step $\tau_{1}-1$ such that
+  \begin{equation*}
+    \begin{split}
+      Z\cap Y_i^{(\tau_{1})} \neq \emptyset,
+      \qquad
+      |Z| \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}}\,|Y_i^{(\tau_{1})}|,
+    \end{split}
+  \end{equation*}
+  and
+  \begin{equation*}
+    \begin{split}
+      Z'\cap Y_i^{(\tau_{1})} \neq \emptyset,
+      \qquad
+      |Z'| \le \Delta\Delta_{1}\Delta_{2}\,|Y_i^{(\tau_{1})}|.
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+  Let $u$ be the gate applied at step $\tau_{1}$. Passing from step $\tau_{1}-1$ to step $\tau_{1}$ can modify the deviation only on qubits touched by $u$. Since $u$ acts on at most $\Delta$ qubits, and each such qubit is adjacent in the Tanner graph to at most $\Delta_{1}$ checks, each of which meets at most $\Delta_{2}$ qubits, the gate $u$ can interact with vertices belonging to at most
+  \begin{equation*}
+    \begin{split}
+      \Delta\Delta_{1}\Delta_{2}
+    \end{split}
+  \end{equation*}
+  deviation clusters from step $\tau_{1}-1$.
+
+  Let $Y_{1},\ldots,Y_{m}$, with $m\le \Delta\Delta_{1}\Delta_{2}$, be those deviation clusters at step $\tau_{1}-1$ that meet the neighborhood affected by $u$ and whose union contains $Y_i^{(\tau_{1})}$. Then
+  \begin{equation*}
+    \begin{split}
+      |Y_i^{(\tau_{1})}| \le \sum_{j=1}^{m}|Y_j| \le m\max_{1\le j\le m}|Y_j| \le \Delta\Delta_{1}\Delta_{2}\max_{1\le j\le m}|Y_j|.
+    \end{split}
+  \end{equation*}
+  Hence one of these clusters, call it $Z$, satisfies
+  \begin{equation*}
+    \begin{split}
+      |Z| \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}}\,|Y_i^{(\tau_{1})}|.
+    \end{split}
+  \end{equation*}
+  By construction, $Z\cap Y_i^{(\tau_{1})}\neq \emptyset$.
+
+  For the upper bound, apply the same argument to the inverse gate $u^{\dagger}$, which also acts on at most $\Delta$ qubits. Viewing the transition from step $\tau_{1}$ back to step $\tau_{1}-1$ as the application of $u^{\dagger}$, we conclude that some deviation cluster $Z'$ at step $\tau_{1}-1$ intersecting $Y_i^{(\tau_{1})}$ satisfies
+  \begin{equation*}
+    \begin{split}
+      |Z'| \le \Delta\Delta_{1}\Delta_{2}\,|Y_i^{(\tau_{1})}|.
+    \end{split}
+  \end{equation*}
+  This proves both bounds.
+\end{proof}
+
+\begin{corollary}[Intermediate Value Theorem]
+  \label{claim:inter}
+  Let $\alpha = 1 / (\Delta\Delta_{1}\Delta_{2})$, and let $x$ be an integer. Assume that at the initial step $\tau_{o}$, there is no deviation cluster of size more than $\alpha x$, and that at a step $\tau_{1} \in J$, such that $\tau_{1} > \tau_{o}$, there is a deviation cluster $Y^{(\tau_{1})}$ of size $|Y^{(\tau_{1})}| > x$. Then there is a step $\tau_{\star} \in J$ such that $\tau_{o} < \tau_{\star} < \tau_{1}$ for which there is a deviation cluster $Z$ at step $\tau_{\star}$, satisfying that the size of $Z$ is in the range $(\alpha x, x)$.
+\end{corollary}
+\begin{proof}
+Assume for contradiction that for every step $\tau$ with $\tau_{o}<\tau<\tau_{1}$, all deviation clusters have size at most $\alpha x$. In particular, this holds at step $\tau_{1}-1$. On the other hand, since $|Y^{(\tau_{1})}|>x$, \Cref{claim:deviation_clusters} implies the existence of a deviation cluster at step $\tau_{1}-1$ of size at least
+\begin{equation*}
+  \begin{split}
+    \frac{1}{\Delta\Delta_{1}\Delta_{2}}|Y^{(\tau_{1})}| = \alpha |Y^{(\tau_{1})}| > \alpha x,
+  \end{split}
+\end{equation*}
+which is a contradiction. Therefore there must exist an intermediate step $\tau_{\star}$ with $\tau_{o}<\tau_{\star}<\tau_{1}$ at which some deviation cluster has size in the interval $(\alpha x,x)$.
+\end{proof}
+
+\begin{claim}
+Let $\alpha=(\Delta\Delta_{1}\Delta_{2})^{-1}$. Let $C$ be a quantum circuit with order $J$ and depth $d$, and let $\mathcal{E}\sim\mathcal{N}_{\mathcal{E}}$, so that $C[\mathcal{E}]$ is a random circuit whose gates act on at most $\Delta$ qubits. Fix a time $t\le 2d$ and an integer $x\in\mathbb{N}$. Let $A$ be the event that by time $t$ there exists a deviation cluster of size greater than $x$. For each step $\tau\in J$, let $B_{\tau}$ be the event that step $\tau$ is the first step at which there exists a deviation cluster of size in the interval $(\alpha x,x)$. Then
+  \begin{equation*}
+    \begin{split}
+      \prb{A} \le 2wd\max_{\tau\in[2wd]}\prb{B_{\tau}}.
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+By \Cref{claim:inter}, whenever the event $A$ occurs there exists a step $\tau\in J$ with $\tau\le 2wt$ at which there is a deviation cluster of size in the interval $(\alpha x,x)$. Hence
+  \begin{equation*}
+    \begin{split}
+      A \subset \bigcup_{\tau\in[2wt]} B_{\tau} \subset \bigcup_{\tau\in[2wd]} B_{\tau}.
+    \end{split}
+  \end{equation*}
+The union bound now gives
+  \begin{equation*}
+    \begin{split}
+      \prb{A}
+      \le \prb{\bigcup_{\tau\in[2wd]} B_{\tau}}
+      \le \sum_{\tau\in[2wd]} \prb{B_{\tau}}
+      \le 2wd\max_{\tau\in[2wd]}\prb{B_{\tau}}.
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+\subsection{Layer Propagation and Time Coarse-Graining}
+
+We now switch from propagation along a fixed running to propagation at the level of entire time slices. This second notion is intentionally stronger and less local. In the previous subsection, the purpose was to say: given a fault that already occurred, what is its effect at a later step of the same computation? Here the purpose is different: we want to reorganize the circuit itself, by commuting fault layers forward and grouping them into coarser effective layers. This is the mechanism behind the later renormalization claim for local stochastic noise.
+
+In particular, local propagation keeps the ambient circuit fixed and changes the \emph{description of the error}. Layer propagation, by contrast, changes the \emph{presentation of the circuit} while preserving the implemented channel. This is why the two notions should not be merged into one definition: one is adapted to tracking deviations, while the other is adapted to comparing circuits related by time-unfolding.
+
+\begin{definition}[Layer propagation]
+  Let $C = \{u_{i}\}_{i=1}$ be a quantum circuit. For each time coordinate $t$, write $U_{t}\colonequals C|_{t}$. The family of non-empty $t$-cuts $\{U_{t}\}_{t}$ is called the \textit{layer decomposition} of $C$.
+
+  Let $t<t'$ be such that $U_t$ and $U_{t'}$ are non-empty and $U_s=\emptyset$ for every $t<s<t'$. The \textit{forward propagation} of the layer $U_{t}$ across the next layer $U_{t'}$ is the operation that replaces the pair $(U_{t},U_{t'})$ by a pair $(U_{t'},V_{t\to t'})$ satisfying
+  \begin{equation*}
+    \begin{split}
+      \prod_{u\in U_{t}}u\prod_{v\in U_{t'}}v
+      =
+      \prod_{v\in U_{t'}}v\prod_{w\in V_{t\to t'}}w.
+    \end{split}
+  \end{equation*}
+  The layer $V_{t\to t'}$ is called the \textit{propagation expression} of $U_{t}$ across $U_{t'}$.
+
+  More generally, if $t<t'$, the \textit{forward propagation of $U_t$ to time $t'$} is obtained by iterating the above operation through the successive non-empty cuts between times $t$ and $t'$. The resulting propagated layer is denoted by $V_{t\to t'}$ and is again called the propagation expression of $U_t$ to time $t'$. The resulting circuit has layer decomposition
+  \begin{equation*}
+    \begin{split}
+      \ldots,U_{t-1},U_t,U_{t+1},\ldots,U_{t'},U_{t'+1},\ldots
+      \mapsto
+      \ldots,U_{t-1},U_{t+1},\ldots,U_{t'},V_{t\to t'},U_{t'+1},\ldots.
+    \end{split}
+  \end{equation*}
+  After propagation we update the time coordinates so that they agree with the new layer in which each gate is applied.
+\end{definition}
+
+\begin{claim}
+  \label{claim:layer_fanin}
+  Assume that every gate in $C$ acts on at most $\Delta$ qubits. Then every circuit obtained from $C$ by forward layer propagation also consists of gates acting on at most $\Delta$ qubits.
+\end{claim}
+\begin{proof}
+  Propagating a gate $u\in U_i$ across a layer $U_{i+1}$ conjugates $u$ by the product of the gates in $U_{i+1}$ that intersect its support. Since the gates inside $U_{i+1}$ are pairwise disjoint, each qubit in the support of $u$ participates in at most one gate from $U_{i+1}$. Therefore the support of the propagated image of $u$ is contained in the union of the supports of at most $\Delta$ gates, each of arity at most $\Delta$, but only one such gate can be associated with each qubit of $u$. Consequently the propagated image still acts on at most $\Delta$ wires. Applying this argument repeatedly proves the claim.
+\end{proof}
+
+\begin{definition}[$C\sim_{P}C'$]
+  For quantum circuits $C$ and $C'$, we write $C\sim_{P}C'$ if one can be obtained from the other by a finite sequence of layer propagations.
+\end{definition}
+
+By construction, $\sim_{P}$ preserves the implemented channel. Indeed, if $C\sim_{P}C'$ and $\rho$ is any mixed state on the input register, then
+\begin{equation*}
+  \begin{split}
+    C\circ \rho = C'\circ \rho.
+  \end{split}
+\end{equation*}
+
+\begin{definition}[Noise channel]
+  A \textit{noise channel} $\mathcal{N}_{\mathcal{E}}$ is a distribution over sets of fault locations.
+\end{definition}
+
+\begin{definition}[Local stochastic noise channel]
+  Let $p\in(0,1)$. We say that the noise channel $\mathcal{N}_{\mathcal{E}}$ is \textit{local stochastic with rate $p$} if for every finite set of locations $S\subset \mathbb{N}\times \mathbb{N}$,
+  \begin{equation*}
+    \begin{split}
+      \prbm{S\subset \operatorname{Loc}(\mathcal{E})}{\mathcal{E}\sim \mathcal{N}_{\mathcal{E}}}
+      \le p^{|S|}.
+    \end{split}
+  \end{equation*}
+\end{definition}
+
+Given a circuit $C$ and a random fault set $\mathcal{E}\sim\mathcal{N}_{\mathcal{E}}$, the subjected circuit $C[\mathcal{E}]$ is itself a random variable.
+
+\begin{definition}[Witness family in the backward light cone]
+  Let $W$ be a propagation expression obtained from a block of $c$ layers of a noisy circuit after propagating all even fault layers to the end of the block. For a subset $S\subset \operatorname{Loc}(W)$, we define the \textit{witness family} of $S$, denoted by $\mathcal{W}(S)$, to be the collection of all minimal sets
+  \begin{equation*}
+    \begin{split}
+      S'\subset \Lambda(S)
+    \end{split}
+  \end{equation*}
+  such that there exists a fault pattern containing $S'$ whose propagation produces all the faults at the locations in $S$. Here minimality is with respect to inclusion.
+\end{definition}
+
+\begin{claim}
+  \label{claim:block_witness}
+  Let $c\ge 2$ be even, let $C$ be a depth-$c/2$ circuit whose gates have arity at most $\Delta$, and let $C[\mathcal{E}]$ be the circuit obtained by inserting the faults of $\mathcal{E}$ between the computational layers. Write the layer decomposition of $C[\mathcal{E}]$ as
+  \begin{equation*}
+    \begin{split}
+      U_{0},U_{1},\ldots,U_{c},
+    \end{split}
+  \end{equation*}
+  where the even layers are fault layers and the odd layers are computational layers. Propagate the fault layers $U_{2},U_{4},\ldots,U_{c-2}$ forward beyond $U_{c-1}$, in reverse order, and denote by $V^{(1)}$ the resulting propagation expression obtained by grouping together those propagated layers with the terminal fault layer $U_{c}$. Then for every $S\subset \operatorname{Loc}(V^{(1)})$ the witness family $\mathcal{W}(S)$ is non-empty, and every element $S'\in \mathcal{W}(S)$ satisfies
+  \begin{equation*}
+    \begin{split}
+      S'\subset \Lambda(S)\cap \bigcup_{k=0}^{c/2}U_{2k}
+    \end{split}
+  \end{equation*}
+  and
+  \begin{equation*}
+    \begin{split}
+      |S'|\ge \frac{|S|}{\Delta^{c}}.
+    \end{split}
+  \end{equation*}
+  Consequently,
+  \begin{equation*}
+    \begin{split}
+      \{S\subset \operatorname{Loc}(V^{(1)})\}
+      \subset
+      \bigcup_{S'\in \mathcal{W}(S)} \{S'\subset \operatorname{Loc}(\mathcal{E})\}.
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+  Suppose that the event $\{S\subset \operatorname{Loc}(V^{(1)})\}$ occurs. Then there exists at least one set of original fault locations whose propagation produces all the faults in $S$. Among all such sets choose one that is minimal with respect to inclusion, and denote it by $S'$. By construction, $S'\in \mathcal{W}(S)$, so the witness family is non-empty.
+
+  Since every element of $S$ is obtained by propagating some original fault through at most $c$ layers, and propagation never leaves the backward light cone of the produced qubits, every location in $S'$ lies in $\Lambda(S)\cap \bigcup_{k=0}^{c/2}U_{2k}$.
+
+  It remains to bound the size of $S'$. A single fault location can influence at most $\Delta^{c}$ qubits in the final layer of the block, because at each of the at most $c$ propagation steps the support can branch to at most $\Delta$ qubits. Therefore any set of original faults capable of generating all elements of $S$ must contain at least $|S|/\Delta^{c}$ fault locations. In particular, this holds for the minimal producing set $S'$, so $|S'|\ge |S|/\Delta^{c}$.
+
+  Finally, whenever $S\subset \operatorname{Loc}(V^{(1)})$ occurs, at least one minimal producing set $S'\in \mathcal{W}(S)$ is fully contained in the realized fault set $\operatorname{Loc}(\mathcal{E})$. This proves the event inclusion.
+\end{proof}
+
+\begin{claim}
+  \label{claim:block_noise_renorm}
+  Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with rate $p$, and let $C$ be a quantum circuit whose gates have arity at most $\Delta$. Fix an even integer $c$. Then there exists a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$ with rate
+  \begin{equation*}
+    \begin{split}
+      q \colonequals \left(2^{H(\Delta^{-c})\Delta^{c}}p\right)^{\Delta^{-c}},
+    \end{split}
+  \end{equation*}
+  such that
+  \begin{equation*}
+    \begin{split}
+      C[\mathcal{E}]_{1} \sim_{P} C[\mathcal{E}_{q}]_{c/2}.
+    \end{split}
+  \end{equation*}
+  In particular, up to a constant depending only on $\Delta$ and $c$, the rate $q$ behaves like $p^{\Delta^{-c}}$.
+\end{claim}
+\begin{proof}
+  Partition the subjected circuit $C[\mathcal{E}]_{1}$ into consecutive blocks of $c$ layers. Inside each block, propagate all internal even fault layers to the end of the block, exactly as in \Cref{claim:block_witness}. Doing this block by block yields a new circuit $C'$ in which each block of $c/2$ computational layers is followed by a single coarse-grained fault layer. Therefore $C' = C[\mathcal{E}']_{c/2}$ for a suitable random fault set $\mathcal{E}'$, and by construction
+  \begin{equation*}
+    \begin{split}
+      C[\mathcal{E}]_{1} \sim_{P} C[\mathcal{E}']_{c/2}.
+    \end{split}
+  \end{equation*}
+
+  It remains to prove that $\mathcal{E}'$ is local stochastic. Fix one coarse-grained propagation expression $V^{(i)}$ and a subset $S\subset \operatorname{Loc}(V^{(i)})$. By \Cref{claim:block_witness}, the event $\{S\subset \operatorname{Loc}(V^{(i)})\}$ implies that at least one witness set $S'\in \mathcal{W}(S)$ is fully contained in the original fault set $\operatorname{Loc}(\mathcal{E})$, and every such witness satisfies $|S'|\ge |S|/\Delta^{c}$. Hence
+  \begin{equation*}
+    \begin{split}
+      \prb{S\subset \operatorname{Loc}(V^{(i)})}
+      &\le
+      \prb{\bigcup_{S'\in \mathcal{W}(S)}\{S'\subset \operatorname{Loc}(\mathcal{E})\}} \\
+      &\le
+      \sum_{S'\in \mathcal{W}(S)} \prb{S'\subset \operatorname{Loc}(\mathcal{E})}.
+    \end{split}
+  \end{equation*}
+  The channel $\mathcal{N}_{\mathcal{E}}$ is local stochastic with rate $p$, so each term is at most $p^{|S'|}$. Moreover, the backward light cone of each effective fault has size bounded by a constant depending only on $\Delta$ and $c$, so the number of candidate witnesses of size $\ell$ is at most
+  \begin{equation*}
+    \begin{split}
+      \binom{\Delta^{c}|S|}{\ell}.
+    \end{split}
+  \end{equation*}
+  Choosing $\ell=\lceil |S|/\Delta^{c}\rceil$ and using the standard entropy bound
+  \begin{equation*}
+    \begin{split}
+      \binom{\Delta^{c}|S|}{|S|/\Delta^{c}}
+      \le
+      2^{H(\Delta^{-2c})\Delta^{c}|S|},
+    \end{split}
+  \end{equation*}
+  we obtain
+  \begin{equation*}
+    \begin{split}
+      \prb{S\subset \operatorname{Loc}(V^{(i)})}
+      \le
+      \left(2^{H(\Delta^{-2c})\Delta^{c}}p\right)^{|S|/\Delta^{c}}
+      = q^{|S|}.
+    \end{split}
+  \end{equation*}
+  Since this bound is uniform over all subsets $S$ and all coarse-grained layers, the induced random set $\mathcal{E}'$ is local stochastic with rate $q$. Setting $\mathcal{E}_{q}=\mathcal{E}'$ completes the proof.
+\end{proof}

@@ -1,0 +1,178 @@
+
+\section{Tanner - History Connected Equivalency}
+Imagine the following process, we apply $t$ noisy iterations of the SWEEP rule, and then a single ideal (without noise) iteration. Denote by $\xi$ a deviated configuration (can be either bits or checks), and by $\xi^{\prime}$ the result of applying an ideal SWEEP rule on $\xi$. Notice that if $\xi$ is connected in the Tanner graph then $\xi^{\prime}$ is connected in the History graph \ctt{Require proof, For the classical case enumerate all the options can be done by hand}. Thus:
+\begin{equation*}
+  \begin{split}
+    & \prb{\xi \text{ connected in Tanner}}  \le \prb{\xi^{\prime} \text{ connected in Time } | \text{ no noise at the } t+1 \text{ iteration}  }\\
+    & \le \sum^{\infty}_{m} | \{ \text{ explanation to } \xi^{\prime} \text{ over } m \text{ leaves restricted to no noise at the final iteration } \} | p^{\frac{m}{\Delta}} \\ 
+    & \le \sum^{\infty}_{m} | \{ \text{ explanation to } \xi^{\prime} \text{ over } m \text{ leaves } \} | p^{\frac{m}{\Delta}} \\ 
+    & \le \prb{\xi^{\prime} \text{ connected in Time } \textbf{ - Upper Bound }  } \le q^{\Span{\xi^{\prime}}} \le q^{\Span{\xi} - 1 }
+  \end{split}
+\end{equation*}
+
+\subsection{Another Idea.}
+Reconsider the construction of the explanation. We could add at the top an imaginary layer in which all the vertices at time $t$ are connected by arrows to all the vertices (at time $t+1$) that are adjacent to them in the Tanner graph. For the last layer, we might find that the span of a slice expands instead of shrinking. Namely, \cref{claim:prevslices} for the final slices would change to:
+
+\begin{equation*}
+  \begin{split}
+\sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}} - \xi 
+  \end{split}
+\end{equation*}
+Thus, following the computation at the induction stage in \cref{claim:edgesin}, the number of arrows is bounded by:
+
+\begin{equation*}
+  \begin{split}
+    & \alpha \left(m - 1\right) - \beta s + d+1+ \alpha + \beta \xi \\
+    & \alpha \left(m - 1\right) - \beta s + O(1) 
+  \end{split}
+\end{equation*}
+
+\section{Intermediate Step Lemma}
+
+\ctt{ The idea of this step is also to bound the case that all the bits are flipped at once, So checks are satisfied (and the argue above is not applied directly). }
+
+\begin{definition}[Connected Cluster With Span $s$]
+Let $G = (B,C,E)$ be a Tanner graph of a code, and let $f \colon G \rightarrow \mathbb{R}^{d+1}$ be an embedding of the graph into $\mathbb{R}^{d+1}$. For $s \in \mathbb{R}$, we say that $X \subset B$ is a connected cluster of $G$ with span $s$ regarding $f$ if $X$ is connected in $G$ (where two bits are connected if there is a check that connects both of them in $E$) and $f(X) \subset \mathbb{R}^{d+1}$ has $\Size{f(X)} \le s$. When it's clear from the context which $G$ and $f$ are, we will call $X$ in brief a connected cluster with span $s$.
+\end{definition}
+
+\begin{definition}
+The model, computation, and noise are tossed, and then a correction is made.
+\end{definition}
+
+\begin{claim}  
+  Let $\xi$ be the event in which, at the \textbf{beginning} of time $t$, the error contains a connected cluster with a span greater than $\frac{d}{4}$, and for $i \in [t]$, let $\sigma_{i}$ be the event in which, at the \textbf{end} of time $i$, there is a connected cluster with a span of at least $\sqrt{d}$ that belongs to the error. Then:
+\begin{equation*}
+  \begin{split}
+    & \prb{\xi} \le t\prb{ \sigma_{1} } + p^{\frac{1}{8}\sqrt{d}}  
+  \end{split}
+\end{equation*}
+\end{claim}
+\begin{proof}
+ By the law of total probability it hodls: 
+\begin{equation*}
+  \begin{split}
+    \prb{\xi} & =  \prb{\xi \cap \bigcup^{t}_{i} \sigma_{i} } +  \prb{\xi \cap \bigcap^{t}_{i} \bar{\sigma}_{i} } 
+  \end{split}
+\end{equation*}
+First, let us bound from above the probability of the right intersection, In that case, at the \textbf{end} of time $t-1$, the erorr consists of clusters each at span less than $\sqrt{d}$. Let $m$ be the number the clusters and denote them by $X_{1},..,X_{m}$. Now since the clusters are disjoint, the sum of their $\Size{X_{i}}$ is lower than the total number of the bits, namely: 
+\begin{equation*}
+  \begin{split}
+    & \sum_{1}^{m}\Size{X_{i} } \le n \Rightarrow m \le \frac{n}{\sqrt{d}} \\
+    & p \frac{n}{\sqrt{d}}  \le \sqrt{d}
+  \end{split}
+\end{equation*}
+
+, Thus, .  So denote by $\tau$ the number of bits that require to be flipped in order to merge the flipped connected component to a one with a span greater than $d/4$, So $\tau$ has to be at least:   
+
+
+
+
+\begin{equation*}
+  \begin{split}
+    \tau\left( \sqrt{d} + 1 \right) \ge \frac{1}{4} d \Rightarrow \tau \ge \frac{1}{8} \sqrt{d}
+  \end{split}
+\end{equation*}
+Therefore: 
+\begin{equation*}
+  \begin{split}
+    \prb{\xi \cap \cap^{t}_{i} \bar{\sigma}_{i} } & \le \sum_{\xi^{(t-1)}} \prb{\xi | \xi^{(t-1)}}\prb{\xi^{(t-1)} \cap  \cap^{t}_{i} \bar{\sigma}_{i} }  \\ 
+    & \le \sum_{\xi^{(t-1)}} p^{\frac{1}{8} \sqrt{d}} \prb{\xi^{(t-1)} \cap  \cap^{t}_{i} \bar{\sigma}_{i} } \le p^{\frac{1}{8} \sqrt{d}} 
+  \end{split}
+\end{equation*}
+
+
+\begin{equation*}
+  \begin{split}
+    \prb{\xi} & =  \prb{\xi \cap \cup^{t}_{i} \sigma_{i} } +  \prb{\xi \cap \cap^{t}_{i} \bar{\sigma}_{i} } \\
+    & \le t \prb{ \sigma_{1} } + p^{\frac{1}{8} \sqrt{d}}  
+  \end{split}
+\end{equation*}
+
+\end{proof}
+
+\begin{definition}
+The atomic events are the sets of space-time locations in which faults occur. A run $\omega$ is the sequence of states (assignment of all the bits) induced by an atomic event (and the transition function of the machine). We say that a run $\omega$ closes a non-trivial cycle if it contains a state in which there is a connected cluster $A$ such that its boundary is not a co-boundary.
+\end{definition}
+
+
+Define the bits-cluster graphs $G=(V,E)$ such that the vertices are connected bit-clusters at different times $\{A_{i}^{t}\}$, and there is an edge between $A_{i}^{t}$ and $A_{j}^{t-1}$ only if $\Pi_{x} A_{i}^{t} \cap \Pi_{x} A_{j}^{t-1} \neq \emptyset$. Given a state at time $t-1$ such that no connected component in $G$ forms a closed non-trival circle, consider $\tilde{A}_{i}^{t}$ constructed as follows: perform the application of either noise or Toom's correction in an arbitrary order and stop right before $\tilde{A}_{i}^{t}$ forms a closed non-trivial circle.
+
+\begin{claim}
+  \label{claim:closes}
+  There is $\phi \in Aut(\mathbb{T}^{d}_{n})$ for which $\Size{ \phi( \tilde{A}_{i}^{t}) } \ge n-1$.
+\end{claim}
+
+\begin{claim}
+  \label{claim:toZ2}
+  Consider a running in which no non-trivial circle was closed, then there is $\psi \colon \mathbb{T}^{d}_{n} \rightarrow \mathbb{Z}_{2n}^{d}$ such:
+  \begin{enumerate}
+    \item For any slice $K$, $\psi(K)$ is connected in $\mathbb{Z}_{2n}^{d}$.
+    %\item The poles of any slice $K$ are strictly contained in the boundaries. Namely, for any pole $p$ and a coordinate $x \in [d]$, we have: $0 < p_{x} < 2n$.
+    \item For any $t$, denote by $S_{t}$ the state at time $t$. Then, for any $t > 1$, we have that $\psi(S_{t})$ is the image of the application of the Tooms rule over $\psi(S_{t-1})$.
+  \end{enumerate}
+\end{claim}
+\begin{proof}
+  We prove it by induction on time $t$.
+  \begin{enumerate}
+    \item Base case, $t=1$. We will construct $\psi$ in the following iterative manner. First, let $\psi$ be the identity. Then, while there are slices that are not connected on $\mathbb{Z}_{2n}^{d}$, do the following: Let $K$ be a slice that is not connected on $\mathbb{Z}_{2n}^{d}$. Then it can be decomposed into a disjoint union $K= K_{1} \cup K_{2}$ such that $K_{1}$ and $K_{2}$ are connected on $\mathbb{Z}_{2n}^{d}$. Assume, without loss of generality, that for a coordinate $x \in [d]$, it holds that for any $a \in K_{1}$ and $b \in K_{2}$, we have $b_{x} - a_{x} > 1$. 
+
+Observe that there has to be at least one such coordinate; otherwise, it is a contradiction to $K_{1}$ and $K_{2}$ not being connected in $\mathbb{Z}_{2n}^{d}$. Then define:
+      \begin{equation*}
+        \begin{split}
+          \psi(z) \leftarrow 
+          \begin{cases}
+            \psi(z) & z \cap K_{1} = \emptyset \\ 
+            z + n \mathbf{1}_{x} & \text{ else }
+          \end{cases}
+        \end{split}
+      \end{equation*}
+Repeat the above for other coordinates if $\psi(K)$ is still not connected in $\mathbb{Z}_{2n}^{d}$. The proof that $\psi(K)$ has to be connected (that the process ends) is omitted.
+\item Induction step. We repeat the construction in the base case. To prove the second property, we show that $\psi$ maps (un)satisfied edges to (un)satisfied edges. \ctt{That is wrong.}
+  \end{enumerate}
+
+\end{proof}
+
+
+\begin{claim}
+  \label{claim:toZinf}
+  Denote by $\omega$ running of the above type, then there is a running $\omega^{\prime}$ on $\mathbb{Z}^{d}_{\infty}$ such that $\omega$ and $\omega^{\prime}$ agree. 
+  %Furthermore, the pro
+\end{claim}
+
+\begin{claim}
+  Consider a $t$-steps running, conditined on the event that no trivial-cycle was closed in the $t-1$ first steps, the probability that a non-trivial cycle will be closed at the $t$th step is less than:
+  \begin{equation*}
+    \begin{split}
+      \prb{ \Lambda^{t} | \bigcap_{t^{\prime} < t} \bar{\Lambda^{t^{\prime}} } } < n^{2d} \sum_{i=n-1}^\infty p^{i} \mathcal{J}_{i} \le  n^{2d} q^{n-1}
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+Consider the event in which there is a droplet that at time $t$ closes a non-trivial cycle. Let $\tilde{A}$ be the subset of that droplet obtained by the process in \cref{claim:closes}. By the claim, $\tilde{A}$ has a boundary $\sigma$ and two vertices on that boundary $M=\{u,v\}$ such that $\Size{M} > n-1$, up to isomorphism.
+
+Now, since no slice in the investigation of $M$ closes a non-trivial cycle then by \cref{claim:toZ2} .. so by \cref{claim:toZinf} ..
+\end{proof}
+
+%Define $\History{A_{i}^{t}}$ to be the subgraph of $G$ consists    
+
+
+
+
+
+
+
+
+
+\section{\texorpdfstring{Configuration up to $C_{z}^\perp$}{Configuration up to Cz perp}}
+
+\section{Drafts:}
+
+    In addition since, in a tree, the number of leavs is at least greater than the maximal degree, then we have that each $J_{j}$ intersects with at most $d+1$ elements. 
+
+
+    \begin{equation*}
+      \begin{split}
+       & L + \Delta_{\max} + 2(n - L -1) \le \sum_{v\in V}\text{deg}(v) = 2 (n-1)\\
+       \Rightarrow & L \ge \Delta_{max}
+      \end{split}
+    \end{equation*}

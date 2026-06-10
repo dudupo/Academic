@@ -1,0 +1,107 @@
+
+
+\section{The $(d,d^{\prime})$-Dimensional Toric Code}
+
+In this section, the parameter $d$ denotes the geometric dimension of the toric complex. This use of the letter $d$ is local to the present section.
+
+\begin{definition}[$d$-Dimensional Toric Complex] 
+  \label{def:toric_complex}
+  For integers $d$ and $n$, denote the group resulting from the $d$-directed power of the cyclic group of order $n$ by $\mathcal{G}_{n}^{d} = \mathbb{Z}_{n}^{\times d}$, and denote the standard generating set of $\mathcal{G}_{n}^{d}$ by $S = \{ 1_{i} \colon i \in [d] \}$. We define the \textit{$d$-dimensional toric complex} to be the hypergraph obtained from the Cayley graph $\text{Cay}(\mathcal{G}_{n}^{d}, S)$ by taking its vertices as the $0$-faces and for any $i \in [d-1]$ we define the $i$-faces as follow: First, for a vertex $v \in \mathcal{G}_{n}^{d}$ and for a subset of generators $S^{\prime} \subset S$ of size $|S^{\prime}| = i$, the $i$-face rooted at $v$ and spanned by $S^{\prime}$, denoted by $\theta_{v, S^{\prime}}$, is:
+  \begin{equation*}
+    \begin{split}
+      \theta_{v,S^{\prime}} \colonequals \bigcup_{I \subset S^{\prime}} \left\{  \left(\prod_{g \in I} g \right) v  \right\}
+    \end{split}
+  \end{equation*}
+  The $i$-faces of the complex are the collection of all the possible rooted spanned $i$-faces induced by $\text{Cay}(\mathcal{G}_{n}^{d})$. We will denote them by $\mathcal{F}_{i}$. 
+
+  Additionally, we name $n$ and $d$, the \textit{side length} and the \textit{dimension} of the complex.  
+\end{definition}
+\begin{definition}[Positive Edges and Cubes]
+  For $u,v \in \mathcal{G}_{n}^{d}$, and $S^{\prime}_{1},S^{\prime}_{2} \subset [d]$, with sizes $|S^{\prime}_{1}| = |S^{\prime}_{2}| = i$, we say that the $i$-faces $\theta_{v,S^{\prime}_{1}}$ and $\theta_{u,S^{\prime}_{2}}$ are adjacent if the intersection $\theta_{v,S^{\prime}_{1}} \cap \theta_{u,S^{\prime}_{2}}$ is an $i-1$-face. In addition, if $\theta_{1}$ and $\theta_{2}$ are $i$ and $i-1$-faces such that $\theta_{2} \subset \theta_{1}$, then we say that $\theta_{2}$ is a \textit{positive edge relative to face} $\theta_{1}$ if they are rooted at the same vertex. Furthermore, we say that $\theta_{1}$ is a \textit{positive cube} of $\theta_{2}$. When the $i$-face is clear from the context, we will abbreviate and say that $\theta_{2}$ is \textit{positive}.
+\end{definition}
+\begin{example}
+  For example, let $v, u \in \mathcal{G}_{n}^{d}$ and $g_{1} \neq g_{2} \in S$. Consider the 2-face $\theta = \{v, g_{1}v, g_{2}g_{1}v, g_{2}v\}$. Then, for $x, y \in \mathcal{G}_{n}^{d}$, we say that an edge (1-face) $\{x, y\}$ is \textit{positive relative to the face} $\theta$ if $x = v$ and $y$ is either $g_{1}v$ or $g_{2}v$.
+\end{example}
+
+We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$, $1$, and $2$ faces.
+
+Although the present paper is not organized in the language of chain complexes, the boundary operators below are the standard ones for toric codes. We use them because they give a compact description of the local constraints and make the CSS structure transparent. We do not need the full homological formalism here, but it remains the natural background framework for the code family.
+
+\begin{definition}[Assignments on a toric complex]
+  Let $\mathcal{T}$ be a $d$-dimensional toric complex. For each $i$, the set of $i$-faces induces a vector space $\mathbb{F}_{2}^{|\mathcal{F}_{i}|}$. An element $z\in \mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ is called an \textit{assignment on the $i$-faces} of $\mathcal{T}$.
+
+  For a vertex $v$ and a subset of generators $S^{\prime}\subset S$ of size $|S^{\prime}|=i$, let $\rotfvs{}$ denote the standard basis vector corresponding to the $i$-face $\rotfs{}$. Thus the family
+  \begin{equation*}
+    \begin{split}
+      \bigl\{ \rotfv{v}{S^{\prime}} : v\in\mathcal{F}_{0},\ S^{\prime}\subset S,\ |S^{\prime}|=i \bigr\}
+    \end{split}
+  \end{equation*}
+  is the standard coordinate basis of $\mathbb{F}_{2}^{|\mathcal{F}_{i}|}$.
+
+  Let $z$ be an assignment on the $i$-faces. Let $v_{1}, \ldots, v_{k} \in \mathcal{F}_{0}$ and $S^{\prime}_{1}, \ldots, S^{\prime}_{k} \subset S$ be such that $\theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}}, \ldots, \theta_{v_{k},S^{\prime}_{k}}$ are precisely the $i$-faces in the support of $z$, namely:
+  \begin{equation*}
+    \begin{split}
+    z = \sum_{i=1}^{k}\rotfv{v_{i}}{S^{\prime}_{i}}
+    \end{split}
+  \end{equation*} 
+  We refer to $\theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}}, \ldots, \theta_{v_{k},S^{\prime}_{k}}$ as the collection of faces that form $z$, or briefly, the faces form $z$.
+  For $i > 0$, we define the linear map $\partial: \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i-1}|}$ such that
+  \begin{equation*}
+    \begin{split}
+    \partial \rotfvs{} \colonequals \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} + \sum_{g \in S^{\prime}} \rotfv{gv}{S^{\prime}/g} 
+    \end{split}
+  \end{equation*}
+  For $i < d$, we define the linear map $\partial^{*}: \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i+1}|}$ such that
+  \begin{equation*}
+    \begin{split}
+      \partial^{*} \rotfvs{} \colonequals \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g} 
+    \end{split}
+  \end{equation*}
+  We define the \textit{restriction of $z$ to a vertex $v$} to be the linear map $|_{v} \colon \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ such that: 
+  \begin{equation*}
+    \begin{split}
+      \rotfv{u}{S^{\prime}} |_{v} \colonequals    
+      \begin{cases}
+      \rotfv{u}{S^{\prime}}  & v \in \theta_{u,S^{\prime}}  \\ 
+        0 & \text{ else }
+      \end{cases}
+    \end{split}
+  \end{equation*}
+  We define the \textit{front of $z$ to a vertex $v$} to be the linear map $|_{v+} \colon \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ such that: 
+  \begin{equation*}
+    \begin{split}
+      \rotfv{u}{S^{\prime}} |_{v+} \colonequals    
+      \begin{cases}
+      \rotfv{u}{S^{\prime}}  & u = v \\ 
+        0 & \text{ else }
+      \end{cases}
+    \end{split}
+  \end{equation*}
+  We say that an assignment $z$ is \textit{connected} if the graph that is induced by taking the faces that support $z$ as vertices and defining the edges to be the adjacency relation between them is connected. We define the connected components of $z$ to be its subsets such that each of them is a connected assignment. For a $j$-face $f$, we say that $f \in z$ if $z$ has a support on $\rotfvs{}$ such that $f \in \rotfs{}$. Consider an assignment $z \in \mathbb{F}_{2}^{\mathcal{F}_{i}}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S^{\prime}_{1}, \ldots, S^{\prime}_{k} \subset S^{\times k}$ such that each of $S^{\prime}_{j}$ is at size $i$ and $z$ is decomposed as:
+  \begin{equation*}
+    \begin{split}
+    z = \sum_{j}^{k}\rotfv{v}{S^{\prime}_{j}}
+    \end{split}
+  \end{equation*}
+  Put differently, $z$ is the result of taking a collection of $i$-faces that are rooted at $v$.
+\end{definition}
+
+\begin{claim}[CSS structure]
+  For every $i$, the maps $\partial \colon \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \to \mathbb{F}_{2}^{|\mathcal{F}_{i-1}|}$ and $\partial^{*} \colon \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \to \mathbb{F}_{2}^{|\mathcal{F}_{i+1}|}$ satisfy the usual orthogonality relation between boundary and coboundary operators. Consequently, the $X$-checks defined by $\partial$ and the $Z$-checks defined by $\partial^{*}$ commute, and therefore the resulting toric code is a CSS code.
+\end{claim}
+\begin{proof}
+  It is enough to check the claim on basis vectors. For a basis vector $\rotfvs{}$, the appendix calculation shows that
+  \begin{equation*}
+    \begin{split}
+      \partial\bigl(\partial \rotfvs{}\bigr)=0.
+    \end{split}
+  \end{equation*}
+  The same cancellation argument applies dually to the coboundary operator. Equivalently, every $d^{\prime}-1$ face and every $d^{\prime}+1$ face overlap on an even number of $d^{\prime}$-faces, so the corresponding $X$- and $Z$-checks commute. This is exactly the CSS condition.
+\end{proof}
+
+We will use only this CSS property and the local geometry of the code; standard facts about distance and rate may be found in the toric-code literature, for example in \cite{Dennis_2002}.
+
+\begin{definition}[$(d,d^{\prime})$ Toric Code] 
+  Let $d, d^{\prime}$ be integers such that $1 < d^{\prime} < d$. For any integer $n$, we construct the $n$th instance of the quantum code family $(d,d^{\prime})$ \textit{Toric Code} as follows: Let $G = (\mathcal{F}_{0}, \ldots, \mathcal{F}_{d})$ be the $d$-dimensional toric complex obtained from $\mathcal{G}_{n}^{d}$ as defined in \Cref{def:toric_complex}. We associate the (q)bits with the $\mathcal{F}_{d^{\prime}}$, the $X$-checks with the $\mathcal{F}_{d^{\prime}-1}$, and the $Z$-checks with the $\mathcal{F}_{d^{\prime}+1}$. An $X$-check, $c_{x}$, is satisfied if the parity of (q)bits set on the $d^{\prime}$-face containing $c_{x}$ is even. Similarly, a $Z$-check, $c_{z}$, is satisfied if the parity, in the Hadamard basis, of the (q)bits set on the $d^{\prime}$-faces contained in $c_{z}$ is even.
+\end{definition}
+

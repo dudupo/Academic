@@ -1,0 +1,54 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+\documentclass[manuscript,screen,review]{acmart}
+
+\else
+ \documentclass[12pt]{extarticle}
+%\usepackage{libertine}
+\usepackage{cuted}%\usepackage{widetext}
+\input{./usepackage}
+\usepackage{cancel}
+\usepackage{tikz-3dplot}
+\usepackage{subcaption}
+\addbibresource{./sample.bib}
+
+\fi
+\usepackage{physics} 
+
+\begin{document}
+\input{newcommands}
+\title{ Quantum Fault Tolerance Meets Toom's Contours }
+
+\author{Michael Ben-Or \ \ David Ponarovsky}
+\maketitle
+
+% Constant depth fault tolerance construction.   
+\newcommand*{\xb}{\mathbf{x}}
+
+\ifdefined\SWEEPHEA
+\else 
+  \newcommand*{\SWEEPHEA}{}
+
+
+  %\newcommand{\History}[1]{\mathbf{History}(#1)}
+\newcommand{\History}[1]{H_{#1}}
+  %\newcommand{\Time}[1]{\mathbf{Time}(#1)}
+  \newcommand{\Time}[1]{T(#1)}
+  \newcommand{\Excuse}[1]{\mathbf{Excuse}(#1)}
+  \newcommand{\Excusei}[1]{\mathbf{Excuse}_{i}(#1)}
+  \newcommand{\Size}[1]{\mathbf{Size}(#1)}
+  \newcommand{\Span}[1]{\mathbf{Span}(#1)}
+  \newcommand{\pre}[1]{\text{pre}(#1)}
+  \newcommand{\prei}[1]{\text{pre}_{i}(#1)}
+  \newcommand{\rotf}[2]{\theta_{#1 ,#2}}
+  \newcommand*{\rotfs}{\rotf{v}{S^{\prime}}}
+  \newcommand{\rotfv}[2]{\mathbf{\rotf{#1}{#2} }}
+  \newcommand*{\rotfvs}{\mathbf{\rotfs{} }}
+\fi
+
+

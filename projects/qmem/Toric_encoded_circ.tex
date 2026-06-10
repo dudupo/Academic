@@ -1,0 +1,116 @@
+
+
+
+
+\section{Toric Encoded Circuits and Toom's Contours}
+
+    \begin{definition}[Troic Encoded Circuit]
+      Let $C$ be a quantum circuit. We say that $C$ is a \textit{Toric encoded circuit} if the following holds:
+      \begin{enumerate}
+        \item There is a Toric code $\mathcal{C}$ such that the qubits of $\mathcal{C}$ can be partitioned into registers $R_{1}, \ldots, R_{k}$, and, at any time, each of the registers is encoded either by the \textit{nice encoding of} $\mathcal{C}$ or by the \textit{nice encoding of} $\phi \circ H (\mathcal{C})$\footnote{Notice that although the code space is invariant to the application of $\phi \circ \mathbf{H}$, the positive direction of the underlying Toric complex is flipped.}. At time $t=0$, the registers are initialized to be either $\ket{\bar{0}}$ or encoded $\ket{\mathbf{S}}$.
+        \item The layers of $C$ at even times are sweep-cycles, and the layers at odd times are realizations of one of the logical $\mathbf{H}, \mathbf{S}, \mathbf{CX}, \mathbf{X}$, or $\mathbf{Z}$ gates.
+        \end{enumerate} 
+    \end{definition}
+
+\begin{definition}[The Boundery of Deviation $\partial D_{t}$  ]  \ 
+  Let $C$ be a Toric encoded circuit, with registers $R_{1},..,R_{l}$ and let $\mathcal{E}$ be a set of faults. Consider the subjection $C[\mathcal{E}]$, For a time $t$, let $A_{t},B_{t} \subset \{R_{1},..,R_{l}\}$ be the registers that encoded, at time $t$ in $C[\mathcal{E}]$, by $\mathcal{C}$ and $\phi \circ \mathbf{H}$ respectively. Denote by $\mathcal{D}_{t}$ the deviation in $C[\mathcal{E}]$ at time $t$. We define the \textit{$X$-type, and the $Z$-type boundaries} of $\mathcal{D}_{t}$, denoted by $\partial{D}^{X}_{t}$ and $\partial{D}^{Z}_{t}$, as follow:   
+  \begin{equation*}
+    \begin{split}
+      \partial \mathcal{D}^{X}_{t}  & \colonequals \bigcup_{R_{i} \in A_{t}} \partial \ket{R_{i,t}} \cup\bigcup_{R_{i} \in B_{t}} \partial \left(\phi \circ \mathbf{H}\right) \ket{R_{i,t}} \\
+    \partial \mathcal{D}^{Z}_{t}  & \colonequals \bigcup_{R_{i} \in B_{t}} \partial \ket{R_{i,t}} \cup\bigcup_{R_{i} \in A_{t}} \partial \left( \phi \circ \mathbf{H}\right) \ket{R_{i,t}} 
+    \end{split}
+  \end{equation*}
+\end{definition}
+
+  \begin{definition}[Base graph $G_{o}$]
+    Let $C$ be a quantum circuit, at depth $d$, with registers $R_{1}, \ldots, R_{k}$, all of which are encoded by Toric codes with the same parameters (i.e., dimension, length, etc.). Let's denote by $\mathcal{G}_{1}, .., \mathcal{G}_{k}$ the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o},E_{o})$ as follows: 
+    \begin{enumerate}
+      \item The vertices $V_{o}$ are tuples, where the first coordinates correspond to a vertex in the union over the vertices in $\mathcal{G}_{1}, \ldots, \mathcal{G}_{k}$, and the second coordinate is associated with a time. Namely:
+        \begin{equation*}
+          \begin{split}
+            V_{o} \colonequals \bigcup_{i} V(\mathcal{G}_{i}) \times [d]
+          \end{split}
+        \end{equation*}
+      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}_{1}, \ldots, \mathcal{G}_{k}$, with the addition that any two vertices in preceding times $t$ and $t+1$ that support qubits (faces) such that $C$ acts non-trivially on those qubits at time $t$ are also connected by an edge. Namely:
+        \begin{equation*}
+          \begin{split}
+            E_{o} & \colonequals \big\{ \{(v,t), (u,t^{\prime}) \} :  \text{ if }     \\ 
+              & \text{either there exists } i \text{ such }  \{v,u\} \in \mathcal{G}_{i} \text{ and } t^{\prime} = t,t+1 \\
+             & \text{or there exists } u_i = (g_{i},l_{i}) \in C \text{ such }  v,u \in l_{i,2} \text{ and } t = l_{i,1}, t^{\prime} = l_{i,1}+1  \big\} 
+          \end{split}
+        \end{equation*}
+    \end{enumerate} 
+\ctt{Here we should add that a vertex $v$ belongs to location $l$ if there is a qubit $f$ that $v$ belongs to its associated face. }
+
+  \end{definition}
+
+  \begin{definition}[Tooms Contour Graph of $C(\mathcal{E})$]
+    \label{def:contour}
+    For a quantum circuit $C$ and set of faults $\mathcal{E}$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. For each time $t$, denote the deviation induced by $\mathcal{E}$ at time $t$ by $\mathcal{D}_{t}$. We define the \textit{Tooms contour graph} $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
+    \begin{enumerate}
+      \item The vertices $V_{\mathcal{H}}$ are partitioned into two types, $X$-type vertices $V_{\mathcal{H},X}$ and $Z$-type vertices $V_{\mathcal{H},Z}$. Each of the $X/Z$-type corresponds to the vertices supporting the $X/Z$-boundary of $\mathcal{D}$. Namely:
+        \begin{equation*}
+          \begin{split}
+            V_{\mathcal{H},X} &\colonequals \big\{ v_{t} : v_{t}=(v,t) \in V_{o} \text{ and there exists a face } f \in \partial \mathcal{D}^{X}_{t} \text{ such } v \in f \big\} \\
+            V_{\mathcal{H},Z} &\colonequals \big\{ v_{t} : v_{t}=(v,t) \in V_{o} \text{ and there exists a face } f \in \partial \mathcal{D}^{Z}_{t} \text{ such } v \in f \big\} 
+          \end{split}
+        \end{equation*}
+        Similarly, the $Z$-type vertices $V_{\mathcal{H}, Z}$ are the vertices $(v,t) \in V_{o}$, that satisfy that $v$ belongs to a face associated with a check, which, at time $t$, belongs to the $\left(\partial D_{t} \right)|_{Z}$. 
+        
+
+We extend the action of potential walls to act on the vertices of $V_{\mathcal{H}}$ by acting on the associated points in $\mathbb{R}^{d}$. More concretely, for a vertex $v \in V_{\mathcal{H}}$, whose corresponding vertex on the infinite $\mathbb{R}^{d}$ Toric is $\tilde{v} \in \mathcal{G}$, and a potential wall $L_{i}$, the value of $L_{i}$ at $v$ is:
+        \begin{equation*}
+          \begin{split}
+            L_{i}(v) \colonequals L_{i}(\tilde{v})
+          \end{split}
+        \end{equation*}
+
+      \item The edges $E_{\mathcal{H}}$ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$, where for any logical gate $g$ which applied in time $t$ in $C[\mathcal{E}]$ we add edge to $A_{\mathcal{H}}$ as follow: 
+        \begin{enumerate}
+            \item If $g$ is a logical $\mathbf{CX}$ then for any physical $\mathbf{CX}$ in its realization, between faces $f_{1}$ into $f_{2}$ at time $t$ we add: 
+            \begin{equation*}
+              \begin{split}
+               & \bigl\{  \{(u,t),(v,t+1)\} : u \in f_{1}, v \in f_{1}\cup f_{2} \text{ and } v,u \in V_{\mathcal{H},X} \bigr\} \\
+               & \bigl\{  \{(u,t),(v,t+1)\} : u \in f_{2}, v \in f_{1}\cup f_{2} \text{ and } v,u \in V_{\mathcal{H},Z} \bigr\} 
+              \end{split}
+            \end{equation*}
+          \item If $g$ is logical $\phi \circ \mathbf{H}$, then for any physical $\mathbf{H}$, in its realization, that acts on face $f$, we add:
+            \begin{equation*}
+              \begin{split}
+                & \bigl\{  \{(u,t),(v,t+1)\} : u \in f, v \in \phi(f) \text{ and } v \in V_{\mathcal{H},Z} ,u \in V_{\mathcal{H},X} \bigr\} \\
+                & \bigl\{  \{(u,t),(v,t+1)\} : u \in f, v \in \phi(f) \text{ and } v \in V_{\mathcal{H},X} ,u \in V_{\mathcal{H},Z} \bigr\} 
+              \end{split}
+            \end{equation*}
+          \item If $g$ is one of logical $X,Z,I$ or a sweep-cycle, then for any face $f$, in the register on which acts $g$, we add: 
+            \begin{equation*}
+              \begin{split}
+                & \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f \text{ and } u,v \in V_{\mathcal{H},X} \bigr\} \\
+                & \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f\text{ and } u,v \in V_{\mathcal{H},Z} \bigr\} 
+              \end{split}
+            \end{equation*}
+          \item If $g$ is the logical $\mathbf{S}$ on register $R$, using a magic state encoded in register $R_{\mathbf{S}}$, then we connect edges by following the connection rules: first applying logical $\mathbf{CX}$ from $R$ into $R_{\mathbf{S}}$, then applying logical $\phi \circ \mathbf{H}$ on $R_{\mathbf{S}}$, and then applying logical $\mathbf{CX}$ from $R_{\mathbf{S}}$ into $R$.
+        \end{enumerate}
+        In addition for any fault $g$ of $\mathcal{E}$, that is applied at time $t$, and any faces $f_{1} \notin \text{Sup}_{X}(g)$ and $f_{2} \notin \text{Sup}_{Z}(g)$, we add the edges:
+            \begin{equation*}
+              \begin{split}
+                & \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f_{1} \text{ and } u,v \in V_{\mathcal{H},X} \bigr\} \\
+                & \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f_{2}\text{ and } u,v \in V_{\mathcal{H},Z} \bigr\} 
+              \end{split}
+            \end{equation*}
+            To construct $F_{\mathcal{H}}$, we connect any pair of vertices $(v,t)$, $(u,t)$ if there exists a vertex $(w,t+1)$ such both of them are connected to it trough $A_{\mathcal{H}}$. Namely: 
+        \begin{equation*}
+          \begin{split}
+            F_{\mathcal{H}} &= \big\{ e = \{u,v\} \in E_{o} : \text{ exists } w \in V_{\mathcal{H}} \text{ such } \{v,w\},\{u,w\} \in A_{\mathcal{H}} \big\} 
+          \end{split}
+        \end{equation*}
+    \end{enumerate}
+    We call $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$ the \textit{arrows} and \textit{forks} edges respectively. 
+\end{definition}
+
+
+\ctt{ It seems that is better not to separate between $X$-type and $Z$-type clusters in the investigation graph. }
+
+
+
+
+

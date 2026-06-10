@@ -1,0 +1,110 @@
+
+  \section{ Notations } \label{sec:nota}
+We follow the standard notations commonly used in the literature. For an integer $n$, we denote by $[n]$ the set of integers $\{1, 2, \ldots, n\}$. To present a countable set, which might or might not be finite, where the number of elements does not matter, we use curly brackets with a subscript denoting the first index of the set. For example, $\{u_{i}\}_{i=1}$ represents the set $u_{1}, u_{2}, \ldots$; For finite sets, we might add a superscript to present the size of the set. We use a colon inside curly brackets to specify a set of elements satisfying a condition, i.e., for sets $A, B$, the notation $\{ a : a \in A, a \in B \}$ equals $A \cap B$. Curly brackets without subscripts or conditions refer to singletons. For example, for a given integer $i$, the set $\{u_{i}\}$ is the set that contains only the element $u_{i}$. For an integer $i$, we denote by $1_{i}$ the vector consisting of one at the $i$th coordinate and zero elsewhere.
+
+  When not otherwise mentioned, we consider quantum states over qubits, each lying in a two-dimensional Hilbert space $\mathcal{H}_{2}$, and denote by $\mathcal{H}_{2^n}$ the Hilbert space of an $n$-qubit system. Pure quantum states and their dual presentations are denoted by $\ket{\psi}, \bra{\psi}$, and in the matrix representation, we use $\ket{\psi}\bra{\psi}$ to denote its density matrix. We will use $\rho$ to denote a mixed state, whose density matrix is a trace one PSD matrix. 
+
+
+\inb{Below, a semi proof that in CSS code partial correction $Z^{e} \rightarrow Z^{\hat{e}}$ doesn't add bit flip errors. It might adds a global phase. I should enter it in a section about CSS coding. }
+
+\begin{equation*}
+  \begin{split}
+     & X^{f}Z^{e} \ket { w + C_{z}^{\perp} } \\
+     = & X^{f}Z^{e}X^{w} \ket { C_{z}^{\perp} } \\
+     \text{apply } H^{\otimes n } \mapsto & Z^{f}X^{e}Z^{w}\ket { C_{z} } \\
+     = & (-1)^{e \cdot w} Z^{f}Z^{w}X^{e}\ket { C_{z} } \\
+     \text{ partial correction } X^{e +\hat{e}} \mapsto & (-1)^{(e+\hat{e}) (f+w) } (-1)^{e \cdot w} Z^{f}Z^{w}X^{\hat{e}}\ket { C_{z} } \\
+     \text{apply } H^{\otimes n } \mapsto & (-1)^{(e+\hat{e}) (f+w) } (-1)^{e \cdot w} X^{f}X^{w}Z^{\hat{e}}\ket { C_{z}^{\perp} } \\
+     = & (-1)^{(e+\hat{e}) (f+w) } (-1)^{e \cdot w} (-1)^{\hat{e} \cdot w} X^{f}Z^{\hat{e}}X^{w}\ket { C_{z}^{\perp} } \\
+     = & (-1)^{(e+\hat{e}) f } X^{f}Z^{\hat{e}}\ket { w + C_{z}^{\perp}  } \\
+  \end{split}
+\end{equation*}
+
+\iffalse 
+
+  We use $\mathcal{N} : L(\mathcal{H}) \rightarrow L(\mathcal{H})$ to denote a $p$-local stochastic noise channel, namely a channel in which for any subset $S$ of the (qu)bits, the probability that all the qubits in $S$ absorb noise is less than $p^{|S|}$. We recall that for a constant-depth circuit, when the fanout/in of its subgates is bounded, one can map the running of the circuits subjected to $p$-local stochastic noise to a running when the states are subjected only to $p^{\prime}$-local stochastic noise before entering the circuit, and then the rest of the computation is done in an ideal environment \cite{gottesman2014faulttolerant}, where $p^{\prime}$ is a function of $p$ and constants. If the gate is also a measure, for example as a decoder, then the mapping induces also $q$-local stochastic noise on the measurements.
+
+  \begin{figure}[h]
+  \label{fig:noise}
+  \begin{center}
+  \begin{quantikz}[row sep=0.3cm, column sep=0.7cm]
+    \lstick{$q_1$} & \gate[wires=8]{U_0} & \gate{\mathcal{N}} & \gate[wires=8]{U_1}   & \gate{\mathcal{N}} & \gate[wires=8]{U_2} & \gate{\mathcal{N}}& \qw \\
+    \lstick{$q_2$} &                      & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} &                     & \gate{\mathcal{N}} & \qw \\
+    \lstick{$q_3$} &                      & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} &                     & \gate{\mathcal{N}} & \qw \\
+    \lstick{$q_4$} &                      & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} &                     & \gate{\mathcal{N}} & \qw \\
+    \lstick{$q_5$} &                      & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} &                     & \gate{\mathcal{N}} & \qw \\
+    \lstick{$q_6$} &                      & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} &                     & \gate{\mathcal{N}} & \qw \\
+    \lstick{$q_7$} &                      & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} &                     & \gate{\mathcal{N}} & \qw \\
+    \lstick{$q_8$} &                      & \gate{\mathcal{N}} &                      & \gate{\mathcal{N}} &                     & \gate{\mathcal{N}} & \qw
+  \end{quantikz}
+  \caption{ Circuit subjected to noise. }
+
+  \end{center}
+\end{figure}
+
+We think about computation subjected to noise as the running of a circuit, in which at any time, qubits might be 'flipped', or formally, with some constant probability, they are replaced with the fully mixed state. Since our computation might create correlations between the errors, we will assume nothing about the behavior of the errors except that big errors are unlikely. By doing that, the induction step doesn't have to guarantee the errors being uncorrelated. 
+
+We use \Cref{def:pnoise} to describe the running of a circuit subjected to noise. \Cref{fig:noise} illustrates a noisy circuit. In the figure, the channel $N$ acts on each qubit separately, yet this is not the case, and we impose it in that way only to make a clear distinction between the original gates and the noise channels. \begin{definition}{$p$-Noisy Circuit.}
+    \label{def:pnoise}
+    Given a circuit $C$ (regardless of the model), its $p$-noisy version $\tilde{C}$ is the circuit obtained by alternately taking layers from $C$ and then passing each (qu)bit through a $p$-local stochastic channel.
+  \end{definition}
+
+  
+  Generally speaking, we say that a decision problem is solvable by a uniform family of circuits $\mathcal{C}$ if there is a polynomial $poly : \mathbb{R} \rightarrow \mathbb{R}$, such that for any large enough $n \in \mathbb{N}$, there exist $a, b \in (0,1)$ at a distance of at least $b - a > 1/\text{poly}(n)$ and a polynomial Turing machine $M$ such that for any given instance $x$ with encoding length $|x| = n$, the running of $M$ on $x$ outputs $C_x \in \mathcal{C}$ that, when running over the zero word $0^{*}$, induces on the first (qu)bit at least $b$ probability to be at $1$ if $x$ is in the language and at most $a$ to be at $1$ otherwise. 
+If a decision problem is solvable by a $p$-noisy version of $C \in \mathcal{C}$, we say that the problem is solvable by noisy-$\mathcal{C}$. We abuse the notation, and for complexity class $Q$, we define noisy-$Q$ to be all the decision problems solvable by the noisy version of the circuit family that solves the problems in $Q$. For example, noisy-\textbf{BQP} is the class of all the decision problems solvable by noisy polynomial quantum circuits.  
+
+
+The first class we are interested in is Nick's Class, $\NC{}$  characterizing the boolean circuits at logarithmic depth. This class was proven by Pippenger to be equal to its noisy version, namely noisy-$\NC{} = \NC{}$ \cite{Pippenger}. Formally defined as follows: 
+\begin{definition}[$\NC{}$ - Nick's Class]
+$\NC_i$ is the class of decision problems solvable by a uniform family of Boolean circuits, with polynomial size, depth $O(\log^i(n))$, and fan-in $2$. 
+\end{definition}
+
+
+Second, the analog class of $\NC{}$ is $\QNC{}$, which characterizes logarithmic depth quantum circuits. In $\QNC{}$, the circuits are also allowed to have any single qubit gate. While in the classical case the number of functions from $\{0,1\}^{2} \rightarrow \{0,1\}$ is finite, in the quantum case we have an infinite number of single gates. That motivated us to define $\QNCG{}$ - the circuits when the gate set is restricted to some finite, constant size group $G$. We emphasize that in \textbf{BQP} there is no point in restricting to such a family since any gate can be polynomially approximated at polylogarithmic depth, so in that case, the restriction does not change computational power and one can assume to be able to apply any single qubit gate. However, when considering shallow circuits at logarithmic depth, such assumptions don't hold anymore.
+\begin{definition}[$\QNC{}$]
+  The class of decision problems solvable by polynomial size,  polylogarithmic-depth,  and finate fan out/in quantum circuits with bounded probability of error. Similarly to $\NC_i{}$, $\QNC_i{}$ is the class where the decisdes the circuits have $\log^i (n)$ depth.  
+\end{definition}
+
+\begin{definition}[$\QNCG{}$]
+  For a fixing finate fan in/out gateset $G$, the class with deciding circuits at polynomial size, composed only for gates in $G$ and at depth at most polylogaritmic. And in similar to $\QNC_{i}{}$, $\QNCiG{}$ is the restriction to circuits with depth at most $\log^{i}(n)$.  
+\end{definition}
+
+Another setting which we find interesting is the equipping of classes with an unbounded fanout CNOT gate, a gate which acts as $\ket{x}\prod_{i}\ket{y_{i}} \rightarrow \ket{x}\prod_{i}\ket{x \oplus y_{i}}$. There are two main reasons we find those class worth considering. First, the unbounded fanout CNOT can be decomposed by chaining only two-qubit CNOTs, since for any CSS code, a CNOT can be implemented in a fault-tolerant manner almost for free. Second, there are candidates at $\QNCzef$ for proving quantum advantage\cite{Bremner_2017}, \cite{Paletta_2024}.
+
+
+\begin{definition}[$\QNCzef{}$] 
+Similarly to $\QNCze{}$, the class of decision problems solvable by constant depth and bounded fan out/in quantum circuits equipped additionally with a 'quantum fanout' gate is available, which CNOTs a qubit into arbitrarily many target qubits in a single step.
+\end{definition}
+
+Finally, the last setting we consider is the restriction of the classes when there is no access to fresh qubits, or equivalently, no reset gates are allowed. In this setting, any step of computation accumulates entropy, and an exponential trade-off relation between entropy and depth was proved.
+
+\begin{definition}[$\QNCon{}$ without reset gates.]
+  The class of decision problems solvable by polynomial size,  logarithmic-depth, and finate fan out/in quantum circuits with bounded probability of error, without reset gates.
+\end{definition}
+Those definitions lead us to ask our first open problem:
+\begin{oproblem}[The Main Open Problem.]
+\begin{equation*}
+  \begin{split}
+    \text{ Does }  \QNCon{} = \text{ noisy-}\QNCon{} \text{?}
+  \end{split}
+\end{equation*}
+\end{oproblem}
+Our second main problem investigates whether it matters which universal gateset is used for the simulation, or whether the answer to the previous question is affirmative when our computation is restricted to a finite gateset $G^{\prime}$, given that the source was also restricted to using local computation in a finite set. That is, we ask: \begin{oproblem}[Constant Depth Overhead on $G^{\prime}$ Restricted Machine.]
+  Does there exist a finite universal set $G^{\prime}$ such that for any finite two-qubit gateset $G$ it holds that:
+\begin{equation*}
+  \begin{split}
+\QNCG{}_{,1} = \text{noisy-}\QNC{}_{\mathbf{G^{\prime}}, 1} \text{?}
+  \end{split}
+\end{equation*}
+\end{oproblem}
+
+In this context, we mention the work of \cite{kim2025catalyticzrotationsconstanttdepth}, which shows that using a catalyst state\footnote{In the catalytic computation model, one has access to a complicated resource state $\ket{\phi}$, yet he has to return/keep it at the end of the running.}, no bounded fan-out computation can simulate any single qubit gate with a constant $T$ depth. Namely, in our words, they prove that there exists a finite gate set $G^{\prime}$ such that:
+\begin{equation*}
+  \begin{split}
+    \QNC{}_{f,1} = \QNC{}_{f, \mathbf{G^{\prime}}, 1} \text{ using catalyst state. }
+  \end{split}
+\end{equation*}
+We hope that our work will also lead to an understanding of the importance, or the non-importance, of the basic components being used.
+
+
+\fi

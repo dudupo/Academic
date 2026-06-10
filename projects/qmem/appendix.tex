@@ -1,0 +1,423 @@
+\section{Appendix}
+
+
+\inb{ Do something with that.} And clearly $\text{Stab}_{v}$ is collection of stabilizers since for any $S^{\prime} \subset S$ such $|S^{\prime}|=d^{\prime}+1$ we have:
+  \begin{equation*}
+    \begin{split}
+      \partial \left(   \partial \rotfvs{} \right) & = \partial \left( \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} + \sum_{g \in S^{\prime}} \rotfv{gv}{S^{\prime}/g}  \right) \\
+      & = \sum_{ \substack{ g^{\prime},g \in S^{\prime} \\ g^{\prime}\neq g } } \left( \rotfv{v}{S^{\prime}/\{ g,g^{\prime} \} } +   \rotfv{g^{\prime}v}{S^{\prime}/\{ g,g^{\prime} \} }+ \rotfv{gv}{S^{\prime}/\{ g,g^{\prime} \} } + \rotfv{g^{\prime}gv}{S^{\prime}/\{ g, g^{\prime}\}} \right) \\
+      & = 0
+    \end{split}
+  \end{equation*}
+Where we used that the term in the closure is invariant to sweeping between $g$ and $g^\prime$, and therefore any term in the sum appears twice.
+
+
+\begin{definition}
+Let $z$ be a connected assignment, and let $\Gamma$ be the set of vertices adjacent to unsatisfied checks induced by $z$. For a generator $g \in S$, we say that $v$ is a $g$-pole if $v \in \Gamma$ and $gv \notin \Gamma$. Furthermore, if there is a vertex $v \in \Gamma$ such that for any $g \in S$, we have $g^{-1}v \notin \Gamma$, then we say that $v$ is a local minimum of $z$. 
+
+Let $x_{1},..,x_{k} \subset \{\pm \}^{k}$ and let $p = \prod_{i}^{k}g_{i}^{x_{i}}v$ we say that $p$ is a forward path in $z$ if  it holds that: 
+\begin{enumerate}
+  \item Any partial product of the first $j$ elements $\prod_{i}^{j}g_{i}^{x_{i}}v$ is a vertex in $z$. 
+  \item
+For any $g \in S$, we have that the sign of the sum of the exponents of the powers of the elements in the product associated with $g$ is positive. Namely:
+    \begin{equation*}
+      \begin{split}
+        \sum_{i : g_{i} = g}x_{i} > 0
+      \end{split}
+    \end{equation*}
+\end{enumerate}
+Similarly, we say that $p$ is a backward path if the above holds, but the sign in the second condition is either negative or zero. The infimums of $z$ are defined to be the set of vertices $U \subset z$ such that for any $u \in U$ and $v \in z$, other vertices in $z$, there is a forward path starting at $u$ and ending at $v$.
+\end{definition}
+\subsection{Alternative Proof For $d^{\prime} = 2$.}
+
+\begin{definition}
+We denote by $\phi^{t}$ the subsets of bits which are flipped as a result of applying the Toom's rule at time $t$, and by $\phi_{v}$ the bits which are flipped by vertex $v$. We say that $u$ is added to $\Gamma^{t+1}$ by $v$ at time $t$, if $u\in \Gamma^{t+1}$ and $u \in V(\phi_{v})$. When it clear from the context, we will omit the time, and say that $u$ is added by $v$. 
+\end{definition}
+
+
+\begin{claim}
+  \label{claim:toombound}
+Let $v \in \Gamma^{t}$ for any $u$ that is added by $v$, and for any $x \in [d+1]$, we have $L_{x}(u) \le L_{x}(v) + 1$.
+\end{claim}
+\begin{proof}
+By definition, any $u$ that is added by $v$ is of the form $v + \sum \alpha_{j}1_{j}$, where $\alpha_{j} \in \{0,1\}$ and $\sum \alpha_j \le 2$. Thus, for any $x \in [d]$:
+  \begin{equation*}
+    \begin{split}
+      L_{x}(u) = \expval*{1_{x}, v + \sum \alpha_{j}1_{j}} = \expval*{1_{x},v} +\alpha_{x} \le L_{x}(v) + 1 
+    \end{split}
+  \end{equation*}
+For $x = d+1$ we have: 
+  \begin{equation*}
+    \begin{split}
+      L_{x}(u) = \expval*{-\mathbf{1}, v + \sum \alpha_{j}1_{j}} = \expval*{-\mathbf{1},v} - \sum_{j}\alpha_{j} \le L_{x}(v) 
+    \end{split}
+  \end{equation*}
+\end{proof}
+\begin{claim}
+  \label{claim:toomb}
+  Let $v \in \Gamma^{t}$ such that $L_{d+1}(v)$ is a (local) maxima in $\Gamma^{t}$ then for any $u$ which is added by $v$ we have $L_{d+1}(u) \le L_{d+1}(v) - 1$. 
+\end{claim}
+\begin{proof}
+  We will prove that $v \notin \Gamma^{t+1}$, and then by repeating on \cref{claim:toombound} where $\sum{\alpha_{j}} \ge 1$, we get the desired result. Assume, toward contradiction, that $v \in \Gamma^{t+1}$, and denote by $w$ the vertex that adds $v$. If $w \neq v$, then there is at least one coordinate $i$ for which $w_{i} < v_{i}$, thus $L_{d+1}(w) > L_{d+1}(v)$, in contradiction to $L_{d+1}(v)$ being a maximum in $\Gamma^{t}$. In the other case, where $v$ adds itself, it follows that $\sigma_{v}$ can't be decomposed into pairs of unsatisfied checks; namely, $|\sigma_{v}|$ is odd. We show by induction that impossible,namely that $|\sigma_{v}|$ is always even. The induction is over the size of the plaquettes subset that induce the boundary $\sigma$.
+  \begin{enumerate}
+    \item Base. Consider a boundary that induced by a single plaquette, in that case it obvious that  $|\sigma_{v}|$ is either zero (where $v$ is not belong to the plaquette) or $2$. 
+    \item Assume for any boundary that induced by at most $k$ plaquettes, and consider a boundary $\sigma$ which is induced by $k+1$ plaquettes, name this subset $F$ and observes that $F$ can be decomposed to a sum of two disjoint subsets $A$ and $B$, each with less than $k+1$ plaquettes, Now: 
+      \begin{equation*}
+        \begin{split}
+          \sigma_{v} &= \left(\partial A \right)_{v} \cup \left(\partial B \right)_{v} \\
+          \Rightarrow |\sigma_{v}| &=   | \left(\partial A \right)_{v} | + | \left(\partial B \right)_{v} | - 2 |\left(\partial A \right)_{v} \cap \left(\partial B \right)_{v}|  = \text{even} 
+        \end{split}
+      \end{equation*}
+      Where we used the induction assumption, which tells that $| \left(\partial A \right)_{v} |$ and $| \left(\partial B \right)_{v} |$ are even numbers.
+  \end{enumerate}
+
+
+\end{proof}
+
+\begin{claim}
+  \label{claim:toomc}
+  Let $x \in [d]$ and let $v \in \Gamma^{t}$ such that $L_{x}(v)$ is a (local) maxima in $\Gamma^{t}$ then for any $u$ which is added by $v$ we have $L_{x}(u) \le L_{x}(v)$. 
+\end{claim}
+
+\begin{proof}
+  Since $L_{x}(v)$ is maximal, $v$ doesn't see edges that goes from it at the positive $x$-direction, otherwise denote it by $e$ and denote by $w$ the second vertex at the end of $e$, $w$ has an $x$-coordinate which is greater than $v$'s $x$-coordinate by $1$ and in addition $w \in \Gamma^{t}$ (since it lays on the support of $e$). Therefore $L_{x}(w) > L_{x}(v)$ in contradiction to $L_{x}(v)$ be maximal in $\Gamma^{t}$. 
+Hence, any plaquette that is being flipped by $v$ lies on edges associated with $1_{j}$ such that $j \neq x$. Thus, any vertex $u$ that is added by $v$ has the form $v + \sum_{j \in [d] \setminus \{x\}} \alpha_{j}1_{j}$, where $\alpha_{j} \in \{0,1\}$ and $\sum \alpha_j \le 2$. So:
+  \begin{equation*}
+    \begin{split}
+      L_{x}(u) = \expval*{1_{x}, v + \sum_{j \in [d]/x} \alpha_{j}1_{j}} = \expval*{1_{x},v} = L_{x}(v) 
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+\begin{claim}
+  \label{claim:total_shrinking}
+Let $\Gamma^{t}$ be the vertices in the support of the domain wall $\sigma^{t}$. Denote $v_i = \arg \max_{v \in \Gamma^{t}} L_{i}(v)$. Then for any $i \in [d]$, one can find $u \in \Gamma^{t-1}$ such that $u$ adds $v_i$ and $L_{i}(u) \ge L_{i}(v_{i})$. In addition, one can find $u_{d+1} \in \Gamma^{t-1}$ such that $u_{d+1}$ adds $v_{d+1}$ and $L_{d+1}(u_{d+1}) = L_{d+1}(v_{d+1}) + 1$. 
+\end{claim}
+\begin{proof}
+Just take $u_{i}$ to be any vertex that adds $v_{i}$. By claims \cref{claim:toombound}, \cref{claim:toomb}, and \cref{claim:toomc}, we get the claim.
+\end{proof}
+
+\ctt{$V(\phi_{v})$ was not defined. $v \le w$ also not defined.} 
+
+
+\begin{definition}[$\sigma_{1}$ Precedes $\sigma_{0}$]
+We say that $\sigma_{1}$ precedes $\sigma_{0}$ if, for any $v \in \sigma_{1}$, it holds that $\phi(v) \subset \sigma_{0}$.
+\end{definition}
+\begin{definition}[Explanation.]
+Let $\sigma_{0}$ be a boundary at time $t$, and let $\sigma_{1}, \ldots, \sigma_{k}$ be boundaries at time $t-1$, such that for $i \in [k]$, it holds that $\sigma_{i}$ precedes $\sigma_{0}$. Then the explanation for $\sigma_{0}$ is the subgraph induced by the vertices of $\sigma_{0}, \sigma_{1}, \ldots, \sigma_{k}$, the edges $\{u,v\} \in \sigma_{i}$, and the arrows $\{v,u\}$ for $v \in \cup\sigma_{i}$ and $u \in \phi(v)$.
+\end{definition}
+\inb{ The number of edges above is not lineary bounded by the leaves. Yet it also seems not minimal. So what we would like to do is to keep the poles, then to connect the islands by fork. So what is it a fork? } 
+
+\begin{definition}[Fork]
+Let $u, v$ be such that $u \in \sigma_{1}$ and $v \in \sigma_{2} \neq \sigma_{1}$. If there exist $w \in \phi(v)$ and $z \in \phi(u)$ such that $\{w, z\} \in \mathcal{F}_{1}$, then there is a fork between $v$ and $u$.
+\end{definition}
+\begin{proof}
+  Idea: Suppose not, then $\sigma_{0} = \phi(\sigma_{1}) \cup \phi(\sigma_{2}) $ is not connected.  
+\end{proof}
+\begin{claim}
+Assume that $\sigma_{1}, \sigma_{2} \rightarrow \sigma_{0}$, then there is a fork between $\sigma_{1}$ and $\sigma_{2}$. So if we keep to extent the history in a recursive manner, then we get a connected graph.
+\end{claim}
+
+\section{Garbage} 
+
+
+\subsection{Drafts-Garbage}
+
+\ctt{
+  Regarding the \Cref{claim:agreement}, The number of restriction in $\partial^{+}$ case was counted in negligently. In addition, we should show that for the $\partial^{-}$ case, restrictions of the form $\rotfv{g_{2}g_{1}v}{S}$ are degenerate. In the bottom line it's look like:  
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \rotfv{g_{2}g_{1}v}{S} = \partial^{+} \rotfv{g_{1}v}{(S/ g_{3}) \cup g_{2} } +  \partial^{+} \rotfv{g_{2}v}{(S / g_{3}) \cup g_{1}} 
+    \end{split}
+  \end{equation*}
+  Lets develop it, consider a restriction rooted at $g_{2}g_{1}v$, and let's look on it's boundary:
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \rotfv{g_{2}g_{1}v}{S^{\prime}} &=  \sum_{g\in S/S^{\prime}} \rotfv{g_{2}g_{1}v}{S^{\prime} \cup g } +  \sum_{g\in S/S^{\prime}} \rotfv{g^{-1}g_{2}g_{1}v}{S^{\prime} \cup g }  
+    \end{split}
+  \end{equation*}
+  Now, any term in the left closure is a bit beyond the scope of the bits in $\text{Stab}_{v}^{-}$, thus, we are zeroing them out. The bits, on the right closers are in the scope, only if $g \in \{g_{1}, g_{2}$. Thus, in total the check is equivalence to: 
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \rotfv{g_{2}g_{1}v}{S^{\prime}} &=  \rotfv{g_{1}v}{S^{\prime} \cup g_{2} } \cdot \mathbf{1}_{g_{2} \notin S^{\prime}} \\
+      & +\rotfv{g_{2}v}{S^{\prime} \cup g_{1} } \cdot \mathbf{1}_{g_{1} \notin S^{\prime}} 
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \rotfv{g_{1}v}{(S^{\prime}/ g_{3}) \cup g_{2} } &= \sum_{g\in S/S^{\prime}} \rotfv{g_{1}v}{(S^{\prime}/ g_{3}) \cup g_{2}   \cup g } +  \sum_{g\in S/S^{\prime}} \rotfv{g^{-1}g_{1}v}{(S^{\prime}/ g_{3}) \cup g_{2}   \cup g }  \\
+      \partial^{+} \rotfv{g_{2}v}{(S / g_{3}) \cup g_{1}} &= \sum_{g\in S/S^{\prime}} \rotfv{g_{2}v}{(S^{\prime}/ g_{3}) \cup g_{1}   \cup g } +  \sum_{g\in S/S^{\prime}} \rotfv{g^{-1}g_{2}v}{(S^{\prime}/ g_{3}) \cup g_{1}   \cup g }  \\
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \rotfv{g_{1}v}{(S^{\prime}/ g_{3}) \cup g_{2} } &= \left(\sum_{g\in S/S^{\prime}} \rotfv{g_{1}v}{(S^{\prime}/ g_{3}) \cup g_{2}   \cup g } \right) +  \rotfv{v}{(S^{\prime}/ g_{3}) \cup \{ g_{2}, g_{1} \} }  \\
+    \partial^{+} \rotfv{g_{2}v}{(S / g_{3}) \cup g_{1}} &= \left( \sum_{g\in S/S^{\prime}} \rotfv{g_{2}v}{(S^{\prime}/ g_{3}) \cup g_{1}   \cup g } \right) + \rotfv{v}{(S^{\prime}/ g_{3}) \cup \{g_{1},g_{2}\} }  \\
+    \end{split}
+  \end{equation*}
+  Other way: 
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \sum_{g^{\prime} \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime}} &= \sum_{g^{\prime} \neq g \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime}\cup g} + \sum_{g \in S/S^{\prime}}\rotfv{v}{S^{\prime} \cup g} \\
+      &= \sum_{g^{\prime} \neq g \in S/S^{\prime}}\rotfv{g^{\prime}v}{S\cup g} + \partial^{+}\rotfv{v}{S^{\prime}} 
+    \end{split}
+  \end{equation*}
+  Where we use the fact that if $g = g^{\prime}$ then the bit is beyond the scope. In addition: 
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \sum_{g^{\prime} < g \in S/S^{\prime}}\rotfv{g^{\prime}gv}{S^{\prime}} &=\sum_{g^{\prime} < g \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime} \cup g} + \rotfv{gv}{S^{\prime} \cup g^{\prime}} \\
+      &= \sum_{g^{\prime} \neq g \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime} \cup g} \\
+      &=  \partial^{+} \sum_{g^{\prime} \in S/S^{\prime}}\rotfv{g^{\prime}v}{S^{\prime}} + \partial^{+}\rotfv{v}{S^{\prime}} 
+    \end{split}
+  \end{equation*}
+  Thus, we find more ${ d \choose d^{\prime} - 1 }$ restriction over the checks. [We need to show that those restrictions are independent]. In addition:
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \sum_{S^{\prime}}\sum_{g^{\prime} < g \in S/S^{\prime}}\rotfv{g^{\prime}gv}{S^{\prime}} &= 0
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \rotfv{g_{2}g_{1}v}{S} = \partial^{+} \rotfv{g_{1}v}{(S/ g_{3}) \cup g_{2} } +  \partial^{+} \rotfv{g_{2}v}{(S / g_{3}) \cup g_{1}} 
+    \end{split}
+  \end{equation*}
+  I don't succes to advance the idea more than that, So in the end I believe that I will do is to say that the diminsion of $\text{Stab}_{v}^{-}$ is at least ${ d \choose d^{\prime}+ 1 } $. And by fixing coordinates we add more ${ d \choose d^{\prime} } $ restriction. So the dimension becomes: 
+  \begin{equation*}
+    \begin{split}
+     & { d \choose d^{\prime}+1 } - { d \choose d^{\prime} } \\
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      & { d \choose d^{\prime}+1 } - { d \choose d^{\prime} } + { d \choose d^{\prime} - 1   } \\
+    \end{split}
+  \end{equation*}
+  Note that since we talk on mapping checks $\rightarrow$ bits, we use the $\partial^{+}$. Eventually, we need to use the poincare duality $H^{d^{\prime}} \rightarrow H_{d - d^{\prime}}$, the duality also should be used to define the SWEEP rule to $C_{Z}$. I didn't successes to do it other way. 
+}
+
+A wrong proof of \Cref{claim:agreement}
+\begin{proof}
+  We will show that codes obtained from $\text{Stab}_{v}$ by forcing the faces rooted at $v$ to $z|_{v}$ have non-zero dimensions. Then it follows that any code word of $\mathcal{C}_{v}$ could be extend to codewords in $\text{Stab}_{v}$. The number of bits in both $\text{Stab}_{v}$ is:
+\begin{equation*}
+  \begin{split}
+      { d \choose d^{\prime} }  +  d { d - 1 \choose d^{\prime} } 
+  \end{split}
+\end{equation*}
+The numbers of checks for $\text{Stab}_{\pm}$ are:
+\begin{equation*}
+  \begin{split}
+ { d \choose d^{\prime} \pm 1 } + d { d-1  \choose d^{\prime} \pm 1 }  
+ \end{split}
+\end{equation*}
+The restriction to $z|_{v}$ sets the bits rooted at $v$ and satisfies the checks that are rooted at $v$, so the checks of the form $\rotfvs{}$ for $|S^{\prime}| = d^{\prime} \pm 1$ are degenerate, and the dimension that remains is:
+\begin{equation*}
+  \begin{split}
+    \dim \ge d { d - 1 \choose d^{\prime} } - d { d-1  \choose d^{\prime} \pm 1 }  
+  \end{split}
+\end{equation*}
+In the case that $d^\prime = (d-1)/2$, then for any $x \in [d-1]$ we have $ { d - 1 \choose d^{\prime} } >  { d-1 \choose x  }  $ therefore:
+\begin{equation*}
+  \begin{split}
+    \dim &\ge d { d - 1 \choose d/2 } - d { d-1  \choose d/2 \pm 1 } \\
+    & > d
+  \end{split}
+\end{equation*}
+So there is at least $2^{d}$ stabilizers $w \in \text{Stab}_{v}$ that agree with $z$. 
+\end{proof}
+
+
+\begin{proof}
+  
+
+%\begin{algorithm}[H] 
+%  $\gamma \leftarrow \min_{v \in \partial z} L_{d+1}(v)$\\ 
+%  $\mathcal{U} \leftarrow \left\{ u : u \in \text{lmax}\left( L_{d+1}, z \right)    \right\} $
+%  \While {
+%
+%  } 
+%\end{algorithm}
+
+
+
+
+
+\begin{equation*}
+  \begin{split}
+    L_{d+1}(u) \le \min_{v \in \partial z} L_{d+1}(v)
+  \end{split}
+\end{equation*}
+Observes that if the \textit{termination-condition} holds then any local maximum of $L_{d+1}$ in $\partial z$ is also a local maximum of $L_{d+1}$ in $\tilde{z}$ and we finish. Consider the other case, namely there is at least one vertex $u \in \tilde{z}/\partial z$ such that $u$ is a local maximum for $L_{d+1}$ and 
+\begin{equation*}
+  \begin{split}
+    L_{d+1}(u) > \min_{v \in \partial z} L_{d+1}(v)
+  \end{split}
+\end{equation*}
+In that case, we peak such $u$, and looking for stabilizer $w$ such $u \notin \tilde{z} + w$ by repeating over the above procedure where $u$ plays the role of $v$. We keep repeating on the procedure until the \textit{termination-condition} holds. 
+
+We argue that the process indeed terminates. Consider a vertex $u$ such that $u$ is a local maximum of $L_{d+1}$ in $\tilde{z}$ and $u$ is not a local maximum of $L_{d+1}$ at $z$. Put differently, $u$ becomes a local maximum as a result of adding $w$ to $z$. Thus, $u$ has to belong to $w|_{v} \setminus v$, which implies that there is a non-empty subset of generators $I \subset S$ such that $u = (\prod_{g \in I} g)v$, and therefore $L_{d+1}(u) \le -1 + L_{d+1}(v)$. 
+
+Hence, since $z$ is finite.  
+
+
+
+  
+  
+We repeat the process while possible; namely, we stop when all the local maxima of $L_{d+1}$ are in $\partial$.
+\end{proof}
+
+We prove that $\dim \mathcal{C}_{v} = \dim \text{Stab}_{v}$ below, for now assume it is correct.
+\inb{ 
+We continue by using the fact that if, for a local maximum $v$ in $\partial$, it holds that $z|_{v}$ is rooted at $v$, then the decoder will find bits rooted at $v$ such that their $\partial$ agrees with $\partial$.
+}
+
+
+To generalize, one might think that it has to complete the local view on $v$ such that all the checks are satisfied. For $C_{X}$, it sums up to show that the following dimension is positive. Yet the trick fails for $C_{Z}$, where we need to think of a different idea.
+\begin{equation*}
+  \begin{split}
+    d { d - 1 \choose d^{\prime} } - { d \choose d^{\prime} - 1 } - d { d-1  \choose d^{\prime} - 1 }  
+  \end{split}
+\end{equation*}
+
+
+\begin{claim}
+  Let $z$ an assignment rooted at vertex $v$, such $\partial z |_{v+} = 0$. Then there is a stabilizer $w$, rooted at $v$, such that $w|_{v+} = z$.  
+\end{claim}
+
+\begin{proof}
+Denote by $F$ the faces in $z$, and by $J$ the collection of generators that support $F$. We claim that $|J| \ge d^{\prime}+1$.
+
+Clearly, $|J| \ge d^{\prime}$, since each face is defined by a root vertex and $d^{\prime}$ generators. Yet, observe that if $|J|$ equals exactly $d^{\prime}$, then $z$ contains a single $d^{\prime}$-face, denote it by $f$. Then, any check associated with a $d^{\prime}-1$ face of $f$ is unsatisfied, in particular the $d^{\prime}-1$ faces that are rooted at $v$, in contradiction to $\partial z|_{v+} = 0$. 
+
+
+Now, one can choose $J^{\prime} \subset J$ of size $d^{\prime}+1$, and define the stabilizer $w = \theta_{v,J^{\prime}}$.
+    
+\end{proof}
+
+
+\begin{claim} \label{claim:syn_edge}
+Suppose $v \in z$ and for any $g \in S$, we have $g^{-1}v \notin z$, then there is $\rotf{v}{J} \in \partial z$.
+\end{claim}
+\begin{proof}
+  
+  \begin{equation*}
+    \begin{split}
+      \partial z = \sum_{S^{\prime}} \rotfv{v}{S^{\prime}} + .. 
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+
+\begin{claim}
+  Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let $\Gamma$ be the set of vertices which are adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\mathcal{G}^{d}_{\infty}$ such that $v$ is a strong global maximum of $L_{d+1}$, at $\Gamma$. Then there is a rooted assignment $\tilde{z}$ at $v$ such that $z_{v} = \tilde{z}_{v}$. 
+\end{claim}
+\begin{proof}
+  Let $ \Theta = \theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the faces forms $z$. 
+
+
+  Since $z$ is finite, it has a maximum for $L_{d+1}$. Denote by $u$ the vertex that gets the maximum, and denote by $\theta_{u,J_{1}}, \ldots, \theta_{u,J_{l}}$ the $d^{\prime}$-faces in $z$ that are rooted at $u$. We claim that $u = v$.
+
+  Suppose not, namely $u \notin \Gamma$. Then it means that any $d^{\prime}-1$ face containing $u$ is satisfied. Observe that $\sum \theta_{u,J_{i}} \neq 0$; otherwise, it would contradict the non linearity independence of  $\rotfv{v_{1}}{S^{\prime}_{1}}, \rotfv{v_{2}}{S^{\prime}_{2}},.. \rotfv{v_{k}}{S^{\prime}_{k}}$. So, by \Cref{claim:syn_edge} there exists a $d^{\prime}-1$ face rooted at $u$, contained in $\sum \theta_{u,J_{i}}$. Let us denote it by $\theta_{u,J^{\prime}}$.
+
+Since $\theta_{u,J^{\prime}}$ is satisfied, it has to be adjacent to a turned bit, namely a $d^{\prime}$ face in $z$, not in $\theta_{u,J_{1}}, \ldots, \theta_{u,J_{l}}$. Denote that $d^{\prime}$ face by $f$. Yet, since $\theta_{u,J^{\prime}}$ is rooted at $u$, it contains $u$, and therefore $f$ contains $u$. Now, if $f$ is rooted at $u$, then it is a contradiction that $\theta_{u,J_{1}}, \ldots, \theta_{u,J_{l}}$ are all the $d^{\prime}$ faces in $z$ rooted at $u$. If $f$ is not rooted at $u$, denote its root by $w$, so there is $g \in S$ such that $gw = u$, and $w \in z$, in contradiction to $u$ being maximum for $L_{d+1}$.
+
+
+So, we find that $v$ is also the maximum of $L_{d+1}$ in $z$. Therefore, we have that $\tilde{z} = \sum \theta_{u, J_{i}}$ zeros out $z_{v}$.
+\end{proof}
+
+
+
+
+
+\begin{claim}
+  Let $z$ be a connected assignment on the $d^{\prime}$-faces at finite size, and let the collection $\Theta = \theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}},.. \theta_{v_{k},S^{\prime}_{k}}$ be the decomposition forms $z$. Denote by $\Gamma$ the set of vertices adjacent to unsatisfied check induced by $z$. Then $\Theta$ is acyclic, if and only if $z$ has at least one Infimum. 
+\end{claim}
+\begin{proof}
+  First, suppose that $z$ has at least one Infimum. Let $u$ be an infimum in $z$.. 
+  Second, suppose that $\Theta$ is acyclic. 
+\end{proof}
+
+
+
+\begin{claim}\label{claim:extermal}
+Suppose that $d^{\prime} > 1$ and a vertex $v \in \mathcal{G}^{d}_{\infty}$ is also adjacent to the domain wall, namely $v \in \Gamma$. It holds that $v$ cannot be simultaneously both a (strong) local max of $L_{d+1}$ and a local min of $L_{d+1}$.
+\end{claim}
+
+\begin{proof}
+  Let $v \in \Gamma$ be a local maximum point of $L_{d+1}$, It means that:
+  \begin{enumerate}
+    \item The vertex $v$ is adjacent to a $d^{\prime - 1}$-face which is unsatisfied. 
+   \item That face is rooted in $v$; otherwise, the root of the face is a vertex in $\Gamma$ with a higher value of $L_{d+1}$, in contradiction to $v$ being a local maximum.
+  \end{enumerate}
+Thus, there is a subset of generators $S^{\prime} \subset S$, of size $d^{\prime} - 1 > 0$, such that the unsatisfied check set is on the face $\theta_{v,S^{\prime}}$. Given $d^{\prime} > 1$, we have that $S^{\prime}$ contains at least one more element besides the empty set, denoted by $g$. Now, consider the vertex $gv$. Since $gv$ is adjacent to $\theta_{v,S^{\prime}}$, then $gv \in \Gamma$. On the other hand, on the infinite toric $\mathcal{G}^{d}_{\infty}$, moving along the grid generator decreases $L_{d+1}$ by one, so $L_{d+1}(gv) = L_{d+1}(v) - 1$. In other words, $gv$ is a neighbor of $v$ with a lower value of $L_{d+1}$, and thus $v$ cannot be a local minimum of $L_{d+1}$.
+\end{proof}
+
+\begin{remark}
+
+\inb{
+  That claim alone gives a decoder in the clean setting. Write a remark indicating that when $d^\prime = 1$, meaning qubits are on the edges (2D toric), the claim is not true.
+}
+\end{remark}
+
+ \inb { For $d = 4, d^{\prime}= 2$.} For $i,j \in [d]$, such that $i \neq j$, denote the bit rooted at $v$ and spanned by generators $g_{i}, g_{j} \in S$, namely $\theta_{v,\{ g_{i},g_{j} \}}$, by $g_{ij} = g_{ji}$. The restrictions: 
+  \begin{equation*}
+    \begin{split}
+      r_{i} \colon \sum_{j\neq i} g_{ij}
+    \end{split}
+  \end{equation*}
+  Thus we get
+  \begin{equation*}
+    \begin{split}
+      \sum_{i}^{n}r_{i} & = \sum_{i}^{n} \sum_{j \neq i }^{n+1} g_{ij} \\
+      & =   \sum_{i}^{n}\sum_{j < i}^{n} g_{i,j} + g_{j,i} +   \sum_{i}^{n}  g_{i,n+1} \\
+      & = r_{n+1}
+    \end{split}
+  \end{equation*}
+  Thus the dimension of the small code at $v$ is at least: 
+  \begin{equation*}
+    \begin{split}
+      { d \choose 2 } - (d-1) = 3 
+    \end{split}
+  \end{equation*}
+  We have $ { 4 \choose 3 } = 4 $ stabilizers rooted at $v$ (each for each cube). Yet:  
+  \begin{equation*}
+    \begin{split}
+      s_{1} &= g_{1,2} + g_{2,3} + g_{1,3} \\
+      s_{2} &= g_{1,2} + g_{2,4} + g_{1,4} \\
+      s_{3} &= g_{1,3} + g_{3,4} + g_{1,4} \\
+      s_{4} &= g_{2,3} + g_{3,4} + g_{2,4} 
+    \end{split}
+  \end{equation*}
+  And clearly 
+  \begin{equation*}
+    \begin{split}
+      s_{4} = s_{1}+s_{2}+s_{3}
+    \end{split}
+  \end{equation*}
+
+\begin{definition}[Reduced subset with boundrey at $v$]
+  
+\end{definition}
+
+
+  \begin{definition}[Base graph $G_{o}$]
+Let $C = \{u_{i}\}_{i=1}^{n}$ be a quantum circuit, at depth $d$, with registers $R_{1}, \ldots, R_{k}$, all of which are encoded by Toric codes with the same parameters (i.e., dimension, length, etc.). Let's denote by $\mathcal{G}$ the Toric complex that induces the codes, and suppose that the locations of the gates in $C$ are given in registers' coordinate systems. We define the base graph of $C$, denoted by $G_{o} = (V_{o},E_{o})$ as follows: 
+    \begin{enumerate}
+      \item The vertices $V_{o}$ are tuples, where the first coordinates correspond to a vertex in $\mathcal{G}$, and the second coordinate is associated with a time. Namely:
+        \begin{equation*}
+          \begin{split}
+            V_{o} \colonequals \bigcup_{i}V(\mathcal{G}_{i}) \times [d] % \big\{ (v,t) : t \in [d], v \in \mathcal{G} \big\}
+          \end{split}
+        \end{equation*}
+      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}$, with the addition of edges of the following form: For two vertices at preceding times $t$ and $t+1$, let's denote them by $(v_{1},t)$ and $(v_{2},t+1)$, for which there exist registers $R^{\prime}_{1}, R^{\prime}_{2}$, and faces $f_{1}, f_{2} \in \mathcal{G}$, such that $v_{1} \in f_{1}, v_{2} \in f_{2}$ and $C$ contains a gate that acts non-trivially on the locations $(t,f_{1},\mathbf{1}_{R^{\prime}_{1}})$ and $(t,f_{2},\mathbf{1}_{R^{\prime}_{2}})$ at time $t$, are also connected by an edge. Namely:
+        \begin{equation*}
+          \begin{split}
+            E_{o} & \colonequals \big\{ \{(v,t), (u,t^{\prime}) \} :  \text{ if }     \\ 
+              & \text{either}  \{v,u\} \in \mathcal{G} \text{ and } t^{\prime} = t,t+1 \\
+              & \text{or there exists } u_i = (g_{i},l_{i}) \in C, f_{1},f_{2} \in \mathcal{G}, \text{ and }  R^{\prime}_{1} R^{\prime}_{2} \\
+          & \ \ \text{ such }  v\in f_{1} ,u\in f_{2}, t = l_{i,1}, t^{\prime} = l_{i,1}+1 \\ 
+        & \ \ \text{ and } (f_{1},\mathbf{1}_{R^{\prime}_{1}}), (f_{2},\mathbf{1}_{R^{\prime}_{2}}) \in l_{i,2} \big\} 
+          \end{split}
+        \end{equation*}
+    \end{enumerate} 
+  \end{definition}
+
