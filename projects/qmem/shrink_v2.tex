@@ -58,8 +58,8 @@ The checks of the code, are of the following three types:
     \begin{equation*}
       \begin{split}
         \big( \partial \rotfv{gv}{S^{\prime}} \big)|_{\text{Stab}_{v}} & = 
-        \big(   \sum_{g^{\prime} \in S/S^{\prime}} \rotfv{gv}{S^{\prime} \cup g^{\prime}} + \sum_{g^{\prime} \in S^{\prime}} \rotfv{g^{\prime -1}v}{S^{\prime}\cup g^{\prime}} \big)|_{\text{Stab}_{v}} \\
-        &  =    \sum_{g^{\prime} \in S/S^{\prime}} \rotfv{g v}{S^{\prime} \cup g} + \rotfv{g^{-1}v}{S^{\prime}\cup g}
+        \big(   \sum_{g^{\prime} \in S/S^{\prime}} \rotfv{gv}{S^{\prime} \cup g^{\prime}} + \sum_{g^{\prime} \in S^{\prime}} \rotfv{g^{\prime -1}gv}{S^{\prime}\cup g^{\prime}} \big)|_{\text{Stab}_{v}} \\
+        &  =    \bigl(\sum_{ \subtask{ g^{\prime} \in S/S^{\prime} \\ g^{\prime } \neq g }} \rotfv{g v}{S^{\prime} \cup g^{\prime}} \bigr) + \rotfv{v}{S^{\prime}\cup g}
       \end{split}
     \end{equation*}
   \item Checks that their roots are at a two-step distance from $v$, namely vertices of the form $g, g^{\prime} \in S$, where $g \neq g^{\prime}$. By the arguments presented in the second type, the checks are the $d^{\prime}-1$ faces which do not have the generators on the path leading from $v$ to them, i.e., $g, g^{\prime}$, in their generator set.
@@ -71,8 +71,8 @@ The checks of the code, are of the following three types:
   And for each check, its support is:
     \begin{equation*}
       \begin{split}
-        \big( \partial \rotfv{g^{\prime}gv}{S^{\prime}}  \big)|_{\text{Stab}_{v}} & =  \big(    \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g} \big)|_{\text{Stab}_{v}}\\
-        &=    \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g}   
+        \big( \partial \rotfv{g^{\prime}gv}{S^{\prime}}  \big)|_{\text{Stab}_{v}} & =  \big(    \sum_{g^{\prime \prime} \in S/S^{\prime}} \rotfv{gg^{\prime}v}{S^{\prime} \cup g^{\prime \prime}} + \sum_{g \in S^{\prime}} \rotfv{g^{\prime \prime -1}gg^{\prime}v}{S^{\prime}\cup g^{\prime \prime}} \big)|_{\text{Stab}_{v}}\\
+        &=    \rotfv{gv}{S^{\prime} \cup g^{\prime}} + \rotfv{g^{\prime}v}{S^{\prime}\cup g}   
       \end{split}
     \end{equation*}
 \end{enumerate}
@@ -359,5 +359,5 @@ Let $z$ be an assignment. Then apply $\phi$, sweep-rule in the negative directio
     \end{split}
   \end{equation*}
   \end{enumerate}
-
+  Let $v$ be the maximum of $L_{d+1}$ in $z$, thus $z|_{v} = z|_{v+}$. Denote by $z|_{v} = \sum_{S^{\prime} \in I }\rotfv{v}{I}$, under the action of $\phi$, we have $\phi(z|_{v}) = \sum_{S^{\prime} \in I }\rotfv{v^{-1}}{S/I}$ 
 \end{proof}
