@@ -374,16 +374,24 @@ Let $z$ be an assignment. Then apply $\phi$, sweep-rule in the negative directio
 \end{proof}
 
 \begin{claim}
-Let $z$ be an assignment. Then for any $g \in S$ it holds that: 
+Let $z$ be an assignment. Then:
+\begin{enumerate}
+  \item For any $g \in S$ it holds that: 
       \begin{equation*}
         \begin{split}
           \max_{v^{\prime} \in \partial^{-}z }L_{g}(v^{\prime}) \ge  \max_{v^{\prime} \in \partial^{+} \phi(z) } - L_{g}(v^{\prime}) 
         \end{split}
       \end{equation*}
+     \item The following equality holds:
+      \begin{equation*}
+        \begin{split}
+          \max_{v^{\prime} \in \partial^{-}z }L_{d+1}(v^{\prime})  =  \bigl( \max_{v^{\prime} \in \partial^{+} \phi(z) } - L_{d+1}(v^{\prime}) \bigr) + d^{\prime} - 1
+        \end{split}
+      \end{equation*}
+\end{enumerate}<++>
 \end{claim}
 \begin{proof}
-  
-Let $u$ be a local maximum of $-L_{g}$ in $\partial^{+} \phi(z)$. Let $v$ be a vertex and let $S^{\prime} \subset S$ be a subset of generators, of size $d^{\prime}-1$, such that $\rotfv{v}{S^{\prime}}$ is an unsatisfied check, induced by $\phi(z)$, containing $u$. Let's split into cases, depending on whether $g \in S^{\prime}$.
+  For the first part, let $u$ be a local maximum of $-L_{g}$ in $\partial^{+} \phi(z)$. Let $v$ be a vertex and let $S^{\prime} \subset S$ be a subset of generators, of size $d^{\prime}-1$, such that $\rotfv{v}{S^{\prime}}$ is an unsatisfied check, induced by $\phi(z)$, containing $u$. Let's split into cases, depending on whether $g \in S^{\prime}$.
   \begin{enumerate}
     \item Assume that $g \notin S^{\prime}$; thus, $L_{g}(v) = L_{g}(u)$. Since $\phi$-transpose sends checks to checks, we have that the check $\partial^{-} \rotfv{v^{-1}}{S/S^{\prime}} = \phi(\partial^{+}\rotfv{v}{S^{\prime}})$ is not satisfied, and therefore any vertex $w \in \rotfv{v^{-1}}{S/S^{\prime}}$ also belongs to $\partial^{-}(z)$. Combining that $g \notin S^{\prime}$ and therefore $g \in S/S^{\prime}$, we get that $gv^{-1} \in \partial^{-}(z)$. In particular:
       \begin{equation*}
@@ -404,12 +412,7 @@ Let $u$ be a local maximum of $-L_{g}$ in $\partial^{+} \phi(z)$. Let $v$ be a v
         \end{split}
       \end{equation*}
   \end{enumerate}
-
-\end{proof}
-
-
-
-Let $u$ be a maximum of $-L_{d+1}$ in $\partial^{+} \phi(z)$. Let $v$ be a vertex and let $S^{\prime} \subset S$ be a subset of generators, of size $d^{\prime}-1$, such that $\rotfv{v}{S^{\prime}}$ is an unsatisfied check, induced by $\phi(z)$, containing $u$. Clearly, it must holds that: 
+  For the second part, let $u$ be a maximum of $-L_{d+1}$ in $\partial^{+} \phi(z)$. Let $v$ be a vertex and let $S^{\prime} \subset S$ be a subset of generators, of size $d^{\prime}-1$, such that $\rotfv{v}{S^{\prime}}$ is an unsatisfied check, induced by $\phi(z)$, containing $u$. Clearly, it must holds that: 
 \begin{equation*}
   \begin{split}
     u = \bigl(\prod_{g \in S^{\prime}}g\bigr) v
@@ -424,4 +427,6 @@ Therefore we get the strict equality:
           & =  \bigl( \max_{v^{\prime} \in \partial^{+} \phi(z) } - L_{d+1}(v^{\prime}) \bigr) + d^{\prime} - 1
         \end{split}
       \end{equation*}
+
+\end{proof}
 
