@@ -339,11 +339,25 @@ So for $\rotfv{gv}{S^{\prime}_{i}/g} = 0$, it must appear at least twice in the 
 \end{equation*}
 \end{proof}
 
-
-\ctt{
 \begin{claim}
-  Regarding the dual phase of the sweep-cycle, the $Z$-boundary is also shrinks.  
+Let $z$ be an assignment. Then apply $\phi$, sweep-rule in the negative direction, and then $\phi$ again.
 \end{claim}
-}
+\begin{proof}
+  Since $\phi$ sends the Toric code to itself, 
 
+  We argue that:
+  \begin{enumerate}
+    \item \begin{equation*}
+    \begin{split}
+      \max_{v \in z} L_{d+1}(v) = \max_{v \in \phi(z)} -L_{d+1}(v) 
+    \end{split}
+  \end{equation*}
+\item For any $g \in S$ there exists $g^{\prime} \in S$, such that: 
+    \item \begin{equation*}
+    \begin{split}
+      \max_{v \in z} L_{g}(v) = \max_{v \in \phi(z)} -L_{g^{\prime}}(v) 
+    \end{split}
+  \end{equation*}
+  \end{enumerate}
 
+\end{proof}
