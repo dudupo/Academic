@@ -361,5 +361,13 @@ Let $z$ be an assignment. Then apply $\phi$, sweep-rule in the negative directio
   \end{enumerate}
   Let $v$ be the maximum of $L_{d+1}$ in $z$, thus $z|_{v} = z|_{v+}$. Denote by $z|_{v} = \sum_{S^{\prime} \in I }\rotfv{v}{I}$, under the action of $\phi$, we have $\phi(z|_{v}) = \sum_{S^{\prime} \in I }\rotfv{v^{-1}}{S/I}$. 
 
-  Assume that $u \in \partial^{+} \phi(z)$ such that $ - L(u) > - L(v^{-1})$. 
+  Assume that $u \in \partial^{+} \phi(z)$ such that $ - L(u) > - L(v^{-1})$.
+
+  Let $v$ be a local max of $L_{g}$ in $\partial^{-} z $, therefore
+  \begin{equation*}
+    \begin{split}
+      & \partial^{-}\rotfv{v}{S^{\prime}} = \sum_{g^{\prime} \in S^\prime}\rotfv{v}{S^{\prime}/g^{\prime}} \rightarrow_{\phi} \sum_{g^{\prime} \in S^\prime}\rotfv{v^{-1}}{(S/S^{\prime})\cup g^{\prime}} \\
+      & u \in   \bigl\{ \prod_{g^{\prime} \in S/S^{\prime} \cup g  } v^{-1}   \bigr\}
+    \end{split}
+  \end{equation*}
 \end{proof}
