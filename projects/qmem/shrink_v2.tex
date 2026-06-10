@@ -372,6 +372,14 @@ Let $z$ be an assignment. Then apply $\phi$, sweep-rule in the negative directio
   \end{equation*}
 
 
+\begin{claim}
+Let $z$ be an assignment. Then for any $g \in S$ it holds that: 
+      \begin{equation*}
+        \begin{split}
+          \max_{v^{\prime} \in \partial^{-}z }L(v^{\prime}) \ge  \max_{v^{\prime} \in \partial^{+} \phi(z) } - L(v^{\prime}) 
+        \end{split}
+      \end{equation*}
+\end{claim}
   
 Let $u$ be a local maximum of $-L_{g}$ in $\partial^{+} \phi(z)$. Let $v$ be a vertex and let $S^{\prime} \subset S$ be a subset of generators, of size $d^{\prime}-1$, such that $\rotfv{v}{S^{\prime}}$ is an unsatisfied check, induced by $\phi(z)$, containing $u$. Let's split into cases, depending on whether $g \in S^{\prime}$.
   \begin{enumerate}
