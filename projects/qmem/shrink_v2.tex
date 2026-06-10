@@ -370,4 +370,53 @@ Let $z$ be an assignment. Then apply $\phi$, sweep-rule in the negative directio
       & u \in   \bigl\{ \prod_{g^{\prime} \in S/S^{\prime} \cup g  } v^{-1}   \bigr\}
     \end{split}
   \end{equation*}
+
+
+  Let $u$ be a local maximum of $L_{g}$ in $\partial^{+} \phi(z)$. Let $v$ be a vertex and $S^{\prime} \subset S$ be a subset of generators, at size $d^{\prime}-1$ such $\rotfv{v}{S^{\prime}}$ is usatsifed check, induced by $\phi(z)$, containing $u$. Let's split into cases, upon whether $g \in S^{\prime}$. 
+
+  \begin{enumerate}
+    \item Assume that $g \notin S^{\prime}$; thus, $L_{g}(v) = L_{g}(u)$. Since $\phi$-transpose sends checks to checks, we have that $\partial^{-} \rotfv{v^{-1}}{S/S^{\prime}} = \phi(\partial^{+}\rotfv{v}{S^{\prime}})$ is not satisfied, and therefore any $w \in \rotfv{v^{-1}}{S/S^{\prime}}$ belongs to $\partial^{-}(z)$. Combining that $g \notin S^{\prime}$ and therefore $g \in S/S^{\prime}$, we get that $gv^{-1} \in \partial^{-}(z)$. In particular:
+      \begin{equation*}
+        \begin{split}
+          \max_{v^{\prime} \in \partial^{-}z }L(v^{\prime}) \ge  L_{g}(gv^{-1}) = 1 + L_{g}(v^{-1}) = 1 - L_{g}(u) 
+        \end{split}
+      \end{equation*}
+    \item Assume that $g \in S^{\prime}$. Then $u \neq gv$ (otherwise $-L_{g}(u) < -L_{g}(v)$), and again $L_{g}(u) = L_{g}(v)$. By repeating the argument above, we get that $v^{-1} \in \partial^{-}z$, and therefore:
+      \begin{equation*}
+        \begin{split}
+          \max_{v^{\prime} \in \partial^{-}z }L(v^{\prime}) \ge  L_{g}(v^{-1}) = - L_{g}(u) 
+        \end{split}
+      \end{equation*}
+      So in overall we get that: 
+      \begin{equation*}
+        \begin{split}
+
+        \end{split}
+      \end{equation*}
+  \end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{proof}
