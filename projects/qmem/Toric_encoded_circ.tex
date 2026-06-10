@@ -57,25 +57,9 @@ We extend the action of potential walls to act on the vertices of $V_{\mathcal{H
             \item If $g$ is a logical $\mathbf{CX}$ then for any physical $\mathbf{CX}$ in its realization, between faces $f_{1}$ into $f_{2}$ at time $t$ we add: 
             \begin{equation*}
               \begin{split}
-               & \bigl\{  \{(u,t),(v,t+1)\} : u \in f_{1}, v \in f_{1}\cup f_{2} \text{ and } v,u \in V_{\mathcal{H},X} \bigr\} \\
-               & \bigl\{  \{(u,t),(v,t+1)\} : u \in f_{2}, v \in f_{1}\cup f_{2} \text{ and } v,u \in V_{\mathcal{H},Z} \bigr\} 
+                & \bigl\{  \{(u,t),(v,t+1)\} : u \in f_{1}\cup f_{2}, v \in f_{1}\cup f_{2} \text{ and } v,u \in V_{\mathcal{H}} \bigr\} 
               \end{split}
             \end{equation*}
-          \item If $g$ is logical $\phi \circ \mathbf{H}$, then for any physical $\mathbf{H}$, in its realization, that acts on face $f$, we add:
-            \begin{equation*}
-              \begin{split}
-                & \bigl\{  \{(u,t),(v,t+1)\} : u \in f, v \in \phi(f) \text{ and } v \in V_{\mathcal{H},Z} ,u \in V_{\mathcal{H},X} \bigr\} \\
-                & \bigl\{  \{(u,t),(v,t+1)\} : u \in f, v \in \phi(f) \text{ and } v \in V_{\mathcal{H},X} ,u \in V_{\mathcal{H},Z} \bigr\} 
-              \end{split}
-            \end{equation*}
-          \item If $g$ is one of logical $X,Z,I$ or a sweep-cycle, then for any face $f$, in the register on which acts $g$, we add: 
-            \begin{equation*}
-              \begin{split}
-                & \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f \text{ and } u,v \in V_{\mathcal{H},X} \bigr\} \\
-                & \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f\text{ and } u,v \in V_{\mathcal{H},Z} \bigr\} 
-              \end{split}
-            \end{equation*}
-          \item If $g$ is the logical $\mathbf{S}$ on register $R$, using a magic state encoded in register $R_{\mathbf{S}}$, then we connect edges by following the connection rules: first applying logical $\mathbf{CX}$ from $R$ into $R_{\mathbf{S}}$, then applying logical $\phi \circ \mathbf{H}$ on $R_{\mathbf{S}}$, and then applying logical $\mathbf{CX}$ from $R_{\mathbf{S}}$ into $R$.
         \end{enumerate}
         In addition for any fault $g$ of $\mathcal{E}$, that is applied at time $t$, and any faces $f_{1} \notin \text{Sup}_{X}(g)$ and $f_{2} \notin \text{Sup}_{Z}(g)$, we add the edges:
             \begin{equation*}
