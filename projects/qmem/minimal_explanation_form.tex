@@ -103,3 +103,14 @@ Let $\hat{K}$ be a spanned slice with size $s$, $|A|$ arrows, and $|F|$ forks. T
   \begin{proof}
 We bound the \Cref{claim:edgesin} by the number of leaves in the explanation, and use the fact that any $d^{\prime}$-face has $2^{d^{\prime}}$ vertices, so each fault contributes at most $2^{d^{\prime}}$ leaves to the explanation.
   \end{proof}
+
+
+  \begin{definition}
+    \textit{logical error}. 
+  \end{definition}
+
+  \begin{thoream}[Informal]
+    Let $C$ be a quantum circuit, with depth $d$ and width $w$, then there exist a toric encoded circuit $\tilde{C}$ that simulate $C$ such the probability to have a logical error in $\tilde{C}$ is bounded by $wd \cdot p^{l}$. 
+  \end{thoream} 
+
+
