@@ -130,7 +130,7 @@ Furthermore, we say that $\hat{K}$ is a result of a \textit{sweep-cycle}, \texti
   \end{definition}
 
   \begin{corollary}
-    Consider a spanned slice $\hat{K}$, and let $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ be the predecessor decomposition of $\hat{K}$. 
+Consider a spanned slice $\hat{K}$, at finite size, such that $K \neq H_{K}$. Since $K \neq H_{K}$, it follows that $\hat{K}$ has a predecessor decomposition, denoted by $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$. The inequality in \Cref{claim:prevslices} becomes:
     \begin{enumerate}
       \item If $\hat{K}$ is a result of $\xi$-sweep-cycle, then: 
         \begin{equation*}
@@ -147,45 +147,16 @@ Furthermore, we say that $\hat{K}$ is a result of a \textit{sweep-cycle}, \texti
       \end{enumerate}
   \end{corollary}
   \begin{proof}
-    By \Cref{claim:bounded_size}
-    \begin{enumerate}
-      \item For $g = \varphi$ and $g = \phi \circ \mathbf{H}$, the gates apply. The size is the same size for each of $\hat{K}_{i}$, the size of the .., this is not good, since we want to say something on the poles. At least for $\mathbf{H}$ it seems like we can say that $k=1$. For the $\mathbf{CX}$, the $\prei{x}$ belongs to one of the $\hat{K}_{j}$, since $ (v,t+1) \in V_{\mathcal{H}}$, only if there is $u \sim_{\mathcal{G}} v$ such that $(u,t-1) \in V_{\mathcal{H}}$. 
-    \end{enumerate}
+For the sweep-cycle part, we use \Cref{claim:polesmove}, which states that after each application of the sweep-cycle over a finite size assignment, the maximal $L_{d+1}$ value of the resulting boundary decreases by $1$, while the values of each $L_{g}$ do not increase.
+
+When $\hat{K}$ is a result of either faults\footnote{Notice that $\hat{K}$ does not consist of faults since otherwise $K=H_{K}$, so the meaning here is that $\hat{K}$ contains vertices which weren't flipped in the fault layer.} or a logical operator, we use the fact that since the operators are transversal, we have that the support of $\hat{K}$ is contained in the support of $\cup_{0}^{k} \hat{K}_{i}$, and therefore for any $i \in [d+1]$:
+    \begin{equation*}
+      \begin{split}
+        \max \bigl\{ L_{i}(v) : v \in \hat{K} \} \le \max \bigl\{ L_{i}(v) : v \in \bigcup_{i=0}^{k}\hat{K} \} 
+      \end{split}
+    \end{equation*}
   \end{proof}
 
-  \begin{corollary}
-    For any $i \in [k]$, denote by $\hat{K}_{0}^{i},..,\hat{K}_{k_{i}}^{i},F_{1}^{i},..,F_{k_{i}}^{i}$ the be the predecessor decomposition of $\hat{K}_{i}$. Then if $\hat{K}$ is a result of..
-  \end{corollary}
-  \ctt{ 
-    Same proof works when after the application of $\phi \circ \mathbf{H}$, then $\prei{x_{i}} = \phi(x_{i})$.  
-    \begin{equation*}
-      \begin{split}
-        & \sum_{i=0}^{k}\Size{ \phi(\hat{K}_{i}) } +  \sum^{k}_{i=1}\Size{\phi(F_{i}) } \ge \sum_{i=1}^{d+1}L_{i}\left( \phi(\prei{v_{i}}) \right) \\
-        & = \sum_{i=1}^{d+1}L_{i}\left( \phi(\phi(v_{i})) \right) = \Size{K}
-      \end{split}
-    \end{equation*}
-After the application of $\phi \circ \mathbf{H}$ the slices in the history of $X$ slice are $Z$-slices. 
-It seems that the most continent way to handle the case is when we map the errors to:  
-\begin{equation*}
-  \begin{split}
-    X_{f} & \rightarrow X_{f}Z_{\psi(f)} \\
-    Z_{f} & \rightarrow Z_{f}X_{\psi(f)} \\
-  \end{split}
-\end{equation*}
-By that, we earn that when moving the dual system the error remains the same. For that to work it seems that we have also to say something like for $\mathcal{E}^{\prime} \subset \mathcal{E}$ if things work to $\mathcal{E}$ then they also should work for $\mathcal{E}^{\prime}$. But that is not true cause $\mathcal{E}$ might contains cancellations. That is a problem. 
-  }
-  \begin{definition}
-Let $C$ be a toric encoded circuit, let $\mathcal{E}$ be a set of faults, and consider Toom's contour $G_{\mathcal{H}}$ defined by it. We extend the slice definition into the language of $X/Z$-type error clusters as follows: We define an \textit{$X$-slice} to be a slice that is supported only on the vertices in $V_{\mathcal{H},X}$. Similarly, a \textit{$Z$-slice} is a slice that is supported only on the vertices of $V_{\mathcal{H},Z}$. As in $X/Z$-type error clusters, we define the size function to be conditioned on the type.
-    \begin{equation*}
-      \begin{split}
-        \Size{ X\text{-slice } K } & = \sum_{i}^{d+1} \max_{v \in K} L_{i}(v)\\ 
-        \Size{ Z\text{-slice } K } & = \sum_{i}^{d+1} \max_{v \in K} L_{i}(\phi(v))\\ 
-      \end{split}
-    \end{equation*}
-  \end{definition}
-  \begin{claim}
-    Let $K$ be an $X$-slice, such that the logical gate preceding it is $\phi \circ \mathbf{H}$. Observes that by \cref{def:contour}, that the slices in $G_{K}$ are $Z$-slices.   
-  \end{claim}
 
 
 
