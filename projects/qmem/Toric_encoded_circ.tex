@@ -13,9 +13,9 @@
     \end{definition}
 
   \begin{definition}[Base graph $G_{o}$]
-    Let $C$ be a quantum circuit, at depth $d$, with registers $R_{1}, \ldots, R_{k}$, all of which are encoded by Toric codes with the same parameters (i.e., dimension, length, etc.). Let's denote by $\mathcal{G}_{1}, .., \mathcal{G}_{k}$ the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o},E_{o})$ as follows: 
+    Let $C$ be a Toric encoded circuit at depth $d$. Denote its quantum registers by $\{R_{i}^{j}\}$, where the subscript and the superscript identify the register number and the time, respectively. For example, $R_{0}^{0}$ is the first register at time zero. Notice that measurements take quantum registers into classical. Let's denote by $\{\mathcal{G}_{i}^{j}\}$ the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o}, E_{o})$, as follows:
     \begin{enumerate}
-      \item The vertices $V_{o}$ are tuples, where the first coordinates correspond to a vertex in the union over the vertices in $\mathcal{G}_{1}, \ldots, \mathcal{G}_{k}$, and the second coordinate is associated with a time. Namely:
+      \item The vertices $V_{o}$ are tuples, where the first coordinates correspond to a vertex in the disjoin union over the vertices in $\{\mathcal{G}_{i}^{0}\}$, and the second coordinate is associated with a time. Namely:
         \begin{equation*}
           \begin{split}
             V_{o} \colonequals \bigcup_{i} V(\mathcal{G}_{i}) \times [d]
