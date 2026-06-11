@@ -1,16 +1,3 @@
-
-\inb{ Move this definition to the beginning of the paper. }
-\begin{definition}
-We model the qubits on the finite toric with a side length $n$ by the projection:
-  \begin{equation*}
-    \begin{split}
-      (x_{1}, x_{2}, .., x_{d}) \mapsto (x_{1}\bmod n, x_{2}\bmod n, .., x_{d}\bmod n) 
-    \end{split}
-  \end{equation*}
-\end{definition}
-
-\inb{ Rewrite when we talk about the first time we have deviation clusters of size $\in (\alpha d, d)$. The reason is that having those assumptions means all the droplets in the past shrank; thus, we can use the ratio of edges to time-leaves in the big subgraph.} 
-
 \begin{claim}
 Assume that until step $\tau$, there was no deviation cluster of size greater than $d$. Let $\hat{K}$ be a spanned slice induced by a deviation of a cluster state at step $\tau$, and let $\omega$ be an explanation for $\hat{K}$ such that the number of vertices in $\omega$ is greater than $\beta n$. Then there is a subgraph (subtree) $\omega^{\prime}$ of $\omega$ such that $\omega^{\prime}$ has fewer than $\frac{\beta}{2}n$ edges and at least $\frac{\beta}{4\gamma} n$ leaves.
 \end{claim}
