@@ -1,20 +1,19 @@
  \section{Explantation of a Spanned Slice}
 
-  \ctt{Here we follow the original proof, but change the triminalogy, $m$ will be the number of leaves in the explanation, then in the end we conclude that the number of faults is at least $m/\Delta$. So $|R| \le f(\frac{m}{\Delta})$. }
 
   \begin{definition}
-    Consider a Tooms contour graph induced by Toric encoded circuit, with sweep-cycle parameter $\xi = 1$, and  let $\alpha, \beta$ be constants and $\mathcal{X}_{0}, \mathcal{X}_{1}, \mathcal{X}_{2}, \mathcal{X}_{3} \in \mathbb{R}$ be quadruple, defining such:
+    Consider a Tooms contour graph induced by Toric encoded circuit, with sweep-cycle parameter $\xi = 1$, and  let $\alpha, \beta$ be constants and $\mathcal{X}_{0}, \mathcal{X}_{1}, \mathcal{X}_{2}, \mathcal{X}_{3} \in \mathbb{A}$ be quadruple, defining such:
     \begin{equation*}
       \begin{split}
       \alpha &\colonequals 40(d+1)^{2}, \ \ \  \beta \colonequals 5 (d+1) \\
       \mathcal{X}_{r} &\colonequals 1 - r \frac{d+1}{\alpha} = 1 -  \frac{r}{40(d+1)}
       \end{split}
     \end{equation*}
-    Given sets $W$ of points, $R$ of arrows and $F$ of forks, we define $U$ as the set of vertices of the graph induced by the edges of $R \cup F$. The sets $W,R$ and $F$ form an explanation of a spanned slice $\hat{K} = \expval*{ K, v_{1}, .., v_{d+1}}$ of order $\text{order}(\hat{K}) = r$, if and only if: 
+    Given sets $W$ of points, $A$ of arrows and $F$ of forks, we define $U$ as the set of vertices of the graph induced by the edges of $A \cup F$. The sets $W,A$ and $F$ form an explanation of a spanned slice $\hat{K} = \expval*{ K, v_{1}, .., v_{d+1}}$ of order $\text{order}(\hat{K}) = r$, if and only if: 
     \begin{enumerate}
-      \item $W \cup \{v_{1} ,.., v_{d+1}\} \subset U \subset \History{K}$ and the graph $(U, R\cup F)$ is connected. 
+      \item $W \cup \{v_{1} ,.., v_{d+1}\} \subset U \subset \History{K}$ and the graph $(U, A\cup F)$ is connected. 
       \item All elements of $W$ are leaves. 
-      \item For $m = |W|$ and $s=\Size{K}$ we have $|R| \le \alpha (m - \mathcal{X}_{r}) - \beta s $ and $|F| < m -1 $. 
+      \item For $m = |W|$ and $s=\Size{K}$ we have $|A| \le \alpha (m - \mathcal{X}_{r}) - \beta s $ and $|F| < m -1 $. 
     \end{enumerate}
   \end{definition}
 
@@ -26,7 +25,7 @@
   \begin{proof}
     Let $h = \Time{K} - \min_{u \in \History{K}}\Time{u}$. The proof is by induction on $h$. 
     \begin{enumerate}
-      \item Base: $h=0$, meaning $T$ is constant on $\History{K}$, so no arrows connect points of $\History{K}$. Thus, $\History{K}$, as well as $\mathbf{K}$, consists only of a single leaf, namely $\hat{K}$ is a result of a fault, and $r = \text{order}(\mathcal{X}_{r}) \in \{0,2\}$. In that case, there is a single vertex $u \in V_{\mathcal{H}}$ such that $U = W = \{u\}$, so $m=1$, $s=0$, and $|R|, |F| = 0$. It is easy to check that those values satisfy the requirement. 
+      \item Base: $h=0$, meaning $T$ is constant on $\History{K}$, so no arrows connect points of $\History{K}$. Thus, $\History{K}$, as well as $\mathbf{K}$, consists only of a single leaf, namely $\hat{K}$ is a result of a fault, and $r = \text{order}(\mathcal{X}_{r}) \in \{0,2\}$. In that case, there is a single vertex $u \in V_{\mathcal{H}}$ such that $U = W = \{u\}$, so $m=1$, $s=0$, and $|A|, |F| = 0$. It is easy to check that those values satisfy the requirement. 
       \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. Thus, by \cref{claim:prevslices}, we know that for some $k$ there exist spanned slices $\hat{K}_{0}, .., \hat{K}_{k}$ and forks $F_{1},..,F_{k}$ that satisfy \cref{claim:prevslices}. In particular, for $r < 3$ it holds that: 
         \begin{equation*}
           \begin{split}
@@ -39,11 +38,11 @@
             \sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}} + \xi = \Size{\hat{K}} + 1 
           \end{split}
         \end{equation*}
-        Consider $i \in \{0, \ldots, k\}$, and denote $s_{i} = \Size{\hat{K}_{i}}$. By the inductive hypothesis and since $\Time{K_{i}} = \Time{K} - 1$, we know that $\hat{K}_{i}$ has an explanation formed by a set of leaves $\mathbf{W}_{i}$, a set of arrows $\mathbf{R}_{i}$, and a set of forks $\mathbf{F}_{i}$. Let $m_{i} = |\mathbf{W}_{i}|$. Thus, the sets $\mathbf{R}_{i}$ and $\mathbf{F}_{i}$ have at most $\alpha (m_{i} - \mathcal{X}_{r-1}) - \beta s_{i}$ arrows and $m_{i} - 1$ forks. We define:
+        Consider $i \in \{0, \ldots, k\}$, and denote $s_{i} = \Size{\hat{K}_{i}}$. By the inductive hypothesis and since $\Time{K_{i}} = \Time{K} - 1$, we know that $\hat{K}_{i}$ has an explanation formed by a set of leaves $\mathbf{W}_{i}$, a set of arrows $\mathbf{A}_{i}$, and a set of forks $\mathbf{F}_{i}$. Let $m_{i} = |\mathbf{W}_{i}|$. Thus, the sets $\mathbf{A}_{i}$ and $\mathbf{F}_{i}$ have at most $\alpha (m_{i} - \mathcal{X}_{r-1}) - \beta s_{i}$ arrows and $m_{i} - 1$ forks. We define:
         \begin{enumerate}
           \item $\mathbf{W} = \cup_{i=0}^{k} \mathbf{W}_{i}$, Notice that $\mathbf{W}_{i} \subset K_{i}$ and that $\Time{K_{i}} = \Time{K_{j}}$ for all $i,j$, thus by \Cref{claim:disj} $\mathbf{W}$ is a union of disjoint set, Hence $W$ contains  $m = \sum_{i=0}^{k}m_{i}$ leaves. 
           \item $\mathbf{F} = \{ F_{1},..,F_{k} \} \cup_{i = 0}^{k}\mathbf{F}_{i}$ with at most $ k + \sum_{i=0}^{k}{m_{i} -1 } = m- 1$ elements. 
-          \item $\mathbf{R} = \{ \{v_{i}, \prei{v_{i}} \} \} \cup_{i=0}^{k}{ \mathbf{R}_{i} }$. For bounding the number of arrows in $\mathbf{R}$ we condition upon whether $r = 3$, For convenient, let us denote by $Y$ the indicator, which indicate if $r = 3$.   
+          \item $\mathbf{A} = \{ \{v_{i}, \prei{v_{i}} \} \} \cup_{i=0}^{k}{ \mathbf{A}_{i} }$. For bounding the number of arrows in $\mathbf{A}$ we condition upon whether $r = 3$, For convenient, let us denote by $Y$ the indicator, which indicate if $r = 3$.   
             \begin{equation*}
               \begin{split}
                 & d+1 + \sum^{k}_{i=0}{\alpha (m_{i}-\mathcal{X}_{r-1})  - \beta s_{i} } \\ 
@@ -60,21 +59,21 @@ So it's left to show that the term in the closure is negative for all integers $
             We do that by showing that for the choice of the parameter values, $\alpha, \beta, \mathcal{X}_{0}, \ldots, \mathcal{X}_{3}$, the slope is negative, and then the value of the term at $k$ equals zero is negative.  For the slope to be negative, we require: 
             \begin{equation*}
               \begin{split}
-                - \alpha \mathcal{X}_{r-1}  +  \beta \Size{\text{fork}} \le 0 & \Rightarrow   \Size{\text{fork}} \le \frac{\alpha}{\beta} \mathcal{X}_{r-1} 
+                - \alpha \mathcal{X}_{r-1}  +  \beta \Size{\text{fork}} \le 0 & \Aightarrow   \Size{\text{fork}} \le \frac{\alpha}{\beta} \mathcal{X}_{r-1} 
               \end{split}
             \end{equation*}
             For negativity at the origin, $k=0$, we require for $r < 3$:
             \begin{equation*}
               \begin{split}
                 (\mathcal{X}_{r}-\mathcal{X}_{r-1})  & \alpha  + d + 1  \le 0 
-                \\ &  \Rightarrow \mathcal{X}_{r} \le  \mathcal{X}_{r-1} - \frac{d+1}{\alpha}  
+                \\ &  \Aightarrow \mathcal{X}_{r} \le  \mathcal{X}_{r-1} - \frac{d+1}{\alpha}  
   \end{split}
 \end{equation*}
 And for $r =3$:
 \begin{equation*}
   \begin{split}
 (\mathcal{X}_{3}-\mathcal{X}_{2}) & \alpha  + d + 1  -\beta \xi \le 0  \\ 
-& \Rightarrow \mathcal{X}_{3} \le  \mathcal{X}_{0} - 3\frac{d+1}{\alpha} + \frac{\beta}{\alpha}\xi  
+& \Aightarrow \mathcal{X}_{3} \le  \mathcal{X}_{0} - 3\frac{d+1}{\alpha} + \frac{\beta}{\alpha}\xi  
               \end{split}
             \end{equation*}
 So in total: 
@@ -89,10 +88,18 @@ So in total:
 \end{equation*}
 The first three inequalities hold by the definitions of the $\mathcal{X}_{r}$, the fourth is satisfied since $\frac{\beta}{\alpha}\xi = 4 \frac{d+1}{\alpha}$, the last is obtained due to \Cref{claim:maxfork}, that states that the maximal size of a fork equals $4d$, and that $\frac{\alpha}{\beta}\mathcal{X}_{r}$ is greater than $4d$.
         \end{enumerate}
-         Finally, by \cref{claim:prevslices}, the graphs induced by $\mathbf{R}_{i} \cup \mathbf{F}_{i}$ are connected, thus the graph induced by $\mathbf{R}\cup \mathbf{F}$ is also connected. Therefore, $\mathbf{W}, \mathbf{R}, \mathbf{F}$ form an explanation of $K$. 
+         Finally, by \cref{claim:prevslices}, the graphs induced by $\mathbf{A}_{i} \cup \mathbf{F}_{i}$ are connected, thus the graph induced by $\mathbf{A}\cup \mathbf{F}$ is also connected. Therefore, $\mathbf{W}, \mathbf{A}, \mathbf{F}$ form an explanation of $K$. 
     \end{enumerate}
     \ctt{ Check what happened if we set $\xi = \sqrt{d}, \beta = \sqrt{d}$ is that better? }
   \end{proof}
-
-
-
+  \begin{corollary}
+Let $\hat{K}$ be a spanned slice with size $s$, $|A|$ arrows, and $|F|$ forks. Then it is induced by at least the following number of faults:
+    \begin{equation*}
+      \begin{split}
+        \frac{1}{2^{d^{\prime}}}  \min \bigl\{ |F|+1, \alpha^{-1}|A| + \beta s  \bigr\}
+      \end{split}
+    \end{equation*}
+  \end{corollary}
+  \begin{proof}
+We bound the \Cref{claim:edgesin} by the number of leaves in the explanation, and use the fact that any $d^{\prime}$-face has $2^{d^{\prime}}$ vertices, so each fault contributes at most $2^{d^{\prime}}$ leaves to the explanation.
+  \end{proof}
