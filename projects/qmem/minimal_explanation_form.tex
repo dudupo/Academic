@@ -105,8 +105,14 @@ We bound the \Cref{claim:edgesin} by the number of leaves in the explanation, an
   \end{proof}
 
 
-  \begin{definition}
-    \textit{logical error}. 
+  \begin{definition}[Simulation and Logical Errors]
+For a quantum code $\mathcal{C}$ of length $n$ and a decoder for $\mathcal{C}$, denoted by $D$, we say that a Pauli operator $P \in \mathcal{P}^{\otimes n}$ is a \textit{logical error} with respect to $D$ if $DP$ does not equal the logical identity.
+
+For quantum circuits $C$ and $\tilde{C}$, a noise channel $\mathcal{E}$, and $p \in (0,1)$, we say that $\tilde{C}$ simulates $C$ with probability $1 - p$ if
+    \begin{enumerate}
+      \item If there is a mapping between the qubits of $C$ and the registers of $\tilde{C}$, along with a decoding procedure such that, at the end of running $\tilde{C}$, decoding the registers results in the same quantum states as those produced by running $C$.
+      \item The probability induced by $\mathcal{E}$ that the deviation on one of the registers has a logical error is less than $p$.
+    \end{enumerate}
   \end{definition}
 
   \begin{theorem}[Informal]
