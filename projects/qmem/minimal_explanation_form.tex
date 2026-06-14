@@ -116,14 +116,6 @@ We bound the \Cref{claim:edgesin} by the number of leaves in the explanation, an
   \end{proof}
 
     \ctt{ Check what happened if we set $\xi = \sqrt{d}, \beta = \sqrt{d}$ is that better? }
-  \begin{claim}
-    For a register $R$, and for any step $\tau$, any division clusters on $R$ at step $\tau$ have an explanation.
-  \end{claim}
-  \begin{proof}
-    We form the explantation of $K$ by adding an imagining layer of gates after the $\tau$ step. That layer, 
-    For any $i$ let $W_{i},A_{i},F_{i}$ be the subsets of leaves, arrows, and forks in the explanation of $K_{i}$ such $A_{i} \cup F_{i}$ is the minimal tree spans $K_{i}$. We define $W,A$ to be the sets obtianed by the unions  $\cup_{i}W_{i}$  and $\cup_{i}A_{i}$ and $F$ by taking the uion $\cup F_{i}$ with the addition of forks that connecting $K_{i}$. s in \cref{claim:edgesin}. can bound the sizes of the diveation clusters 
-  \end{proof}
-
 
   \begin{definition}[Simulation and Logical Errors]
 For a quantum code $\mathcal{C}$ of length $n$ and a decoder for $\mathcal{C}$, denoted by $D$, we say that a Pauli operator $P \in \mathcal{P}^{\otimes n}$ is a \textit{logical error} with respect to $D$ if $DP$ does not equal the logical identity.
