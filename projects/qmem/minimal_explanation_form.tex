@@ -16,15 +16,15 @@
       \item All elements of $W$ are leaves. 
       \item For $m = |W|$ and $s=\Size{K}$ we have $|A| \le \alpha (m - \mathcal{X}_{r}) - \beta s $ and $|F| < m -1 $. 
     \end{enumerate}
+Furthermore, for a step $\tau$ and a spanned slice $\hat{K}$ in the analysis Toom's contour at step $\tau$, we extend the definition of explanation as above, but require the following weaker inequality instead: For $m = |W|$ and $s = \Size{K}$, we have $|A| \le \alpha (m + 1) - \beta s$ and $|F| < m - 1$.
   \end{definition}
-
   \begin{claim}
     \label{claim:edgesin}
     Every spanned slice $K = \expval*{K,v_{1},..,v_{d+1}}$ has an explanation.
   \end{claim}
 
   \begin{proof}
-    Let $h = \Time{K} - \min_{u \in \History{K}}\Time{u}$. The proof is by induction on $h$. 
+    Let $h = \Time{K} - \min_{u \in \History{K}} \Time{u}$. For spans derived from the standard Toom's contours (namely not a analysis Toom's contours), we prove by induction on $h$.
     \begin{enumerate}
       \item Base: $h=0$, meaning $T$ is constant on $\History{K}$, so no arrows connect points of $\History{K}$. Thus, $\History{K}$, as well as $\mathbf{K}$, consists only of a single leaf, namely $\hat{K}$ is a result of a fault, and $r = \text{order}(\mathcal{X}_{r}) \in \{0,2\}$. In that case, there is a single vertex $u \in V_{\mathcal{H}}$ such that $U = W = \{u\}$, so $m=1$, $s=0$, and $|A|, |F| = 0$. It is easy to check that those values satisfy the requirement. 
       \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. Thus, by \cref{claim:prevslices}, we know that for some $k$ there exist spanned slices $\hat{K}_{0}, .., \hat{K}_{k}$ and forks $F_{1},..,F_{k}$ that satisfy \cref{claim:prevslices}. In particular, for $r < 3$ it holds that: 
@@ -92,6 +92,12 @@ The first three inequalities hold by the definitions of the $\mathcal{X}_{r}$, t
          Finally, by \cref{claim:prevslices}, the graphs induced by $\mathbf{A}_{i} \cup \mathbf{F}_{i}$ are connected, thus the graph induced by $\mathbf{A}\cup \mathbf{F}$ is also connected. Therefore, $\mathbf{W}, \mathbf{A}, \mathbf{F}$ form an explanation of $K$. 
     \end{enumerate}
     \ctt{ Check what happened if we set $\xi = \sqrt{d}, \beta = \sqrt{d}$ is that better? }
+    It's left to prove for spanned slices in the analysis Toom's contours. Notice, that $h$ has to be greater than zero, We prove the inequality by repeating on the induction bases, where all the spanned slices that are back in the history of $K$ are spanned slices in the standard Toom's contour. So the only different is in the bounding of $A$'s size. We use \cref{ } and get: 
+    \begin{equation*}
+      \begin{split}
+        |A| \le \alpha \left(m + 1 \right) - \beta s + \left(\alpha ( \mathcal{X}_{r} - \mathcal{X}_{r-1} ) + d+1 -  \mathcal{X}_{r-1} k \alpha + d + d^{\prime} + 1 + \beta k \cdot \Size{\text{fork}} \right)
+      \end{split}
+    \end{equation*}
   \end{proof}
   \begin{corollary}
 Let $\hat{K}$ be a spanned slice with size $s$, and explanation with $|A|$ arrows, and $|F|$ forks. Then it is induced by at least the following number of faults:
@@ -105,14 +111,6 @@ Let $\hat{K}$ be a spanned slice with size $s$, and explanation with $|A|$ arrow
 We bound the \Cref{claim:edgesin} by the number of leaves in the explanation, and use the fact that any $d^{\prime}$-face has $2^{d^{\prime}}$ vertices, so each fault contributes at most $2^{d^{\prime}}$ leaves to the explanation.
   \end{proof}
 
-  \begin{definition}
-    Consider the constants $\alpha,\beta$ as defined in \Cref{def:explantation}. We extend the definition of explanation for deviation clusters. Let $R$ be a quantum register, and let $K$ be a subset of vertices on the Toric complex of that register, such that $K$ supports a deviation cluster. Let $K_{1}, K_{2}, \ldots, K_{k} \subset K$ be a partition of the vertices in $K$ into arrow-connected subsets, i.e., all the vertices in $K_{i}$ are connected via arrows. For subsets of leaves, arrows, forks $W, A, F$, and vertices $U$ induced by the edges of $A \cup F$, the sets $W, A$, and $F$ form an \textit{explanation of a deviation cluster} $\hat{K} = \expval*{K, v_{1}, \ldots, v_{d+1}}$ if and only if:
-    \begin{enumerate}
-      \item $W \cup \{v_{1} ,.., v_{d+1}\} \subset U \subset \bigcup_{i} \History{K_{i}}$ and the graph $(U, A\cup F)$ is connected. 
-      \item All elements of $W$ are leaves. 
-      \item For $m = |W|$ and $s=\Size{K}$ we have $|A| \le \alpha (m + 1) - \beta s $ and $|F| < m -1 $. 
-    \end{enumerate}
-  \end{definition}
   \begin{claim}
     For a register $R$, and for any step $\tau$, any division clusters on $R$ at step $\tau$ have an explanation.
   \end{claim}
