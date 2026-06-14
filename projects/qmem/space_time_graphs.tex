@@ -157,6 +157,17 @@ When $\hat{K}$ is a result of either faults\footnote{Notice that $\hat{K}$ does 
     \end{equation*}
   \end{proof}
 
+  \begin{claim}
+For a step $\tau$, let $\mathcal{H}_{\tau}$ be analysis Toom's contour at step $\tau$, and let $t^{\star}$ be the maximal time at that contour. For a spanned slice $\hat{K}$, at time $T(K) = t^{\star}$, where $K \neq H_{K}$, the inequality in \Cref{claim:prevslices} becomes:
+        \begin{equation*}
+          \begin{split}
+            \sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}} - 1
+          \end{split}
+        \end{equation*}
+  \end{claim}
+  \begin{proof}
+We allow vertices at the final time layer to be connected by an arrow if they are at a distance of $d^{\prime} \pm 1$ from each other. 
+  \end{proof}
 
 
 

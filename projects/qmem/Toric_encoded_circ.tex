@@ -82,6 +82,29 @@ We extend the action of potential walls to act on the vertices of $V_{\mathcal{H
     We call $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$ the \textit{arrows} and \textit{forks} edges respectively. 
 \end{definition}
 
+For the analyses we would like to have the following definition: 
+\begin{definition}
+For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, and a step $\tau$, according to the standard order, let $C[\mathcal{E}]_{\tau}$ be the partial computation circuit of $C[\mathcal{E}]$ up to step $\tau$. We define the \textit{analysis Toom's contour at step $\tau$} $\mathcal{H}_{\tau} = (V_{\mathcal{H}}, E_{\mathcal{H}})$ to be the graph obtained by taking the Toom's contour of $C[\mathcal{E}]_{\tau}$ and adding vertices and edges as follows:
+  \begin{enumerate}
+    \item For vertices, we define $t^{\star}$ as the maximum time of vertices up to step $\tau$ plus one, and then add the subset:
+        \begin{equation*}
+          \begin{split}
+            \bigl\{ v_{t^{\star}}  & : v_{t^{\star}}=(v,t^{\star}) \text{ and there exists a } d^{\prime} \pm 1 \text{ dimensional face } f \in \partial D_{t^{\star} - 1} \text{ and a vertex } u_{t^{\star} - 1} \text{ such } \\
+            & v_{t^{\star}},u_{t^{\star} - 1 } \in f   \bigr\} 
+          \end{split}
+        \end{equation*}
+      \item For the edges, we add the following arrows:
+        \begin{equation*}
+          \begin{split}
+            \bigl\{ \bigl\{ (u,t^{\star} -1 ), (v,t^{\star})  \bigr\} & \text{ if there exists a } d^{\prime} \pm 1 \text{ dimensional face } f \in \partial D_{t^{\star} - 1} \text{ and a vertex such } \\
+            & v_{t^{\star}},u_{t^{\star} - 1 } \in f   \bigr\}  
+          \end{split}
+        \end{equation*}
+      \item Finally, we add forks for vertices at time $t^{\star}$ to preserve the property that any two vertices with the same time coordinate, which are connected to a third via arrows, are also connected by a fork.
+  \end{enumerate}
+
+
+\end{definition}
 
 
 

@@ -2,6 +2,7 @@
 
 
   \begin{definition}
+    \label{def:explantation}
     Consider a Tooms contour graph induced by Toric encoded circuit, with sweep-cycle parameter $\xi = 1$, and  let $\alpha, \beta$ be constants and $\mathcal{X}_{0}, \mathcal{X}_{1}, \mathcal{X}_{2}, \mathcal{X}_{3} \in \mathbb{A}$ be quadruple, defining such:
     \begin{equation*}
       \begin{split}
@@ -105,14 +106,19 @@ We bound the \Cref{claim:edgesin} by the number of leaves in the explanation, an
   \end{proof}
 
   \begin{definition}
-    An explanation of a deviation cluster. 
+    Consider the constants $\alpha,\beta$ as defined in \Cref{def:explantation}. We extend the definition of explanation for deviation clusters. Let $R$ be a quantum register, and let $K$ be a subset of vertices on the Toric complex of that register, such that $K$ supports a deviation cluster. Let $K_{1}, K_{2}, \ldots, K_{k} \subset K$ be a partition of the vertices in $K$ into arrow-connected subsets, i.e., all the vertices in $K_{i}$ are connected via arrows. For subsets of leaves, arrows, forks $W, A, F$, and vertices $U$ induced by the edges of $A \cup F$, the sets $W, A$, and $F$ form an \textit{explanation of a deviation cluster} $\hat{K} = \expval*{K, v_{1}, \ldots, v_{d+1}}$ if and only if:
+    \begin{enumerate}
+      \item $W \cup \{v_{1} ,.., v_{d+1}\} \subset U \subset \bigcup_{i} \History{K_{i}}$ and the graph $(U, A\cup F)$ is connected. 
+      \item All elements of $W$ are leaves. 
+      \item For $m = |W|$ and $s=\Size{K}$ we have $|A| \le \alpha (m + 1) - \beta s $ and $|F| < m -1 $. 
+    \end{enumerate}
   \end{definition}
-
-  \begin{corollary}
-    Consider a cluster deviation on the register $R$ at time $t$, suppose the size of its bits is $s$, then the number. 
-  \end{corollary}
+  \begin{claim}
+    For a register $R$, and for any step $\tau$, any division clusters on $R$ at step $\tau$ have an explanation.
+  \end{claim}
   \begin{proof}
-    
+    We form the explantation of $K$ by adding an imagining layer of gates after the $\tau$ step. That layer, 
+    For any $i$ let $W_{i},A_{i},F_{i}$ be the subsets of leaves, arrows, and forks in the explanation of $K_{i}$ such $A_{i} \cup F_{i}$ is the minimal tree spans $K_{i}$. We define $W,A$ to be the sets obtianed by the unions  $\cup_{i}W_{i}$  and $\cup_{i}A_{i}$ and $F$ by taking the uion $\cup F_{i}$ with the addition of forks that connecting $K_{i}$. s in \cref{claim:edgesin}. can bound the sizes of the diveation clusters 
   \end{proof}
 
 
