@@ -19,6 +19,7 @@ Let $C$ be a Toric encoded circuit such each of its quantum register is ecnoded 
 \end{claim}
 
   \begin{proof}
+    \Cref{coro:edgefaultratio}
     Denote by $B_{\tau}$ the event that $\tau$ is the first step to have a diveation cluster at size greater than $\frac{1}{2}n^{\frac{d^{\prime}}{d}}$, and by $B_{\tau}$ the event that all the explantations of deviation clusters until (and including) step $\tau$ have less than $n^{\frac{1}{d}}$ edges. Thus:  
     \begin{equation*}
       \begin{split}
@@ -29,7 +30,7 @@ Let $C$ be a Toric encoded circuit such each of its quantum register is ecnoded 
 
   \begin{equation*}
     \begin{split}
-      \prbm{  \bar{B}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le { wdn \choose d } \alpha^{n^{\frac{d^{\prime}}{d}} } p^{n^{\frac{d^{\prime}}{d}}} \le  (wdn)^{d}  \alpha^{n^{\frac{d^{\prime}}{d}} } p^{n^{\frac{d^{\prime}}{d}}}
+      \prbm{  \bar{B}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le nwd \alpha^{ \frac{1}{4} n^{\frac{d^{\prime}}{d}} } p^{ \frac{1}{8}  n^{\frac{d^{\prime}}{d}}}
     \end{split}
   \end{equation*}
 
