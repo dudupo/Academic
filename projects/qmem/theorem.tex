@@ -30,7 +30,8 @@ There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noi
   \begin{proof}
     We construct $\tilde{C}$ as follows: for each input wire of $C$, we initialize the logical zero $\ket{\mathbf{0}}$ of the $(d,d^{\prime})$-Toric code. For each of the gates $\mathbf{H}$ and $\mathbf{S}$, we initialize the encoded $\ket{\mathbf{H}}$ and $\ket{\mathbf{S}}$ states, and for each $\mathbf{T}$, we initialize copies of both $\ket{\mathbf{T}}$ and $\ket{\mathbf{S}}$ states. The even layers of $\tilde{C}$ are sweep cycles, while on the odd layers, we set the realization of the logical gates. For $\mathbf{CX}$, we set the transversal realization, and for $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$, we use gate teleportation. Thus the width of $\tilde{C}$ expands to $ wn + 2\mu n$. For gate teleportation, we use the decoder in \Cref{ }, which runs at most at a depth of $n$. Thus, the depth of $\tilde{C}$ expands to $2(3\mu n)$.
 
-Note that even if the decoder fails in the decoding task, it still applies a logical operator (though not necessarily the one corresponding to the gate in the original circuit). Thus, we can separate the question of correct simulation—specifically, whether $\tilde{C}$ succeeds in both 'protecting' the encoded states and performing the correct logical operation—from the question of whether there is a step in which a large deviation cluster appears. We start by answering the second question by proving the following claim:
+    
+The decoder successfully decodes any error that does not contain a deviation cluster larger than $\gamma n^{\frac{1}{d}}$. Thus, it remains to prove that with probability $1 - p$, no deviation cluster exceeds that size. To prove this, we use \Cref{claim:intersyn}, which states that the probability of there being a time $t$ with an error cluster larger than $\gamma n^{\frac{1}{d}}$ is bounded by the number of locations multiplied by the probability that step $\tau$ is the first to admit a deviation cluster of size $\gamma^{\prime} n^{\frac{1}{d}}$, maximized over $\tau$. This leads us to prove the following claim:
 
 \begin{claim}
   There exist constants $c_{3}, c_{4}, c_{5}, c_{6}, \alpha \in \mathbb{R}^{+}$, such that for ant integer $s$ and for any step $\tau$ in the standard order of $\tilde{C}[\mathcal{E}]$, the probability that $\tau$ is the first step where there is a deviation cluster of size greater than $s$ is less than:
@@ -87,13 +88,13 @@ Combing the bounds we have:
   \end{split}
 \end{equation*}
 \end{proof}
-Now, the decoder successfully decodes any error that does not contain a deviation cluster larger than $\gamma n^{\frac{1}{d}}$, with a probability greater than:
+Now, combined with \Cref{claim:intersyn}, with a probability greater than:
 \begin{equation*}
   \begin{split}
-    1 -   \Theta \left(((w+2\mu)\mu n^{2})^{2} \right) \left( \alpha p^{c_{7}} \right)^{ \gamma n^{\frac{1}{d}}} 
+    1 -   \Theta \left(((w+2\mu)\mu n^{2})^{3} \right) \left( \alpha p^{c_{7}} \right)^{ \gamma^{\prime} n^{\frac{1}{d}}} 
   \end{split}
 \end{equation*}
-All the gate teleportation sessions align with the logical gates to be applied.
+No error cluster has a size greater than $ \gamma n^{\frac{1}{d}} $, so the decoder successfully restores the logical state; in other words, no logical error occurs.
 \end{proof}
 
 
