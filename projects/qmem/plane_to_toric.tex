@@ -10,7 +10,7 @@ Observe that a spanning tree of $\omega$ has a ratio of edges to leaves that is 
  
 
   \begin{proof}
-  Now, since any two connected vertices are at a space-distance of at most $1$, it follows that all the leaves in the subtree are at a space-distance of at most $\beta n$ from each other. Thus, if $\beta < 1$, no two of them have the same space-coordinate modulo $n$. And therefore the probability to have such subtree is at most $p^{\frac{\beta}{4\gamma}n} $. 
+    Now, since any two connected vertices are at a space-distance of at most $\max\{\Size{\text{arrow}}, \Size{\text{fork}}\} \le d^{\prime}$, it follows that all the leaves in the subtree are at a space-distance of at most $d^{\prime} \beta n$ from each other. Thus, if $\beta < \frac{1}{d^{\prime}}$, no two of them have the same space-coordinate modulo $n$. In particular, each of the leaves has a unique space-coordinate modulo $n$, and therefore the fault subset that induces the explanation contains at least $X$ independent faults. Hence, the probability of having such a subtree is at most $p^{\frac{\beta}{4\gamma}n}$.
   
 Because any $\omega$ with more than $\beta n$ vertices implies the existence of a subtree with size less than $\frac{\beta}{2}n$, it's enough to bound the probability of having such a subtree. Considering that the trees are invariant to shifting by $n \cdot \mathbf{1}_{i}$, we have that it's sufficient to show that there are no such trees which are rooted in the finite cube $\mathbb{Z}_{n}^{d} \times \mathbb{Z}_{t}$. Finally, we use \cref{claim:counting_trees} to bound the number of such trees given a fixed root. Overall, we get:
   \begin{equation*}
