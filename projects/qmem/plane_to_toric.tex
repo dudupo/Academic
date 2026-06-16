@@ -14,7 +14,7 @@ Note that even if the decoder fails in the decoding task, it still applies a log
 
 \begin{equation*}
   \begin{split}
-    c_{3} n^{2}w\mu \left( \alpha p^{c_{4}} \right)^{s} +  c_{5} (n^{2}w\mu)^{2} \left( \alpha p^{c_{6}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
+    c_{3} (w+2\mu)6\mu n^{2} \left( \alpha p^{c_{4}} \right)^{s} +  c_{5} ((w+2\mu)6\mu n^{2})^{2} \left( \alpha p^{c_{6}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
   \end{split}
 \end{equation*}
 \end{claim}
@@ -48,20 +48,20 @@ It follows that all the vertices in the subtree are at a space distance of at mo
     Plugging into the union bounds yields 
     \begin{equation*}
       \begin{split}
-        \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \le \tau \cdot 3 n^{2}w\mu \alpha^{ \frac{1}{2d} n^{\frac{1}{d}} } p^{ \frac{1}{2^{d^{\prime}}}\frac{1}{4d} c_{1} n^{\frac{1}{d}}} \le (3 n^{2}w\mu)^{2} \left( \alpha p^{\frac{1}{2^{d^{\prime} + 1}} c_{1}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
+        \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \le \tau \cdot 3 (w+2\mu)6\mu n^{2} \alpha^{ \frac{1}{2d} n^{\frac{1}{d}} } p^{ \frac{1}{2^{d^{\prime}}}\frac{1}{4d} c_{1} n^{\frac{1}{d}}} \le ((w+2\mu)6\mu n^{2})^{2} \left( \alpha p^{\frac{1}{2^{d^{\prime} + 1}} c_{1}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
       \end{split}
     \end{equation*}
     It remains to bound the term. By \Cref{claim:edgesin}, there is a constant $c_{2}$ depending only on $d$, such that any explanation of a slice of size $s$ has at least $c_{2}s$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{\tau}$ admits an explanation with more than $c_{2}s$ edges. Since the event is conditioned on the event $A_{\tau}$, no explanation has more than $\frac{1}{d}n^{\frac{1}{d}}$ edges. Thus, the same argument as above shows that the projection of each explanation tree into the finite toric sends its leaves to unique targets. Hence, we obtain:
     \begin{equation*}
       \begin{split}
         \prbm{  B_{\tau}  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ v \in V_{o}, x \ge c_{2}s } \prbm{ v \text{ is a root of explanation with number of edges } x  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } \\
-        & \le \sum_{x = c_{2}s }^{ \infty } n^{2}w\mu \left( \alpha p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)^{x}  = n^{2}w\mu \frac{\left( \alpha p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)^{s}}{ 1 -  \left( \alpha p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)} 
+        & \le \sum_{x = c_{2}s }^{ \infty } (w+2\mu)6\mu n^{2} \left( \alpha p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)^{x}  = (w+2\mu)6\mu n^{2} \frac{\left( \alpha p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)^{s}}{ 1 -  \left( \alpha p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)} 
       \end{split}
     \end{equation*}
 Combing the bounds we have:
 \begin{equation*}
   \begin{split}
-\prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le n^{2}w\mu \frac{\left( \alpha p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)^{c_{2}s}}{ 1 -  \left( \alpha p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)} +  (3 n^{2}w\mu)^{2} \left( \alpha p^{\frac{1}{2^{d^{\prime} + 1}} c_{1}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
+\prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le (w+2\mu)6\mu n^{2} \frac{\left( \alpha p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)^{c_{2}s}}{ 1 -  \left( \alpha p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)} +  ((w+2\mu)6\mu n^{2})^{2} \left( \alpha p^{\frac{1}{2^{d^{\prime} + 1}} c_{1}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
   \end{split}
 \end{equation*}
 \end{proof}
