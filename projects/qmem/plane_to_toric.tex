@@ -26,20 +26,20 @@ Let $C$ be a Toric encoded circuit such each of its quantum register is ecnoded 
         \prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le \prbm{  B_{\tau}  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } + \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  
       \end{split}
     \end{equation*}
-We begin by bounding the contribution of the right term. \Cref{coro:edgefaultratio} states that there is a constant $c_{1}$, depending only on $d$, such that the ratio of leaves to edges in the explanation is at least $c_{1}$. By \Cref{claim:big_subtree}, it follows that any such explanation has more than $\frac{1}{d}n^{\frac{1}{d}}$ edges containing a subtree with fewer than $\frac{1}{2d}n^{\frac{1}{d}}$ edges, with a leaves-to-edges ratio greater than $\frac{1}{2} c_{1}$. Using the union bound, we bound the probability that there is a vertex in the base graph that is the root of such a subtree.
+We begin by bounding the contribution of the right term. According to \Cref{coro:edgefaultratio}, there exists a constant $c_{1}$, depending only on $d$, such that the ratio of leaves to edges in the explanation is at least $c_{1}$. By \Cref{claim:big_subtree}, it follows that any such explanation has more than $\frac{1}{d}n^{\frac{1}{d}}$ edges containing a subtree with fewer than $\frac{1}{2d}n^{\frac{1}{d}}$ edges, with a leaves-to-edges ratio greater than $\frac{1}{2} c_{1}$. Using the union bound, we bound the probability that there is a vertex in the base graph that is a root of such a subtree.
   \begin{equation*}
     \begin{split}
       \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \le  \bigcup_{v \in V_{o}, \tau^{\prime} \le \tau } \prbm{ & v \text{ is a root of subtree in } \mathcal{H}_{\tau^{\prime}}  \\ 
       &  \text{ with less than  } \frac{1}{2d}n^{\frac{1}{d}} \text{ edges and more than } \frac{1}{2}c_{1} \frac{1}{2d}n^{\frac{1}{d}} \text{ leaves}  }{ \sim \mathcal{N}_{\mathcal{E}} } 
     \end{split}
   \end{equation*}
-    Now, since any two connected vertices are at a space-distance of at most 
+    Now, since any two connected vertices are at a space distance of at most 
     \begin{equation*}
       \begin{split}
     \max\{\Size{\text{arrow}}, \Size{\text{fork}}\} \le d^{\prime} \le d
       \end{split}
     \end{equation*}
-    it follows that all the vertices in the subtree are at a space-distance of at most $n^{\frac{1}{d}}$ from each other. Thus, no two of them have the same space-coordinate modulo $n$. In particular, each of the leaves has a unique space-coordinate modulo $n$, and therefore the number of faults that induces the explanation is at least:
+It follows that all the vertices in the subtree are at a space distance of at most $n^{\frac{1}{d}}$ from each other. Thus, no two of them have the same space coordinate modulo $n$. In particular, projecting the infinite plane back to the finite toric space sends each of the leaves of the subtree to a unique target, and therefore the number of faults that induce the explanation is at least:
     \begin{equation*}
       \begin{split}
 \frac{1}{2^{d^{\prime}}} \frac{1}{4d} c_{1} n^{\frac{1}{d}}
