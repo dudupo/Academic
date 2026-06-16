@@ -30,14 +30,27 @@ We begin by bounding the contribution of the right term. \Cref{coro:edgefaultrat
   \begin{equation*}
     \begin{split}
       \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \le  \bigcup_{v \in V_{o}, \tau^{\prime} \le \tau } \prbm{ & v \text{ is a root of subtree in } \mathcal{H}_{\tau^{\prime}}  \\ 
-      &  \text{ with less than  } \frac{1}{2d}n^{\frac{1}{d}} \text{ edges and more than } \frac{1}{2}c_{1} \frac{1}{2d}n^{\frac{1}{d}} \text{ leaves}  }{ \sim \mathcal{N}_{\mathcal{E}} }   \\ 
-      & \le \tau \cdot 3 nwd \alpha^{ \frac{1}{2d} n^{\frac{1}{d}} } p^{ \frac{1}{4d} c_{1} n^{\frac{1}{d}}} \le (3 nwd)^{2} \left( \alpha p^{\frac{1}{2} c_{1}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
+      &  \text{ with less than  } \frac{1}{2d}n^{\frac{1}{d}} \text{ edges and more than } \frac{1}{2}c_{1} \frac{1}{2d}n^{\frac{1}{d}} \text{ leaves}  }{ \sim \mathcal{N}_{\mathcal{E}} } 
     \end{split}
   \end{equation*}
-
-
-    Now, since any two connected vertices are at a space-distance of at most $\max\{\Size{\text{arrow}}, \Size{\text{fork}}\} \le d^{\prime}$, it follows that all the leaves in the subtree are at a space-distance of at most $d^{\prime} \beta n$ from each other. Thus, if $\beta < \frac{1}{d^{\prime}}$, no two of them have the same space-coordinate modulo $n$. In particular, each of the leaves has a unique space-coordinate modulo $n$, and therefore the fault subset that induces the explanation contains at least $X$ independent faults. Hence, the probability of having such a subtree is at most $p^{\frac{\beta}{4\gamma}n}$.
-  
+    Now, since any two connected vertices are at a space-distance of at most 
+    \begin{equation*}
+      \begin{split}
+    \max\{\Size{\text{arrow}}, \Size{\text{fork}}\} \le d^{\prime} \le d
+      \end{split}
+    \end{equation*}
+    it follows that all the vertices in the subtree are at a space-distance of at most $n^{\frac{1}{d}}$ from each other. Thus, no two of them have the same space-coordinate modulo $n$. In particular, each of the leaves has a unique space-coordinate modulo $n$, and therefore the number of faults that induces the explanation is at least:
+    \begin{equation*}
+      \begin{split}
+\frac{1}{2^{d^{\prime}}} \frac{1}{4d} c_{1} n^{\frac{1}{d}}
+      \end{split}
+    \end{equation*}
+    Plugging into the union bounds yields 
+    \begin{equation*}
+      \begin{split}
+        \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \le \tau \cdot 3 nwd \alpha^{ \frac{1}{2d} n^{\frac{1}{d}} } p^{ \frac{1}{2^{d^{\prime}}}\frac{1}{4d} c_{1} n^{\frac{1}{d}}} \le (3 nwd)^{2} \left( \alpha p^{\frac{1}{2^{d^{\prime} + 1}} c_{1}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
+      \end{split}
+    \end{equation*}
 Because any $\omega$ with more than $\beta n$ vertices implies the existence of a subtree with size less than $\frac{\beta}{2}n$, it's enough to bound the probability of having such a subtree. Considering that the trees are invariant to shifting by $n \cdot \mathbf{1}_{i}$, we have that it's sufficient to show that there are no such trees which are rooted in the finite cube $\mathbb{Z}_{n}^{d} \times \mathbb{Z}_{t}$. Finally, we use \cref{claim:counting_trees} to bound the number of such trees given a fixed root. Overall, we get:
   \begin{equation*}
     \begin{split}
