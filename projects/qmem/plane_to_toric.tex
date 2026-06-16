@@ -19,18 +19,18 @@ Let $C$ be a Toric encoded circuit such each of its quantum register is ecnoded 
 \end{claim}
 
   \begin{proof}
-    \Cref{coro:edgefaultratio}
-    Denote by $B_{\tau}$ the event that $\tau$ is the first step to have a diveation cluster at size greater than $\frac{1}{2}n^{\frac{d^{\prime}}{d}}$, and by $B_{\tau}$ the event that all the explantations of deviation clusters until (and including) step $\tau$ have less than $n^{\frac{1}{d}}$ edges. Thus:  
+    
+    Denote by $B_{\tau}$ the event that $\tau$ is the first step to have a diveation cluster at size greater than $\frac{1}{2}n^{\frac{d^{\prime}}{d}}$, and by $A_{\tau}$ the event that all the explantations of deviation clusters until (and including) step $\tau$ have less than $n^{\frac{1}{d}}$ edges. Thus:  
     \begin{equation*}
       \begin{split}
-        \prbm{  A    }{ \sim \mathcal{N}_{\mathcal{E}} } \le \prbm{  A  | B  }{ \sim \mathcal{N}_{\mathcal{E}} } + \prbm{  \bar{B}    }{ \sim \mathcal{N}_{\mathcal{E}} }  
+        \prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le \prbm{  B_{\tau}  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } + \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  
       \end{split}
     \end{equation*}
-  We start by bounding the contribution of the right term,
+    We start by bounding the contribution of the right term, \Cref{coro:edgefaultratio} states that the ratio of leaves to edge in explanation is at least $\frac{1}{80(d+1)^{2}}$  and by \Cref{claim:big_subtree} it follows that any such explanation has more than  $\frac{1}{2}n^{\frac{d^{\prime}}{d}}$ edges contain a  subtree with less than  $\frac{1}{4}n^{\frac{d^{\prime}}{d}}$ edges with leaves to edges ratio that is greater than $\frac{1}{2} \frac{1}{80(d+1)^{2}}$. For this we use the union bound to show that there is no vertex in the base graph that is a root for a tree with   $V_{o}$ 
 
   \begin{equation*}
     \begin{split}
-      \prbm{  \bar{B}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le nwd \alpha^{ \frac{1}{4} n^{\frac{d^{\prime}}{d}} } p^{ \frac{1}{8}  n^{\frac{d^{\prime}}{d}}}
+      \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le nwd \alpha^{ \frac{1}{4} n^{\frac{d^{\prime}}{d}} } p^{ \frac{1}{8}  n^{\frac{d^{\prime}}{d}}}
     \end{split}
   \end{equation*}
 
