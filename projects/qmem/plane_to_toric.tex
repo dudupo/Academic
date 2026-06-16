@@ -51,6 +51,14 @@ It follows that all the vertices in the subtree are at a space distance of at mo
         \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \le \tau \cdot 3 nwd \alpha^{ \frac{1}{2d} n^{\frac{1}{d}} } p^{ \frac{1}{2^{d^{\prime}}}\frac{1}{4d} c_{1} n^{\frac{1}{d}}} \le (3 nwd)^{2} \left( \alpha p^{\frac{1}{2^{d^{\prime} + 1}} c_{1}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
       \end{split}
     \end{equation*}
+
+    For the second part, since the no explanation crossed in edges $\frac{1}{d}n^{\frac{1}{d}}$ until time $\tau$, we have by the same argunment as above that the image of projection of each explnation tree into the finte toric, sends leaves to uniqe targets. Thus: 
+    \begin{equation*}
+      \begin{split}
+        \prbm{  B_{\tau}  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } \le \bigcup_{ v \in V_{o}, s \ge \frac{1}{2}n^{d} } \prbm{ v \text{ is a root of explanation with size greater than  } s  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } \\
+        \ge \sum_{s = \frac{1}{2}n^{d} }^{ \infinte } 
+      \end{split}
+    \end{equation*}
 Because any $\omega$ with more than $\beta n$ vertices implies the existence of a subtree with size less than $\frac{\beta}{2}n$, it's enough to bound the probability of having such a subtree. Considering that the trees are invariant to shifting by $n \cdot \mathbf{1}_{i}$, we have that it's sufficient to show that there are no such trees which are rooted in the finite cube $\mathbb{Z}_{n}^{d} \times \mathbb{Z}_{t}$. Finally, we use \cref{claim:counting_trees} to bound the number of such trees given a fixed root. Overall, we get:
   \begin{equation*}
     \begin{split}
