@@ -15,7 +15,7 @@ Observe that a spanning tree of $\omega$ has a ratio of edges to leaves that is 
 
  
 \begin{claim}
-Let $C$ be a Toric encoded circuit such each of its quantum register is ecnoded by $n$-length , $(d,d^{\prime})$-Toric code, and let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel, with a noise rate $p$. Then, for any step $\tau$ in the standard order of $C[\mathcal{E}]$, the probability that $\tau$ is the first step such there is a deivation cluster at size greather than $ \frac{1}{2} n^{\frac{d^{\prime}}{d}} $ is less than $  $. 
+For any $d, d^{\prime}$, there exist constants $c_{3}, c_{4}, c_{5}, c_{6}, \alpha \in \mathbb{R}^{+}$ and a constant $p_{0}$ that depends only on $d$, such that for a quantum circuit with depth $\mathcal{d}$ and width $w$, let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $C$ such that each of its quantum registers is encoded by an $n$-length, $(d, d^{\prime})$-Toric code. It simulates the original circuit, and for any step $\tau$ in the standard order of $C[\mathcal{E}]$, the probability that $\tau$ is the first step where there is a deviation cluster of size greater than $\frac{1}{2} n^{\frac{d^{\prime}}{d}}$ is less than:
 \begin{equation*}
   \begin{split}
      c_{3} nwd \left( \alpha p^{c_{4}} \right)^{s} +  c_{5} (nwd)^{2} \left( \alpha p^{c_{6}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
