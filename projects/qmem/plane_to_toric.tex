@@ -10,7 +10,7 @@
 Note that even if the decoder fails in the decoding task, it still applies a logical operator (though not necessarily the one corresponding to the gate in the original circuit). Thus, we can separate the question of correct simulation—specifically, whether $\tilde{C}$ succeeds in both 'protecting' the encoded states and performing the correct logical operation—from the question of whether there is a step in which a large deviation cluster appears. We start by answering the second question by proving the following claim:
 
 \begin{claim}
-  There exist constants $c_{3}, c_{4}, c_{5}, c_{6}, \alpha \in \mathbb{R}^{+}$, such for any step $\tau$ in the standard order of $\tilde{C}[\mathcal{E}]$, the probability that $\tau$ is the first step where there is a deviation cluster of size greater than $\frac{1}{2} n^{\frac{d^{\prime}}{d}}$ is less than:
+  There exist constants $c_{3}, c_{4}, c_{5}, c_{6}, \alpha \in \mathbb{R}^{+}$, such that for ant integer $s$ and for any step $\tau$ in the standard order of $\tilde{C}[\mathcal{E}]$, the probability that $\tau$ is the first step where there is a deviation cluster of size greater than $s$ is less than:
 
 \begin{equation*}
   \begin{split}
@@ -39,7 +39,7 @@ We begin by bounding the contribution of the right term. According to \Cref{coro
     \max\{\Size{\text{arrow}}, \Size{\text{fork}}\} \le d^{\prime} \le d
       \end{split}
     \end{equation*}
-It follows that all the vertices in the subtree are at a space distance of at most $n^{\frac{1}{d}}$ from each other. Thus, no two of them have the same space coordinate modulo $n$. In particular, projecting the infinite plane back to the finite toric space sends each of the leaves of the subtree to a unique target, and therefore the number of faults that induce the explanation is at least:
+It follows that all the vertices in the subtree are at a space distance of at most $n^{\frac{1}{d}}$ from each other. Thus, no two of them have the same space coordinate modulo $n$. In particular, projecting the infinite plane back to the finite Toric sends each of the leaves of the subtree to a unique target, and therefore the number of faults that induce the explanation is at least:
     \begin{equation*}
       \begin{split}
 \frac{1}{2^{d^{\prime}}} \frac{1}{4d} c_{1} n^{\frac{1}{d}}
