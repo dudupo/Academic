@@ -1,6 +1,6 @@
  
 \begin{claim}
-  For any $d, d^{\prime}$, there exist constants $c_{3}, c_{4}, c_{5}, c_{6}, \alpha \in \mathbb{R}^{+}$ and a constant $p_{0} \in (0,1)$ that depends only on $d$, such that for a quantum circuit with depth $\mu$ and width $w$, let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $C$ such that each of its quantum registers is encoded by an $n$-length, $(d, d^{\prime})$-Toric code. It simulates the original circuit, and for any step $\tau$ in the standard order of $C[\mathcal{E}]$, the probability that $\tau$ is the first step where there is a deviation cluster of size greater than $\frac{1}{2} n^{\frac{d^{\prime}}{d}}$ is less than:
+  For any $d, d^{\prime}$, there exist constants $c_{3}, c_{4}, c_{5}, c_{6}, \alpha \in \mathbb{R}^{+}$ and a constant $p_{0} \in (0,1)$ that depends only on $d$. Consider a quantum circuit $C$ with depth $\mu$ and width $w$, and let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $\tilde{C}$ such that each of its quantum registers is encoded by an $n$-length, $(d, d^{\prime})$-Toric code. It simulates the original circuit, and for any step $\tau$ in the standard order of $\tilde{C}[\mathcal{E}]$, the probability that $\tau$ is the first step where there is a deviation cluster of size greater than $\frac{1}{2} n^{\frac{d^{\prime}}{d}}$ is less than:
 \begin{equation*}
   \begin{split}
     c_{3} n^{2}w\mu \left( \alpha p^{c_{4}} \right)^{s} +  c_{5} (n^{2}w\mu)^{2} \left( \alpha p^{c_{6}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
@@ -9,8 +9,10 @@
 \end{claim}
 
   \begin{proof}
+We construct $\tilde{C}$ as follows: for each input wire of $C$, we initialize the logical zero $\ket{\mathbf{0}}$ of the $(d,d^{\prime})$-Toric code. For each of the gates $\mathbf{H}$ and $\mathbf{S}$, we initialize the encoded $\ket{\mathbf{H}}$ and $\ket{\mathbf{S}}$ states, and for each $\mathbf{T}$, we initialize copies of both $\ket{\mathbf{T}}$ and $\ket{\mathbf{S}}$ states. The even layers of $\tilde{C}$ are sweep cycles, while on the odd layers, we set the realization of the logical gates. For $\mathbf{CX}$, we set the transversal realization, and for $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$, we use gate teleportation.
+
     
-    Denote by $B_{\tau}$ the event that $\tau$ is the first step to have a diveation cluster at size greater than $\frac{1}{2}n^{\frac{d^{\prime}}{d}}$, and by $A_{\tau}$ the event that all the explantations of deviation clusters until (and including) step $\tau$ have less than $\frac{1}{d}n^{\frac{1}{d}}$ edges. Thus:  
+Denote by $B_{\tau}$ the event where $\tau$ is the first step to have a deviation cluster of size greater than $\frac{1}{2}n^{\frac{d^{\prime}}{d}}$, and by $A_{\tau}$ the event where all explanations of deviation clusters up to and including step $\tau$ have fewer than $\frac{1}{d}n^{\frac{1}{d}}$ edges. Thus:
     \begin{equation*}
       \begin{split}
         \prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le \prbm{  B_{\tau}  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } + \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  
