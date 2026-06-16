@@ -12,20 +12,11 @@ For quantum circuits $C$ and $\tilde{C}$, a noise channel $\mathcal{E}$, and $p 
     \end{enumerate}
   \end{definition}
 
-  \begin{theorem}
-There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{E}$ with rate $p < p_{0}$, and a quantum circuit $C$ with depth $d$ and width $w$, there exists a toric encoded circuit $\tilde{C}$ that simulates $C$ with probability $1 - \frac{wd}{n}$.
-  \end{theorem} 
-  \begin{proof}
-    By \Cref{claim:intersyn}. 
-  \end{proof}
-
-
 
  
-  \begin{theorem}
+  \begin{lemma}
   For any $d, d^{\prime}$, and a constant $p_{0} \in (0,1)$ that depends only on $d$. Consider a quantum circuit $C$ with depth $\mu$ and width $w$, and let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $\tilde{C}$ such that each of its quantum registers is encoded by an $n$-length, $(d, d^{\prime})$-Toric code. It simulates $C$ with probability: 
-
-\end{theorem}
+\end{lemma}
 
   \begin{proof}
     We construct $\tilde{C}$ as follows: for each input wire of $C$, we initialize the logical zero $\ket{\mathbf{0}}$ of the $(d,d^{\prime})$-Toric code. For each of the gates $\mathbf{H}$ and $\mathbf{S}$, we initialize the encoded $\ket{\mathbf{H}}$ and $\ket{\mathbf{S}}$ states, and for each $\mathbf{T}$, we initialize copies of both $\ket{\mathbf{T}}$ and $\ket{\mathbf{S}}$ states. The even layers of $\tilde{C}$ are sweep cycles, while on the odd layers, we set the realization of the logical gates. For $\mathbf{CX}$, we set the transversal realization, and for $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$, we use gate teleportation. Thus the width of $\tilde{C}$ expands to $ wn + 2\mu n$. For gate teleportation, we use the decoder in \Cref{ }, which runs at most at a depth of $n$. Thus, the depth of $\tilde{C}$ expands to $2(3\mu n)$.
@@ -96,5 +87,13 @@ Now, combined with \Cref{claim:intersyn}, with a probability greater than:
 \end{equation*}
 No error cluster has a size greater than $ \gamma n^{\frac{1}{d}} $, so the decoder successfully restores the logical state; in other words, no logical error occurs.
 \end{proof}
+
+  \begin{theorem}
+  There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{E}$ with rate $p < p_{0}$, and a quantum circuit $C$ with depth $\mu$ and width $w$, there exists a toric encoded circuit $\tilde{C}$, with depth $\mu n$ and width $ wn + 2\mu n$  that simulates $C$ with probability $1 - \frac{wd}{n}$.
+  \end{theorem} 
+  \begin{proof}
+
+  \end{proof}
+
 
 
