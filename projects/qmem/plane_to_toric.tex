@@ -1,18 +1,3 @@
-\begin{claim}
-Assume that until step $\tau$, there was no deviation cluster of size greater than $d$. Let $\hat{K}$ be a spanned slice induced by a deviation of a cluster state at step $\tau$, and let $\omega$ be an explanation for $\hat{K}$ such that the number of vertices in $\omega$ is greater than $\beta n$. Then there is a subgraph (subtree) $\omega^{\prime}$ of $\omega$ such that $\omega^{\prime}$ has fewer than $\frac{\beta}{2}n$ edges and at least $\frac{\beta}{4\gamma} n$ leaves.
-\end{claim}
-
-
-
-
-
-
-
-\begin{proof}
-Let $\omega$ be an explanation of $\hat{K}$ with more than $\beta n$ vertices. Since there is no deviation cluster of size greater than $d$ until step $\tau$, we have that every vertex of $\omega$ is a spanned slice induced by a boundary of a deviation cluster of size at most $d$. Thus, the image of $\omega$ over the infinite plane is decomposed into finite assignments, and $\omega$ satisfies the shrink property in \Cref{claim:shrinkslice}, and by \Cref{claim:edgesin}, the ratio of edges to leaves of $\omega$ is at most $\gamma$.
-Observe that a spanning tree of $\omega$ has a ratio of edges to leaves that is at most $\omega$'s ratio, and the number of edges equals $\omega$'s vertices minus 1. Therefore, by applying \Cref{claim:big_subtree} on $\omega$'s spanning tree, $\omega$ has a subtree with less than $\frac{\beta}{2}n$ edges and at least $\frac{\beta}{4\gamma} n$ leaves. 
-  \end{proof}
-
  
 \begin{claim}
 For any $d, d^{\prime}$, there exist constants $c_{3}, c_{4}, c_{5}, c_{6}, \alpha \in \mathbb{R}^{+}$ and a constant $p_{0}$ that depends only on $d$, such that for a quantum circuit with depth $\mathcal{d}$ and width $w$, let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $C$ such that each of its quantum registers is encoded by an $n$-length, $(d, d^{\prime})$-Toric code. It simulates the original circuit, and for any step $\tau$ in the standard order of $C[\mathcal{E}]$, the probability that $\tau$ is the first step where there is a deviation cluster of size greater than $\frac{1}{2} n^{\frac{d^{\prime}}{d}}$ is less than:
