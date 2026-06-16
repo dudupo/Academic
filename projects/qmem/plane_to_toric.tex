@@ -20,18 +20,18 @@ Let $C$ be a Toric encoded circuit such each of its quantum register is ecnoded 
 
   \begin{proof}
     
-    Denote by $B_{\tau}$ the event that $\tau$ is the first step to have a diveation cluster at size greater than $\frac{1}{2}n^{\frac{d^{\prime}}{d}}$, and by $A_{\tau}$ the event that all the explantations of deviation clusters until (and including) step $\tau$ have less than $n^{\frac{1}{d}}$ edges. Thus:  
+    Denote by $B_{\tau}$ the event that $\tau$ is the first step to have a diveation cluster at size greater than $\frac{1}{2}n^{\frac{d^{\prime}}{d}}$, and by $A_{\tau}$ the event that all the explantations of deviation clusters until (and including) step $\tau$ have less than $\frac{1}{d}n^{\frac{1}{d}}$ edges. Thus:  
     \begin{equation*}
       \begin{split}
         \prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le \prbm{  B_{\tau}  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } + \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  
       \end{split}
     \end{equation*}
-We begin by bounding the contribution of the right term. \Cref{coro:edgefaultratio} states that there is a constant $c_{1}$, depending only on $d$, such that the ratio of leaves to edges in the explanation is at least $c_{1}$. By \Cref{claim:big_subtree}, it follows that any such explanation has more than $\frac{1}{2}n^{\frac{d^{\prime}}{d}}$ edges containing a subtree with fewer than $\frac{1}{4}n^{\frac{d^{\prime}}{d}}$ edges, with a leaves-to-edges ratio greater than $\frac{1}{2} c_{1}$. Using the union bound, we bound the probability that there is a vertex in the base graph that is the root of such a subtree.
+We begin by bounding the contribution of the right term. \Cref{coro:edgefaultratio} states that there is a constant $c_{1}$, depending only on $d$, such that the ratio of leaves to edges in the explanation is at least $c_{1}$. By \Cref{claim:big_subtree}, it follows that any such explanation has more than $\frac{1}{d}n^{1}{d}}$ edges containing a subtree with fewer than $\frac{1}{2d}n^{\frac{1}{d}}$ edges, with a leaves-to-edges ratio greater than $\frac{1}{2} c_{1}$. Using the union bound, we bound the probability that there is a vertex in the base graph that is the root of such a subtree.
   \begin{equation*}
     \begin{split}
       \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \le  \bigcup_{v \in V_{o}, \tau^{\prime} \le \tau } \prbm{ & v \text{ is a root of subtree in } \mathcal{H}_{\tau^{\prime}}  \\ 
-      &  \text{ with less than  } \frac{1}{4}n^{\frac{d^{\prime}}{d}} \text{ edges and more than } \frac{1}{2}c_{1} \frac{1}{4}n^{\frac{d^{\prime}}{d}} \text{ leaves}  }{ \sim \mathcal{N}_{\mathcal{E}} }   \\ 
-      & \le \tau \cdot 3 nwd \alpha^{ \frac{1}{4} n^{\frac{d^{\prime}}{d}} } p^{ \frac{1}{8} c_{1} n^{\frac{d^{\prime}}{d}}} \le (3 nwd)^{2} \left( \alpha p^{\frac{1}{2} c_{1}} \right)^{\frac{1}{4}n^{\frac{d^{\prime}}{d}}} 
+      &  \text{ with less than  } \frac{1}{2d}n^{\frac{1}{d}} \text{ edges and more than } \frac{1}{2}c_{1} \frac{1}{2d}n^{\frac{1}{d}} \text{ leaves}  }{ \sim \mathcal{N}_{\mathcal{E}} }   \\ 
+      & \le \tau \cdot 3 nwd \alpha^{ \frac{1}{2d} n^{\frac{1}{d}} } p^{ \frac{1}{4d} c_{1} n^{\frac{1}{d}}} \le (3 nwd)^{2} \left( \alpha p^{\frac{1}{2} c_{1}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
     \end{split}
   \end{equation*}
 
