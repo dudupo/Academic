@@ -96,6 +96,11 @@ To define the action of a quantum circuit $C$ on a given mixed state, we first a
   When $m=1$, the computational gates occupy the odd time coordinates and the fault layers occupy the even time coordinates. When the parameter is omitted, we mean $m=1$. We denote the associated computation DAG of $C[\mathcal{E}]_{m}$ by $\comDAG$.
 \end{definition}
 
+
+\input{./tikz/circdag.tikz}
+
+
+
 \begin{remark}
   Formally, a fault circuit is just a particular quantum circuit whose gates are interpreted as faults rather than as computational operations. Thus the distinction between a quantum circuit and a fault circuit is semantic rather than structural: both are circuits in the sense of \Cref{def:quantcirc}, but they play different roles in the analysis.
 \end{remark}
