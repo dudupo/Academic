@@ -1,0 +1,37 @@
+
+\begin{figure}[htbp]
+  \begin{minipage}[c]{0.6\textwidth}
+  \centering
+\begin{quantikz}
+\lstick{$\ket{0}$} & \gate{H} &  & \ctrl{1} &   \\
+\lstick{$\ket{0}$} & \gate{H} & \gate{\inr{X}} & \gate{S} &  & \ctrl{1} \\
+\lstick{$\ket{0}$} & \gate{H} & \gate{\inr{X}} & \ctrl{1} &  & \targ{} \\
+\lstick{$\ket{0}$} & \gate{H} &  & \targ{} & \gate{\inr{X}} & 
+\end{quantikz}
+\end{minipage}%
+  \begin{minipage}[c]{0.3\textwidth}
+\begin{tikzpicture}
+  \node[rectangle,draw] (A)  at (0,3) { $\mathbf{H}$ }; 
+  \node[rectangle,draw] (B)  at (0,2) { $\mathbf{H}$ }; 
+  \node[rectangle,draw] (C)  at (0,1) { $\mathbf{H}$ }; 
+  \node[rectangle,draw] (D)  at (0,0) { $\mathbf{H}$ }; 
+  \node[rectangle,draw] (E) at (1,2) { $\inr{X}$ } ; 
+  \node[rectangle,draw] (F) at (1,1){ $\inr{X}$ }  ; 
+  \node[rectangle,draw] (G)  at (3,2.5) { $\mathbf{CS}$ }; 
+  \node[rectangle,draw] (H)  at (3,0.5) { $\mathbf{CX}$ }; 
+  \node[rectangle,draw] (I)  at (4,0) { $\inr{X}$ }; 
+  \node[rectangle,draw] (J)  at (5,1.5) { $\mathbf{CX}$ }; 
+  \draw[->] (B) to (E);
+  \draw[->] (C) to (F);
+  \draw[->] (A) to (G);
+  \draw[->] (E) to (G);
+  \draw[->] (F) to (H);
+  \draw[->] (D) to (H);
+  \draw[->] (H) to (I);
+  \draw[->] (G) to (J);
+  \draw[->] (H) to (J);
+\end{tikzpicture}
+\end{minipage}
+\caption{  Example of a subjected quantum circuit: the even layers (0, 2, 4) contain the original gates, while the faults are imposed on the odd layers and marked in red. }
+  \label{fig:examplecirc}
+\end{figure}
