@@ -38,7 +38,7 @@
 
 \end{tikzpicture}
 \end{center}
-\caption{On the left is the Toric Graph. On the right are cross and face checks.}
+\caption{ Here we consider a 2D Toric complex. We name the set of generators $S= \{ g_{1},g_{2} \}$, where $g_{1}$ is the generator that sends us one step in the north direction, and $g_{2}$ sends us in the east direction. For vertices $v, u, w$, we mark in blue three faces that are rooted at them. }
 \label{fig:Toric}
 \end{figure}
 
