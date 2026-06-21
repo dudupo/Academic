@@ -69,8 +69,13 @@
 \end{tikzpicture}
 \end{center}
 \caption{
-  \begin{minipage}{\linewidth}
-  The $\phi$-transpose sends $Z$-stabilizers to $X$-stabilizers and vice versa. Here we consider the $(2,1)$ Toric code; namely, the $Z$-stabilizers (parity checks) are set on the vertices, and the $X$-stabilizers (phase checks) are set on the squares. Name the generators by $g_{1} = (1,0),$ and $g_{2} = (0,1)$. In blue, we have the edges corresponds to: 
+  The $\phi$-transpose sends $Z$-stabilizers to $X$-stabilizers and vice versa. Here we consider the $(2,1)$ Toric code; namely, the $Z$-stabilizers (parity checks) are set on the vertices, and the $X$-stabilizers (phase checks) are set on the squares. 
+}
+\label{fig:transposeToric}
+\end{figure}
+
+\begin{example}
+  Name the generators by $g_{1} = (1,0),$ and $g_{2} = (0,1)$. In blue, we have the edges corresponds to: 
   \begin{equation*}
     \begin{split}
       \partial^{+} \rotfv{(2,3)}{\{ \}} = \{ \rotfv{(2,3)}{ \{ (1,0) \} },  \rotfv{(2,3)}{ \{ (0,1) \} } , \rotfv{(1,3)}{ \{ (1,0) \} } ,\rotfv{(2,2)}{ \{ (0,1) \} }  \} 
@@ -86,8 +91,4 @@
     \end{split}
   \end{equation*}
 What gives the green rectangle, that converges with the bits on the support of the $X$-stabilizer $\rotfv{(4,3)}{\{ (0,1), (1,0) \} }$. 
-\end{minipage}
-}
-\label{fig:transposeToric}
-\end{figure}
-
+\end{example}
