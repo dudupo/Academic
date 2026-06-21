@@ -194,29 +194,12 @@
       \node[below , scale=0.7] at (2,0,2) {$(v_{7}, t)$} ;
       \node[below , scale=0.7] at (1,1,2) {$(v_{8}, t)$} ;
 % draw grid lines
-\foreach \x in {0,1,2} {
-  \foreach \y in {0,1,2} {
-    \draw[gray] (\x,\y,0) -- (\x,\y,2);
-  }
-}
-
-\foreach \x in {0,1,2} {
-  \foreach \z in {0,1,2} {
-    \draw[gray] (\x,0,\z) -- (\x,2,\z);
-  }
-}
-
-\foreach \y in {0,1,2} {
-  \foreach \z in {0,1,2} {
-    \draw[gray] (0,\y,\z) -- (2,\y,\z);
-  }
-}
 
 % draw lattice points
 \foreach \x in {0,1,2} {
   \foreach \y in {0,1,2} {
     \foreach \z in {0,1,2} {
-      \fill (\x,\y,\z) circle (1pt);
+      \coordinate () at (\x,\y,\z);
     }
   }
 }
