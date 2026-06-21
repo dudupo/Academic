@@ -169,14 +169,14 @@
 
 
 
-\node(A) at (0,1,2)  ;
-\node(B) at (0,1,1)  ;
-\node(C) at (0,0,1)  ;
-\node(D) at (1,0,1)  ;
-\node(E) at (1,1,1)  ;
-\node(F) at (2,1,1)  ;
-\node(G) at (2,1,2)  ;
-\node(H) at (1,1,2)  ;
+\node(A) at (0,1,2) {} ;
+\node(B) at (0,1,1) {} ;
+\node(C) at (0,0,1) {} ;
+\node(D) at (1,0,1) {} ;
+\node(E) at (1,1,1) {} ;
+\node(F) at (2,1,1) {} ;
+\node(G) at (2,1,2) {} ;
+\node(H) at (1,1,2) {} ;
 
 
       \fill (0,1,2) circle(1pt)  ;
