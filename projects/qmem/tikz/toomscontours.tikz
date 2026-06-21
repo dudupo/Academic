@@ -1,0 +1,113 @@
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+
+\tikzset{xyp/.style={canvas is xy plane at z=#1}}
+\tikzset{xzp/.style={canvas is xz plane at y=#1}}
+\tikzset{yzp/.style={canvas is yz plane at x=#1}}
+
+
+
+\draw[blue!20!black,fill=blue!70!black!70,rounded corners=1,opacity=0.5, xzp=0]%,shift={(0.15,0.15)}]
+(-0.1,2.1) rectangle (1.1,0.9);
+
+
+      \draw[blue!20!black,fill=blue!70!black!70,rounded corners=1,opacity=0.5, yzp = 0]%,shift={(0.15,0.15)}]
+      (-0.1,2.1) rectangle (1.1, 0.9);
+
+      \draw[blue!20!black,fill=blue!70!black!70,rounded corners=1,opacity=0.5, xyp = 2]%,shift={(0.15,0.15)}]
+      (-0.1,-0.1) rectangle (1.1, 1.1);
+      
+      \draw[blue!20!black,fill=blue!70!black!70,rounded corners=1,opacity=0.5, xyp = 2]%,shift={(0.15,0.15)}]
+      (0.9,0.9) rectangle (2.1, 2.1);
+
+      \draw[blue!20!black,fill=blue!70!black!70,rounded corners=1,opacity=0.5, yzp = 1]%,shift={(0.15,0.15)}]
+      (-0.1,2.1) rectangle (1.1, 0.9);
+%,opacity=0.5]
+%\fill[blue!30]
+%(0.8,0.8,1.2) -- (0.7,0.7,0) -- (2,2,0) -- (2,2,1.2) -- cycle;
+%
+%\fill[blue!30]
+%(0.9,0.9,1.1) -- (0.9,0.9,-0.1) -- (1.1,0.9,-0.1) -- (1.1,0.9,1.1) -- cycle;  
+
+      \node[below = 3pt] at (0,0,2) { $v$ } ;
+
+% draw grid lines
+\foreach \x in {0,1,2} {
+  \foreach \y in {0,1,2} {
+    \draw[gray] (\x,\y,0) -- (\x,\y,2);
+  }
+}
+
+\foreach \x in {0,1,2} {
+  \foreach \z in {0,1,2} {
+    \draw[gray] (\x,0,\z) -- (\x,2,\z);
+  }
+}
+
+\foreach \y in {0,1,2} {
+  \foreach \z in {0,1,2} {
+    \draw[gray] (0,\y,\z) -- (2,\y,\z);
+  }
+}
+
+% draw lattice points
+\foreach \x in {0,1,2} {
+  \foreach \y in {0,1,2} {
+    \foreach \z in {0,1,2} {
+      \fill (\x,\y,\z) circle (1pt);
+    }
+  }
+}
+
+\draw (2.5,1) node { $\rightarrow$ };
+\end{tikzpicture} \begin{tikzpicture}[scale=1.5]
+
+\tikzset{xyp/.style={canvas is xy plane at z=#1}}
+\tikzset{xzp/.style={canvas is xz plane at y=#1}}
+\tikzset{yzp/.style={canvas is yz plane at x=#1}}
+
+\draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.5, xzp=1]%,shift={(0.15,0.15)}]
+(-0.1,2.1) rectangle (1.1,0.9);
+
+      \draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.5, xyp = 1]%,shift={(0.15,0.15)}]
+      (-0.1,-0.1) rectangle (1.1, 1.1);
+
+      \node[below = 3pt] at (0,0,2) { $v$  } ;
+      \node[below] at (0,1,2) { $u$ } ;
+      \node[below] at (1,0,1) { $w$ } ;
+
+% draw grid lines
+\foreach \x in {0,1,2} {
+  \foreach \y in {0,1,2} {
+    \draw[gray] (\x,\y,0) -- (\x,\y,2);
+  }
+}
+
+\foreach \x in {0,1,2} {
+  \foreach \z in {0,1,2} {
+    \draw[gray] (\x,0,\z) -- (\x,2,\z);
+  }
+}
+
+\foreach \y in {0,1,2} {
+  \foreach \z in {0,1,2} {
+    \draw[gray] (0,\y,\z) -- (2,\y,\z);
+  }
+}
+
+% draw lattice points
+\foreach \x in {0,1,2} {
+  \foreach \y in {0,1,2} {
+    \foreach \z in {0,1,2} {
+      \fill (\x,\y,\z) circle (1pt);
+    }
+  }
+}
+\end{tikzpicture}
+\caption{
+In blue, we have an assignment where the vertex achieving the minimum of $L_{d+1}$, denoted by $v$, does not see any unsatisfied checks in its positive local view. The green faces represent an assignment, equivalent to the blue up to stabilizer, such that any local maximum of $L_{d+1}$ (vertices $u$ and $w$) sees a non-trivial syndrome in its positive local view.
+}
+  \label{fig:toomscontours}
+\end{figure}
