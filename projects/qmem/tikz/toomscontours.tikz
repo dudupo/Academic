@@ -36,7 +36,7 @@
 
 
 
-      \draw[green, thick]  (0,0,2) -- (0,1,2) -- (1,1,2); % -- (1,1,1);
+      \draw[green, thick]  (0,1,2) -- (1,1,2); % -- (1,1,1);
       \draw[green, thick] (0,1,1) -- (0,1,2) -- (0,1,1) -- (0,0,1) -- (1,0,1) -- (1,1,1) -- (2,1,1) -- (2,1,2) -- (1,1,2);
 
 %\draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.8, xzp=1]%,shift={(0.15,0.15)}]
