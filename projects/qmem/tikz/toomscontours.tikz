@@ -191,29 +191,66 @@
 \node[below , scale=0.7](K) at (6,1,2) {$(v_{7}, t^{\prime})$} ;
 \node[below , scale=0.7](L) at (5,1,2) {$(v_{8}, t^{\prime})$} ;
  
-\draw[gray,very thin,-> ]  (A) to [out=50, in=130] (I); 
-\draw[gray,very thin,-> ]  (A) to [out=50, in=130] (L);
-\draw[gray,very thin,-> ]  (B) to [out=50, in=130] (I); 
-\draw[gray,very thin,-> ]  (B) to [out=50, in=130] (L);
-\draw[gray,very thin,-> ]  (C) to [out=50, in=130] (I); 
-\draw[gray,very thin,-> ]  (D) to [out=50, in=130] (I); 
-\draw[gray,very thin,-> ]  (D) to [out=50, in=130] (L);
-\draw[gray,very thin,-> ]  (E) to [out=50, in=130] (J); 
-\draw[gray,very thin,-> ]  (E) to [out=50, in=130] (L);
-\draw[gray,very thin,-> ]  (E) to [out=50, in=130] (K); 
+\draw[blue,very thin,-> ]  (A) to [out=50, in=130] (I); 
+\draw[blue,very thin,-> ]  (A) to [out=50, in=130] (L);
+\draw[blue,very thin,-> ]  (B) to [out=50, in=130] (I); 
+\draw[blue,very thin,-> ]  (B) to [out=50, in=130] (L);
+\draw[blue,very thin,-> ]  (C) to [out=50, in=130] (I); 
+\draw[blue,very thin,-> ]  (D) to [out=50, in=130] (I); 
+\draw[blue,very thin,-> ]  (D) to [out=50, in=130] (L);
+\draw[blue,very thin,-> ]  (E) to [out=50, in=130] (J); 
+\draw[blue,very thin,-> ]  (E) to [out=50, in=130] (L);
+\draw[blue,very thin,-> ]  (E) to [out=50, in=130] (K); 
 
 
-\draw[gray,very thin,-> ]  (H) to [out=50, in=130] (I); 
-\draw[gray,very thin,-> ]  (H) to [out=50, in=130] (K);
-\draw[gray,very thin,-> ]  (H) to [out=50, in=130] (J); 
+\draw[blue,very thin,-> ]  (H) to [out=50, in=130] (I); 
+\draw[blue,very thin,-> ]  (H) to [out=50, in=130] (K);
+\draw[blue,very thin,-> ]  (H) to [out=50, in=130] (J); 
 
-\draw[gray,very thin,-> ]  (F) to [out=50, in=130] (I); 
-\draw[gray,very thin,-> ]  (F) to [out=50, in=130] (L);
-\draw[gray,very thin,-> ]  (F) to [out=50, in=130] (K); 
+\draw[blue,very thin,-> ]  (F) to [out=50, in=130] (I); 
+\draw[blue,very thin,-> ]  (F) to [out=50, in=130] (L);
+\draw[blue,very thin,-> ]  (F) to [out=50, in=130] (K); 
 
-\draw[gray,very thin,-> ]  (G) to [out=50, in=130] (I); 
-\draw[gray,very thin,-> ]  (G) to [out=50, in=130] (L);
-\draw[gray,very thin,-> ]  (G) to [out=50, in=130] (J); 
+\draw[blue,very thin,-> ]  (G) to [out=50, in=130] (I); 
+\draw[blue,very thin,-> ]  (G) to [out=50, in=130] (L);
+\draw[blue,very thin,-> ]  (G) to [out=50, in=130] (J); 
+
+\draw[red,very thin,<-> ]  (A) to (B); 
+\draw[red,very thin,<-> ]  (A) to (C); 
+\draw[red,very thin,<-> ]  (A) to (D); 
+\draw[red,very thin,<-> ]  (A) to (E); 
+\draw[red,very thin,<-> ]  (A) to  (H);
+\draw[red,very thin,<-> ]  (A) to  (G);
+\draw[red,very thin,<-> ]  (A) to  (F);
+
+\draw[red,very thin,<-> ]  (B) to (C); 
+\draw[red,very thin,<-> ]  (B) to (D); 
+\draw[red,very thin,<-> ]  (B) to (E); 
+\draw[red,very thin,<-> ]  (B) to  (H);
+\draw[red,very thin,<-> ]  (B) to  (G);
+\draw[red,very thin,<-> ]  (B) to  (F);
+
+
+\draw[red,very thin,<-> ]  (C) to (D); 
+\draw[red,very thin,<-> ]  (C) to (E); 
+\draw[red,very thin,<-> ]  (C) to  (H);
+\draw[red,very thin,<-> ]  (C) to  (G);
+\draw[red,very thin,<-> ]  (C) to  (F);
+
+\draw[red,very thin,<-> ]  (D) to (E); 
+\draw[red,very thin,<-> ]  (D) to  (H);
+\draw[red,very thin,<-> ]  (D) to  (G);
+\draw[red,very thin,<-> ]  (D) to  (F);
+
+\draw[red,very thin,<-> ]  (E) to  (H);
+\draw[red,very thin,<-> ]  (E) to  (G);
+\draw[red,very thin,<-> ]  (E) to  (F);
+
+
+\draw[red,very thin,<-> ]  (F) to  (H);
+\draw[red,very thin,<-> ]  (F) to  (G);
+
+\draw[red,very thin,<-> ]  (H) to  (G);
 
 
       \fill (5,1,1) circle(1pt) ;
