@@ -35,23 +35,23 @@
       \node[below = 3pt] at (0,0,2) { $v$ } ;
 
 
-\draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.5, xzp=1]%,shift={(0.15,0.15)}]
+\draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.8, xzp=1]%,shift={(0.15,0.15)}]
 (-0.1,2.1) rectangle (0.1,0.9);
-\draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.5, xzp=1]%,shift={(0.15,0.15)}]
+\draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.8, xzp=1]%,shift={(0.15,0.15)}]
 (-0.1,2.1) rectangle (1.1,1.9);
 
 
-\draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.5, xzp=1]%,shift={(0.15,0.15)}]
+\draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.8, xzp=1]%,shift={(0.15,0.15)}]
 (-0.1,1.1) rectangle (1.1,0.9);
 
-\draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.5, xzp=0]%,shift={(0.15,0.15)}]
+\draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.8, xzp=0]%,shift={(0.15,0.15)}]
 (-0.1,1.1) rectangle (1.1,0.9);
-\draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.5, yzp=0]%,shift={(0.15,0.15)}]
+\draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.8, yzp=0]%,shift={(0.15,0.15)}]
 (-0.1,1.1) rectangle (1.1,0.9);
 
-\draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.5, yzp=1]%,shift={(0.15,0.15)}]
+\draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.8, yzp=1]%,shift={(0.15,0.15)}]
 (-0.1,1.1) rectangle (1.1,0.9);
-%      \draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.5, xyp = 1]%,shift={(0.15,0.15)}]
+%      \draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.8, xyp = 1]%,shift={(0.15,0.15)}]
 %      (-0.1,-0.1) rectangle (1.1, 1.1);
 
 
