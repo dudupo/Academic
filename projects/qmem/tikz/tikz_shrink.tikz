@@ -106,7 +106,7 @@
 }
 \end{tikzpicture}
 \caption{
-An example of applying the sweep rule, restricted to two vertices, $u$ and $v$. On the left, the unsatisfied positive checks of $u$ and $v$ are highlighted in blue. On the right, the bits to be flipped are marked in green. Given the syndrome, vertex $v$ flips one of its positive faces, whereas for $u$, there is no subset of positive faces that, when flipped, decreases the number of local unsatisfied checks. Therefore, $u$ flips no bit.
+An example of applying the sweep rule within the $(3,2)$-Toric code. In the $(3,2)$-Toric code, bits are placed on the squares and $Z$-stabilizers (parity checks) on the edges. The view is restricted to two vertices, $u$ and $v$. On the left, the unsatisfied positive checks of $u$ and $v$ are highlighted in blue. On the right, the bits to be flipped are marked in green. Given the syndrome, vertex $v$ flips one of its positive faces, whereas for $u$, there is no subset of positive faces that, when flipped, decreases the number of local unsatisfied checks. Therefore, $u$ flips no bit.
 }
   \label{fig:sweep}
 \end{figure}
