@@ -286,7 +286,7 @@
 
 
 \caption{
-In blue, we have an assignment where the vertex achieving the minimum of $L_{d+1}$, denoted by $v$, does not see any unsatisfied checks in its positive local view. The green faces represent an assignment, equivalent to the blue up to stabilizer, such that any local maximum of $L_{d+1}$ (vertices $u$ and $w$) sees a non-trivial syndrome in its positive local view.
+Above: The application of a sweep-cycle, where the green faces represent the bits assignment $z$, and the blue edges correspond to unsatisfied checks $\partial z$. The vertices in $\partial z$ are labeled as $v_{1}, v_{2}, \ldots, v_{8}$. Below: The Toom's contour derived from the single computation layer that matches the cycle. Arrows are colored in blue, while forks are colored in green. Note that $(v_{1}, t+1)$ doesn't belong to the Toom's contour (since $v_{1}$ doesn't belong to the syndrome at time $t+1$).
 }
   \label{fig:toomscontours}
 \end{figure}
