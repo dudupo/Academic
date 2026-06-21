@@ -217,42 +217,42 @@
 \draw[blue,very thin,-> ]  (G) to [out=50, in=130] (L);
 \draw[blue,very thin,-> ]  (G) to [out=50, in=130] (J); 
 
-\draw[red,very thin,<-> ]  (A) to (B); 
-\draw[red,very thin,<-> ]  (A) to (C); 
-\draw[red,very thin,<-> ]  (A) to (D); 
-\draw[red,very thin,<-> ]  (A) to (E); 
-\draw[red,very thin,<-> ]  (A) to  (H);
-\draw[red,very thin,<-> ]  (A) to  (G);
-\draw[red,very thin,<-> ]  (A) to  (F);
+\draw[green,very thin,<-> ]  (A) to (B); 
+\draw[green,very thin,<-> ]  (A) to (C); 
+\draw[green,very thin,<-> ]  (A) to (D); 
+\draw[green,very thin,<-> ]  (A) to (E); 
+\draw[green,very thin,<-> ]  (A) to  (H);
+\draw[green,very thin,<-> ]  (A) to  (G);
+\draw[green,very thin,<-> ]  (A) to  (F);
 
-\draw[red,very thin,<-> ]  (B) to (C); 
-\draw[red,very thin,<-> ]  (B) to (D); 
-\draw[red,very thin,<-> ]  (B) to (E); 
-\draw[red,very thin,<-> ]  (B) to  (H);
-\draw[red,very thin,<-> ]  (B) to  (G);
-\draw[red,very thin,<-> ]  (B) to  (F);
-
-
-\draw[red,very thin,<-> ]  (C) to (D); 
-\draw[red,very thin,<-> ]  (C) to (E); 
-\draw[red,very thin,<-> ]  (C) to  (H);
-\draw[red,very thin,<-> ]  (C) to  (G);
-\draw[red,very thin,<-> ]  (C) to  (F);
-
-\draw[red,very thin,<-> ]  (D) to (E); 
-\draw[red,very thin,<-> ]  (D) to  (H);
-\draw[red,very thin,<-> ]  (D) to  (G);
-\draw[red,very thin,<-> ]  (D) to  (F);
-
-\draw[red,very thin,<-> ]  (E) to  (H);
-\draw[red,very thin,<-> ]  (E) to  (G);
-\draw[red,very thin,<-> ]  (E) to  (F);
+\draw[green,very thin,<-> ]  (B) to (C); 
+\draw[green,very thin,<-> ]  (B) to (D); 
+\draw[green,very thin,<-> ]  (B) to (E); 
+\draw[green,very thin,<-> ]  (B) to  (H);
+\draw[green,very thin,<-> ]  (B) to  (G);
+\draw[green,very thin,<-> ]  (B) to  (F);
 
 
-\draw[red,very thin,<-> ]  (F) to  (H);
-\draw[red,very thin,<-> ]  (F) to  (G);
+\draw[green,very thin,<-> ]  (C) to (D); 
+\draw[green,very thin,<-> ]  (C) to (E); 
+\draw[green,very thin,<-> ]  (C) to  (H);
+\draw[green,very thin,<-> ]  (C) to  (G);
+\draw[green,very thin,<-> ]  (C) to  (F);
 
-\draw[red,very thin,<-> ]  (H) to  (G);
+\draw[green,very thin,<-> ]  (D) to (E); 
+\draw[green,very thin,<-> ]  (D) to  (H);
+\draw[green,very thin,<-> ]  (D) to  (G);
+\draw[green,very thin,<-> ]  (D) to  (F);
+
+\draw[green,very thin,<-> ]  (E) to  (H);
+\draw[green,very thin,<-> ]  (E) to  (G);
+\draw[green,very thin,<-> ]  (E) to  (F);
+
+
+\draw[green,very thin,<-> ]  (F) to  (H);
+\draw[green,very thin,<-> ]  (F) to  (G);
+
+\draw[green,very thin,<-> ]  (H) to  (G);
 
 
       \fill (5,1,1) circle(1pt) ;
