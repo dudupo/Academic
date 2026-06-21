@@ -41,7 +41,9 @@
 
 \end{tikzpicture}
 \end{center}
-\caption{On the left is the Toric Graph. On the right are cross and face checks.}
-\label{fig:Toric}
+\caption{
+A graphical example of the maximal values of the potential walls. Here we consider the $(2,1)$-Toric code, namely the bits are set on the edges where the $Z$-stabilizers (parity checks) are set on the vertices. The grid is a finite $6\times 6$ patch of the infinite 2D plane. The edges marked in blue correspond to a bits assignment $z$. Each of the dashed lines marks the line of vertices whose $L_{i}$ value converges with the maximal value reached by a vertex in $z$. Moving into the infinite plane enables us to determine those lines and draw the triangle that bounds $z$.
+}
+\label{fig:potwall}
 \end{figure}
 
