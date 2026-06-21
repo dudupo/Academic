@@ -44,7 +44,7 @@
       \node[below , scale=0.7] at (1,0,1) {$(v_{4}, t)$} ;
       \node[below , scale=0.7] at (1,1,1) {$(v_{5}, t)$} ;
       \node[below , scale=0.7] at (2,1,1) {$(v_{6}, t)$} ;
-      \node[below , scale=0.7] at (2,0,2) {$(v_{7}, t)$} ;
+      \node[below , scale=0.7] at (2,1,2) {$(v_{7}, t)$} ;
       \node[below , scale=0.7] at (1,1,2) {$(v_{8}, t)$} ;
 % draw grid lines
 \foreach \x in {0,1,2} {
@@ -115,7 +115,7 @@
       \node[below , scale=0.7] at (1,0,1) {$(v_{4}, t^{\prime})$} ;
       \node[below , scale=0.7] at (1,1,1) {$(v_{5}, t^{\prime})$} ;
       \node[below , scale=0.7] at (2,1,1) {$(v_{6}, t^{\prime})$} ;
-      \node[below , scale=0.7] at (2,0,2) {$(v_{7}, t^{\prime})$} ;
+      \node[below , scale=0.7] at (2,1,2) {$(v_{7}, t^{\prime})$} ;
       \node[below , scale=0.7] at (1,1,2) {$(v_{8}, t^{\prime})$} ;
 
 % draw grid lines
@@ -191,7 +191,7 @@
       \node[below , scale=0.7] at (1,0,1) {$(v_{4}, t)$} ;
       \node[below , scale=0.7] at (1,1,1) {$(v_{5}, t)$} ;
       \node[below , scale=0.7] at (2,1,1) {$(v_{6}, t)$} ;
-      \node[below , scale=0.7] at (2,0,2) {$(v_{7}, t)$} ;
+      \node[below , scale=0.7] at (2,1,2) {$(v_{7}, t)$} ;
       \node[below , scale=0.7] at (1,1,2) {$(v_{8}, t)$} ;
 % draw grid lines
 
@@ -245,7 +245,7 @@
       \node[below , scale=0.7] at (1,0,1) {$(v_{4}, t^{\prime})$} ;
       \node[below , scale=0.7] at (1,1,1) {$(v_{5}, t^{\prime})$} ;
       \node[below , scale=0.7] at (2,1,1) {$(v_{6}, t^{\prime})$} ;
-      \node[below , scale=0.7] at (2,0,2) {$(v_{7}, t^{\prime})$} ;
+      \node[below , scale=0.7] at (2,1,2) {$(v_{7}, t^{\prime})$} ;
       \node[below , scale=0.7] at (1,1,2) {$(v_{8}, t^{\prime})$} ;
 
 % draw grid lines
