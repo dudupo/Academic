@@ -193,6 +193,15 @@
       \node[below , scale=0.7] at (2,1,1) {$(v_{6}, t)$} ;
       \node[below , scale=0.7] at (2,1,2) {$(v_{7}, t)$} ;
       \node[below , scale=0.7] at (1,1,2) {$(v_{8}, t)$} ;
+
+      \fill (0,1,2) circle(1pt)  ;
+      \fill (0,1,1) circle(1pt) ;
+      \fill (0,0,1) circle(1pt) ;
+      \fill (1,0,1) circle(1pt) ;
+      \fill (1,1,1) circle(1pt) ;
+      \fill (2,1,1) circle(1pt) ;
+      \fill (2,1,2) circle(1pt) ;
+      \fill (1,1,2) circle(1pt) ;
 % draw grid lines
 
 % draw lattice points
@@ -235,6 +244,10 @@
       \node[below , scale=0.7] at (6,1,2) {$(v_{7}, t^{\prime})$} ;
       \node[below , scale=0.7] at (5,1,2) {$(v_{8}, t^{\prime})$} ;
 
+      \fill (1,1,1) circle(1pt) ;
+      \fill (2,1,1) circle(1pt) ;
+      \fill (2,1,2) circle(1pt) ;
+      \fill (1,1,2) circle(1pt) ;
 % draw grid lines
 
 % draw lattice points
