@@ -120,6 +120,9 @@
       \draw[blue!20!black,fill=blue!70!black!70,rounded corners=1,opacity=0.5, xyp = 1]%,shift={(0.15,0.15)}]
       (-0.1,-0.1) rectangle (1.1, 1.1);
 
+
+      \draw[green, thick]  (1,1,1) -- (2,1,1) -- (2,1,2) -- (1,1,2);
+
       \node[below = 3pt] at (0,0,2) { $v$  } ;
       \node[below] at (0,1,2) { $u$ } ;
       \node[below] at (1,0,1) { $w$ } ;
