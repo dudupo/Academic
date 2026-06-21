@@ -68,7 +68,24 @@
 
 \end{tikzpicture}
 \end{center}
-\caption{On the left is the Toric Graph. On the right are cross and face checks.}
+\caption{
+  The $\phi$-transpose sends $Z$-stabilizers to $X$-stabilizers and vice versa. Here we consider the $(2,1)$ Toric code; namely, the $Z$-stabilizers (parity checks) are set on the vertices, and the $X$-stabilizers (phase checks) are set on the squares. Name the generators by $g_{1} = (1,0),$ and $g_{2} = (0,1)$. In blue, we have the edges corresponds to: 
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \rotfv{(2,3)}{\{ \}} = \{ \rotfv{(2,3)}{ \{ (1,0) \} },  \rotfv{(2,3)}{ \{ (0,1) \} } , \rotfv{(1,3)}{ \{ (1,0) \} } ,\rotfv{(2,2)}{ \{ (0,1) \} }  \} 
+    \end{split}
+  \end{equation*}
+  The $\phi$-transpose map, acts on blue edges as follows:
+  \begin{equation*}
+    \begin{split}
+      \phi(\rotfv{(2,3)}{ \{ (1,0) \} } ) &= \rotfv{(2,3)}{ \{ (0,1) \} }    \\
+      \phi(\rotfv{(2,3)}{ \{ (0,1) \} } ) &=  \rotfv{(2,3)}{ \{ (1,0) \} }\\
+      \phi(\rotfv{(1,3)}{ \{ (1,0) \} }) &=  \rotfv{(2,3)}{ \{ (0,1) \} }\\ 
+      \phi(\rotfv{(2,2)}{ \{ (0,1) \} } ) &=  \rotfv{(2,3)}{ \{ (1,0) \} }
+    \end{split}
+  \end{equation*}
+  What gives the green rectangle, that converges with the bits on the support of the $X$-stabilizer $\rotfv{(4,3),\{ (0,1), (1,0) \} }$. 
+}
 \label{fig:transposeToric}
 \end{figure}
 
