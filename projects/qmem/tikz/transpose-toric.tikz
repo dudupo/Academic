@@ -69,7 +69,7 @@
 \end{tikzpicture}
 \end{center}
 \caption{
-  \leavevmode\\\begin{minipage}{\linewidth}
+  \begin{minipage}{\linewidth}
   The $\phi$-transpose sends $Z$-stabilizers to $X$-stabilizers and vice versa. Here we consider the $(2,1)$ Toric code; namely, the $Z$-stabilizers (parity checks) are set on the vertices, and the $X$-stabilizers (phase checks) are set on the squares. Name the generators by $g_{1} = (1,0),$ and $g_{2} = (0,1)$. In blue, we have the edges corresponds to: 
   \begin{equation*}
     \begin{split}
