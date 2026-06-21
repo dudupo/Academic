@@ -2,7 +2,7 @@
 
 
 
-\section{SWEEP Rule}
+\section{Sweep Rule}
 \begin{definition}[Sweep Rule]
   Let $z$ be an assignment on the $d^{\prime}$-faces. The \textit{sweep rule decoding procedure} at a vertex $v \in \mathcal{G}_{n}^{d}$ is defined as follows:
   
@@ -22,10 +22,10 @@ We define the \textit{sweep cycle} to be the following procedure:
 
 \input{./tikz/tikz_shrink.tikz}
 \begin{claim}
-  The local gates that perform the SWEEP rule are decoding gadgets.
+  The local gates that perform the sweep rule are decoding gadgets.
 \end{claim}
 \begin{proof}
-  A local SWEEP update acts on a constant-size neighborhood around a vertex, uses only local syndrome information, and may be implemented with fresh ancillas that are reset after the update. Any dependence on faults inside the gadget can therefore be pushed onto the data wires as an effective Pauli operator supported on the encoded register, while the reset ancillas carry no residual information. This is exactly the form required in the definition of a decoding gadget.
+  A local sweep update acts on a constant-size neighborhood around a vertex, uses only local syndrome information, and may be implemented with fresh ancillas that are reset after the update. Any dependence on faults inside the gadget can therefore be pushed onto the data wires as an effective Pauli operator supported on the encoded register, while the reset ancillas carry no residual information. This is exactly the form required in the definition of a decoding gadget.
 \end{proof}
 
 
