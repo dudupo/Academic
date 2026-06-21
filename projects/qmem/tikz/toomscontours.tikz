@@ -157,17 +157,6 @@
 
 
 
-\node[below , scale=0.7] at (0,1,2) { $(v_{1}, t)$ } ;
-\node[below , scale=0.7] at (0,1,1) {$(v_{2}, t)$} ;
-\node[below , scale=0.7] at (0,0,1) {$(v_{3}, t)$} ;
-\node[below , scale=0.7] at (1,0,1) {$(v_{4}, t)$} ;
-\node[below , scale=0.7] at (1,1,1) {$(v_{5}, t)$} ;
-\node[below , scale=0.7] at (2,1,1) {$(v_{6}, t)$} ;
-\node[below , scale=0.7] at (2,1,2) {$(v_{7}, t)$} ;
-\node[below , scale=0.7] at (1,1,2) {$(v_{8}, t)$} ;
-
-
-
 
 \node(A) at (0,1,2) {} ;
 \node(B) at (0,1,1) {} ;
@@ -270,6 +259,17 @@
       \fill (6,1,1) circle(1pt) ;
       \fill (6,1,2) circle(1pt) ;
       \fill (5,1,2) circle(1pt) ;
+
+\node[below , scale=0.7] at (0,1,2) { $(v_{1}, t)$ } ;
+\node[below , scale=0.7] at (0,1,1) {$(v_{2}, t)$} ;
+\node[below , scale=0.7] at (0,0,1) {$(v_{3}, t)$} ;
+\node[below , scale=0.7] at (1,0,1) {$(v_{4}, t)$} ;
+\node[below , scale=0.7] at (1,1,1) {$(v_{5}, t)$} ;
+\node[below , scale=0.7] at (2,1,1) {$(v_{6}, t)$} ;
+\node[below , scale=0.7] at (2,1,2) {$(v_{7}, t)$} ;
+\node[below , scale=0.7] at (1,1,2) {$(v_{8}, t)$} ;
+
+
 
 
 % draw grid lines
