@@ -60,7 +60,9 @@
 
 \end{tikzpicture}
 \end{center}
-\caption{On the left is the Toric Graph. On the right are cross and face checks.}
+\caption{ 
+In blue and green are the binary presentations $x_{S}$ and $z_{S}$ of logical code words of the $(2,2)$-Toric code. The edge $\{(5,4), (0,4)\}$ is omitted for clarity (it should be a green edge that hovers over the green line). 
+}
 \label{fig:logicalToric}
 \end{figure}
 
