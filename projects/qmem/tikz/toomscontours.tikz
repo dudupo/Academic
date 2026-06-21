@@ -254,7 +254,7 @@
       \foreach \x in {4,5,6} {
   \foreach \y in {0,1,2} {
     \foreach \z in {0,1,2} {
-      \coordinate () at (\x,\y,\z);
+      \coordinate (A) at (\x,\y,\z);
     }
   }
 }
