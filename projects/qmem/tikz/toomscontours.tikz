@@ -193,29 +193,29 @@
 \node[below , scale=0.7](K) at (6,1,2) {$(v_{7}, t^{\prime})$} ;
 \node[below , scale=0.7](L) at (5,1,2) {$(v_{8}, t^{\prime})$} ;
  
-\draw[blue,very thin,-> ]  (A) to [out=50, in=130] (I); 
-\draw[blue,very thin,-> ]  (A) to [out=50, in=130] (L);
-\draw[blue,very thin,-> ]  (B) to [out=50, in=130] (I); 
-\draw[blue,very thin,-> ]  (B) to [out=50, in=130] (L);
-\draw[blue,very thin,-> ]  (C) to [out=50, in=130] (I); 
-\draw[blue,very thin,-> ]  (D) to [out=50, in=130] (I); 
-\draw[blue,very thin,-> ]  (D) to [out=50, in=130] (L);
-\draw[blue,very thin,-> ]  (E) to [out=50, in=130] (J); 
-\draw[blue,very thin,-> ]  (E) to [out=50, in=130] (L);
-\draw[blue,very thin,-> ]  (E) to [out=50, in=130] (K); 
+\draw[blue,very thin,-> ]  (A) to (I); 
+\draw[blue,very thin,-> ]  (A) to (L);
+\draw[blue,very thin,-> ]  (B) to (I); 
+\draw[blue,very thin,-> ]  (B) to (L);
+\draw[blue,very thin,-> ]  (C) to (I); 
+\draw[blue,very thin,-> ]  (D) to (I); 
+\draw[blue,very thin,-> ]  (D) to (L);
+\draw[blue,very thin,-> ]  (E) to (J); 
+\draw[blue,very thin,-> ]  (E) to (L);
+\draw[blue,very thin,-> ]  (E) to (K); 
 
 
-\draw[blue,very thin,-> ]  (H) to [out=50, in=130] (I); 
-\draw[blue,very thin,-> ]  (H) to [out=50, in=130] (K);
-\draw[blue,very thin,-> ]  (H) to [out=50, in=130] (J); 
+\draw[blue,very thin,-> ]  (H) to (I); 
+\draw[blue,very thin,-> ]  (H) to (K);
+\draw[blue,very thin,-> ]  (H) to (J); 
 
-\draw[blue,very thin,-> ]  (F) to [out=50, in=130] (I); 
-\draw[blue,very thin,-> ]  (F) to [out=50, in=130] (L);
-\draw[blue,very thin,-> ]  (F) to [out=50, in=130] (K); 
+\draw[blue,very thin,-> ]  (F) to (I); 
+\draw[blue,very thin,-> ]  (F) to (L);
+\draw[blue,very thin,-> ]  (F) to (K); 
 
-\draw[blue,very thin,-> ]  (G) to [out=50, in=130] (I); 
-\draw[blue,very thin,-> ]  (G) to [out=50, in=130] (L);
-\draw[blue,very thin,-> ]  (G) to [out=50, in=130] (J); 
+\draw[blue,very thin,-> ]  (G) to (I); 
+\draw[blue,very thin,-> ]  (G) to (L);
+\draw[blue,very thin,-> ]  (G) to (J); 
 
 \draw[red,very thin,<-> ]  (A) to (B); 
 \draw[red,very thin,<-> ]  (A) to (C); 
