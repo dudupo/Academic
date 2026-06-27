@@ -9,9 +9,25 @@ Contrary to high-rate LDPC codes, topological error codes have a geometrical ima
 
 Another branch of work, whose primary goal was to show that the embedding dimension of the computation can be reduced to 2D \cite{Balasubramanian_2026}, and more recently \cite{dünnweber2026quantummemoryautonomouscomputation}, uses topological codes as the main error correction code. Those constructions simplify the hardware realization; they suggest that quantum computers can be implemented by nearest-neighbor interactions automata - what is believed to be easier to develop. Yet, as in the threshold theorem \cite{aharonov1999faulttolerant}, and in contrast to the works that use high-rate LDPC codes, they rely on a hierarchical correction cycle whose execution time grows with system size. Hence, even though those directions have the potential to overcome the non-constant depth overhead per gate, it seems that the correction cycle imposes a barrier for them to come up with a constant factor in depth-overhead construction. 
 
-In this work, we present a fault-tolerance construction that uses the 4D Toric code and has a constant-depth 'correction' cycle. Thus, when the qubit overhead is not a consideration, it means that the 4D Toric code is as good as the good quantum LDPC / Hyperproduct code. That translates to the two following applications: 
+In this work, we present a fault-tolerance construction that uses the 4D Toric code and has a constant-depth 'correction' cycle.
+
+
+\begin{definition}[Local stochastic noise channel]
+  Let $p\in(0,1)$. We say that the noise channel $\mathcal{N}_{\mathcal{E}}$ is \textit{local stochastic with rate $p$} if for every finite set of locations $S\subset \mathbb{N}\times \mathbb{N}$,
+  \begin{equation*}
+    \begin{split}
+      \prbm{S\subset \operatorname{Loc}(\mathcal{E})}{\mathcal{E}\sim \mathcal{N}_{\mathcal{E}}}
+      \le p^{|S|}.
+    \end{split}
+  \end{equation*}
+\end{definition}
+
+\subsection{Discussions, Applications, and Further Directions}
+Thus, when the qubit overhead is not a consideration, it means that the 4D Toric code is as good as the good quantum LDPC / Hyperproduct code. That translates to the two following applications: 
 \begin{enumerate}
     \item New approach for quantum fault tolerance: With the assistance of resource states and gate teleportation, we obtain a fault-tolerant construction with logarithmic depth overhead. Our proof is inherently different from prior works, describes in higher resolution the expected error, and might be used as a springboard for a constant depth overhead construction.   
     \item Memory in the circuit model: Since protecting a 4D Toric encoded state for an exponentially long time is done by performing the same operation at each time unit. Then, combining with the simplicity of the presentation of the 4D Toric code, it suggests that the 4D Toric code is a promising candidate for memory in the circuit model.  
 \end{enumerate}
+
+
 
