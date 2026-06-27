@@ -1,5 +1,5 @@
 
-\section{Computation Model}
+\subsection{Computation Model}
 
 \newcommand{\comDAG}{\pi[C,\mathcal{E}]} 
 Informally, a quantum circuit is a placement of a collection of quantum gates, taken from a finite set, at different space-time locations. Each such location records when the gate is applied and on which qubits it acts. Formally:
@@ -129,7 +129,7 @@ The second notion is more global. There we swap entire layers and then update th
 
 For readability, we therefore separate the discussion into two subsections. The first subsection develops propagation inside a fixed running and is tailored to the deviation-cluster bounds, while the second develops layer propagation and is tailored to the coarse-graining argument.
 
-\subsection{Local Propagation Along a Running}
+\subsubsection{Local Propagation Along a Running}
 
 \begin{definition}[Fault propagation to a step $\tau$]
   Let $C=\{u_i\}_i$ be a quantum circuit, let $J=(j_1,\ldots,j_k)$ be an order agreeing with $\pi_C$, and let $u_i\in C$. Suppose that $u_i=u_{j_l}$ in this order. If $l>\tau$, we define the propagation of $u_i$ to step $\tau$ to be the identity operator.
