@@ -29,12 +29,17 @@ Another branch of work, whose primary goal was to show that the embedding dimens
 In this work, we present a fault-tolerance construction that uses the 4D Toric code and has a constant-depth 'correction' cycle. In other words, we showed that non-hierarchical correction cycle is not a property belongs only to the good quantum LDPC or the Hyperproduct code.
 
 \begin{theorem}[Informal]
-  There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, a quantum circuit $C$ with depth $\mu$ and width $w$, and a big enough integer $n$. There exists an 'logical equivalence' circuit $\tilde{C}$, with depth $ \Theta(\mu n) $ and width $ \Theta( (w +\mu) n)$  that simulates $C$ with probability: 
+There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, a quantum circuit $C$ with depth $\mu$ and width $w$, and a big enough integer $n$, there exists a 'logical equivalence' circuit $\tilde{C}$ with depth $\Theta(\mu n)$ and width $\Theta((w + \mu) n)$ that simulates $C$ with probability:
 \begin{equation*}
   \begin{split}
     1 -   \Theta \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n^{\frac{1}{4}})} 
   \end{split}
 \end{equation*}
+Furthermore, $\tilde{C}$ has the following two properties:
+\begin{enumerate}
+  \item After a short initialization stage (at depth $\Theta(\log n)$), the qubits are encoded in the $n$-length 4D Toric code.
+  \item An error correction cycle takes $O(1)$ depth, and the gates in each correction cycle don't depend on time. In particular, if $C$ is the identity circuit, then after the initialization stage, the layers in $\tilde{C}$ are the same.
+\end{enumerate}
   \end{theorem} 
 
 \subsection{Discussions, Applications, and Further Directions}
