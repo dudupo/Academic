@@ -1,5 +1,6 @@
-\section{Background, Results and Discussion}
+\section{Introduction}
 
+\subsection{Background}
 
 Fault-tolerant constructions take ideal quantum circuits and establish their logical equivalence such that they endure fault occurrences. Their efficiency is typically measured by the amount of additional resources – qubits, computation time, range connectivity, etc. – required by the resulting circuit, beyond the scope of theoretical discussion; those parameters translate into the machine complexity and energy cost required to run the circuits. Minimizing overheads brings quantum computing applications closer to the near future.
 
@@ -11,6 +12,8 @@ Contrary to high-rate LDPC codes, topological error codes have a geometrical ima
 
 Another branch of work, whose primary goal was to show that the embedding dimension of the computation can be reduced to 2D \cite{Balasubramanian_2026}, and more recently \cite{dünnweber2026quantummemoryautonomouscomputation}, uses topological codes as the main error correction code. Those constructions simplify the hardware realization; they suggest that quantum computers can be implemented by nearest-neighbor interactions automata - what is believed to be easier to develop. Yet, as in the threshold theorem \cite{aharonov1999faulttolerant}, and in contrast to the works that use high-rate LDPC codes, they rely on a hierarchical correction cycle whose execution time grows with system size. Hence, even though those directions have the potential to overcome the non-constant depth overhead per gate, it seems that the correction cycle imposes a barrier for them to come up with a constant factor in depth-overhead construction. 
 
+\subsection{Stating Our Results}
+In this work, we present a fault-tolerance construction that uses the 4D Toric code and has a constant-depth 'correction' cycle. 
 
 \begin{definition}[Local stochastic noise channel (Informal)]
   Let $p\in(0,1)$. We say that the noise channel $\mathcal{N}_{\mathcal{E}}$ is \textit{local stochastic with rate $p$} if for every finite set of locations $S\subset \mathbb{N}\times \mathbb{N}$,
@@ -23,7 +26,7 @@ Another branch of work, whose primary goal was to show that the embedding dimens
 \end{definition}
 
 
-In this work, we present a fault-tolerance construction that uses the 4D Toric code and has a constant-depth 'correction' cycle. In other words, we showed that non-hierarchical correction cycle is not a property belongs only to the good quantum LDPC or the Hyperproduct code.
+In other words, we showed that non-hierarchical correction cycle is not a property belongs only to the good quantum LDPC or the Hyperproduct code.
 
 \begin{theorem}[Informal]
 There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, a quantum circuit $C$ with depth $\mu$ and width $w$, and a big enough integer $n$, there exists a 'logical equivalence' circuit $\tilde{C}$ with depth $\Theta(\mu n)$ and width $\Theta((w + \mu) n)$ that simulates $C$ with probability:
