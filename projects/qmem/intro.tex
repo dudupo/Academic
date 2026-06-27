@@ -1,4 +1,7 @@
 \section{Introduction}
+
+\subsection{Background}
+
 Fault-tolerant constructions take ideal quantum circuits and establish their logical equivalence such that they endure fault occurrences. Their efficiency is typically measured by the amount of additional resources – qubits, computation time, range connectivity, etc. – required by the resulting circuit, beyond the scope of theoretical discussion; those parameters translate into the machine complexity and energy cost required to run the circuits. Minimizing overheads brings quantum computing applications closer to the near future.
 
 Since the introduction of the quantum threshold theorem \cite{aharonov1999faulttolerant}, which showed that quantum fault tolerance is in principle feasible, the main effort in subsequent work has focused on reducing the additional qubit overhead. A line of work has led to a constant-factor overhead in qubits, first in the instant-classical computation model \cite{gottesman2014faulttolerant}, then in the standard circuit model \cite{grospellier:tel-03364419}, \cite{Fawzi_2018}, \cite{ nguyen2025quantumfaulttoleranceconstantspace}. Yet, although the best qubit overhead was reached, the depth overhead was only slightly improved from poly-logarithmic to logarithmic \cite{ nguyen2025quantumfaulttoleranceconstantspace}. In fact, it seems that the same means that are used to reduce the qubit overhead are the ones that challenge reducing the depth overhead.    
