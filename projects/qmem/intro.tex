@@ -48,14 +48,14 @@ As mentioned earlier, both code simplicity and constant depth have already been 
     \centering
     %\setlength{\tabcolsep}{4pt}
     {\footnotesize
-      \begin{tabular}{l p{4cm} p{2cm} l l}
+      \begin{tabular}{p{4cm} p{4cm} p{2cm} p{2cm} p{3cm}}
         \toprule
-         Works Line  & Code   & Constant-depth correction cycle  & Depth and qubit overhead   \\
+        { \sc Works Line }  &  { \sc Error correction code }   &  { \sc Constant-depth correction cycle } &  { \sc  Depth and qubit overhead } & { \sc Ref }   \\
         \midrule
-        {\sc Concatenation }   & Concatenation of fixed length code \cite{aharonov1999faulttolerant}  & \ding{55}  & $f(x)$  \\
-        {\sc High-rate }       & \cite{grospellier:tel} \cite{Fawzi_2018}, \cite{nguyen2025quantumfaulttoleranceconstantspace} &  \ding{51}     & $f(x)$    \\
-        {\sc Quantum Automata} & \cite{Balasubramanian_2026}, \cite{dünnweber2026quantummemoryautonomouscomputation}              & \ding{55}        & $f(x)$   \\
-        {\sc Ours}             & 4D-Toric code       & \ding{51}                            & $f(x)$ \\
+        {\sc Concatenation }   & Concatenation of fixed length code  & \ding{55}  & $f(x)$  & \cite{aharonov1999faulttolerant} \\
+        {\sc High-rate }       & &  \ding{51}     & $f(x)$ &  \cite{grospellier:tel-03364419} \cite{Fawzi_2018}, \cite{nguyen2025quantumfaulttoleranceconstantspace}  \\
+        {\sc Quantum Automata} & 2D-Toric code    & \ding{55}        & $f(x)$ &  \cite{Balasubramanian_2026}, \cite{dünnweber2026quantummemoryautonomouscomputation}  \\
+        {\sc Ours}             & 4D-Toric code    & \ding{51}                            & $f(x)$ & \\
         \bottomrule
       \end{tabular}
 
