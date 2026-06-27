@@ -15,10 +15,7 @@ Another branch of work, whose primary goal was to show that the embedding dimens
 \subsection{Stating Our Results}
 In this work, we present a fault-tolerance construction that uses the 4D Toric code and has a constant-depth 'correction' cycle. Or in other words, a construction uses a relatively simple code, yet doesn't admit the cost of hierarchical correction cycle. 
 
-The computation model we consider is quantum circuits subject to \textit{local-stochastic noise}, where only qubits are subjected to the noise, while classical bits are non-noisy. Classical computation is allowed, and the classical depth matters. Namely, at each time unit, only a constant depth of classical computation can be done. 
-
-Local stochastic channel is defined to act such that the probability of any subset of locations $S$ (space-time coordinates), which is picked prior to the channel's action, being affected decays exponentially with the subset size. 
-
+The computation model we consider is quantum circuits subject to \textit{local-stochastic noise}, where only qubits are subjected to the noise, while classical bits are non-noisy. Classical computation is allowed, and the classical depth matters. Namely, at each time unit, only a constant depth of classical computation can be done.  Local stochastic channel is defined to act such that the probability of any subset of locations $S$ (space-time coordinates), which is picked prior to the channel's action, being affected decays exponentially with the subset size. 
 \begin{definition}[Local stochastic noise channel]
   Let $p\in(0,1)$. We say that the noise channel $\mathcal{N}_{\mathcal{E}}$ is \textit{local stochastic with rate $p$} if for every finite set of locations $S\subset \mathbb{N}\times \mathbb{N}$,
   \begin{equation*}
@@ -29,9 +26,7 @@ Local stochastic channel is defined to act such that the probability of any subs
   \end{equation*}
 \end{definition}
 
-For circuits $\tilde{C}$ and $C$, we say that $\tilde{C}$ simulates $C$ with probability $p$ if, when one stops a noisy run of $\tilde{C}$ at a midpoint, they can, with probability $p$, recover by non-noisy operation an 'image' of a midpoint in the running of $C$, and if stopping at the last time point of $\tilde{C}$ enables recovery of the 'image' of $C$ at the end of its run.
-
-We proved the following theorem: 
+For circuits $\tilde{C}$ and $C$, we say that $\tilde{C}$ simulates $C$ with probability $p$ if, when one stops a noisy run of $\tilde{C}$ at a midpoint, they can, with probability $p$, recover by non-noisy operation an 'image' of a midpoint in the running of $C$, and if stopping at the last time point of $\tilde{C}$ enables recovery of the 'image' of $C$ at the end of its run. We proved the following theorem: 
 \begin{theorem}[Informal]
 There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, a quantum circuit $C$ with depth $\mu$ and width $w$, and a big enough integer $n$, there exists a 'logical equivalence' circuit $\tilde{C}$ with depth $\Theta(\mu n)$ and width $\Theta((w + \mu) n)$ that simulates $C$ with probability:
 \begin{equation*}
