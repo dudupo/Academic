@@ -1,6 +1,5 @@
-\section{Introduction}
+\section{Background, Results and Discussion}
 
-\subsection{Background}
 
 Fault-tolerant constructions take ideal quantum circuits and establish their logical equivalence such that they endure fault occurrences. Their efficiency is typically measured by the amount of additional resources – qubits, computation time, range connectivity, etc. – required by the resulting circuit, beyond the scope of theoretical discussion; those parameters translate into the machine complexity and energy cost required to run the circuits. Minimizing overheads brings quantum computing applications closer to the near future.
 
@@ -11,8 +10,6 @@ A key concept for reducing qubit overhead is to encode qubits with a high-rate q
 Contrary to high-rate LDPC codes, topological error codes have a geometrical image that is well understood and, as a result, a wide range of works suggest efficient realization of their logical operators. For example, consider the 3D-color code \cite{Bombín_2015}, fold-transversal gates on the surface code \cite{Breuckmann_2024}, and realization of the Clifford group on the 2D Toric \cite{guernut2024faulttolerantconstantdepthcliffordgates}.
 
 Another branch of work, whose primary goal was to show that the embedding dimension of the computation can be reduced to 2D \cite{Balasubramanian_2026}, and more recently \cite{dünnweber2026quantummemoryautonomouscomputation}, uses topological codes as the main error correction code. Those constructions simplify the hardware realization; they suggest that quantum computers can be implemented by nearest-neighbor interactions automata - what is believed to be easier to develop. Yet, as in the threshold theorem \cite{aharonov1999faulttolerant}, and in contrast to the works that use high-rate LDPC codes, they rely on a hierarchical correction cycle whose execution time grows with system size. Hence, even though those directions have the potential to overcome the non-constant depth overhead per gate, it seems that the correction cycle imposes a barrier for them to come up with a constant factor in depth-overhead construction. 
-
-\subsection{Our Results}
 
 
 \begin{definition}[Local stochastic noise channel (Informal)]
