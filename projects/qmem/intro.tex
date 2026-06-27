@@ -14,11 +14,8 @@ Another branch of work, whose primary goal was to show that the embedding dimens
 
 \subsection{Our Results}
 
-In this work, we present a fault-tolerance construction that uses the 4D Toric code and has a constant-depth 'correction' cycle.
 
-
-
-\begin{definition}[Local stochastic noise channel]
+\begin{definition}[Local stochastic noise channel (Informal)]
   Let $p\in(0,1)$. We say that the noise channel $\mathcal{N}_{\mathcal{E}}$ is \textit{local stochastic with rate $p$} if for every finite set of locations $S\subset \mathbb{N}\times \mathbb{N}$,
   \begin{equation*}
     \begin{split}
@@ -27,6 +24,18 @@ In this work, we present a fault-tolerance construction that uses the 4D Toric c
     \end{split}
   \end{equation*}
 \end{definition}
+
+
+In this work, we present a fault-tolerance construction that uses the 4D Toric code and has a constant-depth 'correction' cycle. In other words, we showed that non-hierarchical correction cycle is not a property belongs only to the good quantum LDPC or the Hyperproduct code.
+
+\begin{theorem}[Informal]
+  There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, a quantum circuit $C$ with depth $\mu$ and width $w$, and a, big enough integer $n$. There exists an 'logical equivalence' circuit $\tilde{C}$, with depth $ \Theta(\mu n) $ and width $ \Theta( (w +\mu) n)$  that simulates $C$ with probability: 
+\begin{equation*}
+  \begin{split}
+    1 -   \Theta \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n^{\frac{1}{4}})} 
+  \end{split}
+\end{equation*}
+  \end{theorem} 
 
 \subsection{Discussions, Applications, and Further Directions}
 Thus, when the qubit overhead is not a consideration, it means that the 4D Toric code is as good as the good quantum LDPC / Hyperproduct code. That translates to the two following applications: 
