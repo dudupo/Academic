@@ -40,6 +40,29 @@ Furthermore, $\tilde{C}$ has the following two properties:
   \item An error correction cycle takes $O(1)$ depth, and the gates in each correction cycle don't depend on time. In particular, if $C$ is the identity circuit, then after the initialization stage, the layers in $\tilde{C}$ are the same.
 \end{enumerate}
   \end{theorem} 
+As mentioned earlier, both code simplicity and constant depth have already been achieved: the former as part of the quantum automation line of work, and the latter through the use of high-rate error correction codes. However, this is the first construction to achieve both simultaneously. The following table summarizes and compares the different works:
+
+\newcommand{\tcite}[1]{\hfill\cite{#1}}
+%\scalebox{0.8}{
+  \begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{4pt}
+    {\footnotesize
+      \begin{tabular}{l l l l l}
+        \toprule
+         Works Line  & Code   & Constant-depth correction cycle  & Depth and qubit overhead   \\
+        \midrule
+        {\sc Concatenation }   & Concatenation of fixed length code \cite{aharonov1999faulttolerant}  & $\ding{55}$  & $f(x)$  \\
+        {\sc High-rate }       & \cite{grospellier:tel} \cite{Fawzi_2018}, \cite{nguyen2025quantumfaulttoleranceconstantspace} &  $\ding{51}$     & $f(x)$    \\
+        {\sc Quantum Automata} & \cite{Balasubramanian_2026}, \cite{dünnweber2026quantummemoryautonomouscomputation}              & $\ding{55}$        & $f(x)$   \\
+        {\sc Ours}             & 4D-Toric code       & $\ding{51}$                            & $f(x)$ \\
+        \bottomrule
+      \end{tabular}
+
+    }
+    \caption{\label{fig:comapreresults} Comparing different types of works on fault-tolerance. }
+  \end{table}
+
 
 \subsection{Discussions, Applications, and Further Directions}
 Our result can be understood as follow: when the qubit overhead is not a consideration, it means that the 4D Toric code is as good as the good quantum LDPC / Hyperproduct code. That translates to the two following applications: 
