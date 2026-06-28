@@ -73,11 +73,23 @@ Our result can be understood as follow: when the qubit overhead is not a conside
 \end{enumerate}
 
 \section{Outline of The Proof}
-
-\subsection{The Intermediate Theorem}
 In studying fault tolerance, the typical method is to first distinguish between configurations that can be tolerated and those that cannot. For example, in von Neumann-style proofs \cite{ }, \cite{ }, it is common to track the number of flipped bits; if fewer than half are flipped, the logical states can be recovered. In the work of Aharonov and Ben-Or \cite{aharonov1999faulttolerant}, a logical bit at the $n$ level admits a logical error if at least a constant fraction of the $n-1$ level logical bits that compose it admit an error. In the work of \cite{grospellier:tel-03364419}, a tolerated configuration is one in which all encoded registers can be considered as distributed according to sufficiently weak local stochastic noise. The next step is to demonstrate that from a tolerated configuration, we move with high probability to another tolerated configuration. Each approach presents a challenge: The concatenation method, by definition, requires non-trivial computation at each step. Tracking the number of flipped bits fails almost immediately, as topological error correction codes have sublinear distance when a linear number of bits is expected to be flipped. Preserving the local stochastic noise distribution seems to heavily rely on the expansion properties \cite{grospellier:tel-03364419} of the underlying structure, where for topological codes, we expect to establish a 'spatial' dependence.
 
-Thus, instead of 
+
+In  contrast, Berman and Simon provided a proof that, instead of tracking the dynamics, considers the entire run as a possible outcome, ruling out improbable runs only at the end \cite{Berman}. We outline their idea informally as follows: a logical bit is represented by $n \times n$ bits set on the vertices of the grid. In each correction cycle, the bits determine their value by taking the majority of their north, north-east, and east neighbors, a rule known as Toom's rule. For simplicity, let's ignore the logical operations. Now, given a run, and in particular the set of space-time locations of faults, consider the following directed graph $\mathcal{H} \colonequals (V_{\mathcal{H}}, E_{\mathcal{H}})$ induced by it: 
+\begin{enumerate}
+  \item If at time $t$, the bit at vertex $v$ diverges relative to the ideal run, then add $(v,t)$ to the vertices. 
+  \item If at time $t$, vertex $v$ 'leads' one of its neighbors $u$ to diverge, then connect $(v,t)$ and $(u,t+1)$ by an 'arrow'. 
+  \item Connect any two vertices in $V_{\mathcal{H}}$, which are connected to a third by 'arrows', by a 'fork'. 
+\end{enumerate}
+Notice that the vertices of $\mathcal{H}$ with no incoming arrows correspond to faults. Then, they show that at the end of the run, the probability for a cluster of flipped bits to be connected via arrows decays exponentially in the perimeter of the cluster.
+\subsection{The Intermediate Theorem}
+
+For a adapting   
+
+
+
+
 
 ,  at $O(1)$-depth is our goal, we have to give up a full corrections,  it seems   ..,   In  \cite{GACS1988125}, the 
 
