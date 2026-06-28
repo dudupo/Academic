@@ -84,40 +84,37 @@ In  contrast, Berman and Simon provided a proof that, instead of tracking the dy
 \end{enumerate}
 Notice that the vertices of $\mathcal{H}$ with no incoming arrows correspond to faults; let's call them leaves. Thus, the probability of each running can be bounded by the number of leaves in the induced graph. Their key lemma states that a cluster of flipped bits with a 'perimeter' $s$, connected by arrows, induces a subgraph with at least $\Theta(s)$ leaves. In other words, the probability of a connected component (by arrows) being flipped decays exponentially with its perimeter. 
 
-To generalize, this technice, we have first to well define what error is, a flipping a satabilizer doesn't count as flipping bits. Then, to define an analog for the Toom's rule, proving a lemma that restrict the expansion of error under the applications of the rule, defining a logical operation and their realiztions, and 
+
+The graph $\mathcal{H}$ was later named Toom's contours, a term that, to the best of our knowledge, was coined in \cite{swart2026peierlsboundstoomcontours}.
+
+
+We chose to follow their approach. To generalize it, we first needed to find an analog for Toom's rule. We decided to adopt the sweep rule invented by Preskill and Kubica in \cite{Kubica_2019}. They also provided a rigorous proof for simplicial Toric that the sweep rule can decode when run in the absence of noise. For our purposes, we consider topological codes induced by cubical Toric\footnote{The standard Toric codes.}. We outline this stage in \Cref{subsection:toric}.
+
+Second, a primary difference we had to address is how to classify an error. Unlike the classical regime, flipping a stabilizer's bits doesn't count as a fault. Instead of examining the connected components of the Toom's contours graphs, we consider the vertices of $\mathcal{H}$ to be bits\footnote{In fact: vertices on the bits support.} that encounter unsatisfied checks in their local view. We then face another challenge: if we analyze the graph induced by flipping all the bits simultaneously, no bit sees an unsatisfied check. We address this by introducing an analysis framework where all computation, including faults, is imagined to occur sequentially—in steps. Within this framework, we can prove an intermediate theorem stating that on the path to a logical error configuration, one must pass through a step with a large cluster of unsatisfied checks. Later, we incorporate this idea into the formation of the $\mathcal{H}$-graphs by gluing the layers corresponding to the first $t-1$ layers, matching the continued running up to a step instead of describing the running at the end of the time unit. A brief description of this part is given in \Cref{subsection:internediate}.
+
+In \Cref{subsection:const}, we describe the construction, including the realization of the gates by gate teleportation, and discuss the initialization stage. The last subsection, \Cref{subsection:proof}, informally discusses the formation of Toom's contours.
+
+
+
 \subsection{The Toric Complex and the Infinite Plane}
+\label{subsection:toric}
 
 \subsection{The Intermediate Theorem}
-
+\label{subsection:internediate}
 For a adapting   
-
-
-
-
-
-,  at $O(1)$-depth is our goal, we have to give up a full corrections,  it seems   ..,   In  \cite{GACS1988125}, the 
-
-That can be thought as an adaptation  Gacs and Reif ideas \cite{GACS1988125}, Where the $n$-logical bit corresponds to colony, in their approach corrections done via the Toom's rule which is uniform for all the bits. 
-
-defined       the logical bit is encoded by a repttion code on the cube/gird, and the analsyis track over subcubes called colonies,    defined as seek if by a reqursive rule: if at least X of its subcubes are seek  ,and define an event where at least a constant factor of bits are flipped as an error. The methodology is to show that, assuming the number of flipped bits is below a certain threshold, after observing noise and executing a correction cycle, the number of resulting flipped bits is expected to remain under the threshold. In the concatenation style of works, it's common to borrow the idea of Gacs and Reif \cite{GACS1988125}, defining a damaged structure (logical error in \cite{aharonov1999faulttolerant} or seek colony in \cite{GACS1988125}) as structures with too many damaged substructures, and showing that in an interval of noisy-computation only less than fraction of substructres are expected to be damaged, only to 'improv the state of substructures with not too many damaged substructures. As the structures and their substructres become at sizes that are comperabile to the system size, the interval also has to do a non trivial computation, in \cite{GACS1988125}) we don't feel it. In  \cite{aharonov1999faulttolerant} we simulate an error correction cycle at one level below, that takes time. 
-
-In both approaches, one ignores 
-
-
-the classical proofs of Gacs, or in the high-rate works line, One is keeping track over the number of bits that are flipped, and in any turn they show that if the number of fualts are under some ratio, the error correction cycle reduces the error by factor. This is not good for us since a sublinear number of faults are sufficient for bringing into a logical error. And a linear number of errors are expected.
 
 
 \input{./tikz/circdag.tikz}
 
 
-
-
 \subsection{Description of the Construction}
+\label{subsection:const}
 
 \subsection{Toom's Contours} 
+\label{subsection:contours}
 
 \section{The Proof in Detail}
 
 
 
-
+%That can be thought as an adaptation  Gacs and Reif ideas \cite{GACS1988125}, Where the $n$-logical bit corresponds to colony, in their approach corrections done via the Toom's rule which is uniform for all the bits. 
