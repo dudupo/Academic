@@ -104,13 +104,15 @@ We modulate a noisy running of a given circuit $C$ as follows: first, we sample 
 
 A Tanner graph of an error correction code is a bipartite graph where the left vertices correspond to bits and the right vertices correspond to checks, and there is an edge between a left vertex and a right vertex if they match a bit and a check supported by it. A logical error is an error that an attempt to decode it might lead to a different codeword. As appears in \cite{gottesman2014faulttolerant}, a sufficient condition for an error to be correctly decodable is that, relative to the Tanner graph of the code, the error is a decomposition of connected components (when two bits are connected if they share a check) such that each of them is small comparatively (at least by factor half) to the code distance.
 
-As mentioned, we are going to analyze the likelihood of getting logical errors by looking back in time and ask what a run that has led to them is supposed to look like. The problem, with that is 
+
+\input{./tikz/circdag.tikz}
+
+As mentioned, we are going to analyze the likelihood of getting logical errors by looking back in time and asking what a run that has led to them is supposed to look like. The sweep-rule ensures that an error cluster below a certain size shrinks. The problem is that a single fault layer (i.e., a layer whose source is in $\mathcal{E}$) might increase the error cluster above that size. At first glance, one might be tempted to show that the expansion of error clusters beyond a fraction of the code distance happens with negligible probability, but that computation gets complicated when considering the merging of disjoint clusters. Instead, we split the computation into steps. In each step, only one gate or one fault is applied, and steps are ordered such that they agree with the computation. \Cref{fig:examplecirc} illustrates a quantum circuit and a graph of steps corresponding to it.
 %Since, we would like to  
 \label{subsection:internediate}
  
 
 
-\input{./tikz/circdag.tikz}
 
 
 \subsection{Description of the Construction}
