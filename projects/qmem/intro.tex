@@ -75,8 +75,12 @@ Our result can be understood as follow: when the qubit overhead is not a conside
 \section{Outline of The Proof}
 
 \subsection{The Intermediate Theorem}
+In studying fault tolerance, the first challenge is defining when a logical error occurs. In von Neumann-style proofs, it's common to track flipped bits and define an event where at least a constant factor of bits are flipped as an error. The methodology is to show that, assuming the number of flipped bits is below a certain threshold, after observing noise and executing a correction cycle, the number of resulting flipped bits is expected to remain under the threshold. In the concatenation style of works, it's common to borrow the idea of Gacs and Reif \cite{GACS1988125}, defining a damaged structure (logical error in \cite{aharonov1999faulttolerant} or seek colony in \cite{GACS1988125}) as structures with too many damaged substructures, and showing that in an interval of noisy-computation only less than fraction of substructres are expected to be damaged, only to 'improv the state of substructures with not too many damaged substructures.  
 
-In the classical proofs of Gash, or in the high-rate works line, One is keeping track over the number of bits that are flipped, and in any turn they show that if the number of fualts are under some ratio, the error correction cycle reduces the error by factor. This is not good for us since a sublinear number of faults are sufficient for bringing into a logical error. And a linear number of errors are expected.
+In both approaches, one ignores 
+
+
+the classical proofs of Gacs, or in the high-rate works line, One is keeping track over the number of bits that are flipped, and in any turn they show that if the number of fualts are under some ratio, the error correction cycle reduces the error by factor. This is not good for us since a sublinear number of faults are sufficient for bringing into a logical error. And a linear number of errors are expected.
 
 
 \input{./tikz/circdag.tikz}
