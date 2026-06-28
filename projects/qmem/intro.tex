@@ -82,7 +82,11 @@ In  contrast, Berman and Simon provided a proof that, instead of tracking the dy
   \item If at time $t$, vertex $v$ 'leads' one of its neighbors $u$ to diverge, then connect $(v,t)$ and $(u,t+1)$ by an 'arrow'. 
   \item Connect any two vertices in $V_{\mathcal{H}}$, which are connected to a third by 'arrows', by a 'fork'. 
 \end{enumerate}
-Notice that the vertices of $\mathcal{H}$ with no incoming arrows correspond to faults. Then, they show that at the end of the run, the probability for a cluster of flipped bits to be connected via arrows decays exponentially in the perimeter of the cluster.
+Notice that the vertices of $\mathcal{H}$ with no incoming arrows correspond to faults; let's call them leaves. Thus, the probability of each running can be bounded by the number of leaves in the induced graph. Their key lemma states that a cluster of flipped bits with a 'perimeter' $s$, connected by arrows, induces a subgraph with at least $\Theta(s)$ leaves. In other words, the probability of a connected component (by arrows) being flipped decays exponentially with its perimeter. 
+
+To generalize, this technice, we have first to well define what error is, a flipping a satabilizer doesn't count as flipping bits. Then, to define an analog for the Toom's rule, proving a lemma that restrict the expansion of error under the applications of the rule, defining a logical operation and their realiztions, and 
+\subsection{The Toric Complex and the Infinite Plane}
+
 \subsection{The Intermediate Theorem}
 
 For a adapting   
@@ -107,7 +111,6 @@ the classical proofs of Gacs, or in the high-rate works line, One is keeping tra
 
 
 
-\subsection{The Toric Complex and the Infinite Plane}
 
 \subsection{Description of the Construction}
 
