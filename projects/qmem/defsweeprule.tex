@@ -4,6 +4,7 @@
 
 \subsection{Sweep Rule}
 \begin{definition}[Sweep Rule]
+  \label{def:sweeprule}
   Let $z$ be an assignment on the $d^{\prime}$-faces. The \textit{sweep rule decoding procedure} at a vertex $v \in \mathcal{G}_{n}^{d}$ is defined as follows:
   
     Measure the checks rooted at $v$ and look for a rooted assignment $\tilde{z}$ at $v$ such that $(\partial\tilde{z})|_{v+} = \partial(z)|_{v+}$. In other words, the $X$-checks rooted at $v$ have the same syndromes for $z$ and $\tilde{z}$. If such an assignment exists, flip $\tilde{z}$.
@@ -20,7 +21,6 @@ We define the \textit{sweep cycle} to be the following procedure:
 \end{enumerate}
 \end{definition}
 
-\input{./tikz/tikz_shrink.tikz}
 \begin{claim}
   The local gates that perform the sweep rule are decoding gadgets.
 \end{claim}
