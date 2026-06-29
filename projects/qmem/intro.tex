@@ -88,16 +88,12 @@ Notice that the vertices of $\mathcal{H}$ with no incoming arrows correspond to 
 The graph $\mathcal{H}$ was later named Toom's contours, a term that, to the best of our knowledge, was coined in \cite{swart2026peierlsboundstoomcontours}.
 
 
-We chose to follow their approach. To generalize it, we first needed to find an analog for Toom's rule. We decided to adopt the sweep rule invented by Preskill and Kubica in \cite{Kubica_2019}. They also provided a rigorous proof for simplicial Toric that the sweep rule can decode when run in the absence of noise. For our purposes, we consider topological codes induced by cubical Toric\footnote{The standard Toric codes.}. We outline this stage in \Cref{subsection:toric}.
 
-Second, a primary difference we had to address is how to classify an error. Unlike the classical regime, flipping a stabilizer's bits doesn't count as a fault. Instead of examining the connected components of the Toom's contours graphs, we consider the vertices of $\mathcal{H}$ to be bits\footnote{In fact: vertices on the bits' support.} that encounter unsatisfied checks in their local view. We then face another challenge: if we analyze the graph induced by flipping all the bits simultaneously, no bit sees an unsatisfied check. We address this by introducing an analysis framework where all computation, including faults, is imagined to occur sequentially—in steps. Within this framework, we can prove an intermediate theorem stating that on the path to a logical error configuration, one must pass through a step with a large cluster of unsatisfied checks. Later, we incorporate this idea into the formation of the $\mathcal{H}$-graphs by gluing the layers corresponding to the first $t-1$ layers, matching the continued running up to a step instead of describing the running at the end of the time unit. A brief description of this part is given in \Cref{subsection:internediate}.
+We chose to follow their approach. The rest of the section reviews the challenges that we encountered on the way to generalize it and the ideas to overcome them.
 
-In \Cref{subsection:const}, we describe the construction, including the realization of the gates by gate teleportation, and discuss the initialization stage. The last subsection, \Cref{subsection:contours}, informally discusses the formation of Toom's contours.
-
-
-
-\subsection{The Toric Complex and the Infinite Plane}
-\label{subsection:toric}
+\paragraph{The Toric Complex and the Infinite Plane}
+%\label{subsection:toric}
+We first needed to find an analog for Toom's rule. We decided to adopt the sweep rule invented by Preskill and Kubica in \cite{Kubica_2019}. They also provided a rigorous proof for simplicial Toric that the sweep rule can decode when run in the absence of noise. For our purposes, we consider topological codes induced by cubical Toric\footnote{The standard Toric codes.}.
 
 \paragraph{The Intermediate Theorem}
 %\label{subsection:internediate}
@@ -113,13 +109,15 @@ As mentioned, we are going to analyze the likelihood of getting logical errors b
 Then, we prove that if the bounded-fan circuit model (and also the errors are bounded-fan since they are single qubit Pauli matrices in the steps presentation), in each step a cluster of errors can increase by at most a constant factor (see \Cref{claim:deviation_clusters}). Equipped with that, we infer the intermediate theorem.
 
 
+Second, a primary difference we had to address is how to classify an error. Unlike the classical regime, flipping a stabilizer's bits doesn't count as a fault. Instead of examining the connected components of the Toom's contours graphs, we consider the vertices of $\mathcal{H}$ to be bits\footnote{In fact: vertices on the bits' support.} that encounter unsatisfied checks in their local view. We then face another challenge: if we analyze the graph induced by flipping all the bits simultaneously, no bit sees an unsatisfied check. We address this by introducing an analysis framework where all computation, including faults, is imagined to occur sequentially—in steps. Within this framework, we can prove an intermediate theorem stating that on the path to a logical error configuration, one must pass through a step with a large cluster of unsatisfied checks. Later, we incorporate this idea into the formation of the $\mathcal{H}$-graphs by gluing the layers corresponding to the first $t-1$ layers, matching the continued running up to a step instead of describing the running at the end of the time unit. A brief description of this part is given in \Cref{subsection:internediate}.
 
-\subsection{Description of the Construction}
-\label{subsection:const}
 
-\subsection{Toom's Contours} 
-\label{subsection:contours}
-
+\paragraph{Description of the Construction}
+%\label{subsection:const}
+Here we describe the construction, including the realization of the gates by gate teleportation, and discuss the initialization stage. 
+\paragraph{Toom's Contours} 
+%\label{subsection:contours}
+The last subsection, informally discusses the formation of Toom's contours.
 \section{The Proof in Detail}
 
 
