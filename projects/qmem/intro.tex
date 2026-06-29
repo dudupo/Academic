@@ -110,12 +110,9 @@ See \Cref{def:sweeprule} for the formal version. An error correction cycle, or a
 
 The way we quantify the 'perimeter' of an error cluster is by considering the (hyper)triangle that bounds the vertices supporting the cluster. The poles of an error cluster are the vertices that lie on the sides of the triangle. We followed \cite{Berman}, and by embedding the Toric in the infinite plane, we were able to identify the poles as the max/min points of linear functions which we call \textit{potential walls}. Then, we show that the sweep rule advances only one pole, and hence one side, forward the others. As a consequence, a sweep-cycle shrinks the bounding triangle. The embedding restricts periodicity conditions on the assignments. We encounter this twice: first, an assignment on the Toric's faces that closes a non-trivial cycle translates to an infinite assignment in the infinite plane. In that case, no triangle bounds the error, which agrees with the fact that a logical error—in that context, an error that changes the logical states—should be 'decoded' to a different codeword. From a technical perspective, it comes into effect as the claims about shrinking assume that a given assignment is a connected finite assignment.
 The second time we have to deal with the mapping onto the infinite plane is in the calculation of the probability of a given Toom's contour. Since different leaves (faults) of Toom's contour might be associated with the same bit and hence dependent, to bypass this, we took from \cite{gacs2021newversiontoomsproof} the claim that states any such graph has a subgraph whose leaves are independent, and their number is at least a constant factor of the original leaves.
-
-
-See \Cref{subsection:infinitetoric} for embedding into the infinite plane, \Cref{subsection:shrink} for the proof of shrinking, and \Cref{subsection:separator} for the claim about the existence of a sufficient subgraph.
-
 \input{./tikz/potwall.tikz}
 
+See \Cref{subsection:infinitetoric} for embedding into the infinite plane, \Cref{subsection:shrink} for the proof of shrinking, and \Cref{subsection:separator} for the claim about the existence of a sufficient subgraph.
 
 
 \paragraph{The Intermediate Theorem}
