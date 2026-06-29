@@ -1,4 +1,5 @@
 \subsection{Shrinking}
+\label{subsection:shrink}
 %We are going to show that the SWEEP decoder 'shrinks' the error by proving that the edges/poles of error clusters get closer as a result of a decoding step. For that, we consider the standard embedding of the grid in $\mathbb{R}^{d}$ and use the term of potential walls.
 
 The following two claims relate the local maximum points of $L_{1}, \ldots, L_{d}$ in an assignment $z$ to the structure of the syndrome they observe. Later, we will use that relation to infer that the decoding step of the SWEEP rule can't spread the error to a vertex\footnote{To faces whose vertices have higher values of $L_{1}, \ldots, L_{d}$ than the current global maximum values.} with a higher value than the current global maximum of $L_{1}, \ldots, L_{d}$. In other words, the error does not spread in the positive directions.
