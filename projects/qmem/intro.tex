@@ -130,14 +130,17 @@ A Tanner graph of an error correction code is a bipartite graph where the left v
 As mentioned, we are going to analyze the likelihood of getting logical errors by looking back in time and asking what a run that has led to them is supposed to look like. The sweep rule ensures that an error cluster below a certain size shrinks. The problem is that a single fault layer (i.e., a layer whose source is in $\mathcal{E}$) might increase the error cluster above that size. At first glance, one might be tempted to show that the expansion of error clusters beyond a fraction of the code distance happens with negligible probability, but that calculation soon becomes complicated when considering the merging of disjoint clusters. Instead, we split the computation into steps. In each step, only one gate or one fault is applied, and steps are ordered such that they agree with the computation. Figure \ref{fig:examplecirc} illustrates a quantum circuit and a graph of steps corresponding to it.
 
 
-Since the gates and the faults have a bounded fan-in/out \footnote{The faults are bounded-fan because we can assume that in the time units representation they are Pauli products and therefore in the steps presentation they are decomposed into single qubit Pauli matrices.} In each step, the maximal size of an error cluster can increase by at most a constant factor, with the maximal increase occurring when multiple clusters are merged. Equipped with that insight, we are able to infer the intermediate theorem.
+Since the gates and the faults have a bounded fan-in/out\footnote{The faults are bounded-fan because we can assume that in the time units representation they are Pauli products and therefore in the steps presentation they are decomposed into single qubit Pauli matrices.} In each step, the maximal size of an error cluster can increase by at most a constant factor, with the maximal increase occurring when multiple clusters are merged. Equipped with that insight, we are able to infer the intermediate theorem.
 
 
 \Cref{subsection:model} formalize the computation model and the computation graph presentation (splitting to steps). In particular, see \Cref{claim:deviation_clusters} and \Cref{claim:inter} for the formal proof of the intermediate theorem. 
 
 \paragraph{Description of the Construction}
-%\label{subsection:const}
-Here we describe the construction, including the realization of the gates by gate teleportation, and discuss the initialization stage. 
+Similarly to other fault tolerance approaches, we use the concatenation construction in order to initialize zeros and resource states encoded in the 4D-Toric code, as referred to in \Cref{grospellier:tel-03364419}, \Cref{gottesman2014faulttolerant}. From there, we assume that all the quantum registers are encoded in the 4D-Toric code. Then, after the initialization step, the logical cycles are divided into error correction, which is a single sweep-cycle, and 'logical operation' cycle. For our universal logical gate set, we choose $\mathbf{CX}$ (controlled NOT), $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$ gates. Except for the 'Controlled NOT' gate, which is realized by transversal wire-wise physical 'Controlled NOT' gates, all the others are implemented via gate teleportation. We emphasize that even though the Hadamard gate has a fold-transversal realization and therefore also the $\mathbf{S}$ gate does, we have failed to provide proof that restricts the expansion of the bounded-triangle\footnote{The permutation used in the Hadamard realizations mirrors the errors}.
+
+The raliztion by gate teleportation is done as follow, first we xoring the target state into the a resource state via $\mathbf{CX}$, 
+
+Here we describe the construction, including the realization of the gates by  and discuss the initialization stage. 
 \paragraph{Toom's Contours} 
 %\label{subsection:contours}
 The last subsection, informally discusses the formation of Toom's contours.
