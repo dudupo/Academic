@@ -1,24 +1,24 @@
 
   \subsection{ Notations } \label{sec:nota}
-We follow the standard notations commonly used in the literature. For an integer $n$, we denote by $[n]$ the set of integers $\{1, 2, \ldots, n\}$. To present a countable set, which might or might not be finite, where the number of elements does not matter, we use curly brackets with a subscript denoting the first index of the set. For example, $\{u_{i}\}_{i=1}$ represents the set $u_{1}, u_{2}, \ldots$; For finite sets, we might add a superscript to present the size of the set. We use a colon inside curly brackets to specify a set of elements satisfying a condition, i.e., for sets $A, B$, the notation $\{ a : a \in A, a \in B \}$ equals $A \cap B$. Curly brackets without subscripts or conditions refer to singletons. For example, for a given integer $i$, the set $\{u_{i}\}$ is the set that contains only the element $u_{i}$. For an integer $i$, we denote by $1_{i}$ the vector consisting of one at the $i$th coordinate and zero elsewhere.
+We follow the standard notations commonly used in the literature. For an integer $n$, we denote by $[n]$ the set of integers $\{1, 2, \ldots, n\}$. To present a countable set, which might or might not be finite, where the number of elements does not matter, we use curly brackets with a subscript denoting the first index of the set. For example, $\{u_{i}\}_{i=1}$ represents the set $u_{1}, u_{2}, \ldots$. For finite sets, we might add a superscript to present the size of the set. If the first index is clear from the context, then we might omit the assignment.
+We use a colon inside curly brackets to specify a set of elements satisfying a condition, i.e., for sets $A, B$, the notation $\{ a : a \in A, a \in B \}$ equals $A \cap B$. Curly brackets without subscripts or conditions refer to singletons. For example, for a given integer $i$, the set $\{u_{i}\}$ is the set that contains only the element $u_{i}$. For an integer $i$, we denote by $1_{i}$ the vector consisting of one at the $i$th coordinate and zero elsewhere.
 
-  When not otherwise mentioned, we consider quantum states over qubits, each lying in a two-dimensional Hilbert space $\mathcal{H}_{2}$, and denote by $\mathcal{H}_{2^n}$ the Hilbert space of an $n$-qubit system. Pure quantum states and their dual presentations are denoted by $\ket{\psi}, \bra{\psi}$, and in the matrix representation, we use $\ket{\psi}\bra{\psi}$ to denote its density matrix. We will use $\rho$ to denote a mixed state, whose density matrix is a trace one PSD matrix. 
-
-
-\inb{Below, a semi proof that in CSS code partial correction $Z^{e} \rightarrow Z^{\hat{e}}$ doesn't add bit flip errors. It might adds a global phase. I should enter it in a section about CSS coding. }
-
+When not otherwise mentioned, we consider quantum states over qubits, each lying in a two-dimensional Hilbert space $\mathcal{H}_{2}$, and denote by $\mathcal{H}_{2^n}$ the Hilbert space of an $n$-qubit system. Pure quantum states and their dual presentations are denoted by $\ket{\psi}, \bra{\psi}$, and in the matrix representation, we use $\ket{\psi}\bra{\psi}$ to denote its density matrix. We will use $\rho$ to denote a mixed state. The latter, $X$ and $Z$, will usually denote the single qubit $X$, and $Z$ Pauli operators, yet where the Pauli matrices are off context, we uses those latter for other variable. The gate 'Contorolled Not' is denoted by $\mathbf{CX}$ and the gates, Hadamard, S, and T which are denoted by:
 \begin{equation*}
   \begin{split}
-     & X^{f}Z^{e} \ket { w + C_{z}^{\perp} } \\
-     = & X^{f}Z^{e}X^{w} \ket { C_{z}^{\perp} } \\
-     \text{apply } H^{\otimes n } \mapsto & Z^{f}X^{e}Z^{w}\ket { C_{z} } \\
-     = & (-1)^{e \cdot w} Z^{f}Z^{w}X^{e}\ket { C_{z} } \\
-     \text{ partial correction } X^{e +\hat{e}} \mapsto & (-1)^{(e+\hat{e}) (f+w) } (-1)^{e \cdot w} Z^{f}Z^{w}X^{\hat{e}}\ket { C_{z} } \\
-     \text{apply } H^{\otimes n } \mapsto & (-1)^{(e+\hat{e}) (f+w) } (-1)^{e \cdot w} X^{f}X^{w}Z^{\hat{e}}\ket { C_{z}^{\perp} } \\
-     = & (-1)^{(e+\hat{e}) (f+w) } (-1)^{e \cdot w} (-1)^{\hat{e} \cdot w} X^{f}Z^{\hat{e}}X^{w}\ket { C_{z}^{\perp} } \\
-     = & (-1)^{(e+\hat{e}) f } X^{f}Z^{\hat{e}}\ket { w + C_{z}^{\perp}  } \\
+    \mathbf{H} = \frac{1}{\sqrt{2}}\begin{bmatrix}
+      1 & 1 \\
+      1 & -1 
+    \end{bmatrix}, \mathbf{S} = \begin{bmatrix}
+      1 & 0 \\
+      0 & i 
+    \end{bmatrix}, \mathbf{T} = \begin{bmatrix}
+      1 & 0 \\
+      0 & e^{i\frac{\pi}{4}} 
+    \end{bmatrix}
   \end{split}
 \end{equation*}
+For a quantum gate $U$, we denote by $\ket{U}$ the resource state that can be used to simulate $U$. Notice that, in general, the resource state is not unique. In this work, we address specific states that will be discussed later. 
 
 \iffalse 
 
