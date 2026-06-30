@@ -63,7 +63,8 @@ Later, we will restrict $\mathcal{G}$ to contain $\mathbf{CX}, \mathbf{H}, \math
 
   We say that $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ is a computation prefix if $\rho_{1} = \rho$ and $\rho_{i+1} = u^\prime_{i} \circ \rho_{i}$, where $\{u^{\prime}_{i}\}_{i=1}$ is a prefix of a topological ordering of $\{u_{i}\}_{i=1}$. If $\{u^{\prime}_{i}\}_{i=1}$ contains all the gates in $\{u_{i}\}_{i=1}$, then we call $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ a running.
 \end{definition}
-
+For a quantum circuit $C$, we would like to discuss its action in the presence of different outcomes of faults. The following definition encodes the running in the presence of a specific set of faults $\mathcal{E}$.
+%We do this by defining a new circuit, stacking a layer of $\mathcal{E}$ after every $m$ layers of $C$.
 \begin{definition}[$C$ subjected to $\mathcal{E}$ every $m$ computational layers]
   Let $C=\{u_i\}_i$ be a quantum circuit with depth $d$ and width $w$, let $m\in\mathbb{N}$, and set
   \begin{equation*}
