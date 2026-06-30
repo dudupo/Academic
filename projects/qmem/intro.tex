@@ -91,7 +91,7 @@ The graph $\mathcal{H}$ was later named Toom's contours, a term that, to the bes
 
 We chose to follow their approach. The rest of the section reviews the challenges that we encountered on the way to generalize it and the ideas to overcome them.
 
-\paragraph{The Toric Code, the Sweep-Rule, and the Infinite Plane}
+\paragraph{The Toric Code, the Sweep-Rule, and the Infinite Plane.}
 %\label{subsection:toric}
 The first issue was finding an analog for Toom's rule. We decided to adopt the sweep rule invented by Preskill and Kubica in \cite{Kubica_2019}, which they introduced as a local rule for any CSS code induced by a simplicial Toric, equipped with a notion of 'positive' and 'negative' directions (in their paper 'future' and 'past'). They also provided a rigorous proof that the iterative non-noisy applications of the sweep rule succeed in decoding faults that were sampled independently. For our purposes, we had to extend their proof for cubical Toric\footnote{The standard Toric codes.}. The main reason for this is that the alignment of the positive/negative directions with the axes direction of $\mathbb{R}^{4}$ space allows quantifying the 'perimeter' of error clusters. Yet, we are sure that our proof can be adjusted to support simplicial Toric complexes as well, and we leave it for further work. In the formal section, we define and prove the claims for Torices in any dimension greater than two, except for \Cref{claim:agreement}, which we proved only to dimension four. (Yet a numerical study hints that the claim might also be generalized; see \Cref{conj:agreement}.)
 
@@ -115,7 +115,7 @@ The second time we have to deal with the mapping onto the infinite plane is in t
 See \Cref{subsection:infinitetoric} for embedding into the infinite plane, \Cref{subsection:shrink} for the proof of shrinking, and \Cref{subsection:separator} for the claim about the existence of a sufficient subgraph. 
 
 
-\paragraph{The Intermediate Theorem}
+\paragraph{The Intermediate Theorem.}
 %\label{subsection:internediate}
 Now that we have the code and decoder, the next difference we have to address is how to classify an error. Unlike the classical regime, flipping a stabilizer's bits doesn't count as a fault. Moreover, the sweep-rule discussed above doesn't shrink stabilizers (as it acts trivially on them). Therefore, we need to redefine what is considered a divergence from the ideal computation. As a result, instead of defining the vertices of Toom's contour graph to be the flipped vertices as in \cite{Berman}, we define them to be bits\footnote{In fact: vertices on the bits' support, see \Cref{subsection:toricencoded}.} that encounter unsatisfied checks in their local view.
 
@@ -135,7 +135,7 @@ Since the gates and the faults have a bounded fan-in/out\footnote{The faults are
 
 \Cref{subsection:model} formalize the computation model and the computation graph presentation (splitting to steps). In particular, see \Cref{claim:deviation_clusters} and \Cref{claim:inter} for the formal proof of the intermediate theorem. 
 
-\paragraph{Description of the Construction}
+\paragraph{Description of the Construction.}
 Similarly to other fault tolerance approaches, we use the concatenation construction in order to initialize zeros and resource states encoded in the 4D-Toric code, as referred to in \cite{grospellier:tel-03364419}, \cite{gottesman2014faulttolerant}. From there, we assume that all the quantum registers are encoded in the 4D-Toric code, and we name each of the encoded block a quantum register. The resources states are spread across two registers.
 
 
