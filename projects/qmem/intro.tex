@@ -164,6 +164,8 @@ We adjust their construction as follows: Denote the graph by $\mathcal{H} \colon
   \item If at time $t$, vertex $v$ sees an unsatisfied check, and at time $t+1$ its neighbor $u$ sees an unsatisfied check, then we think of the situation as '$v$ 'leads' to $u$' and connect $(v,t)$ and $(u,t+1)$ with an 'arrow'. The vertices $v$ and $u$ might belong to different registers (which matches the case that at time $t$ we apply an operator on both registers). For convenience, we don't require $u$ at time $t$ to see only satisfied checks.
   \item As in the classical case, connect any two vertices in $V_{\mathcal{H}}$ that are connected to a third by 'arrows' with a 'fork'.
 \end{enumerate}
+
+\input{./tikz/toomscontours.tikz}
 Later, we incorporate the 'splitting into turns' idea into the formation of Toom's counter $\mathcal{H}$-graphs, by gluing the layers corresponding to the first $t-1$ layers with a final layer that matches a partial execution of the $t$th time unit. The layer encodes the situation of the running up to a certain step. Then, combining with the intermediate theorem, we have that any running that admits a logical error derives a Toom's contour, with sufficiently large vertices at final layer. 
 
 
@@ -173,7 +175,6 @@ One technical change that we made and haven't discussed yet is that in the gluin
 
 \Cref{subsection:toricencoded} defines Toom's contours, \Cref{subsection:spacetimegraph} defines the slices and states a claim connecting a slice to its predecessors, and \Cref{subsection:explantion} provides the induction proofs.
 
-\input{./tikz/toomscontours.tikz}
 \section{The Proof in Detail}
 
 
