@@ -150,6 +150,13 @@ In \Cref{subsection:logical}, we discuss in detail the structures of the logical
 %\label{subsection:contours}
 The last subsection, informally discusses the formation of Toom's contours.
 
+graph $\mathcal{H} \colonequals (V_{\mathcal{H}}, E_{\mathcal{H}})$ induced by it: 
+\begin{enumerate}
+  \item If at time $t$, the bit at vertex $v$ diverges relative to the ideal run, then add $(v,t)$ to the vertices. 
+  \item If at time $t$, vertex $v$ 'leads' one of its neighbors $u$ to diverge, then connect $(v,t)$ and $(u,t+1)$ by an 'arrow'. 
+  \item Connect any two vertices in $V_{\mathcal{H}}$, which are connected to a third by 'arrows', by a 'fork'. 
+\end{enumerate}
+
 
 Later, we incorporate this idea into the formation of Toom's counter, i.e., $\mathcal{H}$-graphs, by gluing the layers corresponding to the first $t-1$ layers with a final layer that matches a partial execution of the $t$th time unit. The layer encodes the situation of the running up to a certain step, in which the syndrome is large and therefore derives a non-trivial Toom's contour. 
 
