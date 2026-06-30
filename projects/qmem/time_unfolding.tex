@@ -31,9 +31,7 @@ Informally, a quantum circuit is a placement of a collection of quantum gates, t
     \end{split}
   \end{equation*}
 \end{definition}
-
-Later we will restrict $\mathcal{G}$ to contain $\mathbf{CX}, \mathbf{H}, \mathbf{S}, \mathbf{T}$ and measurements. To define the action of a quantum circuit $C$ on a given mixed state, we first associate to $C$ a directed acyclic graph.
-
+Later, we will restrict $\mathcal{G}$ to contain $\mathbf{CX}, \mathbf{H}, \mathbf{S}, \mathbf{T}$, and measurements. To define the action of a quantum circuit $C$ on a given mixed state, we first associate $C$ with a directed acyclic graph.
 \begin{definition}[Associated Computation DAG]
   Let $C=\{u_i\}_i$ be a quantum circuit with depth $d$ and width $w$. We define the associated computation DAG of $C$, denoted by $\pi_C$, to be the directed acyclic graph $\pi_C=(\mathcal{U},E)$ as follows:
   \begin{enumerate}
