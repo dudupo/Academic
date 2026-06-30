@@ -136,7 +136,10 @@ Since the gates and the faults have a bounded fan-in/out\footnote{The faults are
 \Cref{subsection:model} formalize the computation model and the computation graph presentation (splitting to steps). In particular, see \Cref{claim:deviation_clusters} and \Cref{claim:inter} for the formal proof of the intermediate theorem. 
 
 \paragraph{Description of the Construction}
-Similarly to other fault tolerance approaches, we use the concatenation construction in order to initialize zeros and resource states encoded in the 4D-Toric code, as referred to in \cite{grospellier:tel-03364419}, \cite{gottesman2014faulttolerant}. From there, we assume that all the quantum registers are encoded in the 4D-Toric code. Then, after the initialization step, the logical cycles are divided into error correction, which is a single sweep-cycle, and 'logical operation' cycle. For our universal logical gate set, we choose $\mathbf{CX}$ (controlled NOT), $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$ gates. Except for the 'Controlled NOT' gate, which is realized by transversal wire-wise physical 'Controlled NOT' gates, all the others are implemented via gate teleportation \cite{Zhou_2000}.
+Similarly to other fault tolerance approaches, we use the concatenation construction in order to initialize zeros and resource states encoded in the 4D-Toric code, as referred to in \cite{grospellier:tel-03364419}, \cite{gottesman2014faulttolerant}. From there, we assume that all the quantum registers are encoded in the 4D-Toric code, and we name each of the encoded block a quantum register. The resources states are spread across two registers.
+
+
+Then, after the initialization step, the logical cycles are divided into error correction, which is a single sweep-cycle, and 'logical operation' cycle. For our universal logical gate set, we choose $\mathbf{CX}$ (controlled NOT), $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$ gates. Except for the 'Controlled NOT' gate, which is realized by transversal wire-wise physical 'Controlled NOT' gates, all the others are implemented via gate teleportation \cite{Zhou_2000}.
 
 The general realization by gate teleportation is done as follows: first, we XOR the target state into a resource state via $\mathbf{CX}$, measure the input state and the first register of the resource state with a Bell measurement, the input register in the $X$ basis, and the first register of the resource state in the $Z$ basis. Then, on the classical outcomes, run a classical decoding procedure to extract the logical codeword. Meanwhile, on the second register of the resource, which is intended to contain the result of the action, perform a sweep cycle. At the end of the decoding, depending on the result, we apply either a transversal Pauli operator or the $\mathbf{S}$ gate (again by teleportation) depending on the original gate that was asked to simulate. The gate teleportation lasts for multiple logical cycles, depending on the depth required by the classical decoding procedure.
 
@@ -146,18 +149,14 @@ We emphasize that for measuring the input register in the $X$-basis, we apply th
 In \Cref{subsection:logical}, we discuss in detail the structures of the logical codeword of the 4D-Toric code and the realization of its logical gates.
 
 
-\paragraph{Toom's Contours} 
+\paragraph{Toom's Contours.} 
 %\label{subsection:contours}
-The last subsection, informally discusses the formation of Toom's contours.
-
-graph $\mathcal{H} \colonequals (V_{\mathcal{H}}, E_{\mathcal{H}})$ induced by it: 
+We construct the Toom's contours as the follow graph $\mathcal{H} \colonequals (V_{\mathcal{H}}, E_{\mathcal{H}})$: 
 \begin{enumerate}
-  \item If at time $t$, the bit at vertex $v$ diverges relative to the ideal run, then add $(v,t)$ to the vertices. 
-  \item If at time $t$, vertex $v$ 'leads' one of its neighbors $u$ to diverge, then connect $(v,t)$ and $(u,t+1)$ by an 'arrow'. 
-  \item Connect any two vertices in $V_{\mathcal{H}}$, which are connected to a third by 'arrows', by a 'fork'. 
+  \item If at time $t$, a vertex $v$, on the one the Toric complexes\footnote{Actually the infinite grid.} corresponding to one of the quantum registers, sees an unsatisfied check on it's local view, then add $(v,t)$ to the vertices. 
+  \item If at time $t$, vertex $v$ sees an unsatisfied check, and at time $t+1$ its neighbor $u$ sees an unsatisfied check, then we think of the situation as '$v$ 'leads' to $u$' and connect $(v,t)$ and $(u,t+1)$ with an 'arrow'. The vertices $v$ and $u$ might belong to different registers (which matches the case that at time $t$ we apply an operator on both registers). For convenience, we don't require $u$ at time $t$ to see only satisfied checks.
+  \item As in the classical case, connect any two vertices in $V_{\mathcal{H}}$ that are connected to a third by 'arrows' with a 'fork'.
 \end{enumerate}
-
-
 Later, we incorporate this idea into the formation of Toom's counter, i.e., $\mathcal{H}$-graphs, by gluing the layers corresponding to the first $t-1$ layers with a final layer that matches a partial execution of the $t$th time unit. The layer encodes the situation of the running up to a certain step, in which the syndrome is large and therefore derives a non-trivial Toom's contour. 
 
 \input{./tikz/toomscontours.tikz}
