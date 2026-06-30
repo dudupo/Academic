@@ -73,7 +73,7 @@ For a quantum circuit $C$, we would like to discuss its action in the presence o
     \end{split}
   \end{equation*}
   Let $\mathcal{L}\subset [d_m]\times [w]$ be a set of locations, and let $\mathcal{E}$ be a quantum circuit, such $\text{Loc}(\mathcal{E}) = \mathcal{L}$. We name $\mathcal{E}$ \textit{subsets of faults}, and we name the layers of $\mathcal{E}$ \textit{fault layers}.
-  The circuit \textit{$C$ subjected to $\mathcal{E}$ every $m$ computational layers}, denoted by $C[\mathcal{E}]_{m}$, is obtained by keeping the order of the computational layers of $C$ and inserting one fault layer after every block of $m$ consecutive computational layers. Thus the first fault layer is inserted after the computational layers $1,\ldots,m$, the second is inserted after the computational layers $m+1,\ldots,2m$, and so on. Concretely, each computational gate $u_i=(g_i,(t_i,S_i))$ of $C$ is moved to the time coordinate
+  The circuit \textit{$C$ subjected to $\mathcal{E}$ every $m$ computational layers}, denoted by $C[\mathcal{E}]_{m}$, is obtained by setting the first layer to be the first layer of $\mathcal{E}$, then placing in order the layers of $C$ and inserting one fault layer after every block of $m$ consecutive $C$'s layers. Thus the second fault layer is inserted after the layers $1,\ldots,m$ of $C$, the third is inserted after the layers $m+1,\ldots,2m$ of $C$, and so on. Concretely, each gate $u_i=(g_i,(t_i,S_i))$ of $C$ is moved to the time coordinate
   \begin{equation*}
     \begin{split}
       t_i + \left\lfloor \frac{t_i-1}{m} \right\rfloor,
@@ -85,7 +85,7 @@ For a quantum circuit $C$, we would like to discuss its action in the presence o
       t(m+1).
     \end{split}
   \end{equation*}
-  When $m=1$, the computational gates occupy the odd time coordinates and the fault layers occupy the even time coordinates. When the parameter is omitted, we mean $m=1$. We denote the associated computation DAG of $C[\mathcal{E}]_{m}$ by $\comDAG$.
+  When $m=1$, the gates occupy the even time coordinates and the fault layers occupy the odd time coordinates. When the parameter is omitted, we mean $m=1$. We denote the associated computation DAG of $C[\mathcal{E}]_{m}$ by $\comDAG$.
 \end{definition}
 
 
@@ -97,16 +97,16 @@ For a quantum circuit $C$, we would like to discuss its action in the presence o
 \end{remark}
 
 \begin{example}
-  When $m=3$, the computational layers are sent to the times
+  When $m=3$, the 'computational' layers are sent to the times
   \begin{equation*}
     \begin{split}
-      1,2,3,5,6,7,9,10,11,\ldots,
+      2,3,4,6,7,8,10,11,12,\ldots,
     \end{split}
   \end{equation*}
   while the fault layers are sent to the times
   \begin{equation*}
     \begin{split}
-      4,8,12,\ldots.
+      1,5,9,13,\ldots.
     \end{split}
   \end{equation*}
 \end{example}
