@@ -149,14 +149,16 @@ We emphasize that for measuring the input register in the $X$-basis, we apply th
 In \Cref{subsection:logical}, we discuss in detail the structures of the logical codeword of the 4D-Toric code and the realization of its logical gates.
 
 
-\paragraph{Toom's Contours.} A sufficient, simple, definition of Toom's contours in \Cref{Berman} would be a directed graph that describes a nosiy running with the addition marking of devrgenced bits. In quantum case, the vertices of the Toom's contour are nor bits neither checks, instead they are the vertices on the Torices that 'devrgenced'. And a proper conceptual definition would be: 
+\paragraph{Toom's Contours.} 
+A sufficiently simple definition of Toom's contours in \cite{Berman} would be a directed graph that describes a noisy run with the additional marking of diverged bits. In our case —the quantum case— the vertices of Toom's contour are neither bits nor checks; instead, they are the vertices on the Torus that 'diverged'. A proper conceptual definition would be:
 \begin{center}
 \begin{minipage}{0.75\textwidth}
-  \textit{Your paragraph text goes here. It will be padded on the left and right, constrained to 75}
+  \textit{
+A graph that describes a noisy run from the Torices' perspective. In particular, the vertices of the graph are the vertices of the Torices, equipped with a time coordinate, that are adjacent to unsatisfied checks.
+  }
 \end{minipage}
 \end{center}
-
-Here,  derives a directed graph called Toom's contour. We adjust the Toom's contours as the follow graph $\mathcal{H} \colonequals (V_{\mathcal{H}}, E_{\mathcal{H}})$: 
+We adjust their construction as follows: Denote the graph by $\mathcal{H} \colonequals (V_{\mathcal{H}}, E_{\mathcal{H}})$ and
 \begin{enumerate}
   \item If at time $t$, a vertex $v$, on the one the Toric complexes\footnote{Actually the infinite grid.} corresponding to one of the quantum registers, sees an unsatisfied check on it's local view, then add $(v,t)$ to the vertices. 
   \item If at time $t$, vertex $v$ sees an unsatisfied check, and at time $t+1$ its neighbor $u$ sees an unsatisfied check, then we think of the situation as '$v$ 'leads' to $u$' and connect $(v,t)$ and $(u,t+1)$ with an 'arrow'. The vertices $v$ and $u$ might belong to different registers (which matches the case that at time $t$ we apply an operator on both registers). For convenience, we don't require $u$ at time $t$ to see only satisfied checks.
