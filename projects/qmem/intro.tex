@@ -149,9 +149,7 @@ We emphasize that for measuring the input register in the $X$-basis, we apply th
 In \Cref{subsection:logical}, we discuss in detail the structures of the logical codeword of the 4D-Toric code and the realization of its logical gates.
 
 
-\paragraph{Toom's Contours.} 
-%\label{subsection:contours}
-We construct the Toom's contours as the follow graph $\mathcal{H} \colonequals (V_{\mathcal{H}}, E_{\mathcal{H}})$: 
+\paragraph{Toom's Contours.} We construct the Toom's contours as the follow graph $\mathcal{H} \colonequals (V_{\mathcal{H}}, E_{\mathcal{H}})$: 
 \begin{enumerate}
   \item If at time $t$, a vertex $v$, on the one the Toric complexes\footnote{Actually the infinite grid.} corresponding to one of the quantum registers, sees an unsatisfied check on it's local view, then add $(v,t)$ to the vertices. 
   \item If at time $t$, vertex $v$ sees an unsatisfied check, and at time $t+1$ its neighbor $u$ sees an unsatisfied check, then we think of the situation as '$v$ 'leads' to $u$' and connect $(v,t)$ and $(u,t+1)$ with an 'arrow'. The vertices $v$ and $u$ might belong to different registers (which matches the case that at time $t$ we apply an operator on both registers). For convenience, we don't require $u$ at time $t$ to see only satisfied checks.
