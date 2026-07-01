@@ -141,14 +141,6 @@ We give the proof in the appendix since the argument is not the core of this wor
   In particular, up to a constant depending only on $\Delta$ and $c$, the rate $q$ behaves like $p^{\Delta^{-c}}$.
 \end{claim}
 
-The chapter uses two different notions of propagation. They are related, but they serve different analytical purposes. The first notion does not rewrite the circuit and does not change the time coordinates. Instead, it propagates part of the error inside a fixed running of the computation and asks what the accumulated effect looks like at a chosen step $\tau$. In particular, this notion applies not only to a single fault, but also to a collection of faults propagated one after another according to the computation DAG. This is the right framework when one wants to speak about the size of the syndrome or of the deviation \emph{at an actual intermediate time} of the computation.
-
-This distinction is essential for statements such as the intermediate value theorem proved below. For example, a codeword may absorb noise during one time unit and be mapped to another codeword. If one only commutes whole fault layers forward, then one reorganizes the circuit globally and may lose the ability to point to the time at which a large syndrome first appears. The first notion of propagation avoids this problem: by propagating only part of the error while keeping the underlying time axis fixed, it lets us identify intermediate steps where a medium-size or large deviation must already be visible.
-
-The second notion is more global. There we swap entire layers and then update the time coordinates accordingly. Its role is not to locate when a syndrome becomes large, but rather to compare different time-unfoldings of the same noisy circuit and to coarse-grain the noise into sparser effective layers. In particular, once the theorem proved using this second notion is established, any constant-depth collection of gates may be treated as a single time step for the purpose of the noise analysis: up to the corresponding effective rescaling of the noise rate, we may ignore the faults that occur during the internal application of those gates and replace them by an effective fault layer acting only before or after that constant-depth subcircuit. Moreover, this effective rescaling is correct with respect to local stochastic noise channels: a local stochastic noise channel is mapped to another local stochastic noise channel, with a rescaled noise rate.
-
-For readability, we therefore separate the discussion into two subsections. The first subsection develops propagation inside a fixed running and is tailored to the deviation-cluster bounds, while the second develops layer propagation and is tailored to the coarse-graining argument.
-
 \subsubsection{Local Propagation Along a Running}
 
 \begin{definition}[Fault propagation to a step $\tau$]
