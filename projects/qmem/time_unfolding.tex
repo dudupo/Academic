@@ -118,7 +118,7 @@ For a quantum circuit $C$, we would like to discuss its action in the presence o
 \end{definition}
 So, $N_{\mathcal{E}}$ defines a probability space. The set of faults $\mathcal{E}$ is an atomic outcome, and for a given circuit $C$, the subjected circuit $C[\mathcal{E}]$ is a random variable. The following claim states that for local stochastic noise, the subjection of every 1-layer is equivalent to the subjection of every $m$-layer, up to a rescaling of the noise rate. Here, by equivalence, we mean that the actions of the subjected circuits are the same\footnote{For a given input (mixed) state $\rho$, they yield the same output}. 
 
-We give the proof in the appendix since the argument is not the core of this work, as it appears in almost any fault tolerance work, and in addition, it relies on 'propagation of entire layers', a term that collides with the local propagation we need for the intermediate theorem.
+We give the proof in the appendix since the argument is not the core of this work, as it appears in almost any fault tolerance work, and in addition, it relies on 'propagation of entire layers', a term that collides with the propagation (\Cref{def:localprop}) we need for the intermediate theorem.
 \begin{claim}
   \label{claim:block_noise_renorm}
   Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with rate $p$, and let $C$ be a quantum circuit whose gates have arity at most $\Delta$. Fix an even integer $c$. Then there exists a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$ with rate
@@ -136,9 +136,9 @@ We give the proof in the appendix since the argument is not the core of this wor
   In particular, up to a constant depending only on $\Delta$ and $c$, the rate $q$ behaves like $p^{\Delta^{-c}}$.
 \end{claim}
 
-\subsubsection{Local Propagation Along a Running}
 
 \begin{definition}[Fault propagation to a step $\tau$]
+  \label{def:localprop}
   Let $C=\{u_i\}_i$ be a quantum circuit, let $J=(j_1,\ldots,j_k)$ be an order agreeing with $\pi_C$, and let $u_i\in C$. Suppose that $u_i=u_{j_l}$ in this order. If $l>\tau$, we define the propagation of $u_i$ to step $\tau$ to be the identity operator.
 
   Otherwise, define operators $X_0,X_1,\ldots,X_{\tau-l}$ recursively by setting $X_0=u_{j_l}$ and requiring that for every $1\le s\le \tau-l$,
