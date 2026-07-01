@@ -166,6 +166,7 @@ The following definition of propagation describes the evolution of a fault. It a
 \end{definition}
 
 
+The propagation up to step $\tau$ allows us to define the deviation from an ideal run by propagating all the faults and marking all the locations in the result. The deviation up to stabilizers is defined almost the same, but considering the propagated faults modulated by the stabilizers.
 \begin{definition}[Deviation]
   \label{def:deviation}
   For a quantum circuit $C$, a set of faults $\mathcal{E}$, and step $\tau$, let $X^{\tau}$ be the propagated error at step $\tau$. We define the deviation of $C[\mathcal{E}]$ from $C$ at step $\tau$ by the set of indices on which $X^{\tau}$ acts non-trivially. 
