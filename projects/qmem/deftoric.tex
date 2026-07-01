@@ -93,13 +93,23 @@ We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$-, 
   For every $i$, the maps $\partial \colon \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \to \mathbb{F}_{2}^{|\mathcal{F}_{i-1}|}$ and $\partial^{*} \colon \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \to \mathbb{F}_{2}^{|\mathcal{F}_{i+1}|}$ satisfy the usual orthogonality relation between boundary and coboundary operators. Consequently, the $X$-checks defined by $\partial$ and the $Z$-checks defined by $\partial^{*}$ commute, and therefore the resulting toric code is a CSS code.
 \end{claim}
 \begin{proof}
-  It is enough to check the claim on basis vectors. For a basis vector $\rotfvs{}$, the appendix calculation shows that
+  It is enough to check the claim on basis vectors. For a basis vector $\rotfvs{}$, we have:
   \begin{equation*}
     \begin{split}
-      \partial\bigl(\partial \rotfvs{}\bigr)=0.
+      \partial^{-} \left(   \partial^{-} \rotfvs{} \right) & = \partial^{-} \left( \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} + \sum_{g \in S^{\prime}} \rotfv{gv}{S^{\prime}/g}  \right) \\
+      & = \sum_{ \substack{ g^{\prime},g \in S^{\prime} \\ g^{\prime}\neq g } } \left( \rotfv{v}{S^{\prime}/\{ g,g^{\prime} \} } +   \rotfv{g^{\prime}v}{S^{\prime}/\{ g,g^{\prime} \} }+ \rotfv{gv}{S^{\prime}/\{ g,g^{\prime} \} } + \rotfv{g^{\prime}gv}{S^{\prime}/\{ g, g^{\prime}\}} \right) \\
+      & = 0
     \end{split}
   \end{equation*}
-  The same cancellation argument applies dually to the coboundary operator. Equivalently, every $d^{\prime}-1$ face and every $d^{\prime}+1$ face overlap on an even number of $d^{\prime}$-faces, so the corresponding $X$- and $Z$-checks commute. This is exactly the CSS condition.
+Where we used that the term in the closure is invariant to sweeping between $g$ and $g^\prime$, and therefore any term in the sum appears twice. Similarly:
+  \begin{equation*}
+    \begin{split}
+      \partial^{+} \left(   \partial^{+} \rotfvs{} \right) & = \partial^{+} \left( \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S / S^{\prime}} \rotfv{g^{-1}v}{S^{\prime} \cup g}  \right) \\
+      & = \sum_{ \substack{ g^{\prime},g \in S/S^{\prime} \\ g^{\prime}\neq g } } \left( \rotfv{v}{S^{\prime}\cup\{ g,g^{\prime} \} } +   \rotfv{g^{\prime -1}v}{S^{\prime}\cup\{ g,g^{\prime} \} }+ \rotfv{g^{-1}v}{S^{\prime}\cup\{ g,g^{\prime} \} } + \rotfv{g^{\prime-1}g^{-1}v}{S^{\prime}\cup\{ g, g^{\prime}\}} \right) \\
+      & = 0
+    \end{split}
+  \end{equation*}
+  The conditions $ (\partial^{\pm})^{\circ 2} = 0 $ implais that   $ \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \substack{ \rightarrow^{\partial^{-}} }{ \leftarrow^{\partial^{+}}  } \mathbb{F}_{2}^{|\mathcal{F}_{i-1}|}$ is a chain complex. The same cancellation argument applies dually to the coboundary operator. Equivalently, every $d^{\prime}-1$ face and every $d^{\prime}+1$ face overlap on an even number of $d^{\prime}$-faces, so the corresponding $X$- and $Z$-checks commute. This is exactly the CSS condition.
 \end{proof}
 
 We will use only this CSS property and the local geometry of the code; standard facts about distance and rate may be found in the toric-code literature, for example in \cite{Dennis_2002}.
