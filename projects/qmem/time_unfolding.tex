@@ -48,14 +48,9 @@ Later, we will restrict $\mathcal{G}$ to contain $\mathbf{CX}, \mathbf{H}, \math
   Suppose that $J=(j_1,j_2,\ldots,j_k)$ is an ordering of the gate indices that agrees with a topological order induced by $\pi_C$. Then we define the associated partial circuits $C_J=\{C_{J,i}\}_{i=1}^{k}$ by
   \begin{enumerate}
     \item $C_{J,1}=\{u_{j_1}\}$.
-    \item For $1\le i<k$, set
-      \begin{equation*}
-        \begin{split}
-          C_{J,i+1}=C_{J,i}\cup\{u_{j_{i+1}}\}.
-        \end{split}
-      \end{equation*}
-      We call $C_{J,i}$ the partial computation circuit up to step $i$.
+    \item For $1\le i<k$, set $ C_{J,i+1}=C_{J,i}\cup\{u_{j_{i+1}}\}$.
   \end{enumerate}
+      We call $C_{J,i}$ the partial computation circuit up to step $i$.
 \end{definition}
 
 \begin{definition}
