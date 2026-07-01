@@ -112,12 +112,8 @@ For a quantum circuit $C$, we would like to discuss its action in the presence o
 \end{example}
 
 
-\begin{definition}[Noise channel]
-  A \textit{noise channel} $\mathcal{N}_{\mathcal{E}}$ is a distribution over sets of fault locations.
-\end{definition}
-
-\begin{definition}[Local stochastic noise channel]
-  Let $p\in(0,1)$. We say that the noise channel $\mathcal{N}_{\mathcal{E}}$ is \textit{local stochastic with rate $p$} if for every finite set of locations $S\subset \mathbb{N}\times \mathbb{N}$,
+\begin{definition}[Noise channel and local stochastic noise channel]
+  A \textit{noise channel} $\mathcal{N}_{\mathcal{E}}$ is a distribution over sets of fault locations. Let $p\in(0,1)$, we say that the noise channel $\mathcal{N}_{\mathcal{E}}$ is \textit{local stochastic with rate $p$} if for every finite set of locations $S\subset \mathbb{N}\times \mathbb{N}$,
   \begin{equation*}
     \begin{split}
       \prbm{S\subset \operatorname{Loc}(\mathcal{E})}{\mathcal{E}\sim \mathcal{N}_{\mathcal{E}}}
@@ -125,11 +121,7 @@ For a quantum circuit $C$, we would like to discuss its action in the presence o
     \end{split}
   \end{equation*}
 \end{definition}
-
-Given a circuit $C$ and a random fault set $\mathcal{E}\sim\mathcal{N}_{\mathcal{E}}$, the subjected circuit $C[\mathcal{E}]$ is itself a random variable.
-
-
-
+So, $N_{\mathcal{E}}$ defines a probability space. The set of faults $\mathcal{E}$ is an atomic outcome, and for a given circuit $C$, the subjected circuit $C[\mathcal{E}]$ is a random variable. The following claim states that for local stochastic noise, the subjection of every 1-layer is equivalent to the subjection of every $m$-layer, up to a rescaling of the noise rate. Here, by equivalence, we mean that the actions of the subjected circuits are the same\footnote{For a given input (mixed) state $\rho$, they yield the same output}. We give the proof in the appendix since the argument is not the core of this work, as it appears in almost any fault tolerance work, and in addition, it relies on 'propagation of entire layers', a term that collides with the local propagation we need for the intermediate theorem.
 \begin{claim}
   \label{claim:block_noise_renorm}
   Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with rate $p$, and let $C$ be a quantum circuit whose gates have arity at most $\Delta$. Fix an even integer $c$. Then there exists a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$ with rate
@@ -138,10 +130,10 @@ Given a circuit $C$ and a random fault set $\mathcal{E}\sim\mathcal{N}_{\mathcal
       q \colonequals \left(2^{H(\Delta^{-c})\Delta^{c}}p\right)^{\Delta^{-c}},
     \end{split}
   \end{equation*}
-  such that
+  such that for any given state $\rho$ it holds that:
   \begin{equation*}
     \begin{split}
-      C[\mathcal{E}]_{1} \sim_{P} C[\mathcal{E}_{q}]_{c/2}.
+      C[\mathcal{E}]_{1} \circ \rho =  C[\mathcal{E}_{q}]_{c/2} \circ \rho
     \end{split}
   \end{equation*}
   In particular, up to a constant depending only on $\Delta$ and $c$, the rate $q$ behaves like $p^{\Delta^{-c}}$.

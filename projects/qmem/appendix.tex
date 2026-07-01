@@ -125,6 +125,27 @@ By construction, $\sim_{P}$ preserves the implemented channel. Indeed, if $C\sim
   Finally, whenever $S\subset \operatorname{Loc}(V^{(1)})$ occurs, at least one minimal producing set $S'\in \mathcal{W}(S)$ is fully contained in the realized fault set $\operatorname{Loc}(\mathcal{E})$. This proves the event inclusion.
 \end{proof}
 
+
+
+We state \Cref{claim:block_noise_renorm} in the language of layer propagation.
+\begin{claim}
+  %\label{claim:block_noise_renorm}
+  Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with rate $p$, and let $C$ be a quantum circuit whose gates have arity at most $\Delta$. Fix an even integer $c$. Then there exists a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$ with rate
+  \begin{equation*}
+    \begin{split}
+      q \colonequals \left(2^{H(\Delta^{-c})\Delta^{c}}p\right)^{\Delta^{-c}},
+    \end{split}
+  \end{equation*}
+  such that
+  \begin{equation*}
+    \begin{split}
+      C[\mathcal{E}]_{1} \sim_{P} C[\mathcal{E}_{q}]_{c/2}.
+    \end{split}
+  \end{equation*}
+  In particular, up to a constant depending only on $\Delta$ and $c$, the rate $q$ behaves like $p^{\Delta^{-c}}$.
+\end{claim}
+
+
 \begin{proof}[Proof of \Cref{claim:block_noise_renorm}]
   Partition the subjected circuit $C[\mathcal{E}]_{1}$ into consecutive blocks of $c$ layers. Inside each block, propagate all internal even fault layers to the end of the block, exactly as in \Cref{claim:block_witness}. Doing this block by block yields a new circuit $C'$ in which each block of $c/2$ computational layers is followed by a single coarse-grained fault layer. Therefore $C' = C[\mathcal{E}']_{c/2}$ for a suitable random fault set $\mathcal{E}'$, and by construction
   \begin{equation*}
