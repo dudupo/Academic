@@ -121,7 +121,9 @@ For a quantum circuit $C$, we would like to discuss its action in the presence o
     \end{split}
   \end{equation*}
 \end{definition}
-So, $N_{\mathcal{E}}$ defines a probability space. The set of faults $\mathcal{E}$ is an atomic outcome, and for a given circuit $C$, the subjected circuit $C[\mathcal{E}]$ is a random variable. The following claim states that for local stochastic noise, the subjection of every 1-layer is equivalent to the subjection of every $m$-layer, up to a rescaling of the noise rate. Here, by equivalence, we mean that the actions of the subjected circuits are the same\footnote{For a given input (mixed) state $\rho$, they yield the same output}. We give the proof in the appendix since the argument is not the core of this work, as it appears in almost any fault tolerance work, and in addition, it relies on 'propagation of entire layers', a term that collides with the local propagation we need for the intermediate theorem.
+So, $N_{\mathcal{E}}$ defines a probability space. The set of faults $\mathcal{E}$ is an atomic outcome, and for a given circuit $C$, the subjected circuit $C[\mathcal{E}]$ is a random variable. The following claim states that for local stochastic noise, the subjection of every 1-layer is equivalent to the subjection of every $m$-layer, up to a rescaling of the noise rate. Here, by equivalence, we mean that the actions of the subjected circuits are the same\footnote{For a given input (mixed) state $\rho$, they yield the same output}. 
+
+We give the proof in the appendix since the argument is not the core of this work, as it appears in almost any fault tolerance work, and in addition, it relies on 'propagation of entire layers', a term that collides with the local propagation we need for the intermediate theorem.
 \begin{claim}
   \label{claim:block_noise_renorm}
   Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with rate $p$, and let $C$ be a quantum circuit whose gates have arity at most $\Delta$. Fix an even integer $c$. Then there exists a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$ with rate
