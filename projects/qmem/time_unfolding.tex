@@ -135,7 +135,10 @@ We give the proof in the appendix for several reasons. First, the argument is no
   \end{equation*}
   In particular, up to a constant depending only on $\Delta$ and $c$, the rate $q$ behaves like $p^{\Delta^{-c}}$.
 \end{claim}
-Equipped with this claim, we are allowed to assume having constant depth cycles that don't observe faults.
+Equipped with this claim, we are allowed to assume having constant depth cycles that don't observe faults. 
+
+
+The following definition of propagation describes the evolution of a fault. It assumes an order of steps and defines an operator that is obtained by commuting a given fault with the gates (and faults) prior to a given step.
 
 \begin{definition}[Fault propagation to a step $\tau$]
   \label{def:localprop}
