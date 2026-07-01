@@ -156,7 +156,7 @@ Given a circuit $C$ and a random fault set $\mathcal{E}\sim\mathcal{N}_{\mathcal
   \end{equation*}
   In particular, up to a constant depending only on $\Delta$ and $c$, the rate $q$ behaves like $p^{\Delta^{-c}}$.
 \end{claim}
-\begin{proof}
+\begin{proof}[Proof of \Cref{claim:block_noise_renorm}]
   Partition the subjected circuit $C[\mathcal{E}]_{1}$ into consecutive blocks of $c$ layers. Inside each block, propagate all internal even fault layers to the end of the block, exactly as in \Cref{claim:block_witness}. Doing this block by block yields a new circuit $C'$ in which each block of $c/2$ computational layers is followed by a single coarse-grained fault layer. Therefore $C' = C[\mathcal{E}']_{c/2}$ for a suitable random fault set $\mathcal{E}'$, and by construction
   \begin{equation*}
     \begin{split}
