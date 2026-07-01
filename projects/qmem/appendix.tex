@@ -75,21 +75,6 @@ By construction, $\sim_{P}$ preserves the implemented channel. Indeed, if $C\sim
   \end{split}
 \end{equation*}
 
-\begin{definition}[Noise channel]
-  A \textit{noise channel} $\mathcal{N}_{\mathcal{E}}$ is a distribution over sets of fault locations.
-\end{definition}
-
-\begin{definition}[Local stochastic noise channel]
-  Let $p\in(0,1)$. We say that the noise channel $\mathcal{N}_{\mathcal{E}}$ is \textit{local stochastic with rate $p$} if for every finite set of locations $S\subset \mathbb{N}\times \mathbb{N}$,
-  \begin{equation*}
-    \begin{split}
-      \prbm{S\subset \operatorname{Loc}(\mathcal{E})}{\mathcal{E}\sim \mathcal{N}_{\mathcal{E}}}
-      \le p^{|S|}.
-    \end{split}
-  \end{equation*}
-\end{definition}
-
-Given a circuit $C$ and a random fault set $\mathcal{E}\sim\mathcal{N}_{\mathcal{E}}$, the subjected circuit $C[\mathcal{E}]$ is itself a random variable.
 
 \begin{definition}[Witness family in the backward light cone]
   Let $W$ be a propagation expression obtained from a block of $c$ layers of a noisy circuit after propagating all even fault layers to the end of the block. For a subset $S\subset \operatorname{Loc}(W)$, we define the \textit{witness family} of $S$, denoted by $\mathcal{W}(S)$, to be the collection of all minimal sets
@@ -140,22 +125,6 @@ Given a circuit $C$ and a random fault set $\mathcal{E}\sim\mathcal{N}_{\mathcal
   Finally, whenever $S\subset \operatorname{Loc}(V^{(1)})$ occurs, at least one minimal producing set $S'\in \mathcal{W}(S)$ is fully contained in the realized fault set $\operatorname{Loc}(\mathcal{E})$. This proves the event inclusion.
 \end{proof}
 
-\begin{claim}
-  \label{claim:block_noise_renorm}
-  Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with rate $p$, and let $C$ be a quantum circuit whose gates have arity at most $\Delta$. Fix an even integer $c$. Then there exists a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$ with rate
-  \begin{equation*}
-    \begin{split}
-      q \colonequals \left(2^{H(\Delta^{-c})\Delta^{c}}p\right)^{\Delta^{-c}},
-    \end{split}
-  \end{equation*}
-  such that
-  \begin{equation*}
-    \begin{split}
-      C[\mathcal{E}]_{1} \sim_{P} C[\mathcal{E}_{q}]_{c/2}.
-    \end{split}
-  \end{equation*}
-  In particular, up to a constant depending only on $\Delta$ and $c$, the rate $q$ behaves like $p^{\Delta^{-c}}$.
-\end{claim}
 \begin{proof}[Proof of \Cref{claim:block_noise_renorm}]
   Partition the subjected circuit $C[\mathcal{E}]_{1}$ into consecutive blocks of $c$ layers. Inside each block, propagate all internal even fault layers to the end of the block, exactly as in \Cref{claim:block_witness}. Doing this block by block yields a new circuit $C'$ in which each block of $c/2$ computational layers is followed by a single coarse-grained fault layer. Therefore $C' = C[\mathcal{E}']_{c/2}$ for a suitable random fault set $\mathcal{E}'$, and by construction
   \begin{equation*}
