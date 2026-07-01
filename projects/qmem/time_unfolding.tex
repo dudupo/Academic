@@ -175,7 +175,7 @@ The propagation up to step $\tau$ allows us to define the deviation from an idea
   Using the same notations as in \Cref{def:deviation}, for a set of unitary operators $\mathcal{S} = \{s_{i} \colon \mathcal{H}_{2}^{w} \rightarrow \mathcal{H}_{2}^{w} \}_{i=1}$, we define the propagated error up to stabilizers in $\mathcal{S}$ as $X^{\tau}[S] \colonequals \min_{s \in \mathcal{S}} \{ w(sX) \}$. Then, we define the deviation of $C[\mathcal{E}]$ from $C$ at step $\tau$ up to stabilizers in $\mathcal{S}$ to be the subset of coordinates on which $X^{\tau}[S]$ acts non-trivially.
 \end{definition}
 
-The following definitions extend the notion of a Tanner graph to the setting of quantum circuits.
+The following definitions extend the notion of a Tanner graph to the setting of quantum circuits by joining the Tanner graphs of each encoded register. Deviation clusters are a connected component of the Tanner graph such that each of their checks touches a qubit that belongs to the deviation.
 
 \begin{definition}[Tanner graph of a register]
   Let $C$ be a quantum circuit and let $R$ be a register, namely a subset of qubits of $C$. The \textit{Tanner graph} of $R$ at step $\tau$, denoted by $\mathcal{T}_{R,\tau}$, is defined as follows:
@@ -274,6 +274,8 @@ Assume for contradiction that for every step $\tau$ with $\tau_{o}<\tau<\tau_{1}
 \end{equation*}
 which is a contradiction. Therefore there must exist an intermediate step $\tau_{\star}$ with $\tau_{o}<\tau_{\star}<\tau_{1}$ at which some deviation cluster has size in the interval $(\alpha x,x)$.
 \end{proof}
+
+We close the subsection by applying the intermediate theorem to derive a bound on the occurrence of large deviation clusters at sizes greater than $x$. In particular, the intermediate theorem states that for that to happen, there has to be a turn in which there is a deviation cluster of size at least: $(\Delta\Delta_{1}\Delta_{2})^{-1} x$. 
 
 \begin{claim}
   \label{claim:intersyn}
