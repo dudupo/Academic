@@ -110,6 +110,22 @@ Where we used that the term in the closure is invariant to sweeping between $g$ 
     \end{split}
   \end{equation*}
 
+
+  \begin{equation*}
+    \begin{split}
+       ( \partial^{+} \rotfv{v}{A} ) \rotfv{u}{B}   = 1 
+    \end{split}
+  \end{equation*}
+Means that there exists $g \notin A$ such that $A \cup \{g\} = B$ and either $v = u$ or $g^{-1}v = u$. But that is equivalent to saying that there is $g \in B$ such that $B \setminus \{g\} = A$ and either $v = u$ or $v = g^{-1}u$. In other words:
+  \begin{equation*}
+    \begin{split}
+       & ( \partial^{+} \rotfv{v}{A} ) \rotfv{u}{B}   =  \Leftrightarrow \rotfv{v}{A} ( \partial^{-} \rotfv{u}{B} ) \\ 
+       & \left( \partial^{+} \right)^\top = \partial^{-} 
+    \end{split}
+  \end{equation*}
+
+
+
   \begin{equation*}
     \begin{split}
        ( \partial^{+} \rotfv{v}{A} ) ( \partial^{-} \rotfv{u}{B} )   = \left(\sum_{g \in S/A} \rotfv{v}{A \cup g} + \rotfv{g^{-1}v}{ A \cup g }\right)  \left(\sum_{g \in B} \rotfv{u}{B / g} + \rotfv{gu}{ B / g }\right) \\
