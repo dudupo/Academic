@@ -84,11 +84,21 @@ If $d^{\prime} = d/2$, then for a fixed $S^{\prime} \subset S$, a realization of
 Equipped with $\mathbf{H}_{\phi}$, we gain a mapping into the dual code that both keeps the Toric skeleton and sends the $Z$-checks to $d^{\prime}-1$ dimensional faces. Later (in \Cref{subsection:dualcode}), this will be advantageous, enabling the use of the same local decoder (with a slight change) to act on both $\mathcal{C}_{X}$ and its dual. 
 
 
-We are now ready to give a full description of the realization of the logical operators. For the gates $\mathbf{S}$ and $\mathbf{T}$, we use the single-qubit gate teleportation as presented in \Cref{fig:magic}. In the single-qubit gate teleportation, the resource $\ket{\mathbf{S}}$ is initialized as $\mathbf{S}\ket{+}$, similarly for $\ket{\mathbf{T}}$. 
+Throughout the construction, we encode each qubit in a code block; namely, we restrict ourselves to using only a single codeword of the $(d,d^{\prime})$-Toric code. From now on, we will think of $S^{\prime} \subset S$ as a fixed $d^{\prime}$-size subset of generators that were picked from the head. And we will decode the logical $\ket{1}$ state by $x_{S^{\prime}}$. To simplify terminology, we call such usage 'nice encoding'.
+\begin{definition}[The Nice Encoding]
+  Consider $(d,d^{\prime}$-Toric code and fix a subset $S^{\prime} \subset S$, at size $d^{\prime}$. We define the \textit{nice encoding} to be the subsystem code, which uses $x_{S^{\prime}}$ to encode a single logical qubit. Namely, the logical codewords are: 
+  \begin{equation*}
+    \begin{split}
+      \ket{ \bar{0} } &= \ket{ \mathcal{C}_{Z}^{\perp} } \\ 
+      \ket{ \bar{1} } &= \ket{ x_{S^{\prime}} + \mathcal{C}_{Z}^{\perp} } 
+    \end{split}
+  \end{equation*}
+\end{definition}
+We are now ready to give a full description of the realization of the logical operators. The logical Paulis $X$ and $Z$ are realized by the application of $X_{S^{\prime}}$ and $Z_{S^{\prime}}$. For the gates $\mathbf{S}$ and $\mathbf{T}$, we use single-qubit gate teleportation as presented in \Cref{fig:magic}. In single-qubit gate teleportation, the resource $\ket{\mathbf{S}}$ is initialized as $\mathbf{S}\ket{+}$, similarly for $\ket{\mathbf{T}}$.
     \begin{figure}[h]
         \centering 
         \begin{quantikz}
-        \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{Z} &  \rstick{$\mathbf{S}\ket{\psi}$} \\
+          \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{Z_{S^{\prime}}} &  \rstick{$\mathbf{S}\ket{\psi}$} \\
         \lstick{$\ket{\mathbf{S}}$} & \targ{} & \meter{} \wire[u][1]{c}    \\
         \end{quantikz} \qquad \qquad 
         \begin{quantikz}
@@ -98,7 +108,7 @@ We are now ready to give a full description of the realization of the logical op
         \caption{ Simulating the $\mathbf{S}$ and $\mathbf{T}$ gates, using the $\ket{\mathbf{S}}$, $\ket{\mathbf{T}}$ magic states. }   
 \label{fig:magic}
 \end{figure}
-For the Hadamard gate, we use a modification of the standard two-qubit gate teleportation as shown in \Cref{fig:magich}. The realization differs from the standard realization as the measurement in the phase basis is done by first moving to the dual space via the application of physical $\mathbf{H}^{\otimes n}$, measuring, reorganizing the qubits through $\phi$, and then checking for the $x_{S/S^{\prime}}$ outcome. Unlike the single-qubit gate teleportation, here $\ket{\mathbf{H}}$ is initialized as $I\otimes H (\ket{00} + \ket{11})$ (up to normalization).
+For the Hadamard gate, we use a modification of the standard two-qubit gate teleportation as shown in \Cref{fig:magich}. The realization differs from the standard realization as the measurement in the phase basis is done by first moving to the dual space via the application of physical $\mathbf{H}^{\otimes n}$, measuring, reorganizing the qubits through $\phi$, and then checking for the $x_{S/S^{\prime}}$ outcome. In addition, unlike the single-qubit gate teleportation, here $\ket{\mathbf{H}}$ is initialized as $I\otimes H (\ket{00} + \ket{11})$ (up to normalization).
     \begin{figure}[h]
         \centering 
         \begin{quantikz}
@@ -125,15 +135,6 @@ For the Hadamard gate, we use a modification of the standard two-qubit gate tele
 \ctt{ Add a corollary that state that we can perform a gate teleportations of $\mathbf{S}$ and $\mathbf{H}$, with the resource states  $\ket{\mathbf{S}}$ and $\ket{\mathbf{H}}$, $\log(n)$ classical depth, and only transversal operation over the encoded register.}
 
 
-\begin{definition}[The Nice Encoding]
-  Consider $(d,d/2)$-Toric code and fix a subset $S^{\prime} \subset S$, at size $d^{\prime}$. We define the \textit{nice encoding} to be the subsystem code, which uses $x_{S^{\prime}}$ to encode a single logical qubit. Namely, the logical codewords are: 
-  \begin{equation*}
-    \begin{split}
-      \ket{ \bar{0} } &= \ket{ \mathcal{C}_{Z}^{\perp} } \\ 
-      \ket{ \bar{1} } &= \ket{ x_{S^{\prime}} + \mathcal{C}_{Z}^{\perp} } 
-    \end{split}
-  \end{equation*}
-\end{definition}
 
 
 
