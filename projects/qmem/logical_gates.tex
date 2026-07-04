@@ -103,8 +103,8 @@ We are now ready to give a full description of the realization of the logical op
         \centering 
         \begin{quantikz}
           \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{\mathbf{H}^{\otimes n}} & \meter{} \wire{c} & \gate{ \phi } &  \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
-         \lstick[2]{$\ket{\mathbf{H}}$} & \targ{} & \meter{} &   \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[d][1]{c}   \\
-         & & & \gate{Z_{S^{\prime}}}  & & \gate{X_{S^{\prime}}}  & \rstick{$\mathbf{H}\ket{\psi}$} \\
+         \lstick[2]{$\ket{\mathbf{H}}$} & \targ{} & & \meter{} &   \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[d][1]{c}   \\
+         & &  & & \gate{Z_{S^{\prime}}}   & \gate{X_{S^{\prime}}}  & \rstick{$\mathbf{H}\ket{\psi}$} \\
         \end{quantikz} 
         \caption{ Simulating the $\mathbf{S}$ and $\mathbf{T}$ gates, using the $\ket{\mathbf{S}}$, $\ket{\mathbf{T}}$ magic states. \inb{Fix the upper classical wire.} }   
 \label{fig:magich}
