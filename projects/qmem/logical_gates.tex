@@ -120,6 +120,9 @@ For the Hadamard gate, we use a modification of the standard two-qubit gate tele
 \label{fig:magich}
 \end{figure}
 
+The way in which we realize the look for the $x_{S^{\prime}}$ / $x_{S/S^{\prime}}$ is by first finding all the deviation clusters of the Tanner graph. This requires finding a connected component, which is known to be done in $\log(n)$ depth. Then, we broadcast copies of the measurement, such that each deviation cluster has a copy associated with it. Then, we apply the decoder that is defined by iterating sweep rule cycles until erasing the syndrome.
+
+
 %
 %Next, we are going to provide a reliztion of the logical measurment in the phase base, where the the application of 
 %For now, we are fine, with stating a corollary, suppose that we have a single-shot decoder $D$ that 
