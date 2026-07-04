@@ -119,8 +119,8 @@ For the Hadamard gate, we use a modification of the standard two-qubit gate tele
         \caption{ Simulating the $\mathbf{S}$ and $\mathbf{T}$ gates, using the $\ket{\mathbf{S}}$, $\ket{\mathbf{T}}$ magic states. \inb{Fix the upper classical wire.} }   
 \label{fig:magich}
 \end{figure}
+The way in which we realize the look for the $x_{S^{\prime}}$ / $x_{S/S^{\prime}}$ is by first finding all the deviation clusters of the Tanner graph. This requires finding a connected component, which is known to be done in $\log(n)$ depth. Then, we broadcast copies of the measurement, such that each deviation cluster has a copy associated with it. The broadcast also requires at most $\log(n)$ depth since there can be at most \#checks $=\Theta(n)$ deviation clusters and therefore at most $\Theta(n)$ copies. Then, we apply the decoder that is defined by iterating sweep rule cycles until erasing the syndrome. Later, we will see that the decoding depth is bounded by $\Theta(n)$. Finally, we combine applications of all the decoding sessions together (xoring them), again in $\log(n)$ depth. So the overall depth for performing a logical measurement is $\Theta(n)$.
 
-The way in which we realize the look for the $x_{S^{\prime}}$ / $x_{S/S^{\prime}}$ is by first finding all the deviation clusters of the Tanner graph. This requires finding a connected component, which is known to be done in $\log(n)$ depth. Then, we broadcast copies of the measurement, such that each deviation cluster has a copy associated with it. Then, we apply the decoder that is defined by iterating sweep rule cycles until erasing the syndrome.
 
 
 %
