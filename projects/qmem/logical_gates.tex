@@ -86,12 +86,12 @@ Equipped with $\mathbf{H}_{\phi}$, we gain a mapping into the dual code that bot
     \begin{figure}[h]
         \centering 
         \begin{quantikz}
-        \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{S} &  && \\
-\lstick{$\ket{T}$} & \targ{} & \meter{} \wire[u][1]{c}    \\
+        \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{Z} &  && \\
+        \lstick{$\ket{\mathbf{S}}$} & \targ{} & \meter{} \wire[u][1]{c}    \\
         \end{quantikz} \qquad \qquad 
         \begin{quantikz}
-        \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{S} &  && \\
-\lstick{$\ket{T}$} & \targ{} & \meter{} \wire[u][1]{c}    \\
+          \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{$\mathbf{S}$} &  && \rstick{$\mathbf{T}\ket{\psi}$} \\
+          \lstick{$\ket{\mathbf{T}}$} & \targ{} & \meter{} \wire[u][1]{c}    \\
         \end{quantikz}
         \caption{ Simulating the $T$-gate, using the $\ket{T}$ magic state. }   
 \label{fig:magic}
