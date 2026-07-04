@@ -56,11 +56,8 @@ Notice that the transpose map is a permutation over the bits and therefore can b
     \end{split}
   \end{equation*}
 \end{definition}
-
-\ctt{Change the definition above such that it will be about moving to the dual code $C_{X}/C_{Z}^{\perp} \rightarrow C_{Z}/C_{X}^{\perp}$. And not about the logical Hadamard. }
-
 \begin{claim}
-  The Hadamard-type gate $ \mathbf{H_{\phi}}$ has a fold-transversal implementation by, first applying $\mathbf{H}^{n}$ over all the physical qubits, and then permuting them by the transpose map $\phi$, namely $\hat{H}_{\phi} = \phi \circ H^{n}$.
+  The Hadamard-type gate $ \mathbf{H_{\phi}}$ has a fold-transversal implementation by, first applying $\mathbf{H}^{n}$ over all the physical qubits, and then permuting them by the transpose map $\phi$, namely $\mathbf{\hat{H}}_{\phi} = \phi \circ \mathbf{H}^{n}$.
 \end{claim}
 \begin{proof}
   Clearly, for any subset of generators $S^{\prime} \subset S$, the map $\phi$ sends $x_{S^{\prime}}$ to $z_{S/S^{\prime}}$:
@@ -81,7 +78,7 @@ And since $\phi \circ \phi = I$, we also have that $\phi\left( \partial^{+} \rot
 \end{proof}
 
 \input{./tikz/transpose-toric.tikz} 
-
+\ctt{Change the definition above such that it will be about moving to the dual code $C_{X}/C_{Z}^{\perp} \rightarrow C_{Z}/C_{X}^{\perp}$. And not about the logical Hadamard. }
 \ctt{  Here, add that the measurement in the $X$-basis can be done using $\textbf{H}^{n}$, measurement,  and then $\log(n)$ classical depth. }
 
 \ctt{ Add a corollary that state that we can perform a gate teleportations of $\mathbf{S}$ and $\mathbf{H}$, with the resource states  $\ket{\mathbf{S}}$ and $\ket{\mathbf{H}}$, $\log(n)$ classical depth, and only transversal operation over the encoded register.}
