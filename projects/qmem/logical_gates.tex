@@ -98,7 +98,7 @@ We are now ready to give a full description of the realization of the logical op
         \caption{ Simulating the $\mathbf{S}$ and $\mathbf{T}$ gates, using the $\ket{\mathbf{S}}$, $\ket{\mathbf{T}}$ magic states. }   
 \label{fig:magic}
 \end{figure}
-For the Hadamard gate, we use a modification of the standard two-qubit gate teleportation as shown in \Cref{fig:magich}. The realization differs from the standard realization as the measurment in the  $\mathbf{H}_{\phi}$. Unlike the single-qubit gate teleportation, here $\ket{\mathbf{H}}$ is initialized as $I\otimes H (\ket{00} + \ket{11})$ (up to normalization).
+For the Hadamard gate, we use a modification of the standard two-qubit gate teleportation as shown in \Cref{fig:magich}. The realization differs from the standard realization as the measurement in the phase basis is done by first moving to the dual space via the application of physical $\mathbf{H}^{\otimes n}$, measuring, reorganizing the qubits through $\phi$, and then checking for the $x_{S/S^{\prime}}$ outcome. Unlike the single-qubit gate teleportation, here $\ket{\mathbf{H}}$ is initialized as $I\otimes H (\ket{00} + \ket{11})$ (up to normalization).
     \begin{figure}[h]
         \centering 
         \begin{quantikz}
