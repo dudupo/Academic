@@ -76,15 +76,16 @@ Now we are ready to give an explicit description of the mapping. Given a quantum
 
 \begin{claim}
 \label{claim:pauli_back}
-Let $u=(g,l)$ be a decoding gate, and let $v_{0},v_{\pm 1}, v_{\pm 2} ,v_{\pm d} $ be its rooted translation in the $\infty$-extension such that $v_{\pm i} = \pm \mathbf{1}_{i} * u$. Then
+Let $u=(g,l)$ be a decoding gate, and let $v_{0},v_{- 1}, v_{- 2} ,v_{- d} $ be its rooted translation in the $\infty$-extension such that $v_{- i} = - \mathbf{1}_{i} * u$. Then
   \begin{equation*}
     \begin{split}
-      v_{0}(\prod_{i}v_{\pm i})|_{[w]} = u.
+      v_{0}(\prod_{i}v_{- i})|_{[w]} = u.
     \end{split}
   \end{equation*}
 \end{claim}
 \begin{proof}
-  Since $u$ is a decoding gadget, and therefore   The gates $v_{0}$ and $v_{\pm 1}$ are copies of the same local Pauli operator acting on translates of the same finite pattern. When restricted to the fundamental domain $[w]$, all factors outside $[w]$ disappear, and the remaining action coincides with the original gate $u$. Thus the product of the relevant translates restricts exactly to $u$.
+  Since $u$ is a decoding gadget, then the gates $v_{0}$ and $v_{\pm i}$ are Pauli products, therefore we can decompose $v_{-i}$ to $ v_{-i} = \prod_{j}^{\Delta} v_{-i,j}$.  
+
 \end{proof}
 
 \begin{definition}
