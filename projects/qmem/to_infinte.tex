@@ -45,26 +45,41 @@ The following definition extends the notion of location to differentiate between
 
 We will need two types of gate translation. The first is the standard spatial translation, which means that any of the inner coordinates of the gate are advanced by the same vector. The second is 'rooted translation.' Here, we assume that the locations of the gate are given in a relative-to-root fashion, meaning that there is a root vertex, and all the locations are given by positive paths from the root. Then, we first translate the root and then advance the inner coordinate of any of the other locations to be on the path from the translated root. When considering a product gate, the translations act the same.   
 \begin{definition}[Translation by vertex $v$]
-Let $u$ be a gate, and denote the inner coordinates of $u$'s locations by $\rotf{v_{1}}{J_{1}}, \ldots, \rotf{v_{\Delta}}{J_{\Delta}}$. The translation of $u$ by vertex $v$ is defined to be the gate obtained from $u$ by replacing the inner coordinates of its locations by: $\rotf{v v_{1}}{J_{1}}, \ldots, \rotf{v v_{\Delta}}{J_{\Delta}}$.
+  Let $u$ be a gate, and denote the inner coordinates of $u$'s locations by $\rotf{v_{1}}{J_{1}}, \ldots, \rotf{v_{\Delta}}{J_{\Delta}}$. The translation of $u$ by vertex $v$ is defined to be the gate obtained from $u$ by replacing the inner coordinates of its locations by: $\rotf{v v_{1}}{J_{1}}, \ldots, \rotf{v v_{\Delta}}{J_{\Delta}}$.
+  Furthermore, for a $d$-dimensional Toric complex with side length $n$, we define a translation by an integer vector $a \in \mathbb{Z}^{d}$ as a translation by the vertex:
+   \begin{equation*}
+     \begin{split}
+       (g_{1}^{n})^{a_{1}}, (g_{2}^{n})^{a_{2}},.., (g_{d}^{n})^{a_{d}}
+     \end{split}
+   \end{equation*}
+    We denote the translation by an integer vector $a$ as $a * u$.
 \end{definition}
 
 
 
 \begin{definition}[Rooted gate at vertex $v$]
-Let $u$ be a quantum gate that acts on a register whose qubits are associated with a Toric complex at dimension $d$. We say that a gate $u$ is rooted at vertex $v$ if the inner coordinate of its location can be encoded by lists of pairs $(I_{1}, J_{1}), (I_{2}, J_{2}), \ldots, (I_{l}, J_{l})$ such that $I_{i} \in S^{d}, J_{i} \subset S$, and the $i$th qubit on which it acts is in the face $\rotf{ (\prod_{g \in I_{i}}g) v }{  J_{i}  }$
+  Let $u$ be a quantum gate that acts on a register whose qubits are associated with a Toric complex at dimension $d$. We say that a gate $u$ is rooted at vertex $v$ if the inner coordinate of its location can be encoded by lists of pairs $(I_{1}, J_{1}), (I_{2}, J_{2}), \ldots, (I_{l}, J_{l})$ such that $I_{i} \in S^{d}, J_{i} \subset S$, and the $i$th qubit on which it acts is in the face $\rotf{ (\prod_{g \in I_{i}}g) v }{  J_{i}  }$.
 \end{definition}
 
 \begin{definition}[Root translation in Register System] 
-For a gate $u$ that is a rooted gate at vertex $v$, we define its translation by a vertex $v^{\prime}$ to be the gate obtained by copying $u$ and replacing its inner location encoding the root by $v^{\prime}v$.  
+  For a gate $u$ that is a rooted gate at vertex $v$, we define its translation by a vertex $v^{\prime}$ to be the gate obtained by copying $u$ and replacing its inner location encoding the root by $v^{\prime}v$. 
+
+Similarly to the standard translation by an integer vector, we extend the action to a root translation by an integer vector $a \in \mathbb{Z}^{d}$, as the root translation by the vertex:
+   \begin{equation*}
+     \begin{split}
+       (g_{1}^{n})^{a_{1}}, (g_{2}^{n})^{a_{2}},.., (g_{d}^{n})^{a_{d}}
+     \end{split}
+   \end{equation*}
+   We denote the root translation by an integer vector $a$ as $a *_{r} u$.
 \end{definition}
 
-Now we are ready to give an explicit description of the mapping. Given a quantum circuit $C$, we name its presentation over the infinite plane the \textit{$\infty$-extension of $C$}. Here we assume that all the decoding gadgets are rooted Pauli gates.
+Now we are ready to give an explicit description of the mapping. Given a quantum circuit $C$, we name its presentation over the infinite plane the \textit{$\infty$-extension of $C$}.
 \begin{definition}
   \label{def:extension}
-  Let $n$ be an integer, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with quantum registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ is over $n$ qubits. In addition let us denote the decoding gates of $C$ by $\mathcal{U}$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
+  Let $n$ be an integer, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with quantum registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ encodes $n$-length Toric code. In addition let us denote the decoding gates of $C$ by $\mathcal{U}$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
   \begin{enumerate}
     \item Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, which is over an infinite number of qubits. Since the mapping between registers is one-to-one, we use the identifier $\mathbf{1}_{R_{i}}$ to identify also $R^{\prime}_{i}$.
-    \item Each gate $u_{i} \in C / \mathcal{U}$ is mapped via the standard translation:     
+    \item Each gate $u_{i} \in C / \mathcal{U}$ is mapped it the infinite collection obtained by a  via the standard translation by a vertex:     
       \begin{equation*}
         \begin{split}
           u_{i} & = (g_{i},l_{i}) \mapsto  
