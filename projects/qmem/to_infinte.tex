@@ -1,7 +1,6 @@
-\subsection{Infinite Torics}
+\subsection{Infinite Sides Torics}
 \label{subsection:infinitetoric}
-
-We will have to move to the infinite plane; before that, we need the following two definitions:
+The Toric skeleton provides a notation for positive directions. However, to demonstrate that the deviation cluster size shrinks as a result of the decoding cycle, or at least does not expand too much during the operation of the logical operator, we will need a way to mark extremities (for example, the northernmost point). To achieve this, we will analyze the view over the finite Toric as a projection derived from a view over the infinite plane. For this purpose, given our initial quantum circuit, we construct a representation in which any gate that originally acted on the quantum register, namely on the finite Toric, is mapped to an infinite series of quantum gates that act on the infinite number of qubits set on the infinite plane. This series respects a periodic condition such that any restriction of it to a finite rectangle the size of the original Toric yields the original view.
 
 \begin{definition}[Decoding Gadget]
   Let $C$ be a quantum circuit, and let $u$ be a gate in $C$ with fan-in at most $\Delta$. We say that $u$ is a \textit{decoding gadget} if it has the following form:
