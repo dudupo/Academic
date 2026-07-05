@@ -42,6 +42,9 @@ The following definition extends the notion of location to differentiate between
   We call the first coordinate of $\phi_{\mathcal{R}}(x)$ the \textit{register coordinate} and the second the \textit{inner coordinate}.
 \end{definition}
 
+\begin{definition}[Translation by vertex $v$]
+Let $u$ be a gate, and denote the inner coordinates of $u$'s locations by $\rotf{v_{1}}{J_{1}}, \ldots, \rotf{v_{\Delta}}{J_{\Delta}}$. The translation of $u$ by vertex $v$ is defined to be the gate obtained from $u$ by replacing the inner coordinates of its locations by: $\rotf{v v_{1}}{J_{1}}, \ldots, \rotf{v v_{\Delta}}{J_{\Delta}}$.
+\end{definition}
 
 
 We will need another type of gate translation, 'rooted translation'. Here, we assume that the locations of the gate are given in a relative-to-root fashion, meaning that there is a root vertex, and all the locations are given by positive paths from the root. This translation assumes an underlying Toric complex. 
