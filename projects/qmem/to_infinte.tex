@@ -43,7 +43,7 @@ The following definition extends the notion of location to differentiate between
   We call the first coordinate of $\phi_{\mathcal{R}}(x)$ the \textit{register coordinate} and the second the \textit{inner coordinate}.
 \end{definition}
 
-On a location encoded in the register coordinate system, we can act via shifting, which matches the given location to a shifted location on the suitable infinite toric.
+On a location encoded in the register coordinate system, we can act via shifting, which matches the given location to a shifted location on the suitable infinite Toric.
     \begin{definition}[Shifting in Registers System]
 Consider the register coordinate system induced by a quantum circuit of width $w$, with $R$ registers, each of length at most $n$. For an integer $r \in \mathbb{Z}$, we define the $r$-shifting function $\text{Sh}_{r} \colon (\mathbb{Z}_{R} \times \mathbb{Z}_{n})^{\times \Delta} \rightarrow (\mathbb{Z}_{R} \times \mathbb{Z})^{\times \Delta}$ to act on space-location coordinates as follows:
   \begin{equation*}
@@ -60,9 +60,9 @@ Consider the register coordinate system induced by a quantum circuit of width $w
 
 \begin{definition}
   \label{def:extension}
-  Let $n$ be an integer, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ is a toric encoding with a side length $n$. In addition, all the decoding gadgets of $C$ are sweep rule gadgets; let us denote them by $\mathcal{U}$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
+  Let $n$ be an integer, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ is a Toric encoding with a side length $n$. In addition, all the decoding gadgets of $C$ are sweep rule gadgets; let us denote them by $\mathcal{U}$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
   \begin{enumerate}
-    \item For a register $R_{i} \in \mathcal{R}$, denote by $d_{i}, d_{i}^{\prime}$ the dimension of the toric complex that induces the code, and the dimension of the faces that are associated with the bits. Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, which is a $(d_{i}, d_{i}^\prime)$-dimensional, infinite side length, toric encoding. Since the mapping between registers is one-to-one, we use the identifier $\mathbf{1}_{R_{i}}$ to identify also $R^{\prime}_{i}$.
+    \item For a register $R_{i} \in \mathcal{R}$, denote by $d_{i}, d_{i}^{\prime}$ the dimension of the Toric complex that induces the code, and the dimension of the faces that are associated with the bits. Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, which is a $(d_{i}, d_{i}^\prime)$-dimensional, infinite side length, Toric encoding. Since the mapping between registers is one-to-one, we use the identifier $\mathbf{1}_{R_{i}}$ to identify also $R^{\prime}_{i}$.
     \item Each gate $u_{i} \in C / \mathcal{U}$ is mapped to:     
       \begin{equation*}
         \begin{split}
@@ -159,7 +159,7 @@ Moreover, since $v_{0}$ and $v_{1}$ are translates of $u$ in locations $\text{ro
   \end{enumerate}
 \end{proof}
 
-The computation DAG lifts naturally to the $\infty$-extension: gates that arise as translates of the same local gate act on disjoint translated supports inside different periods, so they may be executed simultaneously. The same periodic lifting applies to the underlying geometric objects, passing from the finite toric complex to its infinite cover.
+The computation DAG lifts naturally to the $\infty$-extension: gates that arise as translates of the same local gate act on disjoint translated supports inside different periods, so they may be executed simultaneously. The same periodic lifting applies to the underlying geometric objects, passing from the finite Toric complex to its infinite cover.
 
 
 
