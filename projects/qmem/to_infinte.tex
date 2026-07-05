@@ -79,14 +79,16 @@ Now we are ready to give an explicit description of the mapping. Given a quantum
   Let $n$ be an integer, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with quantum registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ encodes $n$-length Toric code. In addition let us denote the decoding gates of $C$ by $\mathcal{U}$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
   \begin{enumerate}
     \item Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, which is over an infinite number of qubits. Since the mapping between registers is one-to-one, we use the identifier $\mathbf{1}_{R_{i}}$ to identify also $R^{\prime}_{i}$.
-    \item Each gate $u_{i} \in C / \mathcal{U}$ is mapped it the infinite collection obtained by a  via the standard translation by a vertex:     
+    \item Each gate $u_{i} \in C$ is mapped to the infinite collection of gates, where the gates are obtained by either the standard translation or the rooted translation by an integer vector, depending on whether $u_{i}$ is a decoding gate as follows:
       \begin{equation*}
         \begin{split}
-          u_{i} & = (g_{i},l_{i}) \mapsto  
-          \bigcup_{ v \in \mathbb{Z}^{d} } \left\{ (g_{i}, v l_{i}) \right\}
+          u_{i}  \mapsto  
+          \begin{cases}
+            \bigcup_{ a \in \mathbb{Z}^{d} } \left\{ a * v \right\} & u_{i} \in C/ \mathcal{U} \\ 
+            \bigcup_{ a \in \mathbb{Z}^{d} } \left\{ a_{r} * v \right\} & u_{i} \in \mathcal{U}
+          \end{cases}
         \end{split}
       \end{equation*}
-    \item Each gate $ u \in \mathcal{U} $ is mapped to the collection of gates $\{ v_{j} \}_{j = -\infty}^{\infty}$ such that each of them is a translation of $u$ by $jn$. 
   \end{enumerate}
   For a set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, we denote by $C^{\infty}[\mathcal{E}^{\infty}]$ the \textit{$\infty$-extension of $C[\mathcal{E}]$}.
 \end{definition}
