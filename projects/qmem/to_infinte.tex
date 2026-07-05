@@ -42,26 +42,12 @@ The following definition extends the notion of location to differentiate between
   We call the first coordinate of $\phi_{\mathcal{R}}(x)$ the \textit{register coordinate} and the second the \textit{inner coordinate}.
 \end{definition}
 
-On a location encoded in the register coordinate system, we can act via shifting, which matches the given location to a shifted location on the suitable infinite Toric.
-    \begin{definition}[Shifting in Registers System]
-Consider the register coordinate system induced by a quantum circuit of width $w$, with $R$ registers, each of length at most $n$. For an integer $r \in \mathbb{Z}$, we define the $r$-shifting function $\text{Sh}_{r} \colon (\mathbb{Z}_{R} \times \mathbb{Z}_{n})^{\times \Delta} \rightarrow (\mathbb{Z}_{R} \times \mathbb{Z})^{\times \Delta}$ to act on space-location coordinates as follows:
-  \begin{equation*}
-    \begin{split}
-      & \text{Sh}_{r}( l_{1}, .., l_{k} ) = ( \text{Sh}_{r}(l_{1}), .., \text{Sh}_{r}(l_{k}) ) \\ 
-      & \text{ Where } \text{Sh}_{r}(l_{i}) = 
-      \begin{cases}
-        l_{i} + r & \text{ if } l_{i} \text{ is an inner coordinate } \\ 
-        l_{i}& \text{ else }
-      \end{cases}
-    \end{split}
-  \end{equation*}
-\end{definition}
 
 
 We will need another type of gate translation, 'rooted translation'. Here, we assume that the locations of the gate are given in a relative-to-root fashion, meaning that there is a root vertex, and all the locations are given by positive paths from the root. This translation assumes an underlying Toric complex. 
 
-\begin{definition}[Rooted Pauli at vertex $v$]
-Let $u$ be a quantum gate that acts on a register whose qubits are associated with a Toric complex at dimension $d$. We say that a Pauli gate $u$ is rooted at vertex $v$ if the inner coordinate of its location can be encoded by lists of pairs $(I_{1}, J_{1}), (I_{2}, J_{2}), \ldots, (I_{l}, J_{l})$ such that $I_{i} \in S^{d}, J_{i} \subset S$, and the $i$th qubit on which it acts is in the face:
+\begin{definition}[Rooted gate at vertex $v$]
+Let $u$ be a quantum gate that acts on a register whose qubits are associated with a Toric complex at dimension $d$. We say that a gate $u$ is rooted at vertex $v$ if the inner coordinate of its location can be encoded by lists of pairs $(I_{1}, J_{1}), (I_{2}, J_{2}), \ldots, (I_{l}, J_{l})$ such that $I_{i} \in S^{d}, J_{i} \subset S$, and the $i$th qubit on which it acts is in the face:
   \begin{equation*}
     \begin{split}
       \rotf{ (\prod_{g \in I_{i}}g) v }{  J_{i}  }
@@ -70,7 +56,7 @@ Let $u$ be a quantum gate that acts on a register whose qubits are associated wi
 \end{definition}
 
 \begin{definition}[Root translation in Register System] 
-For a gate $u$ that is a rooted Pauli gate at vertex $v$, we define its translation by a vertex $v^{\prime}$ to be the gate obtained by copying $u$ and replacing its inner location encoding the root by $v^{\prime}v$.  Since the number of vertices in the infinite Toric is countable, we can define a translation by an integer as the translation by the vertex that is matched to that integer in order.
+For a gate $u$ that is a rooted gate at vertex $v$, we define its translation by a vertex $v^{\prime}$ to be the gate obtained by copying $u$ and replacing its inner location encoding the root by $v^{\prime}v$.  Since the number of vertices in the infinite Toric is countable, we can define a translation by an integer as the translation by the vertex that is matched to that integer in order.
 \end{definition}
 
 Now we are ready to give an explicit description of the mapping. Given a quantum circuit $C$, we name its presentation over the infinite plane the \textit{$\infty$-extension of $C$}. Here we assume that all the decoding gadgets are rooted Pauli gates.
@@ -79,11 +65,11 @@ Now we are ready to give an explicit description of the mapping. Given a quantum
   Let $n$ be an integer, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with quantum registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ is over $n$ qubits. In addition let us denote the decoding gates of $C$ by $\mathcal{U}$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
   \begin{enumerate}
     \item Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, which is over an infinite number of qubits. Since the mapping between registers is one-to-one, we use the identifier $\mathbf{1}_{R_{i}}$ to identify also $R^{\prime}_{i}$.
-    \item Each gate $u_{i} \in C / \mathcal{U}$ is mapped to:     
+    \item Each gate $u_{i} \in C / \mathcal{U}$ is mapped via the standard translation:     
       \begin{equation*}
         \begin{split}
           u_{i} & = (g_{i},l_{i}) \mapsto  
-          \bigcup_{j = -\infty}^{\infty}\left\{ (g_{i},( \text{Sh}_{jn}(l_{i})) \right\}
+          \bigcup_{ v \in \mathbb{Z}^{d} } \left\{ (g_{i}, v l_{i}) \right\}
         \end{split}
       \end{equation*}
     \item Each gate $ u \in \mathcal{U} $ is mapped to the collection of gates $\{ v_{j} \}_{j = -\infty}^{\infty}$ such that each of them is a translation of $u$ by $jn$. 
