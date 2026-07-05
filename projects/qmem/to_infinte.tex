@@ -1,7 +1,9 @@
 \subsection{Infinite Sides Torics}
 \label{subsection:infinitetoric}
-The Toric skeleton provides a notation for positive directions. However, to demonstrate that the deviation cluster size shrinks as a result of the decoding cycle, or at least does not expand too much during the operation of the logical operator, we will need a way to mark extremities (for example, the northernmost point). To achieve this, we will analyze the view over the finite Toric as a projection derived from a view over the infinite plane. For this purpose, given our initial quantum circuit, we construct a representation in which any gate that originally acted on the quantum register, namely on the finite Toric, is mapped to an infinite series of quantum gates that act on the infinite number of qubits set on the infinite plane. This series respects a periodic condition such that any restriction of it to a finite rectangle the size of the original Toric yields the original view.
+The Toric skeleton provides a notation for positive directions. However, to demonstrate that the deviation cluster size shrinks as a result of the decoding cycle, or at least does not expand too much during the operation of the logical operator, we will need a way to mark extremities (for example, the northernmost point). To achieve this, we will analyze the view over the finite Toric as a projection derived from a view over the infinite plane. For this purpose, given our initial (subjected) quantum circuit, we construct a representation in which any gate that originally acted on the quantum register, namely on the finite Toric, is mapped to an infinite set of quantum gates that act on the infinite number of qubits set on the infinite plane. This set respects a periodic condition such that any restriction of it to a finite rectangle the size of the original Toric yields the original view, and therefore describes well the original running. 
 
+
+The following two definitions simplify decoding gates by replacing them with the Pauli 'correction' they suggest at the end of their cycle. The first defines what a decoding gate is, and the second defines the replacement.
 \begin{definition}[Decoding Gadget]
   Let $C$ be a quantum circuit, and let $u$ be a gate in $C$ with fan-in at most $\Delta$. We say that $u$ is a \textit{decoding gadget} if it has the following form:
   \begin{enumerate}
@@ -16,10 +18,7 @@ The Toric skeleton provides a notation for positive directions. However, to demo
 \end{definition}
 
 
-
-
-
-
+The following definition extends the notion of location to differentiate between a coordinate that encodes a register and a coordinate of the location inside the register. This will be useful, as in the infinite plane representation, each register will be mapped to a unique infinite register. From a technical perspective, the map will stretch only inner locations to infinity.
 \begin{definition}[Register coordinate system]
   Let $C=\{u_i\}_i$ be a quantum circuit of width $w$ with registers $\mathcal{R}=R_{1},\ldots,R_{k}$, each of length at most $n$. For each register $R_i$, define its identifier by $\mathbf{1}_{R_i}=\mathbf{1}_i$. We define the map
   \begin{equation*}
