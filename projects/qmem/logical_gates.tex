@@ -118,10 +118,10 @@ For the Hadamard gate, we use a modification of the standard two-qubit gate tele
          \lstick[2]{$\ket{\mathbf{H}}$} & \targ{} & & \meter{} &   \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[d][1]{c}   \\
          & &  & & \gate{Z_{S^{\prime}}}   & \gate{X_{S^{\prime}}}  & \rstick{$\mathbf{H}\ket{\psi}$} \\
         \end{quantikz} 
-        \caption{Gate teleportation of the Hadamard gate, using the resource $\ket{\mathbf{H}}$. We emphasize again that although the Hadamard  has an $O(1)$-depth gate realization, we still need all the operations on the quantum register to be strictly transversal for the sake of the proof. Thus, we realize the Hadamard via gate teleportation. }   
+        \caption{Gate teleportation of the Hadamard gate, using the resource $\ket{\mathbf{H}}$. We emphasize again that although the Hadamard (at least Hadamard-type) has an $O(1)$-depth gate realization, we still need all the operations on the quantum register to be strictly transversal for the sake of the proof. Thus, we realize the Hadamard via gate teleportation. }   
 \label{fig:magich}
 \end{figure}
-%\footnote{At least Hadamard-type.}
+
 
 
 The way in which we realize the look for the $x_{S^{\prime}}$ / $x_{S/S^{\prime}}$ is by first finding all the deviation clusters of the Tanner graph. This requires finding a connected component, which is known to be done in $\log(n)$ depth. Then, we broadcast copies of the measurement, such that each deviation cluster has a copy associated with it. The broadcast also requires at most $\log(n)$ depth since there can be at most \#checks $=\Theta(n)$ deviation clusters and therefore at most $\Theta(n)$ copies. Then, we apply the decoder that is defined by iterating sweep rule cycles until erasing the syndrome. Later, we will see that the decoding depth is bounded by $\Theta(n)$. Finally, we combine applications of all the decoding sessions together (xoring them), again in $\log(n)$ depth. So the overall depth for performing a logical measurement is $\Theta(n)$. \inb{The space complexity is $\Theta(2^{n})$, yet in the end we will take $n$ to be logarithmic in the input size.}
