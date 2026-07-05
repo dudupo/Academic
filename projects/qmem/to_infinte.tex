@@ -41,13 +41,14 @@ The following definition extends the notion of location to differentiate between
   \end{equation*}
   We call the first coordinate of $\phi_{\mathcal{R}}(x)$ the \textit{register coordinate} and the second the \textit{inner coordinate}.
 \end{definition}
+%This translation assumes an underlying Toric complex.
 
+We will need two types of gate translation. The first is the standard spatial translation, which means that any of the inner coordinates of the gate are advanced by the same vector. The second is 'rooted translation.' Here, we assume that the locations of the gate are given in a relative-to-root fashion, meaning that there is a root vertex, and all the locations are given by positive paths from the root. Then, we first translate the root and then advance the inner coordinate of any of the other locations to be on the path from the translated root. When considering a product gate, the translations act the same.   
 \begin{definition}[Translation by vertex $v$]
 Let $u$ be a gate, and denote the inner coordinates of $u$'s locations by $\rotf{v_{1}}{J_{1}}, \ldots, \rotf{v_{\Delta}}{J_{\Delta}}$. The translation of $u$ by vertex $v$ is defined to be the gate obtained from $u$ by replacing the inner coordinates of its locations by: $\rotf{v v_{1}}{J_{1}}, \ldots, \rotf{v v_{\Delta}}{J_{\Delta}}$.
 \end{definition}
 
 
-We will need another type of gate translation, 'rooted translation'. Here, we assume that the locations of the gate are given in a relative-to-root fashion, meaning that there is a root vertex, and all the locations are given by positive paths from the root. This translation assumes an underlying Toric complex. 
 
 \begin{definition}[Rooted gate at vertex $v$]
 Let $u$ be a quantum gate that acts on a register whose qubits are associated with a Toric complex at dimension $d$. We say that a gate $u$ is rooted at vertex $v$ if the inner coordinate of its location can be encoded by lists of pairs $(I_{1}, J_{1}), (I_{2}, J_{2}), \ldots, (I_{l}, J_{l})$ such that $I_{i} \in S^{d}, J_{i} \subset S$, and the $i$th qubit on which it acts is in the face:
