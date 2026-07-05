@@ -86,7 +86,7 @@ Equipped with $\mathbf{H}_{\phi}$, we gain a mapping into the dual code that bot
 
 Throughout the construction, we encode each qubit in a code block; namely, we restrict ourselves to using only a single codeword of the $(d,d^{\prime})$-Toric code. From now on, we will think of $S^{\prime} \subset S$ as a fixed $d^{\prime}$-size subset of generators that were picked from the head. And we will decode the logical $\ket{1}$ state by $x_{S^{\prime}}$. To simplify terminology, we call such usage 'nice encoding'.
 \begin{definition}[The Nice Encoding]
-  Consider $(d,d^{\prime}$-Toric code and fix a subset $S^{\prime} \subset S$, at size $d^{\prime}$. We define the \textit{nice encoding} to be the subsystem code, which uses $x_{S^{\prime}}$ to encode a single logical qubit. Namely, the logical codewords are: 
+  Consider $(d,d^{\prime})$-Toric code and fix a subset $S^{\prime} \subset S$, at size $d^{\prime}$. We define the \textit{nice encoding} to be the subsystem code, which uses $x_{S^{\prime}}$ to encode a single logical qubit. Namely, the logical codewords are: 
   \begin{equation*}
     \begin{split}
       \ket{ \bar{0} } &= \ket{ \mathcal{C}_{Z}^{\perp} } \\ 
@@ -108,6 +108,8 @@ We are now ready to give a full description of the realization of the logical op
         \caption{ Simulating the $\mathbf{S}$ and $\mathbf{T}$ gates, using the $\ket{\mathbf{S}}$, $\ket{\mathbf{T}}$ magic states. }   
 \label{fig:magic}
 \end{figure}
+
+
 For the Hadamard gate, we use a modification of the standard two-qubit gate teleportation as shown in \Cref{fig:magich}. The realization differs from the standard realization as the measurement in the phase basis is done by first moving to the dual space via the application of physical $\mathbf{H}^{\otimes n}$, measuring, reorganizing the qubits through $\phi$, and then checking for the $x_{S/S^{\prime}}$ outcome. In addition, unlike the single-qubit gate teleportation, here $\ket{\mathbf{H}}$ is initialized as $I\otimes H (\ket{00} + \ket{11})$ (up to normalization).
     \begin{figure}[h]
         \centering 
