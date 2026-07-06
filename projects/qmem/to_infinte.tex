@@ -56,7 +56,7 @@ Similarly to the standard translation by an integer vector, we extend the action
 Now we are ready to give an explicit description of the mapping. Given a quantum circuit $C$, we name its presentation over the infinite plane the \textit{$\infty$-extension of $C$}.
 \begin{definition}
   \label{def:extension}
-  Let $n$ be an integer, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with quantum registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ encodes a $(d,d^{\prime})=$-Toric code with side at length $n$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
+  Let $n$ be an integer, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with width $w$ and quantum registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ encodes a $(d,d^{\prime})=$-Toric code with side at length $n$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
   \begin{enumerate}
     \item Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, which it's qubits are associated with the $d^{\prime}$-dimensional faces of the infinite $d$-dimensional Toric. 
     \item Each gate $u_{i} \in C$ is mapped to the infinite collection of gates, where the gates are obtained by either the standard translation or the rooted translation by an integer vector, depending on whether $u_{i}$ is a decoding gate as follows:
@@ -70,7 +70,7 @@ Now we are ready to give an explicit description of the mapping. Given a quantum
         \end{split}
       \end{equation*}
   \end{enumerate}
-  For a set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, we denote by $C^{\infty}[\mathcal{E}^{\infty}]$ the \textit{$\infty$-extension of $C[\mathcal{E}]$}.
+  The restriction of the qubits in $C^{\infty}$'s registers to finite Torices with side length $n$ will be denoted by $\cdot |_{[w]}$. For a set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, we denote by $C^{\infty}[\mathcal{E}^{\infty}]$ the \textit{$\infty$-extension of $C[\mathcal{E}]$}.
 \end{definition}
 
 
@@ -84,7 +84,7 @@ Let $u=(g,l)$ be a decoding gate, and let $v_{0},v_{- 1}, v_{- 2} ,v_{- d} $ be 
   \end{equation*}
 \end{claim}
 \begin{proof}
-  Since $u$ is a decoding gadget, then the gates $v_{0}$ and $v_{\pm i}$ are Pauli products, therefore we can decompose $v_{-i}$ to $ v_{-i} = \prod_{j}^{\Delta} v_{-i,j}$. Now, if $v_{-i,j}$ is in $[w]$ then $v_{i, 0} \notin [w]$, So in general we get all the terms in $u$.   
+  Since $u$ is a decoding gadget, then the gates $v_{0}$ and $v_{\pm i}$ are Pauli products, therefore we can decompose $v_{-i}$ to $ v_{-i} = \prod_{j}^{\Delta} v_{-i,j}$. Let $a$ be the vertex which is the root of $u$ and let  $(I_{1}, J_{1}), (I_{2}, J_{2}), \ldots, (I_{l}, J_{l})$ be relative paths that decode the faces on which $u$ act, In particular $v_{0,j}$ acts on the face $\rotf{(\prod_{g \in I_{j}} g) a}{J_{j}}$. Now, if $v_{-i,j}$ is in $[w]$ then $v_{i, 0} \notin [w]$, So in general we get all the terms in $u$.   
 \end{proof}
 
 \begin{definition}
