@@ -148,11 +148,10 @@ So, there is only one gate in $I$, corresponding to $a$ being the zero vector, t
    \end{split}
  \end{equation*}
 
- \item In the case that $u$ is a decoding gate, each of the $v_{j}$ is a Pauli product, thus we can decompose to the product of two terms, the first ahs a support on $[w]$ and the seconed is it's compliment. As exectly as in the above case, the seoned $v_{j}$ compomenet can be treated as disjoint gate that has no support on quibits in $[w]$ and therefore does not contribute to the trace. 
-   Denote them by $v_{j}|_{[w]}$ and  $v_{j}|_{[/w]}$. For the rest we get:
+   \item In the case that $u$ is a decoding gate, each of the $v_{j}$ is a Pauli product. Thus, we can decompose it into the product of two terms: the first has support on $[w]$, and the second is its complement. Exactly as in the above case, the second $v_{j}$ component can be treated as a disjoint gate that has no support on qubits in $[w]$ and therefore does not contribute to the trace. For the rest, we get:
    \begin{equation*}
      \begin{split}
-       \Trr{}_{/[w]}\bigl( \rho_{\infty} \bigr) &= \bigl(\prod_{-\infty}^{\infty}v_{j}\bigr)|_{[w]} \rho^{\prime} \bigl(\bigl(\prod_{-\infty}^{\infty}v_{j}\bigr)|_{[w]} \bigr)^{\dagger} 
+       \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= \left(\prod_{-\infty}^{\infty}v_{j}\right)|_{[w]} \rho^{\prime} \left(\left(\prod_{-\infty}^{\infty}v_{j}\right)|_{[w]} \right)^{\dagger} 
      \end{split}
    \end{equation*}
 Then, by \Cref{claim:pauli_back}, we have that:
