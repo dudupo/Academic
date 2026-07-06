@@ -70,21 +70,31 @@ Now we are ready to give an explicit description of the mapping. Given a quantum
         \end{split}
       \end{equation*}
   \end{enumerate}
-  The restriction of the qubits in $C^{\infty}$'s registers to finite Torices with side length $n$ will be denoted by $\cdot |_{[w]}$. For a set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, we denote by $C^{\infty}[\mathcal{E}^{\infty}]$ the \textit{$\infty$-extension of $C[\mathcal{E}]$}.
+The restriction of the qubits in $C^{\infty}$'s registers to finite Torices with side length $n$ will be denoted by $\cdot |_{[w]}$, and it includes all the faces whose root vertex has 'powers' (the powers of $g_{1}, \ldots, g_{d}$) in the range $[0, n-1]$.
+  For a set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, we denote by $C^{\infty}[\mathcal{E}^{\infty}]$ the \textit{$\infty$-extension of $C[\mathcal{E}]$}.
 \end{definition}
 
 
 \begin{claim}
 \label{claim:pauli_back}
-Let $u=(g,l)$ be a decoding gate, and let $v_{0},v_{- 1}, v_{- 2} ,v_{- d} $ be its rooted translation in the $\infty$-extension such that $v_{- i} = - \mathbf{1}_{i} * u$. Then
+Let $u = (g, l)$ be a decoding gate. The restriction of the image of $u$ in $C^{\infty}$ to $[w]$ is $u$ (when applied to the infinite domain). Namely:
   \begin{equation*}
     \begin{split}
-      v_{0}(\prod_{i}v_{- i})|_{[w]} = u.
+      \bigl(\prod_{a \in \mathbb{Z}^{d} } a * u \bigr)|_{[w]} = u
     \end{split}
   \end{equation*}
 \end{claim}
 \begin{proof}
-Since $u$ is a decoding gadget, the gates $v_{0}$ and $v_{\pm i}$ are Pauli products; therefore, we can decompose $v_{-i}$ as $v_{-i} = \prod_{j}^{\Delta} v_{-i,j}$. Let $a$ be the vertex that is the root of $u$, and let $(I_{1}, J_{1}), (I_{2}, J_{2}), \ldots, (I_{\Delta}, J_{\Delta})$ be relative paths that decode the faces on which $u$ acts. In particular, $v_{0,j}$ acts on the face $\rotf{(\prod_{g \in I_{j}} g) a}{J_{j}}$. Now, if $v_{-i,j}$ is in $[w]$, it means that the vertices of the face $\rotf{g_{i}^{-n}(\prod_{g \in I_{j}} g) a}{J_{j}}$ sit on the $n$-side Toric. There is at least one vertex with $g_{i}$ power in the range between $1$ and $n-1$, and therefore there is at least one vertex on the face of $v_{0,j}$ whose $g_{i}$ coordinate is in the range between $n+1$ and $2n-1$, so $v_{i, 0} \notin [w]$. Since all the passes are symmetric ('if and only if'), we get that $v_{-i,j} \in [w] \Leftrightarrow v_{0,j} \notin [w]$. So in general, we get all the terms in $u$.
+  Denote by $\hat{a}^{j} \in \mathbb{F}_{2}^{d}$ the vector which assigns in its $i$th coordinate $1$ if the root that supports the face of $u_{j}$ has a $g_{i}$ power greater than $n$. We argue that the $j$th face of $-\hat{a}^{j} * u$ is in $[w]$ and that the $j$th face of any other root translation of $u$ is not in $[w]$. That implies that the restriction
+  \begin{equation*}
+    \begin{split}
+      \bigl(\prod_{a \in \mathbb{Z}^{d} } a * u \bigr)|_{[w]}
+    \end{split}
+  \end{equation*}
+contains each of $u$'s faces exactly once, and combined with the fact that $u$ is a Pauli product, it follows that they are the same operator. 
+
+By the definition of root translation, we get that $(\hat{a}^{j} * u)_{j}$ is in $[w]$. Let $a^{\prime} \in \mathbb{Z}^{d}$ be such that $a^{\prime} \neq \hat{a}^{j}$, and denote by $i$ the coordinate on which they differ. Then, we get that the $g_{i}$ power of the root of $(a^{\prime} * u)_{j}$ is at a distance $n$ from the $g_{i}$ power of the root of $(\hat{a}^{j} * u)_{j}$; therefore, their roots can't both be in the range $[0,n-1]$, which implies that $(a^{\prime} * u)_{j} \notin [w]$.
+
 \end{proof}
 
 \begin{definition}
