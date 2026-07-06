@@ -148,14 +148,20 @@ So, there is only one gate in $I$, corresponding to $a$ being the zero vector, t
    \end{split}
  \end{equation*}
 
- \item In the case that $u$ is a decoding gate, observe that there are at most two gates in $I$ that have support on the qubits with space-location in $[w]$. If there is exactly one, then repeating the non-decoding gate case while setting this gate as $v_{0}$ gives the desired result. 
-Else, in the case where two gates act non-trivially on qubits at $[w]$, denote those gates by $v_{0}, v_{1}$. Since we assumed that $C$ is given in its unitary decoding representation, it holds that $v_{0}, v_{1}$ are Paulis, in particular a product operator. Denote their product decompositions by $v_{0} = \prod_{k}v_{0}^{(k)}$ and $v_{1} = \prod_{k}v_{1}^{(k)}$. Thus, by repeating the non-decoding case, but extracting from the infinite product only the terms in $v_{0}$ and $v_{1}$ that act non-trivially at $[w]$, we get:
+ \item In the case that $u$ is a decoding gate, each of the $v_{j}$ is a Pauli product, thus we can decompose to the product of two terms, the first ahs a support on $[w]$ and the seconed is it's compliment. As exectly as in the above case, the seoned $v_{j}$ compomenet can be treated as disjoint gate that has no support on quibits in $[w]$ and therefore does not contribute to the trace. 
+   Denote them by $v_{j}|_{[w]}$ and  $v_{j}|_{[/w]}$. For the rest we get:
    \begin{equation*}
      \begin{split}
-       \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= v_{0}v_{1}|_{[w]} \rho^{\prime} \left(v_{0}v_{1}|_{[w]}\right)^{\dagger} 
+       \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= \left(\prod_{-\infty}^{\infty}v_{j}\right)|_{[w]} \rho^{\prime} \left(\left(\prod_{-\infty}^{\infty}v_{j}\right)|_{[w]} \right)^{\dagger} 
      \end{split}
    \end{equation*}
-Moreover, since $v_{0}$ and $v_{1}$ are translates of $u$ in locations $\text{root}(u)$ and $\text{root}(u) \pm n$, then by \Cref{claim:pauli_back}, we have that $u = v_{0}v_{1}|_{[w]}$; therefore:
+Then, by \Cref{claim:pauli_back}, we have that:
+ \begin{equation*}
+   \begin{split}
+          \left(\prod_{-\infty}^{\infty}v_{j}\right)|_{[w]} = u
+   \end{split}
+ \end{equation*}
+therefore:
    \begin{equation*}
      \begin{split}
        \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= v_{0}v_{1}|_{[w]} \rho^{\prime} \left(v_{0}v_{1}|_{[w]}\right)^{\dagger} \\
