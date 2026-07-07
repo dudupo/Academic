@@ -29,7 +29,7 @@ Let $z$ be an assignment, let $v$ be a vertex in $\partial^{-} z$, and let $g$ b
 Assume, through contradiction, the existence of an unsatisfied check associated with a $d^{\prime}-1$ positive face rooted at $v$, which contains $gv$. This implies $gv \in \partial^{-} z$, contradicting \Cref{claim:localmax}.
 \end{proof}
 
-For the $(d+1)$th potential wall $L_{d+1}$, we would like to have a stronger claim stating that its maximum value decreases, thereby implying that the error cluster shrinks. For this, we start by showing that any error is equivalent, up to stabilizer addition, to an error whose 'left-corner' edge - the maximal point of $L_{d+1}$ - sees a syndrome. 
+The $(d+1)$th potential wall $L_{d+1}$ gets is maximum on the 'corner' vertex of the error, and therefore we would like to have a stronger claim stating that its maximum value decreases. Thereby implying that the corner 'advances' and the error shrinks. For this, we start by showing that any error is equivalent, up to stabilizer addition, to an error whose 'corner' vertex - the maximal point of $L_{d+1}$ - sees a syndrome. 
 
 We present two codes that describe local views. They are the \textit{stabilizers code at vertex} $v$ and the \textit{small code at vertex} $v$. The first corresponds to stabilizers rooted at the vertex, while the second is the collection of local views on its positive faces that satisfy its positive checks. Then, in \Cref{claim:agreement}, we consider a vertex whose $X$-checks don't admit a syndrome, meaning that its local view is in its \textit{small code}, and show that there is a codeword of its \textit{stabilizers code} that agrees with its positive faces. Addition by that stabilizer yields a new assignment excluding $v$. 
 
@@ -185,8 +185,7 @@ G_{\text{Stab}_{v}} =
 For any integers $d$ and $d^{\prime} < d$, $G_{\mathcal{C}_{v}}$ is contained in $G_{\text{Stab}_{v}}$. In particular, \Cref{claim:agreement} holds for any dimension.
 \end{conjecture} 
 
-
-Now we are ready to prove that any error is equivalent, up to addition by stabilizer, to an error whose maximal $L_{d+1}$ vertex (or its edge) sees a syndrome (and that maximum is equal to or lower than the maximal value of $L_{d+1}$ in the original error). \Cref{claim:reduce_stab} introduces a 'single application' of \Cref{claim:agreement} to 'advance' the corner (the vertex that gets the maximal value of $L_{d+1}$), yet the advanced vertex might not be a unique maximum. Thus, \Cref{claim:extermum} uses repeated steps until it ensures the desired - that the corner vertex of the yielded codeword sees a syndrome.
+Now we are ready to prove that any error is equivalent, up to addition by stabilizer, to an error whose maximal $L_{d+1}$ vertex (or its edge) sees a syndrome (and that maximum is equal to or lower than the maximal value of $L_{d+1}$ in the original error). \Cref{claim:reduce_stab} introduces a 'single application' of \Cref{claim:agreement} to 'advance' the corner (the vertex that gets the maximal value of $L_{d+1}$). The corner might not be unique, so in the proof, we advance all the corners simultaneously. Yet, it might occur that the yielded codeword still doesn't admit corners that see a syndrome. Thus, \Cref{claim:extremum} repeats steps on the 'corner advancing' until it ensures the desired outcome - that the corner vertex of the yielded codeword sees a syndrome.
 \begin{claim}
   \label{claim:reduce_stab}
   Let $z$ be a finite assignment. Suppose that 
