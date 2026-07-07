@@ -6,7 +6,7 @@
 
 Errors can be thought of as assignments on the $d^{\prime}$-dimensional faces that have non-vanishing boundaries. In particular, $X$-errors can be characterized as binary assignments $z \in \mathbb{F}^{\mathcal{F}_{d^{\prime}}}_{2}$ such that $\partial^{-} z \neq 0$. In this section, we assume dealing with the $\infty$-extension of a circuit (see $\Cref{def:extension}$), so the cubical complex is the infinite $d$-dimensional grid.
 
-The following two claims relate the local maximum points of the potential walls $L_{1}, \ldots, L_{d}$ in an assignment $z$ to the structure of the syndrome they observe. Later, we will use that relation to infer that the decoding step of the SWEEP rule can't spread the error to a vertex\footnote{To faces whose vertices have higher values of $L_{1}, \ldots, L_{d}$ than the current global maximum values.} with a higher value than the current global maximum of $L_{1}, \ldots, L_{d}$. In other words, the error does not spread in the positive directions.
+The following two claims relate the local maximum points of the potential walls $L_{1}, \ldots, L_{d}$ in an assignment $z$ to the structure of the syndrome they observe. Later, we will use that relation to infer that the decoding step of the sweep rule can't spread the error to a vertex\footnote{To faces whose vertices have higher values of $L_{1}, \ldots, L_{d}$ than the current global maximum values.} with a higher value than the current global maximum of $L_{1}, \ldots, L_{d}$. In other words, the error does not spread in the positive directions.
 
 \begin{claim}
   \label{claim:localmax}
@@ -29,7 +29,7 @@ Let $z$ be an assignment, let $v$ be a vertex in $\partial^{-} z$, and let $g$ b
 Assume, through contradiction, the existence of an unsatisfied check associated with a $d^{\prime}-1$ positive face rooted at $v$, which contains $gv$. This implies $gv \in \partial^{-} z$, contradicting \Cref{claim:localmax}.
 \end{proof}
 
-For the $(d+1)$th potential wall, we would like to have a stronger claim stating that its maximum value decreases, thereby implying that the error cluster shrinks. For this, we start by showing that any error is equivalent, up to stabilizer addition, to an error whose 'left-corner' edge - the maximal point of $L_{d+1}$ - sees a syndrome. 
+For the $(d+1)$th potential wall $L_{d+1}$, we would like to have a stronger claim stating that its maximum value decreases, thereby implying that the error cluster shrinks. For this, we start by showing that any error is equivalent, up to stabilizer addition, to an error whose 'left-corner' edge - the maximal point of $L_{d+1}$ - sees a syndrome. 
 
 We present two codes that describe the local views. They are the \textit{stabilizers code at vertex} $v$ and the \textit{small code at vertex} $v$. The first corresponds to stabilizers rooted at the vertex, while the second is the collection of local views on its positive faces that satisfy its positive checks. Then, in \Cref{claim:agreement}, we consider a vertex whose $X$-checks don't admit a syndrome, meaning that its local view is in its \textit{small code}, and show that there is a codeword of its \textit{stabilizers code} that agrees with its positive faces. Addition by that stabilizer yields a new assignment excluding $v$. 
 
