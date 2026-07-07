@@ -10,23 +10,23 @@ The following two claims relate the local maximum points of the potential walls 
 
 \begin{claim}
   \label{claim:localmax}
-Let $z$ be an assignment, and recall that the vertices in $\partial z$ are the set of vertices adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\partial z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$ in $\partial z$. Then $gv \notin \partial z$.
+Let $z$ be an assignment, and recall that the vertices in $\partial^{-} z$ are the set of vertices adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\partial^{-} z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$ in $\partial^{-} z$. Then $gv \notin \partial^{-} z$.
 \end{claim}
 \begin{proof}
-  Suppose $gv \in \partial z$, then 
+  Suppose $gv \in \partial^{-} z$, then 
   \begin{equation*}
     \begin{split}
       L_{g}(gv) = (gv)_{g} = 1 + v_{g} = 1 + L_{g}(v)
     \end{split}
   \end{equation*}
-In contradiction to $v$ being a local maximum of $L_{g}$ in $\partial z$.
+In contradiction to $v$ being a local maximum of $L_{g}$ in $\partial^{-} z$.
 \end{proof}
 \begin{claim}
   \label{claim:edge_pole}
-Let $z$ be an assignment, let $v$ be a vertex in $\partial z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$. Then, for any check associated with a $d^{\prime}-1$ face rooted at $v$ that contains $gv$, it is satisfied.
+Let $z$ be an assignment, let $v$ be a vertex in $\partial^{-} z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$. Then, for any check associated with a $d^{\prime}-1$ face rooted at $v$ that contains $gv$, it is satisfied.
 \end{claim}
 \begin{proof}
-Assume, through contradiction, the existence of an unsatisfied check associated with a $d^{\prime}-1$ positive face rooted at $v$, which contains $gv$. This implies $gv \in \partial z$, contradicting \Cref{claim:localmax}.
+Assume, through contradiction, the existence of an unsatisfied check associated with a $d^{\prime}-1$ positive face rooted at $v$, which contains $gv$. This implies $gv \in \partial^{-} z$, contradicting \Cref{claim:localmax}.
 \end{proof}
 
 For the $(d+1)$th potential wall, we would like to have a stronger claim stating that its maximum value decreases, thereby implying that the error cluster shrinks. For this, we start by showing that any error is equivalent, up to stabilizer addition, to an error whose 'left-corner' edge - the maximal point of $L_{d+1}$ - sees a syndrome. 
