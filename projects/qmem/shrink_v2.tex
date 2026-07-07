@@ -286,6 +286,7 @@ Therefore, we have the equality:
 
 Next, we prove that the sweep-cycle advances the corner of the error's boundary. We assume we are given an error whose corner sees a syndrome, and thereby it is also the corner of the boundary, and show that the sweep-rule application excludes the corner.
 \begin{claim}
+  \label{claim:sweepshrink}
 Let $z$ be a finite assignment and let $\xi$ be the result of the application of the sweep rule on it. Then: 
   \begin{enumerate}
     \item For any $i \in [d]$: $\max \big\{ L_{i}(v) : v \in \partial^{-} z \big\} = \max \big\{ L_{i}(v) : v \in \partial^{-} \xi \big\}  $
@@ -358,10 +359,6 @@ Overall, we find that the vertex domain of $\partial^{-}\tilde{\xi}$ does not co
 \end{equation*}
 \end{proof}
 
-\begin{corollary}
-  \label{col:idealcorrection} 
-\end{corollary}
-
 
 \subsubsection{The Sweep-rule Phase In The Dual Code}
 \label{subsection:dualcode}
@@ -427,9 +424,21 @@ Therefore we get the strict equality:
 Application of the Sweep rule in the dual code changes the extremum values of $\{L_{g}\}_{g \in S}$ and $L_{d+1}$ exactly as it changes them in the original code. Namely, the extremum values of $\{L_{g}\}_{g \in S}$ don't increase, and the maximum value of $L_{d+1}$ decreases by one.
 \end{corollary}
 
-\subsection{The bottom line}
+\subsubsection{The bottom line}
 
 \begin{claim}
   \label{claim:polesmove}  
   The bottom line. \ctt{Complete it.}
 \end{claim}
+
+\subsubsection{Ideal decoder}
+
+Although the main role of section is to show that the sweep-cycles keep error clusters under control during a noisy run, an immediate corollary of it is that the application of non-noisy sweep-cycle iterations is a decoder.
+\begin{corollary}
+  \label{col:idealcorrection} 
+Consider the $(d,d^{\prime})$-Toric code, induced by a Toric with side length $n$. Given an error $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ on that Toric, such that $z$ doesn't spread on a non-trivial cycle (and therefore translates to a collection of finite errors in the $\infty$-extension). In addition, assume that $\Size{z} \le \frac{n}{2}$, then an application of $\Size{z}$ sweep cycles erases the error.
+\end{corollary}
+
+
+
+
