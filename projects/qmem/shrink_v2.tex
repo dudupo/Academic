@@ -190,7 +190,7 @@ For any integers $d$ and $d^{\prime} < d$, $G_{\mathcal{C}_{v}}$ is contained in
   Let $z$ be a finite assignment. Suppose that 
   \begin{equation*}
     \begin{split}
-            \max \big\{ L_{d+1}(u) :  u \in z \big\} > \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} z \big\}
+            \max \big\{ L_{d+1}(u) :  u \in z \big\} > \max \big\{ L_{d+1}(u) : u \in \partial^{-} z \big\}
     \end{split}
   \end{equation*}
   Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that:
@@ -201,13 +201,13 @@ For any integers $d$ and $d^{\prime} < d$, $G_{\mathcal{C}_{v}}$ is contained in
 \end{equation*}
 \end{claim}
 \begin{proof}
-Let $v_{1}, v_{2}, \ldots, v_{k}$ be the vertices in $z$ that achieve the maximum for $L_{d+1}$, namely $v_{1}, v_{2}, \ldots, v_{k} = \arg \max_{v \in z} L_{d+1}(v)$, and assume that $v_{i} \notin \partial^{\pm} z$ for any $i \in [k]$.
+Let $v_{1}, v_{2}, \ldots, v_{k}$ be the vertices in $z$ that achieve the maximum for $L_{d+1}$, namely $v_{1}, v_{2}, \ldots, v_{k} = \arg \max_{v \in z} L_{d+1}(v)$, and assume that $v_{i} \notin \partial^{-} z$ for any $i \in [k]$.
 
-Consider the $i$th vertex $v_{i}$. By definition, since $v_{i} \notin \partial^{\pm} z$, we have $\partial^{\pm} z|_{v_{i}} = 0$, and since $v_{i}$ is a maximum point of $L_{d+1}$ in $z$, it is also a local maximum, and therefore $z|_{v_{i}+} = z|_{v_{i}}$. 
-Combining the two, we get that $z|_{v_{i}}$ is a codeword of the small code at $v_{i}$, namely $z|_{v_{i}} \in \mathcal{C}_{v_{i}}^{\pm}$. Thus, by \Cref{claim:agreement}, there is a stabilizer $w_{i} \in \text{Stab}_{v_{i}}^{\pm}$ such that $w_{i}$ and $z$ agree on the positive faces of $v_{i}$, namely $w_{i}|_{v_{i}} = z|_{v_{i}}$. 
+Consider the $i$th vertex $v_{i}$. By definition, since $v_{i} \notin \partial^{\pm} z$, we have $\partial^{-} z|_{v_{i}} = 0$, and since $v_{i}$ is a maximum point of $L_{d+1}$ in $z$, it is also a local maximum, and therefore $z|_{v_{i}+} = z|_{v_{i}}$. 
+Combining the two, we get that $z|_{v_{i}}$ is a codeword of the small code at $v_{i}$, namely $z|_{v_{i}} \in \mathcal{C}_{v_{i}}$. Thus, by \Cref{claim:agreement}, there is a stabilizer $w_{i} \in \text{Stab}_{v_{i}}$ such that $w_{i}$ and $z$ agree on the positive faces of $v_{i}$, namely $w_{i}|_{v_{i}} = z|_{v_{i}}$. 
 
 Set $\tilde{z} \leftarrow z + \sum_{i}w_{i}$. Since $\sum_{i}w_{i}$ is a stabilizer, we have $\tilde{z} \sim_{C_{X}} z$. In addition, for any $j \neq i$, it follows that $v_{j} \notin w_{i}$.
-Otherwise, there exists $S^{\prime} \subset S$ such that $v_{j} \in \rotf{v_{i}}{S^{\prime}}$, and therefore $L_{d+1}(v_{j}) > L_{d+1}(v_{i})$, in contradiction to $v_{i}$ and $v_{j}$ being both maximum points for $L_{d+1}$ in $\partial^{\pm} z$. 
+Otherwise, there exists $S^{\prime} \subset S$ such that $v_{j} \in \rotf{v_{i}}{S^{\prime}}$, and therefore $L_{d+1}(v_{j}) > L_{d+1}(v_{i})$, in contradiction to $v_{i}$ and $v_{j}$ being both maximum points for $L_{d+1}$ in $\partial^{-} z$. 
 Thus, we have:
 \begin{equation*}
   \begin{split}
@@ -231,7 +231,7 @@ Namely, for any $i$, the $i$th vertex $v_{i}$ is not in $\tilde{z}$. Hence, the 
   Let $z$ be a finite assignment. Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that 
   \begin{equation*}
     \begin{split}
-      \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} = \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} z \big\}
+      \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} = \max \big\{ L_{d+1}(u) : u \in \partial^{-} z \big\}
     \end{split}
   \end{equation*}
 \end{claim}
@@ -239,7 +239,7 @@ Namely, for any $i$, the $i$th vertex $v_{i}$ is not in $\tilde{z}$. Hence, the 
 Let $z$ be a finite assignment, and let $k$ be an integer such that $k \ge 1$ and
   \begin{equation*}
     \begin{split}
-            \max \big\{ L_{d+1}(u) :  u \in z \big\} =  \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} z \big\} + k
+            \max \big\{ L_{d+1}(u) :  u \in z \big\} =  \max \big\{ L_{d+1}(u) : u \in \partial^{-} z \big\} + k
     \end{split}
   \end{equation*}
   For an integer $l \le k$, consider the assignments $\tilde{z}_{0},\tilde{z}_{1},..,\tilde{z}_{l}$ defined as follow: 
@@ -248,7 +248,7 @@ Let $z$ be a finite assignment, and let $k$ be an integer such that $k \ge 1$ an
     \item If the $i-1$th element satisfies 
   \begin{equation*}
     \begin{split}
-      (\star ) \ \ \max \big\{ L_{d+1}(u) :  u \in \tilde{z}_{i-1} \big\} > \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} \tilde{z}_{i-1} \big\} 
+      (\star ) \ \ \max \big\{ L_{d+1}(u) :  u \in \tilde{z}_{i-1} \big\} > \max \big\{ L_{d+1}(u) : u \in \partial^{-} \tilde{z}_{i-1} \big\} 
     \end{split}
   \end{equation*}
       Then define the $i$th element, $\tilde{z}_{i}$, to be the result of applying the construction, given in \Cref{claim:reduce_stab}, on $\tilde{z}_{i-1}$ , namely  $\partial \tilde{z}_{i+1} = \partial z_{i}$ and  
@@ -264,19 +264,19 @@ Since $\sim_{C_{X}}$ is a transitive relation, we have that for any $i \in [l]$,
 So, it is left to handle the case where $l = k$. In that case, set $\tilde{z} = \tilde{z}_{k}$. By \Cref{claim:reduce_stab}:
 \begin{equation*}
   \begin{split}
-    \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} \le  \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} z \big\}
+    \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} \le  \max \big\{ L_{d+1}(u) : u \in \partial^{-} z \big\}
   \end{split}
 \end{equation*}
 Yet, since $\tilde{z} \sim_{C_{X}} z$, it follows that $\partial \tilde{z} = \partial z$, So: 
 \begin{equation*}
   \begin{split}
-     \max \big\{ L_{d+1}(u) :  u \in \partial^{\pm} z \big\} = \max \big\{ L_{d+1}(u) :  u \in  \partial^{\pm} \tilde{z} \big\} \le \max \big\{ L_{d+1}(u) : u \in z \big\} 
+     \max \big\{ L_{d+1}(u) :  u \in \partial^{-} z \big\} = \max \big\{ L_{d+1}(u) :  u \in  \partial^{-} \tilde{z} \big\} \le \max \big\{ L_{d+1}(u) : u \in z \big\} 
   \end{split}
 \end{equation*}
 Therefore, we have the equality:
 \begin{equation*}
   \begin{split}
-    \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} = \max \big\{ L_{d+1}(u) : u \in \partial^{\pm} z \big\}
+    \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} = \max \big\{ L_{d+1}(u) : u \in \partial^{-} z \big\}
   \end{split}
 \end{equation*}
 \end{proof}
