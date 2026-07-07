@@ -82,7 +82,7 @@ In  contrast, Berman and Simon provided a proof that, instead of tracking the dy
   \item If at time $t$, vertex $v$ 'leads' one of its neighbors $u$ to diverge, then connect $(v,t)$ and $(u,t+1)$ by an 'arrow'. 
   \item Connect any two vertices in $V_{\mathcal{H}}$, which are connected to a third by 'arrows', by a 'fork'. 
 \end{enumerate}
-Notice that the vertices of $\mathcal{H}$ with no incoming arrows correspond to faults; let's call them leaves. Thus, the probability of each running can be bounded by the number of leaves in the induced graph. Their key lemma states that a cluster of flipped bits with a 'perimeter' $s$, connected by arrows, induces a subgraph with at least $\Theta(s)$ leaves. In other words, the probability of a connected component (by arrows) being flipped decays exponentially with its perimeter. 
+Notice that the vertices of $\mathcal{H}$ with no incoming arrows correspond to faults; let's call them leaves. Thus, the probability of each running can be bounded by the number of leaves in the induced graph. Their key lemma states that a cluster of flipped bits with a 'perimeter' $s$, connected by arrows, induces a subgraph with at least $\Theta(s)$ leaves\footnote{ And number of edges $\le \Theta( \text{leaves} ) $.}. In other words, the probability of a connected component (by arrows) being flipped decays exponentially with its perimeter. 
 
 
 The graph $\mathcal{H}$ was later named Toom's contours, a term that, to the best of our knowledge, was coined in \cite{swart2026peierlsboundstoomcontours}.
