@@ -209,11 +209,11 @@ Consider the $i$th vertex $v_{i}$. By definition, since $v_{i} \notin \partial^{
 Combining the two, we get that $z|_{v_{i}}$ is a codeword of the small code at $v_{i}$, namely $z|_{v_{i}} \in \mathcal{C}_{v_{i}}$. Thus, by \Cref{claim:agreement}, there is a stabilizer $w_{i} \in \text{Stab}_{v_{i}}$ such that $w_{i}$ and $z$ agree on the positive faces of $v_{i}$, namely $w_{i}|_{v_{i}} = z|_{v_{i}}$. 
 
 Set $\tilde{z} \leftarrow z + \sum_{i}w_{i}$. Since $\sum_{i}w_{i}$ is a stabilizer, we have $\tilde{z} \sim_{C_{X}} z$. In addition, for any $j \neq i$, it follows that $v_{j} \notin w_{i}$.
-Otherwise, there exists $S^{\prime} \subset S$ such that $v_{j} \in \rotf{v_{i}}{S^{\prime}}$, and therefore $L_{d+1}(v_{j}) > L_{d+1}(v_{i})$, in contradiction to $v_{i}$ and $v_{j}$ being both maximum points for $L_{d+1}$ in $\partial^{-} z$. 
+Otherwise, there exists $S^{\prime} \subset S$ such that $v_{j} \in \rotf{v_{i}}{S^{\prime}}/ v_{i}$, and therefore $L_{d+1}(v_{j}) > L_{d+1}(v_{i})$, in contradiction to $v_{i}$ and $v_{j}$ being both maximum points for $L_{d+1}$ in $\partial^{-} z$. 
 Thus, we have:
 \begin{equation*}
   \begin{split}
-    \tilde{z}|_{v_{i}} = (z + \sum_{i}w_{i})|_{v_{i}} + (z + w_{i})|_{v_{i}} = 0
+    \tilde{z}|_{v_{i}} = (z + \sum_{j}w_{j})|_{v_{i}} =  (z + w_{i})|_{v_{i}} = 0
   \end{split}
 \end{equation*}
 Namely, for any $i$, the $i$th vertex $v_{i}$ is not in $\tilde{z}$. Hence, the vertex domain of $\tilde{z}$ is contained in the union of the vertices of $z$ with the vertices of $w_{1}, w_{2}, \ldots, w_{k}$, substituting $v_{1}, v_{2}, \ldots, v_{k}$. Overall, we get:
