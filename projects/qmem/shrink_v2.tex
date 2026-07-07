@@ -54,7 +54,7 @@ The checks of the code, are of the following three types:
     For each check, the bits that connect to it, are given by restricting the coboundary of the check to bits domain of $\text{Stab}_{v}$:  
     \begin{equation*}
       \begin{split}
-       \big( \partial \rotfvs{} \big)|_{\text{Stab}_{v}} & =  \big(   \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g}  \big)|_{\text{Stab}_{v}} =     \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} 
+        \big( \partial^{+} \rotfvs{} \big)|_{\text{Stab}_{v}} & =  \big(   \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g}  \big)|_{\text{Stab}_{v}} =     \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} 
       \end{split}
     \end{equation*}
   \item Checks are rooted at the positive sibling of $v$. Consider such a sibling, let's say $gv$ (namely the vertex that is given by stepping in the direction $g \in S$ from $v$). Notice that any face rooted at $gv$ that contains $ggv$ cannot be contained in faces rooted at $v$. Thus, the checks of $gv$ correspond to choosing subsets from $S/g$. Namely:
@@ -66,7 +66,7 @@ The checks of the code, are of the following three types:
     And each check is supported by:
     \begin{equation*}
       \begin{split}
-        \big( \partial \rotfv{gv}{S^{\prime}} \big)|_{\text{Stab}_{v}} & = 
+        \big( \partial^{+} \rotfv{gv}{S^{\prime}} \big)|_{\text{Stab}_{v}} & = 
         \big(   \sum_{g^{\prime} \in S/S^{\prime}} \rotfv{gv}{S^{\prime} \cup g^{\prime}} + \sum_{g^{\prime} \in S^{\prime}} \rotfv{g^{\prime -1}gv}{S^{\prime}\cup g^{\prime}} \big)|_{\text{Stab}_{v}} \\
         &  =    \bigl(\sum_{ \substack{ g^{\prime} \in S/S^{\prime} \\ g^{\prime } \neq g }} \rotfv{g v}{S^{\prime} \cup g^{\prime}} \bigr) + \rotfv{v}{S^{\prime}\cup g}
       \end{split}
@@ -80,7 +80,7 @@ The checks of the code, are of the following three types:
   And for each check, its support is:
     \begin{equation*}
       \begin{split}
-        \big( \partial \rotfv{g^{\prime}gv}{S^{\prime}}  \big)|_{\text{Stab}_{v}} & =  \big(    \sum_{g^{\prime \prime} \in S/S^{\prime}} \rotfv{gg^{\prime}v}{S^{\prime} \cup g^{\prime \prime}} + \sum_{g \in S^{\prime}} \rotfv{g^{\prime \prime -1}gg^{\prime}v}{S^{\prime}\cup g^{\prime \prime}} \big)|_{\text{Stab}_{v}}\\
+        \big( \partial^{+} \rotfv{g^{\prime}gv}{S^{\prime}}  \big)|_{\text{Stab}_{v}} & =  \big(    \sum_{g^{\prime \prime} \in S/S^{\prime}} \rotfv{gg^{\prime}v}{S^{\prime} \cup g^{\prime \prime}} + \sum_{g \in S^{\prime}} \rotfv{g^{\prime \prime -1}gg^{\prime}v}{S^{\prime}\cup g^{\prime \prime}} \big)|_{\text{Stab}_{v}}\\
         &=    \rotfv{gv}{S^{\prime} \cup g^{\prime}} + \rotfv{g^{\prime}v}{S^{\prime}\cup g}   
       \end{split}
     \end{equation*}
