@@ -5,6 +5,7 @@ The Toric skeleton provides a notation for positive directions. However, to demo
 
 The following two definitions simplify decoding gates by replacing them with the Pauli 'correction' they suggest at the end of their cycle. The first defines what a decoding gate is, and the second defines the replacement.
 \begin{definition}[Decoding Gadget]
+  \label{def:decgate} 
   Let $C$ be a quantum circuit, and let $u$ be a gate in $C$ with fan-in at most $\Delta$. We say that $u$ is a \textit{decoding gadget} if it has the following form:
   \begin{enumerate}
     \item The wires of $u$ wires can be decomposed into two subsets $A$ and $B$ such that the wires in $A$ are reset wires, and there exists an encoded register $R$ in $C$ such that the wires in $B$ are all set in $R$.
@@ -119,6 +120,7 @@ Next, we would like to prove that the infinite presentation of a circuit agrees 
 \end{definition}
 
 \begin{claim}
+  \label{claim:infiequ}
   Let $C$ be quantum circuit of the form defined in \Cref{def:extension}. Then $C$ is $\infty$-compatible.
 \end{claim}
 \begin{proof}
