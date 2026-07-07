@@ -333,7 +333,7 @@ And we proved the second part of the claim. It's left to prove the first. Let $v
     \phi_{v} &= \sum_{S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i}} 
   \end{split}
 \end{equation*}
-By \Cref{claim:edge_pole} $\partial^{-} \tilde{z}|_{gv} = 0 $, Hence: 
+By \Cref{claim:edge_pole} we have that $\partial^{-} \tilde{z}|_{gv} = 0 $, Hence: 
 \begin{equation*}
   \begin{split}
     \partial^{-} \phi_{v}|_{gv} &= \left( \partial^{-} \sum_{S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i}} \right)|_{gv} \\
@@ -341,17 +341,19 @@ By \Cref{claim:edge_pole} $\partial^{-} \tilde{z}|_{gv} = 0 $, Hence:
   & = 0 
   \end{split}
 \end{equation*}
-Thus if  $g  \in \cup S^{\prime}_{i}$, Then: 
+Thus if  $g  \in \cup_{i} S^{\prime}_{i}$, then there is $S^{\prime}_{i}$ such: 
 \begin{equation*}
   \begin{split}
     \rotfv{gv}{S^{\prime}_{i}/g}  \in \partial^{-} \phi_{v}|_{gv} 
   \end{split}
 \end{equation*}
-So for $\rotfv{gv}{S^{\prime}_{i}/g} = 0$, it must appear at least twice in the sum, yet the left terms in the sum cannot contain it (they differ by the root vertex), and if there is a right term $\rotfv{gv}{S^{\prime}_{j}/g} = \rotfv{gv}{S^{\prime}_{i}/g}$, then it implies that $S_{j} = S_{i}$. Which is a contradiction, therefore: $g \notin \cup S^{\prime}_{i}$ and $gv \notin \phi_{v}$. 
+So, to satisfy $\partial^{-} \tilde{z}|_{gv} = 0$, the term $\rotfv{gv}{S^{\prime}_{i}/g}$ must appear at least twice in the sum. Yet, the left terms in the sum cannot contain it (they differ by the root vertex), and if there is a right term $\rotfv{gv}{S^{\prime}_{j}/g}$ such that $\rotfv{gv}{S^{\prime}_{j}/g} = \rotfv{gv}{S^{\prime}_{i}/g}$, then it implies that $S_{j} = S_{i}$, which is a contradiction. Therefore, $g \notin \cup S^{\prime}_{i}$ and $gv \notin \phi_{v}$. 
+
+
+Overall, we find that the vertex domain of $\partial^{-}\tilde{\xi}$ does not contain $gv$ for any $v$ that is a maximum of $L_{g}$. Thus, the value of $L_{g}$ in $\partial^{-}\tilde{\xi}$ doesn't increase, namely:
 \begin{equation*}
   \begin{split}
-    \max \left\{ L_{g}(u) : u \in \partial^{-} \tilde{\xi} \right\} & \le \max \big\{ L_{g}(u) : u \in  \partial^{-} \tilde{z} \bigcup_{v \in \partial^{-} \tilde{z} } \phi_{v} \big/ \bigcup_{i} v_{i} \big\}  \\ 
-    & \le  \max \big\{ L_{g}(u) : u \in \partial^{-} \tilde{z} \big\} + 1 - 1
+    \max \left\{ L_{g}(u) : u \in \partial^{-} \tilde{\xi} \right\} & \le  \max \big\{ L_{g}(u) : u \in \partial^{-} \tilde{z} \big\} 
   \end{split}
 \end{equation*}
 \end{proof}
