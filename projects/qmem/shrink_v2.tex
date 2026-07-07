@@ -31,7 +31,7 @@ Assume, through contradiction, the existence of an unsatisfied check associated 
 
 For the $(d+1)$th potential wall $L_{d+1}$, we would like to have a stronger claim stating that its maximum value decreases, thereby implying that the error cluster shrinks. For this, we start by showing that any error is equivalent, up to stabilizer addition, to an error whose 'left-corner' edge - the maximal point of $L_{d+1}$ - sees a syndrome. 
 
-We present two codes that describe the local views. They are the \textit{stabilizers code at vertex} $v$ and the \textit{small code at vertex} $v$. The first corresponds to stabilizers rooted at the vertex, while the second is the collection of local views on its positive faces that satisfy its positive checks. Then, in \Cref{claim:agreement}, we consider a vertex whose $X$-checks don't admit a syndrome, meaning that its local view is in its \textit{small code}, and show that there is a codeword of its \textit{stabilizers code} that agrees with its positive faces. Addition by that stabilizer yields a new assignment excluding $v$. 
+We present two codes that describe local views. They are the \textit{stabilizers code at vertex} $v$ and the \textit{small code at vertex} $v$. The first corresponds to stabilizers rooted at the vertex, while the second is the collection of local views on its positive faces that satisfy its positive checks. Then, in \Cref{claim:agreement}, we consider a vertex whose $X$-checks don't admit a syndrome, meaning that its local view is in its \textit{small code}, and show that there is a codeword of its \textit{stabilizers code} that agrees with its positive faces. Addition by that stabilizer yields a new assignment excluding $v$. 
 
 If $v$ was a unique maximum of $L_{d+1}$, then the vertices on the yielded codeword have a lower value of $L_{d+1}$. Therefore, one can assume that for a given error, the vertex that is the maximal point of $L_{d+1}$ sees a syndrome.
 
@@ -186,7 +186,7 @@ For any integers $d$ and $d^{\prime} < d$, $G_{\mathcal{C}_{v}}$ is contained in
 \end{conjecture} 
 
 
-Now we are ready to prove that any error is equivalent, up to addition by stabilizer, to an error whose maximal $L_{d+1}$ vertex (or its edge) sees a syndrome (and that maximum is equal to or lower than the maximal value of $L_{d+1}$ in the original error). \Cref{claim:reduce_stab} introduces a single application of step \Cref{claim:agreement} to 'advance' the corner (the maximal value of $L_{d+1}$), yet the advanced vertex might not be a unique maximum. Thus, \Cref{claim:extermum} uses repeated steps until it ensures the desired outcome - that the corner of the yielded codeword sees a syndrome.
+Now we are ready to prove that any error is equivalent, up to addition by stabilizer, to an error whose maximal $L_{d+1}$ vertex (or its edge) sees a syndrome (and that maximum is equal to or lower than the maximal value of $L_{d+1}$ in the original error). \Cref{claim:reduce_stab} introduces a 'single application' of \Cref{claim:agreement} to 'advance' the corner (the vertex that gets the maximal value of $L_{d+1}$), yet the advanced vertex might not be a unique maximum. Thus, \Cref{claim:extermum} uses repeated steps until it ensures the desired - that the corner vertex of the yielded codeword sees a syndrome.
 \begin{claim}
   \label{claim:reduce_stab}
   Let $z$ be a finite assignment. Suppose that 
@@ -203,9 +203,9 @@ Now we are ready to prove that any error is equivalent, up to addition by stabil
 \end{equation*}
 \end{claim}
 \begin{proof}
-Let $v_{1}, v_{2}, \ldots, v_{k}$ be the vertices in $z$ that achieve the maximum for $L_{d+1}$, namely $v_{1}, v_{2}, \ldots, v_{k} = \arg \max_{v \in z} L_{d+1}(v)$, and assume that $v_{i} \notin \partial^{-} z$ for any $i \in [k]$.
+  Let $v_{1}, v_{2}, \ldots, v_{k}$ be the vertices in $z$ that achieve the maximum for $L_{d+1}$, namely $v_{1}, v_{2}, \ldots, v_{k} = \arg \max_{v \in z} L_{d+1}(v)$, and assume that $v_{i} \notin \partial^{-} z$ for any $i \in [k]$. (Notice that the maximum is indeed achieved since $z$ is finite.)
 
-Consider the $i$th vertex $v_{i}$. By definition, since $v_{i} \notin \partial^{\pm} z$, we have $\partial^{-} z|_{v_{i}} = 0$, and since $v_{i}$ is a maximum point of $L_{d+1}$ in $z$, it is also a local maximum, and therefore $z|_{v_{i}+} = z|_{v_{i}}$. 
+Consider the $i$th vertex $v_{i}$. By definition, since $v_{i} \notin \partial^{-} z$, we have $\partial^{-} z|_{v_{i}} = 0$, and since $v_{i}$ is a maximum point of $L_{d+1}$ in $z$, it is also a local maximum, and therefore $z|_{v_{i}+} = z|_{v_{i}}$. 
 Combining the two, we get that $z|_{v_{i}}$ is a codeword of the small code at $v_{i}$, namely $z|_{v_{i}} \in \mathcal{C}_{v_{i}}$. Thus, by \Cref{claim:agreement}, there is a stabilizer $w_{i} \in \text{Stab}_{v_{i}}$ such that $w_{i}$ and $z$ agree on the positive faces of $v_{i}$, namely $w_{i}|_{v_{i}} = z|_{v_{i}}$. 
 
 Set $\tilde{z} \leftarrow z + \sum_{i}w_{i}$. Since $\sum_{i}w_{i}$ is a stabilizer, we have $\tilde{z} \sim_{C_{X}} z$. In addition, for any $j \neq i$, it follows that $v_{j} \notin w_{i}$.
