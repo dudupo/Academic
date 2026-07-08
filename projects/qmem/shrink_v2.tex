@@ -408,23 +408,10 @@ So, similarly to the first part, and combing that the checks induce $\partial^{+
         \begin{split}
           \min_{v^{\prime} \in \partial^{-}z }L_{d+1}(v^{\prime}) &= \min \bigl\{ L_{d+1}( \bigl( \prod_{g \in S/S^{\prime}} g \bigr) v^{-1} ) \colon \rotfvs{} \in \partial^{+} \phi(z)  \bigr\} \\
           &=  \bigl(d-d^{\prime} - 1 \bigr) - \max \bigl\{ L_{d+1}( v ) \colon \rotfvs{} \in \partial^{+} \phi(z)  \bigr\} \\
-          & \ge \bigl(d-d^{\prime} - 1 \bigr)  - \max \bigl\{ L_{g}( u ) \colon  u \in \partial^{+} \phi(z)  \bigr\} 
+          & = \bigl(d-d^{\prime} - 1 \bigr)  - \max \bigl\{ L_{g}( u ) \colon  u \in \partial^{+} \phi(z)  \bigr\} 
         \end{split}
       \end{equation*}
-
-
- of $L_{d+1}$ i in $\partial^{+} \phi(z)$. Let $v$ be a vertex and let $S^{\prime} \subset S$ be a subset of generators, of size $d^{\prime}-1$, such that $\rotfv{v}{S^{\prime}}$ is an unsatisfied check, induced by $\phi(z)$, containing $u$. Clearly, it must holds that: 
-
-Now $\rotfv{v^{-1}}{S/S^{\prime}}$ is an unsatisfied check in $\partial^{-}z$, and $v^{-1}$ is a maximum of $L_{d+1}$ in $\partial^{-}z$. To see this, assume through contradiction that the maximum of $L_{d+1}$ in $\partial^{+} z$ is different from $v^{-1}$ and denote it by $v^{\prime}$. Then there is an unsatisfied check containing $v^{\prime}$ where $v^{\prime}$ is its root. By moving again to the transposed image by $\phi$, we find an unsatisfied check induced by $\phi(z)$ which is rooted in $v^{\prime}$, and the extrema vertex on it has a higher $-L_{d+1}$ than $u$.
-
-Therefore we get the strict equality: 
-      \begin{equation*}
-        \begin{split}
-          \max_{v^{\prime} \in \partial^{-}z }L_{d+1}(v^{\prime}) & = L_{d+1}(v^{-1}) = - L_{d+1}(v) = - ( L_{d+1}(u) - (d^{\prime}-1) ) \\ 
-          & =  \bigl( \max_{v^{\prime} \in \partial^{+} \phi(z) } - L_{d+1}(v^{\prime}) \bigr) + d^{\prime} - 1
-        \end{split}
-      \end{equation*}
-
+Where the last transition is an equality since the maximum of $L_{d+1}$ is achieved at a root vertex.
 \end{proof}
 
 \begin{corollary}
