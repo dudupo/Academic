@@ -414,6 +414,22 @@ So, similarly to the first part, and combing that the checks induce $\partial^{+
 Where the last transition is an equality since the maximum of $L_{d+1}$ is achieved at a root vertex.
 \end{proof}
 
+
+\begin{claim}
+  For $g \in S$ denote $M = \min_{v \in \partial^{+}\phi(z) } L_{g}(v)$, and denote by $\xi$ the result of the sweep-rule over $z$. Then $\min_{v \in \partial^{+}\phi(\xi) } L_{g}(v) \le M$. 
+\end{claim}
+\begin{proof}
+Assume through contradiction that $\min_{v \in \partial^{+}\phi(\xi)} L_{g}(v) \le M$. Thus, there has to be a check that is unsatisfied in $\phi(\xi)$ and satisfied in $\phi(z)$. Denote it by $\rotfs{}$, and from the inclusion/exclusion relation, it follows that $\rotfv{v^{-1}}{ S/S^{\prime} } \in \xi$ while $\rotfv{v^{-1}}{ S/S^{\prime} } \notin z$. Thus, one of the qubits adjacent to $\rotfv{v^{-1}}{ S/S^{\prime} }$ was flipped by the sweep-rule. Denote the vertex that performs the sweep-rule by $w$ and the vertex with the maximal $L_{g}$ value at $\rotfs{}$ by $u$. 
+
+Imagine, the 'path' form the $w$ to $u$ that 'jump' trough $\phi$: 
+\begin{equation*}
+  \begin{split}
+    w \rightarrow v^{-1} \xrightarrow{\phi} v \rightarrow u
+  \end{split}
+\end{equation*}
+
+\end{proof}
+
 \begin{corollary}
 
 Application of the Sweep rule in the dual code changes the extremum values of $\{L_{g}\}_{g \in S}$ and $L_{d+1}$ exactly as it changes them in the original code. Namely, the extremum values of $\{L_{g}\}_{g \in S}$ don't increase, and the maximum value of $L_{d+1}$ decreases by one.
