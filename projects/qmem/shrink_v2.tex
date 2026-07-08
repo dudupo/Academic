@@ -393,11 +393,11 @@ Let $z$ be an assignment. Then:
         \begin{split}
           \min_{v^{\prime} \in \partial^{-}z }L_{g}(v^{\prime}) &= \min \bigl\{ L_{g}( v^{-1} ) \colon \rotfvs{} \in \partial^{+} \phi(z)  \bigr\} \\
            &= - \max \bigl\{ L_{g}( v ) \colon \rotfvs{} \in \partial^{+} \phi(z)  \bigr\} \\
-          & \ge - \max \bigl\{ L_{g}( u ) \colon  u \in \partial^{+} \phi(z)  \bigr\} + 1
+          & \ge - \max \bigl\{ L_{g}( u ) \colon  u \in \partial^{+} \phi(z)  \bigr\} 
         \end{split}
       \end{equation*}
 
-  For the second part, let $u$ be a maximum of $-L_{d+1}$ in $\partial^{+} \phi(z)$. Let $v$ be a vertex and let $S^{\prime} \subset S$ be a subset of generators, of size $d^{\prime}-1$, such that $\rotfv{v}{S^{\prime}}$ is an unsatisfied check, induced by $\phi(z)$, containing $u$. Clearly, it must holds that: 
+  For the second part, let $u$ be a maximum of $L_{d+1}$ in $\partial^{+} \phi(z)$. Let $v$ be a vertex and let $S^{\prime} \subset S$ be a subset of generators, of size $d^{\prime}-1$, such that $\rotfv{v}{S^{\prime}}$ is an unsatisfied check, induced by $\phi(z)$, containing $u$. Clearly, it must holds that: 
 \begin{equation*}
   \begin{split}
     u = \bigl(\prod_{g \in S^{\prime}}g\bigr) v
