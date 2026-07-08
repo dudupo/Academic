@@ -33,7 +33,7 @@ The $(d+1)$th potential wall $L_{d+1}$ gets is maximum on the 'corner' vertex of
 
 We present two codes that describe local views. They are the \textit{stabilizers code at vertex} $v$ and the \textit{small code at vertex} $v$. The first corresponds to stabilizers rooted at the vertex, while the second is the collection of local views on its positive faces that satisfy its positive checks. Then, in \Cref{claim:agreement}, we consider a vertex whose $X$-checks don't admit a syndrome, meaning that its local view is in its \textit{small code}, and show that there is a codeword of its \textit{stabilizers code} that agrees with its positive faces. Addition by that stabilizer yields a new assignment excluding $v$. 
 
-If $v$ was a unique maximum of $L_{d+1}$, then the vertices on the yielded codeword have a lower value of $L_{d+1}$. Therefore, one can assume that for a given error, the vertex that is the maximal point of $L_{d+1}$ sees a syndrome.
+If $v$ was a unique maximum of $L_{d+1}$, then the vertices on the yielded assignments have a lower value of $L_{d+1}$. Therefore, one can assume that for a given error, the vertex that is the maximal point of $L_{d+1}$ sees a syndrome.
 
 \begin{definition}[Stabilizers Code at Vertex $v$]
 We define \textit{stabilizer code at vertex} $v$, denoted by $\text{Stab}_{v}$, as the restriction of the $(d,d^{\prime})$-Toric code to the $d^{\prime}$-dimensional faces such that their vertices are at a distance of at most one positive step in each direction from $v$. That is equivalent to the union of all the positive $d^{\prime}$-dimensional faces of $v$ with the $d$-dimensional faces of each of its sibling $gv$, excluding faces containing $g$ as their generator. Namely:
@@ -185,7 +185,7 @@ G_{\text{Stab}_{v}} =
 For any integers $d$ and $d^{\prime} < d$, $G_{\mathcal{C}_{v}}$ is contained in $G_{\text{Stab}_{v}}$. In particular, \Cref{claim:agreement} holds for any dimension.
 \end{conjecture} 
 
-Now we are ready to prove that any error is equivalent, up to addition by stabilizer, to an error whose maximal $L_{d+1}$ vertex (or its edge) sees a syndrome (and that maximum is equal to or lower than the maximal value of $L_{d+1}$ in the original error). \Cref{claim:reduce_stab} introduces a 'single application' of \Cref{claim:agreement} to 'advance' the corner (the vertex that gets the maximal value of $L_{d+1}$). The corner might not be unique, so in the proof, we advance all the corners simultaneously. Yet, it might occur that the yielded codeword still doesn't admit corners that see a syndrome. Thus, \Cref{claim:extermum} repeats  'corners advancing' steps on until it ensures the desired outcome - that the corner vertex of the final yielded codeword sees a syndrome. 
+Now we are ready to prove that any error is equivalent, up to addition by stabilizer, to an error whose maximal $L_{d+1}$ vertex (or its edge) sees a syndrome (and that maximum is equal to or lower than the maximal value of $L_{d+1}$ in the original error). \Cref{claim:reduce_stab} introduces a 'single application' of \Cref{claim:agreement} to 'advance' the corner (the vertex that gets the maximal value of $L_{d+1}$). The corner might not be unique, so in the proof, we advance all the corners simultaneously. Yet, it might occur that the yielded assignment still doesn't admit corners that see a syndrome. Thus, \Cref{claim:extermum} repeats  'corners advancing' steps on until it ensures the desired outcome - that the corner vertex of the final yielded assignment sees a syndrome. 
 \begin{claim}
   \label{claim:reduce_stab}
   Let $z$ be a finite assignment. Suppose that 
@@ -360,7 +360,10 @@ Overall, we find that the vertex domain of $\partial^{-}\tilde{\xi}$ does not co
 \end{proof}
 We finished analyzing the first part of the sweep-cycle that acts in the computational basis. In the next section, we show that the second part of the cycle shrinks phase errors.
 \subsubsection{The Sweep-rule Phase In The Dual Code}
-We will show that the image of the $Z$-errors after permuting the qubits via $\phi$-transpose, is inside the 
+Now, we will think of the binary assignment $z \in \mathcal{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ as the positions of the $Z$-errors, after permuting the qubits by the $\phi$-transpose. Namely, $\partial^{-}z$ is the assignment boundary that we would like to shrink, and $\partial^{+}\phi(z)$ is its source prior to the reordering. In this stage of the sweep-cycle, the sweep-rule acts in opposite directions. Thus, it will be sufficient to show that the extremities of the potential walls in $\partial^{-} z$ mirror the extremities of the potential walls of $\partial^{+}\phi(z)$. Subsequently, since the sweep-rule shrinks $\partial^{-}(z)$ (with sign adjustments), we have that the $\phi$-transpose of the yielded assignment also admits a shrunk coboundary relative to $\partial^{+}\phi(z)$. 
+
+We would not be able to show an exact mirroring, yet we show that for $g \in S$, any of the extrema of $L_{g}$ in $\partial^{-} z$ are 'lower' (technically higher relative to the original positive direction) than the mirrored extrema of $\partial^{+}\phi(z)$. For $L_{d+1}$, the extrema of $\partial^{-}z$ are equal to the mirrored extrema in $\partial^{+}\phi(z)$ plus $d^{\prime} - 1$. The strict equality regarding extrema of $L_{d+1}$ means that advancing the extrema in $\partial^{-}z$ implies advancing the extrema of $\partial^{+}\phi(z)$.
+
 \label{subsection:dualcode}
 \begin{claim}
 Let $z$ be an assignment. Then:
@@ -407,7 +410,7 @@ Let $z$ be an assignment. Then:
     u = \bigl(\prod_{g \in S^{\prime}}g\bigr) v
   \end{split}
 \end{equation*}
-Now $\rotfv{v^{-1}}{S/S^{\prime}}$ is an unsatisfied check in $\partial^{-}z$, and $v^{-1}$ is a maximum of $L_{d+1}$ in $\partial^{-}z$. To see this, assume through contradiction that the maximum of $L_{d+1}$ in $\partial^{+} z$ is different from $v^{-1}$ and denote it by $v^{\prime}$. Then there is an unsatisfied check containing $v^{\prime}$ where $v^{\prime}$ is its root. By moving again to the transposed image by $\phi$, we find an unsatisfied check induced by $\phi(z)$ which is rooted in $v^{\prime}$, and the extremum vertex on it has a higher $-L_{d+1}$ than $u$.
+Now $\rotfv{v^{-1}}{S/S^{\prime}}$ is an unsatisfied check in $\partial^{-}z$, and $v^{-1}$ is a maximum of $L_{d+1}$ in $\partial^{-}z$. To see this, assume through contradiction that the maximum of $L_{d+1}$ in $\partial^{+} z$ is different from $v^{-1}$ and denote it by $v^{\prime}$. Then there is an unsatisfied check containing $v^{\prime}$ where $v^{\prime}$ is its root. By moving again to the transposed image by $\phi$, we find an unsatisfied check induced by $\phi(z)$ which is rooted in $v^{\prime}$, and the extrema vertex on it has a higher $-L_{d+1}$ than $u$.
 
 Therefore we get the strict equality: 
       \begin{equation*}
@@ -423,6 +426,8 @@ Therefore we get the strict equality:
 
 Application of the Sweep rule in the dual code changes the extremum values of $\{L_{g}\}_{g \in S}$ and $L_{d+1}$ exactly as it changes them in the original code. Namely, the extremum values of $\{L_{g}\}_{g \in S}$ don't increase, and the maximum value of $L_{d+1}$ decreases by one.
 \end{corollary}
+
+So if $\xi$ is the result of applying the sweep-rule in the negative direction on $z$, we have that the relations of the $L_{g}$ between the $\partial^{-}\xi$ and $\partial^{+}\phi(\xi)$ remain the same (since, the sweep-rule doesn't increase the extermum of the .
 
 \subsubsection{The bottom line}
 
