@@ -376,7 +376,7 @@ Let $z$ be an assignment. Then:
   \item For any generator $g \in S$, and potential wall $L_{g}$ it holds that: 
       \begin{equation*}
         \begin{split}
-          \max_{v^{\prime} \in \partial^{-}z }L_{g}(v^{\prime}) \ge  - \max_{v^{\prime} \in \partial^{+} \phi(z) }  L_{g}(v^{\prime}) 
+          \max_{v^{\prime} \in \partial^{-}z }L_{g}(v^{\prime}) \ge 1  - \max_{v^{\prime} \in \partial^{+} \phi(z) }  L_{g}(v^{\prime}) 
         \end{split}
       \end{equation*}
      \item The following equality holds:
@@ -396,7 +396,7 @@ Let $z$ be an assignment. Then:
           \max_{v^{\prime} \in \partial^{-}z }L_{g}(v^{\prime}) \ge  L_{g}(gv^{-1}) = 1 + L_{g}(v^{-1}) = 1 - L_{g}(u) 
         \end{split}
       \end{equation*}
-    \item Assume that $g \in S^{\prime}$. Then $u = gv$ (otherwise take $u \leftarrow gv$), and again $L_{g}(u) = 1 + L_{g}(v)$. By repeating the argument above, we get that $v^{-1} \in \partial^{-}z$, and therefore:
+    \item Assume that $g \in S^{\prime}$. Then $u = gv$ (otherwise take $u \leftarrow gv$), so $L_{g}(u) = 1 + L_{g}(v)$. By repeating the argument above, we get that $v^{-1} \in \partial^{-}z$, and therefore:
       \begin{equation*}
         \begin{split}
           \max_{v^{\prime} \in \partial^{-}z }L_{g}(v^{\prime}) \ge  L_{g}(v^{-1}) = 1 - L_{g}(u) 
