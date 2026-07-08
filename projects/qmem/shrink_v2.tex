@@ -419,8 +419,13 @@ Where the last transition is an equality since the maximum of $L_{d+1}$ is achie
   For $g \in S$ denote $M = \min_{v \in \partial^{+}\phi(z) } L_{g}(v)$, and denote by $\xi$ the result of the sweep-rule over $z$. Then $\min_{v \in \partial^{+}\phi(\xi) } L_{g}(v) \le M$. 
 \end{claim}
 \begin{proof}
-  Assume through contradiction that $\min_{v \in \partial^{+}\phi(\xi)} L_{g}(v) \le M$. Thus, there has to be a check that is unsatisfied in $\phi(\xi)$ and satisfied in $\phi(z)$. Denote it by $\rotfs{}$, and from the inclusion/exclusion relation, it follows that $\rotfv{v^{-1}}{ S/S^{\prime} } \in \xi$ while $\rotfv{v^{-1}}{ S/S^{\prime} } \notin z$. Thus, one of the qubits adjacent to $\rotfv{v^{-1}}{ S/S^{\prime} }$ was flipped by the sweep-rule. Denote the vertex that performs the sweep-rule by $w$ (if there is more than one pick arbitrary) and the vertex with the maximal $L_{g}$ value at $\rotfs{}$ by $u$. 
-
+  Assume through contradiction that $\min_{v \in \partial^{+}\phi(\xi)} L_{g}(v) \le M$. Thus, there has to be a check that is unsatisfied in $\phi(\xi)$ and satisfied in $\phi(z)$. Denote it by $\rotfs{}$, and from the inclusion/exclusion relation, it follows that $\rotfv{v^{-1}}{ S/S^{\prime} } \in \xi$ while $\rotfv{v^{-1}}{ S/S^{\prime} } \notin z$. Thus, one of the qubits adjacent to $\rotfv{v^{-1}}{ S/S^{\prime} }$ was flipped by the sweep-rule. Denote the vertex that performs the sweep-rule by $w$ (if there is more than one pick arbitrary) and the vertex with the maximal $L_{g}$ value at $\rotfs{}$ by $u$. Now observes that if $L_{g}(w) \ge - M + 2$ then $L_{g}(u)$ has to be lower or equal to $M$, that it because $L_{g}(v^{-1}$) is at least $L_{g(w)} - 1$, and therefore for any $u^{\prime} \in \rotfs{}$ we have:    
+  \begin{equation*}
+    \begin{split}
+      L_{g}(u^{\prime}) \le 1 + L_{g}(v) = 1 - L_{g}(v^{-1}) \le 2 - L_{g}(w)
+    \end{split}
+  \end{equation*}
+  So, assume that $L_{g}(w)$ is lower than $-M + 1$. 
 
   Now, $w$ sees on it's negative local view unsatisfied checks. Denote them by $\rotf{g^{\prime ,-1}w}{J}$, and $g \notin J$. Thus, $\rotf{g^{\prime}w^{-1}}{S/J}$ also not satisfied in $\partial^{+}\phi(z)$. But, $L_{g}(u) = \max \{  L_{g}(t) \colon t \in \rotf{g^{\prime}w^{-1}}{S/J} \}$. 
 
