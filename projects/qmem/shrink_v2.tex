@@ -422,8 +422,8 @@ Where the last transition is an equality since the maximum of $L_{d+1}$ is achie
   Assume through contradiction that $\min_{v \in \partial^{+}\phi(\xi)} L_{g}(v) \le M$. Thus, there has to be a check that is unsatisfied in $\phi(\xi)$ and satisfied in $\phi(z)$. Denote it by $\rotfs{}$, and from the inclusion/exclusion relation, it follows that $\rotfv{v^{-1}}{ S/S^{\prime} } \in \xi$ while $\rotfv{v^{-1}}{ S/S^{\prime} } \notin z$. Thus, one of the qubits adjacent to $\rotfv{v^{-1}}{ S/S^{\prime} }$ was flipped by the sweep-rule. Denote the vertex that performs the sweep-rule by $w$ (if there is more than one pick arbitrary) and the vertex with the maximal $L_{g}$ value at $\rotfs{}$ by $u$. 
 
   For the sake of the proof, we will say that $g^{-1}$ is on the path from vertex $w$ to vertex $v^{-1}$, if one has to go trough an edge corresponding to generator $g$ (in the opposite direction). There are two options, let's splitting on whether $g^{-1}$ is on the path from $w$ to $v^{-1}$. 
-
-  In the first case, it must be that $L_{g}(w) < \min L_{g}(z)$ and in addition $g \notin S/S^{\prime}$ so
+  
+In the first case, it must be that $L_{g}(w) = \min L_{g}(v^{-1})$, and in addition, $g \notin S/S^{\prime}$, so
 \begin{equation*}
   \begin{split}
     L_{g}(u) = L_{g}(v) = - L_{g}(v^{-1}) = - ( L_{g}(w) - 1 ) \le M 
