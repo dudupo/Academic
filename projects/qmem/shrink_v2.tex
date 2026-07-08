@@ -388,11 +388,11 @@ Let $z$ be an assignment. Then:
 \end{enumerate}
 \end{claim}
 \begin{proof}
-  For the first part, let $u$ be a local maximum of $L_{g}$ in $\partial^{+} \phi(z)$. Let $v$ be a vertex and let $S^{\prime} \subset S$ be a subset of generators, of size $d^{\prime}-1$, such that $\rotfv{v}{S^{\prime}}$ is an unsatisfied check, induced by $\phi(z)$, containing $u$. Since $\phi$-transpose sends checks to checks, we have that the check $\partial^{-} \rotfv{v^{-1}}{S/S^{\prime}} = \phi(\partial^{+}\rotfv{v}{S^{\prime}})$ is not satisfied, and therefore any vertex $w \in \rotfv{v^{-1}}{S/S^{\prime}}$ also belongs to $\partial^{-}(z)$. Thus, 
+  For the first part, observes that a vertex that is minimizing $L_{g}$ in $\partial^{-} z$ is a root of unsatisfied check.  Since $\phi$-transpose sends checks to checks, we have that the check $\partial^{-} \rotfv{v^{-1}}{S/S^{\prime}} = \phi(\partial^{+}\rotfv{v}{S^{\prime}})$ is not satisfied in $\partial^{-}z$ if and only if $\partial^{+}\rotfv{v}{S^{\prime}}$ is not satisfied in $\partial^{+}\phi(z)$. Thus, 
       \begin{equation*}
         \begin{split}
-          \min_{v^{\prime} \in \partial^{-}z }L_{g}(v^{\prime}) &= \min \bigl\{ L_{g}( v^{-1} ) \colon \text{ exists } u \in \partial^{+} \phi(z) \text{ and } u \in \rotfs{}  \bigr\} \\
-          & =  - L_{g}(u) 
+          \min_{v^{\prime} \in \partial^{-}z }L_{g}(v^{\prime}) &= \min \bigl\{ L_{g}( v^{-1} ) \colon \rotfvs{} \in \partial^{+} \phi(z)  \bigr\} \\
+          & \le  - \max_{v \in \partial^{+}\phi(z)}L_{g}(v) 
         \end{split}
       \end{equation*}
 
