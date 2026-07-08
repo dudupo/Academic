@@ -421,31 +421,15 @@ Where the last transition is an equality since the maximum of $L_{d+1}$ is achie
 \begin{proof}
   Assume through contradiction that $\min_{v \in \partial^{+}\phi(\xi)} L_{g}(v) \le M$. Thus, there has to be a check that is unsatisfied in $\phi(\xi)$ and satisfied in $\phi(z)$. Denote it by $\rotfs{}$, and from the inclusion/exclusion relation, it follows that $\rotfv{v^{-1}}{ S/S^{\prime} } \in \xi$ while $\rotfv{v^{-1}}{ S/S^{\prime} } \notin z$. Thus, one of the qubits adjacent to $\rotfv{v^{-1}}{ S/S^{\prime} }$ was flipped by the sweep-rule. Denote the vertex that performs the sweep-rule by $w$ (if there is more than one pick arbitrary) and the vertex with the maximal $L_{g}$ value at $\rotfs{}$ by $u$. 
 
-  Imagine, the 'path' form the $w$ to $u$ that 'jump' trough $\phi$: 
-\begin{equation*}
-  \begin{split}
-    w \rightarrow v^{-1} \xrightarrow{\phi} v \rightarrow u
-  \end{split}
-\end{equation*}
+  For the sake of the proof, we will say that $g^{-1}$ is on the path from vertex $w$ to vertex $v^{-1}$, if one has to go trough an edge corresponding to generator $g$ (in the opposite direction). There are two options, let's splitting on whether $g^{-1}$ is on the path from $w$ to $v^{-1}$. 
 
-There are two options, splitiong on whether $g^{-1}$ is on the path from $w$ to $v^{-1}$.  In the first case, it has be that $L_{g}(w) < \min L_{g}(z)$ and in addition $g \notin S/S^{\prime}$ so 
+  In the first case, it must be that $L_{g}(w) < \min L_{g}(z)$ and in addition $g \notin S/S^{\prime}$ so
 \begin{equation*}
   \begin{split}
     L_{g}(u) = L_{g}(v) = - L_{g}(v^{-1}) = - ( L_{g}(w) - 1 ) \le M 
   \end{split}
 \end{equation*}
-On the second, where $g^{-1}$ is not on the path from $w$ to $v$, it follows that $L_{g}(w) = L_{g}(v^{-1}) $. Denote the unsatisfied check on the negative local view of $w$ by $\rotf{x}{J}$. 
-
-  Now observes that if $L_{g}(w) \ge - M + 2$ then $L_{g}(u)$ has to be lower or equal to $M$, that it because $L_{g}(v^{-1}$) is at least $L_{g(w)} - 1$, and therefore for any $u^{\prime} \in \rotfs{}$ we have:    
-  \begin{equation*}
-    \begin{split}
-      L_{g}(u^{\prime}) \le 1 + L_{g}(v) = 1 - L_{g}(v^{-1}) \le 2 - L_{g}(w)
-    \end{split}
-  \end{equation*}
-  %So, assume that $L_{g}(w)$ is lower than $-M + 1$, now if $w$, flip a face such $g^{-1} \in J$, then $L_{g}(v^{-1}) = L_{g}( 
-
-  Now, $w$ sees on it's negative local view unsatisfied checks. Denote them by $\rotf{g^{\prime ,-1}w}{J}$, and $g \notin J$. Thus, $\rotf{g^{\prime}w^{-1}}{S/J}$ also not satisfied in $\partial^{+}\phi(z)$. But, $L_{g}(u) = \max \{  L_{g}(t) \colon t \in \rotf{g^{\prime}w^{-1}}{S/J} \}$. 
-Now to it can be that $w$ has a $L_{g}$ value $-M$, and then $v^{-1}$ has a value $-M$, and then it sucks.  
+In the second case, where $g^{-1}$ is not on the path from $w$ to $v^{-1}$, it follows that $L_{g}(w) = L_{g}(v^{-1})$. Denote the flipped face by $f$. By the definition of the sweep-rule, there has to be at least one check in the negative local view of $w$ such that it's contained in $f$, and it's unsatisfied in $\partial^{-}(z)$ (Otherwise, $w$ would not flip $f$). Denote it by $\rotf{x}{J}$, and since $g^{-1}$ is not on the path between $w$ and $v^{-1}$, then it's also not on the paths from $w$ to $x$ and from $x$ to $v^{-1}$, namely $L_{g}(x) = L_{g}(w)$ and $g \notin J$. On the other hand, $\rotf{x^{-1}}{S/J} \in \partial^{+}\phi(z)$, and $g \in S/J$, so we get that the maximal value of $L_{g}$ in $\rotf{x^{-1}}{S/J}$ is $1-L_{g}(x) = 1 -L_{g}(v^{-1}) \ge L_{g}(u)$, in contradiction to the fact that $u$ exhibits $L_{g}$ value greater then $M$ .
 \end{proof}
 
 \begin{corollary}
