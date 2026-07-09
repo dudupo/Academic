@@ -3,7 +3,8 @@
 
 
 \subsection{Sweep Rule}
-The sweep-rule is the core of our construction. In a decoding cycle, each of the vertices reads the syndrome on its positive $X$-checks (checks that are associated with the positive $d^{\prime}-1$ dimensional faces of the vertex) and, based on what it sees, applies a Pauli correction. The sweep-rule defines the correction to be over the positive qubits such that it will turn off the positive syndrome. It's not hard to see that for the $(2,2)$-Toric complex, the Toom's and the sweep rules are the same. Compared to other correction cycles on topological codes, the main advantage of the sweep is that it is independent of time. The invention of the sweep-rule is attributed to Aleksander Kubica and John Preskill \cite{Kubica_2019}. Here we extend their work to cubical complexes.
+
+The sweep-rule is the core of our construction. A decoding cycle begins with each of the vertices reading the syndrome on its positive $X$-checks (checks that are associated with the positive $d^{\prime}-1$ dimensional faces of the vertex) and, based on what it sees, applying a Pauli correction. The sweep-rule defines the correction to be over the positive qubits such that it will turn off the positive syndrome. It's not hard to see that for the $(2,2)$-Toric complex, the Toom's and the sweep rules are the same. Compared to other correction cycles on topological codes, the main advantage of the sweep is that it is independent of time. The invention of the sweep-rule is attributed to Aleksander Kubica and John Preskill \cite{Kubica_2019}. Here we extend their work to cubical complexes.
 
 \begin{definition}[Sweep Rule]
   \label{def:sweeprule}
