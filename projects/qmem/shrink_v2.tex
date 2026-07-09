@@ -284,7 +284,7 @@ Therefore, we have the equality:
 
 
 
-Next, we prove that the sweep-cycle advances the corner of the error's boundary. We assume we are given an error whose corner sees a syndrome, and thereby it is also the corner of the boundary, and show that the sweep-rule application excludes the corner.
+Next, we prove that the sweep-cycle advances the corner of the error's boundary. We assume we are given an error whose corner sees a syndrome, and thereby it is also the corner of the boundary, and show that the sweep-rule application excludes the corner. In other words, the sweep-rule shrinks $X$-errors. 
 \begin{claim}
   \label{claim:sweepshrink}
 Let $z$ be a finite assignment and let $\xi$ be the result of the application of the sweep rule on it. Then: 
@@ -432,8 +432,7 @@ In the second case, where $g^{-1}$ is not on the path from $w$ to $v^{-1}$, it f
 \end{proof}
 
 
-
-We summarize by introducing a corollary that addresses the result of the entire sweep-cycle.
+Combining the relation of extremis of an error to its extremis in the dual image, with the argument that the sweep-rule shrinks $X$-error ($\partial^{-}$-boundaries), we infer that a full sweep-cycle shrinks an error composed of both $X$- and $Z$-components.
 \begin{corollary}
 Consider an error whose $X$- and $Z$-product components lie at positions corresponding to vectors $z_{X}, z_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$. Denote by $\xi_{X}, \xi_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ the $X, Z$ positions of the result after the application of a full sweep-cycle. Then: 
   \begin{enumerate}
