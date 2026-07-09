@@ -458,9 +458,28 @@ Consider an error whose $X$- and $Z$-product components lie at positions corresp
 Although the main role of the section is to show that a single sweep-cycle keeps error clusters under control during a noisy run (by admitting a modest shrinking), an immediate corollary of this is that the application of non-noisy multiple iterations of the sweep-cycle has the potential to erase errors, namely a decoder. That gives us the following corollary:
 \begin{corollary}
   \label{col:idealcorrection} 
-Consider the $(d,d^{\prime})$-Toric code, induced by a Toric with side length $n$. Given an error $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ on that Toric, such that $z$ doesn't spread on a non-trivial cycle (and therefore translates to a collection of finite errors in the $\infty$-extension). In addition, assume that $\Size{z} \le \frac{n}{2}$, then an application of $\Size{z}$ sweep cycles erases the error.
+  Consider the $(d,d^{\prime})$-Toric code, induced by a Toric with side length $n$. Given an error $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ on that Toric, with $\Size{z} \le \frac{n}{2}$. Then an application of $\Size{z}$ sweep cycles erases the error.
 \end{corollary}
-
+\begin{proof}
+  Notice that since $\Size{z}\le {n}{2}$, we have that for any $g \in S$:
+  \begin{equation*}
+    \begin{split}
+      \max_{v \in z }L_{g}(v) -  \min{v \in z }L_{g}(v) \le \Size{z} \le \frac{n}{2}
+    \end{split}
+  \end{equation*}
+  Thus $z$ doesn't spread on a non-trivial cycle and therefore translates to (a collection of) finite error in the $\infty$-extension. Denote by $\xi_{t}$ the corresponding error on infinte plane after $t$ sweep-cycels, and let $\xi_{0}$ be the corresponding error on the infinite plane prior to first cycle. Since $\xi_{0}$ is finate, we use \Cref{claim:polesmove} and have that each sweep-cycle deacrases the boundary by at least one, namely: 
+  \begin{equation*}
+    \begin{split}
+      \Size{\partial^{-}\xi_{t+1}} \le \Size{\partial^{-}\xi_{t}} + 1
+    \end{split}
+  \end{equation*}
+  Therefore, after at most $\Size{\partial^{-} z} \le \Size{z}$ iterations, the boundary of the error vanishes. In particular, the syndrome vanishes. It's left to prove that during the decoding, no logical codewords were turned on. Denote by $\tilde{\xi}_{t}$ the correction that was applied at cycle $t$. The support of all the qubits that were toched during the decoding combing with the support of the initial error satisfies:  
+  \begin{equation*}
+    \begin{split}
+      \Size{  \xi_{0}  \bigcup_{t}\tilde{\xi}_{t} } \le \Size{\xi_{0}} + \sum_{t}\Size{\tilde{\xi}_{t}} \le \frac{n}{2}
+    \end{split}
+  \end{equation*}
+\end{proof}
 
 
 
