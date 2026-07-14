@@ -28,14 +28,22 @@ The sweep-rule is the core of our construction. A decoding cycle begins with eac
     \partial^{-} \phi |_{v} &= \sum_{S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i}} 
   \end{split}
 \end{equation*}
-% Since $\phi$ is a rooted at vertex $v$, we have that $\partial \phi |_{v+}$ is also rooted at vertex $v$.
-Using the zero boundary of boundary $\partial^{ - 2} \phi = 0$ we have that:
-
+Now, imagine the extansion of $\partial \phi$ to $\phi^{*}$ such any face in $\phi^{*}$ is obtained by taking a face of $\partial \phi$ adding to it a imaginary vertex $e$. Namely:  
 \begin{equation*}
   \begin{split}
-    \partial^{- 2} \phi |_{v} &=  \partial^{-} \left( \sum_{S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i}} \right)  = \sum_{S^{\prime}_{i}}\sum_{g^{\prime} \in S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i}/g} 
+    \phi^{*} &= \sum_{S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i} \cup e} 
   \end{split}
 \end{equation*}
+% Since $\phi$ is a rooted at vertex $v$, we have that $\partial \phi |_{v+}$ is also rooted at vertex $v$.
+Using the zero boundary of boundary $\partial^{ - 2} \phi = 0$ we have that:
+\begin{equation*}
+  \begin{split}
+    \partial\phi^{*} |_{e} =   \partial^{-} \left( \sum_{S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i} \cup e} \right) |_{e}  = \sum_{S^{\prime}_{i}}\sum_{g^{\prime} \in S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i}\cup e /g} = \partial^{- 2} \phi |_{v} = 0   
+  \end{split}
+\end{equation*}
+For $d^{\prime}=2$, any of $\{S^{\prime}_{i} \}$ is a singleton, and $\partial$. 
+
+
 So for the sum zeroing out, it follows that for any $S_{1} \in \{ S^{\prime}_{i}\}_{i}$ and any $g_{1} \in S_{1}$, there exist $S_{2} \in \{ S^{\prime}_{i}\}_{i}$ and $g_{2} \in S_{2}$ such that $S_{1}/g_{1} = S_{2}/g_{2}$. 
 
 
