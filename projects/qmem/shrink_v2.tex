@@ -41,7 +41,7 @@ To see why, consider the collection of faces that form $\phi$:
     \phi &= \sum_{S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i}} 
   \end{split}
 \end{equation*}
-Having $\partial^{-} \xi|_{gv} = 0 $, implies: 
+Having $\partial^{-} \xi|_{gv} = 0$, combined with the definition of the sweep-rule (which requires $\partial \phi|_{v+} = \partial z|_{v+}$), implies that $\partial^{-}\phi |_{gv} = 0$. Therefore:
 \begin{equation*}
   \begin{split}
     \partial^{-} \phi|_{gv} &= \left( \partial^{-} \sum_{S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i}} \right)|_{gv} \\
@@ -49,7 +49,7 @@ Having $\partial^{-} \xi|_{gv} = 0 $, implies:
   & = 0 
   \end{split}
 \end{equation*}
-Thus if  $g  \in \cup_{i} S^{\prime}_{i}$, then there is $S^{\prime}_{i}$ such the face $ \rotfv{gv}{S^{\prime}_{i}/g} $ appears in the sum. So, to satisfy $\partial^{-} \tilde|_{gv} = 0$, the term $\rotfv{gv}{S^{\prime}_{i}/g}$ must appear at least twice.
+Thus if $gv \in \phi$, and hence $g  \in \cup_{i} S^{\prime}_{i}$, then there is $S^{\prime}_{i}$ such the face $ \rotfv{gv}{S^{\prime}_{i}/g} $ appears in the sum. So, to satisfy $\partial^{-} \phi|_{gv} = 0$, the term $\rotfv{gv}{S^{\prime}_{i}/g}$ must appear at least twice.
 
 Yet, the left terms in the sum cannot contain it (they differ by the root vertex), and if there is a right term $\rotfv{gv}{S^{\prime}_{j}/g}$ such that $\rotfv{gv}{S^{\prime}_{j}/g} = \rotfv{gv}{S^{\prime}_{i}/g}$, then it implies that $S_{j} = S_{i}$, which is a contradiction. Therefore, $g \notin \cup S^{\prime}_{i}$ and $gv \notin \phi_{v}$. 
 
