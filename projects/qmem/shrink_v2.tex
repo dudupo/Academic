@@ -10,7 +10,7 @@ The following two claims relate the local maximum points of the potential walls 
 
 \begin{claim}
   \label{claim:localmax}
-Let $z$ be an assignment, and recall that the vertices in $\partial^{-} z$ are the set of vertices adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\partial^{-} z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$ in either $z$ or $\partial^{-} z$. Then $gv \notin \partial^{-} z $.
+Let $z$ be a finite assignment, and recall that the vertices in $\partial^{-} z$ are the set of vertices adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\partial^{-} z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$ in either $z$ or $\partial^{-} z$. Then $gv \notin \partial^{-} z $.
 \end{claim}
 \begin{proof}
 First, the contradiction where $v$ is a maximum of $L_{g}$ in $z$ follows immediately, since containment in $\partial z$ implies containment in $z$. Consider the case where $v$ is a maximum in $\partial z$ and suppose through contradiction that $gv \in \partial^{-} z$, then
@@ -23,14 +23,23 @@ In contradiction to $v$ being a local maximum of $L_{g}$ in $\partial^{-} z$.
 \end{proof}
 \begin{claim}
   \label{claim:edge_pole}
-Let $z$ be an assignment, let $v$ be a vertex in $\partial^{-} z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$. Then, for any check associated with a $d^{\prime}-1$ face rooted at $v$ that contains $gv$, it is satisfied.
+Let $z$ be an assignment, and let $\xi$ be the assignment that results from the application of the sweep rule on $z$. The maximal values of $L_{g}$ in $\xi$ and $\partial \xi$ are lower than the maximal values in $z$ and $\partial z$. Namely: 
+\begin{equation*}
+  \begin{split}
+    \max \left\{ L_{g}(u) : u \in \xi \right\} & \le  \max \big\{ L_{g}(u) : u \in z \big\} \\
+    \max \left\{ L_{g}(u) : u \in \partial^{-} \xi \right\} & \le  \max \big\{ L_{g}(u) : u \in z \big\} 
+  \end{split}
+\end{equation*}
+
 \end{claim}
 \begin{proof}
+
+Let $v$ be a vertex in $\partial^{-} z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$. Then, for any check associated with a $d^{\prime}-1$ face rooted at $v$ that contains $gv$, it is satisfied.
+
+
 Assume, through contradiction, the existence of an unsatisfied check associated with a $d^{\prime}-1$ positive face rooted at $v$, which contains $gv$. This implies $gv \in \partial^{-} z$, contradicting \Cref{claim:localmax}.
-\end{proof}
 
 
-\begin{proof}
 Let $v$ be a vertex that is a maximum of $L_{g}$ in $\partial^{-} \tilde{z}$. Maximum points of $L_{g}$ do not see syndrome at the $g$ direction. To see why, denote the applied correction at $v$ by: 
 \begin{equation*}
   \begin{split}
