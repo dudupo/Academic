@@ -21,7 +21,25 @@ The sweep-rule is the core of our construction. A decoding cycle begins with eac
 \begin{claim}
   For any nontrivial boundary on the positive checks at vertex $v$ the sweep rule admits a suggestion. 
 \end{claim}
-\begin{proof}
+\begin{proof} 
+  Denote by $\phi$ the correction applied by vertex $v$ so $\partial^{-} \phi|_{v+} = \partial^{-} z |_{v+}$. We will show that if the support property is not hold then there is another..   Consider the collection of faces that form $\partial^{-} \phi |_{v}$:
+\begin{equation*}
+  \begin{split}
+    \partal^{-} \phi |_{v} &= \sum_{S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i}} 
+  \end{split}
+\end{equation*}
+% Since $\phi$ is a rooted at vertex $v$, we have that $\partial \phi |_{v+}$ is also rooted at vertex $v$.
+Using the zero boundary of boundary $\partial^{ - 2} \phi = 0$ we have that:
+
+\begin{equation*}
+  \begin{split}
+    \partal^{- 2} \phi |_{v} &=  \partial^{-} \left( \sum_{S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i}} \right) \\
+    & = \sum_{S^{\prime}_{i}}\sum_{g^{\prime} \in S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i}/g} 
+  \end{split}
+\end{equation*}
+So for the sum zeroing out, it follows that for any $S_{1} \in \{ S^{\prime}_{i}\}_{i}$ and any $g_{1} \in S_{1}$, there exist $S_{2} \in \{ S^{\prime}_{i}\}_{i}$ and $g_{2} \in S_{2}$ such that $S_{1}/g_{1} = S_{2}/g_{2}$. 
+
+
   Consider an assignment on $d^{\prime}-1$-faces $\xi \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime-1}}}$ such $\xi$ is a boundary, it's  $\xi|_{v+} \neq 0$, and denote the vertices support of $\xi$ by $\mathbf{lk}_{0}( \xi |_{v+}) = A$. 
 
 
