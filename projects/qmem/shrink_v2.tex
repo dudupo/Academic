@@ -10,10 +10,10 @@ The following two claims relate the local maximum points of the potential walls 
 
 \begin{claim}
   \label{claim:localmax}
-Let $z$ be an assignment, and recall that the vertices in $\partial^{-} z$ are the set of vertices adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\partial^{-} z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$ in $\partial^{-} z$. Then $gv \notin \partial^{-} z$.
+Let $z$ be an assignment, and recall that the vertices in $\partial^{-} z$ are the set of vertices adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\partial^{-} z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$ in either $z$ or $\partial^{-} z$. Then $gv \notin \partial^{-} z $.
 \end{claim}
 \begin{proof}
-  Suppose $gv \in \partial^{-} z$, then 
+First, the contradiction where $v$ is a maximum of $L_{g}$ in $z$ follows immediately, since containment in $\partial z$ implies containment in $z$. Consider the case where $v$ is a maximum in $\partial z$ and suppose through contradiction that $gv \in \partial^{-} z$, then
   \begin{equation*}
     \begin{split}
       L_{g}(gv) = (gv)_{g} = 1 + v_{g} = 1 + L_{g}(v)
