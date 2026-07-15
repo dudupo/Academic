@@ -6,21 +6,8 @@
 
 Errors can be thought of as assignments on the $d^{\prime}$-dimensional faces that have non-vanishing boundaries. In particular, $X$-errors can be characterized as binary assignments $z \in \mathbb{F}^{\mathcal{F}_{d^{\prime}}}_{2}$ such that $\partial^{-} z \neq 0$. In this section, we assume dealing with the $\infty$-extension of a circuit (see \Cref{def:extension}), so the cubical complex is the infinite $d$-dimensional grid.
 
-The following two claims relate the local maximum points of the potential walls $L_{1}, \ldots, L_{d}$ in an assignment $z$ to the structure of the syndrome they observe. Later, we will use that relation to infer that the decoding step of the sweep rule can't spread the error to a vertex\footnote{To faces whose vertices have higher values of $L_{1}, \ldots, L_{d}$ than the current global maximum values.} with a higher value than the current global maximum of $L_{1}, \ldots, L_{d}$. In other words, the error does not spread in the positive directions.
+The following claim relates the local maximum points of the potential walls $L_{1}, \ldots, L_{d}$ in an assignment $z$ to the structure of the syndrome they observe. Later, we will use that relation to infer that the decoding step of the sweep rule can't spread the error to a vertex\footnote{To faces whose vertices have higher values of $L_{1}, \ldots, L_{d}$ than the current global maximum values.} with a higher value than the current global maximum of $L_{1}, \ldots, L_{d}$. In other words, the error does not spread in the positive directions.
 
-\begin{claim}
-  \label{claim:localmax}
-Let $z$ be a finite assignment, and recall that the vertices in $\partial^{-} z$ are the set of vertices adjacent to unsatisfied checks induced by $z$. Let $v$ be a vertex in $\partial^{-} z$, and let $g$ be a generator in $S$ such that $v$ is a local maximum of $L_{g}$ in either $z$ or $\partial^{-} z$. Then $gv \notin \partial^{-} z $.
-\end{claim}
-\begin{proof}
-First, the contradiction where $v$ is a maximum of $L_{g}$ in $z$ follows immediately, since containment in $\partial z$ implies containment in $z$. Consider the case where $v$ is a maximum in $\partial z$ and suppose through contradiction that $gv \in \partial^{-} z$, then
-  \begin{equation*}
-    \begin{split}
-      L_{g}(gv) = (gv)_{g} = 1 + v_{g} = 1 + L_{g}(v)
-    \end{split}
-  \end{equation*}
-In contradiction to $v$ being a local maximum of $L_{g}$ in $\partial^{-} z$.
-\end{proof}
 \begin{claim}
   \label{claim:edge_pole}
 Let $z$ be an assignment, and let $\xi$ be the assignment that results from the application of the sweep rule on $z$. For any generator $g \in S$ the maximal values of $L_{g}$ in $\xi$ and $\partial \xi$ are lower than the maximal values in $z$ and $\partial z$. Namely: 
@@ -33,6 +20,14 @@ Let $z$ be an assignment, and let $\xi$ be the assignment that results from the 
 
 \end{claim}
 \begin{proof}
+First, we argue that for a vertex $v$ in $\partial^{-} z$, and a generator $g \in S$, such that $v$ is a local maximum of $L_{g}$ in either $z$ or $\partial^{-} z$, it implies that $gv \notin \partial^{-} z$. The contradiction where $v$ is a maximum of $L_{g}$ in $z$ follows immediately, since containment in $\partial z$ implies containment in $z$. Consider the case where $v$ is a maximum in $\partial z$ and suppose through contradiction that $gv \in \partial^{-} z$, then
+  \begin{equation*}
+    \begin{split}
+      L_{g}(gv) = (gv)_{g} = 1 + v_{g} = 1 + L_{g}(v)
+    \end{split}
+  \end{equation*}
+In contradiction to $v$ being a local maximum of $L_{g}$ in $\partial^{-} z$.
+
 
   Let $v$ be a vertex such that $v$ is a local maximum of $L_{g}$ in either $z$ or $\partial z$. First, notice that \Cref{claim:localmax} implies that any check associated with a $d^{\prime}-1$ face that contains $gv$ has to be satisfied, in particular $\partial \xi|_{gv} = \partial z|_{gv} = 0$. Denote by $\phi$ the applied correction by vertex $v$. We argue that $gv \notin \phi$.
 To see why, consider the collection of faces that form $\phi$:
