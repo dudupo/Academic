@@ -8,16 +8,16 @@ The sweep-rule is the core of our construction. A decoding cycle begins with eac
 
 \begin{definition}[Sweep Rule]
   \label{def:sweeprule}
-  Let $\sigma$ be a $d^{\prime}-1$-dimensional chain. The \textit{sweep rule decoding procedure} at a vertex $v \in \mathcal{G}_{n}^{d}$ is defined as follows: Measure the checks rooted at $v$ and look for a rooted assignment $\tilde{z}$ at $v$ such that: 
+  Let $\sigma$ be a $d^{\prime}-1$-dimensional chain. The \textit{sweep rule decoding procedure} at a vertex $v \in \mathcal{G}_{n}^{d}$ is defined as follows: Measure the checks rooted at $v$ and look for a rooted chain $\tilde{z}$ at $v$ such that: 
   \begin{enumerate}
     \item The vertices in $\tilde{z}$ are contained in the vertices of $\sigma$, namely: $ \mathbf{ln}_{0+}(v, \tilde{z}) \subset \mathbf{ln}_{0+}(v, \sigma)$ % . Any $d^{\prime}$ dimensional face $\rotfvs{}$ in $\tilde{z}$, satisfies $ (\partial^{-})^{d^{\prime}}\rotfvs{} \subset  \partial^{-}(z)|_{v+}$. 
     \item The boundary of $\tilde{z}$ agrees with $\sigma$: $(\partial^{-}\tilde{z})|_{v+} = \sigma|_{v+}$.
   \end{enumerate}
   If such an assignment exists, flip $\tilde{z}$. \inb{Write again. Consider the update}. 
 \end{definition}
-
+% \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-1}}$
 \begin{claim}
-  For any nontrivial boundary on the positive checks at vertex $v$ the sweep rule admits a suggestion. 
+Consider a nontrivial $d^{\prime}-1$-dimensional chain $\sigma$. If there is a $d$-dimensional chain $z$ that is rooted at $v$ and whose boundary agrees with $\sigma|_{v+}$, then there is a $d$-dimensional chain $\tilde{z}$ rooted at $v$ that satisfies the sweep-rule conditions.
 \end{claim}
 \begin{proof} 
   Denote by $\phi$ the correction applied by vertex $v$ so $\partial^{-} \phi|_{v+} = \partial^{-} z |_{v+}$. We will show that if the support property is not hold then there is another..   Consider the collection of faces that form $\partial^{-} \phi |_{v}$:
