@@ -10,7 +10,7 @@ The sweep-rule is the core of our construction. A decoding cycle begins with eac
   \label{def:sweeprule}
   Let $\sigma$ be a $d^{\prime}-1$-dimensional chain. The \textit{sweep rule decoding procedure} at a vertex $v \in \mathcal{G}_{n}^{d}$ is defined as follows: Measure the checks rooted at $v$ and look for a rooted chain $\tilde{z}$ at $v$ such that: 
   \begin{enumerate}
-    \item The vertices in $\tilde{z}$ are contained in the vertices of $\sigma$, namely: $ \mathbf{ln}_{0+}(v, \tilde{z}) \subset \mathbf{ln}_{0+}(v, \sigma)$ % . Any $d^{\prime}$ dimensional face $\rotfvs{}$ in $\tilde{z}$, satisfies $ (\partial^{-})^{d^{\prime}}\rotfvs{} \subset  \partial^{-}(z)|_{v+}$. 
+    \item The vertices in $\tilde{z}$ are contained in the vertices of $\sigma$, namely: $ \mathbf{Str}_{0+}(v, \tilde{z}) \subset \mathbf{Str}_{0+}(v, \sigma)$ % . Any $d^{\prime}$ dimensional face $\rotfvs{}$ in $\tilde{z}$, satisfies $ (\partial^{-})^{d^{\prime}}\rotfvs{} \subset  \partial^{-}(z)|_{v+}$. 
     \item The boundary of $\tilde{z}$ agrees with $\sigma$ on the positive checks of $v$, namely: $(\partial^{-}\tilde{z})|_{v+} = \sigma|_{v+}$.
   \end{enumerate}
   If such an assignment exists, flip $\tilde{z}$.
@@ -43,7 +43,7 @@ So the number of terms in the sum is even, and since a term is zeroed out only i
       \end{equation*}
       Thus, by the induction assumption, there is a $d^{\prime}-1$-dimensional chain $\tilde{z}^{*}$ such that: 
   \begin{enumerate}
-    \item $ \mathbf{ln}_{0+}(v, \tilde{z}^{*}) \subset \mathbf{ln}_{0+}(v, \sigma^{*})$  
+    \item $ \mathbf{Str}_{0+}(v, \tilde{z}^{*}) \subset \mathbf{Str}_{0+}(v, \sigma^{*})$  
     \item $(\partial^{-}\tilde{z}^{*})|_{v+} = \sigma^{*}|_{v+}$
   \end{enumerate}
 The first condition implies that $gv \notin \tilde{z}^{*}$. Hence, we can define the $d^{\prime}$-dimensional chain $\tilde{z}$ by adding the vertex $gv$ to each face of $\tilde{z}^{*}$. From the second it follows that: 
@@ -63,7 +63,7 @@ Therefore,
 Thus we reduce the question to handle the $d^{\prime}-1$-dimensional chain $\sigma + \partial^{-} \tilde{z}$. However, since $gv \notin  \sigma + \partial^{-} \tilde{z}$ it follows that: 
 \begin{equation*}
   \begin{split}
-    |\mathbf{ln}_{0+}(v, \sigma + \partial^{-} \tilde{z})| \le  |\mathbf{ln}_{0+}(v, \sigma )| - 1
+    |\mathbf{Str}_{0+}(v, \sigma + \partial^{-} \tilde{z})| \le  |\mathbf{Str}_{0+}(v, \sigma )| - 1
   \end{split}
 \end{equation*}
 Thus, we can repeat recursively until the resulting $d^{\prime}-1$ chain is 'supported' on fewer than $d^{\prime}$ vertices. In that case, the chain must be trivial.
@@ -72,7 +72,7 @@ Thus, we can repeat recursively until the resulting $d^{\prime}-1$ chain is 'sup
 The algorithm given in the proof of \Cref{claim:findcor} for finding $\tilde{z}$ is as follows: given $\sigma$, pick a $g \in S$ such that $gv \in \sigma$. Then, define $\sigma^{*}$ by removing $gv$ from each face of $\sigma|_{gv}$. Let $\tilde{z}^{*}$ be the result of the recursive call on $\sigma^{*}$, and return '$\tilde{z}^{*} \cup \{gv\}$' plus the recursive call on $\sigma|_{/gv} + \tilde{z}^{*}$.
 
 
-We stop the recursion whenever either $d^{\prime}=2$ or $|\mathbf{ln}_{0+}(v, \sigma )|\le d^{\prime}$. The work in each recursion step consists of decomposing $\sigma$ into $\sigma|_{gv}$ and $\sigma|_{/gv}$ and summing ${ d \choose d^{\prime} }$-length vectors. We summarize by introducing the following claim which gives the running time of the algorithm in the RAM computation model.
+We stop the recursion whenever either $d^{\prime}=2$ or $|\mathbf{Str}_{0+}(v, \sigma )|\le d^{\prime}$. The work in each recursion step consists of decomposing $\sigma$ into $\sigma|_{gv}$ and $\sigma|_{/gv}$ and summing ${ d \choose d^{\prime} }$-length vectors. We summarize by introducing the following claim which gives the running time of the algorithm in the RAM computation model.
 \begin{claim}
   Let $ T(d, d') : \cdot \rightarrow \mathbb{R} $ be the upper bound function for the running time of the algorithm given in \Cref{claim:findcor}. Then, for some constant $c$ it holds that $ T(d, d') \leq c d \cdot d! $.
 \end{claim}
