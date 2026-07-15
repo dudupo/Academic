@@ -254,12 +254,12 @@ Next, we prove that the sweep-cycle advances the corner of the error's boundary.
   \label{claim:sweepshrink}
 Let $z$ be a finite assignment and let $\xi$ be the result of the application of the sweep rule on it. Then: 
   \begin{enumerate}
-    \item For any $i \in [d]$: $\max \big\{ L_{i}(v) : v \in \partial^{-} z \big\} = \max \big\{ L_{i}(v) : v \in \partial^{-} \xi \big\}  $
+    \item For any $i \in [d]$: $\max \big\{ L_{i}(v) : v \in \partial^{-} z \big\} \ge \max \big\{ L_{i}(v) : v \in \partial^{-} \xi \big\}  $
     \item And for $i = d+1$ : $ \max \big\{ L_{d+1}(v)  : v \in \partial^{-} z \big\} > \max \big\{  L_{d+1}(v) : v \in \partial^{-} \xi \big\} + 1$
   \end{enumerate}
 \end{claim}
 \begin{proof}
-First, since the sweep rule is invariant to addition by stabilizers, for any $\tilde{z}$ such that $\tilde{z} \sim_{C_{X}} z$, the correction applied by the sweep rule on $\tilde{z}$ is the same as the application on $z$. Denote by $\phi$ the applied correction, by $\tilde{\xi}$ the result of applying the sweep rule on $\tilde{z}$, and by $w$ the stabilizer which is the difference between $z$ and $\tilde{z}$, namely:
+  The first inequality was proved in \Cref{claim:edge_pole}, so it's left to prove the second. First, since the sweep rule is invariant to addition by stabilizers, for any $\tilde{z}$ such that $\tilde{z} \sim_{C_{X}} z$, the correction applied by the sweep rule on $\tilde{z}$ is the same as the application on $z$. Denote by $\phi$ the applied correction, by $\tilde{\xi}$ the result of applying the sweep rule on $\tilde{z}$, and by $w$ the stabilizer which is the difference between $z$ and $\tilde{z}$, namely:
   \begin{equation*}
     \begin{split}
       \xi &= z + \phi \\
