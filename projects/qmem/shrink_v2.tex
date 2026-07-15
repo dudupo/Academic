@@ -10,7 +10,7 @@ The following claim relates the local maximum points of the potential walls $L_{
 
 \begin{claim}
   \label{claim:edge_pole}
-Let $z$ be an assignment, and let $\xi$ be the assignment that results from the application of the sweep rule on $z$. For any generator $g \in S$ the maximal values of $L_{g}$ in $\xi$ and $\partial \xi$ are lower than the maximal values in $z$ and $\partial z$. Namely: 
+  Let $z$ be an assignment, and let $\xi$ be the assignment that results from the application of the sweep rule on $z$. For any generator $g \in S$ the maximal values of $L_{g}$ in $\xi$ and $\partial^{-} \xi$ are lower than the maximal values in $z$ and $\partial^{-} z$. Namely: 
 \begin{equation*}
   \begin{split}
     & \max \left\{ L_{g}(u) : u \in \xi \right\}  \le  \max \big\{ L_{g}(u) : u \in z \big\} \\
@@ -20,7 +20,7 @@ Let $z$ be an assignment, and let $\xi$ be the assignment that results from the 
 
 \end{claim}
 \begin{proof}
-  First, we argue that for a vertex $v$ in $\partial^{-} z$, and a generator $g \in S$, such that $v$ is a local maximum of $L_{g}$ in either $z$ or $\partial^{-} z$, it implies that $gv \notin \partial^{-} z$. The contradiction where $v$ is a maximum of $L_{g}$ in $z$ follows immediately, since containment in $\partial z$ implies containment in $z$. Where $v$ is a maximum in $\partial z$, suppose through contradiction that $gv \in \partial^{-} z$, then
+  First, we argue that for a vertex $v$ in $\partial^{-} z$, and a generator $g \in S$, such that $v$ is a local maximum of $L_{g}$ in either $z$ or $\partial^{-} z$, it implies that $gv \notin \partial^{-} z$. The contradiction where $v$ is a maximum of $L_{g}$ in $z$ follows immediately, since containment in $\partial^{-} z$ implies containment in $z$. Where $v$ is a maximum in $\partial^{-} z$, suppose through contradiction that $gv \in \partial^{-} z$, then
   \begin{equation*}
     \begin{split}
       L_{g}(gv) = (gv)_{g} = 1 + v_{g} = 1 + L_{g}(v)
