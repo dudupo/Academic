@@ -74,7 +74,7 @@ The algorithm given in the proof of \Cref{claim:findcor} for finding $\tilde{z}$
 
 We stop the recursion whenever either $d^{\prime}=2$ or $|\mathbf{ln}_{0+}(v, \sigma )|\le d^{\prime}$. The work in each recursion step consists of decomposing $\sigma$ into $\sigma|_{gv}$ and $\sigma|_{/gv}$ and summing ${ d \choose d^{\prime} }$-length vectors. We summarize by introducing the following claim which gives the running time of the algorithm in the RAM computation model.
 \begin{claim}
-  Let $ T(d, d') : \cdot \rightarrow \mathbb{R} $ be the upper bound function for the running time of the algorithm given in \Cref{claim:findcor}. Then, for some constant $c$: $ T(d, d') \leq c d \cdot d! $.
+  Let $ T(d, d') : \cdot \rightarrow \mathbb{R} $ be the upper bound function for the running time of the algorithm given in \Cref{claim:findcor}. Then, for some constant $c$ it holds that $ T(d, d') \leq c d \cdot d! $.
 \end{claim}
 \begin{proof}
 We assume by induction for all dimensions lower than $d$ and $d^{\prime}$, and then get:
