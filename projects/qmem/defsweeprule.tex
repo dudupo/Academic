@@ -16,7 +16,11 @@ The sweep-rule is the core of our construction. A decoding cycle begins with eac
   If such an assignment exists, flip $\tilde{z}$. \inb{Write again. Consider the update}. 
 \end{definition}
 % \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-1}}$
+
+The first property is analogous to the second property of 'causal structure' defined in \cite{Kubica_2019}\footnote{In their language: $\diamondsuit(\tilde{z}) = \diamondsuit(\sigma|_{v})$.}. There, they conjectured that vertices that see a syndrome only on their positive checks can suggest a correction that is 'supported' on the vertices of their unsatisfied checks. For lower dimensions, they mentioned that the property can be easily checked. Here, we provide a proof for any dimensions where the face dimension is greater than one. We use the language of cubical complexes; however, since the 'positive' local view at a vertex is identical for both cubical and simplicial complexes, generalizing the proof for simplicial complexes is a matter of adjusting notations. By that, we affirmatively answer their conjecture. Moreover, the proof will provide us with an algorithm to find $\tilde{z}$, which is significantly better than running all options.
+
 \begin{claim}
+  \cref{claim:findcor}
 Consider a nontrivial $d^{\prime}-1$-dimensional chain $\sigma$. If there is a $d$-dimensional chain $z$ that is rooted at $v$ and whose boundary agrees with $\sigma|_{v+}$, then there is a $d$-dimensional chain $\tilde{z}$ rooted at $v$ that satisfies the sweep-rule conditions.
 \end{claim}
 \begin{proof} 
@@ -65,6 +69,8 @@ Thus we reduce the question to handle the $d^{\prime}-1$-dimensional chain $\sig
 Thus, we can repeat recursively until the resulting $d^{\prime}-1$ chain is 'supported' on fewer than $d^{\prime}$ vertices. In that case, the chain must be trivial.
   \end{enumerate}
 \end{proof}
+
+The proof of \Cref{claim:findcor} gives tow additional insights, first the proof is also correct for simplicail complex (as the positive local view in both simplicial and cubical complexes is the same). Thus we proved the conjececture   
 
 
 A full decoding cycle is composed of first applying the sweep-rule regarding the $X$-syndrome, then moving into the dual code (and reordering the qubits) by $\mathbf{H}_{\phi}$, and then applying the sweep-rule again with the change that the positive direction is flipped to be the negative direction. At the end, we return to the original code by applying $\mathbf{H}_{\phi}$.
