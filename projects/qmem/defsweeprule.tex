@@ -46,7 +46,8 @@ So the number of terms in the sum is even, and since a term is zeroed out only i
 The first condition implies that $gv \notin \tilde{z}^{*}$. Hence, we can define the $d^{\prime}$-dimensional chain $\tilde{z}$ by adding the vertex $gv$ to each face of $\tilde{z}^{*}$. From the second it follows that: 
 \begin{equation*}
   \begin{split}
-    \partial^{-} \tilde{z} = \partial^{-} \bigl(  \sum_{\rotfvs \in \tilde{z}^{*} } \rotfv{v}{S^{\prime}\cup \{g\}}  \bigr) =  \sum_{\rotfvs \in \tilde{z}^{*} } \bigl( \sum_{g^{\prime} \in S^{\prime}/g } \rotfv{v}{S^{\prime} / \{g^{\prime}\} \cup \{g\}} \bigr) +   \rotfv{v}{S^{\prime}} 
+    \partial^{-} \tilde{z} &= \partial^{-} \bigl(  \sum_{\rotfvs \in \tilde{z}^{*} } \rotfv{v}{S^{\prime}\cup \{g\}}  \bigr) =  \sum_{\rotfvs \in \tilde{z}^{*} } \bigl( \sum_{g^{\prime} \in S^{\prime}/g } \rotfv{v}{S^{\prime} / \{g^{\prime}\} \cup \{g\}} \bigr) +   \rotfv{v}{S^{\prime}} \\
+    &=  \sum_{\rotfvs \in \partial^{-}\tilde{z}^{*} } \rotfv{v}{S^{\prime}\cup \{g\}} + \tilde{z}^{*} = \sigma|_{gv} + \tilde{z}^{*} 
     %\partial^{-} \bigl(  \sum_{\rotfvs \in \tilde{z}^{*} } \rotfv{v}{S^{\prime}\cup \{g\}} 
   \end{split}
 \end{equation*}
