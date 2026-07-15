@@ -70,8 +70,15 @@ Thus, we can repeat recursively until the resulting $d^{\prime}-1$ chain is 'sup
   \end{enumerate}
 \end{proof}
 
-The proof of \Cref{claim:findcor} gives tow additional insights, first the proof is also correct for simplicail complex (as the positive local view in both simplicial and cubical complexes is the same). Thus we proved the conjececture   
+The proof of \Cref{claim:findcor} gives an algorithm  additional insights, first the proof is also correct for simplicail complex (as the positive local view in both simplicial and cubical complexes is the same). Thus we proved the conjececture   
 
+
+\begin{equation*}
+  \begin{split}
+    T(d,d^{\prime}) &= d T(d-1,d^{\prime}-1) + O( { d \choose d^{\prime} }^{2} ) \\  
+  & \le d (d-1)(d-1)! + 2^{2d}\le d\cdot d!
+  \end{split}
+\end{equation*}
 
 A full decoding cycle is composed of first applying the sweep-rule regarding the $X$-syndrome, then moving into the dual code (and reordering the qubits) by $\mathbf{H}_{\phi}$, and then applying the sweep-rule again with the change that the positive direction is flipped to be the negative direction. At the end, we return to the original code by applying $\mathbf{H}_{\phi}$.
 
