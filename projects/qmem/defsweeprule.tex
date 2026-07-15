@@ -29,8 +29,7 @@ Consider a nontrivial $d^{\prime}-1$-dimensional chain $\sigma$. If there is a $
         \end{split}
       \end{equation*}
 So the number of terms in the sum is even, and since a term is zeroed out only if it appears an even number of times, we have that after excluding the vanishing terms, $\sigma$ has an even number of faces. Since the number of faces is even, there is a perfect matching between them. It's easy to see that the $2$-chain $\tilde{z}$, whose each face corresponds to the union of the two edges in a match, satisfies the sweep-rule conditions.
-    \item 
-      Assume the correctness of the claim for every face dimension lower than $d^{\prime}$.   Now for a face dimension $d^{\prime}$ and an arbitrary generator $g \in S$, divide $\sigma$ into a sum of two chains, the first contain the faces of $\sigma$ that supported on the vertex $gv$ where the second contains the compliment. Denote them by $\sigma|_{gv}$ and $\sigma|_{/ gv}$, so $\sigma = \sigma|_{gv} + \sigma|_{/ gv}$. 
+    \item Assume the correctness of the claim for every face dimension lower than $d^{\prime}$.   Now for a face dimension $d^{\prime}$ and an arbitrary generator $g \in S$ such $gv \in \sigma$, divide $\sigma$ into a sum of two chains, the first contain the faces of $\sigma$ that supported on the vertex $gv$ where the second contains the compliment. Denote them by $\sigma|_{gv}$ and $\sigma|_{/ gv}$, so $\sigma = \sigma|_{gv} + \sigma|_{/ gv}$. 
 
       Now let $ \sigma^{*}$ the chain obtained from $\sigma|_{gv}$ by removing from any face of it the vertex $gv$, thus $\sigma^{*}$ is a $d^{\prime}-2$-dimensional chain. Moreover, let $z^{*}$ be the $d^{\prime}-1$-dimensional chain complex obtained from $z|_{gv}$ by excluding $gv$ from its faces. Observes that 
       \begin{equation*}
@@ -48,18 +47,22 @@ The first condition implies that $gv \notin \tilde{z}^{*}$. Hence, we can define
   \begin{split}
     \partial^{-} \tilde{z} &= \partial^{-} \bigl(  \sum_{\rotfvs \in \tilde{z}^{*} } \rotfv{v}{S^{\prime}\cup \{g\}}  \bigr) =  \sum_{\rotfvs \in \tilde{z}^{*} } \bigl( \sum_{g^{\prime} \in S^{\prime}/g } \rotfv{v}{S^{\prime} / \{g^{\prime}\} \cup \{g\}} \bigr) +   \rotfv{v}{S^{\prime}} \\
     &=  \sum_{\rotfvs \in \partial^{-}\tilde{z}^{*} } \rotfv{v}{S^{\prime}\cup \{g\}} + \tilde{z}^{*} = \sigma|_{gv} + \tilde{z}^{*} 
-    %\partial^{-} \bigl(  \sum_{\rotfvs \in \tilde{z}^{*} } \rotfv{v}{S^{\prime}\cup \{g\}} 
   \end{split}
 \end{equation*}
-Therfore, 
+Therefore, 
 \begin{equation*}
   \begin{split}
     \sigma + \partial^{-} \tilde{z} &= \sigma|_{gv} + \sigma|_{/ gv} + \sigma|_{gv} + \tilde{z}^{*} \\ 
     &= \sigma|_{/ gv} + \tilde{z}^{*}
   \end{split}
 \end{equation*}
-We continue until the $\partial z$ is spread in fewer than $d^{\prime}-1$ directions; then, clearly, we have that $\tilde{z}|_{/gv}$ is empty.
-
+Thus we reduce the question to handle the $d^{\prime}-1$-dimensional chain $\sigma + \partial^{-} \tilde{z}$. However, since $gv \notin  \sigma + \partial^{-} \tilde{z}$ it follows that: 
+\begin{equation*}
+  \begin{split}
+    |\mathbf{ln}_{0+}(v, \sigma + \partial^{-} \tilde{z})| \le  |\mathbf{ln}_{0+}(v, \sigma )| - 1
+  \end{split}
+\end{equation*}
+Thus, we can repeat recursively until the resulting $d^{\prime}-1$ chain is 'supported' on fewer than $d^{\prime}$ vertices. In that case, the chain must be trivial.
   \end{enumerate}
 \end{proof}
 
