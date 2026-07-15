@@ -22,54 +22,14 @@ Consider a nontrivial $d^{\prime}-1$-dimensional chain $\sigma$. If there is a $
 \begin{proof} 
   We prove it by induction on $d^{\prime}$. 
   \begin{enumerate}
-    \item Base. Consider $d^{\prime} = 2$ and let $d$ be any integer equal to or greater than $3$. We argue that the support size of $\sigma$ has to be even. To see this, let us introduce an imaginary vertex $e$, and consider the $d^{\prime}$-dimensional chain $\sigma^{*}$ such that any face of it is obtained by taking a face of $\sigma$ and adding to it an imaginary direction $e$. (The chain complex of $\sigma^{*}$ is induced by the skeleton of $\mathcal{G}^{d} \cup \{e\}$).
-Similarly, define $z^{*}$ to be obtained by extending each face of $z$ to contain $e$.
-Now, using the boundary of boundary is zero, we have that $(\partial^{-})^{2}z^{*} = 0$ and in particular 
-
-\begin{equation*}
-  \begin{split}
-    0 = ((\partial^{-})^{2}z^{*})|_{e} & =  \sum_{ \rotfvs{} \in z^{*}}\sum_{ \substack{ g_{1},g_{2} \in S^{\prime} / e  \\ g_{1}\neq g_{2} } } \rotfv{v}{S^{\prime}/\{g_{1},g_{2}\}} \\
-    & =  \sum_{ \rotfvs{} \in z^{*}} \rotfv{v}{\{e\}}
-  \end{split}
-\end{equation*} 
-Where the last transition follows from the fact that each face of $z^{*}$ is at dimension $d^{\prime}+1 = 3$. For the 
-
-we have that:
-
-
-  \end{enumerate}
-
-
-  Denote by $\phi$ the correction applied by vertex $v$ so $\partial^{-} \phi|_{v+} = \partial^{-} z |_{v+}$. We will show that if the support property is not hold then there is another..   Consider the collection of faces that form $\partial^{-} \phi |_{v}$:
-\begin{equation*}
-  \begin{split}
-    \partial^{-} \phi |_{v} &= \sum_{S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i}} 
-  \end{split}
-\end{equation*}
-Now, imagine the extansion of $\phi$ to $\phi^{*}$ such any face in $\phi^{*}$ is obtained by taking a face of $\phi$ adding to it a imaginary direction $e$. Therefore:
-\begin{equation*}
-  \begin{split}
-    \partial \phi^{*} |_{e} &= \sum_{S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i} \cup e} 
-  \end{split}
-\end{equation*}
-% Since $\phi$ is a rooted at vertex $v$, we have that $\partial \phi |_{v+}$ is also rooted at vertex $v$.
-Using the zero boundary of boundary $(\partial^{-})^{2}\phi^{*} = 0$ we have that:
-\begin{equation*}
-  \begin{split}
-    (\partial^{-})^{2}\phi^{*} |_{e} =   \partial^{-} \left( \sum_{S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i} \cup e} \right) |_{e}  = \sum_{S^{\prime}_{i}}\sum_{g^{\prime} \in S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i}\cup e /g} = 0   
-  \end{split}
-\end{equation*}
-For $d^{\prime}=2$, any of the subsets $S^{\prime}_{i}\cup e/g^{\prime}$ is the singleton $\{e\}$, thus for the sum zeroing out, the number of faces in $\partial^{*}\phi$ has to be even, and therefore also in $\partial \phi$. 
-
-Thus, one can find a perfect matching between the $M : \{ S^{\prime}_{i} \} \rightarrow \{ S^{\prime}_{i} \}$, let $A$ be a subset of $\{ S^{\prime}_{i} \} $ such $M : A \rightarrow \bar{A}$. Defines: 
-\begin{equation*}
-  \begin{split}
-    \tilde{z} \colonequals \sum_{S^{\prime}_{i} \in A} \rotfv{v}{ S^{\prime}_{i} \cup M(S^{\prime}_{i}) } 
-  \end{split}
-\end{equation*}
-Clearly the support property holds and the $\partial^{-}\tilde{z} = \partial^{-}\phi = \partial z$
-
-Now for $d^{\prime}> 2$ and $g \in S$. Divide $\partial^{-}\phi = \partial^{-}\phi|_{gv} + \partial^{-}\phi|_{/ gv}$. Now let $\partial \phi^{*}$ the assignment obtained from $\partial^{-}\phi|_{gv}$ by removing from any face of it the vertex $gv$. By the induction assumption there is, $\tilde{z}^{*}$ that .., Consider now $\tilde{z}$ obtained by adding to each face of $\tilde{z}^{*}$ the vertex $gv$. 
+    \item Base. Consider $d^{\prime} = 2$ and let $d$ be any integer equal to or greater than $3$. We argue that the support size of $\sigma$ has to be even. To see that, denote the faces in $z$ by $\rotfv{v}{S^{\prime}_{i}}$, where $S^{\prime}_{i} = \{g_{i,1},g_{i,2}\}$. Using the fact that $\sigma$ is the boundary of $z$, we have:
+      \begin{equation*}
+        \begin{split}
+          \sigma = \partial^{-}(z) = \sum_{ \rotfvs{} \in z}\sum_{ g \in S^{\prime} } \rotfvs{v}{S^{\prime } / g } = \sum_{ i } \rotfvs{v}{ g_{i,1} }+ \rotfvs{v}{ g_{i,2} } 
+        \end{split}
+      \end{equation*}
+So the number of terms in the sum is even, and since a term is zeroed out only if it appears an even number of times, we have that after excluding the vanishing terms, $\sigma$ has an even number of faces. Since the number of faces is even, there is a perfect matching between them. It's easy to see that the $2$-chain $\tilde{z}$, whose each face corresponds to the union of the two edges in a match, satisfies the sweep-rule conditions.
+    \item  Now for $d^{\prime}> 2$ and $g \in S$. Divide $\partial^{-}\phi = \partial^{-}\phi|_{gv} + \partial^{-}\phi|_{/ gv}$. Now let $\partial \phi^{*}$ the assignment obtained from $\partial^{-}\phi|_{gv}$ by removing from any face of it the vertex $gv$. By the induction assumption there is, $\tilde{z}^{*}$ that .., Consider now $\tilde{z}$ obtained by adding to each face of $\tilde{z}^{*}$ the vertex $gv$. 
 Thus, 
 \begin{equation*}
   \begin{split}
@@ -79,28 +39,7 @@ Thus,
 \end{equation*}
 We continue until the $\partial z$ is spread in fewer than $d^{\prime}-1$ directions; then, clearly, we have that $\tilde{z}|_{/gv}$ is empty.
 
-
-
-
-, So for the sum zeroing out, it follows that for any $S_{1} \in \{ S^{\prime}_{i}\}_{i}$ and any $g_{1} \in S_{1}$, there exist $S_{2} \in \{ S^{\prime}_{i}\}_{i}$ and $g_{2} \in S_{2}$ such that $S_{1}/g_{1} = S_{2}/g_{2}$. 
-
-
-
-
-  Consider an assignment on $d^{\prime}-1$-faces $\xi \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime-1}}}$ such $\xi$ is a boundary, it's  $\xi|_{v+} \neq 0$, and denote the vertices support of $\xi$ by $\mathbf{lk}_{0}( \xi |_{v+}) = A$. 
-
-
-  Then there is an assignment $z$, rooted at $v$, such that $\mathbf{lk}_{0}(z|_{v}) $ is contained in $A$. 
-
-
-  Notice that since $z$ is rooted at $v$ then $z|_{v} = z|_{v+}$. Denote by $k$ the number of generators supporting $ z|_{v}$. Namely, for $S^{\prime}_{1},..,S^{\prime}_{l}$, such that:
-  \begin{equation*}
-    \begin{split}
-      z|_{v} =  \sum_{i}^{l} \rotfv{v}{S^{\prime}_{i}} 
-    \end{split}
-  \end{equation*}
-  the number of supporting generators is $ k = | \cup_{i}S^{\prime}_{i}|$. We prove by induction on $k$. For the base, $k=d^{\prime}$, we have that  $z$ spreads on a single face. And 
-
+  \end{enumerate}
 \end{proof}
 
 
