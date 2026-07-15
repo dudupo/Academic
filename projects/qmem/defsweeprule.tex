@@ -20,6 +20,26 @@ The sweep-rule is the core of our construction. A decoding cycle begins with eac
 Consider a nontrivial $d^{\prime}-1$-dimensional chain $\sigma$. If there is a $d$-dimensional chain $z$ that is rooted at $v$ and whose boundary agrees with $\sigma|_{v+}$, then there is a $d$-dimensional chain $\tilde{z}$ rooted at $v$ that satisfies the sweep-rule conditions.
 \end{claim}
 \begin{proof} 
+  We prove it by induction on $d^{\prime}$. 
+  \begin{enumerate}
+    \item Base. Consider $d^{\prime} = 2$ and let $d$ be any integer equal to or greater than $3$. We argue that the support size of $\sigma$ has to be even. To see this, let us introduce an imaginary vertex $e$, and consider the $d^{\prime}$-dimensional chain $\sigma^{*}$ such that any face of it is obtained by taking a face of $\sigma$ and adding to it an imaginary direction $e$. (The chain complex of $\sigma^{*}$ is induced by the skeleton of $\mathcal{G}^{d} \cup \{e\}$).
+Similarly, define $z^{*}$ to be obtained by extending each face of $z$ to contain $e$.
+Now, using the boundary of boundary is zero, we have that $(\partial^{-})^{2}z^{*} = 0$ and in particular 
+
+\begin{equation*}
+  \begin{split}
+    0 = ((\partial^{-})^{2}z^{*})|_{e} & =  \sum_{ \rotfvs{} \in z^{*}}\sum_{ \substack{ g_{1},g_{2} \in S^{\prime} / e  \\ g_{1}\neq g_{2} } } \rotfv{v}{S^{\prime}/\{g_{1},g_{2}\}} \\
+    & =  \sum_{ \rotfvs{} \in z^{*}} \rotfv{v}{\{e\}}
+  \end{split}
+\end{equation*} 
+Where the last transition follows from the fact that each face of $z^{*}$ is at dimension $d^{\prime}+1 = 3$. For the 
+
+we have that:
+
+
+  \end{enumerate}
+
+
   Denote by $\phi$ the correction applied by vertex $v$ so $\partial^{-} \phi|_{v+} = \partial^{-} z |_{v+}$. We will show that if the support property is not hold then there is another..   Consider the collection of faces that form $\partial^{-} \phi |_{v}$:
 \begin{equation*}
   \begin{split}
