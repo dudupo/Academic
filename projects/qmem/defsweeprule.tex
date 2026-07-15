@@ -69,16 +69,22 @@ Thus we reduce the question to handle the $d^{\prime}-1$-dimensional chain $\sig
 Thus, we can repeat recursively until the resulting $d^{\prime}-1$ chain is 'supported' on fewer than $d^{\prime}$ vertices. In that case, the chain must be trivial.
   \end{enumerate}
 \end{proof}
+The algorithm given in the proof of \Cref{claim:findcor} for finding $\tilde{z}$ is as follows: given $\sigma$, pick a $g \in S$ such that $gv \in \sigma$. Then, define $\sigma^{*}$ by removing $gv$ from each face of $\sigma|_{gv}$. Let $\tilde{z}^{*}$ be the result of the recursive call on $\sigma^{*}$, and return '$\tilde{z}^{*} \cup \{gv\}$' plus the recursive call on $\sigma|_{/gv} + \tilde{z}^{*}$.
 
-The proof of \Cref{claim:findcor} gives an algorithm  additional insights, first the proof is also correct for simplicail complex (as the positive local view in both simplicial and cubical complexes is the same). Thus we proved the conjececture   
 
-
+We stop the recursion whenever either $d^{\prime}=2$ or $|\mathbf{ln}_{0+}(v, \sigma )|\le d^{\prime}$. The work in each recursion step consists of decomposing $\sigma$ into $\sigma|_{gv}$ and $\sigma|_{/gv}$ and summing ${ d \choose d^{\prime} }$-length vectors. We summarize by introducing the following claim which gives the running time of the algorithm in the RAM computation model.
+\begin{claim}
+  Let $ T(d, d') : \cdot \rightarrow \mathbb{R} $ be the upper bound function for the running time of the algorithm given in \Cref{claim:findcor}. Then, for some constant $c$: $ T(d, d') \leq c d \cdot d! $.
+\end{claim}
+\begin{proof}
+We assume by induction for all dimensions lower than $d$ and $d^{\prime}$, and then get:
 \begin{equation*}
   \begin{split}
-    T(d,d^{\prime}) &= d T(d-1,d^{\prime}-1) + O\bigl( { d \choose d^{\prime} }^{2} \bigr) \\  
-  & \le d (d-1)(d-1)! + 2^{2d}\le d\cdot d!
+    T(d,d^{\prime}) &=  d T(d-1,d^{\prime}-1) + O\bigl( { d \choose d^{\prime} }^{2} \bigr) \\  
+  & \le d c  (d-1)(d-1)! + 2^{2d}\le c d\cdot d!
   \end{split}
 \end{equation*}
+\end{proof}
 
 A full decoding cycle is composed of first applying the sweep-rule regarding the $X$-syndrome, then moving into the dual code (and reordering the qubits) by $\mathbf{H}_{\phi}$, and then applying the sweep-rule again with the change that the positive direction is flipped to be the negative direction. At the end, we return to the original code by applying $\mathbf{H}_{\phi}$.
 
