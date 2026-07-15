@@ -34,25 +34,9 @@ For a vertex $v$ denote by $\varphi_{v} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\pri
       \xi = \sum_{v \in \partial^{-}z}\varphi_{v} + z
   \end{split}
 \end{equation*}
-Now, combining with the sweep rule first condition, which restricts the correction applied by a vertex to have a vertex support that is contained in the positive syndrome it sees, We have that any vertex $u$ that is 
+So for any vertex $u \in z/\xi$, there is a vertex $v \in \partial^{-}z$ such that $u \in \varphi_{v}$. Moreover, since $\phi_{v}$ is a rooted assignment, it follows that $L_{g}(u) \le L_{g}(v) + 1$, where the equality holds when $g$ doesn't belong to the generator's subset of the face $\varphi_{v}$.
 
-  Let $v$ be a vertex such that $v$ is a local maximum of $L_{g}$ in either $z$ or $\partial z$. First, notice that \Cref{claim:localmax} implies that any check associated with a $d^{\prime}-1$ face that contains $gv$ has to be satisfied, in particular $\partial \xi|_{gv} = \partial z|_{gv} = 0$. Denote by $\phi$ the applied correction by vertex $v$. We argue that $gv \notin \phi$.
-To see why, consider the collection of faces that form $\phi$:
-\begin{equation*}
-  \begin{split}
-    \phi &= \sum_{S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i}} 
-  \end{split}
-\end{equation*}
-Having $\partial^{-} \xi|_{gv} = 0$, combined with the definition of the sweep-rule (which requires $\partial \phi|_{v+} = \partial z|_{v+}$), implies that $\partial^{-}\phi |_{gv} = 0$. Therefore:
-\begin{equation*}
-  \begin{split}
-    \partial^{-} \phi|_{gv} &= \left( \partial^{-} \sum_{S^{\prime}_{i}} \rotfv{v}{S^{\prime}_{i}} \right)|_{gv} \\
-    &=  \left(  \sum_{S^{\prime}_{i}} \sum_{g^{\prime} \in S^{\prime}_{i} }\rotfv{v}{S^{\prime}_{i}/g^{\prime}} +\rotfv{g^{\prime}v}{S^{\prime}_{i}/g^{\prime}} \right)|_{gv} \\ 
-  & = 0 
-  \end{split}
-\end{equation*}
-Thus if $gv \in \phi$, and hence $g  \in \cup_{i} S^{\prime}_{i}$, then there is $S^{\prime}_{i}$ such the face $ \rotfv{gv}{S^{\prime}_{i}/g} $ appears in the sum. So, to satisfy $\partial^{-} \phi|_{gv} = 0$, the term $\rotfv{gv}{S^{\prime}_{i}/g}$ must appear at least twice. Yet, the left terms in the sum cannot contain it (they differ by the root vertex), and if there is a right term $\rotfv{gv}{S^{\prime}_{j}/g}$ such that $\rotfv{gv}{S^{\prime}_{j}/g} = \rotfv{gv}{S^{\prime}_{i}/g}$, then it implies that $S_{j} = S_{i}$, which is a contradiction. Therefore, $g \notin \cup S^{\prime}_{i}$ and $gv \notin \phi_{v}$. 
-
+Now, combining with the sweep rule's first condition, which restricts the correction applied by a vertex to have a vertex support that is contained in the positive syndrome it sees, we have that for any vertex $ v $ which is a local maximum of $ L_{g} $, any $ u \in \varphi_{v} $ satisfies $ L_{g}(u) = L_{g}(v) $. 
 
 Overall, we find that the vertex domain of $\partial^{-}\tilde{\xi}$ does not contain $gv$ for any $v$ that is a maximum of $L_{g}$. Thus, the value of $L_{g}$ in $\partial^{-}\tilde{\xi}$ doesn't increase, namely:
 \begin{equation*}
