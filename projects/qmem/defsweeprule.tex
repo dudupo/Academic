@@ -20,7 +20,7 @@ The sweep-rule is the core of our construction. A decoding cycle begins with eac
 The first property is analogous to the second property of 'causal structure' defined in \cite{Kubica_2019}\footnote{In their language: $\diamondsuit(\tilde{z}) = \diamondsuit(\sigma|_{v})$.}. There, they conjectured that vertices that see a syndrome only on their positive checks can suggest a correction that is 'supported' on the vertices of their unsatisfied checks. For lower dimensions, they mentioned that the property can be easily checked. Here, we provide a proof for any dimensions where the face dimension is greater than one. We use the language of cubical complexes; however, since the 'positive' local view at a vertex is identical for both cubical and simplicial complexes, generalizing the proof for simplicial complexes is a matter of adjusting notations. By that, we affirmatively answer their conjecture. Moreover, the proof will provide us with an algorithm to find $\tilde{z}$, which is significantly better than running all options.
 
 \begin{claim}
-  \cref{claim:findcor}
+  \label{claim:findcor}
 Consider a nontrivial $d^{\prime}-1$-dimensional chain $\sigma$. If there is a $d$-dimensional chain $z$ that is rooted at $v$ and whose boundary agrees with $\sigma|_{v+}$, then there is a $d$-dimensional chain $\tilde{z}$ rooted at $v$ that satisfies the sweep-rule conditions.
 \end{claim}
 \begin{proof} 
