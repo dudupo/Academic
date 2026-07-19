@@ -74,16 +74,21 @@ The algorithm given in the proof of \Cref{claim:findcor} for finding $\tilde{z}$
 
 We stop the recursion whenever either $d^{\prime}=2$ or $|\mathbf{Str}_{0+}(v, \sigma )|\le d^{\prime}$. The work in each recursion step consists of decomposing $\sigma$ into $\sigma|_{gv}$ and $\sigma|_{/gv}$ and summing ${ d \choose d^{\prime} }$-length vectors. We summarize by introducing the following claim which gives the running time of the algorithm in the RAM computation model.
 \begin{claim}
-  Let $ T(d, d') : \cdot \rightarrow \mathbb{R} $ be the upper bound function for the running time of the algorithm given in \Cref{claim:findcor}. Then, for some constant $c$ it holds that $ T(d, d') \leq c d \cdot d! $.
+  Let $ T(d, d', k) : \cdot \rightarrow \mathbb{R} $ be the upper bound function for the running time of the algorithm given in \Cref{claim:findcor}, where $d$ is the dimension of the skeleton, $d^{\prime}$ is the face dimension, and $k$ is the number of vertices supporting the local view, namely $k = |\mathbf{Str}_{0+}(v, \sigma )|$. Then:
+  \begin{equation*}
+    \begin{split}
+      T(k, d') = O( 2^{k} { d \choose d^{\prime} } )
+    \end{split}
+  \end{equation*}
 \end{claim}
 \begin{proof}
-  Choose $c$, such we get correctness for lower dimensions. Then, we assume by induction for all dimensions lower than $d$ and $d^{\prime}$, and then get:
+In each recursive call, the vertex support of $\sigma$ matches a different subset of the vertices in $\mathbf{Str}_{0+}(v, \sigma)$; thus, the number of recursive calls is at most the number of subsets, namely $2^{k}$. The decomposition of $\sigma$ into $\sigma|_{gv}$ and $\sigma|_{/gv}$, and the summation $\sigma|_{/gv} + \tilde{z}^{*}$ are linear in the vector's length, namely linear in ${d \choose d^{\prime}}$. So we bound the total work by the number of recursive steps multiplied by the maximal work at each recursive step. That becomes at most:
 \begin{equation*}
   \begin{split}
-    T(d,d^{\prime}) &=  d T(d-1,d^{\prime}-1) + O\bigl( { d \choose d^{\prime} }^{2} \bigr) \\  
-  & \le d c  (d-1)(d-1)! + 2^{2d}\le c d\cdot d!
+    T(d,d^{\prime},k) \le O\bigl( 2^{k} { d \choose d^{\prime} }^{2} \bigr) 
   \end{split}
 \end{equation*}
+ %Finally, choose $c$, such we get correctness in the base case, namely  $k,d^{\prime} \le 4$ and any $d$. 
 \end{proof}
 
 A full decoding cycle is composed of first applying the sweep-rule regarding the $X$-syndrome, then moving into the dual code (and reordering the qubits) by $\mathbf{H}_{\phi}$, and then applying the sweep-rule again with the change that the positive direction is flipped to be the negative direction. At the end, we return to the original code by applying $\mathbf{H}_{\phi}$.
