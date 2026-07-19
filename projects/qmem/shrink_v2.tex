@@ -411,18 +411,23 @@ Thus, $z$ doesn't spread on a non-trivial cycle and therefore translates to (a c
       \Size{\partial^{-}\xi_{t+1}} \le \Size{\partial^{-}\xi_{t}} + 1
     \end{split}
   \end{equation*}
-Therefore, after at most $\Size{\partial^{-} z} \le \Size{z}$ iterations, the boundary of the error vanishes. In particular, the syndrome vanishes. It remains to prove that during the decoding, no logical codewords were turned on. Denote by $\tilde{\xi}_{t}$ the correction that was applied at cycle $t$.
-
-  
-By the definition of the sweep-rule, $\Size{\partial^{-}\tilde{\xi}_{t}} \le \Size{\tilde{\xi}_{t}}$ (\inb{ Check it }).
-
-
-Thus, the support of all the qubits that were touched during the decoding, combined with the support of the initial error, satisfies:
+  Therefore, after at most $\Size{\partial^{-} z} \le \Size{z}$ iterations, the boundary of the error vanishes. In particular, the syndrome vanishes. It remains to prove that during the decoding, no logical codewords were turned on. Denote by $\tilde{\xi}_{t}$ the correction that was applied at cycle $t$. From \Cref{claim:edge_pole}, it follows immediately that for any generator $g \in S$, it holds that:
   \begin{equation*}
     \begin{split}
-      \Size{  \xi_{0}  \bigcup_{t}\tilde{\xi}_{t} }  & \le \Size{\xi_{0}} + \sum_{t}\Size{\tilde{\xi}_{t}} \\ 
-      & \le \Size{\xi_{0}} + \sum_{t}\Size{\partial^{-}\tilde{\xi}_{t}} \\ 
-      & \le \Size{\xi_{0}} + \Size{\partial^{-}\xi_{0}} \le \frac{n}{2} 
+      \max \bigl\{ L_{g}(v) : v \in  \xi_{0}  \bigcup_{t} \tilde{\xi}_{t} \bigr\} \le  \max \bigl\{ L_{g}(v) : v \in  \xi_{0} \bigr\} 
+    \end{split}
+  \end{equation*}
+  And since the sweep-rule defines that vertices flips only bits which they are in their positive local view, we also have: 
+  \begin{equation*}
+    \begin{split}
+      \max \bigl\{ L_{d+1}(v) : v \in  \xi_{0}  \bigcup_{t} \tilde{\xi}_{t} \bigr\} \le  \max \bigl\{ L_{d+1}(v) : v \in  \xi_{0} \bigr\} 
+    \end{split}
+  \end{equation*}
+ Thus, the support of all the qubits that were touched during the decoding, combined with the support of the initial error, satisfies:
+  \begin{equation*}
+    \begin{split}
+      \Size{ \bigl\{ v \colon v \in  \xi_{0}  \bigcup_{t}\tilde{\xi}_{t} \bigr\} }  & \Size{ \bigl\{ v \colon v \in  \xi_{0}  \bigr\} } \\ 
+      & \le \Size{ z } \le \frac{n}{2} 
     \end{split}
   \end{equation*}
 \end{proof}
