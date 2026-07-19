@@ -12,14 +12,14 @@
 \begin{enumerate}
   \item $\{x,y\} \in A \Rightarrow \Time{y} = \Time{x} + 1$  
   \item For $x,y \in V $  $\{x,y\} \in F $ if and only if there exists $z \in V $ such both $\{x,z\},\{y,z\} \in A$. 
-\end{enumerate} We will call to $T$ time-function, to $A$ arrows, and to $F$ forks. Observes that from the second requirement it follows that forks can connect only vertices that have the same time value (set by $T$). 
+\end{enumerate} We will call to $T$ the time coordinate, to $A$ arrows, and to $F$ forks. Observes that from the second requirement it follows that forks can connect only vertices that have the same time value (set by $T$). 
   \end{definition}
   \begin{remark}
     The Toom's contour graph defined in \Cref{def:contour} is, by definition of it's construction, a time-graph.
 \end{remark}
 The history of a vertex consists of all the vertices that are connected to it by arrows. Here we allow passing trough arrows in both directions, so it might be possible that the history of vertex $u$ contains vertices with the same time coordinate as $u$. That motivates to define \textit{slices}. A \textit{slice} is a (maximal) subset of vertices with the same time coordinate such they share the same history. 
   \begin{definition}[History, slice.]
-    For a time graph $(G,T)$ and a vertex $u \in V$, let the history of $u$, denoted by $H_{u}$, be the restriction of $G$ to vertices which both precede $u$ in time and connect to $u$ via arrows. A slice is an equivalence class of the relation $u \sim v$ if and only if $\History{u} = \History{v}$. As sequence, time function has to be constant on a slice, to see this consider vertices  $x,y$ with $T(x) > T(y)$, thus $x \notin G_{y}$ and therefore $x \in \History{x}/\History{y}$ So they are belong to different classes. Thus, we can extend the time function and the history to slices and write for a slice $K$, $\Time{K}$ and $\History{K}$.
+For a time graph $(G,T)$ and a vertex $u \in V$, let the history of $u$, denoted by $H_{u}$, be the restriction of $G$ to vertices that both precede $u$ in time and connect to $u$ via path of arrows. A slice is a maximal subset of vertices $K \subset V$ such that for any two vertices $u,v \in K$, $\History{u} = \History{v}$ is satisfied. As a consequence, the time coordinate in $K$ has to be constant. Thus, we can extend the time coordinate and the history to slices and write for a slice $K$, $\Time{K}$ and $\History{K}$.
   \end{definition}
 
   \begin{claim} 
