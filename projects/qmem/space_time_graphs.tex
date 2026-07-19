@@ -21,10 +21,10 @@ The history of a vertex consists of all the vertices that are connected to it by
   \begin{definition}[History, slice.]
 For a time graph $(G,T)$ and a vertex $u \in V$, let the history of $u$, denoted by $H_{u}$, be the restriction of $G$ to vertices that both precede $u$ in time and connect to $u$ via path of arrows. A slice is a maximal subset of vertices $K \subset V$ such that for any two vertices $u,v \in K$, $\History{u} = \History{v}$ is satisfied. As a consequence, the time coordinate in $K$ has to be constant. Thus, we can extend the time coordinate and the history to slices and write for a slice $K$, $\Time{K}$ and $\History{K}$.
   \end{definition}
-
+The following claim ensures us an 'independent' argument about slices. Here we state that two slices with the same time coordinate have to hold disjoint histories. Another way to think about this is that if the first and the second slices are 'induced by $n_{1}$ and $n_{2}$ faults,' then the slice obtained by merging them 'is induced by $n_{1}+n_{2}$ faults.'
   \begin{claim} 
     \label{claim:disj}
-    Consider slices $K_{1}, K_{2}$ such that $\Time{K_1} = \Time{K_2}$, then either $K_{1}=K_{2}$ or $\History{K_1}, \History{K_2}$ are disjoint.
+    Let $K_{1}, K_{2}$ be two slices such that $\Time{K_1} = \Time{K_2}$, then either $K_{1}=K_{2}$ or $\History{K_1}, \History{K_2}$ are disjoint.
   \end{claim}
   \begin{proof}
 Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \History{K_{2}}$ such that for any $x \in K_{1}$ and $y \in K_{2}$, there exist arrow-paths $z \rightarrow x$ and $z \rightarrow y$. Thus, for any $w \in \History{K_{1}}$, one can concatenate a path $w \rightarrow x \rightarrow z \rightarrow y$ and conclude that $y \in \History{K_{2}}$.
