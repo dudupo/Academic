@@ -29,7 +29,9 @@ The following claim ensures us an 'independent' argument about slices. Here we s
   \begin{proof}
 Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \History{K_{2}}$ such that for any $x \in K_{1}$ and $y \in K_{2}$, there exist arrow-paths $z \rightarrow x$ and $z \rightarrow y$. Thus, for any $w \in \History{K_{1}}$, one can concatenate a path $w \rightarrow x \rightarrow z \rightarrow y$ and conclude that $y \in \History{K_{2}}$.
   \end{proof}
+  
 
+Next, we would like to study how slices look a moment before they merge. For this, we define the \textit{graph of a slice}. We construct this graph by taking a slice and considering all the slices that precede it by a single time unit. We take those slices as vertices and connect any two of them that have vertices sharing a fork.
   \begin{definition}[The graph of slice]
     \label{def:gslice}
     Let $K$ be a slice. The graph of $K$, denoted by $G_{K} = (V_{K}, E_{K})$, is the graph whose vertices are slices $R \subset \History{K}$ with $\Time{R} = \Time{K} - 1$. Two vertices are connected by an edge if and only if there is a fork whose ends belong to the slices associated with them. Namely, $S, R \in V_{K}$ are connected in $G_{K}$ if and only if there is $\{s, r\} = f \in F$ such that $s \in S$ and $r \in R$.
