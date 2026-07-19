@@ -17,7 +17,7 @@
   \begin{remark}
     The Toom's contour graph defined in \Cref{def:contour} is, by definition of it's construction, a time-graph.
 \end{remark}
-The history of a vertex consists of all the vertices that are connected to it by arrows. Here we allow passing trough arrows in both directions, so it might be possible that the history of vertex $u$ contains vertices with the same time coordinate as $u$. That motivates to define \textit{slices}. A \textit{slice} is a (maximal) subset of vertices with the same time coordinate such they share the same history. 
+The history of a vertex consists of all the vertices that are connected to it by arrows. Here we allow passing trough arrows in both directions, so it might be possible that the history of vertex $u$ contains vertices with the same time coordinate as $u$. That motivates to define \textit{slices}. A \textit{slice} is a (maximal) subset of vertices with the same time coordinate such they share the same history. In \cite{Berman}, slices take the role of error droplets.
   \begin{definition}[History, slice.]
 For a time graph $(G,T)$ and a vertex $u \in V$, let the history of $u$, denoted by $H_{u}$, be the restriction of $G$ to vertices that both precede $u$ in time and connect to $u$ via path of arrows. A slice is a maximal subset of vertices $K \subset V$ such that for any two vertices $u,v \in K$, $\History{u} = \History{v}$ is satisfied. As a consequence, the time coordinate in $K$ has to be constant. Thus, we can extend the time coordinate and the history to slices and write for a slice $K$, $\Time{K}$ and $\History{K}$.
   \end{definition}
