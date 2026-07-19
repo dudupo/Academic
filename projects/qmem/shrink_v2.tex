@@ -396,13 +396,13 @@ Consider an error whose $X$- and $Z$-product components lie at positions corresp
 Although the main role of the section is to show that a single sweep-cycle keeps error clusters under control during a noisy run (by admitting a modest shrinking), an immediate corollary of this is that the application of non-noisy multiple iterations of the sweep-cycle has the potential to erase errors, namely a decoder. Here, a classical measurement is given, we act on classical bits, and the sweep-cycle consists only of the first stage that works over the computational basis, without moving to the dual code. We formulate the corollary as follows:
 \begin{corollary}
   \label{col:idealcorrection} 
-  Consider the $(d,d^{\prime})$-Toric code, induced by a Toric with side length $n$. Given an error $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ on that Toric, with $\Size{z} \le \frac{n}{2}$. Then an application of $\Size{z}$ sweep cycles (partial cycles consisting only of the first stage) erases the error.
+  Consider the $(d,d^{\prime})$-Toric code, induced by a Toric with side length $n$. Given an error $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ on that Toric, with $\Size{z} \le n-1$. Then an application of $\Size{z}$ sweep cycles (partial cycles consisting only of the first stage) erases the error.
 \end{corollary}
 \begin{proof}
-  Notice that since $\Size{z}\le \frac{n}{2}$, we have that for any $g \in S$:
+  Notice that since $\Size{z}\le n-1$, we have that for any $g \in S$:
   \begin{equation*}
     \begin{split}
-      \max_{v \in z }L_{g}(v) -  \min_{v \in z }L_{g}(v) \le \Size{z} \le \frac{n}{2}
+      \max_{v \in z }L_{g}(v) -  \min_{v \in z }L_{g}(v) \le \Size{z} \le n-1
     \end{split}
   \end{equation*}
 Thus, $z$ doesn't spread on a non-trivial cycle and therefore translates to (a collection of) finite error in the $\infty$-extension. Denote by $\xi_{t}$ the corresponding error on the infinite plane after $t$ sweep-cycles, and let $\xi_{0}$ be the corresponding error on the infinite plane prior to the first cycle. Since $\xi_{0}$ is finite, we use \Cref{claim:polesmove} and have that each sweep-cycle decreases the boundary by at least one, namely:
@@ -427,7 +427,7 @@ Thus, the support of all the qubits that were touched during the decoding, combi
   \begin{equation*}
     \begin{split}
       \Size{ \bigl\{ v \colon v \in  \xi_{0}  \bigcup_{t}\tilde{\xi}_{t} \bigr\} }  & \le \Size{ \bigl\{ v \colon v \in  \xi_{0}  \bigr\} } \\ 
-      & \le \Size{ z } \le \frac{n}{2} 
+      & \le \Size{ z } \le n-1 
     \end{split}
   \end{equation*}
 \end{proof}
