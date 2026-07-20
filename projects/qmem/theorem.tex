@@ -26,7 +26,7 @@ For any $d, d^{\prime}$, there are constants $a, b \in \mathbb{R}^{+}$ and $p_{0
 To prove the lemma, we will need the following two claims. The first bounds, for a given regular graph, the number of its subgraphs having at most $k$ edges. This claim will be used to infer the number of possible explanation trees for a given slice. The second states that each tree has a subtree with fewer than half of the edges and a leaves-to-edge ratio that is at least half of the ratio of the original tree. This claim will be used to infer that any explanation has a subtree where, under the projection to the finite Toric, its faults are mapped uniquely, meaning no fault is counted twice. 
 
 \begin{claim*}[\Cref{claim:counting_trees}]
-    Let $G = \left( V, E \right)$ be a $\Delta + 1$-regular graph, and let $k$ be an integer less than $|E|$. Fix a vertex $r \in V$. The number of subgraphs rooted at $r$ with less than $k$ edges is at most $\alpha^{k}$.
+Let $G = \left( V, E \right)$ be a $\Delta + 1$-regular graph, and let $k$ be an integer less than $|E|$. Fix a vertex $r \in V$. There is a constant number $\alpha$, depending only on $\Delta$, such that the number of subgraphs rooted at $r$ with fewer than $k$ edges is at most $\alpha^{k}$.
   \end{claim*}
 
   \begin{claim*}[\Cref{claim:big_subtree}]
