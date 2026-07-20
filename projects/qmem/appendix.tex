@@ -151,9 +151,9 @@ By construction, $\sim_{P}$ preserves the implemented channel. Indeed, if $C\sim
 
 \begin{claim}
   \label{claim:block_witness}
-  Let $c\ge 2$ be even, let $C$ be a depth-$c/2$ circuit whose gates have arity at most $\Delta$, and let $C[\mathcal{E}]$ be the circuit obtained by inserting the faults of $\mathcal{E}$ between the computational layers. Write the layer decomposition of $C[\mathcal{E}]$ as  $U_{1},\ldots,U_{c}$ where the odd layers are fault layers and the even layers are computational layers.
+  Let $c\ge 2$ be even, let $C$ be a depth-$c/2$ circuit whose gates have arity at most $\Delta$, and consider a subjection of it $C[\mathcal{E}]$ (subjection to $\mathcal{E}$ every single computational layer). Propagate the fault layers $U_{1},U_{3},\ldots,U_{c-1}$ forward beyond $U_{c}$, in reverse order, and denote by $V^{(1)}$ the resulting propagation expression obtained by grouping together those propagated layers. 
 
-  Propagate the fault layers $U_{1},U_{3},\ldots,U_{c-1}$ forward beyond $U_{c}$, in reverse order, and denote by $V^{(1)}$ the resulting propagation expression obtained by grouping together those propagated layers. Then for every $S\subset \operatorname{Loc}(V^{(1)})$ the witness family $\mathcal{W}(S)$ is non-empty, and every element $S'\in \mathcal{W}(S)$ satisfies
+  For a subset of locations $S\subset \operatorname{Loc}(V^{(1)})$ consdier the subset of locations  $S^{\prime}\subset \operatorname{Loc}(C)$ to be the mininal subset that induces the fault in $S$. Namely, earsing one of the faults in $S^{\prime}$ results, and then propagating, yields afault layer $\tilde{V}^{(1)}$ such $S \notin \operatorname{Loc}(\tilde{V}^{(1)})$. Then $S^{\prime}$ satisfies
   \begin{equation*}
     \begin{split}
       S'\subset \Lambda(S)\cap \bigcup_{k=0}^{c/2}U_{2k}
