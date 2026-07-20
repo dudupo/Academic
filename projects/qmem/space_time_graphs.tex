@@ -1,6 +1,6 @@
 
 
-  \subsection{Space-Time Graph}
+ \subsection{Space-Time Graph}
   \label{subsection:spacetimegraph}  
   Not a few of the results about Tooms contours are derived from their directed structure, regardless of their connection to Torices. Thus, we split the discussion to talk about \textit{space-time graphs}, which are graphs whose edges can be partitioned into arrows and forks. 
   
@@ -50,7 +50,7 @@ Next, we would like to study how slices look a moment before they merge. For thi
 
       \begin{enumerate}
       \item Base. $k=0$, In this case, any vertex on the path between $r$ and $s$ has an equal or lower time coordinate than $r$ and is also connected to $r$ via a path of arrows, namely belongs to $H_{r}$. In particular, $s$ is also a vertex on the path, and therefore $s \in \History{r}$ $\Rightarrow \History{r} = \History{s}$, so $R = S$.
-      \item Induction step. Since $k > 0 $, there exists a vertex $y$ on the path from $r$ to $s$ such that $\Time{y} = \Time{K}$. Let $x$ be the vertex which precedes $y$ on the path, and $z$ the vertex that follows $y$. Since the values of $T$ at the two ends of an arrow differ by $1$, and since $y$ gets the maximal $T$ value in $\History{K}$ it follows that: 
+      \item Induction step. Since $k > 0 $, there exists a vertex $y$ on the path from $r$ to $s$ such that $\Time{y} = \Time{K}$. Let $x$ be the vertex which precedes $y$ on the path, and $z$ be the vertex that follows $y$. Since the values of $T$ at the two ends of an arrow differ by $1$, and since $y$ gets the maximal $T$ value in $\History{K}$ it follows that: 
         \begin{enumerate}
           \item $\{x,z\} \subset \pre{y} \Rightarrow \{x,z\} \in F$. 
           \item The slices of $x$ and $z$, say $K_{x}$ and $K_{z}$ has time value $\Time{K_{x}} = \Time{K_{z}} = \Time{K} -1$, Namely they are both members of $V_{K}$. 
@@ -58,8 +58,7 @@ Next, we would like to study how slices look a moment before they merge. For thi
         Since the path connecting $r,x$ in $\History{K}$ has $k-1$ vertices with $\Time{\cdot} = \Time{K}$, then by the induction hypothesis, $R$ and $K_{x}$ are connected in $G_{K}$, and by similar argument so are $K_{z}$ and $S$. On the other hand, $ \{x,z\} \Rightarrow \{K_{x},K_{z}\} \in E_{K}$. Thus, $R$ and $S$ are connected in $G_{K}$.
     \end{enumerate}
   \end{proof}
-
-
+Now, we would like to plug in the fact that the vertices originate from the infinite plane. A spanned slice is a presentation of a slice equipped with poles. The poles are the vertices in the slice, which are the maximal points of potential walls.
   \begin{definition}[Spanned Set]
     Consider a subset $A \subset \mathbb{R}^{d}$, and $d+1$ points $x_{1}, \ldots, x_{d+1}$. We say that $\expval*{A, x_{1}, \ldots, x_{d+1}}$ is a spanned set of $A$ if for any $i \in [d+1]$ and $s \in A$, it holds that $L(s) \le L_{i}(x_{i})$ and in addition there are $v_{1},..v_{d+1} \in V$, not necessary different, that achieve the equalities $L_{i}(x_{i}) = L_{i}(x_{i})$.  We name $x_{1}, \ldots, x_{d+1}$ the poles of $A$. Furthermore, we extend the notation to a spanned slice when $A$ is a slice of some time-graph. Notice that saying $\expval*{A, x_{1}, \ldots, x_{d+1}}$ is a spanned set means that $\Size{A} = \Size{ \{x_{1}, \ldots, x_{d+1}\}}$.
   \end{definition}
