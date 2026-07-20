@@ -175,7 +175,7 @@ We state \Cref{claim:block_noise_renorm} in the language of layer propagation.
     \end{split}
   \end{equation*}
   
-It remains to prove that $\mathcal{E}^{\prime}$ is local stochastic. Fix one propagation expression $V^{(i)}$ and a subset $S \subset \operatorname{Loc}(V^{(i)})$. Denote by $U_{1}^{i}, \ldots, U_{c}^{i}$ the layers for which $V^{(i)}$ is their (grouped) expression. Denote the light cone of $S$ in $U_{1}^{i}, \ldots, U_{c}^{i}$ by $\Lambda(S)$.
+  It remains to prove that $\mathcal{E}^{\prime}$ is local stochastic. Fix one propagation expression $V^{(i)}$ and a subset $S \subset \operatorname{Loc}(V^{(i)})$. Denote by $U_{1}^{i}, \ldots, U_{c}^{i}$ the layers for which $V^{(i)}$ is their (grouped) expression. Denote the light cone of $S$ in $U_{1}^{i}, \ldots, U_{c}^{i}$ by $\Lambda(S)$. Since the fan is bounded by $\Delta$, we have that $|\Lambda(S)| \le \Delta^{c}|S|$ and any $S^{\prime} \subset \Lambda(S)$ that is propgation covers $S$ has size at least $|S^{\prime}| \ge \Delta^{-c}|S|$. 
 
   \Cref{claim:block_witness}, the event $\{S\subset \operatorname{Loc}(V^{(i)})\}$ implies that at least one witness set $S'\in \mathcal{W}(S)$ is fully contained in the original fault set $\operatorname{Loc}(\mathcal{E})$, and every such witness satisfies $|S'|\ge |S|/\Delta^{c}$. Hence
   \begin{equation*}
