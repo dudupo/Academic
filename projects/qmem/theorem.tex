@@ -2,6 +2,8 @@
 
 \subsection{Proof of the Theorem}
 
+We are ready to prove the main theorem (\Cref{theorem:main}). We start by giving a formal definition of a simulation.
+
   \begin{definition}[Simulation and Logical Errors]
 For a quantum code $\mathcal{C}$ of length $n$ and a decoder for $\mathcal{C}$, denoted by $D$, we say that a Pauli operator $P \in \mathcal{P}^{\otimes n}$ is a \textit{logical error} with respect to $D$ if $DP$ does not equal the logical identity.
 
@@ -16,6 +18,11 @@ For quantum circuits $C$ and $\tilde{C}$, a noise channel $\mathcal{E}$, and $p 
  
   \begin{lemma}
   For any $d, d^{\prime}$, and a constant $p_{0} \in (0,1)$ that depends only on $d$. Consider a quantum circuit $C$ with depth $\mu$ and width $w$, and let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $\tilde{C}$ such that each of its quantum registers is encoded by an $n$-length, $(d, d^{\prime})$-Toric code. It simulates $C$ with probability: 
+\begin{equation*}
+  \begin{split}
+    1 -   \Theta \left(((w+2\mu)\mu n^{2})^{3} \right) \left( \alpha p^{c_{7}} \right)^{ \gamma^{\prime} n^{\frac{1}{d}}} 
+  \end{split}
+\end{equation*}
 \end{lemma}
 
 To prove the lemma, we will need the following two claims. The first bounds, for a given regular graph, the number of its subgraphs having at most $k$ edges. This claim will be used to infer the number of possible explanation trees for a given slice. The second states that each tree has a subtree with fewer than half of the edges and a leaves-to-edge ratio that is at least half of the ratio of the original tree. This claim will be used to infer that any explanation has a subtree where, under the projection to the finite Toric, its faults are mapped uniquely, meaning no fault is counted twice. 
@@ -100,6 +107,7 @@ No error cluster has a size greater than $ \gamma n^{\frac{1}{d}} $, so the deco
 \end{proof}
 
   \begin{theorem}
+    \label{theorem:main}
   There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{E}$ with rate $p < p_{0}$, and a quantum circuit $C$ with depth $\mu$ and width $w$, there exists a toric encoded circuit $\tilde{C}$, with depth $\mu n$ and width $ wn + 2\mu n$  that simulates $C$ with probability: 
   \end{theorem} 
 
