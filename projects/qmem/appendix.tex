@@ -129,13 +129,6 @@ In this section, we prove that when subjecting a circuit to local stochastic noi
   After propagation we update the time coordinates so that they agree with the new layer in which each gate is applied.
 \end{definition}
 
-%\begin{claim}
-%  \label{claim:layer_fanin}
-%  Assume that every gate in $C$ acts on at most $\Delta$ qubits. Then every circuit obtained from $C$ by forward layer propagation also consists of gates acting on at most $\Delta$ qubits.
-%\end{claim}
-%\begin{proof}
-%  Propagating a gate $u\in U_i$ across a layer $U_{i+1}$ conjugates $u$ by the product of the gates in $U_{i+1}$ that intersect its support. Since the gates inside $U_{i+1}$ are pairwise disjoint, each qubit in the support of $u$ participates in at most one gate from $U_{i+1}$. Therefore the support of the propagated image of $u$ is contained in the union of the supports of at most $\Delta$ gates, each of arity at most $\Delta$, but only one such gate can be associated with each qubit of $u$. Consequently the propagated image still acts on at most $\Delta$ wires. Applying this argument repeatedly proves the claim.
-%\end{proof}
 
 \begin{definition}[$C\sim_{P}C'$]
   For quantum circuits $C$ and $C'$, we write $C\sim_{P}C'$ if one can be obtained from the other by a finite sequence of layer propagations.
@@ -174,10 +167,9 @@ We state \Cref{claim:block_noise_renorm} in the language of layer propagation.
       C[\mathcal{E}]_{1} \sim_{P} C[\mathcal{E}']_{c/2}.
     \end{split}
   \end{equation*}
+It remains to prove that $\mathcal{E}^{\prime}$ is local stochastic. Fix one propagation expression $V^{(i)}$ and a subset $S \subset \operatorname{Loc}(V^{(i)})$. Denote by $U_{1}^{i}, \ldots, U_{c}^{i}$ the layers for which $V^{(i)}$ is their (grouped) expression. Denote the light cone of $S$ in $U_{1}^{i}, \ldots, U_{c}^{i}$ by $\Lambda(S)$. Since the fan is bounded by $\Delta$, we have that $|\Lambda(S)| \le \Delta^{c}|S|$, and any $S^{\prime} \subset \Lambda(S)$ whose propagation covers $S$ has size at least $|S^{\prime}| \ge \Delta^{-c}|S|$.
   
-  It remains to prove that $\mathcal{E}^{\prime}$ is local stochastic. Fix one propagation expression $V^{(i)}$ and a subset $S \subset \operatorname{Loc}(V^{(i)})$. Denote by $U_{1}^{i}, \ldots, U_{c}^{i}$ the layers for which $V^{(i)}$ is their (grouped) expression. Denote the light cone of $S$ in $U_{1}^{i}, \ldots, U_{c}^{i}$ by $\Lambda(S)$. Since the fan is bounded by $\Delta$, we have that $|\Lambda(S)| \le \Delta^{c}|S|$ and any $S^{\prime} \subset \Lambda(S)$ that its propgation covers $S$ has size at least $|S^{\prime}| \ge \Delta^{-c}|S|$. 
-
-  Now, having $S \subset \operatorname{Loc}(V^{(i)}$, implies that there is a mininal $S^{\prime}$ (the minimality is regarding inclusion) such $S^{\prime} \subset \operatorname{Loc}(\mathcal{E})$. Denote by $\mathcal{W}(S)$ the set of such minimals $S^{\prime}$, and observers that it's size is at most:  
+Now, having $S \subset \operatorname{Loc}(V^{(i)})$, implies that there is a minimal $S^{\prime}$ (the minimality is regarding inclusion) such that $S^{\prime} \subset \operatorname{Loc}(\mathcal{E})$. Denote by $\mathcal{W}(S)$ the set of such minimal $S^{\prime}$, and observe that its size is at most:
     \begin{equation*}
       \begin{split}
  |\mathcal{W}(S)| \le { \Delta^{c}|S| \choose \Delta^{-c}|S| } 
