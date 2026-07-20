@@ -8,9 +8,7 @@ Let $G = \left( V, E \right)$ be a $\Delta + 1$-regular graph, and let $k$ be an
 
 
   \begin{proof}
-    Denote by $T_{\Delta}$ and $T_{2}$ the infinity $\Delta$ and binary tress. There is an injection between the subtrees of $G$, rooted at $v$, with at most $k$ edges, to the subtrees of $T_{\Delta}$ rooted at $v$, with at most $k$ edges. Moreover, there is an injection from the subtrees of $T_{\Delta}$ rooted at $v$, with at most $k$ edges to the subtrees of $T_{2}$, rooted at $v$, with at most $k \log \Delta$ edges. 
-
-    \ctt{In the second map, we think on replacing each of the vertex with $\Delta-1$-leaves binary tree, each leaf is associated with a outgoing edge.  }. 
+    Denote by $T_{\Delta}$ and $T_{2}$ the infinity $\Delta$ and binary tress. There is an injection between the subtrees of $G$, rooted at $v$, with at most $k$ edges, to the subtrees of $T_{\Delta}$ rooted at $v$, with at most $k$ edges. Moreover, there is an injection from the subtrees of $T_{\Delta}$ rooted at $v$, with at most $k$ edges to the subtrees of $T_{2}$, rooted at $v$, with at most $k \log \Delta$ edges. The injection is obtained by replacing each of the vertex with a (complete) binary tree over $\Delta-1$-leaves, each leaf is associated with a outgoing edge of the original vertex. 
 
     Thus, it's enough to bound the number of of subtrees in $T_{2}$ rooted at $v$, with at most $ k \log \Delta $ edges, that number is less than the number of binary tress with $k \log \Delta + 1$ leaves. For exact leaves number we get the $k \log \Delta$ Catalan number, which its limit is:   
     \begin{equation*}
