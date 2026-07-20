@@ -103,7 +103,7 @@ Now, combined with \Cref{claim:intersyn}, with a probability greater than:
 \end{equation*}
 No error cluster has a size greater than $ \gamma n^{\frac{1}{d}} $, so the decoder successfully restores the logical state; in other words, no logical error occurs.
 \end{proof}
-
+The lemma gives the theorem almost immediately. To complete the proof, we need to plug in the initialization phase, which initializes encoded zeros and resource states subjected to local stochastic noise. We emphasize that the resulting states are subjected to local stochastic noise (in addition to the computation). We neither prove nor describe that phase here; instead, we refer to \Cref{grospellier:tel-03364419}, \Cref{gottesman2014faulttolerant}, \Cref{Fawzi_2018}, and \Cref{nguyen2025quantumfaulttoleranceconstantspace}.
   \begin{theorem}
     \label{theorem:main}
   There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{E}$ with rate $p < p_{0}$, and a quantum circuit $C$ with depth $\mu$ and width $w$, there exists a Toric encoded circuit $\tilde{C}$, with depth $\Theta(\mu n)$ and width $\Theta((w + \mu) n)$  that simulates $C$ with probability: 
@@ -118,9 +118,6 @@ and in addition:
   \item An error correction cycle takes $O(1)$ depth, and the gates in each correction cycle don't depend on time. In particular, if $C$ is the identity circuit, then after the initialization stage, the layers in $\tilde{C}$ are the same.
 \end{enumerate}
   \end{theorem} 
-  \begin{proof}
-    
-  \end{proof}
 
 
 
