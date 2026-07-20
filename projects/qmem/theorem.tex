@@ -81,7 +81,7 @@ It follows that all the vertices in the subtree are at a space distance of at mo
         \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \le \tau \cdot 3 (w+2\mu)6\mu n^{2} \alpha^{ \frac{1}{2d} n^{\frac{1}{d}} } p^{ \frac{1}{2^{d^{\prime}}}\frac{1}{4d} c_{1} n^{\frac{1}{d}}} \le ((w+2\mu)6\mu n^{2})^{2} \left( \alpha p^{\frac{1}{2^{d^{\prime} + 1}} c_{1}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
       \end{split}
     \end{equation*}
-    It remains to bound the term. By \Cref{claim:edgesin}, there is a constant $c_{2}$ depending only on $d$, such that any explanation of a slice of size $s$ has at least $c_{2}s$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{\tau}$ admits an explanation with more than $c_{2}s$ edges. Since the event is conditioned on the event $A_{\tau}$, no explanation has more than $\frac{1}{d}n^{\frac{1}{d}}$ edges. Thus, the same argument as above shows that the projection of each explanation tree into the finite toric sends its leaves to unique targets. Hence, we obtain:
+    It remains to bound the term. By \Cref{claim:edgesin}, there is a constant $c_{2}$ depending only on $d$, such that any explanation of a slice of size $s$ has at least $c_{2}s$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{\tau}$ admits an explanation with more than $c_{2}s$ edges. Since the event is conditioned on the event $A_{\tau}$, no explanation has more than $\frac{1}{d}n^{\frac{1}{d}}$ edges. Thus, the same argument as above shows that the projection of each explanation tree into the finite Toric sends its leaves to unique targets. Hence, we obtain:
     \begin{equation*}
       \begin{split}
         \prbm{  B_{\tau}  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ v \in V_{o}, x \ge c_{2}s } \prbm{ v \text{ is a root of explanation with number of edges } x  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } \\
@@ -106,8 +106,21 @@ No error cluster has a size greater than $ \gamma n^{\frac{1}{d}} $, so the deco
 
   \begin{theorem}
     \label{theorem:main}
-  There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{E}$ with rate $p < p_{0}$, and a quantum circuit $C$ with depth $\mu$ and width $w$, there exists a toric encoded circuit $\tilde{C}$, with depth $\mu n$ and width $ wn + 2\mu n$  that simulates $C$ with probability: 
+  There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{E}$ with rate $p < p_{0}$, and a quantum circuit $C$ with depth $\mu$ and width $w$, there exists a Toric encoded circuit $\tilde{C}$, with depth $\Theta(\mu n)$ and width $\Theta((w + \mu) n)$  that simulates $C$ with probability: 
+\begin{equation*}
+  \begin{split}
+    1 -   \Theta \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n^{\frac{1}{4}})} 
+  \end{split}
+\end{equation*}
+and in addition: 
+\begin{enumerate}
+  \item After a short initialization stage (at depth $\Theta(\log n)$), each of the qubits is encoded in the $n$-length 4D Toric code.
+  \item An error correction cycle takes $O(1)$ depth, and the gates in each correction cycle don't depend on time. In particular, if $C$ is the identity circuit, then after the initialization stage, the layers in $\tilde{C}$ are the same.
+\end{enumerate}
   \end{theorem} 
+  \begin{proof}
+    
+  \end{proof}
 
 
 
