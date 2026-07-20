@@ -183,7 +183,7 @@ We state \Cref{claim:block_noise_renorm} in the language of layer propagation.
  |\mathcal{W}(S)| \le { \Delta^{c}|S| \choose \Delta^{-c}|S| } 
       \end{split}
     \end{equation*}
-    Hence:
+    Hence, using the fact that $\mathcal{E}$ is an outcome of local stochastic nosie channel with noise rate $p$ we have:
   \begin{equation*}
     \begin{split}
       \prb{S\subset \operatorname{Loc}(V^{(i)})}
@@ -191,33 +191,10 @@ We state \Cref{claim:block_noise_renorm} in the language of layer propagation.
       \prb{\bigcup_{S'\in \mathcal{W}(S)}\{S'\subset \operatorname{Loc}(\mathcal{E})\}} \\
       &\le
       \sum_{S'\in \mathcal{W}(S)} \prb{S'\subset \operatorname{Loc}(\mathcal{E})} \\
-      & \le { \Delta^{c}|S| \choose \Delta^{-c}|S| } p^{\Delta^{-c}|S| }
-    \end{split}
-  \end{equation*}
-  The channel $\mathcal{N}_{\mathcal{E}}$ is local stochastic with rate $p$, so each term is at most $p^{|S'|}$. Moreover, the backward light cone of each effective fault has size bounded by a constant depending only on $\Delta$ and $c$, so the number of candidate witnesses of size $\ell$ is at most
-  \begin{equation*}
-    \begin{split}
-      \binom{\Delta^{c}|S|}{\ell}.
-    \end{split}
-  \end{equation*}
-  Choosing $\ell=\lceil |S|/\Delta^{c}\rceil$ and using the standard entropy bound
-  \begin{equation*}
-    \begin{split}
-      \binom{\Delta^{c}|S|}{|S|/\Delta^{c}}
-      \le
-      2^{H(\Delta^{-2c})\Delta^{c}|S|},
-    \end{split}
-  \end{equation*}
-  we obtain
-  \begin{equation*}
-    \begin{split}
-      \prb{S\subset \operatorname{Loc}(V^{(i)})}
-      \le
-      \left(2^{H(\Delta^{-2c})\Delta^{c}}p\right)^{|S|/\Delta^{c}}
+      & \le { \Delta^{c}|S| \choose \Delta^{-c}|S| } p^{\Delta^{-c}|S| } \le \left(2^{H(\Delta^{-2c})\Delta^{c}}p\right)^{|S|/\Delta^{c}}
       = q^{|S|}.
     \end{split}
   \end{equation*}
-  Since this bound is uniform over all subsets $S$ and all coarse-grained layers, the induced random set $\mathcal{E}'$ is local stochastic with rate $q$. Setting $\mathcal{E}_{q}=\mathcal{E}'$ completes the proof.
 \end{proof}
 
 \subsection{Checks Commutation}
