@@ -37,18 +37,20 @@ Next, we would like to study how slices look a moment before they merge. For thi
     Let $K$ be a slice. The graph of $K$, denoted by $G_{K} = (V_{K}, E_{K})$, is the graph whose vertices are slices $R \subset \History{K}$ with $\Time{R} = \Time{K} - 1$. Two vertices are connected by an edge if and only if there is a fork whose ends belong to the slices associated with them. Namely, $S, R \in V_{K}$ are connected in $G_{K}$ if and only if there is $\{s, r\} = f \in F$ such that $s \in S$ and $r \in R$.
   \end{definition}
 
-
+  
+  The graph of slices is connected. That fact means that a spanning tree of a (subgraph of) a slice's history can be found by combining the spanning trees of its processors. The following gives the proof:
   \begin{claim}
     \label{claim:connected}
     $G_{K}$ is connected. 
   \end{claim}
 
   \begin{proof}
-    Let $R, S \in V_{K}$ and consider $r,s \in V$ such that $r \in R, s \in S$. Recall that $R,S \subset \History{K}$ and therefore $r,s \in \History{K}$, Thus, by definition of the 'History' there exists a path, passing trough arrows only, from $r$ to $s$ in $\History{K}$. Consider such a path that is minimal in the number of points $x$ belong to it, with $\Time{x} = \Time{K}$. By induction on the number $k$ of such points we prove that $R$ and $S$ are connected in $G_{K}$. 
+    Let $R, S \in V_{K}$ and consider $r,s \in V$ such that $r \in R, s \in S$. Recall that $R,S \subset \History{K}$ and therefore $r,s \in \History{K}$, Thus, by definition of the 'History' there exists a path, passing trough arrows only, from $r$ to $s$ in $\History{K}$.
+    Consider a path that is minimal in the number of vertices with a time coordinate equal to $\Time{K}$; denote that number by $k$. We prove by induction on $k$ that $R$ and $S$ are connected in $G_{K}$.
 
-    \begin{enumerate}
-      \item Base. $k=0$, In this case, the path from $r$ to $s$ lies within $G_{r} (= G_{s})$. Hence $\History{r} = \History{s}$, So $R = S$. 
-      \item Induction step. There exists $y$ on the path from $r$ to $s$ such that $\Time{y} = \Time{K}$. Let $x$ be the point which precedes $y$ on the path, and $z$ the point that follows $y$. Since the values of $T$ at the two ends of an arrow differ by $1$, and since $y$ gets the maximal $T$ value in $\History{K}$ it follows that: 
+      \begin{enumerate}
+      \item Base. $k=0$, In this case, any vertex on the path between $r$ and $s$ has an equal or lower time coordinate than $r$ and is also connected to $r$ via a path of arrows, namely belongs to $H_{r}$. In particular, $s$ is also a vertex on the path, and therefore $s \in \History{r}$ $\Rightarrow \History{r} = \History{s}$, so $R = S$.
+      \item Induction step. Since $k > 0 $, there exists a vertex $y$ on the path from $r$ to $s$ such that $\Time{y} = \Time{K}$. Let $x$ be the vertex which precedes $y$ on the path, and $z$ the vertex that follows $y$. Since the values of $T$ at the two ends of an arrow differ by $1$, and since $y$ gets the maximal $T$ value in $\History{K}$ it follows that: 
         \begin{enumerate}
           \item $\{x,z\} \subset \pre{y} \Rightarrow \{x,z\} \in F$. 
           \item The slices of $x$ and $z$, say $K_{x}$ and $K_{z}$ has time value $\Time{K_{x}} = \Time{K_{z}} = \Time{K} -1$, Namely they are both members of $V_{K}$. 
