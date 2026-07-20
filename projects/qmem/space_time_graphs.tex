@@ -120,9 +120,11 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
     Plugging it into \cref{equ:spanlow} gives the desired.
   \end{proof}
 
+Until now, the claims stated were true for any kind of space-time graph (where their vertices can be associated with coordinates in $\mathbb{R}^{d}$). The next claims assume that the given time graph is a Toom's contour induced by the noisy running of a Toric encoded circuit.
+
 \begin{claim}
   \label{claim:maxfork}
-  The maximal size of a fork is $2d^{\prime}$.
+  For Toom's contours, the maximal size of a fork is $2d^{\prime}$.
 \end{claim}
 \begin{proof}
 Consider the rules of forks connecting in \Cref{def:contour}. For forks obtained by rules (a), (b), or as a result of a fault, it's clear that their vertices at their ends are on intersecting faces (when projecting the vertices on $\mathcal{G}$). The maximal fork, in those cases, has the form of:
@@ -133,6 +135,10 @@ Consider the rules of forks connecting in \Cref{def:contour}. For forks obtained
   \end{equation*}
 Where $S^{\prime}_{1}$ and $S^{\prime}_{2}$ are subsets of $S$ of size $d^{\prime}$, and therefore the size of such forks is $\Size{F} = 2d^{\prime}$.
 \end{proof}
+
+
+While in the construction presented in \cite{Berman}, all the layers were the same (consisting of the same gates up to wiring), here different layers might differ both in realization and role. Thus, we would like to distinguish between them. We will define the \textit{predecessor decomposition} of a slice to be the collection of slices and forks which satisfy the condition in \Cref{claim:prevslices}. The order of a slice is a number in $\{0,1,2,3\}$ that matches the time modulo four of the layer that results in the slice. Therefore, it encodes the layer type.
+
   \begin{definition}
   Let $\hat{K}$ be a spanned slice, and let $\hat{K}_{0}, \ldots, \hat{K}_{k}$ be spanned slices in $H_{K}$, and let $F_{1}, \ldots, F_{k}$ be spanned forks, such that $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ satisfy the conditions in \Cref{claim:prevslices}. We call $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ the \textit{predecessor decomposition} of $\hat{K}$.  
   
