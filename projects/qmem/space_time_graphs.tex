@@ -65,6 +65,9 @@ Now, we would like to plug in the fact that the vertices originate from the infi
   Observe that in the case where the subset $A$ is a slice. Each of these poles can be associated with a vertex of $G$ that gives the equality. If there are multiple vertices whose give equality, associate the point with one of them arbitrarily. We will use the notion of applying functions originally defined over vertices to the poles, referring to the application over the vertices associated with them. For example $\pre{x_{i}} = \pre{v}$ for the vertex $v \in A$ which satisfies $L_{i}(v) = L_{i}(x_i)$ and therefore is associated with the pole $x_{i}$. 
  Another example is referring to $x_{i}$ as a vertex, so when saying 'For $x_{i} \in V_{k}$' or 'For $\{x_{i},u\} \in F$', we refer to the associated vertex or the edge connecting it to $u$.
 
+ 
+The following claim relates the size of a given slice to the sizes of its predecessor slices.
+
   \begin{claim}
     \label{claim:prevslices}
     Consider a time graph $(G,T)$, Let $K$ be a slice in $G$, and let $\hat{K} = \expval*{K, x_{1}, .. x_{d+1}}$ be a spanned slice of $K$ such that $K \neq \History{K}$. Then for some integer $k$ there exist spanned slices $\hat{K}_{0} = \expval*{K_{0}, \cdot}, ..,\hat{K}_{k}=\expval*{K_{k}, \cdot }$ and Forks $F_{1},..,F_{k}$ such that:
