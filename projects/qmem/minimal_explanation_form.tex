@@ -90,7 +90,7 @@ So in total:
  & \Size{\text{fork}} \le \frac{\alpha}{\beta} \mathcal{X}_{r} 
   \end{split}
 \end{equation*}
-The first three inequalities hold by the definitions of the $\mathcal{X}_{r}$, the fourth is satisfied since $\frac{\beta}{\alpha}\xi = 4 \frac{d+1}{\alpha}$, the last is obtained due to \Cref{claim:maxfork}, that states that the maximal size of a fork equals $4d$, and that $\frac{\alpha}{\beta}\mathcal{X}_{r}$ is greater than $4d$.
+The first three inequalities hold by the definitions of the $\mathcal{X}_{r}$, the fourth is satisfied since $\frac{\beta}{\alpha}\xi = 5 \frac{d+1}{\alpha}$, the last is obtained due to \Cref{claim:maxfork}, that states that the maximal size of a fork equals $2d^{\prime}$, and that $\frac{\alpha}{\beta}\mathcal{X}_{r}$ is greater than $4d$.
         \end{enumerate}
          Finally, by \Cref{claim:prevslices}, the graphs induced by $\mathbf{A}_{i} \cup \mathbf{F}_{i}$ are connected, thus the graph induced by $\mathbf{A}\cup \mathbf{F}$ is also connected. Therefore, $\mathbf{W}, \mathbf{A}, \mathbf{F}$ form an explanation of $K$. 
     \end{enumerate}
@@ -105,7 +105,7 @@ The first three inequalities hold by the definitions of the $\mathcal{X}_{r}$, t
     \end{equation*}
     Where we used the fact that $\mathcal{X}_{r-1} \in (0,1)$ for $r \in \{0,1,2,3\}$. Clearly, the bound is satisfied since $\alpha \ge 2d + d^{\prime} + 1$ and $\mathcal{X}_{r-1} \alpha \ge \beta \cdot \Size{\text{fork}}$.
   \end{proof}
-
+We summarize by using the linear relation between the leaves of a Toom's contour and the faults it induces. That gives an upper bound on the probability of a slice occurring when the noise is local stochastic.
   \begin{corollary}
     \label{coro:edgefaultratio}
 Let $\hat{K}$ be a spanned slice with size $s$, and explanation with $|A|$ arrows, and $|F|$ forks. Then it is induced by at least the following number of faults:
