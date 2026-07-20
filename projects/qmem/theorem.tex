@@ -14,13 +14,11 @@ For quantum circuits $C$ and $\tilde{C}$, a noise channel $\mathcal{E}$, and $p 
     \end{enumerate}
   \end{definition}
 
-
- 
   \begin{lemma}
-  For any $d, d^{\prime}$, and a constant $p_{0} \in (0,1)$ that depends only on $d$. Consider a quantum circuit $C$ with depth $\mu$ and width $w$, and let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $\tilde{C}$ such that each of its quantum registers is encoded by an $n$-length, $(d, d^{\prime})$-Toric code. It simulates $C$ with probability: 
+For any $d, d^{\prime}$, there are constants $a, b \in \mathbb{R}^{+}$ and $p_{0} \in (0,1)$ that depend only on $d, d^{\prime}$ and satisfy the following. Consider a quantum circuit $C$ with depth $\mu$ and width $w$, and let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $\tilde{C}$ such that each of its quantum registers is encoded by an $n$-length, $(d, d^{\prime})$-Toric code, and it simulates $C$ with probability:
 \begin{equation*}
   \begin{split}
-    1 -   \Theta \left(((w+2\mu)\mu n^{2})^{3} \right) \left( \alpha p^{c_{7}} \right)^{ \gamma^{\prime} n^{\frac{1}{d}}} 
+    1 -   \Theta \left(((w+2\mu)\mu n^{2})^{3} \right) \left( a p^{b} \right)^{ \frac{1}{d}} 
   \end{split}
 \end{equation*}
 \end{lemma}
@@ -37,7 +35,7 @@ Let $\gamma, \beta \in \mathbb{R}_{>0}$ and $n$ be a positive integer. For any t
   
 The proofs of the claims are given in the appendix. We continue with the proof of the lemma.
   \begin{proof}
-    We construct $\tilde{C}$ as follows: for each input wire of $C$, we initialize the logical zero $\ket{\mathbf{0}}$ of the $(d,d^{\prime})$-Toric code. For each of the gates $\mathbf{H}$ and $\mathbf{S}$, we initialize the encoded $\ket{\mathbf{H}}$ and $\ket{\mathbf{S}}$ states, and for each $\mathbf{T}$, we initialize copies of both $\ket{\mathbf{T}}$ and $\ket{\mathbf{S}}$ states. The even layers of $\tilde{C}$ are sweep cycles, while on the odd layers, we set the realization of the logical gates. For $\mathbf{CX}$, we set the transversal realization, and for $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$, we use gate teleportation. Thus the width of $\tilde{C}$ expands to $ wn + 2\mu n$. For gate teleportation, we use the decoder in \Cref{ }, which runs at most at a depth of $n$. Thus, the depth of $\tilde{C}$ expands to $2(3\mu n)$.
+    We construct $\tilde{C}$ as follows: for each input wire of $C$, we initialize the logical zero $\ket{\mathbf{0}}$ of the $(d,d^{\prime})$-Toric code. For each of the gates $\mathbf{H}$ and $\mathbf{S}$, we initialize the encoded $\ket{\mathbf{H}}$ and $\ket{\mathbf{S}}$ states, and for each $\mathbf{T}$, we initialize copies of both $\ket{\mathbf{T}}$ and $\ket{\mathbf{S}}$ states. The even layers of $\tilde{C}$ are sweep cycles, while on the odd layers, we set the realization of the logical gates. For $\mathbf{CX}$, we set the transversal realization, and for $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$, we use gate teleportation. Thus the width of $\tilde{C}$ expands to $ wn + 2\mu n$. For gate teleportation, we use the decoder in \Cref{col:idealcorrection}, which runs at most at a depth of $n$. Thus, the depth of $\tilde{C}$ expands to $2(3\mu n)$.
 
     
 The decoder successfully decodes any error that does not contain a deviation cluster larger than $\gamma n^{\frac{1}{d}}$. Thus, it remains to prove that with probability $1 - p$, no deviation cluster exceeds that size. To prove this, we use \Cref{claim:intersyn}, which states that the probability of there being a time $t$ with an error cluster larger than $\gamma n^{\frac{1}{d}}$ is bounded by the number of locations multiplied by the probability that step $\tau$ is the first to admit a deviation cluster of size $\gamma^{\prime} n^{\frac{1}{d}}$, maximized over $\tau$. This leads us to prove the following claim:
