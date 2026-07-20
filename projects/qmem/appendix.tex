@@ -165,7 +165,7 @@ Now, having $S \subset \operatorname{Loc}(V^{(i)})$, implies that there is a min
  |\mathcal{W}(S)| \le { \Delta^{c}|S| \choose \Delta^{-c}|S| } 
       \end{split}
     \end{equation*}
-    Hence, using the fact that $\mathcal{E}$ is an outcome of local stochastic nosie channel with a noise rate $p$ we have:
+    Hence, using the fact that $\mathcal{E}$ is an outcome of local stochastic noise channel with a noise rate $p$ we have:
   \begin{equation*}
     \begin{split}
       \prb{S\subset \operatorname{Loc}(V^{(i)})}
@@ -180,7 +180,7 @@ Now, having $S \subset \operatorname{Loc}(V^{(i)})$, implies that there is a min
 \end{proof}
 
 \subsection{Checks Commutation}
-We give an alternative proof of \Cref{claim:csscode}, by straightforwardly multiplying checks. Suppose that:
+We give an alternative proof of \Cref{claim:csscode} by straightforwardly multiplying checks. Consider subsets of generators $A, B \subset S$ with sizes $d^{\prime}-1$ and $d^{\prime}+1$, respectively. Thus, $\partial^{+} \rotfv{v}{A}$ and $\partial^{-} \rotfv{u}{B}$ are $X$- and $Z$-checks. Let us examine their multiplication:
   \begin{equation*}
     \begin{split}
        ( \partial^{+} \rotfv{v}{A} ) ( \partial^{-} \rotfv{u}{B} )   = \left(\sum_{g \in S/A} \rotfv{v}{A \cup g} + \rotfv{g^{-1}v}{ A \cup g }\right)  \left(\sum_{g \in B} \rotfv{u}{B / g} + \rotfv{gu}{ B / g }\right) \\
