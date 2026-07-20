@@ -168,14 +168,16 @@ We state \Cref{claim:block_noise_renorm} in the language of layer propagation.
 
 
 \begin{proof}[Proof of \Cref{claim:block_noise_renorm}]
-  Partition the subjected circuit $C[\mathcal{E}]_{1}$ into consecutive blocks of $c$ layers. Inside each block, propagate all the fault layers to the end of the block, exactly as in \Cref{claim:block_witness}. Doing this block by block yields a new circuit $C'$ in which each block of $c/2$ computational layers is followed by a single coarse-grained fault layer. Therefore $C' = C[\mathcal{E}']_{c/2}$ for a suitable random fault set $\mathcal{E}'$, and by construction
+  Partition the subjected circuit $C[\mathcal{E}]_{1}$ into consecutive blocks of $c$ layers. Inside each block, propagate all the fault layers to the end of the block and then groupping the resultd expressions together. Doing this block by block yields a new circuit $C^{\prime}$ in which each block of $c/2$ computational layers is followed by a single fault layer. Therefore $C^{\prime} = C[\mathcal{E}^{\prime}]_{c/2}$ for a suitable random fault set $\mathcal{E}^{\prime}$, and by construction
   \begin{equation*}
     \begin{split}
       C[\mathcal{E}]_{1} \sim_{P} C[\mathcal{E}']_{c/2}.
     \end{split}
   \end{equation*}
+  
+It remains to prove that $\mathcal{E}^{\prime}$ is local stochastic. Fix one propagation expression $V^{(i)}$ and a subset $S \subset \operatorname{Loc}(V^{(i)})$. Denote by $U_{1}^{i}, \ldots, U_{c}^{i}$ the layers for which $V^{(i)}$ is their (grouped) expression. Denote the light cone of $S$ in $U_{1}^{i}, \ldots, U_{c}^{i}$ by $\Lambda(S)$.
 
-  It remains to prove that $\mathcal{E}'$ is local stochastic. Fix one coarse-grained propagation expression $V^{(i)}$ and a subset $S\subset \operatorname{Loc}(V^{(i)})$. By \Cref{claim:block_witness}, the event $\{S\subset \operatorname{Loc}(V^{(i)})\}$ implies that at least one witness set $S'\in \mathcal{W}(S)$ is fully contained in the original fault set $\operatorname{Loc}(\mathcal{E})$, and every such witness satisfies $|S'|\ge |S|/\Delta^{c}$. Hence
+  \Cref{claim:block_witness}, the event $\{S\subset \operatorname{Loc}(V^{(i)})\}$ implies that at least one witness set $S'\in \mathcal{W}(S)$ is fully contained in the original fault set $\operatorname{Loc}(\mathcal{E})$, and every such witness satisfies $|S'|\ge |S|/\Delta^{c}$. Hence
   \begin{equation*}
     \begin{split}
       \prb{S\subset \operatorname{Loc}(V^{(i)})}
