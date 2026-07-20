@@ -185,10 +185,10 @@ For a step $\tau$, let $\mathcal{H}_{\tau}$ be analysis Toom's contour at step $
         \end{equation*}
   \end{claim}
   \begin{proof}
-We allow vertices at the final time layer to be connected by an arrow if they are at a distance of $d^{\prime} + 1$ from each other. Therefore, for any $i \in [d]$, the value of $L_{i}$ for $v_{i}$ might be greater by 1 than the value of $\prei{v_{i}}$, and the $L_{d+1}$ for $v_{d+1}$ might be greater by $d^{\prime} + 1$ than the value of the $d+1$ pole of $\hat{K}$. Hence, overall, we get that:
+    We allow vertices at the final time layer to be connected by an arrow if their counterpart on the skeleton shares a check. Therefore, for any $i \in [d]$, the value of $L_{i}$ for $v_{i}$ might be greater by at most 1 than the value of $\prei{v_{i}}$, and the $L_{d+1}$ for $v_{d+1}$ might be greater by at most $d^{\prime} + 1$ than the value of the $d+1$ pole of $\hat{K}$. Hence, overall, we get that:
     \begin{equation*}
       \begin{split}
-        \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) & \ge \sum_{i=1}^{d}\bigl( L_{i}\left( v_{i} \right) - 1 \bigr) + L_{d+1}(v_{d+1)} - \max  d^{\prime} - 1 \\ 
+        \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) & \ge \sum_{i=1}^{d}\bigl( L_{i}\left( v_{i} \right) - 1 \bigr) + L_{d+1}(v_{d+1}) - \max\{ d^{\prime} + 1, d^{\prime}-1\}  \\ 
         & = \Size{K} - d - d^{\prime} - 1 
       \end{split}
     \end{equation*}
