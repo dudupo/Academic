@@ -149,25 +149,11 @@ By construction, $\sim_{P}$ preserves the implemented channel. Indeed, if $C\sim
 \end{equation*}
 
 
-\begin{definition}[Witness family in the backward light cone]
-  Let $W$ be a propagation expression obtained from a block of $c$ layers of a noisy circuit after propagating all even fault layers to the end of the block. For a subset $S\subset \operatorname{Loc}(W)$, we define the \textit{witness family} of $S$, denoted by $\mathcal{W}(S)$, to be the collection of all minimal sets
-  \begin{equation*}
-    \begin{split}
-      S'\subset \Lambda(S)
-    \end{split}
-  \end{equation*}
-  such that there exists a fault pattern containing $S'$ whose propagation produces all the faults at the locations in $S$. Here minimality is with respect to inclusion.
-\end{definition}
-
 \begin{claim}
   \label{claim:block_witness}
-  Let $c\ge 2$ be even, let $C$ be a depth-$c/2$ circuit whose gates have arity at most $\Delta$, and let $C[\mathcal{E}]$ be the circuit obtained by inserting the faults of $\mathcal{E}$ between the computational layers. Write the layer decomposition of $C[\mathcal{E}]$ as
-  \begin{equation*}
-    \begin{split}
-      U_{0},U_{1},\ldots,U_{c},
-    \end{split}
-  \end{equation*}
-  where the even layers are fault layers and the odd layers are computational layers. Propagate the fault layers $U_{2},U_{4},\ldots,U_{c-2}$ forward beyond $U_{c-1}$, in reverse order, and denote by $V^{(1)}$ the resulting propagation expression obtained by grouping together those propagated layers with the terminal fault layer $U_{c}$. Then for every $S\subset \operatorname{Loc}(V^{(1)})$ the witness family $\mathcal{W}(S)$ is non-empty, and every element $S'\in \mathcal{W}(S)$ satisfies
+  Let $c\ge 2$ be even, let $C$ be a depth-$c/2$ circuit whose gates have arity at most $\Delta$, and let $C[\mathcal{E}]$ be the circuit obtained by inserting the faults of $\mathcal{E}$ between the computational layers. Write the layer decomposition of $C[\mathcal{E}]$ as  $U_{1},\ldots,U_{c}$ where the odd layers are fault layers and the even layers are computational layers.
+
+  Propagate the fault layers $U_{1},U_{3},\ldots,U_{c-1}$ forward beyond $U_{c}$, in reverse order, and denote by $V^{(1)}$ the resulting propagation expression obtained by grouping together those propagated layers. Then for every $S\subset \operatorname{Loc}(V^{(1)})$ the witness family $\mathcal{W}(S)$ is non-empty, and every element $S'\in \mathcal{W}(S)$ satisfies
   \begin{equation*}
     \begin{split}
       S'\subset \Lambda(S)\cap \bigcup_{k=0}^{c/2}U_{2k}
