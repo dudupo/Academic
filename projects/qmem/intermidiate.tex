@@ -31,13 +31,11 @@ The following definition of propagation describes the evolution of a fault. It a
 
 
 The propagation up to step $\tau$ allows us to define the deviation from an ideal run by propagating all the faults and marking all the locations in the result. The deviation up to stabilizers is defined almost the same, but considering the propagated faults modulated by the stabilizers.
-\begin{definition}[Deviation]
-  \label{def:deviation}
-  For a quantum circuit $C$, a set of faults $\mathcal{E}$, and step $\tau$, let $X^{\tau}$ be the propagated error at step $\tau$. We define the deviation of $C[\mathcal{E}]$ from $C$ at step $\tau$ by the set of indices on which $X^{\tau}$ acts non-trivially. Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} $ be the chain ristrected to a rgister $R$, and the $X$-component of the deviaion on it. A $X$-clustred deviation, is defined to be the   
-\end{definition}
 
-\begin{definition}[Clustered deviation]
-  Let $C$ be a quantum circuit, let $R$ be a register of $C$, and let $\mathcal{E}$ be a fault set. Let $\mathcal{T}_{R,\tau}$ be the Tanner graph of $R$ at step $\tau$, and let $\mathcal{D}_{\tau}$ be the deviation of $C[\mathcal{E}]$ from $C$ on $R$ at step $\tau$. Denote by $\mathcal{T}_{R,\tau}|_{\mathcal{D}_{\tau}}$ the subgraph induced on the left vertices corresponding to the qubits in $\mathcal{D}_{\tau}$.
+\begin{definition}[Deviation and clustered deviation]
+  \label{def:deviation}
+  Let $C$ be a quantum circuit, whose all register are encoded in the $(d,d^{\prime})$-Toric code. Let $R$ be a register, and let $\mathcal{E}$ be a fault set. For a step $\tau$,  let $X^{\tau}$ be the propagated error at step $\tau$. We define the deviation of $C[\mathcal{E}]$ from $C$ at step $\tau$ by the set of indices on which $X^{\tau}$ acts non-trivially. Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} $ be the chain restricted to a register $R$, and the $X$-component of the deviation on it. A $X$-cluster deviation, is defined to be the  
+
 
   We say that two left vertices are connected if they share a common right neighbor. The \textit{deviation clusters} at step $\tau$ are the connected components of $\mathcal{T}_{R,\tau}|_{\mathcal{D}_{\tau}}$. The size of a deviation cluster is the number of left vertices it contains.
 
