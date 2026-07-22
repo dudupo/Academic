@@ -44,12 +44,12 @@ The propagation up to step $\tau$ allows us to define the deviation from an idea
 
 \begin{claim}
   \label{claim:deviation_clusters}
-  Assume that the gates in $C$ have a fan at most $\Delta$. Fix an order $J$ agreeing with $\pi_{C[\mathcal{E}]}$. For a step $\tau\in J$, let $y_{1}^{(\tau)},y_{2}^{(\tau)},\ldots$ denote the $X$-deviation clusters at step $\tau$. Suppose that at step $\tau_{1}$ there is a deviation cluster $y_i^{(\tau_{1})}$. Then there exist deviation cluster $x$ at step $\tau_{1}-1$ such that
+  Assume that the gates in $C$ have a fan at most $\Delta$. Fix an order $J$ agreeing with $\pi_{C[\mathcal{E}]}$. Let $y$ be a $X$-deviation cluster at step $\tau$. Then there exist $X$-deviation cluster $x$ at step $\tau-1$ such that
   \begin{equation*}
     \begin{split}
-      x\cap y_i^{(\tau_{1})} \neq \emptyset,
+      x\cap y \neq \emptyset,
       \qquad
-      \Size{x} \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}}\,\Size{y_i^{(\tau_{1})}}- \frac{c}{\Delta}
+      \Size{x} \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}}\,\Size{y}- \frac{c}{\Delta}
     \end{split}
   \end{equation*}
 \end{claim}
