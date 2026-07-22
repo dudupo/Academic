@@ -33,7 +33,7 @@ The following definition of propagation describes the evolution of a fault. It a
 The propagation up to step $\tau$ allows us to define the deviation from an ideal run by propagating all the faults and marking all the locations in the result. The deviation up to stabilizers is defined almost the same, but considering the propagated faults modulated by the stabilizers.
 \begin{definition}[Deviation]
   \label{def:deviation}
-  For a quantum circuit $C$, a set of faults $\mathcal{E}$, and step $\tau$, let $X^{\tau}$ be the propagated error at step $\tau$. We define the deviation of $C[\mathcal{E}]$ from $C$ at step $\tau$ by the set of indices on which $X^{\tau}$ acts non-trivially. 
+  For a quantum circuit $C$, a set of faults $\mathcal{E}$, and step $\tau$, let $X^{\tau}$ be the propagated error at step $\tau$. We define the deviation of $C[\mathcal{E}]$ from $C$ at step $\tau$ by the set of indices on which $X^{\tau}$ acts non-trivially. Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} $ be the chain ristrected to a rgister $R$, and the $X$-component of the deviaion on it. A $X$-clustred deviation, is defined to be the   
 \end{definition}
 \begin{definition}
   Using the same notations as in \Cref{def:deviation}, for a set of unitary operators $\mathcal{S} = \{s_{i} \colon \mathcal{H}_{2}^{w} \rightarrow \mathcal{H}_{2}^{w} \}_{i=1}$, we define the propagated error up to stabilizers in $\mathcal{S}$ as $X^{\tau}[S] \colonequals \min_{s \in \mathcal{S}} | \text{Supp}(sX) |$. Then, we define the deviation of $C[\mathcal{E}]$ from $C$ at step $\tau$ up to stabilizers in $\mathcal{S}$ to be the subset of coordinates on which $X^{\tau}[S]$ acts non-trivially.
@@ -87,14 +87,14 @@ We say that a function from the subsets of bits to the reals $f \colonequals ( \
 
 \begin{claim}
   \label{claim:deviation_clusters}
-  Let $C$ be a quantum circuit whose gates act on at most $\Delta$ qubits. Let $R$ be a quantum register encoded by a quantum error-correcting code whose Tanner graph has left degree at most $\Delta_{1}$ and right degree at most $\Delta_{2}$. Fix a fault set $\mathcal{E}$ and an order $J$ agreeing with $\pi_{C[\mathcal{E}]}$, and let $f : (\cdot) \rightarrow \mathbb{R}$ be a function that respects inclusion. For a step $\tau\in J$, let $Y_{1}^{(\tau)},Y_{2}^{(\tau)},\ldots$ denote the deviation clusters at step $\tau$.
+  Let $C$ be a quantum circuit whose gates act on at most $\Delta$ qubits. Let $R$ be a quantum register encoded by a quantum error-correcting code whose Tanner graph has left degree at most $\Delta_{1}$ and right degree at most $\Delta_{2}$. Fix a fault set $\mathcal{E}$ and an order $J$ agreeing with $\pi_{C[\mathcal{E}]}$. For a step $\tau\in J$, let $y_{1}^{(\tau)},y_{2}^{(\tau)},\ldots$ denote the deviation clusters at step $\tau$.
 
-  Suppose that at step $\tau_{1}$ there is a deviation cluster $Y_i^{(\tau_{1})}$. Then there exist deviation cluster $Z$  step $\tau_{1}-1$ such that
+  Suppose that at step $\tau_{1}$ there is a deviation cluster $y_i^{(\tau_{1})}$. Then there exist deviation cluster $x$  step $\tau_{1}-1$ such that
   \begin{equation*}
     \begin{split}
-      Z\cap Y_i^{(\tau_{1})} \neq \emptyset,
+      x\cap y_i^{(\tau_{1})} \neq \emptyset,
       \qquad
-      f(Z) \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}}\,f(Y_i^{(\tau_{1})})- \frac{c}{\Delta}
+      \Size{x} \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}}\,\Size{y_i^{(\tau_{1})}}- \frac{c}{\Delta}
     \end{split}
   \end{equation*}
 \end{claim}
