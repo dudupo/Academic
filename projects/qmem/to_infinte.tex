@@ -205,3 +205,21 @@ and extend the function to act over assignment on faces $z$, by taking its actio
 \end{definition}
 With the assistance of potential walls, we can discuss the endpoint of a bunch of qubits and the 'size' of the (hyper)triangle that bounds them. Soon, the qubits will be associated with the support of an error, and showing that an action decreases the maximums of the potential walls implies that the error shrinks.
 
+
+
+\begin{claim}
+  Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be a $d^{\prime}$-dimensional chain, consider the stabilizer  $z \in \mathcal{C}_{Z}^{\perp}$ which adding it to $x$ minimaize the size , Namely: 
+  \begin{equation*}
+    \begin{split}
+      z = \text{ arg } \min_{z \in \mathcal{C}_{Z}^{\perp}} \Size{ x + z }  
+    \end{split}
+  \end{equation*}
+  Then: 
+  \begin{equation*}
+    \begin{split}
+      \Size{ x + z } = \Size{ \partial^{-}( x + z) } 
+    \end{split}
+  \end{equation*}
+\end{claim}
+
+
