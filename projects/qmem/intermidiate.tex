@@ -105,8 +105,9 @@ We say that a function from the subsets of bits to the reals $f \colonequals ( \
   Let $y_{1},\ldots,y_{m}$, with $m\le \Delta\Delta_{1}\Delta_{2}$, be those deviation clusters at step $\tau_{1}-1$ that meet the neighborhood affected by $u$ and whose union contains $y_i^{(\tau_{1})}$, denote the bits in the neighborhood that belong to $\mathcal{D}_{\tau_{1}}$ by $N$.  If $N$ was a stabilizer then cluster is not connected.   Then, since for any $i,j \le m$ we have $(y_{i} \cup N) \cap (y_{j} \cup N) \neq \emptyset$ it holds: 
   \begin{equation*}
     \begin{split}
-      \Size{ y_i^{(\tau_{1})} + z }  & \le \Size{ \bigcup^{m} ( y_{i} \cup N) + z  } \\
-       &\le \sum_{j=1}^{m}f(y_j \cup N) \le m\max_{1\le j\le m}f(y_j) +f(N)  \le \Delta\Delta_{1}\Delta_{2}\max_{1\le j\le m}(f(y_j) + c\Delta).
+      \min_{z \in \mathcal{C}_{Z}^{\perp}}\Size{ y_i^{(\tau_{1})} + z }  & \le \Size{ y_i^{(\tau_{1})} }  \le \Size{ \bigcup^{m} ( y_{i} \cup N)  } \\
+      &\le \sum_{j=1}^{m}\Size{y_j \cup N} \le m\max_{1\le j\le m}\Size{y_j} +\Size{N}  \\
+       & \le \Delta\Delta_{1}\Delta_{2}\max_{1\le j\le m}(f(y_j) + c\Delta).
     \end{split}
   \end{equation*}
   Where we used that $N$ is at size at most $\Delta$. Hence one of these clusters, call it $Z$, satisfies
