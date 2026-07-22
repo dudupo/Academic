@@ -57,7 +57,10 @@ The propagation up to step $\tau$ allows us to define the deviation from an idea
   Let $u$ be the gate applied at step $\tau_{1}$. Passing from step $\tau_{1}-1$ to step $\tau_{1}$ can modify the deviation only on qubits touched by $u$. Since $u$ acts on at most $\Delta$ qubits, and each such qubit is adjacent in the Tanner graph to at most $\Delta_{1}$ checks, each of which meets at most $\Delta_{2}$ qubits, the gate $u$ can interact with vertices belonging to at most $\Delta\Delta_{1}\Delta_{2}$ deviation clusters from step $\tau_{1}-1$.
 
 
-  Let $y_{1},\ldots,y_{m}$, with $m\le \Delta\Delta_{1}\Delta_{2}$, be those deviation clusters at step $\tau_{1}-1$ that meet the neighborhood affected by $u$ and whose union contains $y_i^{(\tau_{1})}$, denote the bits in the neighborhood that belong to $\mathcal{D}_{\tau_{1}}$ by $N$.  If $N$ was a stabilizer then cluster is not connected.   Then, since for any $i,j \le m$ we have $(y_{i} \cup N) \cap (y_{j} \cup N) \neq \emptyset$ it holds: 
+  Let $y_{1},\ldots,y_{m}$, with $m\le \Delta\Delta_{1}\Delta_{2}$, be those deviation clusters at step $\tau_{1}-1$ that meet the neighborhood affected by $u$ and whose union contains $y_i^{(\tau_{1})}$, denote the bits in the neighborhood that belong to $\mathcal{D}_{\tau_{1}}$ by $N$. 
+  So, $x = \sum_{i=1}^{m}y_{i} + \xi + z$. 
+
+  If $N$ was a stabilizer then cluster is not connected.   Then, since for any $i,j \le m$ we have $(y_{i} \cup N) \cap (y_{j} \cup N) \neq \emptyset$ it holds: 
   \begin{equation*}
     \begin{split}
       \min_{z \in \mathcal{C}_{Z}^{\perp}}\Size{ y_i^{(\tau_{1})} + z }  & \le \Size{ y_i^{(\tau_{1})} }  = \Size{ \bigcup^{m} ( y_{i} \cup N)  } \\
