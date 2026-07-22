@@ -250,7 +250,8 @@ We keep excluding vertices until we get the desired equality.
     \begin{split}
       \min_{z \in \mathcal{C}_{Z}^{\perp}} \Size{(x \cup y) + z} &= \min_{z,w \in \mathcal{C}_{Z}^{\perp}} \Size{(x \cup y) + z+ w} \\ 
       & \le \min_{z,w \in \mathcal{C}_{Z}^{\perp}} \Size{ (x +z) \cup (y + w)}  \\
-      & \le \Size{ (x +z) \cup (y + w)} \text{ such } \substack{ z = \arg \min \Size{ x + z } \\  w = \arg \min \Size{ y + w } }
+      & \le \Size{ (x +z) \cup (y + w)} \text{ such } \substack{ z = \arg \min \Size{ x + z } \\  w = \arg \min \Size{ y + w } } \\ 
+    & \le \min_{z \in \mathcal{C}_{Z}^{\perp}} \Size{ x +z } + \min_{w \in \mathcal{C}_{Z}^{\perp}}   \Size{y + w}  \\
     \end{split}
   \end{equation*}
   Now, if $x+z$ and $y+w$ share a vertex then, $\Size{ (x +z) \cup (y + w)} \le \Size{ x + z} + \Size{ y+ w}$. 
