@@ -245,11 +245,11 @@ We keep excluding vertices until we get the desired equality.
 \begin{proof}
   We will show that all the three conditions hold. 
 \item If $x$ is the zero vector, then the bits supporting it are the empty set, and $f(x) = \Size{ \mathbf{0} } = 0$. For the empty set, $f(\emptyset) = 0$.
-\item Consider two chains $x,y$ that has an intersection. By the construction of the stabilizer $z$ which minimizes $\Size{x + y + z}$, we get that $z$ is either zero or has an intersection with $x+y$. Observes that if $z\cap x = z \cap y$ then $z$ introduce new bits.
-  have an intersection with $x+y$.  Therefore $z\cap x \neq z \cap y$ and  their vertex domains intersect. Moreover, for any $z$ that it's addition to $x+y$ decreasing the size it must to have that $z$ intersects $x+y$. Thus, for a fixed $z \in \mathcal{C}_{Z}^{\perp}$ that decreasing the size of $x+y$, we have: 
+\item Consider two chains $x,y$ that has an intersection, we would like to show that $f(x\cup y) \le f(x) + f(y)$, notice that the union is a set-union (regarding the faces that support the chain) and not vectors addition. It's easy to see that the faces of $(x\cup y) + z$ are contained in the faces of  $(x+z)\cup y$. Thus we have: 
   \begin{equation*}
     \begin{split}
-      \Size{x + y + z} \le \Size{x + y + z + z} \le \Size{x + z} + \Size{ y + z} 
+      \min_{z \in \mathcal{C}_{Z}^{\perp}} \Size{(x \cup y) + z} &= \min_{z,w \in \mathcal{C}_{Z}^{\perp}} \Size{(x \cup y) + z+ w} \le \Size{ (x +z) \cup (y + w)}  \\ 
+      &\le \Size{x + z} + \Size{ y + z} 
     \end{split}
   \end{equation*}
  
