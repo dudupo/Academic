@@ -233,13 +233,8 @@ We say that a function from the subsets of bits to the reals $f \colonequals ( \
   \end{equation*}
 \end{claim}
 \begin{proof}
-  Let $u$ be the gate applied at step $\tau_{1}$. Passing from step $\tau_{1}-1$ to step $\tau_{1}$ can modify the deviation only on qubits touched by $u$. Since $u$ acts on at most $\Delta$ qubits, and each such qubit is adjacent in the Tanner graph to at most $\Delta_{1}$ checks, each of which meets at most $\Delta_{2}$ qubits, the gate $u$ can interact with vertices belonging to at most
-  \begin{equation*}
-    \begin{split}
-      \Delta\Delta_{1}\Delta_{2}
-    \end{split}
-  \end{equation*}
-  deviation clusters from step $\tau_{1}-1$.
+  Let $u$ be the gate applied at step $\tau_{1}$. Passing from step $\tau_{1}-1$ to step $\tau_{1}$ can modify the deviation only on qubits touched by $u$. Since $u$ acts on at most $\Delta$ qubits, and each such qubit is adjacent in the Tanner graph to at most $\Delta_{1}$ checks, each of which meets at most $\Delta_{2}$ qubits, the gate $u$ can interact with vertices belonging to at most $\Delta\Delta_{1}\Delta_{2}$ deviation clusters from step $\tau_{1}-1$.
+
 
   Let $Y_{1},\ldots,Y_{m}$, with $m\le \Delta\Delta_{1}\Delta_{2}$, be those deviation clusters at step $\tau_{1}-1$ that meet the neighborhood affected by $u$ and whose union contains $Y_i^{(\tau_{1})}$, denote the bits in the neighborhood that belong to $\mathcal{D}_{\tau_{1}}$ by $N$. Then, since for any $i,j \le m$ we have $(Y_{i} \cup N) \cap (Y_{j} \cup N) \neq \emptyset$ it holds: 
   \begin{equation*}
