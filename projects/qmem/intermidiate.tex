@@ -41,14 +41,6 @@ The propagation up to step $\tau$ allows us to define the deviation from an idea
 
 The following definitions extend the notion of a Tanner graph to the setting of quantum circuits by joining the Tanner graphs of each encoded register. Deviation clusters are a connected component of the Tanner graph such that each of their checks touches a qubit that belongs to the deviation.
 
-\begin{definition}[Tanner graph of a register]
-  Let $C$ be a quantum circuit and let $R$ be a register, namely a subset of qubits of $C$. The \textit{Tanner graph} of $R$ at step $\tau$, denoted by $\mathcal{T}_{R,\tau}$, is defined as follows:
-  \begin{enumerate}
-    \item If at step $\tau$ the register $R$ is encoded by a code $\mathcal{C}$, then $\mathcal{T}_{R,\tau}$ is the Tanner graph of $\mathcal{C}$.
-    \item Otherwise, $\mathcal{T}_{R,\tau}$ is the empty graph.
-  \end{enumerate}
-  When the step is clear from the context, we omit the subscript $\tau$.
-\end{definition}
 
 \begin{definition}[Clustered deviation]
   Let $C$ be a quantum circuit, let $R$ be a register of $C$, and let $\mathcal{E}$ be a fault set. Let $\mathcal{T}_{R,\tau}$ be the Tanner graph of $R$ at step $\tau$, and let $\mathcal{D}_{\tau}$ be the deviation of $C[\mathcal{E}]$ from $C$ on $R$ at step $\tau$. Denote by $\mathcal{T}_{R,\tau}|_{\mathcal{D}_{\tau}}$ the subgraph induced on the left vertices corresponding to the qubits in $\mathcal{D}_{\tau}$.
