@@ -245,7 +245,7 @@ We say that a function from the subsets of bits to the reals $f \colonequals ( \
   Where we used that $N$ is at size at most $\Delta$. Hence one of these clusters, call it $Z$, satisfies
   \begin{equation*}
     \begin{split}
-      f(Z) \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}}\,f(Y_i^{(\tau_{1})}) - \frac{c}{\Delta}
+      f(Z) &\ge \frac{1}{\Delta\Delta_{1}\Delta_{2}}\,f(Y_i^{(\tau_{1})}) - \frac{c}{\Delta} 
     \end{split}
   \end{equation*}
   By construction, $Z\cap Y_i^{(\tau_{1})}\neq \emptyset$.
@@ -253,7 +253,7 @@ We say that a function from the subsets of bits to the reals $f \colonequals ( \
 
 \begin{corollary}[Intermediate Value Theorem]
   \label{claim:inter}
-  Let $\alpha = 1 / (\Delta\Delta_{1}\Delta_{2})$, and let $x$ be an integer. Assume that at the initial step $\tau_{o}$, there is no deviation cluster of size more than $\alpha x$, and that at a step $\tau_{1} \in J$, such that $\tau_{1} > \tau_{o}$, there is a deviation cluster $Y^{(\tau_{1})}$ of size $|Y^{(\tau_{1})}| > x$. Then there is a step $\tau_{\star} \in J$ such that $\tau_{o} < \tau_{\star} < \tau_{1}$ for which there is a deviation cluster $Z$ at step $\tau_{\star}$, satisfying that the size of $Z$ is in the range $(\alpha x, x)$.
+  Let $\alpha = 1/(\Delta \Delta_{1} \Delta_{2})$,  $x$ be an integer, and let $f$ be a function that respects inclusion. Assume that at the initial step $\tau_{o}$, there is no deviation cluster with $f$-value greather than $\alpha x - c/\Delta$, and that at a step $\tau_{1} \in J$, such that $\tau_{1} > \tau_{o}$, there is a deviation cluster $Y^{(\tau_{1})}$ with $f$-value $f(Y^{(\tau_{1})}) > x$. Then there is a step $\tau_{\star} \in J$ such that $\tau_{o} < \tau_{\star} < \tau_{1}$ for which there is a deviation cluster $Z$ at step $\tau_{\star}$, satisfying that  $f(Z)$ is in the range $(\alpha x - c/\Delta, x)$.
 \end{corollary}
 \begin{proof}
 Assume for contradiction that for every step $\tau$ with $\tau_{o}<\tau<\tau_{1}$, all deviation clusters have size at most $\alpha x$. In particular, this holds at step $\tau_{1}-1$. On the other hand, since $|Y^{(\tau_{1})}|>x$, \Cref{claim:deviation_clusters} implies the existence of a deviation cluster at step $\tau_{1}-1$ of size at least
