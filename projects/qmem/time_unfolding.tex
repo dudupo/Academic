@@ -247,10 +247,10 @@ We say that a function from the subsets of bits to the reals $f \colonequals ( \
       f(Y_i^{(\tau_{1})}) \le \sum_{j=1}^{m}f(Y_j \cup N) \le m\max_{1\le j\le m}f(Y_j) +f(N)  \le \Delta\Delta_{1}\Delta_{2}\max_{1\le j\le m}(f(Y_j) + c\Delta).
     \end{split}
   \end{equation*}
-  Hence one of these clusters, call it $Z$, satisfies
+  Where we used that $N$ is at size at most $\Delta$. Hence one of these clusters, call it $Z$, satisfies
   \begin{equation*}
     \begin{split}
-      |Z| \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}}\,|Y_i^{(\tau_{1})}|.
+      f(Z) \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}}\,f(Y_i^{(\tau_{1})}) - \frac{c}{\Delta}
     \end{split}
   \end{equation*}
   By construction, $Z\cap Y_i^{(\tau_{1})}\neq \emptyset$.
