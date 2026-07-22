@@ -270,7 +270,7 @@ We close the subsection by applying the intermediate theorem to derive a bound o
 
 \begin{claim}
   \label{claim:intersyn}
-Let $\alpha=(\Delta\Delta_{1}\Delta_{2})^{-1}$. Let $C$ be a quantum circuit with order $J$ and depth $d$, and let $\mathcal{E}\sim\mathcal{N}_{\mathcal{E}}$, so that $C[\mathcal{E}]$ is a random circuit whose gates act on at most $\Delta$ qubits. Fix a time $t\le 2d$ and an integer $x\in\mathbb{N}$. Let $A$ be the event that by time $t$ there exists a deviation cluster of size greater than $x$. For each step $\tau\in J$, let $B_{\tau}$ be the event that step $\tau$ is the first step at which there exists a deviation cluster of size in the interval $(\alpha x,x)$. Then
+Let $\alpha=(\Delta\Delta_{1}\Delta_{2})^{-1}$. Let $C$ be a quantum circuit with order $J$ and depth $d$, and let $\mathcal{E}\sim\mathcal{N}_{\mathcal{E}}$, so that $C[\mathcal{E}]$ is a random circuit whose gates act on at most $\Delta$ qubits. Fix a time $t\le 2d$ and an integer $x\in\mathbb{N}$. Let $A$ be the event that by time $t$ there exists a deviation cluster with an $f$-value greater than $x$. For each step $\tau\in J$, let $B_{\tau}$ be the event that step $\tau$ is the first step at which there exists a deviation cluster with an $f$-value in the interval $(\alpha x,x)$. Then
   \begin{equation*}
     \begin{split}
       \prb{A} \le 2wd\max_{\tau\in[2wd]}\prb{B_{\tau}}.
@@ -278,7 +278,7 @@ Let $\alpha=(\Delta\Delta_{1}\Delta_{2})^{-1}$. Let $C$ be a quantum circuit wit
   \end{equation*}
 \end{claim}
 \begin{proof}
-By \Cref{claim:inter}, whenever the event $A$ occurs there exists a step $\tau\in J$ with $\tau\le 2wt$ at which there is a deviation cluster of size in the interval $(\alpha x,x)$. Hence
+By \Cref{claim:inter}, whenever the event $A$ occurs there exists a step $\tau\in J$ with $\tau\le 2wt$ at which there is a deviation cluster with an $f$-value in the interval $(\alpha x,x)$. Hence
   \begin{equation*}
     \begin{split}
       A \subset \bigcup_{\tau\in[2wt]} B_{\tau} \subset \bigcup_{\tau\in[2wd]} B_{\tau}.
