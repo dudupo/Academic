@@ -50,22 +50,6 @@ The following definitions extend the notion of a Tanner graph to the setting of 
   When the step is clear from the context, we omit the subscript $\tau$.
 \end{definition}
 
-\begin{definition}[Generalized Tanner graph of a circuit]
-  Let $C$ be a quantum circuit. For registers $A$ and $B$ in $C$, define the generalized Tanner graph of their union by
-  \begin{equation*}
-    \begin{split}
-      \mathcal{T}_{A\cup B,\tau} \colonequals \mathcal{T}_{A,\tau}\cup \mathcal{T}_{B,\tau}.
-    \end{split}
-  \end{equation*}
-  More generally, for a partition of the qubits into registers $\{R_i\}_i$, the generalized Tanner graph of $C$ at step $\tau$ is
-  \begin{equation*}
-    \begin{split}
-      \mathcal{T}_{C,\{R_i\},\tau} \colonequals \bigcup_i \mathcal{T}_{R_i,\tau}.
-    \end{split}
-  \end{equation*}
-  When the partition and the step are clear, we abbreviate this notation to $\mathcal{T}_C$.
-\end{definition}
-
 \begin{definition}[Clustered deviation]
   Let $C$ be a quantum circuit, let $R$ be a register of $C$, and let $\mathcal{E}$ be a fault set. Let $\mathcal{T}_{R,\tau}$ be the Tanner graph of $R$ at step $\tau$, and let $\mathcal{D}_{\tau}$ be the deviation of $C[\mathcal{E}]$ from $C$ on $R$ at step $\tau$. Denote by $\mathcal{T}_{R,\tau}|_{\mathcal{D}_{\tau}}$ the subgraph induced on the left vertices corresponding to the qubits in $\mathcal{D}_{\tau}$.
 
