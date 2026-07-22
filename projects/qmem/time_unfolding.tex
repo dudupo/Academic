@@ -207,26 +207,27 @@ The following definitions extend the notion of a Tanner graph to the setting of 
   Let $C$ be a quantum circuit, let $R$ be a register of $C$, and let $\mathcal{E}$ be a fault set. Let $\mathcal{T}_{R,\tau}$ be the Tanner graph of $R$ at step $\tau$, and let $\mathcal{D}_{\tau}$ be the deviation of $C[\mathcal{E}]$ from $C$ on $R$ at step $\tau$. Denote by $\mathcal{T}_{R,\tau}|_{\mathcal{D}_{\tau}}$ the subgraph induced on the left vertices corresponding to the qubits in $\mathcal{D}_{\tau}$.
 
   We say that two left vertices are connected if they share a common right neighbor. The \textit{deviation clusters} at step $\tau$ are the connected components of $\mathcal{T}_{R,\tau}|_{\mathcal{D}_{\tau}}$. The size of a deviation cluster is the number of left vertices it contains.
+
+
+  We say that a function from the subsets of bits to the reals $f \colonequals ( \cdot ) \rightarrow \mathbb{R}$ respect inclusion. If: 
+  \begin{enumerate}
+    \item It gives zero for the empty set, $f(\emptyset) = 0$.
+    \item For any two subsets $A, B$ which are intersecting $A \cap B \neq \emptyset$, we have $f(A \cup B) \le f(A) + f(B)$.
+    \item There is a constant $c$ such that the function $f$ on any singleton (a subset containing a single vertex) is bounded by $c$.
+  \end{enumerate}
+
 \end{definition}
 
 \begin{claim}
   \label{claim:deviation_clusters}
   Let $C$ be a quantum circuit whose gates act on at most $\Delta$ qubits. Let $R$ be a quantum register encoded by a quantum error-correcting code whose Tanner graph has left degree at most $\Delta_{1}$ and right degree at most $\Delta_{2}$. Fix a fault set $\mathcal{E}$ and an order $J$ agreeing with $\pi_{C[\mathcal{E}]}$. For a step $\tau\in J$, let $Y_{1}^{(\tau)},Y_{2}^{(\tau)},\ldots$ denote the deviation clusters at step $\tau$.
 
-  Suppose that at step $\tau_{1}$ there is a deviation cluster $Y_i^{(\tau_{1})}$. Then there exist deviation clusters $Z$ and $Z'$ at step $\tau_{1}-1$ such that
+  Suppose that at step $\tau_{1}$ there is a deviation cluster $Y_i^{(\tau_{1})}$. Then there exist deviation cluster $Z$  step $\tau_{1}-1$ such that
   \begin{equation*}
     \begin{split}
       Z\cap Y_i^{(\tau_{1})} \neq \emptyset,
       \qquad
-      |Z| \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}}\,|Y_i^{(\tau_{1})}|,
-    \end{split}
-  \end{equation*}
-  and
-  \begin{equation*}
-    \begin{split}
-      Z'\cap Y_i^{(\tau_{1})} \neq \emptyset,
-      \qquad
-      |Z'| \le \Delta\Delta_{1}\Delta_{2}\,|Y_i^{(\tau_{1})}|.
+      f(Z) \ge \frac{1}{\Delta\Delta_{1}\Delta_{2}}\,f(Y_i^{(\tau_{1})})
     \end{split}
   \end{equation*}
 \end{claim}
