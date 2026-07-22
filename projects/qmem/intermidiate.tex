@@ -56,9 +56,9 @@ The propagation up to step $\tau$ allows us to define the deviation from an idea
 \begin{proof}
 Let $u$ be the gate applied at step $\tau$. Passing from step $\tau-1$ to step $\tau$ can modify the deviation only on qubits touched by $u$. Denote by $\xi \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ the chain corresponding to the addition to the deviation by $u$ restricted to the $X$-component.
 
-  Since $u$ acts on at most $\Delta$ qubits, and each such qubit is adjacent in the Tanner graph to at most $\Delta_{1}$ checks, each of which meets at most $\Delta_{2}$ qubits, the gate $u$ can interact with vertices belonging to at most $\Delta\Delta_{1}\Delta_{2}$ deviation clusters from step $\tau-1$.
+Since $u$ acts on at most $\Delta$ qubits, and each such qubit is adjacent to $2d^{\prime}$ checks, each of which meets $2(d-d^{\prime}+1)$ qubits, the gate $u$ can interact with qubits belonging to at most $4\Delta d^{\prime} (d-d^{\prime}+1)$ deviation clusters from step $\tau-1$.
 
-  Let $y_{1},\ldots,y_{m}$, with $m\le \Delta\Delta_{1}\Delta_{2}$, be those deviation clusters at step $\tau-1$, such with $\xi$ 'merged' into $y$. Namely, there is $z \in \mathcal{C}_{Z}^{\perp}$ such: 
+  Let $y_{1},\ldots,y_{m}$, with $m\le 4\Delta d^{\prime} (d-d^{\prime}+1)$, be those deviation clusters at step $\tau-1$, such with $\xi$ 'merged' into $y$. Namely, there is $z \in \mathcal{C}_{Z}^{\perp}$ such: 
   \begin{equation*}
     \begin{split}
         y = \sum_{i=1}^{m}y_{i} + \xi + z 
@@ -75,7 +75,7 @@ By the same argument\footnote{Actually, the order of the exclusion does matter; 
     \begin{split}
       \Size{y} &\le  \left( \sum_{i=1}^{m-1}\Size{y_{i}} \right) + \Size{y_{m} + z} + \Size{\xi} \\
       & \le \left( \sum_{i=1}^{m}\Size{y_{i}} \right) + \Size{\xi} \\
-      & \le \left( \sum_{i=1}^{m}\Size{y_{i}} \right) + c \Delta
+      & \le 4\Delta d^{\prime} (d-d^{\prime}+1) \max_{i}\Size{y_{i}}  + c \Delta
     \end{split}
   \end{equation*}
   If $N$ was a stabilizer then cluster is not connected.   Then, since for any $i,j \le m$ we have $(y_{i} \cup N) \cap (y_{j} \cup N) \neq \emptyset$ it holds: 
