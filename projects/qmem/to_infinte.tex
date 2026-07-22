@@ -248,7 +248,8 @@ We keep excluding vertices until we get the desired equality.
 \item Consider two chains $x,y$ that has an intersection, we would like to show that $f(x\cup y) \le f(x) + f(y)$, notice that the union is a set-union (regarding the faces that support the chain) and not vectors addition. It's easy to see that the faces of $(x\cup y) + z$ are contained in the faces of  $(x+z)\cup y$. Thus we have: 
   \begin{equation*}
     \begin{split}
-      \min_{z \in \mathcal{C}_{Z}^{\perp}} \Size{(x \cup y) + z} &= \min_{z,w \in \mathcal{C}_{Z}^{\perp}} \Size{(x \cup y) + z+ w} \le \Size{ (x +z) \cup (y + w)}  \\ 
+      \min_{z \in \mathcal{C}_{Z}^{\perp}} \Size{(x \cup y) + z} &= \min_{z,w \in \mathcal{C}_{Z}^{\perp}} \Size{(x \cup y) + z+ w} \\ 
+      & \le \min_{z,w \in \mathcal{C}_{Z}^{\perp}} \Size{ (x +z) \cup (y + w)}  \\ 
       &\le \Size{x + z} + \Size{ y + z} 
     \end{split}
   \end{equation*}
