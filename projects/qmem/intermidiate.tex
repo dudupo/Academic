@@ -110,10 +110,10 @@ We say that a function from the subsets of bits to the reals $f \colonequals ( \
        & \le \Delta\Delta_{1}\Delta_{2}\max_{1\le j\le m}(f(y_j) + c\Delta).
     \end{split}
   \end{equation*}
-  Where we used that $N$ is at size at most $\Delta$. Hence one of these clusters, call it $Z$, satisfies
+  Where we used that $N$ is at size at most $\Delta$. Hence one of these clusters, call it $x$, satisfies
   \begin{equation*}
     \begin{split}
-      f(Z) &\ge \frac{1}{\Delta\Delta_{1}\Delta_{2}}\,f(Y_i^{(\tau_{1})}) - \frac{c}{\Delta} 
+      \Size{x} &\ge \frac{1}{\Delta\Delta_{1}\Delta_{2}}\,\min\Size_{z \in \mathcal{C}_{Z}^{\perp}}{y_i^{(\tau_{1})} + z } - \frac{c}{\Delta} 
     \end{split}
   \end{equation*}
   By construction, $Z\cap Y_i^{(\tau_{1})}\neq \emptyset$.
