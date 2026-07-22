@@ -73,7 +73,9 @@ Now, since $y$ is connected, we have that $y_{1}$ and $\sum_{i=2}^{m}y_{i} + \xi
 By the same argument\footnote{Actually, the order of the exclusion does matter; we take an order such that the remainder remains connected.} we have:
   \begin{equation*}
     \begin{split}
-      \Size{y} \le  \left( \sum_{i=1}^{m}\Size{y_{i}} \right) + \Size{\xi + z} 
+      \Size{y} &\le  \left( \sum_{i=1}^{m-1}\Size{y_{i}} \right) + \Size{y_{m} + z} + \Size{\xi} \\
+      & \le \left( \sum_{i=1}^{m}\Size{y_{i}} \right) + \Size{\xi} \\
+      & \le \left( \sum_{i=1}^{m}\Size{y_{i}} \right) + c \Delta
     \end{split}
   \end{equation*}
   If $N$ was a stabilizer then cluster is not connected.   Then, since for any $i,j \le m$ we have $(y_{i} \cup N) \cap (y_{j} \cup N) \neq \emptyset$ it holds: 
