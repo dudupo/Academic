@@ -86,24 +86,23 @@ By the same argument\footnote{Actually, the order of the exclusion does matter; 
 
 \begin{corollary}[Intermediate Value Theorem]
   \label{claim:inter}
-Let $\alpha = 1/(\Delta \Delta_{1} \Delta_{2})$, $x$ be an integer, and let $f$ be a function that respects inclusion.
-  Assume that at the initial step $\tau_{o}$, there is no deviation cluster with an $f$-value greather than $\alpha x - c/\Delta$, and that at a step $\tau_{1} \in J$, such that $\tau_{1} > \tau_{o}$, there is a deviation cluster $Y^{(\tau_{1})}$ with an $f$-value $f(Y^{(\tau_{1})}) > x$. Then there is a step $\tau_{\star} \in J$ such that $\tau_{o} < \tau_{\star} < \tau_{1}$ for which there is a deviation cluster $Z$ at step $\tau_{\star}$, satisfying that  $f(Z)$ is in the range $(\alpha x - c/\Delta, x)$.
+  Let $\alpha = 1/(4\Delta d^{\prime} (d-d^{\prime}+1))$, $\beta = \alpha c\Delta$, and $a$ be an integer. Assume that at the initial step $\tau_{o}$, there is no $X$-deviation cluster at size greater than $\alpha a - \beta$, and that at a step $\tau_{1} \in J$, such that $\tau_{1} > \tau_{o}$, there is a deviation cluster $y$ at size $\Size{y} > a$. Then there is a step $\tau_{\star} \in J$ such that $\tau_{o} < \tau_{\star} < \tau_{1}$ for which there is a deviation cluster $x$ at step $\tau_{\star}$, satisfying that  $\Size{x}$ is in the range $(\alpha a - \beta, a)$.
 \end{corollary}
 \begin{proof}
-  Assume for contradiction that for every step $\tau$ with $\tau_{o}<\tau<\tau_{1}$, all deviation clusters have an $f$-value at most $\alpha x - c/\Delta$. In particular, this holds at step $\tau_{1}-1$. On the other hand, since $f(Y^{(\tau_{1})})>x$, \Cref{claim:deviation_clusters} implies the existence of a deviation cluster at step $\tau_{1}-1$ with an $f$-value at least
+  Assume towards contradiction that for every step $\tau$ with $\tau_{o}<\tau<\tau_{1}$, all deviation clusters are at size at most $\alpha a - \beta$. In particular, this holds at step $\tau_{1}-1$. On the other hand, since $\Size{y}>a$, \Cref{claim:deviation_clusters} implies the existence of a deviation cluster at step $\tau_{1}-1$ at size at least
 \begin{equation*}
   \begin{split}
-    \alpha f(Y^{(\tau_{1})}) - \frac{c}{\Delta} > \alpha x - \frac{c}{\Delta}
+    \alpha \Size{x} - \frac{c}{\Delta} > \alpha a - \beta 
   \end{split}
 \end{equation*}
-which is a contradiction. Therefore, there must exist an intermediate step $\tau_{\star}$ with $\tau_{o}<\tau_{\star}<\tau_{1}$ at which some deviation cluster has an $f$-value in the interval $(\alpha x - c / \Delta ,x)$.
+which is a contradiction. Therefore, there must exist an intermediate step $\tau_{\star}$ with $\tau_{o}<\tau_{\star}<\tau_{1}$ at which some deviation cluster has a size in the interval $(\alpha a- \beta ,a)$.
 \end{proof}
 
-We close the subsection by applying the intermediate theorem to derive a bound on the occurrence of deviation clusters with an $f$-value greater than $x$. In particular, the intermediate theorem states that for that to happen, there has to be a turn in which there is a deviation cluster that has an $f$-value of at least $(\Delta\Delta_{1}\Delta_{2})^{-1} x - c/\Delta$.
+We close the subsection by applying the intermediate theorem to derive a bound on the occurrence of deviation clusters at size greater than $a$. In particular, the intermediate theorem states that for that to happen, there has to be a turn in which there is a deviation cluster that is at size of at least $\alpha a - \beta$.
 
 \begin{claim}
   \label{claim:intersyn}
-Let $\alpha=(\Delta\Delta_{1}\Delta_{2})^{-1}$. Let $C$ be a quantum circuit with order $J$ and depth $d$, and let $\mathcal{E}\sim\mathcal{N}_{\mathcal{E}}$, so that $C[\mathcal{E}]$ is a random circuit whose gates act on at most $\Delta$ qubits. Fix a time $t\le 2d$ and an integer $x\in\mathbb{N}$. Let $A$ be the event that by time $t$ there exists a deviation cluster with an $f$-value greater than $x$. For each step $\tau\in J$, let $B_{\tau}$ be the event that step $\tau$ is the first step at which there exists a deviation cluster with an $f$-value in the interval $(\alpha x - c/\Delta,x)$. Then
+ Let $C$ be a quantum circuit with order $J$ and depth $\mu$, and let $\mathcal{E}\sim\mathcal{N}_{\mathcal{E}}$, so that $C[\mathcal{E}]$ is a random circuit whose gates act on at most $\Delta$ qubits. Fix a time $t\le 2d$ and an integer $a\in\mathbb{N}$. Let $A$ be the event that by time $t$ there exists a deviation cluster at size greater than $a$. For each step $\tau\in J$, let $B_{\tau}$ be the event that step $\tau$ is the first step at which there exists a deviation cluster at size in the interval $(\alpha a -\beta,a)$. Then
   \begin{equation*}
     \begin{split}
       \prb{A} \le 2wd\max_{\tau\in[2wd]}\prb{B_{\tau}}.
@@ -111,7 +110,7 @@ Let $\alpha=(\Delta\Delta_{1}\Delta_{2})^{-1}$. Let $C$ be a quantum circuit wit
   \end{equation*}
 \end{claim}
 \begin{proof}
-By \Cref{claim:inter}, whenever the event $A$ occurs there exists a step $\tau\in J$ with $\tau\le 2wt$ at which there is a deviation cluster with an $f$-value in the interval $(\alpha x - c / \Delta,x)$. Hence
+By \Cref{claim:inter}, whenever the event $A$ occurs there exists a step $\tau\in J$ with $\tau\le 2wt$ at which there is a deviation cluster at size in the interval $(\alpha a - \beta,a)$. Hence
   \begin{equation*}
     \begin{split}
       A \subset \bigcup_{\tau\in[2wt]} B_{\tau} \subset \bigcup_{\tau\in[2wd]} B_{\tau}.
