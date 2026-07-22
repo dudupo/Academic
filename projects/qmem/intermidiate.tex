@@ -78,18 +78,10 @@ By the same argument\footnote{Actually, the order of the exclusion does matter; 
       & \le 4\Delta d^{\prime} (d-d^{\prime}+1) \max_{i}\Size{y_{i}}  + c \Delta
     \end{split}
   \end{equation*}
-  If $N$ was a stabilizer then cluster is not connected.   Then, since for any $i,j \le m$ we have $(y_{i} \cup N) \cap (y_{j} \cup N) \neq \emptyset$ it holds: 
+  Where we used that $\xi$ is supported on at most $\Delta$ faces. Hence one of the deviation clusters $y_{1},..,y_{m}$, call it $x$, satisfies
   \begin{equation*}
     \begin{split}
-      \min_{z \in \mathcal{C}_{Z}^{\perp}}\Size{ y_i^{(\tau_{1})} + z }  & \le \Size{ y_i^{(\tau_{1})} }  = \Size{ \bigcup^{m} ( y_{i} \cup N)  } \\
-      &\le \sum_{j=1}^{m}\Size{y_j \cup N} \le m\max_{1\le j\le m}\Size{y_j} +\Size{N}  \\
-      & \le \Delta\Delta_{1}\Delta_{2}\max_{1\le j\le m}(\Size{y_j} + c\Delta).
-    \end{split}
-  \end{equation*}
-  Where we used that $N$ is supported on at most $\Delta$ faces. Hence one of these clusters, call it $x$, satisfies
-  \begin{equation*}
-    \begin{split}
-    \Size{x} &\ge \frac{1}{\Delta\Delta_{1}\Delta_{2}}\,\min_{z \in \mathcal{C_{Z}^{\perp}}}\Size{y_i^{(\tau_{1})} + z } - \frac{c}{\Delta} 
+    \Size{x} &\ge \frac{1}{4\Delta d^{\prime} (d-d^{\prime}+1)}\,\min_{z \in \mathcal{C_{Z}^{\perp}}}\Size{y } - \frac{c}{\Delta} 
     \end{split}
   \end{equation*}
   By construction, $x\cap y_i^{(\tau_{1})}\neq \emptyset$.
