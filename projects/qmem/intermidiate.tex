@@ -167,6 +167,13 @@ We keep excluding vertices until we get the desired equality.
 
 \subsection{Gottesman argument}
 
-Suppose that our correction admits a cluster of size greater than $\gamma n$ (where $n$ is the Toric length). Then it means that prior to the correction there was a cluster $x$ that, combined with a cluster in the correction $f$, admits a cluster $x+f$ with size $\Size{x+f} > \gamma n$. Now, since $x+f$ is connected (otherwise $\partial^{-}(x+f) \neq 0$), then $\Size{f} > \gamma n - \Size{x} > \gamma^{\prime} n$, and that is a contradiction.
+\begin{claim}
+Let $\gamma, \gamma^{\prime} \in (0,1)$, and denote by $n$ the side-length of the Toric. Assume that the error consists of clusters $x_{1}, \ldots, x_{m}$, each of size at most $\Size{x_{i}} \le (\gamma - \gamma^{\prime})n$. Consider a correction algorithm that applies a correction $f$, such that $\partial^{-}(f + x) = 0$ and $f$ consists of clusters $f_{1}, \ldots, f_{k}$, each of size at most $\Size{f_{i}} \le \gamma n$. Then the algorithm corrects the error.
+\end{claim}
+\begin{proof}
+  
+\end{proof}
+
+Suppose through contradiction that there is a cluster $y$ in $x+f$, which is not stabilizer and has a size greater than $\gamma n$. Since, any cluster in $f$ is lower than $\gamma^{\prime}n$ it follows that there is a cluster $x^{\prime}$ in $x$, that has a non-trivial intersection with $f$. Denote, by $f^{\prime}$ the restriction of $f$ to $x^{\prime}$, and notice that $\partial (f^{\prime} + x^{\prime}) = 0$. Now, if $f^{\prime} + x^{\prime}$ is stabilizer, then just erase it from $y$, denote by $y^{\prime}$ the result of the erasing (if the erasing divide $y$ to multiple clusters then sets $y^{\prime}$ to the one with the maximal size). Repeat on the above until $f^{\prime}+x^{\prime}$ is not a stabilizer. Therefore, it has to be that $\Size{x^{\prime}+f^{\prime}} > \gamma n$. Now, since $x^{\prime}+f^{\prime}$ is connected (otherwise $\partial^{-}(x^{\prime}+f^{\prime}) \neq 0$), then $\Size{f^{\prime}} > \gamma n - \Size{x^{\prime}} > \gamma^{\prime} n$, and that is a contradiction.
 
 
