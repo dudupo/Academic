@@ -34,7 +34,7 @@ The propagation up to step $\tau$ allows us to define the deviation from an idea
 
 \begin{definition}[Deviation and clustered deviation]
   \label{def:deviation}
-  Let $C$ be a quantum circuit, whose all register are encoded in the $(d,d^{\prime})$-Toric code. Let $R$ be a register, and let $\mathcal{E}$ be a fault set. For a step $\tau$,  let $\mathcal{D}^{\tau}$ be the propagated error at step $\tau$. We define the deviation of $C[\mathcal{E}]$ from $C$ at step $\tau$ by the set of indices on which $\mathcal{D}^{\tau}$ acts non-trivially. Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} $ be the chain restricted to a register $R$, and the $X$-component of $\mathcal{D}^{\tau}$. We say that $y \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} $ is a  $X$-cluster deviation at step $\tau$, if and only if:
+  Let $C$ be a quantum circuit, whose all register are encoded in the $(d,d^{\prime})$-Toric code. Let $R$ be a register, and let $\mathcal{E}$ be a fault set. For a step $\tau$,  let $\mathcal{D}^{\tau}$ be the propagated error at step $\tau$. Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} $ be the chain restricted to a register $R$, and the $X$-component of $\mathcal{D}^{\tau}$. We say that $y \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} $ is a  $X$-cluster deviation at step $\tau$, if and only if:
   \begin{enumerate}
     \item There exists $z \in \mathcal{C}_{Z}^{\perp}$ such that $y + z \in x$, namely the faces supporting $y+z$ are contained in the support of $x$.
     \item $y$ is connected component, when two faces are said to be connected if they are share a $d^{\prime}-1$ dimensional face (check).
