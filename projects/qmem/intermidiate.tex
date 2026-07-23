@@ -62,7 +62,9 @@ Since $u$ acts on at most $\Delta$ qubits, and each such qubit is adjacent to $2
         y = \sum_{i=1}^{m}y_{i} + \xi + z 
       \end{split}
   \end{equation*}
-Now, since $y$ is connected, we have that $y_{1}$ and $\sum_{i=2}^{m}y_{i} + \xi + z$ share a check and therefore also share a vertex. Thus:
+  Now, for each $y_{i}$ denote it's restriction to the faces outside the support of $\xi + z$ by $y_{i}|_{/\{\xi + z\}}$. Since $y$ is connected, and for any $i,j$ we have $y_{i} \cap y_{j} = \emptyset$.
+
+  We have that $y_{1}$ and $\sum_{i=2}^{m}y_{i} + \xi + z$ share a check and therefore also share a vertex. Thus:
   \begin{equation*}
     \begin{split}
       \Size{y} = \Size{\sum_{i=1}^{m}y_{i} + \xi + z} \le \Size{y_{1}} + \Size{\sum_{i=2}^{m}y_{i} + \xi + z} 
