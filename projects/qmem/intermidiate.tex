@@ -32,7 +32,7 @@ The following definition of propagation describes the evolution of a fault. It a
 
 The propagation up to step $\tau$ allows us to define the deviation from an ideal run by propagating all the faults and marking all the locations in the result. 
 
-\begin{definition}[Deviation and clustered deviation]
+\begin{definition}[Deviation clusters configuration]
   \label{def:deviation}
   Let $C$ be a quantum circuit, whose all register are encoded in the $(d,d^{\prime})$-Toric code. Let $R$ be a register, and let $\mathcal{E}$ be a fault set. For a step $\tau$,  let $\mathcal{D}^{\tau}$ be the propagated error at step $\tau$. Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} $ be the chain restricted to a register $R$, and the $X$-component of $\mathcal{D}^{\tau}$. We say that $y \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} $ is a  $X$-cluster deviation at step $\tau$, if and only if:
   \begin{enumerate}
@@ -168,13 +168,23 @@ We keep excluding vertices until we get the desired equality.
 \subsection{Gottesman argument}
 
 \begin{claim}
-  Let $\gamma, \gamma^{\prime} \in (0,1)$, and denote by $n$ the side-length of the Toric. Assume that the error consists of clusters $x_{1}, \ldots, x_{m}$, each of size at most $\Size{x_{i}} \le (\gamma - \gamma^{\prime})n$. Consider a correction algorithm that applies a correction $f$, such that $\partial^{-}(f + x) = 0$ and $f$ consists of clusters $f_{1}, \ldots, f_{k}$, each of size at most $\Size{f_{i}} \le \frac{\gamma^{\prime}}{d+1} n$. Then the algorithm corrects the error.
+  Let $\gamma, \gamma^{\prime} \in (0,1)$, and denote by $n$ the side-length of the Toric. Let $x$ be the error, and assume that the probability of reduced error, time-connected, cluster $x_{i}$ to occur is at most $p^{\Size{x_{i}}}$.  Consider a correction algorithm that applies a correction $f$, such that $\partial^{-}(f + x) = 0$ and $f$ consists of clusters $\{f_{i}\}$ each of size at most $\Size{f_{i}} \le \frac{1}{2}\gamma \sqrt{n}$. Then the algorithm corrects the error.
 \end{claim}
 \begin{proof}
   
 \end{proof}
+Suppose, through contradiction, that there is a cluster $y$ in $x+f$ which is not a stabilizer and has a size greater than $\gamma n$. Then $y$ consists of clusters $x_{1}, \ldots, x_{m_{1}}$ and $f_{1}, \ldots, f_{m_{2}}$, such that they are connected. Consider the spanning tree of the systems and group the $x_{i}$'s which are time-connected. Moreover, exclude the $f_{i}$'s which connect $x_{i}$ clusters that are connected in time.
 
-Suppose through contradiction that there is a cluster $y$ in $x+f$, which is not stabilizer and has a size greater than $\gamma n$. Since, any cluster in $f$ is lower than $\gamma^{\prime}n$ it follows that there is a cluster $x^{\prime}$ in $x$, that has a non-trivial intersection with $f$. Denote, by $f^{\prime}$ the minimal subset of $f$ such that $\partial^{-} (f^{\prime} + x^{\prime}) = 0$. Now, if $f^{\prime} + x^{\prime}$ is stabilizer, then just erase it from $y$, denote by $y^{\prime}$ the result of the erasing (if the erasing divide $y$ to multiple clusters then sets $y^{\prime}$ to the one with the maximal size). Repeat on the above until $f^{\prime}+x^{\prime}$ is not a stabilizer. Therefore, it has to be that $\Size{x^{\prime}+f^{\prime}} > \gamma n$. 
+
+Now, denote by $m$ the remained $x$'s. We have that the probability of the tree to occur is the minimum between $m$ and  
+\begin{equation*}
+  \begin{split}
+    p^{\sum_{i}^{m} \Size{x_{i}}} \le p^{ \Size{y} - \sum_{i}^{m^{\prime}} \Size{f_{i}} } \le  p^{ \gamma n  - m^{\prime} \frac{1}{2}\gamma\sqrt{n} } 
+  \end{split}
+\end{equation*}
+
+
+Since, any cluster in $f$ is lower than $\gamma^{\prime}n$ it follows that there is a cluster $x^{\prime}$ in $x$, that has a non-trivial intersection with $f$. Denote, by $f^{\prime}$ the minimal subset of $f$ such that $\partial^{-} (f^{\prime} + x^{\prime}) = 0$. Now, if $f^{\prime} + x^{\prime}$ is stabilizer, then just erase it from $y$, denote by $y^{\prime}$ the result of the erasing (if the erasing divide $y$ to multiple clusters then sets $y^{\prime}$ to the one with the maximal size). Repeat on the above until $f^{\prime}+x^{\prime}$ is not a stabilizer. Therefore, it has to be that $\Size{x^{\prime}+f^{\prime}} > \gamma n$. 
 Now, take the components $f_{1},..,f_{d+1}$ such the maximal of $L_{i}$ is in $\Size{x^{\prime}+f^{\prime}}$ is got in $f_{i}$. Since $x^{\prime}+f^{\prime}$ is connected (otherwise $\partial^{-}(x^{\prime}+f^{\prime}) \neq 0$), and $f_{1},..,f_{d+1}$ are disconnected we have that: 
 
 
