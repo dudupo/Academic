@@ -8,23 +8,23 @@ The following definition of propagation describes the evolution of a fault. It a
   \label{def:localprop}
   Let $C=\{u_i\}_i$ be a quantum circuit, let $J=(j_1,\ldots,j_k)$ be an order agreeing with $\pi_C$, and let $u_i\in C$. Suppose that $u_i=u_{j_l}$ in this order. If $l>\tau$, we define the propagation of $u_i$ to step $\tau$ to be the identity operator.
 
-  Otherwise, define operators $X_0,X_1,\ldots,X_{\tau-l}$ recursively by setting $X_0=u_{j_l}$ and requiring that for every $1\le s\le \tau-l$,
+  Otherwise, define operators $\mathcal{D}_0,\mathcal{D}_1,\ldots,\mathcal{D}_{\tau-l}$ recursively by setting $\mathcal{D}_0=u_{j_l}$ and requiring that for every $1\le s\le \tau-l$,
   \begin{equation*}
     \begin{split}
-      X_{s-1}u_{j_{l+s}} = u_{j_{l+s}}X_s.
+      \mathcal{D}_{s-1}u_{j_{l+s}} = u_{j_{l+s}}\mathcal{D}_s.
     \end{split}
   \end{equation*}
   We then define the \emph{propagation of $u_i$ to step $\tau$} to be the operator
   \begin{equation*}
     \begin{split}
-      X \colonequals X_{\tau-l}.
+      \mathcal{D} \colonequals \mathcal{D}_{\tau-l}.
     \end{split}
   \end{equation*}
 
-  Now let $C[\mathcal{E}]$ be a noisy circuit, let $J$ be an order agreeing with $\pi_{C[\mathcal{E}]}$, and let $\tau$ be a step in that order. For each fault gate $e\in\mathcal{E}$ that occurs no later than step $\tau$, denote by $X^{\tau}_{e}$ its propagation to step $\tau$. We define the propagated error at step $\tau$ by multiplying these propagated faults in reverse topological order:
+  Now let $C[\mathcal{E}]$ be a noisy circuit, let $J$ be an order agreeing with $\pi_{C[\mathcal{E}]}$, and let $\tau$ be a step in that order. For each fault gate $e\in\mathcal{E}$ that occurs no later than step $\tau$, denote by $\mathcal{D}^{\tau}_{e}$ its propagation to step $\tau$. We define the propagated error at step $\tau$ by multiplying these propagated faults in reverse topological order:
   \begin{equation*}
     \begin{split}
-      X^{\tau} \colonequals \prod_{e\preceq \tau} X^{\tau}_{e}.
+      \mathcal{D}^{\tau} \colonequals \prod_{e\preceq \tau} \mathcal{D}^{\tau}_{e}.
     \end{split}
   \end{equation*}
 \end{definition}
