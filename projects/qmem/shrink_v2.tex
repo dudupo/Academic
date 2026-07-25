@@ -39,10 +39,10 @@ Next, we prove that for a finite $X$-error, the sweep-cycle advances the corner 
 
 \begin{claim}
   \label{claim:sweepshrink}
-Let $z$ be a finite assignment and let $\xi$ be the result of the application of the sweep rule on it. Then: 
+  Let $z$ be a finite reduced $d^{\prime}$-dimensional chain, and let $\xi$ be the result of the application of the sweep rule on it. Then: 
   \begin{enumerate}
-    \item For any $i \in [d]$: $\max \big\{ L_{i}(v) : v \in \partial^{-} z \big\} \ge \max \big\{ L_{i}(v) : v \in \partial^{-} \xi \big\}  $
-    \item And for $i = d+1$ : $ \max \big\{ L_{d+1}(v)  : v \in \partial^{-} z \big\} > \max \big\{  L_{d+1}(v) : v \in \partial^{-} \xi \big\} + 1$
+    \item For any generator $g \in S$: $\max \big\{ L_{g}(v) : v \in z \big\} \ge \max \big\{ L_{g}(v) : v \in \xi \big\}  $
+    \item And for $L_{d+1}$ : $ \max \big\{ L_{d+1}(v)  : v \in z \big\} > \max \big\{  L_{d+1}(v) : v \in \xi \big\} + 1$
   \end{enumerate}
 \end{claim}
 \begin{proof}
