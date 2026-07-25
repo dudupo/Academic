@@ -44,7 +44,7 @@ Let $z$ be a finite reduced $d^{\prime}$-dimensional chain, and let $\xi$ be the
     \item For any generator $g \in S$: $\max \big\{ L_{g}(v) : v \in z \big\} \ge \max \big\{ L_{g}(v) : v \in \xi \big\}  $
     \item And for $L_{d+1}$ : $ \max \big\{ L_{d+1}(v)  : v \in z \big\} > \max \big\{  L_{d+1}(v) : v \in \xi \big\} + 1$
   \end{enumerate}
-  In particular, $\Size{\xi} < \Size{z} + 1$.
+  In particular, $\Size{\xi} \le \Size{z} - 1$.
 \end{claim}
 \begin{proof}
   The first inequality was proved in \Cref{claim:edge_pole}, so it's left to prove the second. Denote by $\varphi$ the applied correction and by $v$ the vertex on which $L_{d+1}$ gets the maximal value in $z$, if there are more then one vertex then choose $v$ arbiterly. Since $z$ is reduced, then by \Cref{claim:reducederr} it holds that $v \in \partial^{-} z$. Moreover, since $v$ is a local max of $L_{d+1}$ in $z$ the two follows: 
@@ -52,7 +52,7 @@ Let $z$ be a finite reduced $d^{\prime}$-dimensional chain, and let $\xi$ be the
       \item \Cref{claim:findcor} guarantees that $\partial^{-} \varphi|_{v} = \partial^{-} z|_{v}$. Thus, adding $\varphi|_{v}$ to $z$ excludes $v$ from the boundary.
       \item For any other vertex $u \in z$, there is no face $\rotfv{u}{S^{\prime}} \in z$ such that $v \in \rotfv{u}{S^{\prime}}$. Otherwise, it would contradict $v$ being a local maximum of $L_{d+1}$ in $z$. Thus, $v \notin \textbf{Str}_{0+}(u, \partial^{-} z)$, so by \Cref{claim:findcor}, $v \notin \varphi|_{u}$.
   \end{enumerate}
-Combining the two, we get that $v \notin \partial^{-} (z + \varphi)$, so the reduced form of $z + \varphi$ does not contain $v$. Namely, $v \notin \xi$. Repeating the above for all the other vertices which get the maximal $L_{d+1}$-value in $z$ yields that $L_{d+1}(\xi) < L_{d+1}(z) + 1$.
+Combining the two, we get that $v \notin \partial^{-} (z + \varphi)$, so the reduced form of $z + \varphi$ does not contain $v$. Namely, $v \notin \xi$. Repeating the above for all the other vertices which get the maximal $L_{d+1}$-value in $z$ yields that $L_{d+1}(\xi) \le L_{d+1}(z) - 1$.
 
 \end{proof}
 We finished analyzing the first part of the sweep-cycle that acts in the computational basis. In the next section, we show that the second part of the cycle shrinks phase errors.
