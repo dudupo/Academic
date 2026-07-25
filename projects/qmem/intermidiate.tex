@@ -58,35 +58,6 @@ Moreover, we say that a step $\tau$ admits an infinite error if there is a regis
 
 \subsection{Gottesman argument}
 
-\begin{claim}
-  Let $\gamma, \gamma^{\prime} \in (0,1)$, and denote by $n$ the side-length of the Toric. Let $x$ be the error, and assume that the probability of reduced error, time-connected, cluster $x_{i}$ to occur is at most $p^{\Size{x_{i}}}$.  Consider a correction algorithm that applies a correction $f$, such that $\partial^{-}(f + x) = 0$ and $f$ consists of clusters $\{f_{i}\}$ each of size at most $\Size{f_{i}} \le \frac{1}{2}\gamma \sqrt{n}$. Then the algorithm corrects the error.
-\end{claim}
-\begin{proof}
-  
-\end{proof}
-Suppose, through contradiction, that there is a cluster $y$ in $x+f$ which is not a stabilizer and has a size greater than $\gamma n$. Then $y$ consists of clusters $x_{1}, \ldots, x_{m_{1}}$ and $f_{1}, \ldots, f_{m_{2}}$, such that they are connected. Consider the spanning tree of the systems and group the $x_{i}$'s which are time-connected. Moreover, exclude the $f_{i}$'s which connect $x_{i}$ clusters that are connected in time.
-
-
-Now, denote by $m$ the remained $x$'s. We have that the probability of the tree to occur is the minimum between $m$ and  
-\begin{equation*}
-  \begin{split}
-    p^{\sum_{i}^{m} \Size{x_{i}}} \le p^{ \Size{y} - \sum_{i}^{m^{\prime}} \Size{f_{i}} } \le  p^{ \gamma n  - m^{\prime} \frac{1}{2}\gamma\sqrt{n} } 
-  \end{split}
-\end{equation*}
-
-Thus, if $m \ge \sqrt{n}$ then, .., and if lower than $\sqrt{n}$ then.., .
-
-Since, any cluster in $f$ is lower than $\gamma^{\prime}n$ it follows that there is a cluster $x^{\prime}$ in $x$, that has a non-trivial intersection with $f$. Denote, by $f^{\prime}$ the minimal subset of $f$ such that $\partial^{-} (f^{\prime} + x^{\prime}) = 0$. Now, if $f^{\prime} + x^{\prime}$ is stabilizer, then just erase it from $y$, denote by $y^{\prime}$ the result of the erasing (if the erasing divide $y$ to multiple clusters then sets $y^{\prime}$ to the one with the maximal size). Repeat on the above until $f^{\prime}+x^{\prime}$ is not a stabilizer. Therefore, it has to be that $\Size{x^{\prime}+f^{\prime}} > \gamma n$. 
-Now, take the components $f_{1},..,f_{d+1}$ such the maximal of $L_{i}$ is in $\Size{x^{\prime}+f^{\prime}}$ is got in $f_{i}$. Since $x^{\prime}+f^{\prime}$ is connected (otherwise $\partial^{-}(x^{\prime}+f^{\prime}) \neq 0$), and $f_{1},..,f_{d+1}$ are disconnected we have that: 
-
-
-\begin{equation*}
-  \begin{split}
- \sum\Size{f_{i}} &> \gamma n - \Size{x^{\prime}} > \gamma^{\prime} n\\
- \Rightarrow & \max \Size{f_{i}} > \frac{\gamma^{\prime}}{d+1} n
-  \end{split}
-\end{equation*}
-
 
 \inb{\textbf{Even better.}} Assume that the clusters always have a size lower than $\gamma n$ and that there are $m$ bits. Run sweep-cycles for $m\gamma n$ times. Since there can be at most $m-1$ merges (since the number of clusters is bounded by the number of bits), there has to be a continuous sequence of $\gamma n$ cycles for which no merge occurs. Since it's given that the size of all the clusters is lower than $\gamma n$, we have that all the clusters are erased after those cycles. To prove that no cluster reaches a size greater than $\gamma n$, we use explanation trees (where trees in which all the leaves are at least $l$ from the root are contained in the trees without that restriction).
 
