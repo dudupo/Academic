@@ -1,6 +1,6 @@
 
 
-\subsection{The $(d,d^{\prime})$-Dimensional Toric Code}
+\section{The $(d,d^{\prime})$-Dimensional Toric Code}
 The main error correction code that we will use is the Toric code invented by Kitaev. In the 2D case, the code is obtained by taking a Toric, tiling it with squares, setting qubits on the edges, and checks as follows: For every vertex, the parity of the qubits adjoining it is even, and for any square, the parity of the qubits lying on its sides, in the phase basis, is even. A high-dimensional version can be obtained by taking a high-dimensional Toric, encoded as a cubical complex, and then setting the $X$-checks, the qubits, and the $Z$-checks to be faces at sequenced dimensions. Throughout this paper, qubits will be set on $d^{\prime}$-dimensional faces, and the $X$-checks and $Z$-checks on the $d^{\prime} \mp 1$ dimensional faces. For a review, we refer to \cite{Kitaev1997QuantumCA}, \cite{Dennis_2002}.
 
 For defining a decoder and proving its 'correctness,' we will have to overload notation. We derive the Toric complex from the skeleton of the Cayley graph of the cyclic group, using the generating subset as a collection of positive directions. The $\rotfvs{}$ encodes a face, one vertex $v$ that serves as its 'root,' and a subset of directions $S^{\prime}$. Formally: 
