@@ -36,7 +36,7 @@ Moreover, we say that a step $\tau$ admits an infinite $X$-error if there is a r
   Let $\alpha = (\Delta)^{-1}$. Denote by $A$ the event that there is a step that admits an infinite $X$-error. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step for which there is a register such that, in the view of the $\infty$-extension, $\mathcal{D}^{\tau}$ has support on a connected, reduced, $d^{\prime}$-dimensional chain $x$ such that $\Size{x} = \alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then the probability that $A$ occurs is bounded by:
   \begin{equation*}
     \begin{split}
-      \prb{A} \le 2w\mu\max_{\tau\in[2w\mu]}\prb{B_{\tau}}.
+      \prb{A} \le w\mu\max_{\tau\in[w\mu]}\prb{B_{\tau}}.
     \end{split}
   \end{equation*}
 \end{claim}
@@ -51,8 +51,7 @@ Moreover, we say that a step $\tau$ admits an infinite $X$-error if there is a r
       P_{1} \in \text{Supp } \mathcal{D}^{\tau}, \, \,  P_{2} \in \text{Supp } \mathcal{D}^{\tau + 1}, \, \, x \text{ is both in } P_{1},P_{2}  \, \, \text{ and } \expval*{P_{1}|u|P_{2}} \neq 0
     \end{split}
   \end{equation*}
-
-  Since $u$ has a fan at most $\Delta$, and since, any qubit ($d^{\prime}$-dimensional face) is connected to at most $d^{\prime}(d-d^{\prime}+1)$ qubits (by stepping trough a check\footnote{a $d^{\prime}-1$ dimensional face}). We get that the application of $u$ on each of at most $\alpha^{-1}$ chains in $\mathcal{D}^{\tau}$, and the results of the modification yields $x$
+  Since $u$ has a fan at most $\Delta$, and since any qubit ($d^{\prime}$-dimensional face) is connected to at most $d^{\prime}(d-d^{\prime}+1)$ qubits (by stepping through a check\footnote{a $d^{\prime}-1$ dimensional face}), we get that the application of $u$ on $P_{1}$ touches at most $\alpha^{-1}$ chains, and the result of the modification yields $x$. Therefore, $x$ resides inside a union of at most $\alpha^{-1}$, and since $x$ is connected, we have that its size is bounded by summing the size of each chain in the union. Therefore, if any of the chains is at size at most $\alpha n$, it implies that the size of $x$ is lower than $n$. Hence, a necessary condition to step $\tau+1$ to admit an infinite error is that step $\tau-1$ admits errors at size greater than $\alpha n$. The inequality follows by using the union bound over all the steps in $C[\mathcal{E}]$.
 \end{proof}
 
 \begin{proof}
