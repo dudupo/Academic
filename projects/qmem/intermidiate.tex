@@ -20,17 +20,22 @@ The following definition of propagation describes the evolution of a fault. It a
       \mathcal{D} \colonequals \mathcal{D}_{\tau-l}.
     \end{split}
   \end{equation*}
-
-  Now let $C[\mathcal{E}]$ be a noisy circuit, let $J$ be an order agreeing with $\pi_{C[\mathcal{E}]}$, and let $\tau$ be a step in that order. For each fault gate $e\in\mathcal{E}$ that occurs no later than step $\tau$, denote by $\mathcal{D}^{\tau}_{e}$ its propagation to step $\tau$. We define the propagated error at step $\tau$ by multiplying these propagated faults in reverse topological order:
+Now let $C[\mathcal{E}]$ be a noisy circuit, where all of its quantum registers are encoded in the $(d,d^{\prime})$-Toric code with side length $n$. Let $J$ be an order agreeing with $\pi_{C[\mathcal{E}]}$, and let $\tau$ be a step in that order. For each faulty gate $e \in \mathcal{E}$ that occurs no later than step $\tau$, denote by $\mathcal{D}^{\tau}_{e}$ its propagation to step $\tau$. We define the propagated error at step $\tau$ by multiplying these propagated faults in reverse topological order.
   \begin{equation*}
     \begin{split}
       \mathcal{D}^{\tau} \colonequals \prod_{e\preceq \tau} \mathcal{D}^{\tau}_{e}.
     \end{split}
   \end{equation*}
+Moreover, we say that a step $\tau$ admits an infinite $X$-error if there is a register such that in the view of the $\infty$-extension of $C[\mathcal{E}]$, the propagated error at step $\tau$, $\mathcal{D}^{\tau}$, has support on a connected, reduced, $d^{\prime}$-dimensional chain $x$ such that $\Size{x} \ge n$.
 \end{definition}
 
 
 The propagation up to step $\tau$ allows us to define the deviation from an ideal run by propagating all the faults and marking all the locations in the result. 
+
+\begin{claim}
+  The probability that a step $\tau$ is the first step  
+\end{claim}
+
 
 \begin{definition}[Deviation clusters configuration]
   \label{def:deviation}
