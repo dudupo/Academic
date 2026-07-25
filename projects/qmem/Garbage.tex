@@ -98,3 +98,40 @@ Therefore, we have the equality:
 \end{proof}
 
 
+\inb{\textbf{Consider remove the proof, since it's trivial.}} Ideal decoder proof: 
+
+\begin{proof}
+  Notice that since $\Size{z}\le n-1$, we have that for any $g \in S$:
+  \begin{equation*}
+    \begin{split}
+      \max_{v \in z }L_{g}(v) -  \min_{v \in z }L_{g}(v) \le \Size{z} \le n-1
+    \end{split}
+  \end{equation*}
+Thus, $z$ doesn't spread on a non-trivial cycle and therefore translates to (a collection of) finite error in the $\infty$-extension. Denote by $\xi_{t}$ the corresponding error on the infinite plane after $t$ sweep-cycles, and let $\xi_{0}$ be the corresponding error on the infinite plane prior to the first cycle. Since $\xi_{0}$ is finite, we use \Cref{claim:sweepshrink} and have that each sweep-cycle decreases the boundary by at least one, namely:
+  \begin{equation*}
+    \begin{split}
+      \Size{\partial^{-}\xi_{t+1}} \le \Size{\partial^{-}\xi_{t}} + 1
+    \end{split}
+  \end{equation*}
+  Therefore, after at most $\Size{\partial^{-} z} \le \Size{z}$ iterations, the boundary of the error vanishes. In particular, the syndrome vanishes. It remains to prove that during the decoding, no logical codewords were turned on. Denote by $\tilde{\xi}_{t}$ the correction that was applied at cycle $t$. From \Cref{claim:edge_pole}, it follows immediately that for any generator $g \in S$, it holds that:
+  \begin{equation*}
+    \begin{split}
+      \max \bigl\{ L_{g}(v) : v \in  \xi_{0}  \bigcup_{t} \tilde{\xi}_{t} \bigr\} \le  \max \bigl\{ L_{g}(v) : v \in  \xi_{0} \bigr\} 
+    \end{split}
+  \end{equation*}
+  And since the sweep-rule defines that vertices flips only bits which they are in their positive local view, we also have: 
+  \begin{equation*}
+    \begin{split}
+      \max \bigl\{ L_{d+1}(v) : v \in  \xi_{0}  \bigcup_{t} \tilde{\xi}_{t} \bigr\} \le  \max \bigl\{ L_{d+1}(v) : v \in  \xi_{0} \bigr\} 
+    \end{split}
+  \end{equation*}
+Thus, the support of all the qubits that were touched during the decoding, combined with the support of the initial error, satisfy:
+  \begin{equation*}
+    \begin{split}
+      \Size{ \bigl\{ v \colon v \in  \xi_{0}  \bigcup_{t}\tilde{\xi}_{t} \bigr\} }  & \le \Size{ \bigl\{ v \colon v \in  \xi_{0}  \bigr\} } \\ 
+      & \le \Size{ z } \le n-1 
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+
