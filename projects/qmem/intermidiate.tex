@@ -46,15 +46,6 @@ Moreover, we say that a step $\tau$ admits an infinite $X$-error if there is a r
   Denote by $x$ the maximal, in size, reduced connected $d^{\prime}$-dimensional chain that supports an $X$-Pauli product in the support of $\mathcal{D}^{\tau+1}$. Since the  
 \end{proof}
 
-\begin{claim}
-  \label{claim:intersyn}
- Let $C$ be a quantum circuit with order $J$ and depth $\mu$, and let $\mathcal{E}\sim\mathcal{N}_{\mathcal{E}}$, so that $C[\mathcal{E}]$ is a random circuit whose gates act on at most $\Delta$ qubits. Fix a time $t\le 2d$ and an integer $a\in\mathbb{N}$. Let $A$ be the event that by time $t$ there exists a deviation cluster at size greater than $a$. For each step $\tau\in J$, let $B_{\tau}$ be the event that step $\tau$ is the first step at which there exists a deviation cluster at size in the interval $(\alpha a -\beta,a)$. Then
-  \begin{equation*}
-    \begin{split}
-      \prb{A} \le 2wd\max_{\tau\in[2wd]}\prb{B_{\tau}}.
-    \end{split}
-  \end{equation*}
-\end{claim}
 \begin{proof}
 By \Cref{claim:inter}, whenever the event $A$ occurs there exists a step $\tau\in J$ with $\tau\le 2wt$ at which there is a deviation cluster at size in the interval $(\alpha a - \beta,a)$. Hence
   \begin{equation*}
