@@ -39,48 +39,20 @@ Next, we prove that for a finite $X$-error, the sweep-cycle advances the corner 
 
 \begin{claim}
   \label{claim:sweepshrink}
-Let $z$ be a finite reduced $d^{\prime}$-dimensional chain, and let $\xi$ be the result of applying the sweep rule to it. Then:
+Let $z$ be a finite reduced $d^{\prime}$-dimensional chain, and let $\xi$ be the reduced result of applying the sweep rule to it. Then:
   \begin{enumerate}
     \item For any generator $g \in S$: $\max \big\{ L_{g}(v) : v \in z \big\} \ge \max \big\{ L_{g}(v) : v \in \xi \big\}  $
     \item And for $L_{d+1}$ : $ \max \big\{ L_{d+1}(v)  : v \in z \big\} > \max \big\{  L_{d+1}(v) : v \in \xi \big\} + 1$
   \end{enumerate}
+  In particular, $\Size{\xi} < \Size{z} + 1$.
 \end{claim}
 \begin{proof}
-  The first inequality was proved in \Cref{claim:edge_pole}, so it's left to prove the second. First, since the sweep rule is invariant to addition by stabilizers, for any $\tilde{z}$ such that $\tilde{z} \sim_{C_{X}} z$, the correction applied by the sweep rule on $\tilde{z}$ is the same as the application on $z$. Denote by $\phi$ the applied correction, by $\tilde{\xi}$ the result of applying the sweep rule on $\tilde{z}$, and by $w$ the stabilizer which is the difference between $z$ and $\tilde{z}$, namely:
-  \begin{equation*}
-    \begin{split}
-      \xi &= z + \phi \\
-      \tilde{\xi} &= \tilde{z} + \phi \\
-      \tilde{z} &= z + w
-    \end{split}
-  \end{equation*}
-  The $\partial^{-}$ boundary of $\tilde{\xi}$ equals:
-  \begin{equation*}
-    \begin{split}
-      \partial^{-} \tilde{\xi} = \partial^{-} \left( \tilde{z} + \phi \right) = \partial^{-} \left( z + \phi \right) = \partial^{-} \xi
-    \end{split}
-  \end{equation*}
-  So, in total, we have that for any $\tilde{z}$ such that $\tilde{z} \sim_{C_{X}} z$, it holds that $\partial^{-} \tilde{z} = \partial^{-} z$ and $\partial^{-} \tilde{\xi} = \partial^{-} \xi$. Therefore, showing that there exists $\tilde{z} \sim_{C_{X}} z$ for which the claim holds proves the claim for $z$. By \Cref{claim:extermum}, there is $\tilde{z} \sim_{C_{X}} z$ such that:
-  \begin{equation*}
-    \begin{split}
-      \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} = \max \big\{ L_{d+1}(u) : u \in \partial^{-} \tilde{z} \big\}
-    \end{split}
-  \end{equation*}
-  
-  For such $\tilde{z}$, any maximum of $L_{d+1}$ in $ \partial^{-} \tilde{z} $, is also a maximum in $\tilde{z}$. Denote by $v_{1},..,v_{k}$ the maximum points in $\partial^{-} \tilde{z}$. Since they are maximum points in $\tilde{z}$, it holds that for each $i \in [k]$, $\tilde{z}|_{v_{i}} = \tilde{z}|_{v_{i}+}$, and hence $\partial^{-} \tilde{z}|_{v_{i}} = \partial^{-} \tilde{z}|_{v_{i}+}$. Since $\tilde{z}|_{v_{i}+}$ is an assignment rooted at $v_{i}$, then $v_{i}$ can suggest $\tilde{z}|_{v_{i} +}$ (\Cref{claim:findcor}), namely the condition in sweep rule is satisfied for vertex $v_{i}$. Thus:
-\begin{equation*}
-  \begin{split}
-\partial^{-}\tilde{\xi}|_{v_{i}} =  \partial^{-}\tilde{z}|_{v_{i}} + \partial^{-}\phi|_{v_{i}} = 0
-  \end{split}
-\end{equation*}
-Namely, for any $i$, the $i$th vertex $v_{i}$ is not in $\tilde{\xi}$. For any vertex $v$ denote by $\phi_{v}$ the correction made by the vertex $v$, namely $\phi = \sum_{v \in \partial^{-} \tilde{z}} \phi_{v}$. By the same arguments as in the proof of \Cref{claim:reduce_stab}, we have that $v_{j} \notin \phi_{v_{i}}$. Hence, the vertex domain of $\tilde{\xi}$ is contained in the union of the vertices of $\tilde{z}$ with the vertices of $ \cup_{v \in V} \phi_{v} $, substituting maximum points $v_{1}, v_{2}, \ldots, v_{k}$. Overall, we get:
-\begin{equation*}
-  \begin{split}
-    \max \left\{ L_{d+1}(u) : u \in \partial^{-} \tilde{\xi} \right\} & \le \max \big\{ L_{d+1}(u) : u \in  \partial^{-} \tilde{z} \bigcup_{v \in \partial^{-} \tilde{z} } \phi_{v} \big/ \bigcup_{i} v_{i} \big\}  \\ 
-    & \le  \max \big\{ L_{d+1}(u) : u \in \partial^{-} \tilde{z} \big\} - 1
-  \end{split}
-\end{equation*}
-And we proved the second part of the claim. 
+  The first inequality was proved in \Cref{claim:edge_pole}, so it's left to prove the second. Denote by $\varphi$ the applied correction and by $v$ the vertex on which $L_{d+1}$ gets the maximal value in $z$, if there are more then one vertex then choose $v$ arbiterly. Since $z$ is reduced, then by \Cref{claim:reducederr} it holds that $v \in \partial^{-} z$. Moreover, since $v$ is a local max of $L_{d+1}$ in $z$ the two follows: 
+  \begin{enumerate}
+      \item \Cref{claim:findcor} guarantees that $\partial \varphi|_{v} = \partial z|_{v}$. Thus, adding $\varphi|_{v}$ to $z$ excludes $v$ from the boundary.
+      \item For any other vertex $u \in z$, there is no face $\rotfv{u}{S^{\prime}} \in z$ such that $v \in \rotfv{u}{S^{\prime}}$. Otherwise, it would contradict $v$ being a local maximum of $L_{d+1}$ in $z$. Thus, $v \notin \textbf{Str}_{0+}(u, \partial z)$, so by \Cref{claim:findcor}, $v \notin \varphi|_{u}$.
+  \end{enumerate}
+Combining the two, we get that $v \notin \partial (z + \varphi)$, so the reduced form of $z + \varphi$ does not contain $v$. Namely, $v \notin \xi$. Repeating the above for all the other vertices which get the maximal $L_{d+1}$-value in $z$ yields that $L_{d+1}(\xi) < L_{d+1}(z) + 1$.
 
 \end{proof}
 We finished analyzing the first part of the sweep-cycle that acts in the computational basis. In the next section, we show that the second part of the cycle shrinks phase errors.
