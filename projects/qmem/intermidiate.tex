@@ -131,33 +131,6 @@ The union bound now gives
 
 
 
-
-\begin{claim}
-  Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be a $d^{\prime}$-dimensional chain, consider the stabilizer  $z \in \mathcal{C}_{Z}^{\perp}$ which adding it to $x$ minimize the size , Namely: 
-  \begin{equation*}
-    \begin{split}
-      z =  \arg \min_{z \in \mathcal{C}_{Z}^{\perp}} \Size{ x + z }  
-    \end{split}
-  \end{equation*}
-  Then: 
-  \begin{equation*}
-    \begin{split}
-      \Size{ x + z } = \Size{ \partial^{-}( x + z) } 
-    \end{split}
-  \end{equation*}
-\end{claim}
-\begin{proof}
-  First, observe that since the vertex domain of $\partial^{-} x$ is contained in the vertex domain of $x$, it follows that for any $x$ the inequality $\Size{x} \ge \Size{\partial^{-} x}$ holds. Combining this with the fact that $\partial^{-} z = 0$ for any $z \in \mathcal{C}_{Z}^{\perp}$, we have that $\Size{x + z} \ge \Size{\partial^{-}(x + z)}$. Now suppose that $\Size{x} > \Size{\partial^{-} x}$; that implies the existence of $v \in x/\partial^{-} x$ such that $v$ is a local maximum of one of the potential walls in $x$ and $(\partial^{-} x)|_{v} = 0$. 
- 
-
-  If $v$ is a maximum of $L_{d+1}$, then by \Cref{claim:agreement}, there exists a stabilizer $z$ rooted at $v$, such that adding $z$ to $x$ excludes $v$, so $L_{d+1}(x+z) < L_{d+1}(x)$.  In addition, since the rooted stabilizer $z$ is supported only on the vertices in $\textbf{Str}_{0+}(v,x)$, the addition cannot introduce a vertex with a higher $L_{g}$ value than the maximal $L_{g}$ value in $\textbf{Str}_{0+}(v,x)$ into $x$.
-
-  If, for some generator $g \in S$, $v$ is a maximum of $L_{g}$, then without loss of generality, pick $v$ among the maximum points of $L_{g}$ with the highest value of $-L_{d+1}$ (maximize $\sum_{g \in S} L_{g}(v)$). Now consider the skeleton system where the directions are flipped, and $\rotfs{}$ is set to be the face containing the vertices that are reached by the selection of reverse steps from $S^{\prime}$ (i.e., $g^{-1}v \in \rotfs{}$). In that system, we can apply \Cref{claim:agreement} (in the reversed direction) and get that there is a stabilizer $z$ such that adding it to $x$ excludes $v$ from $x$. By the same argument as above, no vertex with a higher $L_{g^{\prime}}$-value (although $L_{d+1}$ can increase, that's fine) than what it already has in $\textbf{Str}_{0-}(v,x)$ is introduced into $x$. Repeating the process excludes all the vertices with the maximal value of $L_{g}$ in $x$, so eventually, we end up with $x+z$, such that $L_{g}(x+z) < L_{g}(x)$.
-
-  
-We keep excluding vertices until we get the desired equality.
-\end{proof}
-
 \begin{claim}
   \inb{Final claim $B_{\tau}$ happens if there is a deviation cluster which $\Size{\partial x} > a$.}
 \end{claim}
