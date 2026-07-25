@@ -1,11 +1,15 @@
 
 \subsection{Reduced Error}
 
-The $(d+1)$th potential wall $L_{d+1}$ gets is maximum on the 'corner' vertex of the error, and therefore we would like to have a stronger claim stating that its maximum value decreases. Thereby implying that the corner 'advances' and the error shrinks. For this, we start by showing that any error is equivalent, up to stabilizer addition, to an error whose 'corner' vertex - the maximal point of $L_{d+1}$ - sees a syndrome. 
+Errors can be thought of as assignments on the $d^{\prime}$-dimensional faces that have non-vanishing boundaries. In particular, $X$-errors can be characterized as $d^{\prime}$-dimensional chains $z \in \mathbb{F}^{\mathcal{F}_{d^{\prime}}}_{2}$ such that $\partial^{-} z \neq 0$. In this section, we assume dealing with the $\infty$-extension of a circuit (see \Cref{def:extension}), so the cubical complex is the $d$-dimensional grid with infinite side length. 
 
-We present two codes that describe local views. They are the \textit{stabilizers code at vertex} $v$ and the \textit{small code at vertex} $v$. The first corresponds to stabilizers rooted at the vertex, while the second is the collection of local views on its positive faces that satisfy its positive checks. Then, in \Cref{claim:agreement}, we consider a vertex whose $X$-checks don't admit a syndrome, meaning that its local view is in its \textit{small code}, and show that there is a codeword of its \textit{stabilizers code} that agrees with its positive faces. Addition by that stabilizer yields a new assignment excluding $v$. 
 
-If $v$ was a unique maximum of $L_{d+1}$, then the vertices on the yielded assignments have a lower value of $L_{d+1}$. Therefore, one can assume that for a given error, the vertex that is the maximal point of $L_{d+1}$ sees a syndrome.
+
+\inb{\textbf{Rewrite.}} The $(d+1)$th potential wall $L_{d+1}$ gets is maximum on the 'corner' vertex of the error, and therefore we would like to have a stronger claim stating that its maximum value decreases. Thereby implying that the corner 'advances' and the error shrinks. For this, we start by showing that any error is equivalent, up to stabilizer addition, to an error whose 'corner' vertex - the maximal point of $L_{d+1}$ - sees a syndrome. 
+
+\inb{\textbf{Rewrite.}} We present two codes that describe local views. They are the \textit{stabilizers code at vertex} $v$ and the \textit{small code at vertex} $v$. The first corresponds to stabilizers rooted at the vertex, while the second is the collection of local views on its positive faces that satisfy its positive checks. Then, in \Cref{claim:agreement}, we consider a vertex whose $X$-checks don't admit a syndrome, meaning that its local view is in its \textit{small code}, and show that there is a codeword of its \textit{stabilizers code} that agrees with its positive faces. Addition by that stabilizer yields a new assignment excluding $v$. 
+
+\inb{\textbf{Rewrite.}} If $v$ was a unique maximum of $L_{d+1}$, then the vertices on the yielded assignments have a lower value of $L_{d+1}$. Therefore, one can assume that for a given error, the vertex that is the maximal point of $L_{d+1}$ sees a syndrome.
 
 \begin{definition}[Stabilizers Code at Vertex $v$]
 We define \textit{stabilizer code at vertex} $v$, denoted by $\text{Stab}_{v}$, as the restriction of the $(d,d^{\prime})$-Toric code to the $d^{\prime}$-dimensional faces such that their vertices are at a distance of at most one positive step in each direction from $v$. That is equivalent to the union of all the positive $d^{\prime}$-dimensional faces of $v$ with the $d$-dimensional faces of each of its sibling $gv$, excluding faces containing $g$ as their generator. Namely:
