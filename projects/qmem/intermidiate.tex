@@ -7,8 +7,7 @@ The following definition of propagation describes the evolution of a fault. It a
 \begin{definition}[Fault propagation to a step $\tau$]
   \label{def:localprop}
   Let $C=\{u_i\}_i$ be a quantum circuit, let $J=(j_1,\ldots,j_k)$ be an order agreeing with $\pi_C$, and let $u_i\in C$. Suppose that $u_i=u_{j_l}$ in this order. If $l>\tau$, we define the propagation of $u_i$ to step $\tau$ to be the identity operator.
-
-  Otherwise, define operators $\mathcal{D}_0,\mathcal{D}_1,\ldots,\mathcal{D}_{\tau-l}$ recursively by setting $\mathcal{D}_0=u_{j_l}$ and requiring that for every $1\le s\le \tau-l$,
+Otherwise, define operators $\mathcal{D}_0,\mathcal{D}_1,\ldots,\mathcal{D}_{\tau-l}$ recursively by setting $\mathcal{D}_0=u_{j_l}$ and requiring that for every $1\le s\le \tau-l$,
   \begin{equation*}
     \begin{split}
       \mathcal{D}_{s-1}u_{j_{l+s}} = u_{j_{l+s}}\mathcal{D}_s.
