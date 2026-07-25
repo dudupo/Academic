@@ -1,0 +1,100 @@
+\section{Garbage}
+
+
+Now we are ready to prove that any error is equivalent, up to addition by stabilizer, to an error whose maximal $L_{d+1}$ vertex (or its edge) sees a syndrome (and that maximum is equal to or lower than the maximal value of $L_{d+1}$ in the original error). \Cref{fig:edge} visualize the idea. \Cref{claim:reduce_stab} introduces a 'single application' of \Cref{claim:agreement} to 'advance' the corner (the vertex that gets the maximal value of $L_{d+1}$). The corner might not be unique, so in the proof, we advance all the corners simultaneously. Yet, it might occur that the yielded assignment still doesn't admit corners that see a syndrome. Thus, \Cref{claim:extermum} repeats  'corners advancing' steps on until it ensures the desired outcome - that the corner vertex of the final yielded assignment sees a syndrome. 
+\begin{claim}
+  \label{claim:reduce_stab}
+  Let $z$ be a finite assignment. Suppose that 
+  \begin{equation*}
+    \begin{split}
+            \max \big\{ L_{d+1}(u) :  u \in z \big\} > \max \big\{ L_{d+1}(u) : u \in \partial^{-} z \big\}
+    \end{split}
+  \end{equation*}
+  Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that:
+\begin{equation*}
+  \begin{split}
+    \max \left\{ L_{d+1}(u) : u \in \tilde{z} \right\} & \le  \max \big\{ L_{d+1}(u) : u \in z \big\} - 1
+  \end{split}
+\end{equation*}
+\end{claim}
+\begin{proof}
+  Let $v_{1}, v_{2}, \ldots, v_{k}$ be the vertices in $z$ that achieve the maximum for $L_{d+1}$, namely $v_{1}, v_{2}, \ldots, v_{k} = \arg \max_{v \in z} L_{d+1}(v)$, and assume that $v_{i} \notin \partial^{-} z$ for any $i \in [k]$. (Notice that the maximum is indeed achieved since $z$ is finite.)
+
+Consider the $i$th vertex $v_{i}$. By definition, since $v_{i} \notin \partial^{-} z$, we have $\partial^{-} z|_{v_{i}} = 0$, and since $v_{i}$ is a maximum point of $L_{d+1}$ in $z$, it is also a local maximum, and therefore $z|_{v_{i}+} = z|_{v_{i}}$. 
+Combining the two, we get that $z|_{v_{i}}$ is a codeword of the small code at $v_{i}$, namely $z|_{v_{i}} \in \mathcal{C}_{v_{i}}$. Thus, by \Cref{claim:agreement}, there is a stabilizer $w_{i} \in \text{Stab}_{v_{i}}$ such that $w_{i}$ and $z$ agree on the positive faces of $v_{i}$, namely $w_{i}|_{v_{i}} = z|_{v_{i}}$. 
+
+Set $\tilde{z} \leftarrow z + \sum_{i}w_{i}$. Since $\sum_{i}w_{i}$ is a stabilizer, we have $\tilde{z} \sim_{C_{X}} z$. In addition, for any $j \neq i$, it follows that $v_{j} \notin w_{i}$.
+Otherwise, there exists $S^{\prime} \subset S$ such that $v_{j} \in \rotf{v_{i}}{S^{\prime}}/ v_{i}$, and therefore $L_{d+1}(v_{j}) > L_{d+1}(v_{i})$, in contradiction to $v_{i}$ and $v_{j}$ being both maximum points for $L_{d+1}$ in $\partial^{-} z$. 
+Thus, we have:
+\begin{equation*}
+  \begin{split}
+    \tilde{z}|_{v_{i}} = (z + \sum_{j}w_{j})|_{v_{i}} =  (z + w_{i})|_{v_{i}} = 0
+  \end{split}
+\end{equation*}
+Namely, for any $i$, the $i$th vertex $v_{i}$ is not in $\tilde{z}$. Hence, the vertex domain of $\tilde{z}$ is contained in the union of the vertices of $z$ with the vertices of $w_{1}, w_{2}, \ldots, w_{k}$, substituting $v_{1}, v_{2}, \ldots, v_{k}$. Overall, we get:
+\begin{equation*}
+  \begin{split}
+  \max \left\{ L_{d+1}(u) : u \in \tilde{z} \right\} & \le \max \big\{ L_{d+1}(u) : u \in z \bigcup_{i} w_{i} \big/ \bigcup_{i} v_{i} \big\}  \\ 
+     & \le  \max \big\{ L_{d+1}(u) : u \in z \big\} - 1
+  \end{split}
+\end{equation*}
+\end{proof}
+
+
+
+\begin{claim}
+  \label{claim:extermum}
+  Let $z$ be a finite assignment. Then there is $\tilde{z} \sim_{\mathcal{C}_{X}} z$ such that 
+  \begin{equation*}
+    \begin{split}
+      \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} = \max \big\{ L_{d+1}(u) : u \in \partial^{-} z \big\}
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+Let $z$ be a finite assignment, and let $k$ be an integer such that $k \ge 1$ and
+  \begin{equation*}
+    \begin{split}
+            \max \big\{ L_{d+1}(u) :  u \in z \big\} =  \max \big\{ L_{d+1}(u) : u \in \partial^{-} z \big\} + k
+    \end{split}
+  \end{equation*}
+  For an integer $l \le k$, consider the assignments $\tilde{z}_{0},\tilde{z}_{1},..,\tilde{z}_{l}$ defined as follow: 
+  \begin{itemize}
+    \item The first element, $\tilde{z}_{0} = z$. 
+    \item If the $i-1$th element satisfies 
+  \begin{equation*}
+    \begin{split}
+      (\star ) \ \ \max \big\{ L_{d+1}(u) :  u \in \tilde{z}_{i-1} \big\} > \max \big\{ L_{d+1}(u) : u \in \partial^{-} \tilde{z}_{i-1} \big\} 
+    \end{split}
+  \end{equation*}
+      Then define the $i$th element, $\tilde{z}_{i}$, to be the result of applying the construction, given in \Cref{claim:reduce_stab}, on $\tilde{z}_{i-1}$ , namely  $\partial \tilde{z}_{i+1} = \partial z_{i}$ and  
+\begin{equation*}
+  \begin{split}
+    \max \big\{ L_{d+1}(u) :  u \in \tilde{z}_{i} \big\} \le  \max \big\{ L_{d+1}(u) : u \in \tilde{z}_{i-1} \big\} - 1
+  \end{split}
+\end{equation*}
+If the $i-1$th element doesn't satisfies $\star$, then set $l = i -1$.
+\item If the $k$th element was defined, set $l = k$.
+  \end{itemize}
+Since $\sim_{C_{X}}$ is a transitive relation, we have that for any $i \in [l]$, $z \sim_{C_{X}} \tilde{z}_{i}$. If $l \neq k$, then there exists $\tilde{z}_{i}$ such that $\tilde{z}_{i} \sim_{C_{X}}$ and $\tilde{z}_{i}$ satisfies $\star$, namely by setting $\tilde{z} = \tilde{z}_{i}$, we get the desired.
+So, it is left to handle the case where $l = k$. In that case, set $\tilde{z} = \tilde{z}_{k}$. By \Cref{claim:reduce_stab}:
+\begin{equation*}
+  \begin{split}
+    \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} \le  \max \big\{ L_{d+1}(u) : u \in \partial^{-} z \big\}
+  \end{split}
+\end{equation*}
+Yet, since $\tilde{z} \sim_{C_{X}} z$, it follows that $\partial \tilde{z} = \partial z$, So: 
+\begin{equation*}
+  \begin{split}
+     \max \big\{ L_{d+1}(u) :  u \in \partial^{-} z \big\} = \max \big\{ L_{d+1}(u) :  u \in  \partial^{-} \tilde{z} \big\} \le \max \big\{ L_{d+1}(u) : u \in z \big\} 
+  \end{split}
+\end{equation*}
+Therefore, we have the equality:
+\begin{equation*}
+  \begin{split}
+    \max \big\{ L_{d+1}(u) :  u \in \tilde{z} \big\} = \max \big\{ L_{d+1}(u) : u \in \partial^{-} z \big\}
+  \end{split}
+\end{equation*}
+\end{proof}
+
+
