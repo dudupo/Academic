@@ -55,9 +55,10 @@ Let $z$ be a finite reduced $d^{\prime}$-dimensional chain, and let $\xi$ be the
 Combining the two, we get that $v \notin \partial^{-} (z + \varphi)$, so the reduced form of $z + \varphi$ does not contain $v$. Namely, $v \notin \xi$. Repeating the above for all the other vertices which get the maximal $L_{d+1}$-value in $z$ yields that $L_{d+1}(\xi) \le L_{d+1}(z) - 1$.
 
 \end{proof}
-We finished analyzing the first part of the sweep-cycle that acts in the computational basis. In the next section, we show that the second part of the cycle shrinks phase errors.
+We finished analyzing the first part of the sweep-cycle that acts in the computational basis. In the next section, we show that the second part of the cycle shrinks reduced phase errors.
 \subsubsection{The Sweep-Rule Phase in the Dual Code}
-Now, we will think of the binary assignment $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ as the positions of the $Z$-errors, after permuting the qubits by the $\phi$-transpose. Namely, $\partial^{-}z$ is the assignment boundary that we would like to shrink, and $\partial^{+}\phi(z)$ is its source prior to the reordering. 
+
+\inb{\textbf{Rewrite.}} Now, we will think of the binary assignment $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ as the positions of the $Z$-errors, after permuting the qubits by the $\phi$-transpose. Namely, $\partial^{-}z$ is the assignment boundary that we would like to shrink, and $\partial^{+}\phi(z)$ is its source prior to the reordering. 
 
 In this stage of the sweep-cycle, the sweep-rule acts in opposite directions. 
 %We will keep $S$ for denoting the 'current' positive directions relative
@@ -110,7 +111,7 @@ So, similarly to the first part, and combing that the checks induce $\partial^{+
       \end{equation*}
 Where the last transition is an equality since the maximum of $L_{d+1}$ is achieved at a root vertex.
 \end{proof}
-Clearly, the equality regarding $L_{d+1}$ means that advancing 'down' a minimal vertex in $\partial^{-}z$ implies advancing 'up' a corresponding maximal vertex in $\partial^{+}\phi(z)$. The following claim states that the maximum value of $L_{g}$ in $\partial^{+}\phi(z)$ can only decrease (the error doesn't spread in the $g$-direction) by the application of the sweep-rule in the dual picture ($\partial^{-}z$).
+\inb{\textbf{Rewrite.}} Clearly, the equality regarding $L_{d+1}$ means that advancing 'down' a minimal vertex in $\partial^{-}z$ implies advancing 'up' a corresponding maximal vertex in $\partial^{+}\phi(z)$. The following claim states that the maximum value of $L_{g}$ in $\partial^{+}\phi(z)$ can only decrease (the error doesn't spread in the $g$-direction) by the application of the sweep-rule in the dual picture ($\partial^{-}z$).
 \begin{claim}
   For $g \in S$ denote $M = \min_{v \in \partial^{+}\phi(z) } L_{g}(v)$, and denote by $\xi$ the result of the sweep-rule over $z$. Then $\min_{v \in \partial^{+}\phi(\xi) } L_{g}(v) \le M$. 
 \end{claim}
@@ -129,7 +130,7 @@ In the second case, where $g^{-1}$ is not on the path from $w$ to $v^{-1}$, it f
 \end{proof}
 
 
-Combining the relation of extremis of an error to its extremis in the dual image, with the argument that the sweep-rule shrinks $X$-error ($\partial^{-}$-boundaries), we infer that a full sweep-cycle shrinks an error composed of both $X$- and $Z$-components.
+\inb{\textbf{Rewrite.}} Combining the relation of extremis of an error to its extremis in the dual image, with the argument that the sweep-rule shrinks $X$-error ($\partial^{-}$-boundaries), we infer that a full sweep-cycle shrinks an error composed of both $X$- and $Z$-components.
 \begin{corollary}
 \label{claim:polesmove}  
 Consider an error whose $X$- and $Z$-product components lie at positions corresponding to vectors $z_{X}, z_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$. Denote by $\xi_{X}, \xi_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ the $X, Z$ positions of the result after the application of a full sweep-cycle. Then: 
