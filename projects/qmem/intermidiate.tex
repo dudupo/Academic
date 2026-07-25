@@ -32,8 +32,42 @@ Moreover, we say that a step $\tau$ admits an infinite $X$-error if there is a r
 The propagation up to step $\tau$ allows us to define the deviation from an ideal run by propagating all the faults and marking all the locations in the result. 
 
 \begin{claim}
-  The probability that a step $\tau$ is the first step  
+Denote by $A$ the event that there is a step that admits an infinite $X$-error. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step for which there is a register such that, in the view of the $\infty$-extension, $\mathcal{D}^{\tau}$ has support on a connected, reduced, $d^{\prime}$-dimensional chain $x$ such that $\Size{x} = n-1$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then the probability that $A$ occurs is bounded by:
+  \begin{equation*}
+    \begin{split}
+      \prb{A} \le 2wd\max_{\tau\in[2wd]}\prb{B_{\tau}}.
+    \end{split}
+  \end{equation*}
 \end{claim}
+
+
+
+\begin{claim}
+  \label{claim:intersyn}
+ Let $C$ be a quantum circuit with order $J$ and depth $\mu$, and let $\mathcal{E}\sim\mathcal{N}_{\mathcal{E}}$, so that $C[\mathcal{E}]$ is a random circuit whose gates act on at most $\Delta$ qubits. Fix a time $t\le 2d$ and an integer $a\in\mathbb{N}$. Let $A$ be the event that by time $t$ there exists a deviation cluster at size greater than $a$. For each step $\tau\in J$, let $B_{\tau}$ be the event that step $\tau$ is the first step at which there exists a deviation cluster at size in the interval $(\alpha a -\beta,a)$. Then
+  \begin{equation*}
+    \begin{split}
+      \prb{A} \le 2wd\max_{\tau\in[2wd]}\prb{B_{\tau}}.
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+By \Cref{claim:inter}, whenever the event $A$ occurs there exists a step $\tau\in J$ with $\tau\le 2wt$ at which there is a deviation cluster at size in the interval $(\alpha a - \beta,a)$. Hence
+  \begin{equation*}
+    \begin{split}
+      A \subset \bigcup_{\tau\in[2wt]} B_{\tau} \subset \bigcup_{\tau\in[2wd]} B_{\tau}.
+    \end{split}
+  \end{equation*}
+The union bound now gives
+  \begin{equation*}
+    \begin{split}
+      \prb{A}
+      \le \prb{\bigcup_{\tau\in[2wd]} B_{\tau}}
+      \le \sum_{\tau\in[2wd]} \prb{B_{\tau}}
+      \le 2wd\max_{\tau\in[2wd]}\prb{B_{\tau}}.
+    \end{split}
+  \end{equation*}
+\end{proof}
 
 
 \begin{definition}[Deviation clusters configuration]
@@ -106,32 +140,6 @@ which is a contradiction. Therefore, there must exist an intermediate step $\tau
 
 We close the subsection by applying the intermediate theorem to derive a bound on the occurrence of deviation clusters at size greater than $a$. In particular, the intermediate theorem states that for that to happen, there has to be a turn in which there is a deviation cluster that is at size of at least $\alpha a - \beta$.
 
-\begin{claim}
-  \label{claim:intersyn}
- Let $C$ be a quantum circuit with order $J$ and depth $\mu$, and let $\mathcal{E}\sim\mathcal{N}_{\mathcal{E}}$, so that $C[\mathcal{E}]$ is a random circuit whose gates act on at most $\Delta$ qubits. Fix a time $t\le 2d$ and an integer $a\in\mathbb{N}$. Let $A$ be the event that by time $t$ there exists a deviation cluster at size greater than $a$. For each step $\tau\in J$, let $B_{\tau}$ be the event that step $\tau$ is the first step at which there exists a deviation cluster at size in the interval $(\alpha a -\beta,a)$. Then
-  \begin{equation*}
-    \begin{split}
-      \prb{A} \le 2wd\max_{\tau\in[2wd]}\prb{B_{\tau}}.
-    \end{split}
-  \end{equation*}
-\end{claim}
-\begin{proof}
-By \Cref{claim:inter}, whenever the event $A$ occurs there exists a step $\tau\in J$ with $\tau\le 2wt$ at which there is a deviation cluster at size in the interval $(\alpha a - \beta,a)$. Hence
-  \begin{equation*}
-    \begin{split}
-      A \subset \bigcup_{\tau\in[2wt]} B_{\tau} \subset \bigcup_{\tau\in[2wd]} B_{\tau}.
-    \end{split}
-  \end{equation*}
-The union bound now gives
-  \begin{equation*}
-    \begin{split}
-      \prb{A}
-      \le \prb{\bigcup_{\tau\in[2wd]} B_{\tau}}
-      \le \sum_{\tau\in[2wd]} \prb{B_{\tau}}
-      \le 2wd\max_{\tau\in[2wd]}\prb{B_{\tau}}.
-    \end{split}
-  \end{equation*}
-\end{proof}
 
 
 
