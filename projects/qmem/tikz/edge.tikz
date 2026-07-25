@@ -103,7 +103,7 @@
 }
 \end{tikzpicture}
 \caption{
-In blue, we have an assignment where the vertex achieving the minimum of $L_{d+1}$, denoted by $v$, does not see any unsatisfied checks in its positive local view. The green faces represent an assignment, equivalent to the blue up to stabilizer, such that any local maximum of $L_{d+1}$ (vertices $u$ and $w$) sees a non-trivial syndrome in its positive local view.
+Consider the $(3,2)$-Toric code, with qubits and $X$-checks set on the 2- and 3-dimensional faces. In blue, we have a $2$-dimensional chain where the vertex achieving the minimum of $L_{d+1}$, denoted by $v$, does not see any unsatisfied checks in its positive local view. The green faces represent a $2$-dimensional chain, equivalent to the blue up to stabilizer, such that any local maximum of $L_{d+1}$ (vertices $u$ and $w$) sees a non-trivial syndrome in its positive local view. Namely, the maximal points of $L_{d+1}$ in the chain are also the maximal points in the boundary $\partial^{-}$.
 }
   \label{fig:edge}
 \end{figure}
