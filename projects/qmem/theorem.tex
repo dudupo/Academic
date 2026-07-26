@@ -76,14 +76,14 @@ The decoder successfully decodes assuming that no infinite error occurs. Thus, i
     It follows that all the vertices in the subtree are at a space distance of at most $\frac{1}{2} d \alpha n$ from each other. Thus, no two of them have the same space coordinate modulo $n$. In particular, projecting the infinite plane back to the finite Toric sends each of the leaves of the subtree to a unique target, and therefore the number of faults that induce the explanation is at least:
     \begin{equation*}
       \begin{split}
-        \frac{1}{2^{\max\{d^{\prime}, d - d^{\prime}\}}} \frac{1}{2} c_{1} \alpha n
+        \frac{1}{2^{\max\{d^{\prime}, d - d^{\prime}\}}} \frac{1}{4} c_{1} \alpha n \ge \frac{1}{2^{d}} \frac{1}{2} c_{1} \alpha n 
       \end{split}
     \end{equation*}
     
 Plugging into the union bounds and combining \Cref{claim:counting_trees} yields
     \begin{equation*}
       \begin{split}
-        \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \le \tau S \sigma^{ \frac{1}{2} \alpha n } p^{ \frac{1}{2^{d^{\prime}}}\frac{1}{2} c_{1} \alpha n} \le S^{2} \left( \sigma p^{\frac{1}{2^{d^{\prime} + 1}} c_{1}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
+        \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \le \tau S \sigma^{ \frac{1}{2} \alpha n } p^{ \frac{1}{2^{d}\frac{1}{4} c_{1} \alpha n} }\le S^{2} \left( \sigma p^{\frac{1}{2^{d + 1}} c_{1}} \right)^{\frac{1}{2}\alpha n} 
       \end{split}
     \end{equation*}
     It remains to bound the term. By \Cref{claim:edgesin}, there is a constant $c_{2}$ depending only on $d$, such that any explanation of a slice of size $s$ has at least $c_{2}s$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{\tau}$ admits an explanation with more than $c_{2}s$ edges. Since the event is conditioned on the event $A_{\tau}$, no explanation has more than $\frac{1}{d}n^{\frac{1}{d}}$ edges. Thus, the same argument as above shows that the projection of each explanation tree into the finite Toric sends its leaves to unique targets. Hence, we obtain:
