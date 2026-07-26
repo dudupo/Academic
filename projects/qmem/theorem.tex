@@ -11,15 +11,16 @@ Gottesman argument
 
 
 \begin{claim}
-  Consider a rapidietly applications of the sweep-cycle for $l$ times. Denote by $A$ the event in which after additional $n^{d+1}$ ideal iterations  of the sweep-cycle the error was not erasied, and denote by $B$ the event that after additional $n^{d+1}$ nosiy iterations the propogated error admits an infinte error. Then:  
+  \label{claim:replace}
+  Consider a rapid application of the sweep-cycle for $l$ times. Denote by $A$ the event in which, after an additional $n^{d+1}$ \textbf{ideal} (non-noisy) iterations of the sweep-cycle, the error is not erased, and denote by $B$ the event that, during the application of an additional $n^{d+1}$ \textbf{noisy} iterations, the propagated error addmits an infinite error. Let $f:(n,d,d^{\prime},l,p) \rightarrow \mathbb{R} $ be an upper bound on $\prb{B}$ that assumes only that the noise is distributed according to a local stochastic noise channel with noise rate $p$. Then, we have:
   \begin{equation*}
     \begin{split}
-      \prb{A} \le \prb{B}
+      \prb{A} \le f(n,d,d^{\prime},l,p)
     \end{split}
   \end{equation*}
 \end{claim}
 \begin{proof} 
-  \Cref{claim:decodestopnoise} states that if during the $n^{d+1}$ ideal sweep-cycles the propagated error does not admit an infinite error, then the error is erased. Yet, any possible Toom's contour of the ideal senario is also a possible Toom's contour of the noisy senario. Thus, the probability to have 
+\Cref{claim:decodestopnoise} states that if during the $n^{d+1}$ ideal sweep-cycles the propagated error does not admit an infinite error, then the error is erased. Consider the set of atomic events corresponding to the faults in the first $l$ noisy iterations, such that during the additional $n^{d+1}$ ideal iterations there is a step that admits an infinite error. All those atomic events are also contained in $B$, since local stochastic noise is our only assumption. It's possible that noise in the $B$ scenario is distributed such that the probability of a fault occurring during the additional $n^{d+1}$ iterations is zero. In that specific case, $\prb{A} = \prb{B}$ and therefore $\prb{A} \le f(n,d,d^{\prime},l,p)$.
 \end{proof}
 
 
