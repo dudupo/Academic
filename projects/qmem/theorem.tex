@@ -42,7 +42,7 @@ The proofs of the claims are given in the appendix. We continue with the proof o
     
 The decoder successfully decodes assuming that no infinite error occurs. Thus, it remains to prove that it happens with probability $1 - p$. 
 
-To prove this, we use \Cref{claim:intersyn}, which states that the probability of there being a time $t$ (or a step) that admits an infinite error is bounded by the number of locations multiplied by the probability that step $\tau$ is the first to admit a finite connected chain in the propagated error at size greater than $\alpha n$, maximized over $\tau$. Notice that if $\tau$ is the first step to admit an error at size $\alpha n$, then all the slices in analysis of Toom's contour at step $\tau$ have an explanation.
+To prove this, we use \Cref{claim:intersyn}, which states that the probability of there being a time $t$ (or a step) that admits an infinite error is bounded by the number of locations multiplied by the probability that step $\tau$ is the first to admit a finite connected error (chain) in the propagated error at size greater than $\alpha n$, maximized over $\tau$. Notice that if $\tau$ is the first step to admit an error at size $\alpha n$, then all the slices in analysis of Toom's contour at step $\tau$ have an explanation.
 
 This leads us to prove the following claim:
 
