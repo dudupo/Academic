@@ -57,7 +57,7 @@ Denote by $B_{\tau}$ the event where $\tau$ is the first step to admit a finite 
   \begin{equation*}
     \begin{split}
       \prbm{  \bar{A}_{\tau} | B_{\tau}   }{ \sim \mathcal{N}_{\mathcal{E}} }  \le  \bigcup_{ \substack{ v \in V_{o}, \tau^{\prime} \le \tau \\ L_{g}(v) \in [0,n]} } \prbm{ & v \text{ is a root of subtree in } \mathcal{H}_{\tau^{\prime}}  \\ 
-      &  \text{ with less than  } \frac{1}{2}\alpha n\text{ edges and more than } \frac{1}{2}c_{1} \frac{1}{2}\alpha n \text{ leaves}  }{ \sim \mathcal{N}_{\mathcal{E}} } 
+      &  \text{ with less than  } \frac{n}{2d} \text{ edges and more than } \frac{1}{2}c_{1} \frac{n}{2d} n \text{ leaves}  }{ \sim \mathcal{N}_{\mathcal{E}} } 
     \end{split}
   \end{equation*}
     Now, since any two connected vertices are at a space distance of at most 
@@ -76,7 +76,7 @@ Denote by $B_{\tau}$ the event where $\tau$ is the first step to admit a finite 
 Plugging into the union bounds and combining \Cref{claim:counting_trees} yields
     \begin{equation*}
       \begin{split}
-        \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \le \tau S \sigma^{ \frac{1}{2} \alpha n } p^{ \frac{1}{2^{d}\frac{1}{4} c_{1} \alpha n} }\le S^{2} \left( \sigma p^{\frac{1}{2^{d + 1}} c_{1}} \right)^{\frac{1}{2}\alpha n} 
+        \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \le \tau S \sigma^{ \frac{1}{2} \frac{n}{d} } p^{ \frac{1}{2^{d}\frac{1}{4} c_{1} \frac{n}{d} } }\le S^{2} \left( \sigma p^{\frac{1}{2^{d + 1}} c_{1}} \right)^{\frac{1}{2}\frac{n}{d}} 
       \end{split}
     \end{equation*}
 
