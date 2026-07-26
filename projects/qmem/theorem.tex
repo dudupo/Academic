@@ -95,13 +95,14 @@ Combing the bounds we have:
 \prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le S^{2} \left( \sigma p^{\frac{1}{2^{d + 1}} c_{1}} \right)^{\frac{n}{2d}} + S \frac{\left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)^{\alpha n}}{ 1 -  \left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)} 
   \end{split}
 \end{equation*}
-Now, combined with \Cref{claim:intersyn}, there are constant $c_{2}, c_{3}$ depeanding only on $d,d^{\prime}$ such that with a probability greater than:
+
+Now, combined with \Cref{claim:intersyn}, there are constants $c_{2}, c_{3}$ depending only on $d, d^{\prime}$ such that with a probability greater than:
 \begin{equation*}
   \begin{split}
     1 -   \Theta \left( S^{3} \right) \left( c_{3} p^{c_{2}} \right)^{ \frac{n}{2d} } 
   \end{split}
 \end{equation*}
-No error cluster has a size greater than $ \gamma n^{\frac{1}{d}} $, so the decoder successfully restores the logical state; in other words, no logical error occurs.
+No step admits an infinite error, so the decoder successfully restores the logical state; in other words, no logical error occurs.
 \end{proof}
 The lemma gives the theorem almost immediately. To complete the proof, we need to plug in the initialization phase, which initializes encoded zeros and resource states subjected to local stochastic noise. We emphasize that the resulting states are subjected to local stochastic noise (in addition to the computation). We neither prove nor describe that phase here; instead, we refer to \cite{grospellier:tel-03364419}, \cite{gottesman2014faulttolerant}, \cite{Fawzi_2018}, and \cite{nguyen2025quantumfaulttoleranceconstantspace}.
   \begin{theorem}
