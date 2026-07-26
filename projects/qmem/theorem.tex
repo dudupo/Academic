@@ -80,12 +80,13 @@ Plugging into the union bounds and combining \Cref{claim:counting_trees} yields:
     \end{equation*}
 
 
-    \inb{\textbf{Here}}
-    It remains to bound the left term. Since the event is conditioned on the event $A_{\tau}$, no step admits an infinite error, so any slice in the Toom's contour has an explentation. By \Cref{claim:edgesin}, there is a constant $c_{2}$ depending only on $d$, such that any explanation of a slice of size $s$ has at least $c_{2}s$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{\tau}$ admits an explanation with more than $c_{2}s$ edges. The same argument as above \inb{\textbf{Here}} shows that the projection of each explanation tree into the finite Toric sends its leaves to unique targets. Hence, we obtain:
+    It remains to bound the probability of $B_{\tau}| A_{\tau}$. Since $\tau$ is the first step to admits an error with size at least $\alphan $ it follows that any slice has an explentation.  The conditioned on the event $A_{\tau}$, any explentation implies that any explntation has less than $\frac{n}{d}$ edges and therefore, by the same argument as above, the projection of each explanation tree into the finite Toric sends its leaves to unique targets. 
+
+    Using \Cref{claim:edgesin} again, any explanation of a slice of size $\alpha n$ has at least $c_{1} \alpha n$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{\tau}$ admits an explanation with more than $c_{1}\alpha n$ edges. Hence, we obtain:
     \begin{equation*}
       \begin{split}
-        \prbm{  B_{\tau}  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ v \in V_{o}, x \ge c_{2}s } \prbm{ v \text{ is a root of explanation with number of edges } x  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } \\
-        & \le \sum_{x = c_{2}s }^{ \infty } (w+2\mu)6\mu n^{2} \left( \sigma p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)^{x}  = (w+2\mu)6\mu n^{2} \frac{\left( \sigma p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)^{s}}{ 1 -  \left( \sigma p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)} 
+        \prbm{  B_{\tau}  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ \substuck{ v \in V_{o}, x \ge c_{1}\alpha n \\ L_{g}(v) \in [0,n]} } \prbm{ v \text{ is a root of explanation with number of edges } x  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } \\
+        & \le \sum_{x = c_{1}\alpha n }^{ \infty } S \left( \sigma p^{\frac{1}{2^{d}} c_{1}} \right)^{x}  = S \frac{\left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)^{\alpha n}}{ 1 -  \left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)} 
       \end{split}
     \end{equation*}
 Combing the bounds we have:
