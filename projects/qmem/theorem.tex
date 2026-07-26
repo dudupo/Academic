@@ -26,7 +26,7 @@ For any $d, d^{\prime}$, there are constants $a, b \in \mathbb{R}^{+}$ and $p_{0
 To prove the lemma, we will need the following two claims. The first bounds, for a given regular graph, the number of its subgraphs having at most $k$ edges. This claim will be used to infer the number of possible explanation trees for a given slice. The second states that each tree has a subtree with fewer than half of the edges and a leaves-to-edge ratio that is at least half of the ratio of the original tree. This claim will be used to infer that any explanation has a subtree where, under the projection to the finite Toric, its faults are mapped uniquely, meaning no fault is counted twice. 
 
 \begin{claim*}[\Cref{claim:counting_trees}]
-Let $G = \left( V, E \right)$ be a $\Delta + 1$-regular graph, and let $k$ be an integer less than $|E|$. Fix a vertex $r \in V$. There is a constant number $\alpha$, depending only on $\Delta$, such that the number of subgraphs rooted at $r$ with fewer than $k$ edges is at most $\alpha^{k}$.
+Let $G = \left( V, E \right)$ be a $\Delta + 1$-regular graph, and let $k$ be an integer less than $|E|$. Fix a vertex $r \in V$. There is a constant number $\sigma$, depending only on $\Delta$, such that the number of subgraphs rooted at $r$ with fewer than $k$ edges is at most $\sigma^{k}$.
   \end{claim*}
 
   \begin{claim*}[\Cref{claim:big_subtree}]
@@ -35,7 +35,7 @@ Let $\gamma, \beta \in \mathbb{R}_{>0}$ and $n$ be a positive integer. For any t
   
 The proofs of the claims are given in the appendix. We continue with the proof of the lemma.
   \begin{proof}
-    We construct $\tilde{C}$ as follows: for each input wire of $C$, we initialize the logical zero $\ket{\mathbf{0}}$ of the $(d,d^{\prime})$-Toric code. For each of the gates $\mathbf{H}$ and $\mathbf{S}$, we initialize the encoded $\ket{\mathbf{H}}$ and $\ket{\mathbf{S}}$ states, and for each $\mathbf{T}$, we initialize copies of both $\ket{\mathbf{T}}$ and $\ket{\mathbf{S}}$ states. The even layers of $\tilde{C}$ are sweep cycles, while on the odd layers, we set the realization of the logical gates. For $\mathbf{CX}$, we set the transversal realization, and for $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$, we use gate teleportation. Thus the width of $\tilde{C}$ expands to at most $ (w + 2\mu) n^{dd^{\prime}}$. For gate teleportation, we use the decoder in \Cref{claim:decodestopnoise}, which runs at most at a depth of $n^{d+1}$. Thus, the depth of $\tilde{C}$ expands to $2(3\mu n^{d+1})$.
+    We construct $\tilde{C}$ as follows: for each input wire of $C$, we initialize the logical zero $\ket{\mathbf{0}}$ of the $(d,d^{\prime})$-Toric code. For each of the gates $\mathbf{H}$ and $\mathbf{S}$, we initialize the encoded $\ket{\mathbf{H}}$ and $\ket{\mathbf{S}}$ states, and for each $\mathbf{T}$, we initialize copies of both $\ket{\mathbf{T}}$ and $\ket{\mathbf{S}}$ states. The even layers of $\tilde{C}$ are sweep cycles, while on the odd layers, we set the realization of the logical gates. For $\mathbf{CX}$, we set the transversal realization, and for $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$, we use gate teleportation. Thus the width of $\tilde{C}$ expands to at most $ (w + 2\mu) n^{dd^{\prime}}$. For gate teleportation, we use the decoder in \Cref{claim:decodestopnoise}, which runs at most at a depth of $n^{d+1}$. Thus, the depth of $\tilde{C}$ expands to $2(3\mu n^{d+1})$. Denote by $S$ the number of locations, so $S\le \Theta( w \mu^{2} n^{(d+1)dd^{\prime}})$.
 
     
     \inb{\textbf{Rewrite.}} 
@@ -60,49 +60,50 @@ The decoder successfully decodes assuming that no infinite error occurs. Thus, i
         \prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le \prbm{  B_{\tau}  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } + \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  
       \end{split}
     \end{equation*}
-    We begin by bounding the contribution of the right term. According to \Cref{coro:edgefaultratio}, there exists a constant $c_{1}$, depending only on $d$, such that the ratio of leaves to edges in the explanation is at least $c_{1}$. By \Cref{claim:big_subtree}, it follows that any such explanation has more than $\alpha n$ edges containing a subtree with fewer than $\frac{1}{2}\alpha n$ edges, with a leaves-to-edges ratio greater than $\frac{1}{2} c_{1}$. Using the union bound, we bound the probability that there is a vertex in the base graph that is a root of such a subtree. Since the construction of the $\infty$-extension sets periodic conditions, it's sufficient to ask if there is such a vertex in the restriction to the finite $n$-side length toric.
+    We begin by bounding the contribution of the right term. According to \Cref{coro:edgefaultratio}, there exists a constant $c_{1}$, depending only on $d$, such that the ratio of leaves to edges in the explanation is at least $c_{1}$. By \Cref{claim:big_subtree}, it follows that any such explanation has more than $\alpha n$ edges containing a subtree with fewer than $\frac{1}{2}\alpha n$ edges, with a leaves-to-edges ratio greater than $\frac{1}{2} c_{1}$. Using the union bound, we bound the probability that there is a vertex in the base graph that is a root of such a subtree. Since the construction of the $\infty$-extension sets periodic conditions, it's sufficient to ask if there is such a vertex in the restriction to the finite $n$-side length Toric.
   \begin{equation*}
     \begin{split}
       \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \le  \bigcup_{ \substack{ v \in V_{o}, \tau^{\prime} \le \tau \\ L_{g}(v) \in [0,n]} } \prbm{ & v \text{ is a root of subtree in } \mathcal{H}_{\tau^{\prime}}  \\ 
-      &  \text{ with less than  } \frac{1}{2d}n^{\frac{1}{d}} \text{ edges and more than } \frac{1}{2}c_{1} \frac{1}{2d}n^{\frac{1}{d}} \text{ leaves}  }{ \sim \mathcal{N}_{\mathcal{E}} } 
+      &  \text{ with less than  } \frac{1}{2}\alpha n\text{ edges and more than } \frac{1}{2}c_{1} \frac{1}{2}\alpha n \text{ leaves}  }{ \sim \mathcal{N}_{\mathcal{E}} } 
     \end{split}
   \end{equation*}
     Now, since any two connected vertices are at a space distance of at most 
     \begin{equation*}
       \begin{split}
-    \max\{\Size{\text{arrow}}, \Size{\text{fork}}\} \le d^{\prime} \le d
+        \max\{\Size{\text{arrow}}, \Size{\text{fork}}\} \le d^{\prime},d-d^{\prime} \le d
       \end{split}
     \end{equation*}
-It follows that all the vertices in the subtree are at a space distance of at most $n^{\frac{1}{d}}$ from each other. Thus, no two of them have the same space coordinate modulo $n$. In particular, projecting the infinite plane back to the finite Toric sends each of the leaves of the subtree to a unique target, and therefore the number of faults that induce the explanation is at least:
+    It follows that all the vertices in the subtree are at a space distance of at most $\frac{1}{2} d \alpha n$ from each other. Thus, no two of them have the same space coordinate modulo $n$. In particular, projecting the infinite plane back to the finite Toric sends each of the leaves of the subtree to a unique target, and therefore the number of faults that induce the explanation is at least:
     \begin{equation*}
       \begin{split}
-\frac{1}{2^{d^{\prime}}} \frac{1}{4d} c_{1} n^{\frac{1}{d}}
+        \frac{1}{2^{\max\{d^{\prime}, d - d^{\prime}\}}} \frac{1}{2} c_{1} \alpha n
       \end{split}
     \end{equation*}
-    Plugging into the union bounds yields 
+    
+Plugging into the union bounds and combining \Cref{claim:counting_trees} yields
     \begin{equation*}
       \begin{split}
-        \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \le \tau \cdot 3 (w+2\mu)6\mu n^{2} \alpha^{ \frac{1}{2d} n^{\frac{1}{d}} } p^{ \frac{1}{2^{d^{\prime}}}\frac{1}{4d} c_{1} n^{\frac{1}{d}}} \le ((w+2\mu)6\mu n^{2})^{2} \left( \alpha p^{\frac{1}{2^{d^{\prime} + 1}} c_{1}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
+        \prbm{  \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \le \tau S \sigma^{ \frac{1}{2} \alpha n } p^{ \frac{1}{2^{d^{\prime}}}\frac{1}{2} c_{1} \alpha n} \le S^{2} \left( \sigma p^{\frac{1}{2^{d^{\prime} + 1}} c_{1}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
       \end{split}
     \end{equation*}
     It remains to bound the term. By \Cref{claim:edgesin}, there is a constant $c_{2}$ depending only on $d$, such that any explanation of a slice of size $s$ has at least $c_{2}s$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{\tau}$ admits an explanation with more than $c_{2}s$ edges. Since the event is conditioned on the event $A_{\tau}$, no explanation has more than $\frac{1}{d}n^{\frac{1}{d}}$ edges. Thus, the same argument as above shows that the projection of each explanation tree into the finite Toric sends its leaves to unique targets. Hence, we obtain:
     \begin{equation*}
       \begin{split}
         \prbm{  B_{\tau}  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ v \in V_{o}, x \ge c_{2}s } \prbm{ v \text{ is a root of explanation with number of edges } x  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } \\
-        & \le \sum_{x = c_{2}s }^{ \infty } (w+2\mu)6\mu n^{2} \left( \alpha p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)^{x}  = (w+2\mu)6\mu n^{2} \frac{\left( \alpha p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)^{s}}{ 1 -  \left( \alpha p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)} 
+        & \le \sum_{x = c_{2}s }^{ \infty } (w+2\mu)6\mu n^{2} \left( \sigma p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)^{x}  = (w+2\mu)6\mu n^{2} \frac{\left( \sigma p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)^{s}}{ 1 -  \left( \sigma p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)} 
       \end{split}
     \end{equation*}
 Combing the bounds we have:
 \begin{equation*}
   \begin{split}
-\prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le (w+2\mu)6\mu n^{2} \frac{\left( \alpha p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)^{c_{2}s}}{ 1 -  \left( \alpha p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)} +  ((w+2\mu)6\mu n^{2})^{2} \left( \alpha p^{\frac{1}{2^{d^{\prime} + 1}} c_{1}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
+\prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le (w+2\mu)6\mu n^{2} \frac{\left( \sigma p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)^{c_{2}s}}{ 1 -  \left( \sigma p^{\frac{1}{2^{d^{\prime} }} c_{2}} \right)} +  ((w+2\mu)6\mu n^{2})^{2} \left( \sigma p^{\frac{1}{2^{d^{\prime} + 1}} c_{1}} \right)^{\frac{1}{2d}n^{\frac{1}{d}}} 
   \end{split}
 \end{equation*}
 \end{proof}
 Now, combined with \Cref{claim:intersyn}, with a probability greater than:
 \begin{equation*}
   \begin{split}
-    1 -   \Theta \left(((w+2\mu)\mu n^{2})^{3} \right) \left( \alpha p^{c_{7}} \right)^{ \gamma^{\prime} n^{\frac{1}{d}}} 
+    1 -   \Theta \left(((w+2\mu)\mu n^{2})^{3} \right) \left( \sigma p^{c_{7}} \right)^{ \gamma^{\prime} n^{\frac{1}{d}}} 
   \end{split}
 \end{equation*}
 No error cluster has a size greater than $ \gamma n^{\frac{1}{d}} $, so the decoder successfully restores the logical state; in other words, no logical error occurs.
