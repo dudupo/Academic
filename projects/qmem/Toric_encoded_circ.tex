@@ -14,7 +14,7 @@ We are about to zoom out from a single register encoded in the Toric code to des
     \end{definition}
 For Toric encoded circuits, we define their \textit{base graph}, which can be thought of as a recording of a running from the Toric's point of view. The \textit{base graph} is obtained by taking the Toric's vertices at different times as the vertices and connecting any two sequential in time if they are support faces — qubits — which are either the same or are entangled by a quantum gate.
   \begin{definition}[Base graph $G_{o}$]
-    Let $C$ be a Toric encoded circuit at depth $\mu$. Notice that measurements take quantum registers into classical, Thus any quantum register has a maximal depth, which we denote by $\{\mu_{i}$\}. Let's denote by $\{\mathcal{G}_{i}\}$ the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o}, E_{o})$, as follows:
+    Let $C$ be a Toric encoded circuit at depth $\mu$. Notice that measurements take quantum registers into classical, Thus any quantum register has a maximal depth, which we denote by $\{\mu_{i}$\}. Let's denote by $\{\mathcal{G}_{i}\}$ the skeleton of the $\infty$-extension of the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o}, E_{o})$, as follows:
     \begin{enumerate}
       \item The vertices $V_{o}$ are tuples, where the first coordinates correspond to a vertex in the disjoin union over the vertices in $\{\mathcal{G}_{i}\}$, and the second coordinate is associated with a time. Namely:
         \begin{equation*}
@@ -22,38 +22,38 @@ For Toric encoded circuits, we define their \textit{base graph}, which can be th
             V_{o} \colonequals \bigcup_{i} \bigl( V(\mathcal{G}_{i}) \times [\mu_{i}] \bigr)
           \end{split}
         \end{equation*}
-      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}_{1}, \ldots, \mathcal{G}_{k}$, with the addition that any two vertices in preceding times $t$ and $t+1$ that support qubits (faces) such that $C$ acts non-trivially on those qubits at time $t$ are also connected by an edge. Namely:
+      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}_{1}, \ldots, \mathcal{G}_{k}$, with the addition that any two vertices in preceding times $t$ and $t+1$ that support qubits (faces) such that $C^{\infty}$ acts non-trivially on those qubits at time $t$ are also connected by an edge. Namely:
         \begin{equation*}
           \begin{split}
             E_{o} & \colonequals \big\{ \{(v,t), (u,t^{\prime}) \} :  \text{ if }     \\ 
               & \text{either there exists } i \text{ such }  \{v,u\} \in \mathcal{G}_{i} \text{ and } t^{\prime} = t+1 \\
-             & \text{or there exists } u_i = (g_{i},l_{i}) \in C \text{ such }  v,u \in l_{i,2} \text{ and } t = l_{i,1}, t^{\prime} = l_{i,1}+1  \big\} 
+            & \text{or there exists } u_i = (g_{i},l_{i}) \in C^{\infty} \text{ such }  v,u \in l_{i,2} \text{ and } t = l_{i,1}, t^{\prime} = l_{i,1}+1  \big\} 
           \end{split}
         \end{equation*}
 Where we define a vertex $v$ to belong to location $l$ if there is a qubit-face $f$ in $l$ such that $v$ belongs to its associated face.
     \end{enumerate} 
   \end{definition}
-  As a concept, if the base graph is a recording of a running from the Torices' point of view, then a \textit{Tooms contour} is a recording of the deviation's evolution in the eyes of the Torices vertices. More technically, for a Pauli-path $P_{1},..,P_{\mu+1}$ (\Cref{def:paulipath}), the Tooms contour is the restriction of the base graph to vertices that witness a deviation, namely, those that belong to the Pauli-path $P_{1},P_{2},..,P_{\mu+1}$.
+As a concept, if the base graph is a recording of a run from the Torices' point of view, then a \textit{Tooms contour} is a recording of the deviation's evolution in the eyes of the Torices vertices. More technically, for a reduced Pauli-path $P_{1},..,P_{\mu+1}$ (\Cref{def:paulipath}), the Tooms contour is the restriction of the base graph to vertices that witness a deviation, namely, those that belong to qubits supporting $P_{1},P_{2},..,P_{\mu+1}$.
 
   \begin{definition}[Tooms Contour Graph of $C(\mathcal{E})$]
     \label{def:contour}
-    For a quantum circuit $C$ and set of faults $\mathcal{E}$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. For each time $t$, denote the deviation induced by $\mathcal{E}$ at time $t$ by $\mathcal{D}_{t}$. We define the \textit{Tooms contour graph} $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
+    For a quantum circuit $C$, set of faults $\mathcal{E}$ and a reduced Pauli-path $P_{1},..$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. We define the \textit{Tooms contour graph} $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
     \begin{enumerate}
-      \item The vertices $V_{\mathcal{H}}$ are the boundary of $\mathcal{D}$. Namely:
+      \item The vertices $V_{\mathcal{H}}$ are the vertices of faces supporting the reduced Pauli-path. Namely:
         \begin{equation*}
           \begin{split}
-            V_{\mathcal{H}} &\colonequals \big\{ v_{t} : v_{t}=(v,t) \in V_{o} \text{ and there exists a face } f \in \partial \mathcal{D}_{t} \text{ such } v \in f \big\} 
+            V_{\mathcal{H}} &\colonequals \big\{ v_{t} : v_{t}=(v,t) \in V_{o} \text{ and there exists a face } f \in \text{supp} P_{t} \text{ such } v \in f \big\} 
           \end{split}
         \end{equation*}
 
-We extend the action of potential walls to act on the vertices of $V_{\mathcal{H}}$ by acting on the associated points in $\mathbb{R}^{d}$. More concretely, for a vertex $v \in V_{\mathcal{H}}$, whose corresponding vertex on the infinite $\mathbb{R}^{d}$ Toric is $\tilde{v} \in \mathcal{G}$, and a potential wall $L_{i}$, the value of $L_{i}$ at $v$ is:
-        \begin{equation*}
-          \begin{split}
-            L_{i}(v) \colonequals L_{i}(\tilde{v})
-          \end{split}
-        \end{equation*}
+%We extend the action of potential walls to act on the vertices of $V_{\mathcal{H}}$ by acting on the associated points in $\mathbb{R}^{d}$. More concretely, for a vertex $v \in V_{\mathcal{H}}$, whose corresponding vertex on the infinite $\mathbb{R}^{d}$ Toric is $\tilde{v} \in \mathcal{G}$, and a potential wall $L_{i}$, the value of $L_{i}$ at $v$ is:
+%        \begin{equation*}
+%          \begin{split}
+%            L_{i}(v) \colonequals L_{i}(\tilde{v})
+%          \end{split}
+%        \end{equation*}
 
-      \item The edges $E_{\mathcal{H}} \subset E_{o} $ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$, where for any logical gate $g$ which applied in time $t$ in $C[\mathcal{E}]$ we add edge to $A_{\mathcal{H}}$ as follow: 
+      \item The edges $E_{\mathcal{H}} \subset E_{o} $ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$, where for any logical gate $g$ which applied in time $t$ in $C[\mathcal{E}]^{\infty} $ we add edge to $A_{\mathcal{H}}$ as follow: 
         \begin{enumerate}
           \item If $g$ is either a logical Pauli, a measurement (both in the computational and phase basis), or an identity, then for any face $f$ in the register on which $g$ acts, we add:
             \begin{equation*}
@@ -68,7 +68,7 @@ We extend the action of potential walls to act on the vertices of $V_{\mathcal{H
               \end{split}
             \end{equation*}
         \end{enumerate}
-        In addition for any fault $g$ of $\mathcal{E}$, that is applied at time $t$, and any face $f \in \text{Locc}(g)$, we add the edges:
+        In addition for any fault $g$ of $\mathcal{E}^{\infty}$, that is applied at time $t$, and any face $f \in \text{Locc}(g)$, we add the edges:
             \begin{equation*}
               \begin{split}
                  \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f \text{ and } u,v \in V_{\mathcal{H},X} \bigr\} 
