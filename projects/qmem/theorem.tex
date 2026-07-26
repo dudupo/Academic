@@ -2,6 +2,26 @@
 
 
 
+
+
+
+
+\section{Proof of the Theorem}
+
+We are ready to prove the main theorem (\Cref{theorem:main}). We start by giving a formal definition of a simulation.
+
+  \begin{definition}[Simulation and Logical Errors]
+For a quantum code $\mathcal{C}$ of length $n$ and a decoder for $\mathcal{C}$, denoted by $D$, we say that a Pauli operator $P \in \mathcal{P}^{\otimes n}$ is a \textit{logical error} with respect to $D$ if $DP$ does not equal the logical identity.
+
+For quantum circuits $C$ and $\tilde{C}$, a noise channel $N_{\mathcal{E}}$, and $p \in (0,1)$, we say that $\tilde{C}$ \textit{simulates} $C$ with probability $1 - p$ if
+    \begin{enumerate}
+      \item There is a mapping between the qubits of $C$ and the registers of $\tilde{C}$, along with a decoding procedure such that, at the end of running $\tilde{C}$ (on the zero state), decoding the registers results in the same quantum states as those produced by running $C$.
+      \item Let $\mathcal{E} \sim N_{\mathcal{E}}$ be a set of faults. The probability induced by $N_{\mathcal{E}}$ that at the end of the running of $\tilde{C}[\mathcal{E}]$, one of its quantum registers introduces a logical error (with respect to the decoder) is less than $p$.
+    \end{enumerate}
+  \end{definition}
+
+
+
 \begin{claim}
 Gottesman argument
   \label{claim:decodestopnoise}
@@ -22,22 +42,6 @@ Gottesman argument
 \begin{proof} 
 \Cref{claim:decodestopnoise} states that if during the $n^{d+1}$ ideal sweep-cycles the propagated error does not admit an infinite error, then the error is erased. Consider the set of atomic events corresponding to the faults in the first $l$ noisy iterations, such that during the additional $n^{d+1}$ ideal iterations there is a step that admits an infinite error. All those atomic events are also contained in $B$, since local stochastic noise is our only assumption. It's possible that noise in the $B$ scenario is distributed such that the probability of a fault occurring during the additional $n^{d+1}$ iterations is zero. In that specific case, $\prb{A} = \prb{B}$ and therefore $\prb{A} \le f(n,d,d^{\prime},l,p)$.
 \end{proof}
-
-
-\section{Proof of the Theorem}
-
-We are ready to prove the main theorem (\Cref{theorem:main}). We start by giving a formal definition of a simulation.
-
-  \begin{definition}[Simulation and Logical Errors]
-For a quantum code $\mathcal{C}$ of length $n$ and a decoder for $\mathcal{C}$, denoted by $D$, we say that a Pauli operator $P \in \mathcal{P}^{\otimes n}$ is a \textit{logical error} with respect to $D$ if $DP$ does not equal the logical identity.
-
-For quantum circuits $C$ and $\tilde{C}$, a noise channel $N_{\mathcal{E}}$, and $p \in (0,1)$, we say that $\tilde{C}$ \textit{simulates} $C$ with probability $1 - p$ if
-    \begin{enumerate}
-      \item There is a mapping between the qubits of $C$ and the registers of $\tilde{C}$, along with a decoding procedure such that, at the end of running $\tilde{C}$ (on the zero state), decoding the registers results in the same quantum states as those produced by running $C$.
-      \item Let $\mathcal{E} \sim N_{\mathcal{E}}$ be a set of faults. The probability induced by $N_{\mathcal{E}}$ that at the end of the running of $\tilde{C}[\mathcal{E}]$, one of its quantum registers introduces a logical error (with respect to the decoder) is less than $p$.
-    \end{enumerate}
-  \end{definition}
-
 
   \begin{lemma}
 For any $d, d^{\prime}$, there are constants $a, b \in \mathbb{R}^{+}$ and $p_{0} \in (0,1)$ that depend only on $d, d^{\prime}$ and satisfy the following. Consider a quantum circuit $C$ with depth $\mu$ and width $w$, and let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $\tilde{C}$ such that each of its quantum registers is encoded by an $n$-side length, $(d, d^{\prime})$-Toric code, and it simulates $C$ with probability:
