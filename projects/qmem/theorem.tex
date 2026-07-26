@@ -1,5 +1,28 @@
 
 
+
+
+\begin{claim}
+Gottesman argument
+  \label{claim:decodestopnoise}
+\end{claim}
+
+\inb{\textbf{Even better.}} Assume that the clusters always have a size lower than $\gamma n$ and that there are $m$ bits. Run sweep-cycles for $m\gamma n$ times. Since there can be at most $m-1$ merges (since the number of clusters is bounded by the number of bits), there has to be a continuous sequence of $\gamma n$ cycles for which no merge occurs. Since it's given that the size of all the clusters is lower than $\gamma n$, we have that all the clusters are erased after those cycles. To prove that no cluster reaches a size greater than $\gamma n$, we use explanation trees (where trees in which all the leaves are at least $l$ from the root are contained in the trees without that restriction).
+
+
+\begin{claim}
+  Consider a rapidietly applications of the sweep-cycle for $l$ times. Denote by $A$ the event in which after additional $n^{d+1}$ ideal iterations  of the sweep-cycle the error was not erasied, and denote by $B$ the event that after additional $n^{d+1}$ nosiy iterations the propogated error admits an infinte error. Then:  
+  \begin{equation*}
+    \begin{split}
+      \prb{A} \le \prb{B}
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof} 
+  \Cref{claim:decodestopnoise} states that if during the $n^{d+1}$ ideal sweep-cycles the propagated error does not admit an infinite error, then the error is erased. Yet, any possible Toom's contour of the ideal senario is also a possible Toom's contour of the noisy senario. Thus, the probability to have 
+\end{proof}
+
+
 \section{Proof of the Theorem}
 
 We are ready to prove the main theorem (\Cref{theorem:main}). We start by giving a formal definition of a simulation.
@@ -14,13 +37,6 @@ For quantum circuits $C$ and $\tilde{C}$, a noise channel $N_{\mathcal{E}}$, and
     \end{enumerate}
   \end{definition}
 
-
-\begin{claim}
-Gottesman argument
-  \label{claim:decodestopnoise}
-\end{claim}
-
-\inb{\textbf{Even better.}} Assume that the clusters always have a size lower than $\gamma n$ and that there are $m$ bits. Run sweep-cycles for $m\gamma n$ times. Since there can be at most $m-1$ merges (since the number of clusters is bounded by the number of bits), there has to be a continuous sequence of $\gamma n$ cycles for which no merge occurs. Since it's given that the size of all the clusters is lower than $\gamma n$, we have that all the clusters are erased after those cycles. To prove that no cluster reaches a size greater than $\gamma n$, we use explanation trees (where trees in which all the leaves are at least $l$ from the root are contained in the trees without that restriction).
 
   \begin{lemma}
 For any $d, d^{\prime}$, there are constants $a, b \in \mathbb{R}^{+}$ and $p_{0} \in (0,1)$ that depend only on $d, d^{\prime}$ and satisfy the following. Consider a quantum circuit $C$ with depth $\mu$ and width $w$, and let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $\tilde{C}$ such that each of its quantum registers is encoded by an $n$-side length, $(d, d^{\prime})$-Toric code, and it simulates $C$ with probability:
