@@ -148,7 +148,7 @@ Furthermore, we say that $\hat{K}$ is a result of a \textit{sweep-cycle}, \texti
 The distinction between slices resulting from different layers allows us to adjust \Cref{claim:prevslices} conditioning on the slice type. 
   \begin{corollary}
     \label{claim:shrinkslice}
-Consider a spanned slice $\hat{K}$, at finite size, such that $K \neq H_{K}$. Since $K \neq H_{K}$, it follows that $\hat{K}$ has a predecessor decomposition, denoted by $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$. The inequality in \Cref{claim:prevslices} becomes:
+    For a Toom's contour, suppose that the reduced Pauli-path that induces it does not admit an infinite error. Consider a spanned slice $\hat{K}$ in it, such that $K \neq H_{K}$. Since $K \neq H_{K}$, it follows that $\hat{K}$ has a predecessor decomposition, denoted by $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$. The inequality in \Cref{claim:prevslices} becomes:
     \begin{enumerate}
       \item If $\hat{K}$ is a result of a $\xi$-sweep-cycle (namely, the result of $\xi$ sequential sweep cycles), then:
         \begin{equation*}
@@ -165,7 +165,7 @@ Consider a spanned slice $\hat{K}$, at finite size, such that $K \neq H_{K}$. Si
       \end{enumerate}
   \end{corollary}
   \begin{proof}
-For the sweep-cycle part, we use \Cref{claim:polesmove}, which states that after each application of the sweep-cycle over a finite size assignment, the maximal $L_{d+1}$ value of the resulting boundary decreases by $1$, while the values of each $L_{g}$ do not increase.
+Since the space-time graph is a Toom's contour, we have that slices are vertices of a union of reduced connected chains that are connected by time. For the sweep-cycle part, we use \Cref{claim:polesmove}, which states that after each application of the sweep-cycle over a finite size assignment, the maximal $L_{d+1}$ value of the resulting reduced error decreases by 1, while the values of each $L_{g}$ do not increase. If $\hat{K}$ is the vertex domain of more than one (disjoint) connected chain, then it's sufficient to look over the one with the maximal $L_{d+1}$ value, and derive for it that the predecessor chain prior to the correction has to have a maximal $L_{d+1}$ value higher by 1.
 
 When $\hat{K}$ is a result of either faults\footnote{Notice that $\hat{K}$ does not consist of faults since otherwise $K=H_{K}$, so the meaning here is that $\hat{K}$ contains vertices which weren't flipped in the fault layer.} or a logical operator, we use the fact that since the operators are transversal, we have that the support of $\hat{K}$ is contained in the support of $\cup_{0}^{k} \hat{K}_{i}$, and therefore for any $i \in [d+1]$:
     \begin{equation*}
@@ -177,7 +177,7 @@ When $\hat{K}$ is a result of either faults\footnote{Notice that $\hat{K}$ does 
 
   
   The following claim extends the corollary to slices at the final layer of an \textit{analysis Toom's contour at step $\tau$}.
-
+  \inb{\textbf{Return to here after deciding what to do with $\phi$-transpose.}}
   \begin{claim}
     \label{claim:shrinkan}
 For a step $\tau$, let $\mathcal{H}_{\tau}$ be analysis Toom's contour at step $\tau$, and let $t^{\star}$ be the maximal time at that contour. For a spanned slice $\hat{K}$, at time $T(K) = t^{\star}$, where $K \neq H_{K}$, the inequality in \Cref{claim:prevslices} becomes:
