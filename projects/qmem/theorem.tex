@@ -47,6 +47,8 @@ To prove that no connected error reaches a size greater than $\gamma n$, we use 
 \Cref{claim:decodestopnoise} states that if during the $n^{d+1}$ ideal sweep-cycles the propagated error does not admit an infinite error, then the error is erased. Consider the set of atomic events corresponding to the faults in the first $l$ noisy iterations, such that during the additional $n^{d+1}$ ideal iterations there is a step that admits an infinite error. All those atomic events are also contained in $B$, since local stochastic noise is our only assumption. It's possible that noise in the $B$ scenario is distributed such that the probability of a fault occurring during the additional $n^{d+1}$ iterations is zero. In that specific case, $\prb{A} = \prb{B}$ and therefore $\prb{A} \le f(n,d,d^{\prime},l,p)$.
 \end{proof}
 
+The next lemma is the core of the theorem; it analyzes the probability of a logical error occurring after the initialization stage, namely when assuming the given input is encoded.
+
   \begin{lemma}
 For any $d, d^{\prime}$, there are constants $a, b \in \mathbb{R}^{+}$ and $p_{0} \in (0,1)$ that depend only on $d, d^{\prime}$ and satisfy the following. Consider a quantum circuit $C$ with depth $\mu$ and width $w$, and let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $\tilde{C}$ such that each of its quantum registers is encoded by an $n$-side length, $(d, d^{\prime})$-Toric code, and it simulates $C$ with probability:
 \begin{equation*}
