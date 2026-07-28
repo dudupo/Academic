@@ -63,7 +63,7 @@ Notice that the transpose map is a permutation over the bits and therefore can b
   Clearly, for any subset of generators $S^{\prime} \subset S$, the map $\phi$ sends $x_{S^{\prime}}$ to $z_{S/S^{\prime}}$:
   \begin{equation*}
     \begin{split}
-      \phi(x_{S^{\prime}}) = \phi(  \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}}   ) =  \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S/S^{\prime}} = z_{S/S^{\prime}}
+    \phi(x_{S^{\prime}}) = \phi(  \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}}   ) =  \sum_{u \in \expval*{S^{\prime}} }\rotfv{ (\prod_{g \in S^{\prime}}g) u}{S/S^{\prime}}  = \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S/S^{\prime}} = z_{S/S^{\prime}}
     \end{split}
   \end{equation*}
 Moreover, $\phi$ sends binary representations of $Z$-stabilizers to binary representations of $X$-stabilizers, and vice versa. To see this, consider a $d^{\prime}+1$ dimensional face, and consider the image of the stabilizer it defines.
