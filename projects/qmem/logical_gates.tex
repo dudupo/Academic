@@ -97,9 +97,21 @@ If $d^{\prime} = d/2$, then for a fixed $S^{\prime} \subset S$, a realization of
 \end{remark}
 
 \begin{definition}
-  We define $\psi$ to act as: 
-
+Let $\psi \colon S \rightarrow S$ be a permutation on the generators in $S$, so $\psi$ has a natural extension to an automorphism on $\mathcal{G}$\footnote{By replacing each of the generators in a product by its image according to $\psi$.}. Extend $\psi$ to act over the faces of the $(d,d^{\prime})$-Toric as follows:
+  \begin{equation*}
+    \begin{split}
+      \psi( \rotfvs{}) \colonequals \rotfv{\psi(v)}{\psi(S^{\prime})}
+    \end{split}
+  \end{equation*}
+  We name the map a $\psi$-permutation. 
 \end{definition}
+
+\begin{claim}
+The $\psi$-permutation sends $X$-checks to $X$-checks and $Z$-checks to $Z$-checks. Moreover, assume that $d^{\prime}=d/2$. Then, for a generator subset $S^{\prime}\subset S$ such that $d^{\prime} = |S^{\prime}| = |S/S^{\prime}|$ and $S/S^{\prime} = \psi(S^{\prime})$, we have that the application of $\psi$ realizes the exchange $x_{S^{\prime}} \leftrightarrow x_{S/S^{\prime}}$.
+\end{claim}
+\begin{proof}
+  
+\end{proof}
 
 
 Equipped with $\mathbf{H}_{\phi}$, we gain a mapping into the dual code that both keeps the Toric skeleton and sends the $Z$-checks to $d^{\prime}-1$ dimensional faces. Later (in \Cref{subsection:dualcode}), this will be advantageous, enabling the use of the same local decoder (with a slight change) to act on both $\mathcal{C}_{X}$ and its dual. 
