@@ -107,10 +107,20 @@ Let $\psi \colon S \rightarrow S$ be a permutation on the generators in $S$, so 
 \end{definition}
 
 \begin{claim}
-The $\psi$-permutation sends $X$-checks to $X$-checks and $Z$-checks to $Z$-checks. Moreover, assume that $d^{\prime}=d/2$. Then, for a generator subset $S^{\prime}\subset S$ such that $d^{\prime} = |S^{\prime}| = |S/S^{\prime}|$ and $S/S^{\prime} = \psi(S^{\prime})$, we have that the application of $\psi$ realizes the exchange $x_{S^{\prime}} \leftrightarrow x_{S/S^{\prime}}$.
+The $\psi$-permutation sends $X$-checks to $X$-checks and $Z$-checks to $Z$-checks. Moreover, assume that $d^{\prime}=d/2$. Then, for a generator subset $J\subset S$ such that $d^{\prime} = |J| = |S/J|$ and $S/J = \psi(J)$, we have that the application of $\psi$ realizes the exchange $x_{J} \leftrightarrow x_{S/J}$.
 \end{claim}
+
 \begin{proof}
-  
+     
+  \begin{equation*}
+    \begin{split}
+      \psi \left( \partial^{-} \rotfvs{} \right) &= \psi \left( \sum_{g\in S^{\prime}} \rotfv{v}{S^{\prime}/g} + \rotfv{gv}{S^{\prime}/g}   \right) \\
+      &= \sum_{g\in S^{\prime}} \rotfv{ \psi(v)}{\psi(S^{\prime})/\psi(g)} + \rotfv{\psi(g)\psi(v)}{\psi(S^{\prime})/\psi(g)}  \\
+      &= \sum_{g\in S^{\prime}} \rotfv{ \psi(v)}{\psi(S^{\prime})/g} + \rotfv{g\psi(v)}{\psi(S^{\prime})/g}  \\
+      &= \partial^{-}\rotfv{\psi(v)}{\psi(S^{\prime})}
+    \end{split}
+  \end{equation*}
+
 \end{proof}
 
 
