@@ -78,7 +78,15 @@ However, we would not be able to show an exact mirroring, yet we show that the s
   \end{equation*}
 \end{claim}
 \begin{proof}
-  Let $v$ be a vertex that is a root of face in $\phi(z)$, we argue that $v$ is also in $z$. Consider a face $\rotfvs{}$ in $\phi(z)$ then $\phi^{-1}(\rotfv{v}{S^{\prime}}) = \rotfv{ (S/S^{\prime})^{-1} v}{S/S^{\prime}}$ is in $z$, and therefore $ (S/S^{\prime}) (S/S^{\prime})^{-1} v = v$ is in $z$. By the same arguments we have also that if $v$ is a root of face in $z$ then the vertex $S v$ is in $\phi(z)$. Now, let $u$ be a vertex in $\phi(z)$ and let $w$ be a vertex in $\phi(z)$ such $w$ is a root of face contiaing $u$. We have that $w$ is also in $z$ so we found a vertex $w$ in $z$ such: $ | L_{g}(w) - L_{g}(u) | \le 1 $ for any $g \in S$ and $|L_{d+1}(w) - L_{d+1}(u) | \le d$. 
+  Let $v$ be a vertex that is a root of face in $\phi(z)$, we argue that $v$ is also in $z$. Consider a face $\rotfvs{}$ in $\phi(z)$ then $\phi^{-1}(\rotfv{v}{S^{\prime}}) = \rotfv{ (S/S^{\prime})^{-1} v}{S/S^{\prime}}$ is in $z$, and therefore $ (S/S^{\prime}) (S/S^{\prime})^{-1} v = v$ is in $z$. By the same arguments we have also that if $v$ is a root of face in $z$ then the vertex $S v$ is in $\phi(z)$. Now, fix $i\in [d+1$ and let $u$ and $w$ be the vertices in $z$ and $\phi(z)$ that achieve the maximum for $L_{i}$. Denote by $u_{r}$ and $w_{r}$ the vertices which are the roots of the faces contain $u$ and $w$. We have that: 
+    \begin{equation*}
+      \begin{split}
+        \max_{v \in z} L_{i}(v) & \ge  L_{i}(u_{r}) = L_{i}(S u_{r}) - d =  \max_{v \in \phi(z)} L_{i}(v) \\
+        \max_{v \in \phi(z)} L_{i}(v) & \ge  L_{i}(w_{r}) \ge L_{i}(w) - d =  \max_{v \in \phi(z)} L_{i}(v) \\
+      \end{split}
+    \end{equation*}
+
+    and let $w$ be a vertex in $\phi(z)$ such $w$ is a root of face contiaing $u$. We have that $w$ is also in $z$ so we found a vertex $w$ in $z$ such: $ | L_{g}(w) - L_{g}(u) | \le 1 $ for any $g \in S$ and $|L_{d+1}(w) - L_{d+1}(u) | \le d$. 
 
   Now, for a $i \in [d+1]$ denote by $v$ and $u$ the vertices that achinve the maximal $L_{i}$-value in $z$ and $\phi(z)$. Now assume that $L_{i}(v) + d < L_{i}(u)$, denote the root of the face on which $u$ sets by $r$, so there is $J \subset S$ such $u \in \rotfv{r}{J}$.But
   \begin{equation*}
