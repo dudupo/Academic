@@ -70,8 +70,8 @@ Moreover, $\phi$ sends binary representations of $Z$-stabilizers to binary repre
   \begin{equation*}
     \begin{split}
       \phi \left( \partial^{-}  \rotfv{v}{S^{\prime}} \right) &=  \phi\left( \sum_{g\in S^{\prime}} \rotfv{v}{S^{\prime}/g} +  \rotfv{gv}{S^{\prime}/g}  \right) \\
-      & = \sum_{g\in S^{\prime}} \rotfv{v^{-1}}{(S/S^{\prime})\cup g} +  \rotfv{g^{-1}v^{-1}}{(S/S^{\prime})\cup g}  \\ 
-      &= \partial^{+} \rotfv{v^{-1}}{S/S^{\prime}}
+      & = \sum_{g\in S^{\prime}} \rotfv{ g^{-1} (\prod_{g^{\prime} \in S^{\prime} }g^{\prime})  v}{(S/S^{\prime})\cup g} +  \rotfv{ g^{-1} (\prod_{g^{\prime} \in S^{\prime} }g^{\prime})  gv}{(S/S^{\prime})\cup g}  \\ 
+      &= \partial^{+} \rotfv{ (\prod_{g^{\prime} \in S^{\prime} }g^{\prime})v}{S/S^{\prime}}
     \end{split}
   \end{equation*}
   And since $\phi \circ \phi = I$, we also have that $\phi\left( \partial^{+} \rotfv{v^{-1}}{S/S^{\prime}} \right)$. Thus, $\mathbf{H}^{\otimes n} \circ \phi$ sends $Z$-stabilizers to $X$-stabilizers and vice versa, thereby preserving the code space. Combining this with the above, $\mathbf{H}^{\otimes n} \circ \phi$ realizes the logical form $\mathbf{H}_{\phi}$ in the $(d,d/2)$-Toric code.
