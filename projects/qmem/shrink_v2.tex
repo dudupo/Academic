@@ -81,10 +81,10 @@ However, we would not be able to show an exact mirroring, yet we show that the s
   Let $v$ be a vertex that is a root of face in $\phi(z)$, we argue that $v$ is also in $z$. Consider a face $\rotfvs{}$ in $\phi(z)$ then $\phi^{-1}(\rotfv{v}{S^{\prime}}) = \rotfv{ (S/S^{\prime})^{-1} v}{S/S^{\prime}}$ is in $z$, and therefore $ (S/S^{\prime}) (S/S^{\prime})^{-1} v = v$ is in $z$. By the same arguments we have also that if $v$ is a root of face in $z$ then the vertex $S v$ is in $\phi(z)$. Now, fix $i\in [d+1]$ and let $u$ and $w$ be the vertices in $z$ and $\phi(z)$ that achieve the maximum for $L_{i}$. Denote by $u_{r}$ and $w_{r}$ the vertices which are the roots of the faces contain $u$ and $w$ and observes that $L_{g}(w) \le L_{g}(w_{r})+1$ for any $g \in S$ and that $L_{d+1}(w) \le L_{d+1}(w_{r})$\footnote{Actually, when $i =d+1$ then $w$ is a root}. We have that: 
     \begin{equation*}
       \begin{split}
-        \max_{v \in z} L_{i}(v) &    
+        \max_{v \in z} L_{i}(v) &  \le
         \begin{cases}
-          \le L_{i}(S u_{r})  \le  \max_{v \in \phi(z)} L_{i}(v) &  i \le d  \\ 
-          = L_{i}(u_{r}) \le L_{i}(S u_{r}) + d  \le  \max_{v \in \phi(z)} L_{i}(v) +d &  i = d+1  
+           L_{i}(S u_{r})  \le  \max_{v \in \phi(z)} L_{i}(v) &  i \le d  \\ 
+           L_{i}(u_{r}) \le L_{i}(S u_{r}) + d  \le  \max_{v \in \phi(z)} L_{i}(v) +d &  i = d+1  
         \end{cases} \\
         \max_{v \in \phi(z)} L_{i}(v) & \le  \begin{cases}
            L_{i}(w_{r})  + 1 \le  \max_{v \in z} L_{i}(v) + 1 & i \le d \\ 
