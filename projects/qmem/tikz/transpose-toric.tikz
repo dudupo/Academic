@@ -74,6 +74,7 @@ An outline of \Cref{example:stabmap}. The $\phi$-transpose sends $Z$-stabilizers
 \label{fig:transposeToric}
 \end{figure}
 
+\inb{\textbf{Rewrite the example, it does not fit to the modification of the $\phi$-transpose.}}
 \begin{example}
   \label{example:stabmap} 
 Consider the $(2,1)$-Toric code. Name the generators in $S$ by $g_{1} = (1,0)$ and $g_{2} = (0,1)$. Consider the check corresponding to the $Z$-stabilizer $\partial^{+} \rotfv{(2,3)}{\{ \}}$.
