@@ -208,22 +208,11 @@ Consider an error whose $X$- and $Z$-product components lie at positions corresp
 
 \begin{claim}
   Consider a $d^{\prime}$-dimensional chain $z$ such both $z$ and $\phi(z)$ are finite, then it holds that: 
-  \begin{enumerate}
-      \item For any generator $g \in S$: 
       \begin{equation*}
         \begin{split}
-        \max_{v \in z} L_{g}(v) &  \le \max_{v \in \phi(z)} L_{g}(v)  \\ 
-        \max_{v \in \phi(z)} L_{g}(v) & \le \max_{v \in z} L_{g}(v) + 1 
+          \bigl| \Size{ z  } - \Size{ \phi(z)  } \bigr| < 2d
         \end{split}
       \end{equation*}
-      \item And for the $d+1$th potential wall:
-      \begin{equation*}
-        \begin{split}
-        \max_{v \in z} L_{d+1}(v) &  \le \max_{v \in \phi(z)} L_{d+1}(v) + d \\ 
-        \max_{v \in \phi(z)} L_{d+1}(v) & \le \max_{v \in z} L_{d+1}(v)  
-        \end{split}
-      \end{equation*}
-  \end{enumerate}
 \end{claim}
 \begin{proof}
   Let $v$ be a vertex that is a root of face in $\phi(z)$, we argue that $v$ is also in $z$. Consider a face $\rotfvs{}$ in $\phi(z)$ then $\phi^{-1}(\rotfv{v}{S^{\prime}}) = \rotfv{ (S/S^{\prime})^{-1} v}{S/S^{\prime}}$ is in $z$, and therefore $ (S/S^{\prime}) (S/S^{\prime})^{-1} v = v$ is in $z$. By the same arguments we have also that if $v$ is a root of face in $z$ then the vertex $S v$ is in $\phi(z)$. Now, fix $i\in [d+1]$ and let $u$ and $w$ be the vertices in $z$ and $\phi(z)$ that achieve the maximum for $L_{i}$. Denote by $u_{r}$ and $w_{r}$ the vertices which are the roots of the faces contain $u$ and $w$ and observes that $L_{g}(w) \le L_{g}(w_{r})+1$ for any $g \in S$ and that $L_{d+1}(w) \le L_{d+1}(w_{r})$\footnote{Actually, when $i =d+1$ then $w$ is a root}. We have that: 
