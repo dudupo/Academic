@@ -150,7 +150,7 @@ Thus,
 So if $v$ achieves the maximal $L_{d+1}$-value in $z$, then the vertices that get the maximal value in $\phi(z)$ are of the form $S^{\prime}v$, for some $d^{\prime}$-size subset of generators $S^{\prime} \subset S$. Therefore, the following equality holds:
 \begin{equation*}
   \begin{split}
-    \max_{v \in \phi(z)}L_{d+1}(v) = \max_{v \in z }L_{d+1}(v)
+    \max_{v \in \phi(z)}L_{d+1}(v) = \max_{v \in z }L_{d+1}(v) - d^{\prime}
   \end{split}
 \end{equation*}
 Now, since the sweep rule decreases the $L_{d+1}$ value (\Cref{claim:sweepshrink}), we have that:
@@ -162,7 +162,7 @@ Now, since the sweep rule decreases the $L_{d+1}$ value (\Cref{claim:sweepshrink
 So, in overall:
 \begin{equation*}
   \begin{split}
-    \max_{v \in \phi^{-1}(\xi) }L_{d+1}(v) & =  \max_{v \in \xi }L_{d+1}(v) + d  \le \max_{v \in \phi(z) }L_{d+1}(v) - 1 + d \\
+    \max_{v \in \phi^{-1}(\xi) }L_{d+1}(v) & =  \max_{v \in \xi }L_{d+1}(v) + d^{\prime}  \le \max_{v \in \phi(z) }L_{d+1}(v) - 1 + d^{\prime} \\
     & \le \max_{v \in z }L_{d+1}(v) - 1  
   \end{split}
 \end{equation*}
