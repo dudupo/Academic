@@ -78,9 +78,9 @@ The following claim relates the size of a given slice to the sizes of its predec
     \end{enumerate}
   \end{claim}
   \begin{proof}
-    First Notice that $K$ doesn't contain leaves in $(V,A)$, since a leaf is connected only to itself via arrows, and therefore its 'slice' equals to its 'History'. Thus $\prei{x_{i}}$ is not empty for $i=1,..,d+1$. Next consider the graph $G_{K}= (V_{K},E_{K})$ from \cref{def:gslice}. Since $\{ x_{i}, \prei{x_{i}} \}$ is an arrow $\prei{x_{i}}$ belongs to a slice in $V_{K}$. For $i=1,..,d+1$ denote by $R_{i}$ the slice in $V_{K}$ that contains $\prei{x_i}$. 
+    First Notice that $K$ doesn't contain leaves in $(V,A)$, since a leaf is connected only to itself via arrows, and therefore its 'slice' equals to its 'History'. Thus $\prei{x_{i}}$ is not empty for $i=1,..,d+1$. Next consider the graph $G_{K}= (V_{K},E_{K})$ from \Cref{def:gslice}. Since $\{ x_{i}, \prei{x_{i}} \}$ is an arrow $\prei{x_{i}}$ belongs to a slice in $V_{K}$. For $i=1,..,d+1$ denote by $R_{i}$ the slice in $V_{K}$ that contains $\prei{x_i}$. 
 
-    By \cref{claim:connected} $G_{K}$ is connected and therefore there exist a minimal collection $\{K_{0},..,K_{k}\}$ of slices form $V_{K}$ which contains $R_{1},R_{2},..R_{d+1}$, and which is connected in $G_{K}$. We pick a set of forks $\mathbf{F} = \{F_{1},..,F_{k} \}$ which realizes a spanning tree for this collection of slices. Later we will identify edges from this spanning tree with the forks from $\mathbf{F}$.  
+    By \Cref{claim:connected} $G_{K}$ is connected and therefore there exist a minimal collection $\{K_{0},..,K_{k}\}$ of slices form $V_{K}$ which contains $R_{1},R_{2},..R_{d+1}$, and which is connected in $G_{K}$. We pick a set of forks $\mathbf{F} = \{F_{1},..,F_{k} \}$ which realizes a spanning tree for this collection of slices. Later we will identify edges from this spanning tree with the forks from $\mathbf{F}$.  
 
     For $i=1,..,d+1$ we set $\prei{v_{i}}$ to be the $i$th pole of $R_{i}$, This assures (1). The set of remaining poles for $\hat{K}_0, ..,\hat{K}_{k}$ will be equal to $\cup^{k}_{i=k}F_{i}$. This will assure (ii), We will also select poles for $F_{1}, ..,F_{k}$ to form 'spanned forks' $\hat{F}_{1}, \cdots,\hat{F}_{k}$ in such way that:  
     \begin{equation*}
@@ -117,7 +117,7 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
         &=\sum_{i}^{d+1}L_{i}\left( \prei{x_{i}} \right) 
       \end{split}
     \end{equation*}
-    Plugging it into \cref{equ:spanlow} gives the desired.
+    Plugging it into \Cref{equ:spanlow} gives the desired.
   \end{proof}
 
 Until now, the claims stated were true for any kind of space-time graph (where their vertices can be associated with coordinates in $\mathbb{R}^{d}$). The next claims assume that the given time graph is a Toom's contour induced by the noisy running of a Toric encoded circuit.
