@@ -195,16 +195,6 @@ Consider an error whose $X$- and $Z$-product components lie at positions corresp
 \subsection{Logical Hadamard.}
 \inb{\textbf{Move the definition to the logical gates section.}}
 
-\begin{definition}
-  We define the realization of Hadamard gate by $ H^{\otimes (\cdot) } \circ \phi \circ \psi$ followed by $T$ times sweep-cycle. 
-\end{definition}
-\begin{claim}
-  \begin{equation*}
-    \begin{split}
-        \Size{ Hx } \le \Size{x} 
-    \end{split}
-  \end{equation*}
-\end{claim}
 
 
 \begin{claim}
@@ -242,6 +232,16 @@ Now, fix a generator $g \in S$ and let $u$ and $w$ be the vertices in $z$ and $\
 So, the inequality holds.
 \end{proof}
 
+\begin{definition}
+  We define the realization of Hadamard gate by $ H^{\otimes (\cdot) } \circ \phi \circ \psi$ followed by $T$ times sweep-cycle. 
+\end{definition}
+\begin{claim}
+  \begin{equation*}
+    \begin{split}
+        \Size{ Hx } \le \Size{x} 
+    \end{split}
+  \end{equation*}
+\end{claim}
 
 \subsubsection{Ideal decoder}
 \inb{\textbf{Rewrite.}} Although the main role of the section is to show that a single sweep-cycle keeps error clusters under control during a noisy run (by admitting a modest shrinking), an immediate corollary of this is that the application of non-noisy multiple iterations of the sweep-cycle has the potential to erase errors, namely a decoder. Here, a classical measurement is given, we act on classical bits, and the sweep-cycle consists only of the first stage that works over the computational basis, without moving to the dual code. We formulate the corollary as follows:
