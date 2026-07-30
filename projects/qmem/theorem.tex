@@ -169,6 +169,7 @@ We extend the Toric Encoded definition to the Clifford-free Toric encoded circui
     \item The connection by faults remains the same. 
     \item Any logical gate that is not Hadamard connects vertices at the initial time of the layer with vertices at the final time of the layer if they share a face in the fault path. Since the padding is done by identity, it's equivalent to connect $(v,t)$ with $(u,t+3d^{\prime}+1)$ by an arrow if both $(v,t)$ and $(u,t+1)$ are in $V_{\mathcal{H}}$, and there are faces $f_{1}, f_{2}$ (which might be the same) and a physical gate $g^{\prime}$ acting at time $t$ such that $v \in f_{1} \in \text{Loc}(g^{\prime})$ and $u \in f_{2} \in \text{Loc}(g^{\prime})$.
     \item If the logical gate is a Hadamard, then we connect $(v,t)$ with $(u,t+3d^{\prime}+1)$ if there are vertices $(v_{0},t),(v_{1},t+1),(v_{2},t+2),\ldots,(v_{3d^{\prime}},t+3d^{\prime}),(v_{3d^{\prime}+1},t+3d^{\prime}+1) \in V_{\mathcal{H}}$ such that $v_{0}=v$, $v_{3d^{\prime}+1}=u$, and for any $i \in [0, 3d^{\prime}]$, there is a physical gate $g^{\prime}$ acting at time $t + i$ and a face $f \in \text{Loc}(g^{\prime})$ containing both $v_{i}$ and $v_{i+1}$.
+      
   \end{enumerate}
 \end{definition}
 
