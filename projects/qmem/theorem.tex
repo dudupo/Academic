@@ -172,6 +172,23 @@ and in addition:
 In addition, for a vertex $v$ in a space-time graph, we define $\pred{v}$ to be the vertex in $\pre{v}$ that achieves the maximal value of $\max_{g\in S}L_{g}$.
 \end{definition}
 
+An adaptation of \Cref{claim:reducederr} to the diameter function. The proof is identical to the original version. \inb{\textbf{Rewrite}}
+\begin{claim}
+  Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be a $d^{\prime}$-dimensional finite chain, consider the stabilizer  $z \in \mathcal{C}_{Z}^{\perp}$ which adding it to $x$ minimize the size , Namely: 
+  \begin{equation*}
+    \begin{split}
+      z =  \arg \min_{z \in \mathcal{C}_{Z}^{\perp}} \diam{ x + z }  
+    \end{split}
+  \end{equation*}
+  Then: 
+  \begin{equation*}
+    \begin{split}
+      \diam{ x + z } = \diam{ \partial^{-}( x + z) } 
+    \end{split}
+  \end{equation*}
+\end{claim}
+
+
 The following is an adaptation of \Cref{claim:prevslices} to the diameter function.
 \begin{claim} 
     \label{claim:prevslicesdiam}
