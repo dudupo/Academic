@@ -185,8 +185,9 @@ In addition, for a vertex $v$ in a space-time graph, we define $\pred{v}$ to be 
     The proof of the first two conditions are identical to \Cref{claim:prevslices}, where $K_{1},K_{2},..,$ are chosen such the connected graph is a spanning tree. For the third, first we use that in the  formed spanning trees there are (at most) two leaves and therefore, the degree is lower than two. Denote by $J_{0},..,J_{2k}$ the enumarated union of $K_{0},..,K_{k},F_{1},..,F_{k}$. Now consider the $2k+1$ vertices $z_{0}^{1},z_{0}^{2},z_{1}^{1},z_{1}^{2},..,z_{2k}^{1},z_{2k}^{2}$ such that $z_{i}^{j} \in J_{i}$. In addition, let us assume that $\predd{x} \in J_{0}, \pred{y} \in J_{2k}$. Observes that for any such collection of vertices we have that:  
     \begin{equation*}
       \begin{split}
-       & \sum_{i=0}^{k}\diam{\hat{K}_{i}} +  \sum^{k}_{i=1}\diam{F_{i}}  \ge \sum_{i=0}^{2k} \max_{g\in S}L_{g}( z_{i}^{1} ) +  L_{d+1}( z_{i}^{2} )  \\
-      & \ge  \max_{g\in S}L_{g}( z_{0}^{1} ) -  L_{d+1}( z_{0}^{2} )  +  \left( \sum_{i=1}^{2k-1} \max_{g\in S}L_{g}( z_{i}^{1} ) - \max_{g\in S}L_{g}( z_{i}^{2} ) \right) + \max_{g\in S}L_{g}( z_{2k}^{1} ) - \max_{g\in S}L_{g}(z_{2k}^{2} )  
+        \sum_{i=0}^{k}\diam{\hat{K}_{i}} & +  \sum^{k}_{i=1}\diam{F_{i}}  \ge \sum_{i=0}^{2k} \max_{g\in S}L_{g}( z_{i}^{1} ) +  L_{d+1}( z_{i}^{2} )  \\
+      & \ge  \max_{g\in S}L_{g}( z_{0}^{1} ) -  L_{d+1}( z_{0}^{2} )  +  \left( \sum_{i=1}^{2k-1} \max_{g\in S}L_{g}( z_{i}^{1} ) - \max_{g\in S}L_{g}( z_{i}^{2} ) \right) \\ 
+      & + \max_{g\in S}L_{g}( z_{2k}^{1} ) - \max_{g\in S}L_{g}(z_{2k}^{2} )  
       \end{split}
     \end{equation*}
   \end{proof}
