@@ -253,25 +253,25 @@ So, the inequality holds.
 \end{proof}
 
 \begin{definition}
-  For a $(2d^{\prime},d^{\prime})$-Toric code, we define the realization of Hadamard gate by $ H^{\otimes (\cdot) } \circ \phi \circ \psi$ followed by $3d^{\prime}$ times sweep-cycle (See also \Cref{corollary:hadamard}). 
+  For a $(2d^{\prime},d^{\prime})$-Toric code, we define the realization of Hadamard gate by $ H^{\otimes (\cdot) } \circ \phi \circ \psi$ followed by $d^{\prime} + 2$ times sweep-cycle (See also \Cref{corollary:hadamard}). 
 \end{definition}
 
 \begin{definition}[Clifford-free Toric Encoded Circuit]
-We extend the Toric Encoded definition to the Clifford-free Toric encoded circuit by requiring that $d^{\prime}=d-d^{\prime}=d/2$, replacing the realization of the Hadamard gate with the fold-transversal realization instead of Gate-teleportation. In addition, we enforce that the depth of the logical layers be exactly $3d^{\prime}+1$ by padding with identity\footnote{And, of course, in any practical implementation, it will be better to pad with Sweep-cycles. We do it for the convenience of the adaptation.}.
+We extend the Toric Encoded definition to the Clifford-free Toric encoded circuit by requiring that $d^{\prime}=d-d^{\prime}=d/2$, replacing the realization of the Hadamard gate with the fold-transversal realization instead of Gate-teleportation. In addition, we enforce that the depth of the logical layers be exactly $d^{\prime}+3$ by padding with identity\footnote{And, of course, in any practical implementation, it will be better to pad with Sweep-cycles. We do it for the convenience of the adaptation.}.
 \end{definition}
 
 \begin{definition}[Clifford-free Toom's Contour]
   We extend the Toom's Contour to be the Clifford-free, by channging the connection of arrows as follow: 
   \begin{enumerate}
     \item The connection by faults remains the same. 
-    \item Any logical gate that is not Hadamard connects vertices at the initial time of the layer with vertices at the final time of the layer if they share a face in the fault path. Since the padding is done by identity, it's equivalent to connect $(v,t)$ with $(u,t+3d^{\prime}+1)$ by an arrow if both $(v,t)$ and $(u,t+1)$ are in $V_{\mathcal{H}}$, and there are faces $f_{1}, f_{2}$ (which might be the same) and a physical gate $g^{\prime}$ acting at time $t$ such that $v \in f_{1} \in \text{Loc}(g^{\prime})$ and $u \in f_{2} \in \text{Loc}(g^{\prime})$.
-    \item If the logical gate is a Hadamard, then we connect $(v,t)$ with $(u,t+3d^{\prime}+1)$ if there are vertices $(v_{0},t),(v_{1},t+1),(v_{2},t+2),\ldots,(v_{3d^{\prime}},t+3d^{\prime}),(v_{3d^{\prime}+1},t+3d^{\prime}+1) \in V_{\mathcal{H}}$ such that $v_{0}=v$, $v_{3d^{\prime}+1}=u$, and for any $i \in [0, 3d^{\prime}]$, there is a physical gate $g^{\prime}$ acting at time $t + i$ and a face $f \in \text{Loc}(g^{\prime})$ containing both $v_{i}$ and $v_{i+1}$.
+    \item Any logical gate that is not Hadamard connects vertices at the initial time of the layer with vertices at the final time of the layer if they share a face in the fault path. Since the padding is done by identity, it's equivalent to connect $(v,t)$ with $(u,t+d^{\prime}+3)$ by an arrow if both $(v,t)$ and $(u,t+1)$ are in $V_{\mathcal{H}}$, and there are faces $f_{1}, f_{2}$ (which might be the same) and a physical gate $g^{\prime}$ acting at time $t$ such that $v \in f_{1} \in \text{Loc}(g^{\prime})$ and $u \in f_{2} \in \text{Loc}(g^{\prime})$.
+    \item If the logical gate is a Hadamard, then we connect $(v,t)$ with $(u,t+d^{\prime}+3)$ if there are vertices $(v_{0},t),(v_{1},t+1),(v_{2},t+2),\ldots,(v_{d^{\prime}+2},t+d^{\prime}+2),(v_{d^{\prime}+3},t+3d^{\prime}+3) \in V_{\mathcal{H}}$ such that $v_{0}=v$, $v_{d^{\prime}+3}=u$, and for any $i \in [0, d^{\prime}+3]$, there is a physical gate $g^{\prime}$ acting at time $t + i$ and a face $f \in \text{Loc}(g^{\prime})$ containing both $v_{i}$ and $v_{i+1}$.
       
   \end{enumerate}
 \end{definition}
 
 \begin{claim}
-  The maximal length of a fork is $2 \cdot (3d^{\prime}+1) \cdot d$. 
+  The maximal length of a fork is $2 \cdot (d^{\prime}+3) \cdot d$. 
 \end{claim}
 
 \inb{\textbf{Adapt it to the Clifford-free.}}
