@@ -144,15 +144,15 @@ No step admits an infinite error, so the decoder successfully restores the logic
 The lemma gives the theorem almost immediately. To complete the proof, we need to plug in the initialization phase, which initializes encoded zeros and resource states subjected to local stochastic noise. We emphasize that the resulting states are subjected to local stochastic noise (in addition to the computation). We neither prove nor describe that phase here; instead, we refer to \cite{grospellier:tel-03364419}, \cite{gottesman2014faulttolerant}, \cite{Fawzi_2018}, and \cite{nguyen2025quantumfaulttoleranceconstantspace}.
   \begin{theorem}
     \label{theorem:main}
-  There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{E}$ with rate $p < p_{0}$, and a quantum circuit $C$ with depth $\mu$ and width $w$, there exists a Toric encoded circuit $\tilde{C}$, with depth $\Theta(\mu n)$ and width $\Theta((w + \mu) n)$  that simulates $C$ with probability: 
+    There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{E}$ with rate $p < p_{0}$, and a quantum circuit $C$ with depth $\mu$ and width $w$, there exists a Toric encoded circuit $\tilde{C}$, with depth $\Theta(\mu n^{5}\log n)$ and width $\Theta((w + \mu) n^{8})$  that simulates $C$ with probability: 
 \begin{equation*}
   \begin{split}
-    1 -   \Theta \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n^{\frac{1}{4}})} 
+    1 -   \Theta \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n^{\frac{1}{8}})} 
   \end{split}
 \end{equation*}
 and in addition: 
 \begin{enumerate}
-  \item After a short initialization stage (at depth $\Theta(\log n)$), each of the qubits is encoded in the $n$-length 4D Toric code.
+  \item After a short initialization stage (at depth $\Theta( \text{poly}(\log n))$), each of the qubits is encoded in the $n$-length 4D Toric code.
   \item An error correction cycle takes $O(1)$ depth, and the gates in each correction cycle don't depend on time. In particular, if $C$ is the identity circuit, then after the initialization stage, the layers in $\tilde{C}$ are the same.
 \end{enumerate}
   \end{theorem} 
@@ -244,14 +244,7 @@ So, the inequality holds.
 \begin{definition}
   For a $(2d^{\prime},d^{\prime})$-Toric code, we define the realization of Hadamard gate by $ H^{\otimes (\cdot) } \circ \phi \circ \psi$ followed by $3d^{\prime}$ times sweep-cycle (See also \Cref{corollary:hadamard}). 
 \end{definition}
-\begin{claim}
-Consider the $\infty$-extension of a Pauli error, which is supported on the chain $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$. Let $\xi \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be the $d^{\prime}$-dimensional chain that supports the result of the application of the logical Hadamard on the given Pauli. 
-  \begin{equation*}
-    \begin{split}
-        \Size{ Hx } \le \Size{x} 
-    \end{split}
-  \end{equation*}
-\end{claim}
+
 \begin{definition}[Clifford-free Toric Encoded Circuit]
 We extend the Toric Encoded definition to the Clifford-free Toric encoded circuit by requiring that $d^{\prime}=d-d^{\prime}=d/2$, replacing the realization of the Hadamard gate with the fold-transversal realization instead of Gate-teleportation. In addition, we enforce that the depth of the logical layers be exactly $3d^{\prime}+1$ by padding with identity\footnote{And, of course, in any practical implementation, it will be better to pad with Sweep-cycles. We do it for the convenience of the adaptation.}.
 \end{definition}
