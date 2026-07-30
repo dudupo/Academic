@@ -108,6 +108,7 @@ So any $d^{\prime}-2$-dimensional face $\rotfv{v}{S^{\prime}}$ has to appear an 
 \end{proof}
 
 \begin{claim}
+  \label{claim:corrdual}
 Consider a finite $d^{\prime}$-dimensional chain $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ and assume that its $\phi$-transpose chain $\phi(z)$ is also finite. Denote by $\xi \in \mathbb{F}_{2}^{\mathcal{F}_{d- d^{\prime}}}$ the result of applying the sweep rule over the reduced form of $\phi(z)$. Then, for any generator $g \in S$, we have:
   \begin{equation*}
     \begin{split}
@@ -215,18 +216,24 @@ Consider an error whose $X$- and $Z$-product components lie at positions corresp
       \end{equation*}
 \end{claim}
 \begin{proof}
-  Let $v$ be a vertex that is a root of face in $\phi(z)$, we argue that $v$ is also in $z$. Consider a face $\rotfvs{}$ in $\phi(z)$ then $\phi^{-1}(\rotfv{v}{S^{\prime}}) = \rotfv{ (S/S^{\prime})^{-1} v}{S/S^{\prime}}$ is in $z$, and therefore $ (S/S^{\prime}) (S/S^{\prime})^{-1} v = v$ is in $z$. By the same arguments we have also that if $v$ is a root of face in $z$ then the vertex $S v$ is in $\phi(z)$. Now, fix $i\in [d+1]$ and let $u$ and $w$ be the vertices in $z$ and $\phi(z)$ that achieve the maximum for $L_{i}$. Denote by $u_{r}$ and $w_{r}$ the vertices which are the roots of the faces contain $u$ and $w$ and observes that $L_{g}(w) \le L_{g}(w_{r})+1$ for any $g \in S$ and that $L_{d+1}(w) \le L_{d+1}(w_{r})$\footnote{Actually, when $i =d+1$ then $w$ is a root}. We have that: 
+  The proof in \Cref{claim:corrdual} shows that: 
+\begin{equation*}
+  \begin{split}
+    \max_{v \in \phi(z)}L_{d+1}(v) = \max_{v \in z }L_{d+1}(v) - d^{\prime}
+  \end{split}
+\end{equation*}
+So it's left to show that for any generator $g \in S$ it holds that: 
+
+\begin{equation*}
+  \begin{split}
+     \bigl| \max_{v \in \phi(z)}L_{g}(v) -  \max_{v \in z }L_{g}(v) \bigr| \le 1
+  \end{split}
+\end{equation*}
+Let $v$ be a vertex that is a root of face in $\phi(z)$, we argue that $v$ is also in $z$. Consider a face $\rotfvs{}$ in $\phi(z)$ then $\phi^{-1}(\rotfv{v}{S^{\prime}}) = \rotfv{ (S/S^{\prime})^{-1} v}{S/S^{\prime}}$ is in $z$, and therefore $ (S/S^{\prime}) (S/S^{\prime})^{-1} v = v$ is in $z$. By the same arguments we have also that if $v$ is a root of face in $z$ then the vertex $S v$ is in $\phi(z)$. Now, fix a generator $g \in S$ and let $u$ and $w$ be the vertices in $z$ and $\phi(z)$ that achieve the maximum for $L_{g}$. Denote by $u_{r}$ and $w_{r}$ the vertices which are the roots of the faces contain $u$ and $w$ and observes that $L_{g}(w) \le L_{g}(w_{r})+1$ for any $g \in S$. We have that: 
     \begin{equation*}
       \begin{split}
-        \max_{v \in z} L_{i}(v) &  \le
-        \begin{cases}
-           L_{i}(S u_{r}) \le  \max_{v \in \phi(z)} L_{i}(v)  &  i \le d  \\ 
-           L_{d+1}(u_{r}) \le L_{d+1}(S u_{r}) + d  \le  \max_{v \in \phi(z)} L_{d+1}(v) +d &  i = d+1  
-        \end{cases} \\
-        \max_{v \in \phi(z)} L_{i}(v) & \le  \begin{cases}
-           L_{i}(w_{r})  + 1 \le  \max_{v \in z} L_{i}(v) + 1 & i \le d \\ 
-            L_{d+1}(w_{r}) \le \max_{v \in z} L_{d+1}(v)  & i = d+1
-        \end{cases}
+        \max_{v \in z} L_{i}(v) &  \le   L_{g}(S u_{r}) \le  \max_{v \in \phi(z)} L_{g}(v)  \\
+        \max_{v \in \phi(z)} L_{g}(v) & \le  L_{g}(w_{r})  + 1 \le  \max_{v \in z} L_{g}(v) + 1 
       \end{split}
     \end{equation*}
 \end{proof}
