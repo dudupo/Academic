@@ -159,6 +159,57 @@ and in addition:
 
 \section{Extending to Clifford-free Overhead.}
 
+\subsection{Logical Hadamard.}
+\inb{\textbf{Move the definition to the logical gates section.}}
+
+
+
+\begin{claim}
+  Consider a $d^{\prime}$-dimensional chain $z$ such both $z$ and $\phi(z)$ are finite, then it holds that: 
+      \begin{equation*}
+        \begin{split}
+          \bigl| \Size{ z  } - \Size{ \phi(z)  } \bigr| < d + d^{\prime}
+        \end{split}
+      \end{equation*}
+\end{claim}
+\begin{proof}
+  The proof in \Cref{claim:corrdual} shows that: 
+\begin{equation*}
+  \begin{split}
+    \max_{v \in \phi(z)}L_{d+1}(v) = \max_{v \in z }L_{d+1}(v) - d^{\prime}
+  \end{split}
+\end{equation*}
+So it's left to show that for any generator $g \in S$ it holds that: 
+
+\begin{equation*}
+  \begin{split}
+     \bigl| \max_{v \in \phi(z)}L_{g}(v) -  \max_{v \in z }L_{g}(v) \bigr| \le 1
+  \end{split}
+\end{equation*}
+Let $v$ be a vertex that is a root of a face in $\phi(z)$. We argue that $v$ is also in $z$. Consider a face $\rotfvs{}$ in $\phi(z)$, then $\phi^{-1}(\rotfv{v}{S^{\prime}}) = \rotfv{(S/S^{\prime})^{-1} v}{S/S^{\prime}}$ is in $z$, and therefore $(S/S^{\prime})(S/S^{\prime})^{-1} v = v$ is in $z$. By the same arguments, we also have that if $v$ is a root of a face in $z$, then the vertex $S v$ is in $\phi(z)$.
+
+
+Now, fix a generator $g \in S$ and let $u$ and $w$ be the vertices in $z$ and $\phi(z)$ that achieve the maximum for $L_{g}$. Denote by $u_{r}$ and $w_{r}$ the vertices which are the roots of the faces containing $u$ and $w$, and observe that $L_{g}(w) \le L_{g}(w_{r})+1$ for any $g \in S$. We have that:
+    \begin{equation*}
+      \begin{split}
+        \max_{v \in z} L_{i}(v) &  \le   L_{g}(S u_{r}) \le  \max_{v \in \phi(z)} L_{g}(v)  \\
+        \max_{v \in \phi(z)} L_{g}(v) & \le  L_{g}(w_{r})  + 1 \le  \max_{v \in z} L_{g}(v) + 1 
+      \end{split}
+    \end{equation*}
+So, the inequality holds.
+\end{proof}
+
+\begin{definition}
+  For a $(2d^{\prime},d^{\prime})$-Toric code, we define the realization of Hadamard gate by $ H^{\otimes (\cdot) } \circ \phi \circ \psi$ followed by $3d^{\prime}$ times sweep-cycle (See also \Cref{corollary:hadamard}). 
+\end{definition}
+\begin{claim}
+Consider the $\infty$-extension of a Pauli error, which is supported on the chain $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$. Let $\xi \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be the $d^{\prime}$-dimensional chain that supports the result of the application of the logical Hadamard on the given Pauli. 
+  \begin{equation*}
+    \begin{split}
+        \Size{ Hx } \le \Size{x} 
+    \end{split}
+  \end{equation*}
+\end{claim}
 \begin{definition}[Clifford-free Toric Encoded Circuit]
 We extend the Toric Encoded definition to the Clifford-free Toric encoded circuit by requiring that $d^{\prime}=d-d^{\prime}=d/2$, replacing the realization of the Hadamard gate with the fold-transversal realization instead of Gate-teleportation. In addition, we enforce that the depth of the logical layers be exactly $3d^{\prime}+1$ by padding with identity\footnote{And, of course, in any practical implementation, it will be better to pad with Sweep-cycles. We do it for the convenience of the adaptation.}.
 \end{definition}
