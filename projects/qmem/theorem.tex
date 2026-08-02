@@ -329,9 +329,7 @@ We extend Toom's Contour to be Clifford-free by changing the connection of arrow
     \item If the logical gate is a Hadamard, then we connect $(v,t)$ with $(u,t+d^{\prime}+3)$ if there are vertices $(v_{0},t),(v_{1},t+1),(v_{2},t+2),\ldots,(v_{d^{\prime}+2},t+d^{\prime}+2),(v_{d^{\prime}+3},t+3d^{\prime}+3) \in V_{\mathcal{H}}$ such that $v_{0}=v$, $v_{d^{\prime}+3}=u$, and for any $i \in [0, d^{\prime}+3]$, there is a physical gate $g^{\prime}$ acting at time $t + i$ and a face $f \in \text{Loc}(g^{\prime})$ containing both $v_{i}$ and $v_{i+1}$.
   \end{enumerate}
 \end{definition}
-  
-
-With adjustments being made, we introduce a threshold theorem without a Clifford-free depth overhead.  
+With adjustments being made, we present a threshold theorem with a Clifford-free depth overhead.
   \begin{theorem}
     \label{theorem:cliffordfree}
 There exists a constant $ p_{0} \in (0,1) $ such that for any local stochastic noise channel $\mathcal{E}$ with rate $ p < p_{0} $, and a Clifford+$\mathbf{T}$ quantum circuit $ C $ with depth $\mu$, $\mathbf{T}$-depth $\mu_{\mathbf{T}}$ and width $ w $, there exists a Clifford-free Toric encoded circuit $\tilde{C}$, with depth $ \Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{5}\log n) $ and width $\Theta((w + \mu) n^{8})$ that simulates $ C $ with probability:
