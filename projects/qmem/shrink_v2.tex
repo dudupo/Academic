@@ -1,11 +1,12 @@
 \subsection{Shrinking}
 \label{subsection:shrink}
-\inb{\textbf{Rewrite.}} We are about to prove that the sweep rule shrinks fintie errors.  
+We are about to prove that the sweep rule shrinks finite errors.  
 The following claim relates the local maximum points of the potential walls $L_{1}, \ldots, L_{d}$ in an assignment $z$ to the structure of the syndrome they observe. Later, we will use that relation to infer that the decoding step of the sweep rule can't spread the error to a vertex\footnote{To faces whose vertices have higher values of $L_{1}, \ldots, L_{d}$ than the current global maximum values.} with a higher value than the current global maximum of $L_{1}, \ldots, L_{d}$. In other words, the error does not spread in the positive directions.
 
 \begin{claim}
   \label{claim:edge_pole}
-Let $z$ and $\xi$ be $d^{\prime}$-dimensional chains, such that $\xi$ results from the application of the sweep rule on $z$. For any generator $g \in S$, the maximal values of $L_{g}$ in $\xi$ and $\partial^{-} \xi$ are lower than the maximal values in $z$ and $\partial^{-} z$. Namely:
+Let $z$ and $\xi$ be $d^{\prime}$-dimensional connected finite chains such that $\xi$ results from the application of the sweep rule on $z$.
+For any generator $g \in S$, the maximal values of $L_{g}$ in $\xi$ and $\partial^{-} \xi$ are lower than the maximal values in $z$ and $\partial^{-} z$. Namely:
 \begin{equation*}
   \begin{split}
     & \max \left\{ L_{g}(u) : u \in \xi \right\}  \le  \max \big\{ L_{g}(u) : u \in z \big\} \\
@@ -195,10 +196,12 @@ Consider an error whose $X$- and $Z$-product components lie at positions corresp
 
 
 \subsubsection{Ideal decoder}
-\inb{\textbf{Rewrite.}} Although the main role of the section is to show that a single sweep-cycle keeps error clusters under control during a noisy run (by admitting a modest shrinking), an immediate corollary of this is that the application of non-noisy multiple iterations of the sweep-cycle has the potential to erase errors, namely a decoder. Here, a classical measurement is given, we act on classical bits, and the sweep-cycle consists only of the first stage that works over the computational basis, without moving to the dual code. We formulate the corollary as follows:
+ Although the main role of the section is to show that a single sweep-cycle keeps error clusters under control during a noisy run (by admitting a modest shrinking), an immediate corollary of this is that the application of non-noisy multiple iterations of the sweep-cycle has the potential to erase errors, namely a decoder. Here, a classical measurement is given, we act on classical bits, and the sweep-cycle consists only of the first stage that works over the computational basis, without moving to the dual code. We formulate the corollary as follows:
 \begin{corollary}
   \label{col:idealcorrection} 
-  Consider the $(d,d^{\prime})$-Toric code, induced by a Toric with side length $n$. Given a finite reduced error $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ on that Toric, with $\Size{z} \le n-1$. Then an application of $\Size{z}$ sweep cycles (partial cycles consisting only of the first stage) erases the error.
+  Consider the $(d,d^{\prime})$-Toric code, induced by a Toric with side length $n$. Given a connected finite reduced error $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ on that Toric, with $\Size{z} \le n-1$. Then an application of $\Size{z}$ sweep cycles (partial cycles consisting only of the first stage) erases the error.
 \end{corollary}
+When $z$ is not connected, disjoint components might merge, and it is no longer true that the size of the chain decreases in each iteration. However, we will see later (\Cref{lemma:keylemma}) that performing $\Theta(n^{d+1})$ sweep-cycles erases the error with high probability.
+
 
 
