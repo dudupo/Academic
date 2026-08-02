@@ -253,8 +253,7 @@ The corollary is that in the \textit{nice encoding} (\Cref{def:niceenc}), the lo
 \begin{proof}
   The realization is obtained by the concatenation $H^{\otimes n} \circ \phi \circ \psi$.
 \end{proof}
-
-For a given finite chain that might support an error, the following two claims together set a bound on the increase in diameter that might occur as a result of applying the logical Hadamard to it. Particularly, the diameter grows by at most $2 + d^{\prime}$, and therefore, in the fault tolerance construction, we will later set $d^{\prime} + 2$ layers of sweep-cycle after any Hadamard application. 
+For a given finite chain (that might support an error), the following two claims set a bound on the increase in its diameter by the application of logical Hadamard. Specifically, the diameter grows by at most $2 + d^{\prime}$, and therefore, in the fault-tolerant construction, we will later set $d^{\prime} + 2$ layers of sweep-cycle after any Hadamard application.
 \begin{claim}
   \label{claim:invpar}
   Let $z$ be a connected $d^{\prime}$-dimensional chain. Assume that both $z$ and $\psi(z)$ are finite. Then we have:
@@ -317,11 +316,7 @@ So, the inequality holds.
 \begin{definition}
   For a $(2d^{\prime},d^{\prime})$-Toric code, we define the realization of Hadamard gate by $ H^{\otimes (\cdot) } \circ \phi \circ \psi$ followed by $d^{\prime} + 2$ times sweep-cycle (See also \Cref{corollary:hadamard}). 
 \end{definition}
-
-
-
-
-
+Having a realization of logical Hadamard, we would like to extend the Toric encoded circuits to use it instead of gate teleportation. In addition, we define the Clifford-free Toom's contour to be the space-time graph that describes a noisy running of the extended encoding circuit.
 \begin{definition}[Clifford-free Toric Encoded Circuit]
 We extend the Toric Encoded definition to the Clifford-free Toric encoded circuit by requiring that $d^{\prime}=d-d^{\prime}=d/2$, replacing the realization of the Hadamard gate with the fold-transversal realization instead of Gate-teleportation. In addition, we enforce that the depth of the logical layers be exactly $d^{\prime}+3$ by padding with identity\footnote{And, of course, in any practical implementation, it will be better to pad with Sweep-cycles. We do it for the convenience of the adaptation.}.
 \end{definition}
@@ -332,7 +327,6 @@ We extend the Toric Encoded definition to the Clifford-free Toric encoded circui
     \item The connection by faults remains the same. 
     \item Any logical gate that is not Hadamard connects vertices at the initial time of the layer with vertices at the final time of the layer if they share a face in the fault path. Since the padding is done by identity, it's equivalent to connect $(v,t)$ with $(u,t+d^{\prime}+3)$ by an arrow if both $(v,t)$ and $(u,t+1)$ are in $V_{\mathcal{H}}$, and there are faces $f_{1}, f_{2}$ (which might be the same) and a physical gate $g^{\prime}$ acting at time $t$ such that $v \in f_{1} \in \text{Loc}(g^{\prime})$ and $u \in f_{2} \in \text{Loc}(g^{\prime})$.
     \item If the logical gate is a Hadamard, then we connect $(v,t)$ with $(u,t+d^{\prime}+3)$ if there are vertices $(v_{0},t),(v_{1},t+1),(v_{2},t+2),\ldots,(v_{d^{\prime}+2},t+d^{\prime}+2),(v_{d^{\prime}+3},t+3d^{\prime}+3) \in V_{\mathcal{H}}$ such that $v_{0}=v$, $v_{d^{\prime}+3}=u$, and for any $i \in [0, d^{\prime}+3]$, there is a physical gate $g^{\prime}$ acting at time $t + i$ and a face $f \in \text{Loc}(g^{\prime})$ containing both $v_{i}$ and $v_{i+1}$.
-      
   \end{enumerate}
 \end{definition}
 
