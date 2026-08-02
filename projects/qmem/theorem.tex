@@ -255,7 +255,9 @@ The corollary is that in the \textit{nice encoding} (\Cref{def:niceenc}), the lo
   The realization is obtained by the concatenation $H^{\otimes n} \circ \phi \circ \psi$.
 \end{proof}
 
+For a given finite chain that might support an error, the following two claims together set a bound on the increase in diameter that might occur as a result of applying the logical Hadamard to it. Particularly, the diameter grows by at most $2 + d^{\prime}$, and therefore, in the fault tolerance construction, we will later set $d^{\prime} + 2$ layers of sweep-cycle after any Hadamard application. 
 \begin{claim}
+  \label{claim:invpar}
   Let $z$ be a connected $d^{\prime}$-dimensional chain. Assume that both $z$ and $\psi(z)$ are finite. Then we have:
   \begin{equation*}
     \begin{split}
@@ -266,7 +268,17 @@ The corollary is that in the \textit{nice encoding} (\Cref{def:niceenc}), the lo
 \begin{proof}
 Follows directly from the fact that summation and the max-function are invariant to permutations on the set they act on.
 \end{proof}
-For a given finite chain that might support an error, the following two claims together set a bound on the increase in diameter that might occur as a result of applying the logical Hadamard to it.
+
+\begin{remark}
+Notice that although the statement in \Cref{claim:invpar} is correct for the size function ($\Size{\cdot}$), it fails in the language of slices. For example, consider a slice that spreads over two registers. They both have errors of the form $X_{z}$, where:
+  \begin{equation*}
+    \begin{split}
+      z \colonequals \rotfv{v}{S^{\prime}}+ \rotfv{gv}{S^{\prime}} + \rotfv{g^{2}v}{S^{\prime}} + ,.., + \rotfv{g^{10}v}{S^{\prime}}
+    \end{split}
+  \end{equation*}
+Now, consider permuting by $\psi$-permutation only the first register. Clearly, the diameter increases.
+\end{remark}
+
 \begin{claim}
   \label{claim:diamexp}
   Consider a $d^{\prime}$-dimensional chain $z$ such both $z$ and $\phi(z)$ are finite, then it holds that: 
