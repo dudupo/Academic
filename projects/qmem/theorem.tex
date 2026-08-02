@@ -268,7 +268,7 @@ Follows directly from the fact that summation and the max-function are invariant
 \end{proof}
 
 \begin{remark}
-Notice that although the statement in \Cref{claim:invpar} is correct for the size function ($\Size{\cdot}$), it fails in the language of slices. For example, consider a slice that spreads over two registers. They both have errors of the form $X_{z}$, where:
+Notice that although the statement in \Cref{claim:invpar} is correct for the size function ($\Size{\cdot}$), it fails in the language of slices. For example, consider a slice that spreads over two registers, a subset of generators $S^{\prime} \subset S$, and a generator $g \in S^{\prime}$, such that both registers have the error of $X_{z}$, where:
   \begin{equation*}
     \begin{split}
       z \colonequals \rotfv{v}{S^{\prime}}+ \rotfv{gv}{S^{\prime}} + \rotfv{g^{2}v}{S^{\prime}} + ,.., + \rotfv{g^{10}v}{S^{\prime}}
@@ -322,7 +322,7 @@ We extend the Toric Encoded definition to the Clifford-free Toric encoded circui
 \end{definition}
 
 \begin{definition}[Clifford-free Toom's Contour]
-  We extend the Toom's Contour to be the Clifford-free, by channging the connection of arrows as follow: 
+We extend Toom's Contour to be Clifford-free by changing the connection of arrows as follows:
   \begin{enumerate}
     \item The connection by faults remains the same. 
     \item Any logical gate that is not Hadamard connects vertices at the initial time of the layer with vertices at the final time of the layer if they share a face in the fault path. Since the padding is done by identity, it's equivalent to connect $(v,t)$ with $(u,t+d^{\prime}+3)$ by an arrow if both $(v,t)$ and $(u,t+1)$ are in $V_{\mathcal{H}}$, and there are faces $f_{1}, f_{2}$ (which might be the same) and a physical gate $g^{\prime}$ acting at time $t$ such that $v \in f_{1} \in \text{Loc}(g^{\prime})$ and $u \in f_{2} \in \text{Loc}(g^{\prime})$.
