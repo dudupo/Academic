@@ -176,7 +176,7 @@ So, in overall:
 
 \begin{corollary}
 \label{claim:polesmove}  
-Consider an error whose $X$- and $Z$-product components lie at positions corresponding to the chains $z_{X}, z_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$. Denote by $\xi_{X}, \xi_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ chains corresponding to the $X, Z$ positions of the result after the application of a full sweep-cycle. Then:
+Consider a finite error whose $X$- and $Z$-product components lie at positions corresponding to the chains $z_{X}, z_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$. Denote by $\xi_{X}, \xi_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ chains corresponding to the $X, Z$ positions of the result after the application of a full sweep-cycle. Then:
   \begin{enumerate}
     \item For any $i \in [d]$: 
       \begin{equation*}
@@ -191,9 +191,10 @@ Consider an error whose $X$- and $Z$-product components lie at positions corresp
         \end{split}
       \end{equation*}
   \end{enumerate}
-
 \end{corollary}
-
+\begin{proof}
+The first inequality follows from \Cref{claim:sweepshrink} and \Cref{claim:corrdual}; for the second, we have to deal with the case in which merging of disjoint components occurs. 
+\end{proof}
 
 \subsubsection{Ideal decoder}
  Although the main role of the section is to show that a single sweep-cycle keeps error clusters under control during a noisy run (by admitting a modest shrinking), an immediate corollary of this is that the application of non-noisy multiple iterations of the sweep-cycle has the potential to erase errors, namely a decoder. Here, a classical measurement is given, we act on classical bits, and the sweep-cycle consists only of the first stage that works over the computational basis, without moving to the dual code. We formulate the corollary as follows:
