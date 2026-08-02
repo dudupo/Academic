@@ -329,11 +329,6 @@ We extend Toom's Contour to be Clifford-free by changing the connection of arrow
     \item If the logical gate is a Hadamard, then we connect $(v,t)$ with $(u,t+d^{\prime}+3)$ if there are vertices $(v_{0},t),(v_{1},t+1),(v_{2},t+2),\ldots,(v_{d^{\prime}+2},t+d^{\prime}+2),(v_{d^{\prime}+3},t+3d^{\prime}+3) \in V_{\mathcal{H}}$ such that $v_{0}=v$, $v_{d^{\prime}+3}=u$, and for any $i \in [0, d^{\prime}+3]$, there is a physical gate $g^{\prime}$ acting at time $t + i$ and a face $f \in \text{Loc}(g^{\prime})$ containing both $v_{i}$ and $v_{i+1}$.
   \end{enumerate}
 \end{definition}
-
-\begin{claim}
-  The maximal length of a fork is $2 \cdot (d^{\prime}+3) \cdot d$. 
-\end{claim}
-
   
 With adjustments being made, one can prove a threshold theorem without Clifford-free depth overhead. 
   \begin{theorem}
@@ -345,11 +340,9 @@ There exists a constant $ p_{0} \in (0,1) $ such that for any local stochastic n
   \end{split}
 \end{equation*}
   \end{theorem} 
-
   \paragraph{Sketch of adjusting the proof of \Cref{theorem:main}.}
-    \Cref{def:localprop} and the proof of \Cref{claim:intersyn} can be easily modified to support an intermediate claim stating that having a step that admits an infinite error implies that a previous step admits a reduced error (according to \Cref{claim:rereduced}) with a diameter that is at least a constant fraction of the side of the Toric. Next, we reformulate the explanation definition such that in the bounds on arrows, the diameter substitutes the size. Using \Cref{claim:prevslicesdiam} combined with the fact that the Hadamard realization ends with $d^{\prime} + 2$ sweep-cycles, one can modify \Cref{claim:edgesin} to show that assuming that up to a step $\tau$ no infinite errors were introduced, then any slice in the Clifford-free Toom's contour has an explanation. In particular, it's possible to bypass the expansion in diameter that might be introduced by transposing registers by $\phi$-transpose (\Cref{claim:diamexp}). 
-From there, the proof is identical to the proof of \Cref{lemma:keylemma}.
+    \Cref{def:localprop} and the proof of \Cref{claim:intersyn} can be easily modified to support an intermediate claim stating that having a step that admits an infinite error implies that a previous step admits a reduced error (according to \Cref{claim:rereduced}) with a diameter that is at least a constant fraction of the side of the Toric. Next, we reformulate the explanation definition such that in the bounds on arrows, the diameter substitutes the size. Using \Cref{claim:prevslicesdiam} combined with the fact that the Hadamard realization ends with $d^{\prime} + 2$ sweep-cycles, one can modify \Cref{claim:edgesin} to show that assuming that up to a step $\tau$ no infinite errors were introduced, then any slice in the Clifford-free Toom's contour has an explanation. In particular, it's possible to bypass the expansion in diameter that might be introduced by transposing registers by $\phi$-transpose (\Cref{claim:diamexp}). From there, up to constants\footnote{For example, the maximal length of a fork is now $2 \cdot (d^{\prime}+3) \cdot d$.}, the proof is identical to the proof of \Cref{lemma:keylemma}.
 
 
-  \inb{\textbf{Return to last statement after proving connectivity between poles to non-poles.}}
+  %\inb{\textbf{Return to last statement after proving connectivity between poles to non-poles.}}
 
