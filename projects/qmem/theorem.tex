@@ -210,7 +210,6 @@ The proof of the first two conditions is identical to \Cref{claim:prevslices}, w
 Now, since $ J_{i} \cap J_{i+1} \neq \emptyset $, we can choose $ z_{i}^{1} = z_{i+1}^{2} $ for any $ i $, so the above becomes a telescoping sum. Moreover, setting $ z_{0}^{2} = x $ and $ z_{2k}^{1} = y $ yields the desired inequality.
   \end{proof}
 Next, we introduce the realization of a logical Hadamard.
-\subsection{Logical Hadamard.}
 For a fixed subset of generators $ J \subset S $, which is used to define the encoded logical bit, we define the permutation that permutes $ J $ into $ S/J $ and vice versa. Extending this permutation, first to an automorphism over the Toric elements, and then to a permutation over the Toric faces, gives a map that keeps the stabilizers but sends $ X_{J} \leftrightarrow X_{S/J} $.
 \begin{definition}
 Let $\psi \colon S \rightarrow S$ be a permutation on the generators in $S$, so $\psi$ has a natural extension to an automorphism on $\mathcal{G}$\footnote{By replacing each of the generators in a product by its image according to $\psi$.}. Extend $\psi$ to act over the faces of the $(d,d^{\prime})$-Toric as follows:
@@ -276,7 +275,7 @@ Notice that although the statement in \Cref{claim:invpar} is correct for the siz
       z \colonequals \rotfv{v}{S^{\prime}}+ \rotfv{gv}{S^{\prime}} + \rotfv{g^{2}v}{S^{\prime}} + ,.., + \rotfv{g^{10}v}{S^{\prime}}
     \end{split}
   \end{equation*}
-Now, consider permuting by $\psi$-permutation only the first register. Clearly, the diameter increases.
+Now, consider permuting by $\psi$-permutation only the qubits in the first register. Clearly, the diameter of the slice increases.
 \end{remark}
 
 \begin{claim}
@@ -318,6 +317,10 @@ So, the inequality holds.
 \begin{definition}
   For a $(2d^{\prime},d^{\prime})$-Toric code, we define the realization of Hadamard gate by $ H^{\otimes (\cdot) } \circ \phi \circ \psi$ followed by $d^{\prime} + 2$ times sweep-cycle (See also \Cref{corollary:hadamard}). 
 \end{definition}
+
+
+
+
 
 \begin{definition}[Clifford-free Toric Encoded Circuit]
 We extend the Toric Encoded definition to the Clifford-free Toric encoded circuit by requiring that $d^{\prime}=d-d^{\prime}=d/2$, replacing the realization of the Hadamard gate with the fold-transversal realization instead of Gate-teleportation. In addition, we enforce that the depth of the logical layers be exactly $d^{\prime}+3$ by padding with identity\footnote{And, of course, in any practical implementation, it will be better to pad with Sweep-cycles. We do it for the convenience of the adaptation.}.
