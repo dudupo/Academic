@@ -332,6 +332,18 @@ We extend the Toric Encoded definition to the Clifford-free Toric encoded circui
   The maximal length of a fork is $2 \cdot (d^{\prime}+3) \cdot d$. 
 \end{claim}
 
+  \begin{theorem}
+    \label{theorem:cliffordfree}
+There exists a constant $ p_{0} \in (0,1) $ such that for any local stochastic noise channel $\mathcal{E}$ with rate $ p < p_{0} $, and a Clifford+$\mathbf{T}$ quantum circuit $ C $ with depth $\mu$, $\mathbf{T}$-depth $\mu_{\mathbf{T}}$ and width $ w $, there exists a Clifford-free Toric encoded circuit $\tilde{C}$, with depth $ \Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{5}\log n) $ and width $\Theta((w + \mu) n^{8})$ that simulates $ C $ with probability:
+\begin{equation*}
+  \begin{split}
+    1 -   \Theta \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n^{\frac{1}{8}})} 
+  \end{split}
+\end{equation*}
+  \end{theorem} 
+
+
+
 %\inb{\textbf{Adapt it to the Clifford-free.}}
 %\begin{claim}[Adaption of \Cref{claim:shrinkan}]
 %    \label{claim:shrinkan2}
