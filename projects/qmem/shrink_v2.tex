@@ -58,12 +58,8 @@ Combining the two, we get that $v \notin \partial^{-} (z + \varphi)$, so the red
 \end{proof}
 We finished analyzing the first part of the sweep-cycle that acts in the computational basis. In the next section, we show that the second part of the cycle shrinks reduced phase errors.
 \subsubsection{The Sweep-Rule Phase in the Dual Code}
-
-
-The $Z$-errors are 'handled' at the second phase of the sweep-cycle. In that stage, we move to the dual code, which is a $(d,d-d^{\prime})$-Toric code by the application of $\mathbf{H}_{\phi}$. Then, \Cref{claim:sweepshrink} guarantees that the error is shrunk relative to the dual image. What we would like to prove is that after returning to the original code, the error is shrunk. 
+The $Z$-errors are addressed in the second phase of the sweep cycle. In this stage, we move to the dual code, which is a $(d,d-d^{\prime})$-Toric code. So, \Cref{claim:sweepshrink} ensures that the error is reduced relative to the dual image. Yet, what we care about is that the error will be shrunk in the original view, namely after turning back to the $(d,d^{\prime})$-Toric code.
 To do that, we will need the following claim:
-
-
 \begin{claim}
   \label{claim:checksup}
   Let $\sigma$ be a $d^{\prime}-1$ dimensional chain. Such a vertex $v$ suggests a correction. Denote $w = \sigma|_{v+}$ and for any $g \in S$, denote by $w|_{gv}$ and $w|_{/gv}$ the restriction of $w$ to faces containing $gv$ and their complement. If $w|_{gv} \neq 0$, then $w|_{/gv} \neq 0$.
