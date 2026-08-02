@@ -50,6 +50,7 @@ To prove that no connected error reaches a size greater than $\gamma n$, we use 
 The next lemma is the core of the theorem; it analyzes the probability of a logical error occurring after the initialization stage, namely when assuming the given input is encoded.
 
   \begin{lemma}
+    \claim{lemma:keylemma}
 For any $d, d^{\prime}$, there are constants $a, b \in \mathbb{R}^{+}$ and $p_{0} \in (0,1)$ that depend only on $d, d^{\prime}$ and satisfy the following. Consider a quantum circuit $C$ with depth $\mu$ and width $w$, and let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $\tilde{C}$ such that each of its quantum registers is encoded by an $n$-side length, $(d, d^{\prime})$-Toric code, and it simulates $C$ with probability:
 \begin{equation*}
   \begin{split}
@@ -174,6 +175,7 @@ In addition, for a vertex $v$ in a space-time graph, we define $\pred{v}$ to be 
 
 An adaptation of \Cref{claim:reducederr} to the diameter function. The proof is identical to the original version. \inb{\textbf{Rewrite}}
 \begin{claim}
+  \label{claim:rereduced}
   Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be a $d^{\prime}$-dimensional finite chain, consider the stabilizer  $z \in \mathcal{C}_{Z}^{\perp}$ which adding it to $x$ minimize the size , Namely: 
   \begin{equation*}
     \begin{split}
@@ -187,7 +189,6 @@ An adaptation of \Cref{claim:reducederr} to the diameter function. The proof is 
     \end{split}
   \end{equation*}
 \end{claim}
-
 
 The following is an adaptation of \Cref{claim:prevslices} to the diameter function.
 \begin{claim} 
@@ -276,6 +277,7 @@ Follows directly from the fact that summation and the max-function are invariant
 
 
 \begin{claim}
+  \label{cliam:diamexp}
   Consider a $d^{\prime}$-dimensional chain $z$ such both $z$ and $\phi(z)$ are finite, then it holds that: 
       \begin{equation*}
         \begin{split}
@@ -337,33 +339,16 @@ We extend the Toric Encoded definition to the Clifford-free Toric encoded circui
 There exists a constant $ p_{0} \in (0,1) $ such that for any local stochastic noise channel $\mathcal{E}$ with rate $ p < p_{0} $, and a Clifford+$\mathbf{T}$ quantum circuit $ C $ with depth $\mu$, $\mathbf{T}$-depth $\mu_{\mathbf{T}}$ and width $ w $, there exists a Clifford-free Toric encoded circuit $\tilde{C}$, with depth $ \Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{5}\log n) $ and width $\Theta((w + \mu) n^{8})$ that simulates $ C $ with probability:
 \begin{equation*}
   \begin{split}
-    1 -   \Theta \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n^{\frac{1}{8}})} 
+    1 -   \Theta \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n)} 
   \end{split}
 \end{equation*}
   \end{theorem} 
 
   \begin{proof}[Sketch of the proof.]
-    \Cref{def:reduced}, \Cref{def:localprop} and the proofs of \Cref{claim:reducederr} and \Cref{claim:intersyn} can be easily modified to support a redefinition of a reduced form, in which we match for a chain it's addition by stabilizer that reduce the diameter. It's easy, to see that if the diameter of a $d^{\prime}$-dimensional chain $z$ is lower than $n$ then for any generator $g \in S$ it holds that $\max L_{g}(z) - \min L_{g}(z)$ is lower than $n$, so if $z$ it's a connected component of a support of an $\infty$-view of some Pauli error then the sweep-rule shrinks it's diameter by at least $1$ (assuming no mergging occuerred), namely, assuming that no step admits infinite-error according to the diameter implies that the sweep rule bringing closers poles \Cref{claim:polesmove}. Thus, combining the with the adaption \Cref{ },  one can reformulate 
+    \Cref{def:localprop} and the proof of \Cref{claim:intersyn} can be easily modified to support an intermediate claim stating that having a step that admits an infinite error implies that a previous step admits a reduced error (according to \Cref{claim:rereduced}) with a diameter that is at least a constant fraction of the side of the Toric. Next, we reformulate the explanation definition such that in the bounds on arrows, the diameter substitutes the size. Using \Cref{claim:prevslicesdiam} combined with the fact that the Hadamard realization ends with $d^{\prime} + 2$ sweep-cycles, one can modify \Cref{claim:edgesin} to show that assuming that up to a step $\tau$ no infinite errors were introduced, then any slice in the Clifford-free Toom's contour has an explanation. In particular, it's possible to bypass the expansion in diameter that might be introduced by transposing registers by $\phi$-transpose (\Cref{claim:diamexp}). 
+From there, the proof is identical to the proof of \Cref{lemma:keylemma}.
   \end{proof}
 
-%\inb{\textbf{Adapt it to the Clifford-free.}}
-%\begin{claim}[Adaption of \Cref{claim:shrinkan}]
-%    \label{claim:shrinkan2}
-%Use $\tau$, $\mathcal{H}_{\tau}$, and $t^{\star}$ to denote a step, an analysis of Toom's contour at that step, and the maximal time at that contour. Consider a spanned slice $\hat{K}$ at time $t^{\star}$, where $K \neq H_{K}$. Assuming that no step prior to $\tau$ admits an infinite error, the inequality in \Cref{claim:prevslices} becomes:
-%        \begin{equation*}
-%          \begin{split}
-%            \sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{K} - d - d^{\prime} - 1 
-%          \end{split}
-%        \end{equation*}
-%  \end{claim}
-%  \begin{proof}
-%    We allow vertices at the final time layer to be connected by an arrow if their counterpart on the skeleton shares a check. Therefore, for any $i \in [d]$, the value of $L_{i}$ for $v_{i}$ might be greater by at most 1 than the value of $\prei{v_{i}}$, and the $L_{d+1}$ for $v_{d+1}$ might be greater by at most $d^{\prime} + 1$ than the value of the $d+1$ pole of $\hat{K}$. Hence, overall, we get that:
-%    \begin{equation*}
-%      \begin{split}
-%        \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) & \ge \sum_{i=1}^{d}\bigl( L_{i}\left( v_{i} \right) - 1 \bigr) + L_{d+1}(v_{d+1}) - \max\{ d^{\prime} + 1, d^{\prime}-1\}  \\ 
-%        & = \Size{K} - d - d^{\prime} - 1 
-%      \end{split}
-%    \end{equation*}
-%  \end{proof}
 
+  \inb{\textbf{Return to last statement after proving connectivity between poles to non-poles.}}
 
