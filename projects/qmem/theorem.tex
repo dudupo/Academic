@@ -50,7 +50,7 @@ To prove that no connected error reaches a size greater than $\gamma n$, we use 
 The next lemma is the core of the theorem; it analyzes the probability of a logical error occurring after the initialization stage, namely when assuming the given input is encoded.
 
   \begin{lemma}
-    \claim{lemma:keylemma}
+    \label{lemma:keylemma}
 For any $d, d^{\prime}$, there are constants $a, b \in \mathbb{R}^{+}$ and $p_{0} \in (0,1)$ that depend only on $d, d^{\prime}$ and satisfy the following. Consider a quantum circuit $C$ with depth $\mu$ and width $w$, and let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $\tilde{C}$ such that each of its quantum registers is encoded by an $n$-side length, $(d, d^{\prime})$-Toric code, and it simulates $C$ with probability:
 \begin{equation*}
   \begin{split}
@@ -277,7 +277,7 @@ Follows directly from the fact that summation and the max-function are invariant
 
 
 \begin{claim}
-  \label{cliam:diamexp}
+  \label{claim:diamexp}
   Consider a $d^{\prime}$-dimensional chain $z$ such both $z$ and $\phi(z)$ are finite, then it holds that: 
       \begin{equation*}
         \begin{split}
