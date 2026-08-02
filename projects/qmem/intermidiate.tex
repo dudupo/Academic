@@ -3,9 +3,11 @@
 
 \section{Toom's Contours}
 
+
 \subsection{Intermediate} 
 
-The following definition of propagation describes the evolution of a fault. It assumes an order of steps and defines an operator that is obtained by commuting a given fault with the gates (and faults) prior to a given step.
+
+A core ingredient of our proof is an 'intermediate argument', stating that prior to having a large error that closes a non-trivial loop on the Toric, there must be a step in which there is an error that on one hand doesn't close a non-trivial loop, yet it has a size that is comparable to the Toric side. Before the first step of that kind, we can assume that no error closes a non-trivial loop, or in other words, the errors are finite, and the sweep rule is, in some sense, effective (\Cref{claim:polesmove}). That motivates us to describe the evolution of a fault to a given step and define the notion of a step that admits infinite error.
 
 \begin{definition}[Fault propagation to a step $\tau$]
   \label{def:localprop}
@@ -31,14 +33,9 @@ Now let $C[\mathcal{E}]$ be a noisy circuit, where all of its quantum registers 
 Moreover, we say that a step $\tau$ admits an infinite error if there is a register such that, in the view of the $\infty$-extension of $C[\mathcal{E}]$, the Pauli decomposition of the propagated error at step $\tau$, $\mathcal{D}^{\tau}$, has a term with support on a connected, reduced, $d^{\prime}$-dimensional chain $x$ such that $\Size{x} \ge n$.
 \end{definition}
 
-
-\inb{\textbf{Rewrite.}} The propagation up to step $\tau$ allows us to define the deviation from an ideal run by propagating all the faults and marking all the locations in the result. 
-
-\inb{\textbf{Mention after the claim below, that we will take $\alpha$ such that the claim will also catch the dual code, namely set $d^{\prime} \leftarrow d - d^{\prime}$ if that decrease $\alpha$.}}
-
 \begin{claim}
   \label{claim:intersyn}
-  Let $\alpha = (\Delta d^{\prime}(d-d^{\prime}+1))^{-1}$. Denote by $A$ the event that there is a step that admits an infinite error. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step for which there is a register such that, in the view of the $\infty$-extension, $\mathcal{D}^{\tau}$ has support on a connected, reduced, $d^{\prime}$-dimensional chain $x$ such that $\Size{x} = \alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then the probability that $A$ occurs is bounded by:
+  Let $\alpha = (\Delta d^{2})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite error. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step for which there is a register such that, in the view of the $\infty$-extension, $\mathcal{D}^{\tau}$ has support on a connected, reduced, $d^{\prime}$-dimensional chain $x$ such that $\Size{x} = \alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then the probability that $A$ occurs is bounded by:
   \begin{equation*}
     \begin{split}
       \prb{A} \le w\mu\max_{\tau\in[w\mu]}\prb{B_{\tau}}.
@@ -56,7 +53,7 @@ Moreover, we say that a step $\tau$ admits an infinite error if there is a regis
       P_{1} \in \text{Supp } \mathcal{D}^{\tau}, \, \,  P_{2} \in \text{Supp } \mathcal{D}^{\tau + 1}, \, \, x \text{ is both in } P_{1},P_{2}  \, \, \text{ and } \expval*{P_{1}|u|P_{2}} \neq 0
     \end{split}
   \end{equation*}
-  Since $u$ has a fan at most $\Delta$, and since any qubit ($d^{\prime}$-dimensional face) is connected to at most $d^{\prime}(d-d^{\prime}+1)$ qubits (by stepping through a check\footnote{a $d^{\prime}-1$ dimensional face}), we get that the application of $u$ on $P_{1}$ touches at most $\alpha^{-1}$ chains, and the result of the modification yields $x$. Therefore, $x$ resides inside a union of at most $\alpha^{-1}$, and since $x$ is connected, we have that its size is bounded by summing the size of each chain in the union. Therefore, if any of the chains is at size at most $\alpha n$, it implies that the size of $x$ is lower than $n$. Hence, a necessary condition to step $\tau+1$ to be the first step to admit an infinite error is that step $\tau-1$ admits errors at size greater than $\alpha n$, and hence the existence of a step $\tau^{\prime}\le \tau$ such that $B_{\tau^{\prime}}$ occurs. The inequality follows by using the union bound over all the steps in $C[\mathcal{E}]$.
+  Since $u$ has a fan at most $\Delta$, and since any qubit ($d^{\prime}$-dimensional face) is connected to at most $d^{2}$ qubits (by stepping through a check\footnote{a $d^{\prime}\pm1$ dimensional face}), we get that the application of $u$ on $P_{1}$ touches at most $\alpha^{-1}$ chains, and the result of the modification yields $x$. Therefore, $x$ resides inside a union of at most $\alpha^{-1}$, and since $x$ is connected, we have that its size is bounded by summing the size of each chain in the union. Therefore, if any of the chains is at size at most $\alpha n$, it implies that the size of $x$ is lower than $n$. Hence, a necessary condition to step $\tau+1$ to be the first step to admit an infinite error is that step $\tau-1$ admits errors at size greater than $\alpha n$, and hence the existence of a step $\tau^{\prime}\le \tau$ such that $B_{\tau^{\prime}}$ occurs. The inequality follows by using the union bound over all the steps in $C[\mathcal{E}]$.
 \end{proof}
 
 We close the section by presenting Pauli-paths, which can be thought of as the collapsing errors due to stabilizer measurements.
