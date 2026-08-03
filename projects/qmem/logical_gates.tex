@@ -131,7 +131,7 @@ For the Hadamard gate, we use a modification of the standard two-qubit gate tele
          \lstick[2]{$\ket{\mathbf{H}}$} & \targ{} & & \meter{} &   \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[d][1]{c}   \\
          & &  & & \gate{Z_{S^{\prime}}}   & \gate{X_{S^{\prime}}}  & \rstick{$\mathbf{H}\ket{\psi}$} \\
         \end{quantikz} 
-        \caption{Gate teleportation of the Hadamard gate, using the resource $\ket{\mathbf{H}}$. We emphasize again that although the Hadamard (at least Hadamard-type) has an $O(1)$-depth gate realization, we still need all the operations on the quantum register to be strictly transversal for the sake of the proof. Thus, we realize the Hadamard via gate teleportation. }   
+        \caption{ Gate teleportation of the Hadamard gate, using the resource $\ket{\mathbf{H}}$. We emphasize again that although the Hadamard (at least Hadamard-type) has an $O(1)$-depth gate realization (at least when $d^{\prime}=d/2$), we still need all the operations on the quantum register to be strictly transversal\footnote{In the Clifford-free depth overhead case, \Cref{section:cliffordfree}, we bypass it. Yet at the cost of stretching the depth of the realization.} for the sake of the proof. Thus, we realize the Hadamard via gate teleportation. }   
 \label{fig:magich}
 \end{figure}
 
