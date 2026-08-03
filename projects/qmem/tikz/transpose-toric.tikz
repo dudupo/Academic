@@ -23,12 +23,16 @@
   \draw[green!20!black,fill=green!70!black!70,rounded corners=1, opacity=0.5]%,shift={(0.15,0.15)}]
   (2.9,2.9) rectangle (3.1,4.1);
   \draw[green!20!black,fill=green!70!black!70,rounded corners=1, opacity=0.5]%,shift={(0.15,0.15)}]
-  (1.9,2.9) rectangle (3.1,4.1);
+  (1.9,3.9) rectangle (4.1,4.1);
   \draw[green!20!black,fill=green!70!black!70,rounded corners=1, opacity=0.5]%,shift={(0.15,0.15)}]
-  (3.9,3.9) rectangle (5.1,4.1);
+  (1.9,2.9) rectangle (2.1,4.1);
   \draw[green!20!black,fill=green!70!black!70,rounded corners=1, opacity=0.5]%,shift={(0.15,0.15)}]
-  (3.9,2.9) rectangle (4.1,4.1);
+  (1.9,2.9) rectangle (3.1,3.1);
 
+%      \phi(\rotfv{(2,3)}{ \{ (1,0) \} } ) &= \rotfv{(3,3)}{ \{ (0,1) \} }    \\
+%      \phi(\rotfv{(2,3)}{ \{ (0,1) \} } ) &=  \rotfv{(2,4)}{ \{ (1,0) \} }\\
+%      \phi(\rotfv{(1,3)}{ \{ (1,0) \} }) &=  \rotfv{(2,3)}{ \{ (0,1) \} }\\ 
+%      \phi(\rotfv{(2,2)}{ \{ (0,1) \} } ) &=  \rotfv{(2,3)}{ \{ (1,0) \} }
 
   \draw[black,->, bend left]  (2,3) to node[midway, above]{ $\phi$ } (4.5,3.5) ;
 
