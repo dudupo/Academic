@@ -93,25 +93,20 @@ In each recursive call, the vertex support of $\sigma$ matches a different subse
 
 
 
-A full decoding cycle is composed of first applying the sweep-rule regarding the $X$-syndrome, then moving into the dual code (and reordering the qubits) by $\mathbf{H}_{\phi}$, and then applying the sweep-rule again with the change that the positive direction is flipped to be the negative direction. At the end, we return to the original code by applying $\mathbf{H}_{\phi}$.
+
+
+
+A full decoding cycle consists of four steps: first, applying the sweep rule regarding the $X$-syndrome; next, moving to the dual code via $\mathbf{H}_{\phi}$; then applying the sweep rule again; and finally getting back to the code by $\mathbf{H}_{\phi^{-1}}$.
 
 \begin{definition}[Sweep cycle]
 We define the \textit{sweep cycle} to be the following procedure:
 \begin{enumerate}
     \item For each vertex, perform the sweep rule.
-    \item Apply the Hadamard transform $\mathbf{H}^{\otimes n}$ followed by the $\phi$-transpose, and flip the positive direction.
+    \item Apply the Hadamard transform $\mathbf{H}^{\otimes n}$ followed by the $\phi$-transpose.
     \item Again, apply the sweep rule at each vertex.
-    \item Reverse stage 2 by reordering the qubits according to the $\phi$-transpose, and then apply the Hadamard transform $\mathbf{H}^{\otimes n}$. Flip the positive direction again.
+    \item Reverse stage 2 by reordering the qubits according to the $\phi^{-1}$-transpose, and then apply the Hadamard transform $\mathbf{H}^{\otimes n}$.
 \end{enumerate}
 \end{definition}
 
 
-To have our constructions yield circuits that have $\infty$-extensions \Cref{def:extension}, the sweep-rule cycles have to be 'decoding gadgets' \Cref{def:decgate}.  
-\begin{claim}
-  The local gates that perform the sweep rule are decoding gadgets.
-\end{claim}
-\begin{proof}
-  A local sweep update acts on a constant-size neighborhood around a vertex, uses only local syndrome information, and may be implemented with fresh ancillas that are reset after the update. Any dependence on faults inside the gadget can therefore be pushed onto the data wires as an effective Pauli operator supported on the encoded register, while the reset ancillas carry no residual information. This is exactly the form required in the definition of a decoding gadget.
-\end{proof}
 
-Next, we prove that the sweep rule shrinks error subsets.

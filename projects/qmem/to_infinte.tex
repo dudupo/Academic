@@ -17,6 +17,13 @@ The following two definitions simplify decoding gates by replacing them with the
   Let $C = \{u_{i}\}_{i=1}$ be a quantum circuit, and let $\mathcal{U} = \{u^{\prime}_{i}\}_{i=1} \subset C$ be a subset of the gates in $C$ that are decoding gadgets. For a set of faults $\mathcal{E}$, we define the \textit{unitary decoding representation} of $C[\mathcal{E}]$ to be the quantum circuit obtained by replacing each of the gates in $\mathcal{U}$ with their corresponding Pauli gate according to $\mathcal{E}$.
 \end{definition}
 
+To have our constructions yield circuits that have $\infty$-extensions \Cref{def:extension}, the sweep-rule cycles have to be 'decoding gadgets' \Cref{def:decgate}.  
+\begin{claim}
+  The local gates that perform the sweep rule are decoding gadgets.
+\end{claim}
+\begin{proof}
+  A local sweep update acts on a constant-size neighborhood around a vertex, uses only local syndrome information, and may be implemented with fresh ancillas that are reset after the update. Any dependence on faults inside the gadget can therefore be pushed onto the data wires as an effective Pauli operator supported on the encoded register, while the reset ancillas carry no residual information. This is exactly the form required in the definition of a decoding gadget.
+\end{proof}
 
 Until the end of the subsection, we will assume that the subjected circuits are given in their unitary decoding representation.
 
