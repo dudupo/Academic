@@ -82,7 +82,7 @@ The checks of the code are exactly the first type checks of $\text{Stab}_{v}$.
       
     \item Assume the correction of the claim for dimensions lower than $d, d^{\prime}$. Consider a generators subset $J \subset S$ and let $z \in \mathcal{C}_{v}^{J}$. In addition, consider a generator $g \in J$.
       
-      Decompose $z = z|_{gv} + z|_{/gv}$ where $z|_{gv}$ and $z|_{/gv}$ are the chains consisting of all the faces in $z$ that have support on $gv$ and its complement. Define $z^{*}$ to be the $d^{\prime}-1$-dimensional chain obtained by excluding $gv$ from any face of $z|_{gv}$. Notice that $\partial^{-} z^{*}$ has to be zero since it contains all the faces of $\partial^{-}z$ that contain $gv$ (up to the removal). In other words, $z^{*} \in \mathcal{C}_{v}^{J/g}$. Thus, we can use the induction assumption and infer the existence of $w^{*} \in \text{Stab}_{v}^{S^{\prime}/g}$ such that $z^{*} = w^{*}|_{v}$.
+      Decompose $z = z|_{gv} + z|_{/gv}$ where $z|_{gv}$ and $z|_{/gv}$ are the chains consisting of all the faces in $z$ that have support on $gv$ and its complement. Define $z^{*}$ to be the $d^{\prime}-1$-dimensional chain obtained by excluding $gv$ from any face of $z|_{gv}$. Notice that $\partial^{-} z^{*}$ has to be zero since it contains all the faces of $\partial^{-}z$ that contain $gv$ (up to the removal). In other words, $z^{*} \in \mathcal{C}_{v}^{J/g}$. Thus, we can use the induction assumption and infer the existence of $w^{*} \in \text{Stab}_{v}^{J/g}$ such that $z^{*} = w^{*}|_{v}$.
 
       
 Now, since $w^{*} \in \text{Stab}_{v}^{J/g}$, then $\partial^{-}w = 0$. In particular, $w^{*}$ can be decomposed into a sum of stabilizers rooted in $v$. Let $\rotfv{v}{S^{\prime}_{1}}, \rotfv{v}{S^{\prime}_{2}}, \rotfv{v}{S^{\prime}_{3}}, \ldots, \rotfv{v}{S^{\prime}_{l}}$ be the $d^{\prime}$-dimensional chains corresponding to the stabilizers composing $w^{*}$. Namely:
@@ -97,7 +97,7 @@ Since those stabilizers are basis elements of $\text{Stab}_{v}^{J/g}$, we have t
           w =  \sum_{i} \partial^{-} \rotfv{v}{S^{\prime}_{i} \cup g} 
         \end{split}
       \end{equation*}
-However, $\rotfv{v}{S^{\prime}_{1} \cup g}, \ldots, \rotfv{v}{S^{\prime}_{l} \cup g}$ are $d^{\prime}+1$-dimensional chains corresponding to the stabilizers, which are basis elements of $\text{Stab}_{v}^{S} = \text{Stab}_{v}$. Therefore, $w \in \text{Stab}_{v}$. In addition, opening up the boundary operator yields:
+      However, $\rotfv{v}{S^{\prime}_{1} \cup g}, \ldots, \rotfv{v}{S^{\prime}_{l} \cup g}$ are $d^{\prime}+1$-dimensional chains corresponding to the stabilizers, which are basis elements of $\text{Stab}_{v}^{J}$. Therefore, $w \in \text{Stab}^{J}_{v}$. In addition, opening up the boundary operator yields:
       \begin{equation*}
         \begin{split}
           w|_{v} &=  \sum_{i} \bigl(\partial^{-} \rotfv{v}{S^{\prime}_{i} \cup g} \bigr)|_{v} = \sum_{i} \bigl(\sum_{g^{\prime} \in S^{\prime}_{i}/g}\rotfv{v}{S^{\prime}_{i}/g^{\prime} \cup g} + \rotfv{v}{S^{\prime}_{i}}   \bigr)\\
