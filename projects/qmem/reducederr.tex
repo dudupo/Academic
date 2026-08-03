@@ -67,7 +67,12 @@ The checks of the code are exactly the first type checks of $\text{Stab}_{v}$.
 \end{definition}
 \begin{claim}
   \label{claim:agreement}
-  Let $v$ be a vertex. For any $d^{\prime}\ge 2$, $d\ge d^{\prime}+1$, and any $z \in \mathcal{C}_{v}$, there is a stabilizer $w \in \text{Stab}_{v}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$.
+  Let $v$ be a vertex. For any $d^{\prime}\ge 2$, $d\ge d^{\prime}+1$, and any $z \in \mathcal{C}_{v}$, there is a stabilizer $w \in \text{Stab}_{v}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$. Moreover, the vertex support of $w|_{v}$ is contained in the vertex support of $z|_{v}$, namely:
+  \begin{equation*}
+    \begin{split}
+        \textbf{Str}_{0+}(v, w) \subset \textbf{Str}_{0+}(v, z)
+    \end{split}
+  \end{equation*}
 \end{claim}
 
 \begin{proof}
