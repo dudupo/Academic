@@ -13,7 +13,7 @@ Contrary to high-rate LDPC codes, topological error codes have a geometrical ima
 Another branch of work, whose primary goal was to show that the embedding dimension of the computation can be reduced to 2D \cite{Balasubramanian_2026}, and more recently \cite{dünnweber2026quantummemoryautonomouscomputation}, uses topological codes as the main error correction code. Those constructions simplify the hardware realization; they suggest that quantum computers can be implemented by nearest-neighbor interactions automata - what is believed to be easier to develop. Yet, as in the threshold theorem \cite{aharonov1999faulttolerant}, and in contrast to the works that use high-rate LDPC codes, they rely on a hierarchical correction cycle whose execution time grows with system size. Hence, even though those directions have the potential to overcome the non-constant depth overhead per gate, it seems that the correction cycle imposes a barrier for them to come up with a constant factor in depth-overhead construction. 
 
 \subsection{Stating Our Results}
-In this work, we present a fault-tolerance construction that uses the 4D Toric code and has a constant-depth 'correction' cycle. Or in other words, a construction uses a relatively simple code, yet doesn't admit the cost of hierarchical correction cycle. 
+In this work, we present a fault-tolerance construction that uses the $(d,d^{\prime})$-Toric code and has a constant-depth 'correction' cycle, for any $d^{\prime},d-d^{\prime}>2$. In other words, the construction uses a relatively simple code - the 4D Toric code, yet doesn't incur the cost of a hierarchical correction cycle.
 
 The computation model we consider is quantum circuits subject to \textit{local-stochastic noise}, where only qubits are subjected to the noise, while classical bits are non-noisy. Classical computation is allowed, and the classical depth matters. Namely, at each time unit, only a constant depth of classical computation can be done.  Local stochastic channel is defined to act such that the probability of any subset of locations $S$ (space-time coordinates), which is picked prior to the channel's action, being affected decays exponentially with the subset size. 
 \begin{definition}[Local stochastic noise channel]
@@ -26,7 +26,7 @@ The computation model we consider is quantum circuits subject to \textit{local-s
   \end{equation*}
 \end{definition}
 
-For circuits $\tilde{C}$ and $C$, we say that $\tilde{C}$ simulates $C$ with probability $p$ if, when one stops a noisy run of $\tilde{C}$ at a midpoint, one can, with probability $p$, recover by non-noisy operation an 'image' of a midpoint in the running of $C$, and if stopping at the last time point of $\tilde{C}$ enables recovery of the 'image' of $C$ at the end of its run. We proved the following theorem: 
+For circuits $\tilde{C}$ and $C$, we say that $\tilde{C}$ simulates $C$ with probability $p$ if, when one stops a noisy run of $\tilde{C}$ at a midpoint, one can, with probability $p$, recover by non-noisy operation an 'image' of a midpoint in the running of $C$, and if stopping at the last time point of $\tilde{C}$ enables recovery of the 'image' of $C$ at the end of its run. We state our main theorem as follows:
 \begin{theorem*}[Informal version of \Cref{theorem:main}]
   There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, a quantum circuit $C$ with depth $\mu$ and width $w$, and a big enough integer $n$, there exists a 'logical equivalence' circuit $\tilde{C}$ with depth $\Theta(\mu n^{5}\log n)$ and width $\Theta((w + \mu) n)$ that simulates $C$ with probability:
 \begin{equation*}
@@ -37,7 +37,7 @@ For circuits $\tilde{C}$ and $C$, we say that $\tilde{C}$ simulates $C$ with pro
 Furthermore, $\tilde{C}$ has the following two properties:
 \begin{enumerate}
   \item After a short initialization stage (at depth $\Theta( \text{Poly}(\log n))$), each of the qubits is encoded in the $n$-length 4D Toric code.
-  \item An error correction cycle takes $O(1)$ depth, and the gates in each correction cycle don't depend on time. In particular, if $C$ is the identity circuit, then after the initialization stage, the layers in $\tilde{C}$ are the same.
+  \item An error correction cycle takes $O(1)$ depth, and the gates in each correction cycle don't depend on time. In particular, if $C$ is the identity circuit, then after the initialization stage, the layers in $\tilde{C}$ are the same constant-depth error reduction procedure.
 \end{enumerate}
   \end{theorem*} 
   As mentioned earlier, both code simplicity and constant depth have already been achieved: the former as part of the quantum automation line of work, and the latter through the use of high-rate error correction codes. However, this is the first construction to achieve both simultaneously. \Cref{fig:comapreresults} summarizes and compares the different works:
@@ -63,6 +63,18 @@ Furthermore, $\tilde{C}$ has the following two properties:
     }
     \caption{\label{fig:comapreresults} Comparing different types of works on fault-tolerance. }
   \end{table}
+
+An application that results from a slight modification of the main construction and its proof is a fault-tolerant construction that introduces a constant depth overhead per Clifford gate. We name that construction \textit{Clifford-free Depth Overhead}. \Cref{section:cliffordfree} describes the construction, proves external claims that are needed, and eventually elaborates on how to modify the proof of the main theorem to achieve the desired result.
+
+  \begin{theorem}
+    \label{theorem:cliffordfree}
+There exists a constant $ p_{0} \in (0,1) $ such that for any local stochastic noise channel $\mathcal{E}$ with rate $ p < p_{0} $, and a Clifford+$\mathbf{T}$ quantum circuit $ C $ with depth $\mu$, $\mathbf{T}$-depth $\mu_{\mathbf{T}}$ and width $ w $, there exists a Clifford-free Toric encoded circuit $\tilde{C}$, with depth $ \Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{5}\log n) $ and width $\Theta((w + \mu) n^{8})$ that simulates $ C $ with probability:
+\begin{equation*}
+  \begin{split}
+    1 -   \Theta \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n)} 
+  \end{split}
+\end{equation*}
+  \end{theorem} 
 
 
 \subsection{Discussions, Applications, and Further Directions}
