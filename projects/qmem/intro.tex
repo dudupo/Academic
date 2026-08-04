@@ -43,6 +43,7 @@ Furthermore, $\tilde{C}$ has the following two properties:
   \end{theorem*} 
   As mentioned earlier, both code simplicity and constant depth have already been achieved: the former as part of the quantum automation line of work, and the latter through the use of high-rate error correction codes. However, this is the first construction to achieve both simultaneously. %\Cref{fig:comapreresults} summarizes and compares the different works:
 
+
 %\newcommand{\tcite}[1]{\hfill\cite{#1}}
 %%\scalebox{0.8}{
 %  \begin{table}[h]
@@ -85,9 +86,14 @@ Furthermore, $\tilde{C}$ has the following two properties:
 \subsection{Discussions, Applications, and Further Directions}
 Our result can be understood as follow: when the qubit overhead is not a consideration, it means that the 4D Toric code is might be as good as the good quantum LDPC / Hyperproduct code. That translates to the two following applications: 
 \begin{enumerate}
-    \item New approach for quantum fault tolerance: With the assistance of resource states and gate teleportation, we obtain a fault-tolerant construction with logarithmic depth overhead. Our proof is inherently different from prior works, describes in higher resolution the expected error, and might be used as a springboard for a constant depth overhead construction.   
-    \item Memory in the circuit model: Protecting a 4D Toric encoded state for an exponentially long time is achieved by performing the same operation at each time unit, suggesting that the 4D Toric code is a promising candidate for memory in the circuit model. Combined with evidence that the 4D Toric code also functions as memory in thermal noise models \cite{alicki2008thermalstabilitytopologicalqubit}, and given its relative simplicity, it appears to be a natural choice for real-world memory applications.
+  \item New approach for quantum fault tolerance: Our proof is inherently different from prior works, describes in higher resolution the expected error, and might be used as a springboard for a constant depth overhead construction. Furthermore, claims whose correctness follows from a constant depth overhead construction might be reconsidered in the lens of Clifford-free depth overhead. For example, in the context of \textbf{qPCP} with logarithmic soundness \cite{Anshu_2024}, we suggest that a realization of '$n$-bitwise OR' at logarithmic depth and constant $\mathbf{T}$-depth, combined with our Clifford-free construction, might give the '\textbf{qPCP} with logarithmic soundness' theorem.
+    \item Memory/Storage components: Protecting a 4D Toric encoded state for an exponentially long time is achieved by performing the same operation at each time unit, suggesting that the 4D Toric code is a promising candidate for memory in the circuit model. Combined with the fact that the 4D Toric code also functions as memory in thermal noise models \cite{alicki2008thermalstabilitytopologicalqubit}, and given its relative simplicity, it appears to be a natural choice for real-world memory applications. We emphasize that an experimental usage of codes in four dimensions has already been demonstrated \cite{aasen2025topologicallyfaulttolerantquantumcomputer}, \cite{Berthusen_2024}, \cite{reichardt2024demonstrationquantumcomputationerror}.
 \end{enumerate}
+
+
+
+
+
 
 \section{Outline of the Proof}
 In studying fault tolerance, the typical method is to first distinguish between configurations that can be tolerated and those that cannot. For example, in von Neumann-style proofs \cite{Neumann+1956+43+98}, it is common to track the number of flipped bits; if fewer than half are flipped, the logical states can be recovered. In the work of Aharonov and Ben-Or \cite{aharonov1999faulttolerant}, a logical bit at the $n$ level admits a logical error if at least a constant fraction of the $n-1$ level logical bits that compose it admit an error. In the work of \cite{grospellier:tel-03364419}, a tolerated configuration is one in which all encoded registers can be considered as distributed according to sufficiently weak local stochastic noise. The next step is to show that from a tolerated configuration, we move with high probability to another tolerated configuration. For our goals, each approach presents a challenge: The concatenation method, by definition, requires non-trivial depth computation at each step. Tracking the number of flipped bits fails almost immediately, as topological error correction codes have sublinear distance when a linear number of bits is expected to be flipped. And preserving the local stochastic noise distribution seems to heavily rely on the expansion properties \cite{grospellier:tel-03364419} of the underlying structure, where for topological codes, we expect to forge a 'spatial' dependence.
