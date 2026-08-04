@@ -28,15 +28,15 @@ The computation model we consider is quantum circuits subject to \textit{local-s
 
 For circuits $\tilde{C}$ and $C$, we say that $\tilde{C}$ simulates $C$ with probability $p$ if, when one stops a noisy run of $\tilde{C}$ at a midpoint, one can, with probability $p$, recover by non-noisy operation an 'image' of a midpoint in the running of $C$, and if stopping at the last time point of $\tilde{C}$ enables recovery of the 'image' of $C$ at the end of its run. We proved the following theorem: 
 \begin{theorem*}[Informal version of \Cref{theorem:main}]
-There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, a quantum circuit $C$ with depth $\mu$ and width $w$, and a big enough integer $n$, there exists a 'logical equivalence' circuit $\tilde{C}$ with depth $\Theta(\mu n)$ and width $\Theta((w + \mu) n)$ that simulates $C$ with probability:
+  There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, a quantum circuit $C$ with depth $\mu$ and width $w$, and a big enough integer $n$, there exists a 'logical equivalence' circuit $\tilde{C}$ with depth $\Theta(\mu n^{5}\log n)$ and width $\Theta((w + \mu) n)$ that simulates $C$ with probability:
 \begin{equation*}
   \begin{split}
-    1 -   \Theta \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n^{\frac{1}{4}})} 
+    1 -   \Theta \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n)} 
   \end{split}
 \end{equation*}
 Furthermore, $\tilde{C}$ has the following two properties:
 \begin{enumerate}
-  \item After a short initialization stage (at depth $\Theta(\log n)$), each of the qubits is encoded in the $n$-length 4D Toric code.
+  \item After a short initialization stage (at depth $\Theta( \text{Poly}(\log n))$), each of the qubits is encoded in the $n$-length 4D Toric code.
   \item An error correction cycle takes $O(1)$ depth, and the gates in each correction cycle don't depend on time. In particular, if $C$ is the identity circuit, then after the initialization stage, the layers in $\tilde{C}$ are the same.
 \end{enumerate}
   \end{theorem*} 
