@@ -1,3 +1,15 @@
 \begin{abstract}
-  We suggest a fault tolerance scheme in the circuit model that both uses the 4D Toric code and has a constant-depth correction cycle. Until now, in the circuit model, the use of a topological code as the primary encoding and a constant-depth correction cycle were only achieved separately; this is the first work to achieve them simultaneously. In addition, to date, the 4D-Toric code has been proposed as a memory element in the thermal noise model. Our work shows that it is also suitable as a memory in the circuit model. To achieve that, we adopt the sweep rule defined in \cite{Kubica_2019}, as the main component of the correction cycle, thereby bypassing the need for a hierarchical correction cycle. The proof is based on alternative proofs of Gacs's theorems \cite{Berman}, \cite{gacs2021newversiontoomsproof}, which are distinguished from the standard approaches in that they trace the past that leads to error clusters. 
+We suggest a new proof of quantum fault tolerance based on the alternative proofs of Toom's theorem \cite{Berman} (see also \cite{gacs2021newversiontoomsproof}). The fault tolerance construction is relative to the circuit model, subjected to local stochastic noise, where at each time unit only a constant depth of non-noisy classical computation is allowed. Our main error correction code is the $(d,d^{\prime})$-Toric code, namely qubits are set on the $d^{\prime}$-dimensional faces of the $d$-dimensional Toric. As byproducts of the study, we provide and prove the following:
+  \begin{enumerate}
+    \item  An explicit description of the sweep-rule —a generalization of Toom's rule for topological codes—for any dimension greater than two. In doing so, it answers affirmatively to the conjecture made by Kubica and Preskill \cite{Kubica_2019}.
+    \item A fault tolerant construction in the circuit model that both uses the $(d,d^{\prime})$-Toric code and has a constant-depth correction cycle, where $d^{\prime}, d - d^{\prime} > 2$. Until now, the use of a topological code as the primary encoding and a constant-depth correction cycle were only achieved separately; this is the first work to achieve them simultaneously.
+    \item A novel fault tolerance that doesn't introduce an asymptotic depth overhead per Clifford gate. In particular, there is a threshold $p_{0} \in (0,1)$ such that for a noise rate $p < p_{0}$, and any $n$ large enough, the construction takes a circuit with total depth $\mu$ and a $\mathbf{T}$-depth $\mu_{\mathbf{T}}$, and results a circuit that simulates the given with probability: 
+      \begin{equation*}
+        \begin{split}
+          \Theta ( \text{Poly in circuit size } ) p^{\Theta(n)}   
+        \end{split}
+      \end{equation*}
+      and has a depth $\Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{d+1} \log n ) $. 
+  \end{enumerate}
+Specifically, all these results hold for the 4D-Toric code.
 \end{abstract}
