@@ -76,6 +76,11 @@ Furthermore, $\tilde{C}$ has the following two properties:
 \end{equation*}
   \end{theorem*} 
 
+  \paragraph{Sweep-rule in High Dimensions.} 
+The correction cycle in our construction consists of local operations done in parallel. Concurrently, any vertex of the Toric is thought of as a computation unit that has to decide on a correction to be applied over its local neighborhood. The specific procedure it runs is the sweep-rule, a generalization of Toom's rule invented by Kubica and Preskill \cite{Kubica_2019}. The sweep-rule can be sketched informally as follows: The vertex looks for a subset of bits to flip on its 'first quarter'\footnote{or the positive direction}, such that the flipping erases the syndrome that is seen on the 'first quarter' and all the bits to be flipped are supported on vertices that support the local syndrome. If there is such a subset of bits, then the vertex flips the bits. In \cite{Kubica_2019}, it is argued that for small dimensions, any vertex that sees only syndrome on its 'first quarter' has a subset of bits to be flipped that satisfy the sweep-rule requirement. Moreover, the authors conjectured that this is also true for higher dimensions.
+ 
+
+
 
 \subsection{Discussions, Applications, and Further Directions}
 Our result can be understood as follow: when the qubit overhead is not a consideration, it means that the 4D Toric code is as good as the good quantum LDPC / Hyperproduct code. That translates to the two following applications: 
