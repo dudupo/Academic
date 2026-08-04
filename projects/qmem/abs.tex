@@ -6,7 +6,7 @@ We suggest a new proof of quantum fault tolerance based on the alternative proof
     \item A novel fault tolerance that doesn't introduce an asymptotic depth overhead per Clifford gate. In particular, there is a threshold $p_{0} \in (0,1)$ such that for a noise rate $p < p_{0}$, and any $n$ large enough, the construction takes a circuit with total depth $\mu$ and a $\mathbf{T}$-depth $\mu_{\mathbf{T}}$, and results a circuit that simulates the given with probability: 
       \begin{equation*}
         \begin{split}
-          \Theta ( \text{Poly(circuit's size)} ) p^{\Theta(n)}   
+          1 - \Theta ( \text{Poly(circuit's size)} ) p^{\Theta(n)}   
         \end{split}
       \end{equation*}
       and has a depth $\Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{d+1} \log n ) $. 
