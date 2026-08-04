@@ -126,7 +126,9 @@ The 4D-Toric code is defined as the binary assignment over the 2D-faces (plaquet
 \begin{definition}[Sweep Rule (Inforaml)]
   Let $z$ be a binary assignment on the Toric faces representing 'error'. The \textit{sweep rule decoding procedure} at a vertex $v$ is defined as follows:
 
-Measure the positive checks of $v$ and denote the outcome by $\sigma$. Next, look for an assignment $\tilde{z}$ on the positive bits of $v$ such that the vertex support of $\tilde{z}$ is contained in the vertex support of $\sigma$ and that the syndromes of the positive checks of $v$ assign to $\tilde{z}$ the same syndrome as $\sigma$. If there is such, flip $\tilde{z}$.
+
+Measure the positive checks of $v$ and denote the outcome by $\sigma$. Next, look for an assignment $\tilde{z}$ on the positive bits of $v$ such that the vertex support of $\tilde{z}$ is contained in the vertex support of $\sigma$ and that the positive checks of $v$ assign to $\tilde{z}$ the same syndrome as $\sigma$. If there is such, flip $\tilde{z}$.
+
 \end{definition}
 See \Cref{def:sweeprule} for the formal version. An error correction cycle, or a sweep-cycle, consists of applying the sweep-rule to each vertex and then doing the same in the dual space. \Cref{fig:sweep} provides an example of the result of the sweep rule given a syndrome.
 
