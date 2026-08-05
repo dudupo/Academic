@@ -286,7 +286,7 @@
 
 
 \caption{
-Above: The application of a sweep-cycle, where the green faces represent the bits assignment $z$, and the blue edges correspond to unsatisfied checks $\partial z$. The vertices in $\partial z$ are labeled as $v_{1}, v_{2}, \ldots, v_{8}$. Below: The Toom's contour derived from the single computation layer that matches the cycle. Arrows are colored in blue, while forks are colored in green. Note that $(v_{1}, t+1)$ doesn't belong to the Toom's contour (since $v_{1}$ doesn't belong to the syndrome at time $t+1$).
+Above: The application of a sweep-cycle, where the green faces represent the bits assignment $z$, and the blue edges correspond to unsatisfied checks $\partial^{-} z$. The vertices in the reduced form are labeled as $v_{1}, v_{2}, \ldots, v_{8}$. Notice that the leftmost bottom-inner vertex is not in the reduced form even though it belongs to $z$. Below: The Toom's contour derived from the single computation layer that matches the cycle. Arrows are colored in blue, while forks are colored in green. Note that $(v_{1}, t+1)$ doesn't belong to the Toom's contour (since $v_{1}$ doesn't belong to a reduced error cluster at time $t+1$). 
 }
   \label{fig:toomscontours}
 \end{figure}
