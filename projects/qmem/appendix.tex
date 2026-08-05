@@ -1,107 +1,107 @@
 \section{Appendix}
 
-
-\inb{Below, a semi proof that in CSS code partial correction $Z^{e} \rightarrow Z^{\hat{e}}$ doesn't add bit flip errors. It might adds a global phase. I should enter it in a section about CSS coding. }
-
-\begin{equation*}
-  \begin{split}
-     & X^{f}Z^{e} \ket { w + C_{z}^{\perp} } \\
-     = & X^{f}Z^{e}X^{w} \ket { C_{z}^{\perp} } \\
-     \text{apply } H^{\otimes n } \mapsto & Z^{f}X^{e}Z^{w}\ket { C_{z} } \\
-     = & (-1)^{e \cdot w} Z^{f}Z^{w}X^{e}\ket { C_{z} } \\
-     \text{ partial correction } X^{e +\hat{e}} \mapsto & (-1)^{(e+\hat{e}) (f+w) } (-1)^{e \cdot w} Z^{f}Z^{w}X^{\hat{e}}\ket { C_{z} } \\
-     \text{apply } H^{\otimes n } \mapsto & (-1)^{(e+\hat{e}) (f+w) } (-1)^{e \cdot w} X^{f}X^{w}Z^{\hat{e}}\ket { C_{z}^{\perp} } \\
-     = & (-1)^{(e+\hat{e}) (f+w) } (-1)^{e \cdot w} (-1)^{\hat{e} \cdot w} X^{f}Z^{\hat{e}}X^{w}\ket { C_{z}^{\perp} } \\
-     = & (-1)^{(e+\hat{e}) f } X^{f}Z^{\hat{e}}\ket { w + C_{z}^{\perp}  } \\
-  \end{split}
-\end{equation*}
-
-
-\subsection{Base case for \Cref{claim:agreement}}
-\label{subsection:basecase}
-\begin{proof}
-
- The parity check matrices are:
-\setcounter{MaxMatrixCols}{40}
-\begin{equation*}
-  \begin{split}
-    H_{\mathcal{C}_{v}} = \begin{bmatrix}
-  1  &  1  &  1  &  0  &  0  &  0 \\
-  1  &  0  &  0  &  1  &  1  &  0 \\
-  0  &  1  &  0  &  1  &  0  &  1 \\
-  0  &  0  &  1  &  0  &  1  &  1
-\end{bmatrix} 
-\ \ \ \ \ H_{\text{Stab}_{v}} = \begin{bmatrix}
-  \inb{1}  &  \inb{1}  &  \inb{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
-  \inb{1}  &  0  &  0  &  \inb{1}  &  \inb{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
-  0  &  \inb{1}  &  0  &  \inb{1}  &  0  &  \inb{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
-  0  &  0  &  \inb{1}  &  0  &  \inb{1}  &  \inb{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
-  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
-  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
-  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
-  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
-  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0 \\
-  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0 \\
-  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0  &  0 \\
-  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  \inbr{1}  &  0  &  0  &  0 \\
-  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0 \\
-  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0 \\
-  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  \inbr{1} \\
-  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1} \\
-  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
-  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
-  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0 \\
-  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0 \\
-  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0 \\
-  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0 \\
-  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0 \\
-  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}  &  0  &  0  &  0 \\
-  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0 \\
-  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  \inr{1} \\
-  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}  &  0 \\
-  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}
-\end{bmatrix}
-  \end{split}
-\end{equation*}
-Where we mark in \inb{blue}, \inbr{brown}, and \inr{red} the \inb{first}, \inbr{second}, and \inr{third} types of checks.
-
-
-\begin{equation*}
-  \begin{split}
-    G_{\mathcal{C}_{v}} =   \begin{bmatrix}
-  1  &  0  &  0 \\
-  0  &  1  &  0 \\
-  1  &  1  &  0 \\
-  0  &  0  &  1 \\
-  1  &  0  &  1 \\
-  0  &  1  &  1
-\end{bmatrix} \ \ \ \ \  \ \ \
-G_{\text{Stab}_{v}} = 
-\begin{bmatrix}
-  1  &  0  &  0  &  0 \\
-  0  &  1  &  0  &  0 \\
-  1  &  1  &  0  &  0 \\
-  0  &  0  &  1  &  0 \\
-  1  &  0  &  1  &  0 \\
-  0  &  1  &  1  &  0 \\
-  0  &  0  &  0  &  1 \\
-  1  &  0  &  0  &  1 \\
-  0  &  1  &  0  &  1 \\
-  0  &  0  &  0  &  1 \\
-  1  &  0  &  0  &  1 \\
-  0  &  0  &  1  &  1 \\
-  0  &  0  &  0  &  1 \\
-  0  &  1  &  0  &  1 \\
-  0  &  0  &  1  &  1 \\
-  1  &  0  &  0  &  1 \\
-  0  &  1  &  0  &  1 \\
-  0  &  0  &  1  &  1
-\end{bmatrix}
-  \end{split}
-\end{equation*}
-
-\end{proof}
-
+%
+%\inb{Below, a semi proof that in CSS code partial correction $Z^{e} \rightarrow Z^{\hat{e}}$ doesn't add bit flip errors. It might adds a global phase. I should enter it in a section about CSS coding. }
+%
+%\begin{equation*}
+%  \begin{split}
+%     & X^{f}Z^{e} \ket { w + C_{z}^{\perp} } \\
+%     = & X^{f}Z^{e}X^{w} \ket { C_{z}^{\perp} } \\
+%     \text{apply } H^{\otimes n } \mapsto & Z^{f}X^{e}Z^{w}\ket { C_{z} } \\
+%     = & (-1)^{e \cdot w} Z^{f}Z^{w}X^{e}\ket { C_{z} } \\
+%     \text{ partial correction } X^{e +\hat{e}} \mapsto & (-1)^{(e+\hat{e}) (f+w) } (-1)^{e \cdot w} Z^{f}Z^{w}X^{\hat{e}}\ket { C_{z} } \\
+%     \text{apply } H^{\otimes n } \mapsto & (-1)^{(e+\hat{e}) (f+w) } (-1)^{e \cdot w} X^{f}X^{w}Z^{\hat{e}}\ket { C_{z}^{\perp} } \\
+%     = & (-1)^{(e+\hat{e}) (f+w) } (-1)^{e \cdot w} (-1)^{\hat{e} \cdot w} X^{f}Z^{\hat{e}}X^{w}\ket { C_{z}^{\perp} } \\
+%     = & (-1)^{(e+\hat{e}) f } X^{f}Z^{\hat{e}}\ket { w + C_{z}^{\perp}  } \\
+%  \end{split}
+%\end{equation*}
+%
+%
+%\subsection{Base case for \Cref{claim:agreement}}
+%\label{subsection:basecase}
+%\begin{proof}
+%
+% The parity check matrices are:
+%\setcounter{MaxMatrixCols}{40}
+%\begin{equation*}
+%  \begin{split}
+%    H_{\mathcal{C}_{v}} = \begin{bmatrix}
+%  1  &  1  &  1  &  0  &  0  &  0 \\
+%  1  &  0  &  0  &  1  &  1  &  0 \\
+%  0  &  1  &  0  &  1  &  0  &  1 \\
+%  0  &  0  &  1  &  0  &  1  &  1
+%\end{bmatrix} 
+%\ \ \ \ \ H_{\text{Stab}_{v}} = \begin{bmatrix}
+%  \inb{1}  &  \inb{1}  &  \inb{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+%  \inb{1}  &  0  &  0  &  \inb{1}  &  \inb{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+%  0  &  \inb{1}  &  0  &  \inb{1}  &  0  &  \inb{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+%  0  &  0  &  \inb{1}  &  0  &  \inb{1}  &  \inb{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+%  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+%  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+%  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+%  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+%  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0 \\
+%  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0 \\
+%  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0  &  0 \\
+%  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  \inbr{1}  &  0  &  0  &  0 \\
+%  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0  &  0  &  0 \\
+%  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1}  &  0 \\
+%  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  \inbr{1} \\
+%  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inbr{1}  &  \inbr{1} \\
+%  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+%  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+%  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0 \\
+%  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0 \\
+%  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0 \\
+%  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0 \\
+%  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0 \\
+%  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}  &  0  &  0  &  0 \\
+%  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0 \\
+%  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  0  &  0  &  0  &  \inr{1} \\
+%  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}  &  0 \\
+%  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  0  &  \inr{1}  &  0  &  0  &  \inr{1}
+%\end{bmatrix}
+%  \end{split}
+%\end{equation*}
+%Where we mark in \inb{blue}, \inbr{brown}, and \inr{red} the \inb{first}, \inbr{second}, and \inr{third} types of checks.
+%
+%
+%\begin{equation*}
+%  \begin{split}
+%    G_{\mathcal{C}_{v}} =   \begin{bmatrix}
+%  1  &  0  &  0 \\
+%  0  &  1  &  0 \\
+%  1  &  1  &  0 \\
+%  0  &  0  &  1 \\
+%  1  &  0  &  1 \\
+%  0  &  1  &  1
+%\end{bmatrix} \ \ \ \ \  \ \ \
+%G_{\text{Stab}_{v}} = 
+%\begin{bmatrix}
+%  1  &  0  &  0  &  0 \\
+%  0  &  1  &  0  &  0 \\
+%  1  &  1  &  0  &  0 \\
+%  0  &  0  &  1  &  0 \\
+%  1  &  0  &  1  &  0 \\
+%  0  &  1  &  1  &  0 \\
+%  0  &  0  &  0  &  1 \\
+%  1  &  0  &  0  &  1 \\
+%  0  &  1  &  0  &  1 \\
+%  0  &  0  &  0  &  1 \\
+%  1  &  0  &  0  &  1 \\
+%  0  &  0  &  1  &  1 \\
+%  0  &  0  &  0  &  1 \\
+%  0  &  1  &  0  &  1 \\
+%  0  &  0  &  1  &  1 \\
+%  1  &  0  &  0  &  1 \\
+%  0  &  1  &  0  &  1 \\
+%  0  &  0  &  1  &  1
+%\end{bmatrix}
+%  \end{split}
+%\end{equation*}
+%
+%\end{proof}
+%
 
 \subsection{Time Coarse-Graining}
 In this section, we prove that when subjecting a circuit to local stochastic noise, changing the frequency at which we introduce the fault layers translates to rescaling the noise rate. For this purpose, we are abusing the notation "propagation" by reusing it to describe a different context.
