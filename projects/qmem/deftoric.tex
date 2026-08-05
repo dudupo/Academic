@@ -18,10 +18,9 @@ For defining a decoder and proving its 'correctness,' we will have to overload n
   Additionally, we name $n$ and $d$, the \textit{side length} and the \textit{dimension} of the complex.  
 \end{definition}
 
-
-
-\begin{definition}[Positive Edges and Cubes]
-  For $u,v \in \mathcal{G}_{n}^{d}$, and $S^{\prime}_{1},S^{\prime}_{2} \subset [d]$, with sizes $|S^{\prime}_{1}| = |S^{\prime}_{2}| = i$, we say that the $i$-faces $\theta_{v,S^{\prime}_{1}}$ and $\theta_{u,S^{\prime}_{2}}$ are adjacent if the intersection $\theta_{v,S^{\prime}_{1}} \cap \theta_{u,S^{\prime}_{2}}$ is an $i-1$-face. In addition, if $\theta_{1}$ and $\theta_{2}$ are $i$ and $i-1$-faces such that $\theta_{2} \subset \theta_{1}$, then we say that $\theta_{2}$ is a \textit{positive edge relative to face} $\theta_{1}$ if they are rooted at the same vertex. Furthermore, we say that $\theta_{1}$ is a \textit{positive cube} of $\theta_{2}$. When the $i$-face is clear from the context, we will abbreviate and say that $\theta_{2}$ is \textit{positive}.
+\begin{definition}[Positive Neighborhood]
+For a vertex $v$ and a chain $z$, we use the notation $\textbf{Str}_{0+}(v,z)$ to denote the vertices that are connected to $v$ through positive edges.
+  In addition, for $u,v \in \mathcal{G}_{n}^{d}$, and $S^{\prime}_{1},S^{\prime}_{2} \subset [d]$, with sizes $|S^{\prime}_{1}| = |S^{\prime}_{2}| = i$, we say that the $i$-faces $\theta_{v,S^{\prime}_{1}}$ and $\theta_{u,S^{\prime}_{2}}$ are adjacent if the intersection $\theta_{v,S^{\prime}_{1}} \cap \theta_{u,S^{\prime}_{2}}$ is an $i-1$-face. In addition, if $\theta_{1}$ and $\theta_{2}$ are $i$ and $i-1$-faces such that $\theta_{2} \subset \theta_{1}$, then we say that $\theta_{2}$ is a \textit{positive edge relative to face} $\theta_{1}$ if they are rooted at the same vertex. Furthermore, we say that $\theta_{1}$ is a \textit{positive cube} of $\theta_{2}$. When the $i$-face is clear from the context, we will abbreviate and say that $\theta_{2}$ is \textit{positive}.
 \end{definition}
 \begin{example}
   For example, let $v, u \in \mathcal{G}_{n}^{d}$ and $g_{1} \neq g_{2} \in S$. Consider the 2-face $\theta = \{v, g_{1}v, g_{2}g_{1}v, g_{2}v\}$. Then, for $x, y \in \mathcal{G}_{n}^{d}$, we say that an edge (1-face) $\{x, y\}$ is \textit{positive relative to the face} $\theta$ if $x = v$ and $y$ is either $g_{1}v$ or $g_{2}v$.
