@@ -208,6 +208,13 @@ The proof of the first two conditions is identical to \Cref{claim:prevslices}, w
       & + \max_{g\in S}L_{g}( z_{2k}^{1} ) - \max_{g\in S}L_{g}(z_{2k}^{2} )  
       \end{split}
     \end{equation*}
+    \begin{equation*}
+      \begin{split}
+        \sum_{i=0}^{k}\diam{\hat{K}_{i}} & +  \sum^{k}_{i=1}\diam{F_{i}}  \ge \sum_{i=0}^{2k} \max_{g\in S}L_{g}( z_{i}^{1} ) +  L_{d+1}( z_{i}^{2} )  \\
+        & \ge  \max_{g\in S}L_{g}( z_{0}^{1} ) -  L_{d+1}( z_{0}^{2} )  +  \left( \sum_{i=1}^{2k-1} \max_{g\in S}L_{g}( z_{i}^{1} ) - \inb{\min{g\in S}}L_{g}( z_{i}^{2} ) \right) + \\ 
+      & + \max_{g\in S}L_{g}( z_{2k}^{1} ) - \max_{g\in S}L_{g}(z_{2k}^{2} )  
+      \end{split}
+    \end{equation*}
 Now, since $ J_{i} \cap J_{i+1} \neq \emptyset $, we can choose $ z_{i}^{1} = z_{i+1}^{2} $ for any $ i $, so the above becomes a telescoping sum. Moreover, setting $ z_{0}^{2} = x $ and $ z_{2k}^{1} = y $ yields the desired inequality.
   \end{proof}
 Next, we introduce the realization of a logical Hadamard.
