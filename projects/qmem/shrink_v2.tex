@@ -43,7 +43,7 @@ Next, we prove that for a finite $X$-error, the sweep-cycle advances the corner 
 Let $z$ be a finite reduced $d^{\prime}$-dimensional chain, and let $\xi$ be the reduced result of applying the sweep rule to it. Then:
   \begin{enumerate}
     \item For any generator $g \in S$: $\max \big\{ L_{g}(v) : v \in z \big\} \ge \max \big\{ L_{g}(v) : v \in \xi \big\}  $
-    \item And for $L_{d+1}$ : $ \max \big\{ L_{d+1}(v)  : v \in z \big\} > \max \big\{  L_{d+1}(v) : v \in \xi \big\} + 1$
+    \item And for $L_{d+1}$ : $ \max \big\{ L_{d+1}(v)  : v \in z \big\} \ge \max \big\{  L_{d+1}(v) : v \in \xi \big\} + 1$
   \end{enumerate}
   In particular, $\Size{\xi} \le \Size{z} - 1$.
 \end{claim}
@@ -164,13 +164,13 @@ Consider an error whose $X$- and $Z$-product components lie at positions corresp
     \item For any $i \in [d]$: 
       \begin{equation*}
         \begin{split}
-      \max \big\{ L_{i}(v) : v \in  z_{X} \cup z_{Z} \big\} = \max \big\{ L_{i}(v) : v \in  \xi_{X} \cup   \xi_{Z} \big\}  
+      \max \big\{ L_{i}(v) : v \in  z_{X} \cup z_{Z} \big\} \ge \max \big\{ L_{i}(v) : v \in  \xi_{X} \cup   \xi_{Z} \big\}  
         \end{split}
       \end{equation*}
     \item And for $i = d+1$ : 
       \begin{equation*}
         \begin{split}
-      \max \big\{ L_{d+1}(v)  : v \in  z_{X}  \cup z_{Z} \big\} > \max \big\{  L_{d+1}(v) : v \in  \xi_{X} \cup  \xi_{Z}  \big\} + 1
+      \max \big\{ L_{d+1}(v)  : v \in  z_{X}  \cup z_{Z} \big\} \ge \max \big\{  L_{d+1}(v) : v \in  \xi_{X} \cup  \xi_{Z}  \big\} + 1
         \end{split}
       \end{equation*}
   \end{enumerate}
