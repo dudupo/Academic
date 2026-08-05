@@ -59,6 +59,38 @@ Combining the two, we get that $v \notin \partial^{-} (z + \varphi)$, so the red
 We finished analyzing the first part of the sweep-cycle that acts in the computational basis. In the next section, we show that the second part of the cycle shrinks reduced phase errors.
 \subsubsection{The Sweep-Rule Phase in the Dual Code}
 The $Z$-errors are addressed in the second phase of the sweep cycle. In this stage, we move to the dual code, which is a $(d,d-d^{\prime})$-Toric code. So, \Cref{claim:sweepshrink} ensures that the error is reduced relative to the dual image. Yet, what we care about is that the error will be shrunk in the original view, namely after turning back to the $(d,d^{\prime})$-Toric code.
+To do that, we will need the following claim:
+\begin{claim}
+  \label{claim:checksup}
+  Let $\sigma$ be a $d^{\prime}-1$ dimensional chain. Such a vertex $v$ suggests a correction. Denote $w = \sigma|_{v+}$ and for any $g \in S$, denote by $w|_{gv}$ and $w|_{/gv}$ the restriction of $w$ to faces containing $gv$ and their complement. If $w|_{gv} \neq 0$, then $w|_{/gv} \neq 0$.
+\end{claim}
+\begin{proof}
+  It's given that $v$ applies a correction, denoted by $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$, and recall that $z$ is rooted in $v$, namely $z = z|_{v} = z|_{v+}$, and $\partial^{-} z|_{v} = w$. By the zeroing of boundary of boundary, we have that $(\partial^{-})^{2} z = 0$. Hence:
+  \begin{equation*}
+    \begin{split}
+      (\partial^{-}w)|_{v+} = (\partial^{-}( (\partial^{-} z) |_{v+}))|_{v+} = (\partial^{-}( \partial^{-} z))|_{v+} = 0  
+    \end{split}
+  \end{equation*}
+Assume that $w|_{/gv} = 0$, which means that there are $d^{\prime}-2$-dimensional faces $A = \{\rotfv{v}{S^{\prime}}\}$ such that $w$ can be written as:
+  \begin{equation*}
+    \begin{split}
+      w = \sum_{  \rotfvs{} \in A  } \rotfv{v}{S^{\prime} \cup g }
+    \end{split}
+  \end{equation*}
+  and therefore:
+  \begin{equation*}
+    \begin{split}
+      (\partial^{-}w)|_{v} =  \sum_{  \rotfvs{} \in A  } \rotfv{v}{S^{\prime}  } + \sum_{  \rotfvs{} \in A  } \sum_{g^{\prime} \in S^{\prime}/g}\rotfv{v}{(S^{\prime} / g^{\prime}) \cup g  } 
+    \end{split}
+  \end{equation*}
+Combining that $(\partial^{-}w)|_{v} = 0$ and that all the right terms have support on $gv$ while the left doesn't, we have that:
+  \begin{equation*}
+    \begin{split}
+      \sum_{  \rotfvs{} \in A  } \rotfv{v}{S^{\prime}  }  = 0
+    \end{split}
+  \end{equation*}
+So any $d^{\prime}-2$-dimensional face $\rotfv{v}{S^{\prime}}$ has to appear an even number of times, but then it follows that any $d^{\prime}-1$-dimensional face of the form $\rotfv{v}{S^{\prime} \cup g }$ has to appear an even number of times in $w$, namely $w = 0$, which is a contradiction to the assumption that $v$ suggests a correction.
+\end{proof}
 
 \begin{claim}
   \label{claim:corrdual}
