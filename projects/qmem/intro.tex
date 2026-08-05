@@ -152,7 +152,7 @@ Since different leaves (faults) of Toom's contour might be associated with the s
 See \Cref{subsection:infinitetoric} for embedding into the infinite plane, \Cref{subsection:shrink} for the proof of shrinking, and \Cref{subsection:separator} for the claim about the existence of a sufficient subgraph. 
 
 
-\paragraph{The Intermediate Theorem.}
+\paragraph{The Intermediate Argument.}
 %\label{subsection:internediate}
 Now that we have the code and decoder, the next difference we have to address is how to classify an error. Unlike the classical regime, flipping a stabilizer's qubits doesn't count as a fault. Moreover, the sweep-rule discussed above doesn't shrink stabilizers (as it acts trivially on them). Therefore, we need to redefine what is considered a divergence from the ideal computation. To overcome it, we define the reduced form of an error to be its translation by stabilizer that minimizes the 'perimeter' of the bounding triangle. Then we prove that the poles of the error in it's reduced coalesce with the poles of the syndrome it induces. In particular, the proof that the sweep-rule shrinks an error (\Cref{subsection:shrink}) assumes that the given error is in its reduced form. As a result, instead of defining the vertices of Toom's contour graph to be the flipped vertices as in \cite{Berman}, we define them to be qubits\footnote{In fact: vertices on the qubits' support, see \Cref{subsection:toricencoded}.} in the reduced form of the error.
 
