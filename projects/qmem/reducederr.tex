@@ -107,7 +107,7 @@ The checks of the code are exactly the first type checks of $\text{Stab}_{v}$.
       
     \item Assume the correction of the claim for dimensions lower than $d, d^{\prime}$. Consider a generators subset $J \subset S$ and let $z \in \mathcal{C}_{v}^{J}$. In addition, consider a generator $g \in J$.
       
-      Decompose $z = z|_{gv} + z|_{/gv}$ where $z|_{gv}$ and $z|_{/gv}$ are the chains consisting of all the faces in $z$ that have support on $gv$ and its complement. Define $z^{*}$ to be the $d^{\prime}-1$-dimensional chain obtained by excluding $gv$ from any face of $z|_{gv}$. Notice that $\partial^{-} z^{*}$ has to be zero since it contains all the faces of $\partial^{-}z$ that contain $gv$ (up to the removal). In other words, $z^{*} \in \mathcal{C}_{v}^{J/g}$. Thus, we can use the induction assumption and infer the existence of $w^{*} \in \text{Stab}_{v}^{J/g}$ such that $z^{*} = w^{*}|_{v}$.
+      Decompose $z = z|_{gv} + z|_{/gv}$ where $z|_{gv}$ and $z|_{/gv}$ are the chains consisting of all the faces in $z$ that have support on $gv$ and its complement. Define $z^{*}$ to be the $d^{\prime}-1$-dimensional chain obtained by excluding $gv$ from any face of $z|_{gv}$. Notice that $(\partial^{-} z^{*})|_{v}$ has to be zero since it contains all the faces of $\partial^{-}z$ that contain $gv$ (up to the removal). In other words, $z^{*} \in \mathcal{C}_{v}^{J/g}$. Thus, we can use the induction assumption and infer the existence of $w^{*} \in \text{Stab}_{v}^{J/g}$ such that $z^{*} = w^{*}|_{v}$.
 
       
 Now, since $w^{*} \in \text{Stab}_{v}^{J/g}$, then $\partial^{-}w = 0$. In particular, $w^{*}$ can be decomposed into a sum of stabilizers rooted in $v$. Let $\rotfv{v}{S^{\prime}_{1}}, \rotfv{v}{S^{\prime}_{2}}, \rotfv{v}{S^{\prime}_{3}}, \ldots, \rotfv{v}{S^{\prime}_{l}}$ be the $d^{\prime}$-dimensional chains corresponding to the stabilizers composing $w^{*}$. Namely:
@@ -135,7 +135,7 @@ Thus, adding $w|_{v}$ to $z$ results in:
           z + w|_{v} = z|_{/gv} + \sum_{i} \rotfv{v}{S^{\prime}_{i}} 
         \end{split}
       \end{equation*}
-Which is a $d^{\prime}$-dimensional chain, supported on vertices of the form $g^{\prime}v$ for $g^{\prime}\in J/g$, namely a $d^\prime$-dimensional chain on the complex induced by the $d-1$-dimensional skeleton. In addition, since the boundary operator can only advance the root of a face forward, we have that $\partial^{-} w|_{v} =  (\partial^{-} w)|_{v}$ and therefore $\partial^{-}( z + w|_{v}) = \partial^{-}z + (\partial^{-}w)|_{v} = 0$.
+      Which is a $d^{\prime}$-dimensional chain, supported on vertices of the form $g^{\prime}v$ for $g^{\prime}\in J/g$, namely a $d^\prime$-dimensional chain on the complex induced by the $d-1$-dimensional skeleton. In addition, since the boundary operator can only advance the root of a face forward, we have that $\partial^{-} w|_{v} =  (\partial^{-} w)|_{v}$ (as $w$ is rooted in $v$) and therefore $\partial^{-}( z + w|_{v}) = \partial^{-}z + (\partial^{-}w)|_{v} = 0$.
       
 To summarize, we have both $z + w|_{v} \in \mathcal{C}_{v}^{J/g}$ and $z+w|_{v}$ sets on a $d-1$-dimensional skeleton. Therefore, we can repeat in a recursive manner, with each step resulting in a $d^{\prime}$-dimensional chain in a skeleton with dimension decreased by one. We stop when $d = d^{\prime}$; in that case, the resulting chain has to be trivial.
   \end{enumerate}
