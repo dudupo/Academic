@@ -198,14 +198,14 @@ A sufficiently simple definition of Toom's contours in \cite{Berman} would be a 
 \begin{center}
 \begin{minipage}{0.75\textwidth}
   \textit{
-A graph that describes a noisy run from the Torices' perspective. In particular, the vertices of the graph are the vertices of the Torices, equipped with a time coordinate, that are adjacent to unsatisfied checks.
+A graph that describes a noisy run from the Torices' perspective. In particular, the vertices of the graph are the vertices of the Torices, equipped with a time coordinate, that witness a faulty qubit in a reduced form.
   }
 \end{minipage}
 \end{center}
-We adjust their construction as follows: Denote the graph by $\mathcal{H} \colonequals (V_{\mathcal{H}}, E_{\mathcal{H}})$ and
+We adjust their construction as follows: Denote the graph by $\mathcal{H} \colonequals (V_{\mathcal{H}}, E_{\mathcal{H}})$ and by $P_{1},..,P_{t}$ a \textit{Pauli-path}, such that $P_{i}$ is the propagated error up to time $i$ (including faults that occur at that time), and each 'cluster' of error in $P_{i}$ is in its reduced form. Then,
 \begin{enumerate}
-  \item If at time $t$, a vertex $v$, on the one the Toric complexes\footnote{Actually the infinite grid.} corresponding to one of the quantum registers, sees an unsatisfied check on it's local view, then add $(v,t)$ to the vertices. 
-  \item If at time $t$, vertex $v$ sees an unsatisfied check, and at time $t+1$ its neighbor $u$ sees an unsatisfied check, then we think of the situation as '$v$ 'leads' to $u$' and connect $(v,t)$ and $(u,t+1)$ with an 'arrow'. The vertices $v$ and $u$ might belong to different registers (which matches the case that at time $t$ we apply an operator on both registers). For convenience, we don't require $u$ at time $t$ to see only satisfied checks.
+  \item  If at time $t$, a vertex $v$ on one of the Toric complexes\footnote{Actually the infinite grid.} corresponding to one of the quantum registers supports a face -qubit- that belongs to a reduced error, then add $(v,t)$ to the vertices.
+  \item If at time $t$, vertex $v$ belongs to a reduced error, and at time $t+1$ its neighbor $u$ belongs to a reduced error, then we think of the situation as '$v$ "leads" to $u$' and connect $(v,t)$ and $(u,t+1)$ with an "arrow." The vertices $v$ and $u$ might belong to different registers (which matches the case that at time $t$ we apply an operator on both registers). For convenience, we don't require $u$ at time $t$ to belong only to non-faulty qubits.
   \item As in the classical case, connect any two vertices in $V_{\mathcal{H}}$ that are connected to a third by 'arrows' with a 'fork'.
 \end{enumerate}
 
@@ -215,7 +215,8 @@ Later, we incorporate the 'splitting into turns' idea into the formation of Toom
 
 The rest of the analysis follows \cite{Berman}. We define \textit{slices} at time $t$ to be connected (by arrows) components of vertices at time $t$. Then, in the merging of two slices into one, it is guaranteed that faults induced by each are disjoint; otherwise, those two slices will be connected by arrows, namely - the same slice. For a \textit{slice}, we define its size to be the perimeter of the triangle that would bound the vertices of the slice if they were projected on the same Toric. Then, by induction, we prove that Toom's contour that induces at time $t$ a slice with size $s$ has a spanning tree with at most and at least a constant times $s$ edges and leaves (and therefore faults). That allows us to bound the probability of such a slice occurring by counting the number of possible spanning trees and assigning them the probability that the minimal number of faults occurs.
 
-One technical change that we made and haven't discussed yet is that in the gluing of the last layer, which was defined to capture a partial layer execution up to a turn, we connect by arrows any two vertices that were added to $ V_{\mathcal{H}} $ and share a check. By doing so, we ensure that connected components in the Tanner graph would also be connected by arrows in Toom's contours. We emphasize that such edges connection can be made only in the last stage, as it doesn't pass the induction step. However, the final slice that is formed passes the desired inequalities only by constants and is therefore sufficiently good to derive the probability bound.
+One technical change that we made and haven't discussed yet is that in the gluing of the last layer, which was defined to capture a partial layer execution up to a turn, we connect by arrows any two vertices that were added to $ V_{\mathcal{H}} $ and share a check. By doing so, we ensure that connected components in the bits-to-checks graph would also be connected by arrows in Toom's contours. That is necessary since, without the last gluing, an error cluster that closes a non-trivial loop on the Toric might consist of two 'connected by arrows' error clusters which are tangent.
+We emphasize that such edges connection can be made only in the last stage, as it doesn't pass the induction step. However, the final slice that is formed passes the desired inequalities only by constants and is therefore sufficiently good to derive the probability bound.
 
 \Cref{subsection:toricencoded} defines Toom's contours, \Cref{subsection:spacetimegraph} defines the slices and states a claim connecting a slice to its predecessors, and \Cref{subsection:explantion} provides the induction proofs.
 
