@@ -18,8 +18,7 @@ For defining a decoder and proving its 'correctness,' we will have to overload n
   Additionally, we name $n$ and $d$, the \textit{side length} and the \textit{dimension} of the complex.  
 \end{definition}
 
-\begin{definition}[Positive Neighborhood]
-For a vertex $v$ and a chain $z$, we use the notation $\textbf{Str}_{0+}(v,z)$ to denote the vertices that are connected to $v$ through positive edges.
+\begin{definition}[Positive Edges]
   In addition, for $u,v \in \mathcal{G}_{n}^{d}$, and $S^{\prime}_{1},S^{\prime}_{2} \subset [d]$, with sizes $|S^{\prime}_{1}| = |S^{\prime}_{2}| = i$, we say that the $i$-faces $\theta_{v,S^{\prime}_{1}}$ and $\theta_{u,S^{\prime}_{2}}$ are adjacent if the intersection $\theta_{v,S^{\prime}_{1}} \cap \theta_{u,S^{\prime}_{2}}$ is an $i-1$-face. In addition, if $\theta_{1}$ and $\theta_{2}$ are $i$ and $i-1$-faces such that $\theta_{2} \subset \theta_{1}$, then we say that $\theta_{2}$ is a \textit{positive edge relative to face} $\theta_{1}$ if they are rooted at the same vertex. Furthermore, we say that $\theta_{1}$ is a \textit{positive cube} of $\theta_{2}$. When the $i$-face is clear from the context, we will abbreviate and say that $\theta_{2}$ is \textit{positive}.
 \end{definition}
 \begin{example}
@@ -136,3 +135,9 @@ Where we used that the term in the closure is invariant to sweeping between $g$ 
 
 The conditions $ (\partial^{\pm})^{\circ 2} = 0 $ imply that $ \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \xrightarrow{ \partial^{\pm} } \mathbb{F}_{2}^{|\mathcal{F}_{i \pm 1}|}$ are chain complexes. Therefore, for any $d^{\prime}$, every $d^{\prime}-1$ face and every $d^{\prime}+1$ face overlap on an even number of $d^{\prime}$-faces, so the corresponding $X$- and $Z$-checks commute. This is exactly the CSS condition.
 \end{proof}
+
+ 
+\begin{definition}[Positive Neighborhood]
+For a vertex $v$ and a chain $z$, we use the notation $\textbf{Str}_{0+}(v,z)$ to denote the vertices in $z$ that are connected to $v$ through a stepping via generator, namely all the vertices that support a face in $z$ of the form $gv$ for some $g \in S$. We think of $\textbf{Str}_{0+}(v,z)$ as the positive neighborhood of $v$ in $z$.
+\end{definition}
+
