@@ -168,7 +168,7 @@ Our next objective is to modify the construction to introduce no depth overhead 
   We define the diameter function $\textbf{Diam} \colon \mathbb{F}_{2}^{\mathcal{F}} \rightarrow \mathbb{R}$ to act on a finite chain $z \in \mathbb{F}_{2}^{\mathcal{F}}$ as:
   \begin{equation*}
     \begin{split}
-      \diam{z } \colonequals \max_{v \in z}\max_{g \in S} L_{g}(v) - \min_{v \in z}\sum_{g \in S} L_{g}(v) 
+      \diam{z } \colonequals \max_{v \in z}\max_{g \in S} d L_{g}(v) - \min_{v \in z}\sum_{g \in S} L_{g}(v) 
     \end{split}
   \end{equation*}
 In addition, for a vertex $v$ in a space-time graph, we define $\pred{v}$ to be the vertex in $\pre{v}$ that achieves the maximal value of $\max_{g\in S}L_{g}$.
@@ -203,20 +203,11 @@ The diameter function fits well within the definition of space-time graphs. The 
 The proof of the first two conditions is identical to \Cref{claim:prevslices}, where $K_{1}, K_{2}, \ldots$ are chosen such that the connected graph is a spanning tree. For the third, first we use the fact that in the formed spanning trees there are (at most) two leaves and therefore, the degree is lower than two, and the graph is a simple path. Denote by $J_{0}, \ldots, J_{2k}$ the enumerated union of $K_{0}, \ldots, K_{k}, F_{1}, \ldots, F_{k}$. Now consider the $2k+1$ vertices $z_{0}^{1}, z_{0}^{2}, z_{1}^{1}, z_{1}^{2}, \ldots, z_{2k}^{1}, z_{2k}^{2}$ such that $z_{i}^{j} \in J_{i}$ and that $J_{i}$'s are ordered such that $J_{i} \cap J_{i+1} \neq \emptyset$. In addition, let us assume that $\predd{x} \in J_{0}, \pred{y} \in J_{2k}$. Observe that for any such collection of vertices we have that:
     \begin{equation*}
       \begin{split}
-        \sum_{i=0}^{k}\diam{\hat{K}_{i}} & +  \sum^{k}_{i=1}\diam{F_{i}}  \ge \sum_{i=0}^{2k} \max_{g\in S}L_{g}( z_{i}^{1} ) +  L_{d+1}( z_{i}^{2} )  \\
-      & \ge  \max_{g\in S}L_{g}( z_{0}^{1} ) -  L_{d+1}( z_{0}^{2} )  +  \left( \sum_{i=1}^{2k-1} \max_{g\in S}L_{g}( z_{i}^{1} ) - \max_{g\in S}L_{g}( z_{i}^{2} ) \right) + \\ 
-      & + \max_{g\in S}L_{g}( z_{2k}^{1} ) - \max_{g\in S}L_{g}(z_{2k}^{2} )  
+        \sum_{i=0}^{k}\diam{\hat{K}_{i}} & +  \sum^{k}_{i=1}\diam{F_{i}}  \ge \sum_{i=0}^{2k} \max_{g\in S}d L_{g}( z_{i}^{1} ) +  L_{d+1}( z_{i}^{2} )  \\
+      & \ge  \max_{g\in S}d L_{g}( z_{0}^{1} ) -  L_{d+1}( z_{0}^{2} )  +  \left( \sum_{i=1}^{2k} - L_{d+1}( z_{i}^{1} ) + L_{d+1}( z_{i}^{2} )   \right)  
       \end{split}
     \end{equation*}
-
-    \begin{equation*}
-      \begin{split}
-        \sum_{i=0}^{k}\diam{\hat{K}_{i}} & +  \sum^{k}_{i=1}\diam{F_{i}}  \ge \sum_{i=0}^{2k} \max_{g\in S}L_{g}( z_{i}^{1} ) +  L_{d+1}( z_{i}^{2} )  \\
-        & \ge  \max_{g\in S}L_{g}( z_{0}^{1} ) -  L_{d+1}( z_{0}^{2} )  +  \left( \sum_{i=1}^{2k-1} \max_{g\in S}L_{g}( z_{i}^{1} ) - \inb{\min_{g\in S}}L_{g}( z_{i}^{2} ) \right) + \\ 
-      & + \max_{g\in S}L_{g}( z_{2k}^{1} ) - \max_{g\in S}L_{g}(z_{2k}^{2} )  
-      \end{split}
-    \end{equation*}
-Now, since $ J_{i} \cap J_{i+1} \neq \emptyset $, we can choose $ z_{i}^{1} = z_{i+1}^{2} $ for any $ i $, so the above becomes a telescoping sum. Moreover, setting $ z_{0}^{2} = x $ and $ z_{2k}^{1} = y $ yields the desired inequality.
+    Now, since $ J_{i} \cap J_{i+1} \neq \emptyset $, we can choose $ z_{i}^{1} = z_{i+1}^{2} $ for any $ i \in [1,2k-1] $, so the above becomes a telescoping sum. Moreover, setting $ z_{0}^{2} = x $ and $ z_{2k}^{1} = y $ yields the desired inequality.
   \end{proof}
 Next, we introduce the realization of a logical Hadamard.
 For a fixed subset of generators $ J \subset S $, which is used to define the encoded logical bit, we define the permutation that permutes $ J $ into $ S/J $ and vice versa. Extending this permutation, first to an automorphism over the Toric elements, and then to a permutation over the Toric faces, gives a map that keeps the stabilizers but sends $ X_{J} \leftrightarrow X_{S/J} $.
