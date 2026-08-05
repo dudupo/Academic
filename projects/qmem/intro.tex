@@ -177,7 +177,7 @@ Here comes the splitting of the computation into steps to advantage. In each ste
 Since the gates and the faults have a bounded fan-in/out\footnote{The faults are bounded-fan because we can assume that in the time units representation they are Pauli products and therefore in the steps presentation they are decomposed into single qubit Pauli matrices.} In each step, the maximal size of an error cluster can increase by at most a constant factor, with the maximal increase occurring when multiple clusters are merged. Equipped with that insight, we are able to infer the intermediate argument. 
 
 
-\Cref{subsection:model} formalize the computation model and the computation graph presentation (splitting to steps). In particular, see \Cref{claim:deviation_clusters} and \Cref{claim:inter} for the formal proof of the intermediate theorem. 
+\Cref{subsection:model} formalize the computation model and the computation graph presentation (splitting to steps). In particular, see \Cref{claim:intersyn} for the formal proof of the intermediate argument. 
 
 \paragraph{Description of the Construction.}
 Similarly to other fault tolerance approaches, we use the concatenation construction in order to initialize zeros and resource states encoded in the 4D-Toric code, as referred to in \cite{grospellier:tel-03364419}, \cite{gottesman2014faulttolerant}. From there, we assume that all the quantum registers are encoded in the 4D-Toric code, and we name each of the encoded block a quantum register. The resources states are spread across two registers.
