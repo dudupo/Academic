@@ -60,11 +60,18 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
 
       \item The edges $E_{\mathcal{H}} \subset E_{o} $ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$, where for any logical gate $g$ which applied in time $t$ in $C[\mathcal{E}]^{\infty} $ we add edge to $A_{\mathcal{H}}$ as follow: 
         \begin{enumerate}
-          \item If $g$ is either a logical Pauli, a measurement (both in the computational and phase basis), or an identity, then for any face $f$ in the register on which $g$ acts, we add:
+          \item If $g$ is either a logical Pauli, a measurement in the computational base, or an identity, then for any face $f$ in the register on which $g$ acts, we add:
             \begin{equation*}
               \begin{split}
                 & \bigl\{  \{ \tilde{u} = (\cdot, u,t),  \tilde{v} = ( \cdot, v,t+1)\} : u,v \in f \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \\ 
-                & \text { or }  u,v \in \phi(f) \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
+                &  \, \, \, \text { or }  u,v \in \phi(f) \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
+              \end{split}
+            \end{equation*}
+          \item If $g$ is a measurement in the phases base, then for any face $f$ in the register on which $g$ acts, we add:
+            \begin{equation*}
+              \begin{split}
+                & \bigl\{  \{ \tilde{u} = (\cdot, u,t),  \tilde{v} = ( \cdot, v,t+1)\} : u \in f , v \in \phi(f) \text{ and } \tilde{u} \in V_{\mathcal{H},X}, \tilde{v} \in V_{\mathcal{H},Z}, \\ 
+                &  \, \, \, \text { or }  u\in \phi(f), v \in f \text{ and } \tilde{u} \in V_{\mathcal{H},Z} , \tilde{v} \in  V_{\mathcal{H},X} \bigr\} 
               \end{split}
             \end{equation*}
             \item If $g$ is a logical $\mathbf{CX}$ then for any physical $\mathbf{CX}$ in its realization, between faces $f_{1}$ into $f_{2}$ at time $t$ we add: 
