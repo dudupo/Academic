@@ -97,17 +97,23 @@ For the analyses, we would like to extend Toom's contour to record in their fina
 \begin{definition}
   For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, and a step $\tau$, according to the standard order, let $C[\mathcal{E}]_{\tau}$ be the partial computation circuit of $C[\mathcal{E}]$ up to step $\tau$. We define the \textit{analysis Toom's contour at step $\tau$}, denoted by $\mathcal{H}_{\tau} = (V_{\mathcal{H}}, E_{\mathcal{H}})$, to be the graph obtained by taking the Toom's contour of $C[\mathcal{E}]_{\tau}$ and adding vertices and edges as follows:
   \begin{enumerate}
-    \item For vertices, we define $t^{\star}$ as the time of the gate at step $\tau$ plus one, and then add duplication of the previous layer, namely the subset:
-        \begin{equation*}
+    \item We define $t^{\star}$ as the time of the gate at step $\tau$ plus one, and then add for the vertices in $V_{\mathcal{H},\{X\}}$ the duplication of the previous layer, namely the subset:
+      \begin{equation*}
           \begin{split}
-            \bigl\{ v_{t^{\star}}  & : v_{t^{\star}}=(v,t^{\star}) \text{ such there exists a face } f \in \text{ supp } P_{t^{\star}-1} \text{ such } v \in f \in  P_{t^{\star} - 1} \bigr\} 
+            \bigl\{ v_{t^{\star}}  & : v_{t^{\star}}=( \{X\}, v,t^{\star}) \text{ such there exists a face } f \in \text{ supp } P_{t^{\star}-1} \text{ such } v \in f \in X(P_{t^{\star} - 1}) \bigr\} 
+          \end{split}
+        \end{equation*}
+        Similarly we add to $V_{\mathcal{H}, Z}$ the subset: 
+      \begin{equation*}
+          \begin{split}
+            \bigl\{ v_{t^{\star}}  & : v_{t^{\star}}=( \{Z\}, v,t^{\star}) \text{ such there exists a face } f \in \text{ supp } P_{t^{\star}-1} \text{ such } v \in f \in Z(P_{t^{\star} - 1}) \bigr\} 
           \end{split}
         \end{equation*}
       \item For the edges, we add the following arrows:
         \begin{equation*}
           \begin{split}
-            \bigl\{ \bigl\{ (u,t^{\star} -1 ), (v,t^{\star})  \bigr\} & \text{ if there exists a  face } f \in  P_{t^{\star} - 1} \\ 
-              & \text{ such } v_{t^{\star}},u_{t^{\star} - 1 } \in f   \bigr\}  
+            \bigl\{ \bigl\{ \tilde{u} = (\cdot, u,t^{\star} -1 ), \tilde{v}= (v,t^{\star})  \bigr\} & \text{ if there exists a  face } f \in  X(P_{t^{\star} - 1}) \\ 
+            & \text{or  } f \in Z(P_{t^{\star} - 1}) \text{ such } v,u \in f   \bigr\}  
           \end{split}
         \end{equation*}
       \item Finally, we add forks for vertices at time $t^{\star}$ to preserve the property that any two vertices with the same time coordinate, which are connected to a third via arrows, are also connected by a fork.
