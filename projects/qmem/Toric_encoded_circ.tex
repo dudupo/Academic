@@ -47,7 +47,7 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
             V_{\mathcal{H}, X} \colonequals & \big\{ v_{t} \times \{X\} : v_{t}=(v,t) \in V_{o} \\
             & \, \, \, \text{ and there exists a face } f \in \text{ supp } X(P_{t}) \text{ such } v \in f \big\} \\
              V_{\mathcal{H}, Z} \colonequals & \big\{ v_{t} \times \{Z\} : v_{t}=(v,t) \in V_{o} \\
-             & \, \, \, \text{ and there exists a face } f \in \text{ supp } Z(P_{t}) \text{ such } v \in f \big\} 
+             & \, \, \, \text{ and there exists a face } f \in \text{ supp } Z(P_{t}) \text{ such } v \in \phi(f) \big\} 
           \end{split}
         \end{equation*}
 
@@ -63,14 +63,15 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
           \item If $g$ is either a logical Pauli, a measurement (both in the computational and phase basis), or an identity, then for any face $f$ in the register on which $g$ acts, we add:
             \begin{equation*}
               \begin{split}
-                & \bigl\{  \{ \tilde{u} = (\cdot, u,t),  \tilde{v} = ( \cdot, v,t+1)\} : u,v \in f \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \text { or } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
+                & \bigl\{  \{ \tilde{u} = (\cdot, u,t),  \tilde{v} = ( \cdot, v,t+1)\} : u,v \in f \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \\ 
+                \text { or }  u,v \in \phi(f) \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
               \end{split}
             \end{equation*}
             \item If $g$ is a logical $\mathbf{CX}$ then for any physical $\mathbf{CX}$ in its realization, between faces $f_{1}$ into $f_{2}$ at time $t$ we add: 
             \begin{equation*}
               \begin{split}
-                & \bigl\{  \{ \tilde{u}  = (\cdot, u,t), \tilde{v} = ( \cdot, v,t+1)\} :  u \in f_{1}\cup f_{2}, v \in f_{1}\cup f_{2}  \\ 
-                & \, \, \, \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \text { or } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
+                & \bigl\{  \{ \tilde{u}  = (\cdot, u,t), \tilde{v} = ( \cdot, v,t+1)\} :  u \in f_{1}\cup f_{2}, v \in f_{1}\cup f_{2}  \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X}  \\
+                &  \, \, \, \text { or } u \in \phi(f_{1})\cup \phi(f_{2}), v \in \phi(f_{1})\cup \phi(f_{2}) \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
               \end{split}
             \end{equation*}
         \end{enumerate}
