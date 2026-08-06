@@ -181,11 +181,24 @@ We close the section by defining the \textit{reduced} form of a finite $d^{\prim
 
 \input{./tikz/edge.tikz}
 
+\inb{\textbf{ Need to reorder the definitions + advance on them to the top.}}
 
 \begin{definition}
   \label{def:finiteerr}
-  Let $z$ be a $d^{\prime}$-dimensional chain. Consider the graph whose vertices are the faces of $z$, and any two vertices are connected by an edge if their intersection is a $d^{\prime}- 1$ dimensional face or if they are both contained in a $d^{\prime}+1$-dimensional face. Then $z$ is said to be connected if that graph is connected. In addition, we will say that a connected chain $z$ is finite if $\Size{z} < n$. Similarly, $z$ is infinite if $\Size{z} \ge n$. 
+  Let $z$ be a $d^{\prime}$-dimensional chain. Consider the graph whose vertices are the faces of $z$, and any two vertices are connected by an edge if their intersection is a $d^{\prime}- 1$ dimensional face or if they are both contained in a $d^{\prime}+1$-dimensional face. Then $z$ is said to be connected if that graph is connected. In addition, we will say that a connected chain $z$ is finite if for any $g\in S$:
+  \begin{equation*}
+    \begin{split}
+      \max_{v,u \in z} L_{g}(v) - L_{g}(u) < n - 1
+    \end{split}
+  \end{equation*}
+Similarly, $z$ is infinite if there are vertices $v$ and $u$ in $z$ for which the difference above is greater than or equal to $n$.
 \end{definition}
+
+\begin{remark}
+Observe that if $\Size{z} < n$, then $z$ is finite. And if $z$ is finite, then $\Size{z} < d\cdot n$.
+\end{remark}
+
+
 
 
 \begin{definition}
