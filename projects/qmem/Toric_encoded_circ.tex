@@ -67,13 +67,6 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
                 &  \, \, \, \text { or }  u,v \in \phi(f) \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
               \end{split}
             \end{equation*}
-          \item \inb{\textbf{In fact we don't need that, since we are going to uses the replacement argument-\Cref{claim:replace}.}}   If $g$ is a measurement in the phases base, then for any face $f$ in the register on which $g$ acts, we add:
-            \begin{equation*}
-              \begin{split}
-                & \bigl\{  \{ \tilde{u} = (\cdot, u,t),  \tilde{v} = ( \cdot, v,t+1)\} : u \in f , v \in \phi(f) \text{ and } \tilde{u} \in V_{\mathcal{H},X}, \tilde{v} \in V_{\mathcal{H},Z}, \\ 
-                &  \, \, \, \text { or }  u\in \phi(f), v \in f \text{ and } \tilde{u} \in V_{\mathcal{H},Z} , \tilde{v} \in  V_{\mathcal{H},X} \bigr\} 
-              \end{split}
-            \end{equation*}
             \item If $g$ is a logical $\mathbf{CX}$ then for any physical $\mathbf{CX}$ in its realization, between faces $f_{1}$ into $f_{2}$ at time $t$ we add: 
             \begin{equation*}
               \begin{split}
@@ -99,6 +92,28 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
 \end{definition}
 
 \inb{\textbf{Insert an example.}}
+
+
+\begin{remark}
+One might expect to have a differentiation between measurement in the computational and the phases basis. Namely, a rule of connecting forks of the form:
+\begin{center}
+\begin{minipage}{0.75\textwidth}
+  \textit{
+            If $g$ is a measurement in the phases base, then for any face $f$ in the register on which $g$ acts, we add:
+            \begin{equation*}
+              \begin{split}
+                & \bigl\{  \{ \tilde{u} = (\cdot, u,t),  \tilde{v} = ( \cdot, v,t+1)\} : u \in f , v \in \phi(f) \text{ and } \tilde{u} \in V_{\mathcal{H},X}, \tilde{v} \in V_{\mathcal{H},Z}, \\ 
+                &  \, \, \, \text { or }  u\in \phi(f), v \in f \text{ and } \tilde{u} \in V_{\mathcal{H},Z} , \tilde{v} \in  V_{\mathcal{H},X} \bigr\} 
+              \end{split}
+            \end{equation*}
+  }
+\end{minipage}
+\end{center}
+Such intuition is right in the sense that this is the right way to keep track of the faults. Yet, later we will state \Cref{claim:replace} whose corollary is that instead of analyzing the running of the Toric encoded circuit, it is sufficient to analyze the running of a 'simpler' circuit which doesn't contain measurement in the phase base. In particular, the claim considers the circuit obtained from a given Toric encoded circuit by replacing each of the classical decoding procedures with noisy sweep-rule cycles. Then it states that to derive an upper bound on the failure probability of the original circuit, it's enough to bound the probability that the modified circuit does not admit an infinite 'time-connected cluster' (slice, \Cref{def:slice}).
+
+\end{remark}
+
+
 
 For the analyses, we would like to extend Toom's contour to record in their final layer a partial time-step, namely a computation up to a certain step \Cref{def:steps}. For this, we substitute in the definition above the Pauli-path with a Pauli-path up to a step. Moreover, since we would like to refer to the connected chain at the final layer as the 'final error clusters', we add at the end a layer whose purpose is to connect in time (by arrows) the connected components of Toom's contour in the prior layer, which are connected by checks (their union is identified with a connected chain).
 \begin{definition}
