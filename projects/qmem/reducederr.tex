@@ -184,6 +184,23 @@ We close the section by defining the \textit{reduced} form of a finite $d^{\prim
 
 \begin{definition}
   \label{def:finiteerr}
-  Let $z$ be a $d^{\prime}$-dimensional chain. Consider the graph whose vertices are the faces of $z$, and any two vertices are connected by an edge if their intersection is a $d^{\prime}- 1$ dimensional face or if they are both contained in a $d^{\prime}+1$-dimensional face. Then $z$ is said to be connected if that graph is connected. In addition, we will say that a connected chain $z$ is finite if $\Size{z} < n$. Similarly, $z$ is infinite if $\Size{z} \ge n$. We extend the finite notation to unconnected chains and Pauli operators as follows: an unconnected chain will be said to be finite if any subset of it which is connected is finite. A Pauli operator will be said to be finite if the support of its view in the $\infty$-extension is a finite chain.
+  Let $z$ be a $d^{\prime}$-dimensional chain. Consider the graph whose vertices are the faces of $z$, and any two vertices are connected by an edge if their intersection is a $d^{\prime}- 1$ dimensional face or if they are both contained in a $d^{\prime}+1$-dimensional face. Then $z$ is said to be connected if that graph is connected. In addition, we will say that a connected chain $z$ is finite if $\Size{z} < n$. Similarly, $z$ is infinite if $\Size{z} \ge n$. 
 \end{definition}
+
+
+\inb{\textbf{Think if here is indeed the place.}} 
+
+\begin{definition}
+For a Pauli $P$, let $x$ and $z$ be the chain supports of its $X$ and $Z$ components, namely $P = X(x)Z(z)$. Then, we define the size of $P$ to be:
+  \begin{equation*}
+    \begin{split}
+      \Size{P} = \max\{ \Size{x}, \Size{\phi(z)} \}
+    \end{split}
+  \end{equation*}
+In addition, we extend the finite notation to unconnected chains and Pauli operators as follows: an unconnected chain will be said to be finite if any subset of it that is connected is finite. A Pauli operator $P = X(x)Z(z)$ will be said to be finite if the views in the $\infty$-extension of both $x$ and $\phi(z)$ are finite chains.
+\end{definition}
+
+
+
+
 
