@@ -188,13 +188,11 @@ We close the section by defining the \textit{reduced} form of a finite $d^{\prim
 \end{definition}
 
 
-\inb{\textbf{Think if here is indeed the place.}} 
-
 \begin{definition}
-For a Pauli $P$, let $x$ and $z$ be the chain supports of its $X$ and $Z$ components, namely $P = X(x)Z(z)$. Then, we define the size of $P$ to be:
+We extend the size-function to act on Paulis $\Size{ \cdot } \colon \mathcal{P} \rightarrow \mathbb{R}^{2}$ as follows: For a Pauli $P$, let $x$ and $z$ be the chain supports of its $X$ and $Z$ components, namely $P = X(x)Z(z)$. Then:
   \begin{equation*}
     \begin{split}
-      \Size{P} = \max\{ \Size{x}, \Size{\phi(z)} \}
+      \Size{P} =  (\Size{x}, \Size{\phi(z)})
     \end{split}
   \end{equation*}
 In addition, we extend the finite notation to unconnected chains and Pauli operators as follows: an unconnected chain will be said to be finite if any subset of it that is connected is finite. A Pauli operator $P = X(x)Z(z)$ will be said to be finite if the views in the $\infty$-extension of both $x$ and $\phi(z)$ are finite chains.

@@ -57,7 +57,34 @@ Combining the two, we get that $v \notin \partial^{-} (z + \varphi)$, so the red
 
 \end{proof}
 We finished analyzing the first part of the sweep-cycle that acts in the computational basis. In the next section, we show that the second part of the cycle shrinks reduced phase errors.
+
+\begin{corollary}
+\label{claim:polesmove}  
+Consider an Pauli $P$, whose $X$- and $Z$-components are set on the reduced chains $x, z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$. Denote by $\tilde{P}$ the Pauli operator result by an application of the sweep-rule on $P$ and by $\tilde{x}, \tilde{z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ the chains corresponding to the $X$- and $Z$-components of $\tilde{P}$. If both $x, \xi(z)$ are finite connected chain, Then:
+  \begin{enumerate}
+    \item For any $i \in [d]$: 
+      \begin{equation*}
+        \begin{split}
+          & \max_{v \in x} L_{i}(v)  \ge \max_{v \in \tilde{x}} L_{i}(v) \\
+          & \max_{v \in \phi(z)} L_{i}(v)  \ge \max_{v \in \phi(\tilde{z}) } L_{i}(v) 
+      \end{split}
+      \end{equation*}
+    \item And for $i = d+1$ : 
+      \begin{equation*}
+        \begin{split}
+          & \max_{v \in x} L_{d+1}(v)  \ge \max_{v \in \tilde{x}} L_{d+1}(v) + 1 \\
+          & \max_{v \in \phi(z)} L_{d+1}(v)  \ge \max_{v \in \phi(\tilde{z}) } L_{d+1}(v) + 1
+        \end{split}
+      \end{equation*}
+  \end{enumerate}
+  In particular the 
+\end{corollary}
 \subsubsection{The Sweep-Rule Phase in the Dual Code}
+
+\inb{\textbf{ Eventually we would not need that section for the main theorem. Yet, it might be useful for the Clifford-free case, so do not remove it. }}
+
+
+
 The $Z$-errors are addressed in the second phase of the sweep cycle. In this stage, we move to the dual code, which is a $(d,d-d^{\prime})$-Toric code. So, \Cref{claim:sweepshrink} ensures that the error is reduced relative to the dual image. Yet, what we care about is that the error will be shrunk in the original view, namely after turning back to the $(d,d^{\prime})$-Toric code.
 To do that, we will need the following claim:
 \begin{claim}
@@ -176,7 +203,7 @@ So, in overall:
 
 Combining \Cref{claim:sweepshrink} and \Cref{claim:corrdual}, we can state that a sweep-cycle shrinks a finite connected error.
 \begin{corollary}
-\label{claim:polesmove}  
+\label{claim:polesmoveB}  
 Consider an error whose $X$- and $Z$-product components lie at positions corresponding to the reduced chains $z_{X}, z_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$. Denote by $\xi_{X}, \xi_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ chains corresponding to the $X, Z$ positions of the result after the application of a full sweep-cycle. If both $z_{X}, z_{Z}$ are finite connected chain, Then:
   \begin{enumerate}
     \item For any $i \in [d]$: 
