@@ -35,7 +35,7 @@ Where we define a vertex $v$ to belong to location $l$ if there is a qubit-face 
   \end{definition}
 As a concept, if the base graph is a recording of a run from the Torices' point of view, then a \textit{Tooms contour} is a recording of the deviation's evolution in the eyes of the Torices vertices. More technically, for a reduced Pauli-path $P_{1},..,P_{\mu+1}$ (\Cref{def:paulipath}), the Tooms contour is the restriction of the base graph to vertices that witness a deviation, namely, those that belong to qubits supporting $P_{1},P_{2},..,P_{\mu+1}$.
 
-\inb{\textbf{Here.}}
+\inb{\textbf{Here. Notice that I change the math definitions, yet not the text presenting them.}}
 
   \begin{definition}[Tooms Contour Graph of $C(\mathcal{E})$]
     \label{def:contour}
@@ -63,7 +63,7 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
           \item If $g$ is either a logical Pauli, a measurement (both in the computational and phase basis), or an identity, then for any face $f$ in the register on which $g$ acts, we add:
             \begin{equation*}
               \begin{split}
-                & \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f \text{ and } v,u \in V_{\mathcal{H},X} \text { or } v,u \in V_{\mathcal{H},Z} \bigr\} 
+                & \bigl\{  \{ \tilde{u} = (\cdot, u,t),  \tilde{v} = ( \cdot, v,t+1)\} : u,v \in f \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \text { or } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
               \end{split}
             \end{equation*}
             \item If $g$ is a logical $\mathbf{CX}$ then for any physical $\mathbf{CX}$ in its realization, between faces $f_{1}$ into $f_{2}$ at time $t$ we add: 
