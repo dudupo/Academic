@@ -60,8 +60,8 @@ Next, we would like to study how slices look a moment before they merge. For thi
     \end{enumerate}
   \end{proof}
 Now, we would like to plug in the fact that the vertices originate from the infinite plane. A spanned slice is a presentation of a slice equipped with poles. The poles are the vertices in the slice, which are the maximal points of potential walls.
-  \begin{definition}[Spanned Set]
-Consider a subset $A \subset \mathbb{R}^{d}$, and $d+1$ points $x_{1}, \ldots, x_{d+1} \in \mathbb{R}^{d}$. We say that $\expval*{A, x_{1}, \ldots, x_{d+1}}$ is a spanned set of $A$ if for any $i \in [d+1]$ and $s \in A$, it holds that $L(s) \le L_{i}(x_{i})$ and in addition there are $v_{1}, \ldots, v_{d+1} \in V$, not necessarily different, that achieve the equalities $L_{i}(x_{i}) = L_{i}(x_{i})$. We name $x_{1}, \ldots, x_{d+1}$ the poles of $A$. When the points are associated with vertices of a space-time graph, we define the $i$th predecessor of a vertex, denoted by $\prei{}$, to be the predecessor which achieves the maximal value of $L_{g}$. Furthermore, we extend the notation to a spanned slice when $A$ is a slice of some time-graph. Notice that saying $\expval*{A, x_{1}, \ldots, x_{d+1}}$ is a spanned set means that $\Size{A} = \Size{ \{x_{1}, \ldots, x_{d+1}\}}$.
+\begin{definition}[Spanned Set, Sppaned Slice, and Infinite Slice]
+  Consider a subset $A \subset \mathbb{R}^{d}$, and $d+1$ points $x_{1}, \ldots, x_{d+1} \in \mathbb{R}^{d}$. We say that $\expval*{A, x_{1}, \ldots, x_{d+1}}$ is a spanned set of $A$ if for any $i \in [d+1]$ and $s \in A$, it holds that $L(s) \le L_{i}(x_{i})$ and in addition there are $v_{1}, \ldots, v_{d+1} \in V$, not necessarily different, that achieve the equalities $L_{i}(x_{i}) = L_{i}(x_{i})$. We name $x_{1}, \ldots, x_{d+1}$ the poles of $A$. When the points are associated with vertices of a space-time graph, we define the $i$th predecessor of a vertex, denoted by $\prei{}$, to be the predecessor which achieves the maximal value of $L_{g}$. Furthermore, we extend the notation to a spanned slice when $A$ is a slice of some time-graph. Notice that saying $\expval*{A, x_{1}, \ldots, x_{d+1}}$ is a spanned set means that $\Size{A} = \Size{ \{x_{1}, \ldots, x_{d+1}\}}$. 
   \end{definition}
   Observe that in the case where the subset $A$ is a slice. Each of these poles can be associated with a vertex of $G$ that gives the equality. If there are multiple vertices whose give equality, associate the point with one of them arbitrarily. We will use the notion of applying functions originally defined over vertices to the poles, referring to the application over the vertices associated with them. For example $\pre{x_{i}} = \pre{v}$ for the vertex $v \in A$ which satisfies $L_{i}(v) = L_{i}(x_i)$ and therefore is associated with the pole $x_{i}$. 
  Another example is referring to $x_{i}$ as a vertex, so when saying 'For $x_{i} \in V_{k}$' or 'For $\{x_{i},u\} \in F$', we refer to the associated vertex or the edge connecting it to $u$.
@@ -135,6 +135,21 @@ Consider the rules of forks connecting in \Cref{def:contour}. For forks obtained
   \end{equation*}
 Where $S^{\prime}_{1}$ and $S^{\prime}_{2}$ are subsets of $S$ of size $d^{\prime}$, and therefore the size of such forks is $\Size{F} = 2d^{\prime}$.
 \end{proof}
+
+A notation that we will need later is the extending of the infinity characterization to slices, 
+\begin{definition}[Inifinite Slice]
+  Let $K$ be a slice in a Toom's contour. We will say that $K$ is infinite slice if there is $g\in S$ and vertices $u,v$ such: 
+  \begin{equation*}
+    \begin{split}
+      L_{g}(v) - L_{g}(u) \ge n 
+    \end{split}
+  \end{equation*}
+\end{definition}
+
+\begin{remark}
+Note that $u$ and $v$ might be set on different connected chains. In particular, the origin of $K$ vertices might be a finite (yet disconnected) chain, and yet $K$ might be an infinite slice. In addition, if $K$ is a slice in the last layer of the analysis Tooms contour at step $\tau$, then we have a transition in the opposite direction, namely if $K$ is finite then the propagated error $P_{t^{\star}}$ is finite.
+\end{remark}
+
 
 
 While in the construction presented in \cite{Berman}, all the layers were the same (consisting of the same gates up to wiring), here different layers might differ both in realization and role. Thus, we would like to distinguish between them. We will define the \textit{predecessor decomposition} of a slice to be the collection of slices and forks which satisfy the condition in \Cref{claim:prevslices}. The order of a slice is a number in $\{0,1,2,3\}$ that matches the time modulo four of the layer that results in the slice. Therefore, it encodes the layer type.
