@@ -44,8 +44,8 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
       \item The vertices $V_{\mathcal{H}}$ are the vertices of faces supporting the reduced Pauli-path. Namely:
         \begin{equation*}
           \begin{split}
-            V_{\mathcal{H}} \colonequals & \big\{ v_{t} \times \{X\} : v_{t}=(v,t) \in V_{o} \text{ and there exists a face } f \in \text{ supp } X(P_{t}) \text{ such } v \in f \big\} \\
-            & \bigcup \big\{ v_{t} \times \{Z\} : v_{t}=(v,t) \in V_{o} \text{ and there exists a face } f \in \text{ supp } Z(P_{t}) \text{ such } v \in f \big\} 
+            V_{\mathcal{H}, X} \colonequals & \big\{ v_{t} \times \{X\} : v_{t}=(v,t) \in V_{o} \text{ and there exists a face } f \in \text{ supp } X(P_{t}) \text{ such } v \in f \big\} \\
+             V_{\mathcal{H}, Z} \colonequals & \big\{ v_{t} \times \{Z\} : v_{t}=(v,t) \in V_{o} \text{ and there exists a face } f \in \text{ supp } Z(P_{t}) \text{ such } v \in f \big\} 
           \end{split}
         \end{equation*}
 
@@ -61,7 +61,7 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
           \item If $g$ is either a logical Pauli, a measurement (both in the computational and phase basis), or an identity, then for any face $f$ in the register on which $g$ acts, we add:
             \begin{equation*}
               \begin{split}
-                & \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f \text{ and } v,u \in V_{\mathcal{H}} \bigr\} 
+                & \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f \text{ and } v,u \in V_{\mathcal{H},X} \text { or } v,u \in V_{\mathcal{H},Z} \bigr\} 
               \end{split}
             \end{equation*}
             \item If $g$ is a logical $\mathbf{CX}$ then for any physical $\mathbf{CX}$ in its realization, between faces $f_{1}$ into $f_{2}$ at time $t$ we add: 
