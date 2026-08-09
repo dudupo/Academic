@@ -33,10 +33,7 @@ Moreover, we say that a step $\tau$ admits an infinite error if there is a regis
 \begin{proof}
   Let $\tilde{C}[\mathcal{E}]$ be the quantum circuit obtained from $C[\mathcal{E}]$ by spreading each turn to a whole time unit. The registers of the circuit are still encoded in the Toric code, and the gates are still $\textbf{CX}$ and Paulis. Therefore, the circuit is a Toric encoded circuit and it has a Toom's contour. We argue that if $K$ is a slice in the original circuit at time $t$, then there is a 'time' $\tau < w t$ for which $K$ is also a slice in the $\tilde{C}[\mathcal{E}]$ at time $\tau$.
   
-Assume by induction that this is true for any $t^{\prime} < t$. Then there are $Q_{1}, \ldots, Q_{l}$ such that $P_{t-1}C[\mathcal{E}]|_{t} = C[\mathcal{E}]|_{t} Q_{l}$, and on the other hand, $Q_{i}\tilde{C}[\mathcal{E}]|_{\tau^{\prime}+i} = \tilde{C}[\mathcal{E}]|_{\tau^{\prime}+i} Q_{i+1}$. 
-
-
-Then we use \Cref{claim:prevslices}, yet only a finite number of qubits is involved.. 
+  Assume by induction that this is true for any $t^{\prime} < t$. Then there are $Q_{1}, \ldots, Q_{l}$ such that $P_{t-1}C[\mathcal{E}]|_{t} = C[\mathcal{E}]|_{t} Q_{l}$, and on the other hand, $Q_{i}\tilde{C}[\mathcal{E}]|_{\tau^{\prime}+i} = \tilde{C}[\mathcal{E}]|_{\tau^{\prime}+i} Q_{i+1}$. $ \prod_{i} \tilde{C}[\mathcal{E}]|_{\tau^{\prime}+i} = C[\mathcal{E}]|_{t}$, then $C[\mathcal{E}]|_{t}P_{t} = Q_{\cdot} C[\mathcal{E}]|_{t}$. Now let $u$ and $v$ be connected by arrows vertices in (1) lets show that they are connected by arrows in (2). Then we use \Cref{claim:prevslices}, yet only a finite number of qubits is involved.. 
 \end{proof}
 
 
