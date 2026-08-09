@@ -69,7 +69,7 @@ Now, we would like to plug in the fact that the vertices originate from the infi
 
 
  
-\inb{\textbf{The proof of the following claim has to rewrited otherwise no one will read it.}}
+ \inb{\textbf{The proof of the following claim has to rewrited otherwise no one will read it.}}
 The following claim relates the size of a given slice to the sizes of its predecessor slices.
   \begin{claim}
     \label{claim:prevslices}
@@ -179,6 +179,10 @@ Since no new faults are introduced during the computation, we have that in each 
 
 Therefore, there can be at most $m-1$ merges. And since the number of classes is bounded by the number of vertices on the Toric, we have that $m \le n^{d}$, namely at most $n^{d}$ merges can occur. Hence, during the $n^{d+1}$ sweep-cycles, there has to be a continuous sequence of $n$ cycles for which no merge occurs. Since it's given that the size of all the slices is lower than $n$, the sizes of all connected errors are also lower than $n$. So, a sweep-cycle decreases the size of a finite error by at least 1 (\Cref{claim:polesmove}). Thus, at the end of that sequence of $n$ cycles, all the slices' sizes shrink to zero; namely, the connected errors are erased after those cycles.
 \end{proof}
+
+
+\inb{\textbf{Explantation has not introduced yet.}}
+
 To prove that no slice reaches a size greater than $n$, we use explanation trees. In particular, an explanation tree that characterizes the running well is one that, prior to decoding, allows the introduction of new faults, and therefore leaves, and during the ideal $n^{d+1}$ iterations, no new leaf is introduced. The way to analyze the probability of a proper explanation occurring is to bound it by the probability\footnote{Actually, by an upper bound of the probability} of the same explanation occurring in the setting where the following $n^{d+1}$ iterations are also subjected to local stochastic noise.
  
 \begin{claim}[Replacement argument]
