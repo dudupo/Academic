@@ -33,6 +33,27 @@ For Toric encoded circuits, we define their \textit{base graph}, which can be th
 Where we define a vertex $v$ to belong to location $l$ if there is a qubit-face $f$ in $l$ such that $v$ belongs to its associated face.
     \end{enumerate} 
   \end{definition}
+
+
+  \inb{\textbf{Do somthing.}} We close the section by presenting Pauli-paths, which can be thought of as the collapsing errors due to stabilizer measurements.
+
+\begin{definition} 
+  \label{def:paulipath}
+For a fixed quantum circuit $C$, where all its quantum registers are encoded with the Toric code, and a set of faults $\mathcal{E}$, such that the depth of $C[\mathcal{E}]$ is $\mu$, we will say that the Paulis $P_{1}, \ldots, P_{\mu+1} \in \mathcal{P}$ are fault paths of $C[\mathcal{E}]$ if $P_{1}$ is the identity and for every $t\le \mu$ the Pauli $P_{t+1}$ supports $C[\mathcal{E}]|_{t} P_{t}$. Namely:
+  \begin{equation*}
+    \begin{split}
+      \expval*{P_{t}|C[\mathcal{E}]|_{t}|P_{t+1}} \neq 0
+    \end{split}
+  \end{equation*}
+We extend the notation to Pauli-path up to step $\tau$ by considering the quantum circuit obtained from $C[\mathcal{E}]$ by taking all the gates at steps lower than or equal to $\tau$. A Pauli-path of that circuit is a Pauli-path up to step $\tau$ of the original circuit.
+
+
+Finally, we define a reduced Pauli-path $\tilde{P_{1}}, \ldots, \tilde{P_{\mu+1}}$ to be the Paulis obtained by taking a Pauli-path, considering its view in the $\infty$-extension, and for any finite connected chain that corresponds to a subset of the $X$ component of $P_{t}$'s support, substitute it with its reduced form (\Cref{def:reduced}). Then do the same for the $Z$ component in the dual picture.
+\end{definition} 
+
+
+
+
 As a concept, if the base graph is a recording of a run from the Torices' point of view, then a \textit{Tooms contour} is a recording of the deviation's evolution in the eyes of the Torices vertices. More technically, for a reduced Pauli-path $P_{1},..,P_{\mu+1}$ (\Cref{def:paulipath}), the Tooms contour is the restriction of the base graph to vertices that witness a deviation, namely, those that belong to qubits supporting $P_{1},P_{2},..,P_{\mu+1}$.
 
 \inb{\textbf{Here. Notice that I change the math definitions, yet not the text presenting them. In addition I should mention that under a remark that faults are well treated. }}
