@@ -31,17 +31,13 @@ Moreover, we say that a step $\tau$ admits an infinite error if there is a regis
 
 \begin{claim}
   \label{claim:intersyn}
-  Let $\alpha = (\Delta d^{2})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite error. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step for which there is a register such that, in the view of the $\infty$-extension, $\mathcal{D}^{\tau}$ has support on a connected, reduced, $d^{\prime}$-dimensional chain $x$ such that $\Size{x} \ge \alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then the probability that $A$ occurs is bounded by:
+  Let $\alpha = (\Delta d^{2})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to addmit a slice at size $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then the probability that $A$ occurs is bounded by:
   \begin{equation*}
     \begin{split}
       \prb{A} \le w\mu\max_{\tau\in[w\mu]}\prb{B_{\tau}}.
     \end{split}
   \end{equation*}
 \end{claim}
-
-
-
-
 
 \begin{proof}
   For the sake of the proof, we say that a chain $x$ is in operator $O$ if, when considering the Pauli decomposition of the image of $O$ in the $\infty$-extension, there is a correspondence between the faces of $x$ and the (partial) support of one of the terms in $O$'s image.
