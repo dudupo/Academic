@@ -123,21 +123,10 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
     Plugging it into \Cref{equ:spanlow} gives the desired.
   \end{proof}
 
-Until now, the claims stated were true for any kind of space-time graph (where their vertices can be associated with coordinates in $\mathbb{R}^{d}$). The next claims assume that the given time graph is a Toom's contour induced by the noisy running of a Toric encoded circuit.
 
-\begin{claim}
-  \label{claim:maxfork}
-  For Toom's contours, the maximal size of a fork is $2d^{\prime}$.
-\end{claim}
-\begin{proof}
-Consider the rules of forks connecting in \Cref{def:contour}. For forks obtained by rules (a), (b), or as a result of a fault, it's clear that their vertices at their ends are on intersecting faces (when projecting the vertices on $\mathcal{G}$). The maximal fork, in those cases, has the form of:
-  \begin{equation*}
-    \begin{split}
-   F =  \bigl\{ v , \bigl( \prod_{g \in S^{\prime}_{1}} g\bigr) \bigl(  \prod_{g \in S^{\prime}_{2}} g \bigr) v    \bigr\}
-    \end{split}
-  \end{equation*}
-Where $S^{\prime}_{1}$ and $S^{\prime}_{2}$ are subsets of $S$ of size $d^{\prime}$, and therefore the size of such forks is $\Size{F} = 2d^{\prime}$.
-\end{proof}
+
+
+\subsection{Ideal $\leftrightarrow$ Nosiy Replacement Argument}
 
 A notation that we will need later is the extending of the infinity characterization to slices, 
 \begin{definition}[Inifinite Slice]
@@ -156,7 +145,6 @@ Note that $u$ and $v$ might be set on different connected chains. In particular,
 \end{remark}
 
 
-\subsection{Ideal $\leftrightarrow$ Nosiy Replacement Argument}
   \inb{\textbf{Change.}} 
   Our construction will result (after initialization) in a Toric encoded circuit, where all the quantum registers are encoded using the $(d,d^{\prime})$-Toric code induced by a Toric with a side of length $n$. Then, for a decoder $D$, we are going to take the following simple procedure: just apply the sweep-cycle $  n^{d+1}  $ times - the number of vertices times the side's length. If we want him to correct a measurement, namely a classical state which is the outcome of the measurement, then we perform only the first stage of the sweep-cycle (without moving into the dual code). 
 
@@ -201,9 +189,25 @@ To prove that no slice reaches a size greater than $n$, we use explanation trees
 \Cref{claim:decodestopnoise} states that if during the $ n^{d+1}$ ideal sweep-cycles the Toom's contour does not admit an infinite slice, then the error is erased. Consider the set of atomic events corresponding to the faults in the first $l$ noisy layers, such that during the additional $ n^{d+1}$ ideal iterations there is a step that admits an infinite slice. All those atomic events are also contained in $B$, since local stochastic noise is our only assumption. It's possible that noise in the $B$ scenario is distributed such that the probability of a fault occurring during the additional $ n^{d+1}$ iterations is zero. In that specific case, $\prb{A} = \prb{B}$ and therefore $\prb{A} \le f(n,d,d^{\prime},l,p)$.
 \end{proof}
 
+\subsection{Find a Title }
+
+Until now, the claims stated were true for any kind of space-time graph (where their vertices can be associated with coordinates in $\mathbb{R}^{d}$). The next claims assume that the given time graph is a Toom's contour induced by the noisy running of a Toric encoded circuit.
+
+\begin{claim}
+  \label{claim:maxfork}
+  For Toom's contours, the maximal size of a fork is $2d^{\prime}$.
+\end{claim}
+\begin{proof}
+Consider the rules of forks connecting in \Cref{def:contour}. For forks obtained by rules (a), (b), or as a result of a fault, it's clear that their vertices at their ends are on intersecting faces (when projecting the vertices on $\mathcal{G}$). The maximal fork, in those cases, has the form of:
+  \begin{equation*}
+    \begin{split}
+   F =  \bigl\{ v , \bigl( \prod_{g \in S^{\prime}_{1}} g\bigr) \bigl(  \prod_{g \in S^{\prime}_{2}} g \bigr) v    \bigr\}
+    \end{split}
+  \end{equation*}
+Where $S^{\prime}_{1}$ and $S^{\prime}_{2}$ are subsets of $S$ of size $d^{\prime}$, and therefore the size of such forks is $\Size{F} = 2d^{\prime}$.
+\end{proof}
 
 
-\inb{\textbf{And here insert the the initermidate argument.}}
 
 While in the construction presented in \cite{Berman}, all the layers were the same (consisting of the same gates up to wiring), here different layers might differ both in realization and role. Thus, we would like to distinguish between them. We will define the \textit{predecessor decomposition} of a slice to be the collection of slices and forks which satisfy the condition in \Cref{claim:prevslices}. The order of a slice is a number in $\{0,1,2,3\}$ that matches the time modulo four of the layer that results in the slice. Therefore, it encodes the layer type.
 
