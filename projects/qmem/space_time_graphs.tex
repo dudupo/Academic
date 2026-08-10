@@ -18,9 +18,9 @@
     The Toom's contour graph defined in \Cref{def:contour} is, by definition of it's construction, a time-graph.
 \end{remark}
 The history of a vertex consists of all the vertices that are connected to it by arrows. Here we allow passing trough arrows in both directions, so it might be possible that the history of vertex $u$ contains vertices with the same time coordinate as $u$. That motivates to define \textit{slices}. A \textit{slice} is a (maximal) subset of vertices with the same time coordinate such they share the same history. In \cite{Berman}, slices take the role of error droplets.
-  \begin{definition}[History, slice.]
+  \begin{definition}[History, Slice]
     \label{def:slice}
-For a time graph $(G,T)$ and a vertex $u \in V$, let the history of $u$, denoted by $H_{u}$, be the restriction of $G$ to vertices that both precede $u$ in time and connect to $u$ via path of arrows. A slice is a maximal subset of vertices $K \subset V$ such that for any two vertices $u,v \in K$, $\History{u} = \History{v}$ is satisfied. As a consequence, the time coordinate in $K$ has to be constant. Thus, we can extend the time coordinate and the history to slices and write for a slice $K$, $\Time{K}$ and $\History{K}$.
+    For a time graph $(G,T)$ and a vertex $u \in V$, let the \textit{history} of $u$, denoted by $H_{u}$, be the restriction of $G$ to vertices that both precede $u$ in time and connect to $u$ via path of arrows. A \textit{slice} is a maximal subset of vertices $K \subset V$ such that for any two vertices $u,v \in K$, $\History{u} = \History{v}$ is satisfied. As a consequence, the time coordinate in $K$ has to be constant. Thus, we can extend the time coordinate and the history to slices and write for a slice $K$, $\Time{K}$ and $\History{K}$. 
   \end{definition}
 The following claim ensures us an 'independent' argument about slices. Here we state that two slices with the same time coordinate have to hold disjoint histories. Another way to think about this is that if the first and the second slices are 'induced by $n_{1}$ and $n_{2}$ faults,' then the slice obtained by merging them 'is induced by $n_{1}+n_{2}$ faults.'
   \begin{claim} 
@@ -33,7 +33,7 @@ Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \His
   
 
 Next, we would like to study how slices look a moment before they merge. For this, we define the \textit{graph of a slice}. We construct this graph by taking a slice and considering all the slices that precede it by a single time unit. We take those slices as vertices and connect any two of them that have vertices sharing a fork.
-  \begin{definition}[The graph of slice]
+  \begin{definition}[The Graph of Slice]
     \label{def:gslice}
     Let $K$ be a slice. The graph of $K$, denoted by $G_{K} = (V_{K}, E_{K})$, is the graph whose vertices are slices $R \subset \History{K}$ with $\Time{R} = \Time{K} - 1$. Two vertices are connected by an edge if and only if there is a fork whose ends belong to the slices associated with them. Namely, $S, R \in V_{K}$ are connected in $G_{K}$ if and only if there is $\{s, r\} = f \in F$ such that $s \in S$ and $r \in R$.
   \end{definition}
@@ -121,6 +121,29 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
     Plugging it into \Cref{equ:spanlow} gives the desired.
   \end{proof}
 
+  \begin{definition}
+  Let $\hat{K}$ be a spanned slice, and let $\hat{K}_{0}, \ldots, \hat{K}_{k}$ be spanned slices in $H_{K}$, and let $F_{1}, \ldots, F_{k}$ be spanned forks, such that $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ satisfy the conditions in \Cref{claim:prevslices}. We call $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ the \textit{predecessor decomposition} of $\hat{K}$.  
+  
+  \end{definition}
+
+  \begin{definition}[Subslice] 
+    A subslice is a subset of a slice. Let $K^{\star}$ be a subslice of a slice $K$. 
+  \end{definition}
+
+  \begin{claim} 
+    \Cref{claim:prevslices} is correct to suslices, in the following sense. 
+     Let $K$ be a subslice of slice $K^{\star}$ such ,$K^{\star} \neq \History{K^{\star}}$. Then for some integer $k$ there exist spanned subslices $\hat{K}_{0} = \expval*{K_{0}, \cdot}, ..,\hat{K}_{k}=\expval*{K_{k}, \cdot }$ and forks $F_{1},..,F_{k}$ such that:
+      \begin{equation*}
+        \begin{split}
+          \sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) 
+        \end{split}
+      \end{equation*}
+  \end{claim}
+  \begin{proof}
+    
+Let $K^{\star}_{0}, \ldots, K^{\star}_{k^{\star}}, F^{\star}_{1}, \ldots, F^{\star}_{k^{\star}}$ be the spanned slices and spanned forks in the graph of $K^{\star}$ (\Cref{def:gslice}). We construct $\hat{K}_{1}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ by the following two-step procedure. First, we filter from $K^{\star}_{0}, \ldots, K^{\star}_{k^{\star}}, F^{\star}_{1}, \ldots, F^{\star}_{k^{\star}}$ the slices and forks such that the remaining is a minimal tree that spans the slices which contain $\prei{x_{i}}$s. For $i \in [d+1]$, denote by $R^{\star}_{i}$ the remaining slices that contain $\prei{x_{i}}$. For each such $R^{\star}_{i}$, introduce an imaginary slice $R_{i}$ that contains two vertices $\prei{x_{i}}$ and imaginary vertex $u_{i}$ that has the same $L_{i}$ as $\prei{x_{i}}$. Observe that in this system, $R_{i}$s are leaves. Thus, we can repeat the proof in \Cref{claim:prevslices} and get the inequality.
+
+  \end{proof}
 
 \subsection{Find a Title }
 
@@ -145,10 +168,8 @@ Where $S^{\prime}_{1}$ and $S^{\prime}_{2}$ are subsets of $S$ of size $d^{\prim
 While in the construction presented in \cite{Berman}, all the layers were the same (consisting of the same gates up to wiring), here different layers might differ both in realization and role. Thus, we would like to distinguish between them. We will define the \textit{predecessor decomposition} of a slice to be the collection of slices and forks which satisfy the condition in \Cref{claim:prevslices}. The order of a slice is a number in $\{0,1,2,3\}$ that matches the time modulo four of the layer that results in the slice. Therefore, it encodes the layer type.
 
   \begin{definition}
-  Let $\hat{K}$ be a spanned slice, and let $\hat{K}_{0}, \ldots, \hat{K}_{k}$ be spanned slices in $H_{K}$, and let $F_{1}, \ldots, F_{k}$ be spanned forks, such that $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ satisfy the conditions in \Cref{claim:prevslices}. We call $\hat{K}_{0}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ the \textit{predecessor decomposition} of $\hat{K}$.  
-  
-
-Furthermore, we say that $\hat{K}$ is a result of a \textit{sweep-cycle}, \textit{faults}, or a \textit{logical operation} if the layer at time $T(\hat{K}) - 1$ consists of sweep-cycle gates, fault gates (whose source is $\mathcal{E}$), or either measurement or logical Pauli. The \textit{order} of the slice is its time modulo $4$, namely $\text{order}(\hat{K}) = T(\hat{K}) \mod 4$. Observe that slices that are results of faults have an order that is either $0$ or $2$, whereas slices that are results of a sweep-cycle or logical operation are of orders $1$ and $3$, respectively.
+    
+    \inb{\textbf{Change it.}} Furthermore, we say that $\hat{K}$ is a result of a \textit{sweep-cycle}, \textit{faults}, or a \textit{logical operation} if the layer at time $T(\hat{K}) - 1$ consists of sweep-cycle gates, fault gates (whose source is $\mathcal{E}$), or either measurement or logical Pauli. The \textit{order} of the slice is its time modulo $4$, namely $\text{order}(\hat{K}) = T(\hat{K}) \mod 4$. Observe that slices that are results of faults have an order that is either $0$ or $2$, whereas slices that are results of a sweep-cycle or logical operation are of orders $1$ and $3$, respectively.
   \end{definition}
 The distinction between slices resulting from different layers allows us to adjust \Cref{claim:prevslices} conditioning on the slice type. 
   \begin{corollary}
