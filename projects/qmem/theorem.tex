@@ -29,7 +29,7 @@ The next lemma is the core of the theorem; it analyzes the probability of a logi
 For any $d, d^{\prime}$, there are constants $a, b \in \mathbb{R}^{+}$ and $p_{0} \in (0,1)$ that depend only on $d, d^{\prime}$ and satisfy the following. Consider a quantum circuit $C$ with depth $\mu$ and width $w$, and let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $\tilde{C}$ such that each of its quantum registers is encoded by an $n$-side length, $(d, d^{\prime})$-Toric code, and it simulates $C$ with probability:
 \begin{equation*}
   \begin{split}
-    q = 1 -   \Theta \left( poly(w,\mu,n) \right) \left( a p^{b} \right)^{ \frac{n}{2d}} 
+    q = 1 -   O \left( poly(w,\mu,n) \right) \left( a p^{b} \right)^{ \frac{n}{2d}} 
   \end{split}
 \end{equation*}
 \end{lemma}
@@ -112,7 +112,7 @@ Combing the bounds we have:
 Now, combined with \Cref{claim:intersyn}, there are constants $c_{2}, c_{3}$ depending only on $d, d^{\prime}$ such that with a probability greater than:
 \begin{equation*}
   \begin{split}
-    1 -   \Theta \left( S^{3} \right) \left( c_{3} p^{c_{2}} \right)^{ \frac{n}{2d} } 
+    1 -   O \left( S^{3} \right) \left( c_{3} p^{c_{2}} \right)^{ \frac{n}{2d} } 
   \end{split}
 \end{equation*}
 No step admits an infinite slice, so the decoder successfully restores the logical state; in other words, no logical error occurs.
@@ -123,7 +123,7 @@ The lemma gives the theorem almost immediately. To complete the proof, we need t
     There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{E}$ with rate $p < p_{0}$, and a quantum circuit $C$ with depth $\mu$ and width $w$, there exists a Toric encoded circuit $\tilde{C}$, with depth $\Theta(\mu n^{5})$ and width $\Theta((w + \mu) n^{8})$  that simulates $C$ with probability: 
 \begin{equation*}
   \begin{split}
-    1 -   \Theta \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n)} 
+    1 -   O \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n)} 
   \end{split}
 \end{equation*}
 and in addition: 
