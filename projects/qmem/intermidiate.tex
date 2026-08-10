@@ -13,7 +13,7 @@ That motivates us to describe the evolution of a fault to a given step and defin
 
 \begin{claim}
   \label{claim:intersyn}
-  Let $\alpha = (\Delta d^{2})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a slice at size $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then the probability that $A$ occurs is bounded by:
+  Let $\alpha = \frac{1}{2}(\Delta d^{2})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a slice at size $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then the probability that $A$ occurs is bounded by:
   \begin{equation*}
     \begin{split}
       \prb{A} \le w\mu\max_{\tau\in[w\mu]}\prb{B_{\tau}}.
@@ -60,7 +60,7 @@ Now, let $K_{\infty}$ be a slice in $\mathcal{H}_{\tau+1}$ that is not in $\math
 
 
 To finish, imagine the space-time graph, consisting of three time-layers. In the bottom layer, set delegates vertices, each corresponding to a slice in the last layer of $\mathcal{H}_{\tau}$. In the second layer, set the vertices in those slices and the vertices supporting $g$'s locations. Connect each of the vertices of $\mathcal{H}_{\tau}$'s slices to its delegate with an arrow.
-And in the final layer, set the vertices of $K$, connected to the vertices in the second layer by either connecting the vertex to itself \inb{\textbf{(Change it)}} or by the additional arrows. Finally, add the required forks so that the result is indeed a space-time graph.
+And in the final layer, set the vertices of $K$, connected to the vertices in the second layer by either connecting the vertex to itself \inb{\textbf{(Change it)\footnote{Find a way to describe the connection: $(v,t)\rightarrow (v,t+1)$ }}} or by the additional arrows. Finally, add the required forks so that the result is indeed a space-time graph.
 
 Denote by $K^{\prime}$ the slice in the last layer of $\mathcal{H}_{\tau}$ that is maximal in size. Using the \Cref{claim:prevslices}, combining that the vertices of the third layer contained in the second gives:  
 \begin{equation*}
@@ -69,11 +69,13 @@ Denote by $K^{\prime}$ the slice in the last layer of $\mathcal{H}_{\tau}$ that 
      \Rightarrow & \Size{K^{\prime}} \le \frac{1}{\Delta d^{2}} \Size{K} - \Size{ \text{fork} } \le \alpha \Size{K} 
   \end{split}
 \end{equation*}
-
-
+We got that a condition for step $\tau+1$ to admit an infinite slice is that a step $\tau$ admits a slice at size at least $\alpha n$. Thus, the desired inequality follows by taking the union bound:
+  \begin{equation*}
+    \begin{split}
+      \prb{A} \le w\mu\max_{\tau\in[w\mu]}\prb{B_{\tau}}.
+    \end{split}
+  \end{equation*}
 \end{proof}
-
-\inb{\textbf{We have one crucial problem: the Toom's contour is defined over the $\infty$-extension, so there are an infinite number of $g$'s.}}
 
 
 
