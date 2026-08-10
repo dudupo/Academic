@@ -123,7 +123,7 @@ The lemma gives the theorem almost immediately. To complete the proof, we need t
     There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{E}$ with rate $p < p_{0}$, and a quantum circuit $C$ with depth $\mu$ and width $w$, there exists a Toric encoded circuit $\tilde{C}$, with depth $\Theta(\mu n^{5} + \text{ Polylog}(n) )$ and width $\Theta((w + \mu) n^{8} \text{ Polylog}(n) )$  that simulates $C$ with probability: 
 \begin{equation*}
   \begin{split}
-    1 -   O \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n)} 
+    1 -   O \left( \text{poly}(w,\mu,n) \right)  p^{\Omega(n)} 
   \end{split}
 \end{equation*}
 and in addition: 
@@ -307,10 +307,10 @@ We extend Toom's Contour to be Clifford-free by changing the connection of arrow
 With adjustments being made, we present a threshold theorem with a Clifford-free depth overhead.
   \begin{theorem}
     \label{theorem:cliffordfree}
-There exists a constant $ p_{0} \in (0,1) $ such that for any local stochastic noise channel $\mathcal{E}$ with rate $ p < p_{0} $, and a Clifford+$\mathbf{T}$ quantum circuit $ C $ with depth $\mu$, $\mathbf{T}$-depth $\mu_{\mathbf{T}}$ and width $ w $, there exists a Clifford-free Toric encoded circuit $\tilde{C}$, with depth $ \Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{5}) $ and width $\Theta((w + \mu) n^{8})$ that simulates $ C $ with probability:
+    There exists a constant $ p_{0} \in (0,1) $ such that for any local stochastic noise channel $\mathcal{E}$ with rate $ p < p_{0} $, and a Clifford+$\mathbf{T}$ quantum circuit $ C $ with depth $\mu$, $\mathbf{T}$-depth $\mu_{\mathbf{T}}$ and width $ w $, there exists a Clifford-free Toric encoded circuit $\tilde{C}$, with depth $ \Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{5}) $ and width $\Theta((w + \mu) n^{8} \text{Polylog}(n) )$ that simulates $ C $ with probability:
 \begin{equation*}
   \begin{split}
-    1 -   \Theta \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n)} 
+    1 -   O \left( \text{poly}(w,\mu,n) \right)  p^{\Omega(n)} 
   \end{split}
 \end{equation*}
   \end{theorem} 
