@@ -42,7 +42,7 @@ Where we define a vertex $v$ to belong to location $l$ if there is a qubit-face 
 For a fixed quantum circuit $C$, where all its quantum registers are encoded with the Toric code, and a set of faults $\mathcal{E}$, such that the depth of $C[\mathcal{E}]$ is $\mu$, we will say that the Paulis $P_{1}, \ldots, P_{\mu+1} \in \mathcal{P}$ are fault paths of $C[\mathcal{E}]$ if $P_{1}$ is the identity and for every $t\le \mu$ the Pauli $P_{t+1}$ supports $C[\mathcal{E}]|_{t} \circ P_{t}$. Namely:
   \begin{equation*}
     \begin{split}
-      \Trr{} \bigl( C[\mathcal{E}]|_{t} P_{t} \left(C[\mathcal{E}]|_{t}\right)^{\dager} P_{t+1} \bigr) \neq 0
+      \Trr{} \big( C[\mathcal{E}]|_{t} P_{t} (C[\mathcal{E}]|_{t})^{\dagger} P_{t+1} \big) \neq 0
     \end{split}
   \end{equation*}
 We extend the notation to Pauli-path up to step $\tau$ by considering the quantum circuit obtained from $C[\mathcal{E}]$ by taking all the gates at steps lower than or equal to $\tau$. A Pauli-path of that circuit is a Pauli-path up to step $\tau$ of the original circuit.
