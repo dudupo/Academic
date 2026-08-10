@@ -7,28 +7,21 @@ That motivates us to describe the evolution of a fault to a given step and defin
 
 \begin{definition}[Fault propagation to a step $\tau$]
   \label{def:localprop}
-  Let $C=\{u_i\}_i$ be a quantum circuit, let $J=(j_1,\ldots,j_k)$ be an order agreeing with $\pi_C$, and let $u_i\in C$. Suppose that $u_i=u_{j_l}$ in this order. If $l>\tau$, we define the propagation of $u_i$ to step $\tau$ to be the identity operator.
-Otherwise, define operators $\mathcal{D}_0,\mathcal{D}_1,\ldots,\mathcal{D}_{\tau-l}$ recursively by setting $\mathcal{D}_0=u_{j_l}$ and requiring that for every $1\le s\le \tau-l$,
-  \begin{equation*}
-    \begin{split}
-      \mathcal{D}_{s-1}u_{j_{l+s}} = u_{j_{l+s}}\mathcal{D}_s.
-    \end{split}
-  \end{equation*}
-  We then define the \emph{propagation of $u_i$ to step $\tau$} to be the operator
-  \begin{equation*}
-    \begin{split}
-      \mathcal{D} \colonequals \mathcal{D}_{\tau-l}.
-    \end{split}
-  \end{equation*}
-Now let $C[\mathcal{E}]$ be a noisy circuit, where all of its quantum registers are encoded in the $(d,d^{\prime})$-Toric code with side length $n$. Let $J$ be an order agreeing with $\pi_{C[\mathcal{E}]}$, and let $\tau$ be a step in that order. For each faulty gate $e \in \mathcal{E}$ that occurs no later than step $\tau$, denote by $\mathcal{D}^{\tau}_{e}$ its propagation to step $\tau$. We define the propagated error at step $\tau$ by multiplying these propagated faults in reverse topological order.
-  \begin{equation*}
-    \begin{split}
-      \mathcal{D}^{\tau} \colonequals \prod_{e\preceq \tau} \mathcal{D}^{\tau}_{e}.
-    \end{split}
-  \end{equation*}
-Moreover, we say that a step $\tau$ admits an infinite error if there is a register such that, in the view of the $\infty$-extension of $C[\mathcal{E}]$, the Pauli decomposition of the propagated error at step $\tau$ has a term that is infinite (\Cref{def:finiteerr}).
+Let $C[\mathcal{E}]$ be a Toric encoded circuit, and let $J=\tau_1, \tau_2, \ldots$ be an order agreeing with $\pi_{C[\mathcal{E}]}$. We say that a step $\tau \in J$ admits infinite error if there exists a reduced Pauli-path up to step $\tau$, $P_{1}, P_{2}, \ldots, P_{t^{\star}}$, that induces an analysis Toom's contour such that there is at least one Pauli in the path whose view in the $\infty$-extension is infinite (\Cref{def:finiteerr}).
+
+Similarly, we say that a step $\tau$ admits an infinite slice if there is a Pauli path such that $\mathcal{H}_{\tau}$ has an infinite slice. Moreover, we say that $\tau$ is the first step to admit an infinite error/slice if $\tau$ is the minimal step for which there is a Pauli path such that $\mathcal{H}_{\tau}$ admits an infinite error/slice.
 \end{definition}
 
+
+\begin{claim}
+  \label{claim:intersyn}
+  Let $\alpha = (\Delta d^{2})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a slice at size $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then the probability that $A$ occurs is bounded by:
+  \begin{equation*}
+    \begin{split}
+      \prb{A} \le w\mu\max_{\tau\in[w\mu]}\prb{B_{\tau}}.
+    \end{split}
+  \end{equation*}
+\end{claim}
 
 \begin{proof}
 Let $\mathcal{H}_{\tau}$ and $\mathcal{H}_{\tau+1}$ be the analysis Toom's contours at steps $\tau$ and $\tau+1$. And let $P_{1}, \ldots, P_{t}, \tilde{P}_{1}$ and $P_{1}, \ldots, P_{t}, \tilde{P}_{2}$ be the reduced Pauli-paths (up to a step) that induce Toom's contours. In addition, let $g$ be the gate that is applied at step $\tau+1$. Assume that step $\tau+1$ is the first to admit an infinite slice. For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
@@ -85,27 +78,6 @@ Denote by $K^{\prime}$ the slice in the last layer of $\mathcal{H}_{\tau}$ that 
 \inb{\textbf{We have one crucial problem: the Toom's contour is defined over the $\infty$-extension, so there are an infinite number of $g$'s.}}
 
 
-\begin{claim}
-  \label{claim:intersyn}
-  Let $\alpha = (\Delta d^{2})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to addmit a slice at size $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then the probability that $A$ occurs is bounded by:
-  \begin{equation*}
-    \begin{split}
-      \prb{A} \le w\mu\max_{\tau\in[w\mu]}\prb{B_{\tau}}.
-    \end{split}
-  \end{equation*}
-\end{claim}
-
-\begin{proof}
-  For the sake of the proof, we say that a chain $x$ is in operator $O$ if, when considering the Pauli decomposition of the image of $O$ in the $\infty$-extension, there is a correspondence between the faces of $x$ and the (partial) support of one of the terms in $O$'s image.
-
-  Denote by $x$ the maximal, in size, reduced connected $d^{\prime}$-dimensional chain in $\mathcal{D}^{\tau+1}$. Assume that $\tau$ is the first step to admits an infinite error, thus any chain in $\mathcal{D}^{\tau}$ has a size lower than $n$. Denote by $u$ the gates which is applied at step $\tau$, so there have to be Paulis $P_{1},P_{2}$ such that: 
-  \begin{equation*}
-    \begin{split}
-      P_{1} \in \text{Supp } \mathcal{D}^{\tau}, \, \,  P_{2} \in \text{Supp } \mathcal{D}^{\tau + 1}, \, \, x \text{ is both in } P_{1},P_{2}  \, \, \text{ and } \expval*{P_{1}|u|P_{2}} \neq 0
-    \end{split}
-  \end{equation*}
-  Since $u$ has a fan at most $\Delta$, and since any qubit ($d^{\prime}$-dimensional face) is connected to at most $d^{2}$ qubits (by stepping through a check\footnote{a $d^{\prime}\pm1$ dimensional face}), we get that the application of $u$ on $P_{1}$ touches at most $\alpha^{-1}$ chains, and the result of the modification yields $x$. Therefore, $x$ resides inside a union of at most $\alpha^{-1}$, and since $x$ is connected, we have that its size is bounded by summing the size of each chain in the union (\Cref{claim:tringinq}). Therefore, if any of the chains is at size at most $\alpha n$, it implies that the size of $x$ is lower than $n$. Hence, a necessary condition to step $\tau+1$ to be the first step to admit an infinite error is that step $\tau-1$ admits errors at size greater than $\alpha n$, and hence the existence of a step $\tau^{\prime}\le \tau$ such that $B_{\tau^{\prime}}$ occurs. The inequality follows by using the union bound over all the steps in $C[\mathcal{E}]$.
-\end{proof}
 
 
 
