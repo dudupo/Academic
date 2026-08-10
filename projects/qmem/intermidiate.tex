@@ -31,9 +31,56 @@ Moreover, we say that a step $\tau$ admits an infinite error if there is a regis
 
 
 \begin{proof}
-  Let $\tilde{C}[\mathcal{E}]$ be the quantum circuit obtained from $C[\mathcal{E}]$ by spreading each turn to a whole time unit. The registers of the circuit are still encoded in the Toric code, and the gates are still $\textbf{CX}$ and Paulis. Therefore, the circuit is a Toric encoded circuit and it has a Toom's contour. We argue that if $K$ is a slice in the original circuit at time $t$, then there is a 'time' $\tau < w t$ for which $K$ is also a slice in the $\tilde{C}[\mathcal{E}]$ at time $\tau$.
-  
-  Assume by induction that this is true for any $t^{\prime} < t$. Then there are $Q_{1}, \ldots, Q_{l}$ such that $P_{t-1}C[\mathcal{E}]|_{t} = C[\mathcal{E}]|_{t} Q_{l}$, and on the other hand, $Q_{i}\tilde{C}[\mathcal{E}]|_{\tau^{\prime}+i} = \tilde{C}[\mathcal{E}]|_{\tau^{\prime}+i} Q_{i+1}$. $ \prod_{i} \tilde{C}[\mathcal{E}]|_{\tau^{\prime}+i} = C[\mathcal{E}]|_{t}$, then $C[\mathcal{E}]|_{t}P_{t} = Q_{\cdot} C[\mathcal{E}]|_{t}$. Now let $u$ and $v$ be connected by arrows vertices in (1) lets show that they are connected by arrows in (2). Then we use \Cref{claim:prevslices}, yet only a finite number of qubits is involved.. 
+Let $\mathcal{H}_{\tau}$ and $\mathcal{H}_{\tau+1}$ be the analysis Toom's contours at steps $\tau$ and $\tau+1$. And let $P_{1}, \ldots, P_{t}, \tilde{P}_{1}$ and $P_{1}, \ldots, P_{t}, \tilde{P}_{2}$ be the reduced Pauli-paths (up to a step) that induce Toom's contours. In addition, let $g$ be the gate that is applied at step $\tau+1$. Assume that step $\tau+1$ is the first to admit an infinite slice. For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
+  \begin{equation*}
+    \begin{split}
+ C[\mathcal{E}]|_{\rightarrow \tau+1} = g C[\mathcal{E}]|_{\rightarrow \tau}  
+    \end{split}
+  \end{equation*}
+By definition of Pauli-path (\Cref{def:paulipath}), we have that:
+\begin{equation*}
+  \begin{split}
+    \Trr{} \big( (C[\mathcal{E}]|_{\tau} \circ P_{t}) \tilde{P}_{1}   \big) \neq 0 
+  \end{split}
+\end{equation*}
+Thus, there are constants $\gamma, \bar{\gamma} \in \mathbb{R}$ and an operator $\mathbf{A} \in \mathcal{L}$, such that $\Trr{} (\mathbf{A} \tilde{P}_{1}) = 0$ and:
+\begin{equation*}
+  \begin{split}
+  C[\mathcal{E}]|_{\tau} \circ P_{t}) = \gamma \tilde{P}_{1} + \bar{\gamma} \mathbf{A}
+  \end{split}
+\end{equation*}
+\inb{\textbf{Think what to write here.}}
+\begin{equation*}
+  \begin{split}
+    &\Trr{} \big( (C[\mathcal{E}]|_{\tau + 1} \circ P_{t}) \tilde{P}_{2}   \big) = \Trr{} \big(   (gC[\mathcal{E}]|_{\tau}  \circ P_{t}) \tilde{P}_{2}   \big) \\
+  =& \gamma \Trr{} \big( (g \circ \tilde{P}_{1} )  \tilde{P}_{2} \big) +  \bar{\gamma} \Trr{} \big (g \circ \mathbf{A} )  \tilde{P}_{2}   \big) 
+  \end{split}
+\end{equation*}
+We argue that we can assume, without loss of generality, that the left term is non-zero. To see this, suppose that it vanishes; then there has to be another Pauli term $\tilde{P} \in \mathcal{P}$ in the decomposition of $\mathbf{A}$ for which:
+\begin{equation*}
+    \begin{split}
+      \Trr{} \big( (g \circ \tilde{P} )  \tilde{P}_{2} \big) \neq 0
+  \end{split}
+\end{equation*}
+Otherwise, the whole trace is zeroing out in contradiction to the fact that $P_{1},..,P_{t},\tilde{P_{2}}$ is a Pauli-path. So, we could initially choose the Pauli-path that induces '$\mathcal{H}_{\tau}$'\footnote{Observe that the 'reinduced' Toom's counter is different from $\mathcal{H}_{\tau}$.} to be $P_{1},..,P_{t},\tilde{P}$.
+
+
+Now, let $K$ be a slice in $\mathcal{H}_{\tau+1}$ that is not in $\mathcal{H}_{\tau+1}$. The vertices in $K$ support the faces of $\tilde{P_{2}} = g \circ \tilde{P}$. However, since $g$ acts over at most $\Delta$ faces, there are at most $\Delta$ faces that support $\tilde{P}_{2}$ and don't support $\tilde{P}_{1}$. Furthermore, since the arrow connection rules define a connection of less than $d^{2}$ arrows per face, the arrows in $\mathcal{H}_{\tau+1}$ can be obtained by the addition of at most $\Delta d^{2}$ arrows to the arrows of $\mathcal{H}_{\tau}$. Thus, any connected component (by arrows) in $\mathcal{H}_{t+1}$ can be obtained by the merging of at most $\Delta d^{2}+1$ connected components in $\mathcal{H}_{t}$.
+
+
+
+To finish, imagine the space-time graph, consisting of three time-layers. In the bottom layer, set delegates vertices, each corresponding to a slice in the last layer of $\mathcal{H}_{\tau}$. In the second layer, set the vertices in those slices and the vertices supporting $g$'s locations. Connect each of the vertices of $\mathcal{H}_{\tau}$'s slices to its delegate with an arrow.
+And in the final layer, set the vertices of $K$, connected to the vertices in the second layer by either connecting the vertex to itself \inb{\textbf{(Change it)}} or by the additional arrows. Finally, add the required forks so that the result is indeed a space-time graph.
+
+Denote by $K^{\prime}$ the slice in the last layer of $\mathcal{H}_{\tau}$ that is maximal in size. Using the \Cref{claim:prevslices}, combining that the vertices of the third layer contained in the second gives:  
+\begin{equation*}
+  \begin{split}
+     & \Size{K}  \le \Delta d^{2} ( \Size{K^{\prime}} +  \Size{\text{fork}} ) \\
+     \Rightarrow & \Size{K^{\prime}} \le \frac{1}{\Delta d^{2}} \Size{K} - \Size{ \text{fork} } \le \alpha \Size{K} 
+  \end{split}
+\end{equation*}
+
+
 \end{proof}
 
 

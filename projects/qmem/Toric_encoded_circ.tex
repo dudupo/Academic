@@ -153,7 +153,7 @@ Such intuition is right in the sense that this is the right way to keep track of
 
 
 For the analyses, we would like to extend Toom's contour to record in their final layer a partial time-step, namely a computation up to a certain step \Cref{def:steps}. For this, we substitute in the definition above the Pauli-path with a Pauli-path up to a step. Moreover, since we would like to refer to the connected chain at the final layer as the 'final error clusters', we add at the end a layer whose purpose is to connect in time (by arrows) the connected components of Toom's contour in the prior layer, which are connected by checks (their union is identified with a connected chain).
-\begin{definition}
+\begin{definition}[Analysis Toom's Contour at Step $\tau$]
   For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, and a step $\tau$, according to the standard order, let $C[\mathcal{E}]_{\tau}$ be the partial computation circuit of $C[\mathcal{E}]$ up to step $\tau$. We define the \textit{analysis Toom's contour at step $\tau$}, denoted by $\mathcal{H}_{\tau} = (V_{\mathcal{H}}, E_{\mathcal{H}})$, to be the graph obtained by taking the Toom's contour of $C[\mathcal{E}]_{\tau}$ and adding vertices and edges as follows:
   \begin{enumerate}
     \item We define $t^{\star}$ as the time of the gate at step $\tau$ plus one, and then add for the vertices in $V_{\mathcal{H},\{X\}}$ the duplication of the previous layer, namely the subset:
