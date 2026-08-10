@@ -55,15 +55,14 @@ The proofs of the claims are given in the appendix. We continue with the proof o
 
     \Cref{claim:decodestopnoise} states that the $D$ successfully decodes assuming that no infinite slice occurs. And \Cref{claim:replace} states that any upper bound on the occurrence probability of infinite slices, in the running where the decoding procedure is noisy\footnote{Observe that in this setting, the classical procedure that infers a logical measurement makes no sense}, and which assumes only that the noise channel is local stochastic, is sufficient to bound the probability that an infinite slice occurs during the original running. Thus, it remains to prove that with probability at least $q$, no infinite slice is admitted in the setting in which the decoding procedures are also subjected to noise. From now on, we consider that setting.
 
+     
+Let $\alpha = \frac{1}{2}(\Delta d^{2})^{-1}$. \Cref{claim:intersyn} states that the probability of there being a time $t$ (or a step) that admits an infinite slice is bounded by the number of locations multiplied by the probability that step $\tau$ is the first to admit a finite slice at size greater than $\alpha n$, maximized over $\tau$. Notice that if $\tau$ is the first step to admit a finite slice at size greater $\alpha n$, then no prior step to it admits an infinite error, so all the slices in the analysis of Toom's contour at step $\tau$ have an explanation.
 
-    \inb{\textbf{Here.}}  Let $\alpha = (\Delta d^{2})^{-1}$. \Cref{claim:intersyn} states that the probability of there being a time $t$ (or a step) that admits an infinite error is bounded by the number of locations multiplied by the probability that step $\tau$ is the first to admit a finite connected error (chain) in the propagated error at size greater than $\alpha n$, maximized over $\tau$. Notice that if $\tau$ is the first step to admit an error at size $\alpha n$, then all the slices in analysis of Toom's contour at step $\tau$ have an explanation. 
 
-
-Denote by $B_{\tau}$ the event where $\tau$ is the first step to admit a finite connected error of size greater than $\alpha n$, and by $A_{\tau}$ the event where all explanations of slices up to and including step $\tau$ have fewer than $\frac{n}{d}$ edges. Thus:
+Denote by $B_{\tau}$ the event where $\tau$ is the first step to admit a finite slice at size greater than $\alpha n$, and by $A_{\tau}$ the event where all explanations of slices up to and including step $\tau$ have fewer than $\frac{n}{d}$ edges. Thus:
     \begin{equation*}
       \begin{split}
         \prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } & =  \prbm{  B_{\tau}  \cap A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } + \prbm{  B_{\tau} \cap \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \\
-& \le \prbm{  B_{\tau}  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } + \prbm{  \bar{A}_{\tau} | B_{\tau}   }{ \sim \mathcal{N}_{\mathcal{E}} }  
       \end{split}
     \end{equation*}
 
@@ -94,8 +93,7 @@ Plugging into the union bounds and combining \Cref{claim:counting_trees} yields:
       \end{split}
     \end{equation*}
 
-
-It remains to bound the probability of $B_{\tau}| A_{\tau}$. Since $\tau$ is the first step that admits an error with size at least $\alpha n$, it follows that any slice has an explanation. Conditioned on the event $A_{\tau}$, any explanation implies that any explanation has fewer than $\frac{n}{d}$ edges and therefore, by the same argument as above, the projection of each explanation tree into the finite Toric sends its leaves to unique targets.
+It remains to bound the probability of $B_{\tau} \cap A_{\tau}$. Since prior to, and including step $\tau$, no step admits an error at size greater than or equal to $n$, it follows that any slice has an explanation. Conditioned on the event $A_{\tau}$, any explanation implies that any explanation has fewer than $\frac{n}{d}$ edges and therefore, by the same argument as above, the projection of each explanation tree into the finite Toric sends its leaves to unique targets.
 
     Using \Cref{claim:edgesin} again, any explanation of a slice of size $\alpha n$ has at least $c_{1} \alpha n$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{\tau}$ admits an explanation with more than $c_{1}\alpha n$ edges. Hence, we obtain:
     \begin{equation*}
@@ -117,7 +115,7 @@ Now, combined with \Cref{claim:intersyn}, there are constants $c_{2}, c_{3}$ dep
     1 -   \Theta \left( S^{3} \right) \left( c_{3} p^{c_{2}} \right)^{ \frac{n}{2d} } 
   \end{split}
 \end{equation*}
-No step admits an infinite error, so the decoder successfully restores the logical state; in other words, no logical error occurs.
+No step admits an infinite slice, so the decoder successfully restores the logical state; in other words, no logical error occurs.
 \end{proof}
 The lemma gives the theorem almost immediately. To complete the proof, we need to plug in the initialization phase, which initializes encoded zeros and resource states subjected to local stochastic noise. We emphasize that the resulting states are subjected to local stochastic noise (in addition to the computation). We neither prove nor describe that phase here; instead, we refer to \cite{grospellier:tel-03364419}, \cite{gottesman2014faulttolerant}, \cite{Fawzi_2018}, and \cite{nguyen2025quantumfaulttoleranceconstantspace}.
   \begin{theorem}
