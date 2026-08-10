@@ -16,7 +16,7 @@ That motivates us to describe the evolution of a fault to a given step and defin
   Let $\alpha = \frac{1}{2}(\Delta d^{2})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a slice at size $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then the probability that $A$ occurs is bounded by:
   \begin{equation*}
     \begin{split}
-      \prb{A} \le w\mu\max_{\tau\in[w\mu]}\prb{B_{\tau}}.
+      \prb{A} \le w\mu\max_{\tau\in J }\prb{B_{\tau}}.
     \end{split}
   \end{equation*}
 \end{claim}
@@ -72,7 +72,7 @@ Denote by $K^{\prime}$ the slice in the last layer of $\mathcal{H}_{\tau}$ that 
 We got that a condition for step $\tau+1$ to admit an infinite slice is that a step $\tau$ admits a slice at size at least $\alpha n$. Thus, the desired inequality follows by taking the union bound:
   \begin{equation*}
     \begin{split}
-      \prb{A} \le w\mu\max_{\tau\in[w\mu]}\prb{B_{\tau}}.
+      \prb{A} \le w\mu\max_{\tau\in J}\prb{B_{\tau}}.
     \end{split}
   \end{equation*}
 \end{proof}
