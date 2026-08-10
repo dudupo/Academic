@@ -120,7 +120,7 @@ No step admits an infinite slice, so the decoder successfully restores the logic
 The lemma gives the theorem almost immediately. To complete the proof, we need to plug in the initialization phase, which initializes encoded zeros and resource states subjected to local stochastic noise. We emphasize that the resulting states are subjected to local stochastic noise (in addition to the computation). We neither prove nor describe that phase here; instead, we refer to \cite{grospellier:tel-03364419}, \cite{gottesman2014faulttolerant}, \cite{Fawzi_2018}, and \cite{nguyen2025quantumfaulttoleranceconstantspace}.
   \begin{theorem}
     \label{theorem:main}
-    There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{E}$ with rate $p < p_{0}$, and a quantum circuit $C$ with depth $\mu$ and width $w$, there exists a Toric encoded circuit $\tilde{C}$, with depth $\Theta(\mu n^{5})$ and width $\Theta((w + \mu) n^{8})$  that simulates $C$ with probability: 
+    There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{E}$ with rate $p < p_{0}$, and a quantum circuit $C$ with depth $\mu$ and width $w$, there exists a Toric encoded circuit $\tilde{C}$, with depth $\Theta(\mu n^{5} + \text{ Polylog}(n) )$ and width $\Theta((w + \mu) n^{8} \text{ Polylog}(n) )$  that simulates $C$ with probability: 
 \begin{equation*}
   \begin{split}
     1 -   O \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n)} 
