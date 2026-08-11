@@ -197,11 +197,11 @@ The distinction between slices resulting from different layers allows us to adju
       \end{enumerate}
   \end{corollary}
   \begin{proof}
-    Let us split upon what $K$ result from: 
+First, since the arrows and forks connection rules do not allow vertices of $V_{\mathcal{H},X}$ to connect to vertices of $V_{\mathcal{H},Z}$, we can assume that $K \subset V_{\mathcal{H},X}$. Let us split upon what $K$ results from:
     \begin{enumerate}
         \item For the sweep-cycle part, we use \Cref{claim:polesmove}, which states that after each application of the sweep-cycle over a finite-size assignment, the maximal $L_{d+1}$ value of the resulting reduced error decreases by at least one, while the values of each $L_{g}$ do not increase. Since no infinite slice is admitted, we have that the chain supported on the vertices $K_{0}, \ldots, K_{k}$ is finite, and therefore its size decreases.
-        \item  If $\hat{K}$ is a result of faults, then it cannot contain a vertex that supports a fault, because no arrow connection is made for a fault gate. Thus, if it contains a vertex that supports a fault, it will be the only vertex and $K = H_{K}$. So, we can imagine that all the vertices in $\hat{K}$ support the identity operator and handle that case as a result of a logical operator. 
-          \item Where $\hat{K}$ is a result of a  logical operator, we use the fact that since the operators are transversal, we have that the support of $\hat{K}$ is contained in the support of $\cup_{0}^{k} \hat{K}_{i}$, and therefore for any $i \in [d+1]$:
+        \item If $\hat{K}$ is a result of faults, then it cannot contain a vertex that supports an $X$-fault. That is because no arrow connection is made in that case, and hence, if it were to contain a vertex that supports a fault, that vertex would be the only one in $K$, namely $K = H_{K}$. So, we can imagine that all the vertices in $\hat{K}$ support the identity operator (or $Z$-faults, which are treated as identity for vertices in $V_{\mathcal{H},X}$) and handle that case as a result of a logical operator.
+          \item Where $\hat{K}$ is the result of a logical operator, we use that the operators are transversal, so we have that the support of $\hat{K}$ is contained in the support of $\cup_{0}^{k} \hat{K}_{i}$, and therefore for any $i \in [d+1]$:
         \begin{equation*}
           \begin{split}
             \max \bigl\{ L_{i}(v) : v \in \hat{K} \} \le \max \bigl\{ L_{i}(v) : v \in \bigcup_{i=0}^{k}\hat{K}_{i} \} 
