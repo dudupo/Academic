@@ -1,5 +1,6 @@
 
-\subsection{The Ideal $\leftrightarrow$ Noisy Replacement Argument}
+\subsection{The Replacement Argument}
+Our construction will result (after initialization) in a Toric encoded circuit, where all the quantum registers are encoded using the $(d,d^{\prime})$-Toric code induced by a Toric with a side of length $n$. Then, for a decoder $D$, we are going to take the following simple procedure: just apply the sweep-cycle $  n^{d+1}  $ times - the number of vertices times the side's length. If we want him to correct a measurement, namely a classical state which is the outcome of the measurement, then we perform only the first stage of the sweep-cycle (without moving into the dual code). 
 
 A notation that we will need later is the extending of the infinity characterization to slices, and subslices. 
 \begin{definition}[Inifinite Slice]
@@ -11,13 +12,10 @@ A notation that we will need later is the extending of the infinity characteriza
     \end{split}
   \end{equation*}
 \end{definition}
+Note that $u$ and $v$ might be set on different connected chains. In particular, the origin of the vertices in $K$ might be a finite (yet disconnected) chain, and yet $K$ might be an infinite slice. In addition, if $K$ is a slice in the last layer of the analysis Toom's contour at step $\tau$, and the Pauli $P \in \mathcal{P}$ is the last element in the reduced Pauli-path that induces the contour. Then, if $K$ is finite then $P_{t^{\star} -1}$ is finite.
 
-Note that $u$ and $v$ might be set on different connected chains. In particular, the origin of $K$ vertices might be a finite (yet disconnected) chain, and yet $K$ might be an infinite slice. In addition, if $K$ is a slice in the last layer of the analysis Toom's contour at step $\tau$, and $P_{t^{\star} -1}$ is the reduced propagated error up to that step, then we have a transition in the opposite direction, namely if $K$ is finite then the propagated error $P_{t^{\star}}$ is finite.
-
-
-
-  \inb{\textbf{Change.}} 
-  Our construction will result (after initialization) in a Toric encoded circuit, where all the quantum registers are encoded using the $(d,d^{\prime})$-Toric code induced by a Toric with a side of length $n$. Then, for a decoder $D$, we are going to take the following simple procedure: just apply the sweep-cycle $  n^{d+1}  $ times - the number of vertices times the side's length. If we want him to correct a measurement, namely a classical state which is the outcome of the measurement, then we perform only the first stage of the sweep-cycle (without moving into the dual code). 
+  
+  
 
 The following claim states that for ideal running (not subjected to noise), assuming that during the decoding all the slices are finite, the decoding succeeds in correcting them.
 \begin{claim}
