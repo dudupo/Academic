@@ -53,17 +53,17 @@ Otherwise, the whole trace is zeroing out in contradiction to the fact that $P_{
 
 
 
-Now, let $K_{\infty}$ be a infinite slice in $\mathcal{H}_{\tau+1}$, and let $K$ be a subslice of $K_{\infty}$ with size exactly $n$. Observe that $K$ can be chosen to support $g$'s locations (Otherwise $K$ is also in $\mathcal{H}_{\tau}$). The vertices in $K$ support the faces of $\tilde{P_{2}} = g \circ \tilde{P}$. However, since $g$ acts over at most $\Delta$ faces, there are at most $\Delta$ faces that support $\tilde{P}_{2}$ and don't support $\tilde{P}_{1}$. Furthermore, since the arrow connection rules define a connection of less than $d^{2}$ arrows per face, the arrows in $\mathcal{H}_{\tau+1}$ can be obtained by the addition of at most $\Delta d^{2}$ arrows to the arrows of $\mathcal{H}_{\tau}$. Thus, any connected (by arrows) subset of vertices in $\mathcal{H}_{t+1}$ can be covered by the merging of at most $\Delta d^{2}+1$ connected components in $\mathcal{H}_{\tau}$ with the vertices supporting $g$ .
+Now, let $K_{\infty}$ be a infinite slice in $\mathcal{H}_{\tau+1}$, and let $K$ be a subslice of $K_{\infty}$ with size exactly $n$. The vertices in $K$ support the faces of $\tilde{P_{2}} = g \circ \tilde{P}$. Recall that the vertices in a Toom's contour supports the faces of the infinite Torices. Yet, observe that $K$ can be chosen to simultaneity support $g$'s original locations (Otherwise $K$ is also in $\mathcal{H}_{\tau}$) and be disjoint to the locations of any of $g$'s translation. Since $g$ acts over at most $\Delta$ faces, there are at most $\Delta$ faces that support $\tilde{P}_{2}$ and don't support $\tilde{P}_{1}$. Furthermore, since the arrow connection rules define a connection of less than $d^{2}$ arrows per face, the arrows in $\mathcal{H}_{\tau+1}$ supporting $K$ can be obtained by the addition of at most $\Delta d^{2}$ arrows to arrows that are already in of $\mathcal{H}_{\tau}$. Thus, $K$ can be covered by the merging of at most $\Delta d^{2}+1$ slices in $\mathcal{H}_{\tau}$ with the vertices supporting $g$.
 
 
 To finish, imagine the space-time graph, consisting of three time-layers. In the bottom layer, set delegates vertices, each corresponding to a slice in the last layer of $\mathcal{H}_{\tau}$. In the second layer, set the vertices in those slices and the vertices supporting $g$'s locations. Connect each of the vertices of $\mathcal{H}_{\tau}$'s slices to its delegate with an arrow.
-And in the final layer, set the vertices of $K$, connected to the vertices in the second layer by either connecting the vertex to itself \inb{\textbf{(Change it)\footnote{Find a way to describe the connection: $(v,t)\rightarrow (v,t+1)$ }}} or by the additional arrows. Finally, add the required forks so that the result is indeed a space-time graph.
+And in the final layer, set the vertices of $K$, connected to the vertices in the second layer by the standard connection rules of analysis Toom's contour. Finally, add the required forks so that the result is indeed a space-time graph.
 
 Denote by $K^{\prime}$ the slice in the last layer of $\mathcal{H}_{\tau}$ that is maximal in size. Using the \Cref{claim:prevslices}, combining that the vertices of the third layer contained in the second gives:  
 \begin{equation*}
   \begin{split}
      & \Size{K}  \le \Delta d^{2} ( \Size{K^{\prime}} +  \Size{\text{fork}} ) \\
-     \Rightarrow & \Size{K^{\prime}} \le \frac{1}{\Delta d^{2}} \Size{K} - \Size{ \text{fork} } \le \alpha \Size{K} 
+     \Rightarrow & \Size{K^{\prime}} \ge \frac{1}{\Delta d^{2}} \Size{K} - \Size{ \text{fork} } \ge \alpha \Size{K} 
   \end{split}
 \end{equation*}
 We got that a condition for step $\tau+1$ to admit an infinite slice is that a step $\tau$ admits a slice at size at least $\alpha n$. Thus, the desired inequality follows by taking the union bound:
