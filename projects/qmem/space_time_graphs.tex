@@ -11,7 +11,7 @@
     Consider a graph $G = (V, A, F)$, where $V$ is a set of vertices, and $A$ and $F$ are sets of undirected edges. For $v \in V$, denote by $\pre{v} = \{ u \in V \colon \{u,v\} \in A \}$, we extend the notion for subsets of vertices $X \subset V$ by $\pre{X} = \bigcup_{v \in X} \pre{v}$. Let $ T \colon V \rightarrow \mathbb{N}$, We say that $(G,T)$ is a time graph if and only if:
 \begin{enumerate}
   \item $\{x,y\} \in A \Rightarrow \Time{y} = \Time{x} \pm 1$  
-  \item For $x,y \in V $  $\{x,y\} \in F $ if and only if there exists $z \in V $ such both $\{x,z\},\{y,z\} \in A$. 
+  \item For $x,y \in V $  $\{x,y\} \in F $ if and only if there exists $z \in V $ such both $\{x,z\},\{y,z\} \in A$, and $\Time{x} = \Time{y} = \Time{z}-1$. 
 \end{enumerate} We will call to $T$ the time coordinate, to $A$ arrows, and to $F$ forks. Observes that from the second requirement it follows that forks can connect only vertices that have the same time value (set by $T$). 
   \end{definition}
   \begin{remark}
