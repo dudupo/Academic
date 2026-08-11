@@ -4,7 +4,7 @@ An essential ingredient of our proof is an 'intermediate argument', stating that
 
 \begin{claim}
   \label{claim:intersyn}
-  Let $\alpha = \frac{1}{2}(\Delta d^{2})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a finite slice at size at least $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then the probability that $A$ occurs is bounded by:
+  Let $\alpha = \frac{1}{2}(\Delta d^{2})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a finite slice at size at least $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then, for sufficiently large $n$, the probability that $A$ occurs is bounded by:
   \begin{equation*}
     \begin{split}
       \prb{A} \le w\mu\max_{\tau\in J }\prb{B_{\tau}}.
@@ -57,7 +57,13 @@ Denote by $K^{\prime}$ the slice in the last layer of $\mathcal{H}_{\tau}$ that 
 \begin{equation*}
   \begin{split}
      & \Size{K}  \le \Delta d^{2} ( \Size{K^{\prime}} +  \Size{\text{fork}} ) \\
-     \Rightarrow & \Size{K^{\prime}} \ge \frac{1}{\Delta d^{2}} \Size{K} - \Size{ \text{fork} } \ge \alpha \Size{K} 
+     \Rightarrow & \Size{K^{\prime}} \ge \frac{1}{\Delta d^{2}} \Size{K} - \Size{ \text{fork} }
+   \end{split}
+\end{equation*}
+So for $n > \frac{1}{2}\Delta d^{2} \Size{\text{fork} }$:
+\begin{equation*}
+  \begin{split}
+     \Size{K^{\prime}}  \ge \alpha \Size{K} 
   \end{split}
 \end{equation*}
 We got that a condition for step $\tau+1$ to admit an infinite slice is that a step $\tau$ admits a slice at size at least $\alpha n$. Thus, the desired inequality follows by taking the union bound:
