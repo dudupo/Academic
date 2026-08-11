@@ -136,9 +136,11 @@ We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that
   \end{claim}
   \begin{proof}
     
-    Let $K^{\star}_{0}, \ldots, K^{\star}_{k^{\star}}, F^{\star}_{1}, \ldots, F^{\star}_{k^{\star}}$ be the spanned slices and spanned forks in the graph of $K^{\star}$ (\Cref{def:gslice}). We construct $\hat{K}_{1}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ by the following two-step procedure. First, we filter from $K^{\star}_{0}, \ldots, K^{\star}_{k^{\star}}, F^{\star}_{1}, \ldots, F^{\star}_{k^{\star}}$ slices and forks such that the remaining is a minimal tree that spans the slices which contain the $\prei{x_{i}}$s. 
-    For $i \in [d+1]$, denote by $R^{\star}_{i}$ the slice that contain $\prei{x_{i}}$. 
-    For each such $R^{\star}_{i}$, introduce an imaginary slice $R_{i}$ that contains two vertices $\prei{x_{i}}$ and imaginary vertex $u_{i}$ that has the same $L_{i}$ as $\prei{x_{i}}$. Observe that in this system, $R_{i}$s are leaves. Thus, we can repeat the proof in \Cref{claim:prevslices} and get the inequality.
+    Let $K^{\star}_{0}, \ldots, K^{\star}_{k^{\star}}, F^{\star}_{1}, \ldots, F^{\star}_{k^{\star}}$ be the spanned slices and spanned forks in the graph of $K^{\star}$ (\Cref{def:gslice}). We construct $\hat{K}_{1}, \ldots, \hat{K}_{k}, F_{1}, \ldots, F_{k}$ by the following two-step procedure. First, we filter from $K^{\star}_{0}, \ldots, K^{\star}_{k^{\star}}, F^{\star}_{1}, \ldots, F^{\star}_{k^{\star}}$ slices and forks such that the remaining is a minimal tree that spans the slices which contain the $\prei{x_{i}}$s. Denote them by $J_{1},J_{2}..,$. For $i \in [d+1]$, denote by $R^{\star}_{i}$ the slice that contains $\prei{x_{i}}$, and for each such $R^{\star}_{i}$, introduce an imaginary slice $R_{i}$ that contains two vertices: the first is $\prei{x_{i}}$ and the second is an imaginary vertex $u_{i}$ that has the same $L_{i}$-value as $\prei{x_{i}}$.
+
+    
+    
+Observe that the collection $R_{1}, \ldots, R_{d+1}, J_{1}, J_{2}, \ldots$ is a connected collection of slices and forks in which the $R_{i}$s are leaves. Thus, we can repeat the proof in \Cref{claim:prevslices}, concurrently repeat the process for choosing the $z_{j}^{i}$s, and get the inequality.
 
   \end{proof}
 
