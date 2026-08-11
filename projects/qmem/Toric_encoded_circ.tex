@@ -84,14 +84,14 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
           \item If $g$ is either a logical Pauli, a measurement in either the computational or the phase basis, a sweep-cycle, or an identity, then for any face $f$ in the register on which $g$ acts, we add:
             \begin{equation*}
               \begin{split}
-                & \bigl\{  \{ \tilde{u} = (\cdot, u,t),  \tilde{v} = ( \cdot, v,t+1)\} : u,v \in f \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \\ 
+                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : u,v \in f \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \\ 
                 &  \, \, \, \text { or }  u,v \in \phi(f) \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
               \end{split}
             \end{equation*}
             \item If $g$ is a logical $\mathbf{CX}$ then for any physical $\mathbf{CX}$ in its realization, between faces $f_{1}$ into $f_{2}$ at time $t$ we add: 
             \begin{equation*}
               \begin{split}
-                & \bigl\{  \{ \tilde{u}  = (\cdot, u,t), \tilde{v} = ( \cdot, v,t+1)\} :  u \in f_{1}\cup f_{2}, v \in f_{1}\cup f_{2}  \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X}  \\
+                & \bigl\{  \{ \tilde{u}  = (u,t, \cdot), \tilde{v} = (v,t+1, \cdot)\} :  u \in f_{1}\cup f_{2}, v \in f_{1}\cup f_{2}  \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X}  \\
                 &  \, \, \, \text { or } u \in \phi(f_{1})\cup \phi(f_{2}), v \in \phi(f_{1})\cup \phi(f_{2}) \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
               \end{split}
             \end{equation*}
@@ -125,7 +125,7 @@ One might expect to have a differentiation between measurement in the computatio
             If $g$ is a measurement in the phases base, then for any face $f$ in the register on which $g$ acts, we add:
             \begin{equation*}
               \begin{split}
-                & \bigl\{  \{ \tilde{u} = (\cdot, u,t),  \tilde{v} = ( \cdot, v,t+1)\} : u \in f , v \in \phi(f) \text{ and } \tilde{u} \in V_{\mathcal{H},X}, \tilde{v} \in V_{\mathcal{H},Z}, \\ 
+                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : u \in f , v \in \phi(f) \text{ and } \tilde{u} \in V_{\mathcal{H},X}, \tilde{v} \in V_{\mathcal{H},Z}, \\ 
                 &  \, \, \, \text { or }  u\in \phi(f), v \in f \text{ and } \tilde{u} \in V_{\mathcal{H},Z} , \tilde{v} \in  V_{\mathcal{H},X} \bigr\} 
               \end{split}
             \end{equation*}
@@ -145,21 +145,21 @@ For the analyses, we would like to extend Toom's contour to record in their fina
     \item We define $t^{\star}$ as the time of the gate at step $\tau$ plus one, and then add for the vertices in $V_{\mathcal{H},\{X\}}$ the duplication of the previous layer, namely the subset:
       \begin{equation*}
           \begin{split}
-            \bigl\{ v_{t^{\star}}  & : v_{t^{\star}}=( \{X\}, v,t^{\star}) \text{ if there exists a face } f \in \text{ supp } X(P_{t^{\star}-1}) \\ 
+            \bigl\{ v_{t^{\star}}  & : v_{t^{\star}}=( v,t^{\star},\{X\}  ) \text{ if there exists a face } f \in \text{ supp } X(P_{t^{\star}-1}) \\ 
             & \text{ such } v \in f \in X(P_{t^{\star} - 1}) \bigr\} 
           \end{split}
         \end{equation*}
         Similarly we add to $V_{\mathcal{H}, Z}$ the subset: 
       \begin{equation*}
           \begin{split}
-            \bigl\{ v_{t^{\star}}  & : v_{t^{\star}}=( \{Z\}, v,t^{\star}) \text{ if there exists a face } f \in \text{ supp } Z(P_{t^{\star}-1}) \\
+            \bigl\{ v_{t^{\star}}  & : v_{t^{\star}}=(  v,t^{\star},\{Z\} ) \text{ if there exists a face } f \in \text{ supp } Z(P_{t^{\star}-1}) \\
             & \text{ such } v \in \phi(f) \bigr\} 
           \end{split}
         \end{equation*}
       \item For the edges, we add the following arrows:
         \begin{equation*}
           \begin{split}
-            \bigl\{ \bigl\{ \tilde{u} = (\cdot, u,t^{\star} -1 ), \tilde{v}= (\cdot, v,t^{\star})  \bigr\} & \text{ if there exists a  face } f \in  X(P_{t^{\star} - 1}) \\ 
+            \bigl\{ \bigl\{ \tilde{u} = (u,t^{\star} -1, \cdot ), \tilde{v}= (v,t^{\star},\cdot)  \bigr\} & \text{ if there exists a  face } f \in  X(P_{t^{\star} - 1}) \\ 
             & \text{or  } \phi^{-1}(f) \in Z(P_{t^{\star} - 1}) \text{ such } v,u \in f   \bigr\}  
           \end{split}
         \end{equation*}
