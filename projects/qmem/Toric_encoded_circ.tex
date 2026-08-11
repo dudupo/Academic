@@ -56,16 +56,13 @@ Finally, we define a reduced Pauli-path $\tilde{P_{1}}, \ldots, \tilde{P}_{\mu+1
 
 As a concept, if the base graph is a recording of a run from the Torices' point of view, then a \textit{Tooms contour} is a recording of the deviation's evolution in the eyes of the Torices vertices. More technically, for a reduced Pauli-path $P_{1},..,P_{\mu+1}$ (\Cref{def:paulipath}), the Tooms contour is the restriction of the base graph to vertices that witness a deviation, namely, those that belong to qubits supporting $P_{1},P_{2},..,P_{\mu+1}$.
 
-\inb{\textbf{Here. Notice that I change the math definitions, yet not the text presenting them. In addition I should mention that under a remark that faults are well treated. }}
-
-\inb{\textbf{Consider, seting that Toom's contour to be $X,Z$-Toom's contour.  }}
 
 
 \begin{definition}[Tooms Contour Graph of $C(\mathcal{E})$, (Standard form)]
     \label{def:contour}
     For a quantum circuit $C$, set of faults $\mathcal{E}$ and a reduced Pauli-path $P_{1},..$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. We define the \textit{Tooms contour graph} $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
     \begin{enumerate}
-      \item The vertices $V_{\mathcal{H}}$ are the vertices of faces supporting the reduced Pauli-path. Namely:
+      \item The vertices $V_{\mathcal{H}}$ correspond to vertices of faces supporting the reduced Pauli-path. They consist of the triple $(v,t,\cdot)$ where $(v,t)$ is a vertex of the base graph, and the third is a symbolic coordinate that is either $\{X\}$ or $\{Z\}$ corresponding to the component of the Pauli that $v$ supports at time $t$.
         \begin{equation*}
           \begin{split}
             V_{\mathcal{H}, X} \colonequals & \big\{ v_{t} \times \{X\} : v_{t}=(v,t) \in V_{o} \\
@@ -84,7 +81,7 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
 
       \item The edges $E_{\mathcal{H}} \subset E_{o} $ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$, where for any logical gate $g$ which applied in time $t$ in $C[\mathcal{E}]^{\infty} $ we add edge to $A_{\mathcal{H}}$ as follow: 
         \begin{enumerate}
-          \item If $g$ is either a logical Pauli, a measurement in either the computational or the phase basis, or an identity, then for any face $f$ in the register on which $g$ acts, we add:
+          \item If $g$ is either a logical Pauli, a measurement in either the computational or the phase basis, a sweep-cycle, or an identity, then for any face $f$ in the register on which $g$ acts, we add:
             \begin{equation*}
               \begin{split}
                 & \bigl\{  \{ \tilde{u} = (\cdot, u,t),  \tilde{v} = ( \cdot, v,t+1)\} : u,v \in f \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \\ 
