@@ -89,7 +89,7 @@ Denote by $B_{\tau}$ the event where $\tau$ is the first step to admit a finite 
 Plugging into the union bounds and combining \Cref{claim:counting_trees} yields:
     \begin{equation*}
       \begin{split}
-        \prbm{  \bar{A}_{\tau} | B_{\tau}   }{ \sim \mathcal{N}_{\mathcal{E}} }  \le \tau S \sigma^{  \frac{n}{2d} } p^{ \frac{c_{1}n}{2^{d+2} d } }\le S^{2} \left( \sigma p^{\frac{1}{2^{d + 1}} c_{1}} \right)^{\frac{n}{2d}} 
+        \prbm{  \bar{A}_{\tau} \cap B_{\tau}   }{ \sim \mathcal{N}_{\mathcal{E}} }  \le \tau S \sigma^{  \frac{n}{2d} } p^{ \frac{c_{1}n}{2^{d+2} d } }\le S^{2} \left( \sigma p^{\frac{1}{2^{d + 1}} c_{1}} \right)^{\frac{n}{2d}} 
       \end{split}
     \end{equation*}
 
@@ -98,7 +98,7 @@ It remains to bound the probability of $B_{\tau} \cap A_{\tau}$. Since prior to,
     Using \Cref{claim:edgesin} again, any explanation of a slice of size $\alpha n$ has at least $c_{1} \alpha n$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{\tau}$ admits an explanation with more than $c_{1}\alpha n$ edges. Hence, we obtain:
     \begin{equation*}
       \begin{split}
-        \prbm{  B_{\tau}  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ \substack{ v \in V_{o}, x \ge c_{1}\alpha n \\ L_{g}(v) \in [0,n]} } \prbm{ v \text{ is a root of explanation with number of edges } x  | A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } \\
+        \prbm{  B_{\tau}  \cap A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ \substack{ v \in V_{o}, x \ge c_{1}\alpha n \\ L_{g}(v) \in [0,n]} } \prbm{ v \text{ is a root of explanation with number of edges } x  \cap A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } \\
         & \le \sum_{x = c_{1}\alpha n }^{ \infty } S \left( \sigma p^{\frac{1}{2^{d}} c_{1}} \right)^{x}  = S \frac{\left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)^{\alpha n}}{ 1 -  \left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)} 
       \end{split}
     \end{equation*}
