@@ -95,6 +95,13 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
                 &  \, \, \, \text { or } u \in \phi(f_{1})\cup \phi(f_{2}), v \in \phi(f_{1})\cup \phi(f_{2}) \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
               \end{split}
             \end{equation*}
+          \item If $g$ is a fault Pauli, then for any face $f$ in the register, we add:
+            \begin{equation*}
+              \begin{split}
+                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : u,v \in f \text{ , } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \text{, and } f \notin X(g)  \\ 
+                &  \, \, \, \text { or }  u,v \in \phi(f) \text{ , } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \text{, and } f \notin Z(g)  \bigr\} 
+              \end{split}
+            \end{equation*}
         \end{enumerate}
 %        In addition for any fault $g$ of $\mathcal{E}^{\infty}$, that is applied at time $t$, and any face $f \in \text{Loc}(g)$, we add the edges:
 %            \begin{equation*}
