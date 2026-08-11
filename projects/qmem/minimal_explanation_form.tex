@@ -13,6 +13,12 @@ First, we define the explanation tree of a slice to be the subtree of its histor
       \mathcal{X}_{r} &\colonequals 1 - r \frac{d+1}{\alpha} = 1 -  \frac{r}{40(d+1)}
       \end{split}
     \end{equation*}
+In addition, we would like to refer to $\mathcal{X}_{0}, \mathcal{X}_{1}, \mathcal{X}_{2}, \mathcal{X}_{3}$ in a cyclic manner, so we define:
+    \begin{equation*}
+      \begin{split}
+        \mathcal{X}_{-1} \colonequals \mathcal{X}_{3}
+      \end{split}
+    \end{equation*}
     Given sets $W$ of points, $A$ of arrows and $F$ of forks, we define $U$ as the set of vertices of the graph induced by the edges of $A \cup F$. The sets $W,A$ and $F$ form an explanation of a spanned slice $\hat{K} = \expval*{ K, v_{1}, .., v_{d+1}}$ of order $\text{order}(\hat{K}) = r$, if and only if: 
     \begin{enumerate}
       \item $W \cup \{v_{1} ,.., v_{d+1}\} \subset U \subset \History{K}$ and the graph $(U, A\cup F)$ is connected. 
