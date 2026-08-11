@@ -70,7 +70,7 @@ Denote by $B_{\tau}$ the event where $\tau$ is the first step to admit a finite 
     We begin by bounding the contribution of the right term. Conditioning on $B_{\tau}$ guarantees that any slice has an explanation. According to \Cref{coro:edgefaultratio}, there exists a constant $c_{1}$, depending only on $d$, such that the ratio of leaves to edges in the explanation is at least $c_{1}$. By \Cref{claim:big_subtree}, it follows that any such explanation has more than $\frac{n}{d}$ edges containing a subtree with fewer than $\frac{n}{2d}$ edges, with a leaves-to-edges ratio greater than $\frac{1}{2} c_{1}$. Using the union bound, we bound the probability that there is a vertex in the base graph that is a root of such a subtree. Since the construction of the $\infty$-extension sets periodic conditions, it's sufficient to ask if there is such a vertex in the restriction to the finite $n$-side length Toric.
   \begin{equation*}
     \begin{split}
-      \prbm{  \bar{A}_{\tau} | B_{\tau}   }{ \sim \mathcal{N}_{\mathcal{E}} }  \le  \bigcup_{ \substack{ v \in V_{o}, \tau^{\prime} \le \tau \\ L_{g}(v) \in [0,n]} } \prbm{ & v \text{ is a root of subtree in } \mathcal{H}_{\tau^{\prime}}  \\ 
+      \prbm{  \bar{A}_{\tau} \cap B_{\tau}   }{ \sim \mathcal{N}_{\mathcal{E}} }  \le  \bigcup_{ \substack{ v \in V_{o}, \tau^{\prime} \le \tau \\ L_{g}(v) \in [0,n]} } \prbm{ & v \text{ is a root of subtree in } \mathcal{H}_{\tau^{\prime}}  \\ 
       &  \text{ with less than  } \frac{n}{2d} \text{ edges and more than } \frac{1}{2}c_{1} \frac{n}{2d} n \text{ leaves}  }{ \sim \mathcal{N}_{\mathcal{E}} } 
     \end{split}
   \end{equation*}
@@ -98,7 +98,9 @@ It remains to bound the probability of $B_{\tau} \cap A_{\tau}$. Since prior to,
     Using \Cref{claim:edgesin} again, any explanation of a slice of size $\alpha n$ has at least $c_{1} \alpha n$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{\tau}$ admits an explanation with more than $c_{1}\alpha n$ edges. Hence, we obtain:
     \begin{equation*}
       \begin{split}
-        \prbm{  B_{\tau}  \cap A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ \substack{ v \in V_{o}, x \ge c_{1}\alpha n \\ L_{g}(v) \in [0,n]} } \prbm{ v \text{ is a root of explanation with number of edges } x  \cap A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } \\
+        \prbm{  B_{\tau}  \cap A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ \substack{ v \in V_{o}, x \ge c_{1}\alpha n \\ L_{g}(v) \in [0,n]} } \prbm{ v \text{ is a root of explanation with number of edges } x \\ 
+          &\, \, \, \, \, \, \text{ and leaves are projected to different targets  } 
+      \cap A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } \\
         & \le \sum_{x = c_{1}\alpha n }^{ \infty } S \left( \sigma p^{\frac{1}{2^{d}} c_{1}} \right)^{x}  = S \frac{\left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)^{\alpha n}}{ 1 -  \left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)} 
       \end{split}
     \end{equation*}
