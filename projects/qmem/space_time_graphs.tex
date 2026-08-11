@@ -159,7 +159,7 @@ Until now, the claims stated were true for any kind of space-time graph (where t
 
 \begin{claim}
   \label{claim:maxfork}
-  For Toom's contours, the maximal size of a fork is $2d^{\prime}$.
+  For Toom's contours, the maximal size of a fork is $2d$.
 \end{claim}
 \begin{proof}
 Consider the rules of forks connecting in \Cref{def:contour}. For forks obtained by rules (a), (b), or as a result of a fault, it's clear that their vertices at their ends are on intersecting faces (when projecting the vertices on $\mathcal{G}$). The maximal fork, in those cases, has the form of:
@@ -168,7 +168,7 @@ Consider the rules of forks connecting in \Cref{def:contour}. For forks obtained
    F =  \bigl\{ v , \bigl( \prod_{g \in S^{\prime}_{1}} g\bigr) \bigl(  \prod_{g \in S^{\prime}_{2}} g \bigr) v    \bigr\}
     \end{split}
   \end{equation*}
-Where $S^{\prime}_{1}$ and $S^{\prime}_{2}$ are subsets of $S$ of size $d^{\prime}$, and therefore the size of such forks is $\Size{F} = 2d^{\prime}$.
+  Where $S^{\prime}_{1}$ and $S^{\prime}_{2}$ are subsets of $S$ of size either $d^{\prime} - 1 $ or $d- d^{\prime} -1$, and therefore the size of such forks is at most $\Size{F} = 2d$.
 \end{proof}
 
 
@@ -208,7 +208,7 @@ The distinction between slices resulting from different layers allows us to adju
 First, since the arrows and forks connection rules do not allow vertices of $V_{\mathcal{H},X}$ to connect to vertices of $V_{\mathcal{H},Z}$, we can assume that $K \subset V_{\mathcal{H},X}$. Let us split upon what $K$ results from:
     \begin{enumerate}
         \item For the sweep-cycle part, we use \Cref{claim:polesmove}, which states that after each application of the sweep-cycle over a finite-size assignment, the maximal $L_{d+1}$ value of the resulting reduced error decreases by at least one, while the values of each $L_{g}$ do not increase. Since no infinite slice is admitted, we have that the chain supported on the vertices $K_{0}, \ldots, K_{k}$ is finite, and therefore its size decreases.
-        \item If $\hat{K}$ is a result of faults, then it cannot contain a vertex that supports an $X$-fault. That is because no arrow connection is made in that case, and hence, if it were to contain a vertex that supports a fault, that vertex would be the only one in $K$, namely $K = H_{K}$. So, we can imagine that all the vertices in $\hat{K}$ support the identity operator (or $Z$-faults, which are treated as identity for vertices in $V_{\mathcal{H},X}$) and handle that case as a result of a logical operator.
+        \item If $\hat{K}$ is a result of faults, then it cannot contain a vertex that supports an $X$-fault. That is because no arrow connection is made in that case, and hence, if it were to contain a vertex that supports a $X$-fault, that vertex would be the only one in $K$, namely $K = H_{K}$. So, we can imagine that all the vertices in $\hat{K}$ support the identity operator (or $Z$-faults, which are treated as identity for vertices in $V_{\mathcal{H},X}$) and handle that case as a result of a logical operator.
           \item Where $\hat{K}$ is the result of a logical operator, we use that the operators are transversal, so we have that the support of $\hat{K}$ is contained in the support of $\cup_{0}^{k} \hat{K}_{i}$, and therefore for any $i \in [d+1]$:
         \begin{equation*}
           \begin{split}
