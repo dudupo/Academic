@@ -201,10 +201,8 @@ The distinction between slices resulting from different layers allows us to adju
     %\Cref{claim:prevslices} if $L_{d+1}(\predd{v_{d+1}}) = L_{d+1}(v_{d+1})$ then 
     %Since it's given that the Pauli-path doesn't admit an infinite error we have that $P$ is finite. Thereby, any connected chain in $a$    If $\hat{K}$ is the vertex domain of more than one (disjoint) connected chain, then it's sufficient to look over the one with the maximal $L_{d+1}$ value, and derive for it that the predecessor chain prior to the correction has to have a maximal $L_{d+1}$ value higher by at least one.
 
-      If $\hat{K}$ is a result of faults, then it can not contain a vertex support a fault, that is because no arrows-connection is made for a fault gate. Thus, if it contains a vertex that is support fault, then that would be the 
-
-
-      \footnote{Notice that $\hat{K}$ does not consist of faults since otherwise $K=H_{K}$, so the meaning here is that $\hat{K}$ contains vertices which weren't flipped in the fault layer.} or a logical operator, we use the fact that since the operators are transversal, we have that the support of $\hat{K}$ is contained in the support of $\cup_{0}^{k} \hat{K}_{i}$, and therefore for any $i \in [d+1]$:
+      
+If $\hat{K}$ is a result of faults, then it cannot contain a vertex that supports a fault, because no arrow connection is made for a fault gate. Thus, if it contains a vertex that supports a fault, it will be the only vertex and $K = H_{K}$. So, we can imagine that all the vertices in $\hat{K}$ support the identity operator and handle that case as a result of a logical operator. Where $\hat{K}$ is a result of a  logical operator, we use the fact that since the operators are transversal, we have that the support of $\hat{K}$ is contained in the support of $\cup_{0}^{k} \hat{K}_{i}$, and therefore for any $i \in [d+1]$:
     \begin{equation*}
       \begin{split}
         \max \bigl\{ L_{i}(v) : v \in \hat{K} \} \le \max \bigl\{ L_{i}(v) : v \in \bigcup_{i=0}^{k}\hat{K}_{i} \} 
