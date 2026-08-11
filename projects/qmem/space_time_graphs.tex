@@ -17,7 +17,7 @@
 For any vertex $v \in V$ of the space-time graph, denote by $\pre{v}$ the set of vertices defined as follow: 
     \begin{equation*}
       \begin{split}
-\pre{v} \colonequals \{ u \in V \colon \{u,v\} \in A \text{ and } \Time{u} = \Time{v} + 1 \}
+\pre{v} \colonequals \{ u \in V \colon \{u,v\} \in A \text{ and } \Time{v} = \Time{u} + 1 \}
       \end{split}
     \end{equation*}
 We extend the notion for subsets of vertices $X \subset V$ by $\pre{X} = \bigcup_{v \in X} \pre{v}$. We will call $T$ the time coordinate, $A$ arrows, and $F$ forks. Observe that from the second requirement, it follows that forks can connect only vertices that have the same time value (set by $T$).
