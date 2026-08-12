@@ -94,7 +94,7 @@ Plugging into the union bounds and combining \Cref{claim:counting_trees} yields:
       \end{split}
     \end{equation*}
 
-It remains to bound the probability of $B_{\tau} \cap A_{\tau}$. Since prior to, and including step $\tau$, no step admits an error at size greater than or equal to $n$, it follows that any slice has an explanation. Confining to the event $A_{\tau}$, any explanation implies that any explanation has fewer than $\frac{n}{d}$ edges and therefore, by the same argument as above, the projection of each explanation tree into the finite Toric sends its leaves to unique targets.
+    It remains to bound the probability of $B_{\tau} \cap A_{\tau}$. Since prior to, and including step $\tau$, no step admits an slice at size greater than or equal to $n$, it follows that any slice has an explanation (\Cref{claim:edgesin}). Confining to the event $A_{\tau}$, any explanation implies that any explanation has fewer than $\frac{n}{d}$ edges and therefore, by the same argument as above, the projection of each explanation tree into the finite Toric sends its leaves to unique targets.
 
     Using \Cref{claim:edgesin} again, any explanation of a slice of size $\alpha n$ has at least $c_{1} \alpha n$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{\tau}$ admits an explanation with more than $c_{1}\alpha n$ edges. Hence, we obtain:
     \begin{equation*}
