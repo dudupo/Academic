@@ -29,10 +29,10 @@ The computation model we consider is quantum circuits subject to \textit{local-s
 
 For circuits $\tilde{C}$ and $C$, we say that $\tilde{C}$ simulates $C$ with probability $p$ if, when one stops a noisy run of $\tilde{C}$ at a midpoint, one can, with probability $p$, recover by non-noisy operation an 'image' of a midpoint in the running of $C$, and if stopping at the last time point of $\tilde{C}$ enables recovery of the 'image' of $C$ at the end of its run. We state our main theorem as follows:
 \begin{theorem*}[Informal version of \Cref{theorem:main}]
-  There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, a quantum circuit $C$ with depth $\mu$ and width $w$, and a big enough integer $n$, there exists a 'logical equivalence' circuit $\tilde{C}$ with depth $\Theta(\mu n^{5})$ and width $\Theta((w + \mu) n)$ that simulates $C$ with probability:
+  There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, a quantum circuit $C$ with depth $\mu$ and width $w$, and a big enough integer $n$, there exists a 'logical equivalence' circuit $\tilde{C}$ with depth $\Theta(\mu n^{5})$ and width $\Theta((w + \mu) n^{8} \text{Polylog} (n) )$ that simulates $C$ with probability:
 \begin{equation*}
   \begin{split}
-    1 -   \Theta \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n)} 
+    1 -   O \left( \text{poly}(w,\mu,n) \right)  p^{\Omega(n)} 
   \end{split}
 \end{equation*}
 Furthermore, $\tilde{C}$ has the following two properties:
@@ -69,10 +69,10 @@ Furthermore, $\tilde{C}$ has the following two properties:
   \paragraph{Clifford-free Depth Overhead.}  An application that results from a slight modification of the main construction and its proof is a fault-tolerant construction that introduces a constant depth overhead per Clifford gate. We name that construction \textit{Clifford-free Depth Overhead}. \Cref{section:cliffordfree} describes the construction, proves external claims that are needed, and eventually elaborates on how to modify the proof of the main theorem to achieve the desired result.
 
   \begin{theorem*}[Informal version of \Cref{theorem:cliffordfree}]
-    There exists a constant $ p_{0} \in (0,1) $ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $ p < p_{0} $, and a Clifford+$\mathbf{T}$ quantum circuit $ C $ with depth $\mu$, $\mathbf{T}$-depth $\mu_{\mathbf{T}}$ and width $ w $, there exists a 'logical equivalence' circuit $\tilde{C}$, with depth $ \Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{5}) $ and width $\Theta((w + \mu) n^{8})$ that simulates $ C $ with probability:
+    There exists a constant $ p_{0} \in (0,1) $ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $ p < p_{0} $, and a Clifford+$\mathbf{T}$ quantum circuit $ C $ with depth $\mu$, $\mathbf{T}$-depth $\mu_{\mathbf{T}}$ and width $ w $, there exists a 'logical equivalence' circuit $\tilde{C}$, with depth $ \Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{5}) $ and width $\Theta((w + \mu) n^{8} \text{Polylog} (n) )$ that simulates $ C $ with probability:
 \begin{equation*}
   \begin{split}
-    1 -   \Theta \left( \text{poly}(w,\mu,n) \right)  p^{\Theta(n)} 
+    1 -   O \left( \text{poly}(w,\mu,n) \right)  p^{\Omega(n)} 
   \end{split}
 \end{equation*}
   \end{theorem*} 
