@@ -151,7 +151,7 @@ Our next objective is to modify the construction to introduce no depth overhead 
       \diam{z } \colonequals \max_{v \in z}\max_{g \in S} d L_{g}(v) - \min_{v \in z}\sum_{g \in S} L_{g}(v) 
     \end{split}
   \end{equation*}
-In addition, for a vertex $v$ in a space-time graph, we define $\pred{v}$ to be the vertex in $\pre{v}$ that achieves the maximal value of $\max_{g\in S}L_{g}$.
+In addition, for a vertex $v$ in a space-time graph, we define $\pred{v}$ to be the vertex in $\pre{v}$ that achieves the maximal value of $\max_{g\in S}L_{g}$. If there are many, select one arbitrarily.
 \end{definition}
 The reduced form of an error can now be redefined to match the diameter function rather than the size. The following is an adaptation of \Cref{claim:reducederr} for the diameter function; the proof is identical to the original version.
 \begin{claim}
@@ -172,7 +172,7 @@ The reduced form of an error can now be redefined to match the diameter function
 The diameter function fits well within the definition of space-time graphs. The following is an adaptation of \Cref{claim:prevslices} to relate between the diameter of a slice and its predecessors.
 \begin{claim} 
     \label{claim:prevslicesdiam}
-    Consider a time graph $(G,T)$, Let $K$ be a slice in $G$, and let $K$ be a slice of $K$ such that $K \neq \History{K}$. Denote by $x, y$ the vertices which achieve the maximal values of $L_{d+1}$ and $\max_{g}L_{g}$. Then for some integer $k$ there exist slices $K_{0} , ..,K_{k}$ and forks $F_{1},..,F_{k}$ such that:
+    Consider a time graph $(G,T)$, Let $K$ be a slice in $G$, and let $K$ be a slice of $K$ such that $K \neq \History{K}$. Select vertices $x, y \in K$ that achieve the maximal values of $L_{d+1}$ and $\max_{g}L_{g}$. Then for some integer $k$ there exist slices $K_{0} , ..,K_{k}$ and forks $F_{1},..,F_{k}$ such that:
     \begin{enumerate}
       \item  The vertices $ \predd{x}, \pred{y} $ belong to $K_{0},..,K_{k}$.  
       \item Introduce an edge between $K_{i}$ and $K_{j}$ if and only if one of the forks $F_{1},..,F_{k}$ consists of a pole of $K_{i}$ and a pole of $K_{j}$. Then the graph formed from $K_{0},..,K_{k}$ is connected.  
