@@ -68,7 +68,7 @@ Denote by $B_{\tau}$ the event where $\tau$ is the first step to admit a finite 
     \end{equation*}
 
     
-    We begin by bounding the contribution of the right term. Conditioning on $B_{\tau}$ guarantees that any slice has an explanation. According to \Cref{coro:edgefaultratio}, there exists a constant $c_{1}$, depending only on $d$, such that the ratio of leaves to edges in the explanation is at least $c_{1}$. By \Cref{claim:big_subtree}, it follows that any such explanation has more than $\frac{n}{d}$ edges containing a subtree with fewer than $\frac{n}{2d}$ edges, with a leaves-to-edges ratio greater than $\frac{1}{2} c_{1}$. Using the union bound, we bound the probability that there is a vertex in the base graph that is a root of such a subtree. Since the construction of the $\infty$-extension sets periodic conditions, it's sufficient to ask if there is such a vertex in the restriction to the finite $n$-side length Toric.
+    We begin by bounding the contribution of the right term. Intersection with $B_{\tau}$ guarantees that any slice has an explanation. According to \Cref{coro:edgefaultratio}, there exists a constant $c_{1}$, depending only on $d$, such that the ratio of leaves to edges in the explanation is at least $c_{1}$. By \Cref{claim:big_subtree}, it follows that any such explanation has more than $\frac{n}{d}$ edges containing a subtree with fewer than $\frac{n}{2d}$ edges, with a leaves-to-edges ratio greater than $\frac{1}{2} c_{1}$. Using the union bound, we bound the probability that there is a vertex in the base graph that is a root of such a subtree. Since the construction of the $\infty$-extension sets periodic conditions, it's sufficient to ask if there is such a vertex in the restriction to the finite $n$-side length Toric.
   \begin{equation*}
     \begin{split}
       \prbm{  \bar{A}_{\tau} \cap B_{\tau}   }{ \sim \mathcal{N}_{\mathcal{E}} }  \le  \bigcup_{ \substack{ v \in V_{o}, \tau^{\prime} \le \tau \\ L_{g}(v) \in [0,n]} } \prbm{ & v \text{ is a root of subtree in } \mathcal{H}_{\tau^{\prime}}  \\ 
@@ -94,7 +94,7 @@ Plugging into the union bounds and combining \Cref{claim:counting_trees} yields:
       \end{split}
     \end{equation*}
 
-It remains to bound the probability of $B_{\tau} \cap A_{\tau}$. Since prior to, and including step $\tau$, no step admits an error at size greater than or equal to $n$, it follows that any slice has an explanation. Conditioned on the event $A_{\tau}$, any explanation implies that any explanation has fewer than $\frac{n}{d}$ edges and therefore, by the same argument as above, the projection of each explanation tree into the finite Toric sends its leaves to unique targets.
+It remains to bound the probability of $B_{\tau} \cap A_{\tau}$. Since prior to, and including step $\tau$, no step admits an error at size greater than or equal to $n$, it follows that any slice has an explanation. Confining to the event $A_{\tau}$, any explanation implies that any explanation has fewer than $\frac{n}{d}$ edges and therefore, by the same argument as above, the projection of each explanation tree into the finite Toric sends its leaves to unique targets.
 
     Using \Cref{claim:edgesin} again, any explanation of a slice of size $\alpha n$ has at least $c_{1} \alpha n$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{\tau}$ admits an explanation with more than $c_{1}\alpha n$ edges. Hence, we obtain:
     \begin{equation*}
