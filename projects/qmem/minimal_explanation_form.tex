@@ -29,14 +29,14 @@ Furthermore, for a step $\tau$ and a spanned slice $\hat{K}$ in the analysis Too
   \end{definition}
   \begin{claim}
     \label{claim:edgesin}
-Let $P_{1}, \ldots, P_{\mu+1}$ be the reduced Pauli-path that induces Toom's contour. And let $t \le \mu+1$ such that $P_{1}, \ldots, P_{t}$ do not admit an infinite error. Every spanned slice $K = \expval*{K, v_{1}, \ldots, v_{d+1}}$, with time coordinate $\Time{K} \le t$, has an explanation. Moreover, if a step $\tau$ is the first step to admit an infinite error, any slice in the analysis of Toom's contour has an explanation.
+Let $P_{1}, \ldots, P_{\mu+1}$ be the reduced Pauli-path that induces Toom's contour. And let $t \le \mu+1$ such that $P_{1}, \ldots, P_{t}$ do not admit an infinite slice. Every spanned slice $K = \expval*{K, v_{1}, \ldots, v_{d+1}}$, with time coordinate $\Time{K} \le t$, has an explanation. Moreover, if a step $\tau+1$ is the first step to admit an infinite slice, any slice in the analysis of Toom's contour up to step $\tau$ has an explanation.
   \end{claim}
 
   \begin{proof}
-    Let $h = \Time{K} - \min_{u \in \History{K}} \Time{u}$. For spans derived from the standard Toom's contours (namely not a analysis Toom's contours), we prove by induction on $h$.
+    Let $h = \Time{K} - \min_{u \in \History{K}} \Time{u}$. For spans derived from the standard Toom's contours, we prove by induction on $h$.
     \begin{enumerate}
       \item Base: $h=0$, meaning $T$ is constant on $\History{K}$, so no arrows connect points of $\History{K}$. Thus, $\History{K}$, as well as $\mathbf{K}$, consists only of a single leaf, namely $\hat{K}$ is a result of a fault, and $r = \text{order}(\mathcal{X}_{r}) \in \{0,2\}$. In that case, there is a single vertex $u \in V_{\mathcal{H}}$ such that $U = W = \{u\}$, so $m=1$, $s=0$, and $|A|, |F| = 0$. It is easy to check that those values satisfy the requirement. 
-      \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. Thus, by \Cref{claim:prevslices}, we know that for some $k$ there exist spanned slices $\hat{K}_{0}, .., \hat{K}_{k}$ and forks $F_{1},..,F_{k}$ that satisfy \Cref{claim:prevslices}. In particular, for $r < 3$ it holds that: 
+      \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. Combining with the fact that no infinite slice is admitted, by \Cref{claim:prevslices}, we know that for some $k$ there exist spanned slices $\hat{K}_{0}, \ldots, \hat{K}_{k}$ and forks $F_{1}, \ldots, F_{k}$ that satisfy \Cref{claim:prevslices}. In particular, for $r < 3$ it holds that:
         \begin{equation*}
           \begin{split}
             \sum_{i=0}^{k}\Size{\hat{K}_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{\hat{K}}  
@@ -100,7 +100,7 @@ The first three inequalities hold by the definitions of the $\mathcal{X}_{r}$, t
         \end{enumerate}
          Finally, by \Cref{claim:prevslices}, the graphs induced by $\mathbf{A}_{i} \cup \mathbf{F}_{i}$ are connected, thus the graph induced by $\mathbf{A}\cup \mathbf{F}$ is also connected. Therefore, $\mathbf{W}, \mathbf{A}, \mathbf{F}$ form an explanation of $K$. 
     \end{enumerate}
-     It's left to prove for spanned slices in the analysis Toom's contours. Notice, that $h$ has to be greater than zero, We prove the inequality by repeating on the induction bases, where all the spanned slices that are back in the history of $K$ are spanned slices in the standard Toom's contour. So the only different is in the bounding of $\mathbf{A}$'s size. We use \Cref{claim:shrinkan} (with the assumption that all the errors are finite) and get: 
+It's left to prove for spanned slices in the analysis of Toom's contours. Notice that the 'forming rules' of the analysis of Toom's contour are different from the standard Toom's contour only at the last layer. Therefore, the induction proof captures all the slices not in the last layer. For any slice at the last layer, we repeat the induction step while using \Cref{claim:shrinkan} instead of \Cref{claim:prevslices}, so the bounding over $\mathbf{A}$'s size becomes:
     \begin{equation*}
       \begin{split}
         |\mathbf{A}|  & \le \alpha \left(m + 1 \right) - \beta s \\ 
