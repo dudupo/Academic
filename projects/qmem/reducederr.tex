@@ -188,28 +188,28 @@ We close the section by defining the \textit{reduced} form of a finite $d^{\prim
   Let $z$ be a $d^{\prime}$-dimensional chain. Consider the graph whose vertices are the faces of $z$, and any two vertices are connected by an edge if their intersection is a $d^{\prime}- 1$ dimensional face or if they are both contained in a $d^{\prime}+1$-dimensional face. Then $z$ is said to be connected if that graph is connected. In addition, we will say that a connected chain $z$ is finite if for any $g\in S$:
   \begin{equation*}
     \begin{split}
-      \max_{v,u \in z} L_{g}(v) - L_{g}(u) < n - 1
+        \Size{z} \le n-1     %\max_{v,u \in z} L_{g}(v) - L_{g}(u) < n - 1
     \end{split}
   \end{equation*}
 Similarly, $z$ is infinite if there are vertices $v$ and $u$ in $z$ for which the difference above is greater than or equal to $n$.
 \end{definition}
 
-\begin{remark}
-Observe that if $\Size{z} < n$, then $z$ is finite. And if $z$ is finite, then $\Size{z} < d\cdot n$.
-\end{remark}
+%\begin{remark}
+%Observe that if $\Size{z} < n$, then $z$ is finite. And if $z$ is finite, then $\Size{z} < d\cdot n$.
+%\end{remark}
 
 
 
 
-\begin{definition}
-We extend the size-function to act on Paulis $\Size{ \cdot } \colon \mathcal{P} \rightarrow \mathbb{R}^{2}$ as follows: For a Pauli $P$, let $x$ and $z$ be the chain supports of its $X$ and $Z$ components, namely $P = X(x)Z(z)$. Then:
-  \begin{equation*}
-    \begin{split}
-      \Size{P} =  (\Size{x}, \Size{\phi(z)})
-    \end{split}
-  \end{equation*}
-In addition, we extend the finite notation to unconnected chains and Pauli operators as follows: an unconnected chain will be said to be finite if any subset of it that is connected is finite. A Pauli operator $P = X(x)Z(z)$ will be said to be finite if the views in the $\infty$-extension of both $x$ and $\phi(z)$ are finite chains.
-\end{definition}
+%\begin{definition}
+%We extend the size-function to act on Paulis $\Size{ \cdot } \colon \mathcal{P} \rightarrow \mathbb{R}^{2}$ as follows: For a Pauli $P$, let $x$ and $z$ be the chain supports of its $X$ and $Z$ components, namely $P = X(x)Z(z)$. Then:
+%  \begin{equation*}
+%    \begin{split}
+%      \Size{P} =  (\Size{x}, \Size{\phi(z)})
+%    \end{split}
+%  \end{equation*}
+%In addition, we extend the finite notation to unconnected chains and Pauli operators as follows: an unconnected chain will be said to be finite if any subset of it that is connected is finite. A Pauli operator $P = X(x)Z(z)$ will be said to be finite if the views in the $\infty$-extension of both $x$ and $\phi(z)$ are finite chains.
+%\end{definition}
 
 
 
