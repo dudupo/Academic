@@ -313,23 +313,15 @@ So, the inequality holds.
 \begin{definition}
   For a $(2d^{\prime},d^{\prime})$-Toric code, we define the realization of Hadamard gate by $ H^{\otimes (\cdot) } \circ \phi \circ \psi$ followed by $d^{\prime} + 2d$ times sweep-cycle (See also \Cref{corollary:hadamard}). 
 \end{definition}
-Having a realization of logical Hadamard, we would like to extend the Toric encoded circuits to use it instead of gate teleportation. In addition, we define the Clifford-free Toom's contour to be the space-time graph that describes a noisy running of the extended encoding circuit.
+
+Having a realization of logical Hadamard, we would like to extend the Toric encoded circuits to use it instead of gate teleportation. In addition, we define the Clifford-free Toom's contour to be the space-time graph that describes a noisy running of the extended encoding circuit. The definition of the Clifford-free Toric contour presents two main differences. First, the vertices are not partitioned into $X$ and $Z$ types; instead, a vertex would belong to $V_{\mathcal{H}}$ if it supports a face in the reduced Pauli-path regardless of its type. Second, the arrows connect vertices that are at a 'time-distance' of $d^{\prime}+2d +1$ since that is the time the computation layer lasts.
+
 \begin{definition}[Clifford-free Toric Encoded Circuit]
 We extend the Toric Encoded definition to the Clifford-free Toric encoded circuit by requiring that $d^{\prime}=d-d^{\prime}=d/2$, replacing the realization of the Hadamard gate with the fold-transversal realization instead of Gate-teleportation. In addition, we enforce that the depth of the logical layers be exactly $d^{\prime}+2d+1$ by padding with identity\footnote{And, of course, in any practical implementation, it will be better to pad with Sweep-cycles. We do it for the convenience of the adaptation.}.
 \end{definition}
 
 \begin{definition}[Clifford-free Toom's Contour]
-We extend Toom's Contour to be Clifford-free by changing the connection of arrows as follows:
-  \begin{enumerate}
-    \item The connection by faults remains the same. 
-    \item Any logical gate that is not Hadamard connects vertices at the initial time of the layer with vertices at the final time of the layer if they share a face in the fault path. Since the padding is done by identity, it's equivalent to connect $(v,t)$ with $(u,t+d^{\prime}+2d+1)$ by an arrow if both $(v,t)$ and $(u,t+1)$ are in $V_{\mathcal{H}}$, and there are faces $f_{1}, f_{2}$ (which might be the same) and a physical gate $g^{\prime}$ acting at time $t$ such that $v \in f_{1} \in \text{Loc}(g^{\prime})$ and $u \in f_{2} \in \text{Loc}(g^{\prime})$.
-    \item If the logical gate is a Hadamard, then we connect $(v,t)$ with $(u,t+d^{\prime}+2d+1)$ if there are vertices $(v_{0},t),(v_{1},t+1),(v_{2},t+2),\ldots,(v_{d^{\prime}+2d},t+d^{\prime}+2d),(v_{d^{\prime}+2d+1},t+d^{\prime}+2d+1) \in V_{\mathcal{H}}$ such that $v_{0}=v$, $v_{d^{\prime}+2d+1}=u$, and for any $i \in [0, d^{\prime}+2d+1]$, there is a physical gate $g^{\prime}$ acting at time $t + i$ and a face $f \in \text{Loc}(g^{\prime})$ containing both $v_{i}$ and $v_{i+1}$.
-  \end{enumerate}
-\end{definition}
-
-
-\begin{definition}[Tooms Contour Graph of $C(\mathcal{E})$, (Standard form)]
-    For a Toric encoded quantum circuit $C$, set of faults $\mathcal{E}$ and a reduced Pauli-path $P_{1},..$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. We define the \textit{Tooms contour graph} $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
+    For a Clifford-free Toric encoded quantum circuit $C$, set of faults $\mathcal{E}$ and a reduced Pauli-path $P_{1},..$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. We define the \textit{Clifford-free Toom's contour graph} $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
     \begin{enumerate}
       \item The vertices $V_{\mathcal{H}}$ correspond to vertices of faces supporting the reduced Pauli-path. 
         \begin{equation*}
@@ -338,45 +330,19 @@ We extend Toom's Contour to be Clifford-free by changing the connection of arrow
             & \, \, \, \text{ and there exists a face } f \in \text{ supp } P_{t} \text{ such } v \in f \big\} \\
           \end{split}
         \end{equation*}
-
-%We extend the action of potential walls to act on the vertices of $V_{\mathcal{H}}$ by acting on the associated points in $\mathbb{R}^{d}$. More concretely, for a vertex $v \in V_{\mathcal{H}}$, whose corresponding vertex on the infinite $\mathbb{R}^{d}$ Toric is $\tilde{v} \in \mathcal{G}$, and a potential wall $L_{i}$, the value of $L_{i}$ at $v$ is:
-%        \begin{equation*}
-%          \begin{split}
-%            L_{i}(v) \colonequals L_{i}(\tilde{v})
-%          \end{split}
-%        \end{equation*}
-
       \item The edges $E_{\mathcal{H}}$ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$, where for any logical gate $g$ which applied in time $t$ in $C[\mathcal{E}]^{\infty} $ we add edge to $A_{\mathcal{H}}$ as follow: 
         \begin{enumerate}
-          \item If $g$ is either a logical Pauli, a measurement in either the computational or the phase basis, a sweep-cycle, or an identity, then for any face $f$ in the register on which $g$ acts, we add:
+    \item Any logical gate that is not Hadamard connects vertices at the initial time of the layer with vertices at the final time of the layer if they share a face in the Pauli-path. Since the padding is done by identity, it's equivalent to connect $(v,t)$ with $(u,t+d^{\prime}+2d+1)$ by an arrow if both $(v,t)$ and $(u,t+1)$ are in $V_{\mathcal{H}}$, and there are faces $f_{1}, f_{2}$ (which might be the same) and a physical gate $g^{\prime}$ acting at time $t$ such that $v \in f_{1} \in \text{Loc}(g^{\prime})$ and $u \in f_{2} \in \text{Loc}(g^{\prime})$.
+    \item If the logical gate is a Hadamard, then we connect $(v,t)$ with $(u,t+d^{\prime}+2d+1)$ if there are vertices $(v_{0},t),(v_{1},t+1),(v_{2},t+2),\ldots,(v_{d^{\prime}+2d},t+d^{\prime}+2d),(v_{d^{\prime}+2d+1},t+d^{\prime}+2d+1) \in V_{\mathcal{H}}$ such that $v_{0}=v$, $v_{d^{\prime}+2d+1}=u$, and for any $i \in [0, d^{\prime}+2d+1]$, there is a physical gate $g^{\prime}$ acting at time $t + i$ and a face $f \in \text{Loc}(g^{\prime})$ containing both $v_{i}$ and $v_{i+1}$.
+    \item If $g$ is a fault Pauli, we add:
             \begin{equation*}
               \begin{split}
-                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : u,v \in f \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \\ 
-                &  \, \, \, \text { or }  u,v \in \phi(f) \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
-              \end{split}
-            \end{equation*}
-            \item If $g$ is a logical $\mathbf{CX}$ then for any physical $\mathbf{CX}$ in its realization, between faces $f_{1}$ into $f_{2}$ at time $t$ we add: 
-            \begin{equation*}
-              \begin{split}
-                & \bigl\{  \{ \tilde{u}  = (u,t, \cdot), \tilde{v} = (v,t+1, \cdot)\} :  u \in f_{1}\cup f_{2}, v \in f_{1}\cup f_{2}  \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X}  \\
-                &  \, \, \, \text { or } u \in \phi(f_{1})\cup \phi(f_{2}), v \in \phi(f_{1})\cup \phi(f_{2}) \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
-              \end{split}
-            \end{equation*}
-          \item If $g$ is a fault Pauli, then for any face $f$ in the register, we add:
-            \begin{equation*}
-              \begin{split}
-                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : u,v \in f \text{ , } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \text{, and } f \notin X(g)  \\ 
-                &  \, \, \, \text { or }  u,v \in \phi(f) \text{ , } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \text{, and } f \notin Z(g)  \bigr\} 
+                & \bigl\{  \{  \tilde{u} = (u,t), \tilde{v} = (v,t+d^{\prime}+2d+1)\} : \text{ if } \tilde{v},\tilde{u} \in V_{\mathcal{H}}  \text{, there exists a face } f \text{ such }  u,v \in f \text{ , }  \text{ and }  \\ 
+                &  \, \, \, \text { for any face  } f^{\prime} \text{ such }  u,v \in f^{\prime} \text{ it holds that  } f^{\prime} \notin  \text{ Supp } g  \bigr\} 
               \end{split}
             \end{equation*}
         \end{enumerate}
-%        In addition for any fault $g$ of $\mathcal{E}^{\infty}$, that is applied at time $t$, and any face $f \in \text{Loc}(g)$, we add the edges:
-%            \begin{equation*}
-%              \begin{split}
-%                 \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f \text{ and } u,v \in V_{\mathcal{H},X} \bigr\} 
-%              \end{split}
-%            \end{equation*}
-            To construct $F_{\mathcal{H}}$, we connect any pair of vertices $(v,t)$, $(u,t)$ if there exists a vertex $(w,t+1)$ such both of them are connected to it trough $A_{\mathcal{H}}$. Namely: 
+        To construct $F_{\mathcal{H}}$, we connect any pair of vertices $(v,t)$, $(u,t)$ if there exists a vertex $(w,t+d^{\prime}+2d + 1)$ such both of them are connected to it trough $A_{\mathcal{H}}$. Namely: 
         \begin{equation*}
           \begin{split}
             F_{\mathcal{H}} &= \big\{ e = \{u,v\} : \text{ exists } w \in V_{\mathcal{H}} \text{ such } \{v,w\},\{u,w\} \in A_{\mathcal{H}} \big\} 
