@@ -331,13 +331,11 @@ We extend Toom's Contour to be Clifford-free by changing the connection of arrow
 \begin{definition}[Tooms Contour Graph of $C(\mathcal{E})$, (Standard form)]
     For a Toric encoded quantum circuit $C$, set of faults $\mathcal{E}$ and a reduced Pauli-path $P_{1},..$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. We define the \textit{Tooms contour graph} $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
     \begin{enumerate}
-      \item The vertices $V_{\mathcal{H}} = V_{\mathcal{H}, X} \cup V_{\mathcal{H}, Z}$ correspond to vertices of faces supporting the reduced Pauli-path. They consist of the triple $(v,t,\cdot)$ where $(v,t)$ is a vertex of the base graph, and the third is a symbolic coordinate that is either $\{X\}$ or $\{Z\}$ corresponding to the component of the Pauli that $v$ supports at time $t$.
+      \item The vertices $V_{\mathcal{H}}$ correspond to vertices of faces supporting the reduced Pauli-path. 
         \begin{equation*}
           \begin{split}
-            V_{\mathcal{H}, X} \colonequals & \big\{ v_{t} \times \{X\} : v_{t}=(v,t) \in V_{o} \\
-            & \, \, \, \text{ and there exists a face } f \in \text{ supp } X(P_{t}) \text{ such } v \in f \big\} \\
-             V_{\mathcal{H}, Z} \colonequals & \big\{ v_{t} \times \{Z\} : v_{t}=(v,t) \in V_{o} \\
-             & \, \, \, \text{ and there exists a face } f \in \text{ supp } Z(P_{t}) \text{ such } v \in \phi(f) \big\} 
+            V_{\mathcal{H}} \colonequals & \big\{ v_{t} : v_{t}=(v,t) \in V_{o} \\
+            & \, \, \, \text{ and there exists a face } f \in \text{ supp } P_{t} \text{ such } v \in f \big\} \\
           \end{split}
         \end{equation*}
 
