@@ -79,147 +79,148 @@ Consider an Pauli $P$, whose $X$- and $Z$-components are set on the reduced chai
   \end{enumerate}
   In particular the 
 \end{corollary}
-\subsubsection{The Sweep-Rule Phase in the Dual Code}
 
-\inb{\textbf{ Eventually we would not need that section for the main theorem. Yet, it might be useful for the Clifford-free case, so do not remove it. }}
+%\subsubsection{The Sweep-Rule Phase in the Dual Code}
+%
+%\inb{\textbf{ Eventually we would not need that section for the main theorem. Yet, it might be useful for the Clifford-free case, so do not remove it. }}
+%
+%
+%
+%The $Z$-errors are addressed in the second phase of the sweep cycle. In this stage, we move to the dual code, which is a $(d,d-d^{\prime})$-Toric code. So, \Cref{claim:sweepshrink} ensures that the error is reduced relative to the dual image. Yet, what we care about is that the error will be shrunk in the original view, namely after turning back to the $(d,d^{\prime})$-Toric code.
+%To do that, we will need the following claim:
+%\begin{claim}
+%  \label{claim:checksup}
+%  Let $\sigma$ be a $d^{\prime}-1$ dimensional chain. Such a vertex $v$ suggests a correction. Denote $w = \sigma|_{v+}$ and for any $g \in S$, denote by $w|_{gv}$ and $w|_{/gv}$ the restriction of $w$ to faces containing $gv$ and their complement. If $w|_{gv} \neq 0$, then $w|_{/gv} \neq 0$.
+%\end{claim}
+%\begin{proof}
+%  It's given that $v$ applies a correction, denoted by $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$, and recall that $z$ is rooted in $v$, namely $z = z|_{v} = z|_{v+}$, and $\partial^{-} z|_{v} = w$. By the zeroing of boundary of boundary, we have that $(\partial^{-})^{2} z = 0$. Hence:
+%  \begin{equation*}
+%    \begin{split}
+%      (\partial^{-}w)|_{v+} = (\partial^{-}( (\partial^{-} z) |_{v+}))|_{v+} = (\partial^{-}( \partial^{-} z))|_{v+} = 0  
+%    \end{split}
+%  \end{equation*}
+%Assume that $w|_{/gv} = 0$, which means that there are $d^{\prime}-2$-dimensional faces $A = \{\rotfv{v}{S^{\prime}}\}$ such that $w$ can be written as:
+%  \begin{equation*}
+%    \begin{split}
+%      w = \sum_{  \rotfvs{} \in A  } \rotfv{v}{S^{\prime} \cup g }
+%    \end{split}
+%  \end{equation*}
+%  and therefore:
+%  \begin{equation*}
+%    \begin{split}
+%      (\partial^{-}w)|_{v} =  \sum_{  \rotfvs{} \in A  } \rotfv{v}{S^{\prime}  } + \sum_{  \rotfvs{} \in A  } \sum_{g^{\prime} \in S^{\prime}/g}\rotfv{v}{(S^{\prime} / g^{\prime}) \cup g  } 
+%    \end{split}
+%  \end{equation*}
+%Combining that $(\partial^{-}w)|_{v} = 0$ and that all the right terms have support on $gv$ while the left doesn't, we have that:
+%  \begin{equation*}
+%    \begin{split}
+%      \sum_{  \rotfvs{} \in A  } \rotfv{v}{S^{\prime}  }  = 0
+%    \end{split}
+%  \end{equation*}
+%So any $d^{\prime}-2$-dimensional face $\rotfv{v}{S^{\prime}}$ has to appear an even number of times, but then it follows that any $d^{\prime}-1$-dimensional face of the form $\rotfv{v}{S^{\prime} \cup g }$ has to appear an even number of times in $w$, namely $w = 0$, which is a contradiction to the assumption that $v$ suggests a correction.
+%\end{proof}
+%
+%\begin{claim}
+%  \label{claim:corrdual}
+%Consider a finite $d^{\prime}$-dimensional chain $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ and assume that its $\phi$-transpose chain $\phi(z)$ is also finite. Denote by $\xi \in \mathbb{F}_{2}^{\mathcal{F}_{d- d^{\prime}}}$ the result of applying the sweep rule over the reduced form of $\phi(z)$. Then, for any generator $g \in S$, we have:
+%  \begin{equation*}
+%    \begin{split}
+%      \max_{v \in \phi^{-1}(\xi)}L_{g}(v) \le \max_{v \in z }L_{g}(z)
+%    \end{split}
+%  \end{equation*}
+%  Furthermore, for the $d+1$th potential wall, we have:
+%  \begin{equation*}
+%    \begin{split}
+%      \max_{v \in \phi^{-1}(\xi)}L_{d+1}(v) \le \max_{v \in z }L_{d+1}(z) - 1
+%    \end{split}
+%  \end{equation*}
+%\end{claim}
+%\begin{proof}
+%We start by showing the first inequality. Assume, for the sake of contradiction, that this is not the case. In particular, there must be a vertex $u$ in $\phi^{-1}(\xi)$ that is not in $z$. Denote the face containing it by $\rotfvs{}$. Since $u \notin z$, it follows that $\phi(\rotfvs{}) \notin \phi(z)$. Moreover, since $\rotfvs{} \in \phi^{-1}(\xi)$, it follows that $\phi(\rotfvs{}) \in \xi$. Namely, it was 'added' to $\phi(z)$ during the sweep rule.
+%
+%Let us express explicitly $\phi(\rotfvs{}) = \rotfv{S^{\prime} v}{S/S^{\prime}}$, and since a non-trivial correction is applied, there has to exist a check, rooted in $S^{\prime}v$, that is not satisfied in $\phi(z)$. Denote it by $\rotfv{S^{\prime}v}{J}$ such that $J \subset S/S^{\prime}$. \Cref{claim:checksup} implies that w.l.g. we can assume that $g \notin J$.
+%
+%
+%So $\rotfv{S^{\prime}v}{J} \in \partial^{-}\phi(z)$; therefore, $\rotfv{ (S/J)^{-1} S^{\prime}  v}{S/J} \in \partial^{+}z$. Since $g \notin J$, it follows that $g \in S/J$. Split based on whether $g \in S^{\prime}$. If $g \in S^{\prime}$, then:
+%\begin{equation*}
+%  \begin{split}
+%      L_{g}( (S/J)^{-1} S^{\prime} v) = L_{g}(v)
+%  \end{split}
+%\end{equation*}
+%And hence:
+%\begin{equation*}
+%  \begin{split}
+%    \max_{w \in  \rotfv{  (S/J)^{-1} S^{\prime}  v}{S/J}  }L_{g}(w) = 1 + L_{g}(v) \ge  \max_{w \in  \rotfv{v}{S^{\prime}}  } L_{g}(w) = L_{g}(u)
+%  \end{split}
+%\end{equation*}
+%On the other hand, if $g \notin S$, then:
+%\begin{equation*}
+%  \begin{split}
+%      L_{g}( (S/J)^{-1} S^{\prime} v) = -1 + L_{g}(v)
+%  \end{split}
+%\end{equation*}
+%Yet, for any vertex $w$ in the face $\rotfv{v}{S^{\prime}}$, it holds that $L_{g}(w) = L_{g}(v)$. Thus:
+%\begin{equation*}
+%  \begin{split}
+%    \max_{w \in  \rotfv{   (S/J)^{-1} S^{\prime} v}{S/J}  }L_{g}(w) = 1 - 1 + L_{g}(v) = \max_{w \in  \rotfv{v}{S^{\prime}}  } L_{g}(w) = L_{g}(u)
+%  \end{split}
+%\end{equation*}
+%In other words, we found a vertex in $z$ with an equal or higher $L_{g}$-value than $u$.
+%
+%For the second part, let us consider the action of $\phi$ on a rooted chain. Let $y$ be a rooted chain at vertex $v$, namely there are faces $A = \{ \rotfvs{} \}$, such that:
+%\begin{equation*}
+%  \begin{split}
+%    y = \sum_{ \rotfvs{} \in A}\rotfvs{}
+%  \end{split}
+%\end{equation*}
+%Thus, 
+%\begin{equation*}
+%  \begin{split}
+%    \phi(y) = \sum_{ \rotfvs{} \in A}\rotfv{S^{\prime}v}{S/S^{\prime}}
+%  \end{split}
+%\end{equation*}
+%So if $v$ achieves the maximal $L_{d+1}$-value in $z$, then the vertices that get the maximal value in $\phi(z)$ are of the form $S^{\prime}v$, for some $d^{\prime}$-size subset of generators $S^{\prime} \subset S$. Therefore, the following equality holds:
+%\begin{equation*}
+%  \begin{split}
+%    \max_{v \in \phi(z)}L_{d+1}(v) = \max_{v \in z }L_{d+1}(v) - d^{\prime}
+%  \end{split}
+%\end{equation*}
+%Now, since the sweep rule decreases the $L_{d+1}$-value (\Cref{claim:sweepshrink}), we have that:
+%\begin{equation*}
+%  \begin{split}
+%    \max_{v \in \xi }L_{d+1}(v) \le \max_{v \in \phi(z) }L_{d+1}(v) - 1
+%  \end{split}
+%\end{equation*}
+%So, in overall:
+%\begin{equation*}
+%  \begin{split}
+%    \max_{v \in \phi^{-1}(\xi) }L_{d+1}(v) & =  \max_{v \in \xi }L_{d+1}(v) + d^{\prime}  \le \max_{v \in \phi(z) }L_{d+1}(v) - 1 + d^{\prime} \\
+%    & \le \max_{v \in z }L_{d+1}(v) - 1  
+%  \end{split}
+%\end{equation*}
+%\end{proof}
+%Combining \Cref{claim:sweepshrink} and \Cref{claim:corrdual},
 
 
-
-The $Z$-errors are addressed in the second phase of the sweep cycle. In this stage, we move to the dual code, which is a $(d,d-d^{\prime})$-Toric code. So, \Cref{claim:sweepshrink} ensures that the error is reduced relative to the dual image. Yet, what we care about is that the error will be shrunk in the original view, namely after turning back to the $(d,d^{\prime})$-Toric code.
-To do that, we will need the following claim:
-\begin{claim}
-  \label{claim:checksup}
-  Let $\sigma$ be a $d^{\prime}-1$ dimensional chain. Such a vertex $v$ suggests a correction. Denote $w = \sigma|_{v+}$ and for any $g \in S$, denote by $w|_{gv}$ and $w|_{/gv}$ the restriction of $w$ to faces containing $gv$ and their complement. If $w|_{gv} \neq 0$, then $w|_{/gv} \neq 0$.
-\end{claim}
-\begin{proof}
-  It's given that $v$ applies a correction, denoted by $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$, and recall that $z$ is rooted in $v$, namely $z = z|_{v} = z|_{v+}$, and $\partial^{-} z|_{v} = w$. By the zeroing of boundary of boundary, we have that $(\partial^{-})^{2} z = 0$. Hence:
-  \begin{equation*}
-    \begin{split}
-      (\partial^{-}w)|_{v+} = (\partial^{-}( (\partial^{-} z) |_{v+}))|_{v+} = (\partial^{-}( \partial^{-} z))|_{v+} = 0  
-    \end{split}
-  \end{equation*}
-Assume that $w|_{/gv} = 0$, which means that there are $d^{\prime}-2$-dimensional faces $A = \{\rotfv{v}{S^{\prime}}\}$ such that $w$ can be written as:
-  \begin{equation*}
-    \begin{split}
-      w = \sum_{  \rotfvs{} \in A  } \rotfv{v}{S^{\prime} \cup g }
-    \end{split}
-  \end{equation*}
-  and therefore:
-  \begin{equation*}
-    \begin{split}
-      (\partial^{-}w)|_{v} =  \sum_{  \rotfvs{} \in A  } \rotfv{v}{S^{\prime}  } + \sum_{  \rotfvs{} \in A  } \sum_{g^{\prime} \in S^{\prime}/g}\rotfv{v}{(S^{\prime} / g^{\prime}) \cup g  } 
-    \end{split}
-  \end{equation*}
-Combining that $(\partial^{-}w)|_{v} = 0$ and that all the right terms have support on $gv$ while the left doesn't, we have that:
-  \begin{equation*}
-    \begin{split}
-      \sum_{  \rotfvs{} \in A  } \rotfv{v}{S^{\prime}  }  = 0
-    \end{split}
-  \end{equation*}
-So any $d^{\prime}-2$-dimensional face $\rotfv{v}{S^{\prime}}$ has to appear an even number of times, but then it follows that any $d^{\prime}-1$-dimensional face of the form $\rotfv{v}{S^{\prime} \cup g }$ has to appear an even number of times in $w$, namely $w = 0$, which is a contradiction to the assumption that $v$ suggests a correction.
-\end{proof}
-
-\begin{claim}
-  \label{claim:corrdual}
-Consider a finite $d^{\prime}$-dimensional chain $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ and assume that its $\phi$-transpose chain $\phi(z)$ is also finite. Denote by $\xi \in \mathbb{F}_{2}^{\mathcal{F}_{d- d^{\prime}}}$ the result of applying the sweep rule over the reduced form of $\phi(z)$. Then, for any generator $g \in S$, we have:
-  \begin{equation*}
-    \begin{split}
-      \max_{v \in \phi^{-1}(\xi)}L_{g}(v) \le \max_{v \in z }L_{g}(z)
-    \end{split}
-  \end{equation*}
-  Furthermore, for the $d+1$th potential wall, we have:
-  \begin{equation*}
-    \begin{split}
-      \max_{v \in \phi^{-1}(\xi)}L_{d+1}(v) \le \max_{v \in z }L_{d+1}(z) - 1
-    \end{split}
-  \end{equation*}
-\end{claim}
-\begin{proof}
-We start by showing the first inequality. Assume, for the sake of contradiction, that this is not the case. In particular, there must be a vertex $u$ in $\phi^{-1}(\xi)$ that is not in $z$. Denote the face containing it by $\rotfvs{}$. Since $u \notin z$, it follows that $\phi(\rotfvs{}) \notin \phi(z)$. Moreover, since $\rotfvs{} \in \phi^{-1}(\xi)$, it follows that $\phi(\rotfvs{}) \in \xi$. Namely, it was 'added' to $\phi(z)$ during the sweep rule.
-
-Let us express explicitly $\phi(\rotfvs{}) = \rotfv{S^{\prime} v}{S/S^{\prime}}$, and since a non-trivial correction is applied, there has to exist a check, rooted in $S^{\prime}v$, that is not satisfied in $\phi(z)$. Denote it by $\rotfv{S^{\prime}v}{J}$ such that $J \subset S/S^{\prime}$. \Cref{claim:checksup} implies that w.l.g. we can assume that $g \notin J$.
-
-
-So $\rotfv{S^{\prime}v}{J} \in \partial^{-}\phi(z)$; therefore, $\rotfv{ (S/J)^{-1} S^{\prime}  v}{S/J} \in \partial^{+}z$. Since $g \notin J$, it follows that $g \in S/J$. Split based on whether $g \in S^{\prime}$. If $g \in S^{\prime}$, then:
-\begin{equation*}
-  \begin{split}
-      L_{g}( (S/J)^{-1} S^{\prime} v) = L_{g}(v)
-  \end{split}
-\end{equation*}
-And hence:
-\begin{equation*}
-  \begin{split}
-    \max_{w \in  \rotfv{  (S/J)^{-1} S^{\prime}  v}{S/J}  }L_{g}(w) = 1 + L_{g}(v) \ge  \max_{w \in  \rotfv{v}{S^{\prime}}  } L_{g}(w) = L_{g}(u)
-  \end{split}
-\end{equation*}
-On the other hand, if $g \notin S$, then:
-\begin{equation*}
-  \begin{split}
-      L_{g}( (S/J)^{-1} S^{\prime} v) = -1 + L_{g}(v)
-  \end{split}
-\end{equation*}
-Yet, for any vertex $w$ in the face $\rotfv{v}{S^{\prime}}$, it holds that $L_{g}(w) = L_{g}(v)$. Thus:
-\begin{equation*}
-  \begin{split}
-    \max_{w \in  \rotfv{   (S/J)^{-1} S^{\prime} v}{S/J}  }L_{g}(w) = 1 - 1 + L_{g}(v) = \max_{w \in  \rotfv{v}{S^{\prime}}  } L_{g}(w) = L_{g}(u)
-  \end{split}
-\end{equation*}
-In other words, we found a vertex in $z$ with an equal or higher $L_{g}$-value than $u$.
-
-For the second part, let us consider the action of $\phi$ on a rooted chain. Let $y$ be a rooted chain at vertex $v$, namely there are faces $A = \{ \rotfvs{} \}$, such that:
-\begin{equation*}
-  \begin{split}
-    y = \sum_{ \rotfvs{} \in A}\rotfvs{}
-  \end{split}
-\end{equation*}
-Thus, 
-\begin{equation*}
-  \begin{split}
-    \phi(y) = \sum_{ \rotfvs{} \in A}\rotfv{S^{\prime}v}{S/S^{\prime}}
-  \end{split}
-\end{equation*}
-So if $v$ achieves the maximal $L_{d+1}$-value in $z$, then the vertices that get the maximal value in $\phi(z)$ are of the form $S^{\prime}v$, for some $d^{\prime}$-size subset of generators $S^{\prime} \subset S$. Therefore, the following equality holds:
-\begin{equation*}
-  \begin{split}
-    \max_{v \in \phi(z)}L_{d+1}(v) = \max_{v \in z }L_{d+1}(v) - d^{\prime}
-  \end{split}
-\end{equation*}
-Now, since the sweep rule decreases the $L_{d+1}$-value (\Cref{claim:sweepshrink}), we have that:
-\begin{equation*}
-  \begin{split}
-    \max_{v \in \xi }L_{d+1}(v) \le \max_{v \in \phi(z) }L_{d+1}(v) - 1
-  \end{split}
-\end{equation*}
-So, in overall:
-\begin{equation*}
-  \begin{split}
-    \max_{v \in \phi^{-1}(\xi) }L_{d+1}(v) & =  \max_{v \in \xi }L_{d+1}(v) + d^{\prime}  \le \max_{v \in \phi(z) }L_{d+1}(v) - 1 + d^{\prime} \\
-    & \le \max_{v \in z }L_{d+1}(v) - 1  
-  \end{split}
-\end{equation*}
-\end{proof}
-
-
-
-Combining \Cref{claim:sweepshrink} and \Cref{claim:corrdual}, we can state that a sweep-cycle shrinks a finite connected error.
-\begin{corollary}
-\label{claim:polesmoveB}  
-Consider an error whose $X$- and $Z$-product components lie at positions corresponding to the reduced chains $z_{X}, z_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$. Denote by $\xi_{X}, \xi_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ chains corresponding to the $X, Z$ positions of the result after the application of a full sweep-cycle. If both $z_{X}, z_{Z}$ are finite connected chain, Then:
-  \begin{enumerate}
-    \item For any $i \in [d]$: 
-      \begin{equation*}
-        \begin{split}
-      \max \big\{ L_{i}(v) : v \in  z_{X} \cup z_{Z} \big\} \ge \max \big\{ L_{i}(v) : v \in  \xi_{X} \cup   \xi_{Z} \big\}  
-        \end{split}
-      \end{equation*}
-    \item And for $i = d+1$ : 
-      \begin{equation*}
-        \begin{split}
-      \max \big\{ L_{d+1}(v)  : v \in  z_{X}  \cup z_{Z} \big\} \ge \max \big\{  L_{d+1}(v) : v \in  \xi_{X} \cup  \xi_{Z}  \big\} + 1
-        \end{split}
-      \end{equation*}
-  \end{enumerate}
-\end{corollary}
+%We can state that a sweep-cycle shrinks a finite connected error.
+%\begin{corollary}
+%\label{claim:polesmoveB}  
+%Consider an error whose $X$- and $Z$-product components lie at positions corresponding to the reduced chains $z_{X}, z_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$. Denote by $\xi_{X}, \xi_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ chains corresponding to the $X, Z$ positions of the result after the application of a full sweep-cycle. If both $z_{X}, z_{Z}$ are finite connected chain, Then:
+%  \begin{enumerate}
+%    \item For any $i \in [d]$: 
+%      \begin{equation*}
+%        \begin{split}
+%      \max \big\{ L_{i}(v) : v \in  z_{X} \cup z_{Z} \big\} \ge \max \big\{ L_{i}(v) : v \in  \xi_{X} \cup   \xi_{Z} \big\}  
+%        \end{split}
+%      \end{equation*}
+%    \item And for $i = d+1$ : 
+%      \begin{equation*}
+%        \begin{split}
+%      \max \big\{ L_{d+1}(v)  : v \in  z_{X}  \cup z_{Z} \big\} \ge \max \big\{  L_{d+1}(v) : v \in  \xi_{X} \cup  \xi_{Z}  \big\} + 1
+%        \end{split}
+%      \end{equation*}
+%  \end{enumerate}
+%\end{corollary}
 
 \subsubsection{Ideal decoder}
  Although the main role of the section is to show that a single sweep-cycle keeps error clusters under control during a noisy run (by admitting a modest shrinking), an immediate corollary of this is that the application of non-noisy multiple iterations of the sweep-cycle has the potential to erase errors, namely a decoder. Here, a classical measurement is given, we act on classical bits, and the sweep-cycle consists only of the first stage that works over the computational basis, without moving to the dual code. We formulate the corollary as follows:
