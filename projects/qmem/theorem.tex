@@ -409,7 +409,17 @@ Let $A$ be either a slice or a subslice. We define the size-star function to ass
 \begin{claim}
   The intermediate argument 'holds' when substituting $\Size{ }$ with $\Sizestar{ }$. 
 \end{claim}
+\begin{proof}
+  Imagine that any $\psi$-permutation is grouped together into a single step. Assume that at step $\tau$ there is a subslice at size-star greater than or equal to $n$. If at $\tau$ we permute by $\psi$, then by the invariant of $\Sizestar{}$ under $\psi$, we also have that $\tau -1$ has a subslice at size-star greater than or equal to $n$. Thus, we can assume that the gate applied at turn $\tau$ is not a part of $\psi$-permutation, and therefore the equation \Cref{ } holds: 
+\begin{equation*}
+  \begin{split}
+     & \Sizestar{K}  \le \Delta d^{2} ( \Size{K^{\prime}} +  \Size{\text{fork}} ) \\
+     \Rightarrow & \Size{K^{\prime}} \ge \frac{1}{\Delta d^{2}} \Sizestar{K} - \Size{ \text{fork} }
+   \end{split}
+\end{equation*}
 
+  Let $\tau^{\prime}$ be either $\tau-1$ if the gate applied at that turn doesn't belong 
+\end{proof}
 
 With adjustments being made, we present a threshold theorem with a Clifford-free depth overhead.
   \begin{theorem}
