@@ -169,7 +169,43 @@ The reduced form of an error can now be redefined to match the diameter function
     \end{split}
   \end{equation*}
 \end{claim}
-The diameter function fits well within the definition of space-time graphs. The following is an adaptation of \Cref{claim:prevslices} to relate between the diameter of a slice and its predecessors.
+The diameter function fits well within the definition of space-time graphs. 
+
+\newcommand{\Trans}[1]{ \text{Trans}(#1)}
+\newcommand{\CM}[1]{ \text{C.M}(#1)}
+However it doesn't translate invariant, therefore, we need the following definition of translated slice: 
+\begin{definition}
+  The center of mass of a subset $A$ is: 
+  \begin{equation*}
+    \begin{split}
+      \CM{A} =  \frac{1}{|A|}\sum_{v \in A}L_{g}(v)\hat{g}
+    \end{split}
+  \end{equation*}
+  Let $K$ be a slice, and let $u \in \text{pole}_{d+1}(K)$. The \textit{translation} of it with respect to $u$ is defined to be:
+  \begin{equation*}
+    \begin{split}
+      \Trans{K} = \big\{  u^{-1} v : v \in K  \big\} 
+    \end{split}
+  \end{equation*}
+\end{definition}
+
+
+\begin{claim}
+  triangle inequality 
+\end{claim}
+\begin{proof}
+  
+  \begin{equation*}
+    \begin{split}
+      d L_{g}(z) + L_{d+1}(x) & = d L_{g}(z) - d L_{g}(y) + dL_{g}(y) + L_{d+1}(x) \\
+      & \le d L_{g}(z - w) - d L_{g}(y - w ) + dL_{g^{\prime}}(\nu ) + L_{d+1}(x) \\
+      & \le d L_{g}(z - w) - d L_{g}(y - w ) + dL_{g^{\prime}}(\nu ) + L_{d+1}(x) \\
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+
+The following is an adaptation of \Cref{claim:prevslices} to relate between the diameter of a slice and its predecessors.
 \begin{claim} 
     \label{claim:prevslicesdiam}
     Consider a time graph $(G,T)$, Let $K$ be a slice in $G$, and let $K$ be a slice of $K$ such that $K \neq \History{K}$. Select vertices $x, y \in K$ that achieve the maximal values of $\max_{g}L_{g}$and $L_{d+1}$.  Then for some integer $k$ there exist slices $K_{0} , ..,K_{k}$ and forks $F_{1},..,F_{k}$ such that:
