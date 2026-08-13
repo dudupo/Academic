@@ -406,20 +406,52 @@ Let $A$ be either a slice or a subslice. We define the size-star function to ass
 \end{equation*}
 \end{proof}
 
+
+\begin{definition}
+  The action of $\psi_{x}$ over Toom's contour. So if $v \sim u$ by fork, then 
+\end{definition}
+
+
+
 \begin{claim}
   The intermediate argument 'holds' when substituting $\Size{ }$ with $\Sizestar{ }$. 
 \end{claim}
 \begin{proof}
-  Imagine that any $\psi$-permutation is grouped together into a single step. Assume that at step $\tau$ there is a subslice at size-star greater than or equal to $n$. If at $\tau$ we permute by $\psi$, then by the invariant of $\Sizestar{}$ under $\psi$, we also have that $\tau -1$ has a subslice at size-star greater than or equal to $n$. Thus, we can assume that the gate applied at turn $\tau$ is not a part of $\psi$-permutation, and therefore the equation \Cref{ } holds: 
+  Imagine that any $\psi$-permutation is grouped together into a single step. Assume that at step $\tau$ there is a subslice at size-star greater than or equal to $n$. If at $\tau$ we permute by $\psi$, then by the invariant of $\Sizestar{}$ under $\psi$, we also have that $\tau -1$ has a subslice at size-star greater than or equal to $n$. Thus, we can assume that the gate applied at turn $\tau$ is not a part of $\psi$-permutation. Now assume that $\psi_{y}$ is the $\psi$-configuration that achieves the maximum.
+  Now, let $J_{1},..,J_{2k}$ be a connected set. If $J_{1}$ is connected to $J_{2}$ then they share an $L_{d+1}$ value (their intersection point achieve it). Therefore $\psi_{y}(J_{1})$ and $\psi_{y}(J_{2})$ share an $L_{d+1}$ value. Therefore: 
+  \begin{equation*}
+    \begin{split}
+      \Size{  \psi_{y}(J_{1}) \cup \psi_{y}(J_{2}) \cup ..   } \le \Size{ \psi_{y}(J_{1}) } + \Size { \psi_{y}(J_{2}) \cup .. }
+    \end{split}
+  \end{equation*}
+  Thus:
 \begin{equation*}
   \begin{split}
-     & \Sizestar{K}  \le \Delta d^{2} ( \Size{K^{\prime}} +  \Size{\text{fork}} ) \\
-     \Rightarrow & \Size{K^{\prime}} \ge \frac{1}{\Delta d^{2}} \Sizestar{K} - \Size{ \text{fork} }
+    & \Sizestar{K}  \le \Delta d^{2} ( \Size{ \psi_{y}(K^{\prime}) } +  \Size{\text{fork}} ) \\
+    \Rightarrow &  \Sizestar{ K^{\prime} } \ge  \psi_{y}(\Size{K^{\prime}}) \ge \frac{1}{\Delta d^{2}} \Sizestar{K} - \Size{ \text{fork} }
    \end{split}
 \end{equation*}
-
-  Let $\tau^{\prime}$ be either $\tau-1$ if the gate applied at that turn doesn't belong 
 \end{proof}
+
+
+\begin{claim}
+  The minimal explantation argument 'holds' when substituting $\Size{ }$ with $\Sizestar{ }$. 
+\end{claim}
+
+\begin{proof}
+  In the induction step, 
+  \begin{equation*}
+    \begin{split}
+      A & \le d+1 + \sum_{i=0}^{k}\alpha(m_{i} - \mathcal{X}_{r-1}) - \beta s^{\star}_{i} \\
+          &\le  d+1 + \sum_{i=0}^{k}\alpha(m_{i} - \mathcal{X}_{r-1}) - \beta s_{i} \\
+          & \le  d+1 + \left(\sum_{i=0}^{k}\alpha(m_{i} - \mathcal{X}_{r-1}) \right) - s^{\star}   
+    \end{split}
+  \end{equation*}
+
+\end{proof}
+
+
+
 
 With adjustments being made, we present a threshold theorem with a Clifford-free depth overhead.
   \begin{theorem}
