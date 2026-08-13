@@ -142,6 +142,9 @@ and in addition:
 \section{Clifford-free Depth Overhead.}
 \label{section:cliffordfree}
 Our next objective is to modify the construction to introduce no depth overhead for the Clifford gates. As already seen, the $\phi$-transpose followed by transversal Hadamard exchanges $X_{S^{\prime}} \leftrightarrow Z_{S/S^{\prime}}$. Therefore, when $d' = d - d'$ and with the help of permutation over the generators, a logical Hadamard has a fold-transversal realization. Unfortunately, the natural realization does not respect the size function. Yet, for a slightly different function, which we think of as the diameter function, we will be able to set reasonable bounds on its growth. We start by defining the diameter of a finite chain.
+
+\newcommand{\Sizestar}[1]{ \textbf{Size}^{\star}( #1 )  }
+
 \newcommand{\diam}[1]{\textbf{Diam}(#1)}
 \newcommand{\pred}[1]{\text{pre}_{D}(#1)}
 \begin{definition}
@@ -169,43 +172,7 @@ The reduced form of an error can now be redefined to match the diameter function
     \end{split}
   \end{equation*}
 \end{claim}
-The diameter function fits well within the definition of space-time graphs. 
-
-\newcommand{\Trans}[1]{ \text{Trans}(#1)}
-\newcommand{\CM}[1]{ \text{C.M}(#1)}
-However it doesn't translate invariant, therefore, we need the following definition of translated slice: 
-\begin{definition}
-  The center of mass of a subset $A$ is: 
-  \begin{equation*}
-    \begin{split}
-      \CM{A} =  \frac{1}{|A|}\sum_{g \in S}\sum_{v \in A}L_{g}(v)\hat{g}
-    \end{split}
-  \end{equation*}
-  Let $K$ be a slice, and let $u \in \text{pole}_{d+1}(K)$. The \textit{translation} of it with respect to $u$ is defined to be:
-  \begin{equation*}
-    \begin{split}
-      \Trans{K} = \big\{  u^{-1} v : v \in K  \big\} 
-    \end{split}
-  \end{equation*}
-\end{definition}
-
-
-\begin{claim}
-  triangle inequality 
-\end{claim}
-\begin{proof}
-  
-  \begin{equation*}
-    \begin{split}
-      d L_{g}(z) + L_{d+1}(x) & = d L_{g}(z) - d L_{g}(y) + dL_{g}(y) + L_{d+1}(x) \\
-      & \le d L_{g}(z - w) - d L_{g}(y - w ) + dL_{g^{\prime}}(\nu ) + L_{d+1}(x) \\
-      & \le d L_{g}(z - w) - d L_{g}(y - w ) + dL_{g^{\prime}}(\nu ) + L_{d+1}(x) \\
-    \end{split}
-  \end{equation*}
-\end{proof}
-
-
-The following is an adaptation of \Cref{claim:prevslices} to relate between the diameter of a slice and its predecessors.
+The diameter function fits well within the definition of space-time graphs. The following is an adaptation of \Cref{claim:prevslices} to relate between the diameter of a slice and its predecessors.
 \begin{claim} 
     \label{claim:prevslicesdiam}
     Consider a time graph $(G,T)$, Let $K$ be a slice in $G$, and let $K$ be a slice of $K$ such that $K \neq \History{K}$. Select vertices $x, y \in K$ that achieve the maximal values of $\max_{g}L_{g}$and $L_{d+1}$.  Then for some integer $k$ there exist slices $K_{0} , ..,K_{k}$ and forks $F_{1},..,F_{k}$ such that:
@@ -387,6 +354,39 @@ We extend the Toric Encoded definition to the Clifford-free Toric encoded circui
     \end{enumerate}
     We call $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$ the \textit{arrows} and \textit{forks} edges respectively. 
 \end{definition}
+
+
+\begin{definition}
+  Denote the quantum registers by $R_{1},R_{2},.., R_{r}$. Let $K$ be a slice, let $K_{R_{1}},..,K_{R_{r}}$ be the restrictions of $K$ to the registers. So: 
+  \begin{equation*}
+    \begin{split}
+      K =  \bigcup_{i=1}^{r} K_{R_{i}}
+    \end{split}
+  \end{equation*}
+ For a $r$-length binary string $x \in \{0,1\}^{r}$, a $\psi_{x}$-configuration of $K$ is 
+ \begin{equation*}
+   \begin{split}
+     \psi_{x}(K) \colonequals \bigcup_{x_{i}=0} K_{R_{i}} \bigcup_{x_{i}=1} \psi(K_{R_{i}})
+   \end{split}
+ \end{equation*}
+ Where 
+ \begin{equation*}
+   \begin{split}
+     \psi(K_{R_{i}}) = \big\{ \psi(v) : v \in R_{i} \big\}
+   \end{split}
+ \end{equation*}
+\end{definition}
+
+\begin{definition}
+Let $A$ be either a slice or a subslice. We define the size-star function to assign $A$:
+\begin{equation*}
+  \begin{split}
+    \Sizestar{A} \colonequals \max_{x \in \{0,1\}^{r}}\Size{ \psi_{x}(A) }
+  \end{split}
+\end{equation*}
+\end{definition}
+
+
 
 With adjustments being made, we present a threshold theorem with a Clifford-free depth overhead.
   \begin{theorem}
