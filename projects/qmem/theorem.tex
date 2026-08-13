@@ -386,12 +386,28 @@ Let $A$ be either a slice or a subslice. We define the size-star function to ass
 \end{equation*}
 \end{definition}
 
+
+
+
 \begin{claim}
   The replacement argument holds when substituting $\Size{ }$ with $\Sizestar{ }$. 
 \end{claim}
 
+
 \begin{claim}
-  The intermediate argument holds when substituting $\Size{ }$ with $\Sizestar{ }$. 
+  Invariant of $\Sizestar{}$ under $\psi_{y}$. 
+\end{claim}
+\begin{proof}
+\begin{equation*}
+  \begin{split}
+    \Sizestar{ \psi_{y}(A)} & \colonequals \max_{x \in \{0,1\}^{r}}\Size{ \psi_{x}(\psi_{y}(A)) } = \max_{x \in \{0,1\}^{r}}\Size{ \psi_{x + y}(A) }\\
+  & = \max_{x \in \{0,1\}^{r}}\Size{ \psi_{x}(A) }
+  \end{split}
+\end{equation*}
+\end{proof}
+
+\begin{claim}
+  The intermediate argument 'holds' when substituting $\Size{ }$ with $\Sizestar{ }$. 
 \end{claim}
 
 
