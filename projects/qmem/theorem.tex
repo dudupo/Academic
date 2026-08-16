@@ -333,7 +333,7 @@ We extend the Toric Encoded definition to the Clifford-free Toric encoded circui
 Let $A$ be either a slice or a subslice. We define the size-star function to assign $A$:
 \begin{equation*}
   \begin{split}
-    \Sizestar{A} \colonequals \max_{x \in \{0,1\}^{r}}\Size{ \psi_{x}(A) }
+    \Sizestar{A} \colonequals \min_{x \in \{0,1\}^{r}}\Size{ \psi_{x}(A) }
   \end{split}
 \end{equation*}
 \end{definition}
@@ -352,8 +352,8 @@ Let $A$ be either a slice or a subslice. We define the size-star function to ass
 \begin{proof}
 \begin{equation*}
   \begin{split}
-    \Sizestar{ \psi_{y}(A)} & \colonequals \max_{x \in \{0,1\}^{r}}\Size{ \psi_{x}(\psi_{y}(A)) } = \max_{x \in \{0,1\}^{r}}\Size{ \psi_{x + y}(A) }\\
-  & = \max_{x \in \{0,1\}^{r}}\Size{ \psi_{x}(A) }
+    \Sizestar{ \psi_{y}(A)} & \colonequals \min_{x \in \{0,1\}^{r}}\Size{ \psi_{x}(\psi_{y}(A)) } = \min_{x \in \{0,1\}^{r}}\Size{ \psi_{x + y}(A) }\\
+  & = \min_{x \in \{0,1\}^{r}}\Size{ \psi_{x}(A) }
   \end{split}
 \end{equation*}
 \end{proof}
