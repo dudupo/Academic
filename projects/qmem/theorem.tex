@@ -371,7 +371,7 @@ Let $A$ be either a slice or a subslice. We define the size-star function to ass
   Let $A,B \subset \mathbb{R}^{d}$ such that there $A \cap B \neq \emptyset$ then: 
   \begin{equation*}
     \begin{split}
-      \Size{A\cup \psi(B)} \le \Size{A} + \Size{\psi(B)} = \Size{A} + \Size{B}
+      \Size{A\cup B} \le \Size{A} + \Size{\psi(B)} 
     \end{split}
   \end{equation*}
 \end{claim}
@@ -422,16 +422,16 @@ Thus,
 \end{proof}
 
 
-
+\inb{\textbf{ We need the intermediate theorem only for a restriction for register.  }}
 \begin{claim}
   The intermediate argument 'holds' when substituting $\Size{ }$ with $\Sizestar{ }$. 
 \end{claim}
 \begin{proof}
-  Imagine that any $\psi$-permutation is grouped together into a single step. Assume that at step $\tau$ there is a subslice at size-star greater than or equal to $n$. If at $\tau$ we permute by $\psi$, then by the invariant of $\Sizestar{}$ under $\psi$, we also have that $\tau -1$ has a subslice at size-star greater than or equal to $n$. Thus, we can assume that the gate applied at turn $\tau$ is not a part of $\psi$-permutation. Now assume that $\psi_{y}$ is the $\psi$-configuration that achieves the maximum.
+  Imagine that any $\psi$-permutation is grouped together into a single step. Assume that at step $\tau$ there is a subslice at size-star greater than or equal to $n$. If at $\tau$ we permute by $\psi$, then by the invariant of $\Sizestar{}$ under $\psi$, we also have that $\tau -1$ has a subslice at size-star greater than or equal to $n$. Thus, we can assume that the gate applied at turn $\tau$ is not a part of $\psi$-permutation. So, $u$ cause a merging. 
   Now, let $J_{1},..,J_{2k}$ be a connected set. If $J_{1}$ is connected to $J_{2}$ then they share an $L_{d+1}$ value (their intersection point achieve it). Therefore $\psi_{y}(J_{1})$ and $\psi_{y}(J_{2})$ share an $L_{d+1}$ value. Therefore: 
   \begin{equation*}
     \begin{split}
-      \Size{  \psi_{y}(J_{1}) \cup \psi_{y}(J_{2}) \cup ..   } \le \Size{ \psi_{y}(J_{1}) } + \Size { \psi_{y}(J_{2}) \cup .. }
+      \Sizestar{ J_{1} \cup J_{2} ,..    } \le \Size{ J_{1} \cup J_{2} ,..    } \le \sum \Size{ J_{i} } 
     \end{split}
   \end{equation*}
   Thus:
