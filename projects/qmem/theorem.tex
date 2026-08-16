@@ -166,7 +166,7 @@ Consider the action of $\psi$ on a $d'+1$-dimensional face $\rotfvs{}$:
     \begin{split}
       \psi \left( \partial^{-} \rotfvs{} \right) &= \psi \left( \sum_{g\in S^{\prime}} \rotfv{v}{S^{\prime}/g} + \rotfv{gv}{S^{\prime}/g}   \right) \\
       &= \sum_{g\in S^{\prime}} \rotfv{ \psi(v)}{\psi(S^{\prime})/\psi(g)} + \rotfv{\psi(g)\psi(v)}{\psi(S^{\prime})/\psi(g)}  \\
-      &= \sum_{g\in S^{\prime}} \rotfv{ \psi(v)}{\psi(S^{\prime})/g} + \rotfv{g\psi(v)}{\psi(S^{\prime})/g}  \\
+      &= \sum_{g\in \psi(S^{\prime}) } \rotfv{ \psi(v)}{\psi(S^{\prime})/g} + \rotfv{g\psi(v)}{\psi(S^{\prime})/g}  \\
       &= \partial^{-}\rotfv{\psi(v)}{\psi(S^{\prime})}
     \end{split}
   \end{equation*}
@@ -376,7 +376,28 @@ Let $A$ be either a slice or a subslice. We define the size-star function to ass
   \end{equation*}
 \end{claim}
 \begin{proof}
-  Let $p$ be a point in $A\cap B$. Then: 
+  Let $p$ be a point in $A \cap B$. Let $X(t): [0,1] \rightarrow \mathbb{R}^{d}$ be the segment connecting $p$ to $\psi(p)$, namely:
+\begin{equation*}
+  \begin{split}
+    X(t) \colonequals t p + (1-p) \psi (p)
+  \end{split}
+\end{equation*}
+We argue that:
+\begin{equation*}
+  \begin{split}
+    \Size{ A \cup \psi(B)} = \Size{ A \cup \psi(B) \cup X } 
+  \end{split}
+\end{equation*}
+To see it, first consider the value of $L_{d+1}$ on the line $X$, for any $t \in [0,1]$, we have that: 
+\begin{equation*}
+  \begin{split}
+  L_{d+1} (X(t)) = t L_{d+1}(p) + (1-p) L_{d+1}(\psi (p)) = L_{d+1}(p)
+  \end{split}
+\end{equation*}
+So, the line $X$ does not introduce any new value of $L_{d+1}$. In addition, any other potential wall $L_{i}$ is a monotone convex function; therefore, it gets its maximal values on the boundary of $X$ (which is a compact, convex set), namely on either $p$ or $\psi(p)$. Hence, the maximal values of the potential wall of $A\cap \psi(B)$ and $A \cup \psi(B) \cup X$ are the same, as well as their sizes.
+
+Suppose that there is a potential wall $L_{i}$ that achieve on
+  Then:
   \begin{equation*}
     \begin{split}
       \Size{A\cup \psi(B)} &= \sum_{i \in [d+1]}\max_{v \in A\cup \psi(B)} L_{i}(v) \\
