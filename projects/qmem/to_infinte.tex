@@ -226,8 +226,8 @@ The following claim shows that size has a similar behavior to a metric:
     \begin{split}
       \Size{A\cup B} &= \sum_{i \in [d+1]}\max_{v \in A\cup B} L_{i}(v) \\
       & =  \sum_{ i \in [d+1]} \max \bigl\{ \max_{v \in A } L_{i}(v) , \max_{v \in B } L_{i}(v) \bigr\}  \\
-      & \le  \sum_{ i \in [d+1]}  \max_{v \in A } L_{i}(v) + \max_{v \in B } L_{i}(v) -  \max_{v \in B } L_{i}(p)  \\
-      & \le \Size{A} + \Size{B}   - \sum_{ i \in [d+1]}   \max_{v \in B } L_{i}(p)  =  \Size{A} + \Size{B} 
+      & \le  \sum_{ i \in [d+1]}  \max_{v \in A } L_{i}(v) + \max_{v \in B } L_{i}(v) -  L_{i}(p)  \\
+      & \le \Size{A} + \Size{B}   - \sum_{ i \in [d+1]}  L_{i}(p)  =  \Size{A} + \Size{B} 
     \end{split}
   \end{equation*}
 Where in the last pass, we used that the size of a single point is zero.
