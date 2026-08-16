@@ -103,3 +103,52 @@ Now, fix a generator $g \in S$ and let $u$ and $w$ be the vertices in $z$ and $\
     \end{equation*}
 So, the inequality holds.
 \end{proof}
+
+
+
+
+
+  Let $p$ be a point in $A \cap B$. Let $X(t): [0,1] \rightarrow \mathbb{R}^{d}$ be the segment connecting $p$ to $\psi(p)$, namely:
+\begin{equation*}
+  \begin{split}
+    X(t) \colonequals t p + (1-p) \psi (p)
+  \end{split}
+\end{equation*}
+We argue that:
+\begin{equation*}
+  \begin{split}
+    \Size{ A \cup \psi(B)} = \Size{ A \cup \psi(B) \cup X } 
+  \end{split}
+\end{equation*}
+To see it, first consider the value of $L_{d+1}$ on the line $X$, for any $t \in [0,1]$, we have that: 
+\begin{equation*}
+  \begin{split}
+  L_{d+1} (X(t)) = t L_{d+1}(p) + (1-p) L_{d+1}(\psi (p)) = L_{d+1}(p)
+  \end{split}
+\end{equation*}
+So, the line $X$ does not introduce any new value of $L_{d+1}$. In addition, any other potential wall $L_{i}$ is a monotone convex function; therefore, it gets its maximal values on the boundary of $X$ (which is a compact, convex set), namely on either $p$ or $\psi(p)$. Hence, the maximal values of the potential wall of $A\cap \psi(B)$ and $A \cup \psi(B) \cup X$ are the same, as well as their sizes.
+
+Suppose that there is a potential wall $L_{i}$ that achieve on
+  Then:
+  \begin{equation*}
+    \begin{split}
+      \Size{A\cup \psi(B)} &= \sum_{i \in [d+1]}\max_{v \in A\cup \psi(B)} L_{i}(v) \\
+      & =  \sum_{ i \in [d+1]} \max \bigl\{ \max_{v \in A } L_{i}(v) , \max_{v \in \psi(B) } L_{i}(v) \bigr\}  \\
+      & =  \sum_{ i \in [d+1]}  \max_{v \in A } L_{i}(v) + \max_{v \in \psi(B) } L_{i}(v) -  \min \{   \max_{v \in A } L_{i}(v), \max_{v \in \psi(B) } L_{i}(v) \} \\
+      & \le  \sum_{ i \in [d+1]}  \max_{v \in A } L_{i}(v) + \max_{v \in \psi(B) } L_{i}(v) -   \overbrace{\min \{  L_{i}(p),  L_{i}(\psi(p)) \} }^{ \star  } 
+        \end{split}
+      \end{equation*}
+Observe that the contribution of terms in $(\star)$ to the sum is negative. This is because:
+\begin{equation*}
+  \begin{split}
+    \sum_{i \in [d+1]}\min \{  L_{i}(p),  L_{i}(\psi(p)) \} = \sum_{i \in [d]}\min \{  L_{i}(p),  L_{i}(\psi(p)) \} - \min \big\{ \sum_{i \in [d]} L_{i}(p),\sum_{i \in [d]} L_{i}(\psi(p))\big\} \le 0
+  \end{split}
+\end{equation*}
+Thus,  
+      \begin{equation*}
+        \begin{split}
+      \Size{A\cup \psi(B)} & \le  \sum_{ i \in [d+1]}  \max_{v \in A } L_{i}(v) + \max_{v \in \psi(B) } L_{i}(v)  \\
+      & \le \Size{A} + \Size{\psi(B)}  =  \Size{A} + \Size{B} 
+    \end{split}
+  \end{equation*}
+
