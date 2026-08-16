@@ -379,12 +379,12 @@ Let $A$ be either a slice or a subslice. We define the size-star function to ass
   Let $p$ be a point in $A\cap B$. Then: 
   \begin{equation*}
     \begin{split}
-      \Size{A\cup B} &= \sum_{i \in [d+1]}\max_{v \in A\cup B} L_{i}(v) \\
-      & =  \sum_{ i \in [d+1]} \max \bigl\{ \max_{v \in A } L_{i}(v) , \max_{v \in B } L_{i}(v) \bigr\}  \\
-      & =  \sum_{ i \in [d+1]}  \max_{v \in A } L_{i}(v) + \max_{v \in B } L_{i}(v) -  \min \{   \max_{v \in A } L_{i}(v), \max_{v \in B } L_{i}(v) \} \\
-      & \le  \sum_{ i \in [d+1]}  \max_{v \in A } L_{i}(v) + \max_{v \in B } L_{i}(v) -  \min \{  L_{i}(p),  L_{i}(\psi(p)) \}  \\
-      & \le  \sum_{ i \in [d+1]}  \max_{v \in A } L_{i}(v) + \max_{v \in B } L_{i}(v) -  L_{i}(p)  \\
-      & \le \Size{A} + \Size{B}   - \sum_{ i \in [d+1]}  L_{i}(p)  =  \Size{A} + \Size{B} 
+      \Size{A\cup \psi(B)} &= \sum_{i \in [d+1]}\max_{v \in A\cup \psi(B)} L_{i}(v) \\
+      & =  \sum_{ i \in [d+1]} \max \bigl\{ \max_{v \in A } L_{i}(v) , \max_{v \in \psi(B) } L_{i}(v) \bigr\}  \\
+      & =  \sum_{ i \in [d+1]}  \max_{v \in A } L_{i}(v) + \max_{v \in \psi(B) } L_{i}(v) -  \min \{   \max_{v \in A } L_{i}(v), \max_{v \in \psi(B) } L_{i}(v) \} \\
+      & \le  \sum_{ i \in [d+1]}  \max_{v \in A } L_{i}(v) + \max_{v \in \psi(B) } L_{i}(v) -  \min \{  L_{i}(p),  L_{i}(\psi(p)) \}  \\
+      & \le  \sum_{ i \in [d+1]}  \max_{v \in A } L_{i}(v) + \max_{v \in \psi(B) } L_{i}(v) -  L_{i}(p)  \\
+      & \le \Size{A} + \Size{\psi(B)}   - \sum_{ i \in [d+1]}  L_{i}(p)  =  \Size{A} + \Size{\psi(B)} 
     \end{split}
   \end{equation*}
 Where in the last pass, we used that the size of a single point is zero.
