@@ -368,26 +368,22 @@ Let $A$ be either a slice or a subslice. We define the size-star function to ass
 
 \begin{claim}
   \label{claim:modifitringinq}
-  Let $A,B$ be slices. Then:  
+Let $A, B$ be slices, such that $A \cap B \neq \emptyset$. Then:
   \begin{equation*}
     \begin{split}
-      \Sizestar{A\cup B} \le \Sizestar{A} + \Sizestar{\psi(B)} 
+      \Sizestar{A\cup B} \le \Sizestar{A} + \Sizestar{B} 
     \end{split}
   \end{equation*}
 \end{claim}
 \begin{proof}
-
-  Denote by $r_{AB}$ the number of registers supprt $A\cup B$. Thus:
+First, notice that $\psi(A \cup B) = \psi(A) \cup \psi(B)$. Thus:
   \begin{equation*}
     \begin{split}
-      & \frac{1}{r_{AB}} \sum_{i,j} (AB)_{i}^{j} \le \frac{1}{r_{AB}} \sum_{i,j} \Size{A_{i_{1}}^{j_{1}} }  + \Size{B_{i_{2}}^{j_{2}}} \\
-      & \le \bigl( \frac{1}{r_{A}} \sum_{i_{1},j_{1}}\Size{ A_{i_{1}}^{j_{1}}} \bigr) + \bigl( \frac{1}{r_{B}} \sum_{i_{1},j_{1}}\Size{ B_{i_{1}}^{j_{1}}} \bigr) \\
-          & \le \Sizestar{A} + \Sizestar{B} 
+    \Sizestar{A\cup B} & =  \Size{ (A \cup \psi(A)) \cup  (B \cup \psi(B)) } \le   \Size{ (A \cup \psi(A)) } +  \Size{(B \cup \psi(B)) } \\
+      & = \Sizestar{A} + \Sizestar{B} 
     \end{split}
   \end{equation*}
-
-
-
+Where, in the first transition, we used \Cref{claim:tringinq}.
 \end{proof}
 
 
