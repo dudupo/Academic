@@ -39,10 +39,10 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
 
 \begin{definition} 
   \label{def:paulipath}
-For a fixed quantum circuit $C$, where all its quantum registers are encoded with the Toric code, and a set of faults $\mathcal{E}$, such that the depth of $C[\mathcal{E}]$ is $\mu$, we will say that the Paulis $P_{1}, \ldots, P_{\mu+1} \in \mathcal{P}$ are fault paths of $C[\mathcal{E}]$ if $P_{1}$ is the identity and for every $t\le \mu$ the Pauli $P_{t+1}$ supports $C[\mathcal{E}]|_{t} \circ P_{t}$. Namely:
+  For two Pauli $P, Q \in \mathcal{P}$, we define the relation $P \sim Q$ to hold if one is a translation of the other by a stabilizer of the $(d, d^{\prime})$-Toric code. For a fixed quantum circuit $C$, where all its quantum registers are encoded with the Toric code, and a set of faults $\mathcal{E}$, such that the depth of $C[\mathcal{E}]$ is $\mu$, we will say that the Paulis $P_{1}, \ldots, P_{\mu+1} \in \mathcal{P}$ are fault paths of $C[\mathcal{E}]$ if there are Paulis $Q_{1},..,Q_{\mu+1}$, such $P_{i} \sim Q_{i}$ for any $i \in [\mu +1]$ and in addition, $Q_{1}$ is the identity and for every $t\le \mu$ the Pauli $Q_{t+1}$ supports $C[\mathcal{E}]|_{t} \circ Q_{t}$. Namely:
   \begin{equation*}
     \begin{split}
-      \Trr{} \big( C[\mathcal{E}]|_{t} P_{t} (C[\mathcal{E}]|_{t})^{\dagger} P_{t+1} \big) \neq 0
+      \Trr{} \big( C[\mathcal{E}]|_{t} Q_{t} (C[\mathcal{E}]|_{t})^{\dagger} Q_{t+1} \big) \neq 0
     \end{split}
   \end{equation*}
 We extend the notation to Pauli-path up to step $\tau$ by considering the quantum circuit obtained from $C[\mathcal{E}]$ by taking all the gates at steps lower than or equal to $\tau$. A Pauli-path of that circuit is a Pauli-path up to step $\tau$ of the original circuit.
