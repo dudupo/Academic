@@ -63,7 +63,7 @@ Notice that the transpose map is a permutation over the bits and therefore can b
   \end{equation*}
 \end{definition}
 \begin{claim}
-  The Hadamard-type gate $ \mathbf{H_{\phi}}$ has a fold-transversal implementation by, first applying $\mathbf{H}^{n}$ over all the physical qubits, and then permuting them by the transpose map $\phi$, namely $\mathbf{\hat{H}}_{\phi} = \phi \circ \mathbf{H}^{n}$.
+  The Hadamard-type gate $ \mathbf{H_{\phi}}$ has a fold-transversal implementation by, first applying $\mathbf{H}^{|\mathcal{F}_{d^\prime}|}$ over all the physical qubits, and then permuting them by the transpose map $\phi$, namely $\mathbf{\hat{H}}_{\phi} = \phi \circ \mathbf{H}^{|\mathcal{F}_{d^\prime}|}$.
 \end{claim}
 \begin{proof}
   Clearly, for any subset of generators $S^{\prime} \subset S$, the map $\phi$ sends $x_{S^{\prime}}$ to $z_{S/S^{\prime}}$:
