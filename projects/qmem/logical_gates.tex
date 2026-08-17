@@ -53,9 +53,9 @@ Let $d, d^{\prime}$ be integers such that $d^{\prime} < d$, and let $\mathcal{G}
     \end{split}
   \end{equation*}
 \end{definition}
-Notice that the transpose map is a permutation over the bits and therefore can be realized at constant depth. 
+Notice that the action of the transpose map over the qubits is a one-to-one map between the qubits of the $(d,d^{\prime})$-Toric code and the qubits of the $(d,d-d^{\prime})$-Toric code, and therefore can be realized at constant depth using ancillas.
 \begin{definition}[ Hadamard-Type Gate $\mathbf{H_{\phi}}$]  
-  We define the logical Hadamard-type gate $ \mathbf{H_{\phi}} \colon L (\mathcal{H}) \rightarrow L (\mathcal{H}) $ as follows, for any $ S' \subset S $, of size $ d' $:
+We define the logical Hadamard-type gate $ \mathbf{H_{\phi}} \colon L (\mathcal{H}) \rightarrow L (\mathcal{H}) $, to be a code isomorphism $(d,d^{\prime})$-Toric $\rightarrow (d,d-d^{\prime})$-Toric, as follows, for any $ S' \subset S $, of size $ d' $:
   \begin{equation*}
     \begin{split}
       \mathbf{H_{\phi}} ( X_{S^{\prime}} )  \rightarrow Z_{S/S^{\prime}} \ \ \ \  \mathbf{H_{\phi}} ( Z_{S^{\prime}} )   \rightarrow X_{S/S^{\prime}} 
@@ -72,7 +72,7 @@ Notice that the transpose map is a permutation over the bits and therefore can b
     \phi(x_{S^{\prime}}) = \phi(  \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S^{\prime}}   ) =  \sum_{u \in \expval*{S^{\prime}} }\rotfv{ S^{\prime} u}{S/S^{\prime}}  = \sum_{u \in \expval*{S^{\prime}} }\rotfv{u}{S/S^{\prime}} = z_{S/S^{\prime}}
     \end{split}
   \end{equation*}
-Moreover, $\phi$ sends binary representations of $Z$-stabilizers to binary representations of $X$-stabilizers, and vice versa. To see this, consider a $d^{\prime}+1$ dimensional face, and consider the image of the stabilizer it defines.
+Moreover, $\phi$ sends binary representations of $Z$-stabilizers of the $(d,d^{\prime})$-Toric code to binary representations of $X$-stabilizers of the $(d,d-d^{\prime})$-Toric code, and vice versa. To see this, consider a $d^{\prime}+1$ dimensional face, and consider the image of the stabilizer it defines.
   \begin{equation*}
     \begin{split}
       \phi \left( \partial^{-}  \rotfv{v}{S^{\prime}} \right) &=  \phi\left( \sum_{g\in S^{\prime}} \rotfv{v}{S^{\prime}/g} +  \rotfv{gv}{S^{\prime}/g}  \right) \\
@@ -88,7 +88,7 @@ Moreover, $\phi$ sends binary representations of $Z$-stabilizers to binary repre
       & =  \partial^{-} \rotfv{ (S/S^{\prime}) v}{S^{\prime}}
     \end{split}
   \end{equation*}
-  Thus, $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|} \circ \phi$ sends $Z$-stabilizers to $X$-stabilizers and vice versa, thereby preserving the code space. Combining this with the above, $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|} \circ \phi$ realizes the logical gate $\mathbf{H}_{\phi}$ in the $(d,d^{\prime})$-Toric code.
+  Thus, $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|} \circ \phi$ sends $Z$-stabilizers (at dimension $d^{\prime}$) to $X$-stabilizers ( at dimension $d-d^{\prime}$) and vice versa, thereby sending the satisfied checks to satisfied checks. Combining this with the above, $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|} \circ \phi$ realizes the logical isomorphism $\mathbf{H}_{\phi}$ from the $(d,d^{\prime})$-Toric code into the $(d,d^{\prime}-d)$-Toric code.
 \end{proof}
 \input{./tikz/transpose-toric.tikz} 
 
