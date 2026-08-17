@@ -13,7 +13,9 @@ An essential ingredient of our proof is an 'intermediate argument', stating that
 \end{claim}
 
 \begin{proof}
-Let $\mathcal{H}_{\tau}$ and $\mathcal{H}_{\tau+1}$ be the analysis Toom's contours at steps $\tau$ and $\tau+1$. And let $P_{1}, \ldots, P_{t}, \tilde{P}_{1}$ and $P_{1}, \ldots, P_{t}, \tilde{P}_{2}$ be the reduced Pauli-paths (up to a step) that induce Toom's contours. In addition, let $g$ be the gate that is applied at step $\tau+1$. Assume that step $\tau+1$ is the first to admit an infinite slice. For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
+  Let $\mathcal{H}_{\tau}$ and $\mathcal{H}_{\tau+1}$ be the analysis Toom's contours at steps $\tau$ and $\tau+1$. And let $P_{1}, \ldots, P_{t}, \tilde{P}_{1}$ and $P_{1}, \ldots, P_{t}, \tilde{P}_{2}$ be the reduced Pauli-paths (up to a step) that induce Toom's contours. Denote by $Q_{1},..,Q_{t},\tilde{Q}_{1},\tilde{Q}_{2}$ the Paulis such that $P_{i} \sim Q_{i}$, $\tilde{Q}_{i} \sim \tilde{P}_{i}$, and the $Q_{i}$s satisfy the supporting restriction (\Cref{def:paulipath}).
+
+  In addition, let $g$ be the gate that is applied at step $\tau+1$. Assume that step $\tau+1$ is the first to admit an infinite slice. For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
   \begin{equation*}
     \begin{split}
  C[\mathcal{E}]|_{\rightarrow \tau+1} = g C[\mathcal{E}]|_{\rightarrow \tau}  
@@ -22,28 +24,28 @@ Let $\mathcal{H}_{\tau}$ and $\mathcal{H}_{\tau+1}$ be the analysis Toom's conto
 By definition of Pauli-path (\Cref{def:paulipath}), we have that:
 \begin{equation*}
   \begin{split}
-    \Trr{} \big( (C[\mathcal{E}]|_{\tau} \circ P_{t}) \tilde{P}_{1}   \big) \neq 0 
+    \Trr{} \big( (C[\mathcal{E}]|_{\tau} \circ Q_{t}) \tilde{Q}_{1}   \big) \neq 0 
   \end{split}
 \end{equation*}
-Thus, there are constants $\gamma, \bar{\gamma} \in \mathbb{R}$ and an operator $\mathbf{A} \in \mathcal{L}$, such that $\Trr{} (\mathbf{A} \tilde{P}_{1}) = 0$ and:
+Thus, there are constants $\gamma, \bar{\gamma} \in \mathbb{R}$ and an operator $\mathbf{A} \in \mathcal{L}$, such that $\Trr{} (\mathbf{A} \tilde{Q}_{1}) = 0$ and:
 \begin{equation*}
   \begin{split}
-  C[\mathcal{E}]|_{\tau} \circ P_{t} = \gamma \tilde{P}_{1} + \bar{\gamma} \mathbf{A}
+  C[\mathcal{E}]|_{\tau} \circ Q_{t} = \gamma \tilde{Q}_{1} + \bar{\gamma} \mathbf{A}
   \end{split}
 \end{equation*}
 Therefore: 
 \begin{equation*}
   \begin{split}
-    &\Trr{} \big( (C[\mathcal{E}]|_{\tau + 1} \circ P_{t}) \tilde{P}_{2}   \big) = \Trr{} \big(   (gC[\mathcal{E}]|_{\tau}  \circ P_{t}) \tilde{P}_{2}   \big) = \gamma \Trr{} \big( (g \circ \tilde{P}_{1} )  \tilde{P}_{2} \big) +  \bar{\gamma} \Trr{} \big (g \circ \mathbf{A} )  \tilde{P}_{2}   \big) 
+    &\Trr{} \big( (C[\mathcal{E}]|_{\tau + 1} \circ Q_{t}) \tilde{Q}_{2}   \big) = \Trr{} \big(   (gC[\mathcal{E}]|_{\tau}  \circ Q_{t}) \tilde{Q}_{2}   \big) = \gamma \Trr{} \big( (g \circ \tilde{Q}_{1} )  \tilde{Q}_{2} \big) +  \bar{\gamma} \Trr{} \big (g \circ \mathbf{A} )  \tilde{Q}_{2}   \big) 
   \end{split}
 \end{equation*}
-We argue that we can assume, without loss of generality, that the term $ \Trr{} ( (g \circ \tilde{P}_{1} )  \tilde{P}_{2} ) $ is non-zero. To see this, suppose that it vanishes; then there has to be another Pauli term $\tilde{P} \in \mathcal{P}$ in the decomposition of $\mathbf{A}$ for which:
+We argue that we can assume, without loss of generality, that the term $ \Trr{} ( (g \circ \tilde{Q}_{1} )  \tilde{Q}_{2} ) $ is non-zero. To see this, suppose that it vanishes; then there has to be another Pauli term $\tilde{Q} \in \mathcal{Q}$ in the decomposition of $\mathbf{A}$ for which:
 \begin{equation*}
     \begin{split}
-      \Trr{} \big( (g \circ \tilde{P} )  \tilde{P}_{2} \big) \neq 0
+      \Trr{} \big( (g \circ \tilde{Q} )  \tilde{Q}_{2} \big) \neq 0
   \end{split}
 \end{equation*}
-Otherwise, the whole trace is zeroing out in contradiction to the fact that $P_{1},..,P_{t},\tilde{P_{2}}$ is a Pauli-path. So, we could initially choose the Pauli-path that induces '$\mathcal{H}_{\tau}$'\footnote{Observe that the 'reinduced' Toom's counter is different from $\mathcal{H}_{\tau}$.} to be $P_{1},..,P_{t},\tilde{P}$.
+Otherwise, the whole trace is zeroing out in contradiction to the fact that $Q_{1},..,Q_{t},\tilde{Q_{2}}$ is a Pauli-path. So, we could initially choose the Pauli-path that induces '$\mathcal{H}_{\tau}$'\footnote{Observe that the 'reinduced' Toom's counter is different from $\mathcal{H}_{\tau}$.} to be $Q_{1},..,Q_{t},\tilde{Q}$.
 
 
 
