@@ -141,8 +141,7 @@ To summarize, we have both $z + w|_{v} \in \mathcal{C}_{v}^{J/g}$ and $z+w|_{v}$
   \end{enumerate}
 \end{proof}
 
-
-
+We would like to differentiate chains whose projection onto the finite Toric with side length $n$ closes a non-trivial cycle from those which don't. For this, we fix a rough threshold via the size function. Connected chains which have size less than $n$ will be called finite. Observe that a chain might have a projection that doesn't close a non-trivial loop on the Toric and still be marked, according to our definition, as infinite. So, the classification is rough, yet it will turn out to be sufficient.
 \begin{definition}
   \label{def:finiteerr}
 Let $z$ be a $d^{\prime}$-dimensional chain. Consider the connectivity notation defined in \Cref{def:asontoric}. We will say that a connected chain $z$ is finite if:
@@ -158,6 +157,8 @@ Similarly, $z$ is infinite if it's size is greater than or equal to $n$.
 Observe that if $\Size{z} < n$, then the projection of $z$ on the $n$-side length Toric does not close a non-trivial loop.
 \end{remark}
 
+
+The next claim states that the translation by stabilizer that minimizes its size of a finite connected chain admits a boundary with size equal to itself.
 \begin{claim}
   \label{claim:reducederr}
   Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be a $d^{\prime}$-dimensional finite chain, consider the stabilizer  $z \in \mathcal{C}_{Z}^{\perp}$ which adding it to $x$ minimize the size , Namely: 
@@ -197,13 +198,13 @@ We keep excluding vertices until we get the desired equality.
 
 \end{proof}
 
-We close the section by defining the \textit{reduced} form of a finite $d^{\prime}$-dimensional chain.
+We close the section by defining the \textit{reduced} form of a finite $d^{\prime}$-dimensional chain. 
 \begin{definition}
   \label{def:reduced}
   Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be a $d^{\prime}$-dimensional finite chain. We will say that $x$ is reduced if for any vertex $v \in x$ that is a maximum point of a potential wall $L \in L_{1}, \ldots, L_{d+1}$, $v$ is also in $\partial^{-} x$. 
   In particular, we have that $\Size{x} = \Size{\partial^{-} x}$ and that the reduced form of a given chain is obtained by the construction presented in the proof of \Cref{claim:reducederr}.
 \end{definition}
-
+We emphasize that the reduced form is not unique. Throughout the paper, every time we choose a reduced form of a chain, we mean choosing one of its reduced forms arbitrarily.
 \input{./tikz/edge.tikz}
 
 
