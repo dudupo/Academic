@@ -4,7 +4,7 @@ An essential ingredient of our proof is an 'intermediate argument', stating that
 
 \begin{claim}
   \label{claim:intersyn}
-  Let $\alpha = \frac{1}{2}(\Delta 4^{d})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a finite slice at size at least $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then, for sufficiently large $n$, the probability that $A$ occurs is bounded by:
+  Let $\alpha = \frac{1}{2}(4^{d} \Delta)^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a finite slice at size at least $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then, for sufficiently large $n$, the probability that $A$ occurs is bounded by:
   \begin{equation*}
     \begin{split}
       \prb{A} \le w\mu\max_{\tau\in J }\prb{B_{\tau}}.
@@ -51,7 +51,7 @@ Otherwise, the whole trace is zeroing out in contradiction to the fact that $P_{
 Since $\tilde{P}_{2}|_{[w]} \sim \tilde{Q}_{2}$, and since $\tilde{P}_{2}$ is the reduced form obtained by the algorithm in \Cref{claim:reducederr}, we have that the vertices of $\tilde{P}_{2}|_{[w]}$ are contained in $\tilde{Q}_{2}$ and therefore contained in $g \circ \tilde{Q}_{1}$. Similarly, the vertices of $\tilde{P}_{1}|_{[w]}$ are contained in the vertices of $\tilde{Q}_{1}$. 
 
 Now, let $K_{\infty}$ be an infinite slice in $\mathcal{H}_{\tau+1}$, and let $K$ be a subslice of $K_{\infty}|[w]$ with size greater than or equal to $n$ which is minimal (Observe that we can assume to have one since the $\infty$-extensions of the $Q_{i}$s satisfy periodic conditions and hence $P_{i}$s). So, $K$ supports $\tilde{P}_{2}|_{[w]}$.
-Since $g$ acts over at most $\Delta$ faces, there are at most $\Delta$ faces that support $\tilde{P}_{2}|_{[w]}$ and don't support $\tilde{P}_{1}|_{[w]}$. Furthermore, since the arrow connection rules define a connection of less than $4^{d}$ arrows per face, the arrows in $\mathcal{H}_{\tau+1}$ supporting $K$ can be obtained by the addition of at most $\Delta 4^{d}$ arrows to arrows that are already in of $\mathcal{H}_{\tau}$. Thus, $K$ can be covered by the merging of at most $\Delta 4^{d}+1$ slices in $\mathcal{H}_{\tau}$ with the vertices supporting $g$.
+Since $g$ acts over at most $\Delta$ faces, there are at most $\Delta$ faces that support $\tilde{P}_{2}|_{[w]}$ and don't support $\tilde{P}_{1}|_{[w]}$. Furthermore, since the arrow connection rules define a connection of less than $4^{d}$ arrows per face, the arrows in $\mathcal{H}_{\tau+1}$ supporting $K$ can be obtained by the addition of at most $4^{d} \Delta$ arrows to arrows that are already in of $\mathcal{H}_{\tau}$. Thus, $K$ can be covered by the merging of at most $4^{d} \Delta+1$ slices in $\mathcal{H}_{\tau}$ with the vertices supporting $g$.
 
 
 To finish, imagine the space-time graph, consisting of three time-layers. In the bottom layer, set delegates vertices, each corresponding to a slice in the last layer of $\mathcal{H}_{\tau}$. In the second layer, set the vertices in those slices and the vertices supporting $g$'s locations. Connect each of the vertices of $\mathcal{H}_{\tau}$'s slices to its delegate with an arrow.
@@ -60,11 +60,11 @@ And in the final layer, set the vertices of $K$, connected to the vertices in th
 Denote by $K^{\prime}$ the slice in the last layer of $\mathcal{H}_{\tau}$ that is maximal in size. Using the \Cref{claim:prevslicesB}, combining that the vertices of the third layer contained in the second gives:  
 \begin{equation*}
   \begin{split}
-     & \Size{K}  \le \Delta 4^{d} ( \Size{K^{\prime}} +  \Size{\text{fork}} ) \\
-     \Rightarrow & \Size{K^{\prime}} \ge \frac{1}{\Delta 4^{d}} \Size{K} - \Size{ \text{fork} }
+     & \Size{K}  \le 4^{d} \Delta ( \Size{K^{\prime}} +  \Size{\text{fork}} ) \\
+     \Rightarrow & \Size{K^{\prime}} \ge \frac{1}{4^{d} \Delta} \Size{K} - \Size{ \text{fork} }
    \end{split}
 \end{equation*}
-So, for $n > 2\Delta 4^{d} \Size{\text{fork} }$, we have:
+So, for $n > 24^{d} \Delta \Size{\text{fork} }$, we have:
 \begin{equation*}
   \begin{split}
      \Size{K^{\prime}}  \ge \alpha \Size{K} 
