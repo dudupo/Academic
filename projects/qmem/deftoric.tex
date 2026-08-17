@@ -13,9 +13,13 @@ For defining a decoder and proving its 'correctness,' we will have to overload n
       \theta_{v,S^{\prime}} \colonequals \bigcup_{I \subset S^{\prime}} \left\{  \left(\prod_{g \in I} g \right) v  \right\}
     \end{split}
   \end{equation*}
-  The $i$-faces of the complex are the collection of all the possible rooted spanned $i$-faces induced by $\text{Cay}(\mathcal{G}_{n}^{d})$. We will denote them by $\mathcal{F}_{i}$. 
-
-  Additionally, we name $n$ and $d$, the \textit{side length} and the \textit{dimension} of the complex.  
+  The $i$-faces of the complex are the collection of all the possible rooted spanned $i$-faces induced by $\text{Cay}(\mathcal{G}_{n}^{d})$. We will denote them by $\mathcal{F}_{i}$. Additionally, let us define the multiplication of the generators subset $S^{\prime} \subset S$ by a vertex $v \in V(\mathcal{G})$ as follows:
+  \begin{equation*}
+    \begin{split}
+      S^{\prime} v = \left(\prod_{g \in S^{\prime}}g^{\prime} \right) v
+    \end{split}
+  \end{equation*}
+   Finally, we name $n$ and $d$, the \textit{side length} and the \textit{dimension} of the complex.  
 \end{definition}
 
 Next, we formalize binary assignments on the Toric complex and introduce boundary operators. These boundary operators are the same as standard boundary operators in the chain complex formalism.
@@ -91,7 +95,7 @@ We are ready to give a formal definition of the $(d,d^{\prime})$-Toric code.
   Let $d, d^{\prime}$ be integers such that $1 \le d^{\prime} \le d$. For any integer $n$, we construct the $n$th instance of the quantum code family $(d,d^{\prime})$ \textit{Toric Code} as follows: Let $G = (\mathcal{F}_{0}, \ldots, \mathcal{F}_{d})$ be the $d$-dimensional Toric complex obtained from $\mathcal{G}_{n}^{d}$ as defined in \Cref{def:toric_complex}. We associate the (q)bits with the $\mathcal{F}_{d^{\prime}}$, the $X$-checks with the $\mathcal{F}_{d^{\prime}-1}$, and the $Z$-checks with the $\mathcal{F}_{d^{\prime}+1}$. An $X$-check, $c_{x}$, is satisfied if the parity of (q)bits set on the $d^{\prime}$-face containing $c_{x}$ is even. Similarly, a $Z$-check, $c_{z}$, is satisfied if the parity, in the Hadamard basis, of the (q)bits set on the $d^{\prime}$-faces contained in $c_{z}$ is even.
 \end{definition}
 
-We argue that the $(d,d^{\prime})$-Toric code is indeed a CSS, and prove that by showing that boundary operators $\partial^{\pm} :\mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i \pm 1}|}$ induce a chain complex.
+We argue that the $(d,d^{\prime})$-Toric code is indeed a CSS, and prove that by showing that boundary operators $\partial^{\pm} :\mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i \pm 1}|}$ induce a chain complex. 
 \begin{claim}[CSS structure]
   \label{claim:csscode}
   The $(d,d^{\prime})$-Toric code is a CSS code.
@@ -131,7 +135,8 @@ Where we used that the term in the closure is invariant to sweeping between $g$ 
 The conditions $ (\partial^{\pm})^{\circ 2} = 0 $ imply that $ \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \xrightarrow{ \partial^{\pm} } \mathbb{F}_{2}^{|\mathcal{F}_{i \pm 1}|}$ are chain complexes. Therefore, for any $d^{\prime}$, every $d^{\prime}-1$ face and every $d^{\prime}+1$ face overlap on an even number of $d^{\prime}$-faces, so the corresponding $X$- and $Z$-checks commute. This is exactly the CSS condition.
 \end{proof}
 
- 
+
+The fact that $\partial^{\pm} :\mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i \pm 1}|}$ induces a chain complex motivates referring to the collection of qubits/checks/vertices as chains of various dimensions. Next, we give a definition of the 'positive' vertices that a vertex $v$ sees, which lie on a chain $z$.
 \begin{definition}[Positive Neighborhood]
   \label{def:positiveNei}
 For a vertex $v$ and a chain $z$, we use the notation $\textbf{Str}_{0+}(v,z)$ to denote the vertices in $z$ that are connected to $v$ through a stepping via generator, namely all the vertices that support a face in $z$ of the form $gv$ for some $g \in S$. We think of $\textbf{Str}_{0+}(v,z)$ as the positive neighborhood of $v$ in $z$.
