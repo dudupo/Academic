@@ -63,7 +63,7 @@ Notice that the transpose map is a permutation over the bits and therefore can b
   \end{equation*}
 \end{definition}
 \begin{claim}
-  The Hadamard-type gate $ \mathbf{H_{\phi}}$ has a fold-transversal implementation by, first applying $\mathbf{H}^{|\mathcal{F}_{d^\prime}|}$ over all the physical qubits, and then permuting them by the transpose map $\phi$, namely $\mathbf{\hat{H}}_{\phi} = \phi \circ \mathbf{H}^{|\mathcal{F}_{d^\prime}|}$.
+  The Hadamard-type gate $ \mathbf{H_{\phi}}$ has a fold-transversal implementation by, first applying $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}$ over all the physical qubits, and then permuting them by the transpose map $\phi$, namely $\mathbf{\hat{H}}_{\phi} = \phi \circ \mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}$.
 \end{claim}
 \begin{proof}
   Clearly, for any subset of generators $S^{\prime} \subset S$, the map $\phi$ sends $x_{S^{\prime}}$ to $z_{S/S^{\prime}}$:
@@ -88,7 +88,7 @@ Moreover, $\phi$ sends binary representations of $Z$-stabilizers to binary repre
       & =  \partial^{-} \rotfv{ (S/S^{\prime}) v}{S^{\prime}}
     \end{split}
   \end{equation*}
-  Thus, $\mathbf{H}^{\otimes n} \circ \phi$ sends $Z$-stabilizers to $X$-stabilizers and vice versa, thereby preserving the code space. Combining this with the above, $\mathbf{H}^{\otimes n} \circ \phi$ realizes the logical gate $\mathbf{H}_{\phi}$ in the $(d,d^{\prime})$-Toric code.
+  Thus, $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|} \circ \phi$ sends $Z$-stabilizers to $X$-stabilizers and vice versa, thereby preserving the code space. Combining this with the above, $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|} \circ \phi$ realizes the logical gate $\mathbf{H}_{\phi}$ in the $(d,d^{\prime})$-Toric code.
 \end{proof}
 
 \input{./tikz/transpose-toric.tikz} 
@@ -123,11 +123,11 @@ We are now ready to give a full description of the realization of the logical op
 \end{figure}
 
 
-For the Hadamard gate, we use a modification of the standard two-qubit gate teleportation as shown in \Cref{fig:magich}. The realization differs from the standard realization as the measurement in the phase basis is done by first moving to the dual space via the application of physical $\mathbf{H}^{\otimes n}$, measuring, reorganizing the qubits through $\phi$, and then checking for the $x_{S/S^{\prime}}$ outcome (thus, it can be thought of as the application of $\mathbf{H}_{\phi}$ and then measurement). In addition, unlike the single-qubit gate teleportation, here $\ket{\mathbf{H}}$ is initialized as $I\otimes \mathbf{H} (\ket{00} + \ket{11})$ (up to normalization).
+For the Hadamard gate, we use a modification of the standard two-qubit gate teleportation as shown in \Cref{fig:magich}. The realization differs from the standard realization as the measurement in the phase basis is done by first moving to the dual space via the application of physical $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}$, measuring, reorganizing the qubits through $\phi$, and then checking for the $x_{S/S^{\prime}}$ outcome (thus, it can be thought of as the application of $\mathbf{H}_{\phi}$ and then measurement). In addition, unlike the single-qubit gate teleportation, here $\ket{\mathbf{H}}$ is initialized as $I\otimes \mathbf{H} (\ket{00} + \ket{11})$ (up to normalization).
     \begin{figure}[h]
         \centering 
         \begin{quantikz}
-          \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{\mathbf{H}^{\otimes n}} & \meter{} \wire{c} & \gate{ \phi } &  \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
+          \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}} & \meter{} \wire{c} & \gate{ \phi } &  \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
          \lstick[2]{$\ket{\mathbf{H}}$} & \targ{} & & \meter{} &   \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[d][1]{c}   \\
          & &  & & \gate{Z_{S^{\prime}}}   & \gate{X_{S^{\prime}}}  & \rstick{$\mathbf{H}\ket{\psi}$} \\
         \end{quantikz} 
