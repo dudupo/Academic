@@ -229,8 +229,14 @@ Split into cases based on whether $v$ equals $u$.
 
 
 \subsection{Infinite Compatibility}
+Here, we provide a proof that circuits for which an $\infty$-extension is defined are $\times$-compatible. Formally:
+\begin{claim} 
+\label{claim:infiequ}
+  Let $C$ be quantum circuit of the form defined in \Cref{def:extension}. Then $C$ is $\infty$-compatible.
+\end{claim}
 
-Obviously, translation by the zero vector (or by the unital vertex) keeps the gate in its place, or in other words, in the restriction of $C^{\infty}$ to $[w]$ - the original Toric - any non-decoding gate is restored. The following claim states that this is also true for a decoding gate.
+\begin{proof}
+Obviously, translation by the zero vector (or by the unit vertex) keeps the gate in its place, or in other words, in the restriction of $C^{\infty}$ to $[w]$ - the original Toric - any non-decoding gate is restored. We will need the following claim, which states that this is also true for a decoding gate.
 \begin{claim}
 \label{claim:pauli_back}
 Let $u = (g, l)$ be a decoding gate. The restriction of the image of $u$ in $C^{\infty}$ to $[w]$ is $u$ (when applied to the infinite domain). Namely:
@@ -252,13 +258,7 @@ contains each of $u$'s faces exactly once, and combined with the fact that $u$ i
 By the definition of root translation, we get that $(\hat{a}^{j} *_{r} u)_{j}$ is in $[w]$. Let $a^{\prime} \in \mathbb{Z}^{d}$ be such that $a^{\prime} \neq \hat{a}^{j}$, and denote by $i$ the coordinate on which they differ. Then, we get that the $g_{i}$ power of the root of $(a^{\prime} *_{r} u)_{j}$ is at a distance $n$ from the $g_{i}$ power of the root of $(\hat{a}^{j} *_{r} u)_{j}$; therefore, their roots can't both be in the range $[0,n-1]$, which implies that $(a^{\prime} *_{r} u)_{j} \notin [w]$.
 
 \end{proof}
-\begin{claim} 
-\label{claim:infiequ}
-  Let $C$ be quantum circuit of the form defined in \Cref{def:extension}. Then $C$ is $\infty$-compatible.
-\end{claim}
-\begin{proof}
-  We prove it by induction on the number of the gates.
-
+  From here we continue by induction on the number of the gates in $C$: 
   \begin{enumerate}
     \item Base. For an empty circuit, $\rho_{\infty}$ is just the infinite string of zeros; thus, the restriction of it to $[w]$ locations, namely $ \Trr{}_{/[w]}( \rho_{\infty} ) $, yields a single matrix element corresponds to the $w$-length string of zeros, which is exactly $\rho$.
     \item Step. Assume the claim holds for every circuit with fewer than $\tau$ gates, and consider a circuit $C$ with $\tau$ gates. Denote by $C^{\prime}$ the circuit obtained from $C$ by erasing its last gate; then $C^{\prime}$ has $\tau-1$ gates. Denote by $\rho^{\prime}$ and $\rho_{\infty}^{\prime}$ the output states of $C^{\prime}[\mathcal{E}]$ and $(C^{\prime})^{\infty}[\mathcal{E}^{\infty}]$, respectively.
