@@ -90,10 +90,38 @@ Moreover, $\phi$ sends binary representations of $Z$-stabilizers to binary repre
   \end{equation*}
   Thus, $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|} \circ \phi$ sends $Z$-stabilizers to $X$-stabilizers and vice versa, thereby preserving the code space. Combining this with the above, $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|} \circ \phi$ realizes the logical gate $\mathbf{H}_{\phi}$ in the $(d,d^{\prime})$-Toric code.
 \end{proof}
-
 \input{./tikz/transpose-toric.tikz} 
 
-Equipped with $\mathbf{H}_{\phi}$, we gain a mapping into the dual code that both keeps the Toric skeleton and sends the $Z$-checks to $d^{\prime}-1$ dimensional faces. Later, this will be advantageous, enabling the use of the same local decoder (with a slight change) to act on both $\mathcal{C}_{X}$ and its dual. 
+
+Equipped with $\mathbf{H}_{\phi}$, we gain a mapping into the dual code that both keeps the Toric skeleton and sends the $Z$-checks to $d^{\prime}-1$ dimensional faces. This enables the use of the same local decoder to act on both $\mathcal{C}_{X}$ and its dual. We summarize it in the following immediate corollary:
+\begin{corollary}
+\label{claim:polesmove}  
+Consider an Pauli $P$, whose $X$- and $Z$-components are set on the reduced chains $x, z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$. Denote by $\tilde{P}$ the Pauli operator result by an application of the sweep-rule on $P$ and by $\tilde{x}, \tilde{z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ the chains corresponding to the $X$- and $Z$-components of $\tilde{P}$. If both $x, \phi(z)$ are finite connected chain, Then:
+  \begin{enumerate}
+    \item For any $i \in [d]$: 
+      \begin{equation*}
+        \begin{split}
+          & \max_{v \in x} L_{i}(v)  \ge \max_{v \in \tilde{x}} L_{i}(v) \\
+          & \max_{v \in \phi(z)} L_{i}(v)  \ge \max_{v \in \phi(\tilde{z}) } L_{i}(v) 
+      \end{split}
+      \end{equation*}
+    \item And for $i = d+1$ : 
+      \begin{equation*}
+        \begin{split}
+          & \max_{v \in x} L_{d+1}(v)  \ge \max_{v \in \tilde{x}} L_{d+1}(v) + 1 \\
+          & \max_{v \in \phi(z)} L_{d+1}(v)  \ge \max_{v \in \phi(\tilde{z}) } L_{d+1}(v) + 1
+        \end{split}
+      \end{equation*}
+  \end{enumerate}
+  In particular: 
+  \begin{equation*}
+    \begin{split}
+      &\Size{\tilde{x}}  \le \Size{x}  - 1 \\
+      &\Size{ \phi(\tilde{z} ) }  \le \Size{ \phi(z) } - 1 
+    \end{split}
+  \end{equation*}
+\end{corollary}
+
 
 
 Throughout the construction, we encode each qubit in a code block; namely, we restrict ourselves to using only a single codeword of the $(d,d^{\prime})$-Toric code. From now on, we will think of $S^{\prime} \subset S$ as a fixed $d^{\prime}$-size subset of generators that were picked from the head. And we will decode the logical $\ket{1}$ state by $x_{S^{\prime}}$. To simplify terminology, we call such usage 'nice encoding'.

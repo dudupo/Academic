@@ -56,35 +56,8 @@ Let $z$ be a finite reduced $d^{\prime}$-dimensional chain, and let $\xi$ be the
 Combining the two, we get that $v \notin \partial^{-} (z + \varphi)$, so the reduced form of $z + \varphi$ does not contain $v$. Namely, $v \notin \xi$. Repeating the above for all the other vertices which get the maximal $L_{d+1}$-value in $z$ yields that $L_{d+1}(\xi) \le L_{d+1}(z) - 1$.
 
 \end{proof}
-We finished analyzing the first part of the sweep-cycle that acts in the computational basis. Since the dual code is a $(d,d-d^{\prime})$ Toric code, we also find that the sweep-cycle shrinks reduced phase errors.
+We finished analyzing the first part of the sweep-cycle that acts in the computational basis. In the next section, we introduce the transformation into the dual code. Since the dual code is a $(d,d-d^{\prime})$-Toric code, we also find that the sweep-cycle shrinks reduced phase errors.
 
-\begin{corollary}
-\label{claim:polesmove}  
-Consider an Pauli $P$, whose $X$- and $Z$-components are set on the reduced chains $x, z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$. Denote by $\tilde{P}$ the Pauli operator result by an application of the sweep-rule on $P$ and by $\tilde{x}, \tilde{z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ the chains corresponding to the $X$- and $Z$-components of $\tilde{P}$. If both $x, \phi(z)$ are finite connected chain, Then:
-  \begin{enumerate}
-    \item For any $i \in [d]$: 
-      \begin{equation*}
-        \begin{split}
-          & \max_{v \in x} L_{i}(v)  \ge \max_{v \in \tilde{x}} L_{i}(v) \\
-          & \max_{v \in \phi(z)} L_{i}(v)  \ge \max_{v \in \phi(\tilde{z}) } L_{i}(v) 
-      \end{split}
-      \end{equation*}
-    \item And for $i = d+1$ : 
-      \begin{equation*}
-        \begin{split}
-          & \max_{v \in x} L_{d+1}(v)  \ge \max_{v \in \tilde{x}} L_{d+1}(v) + 1 \\
-          & \max_{v \in \phi(z)} L_{d+1}(v)  \ge \max_{v \in \phi(\tilde{z}) } L_{d+1}(v) + 1
-        \end{split}
-      \end{equation*}
-  \end{enumerate}
-  In particular: 
-  \begin{equation*}
-    \begin{split}
-      &\Size{\tilde{x}}  \le \Size{x}  - 1 \\
-      &\Size{ \phi(\tilde{z} ) }  \le \Size{ \phi(z) } - 1 
-    \end{split}
-  \end{equation*}
-\end{corollary}
 
 %\subsubsection{The Sweep-Rule Phase in the Dual Code}
 %
