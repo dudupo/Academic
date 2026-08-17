@@ -90,21 +90,20 @@ In each recursive call, the vertex support of $\sigma$ matches a different subse
 \end{equation*}
  %Finally, choose $c$, such we get correctness in the base case, namely  $k,d^{\prime} \le 4$ and any $d$. 
 \end{proof}
-
-
-
-
-
-
-A full decoding cycle consists of four steps: first, applying the sweep rule regarding the $X$-syndrome; next, moving to the dual code via $\mathbf{H}_{\phi}$; then applying the sweep rule again; and finally getting back to the code by $\mathbf{H}_{\phi^{-1}}$.
-
+Later (see \Cref{def:trans} and \Cref{def:htrans}), we will see that an isomorphism between the $(d,d^{\prime})$-Toric code and its dual, which is the $(d,d-d^{\prime})$-Toric code, can be realized by transversal Hadamards followed by the following permutation over the qubits.
+  \begin{equation*}
+    \begin{split}
+      \phi(\rotfv{v}{S^{\prime}}) \rightarrow \rotfv{ S^{\prime}v }{S/S^{\prime}} 
+    \end{split}
+  \end{equation*}
+A full decoding cycle consists of four steps: first, applying the sweep rule regarding the $X$-syndrome; next, moving to the dual code; then applying the sweep rule again; and finally getting back to the code.
 \begin{definition}[Sweep cycle]
 We define the \textit{sweep cycle} to be the following procedure:
 \begin{enumerate}
     \item For each vertex, perform the sweep rule.
-    \item Apply the Hadamard transform $\mathbf{H}^{\otimes n}$ followed by the $\phi$-transpose.
+    \item Apply the Hadamard transform $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}$ followed by the $\phi$-transpose.
     \item Again, apply the sweep rule at each vertex.
-    \item Reverse stage 2 by reordering the qubits according to the $\phi^{-1}$-transpose, and then apply the Hadamard transform $\mathbf{H}^{\otimes n}$.
+    \item Reverse stage 2 by reordering the qubits according to the $\phi^{-1}$-transpose, and then apply the Hadamard transform $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}$.
 \end{enumerate}
 \end{definition}
 
