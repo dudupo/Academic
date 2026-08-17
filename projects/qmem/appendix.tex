@@ -1,5 +1,8 @@
 \section{Appendix}
 
+
+
+
 %
 %\inb{Below, a semi proof that in CSS code partial correction $Z^{e} \rightarrow Z^{\hat{e}}$ doesn't add bit flip errors. It might adds a global phase. I should enter it in a section about CSS coding. }
 %
@@ -179,6 +182,7 @@ Now, having $S \subset \operatorname{Loc}(V^{(i)})$, implies that there is a min
   \end{equation*}
 \end{proof}
 
+
 \subsection{Checks Commutation}
 We give an alternative proof of \Cref{claim:csscode} by straightforwardly multiplying checks. Consider subsets of generators $A, B \subset S$ with sizes $d^{\prime}-1$ and $d^{\prime}+1$, respectively. Thus, $\partial^{+} \rotfv{v}{A}$ and $\partial^{-} \rotfv{u}{B}$ are $X$- and $Z$-checks. Let us examine their multiplication:
   \begin{equation*}
@@ -222,6 +226,89 @@ Split into cases based on whether $v$ equals $u$.
        \end{equation*}
        is also not zeroing out, and again the number of non-zeros is even.
 \end{enumerate}
+
+
+\subsection{Infinite Compatibility}
+
+Obviously, translation by the zero vector (or by the unital vertex) keeps the gate in its place, or in other words, in the restriction of $C^{\infty}$ to $[w]$ - the original Toric - any non-decoding gate is restored. The following claim states that this is also true for a decoding gate.
+\begin{claim}
+\label{claim:pauli_back}
+Let $u = (g, l)$ be a decoding gate. The restriction of the image of $u$ in $C^{\infty}$ to $[w]$ is $u$ (when applied to the infinite domain). Namely:
+  \begin{equation*}
+    \begin{split}
+      \bigl(\prod_{a \in \mathbb{Z}^{d} } a *_{r} u \bigr)|_{[w]} = u
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+  Denote by $\hat{a}^{j} \in \mathbb{F}_{2}^{d}$ the vector which assigns in its $i$th coordinate $1$ if the root that supports the face of $u_{j}$ has a $g_{i}$ power greater than $n$. We argue that the $j$th face of $-\hat{a}^{j} *_{r} u$ is in $[w]$ and that the $j$th face of any other root translation of $u$ is not in $[w]$. That implies that the restriction
+  \begin{equation*}
+    \begin{split}
+      \bigl(\prod_{a \in \mathbb{Z}^{d} } a *_{r} u \bigr)|_{[w]}
+    \end{split}
+  \end{equation*}
+contains each of $u$'s faces exactly once, and combined with the fact that $u$ is a Pauli product, it follows that they are the same operator. 
+
+By the definition of root translation, we get that $(\hat{a}^{j} *_{r} u)_{j}$ is in $[w]$. Let $a^{\prime} \in \mathbb{Z}^{d}$ be such that $a^{\prime} \neq \hat{a}^{j}$, and denote by $i$ the coordinate on which they differ. Then, we get that the $g_{i}$ power of the root of $(a^{\prime} *_{r} u)_{j}$ is at a distance $n$ from the $g_{i}$ power of the root of $(\hat{a}^{j} *_{r} u)_{j}$; therefore, their roots can't both be in the range $[0,n-1]$, which implies that $(a^{\prime} *_{r} u)_{j} \notin [w]$.
+
+\end{proof}
+\begin{claim}[ Restating of \Cref{claim:infiequ} ] 
+  Let $C$ be quantum circuit of the form defined in \Cref{def:extension}. Then $C$ is $\infty$-compatible.
+\end{claim}
+\begin{proof}
+  We prove it by induction on the number of the gates.
+
+  \begin{enumerate}
+    \item Base. For an empty circuit, $\rho_{\infty}$ is just the infinite string of zeros; thus, the restriction of it to $[w]$ locations, namely $ \Trr{}_{/[w]}( \rho_{\infty} ) $, yields a single matrix element corresponds to the $w$-length string of zeros, which is exactly $\rho$.
+    \item Step. Assume the claim holds for every circuit with fewer than $\tau$ gates, and consider a circuit $C$ with $\tau$ gates. Denote by $C^{\prime}$ the circuit obtained from $C$ by erasing its last gate; then $C^{\prime}$ has $\tau-1$ gates. Denote by $\rho^{\prime}$ and $\rho_{\infty}^{\prime}$ the output states of $C^{\prime}[\mathcal{E}]$ and $(C^{\prime})^{\infty}[\mathcal{E}^{\infty}]$, respectively.
+      By the induction assumption we have:
+  \begin{equation*}
+    \begin{split}
+      \rho^{\prime} =  \Trr{}_{/[w]}\left( \rho^{\prime}_{\infty} \right) 
+    \end{split}
+  \end{equation*}
+  Denote the last gate in $C$ by $u$, and by $I = \{v_{j}\}$ the collection of gates in $C^{\infty}$ to which $u$ is mapped (notice that the collection is countable). Let us split into cases, depending on whether $u$ is or is not a decoding gate.
+  \begin{enumerate}
+    \item Suppose that $u$ is not a decoding gate. Let $g$ and $l$ be the gate element and the location of $u$. By the definition of $\infty$-extension, $I$ equals:
+      \begin{equation*}
+        \begin{split}
+          I = \bigcup_{a \in \mathbb{Z}^{d}}\left\{ a * u \right\}
+        \end{split}
+      \end{equation*}
+So, there is only one gate in $I$, corresponding to $a$ being the zero vector, that has support on qubits with spatial locations in the range $[w]$. Denote that gate by $v_{0}$.
+
+ \begin{equation*}
+   \begin{split}
+   \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= \Trr{}_{/[w]}\left( \prod_{j = -\infty}^{\infty} v_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty}^{\infty} v_{j}^{\dagger} \right) \\ 
+   &= v_{0}\Trr{}_{/[w]}\left( \prod_{j = -\infty, j \neq 0}^{\infty} v_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty, j \neq 0}^{\infty} v_{j}^{\dagger} \right) v_{0}^{\dagger} \\
+   &= v_{0}\Trr{}_{/[w]}\left( \prod_{j = -\infty, j \neq 0}^{\infty} v_{j}^{\dagger} \prod_{j = -\infty, j \neq 0}^{\infty} v_{j} \rho_{\infty}^{\prime} \right) v_{0}^{\dagger} \\
+   &= v_{0}\Trr{}_{/[w]}\left( \rho_{\infty}^{\prime} \right) v_{0}^{\dagger} \\
+   &= v_{0} \rho^{\prime} v_{0}^{\dagger} \\
+   &= \rho 
+   \end{split}
+ \end{equation*}
+
+   \item In the case that $u$ is a decoding gate, each of the $v_{j}$ is a Pauli product. Thus, we can decompose it into the product of two terms: the first has support on $[w]$, and the second is its complement. Exactly as in the above case, the second $v_{j}$ component can be treated as a disjoint gate that has no support on qubits in $[w]$ and therefore does not contribute to the trace. For the rest, we get:
+   \begin{equation*}
+     \begin{split}
+       \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= \left(\prod_{-\infty}^{\infty}v_{j}\right)|_{[w]} \rho^{\prime} \left(\left(\prod_{-\infty}^{\infty}v_{j}\right)|_{[w]} \right)^{\dagger} 
+     \end{split}
+   \end{equation*}
+Then, by \Cref{claim:pauli_back}, we have that:
+ \begin{equation*}
+   \begin{split}
+          \left(\prod_{-\infty}^{\infty}v_{j}\right)|_{[w]} = u
+   \end{split}
+ \end{equation*}
+therefore:
+   \begin{equation*}
+     \begin{split}
+       \Trr{}_{/[w]}\left( \rho_{\infty} \right) & = u \rho^{\prime} u^{\dagger} = \rho 
+     \end{split}
+   \end{equation*}
+  \end{enumerate}
+  \end{enumerate}
+\end{proof}
 
 
 \input{counting_subgraphs.tex}
