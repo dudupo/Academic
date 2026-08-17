@@ -153,7 +153,7 @@ For the Hadamard gate, we use a modification of the standard two-qubit gate tele
         \centering 
         \begin{quantikz}
           \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}} & \meter{} \setwiretype{c} &  \gate{ \phi }  &  \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
-          \lstick[2]{$\ket{\mathbf{H}}$} & \targ{} & & \meter{}  \setwiretype{c} &   \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[d][1]{c}   \\
+          \lstick[2]{$\ket{\mathbf{H}}$} & \targ{} & & \meter{}   &  \setwiretype{c} \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[d][1]{c}   \\
          & &  & & \gate{Z_{S^{\prime}}}   & \gate{X_{S^{\prime}}}  & \rstick{$\mathbf{H}\ket{\psi}$} \\
         \end{quantikz} 
         \caption{ Gate teleportation of the Hadamard gate, using the resource $\ket{\mathbf{H}}$. We emphasize that although the Hadamard (at least Hadamard-type) has an $O(1)$-depth gate realization (at least when $d^{\prime}=d/2$), we still need all the operations on the quantum register to be strictly transversal for the sake of the proof. Thus, we realize the Hadamard via gate teleportation. }   
