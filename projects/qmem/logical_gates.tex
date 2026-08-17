@@ -152,7 +152,7 @@ For the Hadamard gate, we use a modification of the standard two-qubit gate tele
     \begin{figure}[h]
         \centering 
         \begin{quantikz}
-          \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}} & \meter{} \wire{c} & \gate{ \phi } &  \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
+          \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}} & \meter{} \wire{c} & \gate{ \phi } \wire{c} &  \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
          \lstick[2]{$\ket{\mathbf{H}}$} & \targ{} & & \meter{} &   \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[d][1]{c}   \\
          & &  & & \gate{Z_{S^{\prime}}}   & \gate{X_{S^{\prime}}}  & \rstick{$\mathbf{H}\ket{\psi}$} \\
         \end{quantikz} 
