@@ -18,14 +18,6 @@ For defining a decoder and proving its 'correctness,' we will have to overload n
   Additionally, we name $n$ and $d$, the \textit{side length} and the \textit{dimension} of the complex.  
 \end{definition}
 
-\begin{definition}[Positive Edges]
-  In addition, for $u,v \in \mathcal{G}_{n}^{d}$, and $S^{\prime}_{1},S^{\prime}_{2} \subset [d]$, with sizes $|S^{\prime}_{1}| = |S^{\prime}_{2}| = i$, we say that the $i$-faces $\theta_{v,S^{\prime}_{1}}$ and $\theta_{u,S^{\prime}_{2}}$ are adjacent if the intersection $\theta_{v,S^{\prime}_{1}} \cap \theta_{u,S^{\prime}_{2}}$ is an $i-1$-face. In addition, if $\theta_{1}$ and $\theta_{2}$ are $i$ and $i-1$-faces such that $\theta_{2} \subset \theta_{1}$, then we say that $\theta_{2}$ is a \textit{positive edge relative to face} $\theta_{1}$ if they are rooted at the same vertex. Furthermore, we say that $\theta_{1}$ is a \textit{positive cube} of $\theta_{2}$. When the $i$-face is clear from the context, we will abbreviate and say that $\theta_{2}$ is \textit{positive}.
-\end{definition}
-\begin{example}
-  For example, let $v, u \in \mathcal{G}_{n}^{d}$ and $g_{1} \neq g_{2} \in S$. Consider the 2-face $\theta = \{v, g_{1}v, g_{2}g_{1}v, g_{2}v\}$. Then, for $x, y \in \mathcal{G}_{n}^{d}$, we say that an edge (1-face) $\{x, y\}$ is \textit{positive relative to the face} $\theta$ if $x = v$ and $y$ is either $g_{1}v$ or $g_{2}v$.
-\end{example}
-
-
 We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$-, $1$-, and $2$-faces. Below, we formalize binary assignments on the Toric complex and introduce boundary operators. These boundary operators are the same as standard boundary operators in the chain complex formalism.
 
 \begin{definition}[Assignments on a Toric complex]
@@ -58,7 +50,7 @@ We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$-, 
       \partial^{+} \rotfvs{} \colonequals \sum_{g \in S/S^{\prime}} \left( \rotfv{v}{S^{\prime} \cup g} + \rotfv{g^{-1}v}{S^{\prime}\cup g} \right) 
     \end{split}
   \end{equation*}
-  We define the \textit{restriction of $z$ to a vertex $v$} to be the linear map $|_{v} \colon \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ such that: 
+  We define the \textit{restriction of $z$ at vertex $v$} to be the linear map $|_{v} \colon \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ such that: 
   \begin{equation*}
     \begin{split}
       \rotfv{u}{S^{\prime}} |_{v} \colonequals    
@@ -68,7 +60,7 @@ We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$-, 
       \end{cases}
     \end{split}
   \end{equation*}
-  We define the \textit{front of $z$ to a vertex $v$} to be the linear map $|_{v+} \colon \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ such that: 
+  We refer to the faces rooted at $v$ as the positive faces of $v$, and define the \textit{positive restriction at vertex $v$} to be the linear map $|_{v+} \colon \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ such that: 
   \begin{equation*}
     \begin{split}
       \rotfv{u}{S^{\prime}} |_{v+} \colonequals    
@@ -78,7 +70,9 @@ We denote the complex by $G = (V, E, F)$, where $V$, $E$, and $F$ are the $0$-, 
       \end{cases}
     \end{split}
   \end{equation*}
-  We say that an assignment $z$ is \textit{connected} if the graph that is induced by taking the faces that support $z$ as vertices and defining the edges to be the adjacency relation between them is connected. We define the connected components of $z$ to be its subsets such that each of them is a connected assignment. For a $j$-face $f$, we say that $f \in z$ if $z$ has a support on $\rotfvs{}$ such that $f \in \rotfs{}$. Consider an assignment $z \in \mathbb{F}_{2}^{\mathcal{F}_{i}}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S^{\prime}_{1}, \ldots, S^{\prime}_{k} \subset S^{\times k}$ such that each of $S^{\prime}_{j}$ is at size $i$ and $z$ is decomposed as:
+  
+
+  Two $i$th dimensional faces will be said to be connected if their intersection is $i-1$th dimensional face. So, an assignment $z$ is \textit{connected} if the graph that is induced by taking the faces that support $z$ as vertices and defining the edges to be the adjacency relation between them is connected. We define the connected components of $z$ to be its subsets such that each of them is a connected assignment. For a $j$-face $f$, we say that $f \in z$ if $z$ has a support on $\rotfvs{}$ such that $f \in \rotfs{}$. Consider an assignment $z \in \mathbb{F}_{2}^{\mathcal{F}_{i}}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S^{\prime}_{1}, \ldots, S^{\prime}_{k} \subset S^{\times k}$ such that each of $S^{\prime}_{j}$ is at size $i$ and $z$ is decomposed as:
   \begin{equation*}
     \begin{split}
     z = \sum_{j}^{k}\rotfv{v}{S^{\prime}_{j}}
