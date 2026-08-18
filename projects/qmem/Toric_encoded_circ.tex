@@ -37,6 +37,8 @@ Where we define a vertex $v$ to belong to location $l$ if there is a qubit-face 
 
 As a concept, if the base graph is a recording of a run from the Torices' point of view, then a \textit{Toom's contour} is a recording of the deviation's evolution in the eyes of the Torices' vertices. We use the notion of Pauli-path to describe a deviation:
 
+\inb{\textbf{ Consider defining the Pauli-path recursively: $P_{i}$ is a reduced Pauli, then $Q_{i+1}$ supports $C|_{i} \circ P_{i}|_{[w]}$, and $P_{i+1}$ is the reduced form of the $\infty$-extension of $Q_{i+1}$. }}
+
 \begin{definition} 
   \label{def:paulipath}
 For two Pauli $P, Q \in \mathcal{P}$, we define the relation $P \sim Q$ to hold if one is a translation of the other by a stabilizer of the $(d, d^{\prime})$-Toric code. Notice that $P$ and $Q$ might span multiple registers, and in that case, the translation might be composed of translations in each of the registers. 

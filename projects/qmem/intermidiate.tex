@@ -13,7 +13,7 @@ An essential ingredient of our proof is an 'intermediate argument', stating that
 \end{claim}
 
 \begin{proof}
-Let $\mathcal{H}_{\tau}$ and $\mathcal{H}_{\tau+1}$ be the analysis Toom's contours at steps $\tau$ and $\tau+1$. And let $P_{1}, \ldots, P_{t}, \tilde{P}_{1}$ and $P_{1}, \ldots, P_{t}, \tilde{P}_{2}$ be the reduced Pauli-paths (up to a step) that induce Toom's contours. In addition, let $g$ be the gate that is applied at step $\tau+1$. Assume that step $\tau+1$ is the first to admit an infinite slice. For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
+Let $\mathcal{H}_{\tau}$ and $\mathcal{H}_{\tau+1}$ be the analysis Toom's contours at steps $\tau$ and $\tau+1$. And let $P_{1}, \ldots, P_{t}, \tilde{P}_{1}$ and $P_{1}, \ldots, P_{t}, \tilde{P}_{2}$ be the Pauli-paths (up to a step). In addition, let $g$ be the gate that is applied at step $\tau+1$. Assume that step $\tau+1$ is the first to admit an infinite slice. For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
   \begin{equation*}
     \begin{split}
  C[\mathcal{E}]|_{\rightarrow \tau+1} = g C[\mathcal{E}]|_{\rightarrow \tau}  
@@ -46,6 +46,7 @@ We argue that we can assume, without loss of generality, that the term $ \Trr{} 
 Otherwise, the whole trace is zeroing out in contradiction to the fact that $P_{1},..,P_{t},\tilde{P_{2}}$ is a Pauli-path. So, we could initially choose the Pauli-path that induces '$\mathcal{H}_{\tau}$'\footnote{Observe that the 'reinduced' Toom's counter is different from $\mathcal{H}_{\tau}$.} to be $P_{1},..,P_{t},\tilde{P}$.
 
 
+Thus, $P_{1}, \ldots, P_{t}, \tilde{P}_{1}, \tilde{P}_{2}$ is a Pauli-path for the circuit obtained by taking $C[\mathcal{E}]|_{\rightarrow\tau}$ and then stacking the gate $g$ at the following time unit. Denote that circuit by $\hat{C}$. Now let $Q_{1}, \ldots, Q_{t}, \tilde{Q}_{1}, \tilde{Q}_{2}$ be a reduced Pauli-path for $\hat{C}$ derived from $P_{1}, \ldots, P_{t}, \tilde{P}_{1}, \tilde{P}_{2}$.
 
 Now, let $K_{\infty}$ be a infinite slice in $\mathcal{H}_{\tau+1}$, and let $K$ be a subslice of $K_{\infty}$ with size greater than or equal to $n$ which is minimal (the minimality is regarding the size). The vertices in $K$ support the faces of $\tilde{P_{2}} = g \circ \tilde{P}$. Recall that the vertices in a Toom's contour supports the faces of the infinite Torices. Yet, observe that $K$ can be chosen to simultaneity support $g$'s original locations (Otherwise $K$ is also in $\mathcal{H}_{\tau}$) and be disjoint to the locations of any of $g$'s translation. Since $g$ acts over at most $\Delta$ faces, there are at most $\Delta$ faces that support $\tilde{P}_{2}$ and don't support $\tilde{P}_{1}$. Furthermore, since the arrow connection rules define a connection of less than $4^{d}$ arrows per face, the arrows in $\mathcal{H}_{\tau+1}$ supporting $K$ can be obtained by the addition of at most $\Delta 4^{d}$ arrows to arrows that are already in of $\mathcal{H}_{\tau}$. Thus, $K$ can be covered by the merging of at most $\Delta 4^{d}+1$ slices in $\mathcal{H}_{\tau}$ with the vertices supporting $g$.
 
