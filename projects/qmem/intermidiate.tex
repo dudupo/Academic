@@ -4,7 +4,7 @@ An essential ingredient of our proof is an 'intermediate argument', stating that
 
 \begin{claim}
   \label{claim:intersyn}
-  Let $\alpha = \frac{1}{2}(4^{d} \Delta)^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a finite slice at size at least $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then, for sufficiently large $n$, the probability that $A$ occurs is bounded by:
+  Let $\alpha = \frac{1}{2}(\Delta 4^{d})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a finite slice at size at least $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then, for sufficiently large $n$, the probability that $A$ occurs is bounded by:
   \begin{equation*}
     \begin{split}
       \prb{A} \le w\mu\max_{\tau\in J }\prb{B_{\tau}}.
@@ -13,9 +13,7 @@ An essential ingredient of our proof is an 'intermediate argument', stating that
 \end{claim}
 
 \begin{proof}
-  Let $\mathcal{H}_{\tau}$ and $\mathcal{H}_{\tau+1}$ be the analysis Toom's contours at steps $\tau$ and $\tau+1$. And let $P_{1}, \ldots, P_{t}, \tilde{P}_{1}$ and $P_{1}, \ldots, P_{t}, \tilde{P}_{2}$ be the reduced Pauli-paths (up to a step) that induce Toom's contours. Denote by $Q_{1},..,Q_{t},\tilde{Q}_{1},\tilde{Q}_{2}$ the Paulis such that $ Q_{i} \sim P_{i}|_{[w]} $, $\tilde{Q}_{i} \sim \tilde{P}_{i}|_{[w]}$, and the $Q_{i}$s satisfy the supporting restriction (\Cref{def:paulipath}).
-
-  In addition, let $g$ be the gate that is applied at step $\tau+1$. Assume that step $\tau+1$ is the first to admit an infinite slice. For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
+Let $\mathcal{H}_{\tau}$ and $\mathcal{H}_{\tau+1}$ be the analysis Toom's contours at steps $\tau$ and $\tau+1$. And let $P_{1}, \ldots, P_{t}, \tilde{P}_{1}$ and $P_{1}, \ldots, P_{t}, \tilde{P}_{2}$ be the reduced Pauli-paths (up to a step) that induce Toom's contours. In addition, let $g$ be the gate that is applied at step $\tau+1$. Assume that step $\tau+1$ is the first to admit an infinite slice. For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
   \begin{equation*}
     \begin{split}
  C[\mathcal{E}]|_{\rightarrow \tau+1} = g C[\mathcal{E}]|_{\rightarrow \tau}  
@@ -24,37 +22,32 @@ An essential ingredient of our proof is an 'intermediate argument', stating that
 By definition of Pauli-path (\Cref{def:paulipath}), we have that:
 \begin{equation*}
   \begin{split}
-    \Trr{} \big( (C[\mathcal{E}]|_{\tau} \circ Q_{t}) \tilde{Q}_{1}   \big) \neq 0 
+    \Trr{} \big( (C[\mathcal{E}]|_{\tau} \circ P_{t}) \tilde{P}_{1}   \big) \neq 0 
   \end{split}
 \end{equation*}
-Thus, there are constants $\gamma, \bar{\gamma} \in \mathbb{R}$ and an operator $\mathbf{A} \in \mathcal{L}$, such that $\Trr{} (\mathbf{A} \tilde{Q}_{1}) = 0$ and:
+Thus, there are constants $\gamma, \bar{\gamma} \in \mathbb{R}$ and an operator $\mathbf{A} \in \mathcal{L}$, such that $\Trr{} (\mathbf{A} \tilde{P}_{1}) = 0$ and:
 \begin{equation*}
   \begin{split}
-  C[\mathcal{E}]|_{\tau} \circ Q_{t} = \gamma \tilde{Q}_{1} + \bar{\gamma} \mathbf{A}
+  C[\mathcal{E}]|_{\tau} \circ P_{t} = \gamma \tilde{P}_{1} + \bar{\gamma} \mathbf{A}
   \end{split}
 \end{equation*}
 Therefore: 
 \begin{equation*}
   \begin{split}
-    &\Trr{} \big( (C[\mathcal{E}]|_{\tau + 1} \circ Q_{t}) \tilde{Q}_{2}   \big) = \Trr{} \big(   (gC[\mathcal{E}]|_{\tau}  \circ Q_{t}) \tilde{Q}_{2}   \big) = \gamma \Trr{} \big( (g \circ \tilde{Q}_{1} )  \tilde{Q}_{2} \big) +  \bar{\gamma} \Trr{} \big (g \circ \mathbf{A} )  \tilde{Q}_{2}   \big) 
+    &\Trr{} \big( (C[\mathcal{E}]|_{\tau + 1} \circ P_{t}) \tilde{P}_{2}   \big) = \Trr{} \big(   (gC[\mathcal{E}]|_{\tau}  \circ P_{t}) \tilde{P}_{2}   \big) = \gamma \Trr{} \big( (g \circ \tilde{P}_{1} )  \tilde{P}_{2} \big) +  \bar{\gamma} \Trr{} \big (g \circ \mathbf{A} )  \tilde{P}_{2}   \big) 
   \end{split}
 \end{equation*}
-We argue that we can assume, without loss of generality, that the term $ \Trr{} ( (g \circ \tilde{Q}_{1} )  \tilde{Q}_{2} ) $ is non-zero. To see this, suppose that it vanishes; then there has to be another Pauli term $\tilde{Q} \in \mathcal{P}$ in the decomposition of $\mathbf{A}$ for which:
+We argue that we can assume, without loss of generality, that the term $ \Trr{} ( (g \circ \tilde{P}_{1} )  \tilde{P}_{2} ) $ is non-zero. To see this, suppose that it vanishes; then there has to be another Pauli term $\tilde{P} \in \mathcal{P}$ in the decomposition of $\mathbf{A}$ for which:
 \begin{equation*}
     \begin{split}
-      \Trr{} \big( (g \circ \tilde{Q} )  \tilde{Q}_{2} \big) \neq 0
+      \Trr{} \big( (g \circ \tilde{P} )  \tilde{P}_{2} \big) \neq 0
   \end{split}
 \end{equation*}
-Otherwise, the whole trace is zeroing out in contradiction to the fact that $P_{1},..,P_{t},\tilde{P_{2}}$ is a reduced Pauli-path. So, we could initially choose the reduced Pauli-path that induces '$\mathcal{H}_{\tau}$'\footnote{Observe that the 'reinduced' Toom's counter is different from $\mathcal{H}_{\tau}$.} such its $Q_{i}$s are $Q_{1},..,Q_{t},\tilde{Q}$.
+Otherwise, the whole trace is zeroing out in contradiction to the fact that $P_{1},..,P_{t},\tilde{P_{2}}$ is a Pauli-path. So, we could initially choose the Pauli-path that induces '$\mathcal{H}_{\tau}$'\footnote{Observe that the 'reinduced' Toom's counter is different from $\mathcal{H}_{\tau}$.} to be $P_{1},..,P_{t},\tilde{P}$.
 
 
-\inb{\textbf{ We could define $\tilde{P}_{1}$ from $\tilde{P}_{2}$ by choose $\tilde{Q}$ such $ \Trr{} g^{-1} \circ \tilde{Q}_{2} \tilde{P}_{2}|_{[w]} \neq 0$ and then define $\tilde{P}_{1}$ to be the reduced form of the $\infty$-extension of $\tilde{Q}$. }}
 
-
-Since $\tilde{P}_{2}|_{[w]} \sim \tilde{Q}_{2}$, and since $\tilde{P}_{2}$ is the reduced form obtained by the algorithm in \Cref{claim:reducederr}, we have that the vertices of $\tilde{P}_{2}|_{[w]}$ are contained in $\tilde{Q}_{2}$ and therefore contained in $g \circ \tilde{Q}_{1}$. Similarly, the vertices of $\tilde{P}_{1}|_{[w]}$ are contained in the vertices of $\tilde{Q}_{1}$. 
-
-Now, let $K_{\infty}$ be an infinite slice in $\mathcal{H}_{\tau+1}$, and let $K$ be a subslice of $K_{\infty}|_{[w]}$ with size greater than or equal to $n$ which is minimal (Observe that we can assume to have one since the $\infty$-extensions of the $Q_{i}$s satisfy periodic conditions and hence $P_{i}$s). So, $K$ supports $\tilde{P}_{2}|_{[w]}$.
-Since $g$ acts over at most $\Delta$ faces, there are at most $\Delta$ faces that support $\tilde{P}_{2}|_{[w]}$ and don't support $\tilde{P}_{1}|_{[w]}$. Furthermore, since the arrow connection rules define a connection of less than $4^{d}$ arrows per face, the arrows in $\mathcal{H}_{\tau+1}$ supporting $K$ can be obtained by the addition of at most $4^{d} \Delta$ arrows to arrows that are already in of $\mathcal{H}_{\tau}$. Thus, $K$ can be covered by the merging of at most $4^{d} \Delta+1$ slices in $\mathcal{H}_{\tau}$ with the vertices supporting $g$.
+Now, let $K_{\infty}$ be a infinite slice in $\mathcal{H}_{\tau+1}$, and let $K$ be a subslice of $K_{\infty}$ with size greater than or equal to $n$ which is minimal (the minimality is regarding the size). The vertices in $K$ support the faces of $\tilde{P_{2}} = g \circ \tilde{P}$. Recall that the vertices in a Toom's contour supports the faces of the infinite Torices. Yet, observe that $K$ can be chosen to simultaneity support $g$'s original locations (Otherwise $K$ is also in $\mathcal{H}_{\tau}$) and be disjoint to the locations of any of $g$'s translation. Since $g$ acts over at most $\Delta$ faces, there are at most $\Delta$ faces that support $\tilde{P}_{2}$ and don't support $\tilde{P}_{1}$. Furthermore, since the arrow connection rules define a connection of less than $4^{d}$ arrows per face, the arrows in $\mathcal{H}_{\tau+1}$ supporting $K$ can be obtained by the addition of at most $\Delta 4^{d}$ arrows to arrows that are already in of $\mathcal{H}_{\tau}$. Thus, $K$ can be covered by the merging of at most $\Delta 4^{d}+1$ slices in $\mathcal{H}_{\tau}$ with the vertices supporting $g$.
 
 
 To finish, imagine the space-time graph, consisting of three time-layers. In the bottom layer, set delegates vertices, each corresponding to a slice in the last layer of $\mathcal{H}_{\tau}$. In the second layer, set the vertices in those slices and the vertices supporting $g$'s locations. Connect each of the vertices of $\mathcal{H}_{\tau}$'s slices to its delegate with an arrow.
@@ -63,11 +56,11 @@ And in the final layer, set the vertices of $K$, connected to the vertices in th
 Denote by $K^{\prime}$ the slice in the last layer of $\mathcal{H}_{\tau}$ that is maximal in size. Using the \Cref{claim:prevslicesB}, combining that the vertices of the third layer contained in the second gives:  
 \begin{equation*}
   \begin{split}
-     & \Size{K}  \le 4^{d} \Delta ( \Size{K^{\prime}} +  \Size{\text{fork}} ) \\
-     \Rightarrow & \Size{K^{\prime}} \ge \frac{1}{4^{d} \Delta} \Size{K} - \Size{ \text{fork} }
+     & \Size{K}  \le \Delta 4^{d} ( \Size{K^{\prime}} +  \Size{\text{fork}} ) \\
+     \Rightarrow & \Size{K^{\prime}} \ge \frac{1}{\Delta 4^{d}} \Size{K} - \Size{ \text{fork} }
    \end{split}
 \end{equation*}
-So, for $n > 24^{d} \Delta \Size{\text{fork} }$, we have:
+So, for $n > 2\Delta 4^{d} \Size{\text{fork} }$, we have:
 \begin{equation*}
   \begin{split}
      \Size{K^{\prime}}  \ge \alpha \Size{K} 
