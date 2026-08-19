@@ -27,7 +27,12 @@ That motivates us to define the notion of a step that is the first to admit an i
 The following claim states that for ideal running (not subjected to noise), assuming that during the cleaning all the slices are finite, the cleaning succeeds in erasing the errors.
 \begin{claim}
   \label{claim:decodestopnoise}
-Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code with side length $n$. Let $P \in \mathcal{P}^{(\cdot)}$. Assuming that during the application of $2d n^{d+1}   $ ideal sweep-cycles over $P\ket{\psi}$, the Toom's counter does not admit an infinite error, then at the end the error is erased, namely, the result of the computation is $\ket{\psi}$.
+Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code with side length $n$. Let $P \in \mathcal{P}^{(\cdot)}$. Assuming that: 
+\begin{enumerate}
+  \item During the application of $2d n^{d+1}   $ ideal sweep-cycles over $P\ket{\psi}$, the Toom's counter does not admit an infinite error.
+  \item For any two vertices $u, w$ which are two different translations of the same vertex on the finite Toric (a vertex in $\mathcal{G}_{n}^{d}$), it holds that they are not connected by arrows.
+\end{enumerate}
+  Then at the end the error is erased, namely, the result of the computation is $\ket{\psi}$.
 \end{claim}
 \begin{proof}
   We will prove that the decoder erases the $X$-component of $P$, and the proof for the $Z$-component is identical. Let $P^{\infty}$ the view of $P$ in the $\infty$-extension and let $v_{1}, v_{2}, \ldots$ be the vertices supporting the faces of $X(P^{\infty})$. During the ideal computation, no new faults are introduced, and therefore $v_{1}, v_{2} \ldots$ are the only leaves in the induced Toom's contour. Without loss of generality, assume that the first $m$ vertices $v_{1},..,v_{m}$ align with the vertices of the finite Toric (namely non-translated vertices), denote them by $V^{\prime}$. 
@@ -63,8 +68,11 @@ Observe that $\Phi_{1} = n^{d}$. Now, for a vertex $v \in V^{\prime}_{t+1}$, den
     & = \sum_{v\in V^{\prime}_{t+1}} \bigl(\bigl( \sum^{k_{v}}_{i=0} \Size{ K_{u_{i},t} } + 1 \bigr) + (2d-1)k_{v}  \bigr) 
       \end{split}
     \end{equation*}
-Where, in the last transition, we used the fact that the size function is invariant to translations. Now, any vertex of $V^{\prime}_{t}$ has to appear at most once. To see this, assume towards contradiction the existence of two predecessor slices $K_{u^{\prime}_{i},t}$, $K_{w^{\prime}_{j},t}$ which are translations of the same slice. Denote by $K_{u,t+1}$ and $K_{w,t+1}$ the slices whose $K_{u^{\prime}_{i},t}$, $K_{w^{\prime}_{j},t}$ are their predecessors. Thus $u^{\prime}_{i},w^{\prime}_{j}$ are in the histories of $K_{u,t+1},K_{w,t+1}$ and they are a translation of the same vertex in $V^{\prime}_{t} \subset V^{\prime}$. Hence $K_{u,t+1}\sim K_{w,t+1}$, in contradiction to $u,w \in V^{\prime}_{t+1}$.
-
+    Where, in the last transition, we used the fact that the size function is invariant to translations. Now, any vertex of $V^{\prime}_{t}$ has to appear at most once. To see this, assume towards contradiction the existence of two predecessor slices $K_{u^{\prime}_{i},t}$, $K_{w^{\prime}_{j},t}$ which are translations of the same slice. Denote by $K_{u,t+1}$ and $K_{w,t+1}$ the slices whose $K_{u^{\prime}_{i},t}$, $K_{w^{\prime}_{j},t}$ are their predecessors. Let's split to cases, whether $u = w$.
+    \begin{itemize}
+      \item If $u \neq w$, then $u^{\prime}_{i}, w^{\prime}_{j}$ belong to the histories of different slices $K_{u,t+1}, K_{w,t+1}$, and they are a translation of the same vertex in $V^{\prime}_{t} \subset V^{\prime}$. Hence, $K_{u,t+1} \sim K_{w,t+1}$, in contradiction to $u, w \in V^{\prime}_{t+1}$.
+      \item Otherwise, if $u=w$, then we found two vertices $u^{\prime}_{i}$ and $w^{\prime}_{j}$, which are translations of the same origin vertex of the finite Toric, such that they belong to the same slice $K_{w,t+1}$, namely connected by an arrow, in contradiction to the second given of the claim.
+    \end{itemize}
 
 Now, observe that each fork connecting two slices is associated with a merge; therefore, $\sum_{t}\sum_{v\in V^{\prime}_{t}}k_{v}$ is lower than the number of merges, and the bound on the potential function becomes:
     \begin{equation*}
