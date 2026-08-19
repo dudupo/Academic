@@ -19,17 +19,19 @@ That motivates us to define the notion of a step that is the first to admit an i
   Let $C[\mathcal{E}]$ be a Toric encoded circuit, and let $J=\tau_1, \tau_2, \ldots$ be an order agreeing with $\pi_{C[\mathcal{E}]}$. We say that a step $\tau \in J$ admits an infinite error if there exists a reduced Pauli-path up to step $\tau$, $P_{1}, P_{2}, \ldots, P_{t^{\star}}$, that induces an analysis Toom's contour such that there is at least one Pauli in the path whose view in the $\infty$-extension is infinite (\Cref{def:finiteerr}). Similarly, we say that a step $\tau$ admits an infinite slice if there is a Pauli path such that $\mathcal{H}_{\tau}$ has an infinite slice (\Cref{def:infislice}). Moreover, we say that $\tau$ is the first step to admit an infinite error/slice if $\tau$ is the minimal step for which there is a Pauli path such that $\mathcal{H}_{\tau}$ admits an infinite error/slice. By exactly the same way, we define the notation of step $\tau$ admits an error/slice at finite size X.
 \end{definition}
 
+
+
 %Note that $u$ and $v$ might be set on different connected chains. In particular, the origin of the vertices in $K$ might be a finite (yet disconnected) chain, and yet $K$ might be an infinite slice. In addition, if $K$ is a slice in the last layer of the analysis Toom's contour at step $\tau$, and the Pauli $P \in \mathcal{P}$ is the last element in the reduced Pauli-path that induces the contour. Then, if $K$ is finite then $P_{t^{\star} -1}$ is finite.
 
   
 The following claim states that for ideal running (not subjected to noise), assuming that during the cleaning all the slices are finite, the cleaning succeeds in erasing the errors.
 \begin{claim}
   \label{claim:decodestopnoise}
-Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code with side length $n$. Let $P \in \mathcal{P}^{(\cdot)}$. Assuming that during the application of $n^{d+1}$ ideal sweep-cycles over $P\ket{\psi}$, the Toom's counter does not admit an infinite slice, then at the end the error is erased, namely, the result of the computation is $\ket{\psi}$.
+Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code with side length $n$. Let $P \in \mathcal{P}^{(\cdot)}$. Assuming that during the application of $d n^{d+1}   $ ideal sweep-cycles over $P\ket{\psi}$, the Toom's counter does not admit an infinite error, then at the end the error is erased, namely, the result of the computation is $\ket{\psi}$.
 \end{claim}
 \begin{proof}
 We will prove that the decoder erases the $X$-component of $P$, and the proof for the $Z$-component is identical. Let $v_{1}, v_{2}, \ldots, v_{m}$ be the vertices supporting the faces of $X(P)$. During the ideal computation, no new faults are introduced, and therefore $v_{1}, \ldots, v_{m}$ are the only leaves in the induced Toom's contour.
-  Moreover, they set a natural relation over its slices as follows: two slices $K_{1}$ and $K_{2}$, not necessarily with the same time coordinate, will be said to be \textit{history-related}, $K_{1}\sim K_{2}$, if there is a leaf $v_{i}$ that belongs to both of their histories. Thus, for a time $t$ and a leaf $v \in v_{1}, \ldots, v_{m}$, we can define the notation $K_{v,t}$ to be the slice at time $t$ that is reached from leaf $v$ by arrows. We emphasis that $\sim$ is not an equivalence relation, since it doesn't satisfy transitivity.  Yet, let us match slices to 'classes' when the map is many-to-many. Here, a class is a grouping of slices that are all history-related. The delegate of the slices reached from vertex $v$, namely the slices $\{ K_{v,t} : t \}$, will be denoted by $\mathbf{K}_{v}$. Proving that at the end of time $n^{d+1}$, for any leaf $v$, the slice $K_{v,t}$ is empty, or equivalently is of size zero, implies the correctness of the claim.
+  Moreover, they set a natural relation over its slices as follows: two slices $K_{1}$ and $K_{2}$, not necessarily with the same time coordinate, will be said to be \textit{history-related}, $K_{1}\sim K_{2}$, if there is a leaf $v_{i}$ that belongs to both of their histories. Thus, for a time $t$ and a leaf $v \in v_{1}, \ldots, v_{m}$, we can define the notation $K_{v,t}$ to be the slice at time $t$ that is reached from leaf $v$ by arrows. We emphasis that $\sim$ is not an equivalence relation, since it doesn't satisfy transitivity.  Yet, let us match slices to 'classes' when the map is many-to-many. Here, a class is a grouping of slices that are all history-related. The delegate of the slices reached from vertex $v$, namely the slices $\{ K_{v,t} : t \}$, will be denoted by $\mathbf{K}_{v}$. Proving that at the end of time $dn^{d+1}$, for any leaf $v$, the slice $K_{v,t}$ is empty, or equivalently is of size zero, implies the correctness of the claim.
 
 
   For proving this, let us present the following terminology. For leaves $v,u,w$, and a time coordinate $t$, consider the following: 
@@ -41,7 +43,27 @@ We will prove that the decoder erases the $X$-component of $P$, and the proof fo
 Since no new faults are introduced during the computation, we have that in each step, the only option for a class to grow is by merging. Notice that, by definition, classes cannot 'split'. Namely, if $K_{v,t}\sim \mathbf{K}_{u}$, then for any time $t^{\prime} \ge t$, it holds that $K_{v,t^{\prime}} \sim \textbf{K}_{u}$. Specifically, a correction by the sweep rule that disconnects two error clusters that were connected by checks and, prior to correction, belonged to the same slice and therefore to the same class, would still belong to the same class after the correction.
 
 
-Therefore, there can be at most $m-1$ merges. And since the number of classes is bounded by the number of vertices on the Toric, we have that $m \le n^{d}$, namely at most $n^{d}-1$ merges can occur. Hence, during the $n^{d+1}$ sweep-cycles, there has to be a continuous sequence of $n$ cycles for which no merge occurs. Since it's given that the size of all the slices is lower than $n$. So, a sweep-cycle decreases the size of any slice by at least 1 (\Cref{claim:polesmove}). Thus, at the end of that sequence of $n$ cycles, all the slices' sizes shrink to zero; namely, the connected errors are erased after those cycles.
+Therefore, there can be at most $m-1$ merges. And since the number of classes is bounded by the number of vertices on the Toric, we have that $m \le n^{d}$, namely at most $n^{d}-1$ merges can occur. Hence, during the $n^{d+1}$ sweep-cycles, there has to be a continuous sequence of $n$ cycles for which no merge occurs.
+
+Moreover, we argue that the maximum size of an slice is bounded by $Y$. For this, we define the potentionall function: 
+\begin{equation*}
+  \begin{split}
+    \Phi_{t} = \sum_{v} \left( \Size{ K_{v,t} } + 1\right)
+  \end{split}
+\end{equation*}
+Where the sum runs over deligates, namely if $K_{v,t}\sim K_{u,t}$ then only one of them is summed. Observes that $\Phi_{0} = n^{d}$. Now, using \Cref{claim:polesmove}, and \Cref{claim:maxfork}: 
+
+\begin{equation*}
+  \begin{split}
+    \Phi_{t+1} &= \sum_{v} \left( \Size{ K_{v,t+1} } + 1\right) \le \sum_{v} \left(\left( \sum^{k}_{i=0} \Size{ K_{v_{i},t} }\right) + 2dk + 1 \right) \\
+    & = \sum_{v} \left(\left( \sum^{k}_{i=0} \Size{ K_{v_{i},t} }\right) + (2d-1)k + 1 + k \right) = \Phi_{t} + (2d-1)k + 1 
+  \end{split}
+\end{equation*}
+
+
+Since it's given that no infinite error is admitted, a sweep-cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:polesmove}, combining that no merging occurred, namely there is only one processor slice.
+
+Thus, at the end of that sequence of $dn$ cycles, all the slices' sizes shrink to zero; namely, the connected errors are erased after those cycles.
 \end{proof}
 
 
