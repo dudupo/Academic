@@ -55,24 +55,21 @@ Moreover, we argue that the maximum size of a slice is bounded by $(2d+1)n^{d}$.
     \Phi_{t} = \sum_{v \in V^{\prime}_{t} } \left( \Size{ K_{v,t} } + 1\right)
   \end{split}
 \end{equation*}
-Observe that $\Phi_{1} = n^{d}$. Now, for a vertex $v \in V^{\prime}_{t+1}$, denote the predecessor of $K_{v,t+1}$ by $K_{u^{\prime}_{0},t}, K_{u^{\prime}_{1},t},\ldots, K_{u^{\prime}_{k},t}$ and their translation into the finite Toric by $K_{u_{0},t}, K_{u_{1},t},\ldots, K_{u_{k},t}$, so $u_{i} \in V^{\prime}_{t}$. Using \Cref{claim:polesmove} and \Cref{claim:maxfork}, we have:
+Observe that $\Phi_{1} = n^{d}$. Now, for a vertex $v \in V^{\prime}_{t+1}$, denote the predecessor of $K_{v,t+1}$ by $K_{u^{\prime}_{0},t}, K_{u^{\prime}_{1},t},\ldots, K_{u^{\prime}_{k_{v}},t}$ and their translation into the finite Toric by $K_{u_{0},t}, K_{u_{1},t},\ldots, K_{u_{k_{v}},t}$, so $u_{i} \in V^{\prime}_{t}$. Using \Cref{claim:polesmove} and \Cref{claim:maxfork}, we have:
 \begin{equation*}
   \begin{split}
-    \Phi_{t+1} &= \sum_{v \in V^{\prime}_{t+1}} \bigl( \Size{ K_{v,t+1} } + 1\bigr) \le \sum_{v \in V^{\prime}_{t+1}} \bigl(\bigl( \sum^{k}_{i=0} \Size{ K_{u^{\prime}_{i},t} }\bigr) + 2dk + 1 \bigr) \\
-    & = \sum_{v} \bigl(\bigl( \sum^{k}_{i=0} \Size{ K_{u_{i},t} }\bigr) + (2d-1)k + 1 + k \bigr) 
+    \Phi_{t+1} &= \sum_{v \in V^{\prime}_{t+1}} \bigl( \Size{ K_{v,t+1} } + 1\bigr) \le \sum_{v \in V^{\prime}_{t+1}} \bigl(\bigl( \sum^{k_{v}}_{i=0} \Size{ K_{u^{\prime}_{i},t} }\bigr) + 2dk_{v} + 1 \bigr) \\
+    & = \sum_{v\in V^{\prime}_{t+1}} \bigl(\bigl( \sum^{k_{v}}_{i=0} \Size{ K_{u_{i},t} }\bigr) + (2d-1)k_{v} + 1 + k_{v} \bigr) 
       \end{split}
     \end{equation*}
-Where, in the last transition, we used the fact that the size function is invariant to translations. Now, any vertex of $V^{\prime}_{t}$ has to appear at most once. To see this, assume towards contradiction the existence of two predecessor slices $K_{u^{\prime}_{i},t}$, $K_{w^{\prime}_{j},t}$ which are translations of the same slice. Denote by $K_{u,t+1}$ and $K_{w,t+1}$ the slices whose $K_{u^{\prime}_{i},t}$, $K_{w^{\prime}_{j},t}$ are their predecessors. Now:
-    \begin{equation*}
-      \begin{split}
- K_{u,t+1} \sim K_{u^{\prime}_{i},t} \sim K_{w^{\prime}_{j},t} \sim K_{w,t+1}  
-      \end{split}
-    \end{equation*}
-    As said the history realtion in general does not satisfiy transivity. Yet, for 
+Where, in the last transition, we used the fact that the size function is invariant to translations. Now, any vertex of $V^{\prime}_{t}$ has to appear at most once. To see this, assume towards contradiction the existence of two predecessor slices $K_{u^{\prime}_{i},t}$, $K_{w^{\prime}_{j},t}$ which are translations of the same slice. Denote by $K_{u,t+1}$ and $K_{w,t+1}$ the slices whose $K_{u^{\prime}_{i},t}$, $K_{w^{\prime}_{j},t}$ are their predecessors. Thus $u^{\prime}_{i},w^{\prime}_{j}$ are in the histories of $K_{u,t+1},K_{w,t+1}$ and they are a translation of the same vertex in $V^{\prime}_{t} \subset V^{\prime}$. Hence $K_{u,t+1}\sim K_{w,t+1}$, in contradiction to $u,w \in V^{\prime}_{t+1}$.
 
+
+Now, observe that each fork connecting two slices is associated with a merge; therefore, $\sum_{t}\sum_{v\in V^{\prime}_{t}}k_{v}$ is lower than the number of merges, and the bound on the potential function becomes:
     \begin{equation*}
       \begin{split}
-    & = \Phi_{t} + (2d-1)k + 1 =  \Phi_{1} + (2d-1) \cdot \text{ \# merges }  + t \le  (2d+1)n^{d} 
+      \Phi_{t+1} & \le \sum_{v \in V^{\prime}_{t}} \Size{ K_{v,t} } + 1 + \sum_{v\in V^{\prime}_{t+1}} (2d-1)k_{v} + 1  \\
+    & \le \Phi_{t} + (2d-1)k + 1 =  \Phi_{1} + (2d-1) \cdot \text{ \# merges }  + t \le  (2d+1)n^{d} 
   \end{split}
 \end{equation*}
 Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, no slice reaches size $(2d+1)n^{d}$. Since it's given that no infinite error is admitted, a sweep cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:polesmove}, combining that no merging occurred, namely there is only one predecessor slice. Hence, at the end of that sequence of $(2d+1)n^{2d}$ cycles, all the slices' sizes shrink to zero; namely, the connected errors are erased after those cycles.
