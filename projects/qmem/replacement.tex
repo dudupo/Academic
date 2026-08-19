@@ -1,6 +1,6 @@
 
 \subsection{The Replacement Argument}
-Throughout our final construction, logical measurements will be done via first measuring the qubits of the target register, clean the error with non-noisy computation, and eventually inferring the results, by turning to the logical space. In this section we introduce the cleaning procedure, which is the excitation of sweep-cycles for $  n^{d+1}  $ times - the number of vertices times the side's length. In the case of logical measurement, the cleaning is done over classical bits, and therefore only the relevant stage of the sweep-cycle is done (either in the computational or the phase base).
+Throughout our final construction, logical measurements will be done via first measuring the qubits of the target register, clean the error with non-noisy computation, and eventually inferring the results, by turning to the logical space. In this section we introduce the cleaning procedure, which is the excitation of sweep-cycles for $  2dn^{2d}  $ times - the number of vertices times the side's length. In the case of logical measurement, the cleaning is done over classical bits, and therefore only the relevant stage of the sweep-cycle is done (either in the computational or the phase base).
 
 
 To present conditions on which the cleaning procedure works, we extend the infinity characterization to slices and subslices.
@@ -29,7 +29,7 @@ The following claim states that for ideal running (not subjected to noise), assu
   \label{claim:decodestopnoise}
 Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code with side length $n$. Let $P \in \mathcal{P}^{(\cdot)}$. Assuming that: 
 \begin{enumerate}
-  \item During the application of $2d n^{d+1}   $ ideal sweep-cycles over $P\ket{\psi}$, the Toom's counter does not admit an infinite error.
+  \item During the application of $2d n^{2d}   $ ideal sweep-cycles over $P\ket{\psi}$, the Toom's counter does not admit an infinite error.
   \item For any two vertices $u, w$ which are two different translations of the same vertex on the finite Toric (a vertex in $\mathcal{G}_{n}^{d}$), it holds that they are not connected by arrows.
 \end{enumerate}
   Then at the end the error is erased, namely, the result of the computation is $\ket{\psi}$.
@@ -39,7 +39,7 @@ Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code with s
 
   
   They set a natural relation over its slices as follows: two slices $K_{1}$ and $K_{2}$, not necessarily with the same time coordinate, will be said to be \textit{history-related}, $K_{1}\sim K_{2}$, if there are leaves $u, w$ such that both $u$ and $w$ are translations of a vertex $v_{i} \in V^{\prime}$ and $u, w$ belong to the histories of $K_{1}, K_{2}$ respectively.
-  Thus, for a time $t$ and a leaf $v \in V^{\prime}$, we can define the notation $K_{v,t}$ to be the slice at time $t$ that is reached from leaf $v$ by arrows. We emphasize that $\sim$ is not an equivalence relation, since it doesn't satisfy transitivity. Yet, let us match slices to 'classes' when the map is many-to-many. Here, a class is a grouping of translations of slices which are all history-related. For a vertex $v \in V^{\prime}$, the delegate of the slices reached from vertex $v$ and its translations, namely the translations of slices $\{ K_{v,t} : t \}$, will be denoted by $\mathbf{K}_{v}$. Proving that at the end of time $2dn^{d+1}$, for any leaf $v$, the slice $K_{v,t}$ is empty, or equivalently is of size zero, and therefore its translations, implies the correctness of the claim.
+  Thus, for a time $t$ and a leaf $v \in V^{\prime}$, we can define the notation $K_{v,t}$ to be the slice at time $t$ that is reached from leaf $v$ by arrows. We emphasize that $\sim$ is not an equivalence relation, since it doesn't satisfy transitivity. Yet, let us match slices to 'classes' when the map is many-to-many. Here, a class is a grouping of translations of slices which are all history-related. For a vertex $v \in V^{\prime}$, the delegate of the slices reached from vertex $v$ and its translations, namely the translations of slices $\{ K_{v,t} : t \}$, will be denoted by $\mathbf{K}_{v}$. Proving that at the end of time $2dn^{2d}$, for any leaf $v$, the slice $K_{v,t}$ is empty, or equivalently is of size zero, and therefore its translations, implies the correctness of the claim.
 
 
   For proving this, let us present the following terminology. For leaves $v,u,w$, and a time coordinate $t$, consider the following: 
@@ -81,14 +81,14 @@ Now, observe that each fork connecting two slices is associated with a merge; th
     & \le \Phi_{t} + (2d-1)k  =  \Phi_{1} + (2d-1) \cdot \text{ \# merges }  \le  2d n^{d} 
   \end{split}
 \end{equation*}
-Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, no slice reaches size $2dn^{d}$. Since it's given that no infinite error is admitted, a sweep cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:shrinkslice}, combining that no merging occurred, namely there is only one predecessor slice. Hence, at the end of that sequence of $2dn^{2d}$ cycles, all the slices' sizes shrink to zero; namely, the connected errors are erased after those cycles.
+Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, no slice reaches size $2dn^{d}$. Since it's given that no infinite error is admitted, a sweep cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:shrinkslice}, combining that no merging occurred, namely there is only one predecessor slice. Hence, at the end of that sequence of $2dn^{d}$ cycles, all the slices' sizes shrink to zero; namely, the connected errors are erased after those cycles.
 \end{proof}
 
 To prove that no infinite error is admitted, and that no two translated vertices are arrow-connected, we use a replacement argument, stating that the probability of an event occurring during a computation where part of its layers are non-noisy is lower than the probability of having the same event in a computation where all its layers are noisy. More precisely, any bound that assumes only that the noise channel is local stochastic captures both cases.
  
 \begin{claim}[Replacement argument]
   \label{claim:replace}
-  Consider a running of Toric encoded circuit with depth $l$. Denote by $A$ the event in which, after an additional $ n^{d+1}$ \textbf{ideal} (non-noisy) iterations of the sweep-cycle, the error is not erased, and denote by $B$ the event that, during the application of an additional $n^{d+1}$ \textbf{noisy} iterations, either the Toom's contour admits an infinite error, or two translated vertices are become arrows connected. Let $f:(n,d,d^{\prime},l,p) \rightarrow \mathbb{R} $ be an upper bound on $\prb{B}$ that assumes only that the noise is distributed according to a local stochastic noise channel with noise rate $p$. Then, we have:
+  Consider a running of Toric encoded circuit with depth $l$. Denote by $A$ the event in which, after an additional $ 2dn^{2d}$ \textbf{ideal} (non-noisy) iterations of the sweep-cycle, the error is not erased, and denote by $B$ the event that, during the application of an additional $2dn^{2d}$ \textbf{noisy} iterations, either the Toom's contour admits an infinite error, or two translated vertices are become arrows connected. Let $f:(n,d,d^{\prime},l,p) \rightarrow \mathbb{R} $ be an upper bound on $\prb{B}$ that assumes only that the noise is distributed according to a local stochastic noise channel with noise rate $p$. Then, we have:
   \begin{equation*}
     \begin{split}
       \prb{A} \le f(n,d,d^{\prime},l,p)
@@ -96,6 +96,6 @@ To prove that no infinite error is admitted, and that no two translated vertices
   \end{equation*}
 \end{claim}
 \begin{proof} 
-\Cref{claim:decodestopnoise} states that if during the $n^{d+1}$ ideal sweep-cycles, Toom's contour does not admit an infinite error and no two translated vertices become arrow-connected, then the error is erased. Consider the set of atomic events corresponding to the faults in the first $l$ noisy layers, such that during the additional $n^{d+1}$ ideal iterations, there is a step which either admits an infinite error or in its 'analysis Toom's counter,' two translated vertices are connected by arrows. All those atomic events are also contained in $B$, since local stochastic noise is our only assumption. The bound over the $B$ scenario has to hold for a noise channel that assigns zero probability for a fault occurring during the additional $n^{d+1}$ iterations. For this specific channel, $\prb{A} = \prb{B}$ and therefore $\prb{A} \le f(n,d,d^{\prime},l,p)$.
+\Cref{claim:decodestopnoise} states that if during the $2dn^{2d}$ ideal sweep-cycles, Toom's contour does not admit an infinite error and no two translated vertices become arrow-connected, then the error is erased. Consider the set of atomic events corresponding to the faults in the first $l$ noisy layers, such that during the additional $2dn^{2d}$ ideal iterations, there is a step which either admits an infinite error or in its 'analysis Toom's counter,' two translated vertices are connected by arrows. All those atomic events are also contained in $B$, since local stochastic noise is our only assumption. The bound over the $B$ scenario has to hold for a noise channel that assigns zero probability for a fault occurring during the additional $2dn^{2d}$ iterations. For this specific channel, $\prb{A} = \prb{B}$ and therefore $\prb{A} \le f(n,d,d^{\prime},l,p)$.
 \end{proof}
 
