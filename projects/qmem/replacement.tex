@@ -55,15 +55,20 @@ Moreover, we argue that the maximum size of a slice is bounded by $(2d+1)n^{d}$.
     \Phi_{t} = \sum_{v \in V^{\prime}_{t} } \left( \Size{ K_{v,t} } + 1\right)
   \end{split}
 \end{equation*}
-Observe that $\Phi_{1} = n^{d}$. Now, using \Cref{claim:polesmove} and \Cref{claim:maxfork}:
+Observe that $\Phi_{1} = n^{d}$. Now, for a vertex $v \in V^{\prime}_{t+1}$, denote the predecessor of $K_{v,t+1}$ by $K_{u^{\prime}_{0},t}, K_{u^{\prime}_{1},t},\ldots, K_{u^{\prime}_{k},t}$ and their translation into the finite Toric by $K_{u_{0},t}, K_{u_{1},t},\ldots, K_{u_{k},t}$, so $u_{i} \in V^{\prime}_{t}$. Using \Cref{claim:polesmorvue} and \Cref{claim:maxfork}, we have:
 \begin{equation*}
   \begin{split}
-    \Phi_{t+1} &= \sum_{v \in V^{\prime}_{t+1}} \bigl( \Size{ K_{v,t+1} } + 1\bigr) \le \sum_{v} \bigl(\bigl( \sum^{k}_{i=0} \Size{ K_{v_{i},t} }\bigr) + 2dk + 1 \bigr) \\
-    & = \sum_{v} \bigl(\bigl( \sum^{k}_{i=0} \Size{ K_{v_{i},t} }\bigr) + (2d-1)k + 1 + k \bigr) \\
+    \Phi_{t+1} &= \sum_{v \in V^{\prime}_{t+1}} \bigl( \Size{ K_{v,t+1} } + 1\bigr) \le \sum_{v \in V^{\prime}_{t+1}} \bigl(\bigl( \sum^{k}_{i=0} \Size{ K_{u^{\prime}_{i},t} }\bigr) + 2dk + 1 \bigr) \\
+    & = \sum_{v} \bigl(\bigl( \sum^{k}_{i=0} \Size{ K_{u_{i},t} }\bigr) + (2d-1)k + 1 + k \bigr) 
+      \end{split}
+    \end{equation*}
+    Where, in the last transition, we used the fact that the size function is invariant to translations. Now, any vertex of $V^{\prime}_{t}$ has to appear at most one, otherwise, there
+    \begin{equation*}
+      \begin{split}
     & = \Phi_{t} + (2d-1)k + 1 =  \Phi_{1} + (2d-1) \cdot \text{ \# merges }  + t \le  (2d+1)n^{d} 
   \end{split}
 \end{equation*}
-Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, no slice reaches size $(2d+1)n^{d}$. Since it's given that no infinite error is admitted, a sweep cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:polesmove}, combining that no merging occurred, namely there is only one processor slice. Hence, at the end of that sequence of $(2d+1)n^{2d}$ cycles, all the slices' sizes shrink to zero; namely, the connected errors are erased after those cycles.
+Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, no slice reaches size $(2d+1)n^{d}$. Since it's given that no infinite error is admitted, a sweep cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:polesmove}, combining that no merging occurred, namely there is only one predecessor slice. Hence, at the end of that sequence of $(2d+1)n^{2d}$ cycles, all the slices' sizes shrink to zero; namely, the connected errors are erased after those cycles.
 \end{proof}
 
 
