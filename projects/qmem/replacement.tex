@@ -51,12 +51,13 @@ Moreover, we argue that the maximum size of an slice is bounded by $Y$. For this
     \Phi_{t} = \sum_{v} \left( \Size{ K_{v,t} } + 1\right)
   \end{split}
 \end{equation*}
-Where the sum runs over deligates, namely if $K_{v,t}\sim K_{u,t}$ then only one of them is summed. Observes that $\Phi_{0} = n^{d}$. Now, using \Cref{claim:polesmove}, and \Cref{claim:maxfork}: 
+Where the sum runs over deligates, namely if $K_{v,t}\sim K_{u,t}$ then only one of them is summed. Observes that $\Phi_{1} = n^{d}$. Now, using \Cref{claim:polesmove}, and \Cref{claim:maxfork}: 
 
 \begin{equation*}
   \begin{split}
-    \Phi_{t+1} &= \sum_{v} \left( \Size{ K_{v,t+1} } + 1\right) \le \sum_{v} \left(\left( \sum^{k}_{i=0} \Size{ K_{v_{i},t} }\right) + 2dk + 1 \right) \\
-    & = \sum_{v} \left(\left( \sum^{k}_{i=0} \Size{ K_{v_{i},t} }\right) + (2d-1)k + 1 + k \right) = \Phi_{t} + (2d-1)k + 1 
+    \Phi_{t+1} &= \sum_{v} \bigl( \Size{ K_{v,t+1} } + 1\bigr) \le \sum_{v} \bigl(\bigl( \sum^{k}_{i=0} \Size{ K_{v_{i},t} }\bigr) + 2dk + 1 \bigr) \\
+    & = \sum_{v} \left(\left( \sum^{k}_{i=0} \Size{ K_{v_{i},t} }\right) + (2d-1)k + 1 + k \right) \\
+    & = \Phi_{t} + (2d-1)k + 1 =  \Phi_{1} + (2d-1) \cdot \text{ \# merges }  + t \le  (2d+1)n^{d} 
   \end{split}
 \end{equation*}
 
