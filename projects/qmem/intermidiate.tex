@@ -7,7 +7,7 @@ An essential ingredient of our proof is an 'intermediate argument', stating that
       \begin{equation*}
         \label{equ:cond}
         \begin{split}
-          \text{reduced form of }(x_{1}) \cup \text{reduced form of }(x_{2}) \cup ,.., \text{reduced form of }(x_{m})
+          \text{reduced form of }(x_{1}) \cup \text{reduced form of }(x_{2}) \cup ,.., \text{reduced form of }(x_{m}) \quad \quad \quad (\star)
         \end{split}
       \end{equation*}
 is connected. Then: 
@@ -18,7 +18,7 @@ is connected. Then:
       \end{equation*}
     \end{claim}
     \begin{proof}
-      For each $x_{i}$, denote by $z_{i}$ the stabilizer for which the translation of $x_{i}$ by $z_{i}$ yields the reduced form which satisfies the condition in \Cref{equ:cond}. Namely:
+      For each $x_{i}$, denote by $z_{i}$ the stabilizer for which the translation of $x_{i}$ by $z_{i}$ yields the reduced form which satisfies the condition in $(\star)$ . Namely:
       \begin{equation*}
         \begin{split}
           z_{i} = \arg \min_{z \in \mathcal{C}_{Z}^{\perp} }\Size{ x_{i} + z } 
@@ -28,9 +28,10 @@ is connected. Then:
       \begin{equation*}
         \begin{split}
           \Size{ \text{reduced form of } {y} } & =  \min_{z \in \mathcal{C}_{Z}^{\perp} } \Size{z + y }  \le  \min_{z \in \mathcal{C}_{Z}^{\perp} }\sum_{i}^{m}{\Size{z + x_{1} \cup x_{2} \cup ,.., x_{m}} } \\
-          \le \sum_{i}^{m}{\Size{ (x_{1}+z_{1}) \cup (x_{2}+z_{2}) \cup ,.., (x_{m} + z_{i}) } } 
+          & \le \Size{ (x_{1}+z_{1}) \cup (x_{2}+z_{2}) \cup ,.., (x_{m} + z_{i}) }  \le \sum_{i}^{m}{ \Size{x_{i}+z_{i} } }
         \end{split}
       \end{equation*}
+Where the last transition follows from \Cref{claim:tringinq}, combined with the connectivity condition.
     \end{proof}
 \begin{claim}
   \label{claim:intersyn}
