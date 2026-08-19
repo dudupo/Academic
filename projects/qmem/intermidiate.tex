@@ -27,8 +27,9 @@ is connected. Then:
       Thus:
       \begin{equation*}
         \begin{split}
-          \Size{ \text{reduced form of } {y} } & =  \min_{z \in \mathcal{C}_{Z}^{\perp} } \Size{z + y }  \le  \min_{z \in \mathcal{C}_{Z}^{\perp} }\sum_{i}^{m}{\Size{z + x_{1} \cup x_{2} \cup ,.., x_{m}} } \\
-          & \le \Size{ (x_{1}+z_{1}) \cup (x_{2}+z_{2}) \cup ,.., (x_{m} + z_{i}) }  \le \sum_{i}^{m}{ \Size{x_{i}+z_{i} } }
+          \Size{ \text{reduced form of } {y} } & =  \min_{z \in \mathcal{C}_{Z}^{\perp} } \Size{z + y }  \le  \min_{z \in \mathcal{C}_{Z}^{\perp} }\Size{z + x_{1} \cup x_{2} \cup ,.., x_{m}}\\
+          & \le \Size{ (x_{1}+z_{1}) \cup (x_{2}+z_{2}) \cup ,.., (x_{m} + z_{i}) } \\
+          &\le \sum_{i}^{m}{ \Size{x_{i}+z_{i} } }
         \end{split}
       \end{equation*}
 Where the last transition follows from \Cref{claim:tringinq}, combined with the connectivity condition.
