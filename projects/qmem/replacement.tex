@@ -81,7 +81,7 @@ Now, observe that each fork connecting two slices is associated with a merge; th
     & \le \Phi_{t} + (2d-1)k  =  \Phi_{1} + (2d-1) \cdot \text{ \# merges }  \le  2d n^{d} 
   \end{split}
 \end{equation*}
-Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, no slice reaches size $2dn^{d}$. Since it's given that no infinite error is admitted, a sweep cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:polesmove}, combining that no merging occurred, namely there is only one predecessor slice. Hence, at the end of that sequence of $2dn^{2d}$ cycles, all the slices' sizes shrink to zero; namely, the connected errors are erased after those cycles.
+Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, no slice reaches size $2dn^{d}$. Since it's given that no infinite error is admitted, a sweep cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:shrinkslice}, combining that no merging occurred, namely there is only one predecessor slice. Hence, at the end of that sequence of $2dn^{2d}$ cycles, all the slices' sizes shrink to zero; namely, the connected errors are erased after those cycles.
 \end{proof}
 
 
