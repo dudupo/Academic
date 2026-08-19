@@ -27,14 +27,14 @@ That motivates us to define the notion of a step that is the first to admit an i
 The following claim states that for ideal running (not subjected to noise), assuming that during the cleaning all the slices are finite, the cleaning succeeds in erasing the errors.
 \begin{claim}
   \label{claim:decodestopnoise}
-Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code with side length $n$. Let $P \in \mathcal{P}^{(\cdot)}$. Assuming that during the application of $d n^{d+1}   $ ideal sweep-cycles over $P\ket{\psi}$, the Toom's counter does not admit an infinite error, then at the end the error is erased, namely, the result of the computation is $\ket{\psi}$.
+Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code with side length $n$. Let $P \in \mathcal{P}^{(\cdot)}$. Assuming that during the application of $2d n^{d+1}   $ ideal sweep-cycles over $P\ket{\psi}$, the Toom's counter does not admit an infinite error, then at the end the error is erased, namely, the result of the computation is $\ket{\psi}$.
 \end{claim}
 \begin{proof}
   We will prove that the decoder erases the $X$-component of $P$, and the proof for the $Z$-component is identical. Let $P^{\infty}$ the view of $P$ in the $\infty$-extension and let $v_{1}, v_{2}, \ldots$ be the vertices supporting the faces of $X(P^{\infty})$. During the ideal computation, no new faults are introduced, and therefore $v_{1}, v_{2} \ldots$ are the only leaves in the induced Toom's contour. Without loss of generality, assume that the first $m$ vertices $v_{1},..,v_{m}$ align with the vertices of the finite Toric (namely non-translated vertices), denote them by $V^{\prime}$. 
 
   
   They set a natural relation over its slices as follows: two slices $K_{1}$ and $K_{2}$, not necessarily with the same time coordinate, will be said to be \textit{history-related}, $K_{1}\sim K_{2}$, if there are leaves $u, w$ such that both $u$ and $w$ are translations of a vertex $v_{i} \in V^{\prime}$ and $u, w$ belong to the histories of $K_{1}, K_{2}$ respectively.
-  Thus, for a time $t$ and a leaf $v \in V^{\prime}$, we can define the notation $K_{v,t}$ to be the slice at time $t$ that is reached from leaf $v$ by arrows. We emphasize that $\sim$ is not an equivalence relation, since it doesn't satisfy transitivity. Yet, let us match slices to 'classes' when the map is many-to-many. Here, a class is a grouping of translations of slices which are all history-related. For a vertex $v \in V^{\prime}$, the delegate of the slices reached from vertex $v$ and its translations, namely the translations of slices $\{ K_{v,t} : t \}$, will be denoted by $\mathbf{K}_{v}$. Proving that at the end of time $(2d+1)n^{d+1}$, for any leaf $v$, the slice $K_{v,t}$ is empty, or equivalently is of size zero, and therefore its translations, implies the correctness of the claim.
+  Thus, for a time $t$ and a leaf $v \in V^{\prime}$, we can define the notation $K_{v,t}$ to be the slice at time $t$ that is reached from leaf $v$ by arrows. We emphasize that $\sim$ is not an equivalence relation, since it doesn't satisfy transitivity. Yet, let us match slices to 'classes' when the map is many-to-many. Here, a class is a grouping of translations of slices which are all history-related. For a vertex $v \in V^{\prime}$, the delegate of the slices reached from vertex $v$ and its translations, namely the translations of slices $\{ K_{v,t} : t \}$, will be denoted by $\mathbf{K}_{v}$. Proving that at the end of time $2dn^{d+1}$, for any leaf $v$, the slice $K_{v,t}$ is empty, or equivalently is of size zero, and therefore its translations, implies the correctness of the claim.
 
 
   For proving this, let us present the following terminology. For leaves $v,u,w$, and a time coordinate $t$, consider the following: 
@@ -46,10 +46,10 @@ Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code with s
 Since no new faults are introduced during the computation, we have that in each step, the only option for a class to grow is by merging. Notice that, by definition, classes cannot 'split'. Namely, if $K_{v,t}\sim \mathbf{K}_{u}$, then for any time $t^{\prime} \ge t$, it holds that $K_{v,t^{\prime}} \sim \textbf{K}_{u}$. Specifically, a correction by the sweep rule that disconnects two error clusters that were connected by checks and, prior to correction, belonged to the same slice and therefore to the same class, would still belong to the same class after the correction.
 
 
-Therefore, there can be at most $m-1$ merges. And since the number of classes is bounded by the number of vertices on the Toric, we have that $m \le n^{d}$, namely at most $n^{d}-1$ merges can occur. Hence, during the $(2d+1)n^{2d}$ sweep-cycles, there has to be a continuous sequence of $(2d+1)n^{d}$ cycles for which no merge occurs.
+Therefore, there can be at most $m-1$ merges. And since the number of classes is bounded by the number of vertices on the Toric, we have that $m \le n^{d}$, namely at most $n^{d}-1$ merges can occur. Hence, during the $2dn^{2d}$ sweep-cycles, there has to be a continuous sequence of $2dn^{d}$ cycles for which no merge occurs.
 
 
-Moreover, we argue that the maximum size of a slice is bounded by $(2d+1)n^{d}$. For this, for a time $t$ we define $V^{\prime}_{t} \subset V^{\prime}$, to be the maximal subset such for any $v,u \in V^{\prime}_{t}$ it holds $K_{v,t}\not\sim  K_{u,t}$. Then, we define the following potential function:
+Moreover, we argue that the maximum size of a slice is bounded by $2dn^{d}$. For this, for a time $t$ we define $V^{\prime}_{t} \subset V^{\prime}$, to be the maximal subset such for any $v,u \in V^{\prime}_{t}$ it holds $K_{v,t}\not\sim  K_{u,t}$. Then, we define the following potential function:
 \begin{equation*}
   \begin{split}
     \Phi_{t} = \sum_{v \in V^{\prime}_{t} } \left( \Size{ K_{v,t} } + 1\right)
@@ -59,7 +59,8 @@ Observe that $\Phi_{1} = n^{d}$. Now, for a vertex $v \in V^{\prime}_{t+1}$, den
 \begin{equation*}
   \begin{split}
     \Phi_{t+1} &= \sum_{v \in V^{\prime}_{t+1}} \bigl( \Size{ K_{v,t+1} } + 1\bigr) \le \sum_{v \in V^{\prime}_{t+1}} \bigl(\bigl( \sum^{k_{v}}_{i=0} \Size{ K_{u^{\prime}_{i},t} }\bigr) + 2dk_{v} + 1 \bigr) \\
-    & = \sum_{v\in V^{\prime}_{t+1}} \bigl(\bigl( \sum^{k_{v}}_{i=0} \Size{ K_{u_{i},t} }\bigr) + (2d-1)k_{v} + 1 + k_{v} \bigr) 
+    & = \sum_{v\in V^{\prime}_{t+1}} \bigl(\bigl( \sum^{k_{v}}_{i=0} \Size{ K_{u_{i},t} }\bigr) + (2d-1)k_{v} + 1 + k_{v} \bigr) \\
+    & = \sum_{v\in V^{\prime}_{t+1}} \bigl(\bigl( \sum^{k_{v}}_{i=0} \Size{ K_{u_{i},t} } + 1 \bigr) + (2d-1)k_{v}  \bigr) 
       \end{split}
     \end{equation*}
 Where, in the last transition, we used the fact that the size function is invariant to translations. Now, any vertex of $V^{\prime}_{t}$ has to appear at most once. To see this, assume towards contradiction the existence of two predecessor slices $K_{u^{\prime}_{i},t}$, $K_{w^{\prime}_{j},t}$ which are translations of the same slice. Denote by $K_{u,t+1}$ and $K_{w,t+1}$ the slices whose $K_{u^{\prime}_{i},t}$, $K_{w^{\prime}_{j},t}$ are their predecessors. Thus $u^{\prime}_{i},w^{\prime}_{j}$ are in the histories of $K_{u,t+1},K_{w,t+1}$ and they are a translation of the same vertex in $V^{\prime}_{t} \subset V^{\prime}$. Hence $K_{u,t+1}\sim K_{w,t+1}$, in contradiction to $u,w \in V^{\prime}_{t+1}$.
@@ -68,11 +69,11 @@ Where, in the last transition, we used the fact that the size function is invari
 Now, observe that each fork connecting two slices is associated with a merge; therefore, $\sum_{t}\sum_{v\in V^{\prime}_{t}}k_{v}$ is lower than the number of merges, and the bound on the potential function becomes:
     \begin{equation*}
       \begin{split}
-      \Phi_{t+1} & \le \sum_{v \in V^{\prime}_{t}} \Size{ K_{v,t} } + 1 + \sum_{v\in V^{\prime}_{t+1}} (2d-1)k_{v} + 1  \\
-    & \le \Phi_{t} + (2d-1)k + 1 =  \Phi_{1} + (2d-1) \cdot \text{ \# merges }  + t \le  (2d+1)n^{d} 
+      \Phi_{t+1} & \le \sum_{v \in V^{\prime}_{t}} \Size{ K_{v,t} } + 1 + \sum_{v\in V^{\prime}_{t+1}} (2d-1)k_{v}  \\
+    & \le \Phi_{t} + (2d-1)k  =  \Phi_{1} + (2d-1) \cdot \text{ \# merges }  \le  2d n^{d} 
   \end{split}
 \end{equation*}
-Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, no slice reaches size $(2d+1)n^{d}$. Since it's given that no infinite error is admitted, a sweep cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:polesmove}, combining that no merging occurred, namely there is only one predecessor slice. Hence, at the end of that sequence of $(2d+1)n^{2d}$ cycles, all the slices' sizes shrink to zero; namely, the connected errors are erased after those cycles.
+Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, no slice reaches size $2dn^{d}$. Since it's given that no infinite error is admitted, a sweep cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:polesmove}, combining that no merging occurred, namely there is only one predecessor slice. Hence, at the end of that sequence of $2dn^{2d}$ cycles, all the slices' sizes shrink to zero; namely, the connected errors are erased after those cycles.
 \end{proof}
 
 
