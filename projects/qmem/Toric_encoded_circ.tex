@@ -41,13 +41,31 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
 
 \begin{definition} 
   \label{def:paulipath}
-For two Pauli $P, Q \in \mathcal{P}$, we define the relation $P \sim Q$ to hold if one is a translation of the other by a stabilizer of the $(d, d^{\prime})$-Toric code. Notice that $P$ and $Q$ might span multiple registers, and in that case, the translation might be composed of translations in each of the registers. 
-For a fixed quantum circuit $C$, where all its quantum registers are encoded with the Toric code, and a set of faults $\mathcal{E}$, such that the depth of $C[\mathcal{E}]$ is $\mu$, we will say that the Paulis $P_{1}, \ldots, P_{\mu+1} \in \mathcal{P}$ are fault paths of $C[\mathcal{E}]$ if there are Paulis $Q_{1},..,Q_{\mu+1}$, such $P_{i} \sim Q_{i}$ for any $i \in [\mu +1]$ and in addition, $Q_{1}$ is the identity and for every $t\le \mu$ the Pauli $Q_{t+1}$ supports $C[\mathcal{E}]|_{t} \circ Q_{t}$. Namely:
+%For two Pauli $P, Q \in \mathcal{P}$, we define the relation $P \sim Q$ to hold if one is a translation of the other by a stabilizer of the $(d, d^{\prime})$-Toric code. Notice that $P$ and $Q$ might span multiple registers, and in that case, the translation might be composed of translations in each of the registers. 
+For a fixed quantum circuit $C$, where all its quantum registers are encoded with the Toric code, and a set of faults $\mathcal{E}$, such that the depth of $C[\mathcal{E}]$ is $\mu$, we will say that the Paulis $P_{1}, \ldots, P_{\mu+1} \in \mathcal{P}$ are fault paths of $C[\mathcal{E}]$ if there are Paulis $Q_{1},..,Q_{\mu+1}$, such: 
+
+\begin{enumerate}
+  \item $Q_{1}= P_{1}$ and they are the identity. 
+  \item For every $t\le \mu$ the Pauli $Q_{t+1}$ supports $C[\mathcal{E}]|_{t} \circ P_{t}$. Namely:
   \begin{equation*}
     \begin{split}
-      \Trr{} \big( C[\mathcal{E}]|_{t} Q_{t} (C[\mathcal{E}]|_{t})^{\dagger} Q_{t+1} \big) \neq 0
+      \Trr{} \big( C[\mathcal{E}]|_{t} P_{t} (C[\mathcal{E}]|_{t})^{\dagger} Q_{t+1} \big) \neq 0
     \end{split}
   \end{equation*}
+  Denote by $Q^{\infty}_{t+1}$ the view of $Q_{t+1}$ in the $\infty$-extension. Then, $P_{t+1}$ is obtained from $Q_{t+1}$ as follows:  
+  \begin{equation*}
+    \begin{split}
+      P_{t+1} = 
+      \begin{cases}
+        \Trr{}_{/[w]} ( \text{ reduced form of }  Q_{t+1}^{\infty} )  & \text{ if } Q_{t+1}^{\infty} \text{ is finite }  \\ 
+        \Trr{}_{/[w]} ( Q_{t+1}^{\infty}) & \text{ else }
+      \end{cases}<++>
+    \end{split}
+  \end{equation*}
+\end{enumerate}
+
+
+$P_{i} \sim Q_{i}$ for any $i \in [\mu +1]$ and in addition, $Q_{1}$ is the identity and
 We extend the notation to Pauli-path up to step $\tau$ by considering the quantum circuit obtained from $C[\mathcal{E}]$ by taking all the gates at steps lower than or equal to $\tau$. A Pauli-path of that circuit is a Pauli-path up to step $\tau$ of the original circuit.
 
 
