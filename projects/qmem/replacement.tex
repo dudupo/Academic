@@ -62,7 +62,14 @@ Observe that $\Phi_{1} = n^{d}$. Now, for a vertex $v \in V^{\prime}_{t+1}$, den
     & = \sum_{v} \bigl(\bigl( \sum^{k}_{i=0} \Size{ K_{u_{i},t} }\bigr) + (2d-1)k + 1 + k \bigr) 
       \end{split}
     \end{equation*}
-    Where, in the last transition, we used the fact that the size function is invariant to translations. Now, any vertex of $V^{\prime}_{t}$ has to appear at most one, otherwise, there
+Where, in the last transition, we used the fact that the size function is invariant to translations. Now, any vertex of $V^{\prime}_{t}$ has to appear at most once. To see this, assume towards contradiction the existence of two predecessor slices $K_{u^{\prime}_{i},t}$, $K_{w^{\prime}_{j},t}$ which are translations of the same slice. Denote by $K_{u,t+1}$ and $K_{w,t+1}$ the slices whose $K_{u^{\prime}_{i},t}$, $K_{w^{\prime}_{j},t}$ are their predecessors. Now:
+    \begin{equation*}
+      \begin{split}
+ K_{u,t+1} \sim K_{u^{\prime}_{i},t} \sim K_{w^{\prime}_{j},t} \sim K_{w,t+1}  
+      \end{split}
+    \end{equation*}
+    As said the history realtion in general does not satisfiy transivity. Yet, for 
+
     \begin{equation*}
       \begin{split}
     & = \Phi_{t} + (2d-1)k + 1 =  \Phi_{1} + (2d-1) \cdot \text{ \# merges }  + t \le  (2d+1)n^{d} 
