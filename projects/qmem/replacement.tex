@@ -56,7 +56,7 @@ Where the sum runs over deligates, namely if $K_{v,t}\sim K_{u,t}$ then only one
 \begin{equation*}
   \begin{split}
     \Phi_{t+1} &= \sum_{v} \bigl( \Size{ K_{v,t+1} } + 1\bigr) \le \sum_{v} \bigl(\bigl( \sum^{k}_{i=0} \Size{ K_{v_{i},t} }\bigr) + 2dk + 1 \bigr) \\
-    & = \sum_{v} \left(\left( \sum^{k}_{i=0} \Size{ K_{v_{i},t} }\right) + (2d-1)k + 1 + k \right) \\
+    & = \sum_{v} \bigl(\bigl( \sum^{k}_{i=0} \Size{ K_{v_{i},t} }\bigr) + (2d-1)k + 1 + k \bigr) \\
     & = \Phi_{t} + (2d-1)k + 1 =  \Phi_{1} + (2d-1) \cdot \text{ \# merges }  + t \le  (2d+1)n^{d} 
   \end{split}
 \end{equation*}
