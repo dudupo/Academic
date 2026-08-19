@@ -2,6 +2,21 @@
 \subsection{The Intermediate Argument} 
 An essential ingredient of our proof is an 'intermediate argument', stating that prior to having a large slice that closes a non-trivial loop on the Toric, there must be a step in which there is a slice that on one hand doesn't close a non-trivial loop, yet it has a size that is comparable to the Toric side. Before the first step of that kind, we can assume that no slice closes a non-trivial loop; namely, the slices are finite. That implies the following two: first, the condition for \Cref{claim:decodestopnoise} is valid, and therefore the replacement argument can be used to infer a correctness of logical measurement gadgets. Second, the sweep rule is, in some sense, effective (\Cref{claim:polesmove}), and soon we will see that it sets a structure for the histories of slices. 
 
+    \begin{claim}
+      Consider a chain $y \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} $,  and let $x_{1},..,x_{m} \in  \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} $ be a $d^{\prime}$-dimensional chains such $y = x_{1} \cup x_{2} \cup ,.., x_{m}$, and $y$ is connected and the chain:
+      \begin{equation*}
+        \begin{split}
+          \text{reduced form of }(x_{1}) \cup \text{reduced form of }(x_{2}) \cup ,.., \text{reduced form of }(x_{m})
+        \end{split}
+      \end{equation*}
+is connected. Then: 
+      \begin{equation*}
+        \begin{split}
+          \Size{ \text{reduced form of } {y} } \le \sum_{i}^{m}{\Size{ \text{reduced form of } {x_{i}} } }
+        \end{split}
+      \end{equation*}
+    \end{claim}
+
 \begin{claim}
   \label{claim:intersyn}
   Let $\alpha = \frac{1}{2}(\Delta 4^{d})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a finite slice at size at least $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then, for sufficiently large $n$, the probability that $A$ occurs is bounded by:
@@ -13,6 +28,9 @@ An essential ingredient of our proof is an 'intermediate argument', stating that
 \end{claim}
 
 \begin{proof}
+
+  \inb{\textbf{ Remove the following. }}
+
 Let $\mathcal{H}_{\tau}$ and $\mathcal{H}_{\tau+1}$ be the analysis Toom's contours at steps $\tau$ and $\tau+1$. And let $P_{1}, \ldots, P_{t}, \tilde{P}_{1}$ and $P_{1}, \ldots, P_{t}, \tilde{P}_{2}$ be the Pauli-paths (up to a step). In addition, let $g$ be the gate that is applied at step $\tau+1$. Assume that step $\tau+1$ is the first to admit an infinite slice. For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
   \begin{equation*}
     \begin{split}
