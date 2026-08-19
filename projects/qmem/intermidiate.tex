@@ -45,63 +45,9 @@ Where the last transition follows from \Cref{claim:tringinq}, combined with the 
 \end{claim}
 
 \begin{proof}
-
-  \inb{\textbf{ Remove the following. }}
-
-Let $\mathcal{H}_{\tau}$ and $\mathcal{H}_{\tau+1}$ be the analysis Toom's contours at steps $\tau$ and $\tau+1$. And let $P_{1}, \ldots, P_{t}, \tilde{P}_{1}$ and $P_{1}, \ldots, P_{t}, \tilde{P}_{2}$ be the Pauli-paths (up to a step). In addition, let $g$ be the gate that is applied at step $\tau+1$. Assume that step $\tau+1$ is the first to admit an infinite slice. For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
-  \begin{equation*}
-    \begin{split}
- C[\mathcal{E}]|_{\rightarrow \tau+1} = g C[\mathcal{E}]|_{\rightarrow \tau}  
-    \end{split}
-  \end{equation*}
-By definition of Pauli-path (\Cref{def:paulipath}), we have that:
-\begin{equation*}
-  \begin{split}
-    \Trr{} \big( (C[\mathcal{E}]|_{\tau} \circ P_{t}) \tilde{P}_{1}   \big) \neq 0 
-  \end{split}
-\end{equation*}
-Thus, there are constants $\gamma, \bar{\gamma} \in \mathbb{R}$ and an operator $\mathbf{A} \in \mathcal{L}$, such that $\Trr{} (\mathbf{A} \tilde{P}_{1}) = 0$ and:
-\begin{equation*}
-  \begin{split}
-  C[\mathcal{E}]|_{\tau} \circ P_{t} = \gamma \tilde{P}_{1} + \bar{\gamma} \mathbf{A}
-  \end{split}
-\end{equation*}
-Therefore: 
-\begin{equation*}
-  \begin{split}
-    &\Trr{} \big( (C[\mathcal{E}]|_{\tau + 1} \circ P_{t}) \tilde{P}_{2}   \big) = \Trr{} \big(   (gC[\mathcal{E}]|_{\tau}  \circ P_{t}) \tilde{P}_{2}   \big) = \gamma \Trr{} \big( (g \circ \tilde{P}_{1} )  \tilde{P}_{2} \big) +  \bar{\gamma} \Trr{} \big (g \circ \mathbf{A} )  \tilde{P}_{2}   \big) 
-  \end{split}
-\end{equation*}
-We argue that we can assume, without loss of generality, that the term $ \Trr{} ( (g \circ \tilde{P}_{1} )  \tilde{P}_{2} ) $ is non-zero. To see this, suppose that it vanishes; then there has to be another Pauli term $\tilde{P} \in \mathcal{P}$ in the decomposition of $\mathbf{A}$ for which:
-\begin{equation*}
-    \begin{split}
-      \Trr{} \big( (g \circ \tilde{P} )  \tilde{P}_{2} \big) \neq 0
-  \end{split}
-\end{equation*}
-Otherwise, the whole trace is zeroing out in contradiction to the fact that $P_{1},..,P_{t},\tilde{P_{2}}$ is a Pauli-path. So, we could initially choose the Pauli-path that induces '$\mathcal{H}_{\tau}$'\footnote{Observe that the 'reinduced' Toom's counter is different from $\mathcal{H}_{\tau}$.} to be $P_{1},..,P_{t},\tilde{P}$.
+Assume that turn $\tau+1$ admits an infinite error, and denote by $g$ the gate applied at turn $\tau+1$. Since $\tau+1$ admits an infinite error, there is a reduced Pauli-path $\tilde{P}_{1},..,\tilde{P}_{t-1},\tilde{P}_{t},\tilde{P}_{\tau+1}$ for $C[\mathcal{E}]$ such that $\tilde{P}_{\tau+1}$ is infinite, namely if $x = \text{supp } X(\tilde{P}_{\tau+1})$ and $z = \text{supp } Z(\tilde{P}_{\tau+1})$, then either $x$ or $\phi(z)$ is infinite. Assume that $x$ is infinite, and consider the application of a copy of $g$ in the $\infty$-extension over that aligns with the original gate (the trivial translation). Since $g$ acts on at most $\Delta$ qubits, then it can connect at most $\Delta d$ chains in $\text{supp } X(\tilde{P}_{t})$.
 
 
-Thus, $P_{1}, \ldots, P_{t}, \tilde{P}_{1}, \tilde{P}_{2}$ is a Pauli-path for the circuit obtained by taking $C[\mathcal{E}]|_{\rightarrow\tau}$ and then stacking the gate $g$ at the following time unit. Denote that circuit by $\hat{C}$. Now let $Q_{1}, \ldots, Q_{t}, \tilde{Q}_{1}, \tilde{Q}_{2}$ be a reduced Pauli-path for $\hat{C}$ derived from $P_{1}, \ldots, P_{t}, \tilde{P}_{1}, \tilde{P}_{2}$.
-
-Now, let $K_{\infty}$ be a infinite slice in $\mathcal{H}_{\tau+1}$, and let $K$ be a subslice of $K_{\infty}$ with size greater than or equal to $n$ which is minimal (the minimality is regarding the size). The vertices in $K$ support the faces of $\tilde{P_{2}} = g \circ \tilde{P}$. Recall that the vertices in a Toom's contour supports the faces of the infinite Torices. Yet, observe that $K$ can be chosen to simultaneity support $g$'s original locations (Otherwise $K$ is also in $\mathcal{H}_{\tau}$) and be disjoint to the locations of any of $g$'s translation. Since $g$ acts over at most $\Delta$ faces, there are at most $\Delta$ faces that support $\tilde{P}_{2}$ and don't support $\tilde{P}_{1}$. Furthermore, since the arrow connection rules define a connection of less than $4^{d}$ arrows per face, the arrows in $\mathcal{H}_{\tau+1}$ supporting $K$ can be obtained by the addition of at most $\Delta 4^{d}$ arrows to arrows that are already in of $\mathcal{H}_{\tau}$. Thus, $K$ can be covered by the merging of at most $\Delta 4^{d}+1$ slices in $\mathcal{H}_{\tau}$ with the vertices supporting $g$.
-
-
-To finish, imagine the space-time graph, consisting of three time-layers. In the bottom layer, set delegates vertices, each corresponding to a slice in the last layer of $\mathcal{H}_{\tau}$. In the second layer, set the vertices in those slices and the vertices supporting $g$'s locations. Connect each of the vertices of $\mathcal{H}_{\tau}$'s slices to its delegate with an arrow.
-And in the final layer, set the vertices of $K$, connected to the vertices in the second layer by the standard connection rules of analysis Toom's contour. Finally, add the required forks so that the result is indeed a space-time graph.
-
-Denote by $K^{\prime}$ the slice in the last layer of $\mathcal{H}_{\tau}$ that is maximal in size. Using the \Cref{claim:prevslicesB}, combining that the vertices of the third layer contained in the second gives:  
-\begin{equation*}
-  \begin{split}
-     & \Size{K}  \le \Delta 4^{d} ( \Size{K^{\prime}} +  \Size{\text{fork}} ) \\
-     \Rightarrow & \Size{K^{\prime}} \ge \frac{1}{\Delta 4^{d}} \Size{K} - \Size{ \text{fork} }
-   \end{split}
-\end{equation*}
-So, for $n > 2\Delta 4^{d} \Size{\text{fork} }$, we have:
-\begin{equation*}
-  \begin{split}
-     \Size{K^{\prime}}  \ge \alpha \Size{K} 
-  \end{split}
-\end{equation*}
 We got that a condition for step $\tau+1$ to admit an infinite slice is that a step $\tau$ admits a slice at size at least $\alpha n$. Thus, the desired inequality follows by taking the union bound:
   \begin{equation*}
     \begin{split}
