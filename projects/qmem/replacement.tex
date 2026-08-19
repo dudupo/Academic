@@ -43,16 +43,16 @@ We will prove that the decoder erases the $X$-component of $P$, and the proof fo
 Since no new faults are introduced during the computation, we have that in each step, the only option for a class to grow is by merging. Notice that, by definition, classes cannot 'split'. Namely, if $K_{v,t}\sim \mathbf{K}_{u}$, then for any time $t^{\prime} \ge t$, it holds that $K_{v,t^{\prime}} \sim \textbf{K}_{u}$. Specifically, a correction by the sweep rule that disconnects two error clusters that were connected by checks and, prior to correction, belonged to the same slice and therefore to the same class, would still belong to the same class after the correction.
 
 
-Therefore, there can be at most $m-1$ merges. And since the number of classes is bounded by the number of vertices on the Toric, we have that $m \le n^{d}$, namely at most $n^{d}-1$ merges can occur. Hence, during the $n^{d+1}$ sweep-cycles, there has to be a continuous sequence of $n$ cycles for which no merge occurs.
+Therefore, there can be at most $m-1$ merges. And since the number of classes is bounded by the number of vertices on the Toric, we have that $m \le n^{d}$, namely at most $n^{d}-1$ merges can occur. Hence, during the $(2d+1)n^{2d}$ sweep-cycles, there has to be a continuous sequence of $(2d+1)n^{d}$ cycles for which no merge occurs.
 
-Moreover, we argue that the maximum size of an slice is bounded by $Y$. For this, we define the potentionall function: 
+
+Moreover, we argue that the maximum size of a slice is bounded by $(2d+1)n^{d}$. For this, we define the potential function:
 \begin{equation*}
   \begin{split}
     \Phi_{t} = \sum_{v} \left( \Size{ K_{v,t} } + 1\right)
   \end{split}
 \end{equation*}
-Where the sum runs over deligates, namely if $K_{v,t}\sim K_{u,t}$ then only one of them is summed. Observes that $\Phi_{1} = n^{d}$. Now, using \Cref{claim:polesmove}, and \Cref{claim:maxfork}: 
-
+Where the sum runs over delegates, namely if $K_{v,t}\sim K_{u,t}$, then only one of them is summed. Observe that $\Phi_{1} = n^{d}$. Now, using \Cref{claim:polesmove} and \Cref{claim:maxfork}:
 \begin{equation*}
   \begin{split}
     \Phi_{t+1} &= \sum_{v} \bigl( \Size{ K_{v,t+1} } + 1\bigr) \le \sum_{v} \bigl(\bigl( \sum^{k}_{i=0} \Size{ K_{v_{i},t} }\bigr) + 2dk + 1 \bigr) \\
@@ -60,11 +60,7 @@ Where the sum runs over deligates, namely if $K_{v,t}\sim K_{u,t}$ then only one
     & = \Phi_{t} + (2d-1)k + 1 =  \Phi_{1} + (2d-1) \cdot \text{ \# merges }  + t \le  (2d+1)n^{d} 
   \end{split}
 \end{equation*}
-
-
-Since it's given that no infinite error is admitted, a sweep-cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:polesmove}, combining that no merging occurred, namely there is only one processor slice.
-
-Thus, at the end of that sequence of $dn$ cycles, all the slices' sizes shrink to zero; namely, the connected errors are erased after those cycles.
+Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, no slice reaches size $(2d+1)n^{d}$. Since it's given that no infinite error is admitted, a sweep cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:polesmove}, combining that no merging occurred, namely there is only one processor slice. Hence, at the end of that sequence of $(2d+1)n^{2d}$ cycles, all the slices' sizes shrink to zero; namely, the connected errors are erased after those cycles.
 \end{proof}
 
 
