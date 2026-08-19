@@ -37,39 +37,26 @@ Where we define a vertex $v$ to belong to location $l$ if there is a qubit-face 
 
 As a concept, if the base graph is a recording of a run from the Torices' point of view, then a \textit{Toom's contour} is a recording of the deviation's evolution in the eyes of the Torices' vertices. We use the notion of Pauli-path to describe a deviation:
 
-\inb{\textbf{ Consider defining the Pauli-path recursively: $P_{i}$ is a reduced Pauli, then $Q_{i+1}$ supports $C|_{i} \circ P_{i}|_{[w]}$, and $P_{i+1}$ is the reduced form of the $\infty$-extension of $Q_{i+1}$. Another option is not returning back to the finite Toric.  }}
 
 \begin{definition} 
   \label{def:paulipath}
-%For two Pauli $P, Q \in \mathcal{P}$, we define the relation $P \sim Q$ to hold if one is a translation of the other by a stabilizer of the $(d, d^{\prime})$-Toric code. Notice that $P$ and $Q$ might span multiple registers, and in that case, the translation might be composed of translations in each of the registers. 
-For a fixed quantum circuit $C$, where all its quantum registers are encoded with the Toric code, and a set of faults $\mathcal{E}$, such that the depth of $C[\mathcal{E}]$ is $\mu$, we will say that the Paulis $P_{1}, \ldots, P_{\mu+1} \in \mathcal{P}$ are fault paths of $C[\mathcal{E}]$ if there are Paulis $Q_{1},..,Q_{\mu+1}$, such: 
-
+Consider a quantum circuit $C$, where all its quantum registers are encoded with the Toric code with a side of length $n$, and a set of faults $\mathcal{E}$, such that $C[\mathcal{E}]$ has depth $\mu$ and width $w$. We will say that the Paulis $P_{1}, \ldots, P_{\mu+1} \in \mathcal{P}^{[w]}$ are fault paths of $C[\mathcal{E}]$ if:
 \begin{enumerate}
-  \item $Q_{1}= P_{1}$ and they are the identity. 
-  \item For every $t\le \mu$ the Pauli $Q_{t+1}$ supports $C[\mathcal{E}]|_{t} \circ P_{t}$. Namely:
+  \item $P_{1}$ is the identity. 
+  \item For every $t\le \mu$ the Pauli $P_{t+1}$ supports $C[\mathcal{E}]|_{t} \circ P_{t}$. Namely:
   \begin{equation*}
     \begin{split}
-      \Trr{} \big( C[\mathcal{E}]|_{t} P_{t} (C[\mathcal{E}]|_{t})^{\dagger} Q_{t+1} \big) \neq 0
-    \end{split}
-  \end{equation*}
-  Denote by $Q^{\infty}_{t+1}$ the view of $Q_{t+1}$ in the $\infty$-extension. Then, $P_{t+1}$ is obtained from $Q_{t+1}$ as follows:  
-  \begin{equation*}
-    \begin{split}
-      P_{t+1} = 
-      \begin{cases}
-        \Trr{}_{/[w]} ( \text{ reduced form of }  Q_{t+1}^{\infty} )  & \text{ if } Q_{t+1}^{\infty} \text{ is finite }  \\ 
-        \Trr{}_{/[w]} ( Q_{t+1}^{\infty}) & \text{ else }
-      \end{cases}
+      \Trr{} \big( C[\mathcal{E}]|_{t} P_{t} (C[\mathcal{E}]|_{t})^{\dagger} P_{t+1} \big) \neq 0
     \end{split}
   \end{equation*}
 \end{enumerate}
 
 
-$P_{i} \sim Q_{i}$ for any $i \in [\mu +1]$ and in addition, $Q_{1}$ is the identity and
+
 We extend the notation to Pauli-path up to step $\tau$ by considering the quantum circuit obtained from $C[\mathcal{E}]$ by taking all the gates at steps lower than or equal to $\tau$. A Pauli-path of that circuit is a Pauli-path up to step $\tau$ of the original circuit.
 
 
-Finally, we define a reduced Pauli-path $\tilde{P_{1}}, \ldots, \tilde{P}_{\mu+1}$ to be the Paulis obtained by taking a Pauli-path, considering its view in the $\infty$-extension, and for any finite connected chain that corresponds to a subset of the $X$ component of $P_{t}$'s support, substitute it with its reduced form (\Cref{def:reduced}). Then do the same for the $Z$ component in the dual picture.
+Finally, we define a reduced Pauli-path $\tilde{P_{1}}, \ldots, \tilde{P}_{\mu+1}$ to be the Paulis obtained by taking a Pauli-path, considering its view in the $\infty$-extension, and for any finite connected chain that corresponds to a subset of the $X$ component of $P_{t}$'s support, substitute it with its reduced form (\Cref{def:reduced}). Then do the same for the $Z$ component in the dual picture. Observes that Paulis of a reduced Pauli-path acts on the qubits in the $\infty$-extension. 
 \end{definition} 
 
 For a reduced Pauli-path $P_{1},..,P_{\mu+1}$, the Toom's contour is the restriction of the base graph to vertices that witness a deviation, namely, those that belong to qubits supporting $P_{1},P_{2},..,P_{\mu+1}$. 
