@@ -38,9 +38,31 @@ Where we define a vertex $v$ to belong to location $l$ if there is a qubit-face 
 As a concept, if the base graph is a recording of a run from the Torices' point of view, then a \textit{Toom's contour} is a recording of the deviation's evolution in the eyes of the Torices' vertices. We use the notion of Pauli-path to describe a deviation:
 
 
+
+
+\begin{definition}
+Let $P$ be a Pauli which is a view in $\infty$-extension. We define the reduced form of $P$ to be the Pauli obtained by the following procedure: for any finite connected chain that corresponds to a subset of the $X$ component of $P$'s support, substitute it with its reduced form (\Cref{def:reduced}). Then do the same for the $Z$ component in the dual picture. Observe that Paulis of a reduced Pauli-path act on the qubits in the $\infty$-extension.
+
+
+We extend the notion to Paulis in finite spaces (for example, Paulis on the circuit's register) by saying that a Pauli $P \in \mathcal{P}^{(\cdot)}$ is reduced if its view in the $\infty$-extension is reduced.
+\end{definition}
+
+\begin{definition}
+  Consider a quantum circuit subjected to noise $C[\mathcal{E}]$, with width $w$ and total number of steps $\tau_{f}$. We say that the set of Pauli's tuples $\{ (P_{i},Q_{i})  \}_{1}^{\tau_{f}}$  where for each $i$  $ (P_{i},Q_{i}) \in  \mathcal{P}^{[w]} \times  \mathcal{P}^{[w]}$ is a Pauli-path for $C[\mathcal{E}]$. If:
+  \begin{equation*}
+    \begin{split}
+      & P_{i+1} \in g_{i} \circ Q_{i} \\
+      & Q_{i+1} \leftarrow \text{ reduce form of } P_{i+1}
+    \end{split}
+  \end{equation*}
+  \inb{\textbf{Extend to Pauli-paths according times for inducting Toom's contour. }}
+\end{definition}
+
+
+
 \begin{definition} 
   \label{def:paulipath}
- \inb{\textbf{ Define a reduced Pauli here. }}  Finally, we define a reduced Pauli-path $\tilde{P_{1}}, \ldots, \tilde{P}_{\mu+1}$ to be the Paulis obtained by taking a Pauli-path, considering its view in the $\infty$-extension, and for any finite connected chain that corresponds to a subset of the $X$ component of $P_{t}$'s support, substitute it with its reduced form (\Cref{def:reduced}). Then do the same for the $Z$ component in the dual picture. Observes that Paulis of a reduced Pauli-path acts on the qubits in the $\infty$-extension. 
+ 
 
  \inb{\textbf{ Continue to here. }}
 Consider a quantum circuit $C$, where all its quantum registers are encoded with the Toric code with a side of length $n$, and a set of faults $\mathcal{E}$, such that $C[\mathcal{E}]$ has depth $\mu$ and width $w$. We will say that the Paulis $P_{1}, \ldots, P_{\mu+1} \in \mathcal{P}^{[w]}$ are fault paths of $C[\mathcal{E}]$ if:

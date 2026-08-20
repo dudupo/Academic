@@ -82,68 +82,67 @@ Having that claim, we can prove the intermediate argument:
 \end{claim}
 
 
-\begin{claim}
-  Let $P_{1},..,P_{t},P_{\tau}$ a Pauli path, and let $Q = C|_{t\rightarrow\tau} \circ P_{t}$. 
-\end{claim}
 \begin{proof}
 
   \inb{\textbf{ Change $\tilde{P}_{1}$ and $\tilde{P}_{2}$ to be a non-reduced form ($Q$ in the new definition) and $P_{t}$ to be in it's reduced form.  }} 
+  Let $(P_{1},Q_{1}), \ldots, (P_{\tau},Q_{\tau}), (P_{\tau+1},Q_{\tau+1}) $, be the Pauli-path up to step $\tau+1$. In addition, let $g$ be the gate that is applied at step $\tau$. Assume that step $\tau+1$ is the first such $P_{\tau+1}$ admit an infinite error. 
 
-  Let $\mathcal{H}_{\tau}$ and $\mathcal{H}_{\tau+1}$ be the analysis Toom's contours at steps $\tau$ and $\tau+1$. And let $P_{1}, \ldots, P_{t}, \tilde{P}_{1}$ and $P_{1}, \ldots, P_{t}, \tilde{P}_{2}$ be the Pauli-paths (up to a step) which their reduced version (reduced form of their view in $\infty$-extension) induce the Toom's contours. In addition, let $g$ be the gate that is applied at step $\tau+1$. Assume that step $\tau+1$ is the first to admit an infinite error. 
+%For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
+%  \begin{equation*}
+%    \begin{split}
+% C[\mathcal{E}]|_{\rightarrow \tau+1} = g C[\mathcal{E}]|_{\rightarrow \tau}  
+%    \end{split}
+%  \end{equation*}
+%By definition of Pauli-path (\Cref{def:paulipath}), we have that:
+%\begin{equation*}
+%  \begin{split}
+%    \Trr{} \big( (C[\mathcal{E}]|_{\tau} \circ P_{t}) \tilde{P}_{1}   \big) \neq 0 
+%  \end{split}
+%\end{equation*}
+%Thus, there are constants $\gamma, \bar{\gamma} \in \mathbb{R}$ and an operator $\mathbf{A} \in \mathcal{L}$, such that $\Trr{} (\mathbf{A} \tilde{P}_{1}) = 0$ and:
+%\begin{equation*}
+%  \begin{split}
+%  C[\mathcal{E}]|_{\tau} \circ P_{t} = \gamma \tilde{P}_{1} + \bar{\gamma} \mathbf{A}
+%  \end{split}
+%\end{equation*}
+%Therefore: 
+%\begin{equation*}
+%  \begin{split}
+%    &\Trr{} \big( (C[\mathcal{E}]|_{\tau + 1} \circ P_{t}) \tilde{P}_{2}   \big) = \Trr{} \big(   (gC[\mathcal{E}]|_{\tau}  \circ P_{t}) \tilde{P}_{2}   \big) = \gamma \Trr{} \big( (g \circ \tilde{P}_{1} )  \tilde{P}_{2} \big) +  \bar{\gamma} \Trr{} \big (g \circ \mathbf{A} )  \tilde{P}_{2}   \big) 
+%  \end{split}
+%\end{equation*}
+%We argue that we can assume, without loss of generality, that the term $ \Trr{} ( (g \circ \tilde{P}_{1} )  \tilde{P}_{2} ) $ is non-zero. To see this, suppose that it vanishes; then there has to be another Pauli term $\tilde{P} \in \mathcal{P}$ in the decomposition of $\mathbf{A}$ for which:
+%\begin{equation*}
+%    \begin{split}
+%      \Trr{} \big( (g \circ \tilde{P} )  \tilde{P}_{2} \big) \neq 0
+%  \end{split}
+%\end{equation*}
+%Otherwise, the whole trace is zeroing out in contradiction to the fact that $P_{1},..,P_{t},\tilde{P_{2}}$ is a Pauli-path. So, we could initially choose the Pauli-path that induces '$\mathcal{H}_{\tau}$'\footnote{Observe that the 'reinduced' Toom's counter is different from $\mathcal{H}_{\tau}$.} to be $P_{1},..,P_{t},\tilde{P}$.
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%  If $g$ is a measurement gate, then obviously $g$ does not increase the errors' sizes. Thus, we can assume that $g$ is a unitary gate. Therefore, using \Cref{claim:suppstab}, for any stabilizer $S \in \mathcal{C}_{Z^{\perp}}$, there is an operator $D$ whose support is contained in the support of $g$ and:
+%\begin{equation*}
+%  \begin{split}
+%   g  S \tilde{P}_{1} g^{\dagger} = S D g  \tilde{P}_{1} g^{\dagger} 
+%  \end{split}
+%\end{equation*}
+%Now, let's pick stabilizers $S \in \mathcal{C}_{Z^{\perp}}$ such that the view of $S P_{1}$ in the $\infty$-extension is already reduced.
+%\begin{equation*}
+%  \begin{split}
+%    D g  \tilde{P}_{1} g^{\dagger}  =  S g  S \tilde{P}_{1} g^{\dagger}  
+%  \end{split}
+%\end{equation*}
+%Now, since the reduced form of the view of $\tilde{P}_{2}$ in $\infty$-extension is infinite, then the view of $S_{2}\tilde{P}_{2}$ in the $\infty$-extension is also infinite. 
+%
 
-For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
-  \begin{equation*}
-    \begin{split}
- C[\mathcal{E}]|_{\rightarrow \tau+1} = g C[\mathcal{E}]|_{\rightarrow \tau}  
-    \end{split}
-  \end{equation*}
-By definition of Pauli-path (\Cref{def:paulipath}), we have that:
-\begin{equation*}
-  \begin{split}
-    \Trr{} \big( (C[\mathcal{E}]|_{\tau} \circ P_{t}) \tilde{P}_{1}   \big) \neq 0 
-  \end{split}
-\end{equation*}
-Thus, there are constants $\gamma, \bar{\gamma} \in \mathbb{R}$ and an operator $\mathbf{A} \in \mathcal{L}$, such that $\Trr{} (\mathbf{A} \tilde{P}_{1}) = 0$ and:
-\begin{equation*}
-  \begin{split}
-  C[\mathcal{E}]|_{\tau} \circ P_{t} = \gamma \tilde{P}_{1} + \bar{\gamma} \mathbf{A}
-  \end{split}
-\end{equation*}
-Therefore: 
-\begin{equation*}
-  \begin{split}
-    &\Trr{} \big( (C[\mathcal{E}]|_{\tau + 1} \circ P_{t}) \tilde{P}_{2}   \big) = \Trr{} \big(   (gC[\mathcal{E}]|_{\tau}  \circ P_{t}) \tilde{P}_{2}   \big) = \gamma \Trr{} \big( (g \circ \tilde{P}_{1} )  \tilde{P}_{2} \big) +  \bar{\gamma} \Trr{} \big (g \circ \mathbf{A} )  \tilde{P}_{2}   \big) 
-  \end{split}
-\end{equation*}
-We argue that we can assume, without loss of generality, that the term $ \Trr{} ( (g \circ \tilde{P}_{1} )  \tilde{P}_{2} ) $ is non-zero. To see this, suppose that it vanishes; then there has to be another Pauli term $\tilde{P} \in \mathcal{P}$ in the decomposition of $\mathbf{A}$ for which:
-\begin{equation*}
-    \begin{split}
-      \Trr{} \big( (g \circ \tilde{P} )  \tilde{P}_{2} \big) \neq 0
-  \end{split}
-\end{equation*}
-Otherwise, the whole trace is zeroing out in contradiction to the fact that $P_{1},..,P_{t},\tilde{P_{2}}$ is a Pauli-path. So, we could initially choose the Pauli-path that induces '$\mathcal{H}_{\tau}$'\footnote{Observe that the 'reinduced' Toom's counter is different from $\mathcal{H}_{\tau}$.} to be $P_{1},..,P_{t},\tilde{P}$.
-
-
-
-
-
-
-
-
-
-  If $g$ is a measurement gate, then obviously $g$ does not increase the errors' sizes. Thus, we can assume that $g$ is a unitary gate. Therefore, using \Cref{claim:suppstab}, for any stabilizer $S \in \mathcal{C}_{Z^{\perp}}$, there is an operator $D$ whose support is contained in the support of $g$ and:
-\begin{equation*}
-  \begin{split}
-   g  S \tilde{P}_{1} g^{\dagger} = S D g  \tilde{P}_{1} g^{\dagger} 
-  \end{split}
-\end{equation*}
-Now, let's pick stabilizers $S \in \mathcal{C}_{Z^{\perp}}$ such that the view of $S P_{1}$ in the $\infty$-extension is already reduced.
-\begin{equation*}
-  \begin{split}
-    D g  \tilde{P}_{1} g^{\dagger}  =  S g  S \tilde{P}_{1} g^{\dagger}  
-  \end{split}
-\end{equation*}
-Now, since the reduced form of the view of $\tilde{P}_{2}$ in $\infty$-extension is infinite, then the view of $S_{2}\tilde{P}_{2}$ in the $\infty$-extension is also infinite. 
+  \inb{\textbf{Change here such we will talk about the $\infty$-extension of $\P_{\tau+1}$ and $Q_{\tau}$. And then we prove. }}
 
 Now, denote by $\tilde{Q}_{1}, \tilde{Q}_{2}$ the reduced forms of the images of $S_{1}\tilde{P}_{1}, S_{2}\tilde{P}_{2}$ in the $\infty$-extension. Since $g$ acts on at most $\Delta$ qubits, any chain $x \subset \text{supp } X(\tilde{Q}_{2})$, which among $g$'s translation supports only the trivial-translation of $g$, intersects at most constant number, which is depending on $\Delta, d^{\prime},d $ of  reduced chains in $\text{supp } X(\tilde{Q}_{1})$. Thus, we can say that $x$ is a union of at most constant number of disjoint reduced chains in $\text{supp } X(\tilde{Q}_{1})$ with at most disjoint reduced $\Delta$ chains, of a single face, which might be introduced by $g$. Denote the reduced chains in the union by $x_{1},..,x_{l}$, such $l = \alpha^{-1}$. So if $x$ is connected, then by \Cref{claim:unionofred} we have that:
 \begin{equation*}
