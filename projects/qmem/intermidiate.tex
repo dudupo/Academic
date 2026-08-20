@@ -58,45 +58,6 @@ For each $x_{i}$, denote by $z_{i}$ the stabilizer for which the translation of 
 Where the last transition follows from \Cref{claim:tringinq}, combined with the connectivity condition.
     \end{proof}
 
-%    \begin{claim}
-%Suppose that prior to step $\tau$, no infinite error is admitted. Consider the flattened circuit obtained by performing the gate of $C[\mathcal{E}]$ at step $\tau$ in time $\tau$. Then the flattened circuit does not admit an infinite error prior to step $\tau$.
-%    \end{claim}
-%    \begin{proof}
-%      Suppose, towards contradiction, that there is a step $\tau^{\prime} \le \tau$ that admits an infinite error. Then, and let $P_{1},..,P_{\tau^{\prime}-1}P_{\tau^{\prime}}$ be a prefix of a Pauli-path such the reduced Pauli-path obtained from it admits an infinite error in the last layer. We argue that there is a Pauli-Path up to step $\tau$ for $C[\mathcal{E}]$ that ends in $P_{\tau^{\prime}}$. Denote let $P_{\tau^{\star}}$ be the Pauli such cloeses a timestep. 
-%      \begin{equation*}
-%        \begin{split}
-%          C|_{\tau^{\star}\rightarrow\tau^{\prime}} \circ P_{\tau^{\star}}  =   C|_{\tau^{\star+1}\rightarrow\tau^{\prime}} g  
-%        \end{split}
-%      \end{equation*}
-%    \end{proof}
-
-
-    \begin{claim}
-      \label{claim:suppstab}
-Consider a stabilizer code $\mathcal{C}$, defined by the stabilizers $\mathcal{S} \subset \mathcal{P}^{(\cdot)}$. Let $g$ be a unitary gate, and consider an arbitrary Pauli $P_{1} \in \mathcal{P}^{(\cdot)}$. For any stabilizer $S \in \mathcal{S}$, there is an operator $D$ such that $\text{supp } D \subset \text{supp } g$ and:
-      \begin{equation*}
-        \begin{split}
-          g  SP g^{\dagger} = S D g P g^{\dagger} 
-        \end{split}
-      \end{equation*}
-    \end{claim}
-    \begin{proof}
-The multiplication of $g SP g^{\dagger}$ can be written as follows:
-      \begin{equation*}
-        \begin{split}
-          g SP g^{\dagger}  = g Sg^{\dagger} g P g^{\dagger} 
-        \end{split}
-      \end{equation*}
-      Take $D$ to be $D \colonequals  S g Sg^{\dagger} $, so:
-      \begin{equation*}
-        \begin{split}
-           S D g P g^{\dagger} = S S g S g^{\dagger}  g P g^{\dagger} =  g SP g^{\dagger} 
-        \end{split}
-      \end{equation*}
-   And since $S$ is a Pauli gate, we have for any coordinate in multiplication $SgS$, which does not support $g$, is a multiplication of a single qubit Pauli with itself, namely the identity. Thus, the support of $D$ is contained in the support of $g$.
-    \end{proof}
-
-
 
 Having that claim, we can prove the intermediate argument:
 \begin{claim}
@@ -206,4 +167,47 @@ We got that a condition for step $\tau+1$ to admit an infinite error is that a s
 %  \end{split}
 %\end{equation*}
 %Now, since the reduced form of the view of $\tilde{P}_{2}$ in $\infty$-extension is infinite, then the view of $S_{2}\tilde{P}_{2}$ in the $\infty$-extension is also infinite. 
+%
+
+
+
+
+%    \begin{claim}
+%Suppose that prior to step $\tau$, no infinite error is admitted. Consider the flattened circuit obtained by performing the gate of $C[\mathcal{E}]$ at step $\tau$ in time $\tau$. Then the flattened circuit does not admit an infinite error prior to step $\tau$.
+%    \end{claim}
+%    \begin{proof}
+%      Suppose, towards contradiction, that there is a step $\tau^{\prime} \le \tau$ that admits an infinite error. Then, and let $P_{1},..,P_{\tau^{\prime}-1}P_{\tau^{\prime}}$ be a prefix of a Pauli-path such the reduced Pauli-path obtained from it admits an infinite error in the last layer. We argue that there is a Pauli-Path up to step $\tau$ for $C[\mathcal{E}]$ that ends in $P_{\tau^{\prime}}$. Denote let $P_{\tau^{\star}}$ be the Pauli such cloeses a timestep. 
+%      \begin{equation*}
+%        \begin{split}
+%          C|_{\tau^{\star}\rightarrow\tau^{\prime}} \circ P_{\tau^{\star}}  =   C|_{\tau^{\star+1}\rightarrow\tau^{\prime}} g  
+%        \end{split}
+%      \end{equation*}
+%    \end{proof}
+
+
+%    \begin{claim}
+%      \label{claim:suppstab}
+%Consider a stabilizer code $\mathcal{C}$, defined by the stabilizers $\mathcal{S} \subset \mathcal{P}^{(\cdot)}$. Let $g$ be a unitary gate, and consider an arbitrary Pauli $P_{1} \in \mathcal{P}^{(\cdot)}$. For any stabilizer $S \in \mathcal{S}$, there is an operator $D$ such that $\text{supp } D \subset \text{supp } g$ and:
+%      \begin{equation*}
+%        \begin{split}
+%          g  SP g^{\dagger} = S D g P g^{\dagger} 
+%        \end{split}
+%      \end{equation*}
+%    \end{claim}
+%    \begin{proof}
+%The multiplication of $g SP g^{\dagger}$ can be written as follows:
+%      \begin{equation*}
+%        \begin{split}
+%          g SP g^{\dagger}  = g Sg^{\dagger} g P g^{\dagger} 
+%        \end{split}
+%      \end{equation*}
+%      Take $D$ to be $D \colonequals  S g Sg^{\dagger} $, so:
+%      \begin{equation*}
+%        \begin{split}
+%           S D g P g^{\dagger} = S S g S g^{\dagger}  g P g^{\dagger} =  g SP g^{\dagger} 
+%        \end{split}
+%      \end{equation*}
+%   And since $S$ is a Pauli gate, we have for any coordinate in multiplication $SgS$, which does not support $g$, is a multiplication of a single qubit Pauli with itself, namely the identity. Thus, the support of $D$ is contained in the support of $g$.
+%    \end{proof}
+%
 %
