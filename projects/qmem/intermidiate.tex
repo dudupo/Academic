@@ -5,14 +5,7 @@ An essential ingredient of our proof is an 'intermediate argument', stating that
 The following claim relates the size of the reduced error to the sizes of the reduced errors that compose it.
     \begin{claim}
       \label{claim:unionofred}
-Define the union of two chains $a, b \in \mathbb{F}_{2}^{(\cdot)}$ to result in the chain that assigns $1$ to a face if either $a$ or $b$ assigns $1$ to it. Consider a $d^{\prime}$-dimensional chains $y \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$, and let $x_{1}, \ldots, x_{m} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be $d^{\prime}$-dimensional chains such that $y = x_{1} \cup x_{2} \cup \ldots \cup x_{m}$, $y$ is connected, and there is a selection of reduced forms for the $x_{i}$ such that the chain:
-      \begin{equation*}
-        \label{equ:cond}
-        \begin{split}
-          \text{reduced form of }(x_{1}) \cup \text{reduced form of }(x_{2}) \cup ,.., \text{reduced form of }(x_{m}) \quad \quad \quad (\star)
-        \end{split}
-      \end{equation*}
-is connected. Then: 
+      Consider a $d^{\prime}$-dimensional chains $y \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$, and let $x_{1}, \ldots, x_{m} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be $d^{\prime}$-dimensional chains such that, there is a reduced form of $y$ which is a disjoint of reduced forms of $x_{1},..,x_{m}$, and that reduced form is connected.  Then: 
       \begin{equation*}
         \begin{split}
           \Size{ \text{reduced form of } (y) } \le \sum_{i}^{m}{\Size{ \text{reduced form of } (x_{i}) } }
@@ -20,17 +13,17 @@ is connected. Then:
       \end{equation*}
     \end{claim}
     \begin{proof}
-      For each $x_{i}$, denote by $z_{i}$ the stabilizer for which the translation of $x_{i}$ by $z_{i}$ yields the reduced form which satisfies the condition in $(\star)$ . Namely:
+For each $x_{i}$, denote by $z_{i}$ the stabilizer for which the translation of $x_{i}$ by $z_{i}$ yields the reduced form that satisfies the given conditions. Namely:
       \begin{equation*}
         \begin{split}
           z_{i} = \arg \min_{z \in \mathcal{C}_{Z}^{\perp} }\Size{ x_{i} + z } 
         \end{split}
       \end{equation*}
-      Thus:
+      and $\sum_{i} x_{i} + z_{i}$ is a connected reduced form of $y$. Where we used the fact that union of two disjoint chains is their sum.  Thus:
       \begin{equation*}
         \begin{split}
-          \Size{ \text{reduced form of } {y} } & =  \min_{z \in \mathcal{C}_{Z}^{\perp} } \Size{z + y }  \le  \min_{z \in \mathcal{C}_{Z}^{\perp} }\Size{z + x_{1} \cup x_{2} \cup ,.., x_{m}}\\
-          & \le \Size{ (x_{1}+z_{1}) \cup (x_{2}+z_{2}) \cup ,.., (x_{m} + z_{i}) } \\
+          \Size{ \text{reduced form of } {y} } & =  \min_{z \in \mathcal{C}_{Z}^{\perp} } \Size{z + y }  \le  \min_{z \in \mathcal{C}_{Z}^{\perp} }\Size{z + x_{1} + x_{2} + .. + x_{m}}\\
+          & \le \Size{ (x_{1}+z_{1}) + (x_{2}+z_{2}) + .. + (x_{m} + z_{i}) } \\
           &\le \sum_{i}^{m}{ \Size{x_{i}+z_{i} } }
         \end{split}
       \end{equation*}
@@ -94,7 +87,7 @@ We argue that we can assume, without loss of generality, that the term $ \Trr{} 
 Otherwise, the whole trace is zeroing out in contradiction to the fact that $P_{1},..,P_{t},\tilde{P_{2}}$ is a Pauli-path. So, we could initially choose the Pauli-path that induces '$\mathcal{H}_{\tau}$'\footnote{Observe that the 'reinduced' Toom's counter is different from $\mathcal{H}_{\tau}$.} to be $P_{1},..,P_{t},\tilde{P}$.
 
 
-Now, denote by $\tilde{Q}_{1}, \tilde{Q}_{2}$ the reduced forms of the images of $\tilde{P}_{1}, \tilde{P}_{2}$ in the $\infty$-extension. Since $g$ acts on at most $\Delta$ qubits, any chain $x \subset \text{supp } X(\tilde{Q}_{2})$, which among $g$'s translation supports only the trivial-translation of $g$, intersects at most constant number, which is depending on $\Delta, d^{\prime},d $ of  reduced chains in $\text{supp } X(\tilde{Q}_{1})$. Thus, we can say that $x$ is a union of at most constant number of reduced chains in $\text{supp } X(\tilde{Q}_{1})$ with at most reduced $\Delta$ chains, of a single face, which might be introduced by $g$. Denote the reduced chains in the union by $x_{1},..,x_{l}$, such $l = \alpha^{-1}$. So if $x$ is connected, then by \Cref{claim:unionofred} we have that:
+Now, denote by $\tilde{Q}_{1}, \tilde{Q}_{2}$ the reduced forms of the images of $\tilde{P}_{1}, \tilde{P}_{2}$ in the $\infty$-extension. Since $g$ acts on at most $\Delta$ qubits, any chain $x \subset \text{supp } X(\tilde{Q}_{2})$, which among $g$'s translation supports only the trivial-translation of $g$, intersects at most constant number, which is depending on $\Delta, d^{\prime},d $ of  reduced chains in $\text{supp } X(\tilde{Q}_{1})$. Thus, we can say that $x$ is a union of at most constant number of disjoint reduced chains in $\text{supp } X(\tilde{Q}_{1})$ with at most disjoint reduced $\Delta$ chains, of a single face, which might be introduced by $g$. Denote the reduced chains in the union by $x_{1},..,x_{l}$, such $l = \alpha^{-1}$. So if $x$ is connected, then by \Cref{claim:unionofred} we have that:
 \begin{equation*}
   \begin{split}
     \Size{x} \le \sum_{i=1}^{l} \Size{x_{i} }\le \alpha^{-1} \max_{i}\Size{x_{i}}
