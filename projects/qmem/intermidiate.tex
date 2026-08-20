@@ -50,7 +50,7 @@ Where the last transition follows from \Cref{claim:tringinq}, combined with the 
 
 \begin{claim}
   \label{claim:intersyn}
-  Let $\alpha = \frac{1}{2}\Delta$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a finite slice at size at least $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then, for sufficiently large $n$, the probability that $A$ occurs is bounded by:
+  There is a constant $\alpha \in (0,1)$ depending only on $\Delta,d,d^{\prime}$ satisfies the following: Denote by $A$ the event that there is a step that admits an infinite error. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a finite error at size at least $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then, for sufficiently large $n$, the probability that $A$ occurs is bounded by:
   \begin{equation*}
     \begin{split}
       \prb{A} \le w\mu\max_{\tau\in J }\prb{B_{\tau}}.
@@ -59,8 +59,7 @@ Where the last transition follows from \Cref{claim:tringinq}, combined with the 
 \end{claim}
 
 \begin{proof}
-  \inb{\textbf{ Change reduced Pauli-paths to Pauli-paths.  }}
-Let $\mathcal{H}_{\tau}$ and $\mathcal{H}_{\tau+1}$ be the analysis Toom's contours at steps $\tau$ and $\tau+1$. And let $P_{1}, \ldots, P_{t}, \tilde{P}_{1}$ and $P_{1}, \ldots, P_{t}, \tilde{P}_{2}$ be the reduced Pauli-paths (up to a step) that induce Toom's contours. In addition, let $g$ be the gate that is applied at step $\tau+1$. Assume that step $\tau+1$ is the first to admit an infinite slice. For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
+  Let $\mathcal{H}_{\tau}$ and $\mathcal{H}_{\tau+1}$ be the analysis Toom's contours at steps $\tau$ and $\tau+1$. And let $P_{1}, \ldots, P_{t}, \tilde{P}_{1}$ and $P_{1}, \ldots, P_{t}, \tilde{P}_{2}$ be the Pauli-paths (up to a step) which their reduced version (reduced form of their view in $\infty$-extension) induce the Toom's contours. In addition, let $g$ be the gate that is applied at step $\tau+1$. Assume that step $\tau+1$ is the first to admit an infinite error. For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
   \begin{equation*}
     \begin{split}
  C[\mathcal{E}]|_{\rightarrow \tau+1} = g C[\mathcal{E}]|_{\rightarrow \tau}  
@@ -103,8 +102,9 @@ Since the maximal size of a reduced connected chain introduced by trivial transl
 Thus, it remains to prove that there is a chain $x \in \tilde{Q}_{2}$, which does not support a non-trivial translation of $g$, and has size at least $n$. By invariance to translation, we can substitute the requirement of supporting only the non-trivial translation of $g$ by supporting at most one translation of $g$.
 
 
-We pick such $x$ by the following algorithm: pick an infinite connected reduced error $x^{\prime}$ in $\text{supp } X(\tilde{Q}_{2})$. Then consider a translation on the system. Go over the faces of $x^{\prime}$ and filter and remove faces that are supported on vertices where their.. \inb{\textbf{How to complete it elegantly?}}
 
+
+We pick such $x$ by the following algorithm: pick an infinite connected reduced error $x^{\prime}$ in $\text{supp } X(\tilde{Q}_{2})$. If $x^{\prime}$ supports only one translation of $g$, then pick $x=x^{\prime}$. Otherwise, if $x^{\prime}$ supports at least two translations of $g$, pick a pair of translations as follows: Let $f_{1}, f_{2}$ be faces, each supporting a different translation in that pair. We choose the pair such that the path from $f_{1}$ to $f_{2}$ through $x^{\prime}$ edges is the shortest among any choice of the translations and the faces $f_{1}, f_{2}$ within them, where we use that $x^{\prime}$ is connected to infer that there has to be at least one path. Then, set $x$ to be the chain obtained by excluding $f_{2}$ from the path. Now, if $x$ contains a face that supports the second translation of $g$, then we get a contradiction to the minimality of the path. Thus $x$ is a connected chain that supports a single translation of $g$, and since it contains a face and its translation, then its size is at least $n$.
 
 
 We got that a condition for step $\tau+1$ to admit an infinite slice is that a step $\tau$ admits a slice at size at least $\alpha n$. Thus, the desired inequality follows by taking the union bound:
@@ -113,7 +113,6 @@ We got that a condition for step $\tau+1$ to admit an infinite slice is that a s
       \prb{A} \le w\mu\max_{\tau\in J}\prb{B_{\tau}}.
     \end{split}
   \end{equation*}
-
 \end{proof}
 
 
