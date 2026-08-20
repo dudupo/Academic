@@ -74,7 +74,13 @@ Having that claim, we can prove the intermediate argument:
 \begin{proof}
 We will prove that a required condition for step $\tau+1$ to admit an infinite error is that step $\tau$ admits an error of size greater than $\alpha n$. Since the reduction operations can only decrease the error's size (the sizes of the connected chains), that implies that having at step $\tau$ a reduced error of size at least $\alpha n$ is also a required condition for step $\tau+1$ admitting an infinite reduced error. Then, the desired inequality follows by taking the union bound.
 
-  Assume that step $\tau+1$ admits an infinite error and let $(P_{1},Q_{1}), \ldots, (P_{\tau},Q_{\tau}), (P_{\tau+1},Q_{\tau+1}) $, be the Pauli-path up to step $\tau+1$ such $P_{\tau+1}$ is infinite. Let $g$ be the gate that is applied at step $\tau$. 
+  Assume that step $\tau+1$ admits an infinite error and let 
+  \begin{equation*}
+    \begin{split}
+  (P_{1},Q_{1}), \ldots, (P_{\tau},Q_{\tau}), (P_{\tau+1},Q_{\tau+1}) 
+    \end{split}
+  \end{equation*}
+  be the Pauli-path up to step $\tau+1$ such $P_{\tau+1}$ is infinite. Let $g$ be the gate that is applied at step $\tau$. 
 
 
 Now, denote by $\tilde{Q}_{\tau}, \tilde{P}_{\tau+1}$ the images of $Q_{\tau}, P_{\tau+1}$ in the $\infty$-extension. Since $g$ acts on at most $\Delta$ qubits, any chain $x \subset \text{supp } X(\tilde{P}_{\tau+1})$, which among $g$'s translation supports only the trivial-translation of $g$, intersects at most constant number, which is depending on $\Delta, d^{\prime},d $ of  reduced chains in $\text{supp } X(\tilde{Q}_{\tau})$. Thus, we can say that $x$ is a union of at most constant number of disjoint reduced chains in $\text{supp } X(\tilde{Q}_{\tau})$ with at most disjoint reduced $\Delta$ chains, of a single face, which might be introduced by $g$. Denote the reduced chains in the union by $x_{1},..,x_{l}$, such $l = \alpha^{-1}$. So if $x$ is connected, then by \Cref{claim:unionofred} we have that:
