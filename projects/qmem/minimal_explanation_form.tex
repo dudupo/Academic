@@ -1,6 +1,6 @@
  \subsection{Minimal Explantation Argument}
  \label{subsection:explantion}
-We are about to prove the main lemma stating that the number of faults causing an occurrence of slice is linear in both the slice's size and the minimal number of edges required to span a Toom's contour that induces it. First, we define the explanation tree of a slice to be the subtree of its history that connects its poles. The relation between the leaves of the subtree and its arrows, forks, and the size of its origin slice is embedded as a requirement in the definition. Then, we prove that, assuming no step admits an infinite slice, any slice has an explanation tree.
+We are about to prove the main lemma stating that the number of faults causing an occurrence of slice is linear in both the slice's size and the minimal number of edges required to span a Toom's contour that induces it. First, we define the explanation tree of a slice to be the subtree of its history that connects its poles. The relation between the leaves of the subtree and its arrows, forks, and the size of its origin slice is embedded as a requirement in the definition. Then, we prove that, assuming no step admits an infinite reduced error, any slice has an explanation tree.
   \begin{definition}
     \label{def:explantation}
     Consider a Tooms contour graph induced by Toric encoded circuit, with sweep-cycle parameter $\xi = 1$, and  let $\alpha, \beta$ be constants and $\mathcal{X}_{0}, \mathcal{X}_{1}, \mathcal{X}_{2}, \mathcal{X}_{3} \in \mathbb{R}$ be quadruple, defining such:
@@ -24,9 +24,12 @@ Given sets $W$ of points, $A$ of arrows, and $F$ of forks, we define $U$ as the 
     \end{enumerate}
 Furthermore, for a step $\tau$ and a slice $K$ in the analysis of Toom's contour at step $\tau$, with pole selection $v_{1},..,v_{d+1}$, we extend the definition of explanation as above, but require the following weaker inequality instead: For $m = |W|$ and $s = \Size{K}$, we have $|A| \le \alpha (m + 1) - \beta s$ and $|F| < m - 1$.
   \end{definition}
+
+  \inb{\textbf{ Consider changing to any finite slice has an explantation.}}
+
   \begin{claim}
     \label{claim:edgesin}
-Let $P_{1}, \ldots, P_{\mu+1}$ be the reduced Pauli-path that induces Toom's contour. And let $t \le \mu+1$ such that $P_{1}, \ldots, P_{t}$ do not admit an infinite slice. Every slice $K$, with time coordinate $\Time{K} \le t$, has an explanation. Moreover, if a step $\tau+1$ is the first step to admit an infinite slice, any slice in the analysis of Toom's contour up to step $\tau$ has an explanation.
+Let $(P_{1},Q_{1}), \ldots, (P_{\mu+1},Q_{\mu+1})$ be the time Pauli-path that induces Toom's contour. Let $t \le \mu+1$ such that $(P_{1},Q_{1}), \ldots, (P_{t},Q_{t})$ do not admit an infinite reduced error. Every slice $K$, with time coordinate $\Time{K} \le t$, has an explanation. Moreover, if a step $\tau+1$ is the first step to admit an infinite reduced error, then any slice in the analysis of Toom's contour up to step $\tau$ has an explanation.
   \end{claim}
 
   \begin{proof}
@@ -34,7 +37,7 @@ Let $h = \Time{K} - \min_{u \in \History{K}} \Time{u}$. For slices in a standard
     \begin{enumerate}
       \item Base: $h=0$, meaning $T$ is constant on $\History{K}$, so no arrows connect points of $\History{K}$. Thus, $\History{K}$, as well as $\mathbf{K}$, consists only of a single leaf, namely $K$ is a result of a fault, and $r = \text{order}(\mathcal{X}_{r}) \in \{0,2\}$. In that case, there is a single vertex $u \in V_{\mathcal{H}}$ such that $U = W = \{u\}$, so $m=1$, $s=0$, and $|A|, |F| = 0$. It is easy to check that those values satisfy the requirement. 
       
-  \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. Combining this with the fact that no infinite slice is admitted, by \Cref{claim:prevslices}, we know that for some $k$ there exist slices $K_{0}, \ldots, K_{k}$ and forks $F_{1}, \ldots, F_{k}$ that satisfy \Cref{claim:prevslices} with respect to the pole selection. In particular, for $r < 3$ it holds that:
+  \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. Combining this with the fact that no infinite reduced error is admitted, by \Cref{claim:prevslices}, we know that for some $k$ there exist slices $K_{0}, \ldots, K_{k}$ and forks $F_{1}, \ldots, F_{k}$ that satisfy \Cref{claim:prevslices} with respect to the pole selection. In particular, for $r < 3$ it holds that:
         \begin{equation*}
           \begin{split}
             \sum_{i=0}^{k}\Size{K_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{K}  
