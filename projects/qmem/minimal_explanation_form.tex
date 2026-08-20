@@ -25,7 +25,6 @@ Given sets $W$ of points, $A$ of arrows, and $F$ of forks, we define $U$ as the 
 Furthermore, for a step $\tau$ and a slice $K$ in the analysis of Toom's contour at step $\tau$, with pole selection $v_{1},..,v_{d+1}$, we extend the definition of explanation as above, but require the following weaker inequality instead: For $m = |W|$ and $s = \Size{K}$, we have $|A| \le \alpha (m + 1) - \beta s$ and $|F| < m - 1$.
   \end{definition}
 
-  \inb{\textbf{ Consider changing to any finite slice has an explantation.}}
 
   \begin{claim}
     \label{claim:edgesin}
@@ -37,7 +36,7 @@ Let $h = \Time{K} - \min_{u \in \History{K}} \Time{u}$. For slices in a standard
     \begin{enumerate}
       \item Base: $h=0$, meaning $T$ is constant on $\History{K}$, so no arrows connect points of $\History{K}$. Thus, $\History{K}$, as well as $\mathbf{K}$, consists only of a single leaf, namely $K$ is a result of a fault, and $r = \text{order}(\mathcal{X}_{r}) \in \{0,2\}$. In that case, there is a single vertex $u \in V_{\mathcal{H}}$ such that $U = W = \{u\}$, so $m=1$, $s=0$, and $|A|, |F| = 0$. It is easy to check that those values satisfy the requirement. 
       
-  \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. Combining this with the fact that no infinite reduced error is admitted, by \Cref{claim:prevslices}, we know that for some $k$ there exist slices $K_{0}, \ldots, K_{k}$ and forks $F_{1}, \ldots, F_{k}$ that satisfy \Cref{claim:prevslices} with respect to the pole selection. In particular, for $r < 3$ it holds that:
+      \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. \inb{\textbf{ If $K$ has an infinite predecessors we can take a subslice of it.}}  Combining this with the fact that no infinite reduced error is admitted, by \Cref{claim:prevslices}, we know that for some $k$ there exist slices $K_{0}, \ldots, K_{k}$ and forks $F_{1}, \ldots, F_{k}$ that satisfy \Cref{claim:prevslices} with respect to the pole selection. In particular, for $r < 3$ it holds that:
         \begin{equation*}
           \begin{split}
             \sum_{i=0}^{k}\Size{K_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{K}  
