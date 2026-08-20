@@ -44,6 +44,7 @@ Where the last transition follows from \Cref{claim:tringinq}, combined with the 
 
 
     \begin{claim}
+      \label{claim:suppstab}
 Consider a stabilizer code $\mathcal{C}$, defined by the stabilizers $\mathcal{S} \subset \mathcal{P}^{(\cdot)}$. Let $g$ be a unitary gate, and consider an arbitrary Pauli $P_{1} \in \mathcal{P}^{(\cdot)}$. For any stabilizer $S \in \mathcal{S}$, there is an operator $D$ such that $\text{supp } D \subset \text{supp } g$ and:
       \begin{equation*}
         \begin{split}
@@ -115,10 +116,17 @@ Otherwise, the whole trace is zeroing out in contradiction to the fact that $P_{
 
 
 
-If $g$ is a measurement gate or a $\mathbf{Z}$ gate, then obviously $g$ does not increase the errors' sizes. Thus, we can assume that $g$ is either $\mathbf{X}, \mathbf{H}$ or a $\mathbf{CX}$ gate. Moreover, consider
+If $g$ is a measurement gate then obviously $g$ does not increase the errors' sizes. Thus, we can assume that $g$ is a unitary gate. And therefore, using \Cref{claim:suppstab}, for any stabilizer $S \in \mathcal{C}_{Z^{\perp}}$ there is an operator $D$ which is support is contained the support of $g$ and: 
 \begin{equation*}
   \begin{split}
-    \Trr{ }( g \circ SP_{1}  P_{2}  ) = \Trr{ }(g S g^{\dagger} g  P_{1} g^{\dagger} P_{2} ) 
+   g  S \tilde{P}_{1} g^{\dagger} \sim_{\mathcal{C}_{Z^{\perp}}} D g  \tilde{P}_{1} g^{\dagger} 
+  \end{split}
+\end{equation*}
+
+
+\begin{equation*}
+  \begin{split}
+    \Trr{ }( g \circ S\tilde{P}_{1}  P_{2}  ) = \Trr{ }(g S g^{\dagger} g  P_{1} g^{\dagger} P_{2} ) 
   \end{split}
 \end{equation*}
 
