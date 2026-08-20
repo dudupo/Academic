@@ -1,55 +1,9 @@
-
 \subsection{The Intermediate Argument} 
 An essential ingredient of our proof is an 'intermediate argument', stating that prior to having a large slice that closes a non-trivial loop on the Toric, there must be a step in which there is a slice that on one hand doesn't close a non-trivial loop, yet it has a size that is comparable to the Toric side. Before the first step of that kind, we can assume that no slice closes a non-trivial loop; namely, the slices are finite. That implies the following two: first, the condition for \Cref{claim:decodestopnoise} is valid, and therefore the replacement argument can be used to infer a correctness of logical measurement gadgets. Second, the sweep rule is, in some sense, effective (\Cref{claim:polesmove}), and soon we will see that it sets a structure for the histories of slices. 
 
-    \begin{claim}
-Consider a $d^{\prime}$-dimensional chains $y \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$, and let $x_{1}, \ldots, x_{m} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be $d^{\prime}$-dimensional chains such that $y = x_{1} \cup x_{2} \cup \ldots \cup x_{m}$, $y$ is connected, and there is a selection of reduced forms for the $x_{i}$ such that the chain:
-      \begin{equation*}
-        \label{equ:cond}
-        \begin{split}
-          \text{reduced form of }(x_{1}) \cup \text{reduced form of }(x_{2}) \cup ,.., \text{reduced form of }(x_{m}) \quad \quad \quad (\star)
-        \end{split}
-      \end{equation*}
-is connected. Then: 
-      \begin{equation*}
-        \begin{split}
-          \Size{ \text{reduced form of } (y) } \le \sum_{i}^{m}{\Size{ \text{reduced form of } (x_{i}) } }
-        \end{split}
-      \end{equation*}
-    \end{claim}
-    \begin{proof}
-      For each $x_{i}$, denote by $z_{i}$ the stabilizer for which the translation of $x_{i}$ by $z_{i}$ yields the reduced form which satisfies the condition in $(\star)$ . Namely:
-      \begin{equation*}
-        \begin{split}
-          z_{i} = \arg \min_{z \in \mathcal{C}_{Z}^{\perp} }\Size{ x_{i} + z } 
-        \end{split}
-      \end{equation*}
-      Thus:
-      \begin{equation*}
-        \begin{split}
-          \Size{ \text{reduced form of } {y} } & =  \min_{z \in \mathcal{C}_{Z}^{\perp} } \Size{z + y }  \le  \min_{z \in \mathcal{C}_{Z}^{\perp} }\Size{z + x_{1} \cup x_{2} \cup ,.., x_{m}}\\
-          & \le \Size{ (x_{1}+z_{1}) \cup (x_{2}+z_{2}) \cup ,.., (x_{m} + z_{i}) } \\
-          &\le \sum_{i}^{m}{ \Size{x_{i}+z_{i} } }
-        \end{split}
-      \end{equation*}
-Where the last transition follows from \Cref{claim:tringinq}, combined with the connectivity condition.
-    \end{proof}
-
-    \begin{claim}
-Suppose that prior to step $\tau$, no infinite error is admitted. Consider the flattened circuit obtained by performing the gate of $C[\mathcal{E}]$ at step $\tau$ in time $\tau$. Then the flattened circuit does not admit an infinite error prior to step $\tau$.
-    \end{claim}
-    \begin{proof}
-      Suppose, towards contradiction, that there is a step $\tau^{\prime} \le \tau$ that admits an infinite error. Then, and let $P_{1},..,P_{\tau^{\prime}-1}P_{\tau^{\prime}}$ be a prefix of a Pauli-path such the reduced Pauli-path obtained from it admits an infinite error in the last layer. We argue that there is a Pauli-Path up to step $\tau$ for $C[\mathcal{E}]$ that ends in $P_{\tau^{\prime}}$. Denote let $P_{\tau^{\star}}$ be the Pauli such cloeses a timestep. 
-      \begin{equation*}
-        \begin{split}
-          C|_{\tau^{\star}\rightarrow\tau^{\prime}} \circ P_{\tau^{\star}}  =   C|_{\tau^{\star+1}\rightarrow\tau^{\prime}} g  
-        \end{split}
-      \end{equation*}
-    \end{proof}
-
 \begin{claim}
   \label{claim:intersyn}
-  Let $\alpha = \frac{1}{2}(\Delta 4^{d})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a finite slice at size at least $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then, for sufficiently large $n$, the probability that $A$ occurs is bounded by:
+  Let $\alpha = \frac{1}{2}(\Delta d^{2})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a finite slice at size at least $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then, for sufficiently large $n$, the probability that $A$ occurs is bounded by:
   \begin{equation*}
     \begin{split}
       \prb{A} \le w\mu\max_{\tau\in J }\prb{B_{\tau}}.
@@ -117,9 +71,7 @@ We got that a condition for step $\tau+1$ to admit an infinite slice is that a s
       \prb{A} \le w\mu\max_{\tau\in J}\prb{B_{\tau}}.
     \end{split}
   \end{equation*}
-
 \end{proof}
-
 
 
 
