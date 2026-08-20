@@ -1,6 +1,34 @@
+\section{Toom's Contours}
+
 
 \subsection{The Intermediate Argument} 
 An essential ingredient of our proof is an 'intermediate argument', stating that prior to having a large (reduced) error that closes a non-trivial loop on the Toric, there must be a step in which there is a (reduced) error that on one hand doesn't close a non-trivial loop, yet it has a size that is comparable to the Toric side. Before the first step of that kind, we can assume that no error closes a non-trivial loop; namely, the errors are finite. That implies the following two: first, the condition for \Cref{claim:decodestopnoise} is valid, and therefore the replacement argument can be used to infer a correctness of logical measurement gadgets. Second, the sweep rule is, in some sense, effective (\Cref{claim:polesmove}), and soon we will see that it sets a structure for the histories of slices. 
+
+
+
+
+
+
+\begin{definition}
+Let $P$ be a Pauli which is a view in $\infty$-extension. We define the reduced form of $P$ to be the Pauli obtained by the following procedure: for any finite connected chain that corresponds to a subset of the $X$ component of $P$'s support, substitute it with its reduced form (\Cref{def:reduced}). Then do the same for the $Z$ component in the dual picture. Observe that Paulis of a reduced Pauli-path act on the qubits in the $\infty$-extension.
+
+
+We extend the notion to Paulis in finite spaces (for example, Paulis on the circuit's register) by saying that a Pauli $P \in \mathcal{P}^{(\cdot)}$ is reduced if its view in the $\infty$-extension is reduced.
+\end{definition}
+
+\begin{definition}
+  \label{def:paulipath}
+  Consider a quantum circuit subjected to noise $C[\mathcal{E}]$, with width $w$ and a total number of steps $\tau_{f}$, whose registers are all encoded in the $(d,d^{\prime})$-Toric code with side length $n$ such that $C[\mathcal{E}]$ has an $\infty$-extension. We say that the set of Pauli tuples $\{ (P_{i},Q_{i}) \}_{1}^{\tau_{f}}$, where for each $i$, $(P_{i},Q_{i}) \in \mathcal{P}^{[w]} \times \mathcal{P}^{[w]}$, is a Pauli-path for $C[\mathcal{E}]$. If $P_{1}$ is the identity and: 
+  \begin{equation*}
+    \begin{split}
+      & P_{i+1} \in g_{i} \circ Q_{i} \\
+      & Q_{i+1} \leftarrow \text{ reduce form of } P_{i+1}
+    \end{split}
+  \end{equation*}
+If there is a Pauli-path $(P_{1},Q_{1}),..,(P_{\tau_{f}},Q_{\tau_{f}})$ such that $P_{\tau}$ is infinite, then we say that $\tau$ admits an infinite error. Similarly, if $Q_{\tau}$ is infinite, then we say that $\tau$ admits an infinite reduced error.
+\end{definition}
+
+
 
 The following claim relates the size of the reduced error to the sizes of the reduced errors that compose it.
     \begin{claim}
@@ -73,7 +101,7 @@ The multiplication of $g SP g^{\dagger}$ can be written as follows:
 Having that claim, we can prove the intermediate argument:
 \begin{claim}
   \label{claim:intersyn}
-  There is a constant $\alpha \in (0,1)$ depending only on $\Delta,d,d^{\prime}$ satisfies the following: Denote by $A$ the event that there is a step that admits an infinite error. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a finite error at size at least $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then, for sufficiently large $n$, the probability that $A$ occurs is bounded by:
+  There is a constant $\alpha \in (0,1)$ depending only on $\Delta,d,d^{\prime}$ satisfies the following: Denote by $A$ the event that there is a step that admits an infinite error. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a reduced error at size at least $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then, for sufficiently large $n$, the probability that $A$ occurs is bounded by:
   \begin{equation*}
     \begin{split}
       \prb{A} \le w\mu\max_{\tau\in J }\prb{B_{\tau}}.
@@ -83,10 +111,50 @@ Having that claim, we can prove the intermediate argument:
 
 
 \begin{proof}
+  We will prove that a required condition for step $\tau+1$ to admit an infinite error is that step $\tau$ admits an error of size greater than $\alpha n$. Assume that step $\tau+1$ admits an infinite error and let $(P_{1},Q_{1}), \ldots, (P_{\tau},Q_{\tau}), (P_{\tau+1},Q_{\tau+1}) $, be the Pauli-path up to step $\tau+1$ such $P_{\tau+1}$ is infinite. Let $g$ be the gate that is applied at step $\tau$. 
 
-  \inb{\textbf{ Change $\tilde{P}_{1}$ and $\tilde{P}_{2}$ to be a non-reduced form ($Q$ in the new definition) and $P_{t}$ to be in it's reduced form.  }} 
-  Let $(P_{1},Q_{1}), \ldots, (P_{\tau},Q_{\tau}), (P_{\tau+1},Q_{\tau+1}) $, be the Pauli-path up to step $\tau+1$. In addition, let $g$ be the gate that is applied at step $\tau$. Assume that step $\tau+1$ is the first such $P_{\tau+1}$ admit an infinite error. 
 
+  \inb{\textbf{Change here such we will talk about the $\infty$-extension of $\P_{\tau+1}$ and $Q_{\tau}$. And then we prove. }}
+
+Now, denote by $\tilde{Q}_{\tau}, \tilde{P}_{\tau+1}$ the images of $Q_{\tau}, P_{\tau+1}$ in the $\infty$-extension. Since $g$ acts on at most $\Delta$ qubits, any chain $x \subset \text{supp } X(\tilde{P}_{\tau+1})$, which among $g$'s translation supports only the trivial-translation of $g$, intersects at most constant number, which is depending on $\Delta, d^{\prime},d $ of  reduced chains in $\text{supp } X(\tilde{Q}_{\tau})$. Thus, we can say that $x$ is a union of at most constant number of disjoint reduced chains in $\text{supp } X(\tilde{Q}_{\tau})$ with at most disjoint reduced $\Delta$ chains, of a single face, which might be introduced by $g$. Denote the reduced chains in the union by $x_{1},..,x_{l}$, such $l = \alpha^{-1}$. So if $x$ is connected, then by \Cref{claim:unionofred} we have that:
+\begin{equation*}
+  \begin{split}
+    \Size{x} \le \sum_{i=1}^{l} \Size{x_{i} }\le \alpha^{-1} \max_{i}\Size{x_{i}}
+  \end{split}
+\end{equation*}
+Since the maximal size of a reduced connected chain introduced by trivial translation of $g$ faces alone is bounded by a function of $\Delta$ and $d$, it follows that if $\Size{x} \ge n$, then there must be a reduced chain $x_{i}$ in the support of $X(\tilde{Q}_{\tau})$ of size at least $\alpha n$.
+Thus, it remains to prove that there is a connected chain $x \in \tilde{P}_{\tau+1}$, which does not support a non-trivial translation of $g$, and has size at least $n$. By invariance to translation, we can substitute the requirement of supporting only the non-trivial translation of $g$ by supporting at most one translation of $g$.
+
+
+
+
+We pick such $x$ by the following algorithm: pick an infinite connected reduced error $x^{\prime}$ in $\text{supp } X(\tilde{P}_{\tau+1})$. If $x^{\prime}$ supports only one translation of $g$, then pick $x=x^{\prime}$. Otherwise, if $x^{\prime}$ supports at least two translations of $g$, pick a pair of translations as follows: Let $f_{1}, f_{2}$ be faces, each supporting a different translation in that pair. We choose the pair such that the path from $f_{1}$ to $f_{2}$ through $x^{\prime}$'s edges is the shortest among any choice of the translations and the faces $f_{1}, f_{2}$ within them, where we use that $x^{\prime}$ is connected to infer that there has to be at least one path. Then, set $x$ to be the chain obtained by excluding $f_{2}$ from the path. Now, if $x$ contains a face that supports the second translation of $g$, then we get a contradiction to the minimality of the path. Thus $x$ is a connected chain that supports a single translation of $g$, and since it contains a face and its translation, then its size is at least $n$.
+
+
+We got that a condition for step $\tau+1$ to admit an infinite error is that a step $\tau$ admits a error at size at least $\alpha n$. Thus, the desired inequality follows by taking the union bound:
+  \begin{equation*}
+    \begin{split}
+      \prb{A} \le w\mu\max_{\tau\in J}\prb{B_{\tau}}.
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+
+
+
+
+
+%In addition observes that:  
+%\begin{equation*}
+%  \begin{split}
+%    \Trr{ }( S_{2} (g \circ \tilde{P}_{1})  S_{2}\tilde{P}_{2}  ) =  \pm \Trr{ }( (g \circ \tilde{P}_{1}) \tilde{P}_{2}  ) \neq 0
+%  \end{split}
+%\end{equation*}
+
+
+
+
+%
 %For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
 %  \begin{equation*}
 %    \begin{split}
@@ -140,46 +208,4 @@ Having that claim, we can prove the intermediate argument:
 %  \end{split}
 %\end{equation*}
 %Now, since the reduced form of the view of $\tilde{P}_{2}$ in $\infty$-extension is infinite, then the view of $S_{2}\tilde{P}_{2}$ in the $\infty$-extension is also infinite. 
-%
-
-  \inb{\textbf{Change here such we will talk about the $\infty$-extension of $\P_{\tau+1}$ and $Q_{\tau}$. And then we prove. }}
-
-Now, denote by $\tilde{Q}_{1}, \tilde{Q}_{2}$ the reduced forms of the images of $S_{1}\tilde{P}_{1}, S_{2}\tilde{P}_{2}$ in the $\infty$-extension. Since $g$ acts on at most $\Delta$ qubits, any chain $x \subset \text{supp } X(\tilde{Q}_{2})$, which among $g$'s translation supports only the trivial-translation of $g$, intersects at most constant number, which is depending on $\Delta, d^{\prime},d $ of  reduced chains in $\text{supp } X(\tilde{Q}_{1})$. Thus, we can say that $x$ is a union of at most constant number of disjoint reduced chains in $\text{supp } X(\tilde{Q}_{1})$ with at most disjoint reduced $\Delta$ chains, of a single face, which might be introduced by $g$. Denote the reduced chains in the union by $x_{1},..,x_{l}$, such $l = \alpha^{-1}$. So if $x$ is connected, then by \Cref{claim:unionofred} we have that:
-\begin{equation*}
-  \begin{split}
-    \Size{x} \le \sum_{i=1}^{l} \Size{x_{i} }\le \alpha^{-1} \max_{i}\Size{x_{i}}
-  \end{split}
-\end{equation*}
-Since the maximal size of a reduced connected chain introduced by trivial translation of $g$ faces alone is bounded by a function of $\Delta$ and $d$, it follows that if $\Size{x} \ge n$, then there must be a reduced chain $x_{i}$ in the support of $X(\tilde{Q}_{1})$ of size at least $\alpha n$.
-Thus, it remains to prove that there is a connected chain $x \in \tilde{Q}_{2}$, which does not support a non-trivial translation of $g$, and has size at least $n$. By invariance to translation, we can substitute the requirement of supporting only the non-trivial translation of $g$ by supporting at most one translation of $g$.
-
-
-
-
-We pick such $x$ by the following algorithm: pick an infinite connected reduced error $x^{\prime}$ in $\text{supp } X(\tilde{Q}_{2})$. If $x^{\prime}$ supports only one translation of $g$, then pick $x=x^{\prime}$. Otherwise, if $x^{\prime}$ supports at least two translations of $g$, pick a pair of translations as follows: Let $f_{1}, f_{2}$ be faces, each supporting a different translation in that pair. We choose the pair such that the path from $f_{1}$ to $f_{2}$ through $x^{\prime}$'s edges is the shortest among any choice of the translations and the faces $f_{1}, f_{2}$ within them, where we use that $x^{\prime}$ is connected to infer that there has to be at least one path. Then, set $x$ to be the chain obtained by excluding $f_{2}$ from the path. Now, if $x$ contains a face that supports the second translation of $g$, then we get a contradiction to the minimality of the path. Thus $x$ is a connected chain that supports a single translation of $g$, and since it contains a face and its translation, then its size is at least $n$.
-
-
-We got that a condition for step $\tau+1$ to admit an infinite error is that a step $\tau$ admits a error at size at least $\alpha n$. Thus, the desired inequality follows by taking the union bound:
-  \begin{equation*}
-    \begin{split}
-      \prb{A} \le w\mu\max_{\tau\in J}\prb{B_{\tau}}.
-    \end{split}
-  \end{equation*}
-\end{proof}
-
-
-
-
-
-
-%In addition observes that:  
-%\begin{equation*}
-%  \begin{split}
-%    \Trr{ }( S_{2} (g \circ \tilde{P}_{1})  S_{2}\tilde{P}_{2}  ) =  \pm \Trr{ }( (g \circ \tilde{P}_{1}) \tilde{P}_{2}  ) \neq 0
-%  \end{split}
-%\end{equation*}
-
-
-
-
 %

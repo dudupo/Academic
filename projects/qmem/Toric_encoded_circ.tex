@@ -1,8 +1,8 @@
-\section{Toom's Contours}
 
 
 
-\subsection{Toric Encoded Circuits and Toom's Contours}
+
+\subsection{ Toom's Contours}
 \label{subsection:toricencoded}
 We are about to zoom out from a single register encoded in the Toric code to describe a fully fault-tolerant computation. For a given quantum circuit, assumed to consist of gates $\mathbf{X}, \mathbf{Z}, \mathbf{CX}, \mathbf{H}, \mathbf{S}, \mathbf{T}$ and measurements, we define its Toric encoded circuit as its version where each qubit is encoded by the Toric code. Formally:
     \begin{definition}[Troic Encoded Circuit]
@@ -12,6 +12,7 @@ We are about to zoom out from a single register encoded in the Toric code to des
         \item The layers of $C$ on the quantum registers at even times are sweep-cycles, and the layers at odd times are realizations of either logical Paulis, $\mathbf{CX}$, or measurements in the computational and parity bases. On the classical registers, including the measured register, we allow any two-bit gates.
         \end{enumerate} 
     \end{definition}
+
 For Toric encoded circuits, we define their \textit{base graph}, which can be thought of as a recording of a running from the Toric's point of view. The \textit{base graph} is obtained by taking the Toric's vertices at different times as the vertices and connecting any two sequential in time if they are support faces — qubits — which are either the same or are entangled by a quantum gate.
   \begin{definition}[Base graph $G_{o}$]
     Let $C$ be a Toric encoded circuit at depth $\mu$. Notice that measurements take quantum registers into classical, Thus any quantum register has a maximal depth, which we denote by $\{\mu_{i}$\}. Let's denote by $\{\mathcal{G}_{i}\}$ the skeleton of the $\infty$-extension of the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o}, E_{o})$, as follows:
@@ -40,28 +41,10 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
 
 
 
-\begin{definition}
-Let $P$ be a Pauli which is a view in $\infty$-extension. We define the reduced form of $P$ to be the Pauli obtained by the following procedure: for any finite connected chain that corresponds to a subset of the $X$ component of $P$'s support, substitute it with its reduced form (\Cref{def:reduced}). Then do the same for the $Z$ component in the dual picture. Observe that Paulis of a reduced Pauli-path act on the qubits in the $\infty$-extension.
-
-
-We extend the notion to Paulis in finite spaces (for example, Paulis on the circuit's register) by saying that a Pauli $P \in \mathcal{P}^{(\cdot)}$ is reduced if its view in the $\infty$-extension is reduced.
-\end{definition}
-
-\begin{definition}
-  Consider a quantum circuit subjected to noise $C[\mathcal{E}]$, with width $w$ and total number of steps $\tau_{f}$. We say that the set of Pauli's tuples $\{ (P_{i},Q_{i})  \}_{1}^{\tau_{f}}$  where for each $i$  $ (P_{i},Q_{i}) \in  \mathcal{P}^{[w]} \times  \mathcal{P}^{[w]}$ is a Pauli-path for $C[\mathcal{E}]$. If:
-  \begin{equation*}
-    \begin{split}
-      & P_{i+1} \in g_{i} \circ Q_{i} \\
-      & Q_{i+1} \leftarrow \text{ reduce form of } P_{i+1}
-    \end{split}
-  \end{equation*}
-  \inb{\textbf{Extend to Pauli-paths according times for inducting Toom's contour. }}
-\end{definition}
 
 
 
 \begin{definition} 
-  \label{def:paulipath}
  
 
  \inb{\textbf{ Continue to here. }}
