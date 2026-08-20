@@ -48,7 +48,7 @@ Where the last transition follows from \Cref{claim:tringinq}, combined with the 
 Consider a stabilizer code $\mathcal{C}$, defined by the stabilizers $\mathcal{S} \subset \mathcal{P}^{(\cdot)}$. Let $g$ be a unitary gate, and consider an arbitrary Pauli $P_{1} \in \mathcal{P}^{(\cdot)}$. For any stabilizer $S \in \mathcal{S}$, there is an operator $D$ such that $\text{supp } D \subset \text{supp } g$ and:
       \begin{equation*}
         \begin{split}
-          g  SP g^{\dagger} \sim_{\mathcal{S}} D g P g^{\dagger} 
+          g  SP g^{\dagger} = S D g P g^{\dagger} 
         \end{split}
       \end{equation*}
     \end{claim}
@@ -62,7 +62,7 @@ The multiplication of $g SP g^{\dagger}$ can be written as follows:
       Take $D$ to be $D \colonequals  S g Sg^{\dagger} $, so:
       \begin{equation*}
         \begin{split}
-           D g P g^{\dagger} = S g S g^{\dagger}  g P g^{\dagger} \sim_{\mathcal{S}}  g SP g^{\dagger} 
+           S D g P g^{\dagger} = S S g S g^{\dagger}  g P g^{\dagger} =  g SP g^{\dagger} 
         \end{split}
       \end{equation*}
    And since $S$ is a Pauli gate, we have for any coordinate in multiplication $SgS$, which does not support $g$, is a multiplication of a single qubit Pauli with itself, namely the identity. Thus, the support of $D$ is contained in the support of $g$.
@@ -86,16 +86,16 @@ Having that claim, we can prove the intermediate argument:
 If $g$ is a measurement gate, then obviously $g$ does not increase the errors' sizes. Thus, we can assume that $g$ is a unitary gate. Therefore, using \Cref{claim:suppstab}, for any stabilizer $S \in \mathcal{C}_{Z^{\perp}}$, there is an operator $D$ whose support is contained in the support of $g$ and:
 \begin{equation*}
   \begin{split}
-   g  S \tilde{P}_{1} g^{\dagger} \sim_{\mathcal{C}_{Z^{\perp}}} D g  \tilde{P}_{1} g^{\dagger} 
+   g  S \tilde{P}_{1} g^{\dagger} = S D g  \tilde{P}_{1} g^{\dagger} 
   \end{split}
 \end{equation*}
-Now, let's pick stabilizers $S_{1},S_{2} \in \mathcal{C}_{Z^{\perp}}$ such that the view of $S_{1}P_{1}$ in the $\infty$-extension is already reduced and:  
+Now, let's pick stabilizers $S \in \mathcal{C}_{Z^{\perp}}$ such that the view of $S P_{1}$ in the $\infty$-extension is already reduced.
 \begin{equation*}
   \begin{split}
-    g  S \tilde{P}_{1} g^{\dagger} = S_{2} D g  \tilde{P}_{1} g^{\dagger} =  S_{2} D S_{2} S_{2} g  \tilde{P}_{1} g^{\dagger} 
+    D g  \tilde{P}_{1} g^{\dagger}  =  S g  S \tilde{P}_{1} g^{\dagger}  
   \end{split}
 \end{equation*}
-By the same arguments as in \Cref{claim:suppstab}, since $S_{2}$ is a Pauli operator, the support of $S_{2} D S_{2}$ is contained in the support of $D$ and therefore in $g$. Now, since the reduced form of the view of $\tilde{P}_{2}$ in $\infty$-extension is infinite, then the view of $S_{2}\tilde{P}_{2}$ in the $\infty$-extension is also infinite. 
+Now, since the reduced form of the view of $\tilde{P}_{2}$ in $\infty$-extension is infinite, then the view of $S_{2}\tilde{P}_{2}$ in the $\infty$-extension is also infinite. 
 
 Now, denote by $\tilde{Q}_{1}, \tilde{Q}_{2}$ the reduced forms of the images of $S_{1}\tilde{P}_{1}, S_{2}\tilde{P}_{2}$ in the $\infty$-extension. Since $g$ acts on at most $\Delta$ qubits, any chain $x \subset \text{supp } X(\tilde{Q}_{2})$, which among $g$'s translation supports only the trivial-translation of $g$, intersects at most constant number, which is depending on $\Delta, d^{\prime},d $ of  reduced chains in $\text{supp } X(\tilde{Q}_{1})$. Thus, we can say that $x$ is a union of at most constant number of disjoint reduced chains in $\text{supp } X(\tilde{Q}_{1})$ with at most disjoint reduced $\Delta$ chains, of a single face, which might be introduced by $g$. Denote the reduced chains in the union by $x_{1},..,x_{l}$, such $l = \alpha^{-1}$. So if $x$ is connected, then by \Cref{claim:unionofred} we have that:
 \begin{equation*}
