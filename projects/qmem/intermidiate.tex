@@ -87,6 +87,15 @@ We argue that we can assume, without loss of generality, that the term $ \Trr{} 
 Otherwise, the whole trace is zeroing out in contradiction to the fact that $P_{1},..,P_{t},\tilde{P_{2}}$ is a Pauli-path. So, we could initially choose the Pauli-path that induces '$\mathcal{H}_{\tau}$'\footnote{Observe that the 'reinduced' Toom's counter is different from $\mathcal{H}_{\tau}$.} to be $P_{1},..,P_{t},\tilde{P}$.
 
 
+
+If $g$ is a measurement gate, then obviously $g$ does not increase the errors' sizes. Thus, we can assume that $g$ is a unitary. Moreover, consider
+\begin{equation*}
+  \begin{split}
+    \Trr{ }( g \circ SP_{1}  P_{2}  ) = \Trr{ }(g S g^{\dagger} g  P_{1} g^{\dagger} P_{2} ) 
+  \end{split}
+\end{equation*}
+
+
 Now, denote by $\tilde{Q}_{1}, \tilde{Q}_{2}$ the reduced forms of the images of $\tilde{P}_{1}, \tilde{P}_{2}$ in the $\infty$-extension. Since $g$ acts on at most $\Delta$ qubits, any chain $x \subset \text{supp } X(\tilde{Q}_{2})$, which among $g$'s translation supports only the trivial-translation of $g$, intersects at most constant number, which is depending on $\Delta, d^{\prime},d $ of  reduced chains in $\text{supp } X(\tilde{Q}_{1})$. Thus, we can say that $x$ is a union of at most constant number of disjoint reduced chains in $\text{supp } X(\tilde{Q}_{1})$ with at most disjoint reduced $\Delta$ chains, of a single face, which might be introduced by $g$. Denote the reduced chains in the union by $x_{1},..,x_{l}$, such $l = \alpha^{-1}$. So if $x$ is connected, then by \Cref{claim:unionofred} we have that:
 \begin{equation*}
   \begin{split}
