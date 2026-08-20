@@ -42,6 +42,33 @@ Where the last transition follows from \Cref{claim:tringinq}, combined with the 
 %      \end{equation*}
 %    \end{proof}
 
+
+    \begin{claim}
+Consider a stabilizer code $\mathcal{C}$, defined by the stabilizers $\mathcal{S} \subset \mathcal{P}^{(\cdot)}$. Let $g$ be a unitary gate, and consider an arbitrary Pauli $P_{1} \in \mathcal{P}^{(\cdot)}$. For any stabilizer $S \in \mathcal{S}$, there is an operator $D$ such that $\text{supp } D \subset \text{supp } g$ and:
+      \begin{equation*}
+        \begin{split}
+          g  SP g^{\dagger} \sim_{\mathcal{S}} D g P g^{\dagger} 
+        \end{split}
+      \end{equation*}
+    \end{claim}
+    \begin{proof}
+The multiplication of $g SP g^{\dagger}$ can be written as follows:
+      \begin{equation*}
+        \begin{split}
+          g SP g^{\dagger}  = g Sg^{\dagger} g P g^{\dagger} 
+        \end{split}
+      \end{equation*}
+      Take $D$ to be $D \colonequals  S g Sg^{\dagger} $, so:
+      \begin{equation*}
+        \begin{split}
+           D g P g^{\dagger} = S g S g^{\dagger}  g P g^{\dagger} \sim_{\mathcal{S}}  g SP g^{\dagger} 
+        \end{split}
+      \end{equation*}
+   And since $S$ is a Pauli gate, we have for any coordinate in multiplication $SgS$, which does not support $g$, is a multiplication of a single qubit Pauli with itself, namely the identity. Thus, the support of $D$ is contained in the support of $g$.
+    \end{proof}
+
+
+
 Having that claim, we can prove the intermediate argument:
 \begin{claim}
   \label{claim:intersyn}
@@ -88,7 +115,7 @@ Otherwise, the whole trace is zeroing out in contradiction to the fact that $P_{
 
 
 
-If $g$ is a measurement gate, then obviously $g$ does not increase the errors' sizes. Thus, we can assume that $g$ is a unitary. Moreover, consider
+If $g$ is a measurement gate or a $\mathbf{Z}$ gate, then obviously $g$ does not increase the errors' sizes. Thus, we can assume that $g$ is either $\mathbf{X}, \mathbf{H}$ or a $\mathbf{CX}$ gate. Moreover, consider
 \begin{equation*}
   \begin{split}
     \Trr{ }( g \circ SP_{1}  P_{2}  ) = \Trr{ }(g S g^{\dagger} g  P_{1} g^{\dagger} P_{2} ) 
