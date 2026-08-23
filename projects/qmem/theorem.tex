@@ -100,23 +100,23 @@ Plugging into the union bounds and combining \Cref{claim:counting_trees} yields:
 
     It remains to bound the probability of $B_{t} \cap A_{t}$. Since prior to, and including time $t$, no time admits an infinite error, it follows that any slice (or a sublice at the top level of $\mathcal{H}_{t}$) has an explanation (\Cref{claim:edgesin}). Confining to the event $A_{t}$, any explanation implies that any explanation has fewer than $\frac{n}{2d}$ edges and therefore, by the same argument as above, the projection of each explanation tree into the finite Toric sends its leaves to unique targets.
 
-    Using \Cref{claim:edgesin} again, any explanation of a slice of size $\alpha n$ has at least $c_{1} \alpha n$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{t}$ admits an explanation with more than $c_{1}\alpha n$ edges. Hence, we obtain:
+    Using \Cref{claim:edgesin} again, any explanation of a subslice of size $n-1$ has at least $c_{1} n$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{t}$ admits an explanation with more than $c_{1} n$ edges. Hence, we obtain:
     \begin{equation*}
       \begin{split}
-        \prbm{  B_{t}  \cap A_{t}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ \substack{ v \in V_{o}, x \ge c_{1}\alpha n \\ L_{g}(v) \in [0,n]} } \prbm{ v \text{ is a root of explanation with number of edges } x \\ 
+        \prbm{  B_{t}  \cap A_{t}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ \substack{ v \in V_{o}, x \ge c_{1} n \\ L_{g}(v) \in [0,n]} } \prbm{ v \text{ is a root of explanation with number of edges } x \\ 
           & \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \    \ \ \text{ and leaves are projected to different targets  }  }{ \sim \mathcal{N}_{\mathcal{E}} } 
             \end{split}
           \end{equation*}
 So, the probability is bounded by:
           \begin{equation*}
             \begin{split}
-         \sum_{x = c_{1}\alpha n }^{ \infty } S \left( \sigma p^{\frac{1}{2^{d}} c_{1}} \right)^{x}  = S \frac{\left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)^{\alpha n}}{ 1 -  \left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)} 
+         \sum_{x = c_{1} n }^{ \infty } S \left( \sigma p^{\frac{1}{2^{d}} c_{1}} \right)^{x}  = S \frac{\left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)^{ n}}{ 1 -  \left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)} 
       \end{split}
     \end{equation*}
 Combing the bounds we have:
 \begin{equation*}
   \begin{split}
-\prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le S^{2} \left( \sigma p^{\frac{1}{2^{d + 1}} c_{1}} \right)^{\frac{n}{2d}} + S \frac{\left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)^{\alpha n}}{ 1 -  \left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)} 
+\prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le S^{2} \left( \sigma p^{\frac{1}{2^{d + 1}} c_{1}} \right)^{\frac{n}{2d}} + S \frac{\left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)^{ n}}{ 1 -  \left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)} 
   \end{split}
 \end{equation*}
 Now, combined with \Cref{claim:intersyn}, there are constants $c_{2}, c_{3}$ depending only on $d, d^{\prime}$ such that with a probability greater than:
