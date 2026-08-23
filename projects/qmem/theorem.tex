@@ -103,7 +103,7 @@ Plugging into the union bounds and combining \Cref{claim:counting_trees} yields:
     Using \Cref{claim:edgesin} and \Cref{coro:edgefaultratio} again, there are constants $c_{2},c_{3} > 0 $ such any explanation of a subslice with size $n-1$ and $x$ edges, has at least $c_{2} n + c_{3} x$ leaves. Therefore, we obtain:
     \begin{equation*}
       \begin{split}
-        \prbm{  B_{t}  \cap A_{t}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \cup_{ \substack{ v \in V_{o}, x \ge 1 \\ L_{g}(v) \in [0,n]} } \prbm{ v \text{ is a root of explanation with } x \text{ edges} \\ 
+        \prbm{  B_{t}  \cap A_{t}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ \substack{ v \in V_{o}, x \ge 1 \\ L_{g}(v) \in [0,n]} } \prbm{ v \text{ is a root of explanation with } x \text{ edges} \\ 
       & \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \  \ \ \text{ and at least } c_{2}n + c_{3}x \text{ leaves, } \\
   & \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \  \ \ \text{ which are projected to different targets  }  }{ \sim \mathcal{N}_{\mathcal{E}} } 
             \end{split}
@@ -114,19 +114,20 @@ So, for sufficiently small $p$ such that $\sigma p^{c_{2}} < 1$, the probability
               \sum_{x = 1  }^{ \infty } Sp^{c_{2}n} \left( \sigma p^{c_{3} } \right)^{x}  \le O(S) p^{c_{2} n} 
       \end{split}
     \end{equation*}
-Combing the bounds we have:
+    Combing the bounds we have, that there is constant $c_{4}$ depending only on  $d,d^{\priime}$ such:
 \begin{equation*}
   \begin{split}
-\prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le S^{2} \left( \sigma p^{\frac{1}{2^{d + 1}} c_{1}} \right)^{\frac{n}{2d}} + S \frac{\left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)^{ n}}{ 1 -  \left( \sigma p^{\frac{1}{2^{d }} c_{1}} \right)} 
+    \prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } \le \le O(S^{2}) p^{c_{4} n} 
+
   \end{split}
 \end{equation*}
-Now, combined with \Cref{claim:intersyn}, there are constants $c_{2}, c_{3}$ depending only on $d, d^{\prime}$ such that with a probability greater than:
+Now, by the union bound over the time steps, with a probability greater than:
 \begin{equation*}
   \begin{split}
-    1 -   O \left( S^{3} \right) \left( c_{3} p^{c_{2}} \right)^{ \frac{n}{2d} } 
+  1 -   O \left( S^{3} \right) p^{ c_{4}n } 
   \end{split}
 \end{equation*}
-No step admits an infinite slice, so the decoder successfully restores the logical state; in other words, no logical error occurs.
+No time admits an infinite subslice at the top level of its corresponding analysis Toom's contour, so the decoder successfully restores the logical state; in other words, no logical error occurs.
 \end{proof}
 The lemma gives the theorem almost immediately. To complete the proof, we need to plug in the initialization phase, which initializes encoded zeros and resource states subjected to local stochastic noise. We emphasize that the resulting states are subjected to local stochastic noise (in addition to the computation). We neither prove nor describe that phase here; instead, we refer to \cite{grospellier:tel-03364419}, \cite{gottesman2014faulttolerant}, \cite{Fawzi_2018}, and \cite{nguyen2025quantumfaulttoleranceconstantspace}.
   \begin{theorem}
