@@ -1,6 +1,6 @@
  \subsection{Minimal Explantation Argument}
  \label{subsection:explantion}
-We are about to prove the main lemma stating that the number of faults causing an occurrence of slice is linear in both the slice's size and the minimal number of edges required to span a Toom's contour that induces it. First, we define the explanation tree of a slice to be the subtree of its history that connects its poles. The relation between the leaves of the subtree and its arrows, forks, and the size of its origin slice is embedded as a requirement in the definition. Then, we prove that, assuming no step admits an infinite reduced error, any slice has an explanation tree.
+We are about to prove the main lemma stating that the number of faults causing an occurrence of slice is linear in both the slice's size and the minimal number of edges required to span a Toom's contour that induces it. First, we define the explanation tree of a slice to be the subtree of its history that connects its poles. The relation between the leaves of the subtree and its arrows, forks, and the size of its origin slice is embedded as a requirement in the definition. Then, we prove that, assuming no time admits an infinite error, any slice has an explanation tree.
   \begin{definition}
     \label{def:explantation}
     Consider a Tooms contour graph induced by Toric encoded circuit, with sweep-cycle parameter $\xi = 1$, and  let $\alpha, \beta$ be constants and $\mathcal{X}_{0}, \mathcal{X}_{1}, \mathcal{X}_{2}, \mathcal{X}_{3} \in \mathbb{R}$ be quadruple, defining such:
@@ -22,21 +22,21 @@ Given sets $W$ of points, $A$ of arrows, and $F$ of forks, we define $U$ as the 
       \item All elements of $W$ are leaves. 
       \item For $m = |W|$ and $s=\Size{K}$ we have $|A| \le \alpha (m - \mathcal{X}_{r}) - \beta s $ and $|F| \le m -1 $. 
     \end{enumerate}
-Furthermore, for a step $\tau$ and a slice $K$ in the analysis of Toom's contour at step $\tau$, with pole selection $v_{1},..,v_{d+1}$, we extend the definition of explanation as above, but require the following weaker inequality instead: For $m = |W|$ and $s = \Size{K}$, we have $|A| \le \alpha (m + 1) - \beta s$ and $|F| < m - 1$.
+Furthermore, for a time $t$ and a subslice $K$ in the analysis of Toom's contour at time $t$, with pole selection $v_{1},..,v_{d+1}$, we extend the definition of explanation as above, but require the following weaker inequality instead: For $m = |W|$ and $s = \Size{K}$, we have $|A| \le \alpha (m + 1) - \beta s$ and $|F| < m - 1$.
   \end{definition}
 
 
   \begin{claim}
     \label{claim:edgesin}
-Let $(P_{1},Q_{1}), \ldots, (P_{\mu+1},Q_{\mu+1})$ be the time Pauli-path that induces Toom's contour. Let $t \le \mu+1$ such that $(P_{1},Q_{1}), \ldots, (P_{t},Q_{t})$ do not admit an infinite reduced error. Every slice $K$, with time coordinate $\Time{K} \le t$, has an explanation. Moreover, if a step $\tau+1$ is the first step to admit an infinite reduced error, then any slice in the analysis of Toom's contour up to step $\tau$ has an explanation.
+Let $P_{1}, \ldots, P_{\mu+1}$ be the Pauli-path that induces Toom's contour. Let $t \le \mu+1$ such that $P_{1}, \ldots, P_{t}$ do not admit an infinite error. Every slice $K$, with time coordinate $\Time{K} \le t$, has an explanation. Moreover, if a time $t$ is the first step to admit an infinite error, then any subslice in the analysis of Toom's contour at time $t$ has an explanation.
   \end{claim}
 
   \begin{proof}
 Let $h = \Time{K} - \min_{u \in \History{K}} \Time{u}$. For slices in a standard Toom's contour, we prove by induction on $h$.
     \begin{enumerate}
-      \item Base: $h=0$, meaning $T$ is constant on $\History{K}$, so no arrows connect points of $\History{K}$. Thus, $\History{K}$, as well as $\mathbf{K}$, consists only of a single leaf, namely $K$ is a result of a fault, and $r = \text{order}(\mathcal{X}_{r}) \in \{0,2\}$. In that case, there is a single vertex $u \in V_{\mathcal{H}}$ such that $U = W = \{u\}$, so $m=1$, $s=0$, and $|A|, |F| = 0$. It is easy to check that those values satisfy the requirement. 
+      \item Base: $h=0$, meaning $T$ is constant on $\History{K}$, so no arrows connect points of $\History{K}$. Thus, $\History{K}$, as well as $K$, consists only of a single leaf, namely $K$ is a result of a fault, and $r = \text{order}(\mathcal{X}_{r}) \in \{0,2\}$. In that case, there is a single vertex $u \in V_{\mathcal{H}}$ such that $U = W = \{u\}$, so $m=1$, $s=0$, and $|A|, |F| = 0$. It is easy to check that those values satisfy the requirement. 
       
-      \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. \inb{\textbf{ If $K$ has an infinite predecessors we can take a subslice of it.}}  Combining this with the fact that no infinite reduced error is admitted, by \Cref{claim:prevslices}, we know that for some $k$ there exist slices $K_{0}, \ldots, K_{k}$ and forks $F_{1}, \ldots, F_{k}$ that satisfy \Cref{claim:prevslices} with respect to the pole selection. In particular, for $r < 3$ it holds that:
+      \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. \inb{\textbf{ If $K$ has an infinite predecessors we can take a subslice of it.}}  Combining this with the fact that no infinite error is admitted, by \Cref{claim:prevslices}, we know that for some $k$ there exist slices $K_{0}, \ldots, K_{k}$ and forks $F_{1}, \ldots, F_{k}$ that satisfy \Cref{claim:prevslices} with respect to the pole selection. In particular, for $r < 3$ it holds that:
         \begin{equation*}
           \begin{split}
             \sum_{i=0}^{k}\Size{K_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{K}  
@@ -100,16 +100,16 @@ The first three inequalities hold by the definitions of the $\mathcal{X}_{r}$, t
         \end{enumerate}
          Finally, by \Cref{claim:prevslices}, the graphs induced by $\mathbf{A}_{i} \cup \mathbf{F}_{i}$ are connected, thus the graph induced by $\mathbf{A}\cup \mathbf{F}$ is also connected. Therefore, $\mathbf{W}, \mathbf{A}, \mathbf{F}$ form an explanation of $K$. 
     \end{enumerate}
-It's left to prove for slices in the analysis of Toom's contours. Notice that the 'forming rules' of the analysis of Toom's contour are different from the standard Toom's contour only at the last layer. Therefore, the induction proof captures all the slices not in the last layer. For any slice at the last layer, we repeat the induction step while using \Cref{claim:shrinkan} instead of \Cref{claim:prevslices}, so the bounding over $\mathbf{A}$'s size becomes:
+It's left to prove for subslices in the top layer of the analysis of Toom's contours. Notice that the 'forming rules' of the analysis of Toom's contour are different from the standard Toom's contour only at the last layer. Therefore, the induction proof captures all the slices not in the last layer. For any subslice at the last layer, we repeat the induction step while using \Cref{claim:prevslicesB} instead of \Cref{claim:prevslices} to relate the subslice to its predecessor slices and use \Cref{claim:shrinkan} to bound the expansion in size.  So the bounding over $\mathbf{A}$'s size becomes:
     \begin{equation*}
       \begin{split}
         |\mathbf{A}|  & \le \alpha \left(m + 1 \right) - \beta s \\ 
-        & + \left( - \alpha (  1 +  \mathcal{X}_{r-1} ) + d+1 -  \mathcal{X}_{r-1} k \alpha + d + d^{\prime} + 1 + \beta k \cdot \Size{\text{fork}} \right)  \\ 
+        & + \left( - \alpha (  1 +  \mathcal{X}_{r-1} ) + d+1 -  \mathcal{X}_{r-1} k \alpha + 2d + \beta k \cdot \Size{\text{fork}} \right)  \\ 
         & \le \alpha \left(m + 1 \right) - \beta s \\ 
-        & + \left( - \alpha  + d+1 -  \mathcal{X}_{r-1} k \alpha + d + d^{\prime} + 1 + \beta k \cdot \Size{\text{fork}} \right)  
+        & + \left( - \alpha  + d+1 -  \mathcal{X}_{r-1} k \alpha + 2d + \beta k \cdot \Size{\text{fork}} \right)  
       \end{split}
     \end{equation*}
-    Where we used the fact that $\mathcal{X}_{r-1} \in (0,1)$ for $r \in \{0,1,2,3\}$. Clearly, the bound is satisfied since $\alpha \ge 2d + d^{\prime} + 1$ and $\mathcal{X}_{r-1} \alpha \ge \beta \cdot \Size{\text{fork}}$.
+    Where we used the fact that $\mathcal{X}_{r-1} \in (0,1)$ for $r \in \{0,1,2,3\}$. Clearly, the bound is satisfied since $\alpha \ge 3d$ and $\mathcal{X}_{r-1} \alpha \ge \beta \cdot \Size{\text{fork}}$.
   \end{proof}
 We summarize by using the linear relation between the leaves of a Toom's contour and the faults that induce it. That gives an upper bound on the probability of a slice occurring when the noise is local stochastic.
   \begin{corollary}
