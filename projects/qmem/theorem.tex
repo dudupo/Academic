@@ -47,59 +47,63 @@ Let $\gamma, \beta \in \mathbb{R}_{>0}$ and $n$ be a positive integer. For any t
   
 The proofs of the claims are given in the appendix. We continue with the proof of the lemma.
   \begin{proof}
-    We construct $\tilde{C}$ as follows: for each input wire of $C$, we initialize the logical zero $\ket{\mathbf{0}}$ of the $(d,d^{\prime})$-Toric code. For each of the gates $\mathbf{H}$ and $\mathbf{S}$, we initialize the encoded $\ket{\mathbf{H}}$ and $\ket{\mathbf{S}}$ states, and for each $\mathbf{T}$, we initialize copies of both $\ket{\mathbf{T}}$ and $\ket{\mathbf{S}}$ states. The even layers of $\tilde{C}$ are sweep cycles, while on the odd layers, we set the realization of the logical gates. For $\mathbf{CX}$, we set the transversal realization, and for $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$, we use gate teleportation. Thus the width of $\tilde{C}$ expands to at most $ (w + 2\mu) n^{2d}$.  For gate teleportation, we use the decoder in \Cref{claim:decodestopnoise}, namely an application of $ n^{d+1}$ sweep cycles, followed by a classical logarithmic depth procedure that infers a logical measurement and might apply a second gate conditioned on it. Therefore, the gate teleportation admits a $\Theta(n^{d+1} + \log n)$ depth-overhead. Thus, the depth of $\tilde{C}$ expands to $\Theta(\mu n^{d+1} )$\footnote{The constant inside the $\Theta$ also accounts for the fact that the realization of a logical gate might contain multiple gate teleportations.}. We will use the decoder in \Cref{claim:decodestopnoise} as our referee (\Cref{def:simu}) and denote it by $D$. Denote by $S$ the number of locations, so $S = O(w \mu^{2} n^{2d(d+1)} )$.
+    We construct $\tilde{C}$ as follows: for each input wire of $C$, we initialize the logical zero $\ket{\mathbf{0}}$ of the $(d,d^{\prime})$-Toric code. For each of the gates $\mathbf{H}$ and $\mathbf{S}$, we initialize the encoded $\ket{\mathbf{H}}$ and $\ket{\mathbf{S}}$ states, and for each $\mathbf{T}$, we initialize copies of both $\ket{\mathbf{T}}$ and $\ket{\mathbf{S}}$ states. The even layers of $\tilde{C}$ are sweep cycles, while on the odd layers, we set the realization of the logical gates. For $\mathbf{CX}$, we set the transversal realization, and for $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$, we use gate teleportation. Thus the width of $\tilde{C}$ expands to at most $ (w + 2\mu) n^{2d}$.  For gate teleportation, we use the decoder in \Cref{claim:decodestopnoise}, namely an application of $ n^{d+1}$ sweep cycles, followed by a classical logarithmic depth procedure that infers a logical measurement and might apply a second gate conditioned on it. Therefore, the gate teleportation admits a $\Theta(n^{2d+1} + \log n)$ depth-overhead. Thus, the depth of $\tilde{C}$ expands to $\Theta(\mu n^{2d+1} )$\footnote{The constant inside the $\Theta$ also accounts for the fact that the realization of a logical gate might contain multiple gate teleportations.}. We will use the decoder in \Cref{claim:decodestopnoise} as our referee (\Cref{def:simu}) and denote it by $D$. Denote by $S$ the number of locations, so $S = O(w \mu^{2} n^{2d(2d+1)} )$.
   
     
 
-    If there is no application in which the decoder fails, then clearly the corrections followed in the gate teleportation procedures are the right ones, namely the logical gates that were applied simulate the gates in the original circuit. To ensure that $D$ succeeds in decoding the output states, it's enough to imagine that there are $n^{d+1}$ additional ideal sweep-cycles at the end and require them to achieve a successful decoding.
+    If there is no application in which the decoder fails, then clearly the corrections followed in the gate teleportation procedures are the right ones, namely the logical gates that were applied simulate the gates in the original circuit. To ensure that $D$ succeeds in decoding the output states, it's enough to imagine that there are $n^{2d+1}$ additional ideal sweep-cycles at the end and require them to achieve a successful decoding.
 
-
-    \Cref{claim:decodestopnoise} states that the $D$ successfully decodes assuming that no infinite slice occurs. And \Cref{claim:replace} states that any upper bound on the occurrence probability of infinite slices, in the running where the decoding procedure is noisy\footnote{Observe that in this setting, the classical procedure that infers a logical measurement makes no sense}, and which assumes only that the noise channel is local stochastic, is sufficient to bound the probability that an infinite slice occurs during the original running. Thus, it remains to prove that with probability at least $q$, no infinite slice is admitted in the setting in which the decoding procedures are also subjected to noise. From now on, we consider that setting.
-
-     
-Let $\alpha = \frac{1}{2}(\Delta d^{2})^{-1}$. \Cref{claim:intersyn} states that the probability of there being a time $t$ (or a step) that admits an infinite slice is bounded by the number of locations multiplied by the probability that step $\tau$ is the first to admit a finite slice at size greater than $\alpha n$, maximized over $\tau$. Notice that if $\tau$ is the first step to admit a finite slice at size greater $\alpha n$, then no prior step to it admits an infinite error, so all the slices in the analysis of Toom's contour at step $\tau$ have an explanation.
-
-
-Denote by $B_{\tau}$ the event where $\tau$ is the first step to admit a finite slice at size greater than $\alpha n$, and by $A_{\tau}$ the event where all explanations of slices up to and including step $\tau$ have fewer than $\frac{n}{d}$ edges. Thus:
-    \begin{equation*}
-      \begin{split}
-        \prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } & =  \prbm{  B_{\tau}  \cap A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } + \prbm{  B_{\tau} \cap \bar{A}_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \\
-      \end{split}
-    \end{equation*}
 
     
-    We begin by bounding the contribution of the right term. Intersection with $B_{\tau}$ guarantees that any slice has an explanation. According to \Cref{coro:edgefaultratio}, there exists a constant $c_{1}$, depending only on $d$, such that the ratio of leaves to edges in the explanation is at least $c_{1}$. By \Cref{claim:big_subtree}, it follows that any such explanation has more than $\frac{n}{d}$ edges containing a subtree with fewer than $\frac{n}{2d}$ edges, with a leaves-to-edges ratio greater than $\frac{1}{2} c_{1}$. Using the union bound, we bound the probability that there is a vertex in the base graph that is a root of such a subtree. Since the construction of the $\infty$-extension sets periodic conditions, it's sufficient to ask if there is such a vertex in the restriction to the finite $n$-side length Toric.
+
+
+    \Cref{claim:decodestopnoise} states that $D$ successfully decodes, assuming that, first, no infinite error occurs and, second, no vertex is connected to a non-trivial translation of itself by arrows.    And \Cref{claim:replace} states that any upper bound on the occurrence probability of at least one of either infinite error or a vertex connecting to its translation, in the running where the decoding procedure is noisy\footnote{Observe that in this setting, the classical procedure that infers a logical measurement makes no sense}, and which assumes only that the noise channel is local stochastic, is sufficient to bound the probability that one of them occurs during the original running.
+
+   
+    Since connectivity by faces in the analysis of Toom's contour implies connectivity by arrows, these two conditions are followed by requiring the slightly stronger restriction that no time $t$ is the first time such that the analysis of Toom's contour at time $t$, namely $\mathcal{H}_{t}$, has a subslice of size at least $n-1$. 
+
+    Thus, it remains to prove that with probability at least $q$, no time $t$ is the first time such $\mathcal{H}_{t}$ has an infinite subslice of size $n-1$ in the setting in which the decoding procedures are also subjected to noise. From now on, we consider that setting.
+
+    
+
+    Denote by $B_{t}$ the event where $t$ is the first time, such there is a subslice, at top level of $\mathcal{H}_{t}$, at size greater than $n-1$, and by $A_{t}$ the event where all explanations of slices up to and including time $t$ have fewer than $\frac{n}{2d}$ edges. Thus:
+    \begin{equation*}
+      \begin{split}
+        \prbm{  B_{t}    }{ \sim \mathcal{N}_{\mathcal{E}} } & =  \prbm{  B_{t}  \cap A_{t}  }{ \sim \mathcal{N}_{\mathcal{E}} } + \prbm{  B_{t} \cap \bar{A}_{t}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \\
+      \end{split}
+    \end{equation*}
+    We begin by bounding the contribution of the right term. Intersection with $B_{t}$ guarantees that any slice, or a subslice at top layer, has an explanation. According to \Cref{coro:edgefaultratio}, there exists a constant $c_{1}$, depending only on $d$, such that the ratio of leaves to edges in the explanation is at least $c_{1}$. By \Cref{claim:big_subtree}, it follows that any such explanation has more than $\frac{n}{2d}$ edges containing a subtree with fewer than $\frac{n}{4d}$ edges, with a leaves-to-edges ratio greater than $\frac{1}{2} c_{1}$. Using the union bound, we bound the probability that there is a vertex in the base graph that is a root of such a subtree. Since the construction of the $\infty$-extension sets periodic conditions, it's sufficient to ask if there is such a vertex in the restriction to the finite $n$-side length Toric.
   \begin{equation*}
     \begin{split}
       \prbm{  \bar{A}_{\tau} \cap B_{\tau}   }{ \sim \mathcal{N}_{\mathcal{E}} }  \le  \bigcup_{ \substack{ v \in V_{o}, \tau^{\prime} \le \tau \\ L_{g}(v) \in [0,n]} } \prbm{ & v \text{ is a root of subtree in } \mathcal{H}_{\tau^{\prime}}  \\ 
-      &  \text{ with less than  } \frac{n}{2d} \text{ edges and more than } \frac{1}{2}c_{1} \frac{n}{2d} n \text{ leaves}  }{ \sim \mathcal{N}_{\mathcal{E}} } 
+      &  \text{ with less than  } \frac{n}{4d} \text{ edges and more than } \frac{1}{2}c_{1} \frac{n}{4d} \text{ leaves}  }{ \sim \mathcal{N}_{\mathcal{E}} } 
     \end{split}
   \end{equation*}
     Now, since any two connected vertices are at a space distance of at most 
     \begin{equation*}
       \begin{split}
-        \max\{\Size{\text{arrow}}, \Size{\text{fork}}\} \le d^{\prime},d-d^{\prime} \le d
+        \max\{\Size{\text{arrow}}, \Size{\text{fork}}\}  \le 2d
       \end{split}
     \end{equation*}
     It follows that all the vertices in the subtree are at a space distance of at most $\frac{1}{2} n$ from each other. Thus, no two of them have the same space coordinate modulo $n$. In particular, projecting the infinite plane back to the finite Toric sends each of the leaves of the subtree to a unique target, and therefore the number of faults that induce the explanation is at least:
     \begin{equation*}
       \begin{split}
-        \frac{1}{2^{\max\{d^{\prime}, d - d^{\prime}\}}} \frac{1}{4} c_{1} \frac{n}{d} \ge \frac{1}{2^{d}} \frac{1}{2} c_{1} \alpha \frac{n}{d} 
+        \frac{1}{2^{\max\{d^{\prime}, d - d^{\prime}\}}} \frac{1}{2} \frac{1}{2}c_{1} \frac{n}{4d} \ge \frac{1}{2^{d+4}} c_{1} \frac{n}{d} 
       \end{split}
     \end{equation*}
 Plugging into the union bounds and combining \Cref{claim:counting_trees} yields:
     \begin{equation*}
       \begin{split}
-        \prbm{  \bar{A}_{\tau} \cap B_{\tau}   }{ \sim \mathcal{N}_{\mathcal{E}} }  \le \tau S \sigma^{  \frac{n}{2d} } p^{ \frac{c_{1}n}{2^{d+2} d } }\le S^{2} \left( \sigma p^{\frac{1}{2^{d + 1}} c_{1}} \right)^{\frac{n}{2d}} 
+        \prbm{  \bar{A}_{t} \cap B_{t}   }{ \sim \mathcal{N}_{\mathcal{E}} }  \le t S \sigma^{  \frac{n}{4d} } p^{ \frac{c_{1}n}{2^{d+4} d } }\le S^{2} \left( \sigma p^{\frac{1}{2^{d + 2}} c_{1}} \right)^{\frac{n}{4d}} 
       \end{split}
     \end{equation*}
 
-    It remains to bound the probability of $B_{\tau} \cap A_{\tau}$. Since prior to, and including step $\tau$, no step admits an slice at size greater than or equal to $n$, it follows that any slice has an explanation (\Cref{claim:edgesin}). Confining to the event $A_{\tau}$, any explanation implies that any explanation has fewer than $\frac{n}{d}$ edges and therefore, by the same argument as above, the projection of each explanation tree into the finite Toric sends its leaves to unique targets.
+    It remains to bound the probability of $B_{t} \cap A_{t}$. Since prior to, and including time $t$, no time admits an infinite error, it follows that any slice (or a sublice at the top level of $\mathcal{H}_{t}$) has an explanation (\Cref{claim:edgesin}). Confining to the event $A_{t}$, any explanation implies that any explanation has fewer than $\frac{n}{2d}$ edges and therefore, by the same argument as above, the projection of each explanation tree into the finite Toric sends its leaves to unique targets.
 
-    Using \Cref{claim:edgesin} again, any explanation of a slice of size $\alpha n$ has at least $c_{1} \alpha n$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{\tau}$ admits an explanation with more than $c_{1}\alpha n$ edges. Hence, we obtain:
+    Using \Cref{claim:edgesin} again, any explanation of a slice of size $\alpha n$ has at least $c_{1} \alpha n$ edges. Therefore, it suffices to bound the probability that the 'analysis Toom's contour', $\mathcal{H}_{t}$ admits an explanation with more than $c_{1}\alpha n$ edges. Hence, we obtain:
     \begin{equation*}
       \begin{split}
-        \prbm{  B_{\tau}  \cap A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ \substack{ v \in V_{o}, x \ge c_{1}\alpha n \\ L_{g}(v) \in [0,n]} } \prbm{ v \text{ is a root of explanation with number of edges } x \\ 
+        \prbm{  B_{t}  \cap A_{t}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ \substack{ v \in V_{o}, x \ge c_{1}\alpha n \\ L_{g}(v) \in [0,n]} } \prbm{ v \text{ is a root of explanation with number of edges } x \\ 
           & \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \    \ \ \text{ and leaves are projected to different targets  }  }{ \sim \mathcal{N}_{\mathcal{E}} } 
             \end{split}
           \end{equation*}
@@ -126,7 +130,7 @@ No step admits an infinite slice, so the decoder successfully restores the logic
 The lemma gives the theorem almost immediately. To complete the proof, we need to plug in the initialization phase, which initializes encoded zeros and resource states subjected to local stochastic noise. We emphasize that the resulting states are subjected to local stochastic noise (in addition to the computation). We neither prove nor describe that phase here; instead, we refer to \cite{grospellier:tel-03364419}, \cite{gottesman2014faulttolerant}, \cite{Fawzi_2018}, and \cite{nguyen2025quantumfaulttoleranceconstantspace}.
   \begin{theorem}
     \label{theorem:main}
-    There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{E}$ with rate $p < p_{0}$, and a quantum circuit $C$ with depth $\mu$ and width $w$, there exists a Toric encoded circuit $\tilde{C}$, with depth $\Theta(\mu n^{5} + \text{ Polylog}(n) )$ and width $\Theta((w + \mu) n^{8} \text{ Polylog}(n) )$  that simulates $C$ with probability: 
+    There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{E}$ with rate $p < p_{0}$, and a quantum circuit $C$ with depth $\mu$ and width $w$, there exists a Toric encoded circuit $\tilde{C}$, with depth $\Theta(\mu n^{9} + \text{ Polylog}(n) )$ and width $\Theta((w + \mu) n^{8} \text{ Polylog}(n) )$  that simulates $C$ with probability: 
 \begin{equation*}
   \begin{split}
     1 -   O \left( \text{poly}(w,\mu,n) \right)  p^{\Omega(n)} 
