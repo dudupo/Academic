@@ -42,28 +42,27 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
 
 
 
-
-
+\inb{\textbf{Consider whether it's steel necessary and if not then delete it.}}
 \begin{definition} 
 Consider a quantum circuit $C$, where all its quantum registers are encoded with the Toric code with a side of length $n$, and a set of faults $\mathcal{E}$, such that $C[\mathcal{E}]$ has depth $\mu$, width $w$, and a total number of steps $\tau_{f}$. Let $\tau$ be a step, and denote by $g$ the gate applied at that step. We say that step $\tau$ closes a time unit if it's the maximal step among the steps whose gate shares the same time value as $g$. We will say that the subset of Pauli tuples $(P_{1},Q_{1}), \ldots, (P_{\mu+1},Q_{\mu+1}) \in \mathcal{P}^{[w]} \times \mathcal{P}^{[w]}$ is a time Pauli-path of $C[\mathcal{E}]$ if $(P_{1},Q_{1}), \ldots, (P_{\mu+1},Q_{\mu+1})$ is obtained from taking a Pauli-path and filtering from it only the tuples associated with steps that close a time unit.
 
   We extend the notation to time Pauli-path up to step $\tau$ by considering the quantum circuit obtained from $C[\mathcal{E}]$ by taking all the gates at steps lower than or equal to $\tau$. A time Pauli-path of that circuit is a time Pauli-path up to step $\tau$ of the original circuit.
 \end{definition} 
 
-For a time Pauli-path $(P_{1},Q_{1}),..,(Q_{\mu+1},P_{\mu+1})$, the Toom's contour is the restriction of the base graph to vertices that witness a deviation, namely, those that belong to qubits supporting $Q_{1},P_{2},..,P_{\mu+1}$. 
+For a time Pauli-path $(P_{1},..,P_{\mu+1}$, the Toom's contour is the restriction of the base graph to vertices that witness a deviation, namely, those that belong to qubits supporting $P_{1},P_{2},..,P_{\mu+1}$. 
 
 
 \begin{definition}[Toom's Contour Graph of $C(\mathcal{E})$, (Standard form)]
     \label{def:contour}
-    For a Toric encoded quantum circuit $C$, set of faults $\mathcal{E}$ and a time Pauli-path $(P_{1},Q_{1}),..$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. We define the \textit{Toom's contour graph} $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
+    For a Toric encoded quantum circuit $C$, set of faults $\mathcal{E}$ and a Pauli-path $P_{1},..$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. We define the \textit{Toom's contour graph} $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
     \begin{enumerate}
-      \item The vertices $V_{\mathcal{H}} = V_{\mathcal{H}, X} \cup V_{\mathcal{H}, Z}$ correspond to vertices of faces supporting the reduced elements of the time Pauli-path. They consist of the triple $(v,t,\cdot)$ where $(v,t)$ is a vertex of the base graph, and the third is a symbolic coordinate that is either $\{X\}$ or $\{Z\}$ corresponding to the component of the Pauli that $v$ supports at time $t$.
+      \item The vertices $V_{\mathcal{H}} = V_{\mathcal{H}, X} \cup V_{\mathcal{H}, Z}$ correspond to vertices of faces supporting the Pauli-path. They consist of the triple $(v,t,\cdot)$ where $(v,t)$ is a vertex of the base graph, and the third is a symbolic coordinate that is either $\{X\}$ or $\{Z\}$ corresponding to the component of the Pauli that $v$ supports at time $t$.
         \begin{equation*}
           \begin{split}
             V_{\mathcal{H}, X} \colonequals & \big\{ v_{t} \times \{X\} : v_{t}=(v,t) \in V_{o} \\
-            & \, \, \, \text{ and there exists a face } f \in \text{ supp } X(Q_{t}) \text{ such } v \in f \big\} \\
+            & \, \, \, \text{ and there exists a face } f \in \text{ supp } X(P_{t}) \text{ such } v \in f \big\} \\
              V_{\mathcal{H}, Z} \colonequals & \big\{ v_{t} \times \{Z\} : v_{t}=(v,t) \in V_{o} \\
-             & \, \, \, \text{ and there exists a face } f \in \text{ supp } Z(Q_{t}) \text{ such } v \in \phi(f) \big\} 
+             & \, \, \, \text{ and there exists a face } f \in \text{ supp } Z(P_{t}) \text{ such } v \in \phi(f) \big\} 
           \end{split}
         \end{equation*}
 
@@ -141,33 +140,33 @@ Such intuition is right in the sense that this is the right way to keep track of
 
 
 
-For the analyses, we would like to extend Toom's contour to record in their final layer a partial time-step, namely a computation up to a certain step \Cref{def:steps}. For this, we substitute in the definition above the time Pauli-path with a time Pauli-path up to a step. Moreover, since we would like to refer to the connected chain at the final layer as the 'final error clusters', we add at the end a layer whose purpose is to connect in time (by arrows) the connected components of Toom's contour in the prior layer, which are connected by checks (their union is identified with a connected chain).
-\begin{definition}[Analysis Toom's Contour at Step $\tau$]
-  For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, and a step $\tau$, according to the standard order, let $C[\mathcal{E}]_{\tau}$ be the partial computation circuit of $C[\mathcal{E}]$ up to step $\tau$. We define the \textit{analysis Toom's contour at step $\tau$}, denoted by $\mathcal{H}_{\tau} = (V_{\mathcal{H}}, E_{\mathcal{H}})$, to be the graph obtained by taking the Toom's contour of $C[\mathcal{E}]_{\tau}$ and adding vertices and edges as follows:
+\inb{\textbf{Rewrite. }} For the analyses, we would like to extend Toom's contour to record in their final layer a partial time-step, namely a computation up to a certain step \Cref{def:steps}. For this, we substitute in the definition above the Pauli-path with a Pauli-path up to a time \inb{\textbf{Prefix?}}. Moreover, since we would like to refer to the connected chain at the final layer as the 'final error clusters', we add at the end a layer whose purpose is to connect in time (by arrows) the connected components of Toom's contour in the prior layer, which are connected by checks (their union is identified with a connected chain).
+\begin{definition}[Analysis Toom's Contour at Time $t$]
+  For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, and a time $t$, according to the standard order, let $C[\mathcal{E}]_{t}$ be the partial computation circuit of $C[\mathcal{E}]$ up to time $t$. We define the \textit{analysis Toom's contour at time $t$}, denoted by $\mathcal{H}_{t} = (V_{\mathcal{H}}, E_{\mathcal{H}})$, to be the graph obtained by taking the Toom's contour of $C[\mathcal{E}]_{t}$ and adding vertices and edges as follows:
   \begin{enumerate}
-    \item We define $t^{\star}$ as the time of the gate at step $\tau$ plus one, and then add for the vertices in $V_{\mathcal{H},\{X\}}$ the duplication of the previous layer, namely the subset:
+    \item We add for the vertices in $V_{\mathcal{H},\{X\}}$ the duplication of the previous layer, namely the subset:
       \begin{equation*}
           \begin{split}
-            \bigl\{ v_{t^{\star}}  & : v_{t^{\star}}=( v,t^{\star},\{X\}  ) \text{ if there exists a face } f \in \text{ supp } X(Q_{t^{\star}-1}) \\ 
-            & \text{ such } v \in f \in X(Q_{t^{\star} - 1}) \bigr\} 
+            \bigl\{ v_{t+1}  & : v_{t+1}=( v,t+1,\{X\}  ) \text{ if there exists a face } f \in \text{ supp } X(P_{t}) \\ 
+            & \text{ such } v \in f \in X(P_{t}) \bigr\} 
           \end{split}
         \end{equation*}
         Similarly we add to $V_{\mathcal{H}, Z}$ the subset: 
       \begin{equation*}
           \begin{split}
-            \bigl\{ v_{t^{\star}}  & : v_{t^{\star}}=(  v,t^{\star},\{Z\} ) \text{ if there exists a face } f \in \text{ supp } Z(Q_{t^{\star}-1}) \\
+            \bigl\{ v_{t+1}  & : v_{t+1}=(  v,t+1,\{Z\} ) \text{ if there exists a face } f \in \text{ supp } Z(P_{t}) \\
             & \text{ such } v \in \phi(f) \bigr\} 
           \end{split}
         \end{equation*}
       \item For the edges, we add the following arrows:
         \begin{equation*}
           \begin{split}
-            \bigl\{ \bigl\{ \tilde{u} & = (u,t^{\star} -1, \cdot ),  \tilde{v}= (v,t^{\star},\cdot)  \bigr\}  \text{ if  either there exists }\\ 
+            \bigl\{ \bigl\{ \tilde{u} & = (u,t+1 -1, \cdot ),  \tilde{v}= (v,t+1,\cdot)  \bigr\}  \text{ if  either there exists }\\ 
            & \text{ a } d^{\prime}-1  \text{ dimensional face } f  \text{such } \tilde{u},\tilde{v} \in V_{\mathcal{H},X} \text{ and } u,v \in f  \\
           & \text{or there exists a } d - d^{\prime}-1  \text{ dimensional face } f \text{ such } \tilde{u},\tilde{v} \in V_{\mathcal{H},Z} \text{ and } v,u \in \phi^{-1}(f)   \bigr\}  
           \end{split}
         \end{equation*}
-      \item Finally, we add forks for vertices at time $t^{\star}$ to preserve the property that any two vertices with the same time coordinate, which are connected to a third (with a $+1$ higher time coordinate) via arrows, are also connected by a fork.
+      \item Finally, we add forks for vertices at time $t+1$ to preserve the property that any two vertices with the same time coordinate, which are connected to a third (with a $+1$ higher time coordinate) via arrows, are also connected by a fork.
   \end{enumerate}
 
 
