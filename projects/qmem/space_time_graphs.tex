@@ -200,7 +200,7 @@ The distinction between slices resulting from different layers allows us to adju
 
   \begin{corollary}
     \label{claim:shrinkslice}
-    For a Toom's contour, suppose that the reduced Pauli-path, that induces it, does not admit an infinite slice. Consider a slice $K$ in it, and selection of poles $v_{1},..,v_{d+1}$, such that $K \neq H_{K}$. Since $K \neq H_{K}$, it follows that $K$ has a predecessor decomposition with respect to $v_{1},..,v_{d+1}$, denoted by $K_{0}, \ldots, K_{k}, F_{1}, \ldots, F_{k}$. The inequality in \Cref{claim:prevslices} becomes:
+    \inb{\textbf{ 'Errors vs Slices' does matter here.}} For a Toom's contour, suppose that the Pauli-path, that induces it, does not admit an infinite error. Consider a slice $K$ in it, and selection of poles $v_{1},..,v_{d+1}$, such that $K \neq H_{K}$. Since $K \neq H_{K}$, it follows that $K$ has a predecessor decomposition with respect to $v_{1},..,v_{d+1}$, denoted by $K_{0}, \ldots, K_{k}, F_{1}, \ldots, F_{k}$. The inequality in \Cref{claim:prevslices} becomes:
     \begin{enumerate}
       \item If $K$ is a result of a sweep-cycle, then:
         \begin{equation*}
@@ -219,9 +219,22 @@ The distinction between slices resulting from different layers allows us to adju
   \begin{proof}
 First, since the arrows and forks connection rules do not allow vertices of $V_{\mathcal{H},X}$ to connect to vertices of $V_{\mathcal{H},Z}$, we can assume that $K \subset V_{\mathcal{H},X}$. Let us split upon what $K$ results from:
     \begin{enumerate}
-        \item For the sweep-cycle part, we use \Cref{claim:polesmove}, which states that after each application of the sweep-cycle over a finite-size assignment, the maximal $L_{d+1}$ value of the resulting reduced error decreases by at least one, while the values of each $L_{g}$ do not increase. Since no infinite slice is admitted, we have that the chain supported on the vertices of $K_{0}, \ldots, K_{k}$ is finite, and therefore its size decreases.
+      \item For the sweep-cycle part, we use \Cref{claim:polesmove}, which states that an application of the sweep-cycle over a finite reduced chain, the maximal $L_{d+1}$ value of the resulting chain decreases by at least one, while the values of each $L_{g}$ do not increase. Denote by $x,\tilde{x} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ the connected chains such $x$ contains the $d^{\prime}+1$th predecessor $\predd{ v_{d+1} }$, and $\tilde{x}$ is it's reduced form. Without loss of generality, we can pick $x$ and $\tilde{X}$ such $\predd{ v_{d+1} } \in \tilde{x}$ (Otherwise, $\predd{ v_{d+1} }$ wouldn't be arrow connected to $K$). Thus, 
+        \begin{equation*}
+          \begin{split}
+            L_{d+1}( v_{d+1}) \le  L_{d+1}( \predd{v_{d+1} } ) + 1
+          \end{split}
+        \end{equation*}
+        Same arguments give that, for any $i \in [d]$: 
+        \begin{equation*}
+          \begin{split}
+            L_{i}( v_{i}) \le  L_{i}( \prei{v_{i} } ) 
+          \end{split}
+        \end{equation*}
+        And combining the inequalities gives the desired.  
+        
         \item If $K$ is a result of faults, then it cannot contain a vertex that supports an $X$-fault. That is because no arrow connection is made in that case, and hence, if it were to contain a vertex that supports a $X$-fault, that vertex would be the only one in $K$, namely $K = H_{K}$. So, we can imagine that all the vertices in $K$ support the identity operator (or $Z$-faults, which are treated as identity for vertices in $V_{\mathcal{H},X}$) and handle that case as a result of a logical operator.
-          \item Where $K$ is the result of a logical operator, we use that the operators are transversal, so we have that the support of $K$ is contained in the support of $\cup_{0}^{k} K_{i}$, and therefore for any $i \in [d+1]$:
+          \item Where $K$ is the result of a logical operator, we use that the operators are transversal, so we have that the support $K$ is contained in the support of $\cup_{0}^{k} K_{i}$, and therefore for any $i \in [d+1]$:
         \begin{equation*}
           \begin{split}
             \max \bigl\{ L_{i}(v) : v \in K \} \le \max \bigl\{ L_{i}(v) : v \in \bigcup_{i=0}^{k}K_{i} \} 
@@ -231,22 +244,22 @@ First, since the arrows and forks connection rules do not allow vertices of $V_{
   \end{proof}
 
   
-  The following claim extends the corollary to slices at the final layer of an \textit{analysis Toom's contour at step $\tau$}.
+  The following claim extends the corollary to slices at the final layer of an \textit{analysis Toom's contour at time $t$}.
   \begin{claim}
     \label{claim:shrinkan}
-For a step $\tau$, let $\mathcal{H}_{\tau}$ be Toom's contour analysis at step $\tau$, and let $t^{\star}$ be the maximal time at that contour. Assume that the reduced Pauli-path that induces $\mathcal{H}_{\tau}$ does not admit an infinite error. Then, for a slice $K$ and selection for its poles $v_{1}, \ldots, v_{d+1}$ such that $T(K) = t^{\star}$ and $K \neq H_{K}$, the inequality in \Cref{claim:prevslices} becomes:
+    For a time $t$, let $\mathcal{H}_{t}$ be Toom's contour analysis at time $t$. Assume that the reduced Pauli-path that induces $\mathcal{H}_{t}$ does not admit an infinite error. Then, for a slice $K$ and selection for its poles $v_{1}, \ldots, v_{d+1}$ such that $T(K) = t+1$ and $K \neq H_{K}$, the inequality in \Cref{claim:prevslices} becomes:
         \begin{equation*}
           \begin{split}
-            \sum_{i=0}^{k}\Size{K_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{K} - d - d^{\prime} - 1 
+            \sum_{i=0}^{k}\Size{K_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{K} - 2d 
           \end{split}
         \end{equation*}
   \end{claim}
   \begin{proof}
-    We allow vertices at the final time layer to be connected by an arrow if their counterpart on the skeleton shares a check. Therefore, for any $i \in [d]$, the value of $L_{i}$ for $v_{i}$ might be greater by at most 1 than the value of $\prei{v_{i}}$, and the $L_{d+1}$ for $v_{d+1}$ might be greater by at most $d^{\prime} + 1$ than the value of the $d+1$ pole of $K$. Hence, overall, we get that:
+We allow vertices of $V_{\mathcal{H},X}$ at the final time layer to be connected by an arrow if their counterpart on the skeleton shares an $X$-check, namely a $d^{\prime}-1$ dimensional face. Similarly, two vertices of $V_{\mathcal{H}, Z}$, such that one of them is at the top layer, are connected if their images in the map $\psi^{-1}$ share an $X$-check in the dual code, namely a $d-d^{\prime}-1$ dimensional face. Therefore, for any $i \in [d]$, the value of $L_{i}$ for $v_{i}$ might be greater by at most 1 than the value of $\prei{v_{i}}$, and the $L_{d+1}$ for $v_{d+1}$ might be greater by at most $\max\{ d^{\prime} - 1, d - d^{\prime} - 1 \}$ than the value of the $d+1$ pole of $K$. Hence, overall, we get that:
     \begin{equation*}
       \begin{split}
-        \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) & \ge \sum_{i=1}^{d}\bigl( L_{i}\left( v_{i} \right) - 1 \bigr) + L_{d+1}(v_{d+1}) - \max\{ d^{\prime} + 1, d^{\prime}-1\}  \\ 
-        & = \Size{K} - d - d^{\prime} - 1 
+        \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) & \ge \sum_{i=1}^{d}\bigl( L_{i}\left( v_{i} \right) - 1 \bigr) + L_{d+1}(v_{d+1}) - \max\{ d^{\prime} - 1, d - d^{\prime}-1\}  \\ 
+        & \ge  \Size{K} - 2d
       \end{split}
     \end{equation*}
   \end{proof}
