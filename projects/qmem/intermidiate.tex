@@ -17,7 +17,7 @@ We extend the notion to Paulis in finite spaces (for example, Paulis on the circ
 \end{definition}
 
 \begin{definition}
-  \label{def:paulipath}
+%  \label{def:paulipath}
   Consider a quantum circuit subjected to noise $C[\mathcal{E}]$, with width $w$ and a total number of steps $\tau_{f}$, whose registers are all encoded in the $(d,d^{\prime})$-Toric code with side length $n$ such that $C[\mathcal{E}]$ has an $\infty$-extension. We say that the set of Pauli tuples $\{ (P_{i},Q_{i}) \}_{1}^{\tau_{f}}$, where for each $i$, $(P_{i},Q_{i}) \in \mathcal{P}^{[w]} \times \mathcal{P}^{[w]}$, is a Pauli-path for $C[\mathcal{E}]$. If $P_{1}$ is the identity and: 
   \begin{equation*}
     \begin{split}
@@ -27,6 +27,38 @@ We extend the notion to Paulis in finite spaces (for example, Paulis on the circ
   \end{equation*}
   If there is a Pauli-path $(P_{1},Q_{1}),..,(P_{\tau_{f}},Q_{\tau_{f}})$ such that $P_{\tau}$ is infinite, then we say that $\tau$ admits an infinite error. Similarly, if $Q_{\tau}$ is infinite, then we say that $\tau$ admits an infinite reduced error. 
 \end{definition}
+
+
+
+
+\begin{definition}
+  \label{def:paulipath}
+  Consider a quantum circuit subjected to noise $C[\mathcal{E}]$, with width $w$ and depth $\mu$, whose registers are all encoded in the $(d,d^{\prime})$-Toric code with side length $n$ such that $C[\mathcal{E}]$ has an $\infty$-extension. We say that the set of Pauli $\{ (P_{i}) \}_{1}^{\mu+1}$, where for each $i$, $P_{i} \in \mathcal{P}^{[w]}$, is a Pauli-path for $C[\mathcal{E}]$. If $P_{1}$ is the identity and for any $t \in [\mu]$, the Pauli $P_{t+1}$ is defined such it satisfies the follow:  
+\begin{itemize}
+  \item If $C[\mathcal{E}]|_{t}$ is not a sweep-cycles layer, then: 
+  \begin{equation*}
+    \begin{split}
+      & P_{t+1} \in C|_{t} \circ P_{t} 
+    \end{split}
+  \end{equation*}
+\item Else, namely if $C[\mathcal{E}]|_{t}$ is a sweep-cycles layer, then first set the Pauli $Q$ to be the reduced form of $P_{t}$ and then:
+  \begin{equation*}
+    \begin{split}
+      & P_{t+1} \in C|_{t} \circ Q =  C|_{t} \circ \bigl( \text{ reduce form of } P_{t}\bigr)  
+    \end{split}
+  \end{equation*}
+\end{itemize}
+
+  \begin{equation*}
+    \begin{split}
+      & P_{i+1} \in g_{i} \circ Q_{i} \\
+      & Q_{i+1} \leftarrow \text{ reduce form of } P_{i+1}
+    \end{split}
+  \end{equation*}
+  If there is a Pauli-path $(P_{1},Q_{1}),..,(P_{\tau_{f}},Q_{\tau_{f}})$ such that $P_{\tau}$ is infinite, then we say that $\tau$ admits an infinite error. Similarly, if $Q_{\tau}$ is infinite, then we say that $\tau$ admits an infinite reduced error. 
+\end{definition}
+
+
 
 %
 %
