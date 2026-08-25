@@ -36,19 +36,19 @@ Let $h = \Time{K} - \min_{u \in \History{K}} \Time{u}$. For slices in a standard
     \begin{enumerate}
       \item Base: $h=0$, meaning $T$ is constant on $\History{K}$, so no arrows connect points of $\History{K}$. Thus, $\History{K}$, as well as $K$, consists only of a single leaf, namely $K$ is a result of a fault, and $r = \text{order}(\mathcal{X}_{r}) \in \{1,3\}$. In that case, there is a single vertex $u \in V_{\mathcal{H}}$ such that $U = W = \{u\}$, so $m=1$, $s=0$, and $|A|, |F| = 0$. It is easy to check that those values satisfy the requirement. 
       
-      \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. Combining this with the fact that no infinite error is admitted, by \Cref{claim:prevslices}, we know that for some $k$ there exist slices $K_{0}, \ldots, K_{k}$, pole selections for them, and forks $F_{1}, \ldots, F_{k}$ that satisfy \Cref{claim:prevslices} with respect to the pole selection. In particular, for $r \neq 0$ it holds that:
+      \item Induction Step: $h \neq 0$ implies $K \neq \History{K}$. Combining this with the fact that no infinite error is admitted, by \Cref{claim:prevslices}, we know that for some $k$ there exist slices $K_{0}, \ldots, K_{k}$, pole selections for them, and forks $F_{1}, \ldots, F_{k}$ that satisfy \Cref{claim:prevslices} with respect to the pole selection. In particular, denote by $z_{j}^{1},..,z_{j}^{d+1}$ the pole selection for $K_{j}$. Then, for $r \neq 0$ it holds that:
         \begin{equation*}
           \begin{split}
-            \sum_{i=0}^{k}\Size{K_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{K}  
+            \sum_{j=0}^{k}\sum_{i=1}^{d+1}L_{i}(z_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge s  
           \end{split}
         \end{equation*}
         Whereas, for $r=0$: 
         \begin{equation*}
           \begin{split}
-            \sum_{i=0}^{k}\Size{K_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{K} + \xi = \Size{K} + 1 
+            \sum_{j=0}^{k}\sum_{i=1}^{d+1}L_{i}(z_{j}^{i})+  \sum^{k}_{i=1}\Size{F_{i}} \ge s + \xi = s + 1 
           \end{split}
         \end{equation*}
-Consider $i \in \{0, \ldots, k\}$, and denote $s_{i} = \Size{K_{i}}$. By the inductive hypothesis and since $\Time{K_{i}} = \Time{K} - 1$, we know that for $K_{i}$ and its selected poles, there is an explanation formed by a set of leaves $\mathbf{W}_{i}$, a set of arrows $\mathbf{A}_{i}$, and a set of forks $\mathbf{F}_{i}$. Let $m_{i} = |\mathbf{W}_{i}|$. Thus, the sets $\mathbf{A}_{i}$ and $\mathbf{F}_{i}$ have at most $\alpha (m_{i} - \mathcal{X}_{r-1}) - \beta s_{i}$ arrows and $m_{i} - 1$ forks. We define:
+Consider $i \in \{0, \ldots, k\}$, and denote $s_{j} = \sum_{i}^{d+1}L_{i}(z_{j}^{i})$. By the inductive hypothesis and since $\Time{K_{i}} = \Time{K} - 1$, we know that for $K_{i}$ and its selected poles $z_{i}^{1}, \ldots, z_{i}^{d+1}$, there is an explanation formed by a set of leaves $\mathbf{W}_{i}$, a set of arrows $\mathbf{A}_{i}$, and a set of forks $\mathbf{F}_{i}$. Let $m_{i} = |\mathbf{W}_{i}|$. Thus, the sets $\mathbf{A}_{i}$ and $\mathbf{F}_{i}$ have at most $\alpha (m_{i} - \mathcal{X}_{r-1}) - \beta s_{i}$ arrows and $m_{i} - 1$ forks. We define:
         \begin{enumerate}
           \item $\mathbf{W} = \cup_{i=0}^{k} \mathbf{W}_{i}$, Notice that $\mathbf{W}_{i} \subset K_{i}$ and that $\Time{K_{i}} = \Time{K_{j}}$ for all $i,j$, thus by \Cref{claim:disj} $\mathbf{W}$ is a union of disjoint set, Hence $W$ contains  $m = \sum_{i=0}^{k}m_{i}$ leaves. 
           \item $\mathbf{F} = \{ F_{1},..,F_{k} \} \cup_{i = 0}^{k}\mathbf{F}_{i}$ with at most $ k + \sum_{i=0}^{k}{m_{i} -1 } = m- 1$ elements. 
