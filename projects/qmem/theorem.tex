@@ -60,19 +60,18 @@ The proofs of the claims are given in the appendix. We continue with the proof o
     \Cref{claim:decodestopnoise} states that $D$ successfully decodes, assuming that, first, no infinite error occurs and, second, no vertex is connected to a non-trivial translation of itself by arrows.    And \Cref{claim:replace} states that any upper bound on the occurrence probability of at least one of either infinite error or a vertex connecting to its translation, in the running where the decoding procedure is noisy\footnote{Observe that in this setting, the classical procedure that infers a logical measurement makes no sense}, and which assumes only that the noise channel is local stochastic, is sufficient to bound the probability that one of them occurs during the original running.
 
    
-    Since connectivity by faces in the analysis of Toom's contour implies connectivity by arrows, these two conditions are followed by requiring the slightly stronger restriction that no time $t$ is the first time such that the analysis of Toom's contour at time $t$, namely $\mathcal{H}_{t}$, has a subslice of size at least $n-1$. 
+    Since connectivity by faces in the analysis of Toom's contour implies connectivity by arrows, these two conditions are followed by requiring the slightly stronger restriction that no time $t$ is the first time such that the analysis of Toom's contour at time $t$, namely $\mathcal{H}_{t}$, has an infinite slice. 
 
-    Thus, it remains to prove that with probability at least $q$, no time $t$ is the first time such $\mathcal{H}_{t}$ has an infinite subslice of size $n-1$ in the setting in which the decoding procedures are also subjected to noise. From now on, we consider that setting.
+    Thus, it remains to prove that with probability at least $q$, no time $t$ is the first time such $\mathcal{H}_{t}$ has an infinite slice of in the setting in which the decoding procedures are also subjected to noise. From now on, we consider that setting.
 
     
-
-    Denote by $B_{t}$ the event where $t$ is the first time, such there is a subslice, at top level of $\mathcal{H}_{t}$, at size greater than $n-1$, and by $A_{t}$ the event where all explanations of slices up to and including time $t$ have fewer than $\frac{n}{2d}$ edges. Thus:
+Denote by $B_{t}$ the event where $t$ is the first time such that $\mathcal{H}_{t}$ has an infinite slice, and by $A_{t}$ the event where all explanations of slices (and any of their pole selections) in $\mathcal{H}_{t}$ have fewer than $\frac{n}{2d}$ edges. Using the conditional probability formula, we have:
     \begin{equation*}
       \begin{split}
         \prbm{  B_{t}    }{ \sim \mathcal{N}_{\mathcal{E}} } & =  \prbm{  B_{t}  \cap A_{t}  }{ \sim \mathcal{N}_{\mathcal{E}} } + \prbm{  B_{t} \cap \bar{A}_{t}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \\
       \end{split}
     \end{equation*}
-    We begin by bounding the contribution of the right term. Intersection with $B_{t}$ guarantees that any slice, or a subslice at top layer, has an explanation. According to \Cref{coro:edgefaultratio}, there exists a constant $c_{1}$, depending only on $d$, such that the ratio of leaves to edges in the explanation is at least $c_{1}$. By \Cref{claim:big_subtree}, it follows that any such explanation has more than $\frac{n}{2d}$ edges containing a subtree with fewer than $\frac{n}{4d}$ edges, with a leaves-to-edges ratio greater than $\frac{1}{2} c_{1}$. Using the union bound, we bound the probability that there is a vertex in the base graph that is a root of such a subtree. Since the construction of the $\infty$-extension sets periodic conditions, it's sufficient to ask if there is such a vertex in the restriction to the finite $n$-side length Toric.
+    We begin by bounding the contribution of the right term. Intersection with $B_{t}$ guarantees that any slice, and a pole selection for it, have an explanation. According to \Cref{coro:edgefaultratio}, there exists a constant $c_{1}$, depending only on $d$, such that the ratio of leaves to edges in the explanation is at least $c_{1}$. By \Cref{claim:big_subtree}, it follows that any such explanation has more than $\frac{n}{2d}$ edges containing a subtree with fewer than $\frac{n}{4d}$ edges, with a leaves-to-edges ratio greater than $\frac{1}{2} c_{1}$. Using the union bound, we bound the probability that there is a vertex in the base graph that is a root of such a subtree. Since the construction of the $\infty$-extension sets periodic conditions, it's sufficient to ask if there is such a vertex in the restriction to the finite $n$-side length Toric.
   \begin{equation*}
     \begin{split}
       \prbm{  \bar{A}_{\tau} \cap B_{\tau}   }{ \sim \mathcal{N}_{\mathcal{E}} }  \le  \bigcup_{ \substack{ v \in V_{o}, \tau^{\prime} \le \tau \\ L_{g}(v) \in [0,n]} } \prbm{ & v \text{ is a root of subtree in } \mathcal{H}_{\tau^{\prime}}  \\ 
@@ -84,8 +83,8 @@ The proofs of the claims are given in the appendix. We continue with the proof o
       \begin{split}
         \max\{\Size{\text{arrow}}, \Size{\text{fork}}\}  \le 2d
       \end{split}
-    \end{equation*}
-    It follows that all the vertices in the subtree are at a space distance of at most $\frac{1}{2} n$ from each other. Thus, no two of them have the same space coordinate modulo $n$. In particular, projecting the infinite plane back to the finite Toric sends each of the leaves of the subtree to a unique target, and therefore the number of faults that induce the explanation is at least:
+    \end{equation*} 
+    It follows that all the vertices in the subtree are at a space distance of at most $\frac{1}{2} n$ from each other. Thus, no two of them have the same space coordinate modulo $n$. In particular, projecting the infinite plane back to the finite Toric sends each of the leaves of the subtree to a unique target, namely no fault is counted twice. Therefore the number of faults that induce the explanation is at least:
     \begin{equation*}
       \begin{split}
         \frac{1}{2^{\max\{d^{\prime}, d - d^{\prime}\}}} \frac{1}{2} \frac{1}{2}c_{1} \frac{n}{4d} \ge \frac{1}{2^{d+4}} c_{1} \frac{n}{d} 
@@ -94,13 +93,20 @@ The proofs of the claims are given in the appendix. We continue with the proof o
 Plugging into the union bounds and combining \Cref{claim:counting_trees} yields:
     \begin{equation*}
       \begin{split}
-        \prbm{  \bar{A}_{t} \cap B_{t}   }{ \sim \mathcal{N}_{\mathcal{E}} }  \le t S \sigma^{  \frac{n}{4d} } p^{ \frac{c_{1}n}{2^{d+4} d } }\le S^{2} \left( \sigma p^{\frac{1}{2^{d + 2}} c_{1}} \right)^{\frac{n}{4d}} 
+        \prbm{  \bar{A}_{t} \cap B_{t}   }{ \sim \mathcal{N}_{\mathcal{E}} }  \le t O(S) \sigma^{  \frac{n}{4d} } p^{ \frac{c_{1}n}{2^{d+4} d } }\le O(S^{2}) \left( \sigma p^{\frac{1}{2^{d + 2}} c_{1}} \right)^{\frac{n}{4d}} 
       \end{split}
     \end{equation*}
 
-    It remains to bound the probability of $B_{t} \cap A_{t}$. Since prior to, and including time $t$, no time admits an infinite error, it follows that any slice (or a sublice at the top level of $\mathcal{H}_{t}$) has an explanation (\Cref{claim:edgesin}). Confining to the event $A_{t}$, any explanation implies that any explanation has fewer than $\frac{n}{2d}$ edges and therefore, by the same argument as above, the projection of each explanation tree into the finite Toric sends its leaves to unique targets.
+It's left to bound the probability of $B_{t} \cap A_{t}$. Since prior to, and including time $t$, no time admits an infinite error, it follows that any slice in $\mathcal{H}_{t}$, and any pole selection of it, has an explanation (\Cref{claim:edgesin}). Confining to the event $A_{t}$, any explanation implies that any explanation has fewer than $\frac{n}{2d}$ edges and therefore, by the same argument as above, the projection of each explanation tree into the finite Toric sends its leaves to unique targets.
 
-    Using \Cref{claim:edgesin} and \Cref{coro:edgefaultratio} again, there are constants $c_{2},c_{3} > 0 $ such any explanation of a subslice with size $n-1$ and $x$ edges, has at least $c_{2} n + c_{3} x$ leaves. Therefore, we obtain:
+Any infinite slice, namely a slice of size at least $n$, has poles selection $v_{1}..,v_{d+1}$ such: 
+\begin{equation}
+  \begin{split}
+    \label{equ:bigspan}
+  \sum_{i}^{d+1}L_{i}(v_{i}) \ge n
+  \end{split}
+\end{equation}
+Consider a slice with size at least $n$ and a pole selection for it satisfying \Cref{equ:bigspan}. \Cref{claim:edgesin} and \Cref{coro:edgefaultratio} state that there are constants $c_{2},c_{3} > 0$ such that any explanation for the slice and the selection, with $x$ edges, has at least $c_{2} n + c_{3} x$ leaves. Therefore, we obtain:
     \begin{equation*}
       \begin{split}
         \prbm{  B_{t}  \cap A_{t}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ \substack{ v \in V_{o}, x \ge 1 \\ L_{g}(v) \in [0,n]} } \prbm{ v \text{ is a root of explanation with } x \text{ edges} \\ 
@@ -111,7 +117,7 @@ Plugging into the union bounds and combining \Cref{claim:counting_trees} yields:
 So, for sufficiently small $p$ such that $\sigma p^{c_{2}} < 1$, the probability is bounded by:
           \begin{equation*}
             \begin{split}
-              \sum_{x = 1  }^{ \infty } Sp^{c_{2}n} \left( \sigma p^{c_{3} } \right)^{x}  \le O(S) p^{c_{2} n} 
+              \sum_{x = 1  }^{ \infty } O(S)p^{c_{2}n} \left( \sigma p^{c_{3} } \right)^{x}  \le O(S) p^{c_{2} n} 
       \end{split}
     \end{equation*}
     Combing the bounds we have, that there is constant $c_{4}$ depending only on  $d,d^{\prime}$ such:
@@ -126,7 +132,7 @@ Now, by the union bound over the time steps, with a probability greater than:
   1 -   O \left( S^{3} \right) p^{ c_{4}n } 
   \end{split}
 \end{equation*}
-No time admits an infinite subslice at the top level of its corresponding analysis Toom's contour, so the decoder successfully restores the logical state; in other words, no logical error occurs.
+No time admits an infinite slice at its corresponding analysis Toom's contour, so the decoder successfully restores the logical state; in other words, no logical error occurs.
 \end{proof}
 The lemma gives the theorem almost immediately. To complete the proof, we need to plug in the initialization phase, which initializes encoded zeros and resource states subjected to local stochastic noise. We emphasize that the resulting states are subjected to local stochastic noise (in addition to the computation). We neither prove nor describe that phase here; instead, we refer to \cite{grospellier:tel-03364419}, \cite{gottesman2014faulttolerant}, \cite{Fawzi_2018}, and \cite{nguyen2025quantumfaulttoleranceconstantspace}.
   \begin{theorem}
