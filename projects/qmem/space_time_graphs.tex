@@ -100,7 +100,7 @@ Consider a time graph $(G,T)$ whose vertices are associated with points in $\mat
       \item  For any $j\in [0,k]$, denote by $v_{j}^{1},..,v_{j}^{d+1}$ the selected poles for $K_{j}$, then:  
         \begin{equation*}
           \begin{split}
-            \sum_{j=0}^{k}\sum_{i}^{d+1}L_{i}(v_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) 
+            \sum_{j=0}^{k}\sum_{i=1}^{d+1}L_{i}(v_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) 
           \end{split}
         \end{equation*}
         
@@ -117,7 +117,7 @@ First, notice that $K$ doesn't contain leaves in $(V,A)$, since a leaf is connec
     \begin{equation}
       \label{equ:spanlow}
       \begin{split}
-         \sum^{k}_{i=0}\Size{K_{i}} + \sum^{k}_{i=1}\Size{F_{i}}  \ge \sum_{j,i}L_{i}(z_{j}^{i})
+         \sum_{j=0}^{k}\sum_{i=1}^{d+1}L_{i}(z_{j}^{i}) + \sum^{k}_{i=1}\Size{F_{i}}  \ge \sum_{j,i}L_{i}(z_{j}^{i})
       \end{split}
     \end{equation}
 
