@@ -59,7 +59,7 @@ Moreover, we argue that the maximum size of a slice is bounded by $2dn^{d}$. For
     \Phi_{t} = \sum_{v \in V^{\prime}_{t} } \left( \Size{ K_{v,t} } + 1\right)
   \end{split}
 \end{equation*}
-Observe that $\Phi_{1} = m \le n^{d}$. Now, for a vertex $v \in V^{\prime}_{t+1}$, denote the predecessor of $K_{v,t+1}$ by $K_{u^{\prime}_{0},t}, K_{u^{\prime}_{1},t},\ldots, K_{u^{\prime}_{k_{v}},t}$ and their translation into the finite Toric by $K_{u_{0},t}, K_{u_{1},t},\ldots, K_{u_{k_{v}},t}$, so $u_{i} \in V^{\prime}_{t}$. Using \Cref{claim:shrinkslice} and \Cref{claim:maxfork}, we have:
+Observe that $\Phi_{1} = m \le n^{d}$. Now, for a vertex $v \in V^{\prime}_{t+1}$, denote the predecessor of $K_{v,t+1}$ by $K_{u^{\prime}_{0},t}, K_{u^{\prime}_{1},t},\ldots, K_{u^{\prime}_{k_{v}},t}$ and their translation into the finite Toric by $K_{u_{0},t}, K_{u_{1},t},\ldots, K_{u_{k_{v}},t}$, so $u_{i} \in V^{\prime}_{t}$. Using \Cref{claim:shrinkslice} and \Cref{claim:maxfork}, where the poles are selected to be the extremis of $L_{1},..,L_{d+1}$, we have:
 \begin{equation*}
   \begin{split}
     \Phi_{t+1} &= \sum_{v \in V^{\prime}_{t+1}} \bigl( \Size{ K_{v,t+1} } + 1\bigr) \le \sum_{v \in V^{\prime}_{t+1}} \bigl(\bigl( \sum^{k_{v}}_{i=0} \Size{ K_{u^{\prime}_{i},t} }\bigr) + 2dk_{v} + 1 \bigr) \\
