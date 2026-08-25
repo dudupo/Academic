@@ -97,7 +97,13 @@ Consider a time graph $(G,T)$ whose vertices are associated with points in $\mat
     \begin{enumerate}
       \item For any $i \in [d+1]$,  the $i$th predecessor $\prei{v_{i}} $ belongs to the selected poles of $K_{0}, \ldots, K_{k}$.
       \item Consider the graph whose vertices are associated with $K_{0}, \ldots, K_{k+1}$, and there is an edge between $K_{i}$ and $K_{j}$ if and only if there is a fork in $F_{1}, \ldots, F_{k}$ that intersects both $K_{i}$'s and $K_{j}$'s selected poles. Then the graph formed from $K_{0}, \ldots, K_{k}$ is connected.
-      \item $\sum_{i=0}^{k}\Size{K_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) $
+      \item  For any $j\in [0,k]$, denote by $v_{j}^{1},..,v_{j}^{d+1}$ the selected poles for $K_{j}$, then:  
+        \begin{equation*}
+          \begin{split}
+            \sum_{j=0}^{k}\sum_{i}^{d+1}L_{i}(v_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) 
+          \end{split}
+        \end{equation*}
+        
     \end{enumerate}
   \end{claim}
   \begin{proof}
