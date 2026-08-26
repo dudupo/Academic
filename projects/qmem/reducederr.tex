@@ -200,8 +200,30 @@ We keep excluding vertices until we get the desired equality.
 
 
 
+
+
+We close the section by defining the \textit{reduced} form of a finite $d^{\prime}$-dimensional chain. 
+\begin{definition}
+  \label{def:reduced}
+  Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be a $d^{\prime}$-dimensional finite chain. We will say that $x$ is reduced if for any vertex $v \in x$ that is a maximum point of a potential wall $L \in L_{1}, \ldots, L_{d+1}$, $v$ is also in $\partial^{-} x$. 
+  In particular, we have that $\Size{x} = \Size{\partial^{-} x}$ and that the reduced form of a given chain is obtained by the construction presented in the proof of \Cref{claim:reducederr}. 
+\end{definition}
+We emphasize that the reduced form is not unique. Throughout the paper, every time we choose a reduced form of a chain, we mean choosing one of its reduced forms arbitrarily.
+\input{./tikz/edge.tikz}
+
+ 
+\section{The Barrier Argument}
+
+
+We are going to move between the infinite and the finite back and forth, so we will need to extend the size function, and the reduced notion to chains on the finite-complex.  
+\begin{definition}
+  extending notions.
+\end{definition}
+
 \begin{claim}
-Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be a $d^{\prime}$-dimensional finite chain, such that the $d^{\prime}-1$-dimensional chain $\partial^{-} x$ is not connected. Then there is a stabilizer $z \in \mathcal{C}_{Z}^{\perp}$ such that the resulting translation $x + z$ has a decomposition into $d^{\prime}$-dimensional chains $x_{1}, \ldots, x_{k}$ such that for each $i$, both $x_{i}$ and $\partial^{-}x_{i}$ are connected. In addition, $\Size{x_{i}} = \Size{\partial^{-} x_{i}}$.
+  Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2}) $ be a $d^{\prime}$-dimensional finite chain, such that the $d^{\prime}-1$-dimensional chain $\partial^{-} x$ is not connected. Suppose that $\Size{x} \le n$. Then there are $d^{\prime}$-dimensional chains $y_{1},y_{2},..$ such each of $\partial^{-}y_{i}$ is a connected component of $\partial^{-}x$ and $\Size{y_{i}} \le n$.  
+Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional finite chain, such that the $d^{\prime}-1$-dimensional chain $\partial^{-} x$ is not connected. Suppose that $\Size{x} \le n$. Then there are $d^{\prime}$-dimensional chains $y_{1}, y_{2}, \ldots$ such that each $\partial^{-}y_{i}$ is a connected component of $\partial^{-}x$ and $\Size{y_{i}} \le n$.
+
 \end{claim}
 
 \begin{proof}
@@ -211,22 +233,14 @@ Consider a $d^{\prime}$-dimensional chain $x$ such that $\partial^{-} x$ has a d
       \partial^{-}( \tilde{x}_{1} + \tilde{x}_{2} ) = 0 \Rightarrow \partial^{-} \tilde{x}_{1} = \partial^{-}\tilde{x}_{2} = 0 
     \end{split}
   \end{equation*}
-Namely, $\tilde{x}_{1},\tilde{x}_{2} \in \ker \partial^{-} : \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-1}} \rightarrow \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-2}}$. Suppose $\tilde{x}_{1} \notin \image \partial^{-} : \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} \rightarrow \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-1}}$, then we have that $\tilde{x}_{1}$ is a codeword of the $(d,d^{\prime}-1)$-Toric code. Since $d^{\prime} \ge 2$, the size of the view of $\tilde{x}$ in the $\infty$-extension is at least $n$, and therefore the size of the view of $x$ in the $\infty$-extension as well, which is a contradiction. So we get that there are two $d^{\prime}$-dimensional chains $x_{1}$ and $x_{2}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$.
+  Namely, $\tilde{x}_{1},\tilde{x}_{2} \in \ker \partial^{-} : \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-1}} \rightarrow \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-2}}$. Suppose $\tilde{x}_{1} \notin \image \partial^{-} : \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} \rightarrow \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-1}}$, then we have that $\tilde{x}_{1}$ is a codeword of the $(d,d^{\prime}-1)$-Toric code. Since $d^{\prime} \ge 2$, the size $\tilde{x}$ is at least $n$, and therefore the size of $x$ is at least, $n$ as well, which is a contradiction. So we get that there are two $d^{\prime}$-dimensional chains $x_{1}$ and $x_{2}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}, \partial^{-}x_{2} = \tilde{x}_{2}$. The reduced forms of $x_{1},x_{2}$ are the chains which 
+
+
+  Namely, $\tilde{x}_{1},\tilde{x}_{2} \in \ker \partial^{-} : \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-1}} \rightarrow \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-2}}$. Suppose $\tilde{x}_{1} \notin \operatorname{image} \partial^{-} : \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} \rightarrow \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-1}}$, then we have that $\tilde{x}_{1}$ is a codeword of the $(d,d^{\prime}-1)$-Toric code. Since $d^{\prime} \ge 2$, the size of $\tilde{x}$ is at least $n$, and therefore the size of $x$ is at least $n$ as well, which is a contradiction. So we get that there are two $d^{\prime}$-dimensional chains $x_{1}$ and $x_{2}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}, \partial^{-}x_{2} = \tilde{x}_{2}$. 
+
+
+The reduced forms of $x_{1}, x_{2}$ have sizes lower than $n$. If both $\partial^{-}x_{1} = \tilde{x}_{1}$ and $\partial^{-}x_{2} = \tilde{x}_{2}$ are connected, then the reduced forms of $x_{1}, x_{2}$ satisfy the claim. If not, then repeat recursively on the reduced form for each whose $\partial^{-}$-boundary is not connected.
 \end{proof}
-
-
-We close the section by defining the \textit{reduced} form of a finite $d^{\prime}$-dimensional chain. 
-\begin{definition}
-  \label{def:reduced}
-  Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be a $d^{\prime}$-dimensional finite chain. We will say that $x$ is reduced if for any vertex $v \in x$ that is a maximum point of a potential wall $L \in L_{1}, \ldots, L_{d+1}$, $v$ is also in $\partial^{-} x$. 
-  In particular, we have that $\Size{x} = \Size{\partial^{-} x}$ and that the reduced form of a given chain is obtained by the construction presented in the proof of \Cref{claim:reducederr}.
-\end{definition}
-We emphasize that the reduced form is not unique. Throughout the paper, every time we choose a reduced form of a chain, we mean choosing one of its reduced forms arbitrarily.
-\input{./tikz/edge.tikz}
-
-
-
-
 
 
 %\begin{definition}
