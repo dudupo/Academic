@@ -232,11 +232,34 @@ Consider a $d^{\prime}$-dimensional chain $x$ such that $\partial^{-} x$ has a d
       \partial^{-}( \tilde{x}_{1} + \tilde{x}_{2} ) = 0 \Rightarrow \partial^{-} \tilde{x}_{1} = \partial^{-}\tilde{x}_{2} = 0 
     \end{split}
   \end{equation*}
-  Namely, $\tilde{x}_{1},\tilde{x}_{2} \in \ker \partial^{-} : \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-1}} \rightarrow \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-2}}$. Suppose $\tilde{x}_{1} \notin \image \partial^{-} : \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} \rightarrow \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-1}}$, then we have that $\tilde{x}_{1}$ is a codeword of the $(d,d^{\prime}-1)$-Toric code. Since $d^{\prime} \ge 2$, the size of $\tilde{x}$ is at least $n$, and therefore the size of $x$ is at least $n$ as well, which is a contradiction. So we get that there are two $d^{\prime}$-dimensional chains $x_{1}$ and $x_{2}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}, \partial^{-}x_{2} = \tilde{x}_{2}$. 
+  Namely, $\tilde{x}_{1},\tilde{x}_{2} \in \ker \partial^{-} : \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-1}} \rightarrow \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-2}}$. Suppose $\tilde{x}_{1} \notin \image \partial^{-} : \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} \rightarrow \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-1}}$, then we have that $\tilde{x}_{1}$ is a non-trivial codeword of the $(d,d^{\prime}-1)$-Toric code. Since $d^{\prime} \ge 2$, the size of $\tilde{x}$ is at least $n$, and therefore the size of $x$ is at least $n$ as well, which is a contradiction. So we get that there are two $d^{\prime}$-dimensional chains $x_{1}$ and $x_{2}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}, \partial^{-}x_{2} = \tilde{x}_{2}$. 
 
 
 The reduced forms of $x_{1}, x_{2}$ have sizes lower than $n$. If both $\partial^{-}x_{1} $ and $\partial^{-}x_{2}$ are connected, then the reduced forms of $x_{1}, x_{2}$ satisfy the claim. If not, then repeat recursively on the reduced form for each whose $\partial^{-}$-boundary is not connected.
 \end{proof}
+
+
+
+\begin{claim}
+Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional finite chain, such that each of the connected components of $\partial^{-}x$ has size less than $n$. Consider the decoder that first decomposes $\partial^{-}x$ into its connected components, copies each of them to a clean Toric register, and applies the sweep rule on each. Denote by $\xi_{i}$ the correction computed for the $i$th connected component. We claim that:
+  \begin{equation*}
+    \begin{split}
+      \Size{ x + \sum_{i} \xi_{i}  } \le n 
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+  
+\end{proof}
+
+%\begin{claim}
+%Consider a $d^{\prime}$-dimensional chain $x_{1}, x_{2}, \ldots, x_{k} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such that $x_{1}$ is the trivial chain, and for any $i$, the Hamming distance between $x_{i+1}$ and $x_{i}$ is at most $\Delta$. Then, if $x_{k}$ has a connected component with size greater than $n$, there is $i \in [k]$ such that $\partial^{-}x_{i}$ has a connected component of size greater than $\frac{n}{\Delta}$.
+%\end{claim}
+
+
+
+
+
 
 
 %\begin{definition}
