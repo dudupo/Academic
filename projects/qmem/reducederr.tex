@@ -198,6 +198,23 @@ We keep excluding vertices until we get the desired equality.
 
 \end{proof}
 
+
+
+\begin{claim}
+Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be a $d^{\prime}$-dimensional finite chain, such that the $d^{\prime}-1$-dimensional chain $\partial^{-} x$ is not connected. Then there is a stabilizer $z \in \mathcal{C}_{Z}^{\perp}$ such that the resulting translation $x + z$ has a decomposition into $d^{\prime}$-dimensional chains $x_{1}, \ldots, x_{k}$ such that for each $i$, both $x_{i}$ and $\partial^{-}x_{i}$ are connected. In addition, $\Size{x_{i}} = \Size{\partial^{-} x_{i}}$.
+\end{claim}
+
+\begin{proof}
+Consider a $d^{\prime}$-dimensional chain $x$ such that $\partial^{-} x$ has a decomposition $x = \tilde{x}_{1} + \tilde{x}_{2}$, where $\tilde{x}_{1}, \tilde{x}_{2}$ are $d^{\prime}-1$-dimensional chains, and $\tilde{x}_{1}$ is not connected to $\tilde{x}_{2}$. By disconnectivity, $\tilde{x}_{1}$ does not share a $d^{\prime}-2$ dimensional face with $\tilde{x}_{2}$. Thus, $\partial^{-} \tilde{x}_{1}$ and $\partial^{-} \tilde{x}_{2}$ are disjoint. On the other hand, since $\partial^{- \circ 2} x = 0$, then combining with disjointness, it follows that:
+  \begin{equation*}
+    \begin{split}
+      \partial^{-}( \tilde{x}_{1} + \tilde{x}_{2} ) = 0 \Rightarrow \partial^{-} \tilde{x}_{1} = \partial^{-}\tilde{x}_{2} = 0 
+    \end{split}
+  \end{equation*}
+Namely, $\tilde{x}_{1},\tilde{x}_{2} \in \ker \partial^{-} : \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-1}} \rightarrow \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-2}}$. Suppose $\tilde{x}_{1} \notin \image \partial^{-} : \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} \rightarrow \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}-1}}$, then we have that $\tilde{x}_{1}$ is a codeword of the $(d,d^{\prime}-1)$-Toric code. Since $d^{\prime} \ge 2$, the size of the view of $\tilde{x}$ in the $\infty$-extension is at least $n$, and therefore the size of the view of $x$ in the $\infty$-extension as well, which is a contradiction. So we get that there are two $d^{\prime}$-dimensional chains $x_{1}$ and $x_{2}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$.
+\end{proof}
+
+
 We close the section by defining the \textit{reduced} form of a finite $d^{\prime}$-dimensional chain. 
 \begin{definition}
   \label{def:reduced}
