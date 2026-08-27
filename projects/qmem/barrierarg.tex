@@ -1,0 +1,78 @@
+\section{Toom's Contours}
+
+\subsection{The Barrier Argument}
+
+
+We are going to move between the infinite and the finite back and forth, so we will need to extend the size function, and the reduced notion to chains on the finite-complex.  
+\begin{definition}
+  extending notions. \inb{\textbf{Return to here.}}
+\end{definition}
+
+\begin{claim}
+  \label{claim:fillchain}
+  Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain, such that the $d^{\prime}-1$-dimensional chain $\partial^{-} x$ is not connected. Suppose that for some constant number $\alpha \in (0,1)$, each connected component of $\partial^{-}x$ has size at most $\alpha n$. Then there are $d^{\prime}$-dimensional chains $y_{1}, y_{2}, \ldots$ such that each $\partial^{-}y_{i}$ is a connected component of $\partial^{-}x$ and $\Size{y_{i}} \le \alpha n$.
+
+\end{claim}
+
+\begin{proof}
+  Consider a $d^{\prime}$-dimensional chain $x$ such that $\partial^{-} x$ has a decomposition $x = \tilde{x}_{1} + \tilde{x}_{2}$, where $\tilde{x}_{1}, \tilde{x}_{2}$ are $d^{\prime}-1$-dimensional chains, and $\tilde{x}_{1}$ is a connected component of $\partial^{-}x$. In particular $\tilde{x}_{1}$ is not connected to $\tilde{x}_{2}$. By disconnectivity, $\tilde{x}_{1}$ does not share a $d^{\prime}-2$ dimensional face with $\tilde{x}_{2}$. Thus, $\partial^{-} \tilde{x}_{1}$ and $\partial^{-} \tilde{x}_{2}$ are disjoint. On the other hand, since $\partial^{- \circ 2} x = 0$, then combining with disjointness, it follows that:
+  \begin{equation*}
+    \begin{split}
+      \partial^{-}( \tilde{x}_{1} + \tilde{x}_{2} ) = 0 \Rightarrow \partial^{-} \tilde{x}_{1} = \partial^{-}\tilde{x}_{2} = 0 
+    \end{split}
+  \end{equation*}  Namely, $\tilde{x}_{1} \in \ker \partial^{-} : (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-2}; \mathbb{F}_{2})$.
+Suppose $\tilde{x}_{1} \notin \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$, then we have that $\tilde{x}_{1}$ is a non-trivial codeword of the $(d,d^{\prime}-1)$-Toric code. 
+Since $d^{\prime} \ge 2$, the size of $\tilde{x}$ is at least $n$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. Choose $x_{1}$ such it doesn't supported on a non-trivial codeword, namely $\tilde{x}_{1}$ is finite. The reduced form of $x_{1}$ has size at most $\Size{\tilde{x}_{1}} \le \alpha n$, and satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$.
+\end{proof}
+
+
+\begin{definition}
+Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain. $x$ will be said to be a fillable chain if each of the connected components of its $\partial^{-}$-boundary, namely $\partial^{-} x$, has size at most $n$. By \Cref{claim:fillchain}, there are $d^{\prime}$-dimensional reduced chains $x_{1}, \ldots,$ such that each $\partial^{-}x_{i}$ is a connected component of $\partial^{-}x$. Thus:
+    \begin{equation*}
+      \begin{split}
+      \partial^{-} (x + \sum_{i}x_{i}) = 0  \quad \Rightarrow x + \sum_{i}x_{i} \in \ker \partial^{-} \colon (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})
+    \end{split}
+  \end{equation*}
+Namely, $x + \sum_{i}x_{i}$ is a codeword in $\mathcal{C}_{X}/ \mathcal{C}_{Z}^{\perp}$. We define the filling operator, denoted by $[x]$, which for a given fillable chain $x$, returns the homology class (logical operator) of $x + \sum_{i}x_{i}$.
+\end{definition}
+
+
+
+\begin{claim}
+  \label{claim:barrier}
+Let $x_{1}, \ldots, x_{t} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be $d^{\prime}$-dimensional chains, such that $x_{1}$ is a trivial chain and for any $i \in [t-1]$, the Hamming distance between $x_{i}$ and $x_{i+1}$ is one. There is a constant $c \in (0,1)$, depending only on $d, d^{\prime}$, such that if $n$ is sufficiently large, and for any $x_{i} \in x_{1}, \ldots, x_{t}$, the size of each of the connected components of $\partial^{-} x_{i}$ is bounded by $c n$, then:
+  \begin{equation*}
+    \begin{split}
+      [0]= [x_{1}] = [x_{2}] = ... = [x_{t}] 
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+Assume through contradiction that there is $i$ such that $0 = [x_{i}] \neq [x_{i+1}]$. Denote by $x_{i}^{1}, x_{i}^{2}, \ldots$ and $x_{i+1}^{1}, x_{i+2}^{2}, \ldots$ the reduced $d^{\prime}$-dimensional chains such that $\partial^{-}x_{i}^{j}$ is a connected component of $\partial^{-}x_{i}$. Hence:
+  \begin{equation*}
+    \begin{split}
+      [x_{i+1}] = [x_{i+1}] + [x_{i}] \sim_{\mathcal{C}_{Z^{\perp}}} x_{i} + x_{i+1} + \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1}
+    \end{split}
+  \end{equation*}
+Denote by $w$ the chain:
+  \begin{equation*}
+    \begin{split}
+      w \colonequals x_{i} + x_{i+1} + \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1}
+    \end{split}
+  \end{equation*}
+  Since the Hamming distance between $x_{i}$ and $x_{i+1}$ is at most one, and since each $d^{\prime}$-dimensional face contributes a constant support over $d^{\prime}-1$-dimensional chains, the $\partial^{-}$-boundaries of $x_{i}$ and $x_{i+1}$ are at a Hamming distance that is at most constant. Therefore, there are only constant connected components of $\partial^{-}x_{i}$ which are not connected components in $\partial^{-}x_{i+1}$ and vice versa. Denote by $y_{1}, \ldots, y_{m}$ the chains in $x_{i}^{1}, \ldots$ and $x_{i+1}^{1}, \ldots$ such that they belong to only one of the collections. Where $m$ is bounded by a function of $d,d^{\prime}$, namely $m \le M(d,d^{\prime})$. So:
+  \begin{equation*}
+    \begin{split}
+      \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1} = \sum_{j}^{m}y_{j}
+    \end{split}
+  \end{equation*}
+Moreover, the vertices of $y_{1}, \ldots, y_{m}$ and $x_{i+1}+x_{i}$ have a nontrivial intersection. This is because the face $x_{i+1}+x_{i}$ is responsible for the splits and merges of the $x_{i}$'s $\partial^{-}$-boundaries. Therefore:
+\begin{equation*}
+  \begin{split}
+    \Size{ w } \le \Size{  x_{i} + x_{i+1} } + \sum_{j}^{m} \Size{y_{j}} \le d + M(d,d^{\prime}) c n  
+  \end{split}
+\end{equation*}
+Thus, for sufficiently large $n$ ,if $c < \frac{1}{M(d,d^{\prime})+1}$, we have that $\Size{w} < n$, a contradiction for $w$ being a non-trivial codeword.
+\end{proof}
+
+
