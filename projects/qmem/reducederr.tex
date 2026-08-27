@@ -221,6 +221,7 @@ We are going to move between the infinite and the finite back and forth, so we w
 \end{definition}
 
 \begin{claim}
+  \label{cliam:fillchain}
   Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain, such that the $d^{\prime}-1$-dimensional chain $\partial^{-} x$ is not connected. Suppose that for some constant number $\alpha \in (0,1)$, each connected component of $\partial^{-}x$ has size at most $\alpha n$. Then there are $d^{\prime}$-dimensional chains $y_{1}, y_{2}, \ldots$ such that each $\partial^{-}y_{i}$ is a connected component of $\partial^{-}x$ and $\Size{y_{i}} \le \alpha n$.
 
 \end{claim}
@@ -233,22 +234,41 @@ We are going to move between the infinite and the finite back and forth, so we w
     \end{split}
   \end{equation*}  Namely, $\tilde{x}_{1} \in \ker \partial^{-} : (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-2}; \mathbb{F}_{2})$.
 Suppose $\tilde{x}_{1} \notin \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$, then we have that $\tilde{x}_{1}$ is a non-trivial codeword of the $(d,d^{\prime}-1)$-Toric code. 
-Since $d^{\prime} \ge 2$, the size of $\tilde{x}$ is at least $n$, which is a contradiction. So we get that $\tilde{x}_{1}in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. The reduced form of $x_{1}$ has size at most $\Size{\tilde{x}_{1}} \le \alpha n$, and satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$.
+Since $d^{\prime} \ge 2$, the size of $\tilde{x}$ is at least $n$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. The reduced form of $x_{1}$ has size at most $\Size{\tilde{x}_{1}} \le \alpha n$, and satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$.
 \end{proof}
+
+
+\begin{definition}
+Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain. $x$ will be said to be a fillable chain if each of the connected components of its $\partial^{-}$-boundary, namely $\partial^{-} x$, has size at most $n$. By \Cref{claim:fillchain}, there are $d^{\prime}$-dimensional reduced chains $x_{1}, \ldots,$ such that each $\partial^{-}x_{i}$ is a connected component of $\partial^{-}x$. Thus:
+    \begin{equation*}
+      \begin{split}
+      \partial^{-} (x + \sum_{i}x_{i}) = 0 \Rightarrow x + \sum_{i}x_{i} \in \ker \partial^{-} : (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})
+    \end{split}
+  \end{equation*}
+Namely, $x + \sum_{i}x_{i}$ is a codeword in $\mathcal{C}_{X}/ \mathcal{C}_{Z}^{\perp}$. We define the filling operator, denoted by $[x]$, which for a given fillable chain $x$, returns the homology class (logical operator) of $x + \sum_{i}x_{i}$.
+\end{definition}
 
 
 
 \begin{claim}
-Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional finite chain, such that each of the connected components of $\partial^{-}x$ has size less than $n$. Consider the decoder that first decomposes $\partial^{-}x$ into its connected components, copies each of them to a clean Toric register, and applies the sweep rule on each. Denote by $\xi_{i}$ the correction computed for the $i$th connected component. We claim that:
+Let $x_{1}, \ldots, x_{t} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be $d^{\prime}$-dimensional chains, such that $x_{1}$ is a trivial chain and for any $i \in [t-1]$, the Hamming distance between $x_{i}$ and $x_{i+1}$ is at most $\Delta$. There is a constant $c \in (0,1)$, depending only on $d, d^{\prime}$, and $\Delta$, such that if for any $x_{i} \in x_{1}, \ldots, x_{t}$, the size of each of the connected components of $\partial^{-} x_{i}$ is bounded by $c n$, then:
   \begin{equation*}
     \begin{split}
-      \Size{ x + \sum_{i} \xi_{i}  } \le n 
+      [0]= [x_{1}] = [x_{2}] = ,.., = [x_{t}] 
     \end{split}
   \end{equation*}
 \end{claim}
 \begin{proof}
   
 \end{proof}
+
+
+%  Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional finite chain, such that each of the connected components of $\partial^{-}x$ has size less than $n$. Consider the decoder that first decomposes $\partial^{-}x$ into its connected components, copies each of them to a clean Toric register, and applies the sweep rule on each. Denote by $\xi_{i}$ the correction computed for the $i$th connected component. We claim that:
+  \begin{equation*}
+    \begin{split}
+      \Size{ x + \sum_{i} \xi_{i}  } \le n 
+    \end{split}
+  \end{equation*}
 
 %\begin{claim}
 %Consider a $d^{\prime}$-dimensional chain $x_{1}, x_{2}, \ldots, x_{k} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such that $x_{1}$ is the trivial chain, and for any $i$, the Hamming distance between $x_{i+1}$ and $x_{i}$ is at most $\Delta$. Then, if $x_{k}$ has a connected component with size greater than $n$, there is $i \in [k]$ such that $\partial^{-}x_{i}$ has a connected component of size greater than $\frac{n}{\Delta}$.
