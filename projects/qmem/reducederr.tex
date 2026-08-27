@@ -208,7 +208,7 @@ We close the section by defining the \textit{reduced} form of a finite $d^{\prim
   Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be a $d^{\prime}$-dimensional finite chain. We will say that $x$ is reduced if for any vertex $v \in x$ that is a maximum point of a potential wall $L \in L_{1}, \ldots, L_{d+1}$, $v$ is also in $\partial^{-} x$. 
   In particular, we have that $\Size{x} = \Size{\partial^{-} x}$ and that the reduced form of a given chain is obtained by the construction presented in the proof of \Cref{claim:reducederr}. 
 \end{definition}
-We emphasize that the reduced form is not unique. Throughout the paper, every time we choose a reduced form of a chain, we mean choosing one of its reduced forms arbitrarily.
+We emphasize that the reduced form is not unique. Throughout the paper, every time we choose a reduced form of a chain, we mean obtaining it from the given algorithm presented in \Cref{claim:reducederr}, so the reduced form is effectively unique.
 
 
  
@@ -234,7 +234,7 @@ We are going to move between the infinite and the finite back and forth, so we w
     \end{split}
   \end{equation*}  Namely, $\tilde{x}_{1} \in \ker \partial^{-} : (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-2}; \mathbb{F}_{2})$.
 Suppose $\tilde{x}_{1} \notin \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$, then we have that $\tilde{x}_{1}$ is a non-trivial codeword of the $(d,d^{\prime}-1)$-Toric code. 
-Since $d^{\prime} \ge 2$, the size of $\tilde{x}$ is at least $n$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. The reduced form of $x_{1}$ has size at most $\Size{\tilde{x}_{1}} \le \alpha n$, and satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$.
+Since $d^{\prime} \ge 2$, the size of $\tilde{x}$ is at least $n$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. Choose $x_{1}$ such it doesn't supported on a non-trivial codeword, namely $\tilde{x}_{1}$ is finite. The reduced form of $x_{1}$ has size at most $\Size{\tilde{x}_{1}} \le \alpha n$, and satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$.
 \end{proof}
 
 
@@ -271,7 +271,7 @@ Denote by $w$ the chain:
       w \colonequals x_{i} + x_{i+1} + \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1}
     \end{split}
   \end{equation*}
-Since the Hamming distance between $x_{i}$ and $x_{i+1}$ is at most one, and since each $d^{\prime}$-dimensional face contributes a constant support over $d^{\prime}-1$-dimensional chains, the $\partial^{-}$-boundaries of $x_{i}$ and $x_{i+1}$ are at a Hamming distance that is at most constant. Therefore, there are only constant connected components of $\partial^{-}x_{i}$ which are not connected components in $\partial^{-}x_{i+1}$ and vice versa. Denote by $y_{1}, \ldots, y_{m}$ the chains in $x_{i}^{1}, \ldots$ and $x_{i+1}^{1}, \ldots$ such that they belong to only one of the collections. So:
+  Since the Hamming distance between $x_{i}$ and $x_{i+1}$ is at most one, and since each $d^{\prime}$-dimensional face contributes a constant support over $d^{\prime}-1$-dimensional chains, the $\partial^{-}$-boundaries of $x_{i}$ and $x_{i+1}$ are at a Hamming distance that is at most constant. Therefore, there are only constant connected components of $\partial^{-}x_{i}$ which are not connected components in $\partial^{-}x_{i+1}$ and vice versa. Denote by $y_{1}, \ldots, y_{m}$ the chains in $x_{i}^{1}, \ldots$ and $x_{i+1}^{1}, \ldots$ such that they belong to only one of the collections. Where $m$ is bounded by a function of $d,d^{\prime}$, namely $m \le M(d,d^{\prime})$. So:
   \begin{equation*}
     \begin{split}
       \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1} = \sum_{j}^{m}y_{j}
@@ -280,10 +280,10 @@ Since the Hamming distance between $x_{i}$ and $x_{i+1}$ is at most one, and sin
 Moreover, the vertices of $y_{1}, \ldots, y_{m}$ and $x_{i+1}+x_{i}$ have a nontrivial intersection. This is because the face $x_{i+1}+x_{i}$ is responsible for the splits and merges of the $x_{i}$'s $\partial^{-}$-boundaries. Therefore:
 \begin{equation*}
   \begin{split}
-    \Size{ w } \le \Size{  x_{i} + x_{i+1} } + \sum_{j}^{m} \Size{y_{j}} \le d + m c n \le (m+1) c n  
+    \Size{ w } \le \Size{  x_{i} + x_{i+1} } + \sum_{j}^{m} \Size{y_{j}} \le d + M(d,d^{\prime}) c n  
   \end{split}
 \end{equation*}
-Thus, if $c < \frac{1}{m+1}$, we have that $\Size{w} < n$, a contradiction for $w$ being a non-trivial codeword.
+Thus, if $c < \frac{1}{M(d,d^{\prime})+1}$, we have that $\Size{w} < n$, a contradiction for $w$ being a non-trivial codeword.
 \end{proof}
 
 
