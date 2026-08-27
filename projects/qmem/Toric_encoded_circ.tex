@@ -161,6 +161,25 @@ Such intuition is right in the sense that this is the right way to keep track of
 
 
 
+
+\begin{definition}
+  \label{def:paulipathupstep}
+  With the same notations as in \Cref{def:paulipath}, let $\tau$ be a step in $C[\mathcal{E}]$. Recall that each gate in $C[\mathcal{E}]$ acts on at most $\Delta$ qubits. Let $\Delta^{\prime} \in [\Delta]$. In addition, denote by $g$ and $t$ the gate and its time which is applied at step $\tau$. We say that the set of Pauli $P_{1},\ldots,P_{t},P_{\star}$, is a Pauli-path up to step $(\tau,\Delta^{\prime})$, if the $P_{1},..,P_{t}$ is a Pauli-path for the circuit obtained form $C[\mathcal{E}]$ by taking only its first $t-1$ layers. And $P_{\star}$ satisfies the follow: let $g^{\prime}_{1},..,g_{l}^{\prime} = g$ be the gates applied at time $t$ at step at most $\tau$, placed by order. Let $P^{\prime}_{0},P^{\prime}_{\Delta} \in \mathcal{P}^{(\cdot)}$ be Paulis such:     
+  \begin{equation*}
+    \begin{split}
+      P_{0}^{\prime} \in \bigl(g^{\prime}_{l-1}g^{\prime}_{l-2}..g_{1}\bigr) \circ P_{t} \qaud P^{\prime}_{\Delta} \in g \circ P_{0}^{\prime}
+    \end{split}
+  \end{equation*}
+Now, since $P^{\prime}_{\Delta}$ is at a Hamming distance of at most $\Delta$ from $P_{0}^{\prime}$, there is a set of Paulis:
+  \begin{equation*}
+    \begin{split}
+      P_{0}^{\prime},P_{1}^{\prime},P_{2}^{\prime},..,P^{\prime}_{\Delta^{\prime}},..,P^{\prime}_{\Delta}
+    \end{split}
+  \end{equation*}
+  Then set $P_{\star} = P^{\prime}_{\Delta^{\prime}}$. 
+\end{definition}
+
+
 \inb{\textbf{Rewrite. }} For the analyses, we would like to extend Toom's contour to record in their final layer a partial time-step, namely a computation up to a certain step \Cref{def:steps}. For this, we substitute in the definition above the Pauli-path with a Pauli-path up to a time \inb{\textbf{Prefix?}}. Moreover, since we would like to refer to the connected chain at the final layer as the 'final error clusters', we add at the end a layer whose purpose is to connect in time (by arrows) the connected components of Toom's contour in the prior layer, which are connected by checks (their union is identified with a connected chain).
 \begin{definition}[Analysis Toom's Contour at Time $t$]
   For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, and a time $t$, according to the standard order, let $C[\mathcal{E}]_{t}$ be the partial computation circuit of $C[\mathcal{E}]$ up to time $t$. We define the \textit{analysis Toom's contour at time $t$}, denoted by $\mathcal{H}_{t} = (V_{\mathcal{H}}, E_{\mathcal{H}})$, to be the graph obtained by taking the Toom's contour of $C[\mathcal{E}]_{t}$ and adding vertices and edges as follows:
