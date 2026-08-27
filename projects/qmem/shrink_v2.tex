@@ -56,7 +56,29 @@ Let $z$ be a connected finite reduced $d^{\prime}$-dimensional chain, and let $\
 Combining the two, we get that $v \notin \partial^{-} (z + \varphi)$, so the reduced form of $z + \varphi$ does not contain $v$. Namely, $v \notin \xi$. Repeating the above for all the other vertices which get the maximal $L_{d+1}$-value in $z$ yields that $L_{d+1}(\xi) \le L_{d+1}(z) - 1$.
 
 \end{proof}
-We finished analyzing the first part of the sweep-cycle that acts in the computational basis. In the next section, we introduce the transformation into the dual code. Since the dual code is a $(d,d-d^{\prime})$-Toric code, we also find that the sweep-cycle shrinks reduced phase errors.
+
+
+\inb{\textbf{Write something here. }}
+\begin{claim} 
+  \label{claim:sweepface}
+  Let $z$ be a connected finite $d^{\prime}$-dimensional chain, and let $\xi$ be the result of applying the sweep rule to it. Denote by $v$ the vertex which achieve the maximal $L_{i}$-value in $\partial^{-}\xi$, then there is a vertex $u \in \partial^{-}z$ such $L_{i}(u)\ge L_{i}(v)$ for $i\neq d+1$ and  $L_{d+1}(u) > L_{d+1}(v)$ if $i=d+1$,  and there is a $d^{\prime}$-dimensional face $f$ such $v,u \in f$. 
+\end{claim}
+\begin{proof}
+Without loss of generality, we can assume that $z$ and $\xi$ are reduced. We start by proving for $i = d + 1$. Now, it splits upon whether $v \in z + \xi$:
+  \begin{enumerate}
+    \item If $v\in z + \xi$, then $v$ belongs to a face that flipped during the correction, denote it's root by $u$ and by definition of the sweep-rule $(\partial^{-} z)|_{u+} \neq 0$. Therefore, $u \in \partial^{-}z$, and $u,\xi$ share a face which $u$ is it's root. Since $u$ it's the root of the face we get $L_{d+1}(u) > L_{d+1}(v)$. 
+    \item Else, if $v \notin z + \xi$, then $v$ has to be in $z$. Combining with the fact that $v \in \xi$, it follows that $v$ is not a local maximum of $L_{d+1}$ in $\partial^{-}z$, otherwise the application of the sweep-rule would exclude $v$ (\Cref{claim:sweepshrink}), so it wouldn't be in $\xi$. Pick $u$ to be the neighbor of $v$ in $\partial^{-}z$ such that $L_{d+1}(u) > L_{d+1}(v)$.
+  \end{enumerate}
+  It remains to prove for $i\in [d]$, in this case if $v \in \partial^{-}z$ then take $u = v$. Otherwise, there must be a face $f$ that was flipped during the sweep-rule containing $v$. Denote by $g$ the corresponding generator for $i$ and by $u^{\prime}$ the root of $f$. If $L_{g}(u^{\prime}) = L_{g}(v)$ then set $u = u^{\prime}$. Otherwise, $g$ is one of the generators that span $f$, the second condition of the sweep-rule (\Cref{def:sweeprule}) requires that for $u^\prime$ flipping a face in the $g$ direction, it has to see $gu^{\prime}$ in $\partial^{-}z$, in that case, set $u = g^{\prime}u$.
+\end{proof}
+
+
+
+
+We finished analyzing the first part of the sweep-cycle that acts in the computational basis. In the next subsection, we introduce the transformation into the dual code. Since the dual code is a $(d,d-d^{\prime})$-Toric code, we also find that the sweep-cycle shrinks reduced phase errors.
+
+
+
 
 
 %\subsubsection{The Sweep-Rule Phase in the Dual Code}
@@ -126,7 +148,7 @@ We finished analyzing the first part of the sweep-cycle that acts in the computa
 %      L_{g}( (S/J)^{-1} S^{\prime} v) = L_{g}(v)
 %  \end{split}
 %\end{equation*}
-O%And hence:
+%And hence:
 %\begin{equation*}
 %  \begin{split}
 %    \max_{w \in  \rotfv{  (S/J)^{-1} S^{\prime}  v}{S/J}  }L_{g}(w) = 1 + L_{g}(v) \ge  \max_{w \in  \rotfv{v}{S^{\prime}}  } L_{g}(w) = L_{g}(u)
