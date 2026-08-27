@@ -251,7 +251,7 @@ Namely, $x + \sum_{i}x_{i}$ is a codeword in $\mathcal{C}_{X}/ \mathcal{C}_{Z}^{
 
 
 \begin{claim}
-Let $x_{1}, \ldots, x_{t} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be $d^{\prime}$-dimensional chains, such that $x_{1}$ is a trivial chain and for any $i \in [t-1]$, the Hamming distance between $x_{i}$ and $x_{i+1}$ is at most $\Delta$. There is a constant $c \in (0,1)$, depending only on $d, d^{\prime}$, and $\Delta$, such that if for any $x_{i} \in x_{1}, \ldots, x_{t}$, the size of each of the connected components of $\partial^{-} x_{i}$ is bounded by $c n$, then:
+Let $x_{1}, \ldots, x_{t} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be $d^{\prime}$-dimensional chains, such that $x_{1}$ is a trivial chain and for any $i \in [t-1]$, the Hamming distance between $x_{i}$ and $x_{i+1}$ is one. There is a constant $c \in (0,1)$, depending only on $d, d^{\prime}$, such that if for any $x_{i} \in x_{1}, \ldots, x_{t}$, the size of each of the connected components of $\partial^{-} x_{i}$ is bounded by $c n$, then:
   \begin{equation*}
     \begin{split}
       [0]= [x_{1}] = [x_{2}] = ... = [x_{t}] 
@@ -259,12 +259,31 @@ Let $x_{1}, \ldots, x_{t} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be
   \end{equation*}
 \end{claim}
 \begin{proof}
-  Assume through contradiction that there is $i$ such $0 = [x_{i}] \neq [x_{i+1}]$ denote by $ x_{i}^{1},x_{i}^{2},..$ and $x_{i+1}^{1},x_{i+2}^{2},..$ the reduced $d^{\prime}$-dimensional chains such $\partial^{-}x_{i}^{j}$ is a connected component of $\partial^{-}x_{i}$. Hence:  
+Assume through contradiction that there is $i$ such that $0 = [x_{i}] \neq [x_{i+1}]$. Denote by $x_{i}^{1}, x_{i}^{2}, \ldots$ and $x_{i+1}^{1}, x_{i+2}^{2}, \ldots$ the reduced $d^{\prime}$-dimensional chains such that $\partial^{-}x_{i}^{j}$ is a connected component of $\partial^{-}x_{i}$. Hence:
   \begin{equation*}
     \begin{split}
-      [x_{i+1}] = [x_{i+1}] + [x_{i}] = x_{i} + x_{i+1} + \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1}
+      [x_{i+1}] = [x_{i+1}] + [x_{i}] \sim_{\mathcal{C}_{Z^{\perp}}} x_{i} + x_{i+1} + \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1}
     \end{split}
   \end{equation*}
+Denote by $w$ the chain:
+  \begin{equation*}
+    \begin{split}
+      w \colonequals x_{i} + x_{i+1} + \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1}
+    \end{split}
+  \end{equation*}
+Since the Hamming distance between $x_{i}$ and $x_{i+1}$ is at most one, and since each $d^{\prime}$-dimensional face contributes a constant support over $d^{\prime}-1$-dimensional chains, the $\partial^{-}$-boundaries of $x_{i}$ and $x_{i+1}$ are at a Hamming distance that is at most constant. Therefore, there are only constant connected components of $\partial^{-}x_{i}$ which are not connected components in $\partial^{-}x_{i+1}$ and vice versa. Denote by $y_{1}, \ldots, y_{m}$ the chains in $x_{i}^{1}, \ldots$ and $x_{i+1}^{1}, \ldots$ such that they belong to only one of the collections. So:
+  \begin{equation*}
+    \begin{split}
+      \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1} = \sum_{j}^{m}y_{j}
+    \end{split}
+  \end{equation*}
+Moreover, the vertices of $y_{1}, \ldots, y_{m}$ and $x_{i+1}+x_{i}$ have a nontrivial intersection. This is because the face $x_{i+1}+x_{i}$ is responsible for the splits and merges of the $x_{i}$'s $\partial^{-}$-boundaries. Therefore:
+\begin{equation*}
+  \begin{split}
+    \Size{ w } \le \Size{  x_{i} + x_{i+1} } + \sum_{j}^{m} \Size{y_{j}} \le d + m c n \le (m+1) c n  
+  \end{split}
+\end{equation*}
+Thus, if $c < \frac{1}{m+1}$, we have that $\Size{w} < n$, a contradiction for $w$ being a non-trivial codeword.
 \end{proof}
 
 
