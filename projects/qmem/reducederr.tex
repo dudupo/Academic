@@ -259,16 +259,21 @@ Let $x_{1}, \ldots, x_{t} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be
   \end{equation*}
 \end{claim}
 \begin{proof}
-  
+  Assume through contradiction that there is $i$ such $0 = [x_{i}] \neq [x_{i+1}]$ denote by $ x_{i}^{1},x_{i}^{2},..$ and $x_{i+1}^{1},x_{i+2}^{2},..$ the reduced $d^{\prime}$-dimensional chains such $\partial^{-}x_{i}^{j}$ is a connected component of $\partial^{-}x_{i}$. Hence:  
+  \begin{equation*}
+    \begin{split}
+      [x_{i+1}] = [x_{i+1}] + [x_{i}] = x_{i} + x_{i+1} + \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1}
+    \end{split}
+  \end{equation*}
 \end{proof}
 
 
 %  Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional finite chain, such that each of the connected components of $\partial^{-}x$ has size less than $n$. Consider the decoder that first decomposes $\partial^{-}x$ into its connected components, copies each of them to a clean Toric register, and applies the sweep rule on each. Denote by $\xi_{i}$ the correction computed for the $i$th connected component. We claim that:
-  \begin{equation*}
-    \begin{split}
-      \Size{ x + \sum_{i} \xi_{i}  } \le n 
-    \end{split}
-  \end{equation*}
+%\begin{equation*}
+%    \begin{split}
+%      \Size{ x + \sum_{i} \xi_{i}  } \le n 
+%    \end{split}
+%  \end{equation*}
 
 %\begin{claim}
 %Consider a $d^{\prime}$-dimensional chain $x_{1}, x_{2}, \ldots, x_{k} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such that $x_{1}$ is the trivial chain, and for any $i$, the Hamming distance between $x_{i+1}$ and $x_{i}$ is at most $\Delta$. Then, if $x_{k}$ has a connected component with size greater than $n$, there is $i \in [k]$ such that $\partial^{-}x_{i}$ has a connected component of size greater than $\frac{n}{\Delta}$.
