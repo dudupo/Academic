@@ -43,10 +43,13 @@ As a concept, if the base graph is a recording of a run from the Torices' point 
 
 
 \begin{definition}
-Let $P$ be a Pauli which is a view in $\infty$-extension. We define the reduced form of $P$ to be the Pauli obtained by the following procedure: for any finite connected chain that corresponds to a subset of the $X$ component of $P$'s support, substitute it with its reduced form (\Cref{def:reduced}). Then do the same for the $Z$ component in the dual picture. Observe that Paulis of a reduced Pauli-path act on the qubits in the $\infty$-extension.
+
+Let $P$ be a Pauli. We denote by $P^{\infty}$ the view of $P$ in the $\infty$-extension. We denote by $x(P^{\infty})$ the $d^{\prime}$-dimensional chain in the infinite complex that supports the $X$-component of $P^{\infty}$, and by $z(P^{\infty})$ the $d-d^{\prime}$-dimensional chain, such that the inversion of the $\phi$-transpose sends it to the $d^{\prime}$-dimensional chain that supports the $Z$-component of $P^{\infty}$, namely $\phi^{-1}(z(P^{\infty}))$ is the chain that supports the $Z$-component. 
+
+%We define the reduced form of $P$ to be the Pauli obtained by the following procedure: for any finite connected chain that corresponds to a subset of the $X$ component of $P$'s support, substitute it with its reduced form (\Cref{def:reduced}). Then do the same for the $Z$ component in the dual picture. Observe that Paulis of a reduced Pauli-path act on the qubits in the $\infty$-extension.^i
 
 
-We extend the notion to Paulis in finite spaces (for example, Paulis on the circuit's register) by saying that a Pauli $P \in \mathcal{P}^{(\cdot)}$ is reduced if its view in the $\infty$-extension is reduced.
+\inb{\textbf{Consider removing.}} We extend the notion to Paulis in finite spaces (for example, Paulis on the circuit's register) by saying that a Pauli $P \in \mathcal{P}^{(\cdot)}$ is reduced if its view in the $\infty$-extension is reduced.
 \end{definition}
 
 \begin{definition}
@@ -72,9 +75,9 @@ For a Pauli-path $P_{1},..,P_{\mu+1}$, the Toom's contour is the restriction of 
         \begin{equation*}
           \begin{split}
             V_{\mathcal{H}, X} \colonequals & \big\{ v_{t} \times \{X\} : v_{t}=(v,t) \in V_{o} \\
-            & \, \, \, \text{ and there exists a face } f \in \text{ supp } X(P_{t}) \text{ such } v \in f \big\} \\
+            & \, \, \, \text{ and there exists a face } f \in \partial^{-} x(P_{t}) \text{ such } v \in f \big\} \\
              V_{\mathcal{H}, Z} \colonequals & \big\{ v_{t} \times \{Z\} : v_{t}=(v,t) \in V_{o} \\
-             & \, \, \, \text{ and there exists a face } f \in \text{ supp } Z(P_{t}) \text{ such } v \in \phi(f) \big\} 
+             & \, \, \, \text{ and there exists a face } f \in \partial^{-} z(P_{t}) \text{ such } v \in f \big\} 
           \end{split}
         \end{equation*}
 
@@ -173,28 +176,28 @@ Now, since $P^{\prime}_{\Delta}$ is at a Hamming distance of at most $\Delta$ fr
 
 \inb{\textbf{Rewrite. }} For the analyses, we would like to extend Toom's contour to record in their final layer a partial time-step, namely a computation up to a certain step \Cref{def:steps}. For this, we substitute in the definition above the Pauli-path with a Pauli-path up to a time \inb{\textbf{Prefix?}}. Moreover, since we would like to refer to the connected chain at the final layer as the 'final error clusters', we add at the end a layer whose purpose is to connect in time (by arrows) the connected components of Toom's contour in the prior layer, which are connected by checks (their union is identified with a connected chain).
 \begin{definition}[Analysis Toom's Contour at Time $t$]
-  For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, and a time $t$, according to the standard order, let $C[\mathcal{E}]_{t}$ be the partial computation circuit of $C[\mathcal{E}]$ up to time $t$. We define the \textit{analysis Toom's contour at time $t$}, denoted by $\mathcal{H}_{t} = (V_{\mathcal{H}}, E_{\mathcal{H}})$, to be the graph obtained by taking the Toom's contour of $C[\mathcal{E}]_{t}$ and adding vertices and edges as follows:
+  For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, a step $\tau$ according to the standard order, and an integer $\Delta^{\prime} \in [\Delta]$, we define the \textit{analysis Toom's contour up to step $(\tau,\Delta^\prime)$}, denoted by $\mathcal{H}_{\tau,\Delta^{\prime}} = (V_{\mathcal{H}}, E_{\mathcal{H}})$, to be the graph obtained by taking a Pauli-path up to step $(\tau,\Delta^{\prime})$ $P_{1},..,P_{t},P_{\star}$, and gluing to the Toom's contour induced by the prefix $P_{1},..,P_{t}$ a layer defined by adding vertices and edges as follows:
   \begin{enumerate}
-    \item We add for the vertices in $V_{\mathcal{H},\{X\}}$ the duplication of the previous layer, namely the subset:
+    \item We add to the vertices in $V_{\mathcal{H},\{X\}}$ the vertices that support $P_{\star}$, namely the subset:
       \begin{equation*}
           \begin{split}
-            \bigl\{ v_{t+1}  & : v_{t+1}=( v,t+1,\{X\}  ) \text{ if there exists a face } f \in \text{ supp } X(P_{t}) \\ 
-            & \text{ such } v \in f \in X(P_{t}) \bigr\} 
+            \bigl\{ v_{t+1}  & : v_{t+1}=( v,t+1,\{X\}  ) \text{ if there exists a face } f \in \partial^{-}x(P_{\star}) \\ 
+            & \text{ such } v \in f \in \partial^{-}x(P_{\star}) \bigr\} 
           \end{split}
         \end{equation*}
         Similarly we add to $V_{\mathcal{H}, Z}$ the subset: 
       \begin{equation*}
           \begin{split}
-            \bigl\{ v_{t+1}  & : v_{t+1}=(  v,t+1,\{Z\} ) \text{ if there exists a face } f \in \text{ supp } Z(P_{t}) \\
-            & \text{ such } v \in \phi(f) \bigr\} 
+            \bigl\{ v_{t+1}  & : v_{t+1}=(  v,t+1,\{Z\} ) \text{ if there exists a face } f \in \partial^{-} z(P_{\star}) \\
+            & \text{ such } v \in f \bigr\} 
           \end{split}
         \end{equation*}
       \item For the edges, we add the following arrows:
         \begin{equation*}
           \begin{split}
             \bigl\{ \bigl\{ \tilde{u} & = (u,t+1 -1, \cdot ),  \tilde{v}= (v,t+1,\cdot)  \bigr\}  \text{ if  either there exists }\\ 
-           & \text{ a } d^{\prime}-1  \text{ dimensional face } f  \text{such } \tilde{u},\tilde{v} \in V_{\mathcal{H},X} \text{ and } u,v \in f  \\
-          & \text{or there exists a } d - d^{\prime}-1  \text{ dimensional face } f \text{ such } \tilde{u},\tilde{v} \in V_{\mathcal{H},Z} \text{ and } v,u \in \phi^{-1}(f)   \bigr\}  
+           & \text{ a } d^{\prime}-2  \text{ dimensional face } f  \text{such } \tilde{u},\tilde{v} \in V_{\mathcal{H},X} \text{ and } u,v \in f  \\
+          & \text{or there exists a } d - d^{\prime}-2  \text{ dimensional face } f \text{ such } \tilde{u},\tilde{v} \in V_{\mathcal{H},Z} \text{ and } v,u \in f   \bigr\}  
           \end{split}
         \end{equation*}
       \item Finally, we add forks for vertices at time $t+1$ to preserve the property that any two vertices with the same time coordinate, which are connected to a third (with a $+1$ higher time coordinate) via arrows, are also connected by a fork.
