@@ -51,17 +51,13 @@ The proofs of the claims are given in the appendix. We continue with the proof o
     We construct $\tilde{C}$ as follows: for each input wire of $C$, we initialize the logical zero $\ket{\mathbf{0}}$ of the $(d,d^{\prime})$-Toric code. For each of the gates $\mathbf{H}$ and $\mathbf{S}$, we initialize the encoded $\ket{\mathbf{H}}$ and $\ket{\mathbf{S}}$ states, and for each $\mathbf{T}$, we initialize copies of both $\ket{\mathbf{T}}$ and $\ket{\mathbf{S}}$ states. The even layers of $\tilde{C}$ are sweep cycles, while on the odd layers, we set the realization of the logical gates. For $\mathbf{CX}$, we set the transversal realization, and for $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$, we use gate teleportation. Thus the width of $\tilde{C}$ expands to at most $ (w + 2\mu) n^{2d}$.  
     
 
-    For gate teleportation, we use the decoder in    \inb{\textbf{Consider Pulling out: } \Cref{claim:decodestopnoise}} 
-
-    \inb{\textbf{Here.}}
-    namely an application of $ n^{d+1}$ sweep cycles, followed by a classical logarithmic depth procedure that infers a logical measurement and might apply a second gate conditioned on it. Therefore, the gate teleportation admits a $\Theta(n^{2d} + \log n)$ depth-overhead. Thus, the depth of $\tilde{C}$ expands to $\Theta(\mu n^{2d} )$\footnote{The constant inside the $\Theta$ also accounts for the fact that the realization of a logical gate might contain multiple gate teleportations.}.
-
-
-    We will use the decoder in \Cref{claim:decodestopnoise} as our referee (\Cref{def:simu}) and denote it by $D$. Denote by $S$ the number of locations, so $S = O(w \mu^{2} n^{4d^{2}} )$.
+    
+    
+We realize the gate teleportation as described in \Cref{def:niceenc}, so the gate teleportation admits $O(n + \log n)$ and $O(n^{2d})$ depth and width overhead. Thus, the depth of $\tilde{C}$ expands to $\Theta(\mu n)$\footnote{The constant inside the $\Theta$ also accounts for the fact that the realization of a logical gate might contain multiple gate teleportations.} We will denote the procedure of inferring the logical measurement in the gate teleportation \Cref{def:niceenc}\footnote{The codeword checking procedure- $ \mathbf{1}_{x_{S^{\prime}}}$ / $ \mathbf{1}_{x_{S/S^{\prime}}}$.} by $D$, and we also use $D$ as our referee (\Cref{def:simu}).Denote by $S$ the number of locations, so $S = O(w \mu^{2} n^{2d+1} )$.
   
     
 
-    If there is no application in which the decoder fails, then clearly the corrections followed in the gate teleportation procedures are the right ones, namely the logical gates that were applied simulate the gates in the original circuit. To ensure that $D$ succeeds in decoding the output states, it's enough to imagine that there are $n^{2d}$ additional ideal sweep-cycles at the end and require them to achieve a successful decoding.
+    If there is no application in which the $D$ fails - namely the corrections followed in the gate teleportation procedures are the right ones, then the logical gates that were applied simulate the gates in the original circuit. To assure that $D$ succeeds in decoding the output states, it's enough to imagine that there are $n^{2d}$ additional ideal sweep-cycles at the end and require them to achieve a successful decoding.
 
 
     
