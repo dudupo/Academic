@@ -61,8 +61,6 @@ For the sake of proving correctness, we can assume that at the end we measure al
 
 
 Consider an application of $D$ in $\tilde{C}$ and a set of faults $\mathcal{E}$. Let $\tau, \tau_{\mathcal{E}}$ be the step of the gate in application and its corresponding step in the subjected circuit $\tilde{C}[\mathcal{E}]$. Denote by $\tilde{C}_{\rightarrow \tau}, \tilde{C}[\mathcal{E}]_{\rightarrow \tau_{\mathcal{E}}}$ the circuits obtained by taking gates up to steps $\tau$ and $\tau_{\mathcal{E}}$.
-  \inb{\textbf{Here.}}  Thus, showing that $D$ does not fail, and that at the end of the running, the resulting state is 
-    \Cref{coro:barrier}
 
     \begin{equation*}
       \begin{split}
@@ -71,6 +69,8 @@ Consider an application of $D$ in $\tilde{C}$ and a set of faults $\mathcal{E}$.
     \end{equation*}
 
 
+  \inb{\textbf{Here.}}  Thus, showing that $D$ does not fail, and that at the end of the running, the resulting state is 
+    \Cref{coro:barrier}
 
     \Cref{claim:decodestopnoise} states that $D$ successfully decodes, assuming that, first, no infinite error occurs and, second, no vertex is connected to a non-trivial translation of itself by arrows.    And \Cref{claim:replace} states that any upper bound on the occurrence probability of at least one of either infinite error or a vertex connecting to its translation, in the running where the decoding procedure is noisy\footnote{Observe that in this setting, the classical procedure that infers a logical measurement makes no sense}, and which assumes only that the noise channel is local stochastic, is sufficient to bound the probability that one of them occurs during the original running.
 
