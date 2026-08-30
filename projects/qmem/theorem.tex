@@ -58,8 +58,16 @@ The proofs of the claims are given in the appendix. We continue with the proof o
     
 For the sake of proving correctness, we can assume that at the end we measure all registers, each in either the computational or the phase basis. Any proof that gives correctness without distinguishing in which basis we choose for the registers captures the referee test at the end of the run. Then, saying that the referee, $D$, does not fail means that the logical measurement indeed measures their given encoded states. In turn, the corrections followed in the gate teleportation procedures are the right ones, and therefore, the logical gates that were applied throughout the simulation match the gates in the original circuit. Lastly, we pass the referee test. In other words, the original circuit was successfully simulated according to \Cref{def:simu}.
 
-Thus, showing that $D$ does not fail, and that at the end of the running, the resulting state is 
+  \inb{\textbf{Here.}}  Thus, showing that $D$ does not fail, and that at the end of the running, the resulting state is 
     \Cref{coro:barrier}
+
+    \begin{equation*}
+      \begin{split}
+        \tilde{C}[\mathcal{E}]_{\rightarrow \tau_{\mathcal{E}}} = \tilde{C}_{\rightarrow \tau} \sum_{i} p_{i}P_{i} 
+      \end{split}
+    \end{equation*}
+
+
 
     \Cref{claim:decodestopnoise} states that $D$ successfully decodes, assuming that, first, no infinite error occurs and, second, no vertex is connected to a non-trivial translation of itself by arrows.    And \Cref{claim:replace} states that any upper bound on the occurrence probability of at least one of either infinite error or a vertex connecting to its translation, in the running where the decoding procedure is noisy\footnote{Observe that in this setting, the classical procedure that infers a logical measurement makes no sense}, and which assumes only that the noise channel is local stochastic, is sufficient to bound the probability that one of them occurs during the original running.
 
