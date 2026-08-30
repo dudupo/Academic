@@ -58,12 +58,15 @@ The proofs of the claims are given in the appendix. We continue with the proof o
     
 For the sake of proving correctness, we can assume that at the end we measure all registers, each in either the computational or the phase basis. Any proof that gives correctness without distinguishing in which basis we choose for the registers captures the referee test at the end of the run. Then, saying that the referee, $D$, does not fail means that the logical measurement indeed measures their given encoded states. In turn, the corrections followed in the gate teleportation procedures are the right ones, and therefore, the logical gates that were applied throughout the simulation match the gates in the original circuit. Lastly, we pass the referee test. In other words, the original circuit was successfully simulated according to \Cref{def:simu}.
 
+
+
+Consider an application of $D$ in $\tilde{C}$ and a set of faults $\mathcal{E}$. Let $\tau, \tau_{\mathcal{E}}$ be the step of the gate in application and its corresponding step in the subjected circuit $\tilde{C}[\mathcal{E}]$. Denote by $\tilde{C}_{\rightarrow \tau}, \tilde{C}[\mathcal{E}]_{\rightarrow \tau_{\mathcal{E}}}$ the circuits obtained by taking gates up to steps $\tau$ and $\tau_{\mathcal{E}}$.
   \inb{\textbf{Here.}}  Thus, showing that $D$ does not fail, and that at the end of the running, the resulting state is 
     \Cref{coro:barrier}
 
     \begin{equation*}
       \begin{split}
-        \tilde{C}[\mathcal{E}]_{\rightarrow \tau_{\mathcal{E}}} = \tilde{C}_{\rightarrow \tau} \sum_{i} a_{i}P_{i} 
+        \tilde{C}[\mathcal{E}]_{\rightarrow \tau_{\mathcal{E}}} \colonequals \tilde{C}_{\rightarrow \tau} \sum_{i} a_{i}P_{i} 
       \end{split}
     \end{equation*}
 
