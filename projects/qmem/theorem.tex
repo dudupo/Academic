@@ -56,16 +56,9 @@ The proofs of the claims are given in the appendix. We continue with the proof o
     We realize the gate teleportation as described in \Cref{def:niceenc}, so the gate teleportation admits $O(n + \log n)$ and $O(n^{2d})$ depth and width overhead. Thus, the depth of $\tilde{C}$ expands to $\Theta(\mu n)$\footnote{The constant inside the $\Theta$ also accounts for the fact that the realization of a logical gate might contain multiple gate teleportations.}. We will denote the procedure of inferring the logical measurement in the gate teleportation \Cref{def:niceenc}\footnote{The codeword checking procedure - $ \mathbf{1}_{x_{S^{\prime}}}$ / $ \mathbf{1}_{x_{S/S^{\prime}}}$.} by $D$, and we also use $D$ as a realization of measurement in the computational basis and as our referee (\Cref{def:simu}). Denote by $S$ the number of locations, so $S = O(w \mu^{2} n^{2d+1} )$.
   
     
+For the sake of proving correctness, we can assume that at the end we measure all registers, each in either the computational or the phase basis. Any proof that gives correctness without distinguishing in which basis we choose for the registers captures the referee test at the end of the run. Then, saying that the referee, $D$, does not fail means that the logical measurement indeed measures their given encoded states. In turn, the corrections followed in the gate teleportation procedures are the right ones, and therefore, the logical gates that were applied throughout the simulation match the gates in the original circuit. Lastly, we pass the referee test. In other words, the original circuit was successfully simulated according to \Cref{def:simu}.
 
-    
-For the sake of proving correctness, we can assume that at the end we measure all registers, each in either the computational or the phase basis. Any proof that gives correctness without distinguishing in which basis we choose for the registers captures the referee test at the end of the running. Then, if there is no application in which the referee, $D$, fails - namely the corrections followed in the gate teleportation procedures are the right ones, then the logical gates that were applied simulate the gates in the original circuit. Thus, showing that $D$ does not fail, and that at the end of the running, the resulting state is 
-
-
-To assure that $D$ succeeds in decoding the output states, it's enough to imagine that there are $n^{2d}$ additional ideal sweep-cycles at the end and require them to achieve a successful decoding.
-
-
-    
-
+Thus, showing that $D$ does not fail, and that at the end of the running, the resulting state is 
     \Cref{coro:barrier}
 
     \Cref{claim:decodestopnoise} states that $D$ successfully decodes, assuming that, first, no infinite error occurs and, second, no vertex is connected to a non-trivial translation of itself by arrows.    And \Cref{claim:replace} states that any upper bound on the occurrence probability of at least one of either infinite error or a vertex connecting to its translation, in the running where the decoding procedure is noisy\footnote{Observe that in this setting, the classical procedure that infers a logical measurement makes no sense}, and which assumes only that the noise channel is local stochastic, is sufficient to bound the probability that one of them occurs during the original running.
