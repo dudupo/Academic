@@ -155,7 +155,9 @@ For the Hadamard gate, we use a modification of the standard two-qubit gate tele
         \caption{ Gate teleportation of the Hadamard gate, using the resource $\ket{\mathbf{H}}$. We emphasize that although the Hadamard (at least Hadamard-type) has an $O(1)$-depth gate realization (at least when $d^{\prime}=d/2$), we still need all the operations on the quantum register to be strictly transversal for the sake of the proof. Thus, we realize the Hadamard via gate teleportation. }   
 \label{fig:magich}
 \end{figure}
-The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^{\prime}}}$ / $ \mathbf{1}_{x_{S/S^{\prime}}}$, is divided into two stages. First, we erase the error by repeatedly iterating the sweep cycles, and then multiply by the inversion of the decoding matrix. In the proof of the main theorem, we prove that $\Theta(n^{d+1})$ sweep-cycles, with high probability, succeed in erasing the error. The second stage involves a matrix multiplication which can be done in logarithmic depth with the help of quadratic, in the code length, number of additional bits. Thus, the procedure requires an overhead of $\Theta(n^{d+1})$ in depth and $\Theta(n^{2d})$ in width.
+The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^{\prime}}}$ / $ \mathbf{1}_{x_{S/S^{\prime}}}$, is divided into two stages. 
+\inb{\textbf{Here. The Decoder changed so, consider removing it.}} 
+First, we erase the error by repeatedly iterating the sweep cycles, and then multiply by the inversion of the decoding matrix. In the proof of the main theorem, we prove that $\Theta(n^{d+1})$ sweep-cycles, with high probability, succeed in erasing the error. The second stage involves a matrix multiplication which can be done in logarithmic depth with the help of quadratic, in the code length, number of additional bits. Thus, the procedure requires an overhead of $\Theta(n^{d+1})$ in depth and $\Theta(n^{2d})$ in width.
 
 
 %

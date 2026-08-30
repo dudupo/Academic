@@ -12,12 +12,15 @@ We are ready to prove the main theorem (\Cref{theorem:main}). We start by giving
 
   \begin{definition}[Simulation and Logical Errors]
     \label{def:simu}
-    For a quantum code $\mathcal{C}$ of length $n$ and a decoder for $\mathcal{C}$, denoted by $D$, we say that a Pauli operator $P \in \mathcal{P}^{\otimes n}$ is a \textit{logical error} with respect to $D$ if $DP$ does not equal the logical identity (stabilizer).
+Consider a quantum code $\mathcal{C}$ of length $n$ and dimension $k$. A quantum circuit $L(\mathcal{H}_{2}^{\otimes n}) \rightarrow L(\mathcal{H}_{2}^{\otimes n})$ will be said to be a referee for $\mathcal{C}$ if, when given a codeword of $\mathcal{C}$, it results in the first $k$ output qubits, the logical state of the given.
+
+Let $D$ be a referee for $\mathcal{C}$. We say that a Pauli operator $P \in \mathcal{P}^{\otimes n}$ is a \textit{logical error} with respect to $D$ if $DP \neq D$.
 
 For quantum circuits $C$ and $\tilde{C}$, a noise channel $N_{\mathcal{E}}$, and $p \in (0,1)$, we say that $\tilde{C}$ \textit{simulates} $C$ with probability at least $1 - p$ if
     \begin{enumerate}
-      \item There is a mapping between the qubits of $C$ and the registers of $\tilde{C}$, along with a decoding procedure such that, at the end of running $\tilde{C}$ (on the zero state), decoding the registers back to the logical space results in the same quantum states as those produced by running $C$.
-      \item Let $\mathcal{E} \sim N_{\mathcal{E}}$ be a set of faults. The probability induced by $N_{\mathcal{E}}$ that at the end of the running of $\tilde{C}[\mathcal{E}]$, one of its quantum registers introduces a logical error (with respect to the decoder) is less than $p$.
+      \item
+        There is a mapping between the qubits of $C$ and the registers of $\tilde{C}$, along with a referee such that, at the end of running $\tilde{C}$ (on the zero state), decoding the registers back to the logical space results in the same quantum states as those produced by running $C$.
+      \item Let $\mathcal{E} \sim N_{\mathcal{E}}$ be a set of faults. The probability induced by $N_{\mathcal{E}}$ that at the end of the running of $\tilde{C}[\mathcal{E}]$, one of its quantum registers introduces a logical error (with respect to the referee) is less than $p$.
     \end{enumerate}
   \end{definition}
 
@@ -47,7 +50,12 @@ Let $\gamma, \beta \in \mathbb{R}_{>0}$ and $n$ be a positive integer. For any t
   
 The proofs of the claims are given in the appendix. We continue with the proof of the lemma.
   \begin{proof}
-    We construct $\tilde{C}$ as follows: for each input wire of $C$, we initialize the logical zero $\ket{\mathbf{0}}$ of the $(d,d^{\prime})$-Toric code. For each of the gates $\mathbf{H}$ and $\mathbf{S}$, we initialize the encoded $\ket{\mathbf{H}}$ and $\ket{\mathbf{S}}$ states, and for each $\mathbf{T}$, we initialize copies of both $\ket{\mathbf{T}}$ and $\ket{\mathbf{S}}$ states. The even layers of $\tilde{C}$ are sweep cycles, while on the odd layers, we set the realization of the logical gates. For $\mathbf{CX}$, we set the transversal realization, and for $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$, we use gate teleportation. Thus the width of $\tilde{C}$ expands to at most $ (w + 2\mu) n^{2d}$.  For gate teleportation, we use the decoder in \Cref{claim:decodestopnoise}, namely an application of $ n^{d+1}$ sweep cycles, followed by a classical logarithmic depth procedure that infers a logical measurement and might apply a second gate conditioned on it. Therefore, the gate teleportation admits a $\Theta(n^{2d} + \log n)$ depth-overhead. Thus, the depth of $\tilde{C}$ expands to $\Theta(\mu n^{2d} )$\footnote{The constant inside the $\Theta$ also accounts for the fact that the realization of a logical gate might contain multiple gate teleportations.}. We will use the decoder in \Cref{claim:decodestopnoise} as our referee (\Cref{def:simu}) and denote it by $D$. Denote by $S$ the number of locations, so $S = O(w \mu^{2} n^{4d^{2}} )$.
+    We construct $\tilde{C}$ as follows: for each input wire of $C$, we initialize the logical zero $\ket{\mathbf{0}}$ of the $(d,d^{\prime})$-Toric code. For each of the gates $\mathbf{H}$ and $\mathbf{S}$, we initialize the encoded $\ket{\mathbf{H}}$ and $\ket{\mathbf{S}}$ states, and for each $\mathbf{T}$, we initialize copies of both $\ket{\mathbf{T}}$ and $\ket{\mathbf{S}}$ states. The even layers of $\tilde{C}$ are sweep cycles, while on the odd layers, we set the realization of the logical gates. For $\mathbf{CX}$, we set the transversal realization, and for $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$, we use gate teleportation. Thus the width of $\tilde{C}$ expands to at most $ (w + 2\mu) n^{2d}$.  For gate teleportation, we use the decoder in \Cref{claim:decodestopnoise},
+
+    \inb{\textbf{Here.}}
+    namely an application of $ n^{d+1}$ sweep cycles, followed by a classical logarithmic depth procedure that infers a logical measurement and might apply a second gate conditioned on it. Therefore, the gate teleportation admits a $\Theta(n^{2d} + \log n)$ depth-overhead. Thus, the depth of $\tilde{C}$ expands to $\Theta(\mu n^{2d} )$\footnote{The constant inside the $\Theta$ also accounts for the fact that the realization of a logical gate might contain multiple gate teleportations.}.
+
+    We will use the decoder in \Cref{claim:decodestopnoise} as our referee (\Cref{def:simu}) and denote it by $D$. Denote by $S$ the number of locations, so $S = O(w \mu^{2} n^{4d^{2}} )$.
   
     
 
@@ -56,6 +64,7 @@ The proofs of the claims are given in the appendix. We continue with the proof o
 
     
 
+    \Cref{coro:barrier}
 
     \Cref{claim:decodestopnoise} states that $D$ successfully decodes, assuming that, first, no infinite error occurs and, second, no vertex is connected to a non-trivial translation of itself by arrows.    And \Cref{claim:replace} states that any upper bound on the occurrence probability of at least one of either infinite error or a vertex connecting to its translation, in the running where the decoding procedure is noisy\footnote{Observe that in this setting, the classical procedure that infers a logical measurement makes no sense}, and which assumes only that the noise channel is local stochastic, is sufficient to bound the probability that one of them occurs during the original running.
 
