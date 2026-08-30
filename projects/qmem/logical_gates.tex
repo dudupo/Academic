@@ -157,7 +157,7 @@ For the Hadamard gate, we use a modification of the standard two-qubit gate tele
 \end{figure}
 The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^{\prime}}}$ / $ \mathbf{1}_{x_{S/S^{\prime}}}$, is divided into two stages. 
 
-See \Cref{SHILOACH198257}, \Cref{1676869}, and \Cref{Lev1980} for moving from PRAM to circuit model.  
+See \cite{SHILOACH198257}, \cite{1676869}, and \cite{Lev1980} for moving from PRAM to circuit model.  
 \inb{\textbf{Here. The Decoder changed so, consider removing it.}} 
 First, we erase the error by repeatedly iterating the sweep cycles, and then multiply by the inversion of the decoding matrix. In the proof of the main theorem, we prove that $\Theta(n^{d+1})$ sweep-cycles, with high probability, succeed in erasing the error. The second stage involves a matrix multiplication which can be done in logarithmic depth with the help of quadratic, in the code length, number of additional bits. Thus, the procedure requires an overhead of $\Theta(n^{d+1})$ in depth and $\Theta(n^{2d})$ in width.
 
