@@ -59,16 +59,16 @@ The proofs of the claims are given in the appendix. We continue with the proof o
 For the sake of proving correctness, we can assume that at the end we measure all registers, each in either the computational or the phase basis. Any proof that gives correctness without distinguishing in which basis we choose for the registers captures the referee test at the end of the run. 
 
 
-Consider an application of $D$ in $\tilde{C}$ and a set of faults $\mathcal{E}$. Let $\tau, \tau_{\mathcal{E}}$ be the step of the gate in application and its corresponding step in the subjected circuit $\tilde{C}[\mathcal{E}]$. Denote by $\tilde{C}_{\rightarrow \tau}, \tilde{C}[\mathcal{E}]_{\rightarrow \tau_{\mathcal{E}}}$ the circuits obtained by taking gates up to steps $\tau$ and $\tau_{\mathcal{E}}$. For coefficients $a_{1}, \ldots \in \mathbb{C}$ and Paulis $P_{1}, \ldots \in \mathcal{P}^{(\cdot)}$, let $\sum_{i}a_{i}P_{i}$ be the Pauli decomposition of the propagated error to step $\tau_{\mathcal{E}}$, namely:
+Consider an application of $D$ in $\tilde{C}$ and a set of faults $\mathcal{E}$. Let $\tau, \tau_{\mathcal{E}}$ be the step of the gate in application and its corresponding step in the subjected circuit $\tilde{C}[\mathcal{E}]$. Denote by $\tilde{C}_{\rightarrow \tau}, \tilde{C}[\mathcal{E}]_{\rightarrow \tau_{\mathcal{E}}}$ the circuits obtained by taking gates up to steps $\tau$ and $\tau_{\mathcal{E}}$. For coefficients $a_{1}, \ldots \in \mathbb{C}$ and Paulis $P_{1}, P_{2}, \ldots, Q_{1}, Q_{2}, \ldots \in \mathcal{P}^{(\cdot)}$, let $\sum_{i}a_{i}P_{i} \otimes Q_{i}$ be the Pauli decomposition of the propagated error to step $\tau_{\mathcal{E}}$, such that the $P$s support the qubits of the measured register while the $Q$s support the rest, namely:
     \begin{equation*}
       \begin{split}
-        \tilde{C}[\mathcal{E}]_{\rightarrow \tau_{\mathcal{E}}} \colonequals  \bigl( \sum_{i} a_{i}P_{i} \bigr)  \tilde{C}_{\rightarrow \tau}
+        \tilde{C}[\mathcal{E}]_{\rightarrow \tau_{\mathcal{E}}} \colonequals  \bigl( \sum_{i} a_{i}P_{i} \otimes Q_{i} \bigr)  \tilde{C}_{\rightarrow \tau}
       \end{split}
     \end{equation*}
 If none of the Paulis in the decomposition, $P_{i} \in P_{1},..,$ is a logical error with respect to $D$, then:
     \begin{equation*}
       \begin{split}
-      D \tilde{C}[\mathcal{E}]_{\rightarrow \tau_{\mathcal{E}}}  = D   \bigl( \sum_{i} a_{i}P_{i} \bigr) \tilde{C}_{\rightarrow \tau} = D \tilde{C}_{\rightarrow \tau} 
+        D \tilde{C}[\mathcal{E}]_{\rightarrow \tau_{\mathcal{E}}}  = D   \bigl( \sum_{i} a_{i}P_{i} \otimes Q_{i} \bigr) \tilde{C}_{\rightarrow \tau} = \bigl( \sum_{i} a_{i} I \otimes Q_{i} \bigr) D \tilde{C}_{\rightarrow \tau} 
       \end{split}
     \end{equation*}
 In that case, we will say that the application of $D$ succeeded. Otherwise, we will say that the application failed, or in brief, that $D$ fails. Then, saying that the referee, $D$, does not fail means that the logical measurement indeed measures their given encoded states. In turn, the corrections followed in the gate teleportation procedures are the right ones, and therefore, the logical gates that were applied throughout the simulation match the gates in the original circuit. Lastly, we pass the referee test. In other words, the original circuit was successfully simulated according to \Cref{def:simu}.
