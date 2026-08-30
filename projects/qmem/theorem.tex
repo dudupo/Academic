@@ -12,8 +12,7 @@ We are ready to prove the main theorem (\Cref{theorem:main}). We start by giving
 
   \begin{definition}[Simulation and Logical Errors]
     \label{def:simu}
-Consider a quantum code $\mathcal{C}$ of length $n$ and dimension $k$. A quantum circuit $L(\mathcal{H}_{2}^{\otimes n}) \rightarrow L(\mathcal{H}_{2}^{\otimes n})$ will be said to be a referee for $\mathcal{C}$ if, when given a codeword of $\mathcal{C}$, it results in the first $k$ output qubits, the logical state of the given.
-Let $D$ be a referee for $\mathcal{C}$. We say that a Pauli operator $P \in \mathcal{P}^{\otimes n}$ is a \textit{logical error} with respect to $D$ if $DP \neq D$.
+Consider a quantum code $\mathcal{C}$ of length $n$ and dimension $k$. A quantum circuit $D \colon L(\mathcal{H}_{2}^{\otimes n}) \rightarrow L(\mathcal{H}_{2}^{\otimes n})$ will be said to be a referee for $\mathcal{C}$ if, when given a codeword of $\mathcal{C}$, it results in the first $k$ output qubits, the logical state of the given. We say that a Pauli operator $P \in \mathcal{P}^{\otimes n}$ is a \textit{logical error} with respect to $D$ if $DP \neq D$.
 
 For quantum circuits $C$ and $\tilde{C}$, a noise channel $N_{\mathcal{E}}$, and $p \in (0,1)$, we say that $\tilde{C}$ \textit{simulates} $C$ with probability at least $1 - p$ if
     \begin{enumerate}
