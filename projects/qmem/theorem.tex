@@ -71,7 +71,7 @@ Let $J$ be the set of steps in $\tilde{C}[\mathcal{E}]$. Denote by $\mathcal{J} 
     \end{claim}
     \begin{proof}
     % Consider subset of faults $\mathcal{E}$ such 'no large syndrome component condition' is satisfied.
-      Let $\rho_{1},\rho_{2},..,\rho_{l}$ the density matrices such $\rho_{i}$ is obtained by applying the gates of $\tilde{C}$ up to the $i$th logical-layer (excluding that layer). Similarly, let $\rho_{1}^{\prime},..,\rho_{l}^{\prime}$ be the density matrices that are obtained by taking prefixes of $\tilde{C}[\mathcal{E}]$ up to logical-layers. We prove by induction, over $i$, that for any register $R$: 
+      Let $\rho_{1},\rho_{2},..,\rho_{l}$ the density matrices such $\rho_{i}$ is obtained by applying the gates of $\tilde{C}$ up to the $i$th logical-layer (excluding that layer). Similarly, let $\rho_{1}^{\prime},..,\rho_{l}^{\prime}$ be the density matrices that are obtained by taking prefixes of $\tilde{C}[\mathcal{E}] \sim \mathcal{N}_{\mathcal{E}}$ up to logical-layers. We prove by induction, over $i$, that for any register $R$: 
       \begin{equation*}
         \begin{split}
           \Trr{} \bigl( D \circ \rho^{\prime}_{i}|_{R} (  D \circ \rho_{i}|_{R} )^{\dagger}  \bigr) \ge q 
