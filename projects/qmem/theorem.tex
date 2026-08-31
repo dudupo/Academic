@@ -59,9 +59,25 @@ The proofs of the claims are given in the appendix. We continue with the proof o
 
 
     \begin{claim}
-Let $J$ be the set of steps in $\tilde{C}[\mathcal{E}]$. Denote by $\mathcal{J} \subset J \times \Delta$ the subset of tuples $(\tau, \Delta^{\prime})$ where $\tau \in J$, $\Delta^{\prime} \in [\Delta]$, and $\tau$ is a step of a gate in either a fault-layer or a sweep-cycle layer (namely, not a gate that is a part of logical gate realization). Then with probability at least $q$, for any $(\tau,\Delta^{\prime}) \in \mathcal{J}$, no analysis of Toom's contour up to step $\mathcal{H}_{\tau,\Delta^{\prime}}$ has a slice of size greater than $cn$.
+      \label{claim:suff} 
+Let $J$ be the set of steps in $\tilde{C}[\mathcal{E}]$. Denote by $\mathcal{J} \subset J \times \Delta$ the subset of tuples $(\tau, \Delta^{\prime})$ where $\tau \in J$, $\Delta^{\prime} \in [\Delta]$, and $\tau$ is a step of a gate in either a fault-layer or a sweep-cycle layer (namely, not a gate that is a part of logical gate realization). If, for any $(\tau,\Delta^{\prime}) \in \mathcal{J}$, no analysis of Toom's contour up to step $\mathcal{H}_{\tau,\Delta^{\prime}}$ has a slice of size greater than $cn$, then we will say that the 'no large syndrome component condition' is satisfied. With probability at least $q$, the condition is satisfied.
     \end{claim}
+    \begin{proof}
+      Proof.
+    \end{proof}
 
+    \begin{claim}
+     Assume that the 'no large syndrome component condition' is satisfied. Then $\tilde{C}$ simulates $C$.
+    \end{claim}
+    \begin{proof}
+    % Consider subset of faults $\mathcal{E}$ such 'no large syndrome component condition' is satisfied.
+      Let $\rho_{1},\rho_{2},..,\rho_{l}$ the density matrices such $\rho_{i}$ is obtained by applying the gates of $\tilde{C}$ up to the $i$th logical-layer (excluding that layer). Similarly, let $\rho_{1}^{\prime},..,\rho_{l}^{\prime}$ be the density matrices that are obtained by taking prefixes of $\tilde{C}[\mathcal{E}]$ up to logical-layers. We prove by induction, over $i$, that for any register $R$: 
+      \begin{equation*}
+        \begin{split}
+          \Trr{} \bigl( D \circ \rho^{\prime}_{i}|_{R} (  D \circ \rho_{i}|_{R} )^{\dagger}  \bigr) \ge q 
+        \end{split}
+      \end{equation*}
+    \end{proof}
 
 For the sake of proving correctness, we can assume that at the end we measure all registers, each in either the computational or the phase basis. Any proof that gives correctness without distinguishing in which basis we choose for the registers captures the referee test at the end of the run. 
 
