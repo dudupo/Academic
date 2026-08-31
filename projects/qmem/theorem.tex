@@ -56,6 +56,13 @@ The proofs of the claims are given in the appendix. We continue with the proof o
     We realize the gate teleportation as described in \Cref{def:niceenc}, so the gate teleportation admits $O(n + \log n)$ and $O(n^{2d})$ depth and width overhead. Thus, the depth of $\tilde{C}$ expands to $\Theta(\mu n)$\footnote{The constant inside the $\Theta$ also accounts for the fact that the realization of a logical gate might contain multiple gate teleportations.}. We will denote the procedure of inferring the logical measurement in the gate teleportation \Cref{def:niceenc}\footnote{The codeword checking procedure - $ \mathbf{1}_{x_{S^{\prime}}}$ / $ \mathbf{1}_{x_{S/S^{\prime}}}$.} by $D$, and we also use $D$ as a realization of measurement in the computational basis and as our referee (\Cref{def:simu}). Denote by $S$ the number of locations, so $S = O(w \mu^{2} n^{2d+1} )$.
   
     
+
+
+    \begin{claim}
+Let $J$ be the set of steps in $\tilde{C}[\mathcal{E}]$. Denote by $\mathcal{J} \subset J \times \Delta$ the subset of tuples $(\tau, \Delta^{\prime})$ where $\tau \in J$, $\Delta^{\prime} \in [\Delta]$, and $\tau$ is a step of a gate in either a fault-layer or a sweep-cycle layer (namely, not a gate that is a part of logical gate realization). Then with probability at least $q$, for any $(\tau,\Delta^{\prime}) \in \mathcal{J}$, no analysis of Toom's contour up to step $\mathcal{H}_{\tau,\Delta^{\prime}}$ has a slice of size greater than $cn$.
+    \end{claim}
+
+
 For the sake of proving correctness, we can assume that at the end we measure all registers, each in either the computational or the phase basis. Any proof that gives correctness without distinguishing in which basis we choose for the registers captures the referee test at the end of the run. 
 
 
@@ -73,7 +80,9 @@ In that case, we will say that the application of $D$ succeeded. Otherwise, we w
 
 Thus, it remains to prove that with probability at least $q$, no step $\tau_{\mathcal{E}}$, which is the first in a realization of $D$, introduces a logical error in the Pauli-decomposition of the propagated error up to it. We will prove the following: 
 \begin{claim}
- Let $\tau_{\mathcal{E}}$ be a step of $\tilde{C}[\mathcal{E}]$, which is either a part of a fault layer or a sweep-rule cycle (not a part of logical gate realization). Denote the restriction of the propagated error up to it, to the register it supports by $P_{\star}$. Then with probability at least $q/S$, there are Paulis $P_{1},..,P_{i},P_{i+1},..,P_{\star} \in \mathcal{P}^{ \mathcal{F}^{n}_{d^{\prime}} }$ such that $P_{1}$ is the identity, for any $i$ the Hamming distance between $P_{i}$ and $P_{i+1}$ is at most one, and no connected component of either $\partial^{-}x(P_{i})$ or $\partial^{-}z(P_{i})$ has a size ($\Size{ \cdot }$) greater than $cn$. 
+  Let $\tau$ be a step of $\tilde{C}[\mathcal{E}]$, which is either a part of a fault layer or a sweep-rule cycle (not a part of logical gate realization). Consider a Pauli-path up to step $(\tau,0)$, $P_{1},..,P_{\star}$. For a register $R$ denote by $P_{\star}|_{R}$ the restriction of $P_{\star}$ to the qubits in $R$. 
+
+ Denote the restriction of the propagated error up to it, to the register it supports by $P_{\star}$. Then with probability at least $q/S$, there are Paulis $P_{1},..,P_{i},P_{i+1},..,P_{\star} \in \mathcal{P}^{ \mathcal{F}^{n}_{d^{\prime}} }$ such that $P_{1}$ is the identity, for any $i$ the Hamming distance between $P_{i}$ and $P_{i+1}$ is at most one, and no connected component of either $\partial^{-}x(P_{i})$ or $\partial^{-}z(P_{i})$ has a size ($\Size{ \cdot }$) greater than $cn$. 
 \end{claim}
 
 Then, by the barrier argument (\Cref{coro:barrier}), it holds that $D$ erases $P_{\star}$.
