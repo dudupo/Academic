@@ -155,7 +155,7 @@ Such intuition is right in the sense that this is the right way to keep track of
 
 
 
-
+\inb{\textbf{ Split to, up to a step $\tau$ and up to pseudo step $(\tau,\Delta^{\prime})$.}}
 \begin{definition}
   \label{def:paulipathupstep}
 With the same notations as in \Cref{def:paulipath}, let $\tau$ be a step in $C[\mathcal{E}]$. Recall that each gate in $C[\mathcal{E}]$ acts on at most $\Delta$ qubits. Let $\Delta^{\prime} \in [\Delta]$. In addition, denote by $g$ and $t$ the gate and its time which is applied at step $\tau$. We say that the set of Pauli $P_{1},\ldots,P_{t},P_{\star}$ is a Pauli-path up to step $(\tau,\Delta^{\prime})$, if the $P_{1},\ldots,P_{t}$ is a Pauli-path for the circuit obtained from $C[\mathcal{E}]$ by taking only its first $t-1$ layers. And $P_{\star}$ satisfies the following: let $g^{\prime}_{1},\ldots,g_{l}^{\prime} = g$ be the gates applied at time $t$ at step up to, and including, $\tau$, placed by order. Let $P^{\prime}_{0},P^{\prime}_{\Delta} \in \mathcal{P}^{(\cdot)}$ be Paulis such:
@@ -203,10 +203,15 @@ Let $g$ be a gate that is applied at time $t$ and whose step $\le \tau$.
         \end{equation*}
       \item Finally, we add forks for vertices at time $t+1$ to preserve the property that any two vertices with the same time coordinate, which are connected to a third (with a $+1$ higher time coordinate) via arrows, are also connected by a fork.
   \end{enumerate}
-
-
 \end{definition}
 
 
+\begin{claim}
+  Suppose that for a Pauli-path up to a pseudo step $(\tau,\Delta^{\prime})$, and a register $R$, there is a connected component in $\partial^{-}x(P_{\star})|_{R}$, with size greater than $c n$, then there is a slice in the analysis of Toom's contour up to step $\tau$, a slice of size greater than $c n$.
+\end{claim}
+
+\begin{proof}
+  We argue that the vertices of any connected component of $ \partial^{-}x(P_{\star})$ are connected by arrows.  Assume trough contradiction that there is a  $d^{\prime}-1$-dimensional connected chain $x \in \partial^{-}x(P_{\star})$, and two vertices $v,u \in x$ such $v_{t} = (v,t,\{X\})$ and $u_{t} = (u,t,\{X\})$ are not connected via arrows. Let $g$ the gate which is applied at step $\tau$. We can assume that on the path of $v$ towards $u$ there is a vertex supporting $g$.   
+\end{proof}
 
 
