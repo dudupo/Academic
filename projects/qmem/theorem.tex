@@ -69,43 +69,43 @@ Let $J$ be the set of steps in $\tilde{C}[\mathcal{E}]$. Denote by $\mathcal{J} 
     \inb{ \textbf{Here.} }
 
 
-%    \begin{claim}
-%     Assume that the 'no large syndrome component condition' is satisfied. Then $\tilde{C}$ simulates $C$.
-%    \end{claim}
-%    \begin{proof}
-%    % Consider subset of faults $\mathcal{E}$ such 'no large syndrome component condition' is satisfied.
-%      Let $\rho_{1},\rho_{2},..,\rho_{l}$ the density matrices such $\rho_{i}$ is obtained by applying the gates of $\tilde{C}$ up to the $i$th logical-layer (excluding that layer). Similarly, let $\rho_{1}^{\prime},..,\rho_{l}^{\prime}$ be the density matrices that are obtained by taking prefixes of $\tilde{C}[\mathcal{E}] \sim \mathcal{N}_{\mathcal{E}}$ up to logical-layers. We prove by induction, over $i$, that for any register $R$: 
-%      \begin{equation*}
-%        \begin{split}
-%          \Trr{} \bigl( D \circ \rho^{\prime}_{i}|_{R} (  D \circ \rho_{i}|_{R} )^{\dagger}  \bigr) \ge q 
-%        \end{split}
-%      \end{equation*}
-%    \end{proof}
-%
-%For the sake of proving correctness, we can assume that at the end we measure all registers, each in either the computational or the phase basis. Any proof that gives correctness without distinguishing in which basis we choose for the registers captures the referee test at the end of the run. 
-%
-%
-%
-%For a set of faults $\mathcal{E}$, let $\tau$ be the step in $\tilde{C}[\mathcal{E}]$ such that the following step $\tau+1$ begins a realization of $D$ in $\tilde{C}$. Denote by $\tilde{C}[\mathcal{E}]_{\rightarrow \tau }$ the circuit which is obtained from $\tilde{C}[\mathcal{E}]$ by taking gates up to step $\tau + 1$. Consider a Pauli-path $P_{1}, P_{2}, \ldots, P_{\star}$ for $C[\mathcal{E}]_{\rightarrow\tau}$. Decompose $P_{\star}$ into the product of Paulis $P_{\star} = P \otimes Q$ such that $P$ is supported on the register on which the realization of $D$ (that begins at step $\tau$) is applied, and $Q$ is supported on the rest.
-%
-%If the Pauli $P$ is not a logical error with respect to $D$, then:
-%    \begin{equation*}
-%      \begin{split}
-%        D \tilde{C}[\mathcal{E}]_{\rightarrow \tau_{\mathcal{E}}}  = D   \bigl( \sum_{i} a_{i}P_{i} \otimes Q_{i} \bigr) \tilde{C}_{\rightarrow \tau} = \bigl( \sum_{i} a_{i} I \otimes Q_{i} \bigr) D \tilde{C}_{\rightarrow \tau} 
-%      \end{split}
-%    \end{equation*}
-%In that case, we will say that the application of $D$ succeeded. Otherwise, we will say that the application failed, or in brief, that $D$ fails. Then, saying that the referee, $D$, does not fail means that the logical measurement indeed measures their given encoded states. In turn, the corrections followed in the gate teleportation procedures are the right ones, and therefore, the logical gates that were applied throughout the simulation match the gates in the original circuit. Lastly, we pass the referee test. In other words, the original circuit was successfully simulated according to \Cref{def:simu}.
-%
-%
-%Thus, it remains to prove that with probability at least $q$, no step $\tau_{\mathcal{E}}$, which is the first in a realization of $D$, introduces a logical error in the Pauli-decomposition of the propagated error up to it. We will prove the following: 
-%\begin{claim}
-%  Let $\tau$ be a step of $\tilde{C}[\mathcal{E}]$, which is either a part of a fault layer or a sweep-rule cycle (not a part of logical gate realization). Consider a Pauli-path up to step $(\tau,0)$, $P_{1},..,P_{\star}$. For a register $R$ denote by $P_{\star}|_{R}$ the restriction of $P_{\star}$ to the qubits in $R$. 
-%
-% Denote the restriction of the propagated error up to it, to the register it supports by $P_{\star}$. Then with probability at least $q/S$, there are Paulis $P_{1},..,P_{i},P_{i+1},..,P_{\star} \in \mathcal{P}^{ \mathcal{F}^{n}_{d^{\prime}} }$ such that $P_{1}$ is the identity, for any $i$ the Hamming distance between $P_{i}$ and $P_{i+1}$ is at most one, and no connected component of either $\partial^{-}x(P_{i})$ or $\partial^{-}z(P_{i})$ has a size ($\Size{ \cdot }$) greater than $cn$. 
-%\end{claim}
-%
-%Then, by the barrier argument (\Cref{coro:barrier}), it holds that $D$ erases $P_{\star}$.
-%
+    \begin{claim}
+     Assume that the 'no large syndrome component condition' is satisfied. Then $\tilde{C}$ simulates $C$.
+    \end{claim}
+    \begin{proof}
+    % Consider subset of faults $\mathcal{E}$ such 'no large syndrome component condition' is satisfied.
+      Let $\rho_{1},\rho_{2},..,\rho_{l}$ the density matrices such $\rho_{i}$ is obtained by applying the gates of $\tilde{C}$ up to the $i$th logical-layer (excluding that layer). Similarly, let $\rho_{1}^{\prime},..,\rho_{l}^{\prime}$ be the density matrices that are obtained by taking prefixes of $\tilde{C}[\mathcal{E}] \sim \mathcal{N}_{\mathcal{E}}$ up to logical-layers. We prove by induction, over $i$, that for any register $R$: 
+      \begin{equation*}
+        \begin{split}
+          \Trr{} \bigl( D \circ \rho^{\prime}_{i}|_{R} (  D \circ \rho_{i}|_{R} )^{\dagger}  \bigr) \ge q 
+        \end{split}
+      \end{equation*}
+    \end{proof}
+
+For the sake of proving correctness, we can assume that at the end we measure all registers, each in either the computational or the phase basis. Any proof that gives correctness without distinguishing in which basis we choose for the registers captures the referee test at the end of the run. 
+
+
+
+For a set of faults $\mathcal{E}$, let $\tau$ be the step in $\tilde{C}[\mathcal{E}]$ such that the following step $\tau+1$ begins a realization of $D$ in $\tilde{C}$. Denote by $\tilde{C}[\mathcal{E}]_{\rightarrow \tau }$ the circuit which is obtained from $\tilde{C}[\mathcal{E}]$ by taking gates up to step $\tau + 1$. Consider a Pauli-path $P_{1}, P_{2}, \ldots, P_{\star}$ for $C[\mathcal{E}]_{\rightarrow\tau}$. Decompose $P_{\star}$ into the product of Paulis $P_{\star} = P \otimes Q$ such that $P$ is supported on the register on which the realization of $D$ (that begins at step $\tau$) is applied, and $Q$ is supported on the rest.
+
+If the Pauli $P$ is not a logical error with respect to $D$, then:
+    \begin{equation*}
+      \begin{split}
+        D \tilde{C}[\mathcal{E}]_{\rightarrow \tau_{\mathcal{E}}}  = D   \bigl( \sum_{i} a_{i}P_{i} \otimes Q_{i} \bigr) \tilde{C}_{\rightarrow \tau} = \bigl( \sum_{i} a_{i} I \otimes Q_{i} \bigr) D \tilde{C}_{\rightarrow \tau} 
+      \end{split}
+    \end{equation*}
+In that case, we will say that the application of $D$ succeeded. Otherwise, we will say that the application failed, or in brief, that $D$ fails. Then, saying that the referee, $D$, does not fail means that the logical measurement indeed measures their given encoded states. In turn, the corrections followed in the gate teleportation procedures are the right ones, and therefore, the logical gates that were applied throughout the simulation match the gates in the original circuit. Lastly, we pass the referee test. In other words, the original circuit was successfully simulated according to \Cref{def:simu}.
+
+
+Thus, it remains to prove that with probability at least $q$, no step $\tau_{\mathcal{E}}$, which is the first in a realization of $D$, introduces a logical error in the Pauli-decomposition of the propagated error up to it. We will prove the following: 
+\begin{claim}
+  Let $\tau$ be a step of $\tilde{C}[\mathcal{E}]$, which is either a part of a fault layer or a sweep-rule cycle (not a part of logical gate realization). Consider a Pauli-path up to step $(\tau,0)$, $P_{1},..,P_{\star}$. For a register $R$ denote by $P_{\star}|_{R}$ the restriction of $P_{\star}$ to the qubits in $R$. 
+
+ Denote the restriction of the propagated error up to it, to the register it supports by $P_{\star}$. Then with probability at least $q/S$, there are Paulis $P_{1},..,P_{i},P_{i+1},..,P_{\star} \in \mathcal{P}^{ \mathcal{F}^{n}_{d^{\prime}} }$ such that $P_{1}$ is the identity, for any $i$ the Hamming distance between $P_{i}$ and $P_{i+1}$ is at most one, and no connected component of either $\partial^{-}x(P_{i})$ or $\partial^{-}z(P_{i})$ has a size ($\Size{ \cdot }$) greater than $cn$. 
+\end{claim}
+
+Then, by the barrier argument (\Cref{coro:barrier}), it holds that $D$ erases $P_{\star}$.
+
     %\Cref{claim:decodestopnoise} states that $D$ successfully decodes, assuming that, first, no infinite error occurs and, second, no vertex is connected to a non-trivial translation of itself by arrows.    And \Cref{claim:replace} states that any upper bound on the occurrence probability of at least one of either infinite error or a vertex connecting to its translation, in the running where the decoding procedure is noisy\footnote{Observe that in this setting, the classical procedure that infers a logical measurement makes no sense}, and which assumes only that the noise channel is local stochastic, is sufficient to bound the probability that one of them occurs during the original running.
 
    
