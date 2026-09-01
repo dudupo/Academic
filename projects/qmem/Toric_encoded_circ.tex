@@ -57,10 +57,15 @@ We say that the Paulis $P_{1},..,P_{\tau}$ are a propagated-path if $P_{1},..,P_
           g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) = P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
         \end{split}
       \end{equation*}
-     \item If $g$ is a measurement then   
+    \item If $g$ is a measurement of the $i$ qubit, namely:  
       \begin{equation*}
         \begin{split}
-          g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) =  \ketbra{0}{0 }      P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
+          g(\rho) = \ketbra{0}{0}_{i} \rho \ketbra{0}{0}_{i} + \ketbra{1}{1}_{i} \rho \ketbra{1}{1}_{i}
+        \end{split}
+      \end{equation*}
+      \begin{equation*}
+        \begin{split}
+          g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr)  &=  \frac{1}{2}\ketbra{0}{0 }  P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime} \ketbra{0}{0} + \frac{1}{2}\ketbra{0}{0 } 
         \end{split}
       \end{equation*}
     \item If $g$ is one of $\textbf{CX}, \textbf{X}$ or $\textbf{Z}$, then 
