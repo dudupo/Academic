@@ -24,6 +24,26 @@ We say that the Paulis $P_{1},..,P_{\tau}$ are a propagated-path if $P_{1},..,P_
   \end{equation*}
 \end{definition}
 
+
+\begin{claim}
+  Let $P,Q$ be Paulis, and let $g \notin \mathcal{E}$, then: 
+  \begin{enumerate}
+    \item If $g$ is a gate inside a sweep cycle, meaning that $g$ measures a local syndrome and then applies correction, then there are Paulis $P^{\prime}, Q^{\prime}$ such that:
+      \begin{equation*}
+        \begin{split}
+          g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) = P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
+        \end{split}
+      \end{equation*}
+     \item If $g$ is a projective measurement then   
+      \begin{equation*}
+        \begin{split}
+          g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) = P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
+        \end{split}
+      \end{equation*}
+  \end{enumerate}
+\end{claim}
+
+
 \begin{claim}
   \begin{equation*}
     \begin{split}
@@ -41,7 +61,7 @@ We say that the Paulis $P_{1},..,P_{\tau}$ are a propagated-path if $P_{1},..,P_
           E_{i} \colonequals \sum_{Q_{i}^{j} \in \mathcal{P} } \gamma_{j}Q_{i}^{j}
         \end{split}
       \end{equation*}
-      Then, if $g_{\tau} \notin  \mathcal{E}$:
+      Then, if $g_{\tau} \notin  \mathcal{E}$, then each of the $E_{i}$ is a unitary (in case where $g_{\tau}$ is unitary then it's clear, in the case that $g_{n}$ is  
       \begin{equation*}
         \begin{split}
       C[\mathcal{E}]_{\rightarrow \tau} \circ \rho & =  g_{\tau} \circ C[\mathcal{E}]_{\rightarrow \tau-1} \circ \rho \\
