@@ -6,14 +6,14 @@
 
 \inb{\textbf{ Enter the term $PAQ \in g \circ A$ into the notations section. }}
 \begin{definition}
-  Let $\{u_{i}\}_{i}$ be the gates of the subjected quantum circuit $C[\mathcal{E}]$, placed according to the steps' order, and let $\mathcal{J}$ be the gates which are not belong to either $\mathcal{E}$, or to a sweep-cycle layer. We define the ideal evolution superoperator, denoted by $\Phi_{i}(\rho)$, to be:
+Let $\{u_{i}\}_{i}$ be the gates of the subjected quantum circuit $C[\mathcal{E}]$, placed according to the steps' order, and let $\mathcal{J}$ be the gates which do not belong to either $\mathcal{E}$ or to a sweep-cycle layer. We define the ideal evolution superoperator, denoted by $\Phi_{i}(\rho)$, to be:
   \begin{equation*}
     \begin{split}
 \Phi_{i+1}(\rho) = 
       \begin{cases}
         u_{i+1} \circ \Phi_{i}(\rho) & \text{ if } u_{i} \notin \mathcal{J}  \\ 
         \Phi_{i}(\rho) & \text{ else } 
-      \end{cases} \quad \Phi_{0}(\rho) = \rho
+      \end{cases} \quad  \quad \qaud \Phi_{0}(\rho) = \rho
     \end{split}
   \end{equation*}
 We say that the Paulis $P_{1},..,P_{\tau}$ are a propagated-path if $P_{1},..,P_{\tau-1}$ is a propagated-path and there are Paulis $Q,Q^{\prime}$ such that:
