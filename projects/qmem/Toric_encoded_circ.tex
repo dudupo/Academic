@@ -45,10 +45,10 @@ We say that the Paulis $P_{1},..,P_{\tau}$ are a propagated-path if $P_{1},..,P_
       \begin{equation*}
         \begin{split}
       C[\mathcal{E}]_{\rightarrow \tau} \circ \rho & =  g_{\tau} \circ C[\mathcal{E}]_{\rightarrow \tau-1} \circ \rho \\
-      &= g_{\tau}\circ \bigl( \sum_{i,j}\alpha_{i,j} P_{i} \Phi_{\tau} (\rho) P_{j}  + c.c   \bigr) \\
-      &= \sum_{l}  E_{l}  \bigl( \sum_{i,j}\alpha_{i,j} P_{i} \Phi_{\tau} (\rho) P_{j}  + c.c   \bigr) E_{l}^{\dagger} \\ 
-      &= \sum_{l,k_{1},k_{2} i,j}  \gamma_{k_{1}}\gamma_{k_{2}}^{*}\alpha_{i,j} Q_{l}^{k_{1}}P_{i} \Phi_{\tau} (\rho) P_{j} Q_{l}^{k_{2}} + c.c \\
-      &= \sum_{l,k_{1},k_{2} i,j} (-1)^{N_{i,j,l,k_{1},k_{2}}} \alpha_{i,j} P_{i}\gamma_{k_{1}}\gamma_{k_{2}}^{*}Q_{l}^{k_{1}}\Phi_{\tau} (\rho)  Q_{l}^{k_{2}} P_{j} + c.c \\
+      &= g_{\tau}\circ \bigl( \sum_{i,j}\alpha_{i,j} P_{i} \Phi_{\tau-1} (\rho) P_{j}  + c.c   \bigr) \\
+      &= \sum_{l}  E_{l}  \bigl( \sum_{i,j}\alpha_{i,j} P_{i} \Phi_{\tau-1} (\rho) P_{j}  + c.c   \bigr) E_{l}^{\dagger} \\ 
+      &= \sum_{l,k_{1},k_{2} i,j}  \gamma_{k_{1}}\gamma_{k_{2}}^{*}\alpha_{i,j} Q_{l}^{k_{1}}P_{i} \Phi_{\tau-1} (\rho) P_{j} Q_{l}^{k_{2}} + c.c \\
+      &= \sum_{l,k_{1},k_{2} i,j} (-1)^{N_{i,j,l,k_{1},k_{2}}} \alpha_{i,j} P_{i}\gamma_{k_{1}}\gamma_{k_{2}}^{*}Q_{l}^{k_{1}}\Phi_{\tau-1} (\rho)  Q_{l}^{k_{2}} P_{j} + c.c \\
         \end{split}
       \end{equation*}
   \end{enumerate}
