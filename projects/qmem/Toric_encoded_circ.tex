@@ -34,7 +34,7 @@ We say that the Paulis $P_{1},..,P_{\tau}$ are a propagated-path if $P_{1},..,P_
           g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) = P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
         \end{split}
       \end{equation*}
-     \item If $g$ is a projective measurement then   
+     \item If $g$ is a measurement then   
       \begin{equation*}
         \begin{split}
           g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) = P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
@@ -48,6 +48,30 @@ We say that the Paulis $P_{1},..,P_{\tau}$ are a propagated-path if $P_{1},..,P_
       \end{equation*}
   \end{enumerate}
 \end{claim}
+\begin{proof}
+  
+  \begin{enumerate}
+    \item If $g$ is a gate inside a sweep cycle, meaning that $g$ measures a local syndrome and then applies correction, then there are Paulis $P^{\prime}, Q^{\prime}$ such that:
+      \begin{equation*}
+        \begin{split}
+          g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) = P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
+        \end{split}
+      \end{equation*}
+     \item If $g$ is a measurement then   
+      \begin{equation*}
+        \begin{split}
+          g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) =  \ketbra{0}{0 }      P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
+        \end{split}
+      \end{equation*}
+    \item If $g$ is one of $\textbf{CX}, \textbf{X}$ or $\textbf{Z}$, then 
+      \begin{equation*}
+        \begin{split}
+          g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) = P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
+        \end{split}
+      \end{equation*}
+  \end{enumerate}
+\end{proof}
+
 
 
 \begin{claim}
