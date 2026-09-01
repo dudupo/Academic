@@ -26,7 +26,7 @@ We say that the Paulis $P_{1},..,P_{\tau}$ are a propagated-path if $P_{1},..,P_
 
 
 \begin{claim}
-  Let $P,Q$ be Paulis, and let $g \notin \mathcal{E}$, then: 
+  Let $P,Q$ be Paulis, and let $g \notin \{u_{i}\}_{i}$, then: 
   \begin{enumerate}
     \item If $g$ is a gate inside a sweep cycle, meaning that $g$ measures a local syndrome and then applies correction, then there are Paulis $P^{\prime}, Q^{\prime}$ such that:
       \begin{equation*}
@@ -35,6 +35,12 @@ We say that the Paulis $P_{1},..,P_{\tau}$ are a propagated-path if $P_{1},..,P_
         \end{split}
       \end{equation*}
      \item If $g$ is a projective measurement then   
+      \begin{equation*}
+        \begin{split}
+          g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) = P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
+        \end{split}
+      \end{equation*}
+    \item If $g$ is one of $\textbf{CX}, \textbf{X}$ or $\textbf{Z}$, then 
       \begin{equation*}
         \begin{split}
           g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) = P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
