@@ -1,6 +1,29 @@
 
 
 
+\subsection{Propagation}
+
+
+\inb{\textbf{ Enter the term $PAQ \in g \circ A$ into the notations section. }}
+\begin{definition}
+Let $\{u_{i}\}_{i}$ be the gates of the subjected quantum circuit $C[\mathcal{E}]$, placed according to the steps' order. We define the ideal evolution superoperator, denoted by $\Phi_{i}(\rho)$, to be:
+  \begin{equation*}
+    \begin{split}
+\Phi_{i+1}(\rho) = 
+      \begin{cases}
+        u_{i+1} \circ \Phi_{i}(\rho) & \text{ if } u_{i} \neq \mathcal{E}  \\ 
+        \Phi_{i}(\rho) & \text{ else } 
+      \end{cases} \quad \Phi_{0}(\rho) = \rho
+    \end{split}
+  \end{equation*}
+We say that the Paulis $P_{1},..,P_{\tau}$ are a propagated-path if $P_{1},..,P_{\tau-1}$ is a propagated-path and there are Paulis $Q,Q^{\prime}$ such that:
+  \begin{equation*}
+    \begin{split}
+      P_{\tau} \Phi_{\tau} Q^{\prime}   \in g_{\tau} \circ  \bigl( P_{\tau-1} \Phi_{\tau-1}(\rho) Q \bigr)
+    \end{split}
+  \end{equation*}
+\end{definition}
+
 
 
 \subsection{ Toom's Contours}
@@ -176,7 +199,7 @@ Now, since $P^{\prime}_{\Delta}$ is at a Hamming distance of at most $\Delta$ fr
 
 \inb{\textbf{Rewrite. }} For the analyses, we would like to extend Toom's contour to record in their final layer a partial time-step, namely a computation up to a certain step \Cref{def:steps}. For this, we substitute in the definition above the Pauli-path with a Pauli-path up to a time \inb{\textbf{Prefix?}}. Moreover, since we would like to refer to the connected chain at the final layer as the 'final error clusters', we add at the end a layer whose purpose is to connect in time (by arrows) the connected components of Toom's contour in the prior layer, which are connected by checks (their union is identified with a connected chain).
 \begin{definition}[Analysis Toom's Contour Up to Step $(\tau,\Delta^\prime)$]
-For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, a step $\tau$ according to the standard order, and an integer $\Delta^{\prime} \in [\Delta]$, we define the \textit{analysis Toom's contour up to step $(\tau,\Delta^\prime)$}, denoted by $\mathcal{H}_{\tau,\Delta^{\prime}} = (V_{\mathcal{H}}, E_{\mathcal{H}})$, to be the graph obtained by taking a Pauli-path up to step $(\tau,\Delta^{\prime})$ $P_{1}, \ldots, P_{t}, P_{\star}$, and gluing to the Toom's contour induced by the prefix $P_{1}, \ldots, P_{t-1}$ a layer defined by adding vertices and edges as follows:
+\inb{\textbf{Rewrite. }}For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, a step $\tau$ according to the standard order, and an integer $\Delta^{\prime} \in [\Delta]$, we define the \textit{analysis Toom's contour up to step $(\tau,\Delta^\prime)$}, denoted by $\mathcal{H}_{\tau,\Delta^{\prime}} = (V_{\mathcal{H}}, E_{\mathcal{H}})$, to be the graph obtained by taking a Pauli-path up to step $(\tau,\Delta^{\prime})$ $P_{1}, \ldots, P_{t}, P_{\star}$, and gluing to the Toom's contour induced by the prefix $P_{1}, \ldots, P_{t-1}$ a layer defined by adding vertices and edges as follows:
 Let $g$ be a gate that is applied at time $t$ and whose step $\le \tau$. 
   \begin{enumerate}
     \item If $g$ is a physical $\textbf{CX}$, then denote by $f_{1}, f_{2}$ the $d^{\prime}$-dimensional faces on which $g$ acts. Then, if either $\partial^{-}f_{1}$ or $\partial^{-}f_{2}$ intersects with $\partial^{-}x(P_{t-1})$, then for any pair of vertices $v_{1}, v_{2}$ such that $v_{1} \in f_{1} \cup f_{2}$, $(v_{1}, t-1, \{X\})$ is already in $V_{\mathcal{H},X}$, we add the following vertices and arrows into $V_{\mathcal{H},\{X\}}$ and $E_{\mathcal{H}}$:
