@@ -4,6 +4,26 @@
 \subsection{Propagation}
 
 
+
+\inb{ \textbf{  Just writing here the idea.  }  }
+
+We want to have reduction from computation to memory. Imagine, that after any gate which is not a sweep-rule gate, the state is $\phi_{\tau}$  We can define the uniteres  $V_{\tau}$ which sends the (current, namely not measured , and that is important) quantum registers and satisfy the follow: 
+\begin{enumerate}
+  \item $V_{\tau} \phi_{\tau} = \ket{\mathcal{C}_{Z}^{\perp}}^{\otimes m_{\tau}}$ 
+  \item $V_{\tau} P \psi_{\tau} =  P \ket{\mathcal{C}_{Z}^{\perp}}^{\otimes m_{\tau}}$ for ant Pauli that has weight less than $\frac{1}{3}m_{\tau}$. 
+\end{enumerate}
+The restriction on the weight we set to assure there is such unitary since $4^{\frac{1}{2}} \le 2$. The idea is that with high probability we send errors to act on the Zeros-encoded, (if we conjecture by $V_{\tau} \cdot V_{\tau}^{\prime}$ also the sweep-correction sent as they are. Observe if $V_{\tau}$ doesn't capture all the suggested correction in a cycle then split the cycle, from a technical point of view consider an overlap between the two new $V_{\tau}, V_{\tau+1}$, where the overlap is over the Pauli deviations. Then if a Pauli acts non-trivially over at most $\Delta$ qubits, then $V_{\tau} P V_{\tau}^{\dagger}$ as well.
+
+  
+  Let $\ketbra{s}{s}$ be a projection over a syndrome $s$, and observe that $I = \sum_{s} \ketbra{s}{s}$. If $\hat{A}$ is an ideal decoder than: 
+  \begin{equation*}
+    \begin{split}
+      |  \hat{A} \rho  - \sigma  | =  |  \hat{A}    V_{2}^{\dagger}  \sum_{s} \ketbra{s}{s}$ V_{2}  g_{2}   V_{1}^{\dagger}  \sum_{s} \ketbra{s}{s}$ V_{1}\sigma_{0}  -     V_{2}^{\dagger}  \sum_{s} \ketbra{s}{s}$ V_{2}  g_{2}   V_{1}^{\dagger}  \sum_{s} \ketbra{s}{s}$ V_{1}  g_{1}    \sigma_{0}  | 
+    \end{split}
+  \end{equation*}
+
+
+
 \inb{\textbf{ Enter the term $PAQ \in g \circ A$ into the notations section. }}
 \begin{definition}
 Let $\{u_{i}\}_{i}$ be the gates of the subjected quantum circuit $C[\mathcal{E}]$, placed according to the steps' order, and let $\mathcal{J}$ be the gates which do not belong to either $\mathcal{E}$ or to a sweep-cycle layer. We define the ideal evolution superoperator, denoted by $\Phi_{i}(\rho)$, to be:
