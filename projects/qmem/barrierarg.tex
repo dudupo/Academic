@@ -85,6 +85,32 @@ Let $x_{1}, \ldots, x_{t} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be
 
 \begin{proof}
 Let $x_{1}^{\prime}, \ldots, x^{\prime}_{\Delta t + 1}$ be the chains obtained from $x_{1}, \ldots, x_{t}$ by taking the stacking between any two sequential elements $\Delta-1$ chains, such that in the new set any two sequential chains are at Hamming distance at most one. Namely, for any $i \in [t]$, we have that $x_{1 + i\Delta}^{\prime} = x_{i + i}$ and $x^{\prime}_{i+1}$ differs from $x^{\prime}_{i}$ by at most one coordinate. 
+
+Now, define for any $i,j \in [1 + \Delta t] $ quantity: 
+\begin{equation*}
+  \begin{split}
+    w_{i,j} = x^{\prime}_{i} + x^{\prime}_{j} + \sum_{k}x_{i}^{\prime k} + \sum_{k}x_{j}^{\prime k+1}
+  \end{split}
+\end{equation*}
+
+By the same arguments as in \Cref{claim:barrier}: 
+\begin{equation*}
+  \begin{split}
+    [x_{i+1} ] = [x^{\prime}_{i\Delta+1} ] + [x^{\prime}_{(i+1)\Delta+1} ]  \sim _{\mathcal{C}_{Z^{\perp}}}  w_{i \Delta +1 ,(i+1)\Delta + 1}  
+  \end{split}
+\end{equation*}
+And observes that: 
+\begin{equation*}
+  \begin{split}
+    w_{i \Delta +1 ,(i+1)\Delta + 1}  = \sum_{j = i \Delta +1 }^{(i+1)\Delta} w_{j ,j + 1} 
+  \end{split}
+\end{equation*}
+Now the vertices supporting $w_{i,i+1}$ and $w_{i+1,i+2}$ intersect (since both are supported on $x_{i+1}$). Thus, 
+\begin{equation*}
+  \begin{split}
+    \Size{ w_{i \Delta +1 ,(i+1)\Delta + 1} }  \le \sum_{j = i \Delta +1 }^{(i+1)\Delta} \Size{ w_{j ,j + 1} } \le  \Delta d + \Delta M(d,d^{\prime}) c n  
+  \end{split}
+\end{equation*}
 \end{proof}
 
 \begin{corollary}[Barrier argument]
