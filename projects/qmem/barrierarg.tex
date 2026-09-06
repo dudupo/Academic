@@ -76,9 +76,7 @@ Thus, for sufficiently large $n$ ,if $c < \frac{1}{M(d,d^{\prime})+1}$, we have 
 \end{proof}
 
 
-\inb{\textbf{ Extend the above to chains at hamming distance at most $\Delta$.  }}
-
-
+\inb{\textbf{ Finishing extending the above to chains at hamming distance at most $\Delta$. Below there is an initial draft for that.}}
 \begin{claim}
 Let $x_{1}, \ldots, x_{t} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be $d^{\prime}$-dimensional chains defined as in \Cref{claim:barrier}, with the change that any two sequential chains $x_{i}, x_{i+1}$ are at a Hamming distance of at most $\Delta$, and setting the constant $c \leftarrow c/\Delta$. Then the claim still holds.
 \end{claim}
@@ -86,13 +84,13 @@ Let $x_{1}, \ldots, x_{t} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be
 \begin{proof}
 Let $x_{1}^{\prime}, \ldots, x^{\prime}_{\Delta t + 1}$ be the chains obtained from $x_{1}, \ldots, x_{t}$ by taking the stacking between any two sequential elements $\Delta-1$ chains, such that in the new set any two sequential chains are at Hamming distance at most one. Namely, for any $i \in [t]$, we have that $x_{1 + i\Delta}^{\prime} = x_{i + i}$ and $x^{\prime}_{i+1}$ differs from $x^{\prime}_{i}$ by at most one coordinate. 
 
-Now, define for any $i,j \in [1 + \Delta t] $ quantity: 
+
+We argue that each connected component of $\partial^{-}x^{\prime}$ has a size of at most $\Delta c n$ (\inb{\textbf{Prove that!}}). Now, define for any $i,j \in [1 + \Delta t]$ the quantity:
 \begin{equation*}
   \begin{split}
     w_{i,j} = x^{\prime}_{i} + x^{\prime}_{j} + \sum_{k}x_{i}^{\prime k} + \sum_{k}x_{j}^{\prime k+1}
   \end{split}
 \end{equation*}
-
 By the same arguments as in \Cref{claim:barrier}: 
 \begin{equation*}
   \begin{split}
@@ -108,7 +106,7 @@ And observes that:
 Now the vertices supporting $w_{i,i+1}$ and $w_{i+1,i+2}$ intersect (since both are supported on $x_{i+1}$). Thus, 
 \begin{equation*}
   \begin{split}
-    \Size{ w_{i \Delta +1 ,(i+1)\Delta + 1} }  \le \sum_{j = i \Delta +1 }^{(i+1)\Delta} \Size{ w_{j ,j + 1} } \le  \Delta d + \Delta M(d,d^{\prime}) c n  
+    \Size{ w_{i \Delta +1 ,(i+1)\Delta + 1} }  \le \sum_{j = i \Delta +1 }^{(i+1)\Delta} \Size{ w_{j ,j + 1} } \le  \Delta d + \Delta M(d,d^{\prime}) \Delta c n  
   \end{split}
 \end{equation*}
 \end{proof}
