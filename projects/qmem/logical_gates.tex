@@ -246,6 +246,10 @@ Where to infer the last passage we used to the Pauli-propagation through $\mathb
 Notice that the Pauli $P_{z_{3},x_{3}}$ consists of applying $X$'s on the $d^{\prime}$-dimensional faces of the chain $z_{3}$, and applying $Z$'s on the $d^{\prime}$-dimensional faces of $x_{3}$.
 \end{proof}
 
+\begin{corollary}
+\label{claim:pauliprop}  
+Let $C$ be a quantum circuit, such that all its registers are encoded via the nice encoding, and the gates of $C$ are either logical Pauli, transversal $\mathbf{CX}$, sweep-cycles, or $\mathbf{H}, \mathbf{S}$, and $\mathbf{T}$ realized via gate-teleportation. Then the propagation of Pauli through $C$ is a Pauli.
+\end{corollary}
 %The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^{\prime}}}$ / $ \mathbf{1}_{x_{S/S^{\prime}}}$, is divided into two stages.  See \cite{SHILOACH198257}, \cite{1676869}, and \cite{Lev1980} for moving from PRAM to circuit model.  
 
 %\inb{\textbf{Here. The Decoder changed so, rewriting it.}} 
