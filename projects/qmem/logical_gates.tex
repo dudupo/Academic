@@ -179,7 +179,15 @@ The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^
         \begin{quantikz}
            & \ctrl{1}  & \gate{\inr{ P_{x_{1},z_{1}} }  }  &  & \gate{Z_{S^{\prime}}} &  \rstick{$\mathbf{S}\ket{\psi}$} \\
          & \targ{} &  \gate{\inr{ P_{x_{2},z_{2}} }  } & \meter{} &  \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[u][1]{c}   \setwiretype{c}  \\
-        \end{quantikz}
+        \end{quantikz} \\
+        \begin{quantikz}
+          \gate{\inr{ P_{x_{1},z_{1}} }  } & \ctrl{1}  &  & \gate{Z_{S^{\prime}}} &  \rstick{$\mathbf{S}\ket{\psi}$} \\
+        \gate{\inr{ P_{x_{2},z_{2}} }  } & \targ{} & \meter{} &  \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[u][1]{c}   \setwiretype{c}  \\
+        \end{quantikz} \qquad = \qquad 
+        \begin{quantikz}
+           & \ctrl{1}  & \gate{\inr{ P_{x_{1},z_{1}} }  }  &  & \gate{Z_{S^{\prime}}} &  \rstick{$\mathbf{S}\ket{\psi}$} \\
+         & \targ{} &  \gate{\inr{ P_{x_{2},z_{2}} }  } & \meter{} &  \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[u][1]{c}   \setwiretype{c}  \\
+        \end{quantikz} 
          \end{split}
         \end{equation*}
         \caption{ Simulating the $\mathbf{S}$ and $\mathbf{T}$ gates, using the $\ket{\mathbf{S}}$, $\ket{\mathbf{T}}$ magic states. }   
