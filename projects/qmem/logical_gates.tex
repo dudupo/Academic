@@ -198,7 +198,7 @@ For chains $x,z \in ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2})$, we denote
         \caption{ Pauli propagation trough $\mathbf{S}$ teleportation. }   
 \label{fig:magic}
 \end{figure}
-For the $\mathbf{T}$-teleportation, we denote by $P_{x_{3},z_{3}}$ the Pauli act on the third register containing the resource state $\ket{ \mathbf{S} }$, which might be used through the gadget to 'correct' the teleportation. Let $\mathbf{1}^{2}_{x_{S^{\prime}}}$ be the indicator for the event in which measuring the resource state $\ket{\mathbf{T}}$ results in $\ket{\bar{1}}$. Then:
+For the $\mathbf{T}$-teleportation, we denote by $P_{x_{3},z_{3}}$ the Pauli act on the third register containing the resource state $\ket{ \mathbf{S} }$, which might be used through the gadget to 'correct' the teleportation. Let $\mathbf{1}^{2}_{x_{S^{\prime}}}$ be the indicator for the event in which measuring the resource register (that prior to the entangle, holds the state $ P_{x_{2},z_{2}} \ket{\mathbf{T}}$) results in $\ket{\bar{1}}$. Then:
     \begin{figure}[H]
         \centering 
         \begin{equation*}
@@ -223,9 +223,7 @@ For the $\mathbf{T}$-teleportation, we denote by $P_{x_{3},z_{3}}$ the Pauli act
         \caption{ Pauli propagation trough $\mathbf{T}$ teleportation. }   
 \label{fig:magic}
 \end{figure}
-
-
-
+Where to infer the last passage we used to the Pauli-propagation through $\mathbf{S}$-teleportation. Finally, for the $\mathbf{H}$-teleportation we have: 
     \begin{figure}[H]
         \centering 
         \begin{equation*}
@@ -242,10 +240,10 @@ For the $\mathbf{T}$-teleportation, we denote by $P_{x_{3},z_{3}}$ the Pauli act
         \end{quantikz} 
           \end{split}
         \end{equation*}
-        \caption{ Gate teleportation of the Hadamard gate, using the resource $\ket{\mathbf{H}}$. We emphasize that although the Hadamard (at least Hadamard-type) has an $O(1)$-depth gate realization (at least when $d^{\prime}=d/2$), we still need all the operations on the quantum register to be strictly transversal for the sake of the proof. Thus, we realize the Hadamard via gate teleportation. }   
+        \caption{ Pauli propagation trough $\mathbf{H}$ teleportation. }   
 \label{fig:magich}
 \end{figure}
-
+Notice that the Pauli $P_{z_{3},x_{3}}$ consists of applying $X$'s on the $d^{\prime}$-dimensional faces of the chain $z_{3}$, and applying $Z$'s on the $d^{\prime}$-dimensional faces of $x_{3}$.
 \end{proof}
 
 %The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^{\prime}}}$ / $ \mathbf{1}_{x_{S/S^{\prime}}}$, is divided into two stages.  See \cite{SHILOACH198257}, \cite{1676869}, and \cite{Lev1980} for moving from PRAM to circuit model.  
