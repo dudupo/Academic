@@ -172,7 +172,8 @@ The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^
 The propagation of a Pauli through the gate teleportation gadgets is a Pauli.
 \end{claim}
 \begin{proof}
-For chains $x,z \in ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2})$, we denote by $P_{x,z}$ the Pauli consisting of $X$'s and $Z$'s on the faces of $x$ and $z$.   \begin{figure}[H]
+For chains $x,z \in ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2})$, we denote by $P_{x,z}$ the Pauli consisting of $X$'s and $Z$'s on the faces of $x$ and $z$. We prove the claim by propagating Paulis manually. We start by propagating Pauli through the $\mathbf{S}$-teleportation, let $P_{x_{1},z_{1}}$ and $P_{x_{2},z_{2}}$ be the Paulis that act on the first and the second registers. Then: 
+\begin{figure}[H]
         \centering 
         \begin{equation*}
         \begin{split}
@@ -194,7 +195,7 @@ For chains $x,z \in ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2})$, we denote
         \end{quantikz} 
          \end{split}
         \end{equation*}
-        \caption{ Simulating the $\mathbf{S}$ and $\mathbf{T}$ gates, using the $\ket{\mathbf{S}}$, $\ket{\mathbf{T}}$ magic states. }   
+        \caption{ Pauli propagation trough $\mathbf{S}$ teleportation. }   
 \label{fig:magic}
 \end{figure}
 
@@ -220,7 +221,7 @@ For chains $x,z \in ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2})$, we denote
         \end{quantikz} 
          \end{split}
         \end{equation*}
-        \caption{ Simulating the $\mathbf{S}$ and $\mathbf{T}$ gates, using the $\ket{\mathbf{S}}$, $\ket{\mathbf{T}}$ magic states. }   
+        \caption{ Pauli propagation trough $\mathbf{T}$ teleportation. }   
 \label{fig:magic}
 \end{figure}
 
