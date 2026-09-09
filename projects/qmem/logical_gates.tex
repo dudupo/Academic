@@ -166,6 +166,23 @@ The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^
 
 
 
+
+
+    \begin{figure}[h]
+        \centering 
+        \begin{quantikz}
+          \lstick{$\ket{\psi}$} & \ctrl{1}  &  & \gate{Z_{S^{\prime}}} &  \rstick{$\mathbf{S}\ket{\psi}$} \\
+        \lstick{$\ket{\mathbf{S}}$} & \targ{} & \meter{} &  \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[u][1]{c}   \setwiretype{c}  \\
+        \end{quantikz} \qquad \qquad 
+        \begin{quantikz}
+          \lstick{$\ket{\psi}$} & \ctrl{1}  &  & \gate{Z_{S^{\prime}}} &  \rstick{$\mathbf{S}\ket{\psi}$} \\
+        \lstick{$\ket{\mathbf{S}}$} & \targ{} & \meter{} &  \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[u][1]{c}   \setwiretype{c}  \\
+        \end{quantikz}
+        \caption{ Simulating the $\mathbf{S}$ and $\mathbf{T}$ gates, using the $\ket{\mathbf{S}}$, $\ket{\mathbf{T}}$ magic states. }   
+\label{fig:magic}
+\end{figure}
+
+
 %The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^{\prime}}}$ / $ \mathbf{1}_{x_{S/S^{\prime}}}$, is divided into two stages.  See \cite{SHILOACH198257}, \cite{1676869}, and \cite{Lev1980} for moving from PRAM to circuit model.  
 %\inb{\textbf{Here. The Decoder changed so, rewriting it.}} 
 %First, we erase the error by repeatedly iterating the sweep cycles, and then multiply by the inversion of the decoding matrix. In the proof of the main theorem, we prove that $\Theta(n^{d+1})$ sweep-cycles, with high probability, succeed in erasing the error. The second stage involves a matrix multiplication which can be done in logarithmic depth with the help of quadratic, in the code length, number of additional bits. Thus, the procedure requires an overhead of $\Theta(n^{d+1})$ in depth and $\Theta(n^{2d})$ in width.
