@@ -182,7 +182,7 @@ The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^
           & \ctrl{1}  & \gate{\inr{ P_{x_{1},z_{1} + z_{2} } }  }  &  & \gate{Z_{S^{\prime}}} &   \\
            & \targ{} &  \gate{\inr{ P_{x_{1} + x_{2},z_{2}} }  } & \meter{} &  \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[u][1]{c}   \setwiretype{c}  \\
         \end{quantikz} \\
-        = \ & \begin{quantikz}
+        = \, & \begin{quantikz}
           & \ctrl{1}  &  &  \gate{\inr{ P_{x_{1},z_{1} + z_{2} } }  } & \gate{Z_{S^{\prime}}} &   \\
           & \targ{} &  \meter{} &  \gate{\inr{ P_{x_{1} + x_{2} }}  } & \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[u][1]{c}   \setwiretype{c}  \\
         \end{quantikz} \ = \  
@@ -211,7 +211,7 @@ The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^
           \lstick{$ \ket{\mathbf{S}}$} & & &\gate{\inr{ P_{x_{3},z_{3}}  }}   &    \\
           &\targ{} & \meter{} & \gate{\inr{ P_{x_{2}+x_{1}} }  }    & \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[u][1]{c}   \setwiretype{c}  \\
         \end{quantikz} \\
-        = \ & \begin{quantikz}
+        = \, & \begin{quantikz}
           & \ctrl{2}  & & &\gate[2]{\mathbf{S}} &   \gate{\inr{ P_{x_{1},z_{1}+z_{2} + z_{3}} }  } &  \\
           \lstick{$ \ket{\mathbf{S}}$} & & &\gate{\inr{ P_{x_{3}+x_{1},z_{3}}  }}   &    \\
           &\targ{} & \meter{} & \gate{\inr{ P_{x_{2}+x_{1}} }  }    & \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[u][1]{c}   \setwiretype{c}  \\
@@ -220,6 +220,28 @@ The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^
         \end{equation*}
         \caption{ Simulating the $\mathbf{S}$ and $\mathbf{T}$ gates, using the $\ket{\mathbf{S}}$, $\ket{\mathbf{T}}$ magic states. }   
 \label{fig:magic}
+\end{figure}
+
+
+
+    \begin{figure}[H]
+        \centering 
+        \begin{equation*}
+          \begin{split}
+        & \begin{quantikz}
+          \gate{\inr{ P_{x_{1},z_{1}} }} & \ctrl{1}  & \gate{\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}} & \meter{} &  \gate{ \phi }  \setwiretype{c} &  \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
+          \gate{\inr{ P_{x_{1},z_{1}} }}  & \targ{} & & \meter{}   &  \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[d][1]{c}   \setwiretype{c} \\
+        \gate{\inr{ P_{x_{1},z_{1}} }}  & &  & & \gate{Z_{S^{\prime}}}   & \gate{X_{S^{\prime}}}  &  \\
+        \end{quantikz}  \\
+        = \, & \begin{quantikz}
+          \gate{\inr{ P_{x_{1},z_{1}} }} & \ctrl{1}  & \gate{\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}} & \meter{} &  \gate{ \phi }  \setwiretype{c} &  \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
+          \gate{\inr{ P_{x_{1},z_{1}} }}  & \targ{} & & \meter{}   &  \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[d][1]{c}   \setwiretype{c} \\
+        \gate{\inr{ P_{x_{1},z_{1}} }}  & &  & & \gate{Z_{S^{\prime}}}   & \gate{X_{S^{\prime}}}  &  \\
+        \end{quantikz} 
+          \end{split}
+        \end{equation*}
+        \caption{ Gate teleportation of the Hadamard gate, using the resource $\ket{\mathbf{H}}$. We emphasize that although the Hadamard (at least Hadamard-type) has an $O(1)$-depth gate realization (at least when $d^{\prime}=d/2$), we still need all the operations on the quantum register to be strictly transversal for the sake of the proof. Thus, we realize the Hadamard via gate teleportation. }   
+\label{fig:magich}
 \end{figure}
 
 
