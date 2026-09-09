@@ -168,6 +168,8 @@ The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^
 
 
 
+
+
     \begin{figure}[h]
         \centering 
         \begin{equation*}
@@ -195,7 +197,36 @@ The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^
 \end{figure}
 
 
+    \begin{figure}[h]
+        \centering 
+        \begin{equation*}
+        \begin{split}
+        & \begin{quantikz}
+          \gate{\inr{ P_{x_{1},z_{1}} }  }  & \ctrl{1}  & & \gate[2]{\mathbf{S}} &  \rstick{$\mathbf{T}\ket{\psi}$} \\
+         \lstick{$ \inr{ P_{x_{3},z_{3}}  } \ket{\mathbf{S}}$} & &  &   \setwiretype{c}  \\
+         \gate{\inr{ P_{x_{2},z_{2}} }  }    & \targ{} & \meter{} & \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[u][1]{c}   \setwiretype{c}  \\
+        \end{quantikz} \ = \  
+        \begin{quantikz}
+          & \ctrl{1}  & \gate{\inr{ P_{x_{1},z_{1} + z_{2} } }  }  &  & \gate{Z_{S^{\prime}}} &   \\
+           & \targ{} &  \gate{\inr{ P_{x_{1} + x_{2},z_{2}} }  } & \meter{} &  \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[u][1]{c}   \setwiretype{c}  \\
+        \end{quantikz} \\
+        = \ & \begin{quantikz}
+          & \ctrl{1}  &  &  \gate{\inr{ P_{x_{1},z_{1} + z_{2} } }  } & \gate{Z_{S^{\prime}}} &   \\
+          & \targ{} &  \meter{} &  \gate{\inr{ P_{x_{1} + x_{2} }}  } & \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[u][1]{c}   \setwiretype{c}  \\
+        \end{quantikz} \ = \  
+        \begin{quantikz}
+          & \ctrl{1}  &  & \gate{Z_{S^{\prime}}} &    \gate{\inr{ \pm P_{x_{1},z_{1} + z_{2} } }  } & \\
+           & \targ{} &  \meter{}  & \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[u][1]{c}   \setwiretype{c}  \\
+        \end{quantikz} 
+         \end{split}
+        \end{equation*}
+        \caption{ Simulating the $\mathbf{S}$ and $\mathbf{T}$ gates, using the $\ket{\mathbf{S}}$, $\ket{\mathbf{T}}$ magic states. }   
+\label{fig:magic}
+\end{figure}
+
+
 %The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^{\prime}}}$ / $ \mathbf{1}_{x_{S/S^{\prime}}}$, is divided into two stages.  See \cite{SHILOACH198257}, \cite{1676869}, and \cite{Lev1980} for moving from PRAM to circuit model.  
+
 %\inb{\textbf{Here. The Decoder changed so, rewriting it.}} 
 %First, we erase the error by repeatedly iterating the sweep cycles, and then multiply by the inversion of the decoding matrix. In the proof of the main theorem, we prove that $\Theta(n^{d+1})$ sweep-cycles, with high probability, succeed in erasing the error. The second stage involves a matrix multiplication which can be done in logarithmic depth with the help of quadratic, in the code length, number of additional bits. Thus, the procedure requires an overhead of $\Theta(n^{d+1})$ in depth and $\Theta(n^{2d})$ in width.
 %
