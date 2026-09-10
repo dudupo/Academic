@@ -173,23 +173,23 @@ Such intuition is right in the sense that this is the right way to keep track of
 
 
 
-\inb{\textbf{ Split to, up to a step $\tau$ and up to pseudo step $(\tau,\Delta^{\prime})$.}}
-\begin{definition}
-  \label{def:paulipathupstep}
-With the same notations as in \Cref{def:paulipath}, let $\tau$ be a step in $C[\mathcal{E}]$. Recall that each gate in $C[\mathcal{E}]$ acts on at most $\Delta$ qubits. Let $\Delta^{\prime} \in [\Delta]$. In addition, denote by $g$ and $t$ the gate and its time which is applied at step $\tau$. We say that the set of Pauli $P_{1},\ldots,P_{t},P_{\star}$ is a Pauli-path up to step $(\tau,\Delta^{\prime})$, if the $P_{1},\ldots,P_{t}$ is a Pauli-path for the circuit obtained from $C[\mathcal{E}]$ by taking only its first $t-1$ layers. And $P_{\star}$ satisfies the following: let $g^{\prime}_{1},\ldots,g_{l}^{\prime} = g$ be the gates applied at time $t$ at step up to, and including, $\tau$, placed by order. Let $P^{\prime}_{0},P^{\prime}_{\Delta} \in \mathcal{P}^{(\cdot)}$ be Paulis such:
-  \begin{equation*}
-    \begin{split}
-      P_{0}^{\prime} \in \bigl(g^{\prime}_{l-1}g^{\prime}_{l-2}..g_{1}\bigr) \circ P_{t} \quad P^{\prime}_{\Delta} \in g \circ P_{0}^{\prime}
-    \end{split}
-  \end{equation*}
-Now, since $P^{\prime}_{\Delta}$ is at a Hamming distance of at most $\Delta$ from $P_{0}^{\prime}$, there is a set of Paulis:
-  \begin{equation*}
-    \begin{split}
-      P_{0}^{\prime},P_{1}^{\prime},P_{2}^{\prime},..,P^{\prime}_{\Delta^{\prime}},..,P^{\prime}_{\Delta}
-    \end{split}
-  \end{equation*}
-  Then set $P_{\star} = P^{\prime}_{\Delta^{\prime}}$. 
-\end{definition}
+%\inb{\textbf{ Split to, up to a step $\tau$ and up to pseudo step $(\tau,\Delta^{\prime})$.}}
+%\begin{definition}
+%  \label{def:paulipathupstep}
+%With the same notations as in \Cref{def:paulipath}, let $\tau$ be a step in $C[\mathcal{E}]$. Recall that each gate in $C[\mathcal{E}]$ acts on at most $\Delta$ qubits. Let $\Delta^{\prime} \in [\Delta]$. In addition, denote by $g$ and $t$ the gate and its time which is applied at step $\tau$. We say that the set of Pauli $P_{1},\ldots,P_{t},P_{\star}$ is a Pauli-path up to step $(\tau,\Delta^{\prime})$, if the $P_{1},\ldots,P_{t}$ is a Pauli-path for the circuit obtained from $C[\mathcal{E}]$ by taking only its first $t-1$ layers. And $P_{\star}$ satisfies the following: let $g^{\prime}_{1},\ldots,g_{l}^{\prime} = g$ be the gates applied at time $t$ at step up to, and including, $\tau$, placed by order. Let $P^{\prime}_{0},P^{\prime}_{\Delta} \in \mathcal{P}^{(\cdot)}$ be Paulis such:
+%  \begin{equation*}
+%    \begin{split}
+%      P_{0}^{\prime} \in \bigl(g^{\prime}_{l-1}g^{\prime}_{l-2}..g_{1}\bigr) \circ P_{t} \quad P^{\prime}_{\Delta} \in g \circ P_{0}^{\prime}
+%    \end{split}
+%  \end{equation*}
+%Now, since $P^{\prime}_{\Delta}$ is at a Hamming distance of at most $\Delta$ from $P_{0}^{\prime}$, there is a set of Paulis:
+%  \begin{equation*}
+%    \begin{split}
+%      P_{0}^{\prime},P_{1}^{\prime},P_{2}^{\prime},..,P^{\prime}_{\Delta^{\prime}},..,P^{\prime}_{\Delta}
+%    \end{split}
+%  \end{equation*}
+%  Then set $P_{\star} = P^{\prime}_{\Delta^{\prime}}$. 
+%\end{definition}
 
 
 
