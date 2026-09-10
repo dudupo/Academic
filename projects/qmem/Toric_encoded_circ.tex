@@ -15,6 +15,9 @@ We are about to zoom out from a single register encoded in the Toric code to des
     \end{definition}
 
 For Toric encoded circuits, we define their \textit{base graph}, which can be thought of as a recording of a running from the Toric's point of view. The \textit{base graph} is obtained by taking the Toric's vertices at different times as the vertices and connecting any two sequential in time if they are support faces — qubits — which are either the same or are entangled by a quantum gate.
+
+\inb{\textbf{Redefine the Base graph such it will not be dependent on $\mathcal{E}$ and $\alpha$, yet it will match them, in terms of layers. (it can be dependent when it cones to edges), so the way to do so is to pads in identity, when control $S$ doesn't occur. }}
+
   \begin{definition}[Base graph $G_{o}$]
     Let $C$ be a Toric encoded circuit at depth $\mu$. Notice that measurements take quantum registers into classical, Thus any quantum register has a maximal depth, which we denote by $\{\mu_{i}$\}. Let's denote by $\{\mathcal{G}_{i}\}$ the skeleton of the $\infty$-extension of the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o}, E_{o})$, as follows:
     \begin{enumerate}
