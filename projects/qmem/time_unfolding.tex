@@ -118,7 +118,7 @@ For a quantum circuit $C$, we would like to discuss its action in the presence o
 \end{definition}
 So, $N_{\mathcal{E}}$ defines a probability space. The set of faults $\mathcal{E}$ is an atomic outcome, and for a given circuit $C$, the subjected circuit $C[\mathcal{E}]$ is a random variable. The following claim states that for local stochastic noise, the subjection of every 1-layer is equivalent to the subjection of every $m$-layer, up to a rescaling of the noise rate. Here, by equivalence, we mean that the actions of the subjected circuits are the same\footnote{For a given input (mixed) state $\rho$, they yield the same output}. 
 
-We give the proof in the appendix for several reasons. First, the argument is not the core of this work. Second, versions of it appear in almost any fault tolerance work. Additionally, it relies on 'propagation of entire layers,' a term that conflicts with the 'propagation to a step' (\Cref{def:localprop}) needed for the intermediate theorem.
+\inb{\textbf{Rewrite.}} We give the proof in the appendix for several reasons. First, the argument is not the core of this work. Second, versions of it appear in almost any fault tolerance work. Additionally, it relies on 'propagation of entire layers,' a term that conflicts with the 'propagation to a step' (\Cref{def:localprop}) needed for the intermediate theorem.
 \begin{claim}
   \label{claim:block_noise_renorm}
   Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with rate $p$, and let $C$ be a quantum circuit whose gates have arity at most $\Delta$. Fix an even integer $c$. Then there exists a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$ with rate
@@ -137,5 +137,20 @@ We give the proof in the appendix for several reasons. First, the argument is no
 \end{claim}
 Equipped with this claim, we are allowed to assume having constant depth cycles that don't observe faults. 
 
+
+\begin{definition}
+  Let $C$ be a quantum circuit that contains $l$ measurements. For possible outcomes $\alpha \in \mathbb{F}^{l}_{2}$, let $C[,\alpha]$ be the circuit obtained by conditioning that $\alpha_{1},..,\alpha_{l}$ were measured. We extend the notation for the subjected circuit by denoting $C[\mathcal{E},\alpha]$ as the subjected circuit where the measurements are assumed to outcome $\alpha_{1},..,\alpha_{l}$.
+\end{definition}
+In our case, the conditioned circuit $C[\mathcal{E}, \alpha]$ is a Clifford circuit; in particular, it sends Paulis to Paulis. That brings us to define, for a given set of faults $\mathcal{E}$ and outcomes $\alpha$, a Pauli-path that describes the evolution of the faults through the circuit.
+\inb{\textbf{ For that being immediate we have to measure the stabilizer after every noise layer. Also,  }} 
+
+\begin{definition}[Propagation]
+Let $C$ be a quantum circuit at depth $\mu$, and let $\alpha \in \mathbb{F}_{2}^{(\cdot)}$ be a possible outcome vector for $C$. Suppose that $C$ is a Clifford+measurements circuit, so $C[,\alpha]$ is a Clifford circuit. We define the propagation of Pauli $P \in \mathcal{P}$ through the conditioned circuit $C[,\alpha]$ to be the Paulis $P_{1}, \ldots, P_{\mu+1}$ such that $P_{1} = P$ and for any $i \in [2, \mu+1]$:
+  \begin{equation*}
+    \begin{split}
+      P_{i}C[,\alpha]|_{\rightarrow i} =  C[,\alpha]|_{ i} P_{i-1} C[,\alpha]|_{\rightarrow i-1} = C[,\alpha]|_{\rightarrow i}P 
+    \end{split}
+  \end{equation*}
+\end{definition}
 
 

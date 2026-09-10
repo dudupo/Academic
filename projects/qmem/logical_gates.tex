@@ -164,30 +164,10 @@ The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^
 \inb{\textbf{Here. We might want to say something about the control-X operation (like that it requires another broadcast). In addition we might want to refer to the Barrier.}} 
 
 
-
-
-\subsubsection{Gate Teleportation Propagation}
-\inb{\textbf{ Go trough this subsubsection again, formulate the propagation notation. }} 
-
-
-\begin{definition}
-  Let $C$ be a quantum circuit that contains $l$ measurements. For possible outcomes $\alpha \in \mathbb{F}^{l}_{2}$, let $C[,\alpha]$ be the circuit obtained by conditioning that $\alpha_{1},..,\alpha_{l}$ were measured. We extend the notation for the subjected circuit by denoting $C[\mathcal{E},\alpha]$ as the subjected circuit where the measurements are assumed to outcome $\alpha_{1},..,\alpha_{l}$.
-\end{definition}
-In our case, the conditioned circuit $C[\mathcal{E}, \alpha]$ is a Clifford circuit; in particular, it sends Paulis to Paulis. That brings us to define, for a given set of faults $\mathcal{E}$ and outcomes $\alpha$, a Pauli-path that describes the evolution of the faults through the circuit.
-\inb{\textbf{ For that being immediate we have to measure the stabilizer after every noise layer. Also,  }} 
-
-\begin{definition}[Propagation]
-Let $C$ be a quantum circuit at depth $\mu$, and let $\alpha \in \mathbb{F}_{2}^{(\cdot)}$ be a possible outcome vector for $C$. Suppose that $C$ is a Clifford+measurements circuit, so $C[,\alpha]$ is a Clifford circuit. We define the propagation of Pauli $P \in \mathcal{P}$ through the conditioned circuit $C[,\alpha]$ to be the Paulis $P_{1}, \ldots, P_{\mu+1}$ such that $P_{1} = P$ and for any $i \in [2, \mu+1]$:
-  \begin{equation*}
-    \begin{split}
-      P_{i}C[,\alpha]|_{\rightarrow i} =  C[,\alpha]|_{ i} P_{i-1} C[,\alpha]|_{\rightarrow i-1} = C[,\alpha]|_{\rightarrow i}P 
-    \end{split}
-  \end{equation*}
-\end{definition}
-
+\inb{\textbf{ Go trough this subsubsection again, write some meta-paragraph. }} 
 
 \begin{claim}
-The propagation of a Pauli through the gate teleportation gadgets is a Pauli.
+The propagation of a Pauli through the (conditioned) gate teleportation gadgets has a well-defined structure.
 \end{claim}
 \begin{proof}
 For chains $x,z \in ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2})$, we denote by $P_{x,z}$ the Pauli consisting of $X$'s and $Z$'s on the faces of $x$ and $z$. We prove the claim by propagating Paulis manually. We start by propagating Pauli through the $\mathbf{S}$-teleportation, let $P_{x_{1},z_{1}}$ and $P_{x_{2},z_{2}}$ be the Paulis that act on the first and the second registers. Then: 
