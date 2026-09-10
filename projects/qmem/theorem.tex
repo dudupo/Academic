@@ -55,9 +55,7 @@ The proofs of the claims are given in the appendix. We continue with the proof o
     
     We realize the gate teleportation as described in \Cref{def:niceenc}, so the gate teleportation admits $O(n + \log n)$ and $O(n^{2d})$ depth and width overhead. Thus, the depth of $\tilde{C}$ expands to $\Theta(\mu n)$\footnote{The constant inside the $\Theta$ also accounts for the fact that the realization of a logical gate might contain multiple gate teleportations.}. We will denote the procedure of inferring the logical measurement in the gate teleportation \Cref{def:niceenc}\footnote{The codeword checking procedure - $ \mathbf{1}_{x_{S^{\prime}}}$ / $ \mathbf{1}_{x_{S/S^{\prime}}}$.} by $D$, and we also use $D$ as a realization of measurement in the computational basis and as our referee (\Cref{def:simu}). Denote by $S$ the number of locations, so $S = O(w \mu^{2} n^{2d+1} )$.
   
- 
-
-    
+    \paragraph{} 
 Consider a set of faults $\mathcal{E}$, and consider the representation of the subjected circuit $C[\mathcal{E}]$ as a distribution over conditioned measured circuits:
     \begin{equation*}
       \begin{split}
