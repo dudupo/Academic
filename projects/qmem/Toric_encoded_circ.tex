@@ -190,26 +190,18 @@ Now, since $P^{\prime}_{\Delta}$ is at a Hamming distance of at most $\Delta$ fr
 \end{definition}
 
 
+
 \inb{\textbf{Rewrite. }} For the analyses, we would like to extend Toom's contour to record in their final layer a partial time-step, namely a computation up to a certain step \Cref{def:steps}. For this, we substitute in the definition above the Pauli-path with a Pauli-path up to a time \inb{\textbf{Prefix?}}. Moreover, since we would like to refer to the connected chain at the final layer as the 'final error clusters', we add at the end a layer whose purpose is to connect in time (by arrows) the connected components of Toom's contour in the prior layer, which are connected by checks (their union is identified with a connected chain).
-\begin{definition}[Analysis Toom's Contour Up to Step $(\tau,\Delta^\prime)$]
-\inb{\textbf{Rewrite. }}For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, a step $\tau$ according to the standard order, and an integer $\Delta^{\prime} \in [\Delta]$, we define the \textit{analysis Toom's contour up to step $(\tau,\Delta^\prime)$}, denoted by $\mathcal{H}_{\tau,\Delta^{\prime}} = (V_{\mathcal{H}}, E_{\mathcal{H}})$, to be the graph obtained by taking a Pauli-path up to step $(\tau,\Delta^{\prime})$ $P_{1}, \ldots, P_{t}, P_{\star}$, and gluing to the Toom's contour induced by the prefix $P_{1}, \ldots, P_{t-1}$ a layer defined by adding vertices and edges as follows:
-Let $g$ be a gate that is applied at time $t$ and whose step $\le \tau$. 
+
+
+
+
+
+For the analyses we would like to have the following definition: 
+\begin{definition}[Analysis Toom's Contour Up to Step $\tau$]
+  For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, outcomes $\alpha$, and a step $\tau$, let $C[\mathcal{E},\alpha]_{\tau}$ be the partial computation circuit of $C[\mathcal{E},\alpha]$ up to step $\tau$. We define the \textit{analysis Toom's contour at step $\tau$} $\mathcal{H}_{\tau} = (V_{\mathcal{H}}, E_{\mathcal{H}})$ to be the graph obtained by taking the Toom's contour of $C[\mathcal{E},\alpha]_{\tau}$ and adding edges as follows:
   \begin{enumerate}
-    \item If $g$ is a physical $\textbf{CX}$, then denote by $f_{1}, f_{2}$ the $d^{\prime}$-dimensional faces on which $g$ acts. Then, if either $\partial^{-}f_{1}$ or $\partial^{-}f_{2}$ intersects with $\partial^{-}x(P_{t-1})$, then for any pair of vertices $v_{1}, v_{2}$ such that $v_{1} \in f_{1} \cup f_{2}$, $(v_{1}, t-1, \{X\})$ is already in $V_{\mathcal{H},X}$, we add the following vertices and arrows into $V_{\mathcal{H},\{X\}}$ and $E_{\mathcal{H}}$:
-      \begin{equation*}
-          \begin{split}
-            \bigl\{  ( v_{2},t,\{X\}  ) \bigr\} \quad \bigl\{  ( v_{1},t-1,\{X\}  ),  ( v_{2},t,\{X\}  ) \bigr\}
-          \end{split}
-        \end{equation*}
-        Similarly, if either $ \partial^{-} \phi(f_{1})$ or $ \partial^{-} \phi(f_{2})$ intersects $\partial^{-}z(P_{t-1})$, then for any pair of vertices $v_{1}, v_{2}$ such that $v_{1} \in \phi(f_{1}) \cup \phi(f_{2})$ and $(v_{1}, t-1, \{Z\})$ is already in $V_{\mathcal{H},Z}$, we add the following vertices and arrows into $V_{\mathcal{H},\{Z\}}$ and $E_{\mathcal{H}}$:
-      \begin{equation*}
-          \begin{split}
-            \bigl\{  ( v_{2},t,\{Z\}  ) \bigr\} \quad \bigl\{  ( v_{1},t-1,\{Z\}  ),  ( v_{2},t,\{Z\}  ) \bigr\}
-          \end{split}
-        \end{equation*}
-      %\item If $g$ is a physical gate in a realization of logical Pauli, measurement, or a sweep cycle. Then for any face $f$
-      \item Moreover, for any vertex $v_{t-1} = (v, t-1, \{ X \} ) \in V_{\mathcal{H,X}}$, and any $d^{\prime}-1$ dimensional face $f$ containing   the vertex $(v, t, \{ \cdot \} )$ and connect the two by arrow. 
-      \item Finally, we add the following additional arrows:
+    \item Let $t$ be the depth of $C[\mathcal{E},\alpha]_{\tau}$. We add the following additional arrows:
         \begin{equation*}
           \begin{split}
             \bigl\{ \bigl\{ \tilde{u} & = (u,t -1, \cdot ),  \tilde{v}= (v,t,\cdot)  \bigr\}  \text{ if  either there exists }\\ 
@@ -217,19 +209,50 @@ Let $g$ be a gate that is applied at time $t$ and whose step $\le \tau$.
           & \text{or there exists a } d - d^{\prime}-2  \text{ dimensional face } f \text{ such } \tilde{u},\tilde{v} \in V_{\mathcal{H},Z} \text{ and } v,u \in f   \bigr\}  
           \end{split}
         \end{equation*}
-      \item Finally, we add forks for vertices at time $t+1$ to preserve the property that any two vertices with the same time coordinate, which are connected to a third (with a $+1$ higher time coordinate) via arrows, are also connected by a fork.
+      \item Then, we add forks to preserve the property that any two vertices with the same time coordinate, which are connected to a third (with a $+1$ higher time coordinate) via arrows, are also connected by a fork.
   \end{enumerate}
 \end{definition}
 
-
-\begin{claim}
-  Suppose that for a Pauli-path up to a pseudo step $(\tau,\Delta^{\prime})$, and a register $R$, there is a connected component in $\partial^{-}x(P_{\star})|_{R}$, with size greater than $c n$, then there is a slice in the analysis of Toom's contour up to step $\tau$, a slice of size greater than $c n$.
-\end{claim}
-
-\begin{proof}
-  We argue that the vertices of any connected component of $ \partial^{-}x(P_{\star})$ are connected by arrows. Assume through contradiction that there is a $d^{\prime}-1$-dimensional connected chain $x \in \partial^{-}x(P_{\star})$, and two vertices $v,u \in x$ such that $v_{t} = (v,t,\{X\})$ and $u_{t} = (u,t,\{X\})$ are not connected via arrows. Let $g$ be the gate which is applied at step $\tau$. We can assume that on the path of $v$ towards $u$ in $x$ there is a vertex supporting $g$. Otherwise, $u$ and $v$ are supposed to be connected by arrows in $\mathcal{H}_{\tau-1}$ \inb{\textbf{ Prove that. }}
- 
-  \inb{\textbf{Here.}} Let $w$ be that vertex, and let $w_{-}$ and $w_{+}$ be its predecessor and successor on the path. Connectivity of two faces is determined by whether they share a face of dimension lower by one.
-\end{proof}
+%
+%\begin{definition}[Analysis Toom's Contour Up to Step $(\tau,\Delta^\prime)$]
+%\inb{\textbf{Rewrite. }}For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, a step $\tau$ according to the standard order, and an integer $\Delta^{\prime} \in [\Delta]$, we define the \textit{analysis Toom's contour up to step $(\tau,\Delta^\prime)$}, denoted by $\mathcal{H}_{\tau,\Delta^{\prime}} = (V_{\mathcal{H}}, E_{\mathcal{H}})$, to be the graph obtained by taking a Pauli-path up to step $(\tau,\Delta^{\prime})$ $P_{1}, \ldots, P_{t}, P_{\star}$, and gluing to the Toom's contour induced by the prefix $P_{1}, \ldots, P_{t-1}$ a layer defined by adding vertices and edges as follows:
+%Let $g$ be a gate that is applied at time $t$ and whose step $\le \tau$. 
+%  \begin{enumerate}
+%    \item If $g$ is a physical $\textbf{CX}$, then denote by $f_{1}, f_{2}$ the $d^{\prime}$-dimensional faces on which $g$ acts. Then, if either $\partial^{-}f_{1}$ or $\partial^{-}f_{2}$ intersects with $\partial^{-}x(P_{t-1})$, then for any pair of vertices $v_{1}, v_{2}$ such that $v_{1} \in f_{1} \cup f_{2}$, $(v_{1}, t-1, \{X\})$ is already in $V_{\mathcal{H},X}$, we add the following vertices and arrows into $V_{\mathcal{H},\{X\}}$ and $E_{\mathcal{H}}$:
+%      \begin{equation*}
+%          \begin{split}
+%            \bigl\{  ( v_{2},t,\{X\}  ) \bigr\} \quad \bigl\{  ( v_{1},t-1,\{X\}  ),  ( v_{2},t,\{X\}  ) \bigr\}
+%          \end{split}
+%        \end{equation*}
+%        Similarly, if either $ \partial^{-} \phi(f_{1})$ or $ \partial^{-} \phi(f_{2})$ intersects $\partial^{-}z(P_{t-1})$, then for any pair of vertices $v_{1}, v_{2}$ such that $v_{1} \in \phi(f_{1}) \cup \phi(f_{2})$ and $(v_{1}, t-1, \{Z\})$ is already in $V_{\mathcal{H},Z}$, we add the following vertices and arrows into $V_{\mathcal{H},\{Z\}}$ and $E_{\mathcal{H}}$:
+%      \begin{equation*}
+%          \begin{split}
+%            \bigl\{  ( v_{2},t,\{Z\}  ) \bigr\} \quad \bigl\{  ( v_{1},t-1,\{Z\}  ),  ( v_{2},t,\{Z\}  ) \bigr\}
+%          \end{split}
+%        \end{equation*}
+%      %\item If $g$ is a physical gate in a realization of logical Pauli, measurement, or a sweep cycle. Then for any face $f$
+%      \item Moreover, for any vertex $v_{t-1} = (v, t-1, \{ X \} ) \in V_{\mathcal{H,X}}$, and any $d^{\prime}-1$ dimensional face $f$ containing   the vertex $(v, t, \{ \cdot \} )$ and connect the two by arrow. 
+%      \item Finally, we add the following additional arrows:
+%        \begin{equation*}
+%          \begin{split}
+%            \bigl\{ \bigl\{ \tilde{u} & = (u,t -1, \cdot ),  \tilde{v}= (v,t,\cdot)  \bigr\}  \text{ if  either there exists }\\ 
+%           & \text{ a } d^{\prime}-2  \text{ dimensional face } f  \text{such } \tilde{u},\tilde{v} \in V_{\mathcal{H},X} \text{ and } u,v \in f  \\
+%          & \text{or there exists a } d - d^{\prime}-2  \text{ dimensional face } f \text{ such } \tilde{u},\tilde{v} \in V_{\mathcal{H},Z} \text{ and } v,u \in f   \bigr\}  
+%          \end{split}
+%        \end{equation*}
+%      \item Finally, we add forks for vertices at time $t+1$ to preserve the property that any two vertices with the same time coordinate, which are connected to a third (with a $+1$ higher time coordinate) via arrows, are also connected by a fork.
+%  \end{enumerate}
+%\end{definition}
+%
+%
+%\begin{claim}
+%  Suppose that for a Pauli-path up to a pseudo step $(\tau,\Delta^{\prime})$, and a register $R$, there is a connected component in $\partial^{-}x(P_{\star})|_{R}$, with size greater than $c n$, then there is a slice in the analysis of Toom's contour up to step $\tau$, a slice of size greater than $c n$.
+%\end{claim}
+%
+%\begin{proof}
+%  We argue that the vertices of any connected component of $ \partial^{-}x(P_{\star})$ are connected by arrows. Assume through contradiction that there is a $d^{\prime}-1$-dimensional connected chain $x \in \partial^{-}x(P_{\star})$, and two vertices $v,u \in x$ such that $v_{t} = (v,t,\{X\})$ and $u_{t} = (u,t,\{X\})$ are not connected via arrows. Let $g$ be the gate which is applied at step $\tau$. We can assume that on the path of $v$ towards $u$ in $x$ there is a vertex supporting $g$. Otherwise, $u$ and $v$ are supposed to be connected by arrows in $\mathcal{H}_{\tau-1}$ \inb{\textbf{ Prove that. }}
+% 
+%  \inb{\textbf{Here.}} Let $w$ be that vertex, and let $w_{-}$ and $w_{+}$ be its predecessor and successor on the path. Connectivity of two faces is determined by whether they share a face of dimension lower by one.
+%\end{proof}
 
 
