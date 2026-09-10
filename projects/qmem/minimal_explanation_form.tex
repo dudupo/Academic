@@ -22,13 +22,13 @@ Given sets $W$ of points, $A$ of arrows, and $F$ of forks, we define $U$ as the 
       \item All elements of $W$ are leaves. 
       \item For $m = |W|$ and $s= \sum_{i}^{d+1}{ L_{i}(v_{i}) }$ we have $|A| \le \alpha (m - \mathcal{X}_{r}) - \beta s $ and $|F| \le m -1 $. 
     \end{enumerate}
-    Furthermore, for a step $\tau$, integer $\Delta^{\prime}\in [\Delta]$, and a slice $K$ in the analysis of Toom's contour up to step $(\tau,\Delta^{\prime})$, with pole selection $v_{1},..,v_{d+1}$, we extend the definition of explanation as above, but require the following weaker inequality instead: For $m = |W|$ and $s = \Size{K}$, we have $|A| \le \alpha (m + 1) - \beta s$ and $|F| < m - 1$.
+    Furthermore, for a step $\tau$, and a slice $K$ in the analysis of Toom's contour up to step $\tau$, with pole selection $v_{1},..,v_{d+1}$, we extend the definition of explanation as above, but require the following weaker inequality instead: For $m = |W|$ and $s = \Size{K}$, we have $|A| \le \alpha (m + 1) - \beta s$ and $|F| < m - 1$.
   \end{definition}
 
 
   \begin{claim}
     \label{claim:edgesin}
-Let $P_{1}, \ldots, P_{\mu+1}$ be the Pauli-path that induces Toom's contour. For every poles selection $v_{1}, \ldots, v_{d+1}$ of $K$, there is an explanation. Moreover, any slice in the analysis of Toom's contour up to step $(\tau,\Delta^{\prime})$, and any poles selection for it, there is an explanation.
+Let $P_{1}, \ldots, P_{\mu+1}$ be the Pauli-path that induces Toom's contour. For every poles selection $v_{1}, \ldots, v_{d+1}$ of $K$, there is an explanation. Moreover, any slice in the analysis of Toom's contour up to step $\tau$, and any poles selection for it, there is an explanation.
   \end{claim}
 
   \begin{proof}
