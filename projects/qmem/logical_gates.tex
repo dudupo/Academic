@@ -169,6 +169,12 @@ The classical procedure of logical codeword checking, namely $ \mathbf{1}_{x_{S^
 \subsubsection{Gate Teleportation Propagation}
 \inb{\textbf{ Go trough this subsubsection again, formulate the propagation notation. }} 
 
+
+\begin{definition}
+Let $C$ be a quantum circuit that contains $l$ measurements. For possible outcomes $\alpha \in \mathbb{F}^{l}_{2}$, let $C[\alpha]$ be the circuit obtained by conditioning that $\alpha_{1},..,\alpha_{l}$ were measured. We extend the notation for the subjected circuit by denoting $C[\mathcal{E},\alpha]$ as the subjected circuit where the measurements are assumed to outcome $\alpha_{1},..,\alpha_{l}$.
+\end{definition}
+In our case, the conditioned circuit $C[\mathcal{E}, \alpha]$ is a Clifford circuit; in particular, it sends Paulis to Paulis. That brings us to define, for a given set of faults $\mathcal{E}$ and outcomes $\alpha$, a Pauli-path that describes the evolution of the faults through the circuit.
+
 \begin{definition}[Propagation]
   Let $X \in L(\mathcal{H} )\rightarrow L(\mathcal{H})$ be a superoperator, for a quantum circuit $C = \{u_{i}\}_{i}$ at depth $\mu$, we say that $X$ is well-propagate trough $C$ if for any step $\tau$ of $C$ there is a 
 \end{definition}
