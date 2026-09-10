@@ -1,0 +1,146 @@
+
+\subsection{Propagation}
+
+\begin{definition}
+For a set of faults $\mathcal{E}$, we define the 'clean version' of a subjected circuit $C[\mathcal{E}]$ to be the circuit obtained by replacing each gate of $C[\mathcal{E}]$ whose source is in $\mathcal{E}$ with the identity. We denote the clean version by $C[I(\mathcal{E})]$. The action of $C[I(\mathcal{E})]$ is identical to the non-subjected circuit $C$. However, up to gates' types, the computation graph and the steps order of $C[I(\mathcal{E})]$ are the same as in $C[\mathcal{E}]$.
+\end{definition}
+
+\begin{definition}
+  For a set of faults $\mathcal{E}$, We and a step $\tau$ of $C[\mathcal{E}]$, we define the $\tau$-reset. 
+\end{definition}
+
+
+
+
+\inb{ \textbf{  Just writing here the idea.  }  }
+
+We want to have reduction from computation to memory. Imagine, that after any gate which is not a sweep-rule gate, the state is $\phi_{\tau}$  We can define the uniteres  $V_{\tau}$ which sends the (current, namely not measured , and that is important) quantum registers and satisfy the follow: 
+\begin{enumerate}
+  \item $V_{\tau} \phi_{\tau} = \ket{\mathcal{C}_{Z}^{\perp}}^{\otimes m_{\tau}}$ 
+  \item $V_{\tau} P \psi_{\tau} =  P \ket{\mathcal{C}_{Z}^{\perp}}^{\otimes m_{\tau}}$ for ant Pauli that has weight less than $\frac{1}{3}m_{\tau}$. 
+\end{enumerate}
+The restriction on the weight we set to assure there is such unitary since $4^{\frac{1}{2}} \le 2$. The idea is that with high probability we send errors to act on the Zeros-encoded, (if we conjecture by $V_{\tau} \cdot V_{\tau}^{\prime}$ also the sweep-correction sent as they are. Observe if $V_{\tau}$ doesn't capture all the suggested correction in a cycle then split the cycle, from a technical point of view consider an overlap between the two new $V_{\tau}, V_{\tau+1}$, where the overlap is over the Pauli deviations. Then if a Pauli acts non-trivially over at most $\Delta$ qubits, then $V_{\tau} P V_{\tau}^{\dagger}$ as well.
+
+  
+  Let $\ketbra{s}{s}$ be a projection over a syndrome $s$, and observe that $I = \sum_{s} \ketbra{s}{s}$. If $\hat{A}$ is an ideal decoder than: 
+  \begin{equation*}
+    \begin{split}
+      \bigl|  \hat{A} \rho  - \sigma  \bigr| =  \bigl|  \hat{A}    V_{2}^{\dagger}  \sum_{s} \ketbra{s}{s} V_{2}  g_{2}   V_{1}^{\dagger}  \sum_{s} \ketbra{s}{s} V_{1}\sigma_{0}  -     V_{2}^{\dagger}  \sum_{s} \ketbra{s}{s} V_{2}  g_{2}   V_{1}^{\dagger}  \sum_{s} \ketbra{s}{s} V_{1}  g_{1}    \sigma_{0}  \bigr| 
+    \end{split}
+  \end{equation*}
+
+
+
+\inb{\textbf{ Enter the term $PAQ \in g \circ A$ into the notations section. }}
+\begin{definition}
+Let $\{u_{i}\}_{i}$ be the gates of the subjected quantum circuit $C[\mathcal{E}]$, placed according to the steps' order, and let $\mathcal{J}$ be the gates which do not belong to either $\mathcal{E}$ or to a sweep-cycle layer. We define the ideal evolution superoperator, denoted by $\Phi_{i}(\rho)$, to be:
+  \begin{equation*}
+    \begin{split}
+\Phi_{i+1}(\rho) = 
+      \begin{cases}
+        u_{i+1} \circ \Phi_{i}(\rho) & \text{ if } u_{i} \notin \mathcal{J}  \\ 
+        \Phi_{i}(\rho) & \text{ else } 
+      \end{cases} \quad  \quad \quad \Phi_{0}(\rho) = \rho
+    \end{split}
+  \end{equation*}
+We say that the Paulis $P_{1},..,P_{\tau}$ are a propagated-path if $P_{1},..,P_{\tau-1}$ is a propagated-path and there are Paulis $Q,Q^{\prime}$ such that:
+  \begin{equation*}
+    \begin{split}
+      P_{\tau} \Phi_{\tau}(\rho) Q^{\prime}   \in g_{\tau} \circ  \bigl( P_{\tau-1} \Phi_{\tau-1}(\rho) Q \bigr)
+    \end{split}
+  \end{equation*}
+\end{definition}
+
+
+\begin{claim}
+  Let $P,Q$ be Paulis, and let $g \notin \{u_{i}\}_{i}$, then: 
+  \begin{enumerate}
+    \item If $g$ is a gate inside a sweep cycle, meaning that $g$ measures a local syndrome and then applies correction, then there are Paulis $P^{\prime}, Q^{\prime}$ such that:
+      \begin{equation*}
+        \begin{split}
+          g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) = P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
+        \end{split}
+      \end{equation*}
+     \item If $g$ is a measurement then   
+      \begin{equation*}
+        \begin{split}
+          g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) = P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
+        \end{split}
+      \end{equation*}
+    \item If $g$ is one of $\textbf{CX}, \textbf{X}$ or $\textbf{Z}$, then 
+      \begin{equation*}
+        \begin{split}
+          g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) = P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
+        \end{split}
+      \end{equation*}
+  \end{enumerate}
+\end{claim}
+\begin{proof}
+  
+  \begin{enumerate}
+    \item If $g$ is a gate inside a sweep cycle, meaning that $g$ measures a local syndrome and then applies correction, then there are Paulis $P^{\prime}, Q^{\prime}$ such that:
+      \begin{equation*}
+        \begin{split}
+          g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) = P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
+        \end{split}
+      \end{equation*}
+    \item If $g$ is a measurement of the $i$ qubit, namely:  
+      \begin{equation*}
+        \begin{split}
+          g(\rho) = \ketbra{0}{0}_{i} \rho \ketbra{0}{0}_{i} + \ketbra{1}{1}_{i} \rho \ketbra{1}{1}_{i}
+        \end{split}
+      \end{equation*}
+      Then we use the identities $\ketbra{0}{0} = \frac{1}{2}( I + Z )$ and $\ketbra{1}{1} = \frac{1}{2}( I - Z )$, So
+      \begin{equation*}
+        \begin{split}
+          g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr)  &=  \frac{1}{2}( I \pm Z )P \Phi_{\tau-1}(\rho)  Q \frac{1}{2}( I \pm Z ) \\
+        \end{split}
+      \end{equation*}
+      Now, if both $P$ and $Q$ commute with $Z$ then we get the desired. If $P$ dosn't commute with $Z$, then  that $(I \pm Z) P = P (I \mp Z)$, then:
+      \begin{equation*}
+        \begin{split}
+           &=  P \frac{1}{2}( I - Z ) \Phi_{\tau-1}(\rho)  \frac{1}{2}( I + Z ) Q  + P \frac{1}{2}( I + Z ) \Phi_{\tau-1}(\rho)   \frac{1}{2}( I - Z ) Q    \\
+         &=  2 P  \Phi_{\tau-1}(\rho) Q    - 2 P Z \Phi_{\tau-1}(\rho)  Z Q     
+        \end{split}
+      \end{equation*}
+
+    \item If $g$ is one of $\textbf{CX}, \textbf{X}$ or $\textbf{Z}$, then 
+      \begin{equation*}
+        \begin{split}
+          g \circ \bigl( P \Phi_{\tau}(\rho) Q \bigr) = P^{\prime} \bigl( g \circ \Phi_{\tau}(\rho) \bigr) Q^{\prime}
+        \end{split}
+      \end{equation*}
+  \end{enumerate}
+\end{proof}
+
+
+
+\begin{claim}
+  \begin{equation*}
+    \begin{split}
+      C[\mathcal{E}]_{\rightarrow \tau} \circ \rho = \sum_{i}\alpha_{i} P_{i} \Phi_{\tau} (\rho) Q_{i} = \sum_{i,j}\alpha_{i,j} P_{i} \Phi_{\tau} (\rho) P_{j} + \alpha_{i,j}^{*} P_{j} \Phi_{\tau} (\rho) P_{i}
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+  By induction on the step $\tau$.  
+  \begin{enumerate}
+    \item Base. For $\tau=0$, the claim trivially holds. 
+    \item Step. Assume the correctness of the claim for every step $\tau^{\prime} < \tau^{\prime}$. Then, let $E_{1},..,E_{m}$ be the karus operators of $g_{\tau}$, and let's write each of the $E_{i}$s by it's Pauli decomposition: 
+      \begin{equation*}
+        \begin{split}
+          E_{i} \colonequals \sum_{Q_{i}^{j} \in \mathcal{P} } \gamma_{j}Q_{i}^{j}
+        \end{split}
+      \end{equation*}
+      Then, if $g_{\tau} \notin  \mathcal{E}$, then each of the $E_{i}$ is a unitary (in case where $g_{\tau}$ is unitary then it's clear, in the case that $g_{n}$ is  
+      \begin{equation*}
+        \begin{split}
+      C[\mathcal{E}]_{\rightarrow \tau} \circ \rho & =  g_{\tau} \circ C[\mathcal{E}]_{\rightarrow \tau-1} \circ \rho \\
+      &= g_{\tau}\circ \bigl( \sum_{i,j}\alpha_{i,j} P_{i} \Phi_{\tau-1} (\rho) P_{j}  + c.c   \bigr) \\
+      &= \sum_{l}  E_{l}  \bigl( \sum_{i,j}\alpha_{i,j} P_{i} \Phi_{\tau-1} (\rho) P_{j}  + c.c   \bigr) E_{l}^{\dagger} \\ 
+      &= \sum_{l,k_{1},k_{2} i,j}  \gamma_{k_{1}}\gamma_{k_{2}}^{*}\alpha_{i,j} Q_{l}^{k_{1}}P_{i} \Phi_{\tau-1} (\rho) P_{j} Q_{l}^{k_{2}} + c.c \\
+      &= \sum_{l,k_{1},k_{2} i,j} (-1)^{N_{i,j,l,k_{1},k_{2}}} \alpha_{i,j} P_{i}\gamma_{k_{1}}\gamma_{k_{2}}^{*}Q_{l}^{k_{1}}\Phi_{\tau-1} (\rho)  Q_{l}^{k_{2}} P_{j} + c.c \\
+        \end{split}
+      \end{equation*}
+  \end{enumerate}
+\end{proof}
