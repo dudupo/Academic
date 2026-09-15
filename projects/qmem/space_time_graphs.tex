@@ -198,26 +198,10 @@ While in the construction presented in \cite{Berman}, all the layers were the sa
   \end{definition}
 The distinction between slices resulting from different layers allows us to adjust \Cref{claim:prevslices} by conditioning on the slice type. Yet, before doing so, we will have to extend the infinity characterization to slices.
 
-\inb{\textbf{Do something with the infinite slices. } }
-\begin{definition}[Inifinite Slice]
-  \label{def:infislice}
-  Let $K$ be a slice in a Toom's contour. We will say that $K$ is infinite slice if: % there is $g\in S$ and vertices $u,v$ such: 
-  \begin{equation*}
-    \begin{split}
-       \Size{K} \ge n   %L_{g}(v) - L_{g}(u) \ge n 
-    \end{split}
-  \end{equation*}
-\end{definition}
-That motivates us to define the notion of a step that is the first to admit an infinite slice/error.
-\begin{definition}[Time $t$ Admits Inifinte Error/Slice ]
-  \label{def:localprop}
-Let $C[\mathcal{E}]$ be a Toric encoded circuit with depth $\mu$. We say that a time $t \in [\mu+1]$ admits an infinite error if there exists a Pauli path, $P_{1}, P_{2}, \ldots$, such that in its prefix up to time $t$, there is at least one Pauli in the path whose view in the $\infty$-extension is infinite (\Cref{def:finiteerr}). Consider the analysis of Toom's contour that is induced by the prefix. We say that a time $t$ admits an infinite slice if there is a Pauli path such that $\mathcal{H}_{t}$ has an infinite slice (\Cref{def:infislice}). Moreover, we say that $t$ is the first time to admit an infinite error/slice if $t$ is the minimal time for which there is a Pauli path such that $\mathcal{H}_{t}$ admits an infinite error/slice. In exactly the same way, we define the notation of time $t$ admitting an error/slice at a given size.
-\end{definition}
 
 
   \begin{corollary}
     \label{claim:shrinkslice}
-%For a Toom's contour, suppose that the Pauli-path that induces it does not admit an infinite error. 
 Consider a slice $K$ in it, and a selection of poles $v_{1}, \ldots, v_{d+1}$, such that $K \neq H_{K}$. Since $K \neq H_{K}$, it follows that $K$ has a predecessor decomposition with respect to $v_{1}, \ldots, v_{d+1}$, denoted by $K_{0}, \ldots, K_{k}, F_{1}, \ldots, F_{k}$. For each slice $K_{j}$, denote its selected poles by $z_{j}^{1}, \ldots, z_{j}^{d+1}$. The inequality in \Cref{claim:prevslices} becomes:
     \begin{enumerate}
       \item If $K$ is a result of a sweep-cycle, then:
@@ -250,10 +234,10 @@ First, since the arrows and forks connection rules do not allow vertices of $V_{
   \end{proof}
 
   
-  The following claim extends the corollary to slices at the final layer of an \textit{analysis Toom's contour up to step $(\tau,\Delta^{\prime})$}. \inb{\textbf{Understand if the admitting is required here.  }}
+  The following claim extends the corollary to slices at the final layer of an \textit{analysis Toom's contour up to step $\tau$}. 
   \begin{claim}
     \label{claim:shrinkan}
-For a step $\tau$ and integer $\Delta^{\prime}\in [\Delta]$, let $\mathcal{H}_{\tau,\Delta^{\prime}}$ be Toom's contour analysis up to step $(\tau,\Delta^{\prime})$. Denote by $t$ the time at which the gate at step $\tau$ is applied. Then, for a slice $K$ and selection for its poles $v_{1}, \ldots, v_{d+1}$ such that $T(K) = t+1$ and $K \neq H_{K}$, the inequality in \Cref{claim:prevslices} becomes:
+For a step $\tau$  let $\mathcal{H}_{\tau}$ be Toom's contour analysis up to step $\tau$. Denote by $t$ the time at which the gate at step $\tau$ is applied. Then, for a slice $K$ and selection for its poles $v_{1}, \ldots, v_{d+1}$ such that $T(K) = t+1$ and $K \neq H_{K}$, the inequality in \Cref{claim:prevslices} becomes:
         \begin{equation*}
           \begin{split}
             \sum_{j=0}^{k}\sum_{i}^{d+1} L_{i}(z_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i}^{d+1}L_{i}(v) - 2d 

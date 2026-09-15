@@ -68,7 +68,7 @@ Consider a set of faults $\mathcal{E}$, and consider the representation of the s
 D \circ C[\mathcal{E},\alpha] = D\circ P_{\tau_{f}+1} C[,\alpha]  \neq C
       \end{split}
     \end{equation*} 
-    is contained in the event in which there is a connected component of either in $X$-syndrome or $Z$-syndrome of at least one of the Paulis in the propagation $P_{1},..,P_{\tau_{f}+1}$ at size greater than $cn$ (\inb{\textbf{ Deal with the constant}}). Since connectivity by faces in the analysis of Toom's contour implies connectivity by arrows, it follows that an occurrence of that event implies the existence of a step $\tau$ such that the analysis of Toom's contour $\mathcal{H}_{\tau}$ of $C[\mathcal{E},\alpha]_{\tau}$ has an infinite slice. So it's sufficient to prove that with probability at least $q$, for the sampled faults $\mathcal{E}$, there are no possible outcomes $\alpha$ and a step $\tau$ such that the analysis of Toom's contour $\mathcal{H}_{\tau}$ of $C[\mathcal{E},\alpha]_{\tau}$ has an infinite slice.
+    is contained in the event in which there is a connected component of either in $X$-syndrome or $Z$-syndrome of at least one of the Paulis in the propagation $P_{1},..,P_{\tau_{f}+1}$ at size greater than $cn$ (\inb{\textbf{ Deal with the constant}}). Since connectivity by faces in the analysis of Toom's contour implies connectivity by arrows, it follows that an occurrence of that event implies the existence of a step $\tau$ such that the analysis of Toom's contour $\mathcal{H}_{\tau}$ of $C[\mathcal{E},\alpha]_{\tau}$ has a slice of size at least $cn$. So it's sufficient to prove that with probability at least $q$, for the sampled faults $\mathcal{E}$, there are no possible outcomes $\alpha$ and a step $\tau$ such that the analysis of Toom's contour $\mathcal{H}_{\tau}$ of $C[\mathcal{E},\alpha]_{\tau}$ has a slice of size at least $cn$.
     \paragraph{} 
     
 Denote by $B_{\tau}$ the event where $\tau$ is the first step such that $\mathcal{H}_{\tau}$ has a slice at size greater than $cn$, and by $A_{\tau}$ the event where all explanations of slices (and any of their pole selections) in $\mathcal{H}_{\tau}$ have fewer than $\frac{n}{2d}$ edges. Using the conditional probability formula, we have:
@@ -139,7 +139,7 @@ Now, by the union bound over the time steps, with a probability greater than:
   1 -   O \left( S^{3} \right) p^{ c_{4}n } 
   \end{split}
 \end{equation*}
-No step admits a slice of size at least $cn$ at its corresponding analysis of Toom's contour, so the decoder successfully restores the logical state; in other words, no logical error occurs.
+No step admits a slice of size at least $cn$ in its corresponding analysis of Toom's contour, so the barrier argument holds; in other words, the propagated errors do not accumulate into a logical error.
 \end{proof}
 The lemma gives the theorem almost immediately. To complete the proof, we need to plug in the initialization phase, which initializes encoded zeros and resource states subjected to local stochastic noise. We emphasize that the resulting states are subjected to local stochastic noise (in addition to the computation). We neither prove nor describe that phase here; instead, we refer to \cite{grospellier:tel-03364419}, \cite{gottesman2014faulttolerant}, \cite{Fawzi_2018}, and \cite{nguyen2025quantumfaulttoleranceconstantspace}.
   \begin{theorem}
@@ -158,5 +158,5 @@ and in addition:
   \end{theorem} 
 
 
-  %\inb{\textbf{Return to last statement after proving connectivity between poles to non-poles.}}
+
 

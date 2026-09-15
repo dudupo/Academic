@@ -4,8 +4,6 @@
 \inb{\textbf{Rewrite.}} Throughout our final construction, logical measurements will be done via first measuring the qubits of the target register, clean the error with non-noisy computation, and eventually inferring the results, by turning to the logical space. In this section we introduce the cleaning procedure, which is the excitation of sweep-cycles for $  2dn^{2d}  $ times - the number of vertices times the side's length. In the case of logical measurement, the cleaning is done over classical bits, and therefore only the relevant stage of the sweep-cycle is done (either in the computational or the phase base).
 
 
-
-
 The following claim states that for ideal running (not subject to noise), the cleaning succeeds in erasing the syndrome within at most $\Theta(n^{2d})$ sweep-cycles.
 \begin{claim}
   \label{claim:decodestopnoise}
@@ -64,7 +62,7 @@ Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, 
 To prove that no logical error is admitted (namely, through the computation, no connected component of the boundary is sufficiently large to pass the barrier), and that the assumption that no two translated vertices are arrow-connected holds, we use a replacement argument, stating that the probability of an event occurring during a computation where part of its layers are non-noisy is lower than the probability of having the same event in a computation where all its layers are noisy. More precisely, any bound that assumes only that the noise channel is local stochastic captures both cases.
 \begin{claim}[Replacement argument]
   \label{claim:replace}
-  Consider a running of Toric encoded circuit with depth $l$. Denote by $A$ the event in which, after an additional $ 2dn^{2d}$ \textbf{ideal} (non-noisy) iterations of the sweep-cycle, the error is not erased, and denote by $B$ the event that, during the application of an additional $2dn^{2d}$ \textbf{noisy} iterations, either the Toom's contour admits an infinite error, or two translated vertices are become arrows connected. Let $f:(n,d,d^{\prime},l,p) \rightarrow \mathbb{R} $ be an upper bound on $\prb{B}$ that assumes only that the noise is distributed according to a local stochastic noise channel with noise rate $p$. Then, we have:
+  Consider a running of Toric encoded circuit with depth $l$. Denote by $A$ the event in which, after an additional $ 2dn^{2d}$ \textbf{ideal} (non-noisy) iterations of the sweep-cycle, the error is not erased, and denote by $B$ the event that, during the application of an additional $2dn^{2d}$ \textbf{noisy} iterations, either the Toom's contour admits a slice of size at least $cn$, or two translated vertices are become arrows connected. Let $f:(n,d,d^{\prime},l,p) \rightarrow \mathbb{R} $ be an upper bound on $\prb{B}$ that assumes only that the noise is distributed according to a local stochastic noise channel with noise rate $p$. Then, we have:
   \begin{equation*}
     \begin{split}
       \prb{A} \le f(n,d,d^{\prime},l,p)
@@ -72,6 +70,26 @@ To prove that no logical error is admitted (namely, through the computation, no 
   \end{equation*}
 \end{claim}
 \begin{proof} 
-A corollary of \Cref{claim:decodestopnoise} is that if during the $2dn^{2d}$ ideal sweep-cycles, there is no Pauli-path up to step that admits a sufficiently large syndrome connected component, and no two translated vertices become arrow-connected, then the error is erased. Consider the set of atomic events corresponding to the faults in the first $l$ noisy layers, such that during the additional $2dn^{2d}$ ideal iterations, there is a step in which a connected component of the syndrome reaches the barrier, or that its corresponding Pauli-path up to step induces an 'analysis Toom's counter,' in which two translated vertices are connected by arrows. All those atomic events are also contained in $B$, since local stochastic noise is our only assumption. The bound over the $B$ scenario has to hold for a noise channel that assigns zero probability for a fault occurring during the additional $2dn^{2d}$ iterations. For this specific channel, $\prb{A} \le \prb{B}$ and therefore $\prb{A} \le f(n,d,d^{\prime},l,p)$.
+A corollary of combining \Cref{claim:decodestopnoise} with \Cref{coro:barrier} (The barrier argument) is that if during the $2dn^{2d}$ ideal sweep-cycles, there is no step for which it's propagation that admits a sufficiently large syndrome connected component, and no two translated vertices become arrow-connected, then the syndrome is erased and no logical error occurred. Consider the set of atomic events corresponding to the faults in the first $l$ noisy layers, such that during the additional $2dn^{2d}$ ideal iterations, there is a step in which a connected component of the syndrome reaches the barrier, or that its corresponding Pauli-path up to step induces an 'analysis Toom's counter,' in which two translated vertices are connected by arrows. All those atomic events are also contained in $B$, since local stochastic noise is our only assumption. The bound over the $B$ scenario has to hold for a noise channel that assigns zero probability for a fault occurring during the additional $2dn^{2d}$ iterations. For this specific channel, $\prb{A} \le \prb{B}$ and therefore $\prb{A} \le f(n,d,d^{\prime},l,p)$.
 \end{proof}
+
+
+
+%
+%
+%\inb{\textbf{Do something with the infinite slices. } }
+%\begin{definition}[Inifinite Slice]
+%  \label{def:infislice}
+%  Let $K$ be a slice in a Toom's contour. We will say that $K$ is infinite slice if: % there is $g\in S$ and vertices $u,v$ such: 
+%  \begin{equation*}
+%    \begin{split}
+%       \Size{K} \ge n   %L_{g}(v) - L_{g}(u) \ge n 
+%    \end{split}
+%  \end{equation*}
+%\end{definition}
+%That motivates us to define the notion of a step that is the first to admit an infinite slice/error.
+%\begin{definition}[Time $t$ Admits Inifinte Error/Slice ]
+%  \label{def:localprop}
+%Let $C[\mathcal{E}]$ be a Toric encoded circuit with depth $\mu$. We say that a time $t \in [\mu+1]$ admits an infinite error if there exists a Pauli path, $P_{1}, P_{2}, \ldots$, such that in its prefix up to time $t$, there is at least one Pauli in the path whose view in the $\infty$-extension is infinite (\Cref{def:finiteerr}). Consider the analysis of Toom's contour that is induced by the prefix. We say that a time $t$ admits an infinite slice if there is a Pauli path such that $\mathcal{H}_{t}$ has an infinite slice (\Cref{def:infislice}). Moreover, we say that $t$ is the first time to admit an infinite error/slice if $t$ is the minimal time for which there is a Pauli path such that $\mathcal{H}_{t}$ admits an infinite error/slice. In exactly the same way, we define the notation of time $t$ admitting an error/slice at a given size.
+%\end{definition}
 
