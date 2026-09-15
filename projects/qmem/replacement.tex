@@ -82,6 +82,18 @@ Let $f:(n,d,d^{\prime},p) \rightarrow \mathbb{R}$ be an upper bound on $\prb{B}$
 \end{proof}
 
 
+  \begin{theorem}
+There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, and a quantum state $\rho = \mathcal{N}_{\mathcal{E}}(\ket{\psi})$, where $\ket{\psi}$ is a codeword of the $(d,d^{\prime})$-Toric code, the application of $2dn^{2d}$ (ideal) sweep-cycles on $\rho$ results in $\ket{\psi}$ with probability at least:
+\begin{equation*}
+  \begin{split}
+    1 -   O \left( \text{poly}(n) \right)  p^{\Omega(n)} 
+  \end{split}
+\end{equation*}
+  \end{theorem} 
+  \begin{proof}
+    By the replacement argument, it is sufficient to consider that during the application of $2dn^{2d}$ sweep-cycles subjected to $\mathcal{N}_{\mathcal{E}}$, and bound the probability that there is a step $\tau$ and an analysis of Toom's counter $\mathcal{H}_{\tau}$ such that either $\mathcal{H}_{\tau}$ contains a slice of size at least $cn$, or $\mathcal{H}_{\tau}$ contains two non-trivial translated vertices connected by arrows. However, the proof of \Cref{lemma:keylemma} bounds the 
+  \end{proof}
+
 
 
 
