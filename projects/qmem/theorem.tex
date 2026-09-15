@@ -70,9 +70,8 @@ D \circ C[\mathcal{E},\alpha] = D\circ P_{\tau_{f}+1} C[,\alpha]  \neq C
     \end{equation*} 
     is contained in the event in which there is a connected component of either in $X$-syndrome or $Z$-syndrome of at least one of the Paulis in the propagation $P_{1},..,P_{\tau_{f}+1}$ at size greater than $cn$ (\inb{\textbf{ Deal with the constant}}). Since connectivity by faces in the analysis of Toom's contour implies connectivity by arrows, it follows that an occurrence of that event implies the existence of a step $\tau$ such that the analysis of Toom's contour $\mathcal{H}_{\tau}$ of $C[\mathcal{E},\alpha]_{\tau}$ has an infinite slice. So it's sufficient to prove that with probability at least $q$, for the sampled faults $\mathcal{E}$, there are no possible outcomes $\alpha$ and a step $\tau$ such that the analysis of Toom's contour $\mathcal{H}_{\tau}$ of $C[\mathcal{E},\alpha]_{\tau}$ has an infinite slice.
     \paragraph{} 
-    \inb{\textbf{Here.}}
     
-Denote by $B_{\tau}$ the event where $\tau$ is the first step such that $\mathcal{H}_{\tau}$ has an infinite slice, and by $A_{\tau}$ the event where all explanations of slices (and any of their pole selections) in $\mathcal{H}_{\tau}$ have fewer than $\frac{n}{2d}$ edges. Using the conditional probability formula, we have:
+Denote by $B_{\tau}$ the event where $\tau$ is the first step such that $\mathcal{H}_{\tau}$ has a slice at size greater than $cn$, and by $A_{\tau}$ the event where all explanations of slices (and any of their pole selections) in $\mathcal{H}_{\tau}$ have fewer than $\frac{n}{2d}$ edges. Using the conditional probability formula, we have:
     \begin{equation*}
       \begin{split}
         \prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } & =  \prbm{  B_{\tau}  \cap A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } + \prbm{  B_{\tau} \cap \bar{A}_{t}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \\
@@ -107,25 +106,25 @@ Plugging into the union bounds and combining \Cref{claim:counting_trees} yields:
 
     It's left to bound the probability of $B_{\tau} \cap A_{\tau}$. By \Cref{claim:edgesin} any slice, and any pole selection of it, in $\mathcal{H}_{\tau}$, have an explanation. Confining to the event $A_{\tau}$, any explanation implies that any explanation has fewer than $\frac{n}{2d}$ edges and therefore, by the same argument as above, the projection of each explanation tree into the finite Toric sends its leaves to unique targets.
 
-Any infinite slice, namely a slice of size at least $n$, has poles selection $v_{1}..,v_{d+1}$ such: 
+Any slice of size at least $cn$, has poles selection $v_{1}..,v_{d+1}$ such: 
 \begin{equation}
   \begin{split}
     \label{equ:bigspan}
-  \sum_{i}^{d+1}L_{i}(v_{i}) \ge n
+  \sum_{i}^{d+1}L_{i}(v_{i}) \ge cn
   \end{split}
 \end{equation}
-Consider a slice with size at least $n$ and a pole selection for it satisfying \Cref{equ:bigspan}. \Cref{claim:edgesin} and \Cref{coro:edgefaultratio} state that there are constants $c_{2},c_{3} > 0$ such that any explanation for the slice and the selection, with $x$ edges, has at least $c_{2} n + c_{3} x$ leaves. Therefore, we obtain:
+Consider a slice with size at least $cn$ and a pole selection for it satisfying \Cref{equ:bigspan}. \Cref{claim:edgesin} and \Cref{coro:edgefaultratio} state that there are constants $c_{2},c_{3} > 0$ such that any explanation for the slice and the selection, with $x$ edges, has at least $c_{2} cn + c_{3} x$ leaves. Therefore, we obtain:
     \begin{equation*}
       \begin{split}
-        \prbm{  B_{t}  \cap A_{t}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ \substack{ v \in V_{o}, x \ge 1 \\ L_{g}(v) \in [0,n]} } \prbm{ v \text{ is a root of explanation with } x \text{ edges} \\ 
-      & \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \  \ \ \text{ and at least } c_{2}n + c_{3}x \text{ leaves, } \\
+        \prbm{  B_{\tau}  \cap A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ \substack{ v \in V_{o}, x \ge 1 \\ L_{g}(v) \in [0,n]} } \prbm{ v \text{ is a root of explanation with } x \text{ edges} \\ 
+      & \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \  \ \ \text{ and at least } c_{2}cn + c_{3}x \text{ leaves, } \\
   & \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \  \ \ \text{ which are projected to different targets  }  }{ \sim \mathcal{N}_{\mathcal{E}} } 
             \end{split}
           \end{equation*}
-So, for sufficiently small $p$ such that $\sigma p^{c_{2}} < 1$, the probability is bounded by:
+          So, for sufficiently small $p$ such that $\sigma p^{c_{3}} < 1$, the probability is bounded by:
           \begin{equation*}
             \begin{split}
-              \sum_{x = 1  }^{ \infty } O(S)p^{c_{2}n} \left( \sigma p^{c_{3} } \right)^{x}  \le O(S) p^{c_{2} n} 
+              \sum_{x = 1  }^{ \infty } O(S)p^{c_{2}cn} \left( \sigma p^{c_{3} } \right)^{x}  \le O(S) p^{c_{2}c n} 
       \end{split}
     \end{equation*}
     Combing the bounds we have, that there is constant $c_{4}$ depending only on  $d,d^{\prime}$ such:
@@ -140,7 +139,7 @@ Now, by the union bound over the time steps, with a probability greater than:
   1 -   O \left( S^{3} \right) p^{ c_{4}n } 
   \end{split}
 \end{equation*}
-No time admits an infinite slice at its corresponding analysis Toom's contour, so the decoder successfully restores the logical state; in other words, no logical error occurs.
+No step admits a slice of size at least $cn$ at its corresponding analysis of Toom's contour, so the decoder successfully restores the logical state; in other words, no logical error occurs.
 \end{proof}
 The lemma gives the theorem almost immediately. To complete the proof, we need to plug in the initialization phase, which initializes encoded zeros and resource states subjected to local stochastic noise. We emphasize that the resulting states are subjected to local stochastic noise (in addition to the computation). We neither prove nor describe that phase here; instead, we refer to \cite{grospellier:tel-03364419}, \cite{gottesman2014faulttolerant}, \cite{Fawzi_2018}, and \cite{nguyen2025quantumfaulttoleranceconstantspace}.
   \begin{theorem}
