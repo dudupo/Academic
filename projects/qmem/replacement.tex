@@ -1,12 +1,11 @@
 
 \section{The Sweep-rule is Itself a Decoder}
-
-\inb{\textbf{Rewrite.}} Throughout our final construction, logical measurements will be done via first measuring the qubits of the target register, clean the error with non-noisy computation, and eventually inferring the results, by turning to the logical space. In this section we introduce the cleaning procedure, which is the excitation of sweep-cycles for $  2dn^{2d}  $ times - the number of vertices times the side's length. In the case of logical measurement, the cleaning is done over classical bits, and therefore only the relevant stage of the sweep-cycle is done (either in the computational or the phase base).
-
+The role of the sweep-rule in the fault tolerance construction is to restrain the errors in the system rather than erase them. Here, we show that it can also be used as a decoder. Concurrently, if the initial error is distributed according to local stochastic noise, then the excitation of noiseless sweep-cycles for $2dn^{2d}$ times - the number of vertices times the side's length - erases the errors.
 
 
+To prove it, we first need to introduce the notation of two-translations, which refer to a pair of vertices on the $\infty$-lift that share the same source on the finite Toric.
 \begin{definition}
-Consider a Toom's contour $\mathcal{H}$. We say that vertices $u,v \in V_{\mathcal{H}}$ are two translations if there is a vertex $v^{\prime}$ on the finite Toric, such that both $v$ and $u$ are translations of $v^{\prime}$.
+Consider a Toom's contour $\mathcal{H}$. We say that vertices $u,v \in V_{\mathcal{H}}$ are two-translations if there is a vertex $v^{\prime}$ on the finite Toric, such that both $v$ and $u$ are translations of $v^{\prime}$.
 \end{definition}
 
 \begin{claim}
@@ -21,10 +20,7 @@ Denote by $K$ the slice for which $\tilde{v}, \tilde{u} \in \History{K}$. Observ
   \end{enumerate}
 \end{proof}
 
-
-
-
-The following claim states that for ideal running (not subject to noise), the cleaning succeeds in erasing the syndrome within at most $\Theta(n^{2d})$ sweep-cycles.
+The following claim states that an ideal run (not subject to noise) of $2dn^{2d}$ sweep-cycles, with the additional assumption that no two translations are connected by the arrows, succeeds in erasing the syndrome.
 \begin{claim}
   \label{claim:decodestopnoise}
 Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code with side length $n$, and let $P \in \mathcal{P}^{(\cdot)}$. Let $C$ be the quantum circuit that takes $P\ket{\psi}$ as an input and performs over it $2dn^{2d}$ sweep-cycles. For a possible measurement outcome $\alpha \in \mathbb{F}_{2}^{(\cdot)}$ (of stabilizer measurements), consider the Toom's contour $\mathcal{H}$ induced by $C[,\alpha]$. Assuming that any two vertices $u, w$, which are two different translations of the same vertex on the finite Toric (a vertex in $\mathcal{G}_{n}^{d}$), are not connected by arrows in $\mathcal{H}$. Then, at the end of the running of $C[,\alpha]$, the syndrome is erased.
@@ -79,7 +75,9 @@ Now, observe that each fork connecting two slices is associated with a merge; th
 Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, no slice reaches size $2dn^{d}$. During the continuous sequence of $2dn^{d}$ cycles, each sweep cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:shrinkslice}, combining that no merging occurred, namely there is only one predecessor slice. Hence, at the end of that sequence of $2dn^{d}$ cycles, all the slices' sizes shrink to zero; namely, the connected components are erased after those cycles.
 \end{proof}
 
-\inb{\textbf{Rewrite.}} To prove that no logical error is admitted (namely, through the computation, no connected component of the boundary is sufficiently large to pass the barrier), and that the assumption that no two translated vertices are arrow-connected holds, we use a replacement argument, stating that the probability of an event occurring during a computation where part of its layers are non-noisy is lower than the probability of having the same event in a computation where all its layers are noisy. More precisely, any bound that assumes only that the noise channel is local stochastic captures both cases.
+
+
+\Cref{claim:decodestopnoise} guarantees only that the syndrome is erased; in particular, it says nothing about whether a logical error has or hasn't occurred. To complete the correctness of the decoder, we would like to use the barrier argument. Yet, instead of showing that during the ideal correction no connected component of the syndrome passes the barrier, it will be more convenient to reduce the passing question to the subjected-to-noise setting. We introduce a replacement argument, stating that the probability of an event occurring during a computation where part of its layers are non-noisy is lower than the probability of having the same event in a computation where all its layers are noisy. More precisely, any bound that assumes only that the noise channel is local stochastic captures both cases.
 \begin{claim}[Replacement argument]
   \label{claim:replace}
   Let $C$, $\ket{\psi}$, and $P$ be the quantum circuit, the quantum state, and a Pauli as defined in \Cref{claim:decodestopnoise}, with the change that $P$ is distributed according to local stochastic noise $\mathcal{N}_{\mathcal{E}}$ with an error rate $p\in (0,1)$ rather than being fixed.
@@ -100,8 +98,7 @@ Let $f:(n,d,d^{\prime},p) \rightarrow \mathbb{R}$ be an upper bound on $\prb{B}$
 
   %Consider the set of atomic events, in the probability space induced by sampling $P\sim \mathcal{N}_{\mathcal{E}}$ and stabilizer measurements, in which there is a step $\tau$ and an analysis Toom's counter  $\mathcal{H}_{\tau}$ such either there is a slice at size at least $cn$ in $\mathcal{H}_{\tau}$, or that there are two translated vertices which are connected by arrows in $\mathcal{H}_{\tau}$. All those atomic events can be extended to be contained in $B$. Since local stochastic noise is our only assumption, the bound over the $B$ scenario has to hold for a noise channel that assigns zero probability for a fault occurring during the additional $2dn^{2d}$ iterations. For this specific channel, $\prb{A} \le \prb{B}$ and therefore $\prb{A} \le f(n,d,d^{\prime},p)$.
 \end{proof}
-
-
+We now prove that the sweep rule is itself a decoder.
   \begin{theorem}
 There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, and a quantum state $\rho = \mathcal{N}_{\mathcal{E}}(\ket{\psi})$, where $\ket{\psi}$ is a codeword of the $(d,d^{\prime})$-Toric code, the application of $2dn^{2d}$ (ideal) sweep-cycles on $\rho$ results in $\ket{\psi}$ with probability at least:
 \begin{equation*}
