@@ -62,23 +62,30 @@ Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, 
 \inb{\textbf{Rewrite.}} To prove that no logical error is admitted (namely, through the computation, no connected component of the boundary is sufficiently large to pass the barrier), and that the assumption that no two translated vertices are arrow-connected holds, we use a replacement argument, stating that the probability of an event occurring during a computation where part of its layers are non-noisy is lower than the probability of having the same event in a computation where all its layers are noisy. More precisely, any bound that assumes only that the noise channel is local stochastic captures both cases.
 \begin{claim}[Replacement argument]
   \label{claim:replace}
-  Let $C$, $\ket{\psi}$, and $P$ be the quantum circuit, the quantum state, and a Pauli as defined in \Cref{claim:decodestopnoise}, with the change that $P$ is distributed according to local stochastic noise $\mathcal{N}_{\mathcal{E}}$ with a probability rate $p\in (0,1)$ rather than being fixed.
+  Let $C$, $\ket{\psi}$, and $P$ be the quantum circuit, the quantum state, and a Pauli as defined in \Cref{claim:decodestopnoise}, with the change that $P$ is distributed according to local stochastic noise $\mathcal{N}_{\mathcal{E}}$ with an error rate $p\in (0,1)$ rather than being fixed.
 
-Denote by $A$ the event in which, at the end of the running of $C$, namely after the $2dn^{2d}$ \textbf{ideal} (non-noisy) iterations of the sweep-cycle, the error is not erased, and denote by $B$ the event that, during the application of a subjection of $C$ to $\mathcal{N}_{\mathcal{E}}$, either the Toom's contour admits a slice of size at least $cn$, or two translated vertices become arrow-connected.
+Denote by $A$ the event in which, at the end of the running of $C$, namely after the $2dn^{2d}$ \textbf{ideal} (non-noisy) iterations of the sweep-cycle, the error is not erased, and denote by $B$ the event that, during the application of a subjection of $C$ to $\mathcal{N}_{\mathcal{E}}$, either the Toom's contour admits a slice of size at least $cn$, or two non-trivial translated vertices become arrow-connected.
 
 
 Let $f:(n,d,d^{\prime},p) \rightarrow \mathbb{R}$ be an upper bound on $\prb{B}$. Then, we have:
-  \begin{equation*}
+  \begin{equation}
+    \label{equ:replacement}
     \begin{split}
       \prb{A} \le f(n,d,d^{\prime},p)
     \end{split}
-  \end{equation*}
+  \end{equation}
 \end{claim}
 \begin{proof} 
-  A corollary of combining \Cref{claim:decodestopnoise} with \Cref{coro:barrier} (The barrier argument) is that if during the $2dn^{2d}$ ideal sweep-cycles, there is no step for which its propagation admits a slice of size at least $cn$ ( and therefore no step admits a syndrome's connected component that pass the barrier), and no two translated vertices become arrow-connected, then the syndrome is erased and no logical error occurred. So it's sufficient to show that the probability that at least one of those conditions does not hold is lower than $\prb{B}$.
+  A corollary of combining \Cref{claim:decodestopnoise} with \Cref{coro:barrier} (The barrier argument) is that if during the $2dn^{2d}$ ideal sweep-cycles, there is no step for which its propagation admits a slice of size at least $cn$ (and therefore no step admits a syndrome's connected component that passes the barrier), and no two non-trivial translated vertices become arrow-connected, then the syndrome is erased and no logical error occurred. So it's sufficient to show that the probability that at least one of those conditions does not hold is lower than $f(n,d,d^{\prime},p)$. To do that, we show that there is a local stochastic noise channel $\mathcal{N}^{\prime}_{\mathcal{E}}$ with an error rate $p$ such that $C[\mathcal{E}]= C$ where $\mathcal{E}\sim \mathcal{N}^{\prime}_{\mathcal{E}}$. We do that by defining $\mathcal{N}^{\prime}_{\mathcal{E}}$ to be the identity channel. Clearly, it's satisfying the local stochastic noise inequality \Cref{def:localstoc}, and therefore \Cref{equ:replacement } has to holds. 
 
-  Consider the set of atomic events, in the probability space induced by sampling $P\sim \mathcal{N}_{\mathcal{E}}$ and stabilizer measurements, in which there is a step $\tau$ and an analysis Toom's counter  $\mathcal{H}_{\tau}$ such either there is a slice at size at least $cn$ in $\mathcal{H}_{\tau}$, or that there are two translated vertices which are connected by arrows in $\mathcal{H}_{\tau}$. All those atomic events can be extended to be contained in $B$. Since local stochastic noise is our only assumption, the bound over the $B$ scenario has to hold for a noise channel that assigns zero probability for a fault occurring during the additional $2dn^{2d}$ iterations. For this specific channel, $\prb{A} \le \prb{B}$ and therefore $\prb{A} \le f(n,d,d^{\prime},p)$.
+  %Consider the set of atomic events, in the probability space induced by sampling $P\sim \mathcal{N}_{\mathcal{E}}$ and stabilizer measurements, in which there is a step $\tau$ and an analysis Toom's counter  $\mathcal{H}_{\tau}$ such either there is a slice at size at least $cn$ in $\mathcal{H}_{\tau}$, or that there are two translated vertices which are connected by arrows in $\mathcal{H}_{\tau}$. All those atomic events can be extended to be contained in $B$. Since local stochastic noise is our only assumption, the bound over the $B$ scenario has to hold for a noise channel that assigns zero probability for a fault occurring during the additional $2dn^{2d}$ iterations. For this specific channel, $\prb{A} \le \prb{B}$ and therefore $\prb{A} \le f(n,d,d^{\prime},p)$.
 \end{proof}
+
+
+
+
+
+
 
 
 
