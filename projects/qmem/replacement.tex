@@ -4,6 +4,25 @@
 \inb{\textbf{Rewrite.}} Throughout our final construction, logical measurements will be done via first measuring the qubits of the target register, clean the error with non-noisy computation, and eventually inferring the results, by turning to the logical space. In this section we introduce the cleaning procedure, which is the excitation of sweep-cycles for $  2dn^{2d}  $ times - the number of vertices times the side's length. In the case of logical measurement, the cleaning is done over classical bits, and therefore only the relevant stage of the sweep-cycle is done (either in the computational or the phase base).
 
 
+
+\begin{definition}
+Consider a Toom's contour $\mathcal{H}$. We say that vertices $u,v \in V_{\mathcal{H}}$ are two translations if there is a vertex $v^{\prime}$ on the finite Toric, such that both $v$ and $u$ are translations of $v^{\prime}$.
+\end{definition}
+
+\begin{claim}
+  Let $t_{0}$ be a time, such there are two translations $\tilde{v} =(v,t_{0},\{ \cdot\})$, $\tilde{u}=(u,t_{0},\{ \cdot\}) $ and $\tilde{v},\tilde{u}$ are connected via arrows. Then, there is a slice in $\mathcal{H}$ at size greater than $n$.  
+\end{claim}
+\begin{proof}
+Denote by $K$ the slice for which $\tilde{v}, \tilde{u} \in \History{K}$. Observe that we can assume that $T(K) - t_{0}$ is a non-negative integer, since if it is, then $K \in \History{\tilde{u}}, \History{\tilde{v}}$ and therefore $\History{\tilde{u}} = \History{\tilde{v}}$, namely $\tilde{u}$ and $\tilde{v}$ are contained in the same slice. Thus, we prove by induction on $T(K) - t_{0}$.
+  \begin{enumerate}
+    \item Base. If $t_{0} = T(K)$ then $\tilde{v},\tilde{u} \in K$ so clearly $\Size{K} \ge n$.  
+    \item Step. We argue that at time $t_{0}+1$ there must be two translations that belong to $\History{K}$. Let $u^{\prime}$ be a vertex, such that $ \tilde{u} \in \pre{u^{\prime}} $. Notice that if there is no such vertex, then $\tilde{u}$ does not appear in the history of any vertex with a time coordinate greater than $t_{0}$, in contradiction to $\tilde{u} \in \History{K}$. Since the vertices of $\mathcal{H}$ are sets defined by the $\partial^{-}$-boundary of a Pauli-path, and a Pauli path is an $\infty$-lift of propagation, we have that there has to be a vertex $v^{\prime}$ in $\mathcal{H}$ which is a translation of $u^{\prime}$. If $\{\tilde{u},u^{\prime}\} \in E_{\mathcal{H}}$, then we are finished. Else, by the arrows connection rules (\Cref{def:contour}), it has to be that $v^{\prime} \in (\mathcal{E}|\alpha)^{\infty}$, but then it has to be that $u^{\prime}$ is also in $(\mathcal{E}|\alpha)^{\infty}$, which is a contradiction to $\{\tilde{u},u^{\prime}\}$ being an arrow.
+  \end{enumerate}
+\end{proof}
+
+
+
+
 The following claim states that for ideal running (not subject to noise), the cleaning succeeds in erasing the syndrome within at most $\Theta(n^{2d})$ sweep-cycles.
 \begin{claim}
   \label{claim:decodestopnoise}
@@ -64,7 +83,7 @@ Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, 
   \label{claim:replace}
   Let $C$, $\ket{\psi}$, and $P$ be the quantum circuit, the quantum state, and a Pauli as defined in \Cref{claim:decodestopnoise}, with the change that $P$ is distributed according to local stochastic noise $\mathcal{N}_{\mathcal{E}}$ with an error rate $p\in (0,1)$ rather than being fixed.
 
-Denote by $A$ the event in which, at the end of the running of $C$, namely after the $2dn^{2d}$ \textbf{ideal} (non-noisy) iterations of the sweep-cycle, the error is not erased, and denote by $B$ the event that, during the application of a subjection of $C$ to $\mathcal{N}_{\mathcal{E}}$, either the Toom's contour admits a slice of size at least $cn$, or two non-trivial translated vertices become arrow-connected.
+Denote by $A$ the event in which, at the end of the running of $C$, namely after the $2dn^{2d}$ \textbf{ideal} (non-noisy) iterations of the sweep-cycle, the error is not erased, and denote by $B$ the event that, during the application of a subjection of $C$ to $\mathcal{N}_{\mathcal{E}}$, either the Toom's contour admits a slice of size at least $cn$, or two translated vertices become arrow-connected.
 
 
 Let $f:(n,d,d^{\prime},p) \rightarrow \mathbb{R}$ be an upper bound on $\prb{B}$. Then, we have:
@@ -76,7 +95,7 @@ Let $f:(n,d,d^{\prime},p) \rightarrow \mathbb{R}$ be an upper bound on $\prb{B}$
   \end{equation}
 \end{claim}
 \begin{proof} 
-  A corollary of combining \Cref{claim:decodestopnoise} with \Cref{coro:barrier} (The barrier argument) is that if during the $2dn^{2d}$ ideal sweep-cycles, there is no step for which its propagation admits a slice of size at least $cn$ (and therefore no step admits a syndrome's connected component that passes the barrier), and no two non-trivial translated vertices become arrow-connected, then the syndrome is erased and no logical error occurred. So it's sufficient to show that the probability that at least one of those conditions does not hold is lower than $f(n,d,d^{\prime},p)$. To do that, we show that there is a local stochastic noise channel $\mathcal{N}^{\prime}_{\mathcal{E}}$ with an error rate $p$ such that $C[\mathcal{E}]= C$ where $\mathcal{E}\sim \mathcal{N}^{\prime}_{\mathcal{E}}$. We do that by defining $\mathcal{N}^{\prime}_{\mathcal{E}}$ to be the identity channel. Clearly, it's satisfying the local stochastic noise inequality \Cref{def:localstoc}, and therefore \Cref{equ:replacement } has to holds. 
+  A corollary of combining \Cref{claim:decodestopnoise} with \Cref{coro:barrier} (The barrier argument) is that if during the $2dn^{2d}$ ideal sweep-cycles, there is no step for which its propagation admits a slice of size at least $cn$ (and therefore no step admits a syndrome's connected component that passes the barrier), and no two translated vertices become arrow-connected, then the syndrome is erased and no logical error occurred. So it's sufficient to show that the probability that at least one of those conditions does not hold is lower than $f(n,d,d^{\prime},p)$. To do that, we show that there is a local stochastic noise channel $\mathcal{N}^{\prime}_{\mathcal{E}}$ with an error rate $p$ such that $C[\mathcal{E}]= C$ where $\mathcal{E}\sim \mathcal{N}^{\prime}_{\mathcal{E}}$. We do that by defining $\mathcal{N}^{\prime}_{\mathcal{E}}$ to be the identity channel. Clearly, it's satisfying the local stochastic noise inequality \Cref{def:localstoc}, and therefore \Cref{equ:replacement } has to holds. 
 
   %Consider the set of atomic events, in the probability space induced by sampling $P\sim \mathcal{N}_{\mathcal{E}}$ and stabilizer measurements, in which there is a step $\tau$ and an analysis Toom's counter  $\mathcal{H}_{\tau}$ such either there is a slice at size at least $cn$ in $\mathcal{H}_{\tau}$, or that there are two translated vertices which are connected by arrows in $\mathcal{H}_{\tau}$. All those atomic events can be extended to be contained in $B$. Since local stochastic noise is our only assumption, the bound over the $B$ scenario has to hold for a noise channel that assigns zero probability for a fault occurring during the additional $2dn^{2d}$ iterations. For this specific channel, $\prb{A} \le \prb{B}$ and therefore $\prb{A} \le f(n,d,d^{\prime},p)$.
 \end{proof}
@@ -91,7 +110,8 @@ There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noi
 \end{equation*}
   \end{theorem} 
   \begin{proof}
-    By the replacement argument, it is sufficient to consider that during the application of $2dn^{2d}$ sweep-cycles subjected to $\mathcal{N}_{\mathcal{E}}$, and bound the probability that there is a step $\tau$ and an analysis of Toom's counter $\mathcal{H}_{\tau}$ such that either $\mathcal{H}_{\tau}$ contains a slice of size at least $cn$, or $\mathcal{H}_{\tau}$ contains two non-trivial translated vertices connected by arrows. However, the proof of \Cref{lemma:keylemma} bounds the 
+By the replacement argument, it is sufficient to consider the application of $2dn^{2d}$ sweep-cycles subjected to $\mathcal{N}_{\mathcal{E}}$, and bound the probability that during the subjected application there is a step $\tau$ and an analysis of Toom's counter $\mathcal{H}_{\tau}$ such that either $\mathcal{H}_{\tau}$ contains a slice of size at least $cn$, or $\mathcal{H}_{\tau}$ contains two  translated vertices connected by arrows. Since the size of an edge is at most $2d$, any subtree that connects two  translations has at least $n/2d$ edges; hence, the probability of the second event can be bound by the probability of having an explanation tree of size at least $n/2d$. Denote by $B_{\tau}$ and $A_{\tau}$ the events in which $\tau$ admits a slice of size at least $cn$ and $\tau$ admits an explanation tree with size at least $n/2d$. The proof of \Cref{lemma:keylemma} bounds the probability of $B_{\tau}$ and $A_{\tau}$ by the square of the locations number multiple $p^{\Omega(n)}$ for $p < p_{0}$. Taking the union bounds over the steps gives the desired.
+
   \end{proof}
 
 
