@@ -22,7 +22,13 @@ Consider a $d^{\prime}$-dimensional chain on the $d$-dimensional Toric $x \in (\
 Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ closes a non-trivial loop on the Toric, then $\Size{x} \ge n$.
 \end{claim}
 \begin{proof}
-  Let $x^{\prime}$ be the $\infty$-lift of $x$, we argue that the projection of any subset $y \subset x^{\prime}$, which doesn't contain a vertex $v$ and a translation of it $v + \mathbf{1}_{g} n$, can't closes a non-trivial loop. 
+Let $x^{\prime}$ be the $\infty$-lift of $x$, and consider a subset $y \subset x^{\prime}$ such that the projection of $y$ covers $x$. In particular, there are vertices $v_{1}, \ldots, v_{l}$ in $y$ such that their projection corresponds to the non-trivial loop in $x$. Assume the non-trivial cycle is in the $g$-direction, so the $L_{g}$ values of the projections of $v_{1}$ and $v_{l}$ are $0$ and $n-1$, respectively. Without loss of generality, assume that $L_{g}(v_{l}) > L_{g}(v_{1})$. Thus:
+  \begin{equation*}
+    \begin{split}
+      \Size{y} \ge \Size{\{v_{1},v_{l}\}} \ge \sum_{g^{\prime}\neq g} L_{g^{\prime}}(v_{1}) + L_{g}(v_{l}) + L_{d+1}(v_{1}) = L_{g}(v_{l}) -L_{g}(v_{1})
+    \end{split}
+  \end{equation*}
+And it's trivial to see that the assumption $L_{g}(v_{l}) > L_{g}(v_{1})$ implies that the difference is at least $n-1$.
 \end{proof}
 
 \begin{claim}
