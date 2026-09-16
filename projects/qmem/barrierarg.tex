@@ -19,12 +19,36 @@ Consider a $d^{\prime}$-dimensional chain on the $d$-dimensional Toric $x \in (\
 \end{definition}
 
 
-\begin{claim}
-  \inb{\textbf{Triangle ineq for finite chains. Prove it. } }
-\end{claim}
 
 \begin{claim}
-Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ closes a non-trivial loop on the Toric, then $\Size{x} \ge n$.
+  Let the chains $x,y \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ such that $V(x) \cap V(y) \neq \emptyset$, then: 
+  \begin{equation*}
+    \begin{split}
+      \Size{x + y} \le \Size{x} + \Size{y}
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+  First, notice that if the $\infty$-lifted chains $x^{\prime}, y^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ satisfy that the projection of $x^{\prime}$ covers $x$ and the projection of $y^{\prime}$ covers $y$, then the projection of $x^{\prime} \cup y^{\prime}$ covers $x+y$. Denote the $d^{\prime}$-dimensional faces in $x, y$ that intersect by $f, g$, and pick $x^{\prime}, y^{\prime}$ such that $f, g$ are also in $x^{\prime}, y^{\prime}$. Thus, $V(x^{\prime})\cap V(y^{\prime}) \neq \emptyset$, and by \Cref{claim:tringinq}, we have:
+  \begin{equation*}
+    \begin{split}
+      \Size{x + y} \le \Size{x^{\prime} + y^{\prime}} \le \Size{x^{\prime}} + \Size{y^{\prime}}
+    \end{split}
+  \end{equation*}
+To finish, we argue that we can choose $x^{\prime}, y^{\prime}$ such that $\Size{x} = \Size{x^{\prime}}$ and $\Size{y} = \Size{y^{\prime}}$. Let $\tilde{x} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be the $d^{\prime}$-dimensional chain on the infinite skeleton such that $\Size{x} = \Size{\tilde{x}}$. Split into cases depending on whether $f \in \tilde{x}$.
+  \begin{itemize}
+    \item If $f \in \tilde{x}$, then we can just choose $x^{\prime} = \tilde{x}$.
+    \item If not, then since the projection of $\tilde{x}$ covers $x$, there must be a vertex $v \in \mathcal{G}$ and a $d^{\prime}$-dimensional face $\tilde{f}$ in $\tilde{x}$ such that $\tilde{f}$ is a translation of $f$ by $v$. Then, construct $x^{\prime}$ by taking the translations of $\tilde{x}$ faces by $v^{-1}$. The size function is invariant to translations, so:
+      \begin{equation*}
+        \begin{split}
+          \Size{x} = \Size{\tilde{x}} = \Size{v^{-1} x^{\prime}  } = \Size{x^{\prime}}
+        \end{split}
+      \end{equation*}
+      and in addition, $f = v^{-1}\tilde{f} \in x^{\prime}$. 
+  \end{itemize}
+\end{proof}
+\begin{claim}
+Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ closes a non-trivial loop on the Toric, then $\Size{x} \ge n - 1$.
 \end{claim}
 \begin{proof}
 Let $x^{\prime}$ be the $\infty$-lift of $x$, and consider a subset $y \subset x^{\prime}$ such that the projection of $y$ covers $x$. In particular, there are vertices $v_{1}, \ldots, v_{l}$ in $y$ such that their projection corresponds to the non-trivial loop in $x$. Assume the non-trivial cycle is in the $g$-direction, so the $L_{g}$ values of the projections of $v_{1}$ and $v_{l}$ are $0$ and $n-1$, respectively. Without loss of generality, assume that $L_{g}(v_{l}) > L_{g}(v_{1})$. Thus:
