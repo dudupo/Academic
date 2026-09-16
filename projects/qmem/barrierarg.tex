@@ -3,6 +3,8 @@
 \subsection{The Barrier Argument}
 
 
+\inb{\textbf{  Do something with the translation,  like define it to align with $\sum \mathbf{1}_{g} n n_{g}$.  }}
+
 We are going to move between the infinite and the finite back and forth, so we will need to extend the size function, and the reduced notion to chains on the finite-complex.  
 \begin{definition}
 Consider a $d^{\prime}$-dimensional chain on the $d$-dimensional Toric $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$. We extend the notation of size to $x$ as follows. Let $x^{\prime}$ be the $\infty$-lift of $x$, so $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$. Let the chain $y \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be a subset chain of $x^{\prime}$ such:
@@ -55,6 +57,20 @@ To finish, we argue that we can choose $x^{\prime}, y^{\prime}$ such that $\Size
     \end{split}
   \end{equation*}
 \end{proof}
+\begin{claim}
+  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $x$ is connected, then there is a chain in the infinite skeleton $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such $\Size{x}= \Size{x^{\prime}}$ and $x^{\prime}$ is connected. 
+\end{claim}
+\begin{proof}
+Let $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such that $\Size{x} = \Size{x^{\prime}}$, and assume that $x^{\prime}$ is not connected. Thus, there must be two disconnected faces in $x^{\prime}$ whose projections are adjoint. Denote them by $\rotfv{v_{1}}{S^{\prime}_{1}}, \rotfv{v_{2}}{S^{\prime}_{2}}$. Since their projections are connected, there has to be a vertex $u \in \mathcal{G}$, such that the translation $u v_{2}$ is in $S_{1}v_{1}$. Consider the chain:
+  \begin{equation*}
+    \begin{split}
+      \tilde{x} = x^{\prime} +  \rotfv{v_{2}}{S^{\prime}_{2}} + \rotfv{u v_{2}}{S^{\prime}_{2}} 
+    \end{split}
+  \end{equation*}
+  \inb{\textbf{HERE.}}
+\end{proof}
+
+
 \begin{claim}
 Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ closes a non-trivial loop on the Toric, then $\Size{x} \ge n - 1$.
 \end{claim}
