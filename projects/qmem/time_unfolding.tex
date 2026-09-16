@@ -146,6 +146,7 @@ In our case, the conditioned circuit $C[\mathcal{E}, \alpha]$ is a Clifford circ
 \inb{\textbf{ For that being immediate we have to measure the stabilizer after every noise layer. Also,  }} 
 
 \begin{definition}[Propagation]
+  \label{def:propagation}
 Let $C$ be a quantum circuit at depth $\mu$, and let $\alpha \in \mathbb{F}_{2}^{(\cdot)}$ be a possible outcome vector for $C$. Suppose that $C$ is a Clifford+measurements circuit, so $C[,\alpha]$ is a Clifford circuit. We define the propagation of Pauli $P \in \mathcal{P}$ through the conditioned circuit $C[,\alpha]$ to be the Paulis $P_{1}, \ldots, P_{\mu+1}$ such that $P_{1} = P$ and for any $i \in [2, \mu+1]$:
   \begin{equation*}
     \begin{split}
