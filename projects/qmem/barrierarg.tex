@@ -149,11 +149,11 @@ Thus, for sufficiently large $n$ ,if $c < \frac{1}{M(d,d^{\prime})+1}$, we have 
 
 
 \begin{claim}
-  Let $x_{1}, \ldots, x_{t} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be $d^{\prime}$-dimensional chains defined as in \Cref{claim:barrier}, with the change that any two sequential chains $x_{i}, x_{i+1}$ are at a Hamming distance of at most $\Delta$, and setting the constant $c \leftarrow c/( { d^{\prime} \choose 2 }  \Delta )$. Then the claim still holds.
+  Let $x_{1}, \ldots, x_{t} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be $d^{\prime}$-dimensional chains defined as in \Cref{claim:barrier}, with the change that any two sequential chains $x_{i}, x_{i+1}$ are at a Hamming distance of at most $\Delta$, and setting the constant $c^{\prime} \leftarrow c/( { d^{\prime} \choose 2 }  \Delta )$. Then the claim still holds.
 \end{claim}
 
 \begin{proof}
-  Let $x_{1}^{\prime}, \ldots, x^{\prime}_{\Delta t + 1}$ be the chains obtained from $x_{1}, \ldots, x_{t}$ by taking the stacking between any two sequential elements $\Delta-1$ chains, such that in the new set any two sequential chains are at Hamming distance at most one. Namely, for any $i \in [t]$, we have that $x_{1 + i\Delta}^{\prime} = x_{i + i}$ and $x^{\prime}_{i+1}$ differs from $x^{\prime}_{i}$ by at most one coordinate. By \Cref{claim:mergebyf}, each connected component of $\partial^{-}x^{\prime}_{i}$ has a size of at most ${ d^{\prime} \choose 2 }\Delta c n$. 
+  Let $x_{1}^{\prime}, \ldots, x^{\prime}_{\Delta t + 1}$ be the chains obtained from $x_{1}, \ldots, x_{t}$ by taking the stacking between any two sequential elements $\Delta-1$ chains, such that any two sequential chains of the resulted set are at Hamming distance at most one. Namely, for any $i \in [t]$, we have that $x_{1 + i\Delta}^{\prime} = x_{i + i}$ and $x^{\prime}_{i+1}$ differs from $x^{\prime}_{i}$ by at most one coordinate. By \Cref{claim:mergebyf}, each connected component of $\partial^{-}x^{\prime}_{i}$ has a size of at most ${ d^{\prime} \choose 2 }\Delta c^{\prime} n \le c n$. 
 
   \paragraph{}
   Thus, by \Cref{claim:barrier},we have that:
