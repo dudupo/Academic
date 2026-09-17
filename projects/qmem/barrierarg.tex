@@ -83,7 +83,7 @@ Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ cl
 
 \begin{claim}
   \label{claim:fillchain}
-  Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain, such that the $d^{\prime}-1$-dimensional chain $\partial^{-} x$ is not connected. Suppose that each connected component of $\partial^{-}x$ has size $ < n-1$. Then there are $d^{\prime}$-dimensional chains $y_{1}, y_{2}, \ldots$ such that each $\partial^{-}y_{i}$ is a connected component of $\partial^{-}x$ and $\Size{y_{i}} < n-1$.
+  Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain, such that the $d^{\prime}-1$-dimensional chain $\partial^{-} x$ is not connected. Suppose that there is an integer $l \le n-1$ such each connected component of $\partial^{-}x$ has size $ < l$. Then there are $d^{\prime}$-dimensional chains $y_{1}, y_{2}, \ldots$ such that each $\partial^{-}y_{i}$ is a connected component of $\partial^{-}x$ and $\Size{y_{i}} < l$.
 \end{claim}
 
 \begin{proof}
@@ -94,7 +94,7 @@ Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ cl
     \end{split}
   \end{equation*}  Namely, $\tilde{x}_{1} \in \ker \partial^{-} : (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-2}; \mathbb{F}_{2})$.
 Suppose $\tilde{x}_{1} \notin \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$, then we have that $\tilde{x}_{1}$ is a non-trivial codeword of the $(d,d^{\prime}-1)$-Toric code. 
-Since $d^{\prime} \ge 2$, the size of $\tilde{x}$ is at least $n-1$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. Choose $x_{1}$ such it doesn't supported on a non-trivial codeword, namely $\tilde{x}_{1}$ is finite. The reduced form of $x_{1}$ has size at most $\Size{\tilde{x}_{1}} < n-1$, and satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$.
+Since $d^{\prime} \ge 2$, the size of $\tilde{x}$ is at least $n-1$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. Choose $x_{1}$ such it doesn't supported on a non-trivial codeword, namely $\tilde{x}_{1}$ is finite. The reduced form of $x_{1}$ has size at most $\Size{\tilde{x}_{1}} < l$, and satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$.
 \end{proof}
 
 
