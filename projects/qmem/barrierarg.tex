@@ -7,6 +7,7 @@
 
 We are going to move between the infinite and the finite back and forth, so we will need to extend the size function, and the reduced notion to chains on the finite-complex.  
 \begin{definition}
+  \label{def:mincover}
 Consider a $d^{\prime}$-dimensional chain on the $d$-dimensional Toric $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$. We extend the notation of size to $x$ as follows. Let $x^{\prime}$ be the $\infty$-lift of $x$, so $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$. Let the chain $y \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be a subset chain of $x^{\prime}$ such:
   \begin{enumerate}
     \item The projection of $y$ back to finite complex covers $x$.
@@ -18,7 +19,7 @@ Consider a $d^{\prime}$-dimensional chain on the $d$-dimensional Toric $x \in (\
       \Size{x} \colonequals \Size{y}
     \end{split}
   \end{equation*}
-We extend the notation of reduced form to a $d^{\prime}$-dimensional chain on the finite complex $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, to be its translation by stabilizers that gets the minimal size. Namely, for $z \in \image \partial^{-} : (\mathcal{F}^{n}_{d^{\prime}+1}; \mathbb{F}_{2}) \rightarrow (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, the chain $x+z$ is a reduced form of $x$ if $\Size{x+z}$ is minimal among the choices of $z$.
+The chain $y$ will be referred to as the minimizing cover of $x$. We extend the notation of reduced form to a $d^{\prime}$-dimensional chain on the finite complex $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, to be its translation by stabilizers that gets the minimal size. Namely, for $z \in \image \partial^{-} : (\mathcal{F}^{n}_{d^{\prime}+1}; \mathbb{F}_{2}) \rightarrow (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, the chain $x+z$ is a reduced form of $x$ if $\Size{x+z}$ is minimal among the choices of $z$.
 \end{definition}
 
 
@@ -59,18 +60,18 @@ To finish, we argue that we can choose $x^{\prime}, y^{\prime}$ such that $\Size
   \end{equation*}
 \end{proof}
 \begin{claim}
-  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $x$ is connected, then there is a chain in the infinite skeleton $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such $\Size{x}= \Size{x^{\prime}}$ and $x^{\prime}$ is connected. 
+  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $x$ is connected, and $\Size{\tilde{x}} < n$. Then, there is a connected chain on the infinite complex $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such $\Size{x}= \Size{x^{\prime}}$. 
 \end{claim}
 \begin{proof}
-Let $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such that $\Size{x} = \Size{x^{\prime}}$, and assume that $x^{\prime}$ is not connected. Thus, there must be two disconnected faces in $x^{\prime}$ whose projections are adjoint. Denote them by $\rotfv{v_{1}}{S^{\prime}_{1}}, \rotfv{v_{2}}{S^{\prime}_{2}}$. Since their projections are connected, there has to be a vertex $u \in \mathcal{G}$, such that the translation $u v_{2}$ is in $S_{1}v_{1}$. Consider the chain:
+Let $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be a minimizing cover for $x$, as defined in \Cref{def:mincover}. Assume that $x^{\prime}$ is disconnected, and consider a decomposition of $x^{\prime}$ into two disjoint chains (each of which might itself be disconnected). Since the projection of $x^{\prime}$ covers $x$ and $x$ is connected, those chains contain two distinct faces in $x^{\prime}$ whose projections either coincide or are adjacent in $x$ and therefore their projections share a vertex in $\mathcal{G}_{d}^{n}$. Denote the corresponding sources of that vertex on those faces by $v,u \in \mathcal{G}_{d}$, so $u$ is a translation of $v$ by at least one integer power of $g_{1}^{n},..,g_{d}^{n}$. Namely, there exists a generator $g \in S$ such that $L_{g}(u) - L_{g}(v) > n$ (or vice versa). Thus,
   \begin{equation*}
     \begin{split}
-      \tilde{x} = x^{\prime} +  \rotfv{v_{2}}{S^{\prime}_{2}} + \rotfv{u v_{2}}{S^{\prime}_{2}} 
+      \Size{x^{\prime}} \ge \Size{\{u,v\}}  & \ge L_{g}(v) + \sum_{g^{\prime}\neq g}L_{g^{\prime}}(u) + L_{d+1}(u) \\
+      & \ge n + \sum_{g^{\prime}}L_{g^{\prime}}(u) + L_{d+1}(u) = n
     \end{split}
   \end{equation*}
-  \inb{\textbf{HERE.}}
+  In contradiction to $\Size{x^{\prime}} = \Size{x} < n$. 
 \end{proof}
-
 
 \begin{claim}
 Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ closes a non-trivial loop on the Toric, then $\Size{x} \ge n - 1$.
