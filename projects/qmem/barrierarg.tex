@@ -43,14 +43,13 @@ The chain $y$ will be referred to as the minimizing cover of $x$. We extend the 
 To finish, we argue that we can choose $x^{\prime}, y^{\prime}$ such that $\Size{x} = \Size{x^{\prime}}$ and $\Size{y} = \Size{y^{\prime}}$. Let $\tilde{x} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be the $d^{\prime}$-dimensional chain on the infinite skeleton such that $\Size{x} = \Size{\tilde{x}}$. Split into cases depending on whether $f \in \tilde{x}$.
   \begin{itemize}
     \item If $f \in \tilde{x}$, then we can just choose $x^{\prime} = \tilde{x}$.
-    \item If not, then since the projection of $\tilde{x}$ covers $x$, there must be a vertex $v \in \mathcal{G}$ and a $d^{\prime}$-dimensional face $\tilde{f}$ in $\tilde{x}$ such that $\tilde{f}$ is a translation of $f$ by $v$. Then, construct $x^{\prime}$ by taking the translations of $\tilde{x}$ faces by $v^{-1}$. The size function is invariant to translations, so:
+    \item If not, then since the projection of $\tilde{x}$ covers $x$, there must be a vertex $v \in \mathcal{G}_{d}$, such that $v$ is a product of the integer powers of $g_{1}^{n},\ldots, g_{d}^{n}$, and a $d^{\prime}$-dimensional face $\tilde{f}$ in $\tilde{x}$ such that $\tilde{f}$ is a translation of $f$ by $v$. Then, construct $x^{\prime}$ by taking the translations of $\tilde{x}$ faces by $v^{-1}$. The size function is invariant to translations, so:
       \begin{equation*}
         \begin{split}
           \Size{x} = \Size{\tilde{x}} = \Size{v^{-1} x^{\prime}  } = \Size{x^{\prime}}
         \end{split}
       \end{equation*}
-      and in addition, $f = v^{-1}\tilde{f} \in x^{\prime}$. 
-      \inb{ \textbf{ To finish, assume that the projection of $\tilde{x}$ doesn't cover $x$..  } }
+      and in addition, $f = v^{-1}\tilde{f} \in x^{\prime}$. Moreover, since the projecting is invariant to translation by integer powers of $g_{1}^{n},\ldots, g_{d}^{n}$, the projection of $\tilde{x}$ equals the projection of $x^{\prime}$, namely, covers $x$.
   \end{itemize}
   So, 
   \begin{equation*}
