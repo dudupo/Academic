@@ -77,13 +77,12 @@ Let $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be a minimizing 
 Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ closes a non-trivial loop on the Toric, then $\Size{x} \ge n - 1$.
 \end{claim}
 \begin{proof}
-Let $x^{\prime}$ be the $\infty$-lift of $x$, and consider a subset $y \subset x^{\prime}$ such that the projection of $y$ covers $x$. In particular, there are vertices $v_{1}, \ldots, v_{l}$ in $y$ such that their projection corresponds to the non-trivial loop in $x$. Assume the non-trivial cycle is in the $g$-direction, so the $L_{g}$ values of the projections of $v_{1}$ and $v_{l}$ are $0$ and $n-1$, respectively. Without loss of generality, assume that $L_{g}(v_{l}) > L_{g}(v_{1})$. Thus:
+  Let $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be a minimizing cover for $x$. In particular, there are vertices $v_{1}, \ldots, v_{l}$ in $x^{\prime}$ such that their projection corresponds to the non-trivial loop in $x$. Assume the non-trivial cycle is in the $g$-direction, thus the $L_{g}$ values of the projections of $v_{1}, \ldots, v_{l}$ cover all the integer range $\{0,1,\ldots, n-1\}$. Thus, there are two vertices $v,u \in v_{1},\ldots,v_{l}$ such that their $L_{g}$-difference is at least $L_{g}(u) - L_{g}(v) > n-1$. Thus,
   \begin{equation*}
     \begin{split}
-      \Size{y} \ge \Size{\{v_{1},v_{l}\}} \ge \sum_{g^{\prime}\neq g} L_{g^{\prime}}(v_{1}) + L_{g}(v_{l}) + L_{d+1}(v_{1}) = L_{g}(v_{l}) -L_{g}(v_{1})
+      \Size{x} = \Size{x^{\prime}} \ge \Size{\{u,v\}} \ge n-1
     \end{split}
   \end{equation*}
-And it's trivial to see that the assumption $L_{g}(v_{l}) > L_{g}(v_{1})$ implies that the difference is at least $n-1$.
 \end{proof}
 
 \begin{claim}
