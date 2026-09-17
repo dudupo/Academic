@@ -73,11 +73,40 @@ Let $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be a minimizing 
 \end{proof}
 
 
+
+
 \begin{claim}
-Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, and let the chain $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be the minimizing cover of $x$. Then $\partial^{-}x^{\prime}$ is the minimizing cover of $\partial^{-}x$.
+The projection map sends stabilizers of the infinite complex $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ to stabilizers of the finite complex $(\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$.
 \end{claim}
 \begin{proof}
-  
+Consider a subset of generators $S^{\prime} \subset S$, such that $|S^{\prime}|=d^{\prime}+1$, so for a vertex $\mathcal{G}^{d}$, the chain $\partial^{-}\rotfv{v}{S^{\prime}}$ is a basis element for the stabilizers in $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$. Then, the projection of $\partial^{-}\rotfv{v}{S^{\prime}}$
+  \begin{equation*}
+    \begin{split}
+      \pi ( \partial^{-}\rotfv{v}{S^{\prime}} ) = \pi ( \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} +  \rotfv{gv}{S^{\prime}/g} ) 
+    \end{split}
+  \end{equation*}
+Since no two elements in the right sum are projected to the same target (that is because the size of the $\partial^{-}\rotfv{v}{S^{\prime}}$ is at most $d$), we have that the projection commutes with the summation. So:
+  \begin{equation*}
+    \begin{split}
+    \pi ( \partial^{-}\rotfv{v}{S^{\prime}} ) &=  \sum_{g \in S^{\prime}} \rotfv{\pi(v)}{S^{\prime}/g} +  \rotfv{\pi(gv)}{S^{\prime}/g} \\ 
+    & =  \sum_{g \in S^{\prime}} \rotfv{\pi(v)}{S^{\prime}/g} +  \rotfv{g \pi(v)}{S^{\prime}/g} = \partial^{-}\rotfv{\pi(v)}{S^{\prime}} 
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+\begin{claim}
+  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $\Size{x} < n$. Then $x$ has a minimizing cover $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such $\partial^{-}x^{\prime}$ is the minimizing cover of $\partial^{-}x$.
+\end{claim}
+\begin{proof}
+  Let the $d^{\prime}-1$-dimensional chains $z_{1}, \ldots, z_{l} \in (\mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})$ be the single-face (unit vector) decomposition of $\partial^{-} x^{\prime}$. We claim that there are no two faces $z_{i}, z_{j}$ whose projections coincide. If there were, then $\size{\partial x^{\prime}}$ is greater than $n$. Yet, by \Cref{claim:reducederr} we have:
+  \begin{equation*}
+    \begin{split}
+
+    \end{split}
+  \end{equation*}
+
+
+
 \end{proof}
 
 
