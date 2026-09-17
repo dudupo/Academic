@@ -76,6 +76,7 @@ Let $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be a minimizing 
 
 
 \begin{claim}
+  \label{claim:stabtostab}
 The projection map sends stabilizers of the infinite complex $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ to stabilizers of the finite complex $(\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$.
 \end{claim}
 \begin{proof}
@@ -95,18 +96,16 @@ Since no two elements in the right sum are projected to the same target (that is
 \end{proof}
 
 \begin{claim}
-  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $\Size{x} < n$. Then $x$ has a minimizing cover $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such $\partial^{-}x^{\prime}$ is the minimizing cover of $\partial^{-}x$.
+  Consider a $d^{\prime}$-dimensional reduced chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $\Size{x} < n$. Then $x$ has a minimizing cover $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such $\partial^{-}x^{\prime}$ is the minimizing cover of $\partial^{-}x$.
 \end{claim}
 \begin{proof}
-  Let the $d^{\prime}-1$-dimensional chains $z_{1}, \ldots, z_{l} \in (\mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})$ be the single-face (unit vector) decomposition of $\partial^{-} x^{\prime}$. We claim that there are no two faces $z_{i}, z_{j}$ whose projections coincide. If there were, then $\Size{\partial x^{\prime}}$ is greater than $n$. Yet, by \Cref{claim:reducederr} we have:
+  Let the $d^{\prime}-1$-dimensional chains $z_{1}, \ldots, z_{l} \in (\mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})$ be the single-face (unit vector) decomposition of $\partial^{-} x^{\prime}$. We claim that there are no two faces $z_{i}, z_{j}$ whose projections coincide. If there were, then $\Size{\partial x^{\prime}}$ is greater than $n$. But since $\Size{x^{\prime}} = \Size{x} < n$, we get by \Cref{claim:reducederr}, that $x^{\prime}$ is not reduced. Namely there is a stabilizer $w \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, such that: 
   \begin{equation*}
     \begin{split}
-      AA
+      \Size{x^{\prime} + w} < \Size{x^{\prime}} 
     \end{split}
   \end{equation*}
-
-
-
+  Yet, by \Cref{claim:stabtostab} we have that the projection of $w$, namely $\pi(w)$ is a stabilizer of the finite complex. 
 \end{proof}
 
 
