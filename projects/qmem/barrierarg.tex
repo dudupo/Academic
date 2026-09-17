@@ -162,6 +162,7 @@ Thus, for sufficiently large $n$ ,if $c < \frac{1}{M(d,d^{\prime})+1}$, we have 
 
 
 \begin{claim}
+  \label{claim:barrierconstant}
   Let $x_{1}, \ldots, x_{t} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be $d^{\prime}$-dimensional chains defined as in \Cref{claim:barrier}, with the change that any two sequential chains $x_{i}, x_{i+1}$ are at a Hamming distance of at most $\Delta$, and setting the constant $c^{\prime} \leftarrow c/( { d^{\prime} \choose 2 }  \Delta )$. Then the claim still holds.
 \end{claim}
 
@@ -186,5 +187,10 @@ Thus, for sufficiently large $n$ ,if $c < \frac{1}{M(d,d^{\prime})+1}$, we have 
 
 \begin{corollary}[Barrier argument]
   \label{coro:barrier}
-  Let $P_{1},\ldots,P_{\tau_{f}}$ be a step-propagation of a conditioned subjected circuit $C[\mathcal{E},\alpha]$ (\Cref{def:propagation}). Assume that each of the registers in $C$ is encoded in the $(d,d^{\prime})$-Toric code, and denote by $R$ the number of quantum registers in $C$. For a Pauli $P_{\tau}$ in the set-propagation, denote by $x_{\tau} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})^{\otimes R} $  the $X$-component of $P_{\tau}$.      Let $x_{1},..,x_{\tau_{f}}$ be the $X$-syndrome (respecting  measurements of $Z$-stabilizers)   Barrier argument.
+Let $c^{\prime} \in (0,1)$ be the constant as defined in \Cref{claim:barrierconstant}. Let $P_{1},\ldots,P_{\tau_{f}}$ be a step-propagation of a conditioned subjected circuit $C[\mathcal{E},\alpha]$ (\Cref{def:propagation}). Assume that each of the registers in $C$ is encoded in the $(d,d^{\prime})$-Toric code, and denote by $R$ the number of quantum registers in $C$. For a Pauli $P_{\tau}$ in the step-propagation, denote by $x_{\tau} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})^{\otimes R}$ the $X$-component of $P_{\tau}$ and by $x_{\tau}|_{R_{j}}$ the restriction of $x_{\tau}$ to register $R_{j}$. Then, if for any step $\tau$ and for any register $R_{j}$, there is not a connected component of $\partial^{-} x_{\tau}|_{R_{j}}$ of size greater than $c^{\prime}n$, then:
+  \begin{equation*}
+    \begin{split}
+      [x_{\tau_{f}} |_{R_{j}}] = [0] 
+    \end{split}
+  \end{equation*}
 \end{corollary}
