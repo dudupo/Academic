@@ -100,6 +100,7 @@ Since $d^{\prime} \ge 2$, and $\tilde{x}_{1}$ has to close a non-trivial loop, s
 
 
 \begin{definition}
+  \label{def:connsyn}
 Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain. $x$ will be said to be a fillable chain if each of the connected components of its $\partial^{-}$-boundary, namely $\partial^{-} x$, has size $< n - 1$. By \Cref{claim:fillchain}, there are $d^{\prime}$-dimensional reduced chains $x_{1}, \ldots,$ such that each $\partial^{-}x_{i}$ is a connected component of $\partial^{-}x$. Thus:
     \begin{equation*}
       \begin{split}
@@ -127,7 +128,7 @@ Let $x_{1}, \ldots, x_{t} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be
   \end{equation*}
 \end{claim}
 \begin{proof}
-Assume through contradiction that there is $i$ such that $0 = [x_{i}] \neq [x_{i+1}]$. Denote by $x_{i}^{1}, x_{i}^{2}, \ldots$ and $x_{i+1}^{1}, x_{i+2}^{2}, \ldots$ the reduced $d^{\prime}$-dimensional chains such that $\partial^{-}x_{i}^{j}$ is a connected component of $\partial^{-}x_{i}$. Hence:
+  Assume through contradiction that there is $i$ such that $0 = [x_{i}] \neq [x_{i+1}]$. Denote by $x_{i}^{1}, x_{i}^{2}, \ldots$ and $x_{i+1}^{1}, x_{i+2}^{2}, \ldots$ the reduced $d^{\prime}$-dimensional chains such that $\partial^{-}x_{i}^{j}$ is a connected component of $\partial^{-}x_{i}$, as defined in \Cref{def:connsyn}. Hence:
   \begin{equation*}
     \begin{split}
       [x_{i+1}] \sim_{\mathcal{C}_{Z^{\perp}}} [x_{i+1}] + [x_{i}] \sim_{\mathcal{C}_{Z^{\perp}}}  x_{i} + x_{i+1} + \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1}
