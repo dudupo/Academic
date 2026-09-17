@@ -108,7 +108,16 @@ Since no two elements in the right sum are projected to the same target (that is
     \end{split}
   \end{equation*}
   Yet, by \Cref{claim:stabtostab}, we have that the projection of $w$, namely $\pi(w)$, is a stabilizer of the finite complex. Moreover, since $\Size{x^{\prime} + w} < n$, no two faces in $x^{\prime} + w$ are projected to the same target. Thus, $\pi(x^{\prime} + w) = \pi(x^{\prime}) + \pi(w)$, so the projection of $x^{\prime} + w$ covers $x + \pi(w)$. Thus, $x$ is not reduced. 
+
+  Therefore, 
+  \begin{equation*}
+    \begin{split}
+      \pi(\partial^{-}x^{\prime} )= \pi(\sum_{i}z_{i}) = \sum_{i}\pi(z_{i})
+    \end{split}
+  \end{equation*}
+
 \end{proof}
+
 
 
 
@@ -141,6 +150,8 @@ Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ cl
   \end{equation*}  Namely, $\tilde{x}_{1} \in \ker \partial^{-} : (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-2}; \mathbb{F}_{2})$.
 Suppose $\tilde{x}_{1} \notin \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$, then we have that $\tilde{x}_{1}$ is a non-trivial codeword of the $(d,d^{\prime}-1)$-Toric code. 
 Since $d^{\prime} \ge 2$, and $\tilde{x}_{1}$ has to close a non-trivial loop, so by \Cref{claim:sizenont}, the size of $\tilde{x}$ is at least $n-1$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. Choose $x_{1}$ such it doesn't supported on a non-trivial codeword, namely $\tilde{x}_{1}$ is finite. The reduced form of $x_{1}$ has size at most $\Size{\tilde{x}_{1}}$ (by \Cref{claim:liftedreduced}), and satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$.
+
+
 \end{proof}
 
 
