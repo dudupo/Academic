@@ -87,11 +87,11 @@ And it's trivial to see that the assumption $L_{g}(v_{l}) > L_{g}(v_{1})$ implie
 
 \begin{claim}
   \label{claim:fillchain}
-  Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain, such that the $d^{\prime}-1$-dimensional chain $\partial^{-} x$ is not connected. Suppose that each connected component of $\partial^{-}x$ has size at most $n-1$. Then there are $d^{\prime}$-dimensional chains $y_{1}, y_{2}, \ldots$ such that each $\partial^{-}y_{i}$ is a connected component of $\partial^{-}x$ and $\Size{y_{i}} < n-1$.
+  Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain, such that the $d^{\prime}-1$-dimensional chain $\partial^{-} x$ is not connected. Suppose that each connected component of $\partial^{-}x$ has size $ < n-1$. Then there are $d^{\prime}$-dimensional chains $y_{1}, y_{2}, \ldots$ such that each $\partial^{-}y_{i}$ is a connected component of $\partial^{-}x$ and $\Size{y_{i}} < n-1$.
 \end{claim}
 
 \begin{proof}
-  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ such that $\partial^{-} x$ has a decomposition $x = \tilde{x}_{1} + \tilde{x}_{2}$, where $\tilde{x}_{1}, \tilde{x}_{2}$ are $d^{\prime}-1$-dimensional chains, and $\tilde{x}_{1}$ is a connected component of $\partial^{-}x$. In particular $\tilde{x}_{1}$ is not connected to $\tilde{x}_{2}$. By disconnectivity, $\tilde{x}_{1}$ does not share a $d^{\prime}-2$ dimensional face with $\tilde{x}_{2}$. Thus, $\partial^{-} \tilde{x}_{1}$ and $\partial^{-} \tilde{x}_{2}$ are disjoint. On the other hand, since $\partial^{- \circ 2} x = 0$, then combining with disjointness, it follows that:
+  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ such that $\partial^{-} x$ has a decomposition $\partial^{-}x = \tilde{x}_{1} + \tilde{x}_{2}$, where $\tilde{x}_{1}, \tilde{x}_{2}$ are $d^{\prime}-1$-dimensional chains, and $\tilde{x}_{1}$ is a connected component of $\partial^{-}x$. In particular $\tilde{x}_{1}$ is not connected to $\tilde{x}_{2}$. By disconnectivity, $\tilde{x}_{1}$ does not share a $d^{\prime}-2$ dimensional face with $\tilde{x}_{2}$. Thus, $\partial^{-} \tilde{x}_{1}$ and $\partial^{-} \tilde{x}_{2}$ are disjoint. On the other hand, since $\partial^{- \circ 2} x = 0$, then combining with disjointness, it follows that:
   \begin{equation*}
     \begin{split}
       \partial^{-}( \tilde{x}_{1} + \tilde{x}_{2} ) = 0 \Rightarrow \partial^{-} \tilde{x}_{1} = \partial^{-}\tilde{x}_{2} = 0 
@@ -103,7 +103,7 @@ Since $d^{\prime} \ge 2$, the size of $\tilde{x}$ is at least $n-1$, which is a 
 
 
 \begin{definition}
-Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain. $x$ will be said to be a fillable chain if each of the connected components of its $\partial^{-}$-boundary, namely $\partial^{-} x$, has size at most $n$. By \Cref{claim:fillchain}, there are $d^{\prime}$-dimensional reduced chains $x_{1}, \ldots,$ such that each $\partial^{-}x_{i}$ is a connected component of $\partial^{-}x$. Thus:
+Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain. $x$ will be said to be a fillable chain if each of the connected components of its $\partial^{-}$-boundary, namely $\partial^{-} x$, has size $< n - 1$. By \Cref{claim:fillchain}, there are $d^{\prime}$-dimensional reduced chains $x_{1}, \ldots,$ such that each $\partial^{-}x_{i}$ is a connected component of $\partial^{-}x$. Thus:
     \begin{equation*}
       \begin{split}
       \partial^{-} (x + \sum_{i}x_{i}) = 0  \quad \Rightarrow x + \sum_{i}x_{i} \in \ker \partial^{-} \colon (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})
