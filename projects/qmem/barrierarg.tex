@@ -267,28 +267,8 @@ Suppose $\tilde{x}_{1} \notin \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime
 Since $d^{\prime} \ge 2$, and $\tilde{x}_{1}$ has to close a non-trivial loop, so by \Cref{claim:sizenont}, the size of $\tilde{x}$ is at least $n-1$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. 
 
 
-It's left to show that $x_{1}$ can be chosen to have a size at most $\Size{\tilde{x}_{1}}$. 
+By \Cref{claim:aaa}, $x_{1}$ can be chosen to have a size at most $\Size{\tilde{x}_{1}}$. 
 
-
-Since $\Size{x_{1}} < n$, then by \Cref{claim:trnasrespproj} there is a vertex $u$, such that for the translation of $\tilde{x}_{1}$ by $u$, namely the chain $u\tilde{x}_{1}$, its minimizing cover $\tilde{y}$ aligns with the finite complex. Since $\partial^{-} uz = u \partial^{-} z$ and $\Size{uz} = \Size{z}$.
-
-of the translated chain matches the translation of the boundary of the original, and since the size-function is invariant to translation by vertex, we can assume without loss of generality that the minimizing cover of $\tilde{x}_{1}$ aligns with the finite complex. Denote the minimizing cover of $\tilde{x}_{1}$ by $\tilde{y}$, so $\tilde{y} = \pi(\tilde{y}) = \tilde{x}_{1}$. 
-
-Now, take $y$ to be the reduced chain, on the infinite complex, such $\partial^{-}y = \tilde{y}$. Then $\pi (\partial^{-}y)  = \pi( \tilde{y} ) = \tilde{x}$.  On the otherhand, $\Size{y} = \Size{\tilde{y}}$, and there is a translation of it $x$ that align with the finite complex.  
-
-
-By \Cref{claim:coverorder}, any minimizing cover $y \in  ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) $ of $x_{1}$, satisfies that for any stabilizer $w \in \mathcal{C}_{Z^{\perp}}$, it holds that: 
-\begin{equation*}
-  \begin{split}
-    \pi \partial^{-} ( y + w ) =  \pi \partial^{-} ( y ) \succcurlyeq \partial^{-} \pi(y)  = \tilde{x}_{1} 
-  \end{split}
-\end{equation*}
-So a translation of $y$ by a stabilizer yields a chain on the infinite complex where the $\partial^{-}$-boundary of its projection still covers $\tilde{x}_{1}$. In particular, we could initially choose $x_{1}$ such that $y$ is a reduced chain, therefore, by \Cref{claim:reducederr}:
-\begin{equation*}
-  \begin{split}
-    \Size{x_{1}} = \Size{y} = \Size{\partial^{-} y} = \Size{\tilde{x}_{1}} 
-  \end{split}
-\end{equation*}
 So $x_{1}$ satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$.
 \end{proof}
 
@@ -396,3 +376,28 @@ Equivalently, if the subjected computation introduces a logical error, then at s
 \begin{proof}
 The proof follows immediately from \Cref{claim:barrierconstant}, where we use the fact that the arity is bounded by $\Delta$, and therefore sequential Paulis in the step-propagation are at a Hamming distance of at most $\Delta$.
 \end{proof}
+
+
+
+
+
+%
+%Since $\Size{x_{1}} < n$, then by \Cref{claim:trnasrespproj} there is a vertex $u$, such that for the translation of $\tilde{x}_{1}$ by $u$, namely the chain $u\tilde{x}_{1}$, its minimizing cover $\tilde{y}$ aligns with the finite complex. Since $\partial^{-} uz = u \partial^{-} z$ and $\Size{uz} = \Size{z}$.
+%
+%of the translated chain matches the translation of the boundary of the original, and since the size-function is invariant to translation by vertex, we can assume without loss of generality that the minimizing cover of $\tilde{x}_{1}$ aligns with the finite complex. Denote the minimizing cover of $\tilde{x}_{1}$ by $\tilde{y}$, so $\tilde{y} = \pi(\tilde{y}) = \tilde{x}_{1}$. 
+%
+%Now, take $y$ to be the reduced chain, on the infinite complex, such $\partial^{-}y = \tilde{y}$. Then $\pi (\partial^{-}y)  = \pi( \tilde{y} ) = \tilde{x}$.  On the otherhand, $\Size{y} = \Size{\tilde{y}}$, and there is a translation of it $x$ that align with the finite complex.  
+%
+%
+%By \Cref{claim:coverorder}, any minimizing cover $y \in  ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) $ of $x_{1}$, satisfies that for any stabilizer $w \in \mathcal{C}_{Z^{\perp}}$, it holds that: 
+%\begin{equation*}
+%  \begin{split}
+%    \pi \partial^{-} ( y + w ) =  \pi \partial^{-} ( y ) \succcurlyeq \partial^{-} \pi(y)  = \tilde{x}_{1} 
+%  \end{split}
+%\end{equation*}
+%So a translation of $y$ by a stabilizer yields a chain on the infinite complex where the $\partial^{-}$-boundary of its projection still covers $\tilde{x}_{1}$. In particular, we could initially choose $x_{1}$ such that $y$ is a reduced chain, therefore, by \Cref{claim:reducederr}:
+%\begin{equation*}
+%  \begin{split}
+%    \Size{x_{1}} = \Size{y} = \Size{\partial^{-} y} = \Size{\tilde{x}_{1}} 
+%  \end{split}
+%\end{equation*}
