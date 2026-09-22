@@ -143,6 +143,21 @@ Let $f \neq w \in \mathcal{F}_{d^{\prime}}$ be two different $d^{\prime}$-dimens
 \begin{claim}
 Let the $d^{\prime}$-dimensional chain on the infinite complex, $x\in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, be such that if $\Size{x} < n$, then there exists a translation of it $\tilde{x}\in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, such that both $\Size{x} = \Size{\tilde{x}}$ and $\pi(\tilde{x}) = \tilde{x}$. Equivalently, the faces of $\tilde{x}$ align with faces on the finite complex.
 \end{claim}
+\begin{proof}
+  Foe each generator $g \in S$, denote the maximal value of $L_{g}$ in $x$ by $l_{g}$. Define the vertex $u \in \mathcal{G} $, such:
+  \begin{equation*}
+    \begin{split}
+      u_{g}l_{g} = n-1
+    \end{split}
+  \end{equation*}
+Choose $\tilde{x}$ to be the translation of $x$ by $u$. Since $\tilde{x}$ is a translation of $x$, its size equals $\Size{\tilde{x}} = \Size{x}$. So, it's left to prove that $\pi(\tilde{x}) = \tilde{x}$. That's equivalent to proving that for any generator $g \in S$, the $g$-coordinates of $\tilde{x}$ vertices are in the range $[1, n-1]$. Assume through contradiction that there is a vertex $w$ of $\tilde{x}$ and a generator $g$ such that $w_{g} \notin [1, n-1]$. By the construction of $\tilde{x}$, the value $w_{g}$ is lower than $n-1$, thus, combining the contradiction assumption, $w_{g} < 1$. Furthermore, pick $g$ such that the $L_{g}$-value of $w$ is the minimal among all the generators. Then it follows that:
+  \begin{equation*}
+    \begin{split}
+      \Size{\tilde{x}}  \ge \sum_{g^{\prime} \in S} \max_{v \in \tilde{x}}L_{g^{\prime}}(v) + L_{d+1}(w) \ge d(n -1 - L_{g}(w)) \ge n
+    \end{split}
+  \end{equation*}
+In contradiction to $\Size{\tilde{x}} = \Size{x} < n$.
+\end{proof}
 
 
 %
