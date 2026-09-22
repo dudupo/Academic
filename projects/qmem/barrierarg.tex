@@ -1,14 +1,13 @@
 \section{Toom's Contours}
 
 \subsection{The Barrier Argument}
-
+We are going to move between the infinite and the finite back and forth, so we will need to extend the size function, and the reduced notion to chains on the finite-complex.  
 
 \begin{definition}
-  Introducing the projection $\pi$, and what covering means $x \preccurlyeq y $.
+Introducing the projection $\pi$, and what covering means $x \preccurlyeq y$. In particular, if $\pi(\tilde{x}) \succcurlyeq x$, then the projection of $\tilde{x}$ covers $x$.
 \end{definition}
 
 
-We are going to move between the infinite and the finite back and forth, so we will need to extend the size function, and the reduced notion to chains on the finite-complex.  
 \begin{definition}
   \label{def:mincover}
 Consider a $d^{\prime}$-dimensional chain on the $d$-dimensional Toric $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$. We extend the notation of size to $x$ as follows. Let $x^{\prime}$ be the $\infty$-lift of $x$, so $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$. Let the chain $y \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be a subset chain of $x^{\prime}$ such:
@@ -31,6 +30,17 @@ The chain $y$ will be referred to as the minimizing cover of $x$. We extend the 
   \begin{equation*}
     \begin{split}
       \pi( x+ y )  \succcurlyeq \pi(x) + \pi(y)
+    \end{split}
+  \end{equation*}
+\end{claim}
+
+
+\begin{claim} 
+  \label{claim:coverorder}
+  The following inequality holds:
+  \begin{equation*}
+    \begin{split}
+      \pi( \partial^{-} y)  \succcurlyeq \partial^{-} \pi(y)
     \end{split}
   \end{equation*}
 \end{claim}
@@ -219,33 +229,20 @@ Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ cl
 Suppose $\tilde{x}_{1} \notin \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$, then we have that $\tilde{x}_{1}$ is a non-trivial codeword of the $(d,d^{\prime}-1)$-Toric code. 
 Since $d^{\prime} \ge 2$, and $\tilde{x}_{1}$ has to close a non-trivial loop, so by \Cref{claim:sizenont}, the size of $\tilde{x}$ is at least $n-1$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. It's left to show that $x_{1}$ can be chosen to have a size at most $\Size{\tilde{x}_{1}}$. 
 
-For this, we argue that any minimizing cover $y \in  ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) $ of $x_{1}$, satisfies that for any stabilizer $w \in \mathcal{C}_{Z^{\perp}}$, such $\Size{w + y} < n$, it holds that: 
-\begin{equation}
-  \label{equ:transtab}
+
+By \Cref{claim:coverorder}, any minimizing cover $y \in  ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) $ of $x_{1}$, satisfies that for any stabilizer $w \in \mathcal{C}_{Z^{\perp}}$, it holds that: 
+\begin{equation*}
   \begin{split}
-    \partial^{-} \pi ( y + w ) =  \partial^{-} \pi(y)  = \tilde{x}_{1} 
+    \pi \partial^{-} ( y + w ) =  \pi \partial^{-} ( y ) \succcurlyeq \partial^{-} \pi(y)  = \tilde{x}_{1} 
   \end{split}
-\end{equation}
-In particular, we could initially choose $x_{1}$ such that $y$ is reduced, therefore, by \Cref{claim:reducederr}: 
+\end{equation*}
+So a translation of $y$ by a stabilizer yields a chain on the infinite complex where the $\partial^{-}$-boundary of its projection still covers $\tilde{x}_{1}$. In particular, we could initially choose $x_{1}$ such that $y$ is a reduced chain, therefore, by \Cref{claim:reducederr}:
 \begin{equation*}
   \begin{split}
     \Size{x_{1}} = \Size{y} = \Size{\partial^{-} y} = \Size{\tilde{x}_{1}} 
   \end{split}
 \end{equation*}
-
-We now prove \Cref{equ:transtab}. 
-
-\begin{equation*}
-  \begin{split}
-    \partial^{-} \pi( y ) &= \sum_{i}\sum_{g \in S_{i}} \rotfv{\pi(v_{i})}{S_{i} / g } + \rotfv{g \pi(v_{i})}{S_{i} / g }  \\ 
-    &=   \sum_{i}\sum_{g \in S_{i}}  \pi( \rotfv{v_{i}}{S_{i} / g } ) + \pi( \rotfv{gv_{i}}{S_{i} / g } )  
-  \end{split}
-\end{equation*}
-Now, since the.
-
-Choose $x_{1}$ such it doesn't supported on a non-trivial codeword, namely $\tilde{x}_{1}$ is finite. The reduced form of $x_{1}$ has size at most $\Size{\tilde{x}_{1}}$ (by \Cref{claim:liftedreduced}), and satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$.
-
-
+So $x_{1}$ satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$.
 \end{proof}
 
 
