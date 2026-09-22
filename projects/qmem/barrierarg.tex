@@ -2,6 +2,12 @@
 
 \subsection{The Barrier Argument}
 
+
+\begin{definition}
+  Introducing the projection $\pi$, and what covering means $x \preccurlyeq y $.
+\end{definition}
+
+
 We are going to move between the infinite and the finite back and forth, so we will need to extend the size function, and the reduced notion to chains on the finite-complex.  
 \begin{definition}
   \label{def:mincover}
@@ -18,6 +24,16 @@ Consider a $d^{\prime}$-dimensional chain on the $d$-dimensional Toric $x \in (\
   \end{equation*}
 The chain $y$ will be referred to as the minimizing cover of $x$. We extend the notation of reduced form to a $d^{\prime}$-dimensional chain on the finite complex $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, to be its translation by stabilizers that gets the minimal size. Namely, for $z \in \image \partial^{-} : (\mathcal{F}^{n}_{d^{\prime}+1}; \mathbb{F}_{2}) \rightarrow (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, the chain $x+z$ is a reduced form of $x$ if $\Size{x+z}$ is minimal among the choices of $z$.
 \end{definition}
+
+
+\begin{claim}
+  The following inequality holds:
+  \begin{equation*}
+    \begin{split}
+      \pi( x+ y )  \succcurlyeq \pi(x) + \pi(y)
+    \end{split}
+  \end{equation*}
+\end{claim}
 
 
 
