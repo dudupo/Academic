@@ -203,24 +203,21 @@ Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ cl
 Suppose $\tilde{x}_{1} \notin \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$, then we have that $\tilde{x}_{1}$ is a non-trivial codeword of the $(d,d^{\prime}-1)$-Toric code. 
 Since $d^{\prime} \ge 2$, and $\tilde{x}_{1}$ has to close a non-trivial loop, so by \Cref{claim:sizenont}, the size of $\tilde{x}$ is at least $n-1$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. It's left to show that $x_{1}$ can be chosen to have a size at most $\Size{\tilde{x}_{1}}$. 
 
-For this, we argue that any minimizing cover $y \in  ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) $ of $x_{1}$, satisfies: 
-\begin{equation*}
+For this, we argue that any minimizing cover $y \in  ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) $ of $x_{1}$, satisfies that for any stabilizer $w \in \mathcal{C}_{Z^{\perp}}$, such $\Size{w + y} < n$, it holds that: 
+\begin{equation}
+  \label{equ:transtab}
   \begin{split}
-    \partial^{-} \pi ( y ) = \pi ( \partial^{-} y ) 
+    \partial^{-} \pi ( y + w ) =  \partial^{-} \pi(y)  = \tilde{x}_{1} 
   \end{split}
-\end{equation*}
-Then, since the $\partial^{-}$-boundary is invariant to a translation by the stabilizer, for any stabilizer $w \in \mathcal{C}_{Z^{\perp}}$ it holds that 
-\begin{equation*}
-  \begin{split}
-\partial^{-} \pi ( y + w ) = \pi ( \partial^{-} y  ) = \tilde{x}_{1} 
-  \end{split}
-\end{equation*}
-In particular, we could initially choose $x_{1}$ such that $y$ is reduced, and therefore: 
+\end{equation}
+In particular, we could initially choose $x_{1}$ such that $y$ is reduced, therefore, by \Cref{claim:reducederr}: 
 \begin{equation*}
   \begin{split}
     \Size{x_{1}} = \Size{y} = \Size{\partial^{-} y} = \Size{\tilde{x}_{1}} 
   \end{split}
 \end{equation*}
+
+We now prove \Cref{equ:transtab}. 
 
 \begin{equation*}
   \begin{split}
