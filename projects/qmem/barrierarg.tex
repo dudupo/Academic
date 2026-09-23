@@ -3,9 +3,6 @@
 \subsection{The Barrier Argument}
 We are going to move between the infinite and the finite back and forth, so we will need to extend the size function, and the reduced notion to chains on the finite-complex.  
 
-\begin{definition}
-Introducing the projection $\pi$, and what covering means $x \preccurlyeq y$. In particular, if $\pi(\tilde{x}) \succcurlyeq x$, then the projection of $\tilde{x}$ covers $x$.
-\end{definition}
 
 
 \begin{definition}
@@ -23,27 +20,6 @@ Consider a $d^{\prime}$-dimensional chain on the $d$-dimensional Toric $x \in (\
   \end{equation*}
 The chain $y$ will be referred to as the minimizing cover of $x$. We extend the notation of reduced form to a $d^{\prime}$-dimensional chain on the finite complex $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, to be its translation by stabilizers that gets the minimal size. Namely, for $z \in \image \partial^{-} : (\mathcal{F}^{n}_{d^{\prime}+1}; \mathbb{F}_{2}) \rightarrow (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, the chain $x+z$ is a reduced form of $x$ if $\Size{x+z}$ is minimal among the choices of $z$.
 \end{definition}
-
-
-\begin{claim}
-  The following inequality holds:
-  \begin{equation*}
-    \begin{split}
-      \pi( x+ y )  \succcurlyeq \pi(x) + \pi(y)
-    \end{split}
-  \end{equation*}
-\end{claim}
-
-
-\begin{claim} 
-  \label{claim:coverorder}
-  The following inequality holds:
-  \begin{equation*}
-    \begin{split}
-      \pi( \partial^{-} y)  \succcurlyeq \partial^{-} \pi(y)
-    \end{split}
-  \end{equation*}
-\end{claim}
 
 
 
@@ -83,42 +59,6 @@ To finish, we argue that we can choose $x^{\prime}, y^{\prime}$ such that $\Size
 \end{proof}
 
 
-\inb{\textbf{Consider removing.}}
-\begin{claim}
-  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $x$ is connected, and $\Size{x} < n$. Then, there is a connected chain on the infinite complex $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such $\Size{x}= \Size{x^{\prime}}$. 
-\end{claim}
-\begin{proof}
-Let $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be a minimizing cover for $x$, as defined in \Cref{def:mincover}. Assume that $x^{\prime}$ is disconnected, and consider a decomposition of $x^{\prime}$ into two disjoint chains (each of which might itself be disconnected). Since the projection of $x^{\prime}$ covers $x$ and $x$ is connected, those chains contain two distinct faces in $x^{\prime}$ whose projections either coincide or are adjacent in $x$ and therefore their projections share a vertex in $\mathcal{G}_{d}^{n}$. Denote the corresponding sources of that vertex on those faces by $v,u \in \mathcal{G}_{d}$, so $u$ is a translation of $v$ by at least one integer power of $g_{1}^{n},..,g_{d}^{n}$. Namely, there exists a generator $g \in S$ such that $L_{g}(u) - L_{g}(v) \ge n$ (or vice versa). Thus,
-  \begin{equation*}
-    \begin{split}
-      \Size{x^{\prime}} \ge \Size{\{u,v\}}  & \ge L_{g}(v) + \sum_{g^{\prime}\neq g}L_{g^{\prime}}(u) + L_{d+1}(u) \\
-      & \ge n + \sum_{g^{\prime}}L_{g^{\prime}}(u) + L_{d+1}(u) = n
-    \end{split}
-  \end{equation*}
-  In contradiction to $\Size{x^{\prime}} = \Size{x} < n$. 
-\end{proof}
-
- 
-
-
-\inb{\textbf{Chain the following claims into list. }}  We present the following simple claim without proof.
-\begin{claim}
-Let $f, w \in \mathcal{F}_{d^{\prime}}$ be two $d^{\prime}$-dimensional faces on the infinite complex, and denote by $\mathbf{1}_{f}, \mathbf{1}_{w} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ their corresponding chains. Then the equality:
-  \begin{equation*}
-    \begin{split}
-      \pi(\mathbf{1}_{f}) +  \pi(\mathbf{1}_{w}) = \pi(\mathbf{1}_{f} + \mathbf{1}_{w})  
-    \end{split}
-  \end{equation*}
-  holds if either $\pi(\mathbf{1}_{f}) \neq  \pi(\mathbf{1}_{w}) $ or if $f = w $. 
-\end{claim}
-\begin{claim}  
-Let $f \neq w \in \mathcal{F}_{d^{\prime}}$ be two different $d^{\prime}$-dimensional faces on the infinite complex. Denote by $\mathbf{1}_{f}, \mathbf{1}_{w} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ their corresponding chains. Suppose that $\pi(\mathbf{1}_{f}) = \pi(\mathbf{1}_{w})$. Then, for any $d^{\prime}$-dimensional chain $x \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, such that $x_{f}, x_{w} \neq 0$, we have:
-  \begin{equation*}
-    \begin{split}
-      \Size{x} \ge n
-    \end{split}
-  \end{equation*}
-\end{claim}
 
 
 %
@@ -274,154 +214,214 @@ The proof follows immediately from \Cref{claim:barrierconstant}, where we use th
 
 
 
-\subsection{Drafts for that section.}
-
-
-
-
-\begin{claim}
-  
-  Let $\tilde{x} \in (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$ be a $d^{\prime}-1$ dimensional chain such $\Size{\tilde{x}} < n $ and:
-  \begin{equation*}
-    \begin{split}
-  \tilde{x} \in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})
-    \end{split}
-  \end{equation*} 
-  Denote by $\tilde{y}$ the minimizing cover of $\tilde{x}$. Then:
-  \begin{equation*}
-    \begin{split}
-  \tilde{y} \in \image \partial^{-} : ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})
-    \end{split}
-  \end{equation*} 
-\end{claim}
-\begin{proof}
-  
-\end{proof}
-
-\begin{claim}
-  Let $\tilde{x} \in (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$ be a $d^{\prime}-1$ dimensional chain such $\Size{\tilde{x}} < n $ and:
-  \begin{equation*}
-    \begin{split}
-  \tilde{x} \in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})
-    \end{split}
-  \end{equation*}
-  Then, there is a chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $\Size{x} = \tilde{x}$ and $\partial^{-}x  = \tilde{x}$. 
-\end{claim}
-
-\begin{proof}
-  Denote the minimizing cover of $\tilde{x}$ by $\tilde{y}$. By \Cref{claim:trnasrespproj}, since $\Size{\tilde{y}} = \Size{\tilde{x}} < n$, there is a vertex in the infinite complex $u \in \mathcal{G}_{d}$ such that the translation $u\tilde{y}$ aligns with the finite complex, namely $\pi(u \tilde{y}) = u \tilde{y}$. Consider the application of the algorithm presented in \Cref{claim:reducederr} on $u\tilde{y}$ and the resulted reduced chain. , yields a chain, with $L_{g}$-values confined in the 
-
-
-\end{proof}
-
-
-
-\begin{claim}
-  \label{claim:stabtostab}
-The projection map sends stabilizers of the infinite complex $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ to stabilizers of the finite complex $(\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$.
-\end{claim}
-\begin{proof}
-Consider a subset of generators $S^{\prime} \subset S$, such that $|S^{\prime}|=d^{\prime}+1$, so for a vertex $\mathcal{G}^{d}$, the chain $\partial^{-}\rotfv{v}{S^{\prime}}$ is a basis element for the stabilizers in $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$. Then, the projection of $\partial^{-}\rotfv{v}{S^{\prime}}$
-  \begin{equation*}
-    \begin{split}
-      \pi ( \partial^{-}\rotfv{v}{S^{\prime}} ) = \pi ( \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} +  \rotfv{gv}{S^{\prime}/g} ) 
-    \end{split}
-  \end{equation*}
-Since no two elements in the right sum are projected to the same target (that is because the size of the $\partial^{-}\rotfv{v}{S^{\prime}}$ is at most $d$), we have that the projection commutes with the summation. So:
-  \begin{equation*}
-    \begin{split}
-    \pi ( \partial^{-}\rotfv{v}{S^{\prime}} ) &=  \sum_{g \in S^{\prime}} \rotfv{\pi(v)}{S^{\prime}/g} +  \rotfv{\pi(gv)}{S^{\prime}/g} \\ 
-    & =  \sum_{g \in S^{\prime}} \rotfv{\pi(v)}{S^{\prime}/g} +  \rotfv{g \pi(v)}{S^{\prime}/g} = \partial^{-}\rotfv{\pi(v)}{S^{\prime}} 
-    \end{split}
-  \end{equation*}
-\end{proof}
-
-\inb{\textbf{Overgoing on that claim again.}}
-\begin{claim}
-  \label{claim:liftedreduced}
-  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $\Size{x} < n$. Then $x$ has a minimizing cover $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such $\partial^{-}x^{\prime}$ is the minimizing cover of $\partial^{-}x$.
-\end{claim}
-\begin{proof}
-  Let the $d^{\prime}-1$-dimensional chains $z_{1}, \ldots, z_{l} \in (\mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})$ be the single-face (unit vector) decomposition of $\partial^{-} x^{\prime}$. We claim that there are no two faces $z_{i}, z_{j}$ whose projections coincide. If there were, then $\Size{\partial^{-} x^{\prime}}$ is greater than $n$. But 
-  \begin{equation*}
-    \begin{split}
-      \Size{\partial^{-} x^{\prime}} \le \Size{ x^{\prime}} = \Size{x} < n
-    \end{split}
-  \end{equation*}
-  Thus, 
-  \begin{equation*}
-    \begin{split}
-      \pi(\partial^{-}x^{\prime} )= \pi(\sum_{i}z_{i}) = \sum_{i}\pi(z_{i})
-    \end{split}
-  \end{equation*}
-  Assume there is a face $f$ in  $\partial^{-}x$ which is not in $\pi(\partial^{-}x^{\prime})$. 
-\end{proof}
-
-
-\begin{claim}
-  \label{claim:stabtostab}
-The projection map sends stabilizers of the infinite complex $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ to stabilizers of the finite complex $(\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$.
-\end{claim}
-\begin{proof}
-Consider a subset of generators $S^{\prime} \subset S$, such that $|S^{\prime}|=d^{\prime}+1$, so for a vertex $\mathcal{G}^{d}$, the chain $\partial^{-}\rotfv{v}{S^{\prime}}$ is a basis element for the stabilizers in $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$. Then, the projection of $\partial^{-}\rotfv{v}{S^{\prime}}$
-  \begin{equation*}
-    \begin{split}
-      \pi ( \partial^{-}\rotfv{v}{S^{\prime}} ) = \pi ( \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} +  \rotfv{gv}{S^{\prime}/g} ) 
-    \end{split}
-  \end{equation*}
-Since no two elements in the right sum are projected to the same target (that is because the size of the $\partial^{-}\rotfv{v}{S^{\prime}}$ is at most $d$), we have that the projection commutes with the summation. So:
-  \begin{equation*}
-    \begin{split}
-    \pi ( \partial^{-}\rotfv{v}{S^{\prime}} ) &=  \sum_{g \in S^{\prime}} \rotfv{\pi(v)}{S^{\prime}/g} +  \rotfv{\pi(gv)}{S^{\prime}/g} \\ 
-    & =  \sum_{g \in S^{\prime}} \rotfv{\pi(v)}{S^{\prime}/g} +  \rotfv{g \pi(v)}{S^{\prime}/g} = \partial^{-}\rotfv{\pi(v)}{S^{\prime}} 
-    \end{split}
-  \end{equation*}
-\end{proof}
-
-\inb{\textbf{Overgoing on that claim again.}}
-\begin{claim}
-  \label{claim:liftedreduced}
-  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $\Size{x} < n$. Then $x$ has a minimizing cover $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such $\partial^{-}x^{\prime}$ is the minimizing cover of $\partial^{-}x$.
-\end{claim}
-\begin{proof}
-  Let the $d^{\prime}-1$-dimensional chains $z_{1}, \ldots, z_{l} \in (\mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})$ be the single-face (unit vector) decomposition of $\partial^{-} x^{\prime}$. We claim that there are no two faces $z_{i}, z_{j}$ whose projections coincide. If there were, then $\Size{\partial^{-} x^{\prime}}$ is greater than $n$. But 
-  \begin{equation*}
-    \begin{split}
-      \Size{\partial^{-} x^{\prime}} \le \Size{ x^{\prime}} = \Size{x} < n
-    \end{split}
-  \end{equation*}
-  Thus, 
-  \begin{equation*}
-    \begin{split}
-      \pi(\partial^{-}x^{\prime} )= \pi(\sum_{i}z_{i}) = \sum_{i}\pi(z_{i})
-    \end{split}
-  \end{equation*}
-  Assume there is a face $f$ in  $\partial^{-}x$ which is not in $\pi(\partial^{-}x^{\prime})$. 
-\end{proof}
-
-\begin{claim}
-  Consider a $d^{\prime}$-dimensional chain, on the finite complex, $\tilde{x} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $\Size{\tilde{x}} < n$. Let the chain, on the infinite complex, $x\in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, be a minimizing cover of $\tilde{x}$.    
-\end{claim}
-
-\begin{claim}
-  \label{claim:trnasrespproj}
-Let the $d^{\prime}$-dimensional chain on the infinite complex, $x\in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, be such that if $\Size{x} < n$, then there exists a translation of it $\tilde{x}\in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, such that both $\Size{x} = \Size{\tilde{x}}$ and $\pi(\tilde{x}) = \tilde{x}$. Equivalently, the faces of $\tilde{x}$ align with faces on the finite complex.
-\end{claim}
-\begin{proof}
-  Foe each generator $g \in S$, denote the maximal value of $L_{g}$ in $x$ by $l_{g}$. Define the vertex $u \in \mathcal{G} $, such:
-  \begin{equation*}
-    \begin{split}
-      u_{g}l_{g} = n-1
-    \end{split}
-  \end{equation*}
-Choose $\tilde{x}$ to be the translation of $x$ by $u$. Since $\tilde{x}$ is a translation of $x$, its size equals $\Size{\tilde{x}} = \Size{x}$. So, it's left to prove that $\pi(\tilde{x}) = \tilde{x}$. That's equivalent to proving that for any generator $g \in S$, the $g$-coordinates of $\tilde{x}$ vertices are in the range $[1, n-1]$. Assume through contradiction that there is a vertex $w$ of $\tilde{x}$ and a generator $g$ such that $w_{g} \notin [1, n-1]$. By the construction of $\tilde{x}$, the value $w_{g}$ is lower than $n-1$, thus, combining the contradiction assumption, $w_{g} < 1$. Furthermore, pick $g$ such that the $L_{g}$-value of $w$ is the minimal among all the generators. Then it follows that:
-  \begin{equation*}
-    \begin{split}
-      \Size{\tilde{x}}  \ge \sum_{g^{\prime} \in S} \max_{v \in \tilde{x}}L_{g^{\prime}}(v) + L_{d+1}(w) \ge d(n -1 - L_{g}(w)) \ge n
-    \end{split}
-  \end{equation*}
-In contradiction to $\Size{\tilde{x}} = \Size{x} < n$.
-\end{proof}
+%\subsection{Drafts for that section.}
+%
+%
+%\inb{\textbf{Consider removing.}}
+%\begin{claim}
+%  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $x$ is connected, and $\Size{x} < n$. Then, there is a connected chain on the infinite complex $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such $\Size{x}= \Size{x^{\prime}}$. 
+%\end{claim}
+%\begin{proof}
+%Let $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be a minimizing cover for $x$, as defined in \Cref{def:mincover}. Assume that $x^{\prime}$ is disconnected, and consider a decomposition of $x^{\prime}$ into two disjoint chains (each of which might itself be disconnected). Since the projection of $x^{\prime}$ covers $x$ and $x$ is connected, those chains contain two distinct faces in $x^{\prime}$ whose projections either coincide or are adjacent in $x$ and therefore their projections share a vertex in $\mathcal{G}_{d}^{n}$. Denote the corresponding sources of that vertex on those faces by $v,u \in \mathcal{G}_{d}$, so $u$ is a translation of $v$ by at least one integer power of $g_{1}^{n},..,g_{d}^{n}$. Namely, there exists a generator $g \in S$ such that $L_{g}(u) - L_{g}(v) \ge n$ (or vice versa). Thus,
+%  \begin{equation*}
+%    \begin{split}
+%      \Size{x^{\prime}} \ge \Size{\{u,v\}}  & \ge L_{g}(v) + \sum_{g^{\prime}\neq g}L_{g^{\prime}}(u) + L_{d+1}(u) \\
+%      & \ge n + \sum_{g^{\prime}}L_{g^{\prime}}(u) + L_{d+1}(u) = n
+%    \end{split}
+%  \end{equation*}
+%  In contradiction to $\Size{x^{\prime}} = \Size{x} < n$. 
+%\end{proof}
+%
+% 
+%
+%
+%\inb{\textbf{Chain the following claims into list. }}  We present the following simple claim without proof.
+%\begin{claim}
+%Let $f, w \in \mathcal{F}_{d^{\prime}}$ be two $d^{\prime}$-dimensional faces on the infinite complex, and denote by $\mathbf{1}_{f}, \mathbf{1}_{w} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ their corresponding chains. Then the equality:
+%  \begin{equation*}
+%    \begin{split}
+%      \pi(\mathbf{1}_{f}) +  \pi(\mathbf{1}_{w}) = \pi(\mathbf{1}_{f} + \mathbf{1}_{w})  
+%    \end{split}
+%  \end{equation*}
+%  holds if either $\pi(\mathbf{1}_{f}) \neq  \pi(\mathbf{1}_{w}) $ or if $f = w $. 
+%\end{claim}
+%\begin{claim}  
+%Let $f \neq w \in \mathcal{F}_{d^{\prime}}$ be two different $d^{\prime}$-dimensional faces on the infinite complex. Denote by $\mathbf{1}_{f}, \mathbf{1}_{w} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ their corresponding chains. Suppose that $\pi(\mathbf{1}_{f}) = \pi(\mathbf{1}_{w})$. Then, for any $d^{\prime}$-dimensional chain $x \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, such that $x_{f}, x_{w} \neq 0$, we have:
+%  \begin{equation*}
+%    \begin{split}
+%      \Size{x} \ge n
+%    \end{split}
+%  \end{equation*}
+%\end{claim}
+%\begin{definition}
+%Introducing the projection $\pi$, and what covering means $x \preccurlyeq y$. In particular, if $\pi(\tilde{x}) \succcurlyeq x$, then the projection of $\tilde{x}$ covers $x$.
+%\end{definition}
+%
+%
+%\begin{claim}
+%  The following inequality holds:
+%  \begin{equation*}
+%    \begin{split}
+%      \pi( x+ y )  \succcurlyeq \pi(x) + \pi(y)
+%    \end{split}
+%  \end{equation*}
+%\end{claim}
+%
+%
+%\begin{claim} 
+%  \label{claim:coverorder}
+%  The following inequality holds:
+%  \begin{equation*}
+%    \begin{split}
+%      \pi( \partial^{-} y)  \succcurlyeq \partial^{-} \pi(y)
+%    \end{split}
+%  \end{equation*}
+%\end{claim}
+%
+%
+%\begin{claim}
+%  
+%  Let $\tilde{x} \in (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$ be a $d^{\prime}-1$ dimensional chain such $\Size{\tilde{x}} < n $ and:
+%  \begin{equation*}
+%    \begin{split}
+%  \tilde{x} \in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})
+%    \end{split}
+%  \end{equation*} 
+%  Denote by $\tilde{y}$ the minimizing cover of $\tilde{x}$. Then:
+%  \begin{equation*}
+%    \begin{split}
+%  \tilde{y} \in \image \partial^{-} : ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})
+%    \end{split}
+%  \end{equation*} 
+%\end{claim}
+%\begin{proof}
+%  
+%\end{proof}
+%
+%\begin{claim}
+%  Let $\tilde{x} \in (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$ be a $d^{\prime}-1$ dimensional chain such $\Size{\tilde{x}} < n $ and:
+%  \begin{equation*}
+%    \begin{split}
+%  \tilde{x} \in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})
+%    \end{split}
+%  \end{equation*}
+%  Then, there is a chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $\Size{x} = \tilde{x}$ and $\partial^{-}x  = \tilde{x}$. 
+%\end{claim}
+%
+%\begin{proof}
+%  Denote the minimizing cover of $\tilde{x}$ by $\tilde{y}$. By \Cref{claim:trnasrespproj}, since $\Size{\tilde{y}} = \Size{\tilde{x}} < n$, there is a vertex in the infinite complex $u \in \mathcal{G}_{d}$ such that the translation $u\tilde{y}$ aligns with the finite complex, namely $\pi(u \tilde{y}) = u \tilde{y}$. Consider the application of the algorithm presented in \Cref{claim:reducederr} on $u\tilde{y}$ and the resulted reduced chain. , yields a chain, with $L_{g}$-values confined in the 
+%
+%
+%\end{proof}
+%
+%
+%
+%\begin{claim}
+%  \label{claim:stabtostab}
+%The projection map sends stabilizers of the infinite complex $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ to stabilizers of the finite complex $(\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$.
+%\end{claim}
+%\begin{proof}
+%Consider a subset of generators $S^{\prime} \subset S$, such that $|S^{\prime}|=d^{\prime}+1$, so for a vertex $\mathcal{G}^{d}$, the chain $\partial^{-}\rotfv{v}{S^{\prime}}$ is a basis element for the stabilizers in $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$. Then, the projection of $\partial^{-}\rotfv{v}{S^{\prime}}$
+%  \begin{equation*}
+%    \begin{split}
+%      \pi ( \partial^{-}\rotfv{v}{S^{\prime}} ) = \pi ( \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} +  \rotfv{gv}{S^{\prime}/g} ) 
+%    \end{split}
+%  \end{equation*}
+%Since no two elements in the right sum are projected to the same target (that is because the size of the $\partial^{-}\rotfv{v}{S^{\prime}}$ is at most $d$), we have that the projection commutes with the summation. So:
+%  \begin{equation*}
+%    \begin{split}
+%    \pi ( \partial^{-}\rotfv{v}{S^{\prime}} ) &=  \sum_{g \in S^{\prime}} \rotfv{\pi(v)}{S^{\prime}/g} +  \rotfv{\pi(gv)}{S^{\prime}/g} \\ 
+%    & =  \sum_{g \in S^{\prime}} \rotfv{\pi(v)}{S^{\prime}/g} +  \rotfv{g \pi(v)}{S^{\prime}/g} = \partial^{-}\rotfv{\pi(v)}{S^{\prime}} 
+%    \end{split}
+%  \end{equation*}
+%\end{proof}
+%
+%\inb{\textbf{Overgoing on that claim again.}}
+%\begin{claim}
+%  \label{claim:liftedreduced}
+%  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $\Size{x} < n$. Then $x$ has a minimizing cover $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such $\partial^{-}x^{\prime}$ is the minimizing cover of $\partial^{-}x$.
+%\end{claim}
+%\begin{proof}
+%  Let the $d^{\prime}-1$-dimensional chains $z_{1}, \ldots, z_{l} \in (\mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})$ be the single-face (unit vector) decomposition of $\partial^{-} x^{\prime}$. We claim that there are no two faces $z_{i}, z_{j}$ whose projections coincide. If there were, then $\Size{\partial^{-} x^{\prime}}$ is greater than $n$. But 
+%  \begin{equation*}
+%    \begin{split}
+%      \Size{\partial^{-} x^{\prime}} \le \Size{ x^{\prime}} = \Size{x} < n
+%    \end{split}
+%  \end{equation*}
+%  Thus, 
+%  \begin{equation*}
+%    \begin{split}
+%      \pi(\partial^{-}x^{\prime} )= \pi(\sum_{i}z_{i}) = \sum_{i}\pi(z_{i})
+%    \end{split}
+%  \end{equation*}
+%  Assume there is a face $f$ in  $\partial^{-}x$ which is not in $\pi(\partial^{-}x^{\prime})$. 
+%\end{proof}
+%
+%
+%\begin{claim}
+%  \label{claim:stabtostab}
+%The projection map sends stabilizers of the infinite complex $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ to stabilizers of the finite complex $(\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$.
+%\end{claim}
+%\begin{proof}
+%Consider a subset of generators $S^{\prime} \subset S$, such that $|S^{\prime}|=d^{\prime}+1$, so for a vertex $\mathcal{G}^{d}$, the chain $\partial^{-}\rotfv{v}{S^{\prime}}$ is a basis element for the stabilizers in $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$. Then, the projection of $\partial^{-}\rotfv{v}{S^{\prime}}$
+%  \begin{equation*}
+%    \begin{split}
+%      \pi ( \partial^{-}\rotfv{v}{S^{\prime}} ) = \pi ( \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} +  \rotfv{gv}{S^{\prime}/g} ) 
+%    \end{split}
+%  \end{equation*}
+%Since no two elements in the right sum are projected to the same target (that is because the size of the $\partial^{-}\rotfv{v}{S^{\prime}}$ is at most $d$), we have that the projection commutes with the summation. So:
+%  \begin{equation*}
+%    \begin{split}
+%    \pi ( \partial^{-}\rotfv{v}{S^{\prime}} ) &=  \sum_{g \in S^{\prime}} \rotfv{\pi(v)}{S^{\prime}/g} +  \rotfv{\pi(gv)}{S^{\prime}/g} \\ 
+%    & =  \sum_{g \in S^{\prime}} \rotfv{\pi(v)}{S^{\prime}/g} +  \rotfv{g \pi(v)}{S^{\prime}/g} = \partial^{-}\rotfv{\pi(v)}{S^{\prime}} 
+%    \end{split}
+%  \end{equation*}
+%\end{proof}
+%
+%\inb{\textbf{Overgoing on that claim again.}}
+%\begin{claim}
+%  \label{claim:liftedreduced}
+%  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $\Size{x} < n$. Then $x$ has a minimizing cover $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such $\partial^{-}x^{\prime}$ is the minimizing cover of $\partial^{-}x$.
+%\end{claim}
+%\begin{proof}
+%  Let the $d^{\prime}-1$-dimensional chains $z_{1}, \ldots, z_{l} \in (\mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})$ be the single-face (unit vector) decomposition of $\partial^{-} x^{\prime}$. We claim that there are no two faces $z_{i}, z_{j}$ whose projections coincide. If there were, then $\Size{\partial^{-} x^{\prime}}$ is greater than $n$. But 
+%  \begin{equation*}
+%    \begin{split}
+%      \Size{\partial^{-} x^{\prime}} \le \Size{ x^{\prime}} = \Size{x} < n
+%    \end{split}
+%  \end{equation*}
+%  Thus, 
+%  \begin{equation*}
+%    \begin{split}
+%      \pi(\partial^{-}x^{\prime} )= \pi(\sum_{i}z_{i}) = \sum_{i}\pi(z_{i})
+%    \end{split}
+%  \end{equation*}
+%  Assume there is a face $f$ in  $\partial^{-}x$ which is not in $\pi(\partial^{-}x^{\prime})$. 
+%\end{proof}
+%
+%\begin{claim}
+%  Consider a $d^{\prime}$-dimensional chain, on the finite complex, $\tilde{x} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $\Size{\tilde{x}} < n$. Let the chain, on the infinite complex, $x\in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, be a minimizing cover of $\tilde{x}$.    
+%\end{claim}
+%
+%\begin{claim}
+%  \label{claim:trnasrespproj}
+%Let the $d^{\prime}$-dimensional chain on the infinite complex, $x\in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, be such that if $\Size{x} < n$, then there exists a translation of it $\tilde{x}\in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, such that both $\Size{x} = \Size{\tilde{x}}$ and $\pi(\tilde{x}) = \tilde{x}$. Equivalently, the faces of $\tilde{x}$ align with faces on the finite complex.
+%\end{claim}
+%\begin{proof}
+%  Foe each generator $g \in S$, denote the maximal value of $L_{g}$ in $x$ by $l_{g}$. Define the vertex $u \in \mathcal{G} $, such:
+%  \begin{equation*}
+%    \begin{split}
+%      u_{g}l_{g} = n-1
+%    \end{split}
+%  \end{equation*}
+%Choose $\tilde{x}$ to be the translation of $x$ by $u$. Since $\tilde{x}$ is a translation of $x$, its size equals $\Size{\tilde{x}} = \Size{x}$. So, it's left to prove that $\pi(\tilde{x}) = \tilde{x}$. That's equivalent to proving that for any generator $g \in S$, the $g$-coordinates of $\tilde{x}$ vertices are in the range $[1, n-1]$. Assume through contradiction that there is a vertex $w$ of $\tilde{x}$ and a generator $g$ such that $w_{g} \notin [1, n-1]$. By the construction of $\tilde{x}$, the value $w_{g}$ is lower than $n-1$, thus, combining the contradiction assumption, $w_{g} < 1$. Furthermore, pick $g$ such that the $L_{g}$-value of $w$ is the minimal among all the generators. Then it follows that:
+%  \begin{equation*}
+%    \begin{split}
+%      \Size{\tilde{x}}  \ge \sum_{g^{\prime} \in S} \max_{v \in \tilde{x}}L_{g^{\prime}}(v) + L_{d+1}(w) \ge d(n -1 - L_{g}(w)) \ge n
+%    \end{split}
+%  \end{equation*}
+%In contradiction to $\Size{\tilde{x}} = \Size{x} < n$.
+%\end{proof}
 
 
 
