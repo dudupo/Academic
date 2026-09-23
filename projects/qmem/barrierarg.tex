@@ -98,7 +98,7 @@ Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ cl
 
 \begin{claim}
   \label{claim:fillchain}
-  Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain, such that the $d^{\prime}-1$-dimensional chain $\partial^{-} x$ is not connected. Suppose that there is an integer $l \le n-1$ such each connected component of $\partial^{-}x$ has size $ < l$. Then there are $d^{\prime}$-dimensional chains $y_{1}, y_{2}, \ldots$ such that each $\partial^{-}y_{i}$ is a connected component of $\partial^{-}x$ and $\Size{y_{i}} \le \Size{\partial^{-}y_{i}}$.
+  Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain. Suppose that there is an integer $l \le n-1$ such each connected component of $\partial^{-}x$ has size $ < l$. Then there are $d^{\prime}$-dimensional chains $y_{1}, y_{2}, \ldots$ such that each $\partial^{-}y_{i}$ is a connected component of $\partial^{-}x$ and $\Size{y_{i}} \le \Size{\partial^{-}y_{i}}$.
 \end{claim}
 
 \begin{proof}
@@ -141,7 +141,7 @@ Namely, $x + \sum_{i}x_{i}$ is a codeword in $\mathcal{C}_{X}/ \mathcal{C}_{Z}^{
 
 \begin{claim}
   \label{claim:mergebyf}
-  Let $x_{1},x_{2} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be $d^{\prime}$-dimensional chains, and let $l$ be an integer such the Hamming distance between $x_{1}$ and $x_{2}$ is at most $l$. Denote by $r$ the size of the maximal connected component of $\partial^{-}x_{1}$. Then the maximal size of a connected component of $\partial^{-}x_{2}$ is at most ${ d^{\prime} \choose 2 }r l $
+  Let $x_{1},x_{2} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be $d^{\prime}$-dimensional chains, and let $l$ be an integer such the Hamming distance between $x_{1}$ and $x_{2}$ is at most $l$. Denote by $r$ the size of the maximal connected component of $\partial^{-}x_{1}$. Then the maximal size of a connected component of $\partial^{-}x_{2}$ is at most ${ d^{\prime} \choose 2 }l(r+1) $
 \end{claim}
 \begin{proof}
   Consider the adjacency graph (\cref{def:asontoric}) with respect to the $d^{\prime}-1$-dimensional chain $\partial^{-}x_{1}$, where each vertex is a $d^{\prime}-1$-dimensional face of $\partial^{-}x_{1}$, and each edge in the graph is a $d^{\prime}-2$ face in the intersection of two $d^{\prime}-1$-dimensional faces in $\partial^{-}x_{1}$. Introducing a new $d^{\prime}$-dimensional face to $x_{1}$ adds at most ${ d^{\prime} \choose 2 }$ edges to the adjacency graph, each corresponding to a $d^{\prime}-2$ face contained in the new $d^{\prime}$-dimensional face. So introducing $l$ faces into $x^{\prime}_{i}$ adds at most ${ d^{\prime} \choose 2 } l$ new edges, and therefore connects at most the same number of connected components in $\partial^{-}x^{\prime}_{1}$, or a connected component induced by the additional $l$ faces. Using the triangle inequality for intersecting sets (\Cref{clima:finitetrig}), we have that any connected component of $\partial^{-}x_{2}^{\prime}$ is at most ${ d^{\prime} \choose 2 } l$ times the maximal size of a connected component of $\partial^{-}x_{1}$, namely ${ d^{\prime} \choose 2 }l (r+1)$ (Where the $1$ in the closure stands for the connected components of a single face, each corresponding to one of the additional $l$ faces.)
