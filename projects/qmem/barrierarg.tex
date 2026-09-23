@@ -60,19 +60,8 @@ To finish, we argue that we can choose $x^{\prime}, y^{\prime}$ such that $\Size
 
 
 
+We will use the following two elementary lifting facts and omit their proofs. They are discrete instances of the standard local relation between a torus and its universal cover: below the periodicity scale, the covering map is injective on the relevant region, so chains may be treated as chains in the infinite lattice. In the Toric-code literature, the same principle appears in the identification of non-trivial logical operators with homologically non-trivial cycles of linear extent \cite{Dennis_2002}, and in the restriction of Toric arguments to local regions whose diameter is smaller than the system size \cite{Kubica_2019}. The claims below merely formulate this observation for the size function and minimizing covers used here.
 
-%
-%  , we get by \Cref{claim:reducederr}, that $x^{\prime}$ is not reduced. Namely there is a stabilizer $w \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, such that: 
-%  \begin{equation*}
-%    \begin{split}
-%      \Size{x^{\prime} + w} < \Size{x^{\prime}} 
-%    \end{split}
-%  \end{equation*}
-%  Yet, by \Cref{claim:stabtostab}, we have that the projection of $w$, namely $\pi(w)$, is a stabilizer of the finite complex. Moreover, since $\Size{x^{\prime} + w} < n$, no two faces in $x^{\prime} + w$ are projected to the same target. Thus, $\pi(x^{\prime} + w) = \pi(x^{\prime}) + \pi(w)$, so the projection of $x^{\prime} + w$ covers $x + \pi(w)$. Thus, $x$ is not reduced. 
-%
-%  Therefore, 
-
-We present the following two claims without proofs. 
 \begin{claim}
   \label{claim:liftb}
   Let $x \in (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$ be a $d^{\prime}-1$ dimensional chain of the finite complex, and let $y \in (\mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})$ be the $d^{\prime}-1$ dimensional chain on the infinite complex such that $y$ is the minimizing cover of $x$. If $\Size{x} < n$, and:
@@ -89,10 +78,9 @@ Then, also:
 \end{equation*}
 \end{claim}
 
-
 \begin{claim}
   \label{claim:liftc}
-Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain of the finite complex. Suppose that $\Size{x} < n$, then $x$ has a minimizing cover $y \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, such that the faces of $y$ align with the finite Toric. In other words, '$x = y$'.
+Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain of the finite complex. Suppose that $\Size{x} < n$. Then there is a translation $x^{\prime}$ of $x$ (on the finite complex), such that $x^{\prime}$ has a minimizing cover $y \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, such that the faces of $y$ align with the finite complex. In other words, '$x^{\prime} = y$'.
 \end{claim}
 
 \begin{claim}
@@ -121,9 +109,12 @@ Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ cl
     \end{split}
   \end{equation*}  Namely, $\tilde{x}_{1} \in \ker \partial^{-} : (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-2}; \mathbb{F}_{2})$.
 Suppose $\tilde{x}_{1} \notin \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$, then we have that $\tilde{x}_{1}$ is a non-trivial codeword of the $(d,d^{\prime}-1)$-Toric code. 
-Since $d^{\prime} \ge 2$, and $\tilde{x}_{1}$ has to close a non-trivial loop, so by \Cref{claim:sizenont}, the size of $\tilde{x}$ is at least $n-1$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. 
+Since $d^{\prime} \ge 2$, and $\tilde{x}_{1}$ has to close a non-trivial loop, so by \Cref{claim:sizenont}, the size of $\tilde{x}$ is at least $n-1$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. We argue that $x_{1}$ can be chosen such $\Size{x_{1}} \le \Size{\tilde{x}_{1}}$.
 
-For doing that, consider the minimizing cover of $\tilde{x}_{1}$, and denote it by $\tilde{y}$. Since $\Size{\tilde{x}_{1}} < n$, then by \Cref{claim:liftc} and \Cref{claim:liftb} we have that $\tilde{y}$ can be chosen such that it aligns with the finite complex and:
+
+By \Cref{claim:liftc}, since $\Size{\tilde{x}_{1}} < n$, there is a translation of the finite complex for which the minimizing cover of the translation of $\tilde{x}_{1}$ aligns with the finite complex. Since the size function is invariant to translations, we can assume that the given finite complex is already translated.
+
+Consider the minimizing cover of $\tilde{x}_{1}$, and denote it by $\tilde{y_1}$ Since $\Size{\tilde{x}_{1}} < n$, then by \Cref{claim:liftb} we have that $\tilde{y}$ can be chosen such:
 \begin{equation*}
   \begin{split}
     \tilde{y} \in \image \partial^{-} : ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})
@@ -135,7 +126,7 @@ Let $y \in ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) $ be a $d$-dimensional r
     \Size{x_{1}} = \Size{y} \le \Size{\partial^{-}y} = \Size{\tilde{y}} = \Size{\tilde{x}_{1}}
   \end{split}
 \end{equation*}
-So $x_{1}$ satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$.
+So $x_{1}$ satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$. 
 \end{proof}
 
 
