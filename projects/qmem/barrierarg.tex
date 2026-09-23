@@ -121,7 +121,7 @@ By \Cref{claim:liftc}, since $\Size{\tilde{x}_{1}} < n$, there is a translation 
 Let $y \in ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) $ be a $d^{\prime}$-dimensional reduced chain such that $\partial^{-}y = \tilde{y}$. By the definition of the algorithm in \Cref{claim:reducederr}, from which $y$ is obtained, it follows that the potential walls that bound $\tilde{y}$ also bound $y$, and therefore $y$ is also aligned with the finite complex. Thus, we can take $x_{1}$ to be equal to $y$. By \Cref{claim:reducederr}:
 \begin{equation*}
   \begin{split}
-    \Size{x_{1}} = \Size{y} \le \Size{\partial^{-}y} = \Size{\tilde{y}} = \Size{\tilde{x}_{1}}
+    \Size{x_{1}} = \Size{y} = \Size{\partial^{-}y} = \Size{\tilde{y}} = \Size{\tilde{x}_{1}}
   \end{split}
 \end{equation*}
 So $x_{1}$ satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$. 
@@ -136,7 +136,7 @@ Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dim
       \partial^{-} (x + \sum_{i}x_{i}) = 0  \quad \Rightarrow x + \sum_{i}x_{i} \in \ker \partial^{-} \colon (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})
     \end{split}
   \end{equation*}
-  Namely, $x + \sum_{i}x_{i}$ is a codeword in $\mathcal{C}_{X}/ \mathcal{C}_{Z}^{\perp}$. We define the filling operator, denoted by $[x]$, which for a given fillable chain $x$, returns the homology class (logical operator) of $x + \sum_{i}x_{i}$. Lastly, to ensure that the filling operator is colonial, fix for each $d^{\prime}-1$-dimensional chain, which is a connected component, a unique reduced $d^{\prime}$-dimensional chain. With the notations above, for each $\partial x_{i}$ fix a unique $x_{i}$.
+  Namely, $x + \sum_{i}x_{i}$ is a codeword in $\mathcal{C}_{X}/ \mathcal{C}_{Z}^{\perp}$. We define the filling operator, denoted by $[x]$, which for a given fillable chain $x$, returns the homology class (logical operator) of $x + \sum_{i}x_{i}$. Lastly, to ensure that the filling operator is canonical, fix for each $d^{\prime}-1$-dimensional chain, which is a connected component, a unique reduced $d^{\prime}$-dimensional chain. With the notations above, for each $\partial x_{i}$ fix a unique $x_{i}$.
 \end{definition}
 
 \begin{claim}
