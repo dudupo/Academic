@@ -72,8 +72,28 @@ To finish, we argue that we can choose $x^{\prime}, y^{\prime}$ such that $\Size
 %
 %  Therefore, 
 
+We present the following two claims without proofs. 
+\begin{claim}
+  \label{claim:liftb}
+  Let $x \in (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$ be a $d^{\prime}-1$ dimensional chain of the finite complex, and let $y \in (\mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})$ be the $d^{\prime}-1$ dimensional chain on the infinite complex such that $y$ is the minimizing cover of $x$. If $\Size{x} < n$, and:
+\begin{equation*}
+  \begin{split}
+    x \in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})
+  \end{split}
+\end{equation*}
+Then, also:
+\begin{equation*}
+  \begin{split}
+    y \in \image \partial^{-} : ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})
+  \end{split}
+\end{equation*}
+\end{claim}
 
 
+\begin{claim}
+  \label{claim:liftc}
+Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain of the finite complex. Suppose that $\Size{x} < n$, then $x$ has a minimizing cover $y \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, such that the faces of $y$ align with the finite Toric. In other words, '$x = y$'.
+\end{claim}
 
 \begin{claim}
   \label{claim:sizenont}
@@ -103,10 +123,19 @@ Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ cl
 Suppose $\tilde{x}_{1} \notin \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$, then we have that $\tilde{x}_{1}$ is a non-trivial codeword of the $(d,d^{\prime}-1)$-Toric code. 
 Since $d^{\prime} \ge 2$, and $\tilde{x}_{1}$ has to close a non-trivial loop, so by \Cref{claim:sizenont}, the size of $\tilde{x}$ is at least $n-1$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. 
 
-For doing that, consider the minimizing cover of $\tilde{x}_{1}$, and denote it by $\tilde{y}$. Since $\Size{\tilde{x}_{1}} < n$, we have that $\tilde{y}$ can be chosen such that it aligns with the finite complex. Denote by, $y$ the 
-
-
-By \Cref{claim:aaa}, $x_{1}$ can be chosen to have a size at most $\Size{\tilde{x}_{1}}$. So $x_{1}$ satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$.
+For doing that, consider the minimizing cover of $\tilde{x}_{1}$, and denote it by $\tilde{y}$. Since $\Size{\tilde{x}_{1}} < n$, then by \Cref{claim:liftc} and \Cref{claim:liftb} we have that $\tilde{y}$ can be chosen such that it aligns with the finite complex and:
+\begin{equation*}
+  \begin{split}
+    \tilde{y} \in \image \partial^{-} : ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})
+  \end{split}
+\end{equation*}
+Let $y \in ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) $ be a $d$-dimensional reduced chain such that $\partial^{-}y = \tilde{y}$. By the definition of the algorithm in \Cref{claim:reducederr}, from which $y$ is obtained, it follows that the potential walls that bound $\tilde{y}$ also bound $y$, and therefore $y$ is also aligned with the finite complex. Thus, we can take $x_{1}$ to be equal to $y$. By \Cref{claim:reducederr}:
+\begin{equation*}
+  \begin{split}
+    \Size{x_{1}} = \Size{y} \le \Size{\partial^{-}y} = \Size{\tilde{y}} = \Size{\tilde{x}_{1}}
+  \end{split}
+\end{equation*}
+So $x_{1}$ satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$.
 \end{proof}
 
 
