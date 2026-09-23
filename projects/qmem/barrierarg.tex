@@ -88,7 +88,7 @@ Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dim
 Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ closes a non-trivial loop on the Toric, then $\Size{x} \ge n - 1$.
 \end{claim}
 \begin{proof}
-  Let $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be a minimizing cover for $x$. In particular, there are vertices $v_{1}, \ldots, v_{l}$ in $x^{\prime}$ such that their projection corresponds to the non-trivial loop in $x$. Assume the non-trivial cycle is in the $g$-direction, thus the $L_{g}$ values of the projections of $v_{1}, \ldots, v_{l}$ cover all the integer range $\{0,1,\ldots, n-1\}$. Thus, there are two vertices $v,u \in v_{1},\ldots,v_{l}$ such that their $L_{g}$-difference is at least $L_{g}(u) - L_{g}(v) > n-1$. Thus,
+  Let $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be a minimizing cover for $x$. In particular, there are vertices $v_{1}, \ldots, v_{l}$ in $x^{\prime}$ such that their projection corresponds to the non-trivial loop in $x$. Assume the non-trivial cycle is in the $g$-direction, thus the $L_{g}$ values of the projections of $v_{1}, \ldots, v_{l}$ cover all the integer range $\{0,1,\ldots, n-1\}$. Thus, there are two vertices $v,u \in v_{1},\ldots,v_{l}$ such that their $L_{g}$-difference is at least $L_{g}(u) - L_{g}(v) \ge n-1$. Thus,
   \begin{equation*}
     \begin{split}
       \Size{x} = \Size{x^{\prime}} \ge \Size{\{u,v\}} \ge n-1
@@ -118,7 +118,7 @@ By \Cref{claim:liftc}, since $\Size{\tilde{x}_{1}} < n$, there is a translation 
     \tilde{y} \in \image \partial^{-} : ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})
   \end{split}
 \end{equation*}
-Let $y \in ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) $ be a $d$-dimensional reduced chain such that $\partial^{-}y = \tilde{y}$. By the definition of the algorithm in \Cref{claim:reducederr}, from which $y$ is obtained, it follows that the potential walls that bound $\tilde{y}$ also bound $y$, and therefore $y$ is also aligned with the finite complex. Thus, we can take $x_{1}$ to be equal to $y$. By \Cref{claim:reducederr}:
+Let $y \in ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) $ be a $d^{\prime}$-dimensional reduced chain such that $\partial^{-}y = \tilde{y}$. By the definition of the algorithm in \Cref{claim:reducederr}, from which $y$ is obtained, it follows that the potential walls that bound $\tilde{y}$ also bound $y$, and therefore $y$ is also aligned with the finite complex. Thus, we can take $x_{1}$ to be equal to $y$. By \Cref{claim:reducederr}:
 \begin{equation*}
   \begin{split}
     \Size{x_{1}} = \Size{y} \le \Size{\partial^{-}y} = \Size{\tilde{y}} = \Size{\tilde{x}_{1}}
