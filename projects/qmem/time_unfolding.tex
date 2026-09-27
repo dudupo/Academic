@@ -105,17 +105,17 @@ For a quantum circuit $C$, we would like to discuss its action in the presence o
     \end{split}
   \end{equation*}
 \end{example}
-
-
+Later, all the quantum registers will be encoded via stabilizer codes. Then, following the common approach in the literature, we define the fault layers to end with stabilizer measurements, thereby forcing the noise channel to sample Paulis (see \cite{gottesman1997stabilizercodesquantumerror}). Hence, we confined ourselves to noise channels of only such type.
 \begin{definition}[Noise channel and local stochastic noise channel]
   \label{def:localstoc}
-  A \textit{noise channel} $\mathcal{N}_{\mathcal{E}}$ is a distribution over sets of fault locations. Let $p\in(0,1)$, we say that the noise channel $\mathcal{N}_{\mathcal{E}}$ is \textit{local stochastic with rate $p$} if for every finite set of locations $S\subset \mathbb{N}\times \mathbb{N}$,
+  A \textit{noise channel} $\mathcal{N}_{\mathcal{E}}$ is a distribution over sets of faults and their locations. Let $p\in(0,1)$, we say that the noise channel $\mathcal{N}_{\mathcal{E}}$ is \textit{local stochastic with rate $p$} if for every finite set of locations $S\subset \mathbb{N}\times \mathbb{N}$,
   \begin{equation*}
     \begin{split}
       \prbm{S\subset \operatorname{Loc}(\mathcal{E})}{\mathcal{E}\sim \mathcal{N}_{\mathcal{E}}}
       \le p^{|S|}.
     \end{split}
   \end{equation*}
+Through this work, the sampled faults will be assumed to be Pauli.
 \end{definition}
 So, $N_{\mathcal{E}}$ defines a probability space. The set of faults $\mathcal{E}$ is an atomic outcome, and for a given circuit $C$, the subjected circuit $C[\mathcal{E}]$ is a random variable. The following claim states that for local stochastic noise, the subjection of every 1-layer is equivalent to the subjection of every $m$-layer, up to a rescaling of the noise rate. Here, by equivalence, we mean that the actions of the subjected circuits are the same\footnote{For a given input (mixed) state $\rho$, they yield the same output}. 
 
@@ -138,7 +138,6 @@ So, $N_{\mathcal{E}}$ defines a probability space. The set of faults $\mathcal{E
 \end{claim}
 Equipped with this claim, we are allowed to assume having constant depth cycles that don't observe faults. 
 
-
 \begin{definition}
   Let $C$ be a quantum circuit that contains $l$ measurements. For possible outcomes $\alpha \in \mathbb{F}^{l}_{2}$, let $C[,\alpha]$ be the circuit obtained by conditioning that $\alpha_{1},..,\alpha_{l}$ were measured. We extend the notation for the subjected circuit by denoting $C[\mathcal{E},\alpha]$ as the subjected circuit where the measurements are assumed to outcome $\alpha_{1},..,\alpha_{l}$.
 \end{definition}
@@ -151,7 +150,7 @@ Equipped with this claim, we are allowed to assume having constant depth cycles 
 \end{remark}
 
 In our case, the conditioned circuit $C[\mathcal{E}, \alpha]$ is a Clifford circuit; in particular, it sends Paulis to Paulis. That brings us to define, for a given set of faults $\mathcal{E}$ and outcomes $\alpha$, a Pauli-path that describes the evolution of the faults through the circuit. 
-\inb{\textbf{ For that being immediate we have to measure the stabilizer after every noise layer. Also,  }} 
+
 
 \begin{definition}[Propagation]
   \label{def:propagation}
