@@ -16,8 +16,6 @@ We are about to zoom out from a single register encoded in the Toric code to des
 
 For Toric encoded circuits, we define their \textit{base graph}, which can be thought of as a recording of a running from the Toric's point of view. The \textit{base graph} is obtained by taking the Toric's vertices at different times as the vertices and connecting any two sequential in time if they are support faces — qubits — which are either the same or are entangled by a quantum gate.
 
-\inb{\textbf{Redefine the Base graph such it will not be dependent on $\mathcal{E}$ and $\alpha$, yet it will match them, in terms of layers. (it can be dependent when it cones to edges), so the way to do so is to pads in identity, when control $S$ doesn't occur. }}
-
   \begin{definition}[Base graph $G_{o}$]
     Let $C$ be a Toric encoded circuit at depth $\mu$. Notice that measurements take quantum registers into classical, Thus any quantum register has a maximal depth, which we denote by $\{\mu_{i}$\}. Let's denote by $\{\mathcal{G}_{i}\}$ the skeleton of the $\infty$-extension of the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o}, E_{o})$, as follows:
     \begin{enumerate}
@@ -38,13 +36,11 @@ For Toric encoded circuits, we define their \textit{base graph}, which can be th
 Where we define a vertex $v$ to belong to location $l$ if there is a qubit-face $f$ in $l$ such that $v$ belongs to its associated face.
     \end{enumerate} 
   \end{definition}
+Notice that since the gates' locations are invariant to the conditioning of outcomes measurement (\Cref{remark:condmeas}), we have that for any outcomes vector $\alpha \in \mathbb{F}_{2}^{(\cdot)}$, the base graph of the conditioned circuit $C[\mathcal{E},\alpha]$ is the same as $C[\mathcal{E}]$.
 
+\paragraph{}
 
 As a concept, if the base graph is a recording of a run from the Torices' point of view, then a \textit{Toom's contour} is a recording of the deviation's evolution in the eyes of the Torices' vertices. We use the notion of Pauli-path to describe a deviation:
-
-
-
-
 \begin{definition}
 
 Let $P$ be a Pauli. We denote by $P^{\infty}$ the view of $P$ in the $\infty$-extension. We denote by $x(P^{\infty})$ the $d^{\prime}$-dimensional chain in the infinite complex that supports the $X$-component of $P^{\infty}$, and by $z(P^{\infty})$ the $d-d^{\prime}$-dimensional chain, such that the inversion of the $\phi$-transpose sends it to the $d^{\prime}$-dimensional chain that supports the $Z$-component of $P^{\infty}$, namely $\phi^{-1}(z(P^{\infty}))$ is the chain that supports the $Z$-component. 
