@@ -105,7 +105,7 @@ For a quantum circuit $C$, we would like to discuss its action in the presence o
     \end{split}
   \end{equation*}
 \end{example}
-Later, all the quantum registers will be encoded via stabilizer codes. Then, following the common approach in the literature, we define the fault layers to end with stabilizer measurements, thereby forcing the noise channel to sample Paulis (see \cite{gottesman1997stabilizercodesquantumerror}). Hence, we confined ourselves to noise channels of only such type.
+Later, all the quantum registers will be encoded via stabilizer codes. Then, following the common approach in the literature, we define the fault layers to end with stabilizer measurements, thereby forcing the faults to be Paulis (see \cite{gottesman1997stabilizercodesquantumerror}). Hence, we confine ourselves to noise channels of only this type.
 \begin{definition}[Noise channel and local stochastic noise channel]
   \label{def:localstoc}
   A \textit{noise channel} $\mathcal{N}_{\mathcal{E}}$ is a distribution over sets of faults and their locations. Let $p\in(0,1)$, we say that the noise channel $\mathcal{N}_{\mathcal{E}}$ is \textit{local stochastic with rate $p$} if for every finite set of locations $S\subset \mathbb{N}\times \mathbb{N}$,
