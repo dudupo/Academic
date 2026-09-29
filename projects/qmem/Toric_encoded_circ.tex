@@ -89,14 +89,21 @@ For a Pauli-path $P_{1},..,P_{\mu+1}$, the Toom's contour is the restriction of 
 %          \end{split}
 %        \end{equation*}
 
-      \item The edges $E_{\mathcal{H}}$ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$, where for any realization of logical gate $g$ which applied in time $t$ in $C[\mathcal{E}]^{\infty} $ we add edge to $A_{\mathcal{H}}$ as follow: 
+      \item The edges $E_{\mathcal{H}}$ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$. For any realization of logical gate $g$ which applied in time $t$ in $C[\mathcal{E}]^{\infty} $, we denote by $E_{o}|_{g}$ the edges in $E_{o}$ which induced by $g$. Then, we add edge to $A_{\mathcal{H}}$ as follow: 
 
         \begin{enumerate}
-          \item if $g$ does not belong to the faults, namely $g \notin \mathcal{E}$ then we add the arrows: 
+          \item If $g$ does not belong to the faults, namely $g \notin \mathcal{E}$, and $g$ is not a measurement in the phases-basis, then we add the arrows: 
             \begin{equation*}
               \begin{split}
-                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : \{\{u,t\},\{v,t+1\}\} \in E_{o} \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \\ 
-                &  \, \, \, \text { or }  (v,t+1, \cdot)\} : \{\{u,t\},\{v,t+1\}\} \in E_{o} \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
+                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : \{\{u,t\},\{v,t+1\}\} \in E_{o}|_{g} \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \\ 
+              &  \, \, \, \text { or }  (v,t+1, \cdot)\} : \{\{u,t\},\{v,t+1\}\} \in E_{o}|_{g} \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
+              \end{split}
+            \end{equation*}
+            Where if $g$ is a measurement in the phase-basis, then we add type-alternating arrows as follows:
+            \begin{equation*}
+              \begin{split}
+                & \bigl\{  \{ \tilde{u} = (u,t, \{Z\}),  \tilde{v} = (v,t+1, \{X\})\} : \{\{u,t\},\{v,t+1\}\} \in E_{o}|_{g} \\
+              &  \, \, \, \text{ and } \tilde{v}\in V_{\mathcal{H},X},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
               \end{split}
             \end{equation*}
           \item Else, if $g \in \mathcal{E}$ then, we add:   
