@@ -148,28 +148,28 @@ For a Pauli-path $P_{1},..,P_{\mu+1}$, the Toom's contour is the restriction of 
 
 
 
-\inb{\textbf{ Keep the remark change the explantation.} }
-\begin{remark}
-One might expect to have a differentiation between measurement in the computational and the phases basis. Namely, a rule of connecting arrows of the form:
-\begin{center}
-\begin{minipage}{0.75\textwidth}
-  \textit{
-            If $g$ is a measurement in the phases base, then for any face $f$ in the register on which $g$ acts, we add:
-            \begin{equation*}
-              \begin{split}
-                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : u \in f , v \in \phi(f) \text{ and } \tilde{u} \in V_{\mathcal{H},X}, \tilde{v} \in V_{\mathcal{H},Z}, \\ 
-                &  \, \, \, \text { or }  u\in \phi(f), v \in f \text{ and } \tilde{u} \in V_{\mathcal{H},Z} , \tilde{v} \in  V_{\mathcal{H},X} \bigr\} 
-              \end{split}
-            \end{equation*}
-  }
-\end{minipage}
-\end{center}
-Such intuition is correct in the sense that this is the right way to keep track of the faults.
-%Yet, since immediately after any measurement a decoding is invoked, and since any connected component (of the syndrome) is handled separately, we only care about having a connected componnent below a certain size. Thus, since there is a bijiction between the connected components of a syndrom to , 
-%we care only the propagation up to measurements. 
-we will state \Cref{claim:replace} whose corollary is that instead of analyzing the running of the Toric encoded circuit, it is sufficient to analyze the running of a 'simpler' circuit which doesn't contain measurement in the phase base. In particular, the claim considers the circuit obtained from a given Toric encoded circuit by replacing each of the classical decoding procedures with noisy sweep-rule cycles. Then it states that to derive an upper bound on the failure probability of the original circuit, it's enough to bound the probability that the modified circuit does not admit an infinite 'time-connected cluster' (slice, \Cref{def:slice}).
-
-\end{remark}
+%\inb{\textbf{ Keep the remark change the explantation.} }
+%\begin{remark}
+%One might expect to have a differentiation between measurement in the computational and the phases basis. Namely, a rule of connecting arrows of the form:
+%\begin{center}
+%\begin{minipage}{0.75\textwidth}
+%  \textit{
+%            If $g$ is a measurement in the phases base, then for any face $f$ in the register on which $g$ acts, we add:
+%            \begin{equation*}
+%              \begin{split}
+%                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : u \in f , v \in \phi(f) \text{ and } \tilde{u} \in V_{\mathcal{H},X}, \tilde{v} \in V_{\mathcal{H},Z}, \\ 
+%                &  \, \, \, \text { or }  u\in \phi(f), v \in f \text{ and } \tilde{u} \in V_{\mathcal{H},Z} , \tilde{v} \in  V_{\mathcal{H},X} \bigr\} 
+%              \end{split}
+%            \end{equation*}
+%  }
+%\end{minipage}
+%\end{center}
+%Such intuition is correct in the sense that this is the right way to keep track of the faults.
+%%Yet, since immediately after any measurement a decoding is invoked, and since any connected component (of the syndrome) is handled separately, we only care about having a connected componnent below a certain size. Thus, since there is a bijiction between the connected components of a syndrom to , 
+%%we care only the propagation up to measurements. 
+%we will state \Cref{claim:replace} whose corollary is that instead of analyzing the running of the Toric encoded circuit, it is sufficient to analyze the running of a 'simpler' circuit which doesn't contain measurement in the phase base. In particular, the claim considers the circuit obtained from a given Toric encoded circuit by replacing each of the classical decoding procedures with noisy sweep-rule cycles. Then it states that to derive an upper bound on the failure probability of the original circuit, it's enough to bound the probability that the modified circuit does not admit an infinite 'time-connected cluster' (slice, \Cref{def:slice}).
+%
+%\end{remark}
 
 
 
