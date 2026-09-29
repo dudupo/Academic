@@ -59,7 +59,7 @@ We define the logical Hadamard-type gate $ \mathbf{H_{\phi}} \colon L (\mathcal{
   \end{equation*}
 \end{definition}
 \begin{claim}
-  The Hadamard-type gate $ \mathbf{H_{\phi}}$ has a fold-transversal implementation by, first applying $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}$ over all the physical qubits, and then permuting them by the transpose map $\phi$, namely $\mathbf{\hat{H}}_{\phi} = \phi \circ \mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}$.
+  The Hadamard-type gate $ \mathbf{H_{\phi}}$ has a fold-transversal implementation by, first applying $\mathbf{H}^{\otimes\mathcal{F}_{d^\prime}^{n}}$ over all the physical qubits, and then permuting them by the transpose map $\phi$, namely $\mathbf{\hat{H}}_{\phi} = \phi \circ \mathbf{H}^{\otimes\mathcal{F}_{d^\prime}^{n}}$.
 \end{claim}
 \begin{proof}
   Clearly, for any subset of generators $S^{\prime} \subset S$, the map $\phi$ sends $x_{S^{\prime}}$ to $z_{S/S^{\prime}}$:
@@ -84,7 +84,7 @@ Moreover, $\phi$ sends binary representations of $Z$-stabilizers of the $(d,d^{\
       & =  \partial^{-} \rotfv{ (S/S^{\prime}) v}{S^{\prime}}
     \end{split}
   \end{equation*}
-  Thus, $\phi \circ \mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|} $ sends $Z$-stabilizers (at dimension $d^{\prime}$) to $X$-stabilizers ( at dimension $d-d^{\prime}$) and vice versa, thereby sending the satisfied checks to satisfied checks. Combining this with the above, $\phi \circ \mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}$ realizes the logical isomorphism $\mathbf{H}_{\phi}$ from the $(d,d^{\prime})$-Toric code into the $(d,d-d^{\prime})$-Toric code.
+  Thus, $\phi \circ \mathbf{H}^{\otimes\mathcal{F}_{d^\prime}^{n}} $ sends $Z$-stabilizers (at dimension $d^{\prime}$) to $X$-stabilizers ( at dimension $d-d^{\prime}$) and vice versa, thereby sending the satisfied checks to satisfied checks. Combining this with the above, $\phi \circ \mathbf{H}^{\otimes\mathcal{F}_{d^\prime}^{n}}$ realizes the logical isomorphism $\mathbf{H}_{\phi}$ from the $(d,d^{\prime})$-Toric code into the $(d,d-d^{\prime})$-Toric code.
 \end{proof}
 \input{./tikz/transpose-toric.tikz} 
 
@@ -144,11 +144,11 @@ We are now ready to give a full description of the realization of the logical op
 \end{figure}
 
 
-For the Hadamard gate, we use a modification of the standard two-qubit gate teleportation as shown in \Cref{fig:magich}. The realization differs from the standard realization as the measurement in the phase basis is done by first moving to the dual space via the application of physical $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}$, measuring, reorganizing the qubits through $\phi$, and then checking for the $x_{S/S^{\prime}}$ outcome (thus, it can be thought of as the application of $\mathbf{H}_{\phi}$ and then measurement). In addition, unlike the single-qubit gate teleportation, here $\ket{\mathbf{H}}$ is initialized as $I\otimes \mathbf{H} (\ket{00} + \ket{11})$ (up to normalization).
+For the Hadamard gate, we use a modification of the standard two-qubit gate teleportation as shown in \Cref{fig:magich}. The realization differs from the standard realization as the measurement in the phase basis is done by first moving to the dual space via the application of physical $\mathbf{H}^{\otimes\mathcal{F}_{d^\prime}^{n}}$, measuring, reorganizing the qubits through $\phi$, and then checking for the $x_{S/S^{\prime}}$ outcome (thus, it can be thought of as the application of $\mathbf{H}_{\phi}$ and then measurement). In addition, unlike the single-qubit gate teleportation, here $\ket{\mathbf{H}}$ is initialized as $I\otimes \mathbf{H} (\ket{00} + \ket{11})$ (up to normalization).
     \begin{figure}[h]
         \centering 
         \begin{quantikz}
-          \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}} & \meter{} &  \gate{ \phi }  \setwiretype{c} &  \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
+          \lstick{$\ket{\psi}$} & \ctrl{1}  & \gate{\mathbf{H}^{\otimes\mathcal{F}_{d^\prime}^{n}}} & \meter{} &  \gate{ \phi }  \setwiretype{c} &  \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
           \lstick[2]{$\ket{\mathbf{H}}$} & \targ{} & & \meter{}   &  \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[d][1]{c}   \setwiretype{c} \\
          & &  & & \gate{Z_{S^{\prime}}}   & \gate{X_{S^{\prime}}}  & \rstick{$\mathbf{H}\ket{\psi}$} \\
         \end{quantikz} 
@@ -229,12 +229,12 @@ Where to infer the last passage we used to the Pauli-propagation through $\mathb
         \begin{equation*}
           \begin{split}
         & \begin{quantikz}
-          \gate{\inr{ P_{x_{1},z_{1}} }} & \ctrl{1}  & \gate{\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}} & \meter{} &  \gate{ \phi }  \setwiretype{c} &  \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
+          \gate{\inr{ P_{x_{1},z_{1}} }} & \ctrl{1}  & \gate{\mathbf{H}^{\otimes\mathcal{F}_{d^\prime}^{n}}} & \meter{} &  \gate{ \phi }  \setwiretype{c} &  \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
           \gate{\inr{ P_{x_{2},z_{2}} }}  & \targ{} & & \meter{}   &  \gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[d][1]{c}   \setwiretype{c} \\
         \gate{\inr{ P_{x_{3},z_{3}} }}  & &  & & \gate{Z_{S^{\prime}}}   & \gate{X_{S^{\prime}}}  &  \\
         \end{quantikz}  \\
         = \, & \begin{quantikz}
-          & \ctrl{1}  & \gate{\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}} & \meter{} &  \gate{ \phi }  \setwiretype{c} & \gate{\inr{ P_{z_{1}+z_{2}, }}}   & \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
+          & \ctrl{1}  & \gate{\mathbf{H}^{\otimes\mathcal{F}_{d^\prime}^{n}}} & \meter{} &  \gate{ \phi }  \setwiretype{c} & \gate{\inr{ P_{z_{1}+z_{2}, }}}   & \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
             & \targ{} & & \meter{}   & \gate{\inr{ P_{x_{1}+x_{2},} }}    \setwiretype{c}   &\gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[d][1]{c}  \\
             & & &  & & \gate{Z_{S^{\prime}}}   & \gate{X_{S^{\prime}}}  & \gate{\inr{ \pm P_{x_{3},z_{3}} }}   \\
         \end{quantikz} 
