@@ -139,9 +139,8 @@ Equipped with this claim, we are allowed to assume having constant depth cycles 
 \begin{definition}
   Let $C$ be a quantum circuit that contains $l$ measurements. For possible outcomes $\alpha \in \mathbb{F}^{l}_{2}$, let $C[,\alpha]$ be the circuit obtained by conditioning that $\alpha_{1},..,\alpha_{l}$ were measured. We extend the notation for the subjected circuit by denoting $C[\mathcal{E},\alpha]$ as the subjected circuit where the measurements are assumed to outcome $\alpha_{1},..,\alpha_{l}$.
 \end{definition}
- 
 
-\inb{\textbf{ Write here something. }} 
+There might be multiple different ways to present a conditioned circuit with a collection of gates and their locations. Since we would like to keep the step-order invariant to a conditioning of the measurement outcome, we choose a representation that substitutes the original gates with gates that act on the same location. The following remark explains how to do that explicitly.
 \begin{remark}
   \label{remark:condmeas}
   Consider the presentation of a conditioned circuit as a subset of gates acting on locations. For an outcome $\alpha \in \mathbb{F}_{2}^{(\cdot)}$ for which a conditional gate (for example, a $\mathbf{CCZ}$, where the control bits are conditioned on measurement outcomes) in the original circuit $C$ is mapped to a Pauli in $C[,\alpha]$, we substitute this gate with the Pauli on the target tensored with identity acting on the control locations. Thus, the order of the steps, the locations of each gate, and the computation graph of $C[,\alpha]$ are the same as for $C$ (and independent of the outcomes). We summarize this by briefly saying that the locations are invariant to the conditioning of measurements. 
