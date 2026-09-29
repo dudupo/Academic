@@ -227,9 +227,9 @@ We finished analyzing the first part of the sweep-cycle that acts in the computa
  Although the main role of the section is to show that a single sweep-cycle keeps error clusters under control during a noisy run (by admitting a modest shrinking), an immediate corollary of this is that the application of non-noisy multiple iterations of the sweep-cycle has the potential to erase errors, namely a decoder. Here, a classical measurement is given, we act on classical bits, and the sweep-cycle consists only of the first stage that works over the computational basis, without moving to the dual code. We formulate the corollary as follows:
 \begin{corollary}
   \label{col:idealcorrection} 
-  Consider the $(d,d^{\prime})$-Toric code, induced by a Toric with side length $n$. Given a connected finite reduced error $z \in (\mathcal{F}_{d^{\prime}};\mathbb{F}_{2})$ on that Toric, with $\Size{z} \le n-1$. Then an application of $\Size{z}$ sweep cycles (partial cycles consisting only of the first stage) erases the error.
+  Consider the $(d,d^{\prime})$-Toric code, induced by a Toric with side length $n$. Given a finite connected reduced error $z \in (\mathcal{F}_{d^{\prime}};\mathbb{F}_{2})$ on that Toric, with $\Size{z} \le n-1$. Then an application of $\Size{z}$ sweep cycles (partial cycles consisting only of the first stage) erases the error.
 \end{corollary}
-When $z$ is not connected, disjoint components might merge, and it is no longer true that the size of the chain decreases in each iteration. However, we will see later (\Cref{claim:decodestopnoise}, \Cref{claim:replace}, and \Cref{lemma:keylemma}) that performing $\Theta(n^{2d+1})$ sweep-cycles erases the error with high probability.
+When $z$ is not connected, disjoint components might merge, and it is no longer true that the size of the chain decreases in each iteration. However, we will see later (\Cref{claim:decodestopnoise}, \Cref{claim:replace}, and \Cref{lemma:keylemma}) that performing $\Theta(n^{2d+1})$ sweep-cycles erases the error with high probability, if $z$ is assumed to be distributed according to local stochastic noise.
 
 
 
