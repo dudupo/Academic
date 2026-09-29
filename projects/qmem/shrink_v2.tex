@@ -24,7 +24,7 @@ For any generator $g \in S$, the maximal values of $L_{g}$ in $\xi$ and $\partia
   \end{equation*}
 In contradiction to $v$ being a local maximum of $L_{g}$ in $\partial^{-} z$.
 
-For a vertex $v \in \partial^{-}z$ denote the correction it applies by $\varphi_{v} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}} $, so 
+For a vertex $v \in \partial^{-}z$ denote the correction it applies by $\varphi_{v} \in (\mathcal{F}_{d^{\prime}};\mathbb{F}_{2}) $, so 
 \begin{equation*}
   \begin{split}
     \xi = \sum_{v \in \partial^{-}z}\varphi_{v} + z \ \ \text{ and } \ \ \partial^{-}\xi = \sum_{v \in \partial^{-}z}\partial^{-}\varphi_{v} + \partial^{-}z
@@ -94,7 +94,7 @@ We finished analyzing the first part of the sweep-cycle that acts in the computa
 %  Let $\sigma$ be a $d^{\prime}-1$ dimensional chain. Such a vertex $v$ suggests a correction. Denote $w = \sigma|_{v+}$ and for any $g \in S$, denote by $w|_{gv}$ and $w|_{/gv}$ the restriction of $w$ to faces containing $gv$ and their complement. If $w|_{gv} \neq 0$, then $w|_{/gv} \neq 0$.
 %\end{claim}
 %\begin{proof}
-%  It's given that $v$ applies a correction, denoted by $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$, and recall that $z$ is rooted in $v$, namely $z = z|_{v} = z|_{v+}$, and $\partial^{-} z|_{v} = w$. By the zeroing of boundary of boundary, we have that $(\partial^{-})^{2} z = 0$. Hence:
+%  It's given that $v$ applies a correction, denoted by $z \in (\mathcal{F}_{d^{\prime}};\mathbb{F}_{2})$, and recall that $z$ is rooted in $v$, namely $z = z|_{v} = z|_{v+}$, and $\partial^{-} z|_{v} = w$. By the zeroing of boundary of boundary, we have that $(\partial^{-})^{2} z = 0$. Hence:
 %  \begin{equation*}
 %    \begin{split}
 %      (\partial^{-}w)|_{v+} = (\partial^{-}( (\partial^{-} z) |_{v+}))|_{v+} = (\partial^{-}( \partial^{-} z))|_{v+} = 0  
@@ -123,7 +123,7 @@ We finished analyzing the first part of the sweep-cycle that acts in the computa
 %
 %\begin{claim}
 %  \label{claim:corrdual}
-%Consider a finite $d^{\prime}$-dimensional chain $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ and assume that its $\phi$-transpose chain $\phi(z)$ is also finite. Denote by $\xi \in \mathbb{F}_{2}^{\mathcal{F}_{d- d^{\prime}}}$ the result of applying the sweep rule over the reduced form of $\phi(z)$. Then, for any generator $g \in S$, we have:
+%Consider a finite $d^{\prime}$-dimensional chain $z \in (\mathcal{F}_{d^{\prime}};\mathbb{F}_{2})$ and assume that its $\phi$-transpose chain $\phi(z)$ is also finite. Denote by $\xi \in \mathbb{F}_{2}^{\mathcal{F}_{d- d^{\prime}}}$ the result of applying the sweep rule over the reduced form of $\phi(z)$. Then, for any generator $g \in S$, we have:
 %  \begin{equation*}
 %    \begin{split}
 %      \max_{v \in \phi^{-1}(\xi)}L_{g}(v) \le \max_{v \in z }L_{g}(z)
@@ -206,7 +206,7 @@ We finished analyzing the first part of the sweep-cycle that acts in the computa
 %We can state that a sweep-cycle shrinks a finite connected error.
 %\begin{corollary}
 %\label{claim:polesmoveB}  
-%Consider an error whose $X$- and $Z$-product components lie at positions corresponding to the reduced chains $z_{X}, z_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$. Denote by $\xi_{X}, \xi_{Z} \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ chains corresponding to the $X, Z$ positions of the result after the application of a full sweep-cycle. If both $z_{X}, z_{Z}$ are finite connected chain, Then:
+%Consider an error whose $X$- and $Z$-product components lie at positions corresponding to the reduced chains $z_{X}, z_{Z} \in (\mathcal{F}_{d^{\prime}};\mathbb{F}_{2})$. Denote by $\xi_{X}, \xi_{Z} \in (\mathcal{F}_{d^{\prime}};\mathbb{F}_{2})$ chains corresponding to the $X, Z$ positions of the result after the application of a full sweep-cycle. If both $z_{X}, z_{Z}$ are finite connected chain, Then:
 %  \begin{enumerate}
 %    \item For any $i \in [d]$: 
 %      \begin{equation*}
@@ -227,7 +227,7 @@ We finished analyzing the first part of the sweep-cycle that acts in the computa
  Although the main role of the section is to show that a single sweep-cycle keeps error clusters under control during a noisy run (by admitting a modest shrinking), an immediate corollary of this is that the application of non-noisy multiple iterations of the sweep-cycle has the potential to erase errors, namely a decoder. Here, a classical measurement is given, we act on classical bits, and the sweep-cycle consists only of the first stage that works over the computational basis, without moving to the dual code. We formulate the corollary as follows:
 \begin{corollary}
   \label{col:idealcorrection} 
-  Consider the $(d,d^{\prime})$-Toric code, induced by a Toric with side length $n$. Given a connected finite reduced error $z \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ on that Toric, with $\Size{z} \le n-1$. Then an application of $\Size{z}$ sweep cycles (partial cycles consisting only of the first stage) erases the error.
+  Consider the $(d,d^{\prime})$-Toric code, induced by a Toric with side length $n$. Given a connected finite reduced error $z \in (\mathcal{F}_{d^{\prime}};\mathbb{F}_{2})$ on that Toric, with $\Size{z} \le n-1$. Then an application of $\Size{z}$ sweep cycles (partial cycles consisting only of the first stage) erases the error.
 \end{corollary}
 When $z$ is not connected, disjoint components might merge, and it is no longer true that the size of the chain decreases in each iteration. However, we will see later (\Cref{claim:decodestopnoise}, \Cref{claim:replace}, and \Cref{lemma:keylemma}) that performing $\Theta(n^{2d+1})$ sweep-cycles erases the error with high probability.
 
