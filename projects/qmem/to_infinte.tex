@@ -72,11 +72,7 @@ Now we are ready to give an explicit description of the mapping. Given a quantum
     \item Each gate $u_{i} \in C$ is mapped to the infinite collection of gates, where the gates are obtained by either the standard translation or the rooted translation by an integer vector, depending on whether $u_{i}$ is a decoding gate as follows:
       \begin{equation*}
         \begin{split}
-          u_{i}  \mapsto  
-          \begin{cases}
-            \bigcup_{ a \in \mathbb{Z}^{d} } \left\{ a * u_{i} \right\} & \text{ if } u_{i} \text{ is not a decoding gadget}  \\ 
-            \bigcup_{ a \in \mathbb{Z}^{d} } \left\{ a_{r} * u_{i} \right\} & \text{ else }
-          \end{cases}
+          u_{i}  \mapsto  \bigcup_{ a \in \mathbb{Z}^{d} } \left\{ a *_{r} u_{i} \right\} 
         \end{split}
       \end{equation*}
   \end{enumerate}
