@@ -154,10 +154,10 @@ In our case, the conditioned circuit $C[\mathcal{E}, \alpha]$ is a Clifford circ
 
 \begin{definition}[Propagation]
   \label{def:propagation}
-Let $C$ be a quantum circuit at depth $\mu$, and let $\alpha \in \mathbb{F}_{2}^{(\cdot)}$ be a possible outcome vector for $C$. Suppose that $C$ is a Clifford+measurements circuit, so $C[,\alpha]$ is a Clifford circuit. We define the propagation of Pauli $P \in \mathcal{P}$ through the conditioned circuit $C[,\alpha]$ to be the Paulis $P_{1}, \ldots, P_{\mu+1}$ such that $P_{1} = P$ and for any $i \in [2, \mu+1]$:
+  Let $C[\mathcal{E}]$ be a subjected quantum circuit at depth $\mu$, and let $\alpha \in \mathbb{F}_{2}^{(\cdot)}$ be a possible outcome vector for $C[\mathcal{E}]$. Suppose that $C$ is a Clifford+measurements circuit, so $C[\mathcal{E},\alpha]$ is a Clifford circuit. We define the propagation of Pauli $P \in \mathcal{P}$ through the conditioned circuit $C[\mathcal{E},\alpha]$ to be the Paulis $P_{1}, \ldots, P_{\mu+1}$ such that $P_{1} = P$ and for any $i \in [2, \mu+1]$:
   \begin{equation*}
     \begin{split}
-      P_{i}C[,\alpha]|_{\rightarrow i} =  C[,\alpha]|_{ i} P_{i-1} C[,\alpha]|_{\rightarrow i-1} = C[,\alpha]|_{\rightarrow i}P 
+      P_{i}C[,\alpha]|_{\rightarrow i} =  C[\mathcal{E},\alpha]|_{ i} P_{i-1} C[,\alpha]|_{\rightarrow i-1} = C[\mathcal{E},\alpha]|_{\rightarrow i}P_{1}
     \end{split}
   \end{equation*}
 We extend the notation to step-propagation by considering the propagation of the circuit obtained from $C[\mathcal{E},D]$ by flattening the circuit such that each gate is applied at the time that equals its step. 
