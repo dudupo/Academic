@@ -40,15 +40,14 @@ Notice that since the gates' locations are invariant to the conditioning of outc
 
 \paragraph{}
 
-As a concept, if the base graph is a recording of a run from the Torices' point of view, then a \textit{Toom's contour} is a recording of the deviation's evolution in the eyes of the Torices' vertices. We use the notion of Pauli-path to describe a deviation:
+As a concept, if the base graph is a recording of a run from the Torices' point of view, then a \textit{Toom's contour} is a recording of the deviation's evolution in the eyes of the Torices' vertices. We use the notion of $x,z$-component of a lifted Pauli and the Pauli-path to describe a deviation:
 \begin{definition}
-
-Let $P$ be a Pauli. We denote by $P^{\infty}$ the view of $P$ in the $\infty$-extension. We denote by $x(P^{\infty})$ the $d^{\prime}$-dimensional chain in the infinite complex that supports the $X$-component of $P^{\infty}$, and by $z(P^{\infty})$ the $d-d^{\prime}$-dimensional chain, such that the inversion of the $\phi$-transpose sends it to the $d^{\prime}$-dimensional chain that supports the $Z$-component of $P^{\infty}$, namely $\phi^{-1}(z(P^{\infty}))$ is the chain that supports the $Z$-component. 
+Let $P \in \mathcal{P}^{(\cdot)}$ be a Pauli, and let $Q \in \mathcal{P}^{(\cdot)}$ be its $\infty$-lift. Assume that $P$ acts on a Toric encoded circuit, namely it has a decomposition such that each element of it acts on a register encoded in the $(d,d^{\prime})$-Toric code. We denote by $x(Q)$ the $d^{\prime}$-dimensional chain in the infinite complex that supports the $X$-component of $Q$, and by $z(Q)$ the $d-d^{\prime}$-dimensional chain, such that the inversion of the $\phi$-transpose sends it to the $d^{\prime}$-dimensional chain that supports the $Z$-component of $Q$, namely $\phi^{-1}(z(Q))$ is the chain that supports the $Z$-component.
 
 %We define the reduced form of $P$ to be the Pauli obtained by the following procedure: for any finite connected chain that corresponds to a subset of the $X$ component of $P$'s support, substitute it with its reduced form (\Cref{def:reduced}). Then do the same for the $Z$ component in the dual picture. Observe that Paulis of a reduced Pauli-path act on the qubits in the $\infty$-extension.^i
 
 
-\inb{\textbf{Consider removing.}} We extend the notion to Paulis in finite spaces (for example, Paulis on the circuit's register) by saying that a Pauli $P \in \mathcal{P}^{(\cdot)}$ is reduced if its view in the $\infty$-extension is reduced.
+%\inb{\textbf{Consider removing.}} We extend the notion to Paulis in finite spaces (for example, Paulis on the circuit's register) by saying that a Pauli $P \in \mathcal{P}^{(\cdot)}$ is reduced if its view in the $\infty$-extension is reduced.
 \end{definition}
 
 \begin{definition}
@@ -92,16 +91,15 @@ For a Pauli-path $P_{1},..,P_{\mu+1}$, the Toom's contour is the restriction of 
 
       \item The edges $E_{\mathcal{H}}$ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$, where for any realization of logical gate $g$ which applied in time $t$ in $C[\mathcal{E}]^{\infty} $ we add edge to $A_{\mathcal{H}}$ as follow: 
 
-        \inb{\textbf{$\mathcal{E}|\alpha$ was not defined.}}
         \begin{enumerate}
-          \item if $g$ does not belong to the faults, namely $g \notin \mathcal{E}|\alpha$ then we add the arrows: 
+          \item if $g$ does not belong to the faults, namely $g \notin \mathcal{E}$ then we add the arrows: 
             \begin{equation*}
               \begin{split}
                 & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : \{\{u,t\},\{v,t+1\}\} \in E_{o} \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \\ 
                 &  \, \, \, \text { or }  (v,t+1, \cdot)\} : \{\{u,t\},\{v,t+1\}\} \in E_{o} \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
               \end{split}
             \end{equation*}
-          \item Else, if $g \in \mathcal{E}|\alpha$ then, we add:   
+          \item Else, if $g \in \mathcal{E}$ then, we add:   
             \begin{equation*}
               \begin{split}
                 & \bigl\{  \{ \tilde{u} = (v,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : \text{ such either } \tilde{u} \in V_{\mathcal{H},X} \text { or } \tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
@@ -166,7 +164,10 @@ One might expect to have a differentiation between measurement in the computatio
   }
 \end{minipage}
 \end{center}
-Such intuition is right in the sense that this is the right way to keep track of the faults. Yet, later we will state \Cref{claim:replace} whose corollary is that instead of analyzing the running of the Toric encoded circuit, it is sufficient to analyze the running of a 'simpler' circuit which doesn't contain measurement in the phase base. In particular, the claim considers the circuit obtained from a given Toric encoded circuit by replacing each of the classical decoding procedures with noisy sweep-rule cycles. Then it states that to derive an upper bound on the failure probability of the original circuit, it's enough to bound the probability that the modified circuit does not admit an infinite 'time-connected cluster' (slice, \Cref{def:slice}).
+Such intuition is correct in the sense that this is the right way to keep track of the faults.
+%Yet, since immediately after any measurement a decoding is invoked, and since any connected component (of the syndrome) is handled separately, we only care about having a connected componnent below a certain size. Thus, since there is a bijiction between the connected components of a syndrom to , 
+%we care only the propagation up to measurements. 
+we will state \Cref{claim:replace} whose corollary is that instead of analyzing the running of the Toric encoded circuit, it is sufficient to analyze the running of a 'simpler' circuit which doesn't contain measurement in the phase base. In particular, the claim considers the circuit obtained from a given Toric encoded circuit by replacing each of the classical decoding procedures with noisy sweep-rule cycles. Then it states that to derive an upper bound on the failure probability of the original circuit, it's enough to bound the probability that the modified circuit does not admit an infinite 'time-connected cluster' (slice, \Cref{def:slice}).
 
 \end{remark}
 
@@ -192,13 +193,9 @@ Such intuition is right in the sense that this is the right way to keep track of
 
 
 
-\inb{\textbf{Rewrite. }} For the analyses, we would like to extend Toom's contour to record in their final layer a partial time-step, namely a computation up to a certain step \Cref{def:steps}. For this, we substitute in the definition above the Pauli-path with a Pauli-path up to a time \inb{\textbf{Prefix?}}. Moreover, since we would like to refer to the connected chain at the final layer as the 'final error clusters', we add at the end a layer whose purpose is to connect in time (by arrows) the connected components of Toom's contour in the prior layer, which are connected by checks (their union is identified with a connected chain).
 
+For the analyses, we would like to extend Toom's contour to record in their final layer a partial time-step, namely a computation up to a certain step \Cref{def:steps}. For this, we first consider Toom's contour of the partial computation circuit up to a step \Cref{def:steps}. Then, since we would like to refer to the connected chain at the final layer as the 'final error clusters', we add at the end a layer whose purpose is to connect in time (by arrows) the connected components of Toom's contour in the prior layer, which are connected by checks (their union is identified with a connected chain).
 
-
-
-
-For the analyses we would like to have the following definition: 
 \begin{definition}[Analysis Toom's Contour Up to Step $\tau$]
   For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, outcomes $\alpha$, and a step $\tau$, let $C[\mathcal{E},\alpha]_{\tau}$ be the partial computation circuit of $C[\mathcal{E},\alpha]$ up to step $\tau$. We define the \textit{analysis Toom's contour at step $\tau$} $\mathcal{H}_{\tau} = (V_{\mathcal{H}}, E_{\mathcal{H}})$ to be the graph obtained by taking the Toom's contour of $C[\mathcal{E},\alpha]_{\tau}$ and adding edges as follows:
   \begin{enumerate}
