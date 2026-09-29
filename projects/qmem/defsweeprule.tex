@@ -101,9 +101,9 @@ A full decoding cycle consists of four steps: first, applying the sweep rule reg
 We define the \textit{sweep cycle} to be the following procedure:
 \begin{enumerate}
     \item For each vertex, perform the sweep rule.
-    \item Apply the Hadamard transform $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}$ followed by the $\phi$-transpose.
+    \item Apply the Hadamard transform $\mathbf{H}^{\otimes\mathcal{F}_{d^\prime}^{n}}$ followed by the $\phi$-transpose.
     \item Again, apply the sweep rule at each vertex.
-    \item Reverse stage 2 by reordering the qubits according to the $\phi^{-1}$-transpose, and then apply the Hadamard transform $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}$.
+    \item Reverse stage 2 by reordering the qubits according to the $\phi^{-1}$-transpose, and then apply the Hadamard transform $\mathbf{H}^{\otimes\mathcal{F}_{d^\prime}^{n}}$.
 \end{enumerate}
 \end{definition}
 
