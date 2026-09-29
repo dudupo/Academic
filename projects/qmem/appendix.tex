@@ -233,7 +233,7 @@ Split into cases based on whether $v$ equals $u$.
 
 
 \subsection{Infinite Compatibility}
-Here, we provide a proof that circuits for which an $\infty$-extension is defined are $\times$-compatible. Formally:
+Here, we provide a proof that circuits for which an $\infty$-lift is defined are $\times$-compatible. Formally:
 \begin{claim} 
 \label{claim:infiequ}
   Let $C$ be quantum circuit of the form defined in \Cref{def:extension}. Then $C$ is $\infty$-compatible.
@@ -274,7 +274,7 @@ By the definition of root translation, we get that $(\hat{a}^{j} *_{r} u)_{j}$ i
   \end{equation*}
   Denote the last gate in $C$ by $u$, and by $I = \{v_{j}\}$ the collection of gates in $C^{\infty}$ to which $u$ is mapped (notice that the collection is countable). Let us split into cases, depending on whether $u$ is or is not a decoding gate.
   \begin{enumerate}
-    \item Suppose that $u$ is not a decoding gate. Let $g$ and $l$ be the gate element and the location of $u$. By the definition of $\infty$-extension, $I$ equals:
+    \item Suppose that $u$ is not a decoding gate. Let $g$ and $l$ be the gate element and the location of $u$. By the definition of $\infty$-lift, $I$ equals:
       \begin{equation*}
         \begin{split}
           I = \bigcup_{a \in \mathbb{Z}^{d}}\left\{ a * u \right\}
