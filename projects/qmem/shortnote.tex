@@ -58,13 +58,200 @@ This note examines the correctness of a proof of the 'Quantum Toom's rule' given
 \section{Introduction} 
 The quantum Toom's rule has been mentioned extensively in the literature \cite{Dennis_2002}, yet the question of the existence of a rigorously correct proof is not a consensus. One promising candidate is the work done by \cite{ahn2004extending} in her Ph.D. thesis. We emphasize that her work is meaningful and contains clever concepts regardless of whether it's correct as a whole. Yet, as recent works have been relying on her result, it becomes obligatory to understand if the 'Quantum Toom's rule', as stated by her, is indeed valid. Here, we present three counterexamples to three arguments raised in her proof. The goal of the note is to be short and aimed, and therefore the text assumes that the reader is fluent in the proof details.
 
-\section{Failing of the Disobedient $\rightarrow$ Obedient Construction}
+\section{Failure of the Disobedient-to-Obedient Construction}
 
+We first examine the conversion from a disobedient to an obedient explanation
+proposed in \cite[pp.~105--108]{ahn2004extending}. The construction is supposed to
+replace an actual error history by one satisfying the prescribed oriented
+predecessor relation, while introducing new noise sources only at time steps
+that already contain physical noise. The following example exhibits an
+obstruction to the stated sweep-and-erase procedure.
+
+Work in the four-dimensional cubic lattice, and restrict attention to the
+hyperplane $w=0$. Let $P_{ij}(x,y,z)$ denote the elementary $ij$-plaquette
+with lower corner $(x,y,z,0)$, where $i,j\in\{x,y,z\}$. All chains below
+are over $\mathbb F_2$, so addition means symmetric difference. Introduce
+three faults at time $0$:
+\begin{equation}\label{eq:three-faults}
+ a=P_{xy}(0,0,1),\qquad
+ b=P_{xz}(0,1,0),\qquad
+ c=P_{xz}(0,1,1),\qquad E_0=a+b+c.
+\end{equation}
+There are no further physical faults. Define
+\begin{equation}\label{eq:two-produced-plaquettes}
+ p=P_{yz}(1,0,0),\qquad q=P_{yz}(0,0,0).
+\end{equation}
+Let $U(E)$ be the set of plaquettes flipped by one synchronous, noiseless
+application of Ahn's rule: a plaquette is flipped if its two positive edges
+belong to $\partial E$. A direct evaluation of the syndrome gives
+\begin{equation}\label{eq:three-fault-evolution}
+ U(E_0)=a+b+c+p+q,\qquad E_1=E_0+U(E_0)=p+q,
+\end{equation}
+followed by
+\begin{equation}
+ U(E_1)=p+q,\qquad E_2=0.
+\end{equation}
+Thus a perfectly valid, noiseless decoding step creates the erroneous
+plaquette $p$, although $p$ was not erroneous previously.
+
+Consider the prescribed set of \emph{obedient predecessors} of $p$: these
+are $p$ itself and the neighbouring plaquettes that share a positive edge
+of $p$ as one of their negative edges. The positive $z$-edge of $p$
+(the edge parallel to $y$ at $z=1$) carries syndrome because of $a$;
+the positive $y$-edge of $p$ (parallel to $z$ at $y=1$) carries syndrome
+because of $b$. However, the first shared edge is a \emph{positive}
+$x$-edge of $a$, and the second is a \emph{positive} $x$-edge of $b$.
+Consequently neither $a$ nor $b$ is an obedient predecessor of $p$.
+Neither is $c$. Indeed, every permitted predecessor other than $p$
+has center $x$-coordinate at least $1$, whereas $a,b,c$ have center
+$x$-coordinate $1/2$. In particular, if $\mathcal P(p)$ denotes the
+prescribed predecessor neighbourhood,
+\begin{equation}\label{eq:no-obedient-predecessors}
+ \mathcal P(p)\cap E_0=\varnothing.
+\end{equation}
+
+Let $T=\{a,b,c,p,q\}$. These are all the plaquettes that occur either
+in the initial error or among the flips in its entire noiseless
+continuation. The stated conversion draws previous explanation cells and
+Toom-flipped cells, and subsequently \emph{erases} cells; its operations
+do not introduce any additional plaquette outside $T$. But
+\begin{equation}
+ \mathcal P(p)\cap T=\{p\},
+\end{equation}
+so at most one of the required two distinct predecessors is available.
+Moreover, $p$ cannot simply be discarded if the new explanation is
+required to reproduce the syndrome at time $1$: the edge
+\begin{equation}
+ e=\{1\}\times[0,1]\times\{0\}\times\{0\}
+\end{equation}
+belongs to $\partial E_1$, and $p$ is the only plaquette in $T$
+incident to $e$. Hence any subset of $T$ with boundary $\partial E_1$
+necessarily contains $p$. Declaring $p$ a new noise source at time $1$
+would instead introduce an obedient noise source at a time step with
+no physical noise. Thus the stated operations cannot simultaneously
+preserve the time-$1$ syndrome, provide two obedient predecessors of
+$p$, and preserve the claimed noise-time correspondence.
+
+\paragraph{Amplification.}
+Place $m$ translated copies of \eqref{eq:three-faults} at mutual
+distance at least $5$ (on a sufficiently large torus, or in the
+infinite lattice), all at the same initial time. The copies do not
+interact under the two noiseless updates above. There are exactly
+$3m$ physical faults at time $0$, no later faults, and $m$ distinct
+plaquettes $p_1,\ldots,p_m$ appearing at time $1$. For each $p_j$,
+the corresponding drawn set contains at most one permitted predecessor,
+while an edge of $\partial E_1$ forces $p_j$ to remain in any
+syndrome-preserving representative constructed from those cells.
+Thus the same obstruction occurs independently at arbitrarily many
+locations. This refutes the sufficiency of the \emph{stated conversion
+procedure}; it does not rule out a different conversion that adds
+auxiliary plaquettes and proves a new charging bound relating its
+noise sources to actual faults.
 
 \section{Dense-Collection Probability Bound Relies on an Unjustified Completion Argument}
 
-\section{Toom's Rule in Heigh Dimensions Doesn't Shrink Droplets}
+The deduction of Eq.~(7.20) in \cite[pp.~109--110]{ahn2004extending} uses the
+principle that, if every configuration in an event $A$ can be
+completed into an event $B$ by adding at most $k$ faults, then
+$\Pr(A)\le\varepsilon^{-k}\Pr(B)$. Such a conclusion does not follow
+from the existence of completions alone, even for independent noise
+of a fixed arbitrarily small rate. We give a rectangular example.
 
+Let $R$ be a rectangle containing $N$ fault locations, where
+$4\mid N$; for instance, take a $4m\times m$ rectangle, so
+$N=4m^2$. Each location is faulty independently with probability
+$\varepsilon$, where $\varepsilon=1/100$ is fixed, independently of $N$.
+Define the events
+\begin{align}
+ A&=\{\text{at least $N/4$ locations of $R$ are faulty}\},\\
+ B&=\{\text{all $N$ locations of $R$ are faulty}\}.
+\end{align}
+Every configuration in $A$ can be completed to one in $B$ by
+introducing at most $3N/4$ additional faults. Nevertheless,
+\begin{align}
+ \Pr(A)
+ &\ge {N\choose N/4}\varepsilon^{N/4}
+             (1-\varepsilon)^{3N/4},\\
+ \Pr(B)&=\varepsilon^N.
+\end{align}
+The alleged probability division would imply
+$\Pr(A)\le\varepsilon^{-3N/4}\Pr(B)=\varepsilon^{N/4}$.
+In fact,
+\begin{equation}\label{eq:completion-multiplicity}
+ \frac{\Pr(A)}{\varepsilon^{-3N/4}\Pr(B)}
+ \ge {N\choose N/4}(1-\varepsilon)^{3N/4}
+ \ge \bigl[4(1-\varepsilon)^3\bigr]^{N/4}>1.
+\end{equation}
+Here we used ${4r\choose r}\ge 4^r$ for $r=N/4$, and the
+last inequality holds at the fixed constant $\varepsilon=1/100$.
+The discrepancy grows exponentially with the area of $R$.
+
+The obstruction is multiplicity: many partially faulty configurations
+can have the same completed configuration. A valid probability
+comparison requires a specified map from original to completed
+noise histories, together with a bound on its number of preimages
+(or an equivalent weighted-counting estimate). This rectangular
+example disproves the general probability-division \emph{inference},
+not Eq.~(7.20) itself. In Ahn's geometric setting the claimed
+completion cost is $3L/4$, where $L$ is a \emph{side length}, not
+$3N/4$ for a rectangle of area $N$. Establishing that particular
+bound additionally requires the appropriate geometric completion
+and its multiplicity estimate.
+
+\section{Toom's Rule in Higher Dimensions Does Not Shrink All Droplets}
+
+In four dimensions Ahn flips a plaquette if both of its positive
+edges carry syndrome \cite[p.~105]{ahn2004extending}. For qubits on $k$-dimensional
+cells, the direct all-positive-facets extension is to flip a $k$-cell
+if all its $k$ positive $(k-1)$-facets belong to the syndrome.
+We show that this natural rule has a contractible, nonzero fixed
+point for every $k\ge3$. In particular, it fails for qubits on
+three-faces in six dimensions. The thesis does not give an equally
+explicit higher-dimensional update prescription; accordingly, the
+example applies to this natural extension rather than to every
+possible higher-dimensional decoding rule.
+
+In the six-dimensional cubic lattice with coordinates
+$(x,y,z,w,u,v)$, put qubits on three-cells and syndrome checks on
+square faces. Let
+\begin{align}
+ A&=[0,1]_x\times[0,1]_y\times[-1,0]_z,
+   &&w=u=v=0,\\
+ B&=[0,1]_x\times[0,1]_y\times[-1,0]_w,
+   &&z=u=v=0.
+\end{align}
+Their intersection is the square
+\begin{equation}
+ Q=[0,1]_x\times[0,1]_y,
+ \qquad z=w=u=v=0,
+\end{equation}
+which is a positive facet of \emph{both} cubes. For the error chain
+$E=A+B$, its syndrome $\sigma=\partial E$ does not contain $Q$,
+since the two incidences cancel over $\mathbb F_2$.
+
+Each of $A$ and $B$ therefore has only two of its three positive
+facets in $\sigma$, so neither is flipped. Nor is any other
+three-cell $C$: two distinct elementary cubes share at most one
+square facet; hence $C\notin\{A,B\}$ can have at most one positive
+syndrome facet contributed by $A$ and at most one contributed by
+$B$. In particular, it has at most two positive facets in
+$\sigma$, whereas a flip requires three. Thus the correction
+chain is empty and
+\begin{equation}\label{eq:fixed-six-dimensional-droplet}
+ U(\partial E)=0,\qquad E_t=E\quad\text{for every }t\ge0.
+\end{equation}
+The union $A\cup B$ is contractible, and $\partial E\ne0$. Hence
+this is a finite, contractible error droplet with nonzero syndrome
+that never shrinks under noiseless evolution.
+
+More generally, take two elementary $k$-cubes sharing a common
+$(k-1)$-face that is positive for both. Their common facet cancels
+from the syndrome, leaving only $k-1$ positive syndrome facets on
+each erroneous cube. Any other $k$-cube meets each of the two
+original cubes in at most one $(k-1)$-facet, so it has at most
+two positive syndrome facets. For $k\ge3$, no cell is flipped.
+The same fixed point therefore exists in every ambient dimension
+$d\ge k+1$, in particular in the $d=2k\ge6$ family.
 
 %\inb{\textbf{TODO:}}
 %\begin{enumerate}
