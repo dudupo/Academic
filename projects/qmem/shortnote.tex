@@ -1,0 +1,91 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+\documentclass[manuscript,screen,review]{acmart}
+
+\else
+ \documentclass[12pt]{extarticle}
+%\usepackage{libertine}
+\usepackage{cuted}%\usepackage{widetext}
+\input{./usepackage}
+\usepackage{cancel}
+\usepackage{tikz-3dplot}
+\usepackage{subcaption}
+\addbibresource{./sample.bib}
+
+\fi
+\usepackage{physics} 
+
+\begin{document}
+\input{newcommands}
+\title{ A Note on an Old Proof of 'Quantum Toom's Rule' }
+\author{David Ponarovsky}
+\maketitle
+
+% Constant depth fault tolerance construction.   
+\newcommand*{\xb}{\mathbf{x}}
+
+\ifdefined\SWEEPHEA
+\else 
+  \newcommand*{\SWEEPHEA}{}
+  %\newcommand{\History}[1]{\mathbf{History}(#1)}
+\newcommand{\History}[1]{H_{#1}}
+  %\newcommand{\Time}[1]{\mathbf{Time}(#1)}
+  \newcommand{\Time}[1]{T(#1)}
+  \newcommand{\Excuse}[1]{\mathbf{Excuse}(#1)}
+  \newcommand{\Excusei}[1]{\mathbf{Excuse}_{i}(#1)}
+  \newcommand{\Size}[1]{\mathbf{Size}(#1)}
+  \newcommand{\Span}[1]{\mathbf{Span}(#1)}
+  \newcommand{\pre}[1]{\text{pre}(#1)}
+  \newcommand{\poli}[1]{\text{pole}_{i}(#1)}
+  \newcommand{\prei}[1]{\text{pre}_{i}(#1)}
+  \newcommand{\predd}[1]{\text{pre}_{d+1}(#1)}
+  \newcommand{\rotf}[2]{\theta_{#1 ,#2}}
+  \newcommand*{\rotfs}{\rotf{v}{S^{\prime}}}
+  \newcommand{\rotfv}[2]{\mathbf{\rotf{#1}{#2} }}
+  \newcommand*{\rotfvs}{\mathbf{\rotfs{} }}
+\fi
+
+
+
+\begin{abstract}
+This note examines the correctness of a proof of the 'Quantum Toom's rule' given in the old thesis \cite{ahn2004extending}, written almost twenty-five years ago. Although the presented ideas seem to point in the right direction, we found gaps that undermine the solidity of the work. Here, we present three of them. In a separate accompanying paper, we provide a candidate for a correct proof of the main theorem.
+\end{abstract}
+\section{Introduction} 
+The quantum Toom's rule has been mentioned extensively in the literature \cite{Dennis_2002}, yet the question of the existence of a rigorously correct proof is not a consensus. One promising candidate is the work done by \cite{ahn2004extending} in her Ph.D. thesis. We emphasize that her work is meaningful and contains clever concepts regardless of whether it's correct as a whole. Yet, as recent works have been relying on her result, it becomes obligatory to understand if the 'Quantum Toom's rule', as stated by her, is indeed valid. Here, we present three counterexamples to three arguments raised in her proof. The goal of the note is to be short and aimed, and therefore the text assumes that the reader is fluent in the proof details.
+
+\section{Failing of the Disobedient $\rightarrow$ Obedient Construction}
+
+
+\section{Dense-Collection Probability Bound Relies on an Unjustified Completion Argument}
+
+\section{Toom's Rule in Heigh Dimensions Doesn't Shrink Droplets}
+
+
+%\inb{\textbf{TODO:}}
+%\begin{enumerate}
+%
+%
+%  \item Enter that we care only about pauli errors somewhere. 
+%  \item Rewrite the all outline. 
+%
+% % \item Define what is mean a finite chain. 
+%
+%  \item Mention that in 'applying the sweep rule on a chain', we refer to the application of the first stage of the sweep cycle. Namely, all the vertices work, yet we don't care about the dual base.
+%  \item In all the claims about chains, set $x$ to note the default chain (instead $z$ which we keep to stabilizers) 
+%  \item Change all the 'Pauli' to capital letter. 
+%  \item Add after the definition of the computation DAG, that the order $J$ has to respect time order.  
+%  %\item Enter the \textbf{Str} notation to the agreement claim. \Cref{claim:agreement}. 
+%  \item Using \Cref{claim:polesmove} in \Cref{claim:shrinkslice} needs some work in the case that the slice contains multiple connected components. 
+%\end{enumerate}
+
+
+
+\printbibliography
+
+%\input{Garbage.tex} 
+\end{document}
