@@ -48,6 +48,12 @@
   \newcommand*{\rotfs}{\rotf{v}{S^{\prime}}}
   \newcommand{\rotfv}[2]{\mathbf{\rotf{#1}{#2} }}
   \newcommand*{\rotfvs}{\mathbf{\rotfs{} }}
+  \newcommand{\F}{\mathbb F_2}
+  \newcommand{\supp}{\operatorname{supp}}
+  \newcommand{\bd}{\partial}
+  \newcommand{\red}{\operatorname{red}}
+  \newcommand{\Star}{\operatorname{Star}}
+  \newcommand{\Cx}{\operatorname{CNOT}}
 \fi
 
 
@@ -67,86 +73,115 @@ predecessor relation, while introducing new noise sources only at time steps
 that already contain physical noise. The following example exhibits an
 obstruction to the stated sweep-and-erase procedure.
 
-Work in the four-dimensional cubic lattice, and restrict attention to the
-hyperplane $w=0$. Let $P_{ij}(x,y,z)$ denote the elementary $ij$-plaquette
-with lower corner $(x,y,z,0)$, where $i,j\in\{x,y,z\}$. All chains below
-are over $\mathbb F_2$, so addition means symmetric difference. Introduce
-three faults at time $0$:
-\begin{equation}\label{eq:three-faults}
- a=P_{xy}(0,0,1),\qquad
- b=P_{xz}(0,1,0),\qquad
- c=P_{xz}(0,1,1),\qquad E_0=a+b+c.
+\subsection{Explicit surfaces in $\mathbb Z^4$}
+All cellular chains are over $\F$, and sums of faces mean symmetric differences. For $j\in\mathbb Z$, let
+\[
+ f_j=P_{xy}(0,j,0,0),\qquad
+ A_L=\sum_{j=0}^{L-1}f_j,\qquad L\ge 2.
+\]
+Here $P_{xy}(x,y,z,w)$ is the unit $xy$-face whose lower corner is $(x,y,z,w)$. The syndrome $\gamma_L=\bd A_L$ is the boundary of a $1\times L$ rectangle in the $xy$-plane, hence
+\begin{equation}\label{eq:loop}
+ |\gamma_L|=2(L+1),\qquad \Size(\gamma_L)=L+1.
 \end{equation}
-There are no further physical faults. Define
-\begin{equation}\label{eq:two-produced-plaquettes}
- p=P_{yz}(1,0,0),\qquad q=P_{yz}(0,0,0).
-\end{equation}
-Let $U(E)$ be the set of plaquettes flipped by one synchronous, noiseless
-application of Ahn's rule: a plaquette is flipped if its two positive edges
-belong to $\partial E$. A direct evaluation of the syndrome gives
-\begin{equation}\label{eq:three-fault-evolution}
- U(E_0)=a+b+c+p+q,\qquad E_1=E_0+U(E_0)=p+q,
-\end{equation}
-followed by
-\begin{equation}
- U(E_1)=p+q,\qquad E_2=0.
-\end{equation}
-Thus a perfectly valid, noiseless decoding step creates the erroneous
-plaquette $p$, although $p$ was not erroneous previously.
+The second identity uses the usual four-dimensional five-wall spatial size $\max(x+y+z+w)-\min x-\min y-\min z-\min w$ on the vertex support.
 
-Consider the prescribed set of \emph{obedient predecessors} of $p$: these
-are $p$ itself and the neighbouring plaquettes that share a positive edge
-of $p$ as one of their negative edges. The positive $z$-edge of $p$
-(the edge parallel to $y$ at $z=1$) carries syndrome because of $a$;
-the positive $y$-edge of $p$ (parallel to $z$ at $y=1$) carries syndrome
-because of $b$. However, the first shared edge is a \emph{positive}
-$x$-edge of $a$, and the second is a \emph{positive} $x$-edge of $b$.
-Consequently neither $a$ nor $b$ is an obedient predecessor of $p$.
-Neither is $c$. Indeed, every permitted predecessor other than $p$
-has center $x$-coordinate at least $1$, whereas $a,b,c$ have center
-$x$-coordinate $1/2$. In particular, if $\mathcal P(p)$ denotes the
-prescribed predecessor neighbourhood,
-\begin{equation}\label{eq:no-obedient-predecessors}
- \mathcal P(p)\cap E_0=\varnothing.
+Define the sums of unit three-cubes
+\[
+ D_z=[0,1]_x\times[0,L]_y\times[0,1]_z\times\{0\}_w,
+ \qquad
+ D_w=[0,1]_x\times[0,L]_y\times\{0\}_z\times[0,1]_w,
+\]
+with the intervals subdivided into unit cells. Set
+\begin{equation}\label{eq:ABC}
+ A=A_L,\qquad B=A+\bd D_z,\qquad C=A+\bd D_w.
 \end{equation}
 
-Let $T=\{a,b,c,p,q\}$. These are all the plaquettes that occur either
-in the initial error or among the flips in its entire noiseless
-continuation. The stated conversion draws previous explanation cells and
-Toom-flipped cells, and subsequently \emph{erases} cells; its operations
-do not introduce any additional plaquette outside $T$. But
-\begin{equation}
- \mathcal P(p)\cap T=\{p\},
-\end{equation}
-so at most one of the required two distinct predecessors is available.
-Moreover, $p$ cannot simply be discarded if the new explanation is
-required to reproduce the syndrome at time $1$: the edge
-\begin{equation}
- e=\{1\}\times[0,1]\times\{0\}\times\{0\}
-\end{equation}
-belongs to $\partial E_1$, and $p$ is the only plaquette in $T$
-incident to $e$. Hence any subset of $T$ with boundary $\partial E_1$
-necessarily contains $p$. Declaring $p$ a new noise source at time $1$
-would instead introduce an obedient noise source at a time step with
-no physical noise. Thus the stated operations cannot simultaneously
-preserve the time-$1$ syndrome, provide two obedient predecessors of
-$p$, and preserve the claimed noise-time correspondence.
+\begin{lemma}\label{lem:three}
+The three surfaces in \eqref{eq:ABC} have identical syndromes and pairwise disjoint plaquette supports:
+\[
+ \bd A=\bd B=\bd C=\gamma_L,
+ \qquad A\cap B=A\cap C=B\cap C=\varnothing.
+\]
+Moreover $|A|=L$ and $|B|=|C|=3L+2$.
+\end{lemma}
+\begin{proof}
+Since $\bd^2=0$, equality of boundaries is immediate. The bottom $xy$-side of each prism is precisely $A$, and is cancelled in $B$ or $C$. The remaining sides of $D_z$ use $xy$-faces at $z=1$, $yz$-faces at $x=0,1$, and $xz$-faces at $y=0,L$. The remaining sides of $D_w$ instead use $xy$-faces at $w=1$, $yw$-faces at $x=0,1$, and $xw$-faces at $y=0,L$. These face sets, as well as $A$, are pairwise disjoint. Each complement consists of $L+2L+2=3L+2$ faces.
+\end{proof}
 
-\paragraph{Amplification.}
-Place $m$ translated copies of \eqref{eq:three-faults} at mutual
-distance at least $5$ (on a sufficiently large torus, or in the
-infinite lattice), all at the same initial time. The copies do not
-interact under the two noiseless updates above. There are exactly
-$3m$ physical faults at time $0$, no later faults, and $m$ distinct
-plaquettes $p_1,\ldots,p_m$ appearing at time $1$. For each $p_j$,
-the corresponding drawn set contains at most one permitted predecessor,
-while an edge of $\partial E_1$ forces $p_j$ to remain in any
-syndrome-preserving representative constructed from those cells.
-Thus the same obstruction occurs independently at arbitrarily many
-locations. This refutes the sufficiency of the \emph{stated conversion
-procedure}; it does not rule out a different conversion that adds
-auxiliary plaquettes and proves a new charging bound relating its
-noise sources to actual faults.
+\subsection{Three targets, three noise layers, and a nonzero wait}
+Take four \emph{labelled} encoded registers: one source $R_0$ and three targets $R_1,R_2,R_3$. Thus ``three targets'' means four registers in total. Choose
+\[
+ G=P_{xy}(0,-1,0,0),\qquad Q=P_{xy}(0,-2,0,0).
+\]
+Use the following Pauli-error experiment (all other fault locations are absent).
+
+\begin{enumerate}
+\item \emph{First noise layer:} insert $X(G)$ in $R_0$. Broadcast by applying transversal $\Cx_{R_0\to R_i}$ for $i=1,2,3$, so each target and the source contains $G$.
+\item \emph{Second noise layer:} choose a permutation $\pi$ of $(A,B,C)$ and insert $X(F_{\pi(i)})$ on target $R_i$. There are six choices.
+\item \emph{Waiting period:} perform $l$ identical noiseless synchronous sweep updates in each register, where $1\le l<L$. The target syndrome is the same for every permutation, namely $\bd(G+A)$, so the target corrections are identical. In fact, the rule that flips a $2$-face when both positive edges carry syndrome flips precisely $f_{L-1},f_{L-2},\ldots,f_{L-l}$. Put
+\[
+ D_l=\sum_{j=L-l}^{L-1}f_j.
+\]
+The isolated $G$ in the source is flipped by its first noiseless update, leaving the source error zero.
+\item \emph{Third noise layer:} insert the fixed single-face error $X(Q)$ in $R_0$.
+\item \emph{Merge:} apply transversal $\Cx_{R_i\to R_0}$ for $i=1,2,3$, with no additional sweep operation between these three CNOTs.
+\end{enumerate}
+
+\begin{proposition}\label{prop:three}
+For all six permutations, the first-register output is the same \emph{physical} Pauli $X$-error:
+\begin{equation}\label{eq:result}
+ E_{0,\mathrm{out}}=Q+G+A+D_l+\bd D_z+\bd D_w.
+\end{equation}
+Its stabilizer-equivalence class contains the flat strip
+\[
+ S_{L,l}=\sum_{j=-2}^{L-l-1}P_{xy}(0,j,0,0),
+\]
+whose syndrome is one rectangular loop of size
+\begin{equation}\label{eq:s}
+ s=\Size(\bd S_{L,l})=L-l+3.
+\end{equation}
+In particular $s$ is independent of the permutation and the total number of registers. The fixed third-layer fault $Q$ alone cannot produce this macroscopic loop.
+\end{proposition}
+\begin{proof}
+Immediately before merging, target $R_i$ carries $G+F_{\pi(i)}+D_l$, whereas $R_0$ carries $Q$. Under $\Cx_{R_i\to R_0}$, an $X$-error on a target (the control) also appears on $R_0$. Therefore
+\[
+ E_{0,\mathrm{out}}=Q+\sum_{i=1}^3(G+F_{\pi(i)}+D_l)
+ =Q+G+(A+B+C)+D_l.
+\]
+Equation \eqref{eq:ABC} gives $A+B+C=A+\bd D_z+\bd D_w$, proving \eqref{eq:result}. Removing the two stabilizer boundaries yields $Q+G+A+D_l=S_{L,l}$. The latter is a $1\times (L-l+2)$ strip. Its boundary span is $1+(L-l+2)=L-l+3$. Its nonzero boundary forbids the physical error in \eqref{eq:result} from being a stabilizer; the single fixed $Q$ has only a unit-square syndrome.
+\end{proof}
+
+\paragraph{What is invariant under interleaved operations.}
+For any two permutations $\pi,\rho$, the errors in each target immediately after the second noise layer differ by a sum of 3-cube boundaries. Transversal CNOTs map $X$-stabilizers to products of $X$-stabilizers, deterministic syndrome-based corrections apply identical corrections to stabilizer-equivalent inputs, and adding a fixed Pauli fault to both histories preserves their equivalence. Hence the stabilizer-equivalence classes and syndromes of all labelled registers at each \emph{complete} time layer remain independent of $\pi$, even if additional fixed noise and syndrome-based corrections are placed between the merging CNOTs. Equation \eqref{eq:s}, however, is the exact span for the schedule just specified; extra corrections may shrink the output loop. The individual physical noise locations and the arrows of a fault-labelled spacetime graph need \emph{not} be invariant.
+
+\paragraph{What is and is not a slice statement.}
+The common output reduced-error \emph{geometry} is explicit; in an analysis contour that joins the final connected error chain, it has a root component of spatial size $s$. This is not a proof that the \emph{entire histories} $H_K$ or the selected rooted explanation trees are identical across permutations. In the sweep-rule manuscript, Definition~5.20 defines slices through arrow-connected histories, and Definition~5.16 lets fault locations affect arrow construction. Thus a common reduced error cannot, by itself, identify the same embedded explanation tree.
+
+\subsection{A factorial family with only logarithmic spatial span}
+The construction extends to any \emph{odd} number $K$ of targets. Choose $m$ disjoint unit 3-cubes
+\[
+ D_j=[0,1]_x\times[2j,2j+1]_y\times[0,1]_z\times\{0\}_w,
+ \qquad j=0,\ldots,m-1,
+\]
+and let $A=\sum_{j=0}^{2m-1}f_j$. For $\eta\in\{0,1\}^m$ set
+\begin{equation}\label{eq:binary}
+ F_\eta=A+\sum_{j:\eta_j=1}\bd D_j.
+\end{equation}
+There are $2^m$ distinct fault patterns, all of which satisfy $\bd F_\eta=\bd A$. Choose any odd $K\le 2^m$ of these distinct patterns, one per target, and permute them. This gives exactly $K!$ distinct labelled second-layer fault configurations. If the source carries $G$ as before and the final fixed layer carries $Q$, then, after $l$ sweeps and the same merge,
+\[
+ E_{0,\mathrm{out}}
+ =Q+\sum_{i=1}^K(G+F_{\pi(i)}+D_l)
+ \equiv Q+G+A+D_l\pmod{\operatorname{im}\bd_3},
+\]
+where the source error $G$ was erased during the wait and we used that $K$ is odd. Hence the first-register reduced geometry has span
+\[
+ s=2m-l+3.
+\]
+Taking $K=2^m-1$ and fixing $l$ gives
+\begin{equation}\label{eq:factorial}
+ \log(K!)=\Theta(K\log K)=\Theta(m2^m),\qquad s=\Theta(m).
+\end{equation}
+Thus \emph{complete labelled physical histories} cannot have a uniformly bounded preimage multiplicity $C^s$ for any constant $C$ independent of $K$. This is a correct, amplified factorial collision for a \emph{syndrome/reduced-error output map}; it is \emph{not} a proved collision for Ahn's map on minimal explanation trees.
 
 \section{Dense-Collection Probability Bound Relies on an Unjustified Completion Argument}
 
