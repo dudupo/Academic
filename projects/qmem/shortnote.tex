@@ -144,12 +144,12 @@ Immediately before merging, target $R_i$ carries $G+F_{\pi(i)}+D_l$. Under $\Cx_
 Equation \eqref{eq:ABC} gives $A+B+C=A+\bd D_z+\bd D_w$, proving \eqref{eq:result}. Removing the two stabilizer boundaries yields $G+A+D_l=S_{L,l}$. The latter is a $1\times (L-l+q)$ strip. Its boundary span is $1+(L-l+1)=L-l+2$. Its nonzero boundary forbids the physical error in \eqref{eq:result} from being a stabilizer.
 \end{proof}
 
-\paragraph{What is invariant under interleaved operations.}
-For any two permutations $\pi,\rho$, the errors in each target immediately after the second noise layer differ by a sum of 3-cube boundaries. Transversal CNOTs map $X$-stabilizers to products of $X$-stabilizers, deterministic syndrome-based corrections apply identical corrections to stabilizer-equivalent inputs, and adding a fixed Pauli fault to both histories preserves their equivalence. Hence the stabilizer-equivalence classes and syndromes of all labelled registers at each \emph{complete} time layer remain independent of $\pi$, even if additional fixed noise and syndrome-based corrections are placed between the merging CNOTs. Equation \eqref{eq:s}, however, is the exact span for the schedule just specified; extra corrections may shrink the output loop. The individual physical noise locations and the arrows of a fault-labelled spacetime graph need \emph{not} be invariant.
-
-\paragraph{What is and is not a slice statement.}
-The common output reduced-error \emph{geometry} is explicit; in an analysis contour that joins the final connected error chain, it has a root component of spatial size $s$. This is not a proof that the \emph{entire histories} $H_K$ or the selected rooted explanation trees are identical across permutations. In the sweep-rule manuscript, Definition~5.20 defines slices through arrow-connected histories, and Definition~5.16 lets fault locations affect arrow construction. Thus a common reduced error cannot, by itself, identify the same embedded explanation tree.
-
+%\paragraph{What is invariant under interleaved operations.}
+%For any two permutations $\pi,\rho$, the errors in each target immediately after the second noise layer differ by a sum of 3-cube boundaries. Transversal CNOTs map $X$-stabilizers to products of $X$-stabilizers, deterministic syndrome-based corrections apply identical corrections to stabilizer-equivalent inputs, and adding a fixed Pauli fault to both histories preserves their equivalence. Hence the stabilizer-equivalence classes and syndromes of all labelled registers at each \emph{complete} time layer remain independent of $\pi$, even if additional fixed noise and syndrome-based corrections are placed between the merging CNOTs. Equation \eqref{eq:s}, however, is the exact span for the schedule just specified; extra corrections may shrink the output loop. The individual physical noise locations and the arrows of a fault-labelled spacetime graph need \emph{not} be invariant.
+%
+%\paragraph{What is and is not a slice statement.}
+%The common output reduced-error \emph{geometry} is explicit; in an analysis contour that joins the final connected error chain, it has a root component of spatial size $s$. This is not a proof that the \emph{entire histories} $H_K$ or the selected rooted explanation trees are identical across permutations. In the sweep-rule manuscript, Definition~5.20 defines slices through arrow-connected histories, and Definition~5.16 lets fault locations affect arrow construction. Thus a common reduced error cannot, by itself, identify the same embedded explanation tree.
+%
 \subsection{A factorial family with only logarithmic spatial span}
 The construction extends to any \emph{odd} number $K$ of targets. Choose $m$ disjoint unit 3-cubes
 \[
