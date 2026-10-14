@@ -102,10 +102,10 @@ Moreover $|A|=L$ and $|B|=|C|=3L+2$.
 Since $\bd^2=0$, equality of boundaries is immediate. The bottom $xy$-side of each prism is precisely $A$, and is cancelled in $B$ or $C$. The remaining sides of $D_z$ use $xy$-faces at $z=1$, $yz$-faces at $x=0,1$, and $xz$-faces at $y=0,L$. The remaining sides of $D_w$ instead use $xy$-faces at $w=1$, $yw$-faces at $x=0,1$, and $xw$-faces at $y=0,L$. These face sets, as well as $A$, are pairwise disjoint. Each complement consists of $L+2L+2=3L+2$ faces.
 \end{proof}
 
-\subsection{Three targets, three noise layers, and a nonzero wait}
+\subsection{Three targets, two noise layers, and a nonzero wait}
 Take four \emph{labelled} encoded registers: one source $R_0$ and three targets $R_1,R_2,R_3$. Thus ``three targets'' means four registers in total. Choose
 \[
- G=P_{xy}(0,-1,0,0),\qquad Q=P_{xy}(0,-2,0,0).
+ G=P_{xy}(0,-1,0,0)
 \]
 Use the following Pauli-error experiment (all other fault locations are absent).
 
@@ -117,32 +117,31 @@ Use the following Pauli-error experiment (all other fault locations are absent).
  D_l=\sum_{j=L-l}^{L-1}f_j.
 \]
 The isolated $G$ in the source is flipped by its first noiseless update, leaving the source error zero.
-\item \emph{Third noise layer:} insert the fixed single-face error $X(Q)$ in $R_0$.
 \item \emph{Merge:} apply transversal $\Cx_{R_i\to R_0}$ for $i=1,2,3$, with no additional sweep operation between these three CNOTs.
 \end{enumerate}
 
 \begin{proposition}\label{prop:three}
 For all six permutations, the first-register output is the same \emph{physical} Pauli $X$-error:
 \begin{equation}\label{eq:result}
- E_{0,\mathrm{out}}=Q+G+A+D_l+\bd D_z+\bd D_w.
+ E_{0,\mathrm{out}}=G+A+D_l+\bd D_z+\bd D_w.
 \end{equation}
 Its stabilizer-equivalence class contains the flat strip
 \[
- S_{L,l}=\sum_{j=-2}^{L-l-1}P_{xy}(0,j,0,0),
+ S_{L,l}=\sum_{j=-1}^{L-l-1}P_{xy}(0,j,0,0),
 \]
 whose syndrome is one rectangular loop of size
 \begin{equation}\label{eq:s}
-  s=\Size{\bd S_{L,l}}=L-l+3.
+  s=\Size{\bd S_{L,l}}=L-l+2.
 \end{equation}
-In particular $s$ is independent of the permutation and the total number of registers. The fixed third-layer fault $Q$ alone cannot produce this macroscopic loop.
+In particular $s$ is independent of the permutation and the total number of registers. 
 \end{proposition}
 \begin{proof}
-Immediately before merging, target $R_i$ carries $G+F_{\pi(i)}+D_l$, whereas $R_0$ carries $Q$. Under $\Cx_{R_i\to R_0}$, an $X$-error on a target (the control) also appears on $R_0$. Therefore
+Immediately before merging, target $R_i$ carries $G+F_{\pi(i)}+D_l$. Under $\Cx_{R_i\to R_0}$, an $X$-error on a target (the control) also appears on $R_0$. Therefore
 \[
- E_{0,\mathrm{out}}=Q+\sum_{i=1}^3(G+F_{\pi(i)}+D_l)
- =Q+G+(A+B+C)+D_l.
+ E_{0,\mathrm{out}}=\sum_{i=1}^3(G+F_{\pi(i)}+D_l)
+ =G+(A+B+C)+D_l.
 \]
-Equation \eqref{eq:ABC} gives $A+B+C=A+\bd D_z+\bd D_w$, proving \eqref{eq:result}. Removing the two stabilizer boundaries yields $Q+G+A+D_l=S_{L,l}$. The latter is a $1\times (L-l+2)$ strip. Its boundary span is $1+(L-l+2)=L-l+3$. Its nonzero boundary forbids the physical error in \eqref{eq:result} from being a stabilizer; the single fixed $Q$ has only a unit-square syndrome.
+Equation \eqref{eq:ABC} gives $A+B+C=A+\bd D_z+\bd D_w$, proving \eqref{eq:result}. Removing the two stabilizer boundaries yields $G+A+D_l=S_{L,l}$. The latter is a $1\times (L-l+q)$ strip. Its boundary span is $1+(L-l+1)=L-l+2$. Its nonzero boundary forbids the physical error in \eqref{eq:result} from being a stabilizer.
 \end{proof}
 
 \paragraph{What is invariant under interleaved operations.}
