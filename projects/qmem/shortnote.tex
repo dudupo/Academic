@@ -133,7 +133,7 @@ whose syndrome is one rectangular loop of size
 \begin{equation}\label{eq:s}
   s=\Size{\bd S_{L,l}}=L-l+2.
 \end{equation}
-In particular $s$ is independent of the permutation and the total number of registers. 
+In particular, $s$ is independent of the permutation and the total number of registers. Moreover, the obedient explanation produced by Ahn's conversion algorithm is the same, regardless of the choice of $\pi$.
 \end{proposition}
 \begin{proof}
 Immediately before merging, target $R_i$ carries $G+F_{\pi(i)}+D_l$. Under $\Cx_{R_i\to R_0}$, an $X$-error on a target (the control) also appears on $R_0$. Therefore
@@ -142,7 +142,12 @@ Immediately before merging, target $R_i$ carries $G+F_{\pi(i)}+D_l$. Under $\Cx_
  =G+(A+B+C)+D_l.
 \]
 Equation \eqref{eq:ABC} gives $A+B+C=A+\bd D_z+\bd D_w$, proving \eqref{eq:result}. Removing the two stabilizer boundaries yields $G+A+D_l=S_{L,l}$. The latter is a $1\times (L-l+q)$ strip. Its boundary span is $1+(L-l+1)=L-l+2$. Its nonzero boundary forbids the physical error in \eqref{eq:result} from being a stabilizer.
+
+
+To finish, observe that all six permutations give exactly the same syndrome history in every labeled register at every complete circuit layer. Consequently, the drawing-and-erasure part of Ahn's conversion produces the same result whenever it is applied register-wise with the same initialization. Thus, the coherent explanation of the whole experiment is independent of the chosen permutation.
+
 \end{proof}
+Observes that this experiment can be easily adapted to capture the case in which a Toom's rule cycle is performed between each sequential CNOT by introducing faults immediately after that reverse the correction.
 
 %\paragraph{What is invariant under interleaved operations.}
 %For any two permutations $\pi,\rho$, the errors in each target immediately after the second noise layer differ by a sum of 3-cube boundaries. Transversal CNOTs map $X$-stabilizers to products of $X$-stabilizers, deterministic syndrome-based corrections apply identical corrections to stabilizer-equivalent inputs, and adding a fixed Pauli fault to both histories preserves their equivalence. Hence the stabilizer-equivalence classes and syndromes of all labelled registers at each \emph{complete} time layer remain independent of $\pi$, even if additional fixed noise and syndrome-based corrections are placed between the merging CNOTs. Equation \eqref{eq:s}, however, is the exact span for the schedule just specified; extra corrections may shrink the output loop. The individual physical noise locations and the arrows of a fault-labelled spacetime graph need \emph{not} be invariant.
