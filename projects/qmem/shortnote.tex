@@ -160,15 +160,15 @@ and let $A=\sum_{j=0}^{2m-1}f_j$. For $\eta\in\{0,1\}^m$ set
 \begin{equation}\label{eq:binary}
  F_\eta=A+\sum_{j:\eta_j=1}\bd D_j.
 \end{equation}
-There are $2^m$ distinct fault patterns, all of which satisfy $\bd F_\eta=\bd A$. Choose any odd $K\le 2^m$ of these distinct patterns, one per target, and permute them. This gives exactly $K!$ distinct labelled second-layer fault configurations. If the source carries $G$ as before and the final fixed layer carries $Q$, then, after $l$ sweeps and the same merge,
+There are $2^m$ distinct fault patterns, all of which satisfy $\bd F_\eta=\bd A$. Choose any odd $K\le 2^m$ of these distinct patterns, one per target, and permute them. This gives exactly $K!$ distinct labelled second-layer fault configurations. If the source carries $G$ as before, then, after $l$ sweeps and the same merge,
 \[
  E_{0,\mathrm{out}}
- =Q+\sum_{i=1}^K(G+F_{\pi(i)}+D_l)
- \equiv Q+G+A+D_l\pmod{\operatorname{im}\bd_3},
+ =\sum_{i=1}^K(G+F_{\pi(i)}+D_l)
+ \equiv G+A+D_l\pmod{\operatorname{im}\bd_3},
 \]
 where the source error $G$ was erased during the wait and we used that $K$ is odd. Hence the first-register reduced geometry has span
 \[
- s=2m-l+3.
+ s=2m-l+2.
 \]
 Taking $K=2^m-1$ and fixing $l$ gives
 \begin{equation}\label{eq:factorial}
