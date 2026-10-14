@@ -65,16 +65,10 @@ This note examines the correctness of a proof of the 'Quantum Toom's rule' given
 The quantum Toom's rule has been mentioned extensively in the literature \cite{Dennis_2002}, yet the question of the existence of a rigorously correct proof is not a consensus. One promising candidate is the work done by \cite{ahn2004extending} in her Ph.D. thesis. We emphasize that her work is meaningful and contains clever concepts regardless of whether it's correct as a whole. Yet, as recent works have been relying on her result, it becomes obligatory to understand if the 'Quantum Toom's rule', as stated by her, is indeed valid. Here, we present three counterexamples to three arguments raised in her proof. The goal of the note is to be short and aimed, and therefore the text assumes that the reader is fluent in the proof details.
 
 \section{Failure of the Disobedient-to-Obedient Construction}
-
-We first examine the conversion from a disobedient to an obedient explanation
-proposed in \cite[pp.~105--108]{ahn2004extending}. The construction is supposed to
-replace an actual error history by one satisfying the prescribed oriented
-predecessor relation, while introducing new noise sources only at time steps
-that already contain physical noise. The following example exhibits an
-obstruction to the stated sweep-and-erase procedure.
+We first examine the conversion from a disobedient to an obedient explanation proposed in \cite[pp.~105--108]{ahn2004extending}. The construction replaces errors' histories, which are explained by disobedient explanations, with ones satisfying the prescribed oriented predecessor relation, namely obedient explanations, while introducing new noise sources. Then, it's mentioned that the structure of the construction implies the existence of a constant $C$ such that the maximal number of disobedient explanations transformed into an obedient explanation, at span $s$, is at most $C^{s}$. In the following example, we give a circuit and a faults configuration for which the bound does not hold.
 
 \subsection{Explicit surfaces in $\mathbb Z^4$}
-All cellular chains are over $\F$, and sums of faces mean symmetric differences. For $j\in\mathbb Z$, let
+All cellular chains are over $\F$. For $j\in\mathbb Z$, let
 \[
  f_j=P_{xy}(0,j,0,0),\qquad
  A_L=\sum_{j=0}^{L-1}f_j,\qquad L\ge 2.
