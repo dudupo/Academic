@@ -159,6 +159,7 @@ Immediately before merging, target $R_i$ carries $G+F_{\pi(i)}+D_l$. Under $\Cx_
 \]
 Equation \eqref{eq:ABC} gives $A+B+C=A+\bd D_z+\bd D_w$, proving \eqref{eq:result}. Removing the two stabilizer boundaries yields $G+A+D_l=S_{L,l}$. The latter is a $1\times (L-l+1)$ strip. Its boundary span is $1+(L-l+1)=L-l+2$. Its nonzero boundary forbids the physical error in \eqref{eq:result} from being a stabilizer.
 
+\paragraph{}
 
 To finish, observe that all six permutations give exactly the same syndrome history in every labeled register at every complete circuit layer. In addition, since the $\bd D_{z}, \bd D_{w}$ are stabilizers, erasing any of their faces (not in $A$) turns on syndrome on their positive faces, so throughout the conversion none of them is erased. Consequently, the drawing-and-erasure part of Ahn's conversion produces the same result whenever it is applied register-wise with the same initialization. Thus, the obedient explanation of the whole experiment is independent of the chosen permutation.
 
@@ -214,7 +215,7 @@ The deduction of Eq.~(7.20) in \cite[pp.~109--110]{ahn2004extending} uses the pr
 \end{framed}
 
 
-Such a conclusion does not follow from the existence of completions alone, even for independent noise of a fixed arbitrarily small rate. We give the following example.
+Such a conclusion does not follow from the existence of completions alone. We give the following example which considers a single noise layer, where each qubit is independently faulty with probability $\varepsilon$. (So the system is equivalent to tossing independent coins).
 
 \paragraph{}
 
