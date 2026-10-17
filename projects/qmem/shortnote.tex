@@ -67,8 +67,13 @@ The quantum Toom's rule has been mentioned extensively in the literature \cite{D
 \section{Failure of the Disobedient-to-Obedient Construction}
 We first examine the conversion from a disobedient to an obedient explanation proposed in \cite[pp.~105--108]{ahn2004extending}. The construction replaces errors' histories, which are explained by disobedient explanations, with ones satisfying the prescribed oriented predecessor relation, namely obedient explanations, while introducing new noise sources. Then, it's mentioned that the structure of the construction implies the existence of a constant $C$ such that the maximal number of disobedient explanations transformed into an obedient explanation, at span $s$, is at most $C^{s}$. Her counting argument goes as follow: 
 
+
+In $d$ dimensions (with $d/2$-dimensional plaquettes), the number of plaquettes that share an edge with a given plaquette is $d-1$, and the number of edges of a plaquette is $d$, so the total number of disobedient explanations needed to be counted for a given obedient explantation of span $s$ can be at most $(( d-1) 2(d/2 -1))^{s+1}$.   
+
 %\framebox{ 
-%  In $d$ dimensions (with $d/2$-dimensional plaquettes), the number of plaquettes that shares an edge with a given plaquette is $d−1$, and the number of edges of a plaquette is $d$, so the total number of disobedient explanations needed to be counted for a given obedient explanation of span s can be at most $((d−1)·2(d/2−1))^{s+1}$.
+  %In $d$ dimensions (with $d/2$-dimensional plaquettes), the number of plaquettes that shares an edge with a given plaquette is $d−1$, and the number of edges of a plaquette is $d$,
+%In $d$ dimensions (with $d/2$-dimensional plaquettes), the number of plaquettes that share an edge with a given plaquette is $d−1$, and the number of edges of a plaquette is $d$.
+  %so the total number of disobedient explanations needed to be counted for a given obedient explanation of span s can be at most $((d−1)·2(d/2−1))^{s+1}$.
 %}
 
 We are going to contradict the counting argument. Since the counting argument doesn't use the fact that the obedient explanations don't contain extraneous nodes, its validity is supposed to remain for the algorithm obtained from omitting the refinement stage (line number (3)). So let's consider the obtained algorithm. In the following example, we give a circuit and a fault configuration for which the bound does not hold. The conclusion is that if the bound indeed holds, then the counting argument has to take advantage of the refinement procedure.
