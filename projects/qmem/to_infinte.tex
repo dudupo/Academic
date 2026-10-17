@@ -73,35 +73,48 @@ Now we are ready to give an explicit description of the mapping. Given a quantum
   Let $n$ be an integer, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with width $w$ and quantum registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ encodes a $(d,d^{\prime})- $Toric code with side at length $n$. We define the \textit{$\infty$-lift of $C$}, denoted by $C^{\infty}$, as follows:
   \begin{enumerate}
     \item Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, which it's qubits are associated with the $d^{\prime}$-dimensional faces of the infinite $d$-dimensional Toric. 
-    \item Each gate $u_{i} \in C$ is mapped to the infinite collection of gates, where the gates are obtained by either the standard translation or the rooted translation by an integer vector, depending on whether $u_{i}$ is a decoding gate as follows:
+    \item The gate $u_{i} \in C$ is mapped to an infinite collection of gates, each being a rooted translation by an integer vector, as follows:
       \begin{equation*}
         \begin{split}
           u_{i}  \mapsto  \bigcup_{ a \in \mathbb{Z}^{d} } \left\{ a *_{r} u_{i} \right\} 
         \end{split}
       \end{equation*}
   \end{enumerate}
-The restriction of the qubits in $C^{\infty}$'s registers to finite Torices with side length $n$ will be denoted by $\cdot |_{[w]}$, and it includes all the faces whose root vertex has 'powers' (the powers of $g_{1}, \ldots, g_{d}$) in the range $[0, n-1]$.
-For a set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, and measurements outcomes $\alpha \in \mathbb{F}_2^{(\cdot)}$, we denote by $C^{\infty}[\mathcal{E},\alpha]$ the \textit{$\infty$-lift of $C[\mathcal{E},\alpha]$}.
+  The restriction of the qubits in $C^{\infty}$'s registers to finite Torices with side length $n$ will be denoted by $\cdot |_{[w]}$, and it includes all the faces whose root vertex has 'powers' (the powers of $g_{1}, \ldots, g_{d}$) in the range $[0, n-1]$. For a set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, and measurements outcomes $\alpha \in \mathbb{F}_2^{(\cdot)}$, we denote by $C^{\infty}[\mathcal{E},\alpha]$ the \textit{$\infty$-lift of $C[\mathcal{E},\alpha]$}. 
+  \paragraph{ }
+Finally, we define the $\infty$-lift of a Pauli operator $P \in \mathcal{P}^{(\cdot)}$ as the result of lifting the circuit composed only of $P$, and denote it by $P^{\infty}$.
 \end{definition}
 
-\inb{\textbf{Here.}} The infinite presentation of a circuit agrees with it in terms of action.  We give without a proof an adaption of the Wrapping Lemma, proved in \cite{schumacher2004reversiblequantumcellularautomata}, that states that the action of a lifted circuit, commute with lift.. 
- Concretely, suppose that the input to the circuit $C$ is the zero state; then the actions of $C$ and its $\infty$-lift are 'equivalent' in the sense that the restriction of $C^{\infty}$'s output to $[w]$ yields the same mixed state as the output of $C$. The following provides a formal definition of that 'equivalence', which we name \textit{$\infty$-compatible}. 
-\begin{definition}
-  For a quantum circuit $C$, of the form defined in \Cref{def:extension}, and a set of faults $\mathcal{E}$, denote:
+
+
+The infinite presentation of a circuit agrees with it in terms of action. We give, without proof, an adaptation of the Wrapping Lemma, proved in \cite{schumacher2004reversiblequantumcellularautomata}.
+\begin{claim}[ Adaptation of \cite{schumacher2004reversiblequantumcellularautomata} ]
+The $\infty$-lifting is an isomorphism. In particular, consider a conditioned subjected quantum circuit $C[\mathcal{E},\alpha]$, such that it has a propagation $P_{1},P_{2},\ldots$, it holds that:
   \begin{equation*}
     \begin{split}
-      \rho & \colonequals C[\mathcal{E}] \ketbra{0}{0} C[\mathcal{E}]^{\dagger} \\
-      \rho_{\infty} & \colonequals C^{\infty}[\mathcal{E}^{\infty}]\ketbra{0}{0}\left(C^{\infty}[\mathcal{E}^{\infty}]\right)^{\dagger}
+    P_{i}^{\infty} =  (C[\mathcal{E},\alpha]|_{ i} P_{i-1})^{\infty} =   C[\mathcal{E},\alpha]|_{ i}^{\infty} P_{i-1}^{\infty} 
     \end{split}
   \end{equation*}
-  We say that a quantum circuit $C$ is \textit{$\infty$-compatible} if, for any set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, it holds that:
-  \begin{equation*}
-    \begin{split}
-      \rho =  \Trr{}_{/[w]}\left( \rho_{\infty} \right) 
-    \end{split}
-  \end{equation*}
-\end{definition}
- In the appendix, we provide a proof that any circuit as in \Cref{def:extension} is $\infty$-compatible (\Cref{claim:infiequ}).
+\end{claim}
+
+
+% Concretely, suppose that the input to the circuit $C$ is the zero state; then the actions of $C$ and its $\infty$-lift are 'equivalent' in the sense that the restriction of $C^{\infty}$'s output to $[w]$ yields the same mixed state as the output of $C$. The following provides a formal definition of that 'equivalence', which we name \textit{$\infty$-compatible}. 
+%\begin{definition}
+%  For a quantum circuit $C$, of the form defined in \Cref{def:extension}, and a set of faults $\mathcal{E}$, denote:
+%  \begin{equation*}
+%    \begin{split}
+%      \rho & \colonequals C[\mathcal{E}] \ketbra{0}{0} C[\mathcal{E}]^{\dagger} \\
+%      \rho_{\infty} & \colonequals C^{\infty}[\mathcal{E}^{\infty}]\ketbra{0}{0}\left(C^{\infty}[\mathcal{E}^{\infty}]\right)^{\dagger}
+%    \end{split}
+%  \end{equation*}
+%  We say that a quantum circuit $C$ is \textit{$\infty$-compatible} if, for any set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, it holds that:
+%  \begin{equation*}
+%    \begin{split}
+%      \rho =  \Trr{}_{/[w]}\left( \rho_{\infty} \right) 
+%    \end{split}
+%  \end{equation*}
+%\end{definition}
+% In the appendix, we provide a proof that any circuit as in \Cref{def:extension} is $\infty$-compatible (\Cref{claim:infiequ}).
 
 The computation DAG lifts naturally to the $\infty$-lift gates that arise as translates of the same local gate act on disjoint translated supports inside different periods, so they may be executed simultaneously. The same periodic lifting applies to the underlying geometric objects, passing from the finite Toric complex to its infinite cover.
 
