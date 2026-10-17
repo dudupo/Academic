@@ -250,10 +250,14 @@ Here we used ${4r\choose r}\ge 4^r$ for $r=N/4$, and the last inequality holds a
 
 \section{Toom's Rule in Higher Dimensions Does Not Shrink All Droplets}
 
-In four dimensions Ahn flips a plaquette if both of its positive
-edges carry syndrome \cite[p.~105]{ahn2004extending}. For qubits on $k$-dimensional
-cells, the direct all-positive-facets extension is to flip a $k$-cell
-if all its $k$ positive $(k-1)$-facets belong to the syndrome.
+
+In four dimensions, Ahn flips a plaquette if both of its positive edges carry a syndrome \cite[p.~105]{ahn2004extending}. For qubits on $k$-dimensional cells, the direct all-positive-facets extension is to flip a $k$-cell if all its $k$ positive $(k-1)$-facets belong to the syndrome. That is how the extension is stated in the work:
+
+\begin{frame}
+  Similarly, in $d$-dimensions, where cells are centered in $d$-dimensional solids with $(d-1)$-dimensional boundary, we can define a similar rule. Define a positive direction for each axis. For a given $d$-dimensional solid, there are $d$ faces that have more positive coordinates than the other $d$ faces. Define string as before to be placed on faces that are shared by two cells with differing values. If there is string on all plus faces, flip the value of the cell. 
+\end{frame}
+
+
 We show that this natural rule has a contractible, nonzero fixed
 point for every $k\ge3$. In particular, it fails for qubits on
 three-faces in six dimensions. The thesis does not give an equally
