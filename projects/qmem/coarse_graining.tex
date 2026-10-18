@@ -1,5 +1,111 @@
 
+
+
+
+
+
+
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+\documentclass[manuscript,screen,review]{acmart}
+
+\else
+ \documentclass[12pt]{extarticle}
+%\usepackage{libertine}
+\usepackage{cuted}%\usepackage{widetext}
+\input{./usepackage}
+\usepackage{cancel}
+\usepackage{tikz-3dplot}
+\usepackage{subcaption}
+\addbibresource{./sample.bib}
+
+\fi
+\usepackage{physics} 
+
+\begin{document}
+\input{newcommands}
+\title{ Coarse-Graining}
+\author{David Ponarovsky}
+\maketitle
+
+% Constant depth fault tolerance construction.   
+\newcommand*{\xb}{\mathbf{x}}
+
+\ifdefined\SWEEPHEA
+\else 
+  \newcommand*{\SWEEPHEA}{}
+  %\newcommand{\History}[1]{\mathbf{History}(#1)}
+\newcommand{\History}[1]{H_{#1}}
+  %\newcommand{\Time}[1]{\mathbf{Time}(#1)}
+  \newcommand{\Time}[1]{T(#1)}
+  \newcommand{\Excuse}[1]{\mathbf{Excuse}(#1)}
+  \newcommand{\Excusei}[1]{\mathbf{Excuse}_{i}(#1)}
+  \newcommand{\Size}[1]{\mathbf{Size}(#1)}
+  \newcommand{\Span}[1]{\mathbf{Span}(#1)}
+  \newcommand{\pre}[1]{\text{pre}(#1)}
+  \newcommand{\poli}[1]{\text{pole}_{i}(#1)}
+  \newcommand{\prei}[1]{\text{pre}_{i}(#1)}
+  \newcommand{\predd}[1]{\text{pre}_{d+1}(#1)}
+  \newcommand{\rotf}[2]{\theta_{#1 ,#2}}
+  \newcommand*{\rotfs}{\rotf{v}{S^{\prime}}}
+  \newcommand{\rotfv}[2]{\mathbf{\rotf{#1}{#2} }}
+  \newcommand*{\rotfvs}{\mathbf{\rotfs{} }}
+\fi
+
+%\inb{\textbf{TODO:}}
+%\begin{enumerate}
+%
+%
+%  \item Enter that we care only about pauli errors somewhere. 
+%  \item Rewrite the all outline. 
+%
+% % \item Define what is mean a finite chain. 
+%
+%  \item Mention that in 'applying the sweep rule on a chain', we refer to the application of the first stage of the sweep cycle. Namely, all the vertices work, yet we don't care about the dual base.
+%  \item In all the claims about chains, set $x$ to note the default chain (instead $z$ which we keep to stabilizers) 
+%  \item Change all the 'Pauli' to capital letter. 
+%  \item Add after the definition of the computation DAG, that the order $J$ has to respect time order.  
+%  %\item Enter the \textbf{Str} notation to the agreement claim. \Cref{claim:agreement}. 
+%  \item Using \Cref{claim:polesmove} in \Cref{claim:shrinkslice} needs some work in the case that the slice contains multiple connected components. 
+%\end{enumerate}
+
+%\input{abs.tex}
+\tableofcontents
+\newpage
+%\input{intro.tex}
+
+\input{math_notations.tex} 
+\input{time_unfolding.tex}
+
 \subsection{Time Coarse-Graining}
+
+
+
+The following claim states that for local stochastic noise, the subjection of every 1-layer is equivalent to the subjection of every $m$-layer, up to a rescaling of the noise rate. Here, by equivalence, we mean that the actions of the subjected circuits are the same\footnote{For a given input (mixed) state $\rho$, they yield the same output}. We give the proof in the appendix (see, \Cref{claim:block_noise_renorm_app}). 
+\begin{claim}
+  \label{claim:block_noise_renorm}
+  Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with rate $p$, and let $C$ be a quantum circuit whose gates have arity at most $\Delta$. Fix an even integer $c$. Then there exists a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$ with rate
+  \begin{equation*}
+    \begin{split}
+      q \colonequals \left(2^{H(\Delta^{-2c})\Delta^{2c}}p\right)^{\Delta^{-c}},
+    \end{split}
+  \end{equation*}
+  such that for any given state $\rho$ it holds that:
+  \begin{equation*}
+    \begin{split}
+      C[\mathcal{E}]_{1} \circ \rho =  C[\mathcal{E}_{q}]_{c/2} \circ \rho
+    \end{split}
+  \end{equation*}
+  In particular, up to a constant depending only on $\Delta$ and $c$, the rate $q$ behaves like $p^{\Delta^{-c}}$.
+\end{claim}
+
+
+
 
 \inb{ \textbf{ Say somthing about that we assume that the gates are uniteris, otherwise the propagation does not work. } }
 
@@ -78,3 +184,13 @@ Now, having $S \subset \operatorname{Loc}(V^{(i)})$, implies that there is a min
     \end{split}
   \end{equation*}
 \end{proof}
+
+\printbibliography
+%\input{appendix.tex}
+%\input{Garbage.tex} 
+
+
+\end{document}
+
+
+

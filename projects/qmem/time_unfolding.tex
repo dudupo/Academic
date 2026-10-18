@@ -117,24 +117,7 @@ Later, all the quantum registers will be encoded via stabilizer codes. Then, fol
   \end{equation*}
 Through this work, the sampled faults will be assumed to be Pauli.
 \end{definition}
-So, $N_{\mathcal{E}}$ defines a probability space. The set of faults $\mathcal{E}$ is an atomic outcome, and for a given circuit $C$, the subjected circuit $C[\mathcal{E}]$ is a random variable. The following claim states that for local stochastic noise, the subjection of every 1-layer is equivalent to the subjection of every $m$-layer, up to a rescaling of the noise rate. Here, by equivalence, we mean that the actions of the subjected circuits are the same\footnote{For a given input (mixed) state $\rho$, they yield the same output}. We give the proof in the appendix (see, \Cref{claim:block_noise_renorm_app}). 
-\begin{claim}
-  \label{claim:block_noise_renorm}
-  Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with rate $p$, and let $C$ be a quantum circuit whose gates have arity at most $\Delta$. Fix an even integer $c$. Then there exists a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$ with rate
-  \begin{equation*}
-    \begin{split}
-      q \colonequals \left(2^{H(\Delta^{-2c})\Delta^{2c}}p\right)^{\Delta^{-c}},
-    \end{split}
-  \end{equation*}
-  such that for any given state $\rho$ it holds that:
-  \begin{equation*}
-    \begin{split}
-      C[\mathcal{E}]_{1} \circ \rho =  C[\mathcal{E}_{q}]_{c/2} \circ \rho
-    \end{split}
-  \end{equation*}
-  In particular, up to a constant depending only on $\Delta$ and $c$, the rate $q$ behaves like $p^{\Delta^{-c}}$.
-\end{claim}
-Equipped with this claim, we are allowed to assume having constant depth cycles that don't observe faults. 
+So, $N_{\mathcal{E}}$ defines a probability space. The set of faults $\mathcal{E}$ is an atomic outcome, and for a given circuit $C$, the subjected circuit $C[\mathcal{E}]$ is a random variable.  Equipped with this notation, we are allowed to assume having constant depth cycles that don't observe faults. 
 
 \begin{definition}
   Let $C$ be a quantum circuit that contains $l$ measurements. For possible outcomes $\alpha \in \mathbb{F}^{l}_{2}$, let $C[,\alpha]$ be the circuit obtained by conditioning that $\alpha_{1},..,\alpha_{l}$ were measured. We extend the notation for the subjected circuit by denoting $C[\mathcal{E},\alpha]$ as the subjected circuit where the measurements are assumed to outcome $\alpha_{1},..,\alpha_{l}$.
