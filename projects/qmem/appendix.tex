@@ -111,9 +111,9 @@
 \inb{ \textbf{ Say somthing about that we assume that the gates are uniteris, otherwise the propagation does not work. } }
 
 
-In this section, we prove that when subjecting a circuit to local stochastic noise, changing the frequency at which we introduce the fault layers translates to rescaling the noise rate. For this purpose, we are abusing the notation "propagation" by reusing it to describe a different context.
+In this section, we prove that when subjecting a Clifford + measurements circuit to local stochastic noise, changing the frequency at which we introduce the fault layers translates to rescaling the noise rate. For this purpose, we are abusing the notation "propagation" by reusing it to describe a different context.
 \begin{definition}[Layer propagation]
-  Let $C = \{u_{i}\}_{i=1}$ be a quantum circuit. For each time coordinate $t$, write $U_{t}\colonequals C|_{t}$. The family of non-empty $t$-cuts $\{U_{t}\}_{t}$ is called the \textit{layer decomposition} of $C$.
+  Let $C = \{u_{i}\}_{i=1}$ be a quantum Clifford circuit. For each time coordinate $t$, write $U_{t}\colonequals C|_{t}$. The family of non-empty $t$-cuts $\{U_{t}\}_{t}$ is called the \textit{layer decomposition} of $C$.
 
   Let $t<t'$ be such that $U_t$ and $U_{t'}$ are non-empty and $U_s=\emptyset$ for every $t<s<t'$. The \textit{forward propagation} of the layer $U_{t}$ across the next layer $U_{t'}$ is the operation that replaces the pair $(U_{t},U_{t'})$ by a pair $(U_{t'},V_{t\to t'})$ satisfying
   \begin{equation*}
@@ -175,11 +175,11 @@ Now, having $S \subset \operatorname{Loc}(V^{(i)})$, implies that there is a min
     Hence, using the fact that $\mathcal{E}$ is an outcome of local stochastic noise channel with a noise rate $p$ we have:
   \begin{equation*}
     \begin{split}
-      \prb{S\subset \operatorname{Loc}(V^{(i)})}
+      \prb{S\subset \operatorname{Loc}(V^{(i)})} &= \sum_{\alpha}\prb{S\subset \operatorname{Loc}(V^{(i)}) | \alpha } \prb{ \alpha } \\
       &\le
-      \prb{\bigcup_{S'\in \mathcal{W}(S)}\{S'\subset \operatorname{Loc}(\mathcal{E})\}} \\
+      \sum_{\alpha}\prb{\bigcup_{S'\in \mathcal{W}(S|\alpha)}\{S'\subset \operatorname{Loc}(\mathcal{E})\}| \alpha } \prb{\alpha} \\
       &\le
-      \sum_{S'\in \mathcal{W}(S)} \prb{S'\subset \operatorname{Loc}(\mathcal{E})} \\
+      \sum_{\alpha}\sum_{S'\in \mathcal{W}(S|\alpha)} \prb{S'\subset \operatorname{Loc}(\mathcal{E}) | \alpha} \prb{\alpha} \\
       & \le { \Delta^{c}|S| \choose \Delta^{-c}|S| } p^{\Delta^{-c}|S| } \le \left(2^{H(\Delta^{-2c})\Delta^{2c}}p\right)^{|S|/\Delta^{c}}
       = q^{|S|}.
     \end{split}
