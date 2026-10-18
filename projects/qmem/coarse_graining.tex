@@ -1,0 +1,80 @@
+
+\subsection{Time Coarse-Graining}
+
+\inb{ \textbf{ Say somthing about that we assume that the gates are uniteris, otherwise the propagation does not work. } }
+
+
+In this section, we prove that when subjecting a Clifford + measurements circuit to local stochastic noise, changing the frequency at which we introduce the fault layers translates to rescaling the noise rate. For this purpose, we are abusing the notation "propagation" by reusing it to describe a different context.
+\begin{definition}[Layer propagation]
+  Let $C = \{u_{i}\}_{i=1}$ be a quantum Clifford circuit. For each time coordinate $t$, write $U_{t}\colonequals C|_{t}$. The family of non-empty $t$-cuts $\{U_{t}\}_{t}$ is called the \textit{layer decomposition} of $C$.
+
+  Let $t<t'$ be such that $U_t$ and $U_{t'}$ are non-empty and $U_s=\emptyset$ for every $t<s<t'$. The \textit{forward propagation} of the layer $U_{t}$ across the next layer $U_{t'}$ is the operation that replaces the pair $(U_{t},U_{t'})$ by a pair $(U_{t'},V_{t\to t'})$ satisfying
+  \begin{equation*}
+    \begin{split}
+      \prod_{u\in U_{t}}u\prod_{v\in U_{t'}}v
+      =
+      \prod_{v\in U_{t'}}v\prod_{w\in V_{t\to t'}}w.
+    \end{split}
+  \end{equation*}
+  The layer $V_{t\to t'}$ is called the \textit{propagation expression} of $U_{t}$ across $U_{t'}$.
+
+  More generally, if $t<t'$, the \textit{forward propagation of $U_t$ to time $t'$} is obtained by iterating the above operation through the successive non-empty cuts between times $t$ and $t'$. The resulting propagated layer is denoted by $V_{t\to t'}$ and is again called the propagation expression of $U_t$ to time $t'$. The resulting circuit has layer decomposition
+  \begin{equation*}
+    \begin{split}
+      \ldots,U_{t-1},U_t,U_{t+1},\ldots,U_{t'},U_{t'+1},\ldots
+      \mapsto
+      \ldots,U_{t-1},U_{t+1},\ldots,U_{t'},V_{t\to t'},U_{t'+1},\ldots.
+    \end{split}
+  \end{equation*}
+  After propagation we update the time coordinates so that they agree with the new layer in which each gate is applied.
+\end{definition}
+
+
+\begin{definition}[$C\sim_{P}C'$]
+  For quantum circuits $C$ and $C'$, we write $C\sim_{P}C'$ if one can be obtained from the other by a finite sequence of layer propagations.
+\end{definition}
+
+By construction, $\sim_{P}$ preserves the implemented channel. Indeed, if $C\sim_{P}C'$ and $\rho$ is any mixed state on the input register, then
+\begin{equation*}
+  \begin{split}
+    C\circ \rho = C'\circ \rho.
+  \end{split}
+\end{equation*}
+
+We state \Cref{claim:block_noise_renorm} in the language of layer propagation.
+\begin{claim}
+  \label{claim:block_noise_renorm_app}
+  Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with rate $p$, and let $C$ be a quantum circuit whose gates have arity at most $\Delta$. Fix an even integer $c$. Then there exists a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$ with rate
+  \begin{equation*}
+    \begin{split}
+      q \colonequals \left(2^{H(\Delta^{-2c})\Delta^{2c}}p\right)^{\Delta^{-c}},
+    \end{split}
+  \end{equation*}
+  such that $C[\mathcal{E}]_{1} \sim_{P} C[\mathcal{E}_{q}]_{c/2}$. In particular, up to a constant depending only on $\Delta$ and $c$, the rate $q$ behaves like $p^{\Delta^{-c}}$.
+\end{claim}
+\begin{proof}[Proof of \Cref{claim:block_noise_renorm}]
+  Partition the subjected circuit $C[\mathcal{E}]_{1}$ into consecutive blocks of $c$ layers. Inside each block, propagate all the fault layers to the end of the block and then groupping the resultd expressions together. Doing this block by block yields a new circuit $C^{\prime}$ in which each block of $c/2$ computational layers is followed by a single fault layer. Therefore $C^{\prime} = C[\mathcal{E}^{\prime}]_{c/2}$ for a suitable random fault set $\mathcal{E}^{\prime}$, and by construction: $C[\mathcal{E}]_{1} \sim_{P} C[\mathcal{E}']_{c/2}$. 
+  
+
+
+It remains to be proven that $\mathcal{E}^{\prime}$ is distributed according to a local stochastic channel. Fix one propagation expression $V^{(i)}$ and a subset $S \subset \operatorname{Loc}(V^{(i)})$. Denote by $U_{1}^{i}, \ldots, U_{c}^{i}$ the layers for which $V^{(i)}$ is their (grouped) expression. Denote the light cone of $S$ in $U_{1}^{i}, \ldots, U_{c}^{i}$ by $\Lambda(S)$. Since the fan is bounded by $\Delta$, we have that $|\Lambda(S)| \le \Delta^{c}|S|$, and any $S^{\prime} \subset \Lambda(S)$ whose propagation covers $S$ has size at least $|S^{\prime}| \ge \Delta^{-c}|S|$, and in particular contains a subset of size exactly $\Delta^{-c}|S|$.
+  
+Now, having $S \subset \operatorname{Loc}(V^{(i)})$, implies that there is a minimal $S^{\prime}$ (the minimality is regarding inclusion) such that $S^{\prime} \subset \operatorname{Loc}(\mathcal{E})$. Denote by $\mathcal{W}(S)$ the set of such minimal $S^{\prime}$'s, and observe that its size is at most:
+    \begin{equation*}
+      \begin{split}
+ |\mathcal{W}(S)| \le { \Delta^{c}|S| \choose \Delta^{-c}|S| } 
+      \end{split}
+    \end{equation*}
+    Hence, using the fact that $\mathcal{E}$ is an outcome of local stochastic noise channel with a noise rate $p$ we have:
+  \begin{equation*}
+    \begin{split}
+      \prb{S\subset \operatorname{Loc}(V^{(i)})} &= \sum_{\alpha}\prb{S\subset \operatorname{Loc}(V^{(i)}) | \alpha } \prb{ \alpha } \\
+      &\le
+      \sum_{\alpha}\prb{\bigcup_{S'\in \mathcal{W}(S|\alpha)}\{S'\subset \operatorname{Loc}(\mathcal{E})\}| \alpha } \prb{\alpha} \\
+      &\le
+      \sum_{\alpha}\sum_{S'\in \mathcal{W}(S|\alpha)} \prb{S'\subset \operatorname{Loc}(\mathcal{E}) | \alpha} \prb{\alpha} \\
+      & \le { \Delta^{c}|S| \choose \Delta^{-c}|S| } p^{\Delta^{-c}|S| } \le \left(2^{H(\Delta^{-2c})\Delta^{2c}}p\right)^{|S|/\Delta^{c}}
+      = q^{|S|}.
+    \end{split}
+  \end{equation*}
+\end{proof}
