@@ -231,6 +231,10 @@ Equivalently, if the subjected computation introduces a logical error, then at s
 The proof follows immediately from \Cref{claim:barrierconstant}, where we use the fact that the arity is bounded by $\Delta$, and therefore sequential Paulis in the step-propagation are at a Hamming distance of at most $\Delta$.
 \end{proof}
 
+\begin{remark}
+Consider the application of an iterative sweep rule over a chain whose boundary is at a size lower than $c^{\prime} n$. Since the sweep rule only decreases the size of the boundary, it is easy to see that along the application, the size of the connected component of the boundary is kept below $c^{\prime}n$. Thus, each time, the filling operator will accomplish the chain to the same codeword. In particular, we get that decoding a measurement as presented in \Cref{def:niceenc} doesn't result in a logical error, provided that each of the connected components of the boundary, prior to the broadcast, does not have a size exceeding $c^{\prime}n$.
+\end{remark}
+
 
 
 %\subsection{Drafts for that section.}
