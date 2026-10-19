@@ -20,9 +20,7 @@ Consider a $d^{\prime}$-dimensional chain on the $d$-dimensional Toric $x \in (\
   \end{equation*}
 The chain $y$ will be referred to as the minimizing cover of $x$. We extend the notation of reduced form to a $d^{\prime}$-dimensional chain on the finite complex $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, to be its translation by stabilizers that gets the minimal size. Namely, for $z \in \image \partial^{-} : (\mathcal{F}^{n}_{d^{\prime}+1}; \mathbb{F}_{2}) \rightarrow (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, the chain $x+z$ is a reduced form of $x$ if $\Size{x+z}$ is minimal among the choices of $z$.
 \end{definition}
-
-
-
+In the following, we prove that the definition of the size of chains in the finite complex respects the triangle inequality.
 \begin{claim}
   \label{clima:finitetrig}
   Let the chains $x,y \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ such that $V(x) \cap V(y) \neq \emptyset$, then: 
@@ -82,6 +80,8 @@ Then, also:
 Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain of the finite complex. Suppose that $\Size{x} < n$. Then there is a translation $x^{\prime}$ of $x$ (on the finite complex), such that $x^{\prime}$ has a minimizing cover $y \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, such that the faces of $y$ align with the finite complex. In other words, '$x^{\prime} = y$'.
 \end{claim}
 
+
+Next, we translate the fact that a chain enclosing a non-trivial loop has a size which is at least the side of the Toric.
 \begin{claim}
   \label{claim:sizenont}
 Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ closes a non-trivial loop on the Toric, then $\Size{x} \ge n - 1$.
@@ -95,6 +95,10 @@ Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ cl
   \end{equation*}
 \end{proof}
 
+
+
+
+Using the claim above, we are able to introduce the notion of filling boundaries. The following claim states that if the connected components of the boundary are all of size lower than $n$, then we can match each of them to a chain such that its boundary agrees with the component and its size is lower than the component size. That will lead us to define the filling operator (\Cref{def:connsyn}).
 \begin{claim}
   \label{claim:fillchain}
   Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain. Suppose that there is an integer $l \le n-1$ such each connected component of $\partial^{-}x$ has size $ < l$. Then there are $d^{\prime}$-dimensional chains $y_{1}, y_{2}, \ldots$ such that each $\partial^{-}y_{i}$ is a connected component of $\partial^{-}x$ and $\Size{y_{i}} \le \Size{\partial^{-}y_{i}}$.
@@ -138,6 +142,8 @@ Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dim
   Namely, $x + \sum_{i}x_{i}$ is a codeword in $\mathcal{C}_{X}/ \mathcal{C}_{Z}^{\perp}$. We define the filling operator, denoted by $[x]$, which for a given fillable chain $x$, returns the homology class (logical operator) of $x + \sum_{i}x_{i}$. Lastly, to ensure that the filling operator is canonical, fix for each $d^{\prime}-1$-dimensional chain, which is a connected component, a unique reduced $d^{\prime}$-dimensional chain. With the notations above, for each $\partial x_{i}$ fix a unique $x_{i}$.
 \end{definition}
 
+
+The following claim tracks the evolution of the connected component of the boundary (in terms of the maximal size), where the process is restricted such that in each step the chain is allowed to differ by at most a single face.
 \begin{claim}
   \label{claim:mergebyf}
   Let $x_{1},x_{2} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be $d^{\prime}$-dimensional chains, and let $l$ be an integer such the Hamming distance between $x_{1}$ and $x_{2}$ is at most $l$. Denote by $r$ the size of the maximal connected component of $\partial^{-}x_{1}$. Then the maximal size of a connected component of $\partial^{-}x_{2}$ is at most $4{ d^{\prime} \choose 2 }l(r+1) $
@@ -145,6 +151,11 @@ Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dim
 \begin{proof}
   Consider the adjacency graph (\cref{def:asontoric}) with respect to the $d^{\prime}-1$-dimensional chain $\partial^{-}x_{1}$, where each vertex is a $d^{\prime}-1$-dimensional face of $\partial^{-}x_{1}$, and each edge in the graph is a $d^{\prime}-2$ face in the intersection of two $d^{\prime}-1$-dimensional faces in $\partial^{-}x_{1}$. A $d^{\prime}$-dimensional chain contains $4{ d^{\prime} \choose 2 }$. Hence, introducing a new $d^{\prime}$-dimensional face to $x_{1}$ adds at most $4{ d^{\prime} \choose 2 }$ edges to the adjacency graph, each corresponding to a $d^{\prime}-2$ face contained in the new $d^{\prime}$-dimensional face. So introducing $l$ faces into $x^{\prime}_{i}$ adds at most $4 { d^{\prime} \choose 2 } l$ new edges, and therefore connects at most the same number of connected components in $\partial^{-}x^{\prime}_{1}$, or a connected component induced by the additional $l$ faces. Using the triangle inequality for intersecting sets (\Cref{clima:finitetrig}), we have that any connected component of $\partial^{-}x_{2}^{\prime}$ is at most $4{ d^{\prime} \choose 2 } l$ times the maximal size of a connected component of $\partial^{-}x_{1}$, namely $4 { d^{\prime} \choose 2 }l (r+1)$ (Where the $1$ in the closure stands for the connected components of a single face, each corresponding to one of the additional $l$ faces.)
 \end{proof}
+
+
+
+
+Next, we present the main claim of the section, which argues that for a sequence of chains $x_{1}, \ldots, x_{t}$, such that any two sequential chains differ by at most a single face, if $[x_{1}] \neq [x_{t}]$, then there must be an intermediate step $i$ such that $\partial^{-}x_{i}$ has a connected component with sufficiently large size. After that, we present \cref{claim:barrierconstant}, which generalizes the claim to allow sequential elements to be at a distance greater than one.
 
 \begin{claim}
   \label{claim:barrier}
@@ -215,6 +226,10 @@ Thus, for sufficiently large $n$ ,if $c < \frac{1}{M(d,d^{\prime})+1}$, we have 
   \end{equation*}
 \end{proof}
 
+
+
+
+We summarize the section with the following corollary that incorporates the above insight into an ongoing computation. Namely, changing the logical codeword implies an intermediate step with a sufficiently large connected component of the syndrome. In the computation context, the sequence of the chains is derived from the Paulis in the step-propagation of a conditioned subject circuit.
 \begin{corollary}[Barrier argument]
   \label{coro:barrier}
   Let $c^{\prime} \in (0,1)$ be the constant as defined in \Cref{claim:barrierconstant}. Let $P_{1},\ldots,P_{\tau_{f}}$ be a step-propagation of a conditioned subjected circuit $C[\mathcal{E},\alpha]$ (\Cref{def:propagation}). Assume that the arity of the gates of $C$ is bounded by $\Delta$, and that each of the registers in $C$ is encoded in the $(d,d^{\prime})$-Toric code. Denote by $R$ the number of quantum registers in $C$. For a Pauli $P_{\tau}$ in the step-propagation, denote by $x_{\tau} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})^{\otimes R}$ the $X$-component of $P_{\tau}$ and by $x_{\tau}|_{R_{j}}$ the restriction of $x_{\tau}$ to register $R_{j}$. Then, if for any step $\tau$ and for any register $R_{j}$, there is not a connected component of $\partial^{-} x_{\tau}|_{R_{j}}$ of size greater than $c^{\prime}n$, then:
