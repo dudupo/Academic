@@ -62,17 +62,17 @@ Consider a set of faults $\mathcal{E}$, and consider the representation of the s
         C[\mathcal{E}] = \sum_{\alpha} \prb{\alpha | \mathcal{E} }C[\mathcal{E}, \alpha] 
       \end{split}
     \end{equation*}
-    Thus, if $D \circ C[\mathcal{E}] \neq C$, then there is at least one outcome $\alpha$ for which $D \circ C[\mathcal{E},\alpha] \neq C$. Denote by $\tau_{f}$ the last step of $C[\mathcal{E},\alpha]$, and let $(\mathbf{P},\mathbf{a}) $ be a step-propagation of $C[\mathcal{E},\alpha]$, where $\mathbf{P} \colonequals  P_{1},P_{2},..,P_{\tau_{f}+1}$ and $\mathbf{a} \colonequals \alpha^{1}, \alpha^{2},..,\alpha^{\tau_{f}+1}$. By the barrier argument (\Cref{coro:barrier}), the event in which: 
+    Denote by $\tau_{f}$ the last step of $C[\mathcal{E},\alpha]$, and let $(\mathbf{P},\mathbf{a}) $ be a step-propagation of $C[\mathcal{E},\alpha]$, where $\mathbf{P} \colonequals  P_{1},P_{2},..,P_{\tau_{f}+1}$ and $\mathbf{a} \colonequals \alpha^{1}, \alpha^{2},..,\alpha^{\tau_{f}+1}$ (\Cref{def:propagation}). Thus, if $D \circ C[\mathcal{E}] \neq C$, then there is at least one outcome $\alpha$ for which $D \circ C[\mathcal{E},\alpha] \neq C$, namely: 
     \begin{equation*}
       \begin{split}
         D \circ C[\mathcal{E},\alpha] = D\circ P_{\tau_{f}+1} C[,\alpha^{\tau_{f}+1}]  \neq C
       \end{split}
     \end{equation*} 
-For this, one of the following two has to occur: either the decoder $D$ fails to decode $P_{\tau_{f}+1}$, or the conditioned circuit $C[,\alpha^{\tau_{f}+1}]$ deviates from the ideal circuit, namely $C[,\alpha^{\tau_{f}+1}] \neq C$. The second occurs only if, along the running, a gate-teleportation fails, meaning the decoding procedure that erases errors from the measured register failed, and therefore the gate applied following the measurement was incorrect. 
+    For this, one of the following two has to occur: either the decoder $D$ fails to decode $P_{\tau_{f}+1}$, or the conditioned circuit $C[,\alpha^{\tau_{f}+1}]$ deviates from the ideal circuit, namely $C[,\alpha^{\tau_{f}+1}] \neq C$. The second occurs only if, along the running, a gate-teleportation fails, meaning the decoding procedure that erases errors from the measured register failed, and therefore the gate applied following the measurement was incorrect. 
 
     \paragraph{} 
 
-Occurrence of both options implies that there is a connected component of either the $X$-syndrome or $Z$-syndrome of at least one of the Paulis in the propagation $P_{1},..,P_{\tau_{f}+1}$ at a size greater than $cn$ (where $c$ is the constant $c^{\prime}$ defined in \Cref{claim:barrierconstant}), and hence, the Pauli-path induced by the propagation has a connected component of the syndrome at a size at least $cn$.
+By the barrier argument (\Cref{coro:barrier}), occurrence of both options implies that there is a connected component of either the $X$-syndrome or $Z$-syndrome of at least one of the Paulis in the propagation $P_{1},..,P_{\tau_{f}+1}$ at a size greater than $cn$ (where $c$ is the constant $c^{\prime}$ defined in \Cref{claim:barrierconstant}), and hence, the Pauli-path induced by the propagation has a connected component of the syndrome at a size at least $cn$.
 
     Since connectivity by faces in the analysis of Toom's contour implies connectivity by arrows, it follows that an occurrence of that event implies the existence of a step $\tau$ such that the analysis of Toom's contour $\mathcal{H}_{\tau}$ of $C[\mathcal{E},\alpha]_{\tau}$ has a slice of size at least $cn$. So it's sufficient to prove that with probability at least $q$, for the sampled faults $\mathcal{E}$, there are no possible outcomes $\alpha$ and a step $\tau$ such that the analysis of Toom's contour $\mathcal{H}_{\tau}$ of $C[\mathcal{E},\alpha]_{\tau}$ has a slice of size at least $cn$.
     \paragraph{} 
