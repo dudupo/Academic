@@ -127,9 +127,8 @@ There might be multiple different ways to present a conditioned circuit with a c
   Consider the presentation of a conditioned circuit as a subset of gates acting on locations. For an outcome $\alpha \in \mathbb{F}_{2}^{(\cdot)}$ for which a conditional gate (for example, a $\mathbf{CCZ}$, where the control bits are conditioned on measurement outcomes) in the original circuit $C$ is mapped to a Pauli in $C[,\alpha]$, we substitute this gate with the Pauli on the target tensored with identity acting on the control locations. Thus, the order of the steps, the locations of each gate, and the computation graph of $C[,\alpha]$ are the same as for $C$ (and independent of the outcomes). We summarize this by briefly saying that the locations are invariant to the conditioning of measurements. 
 \end{remark}
 
-In our case, the conditioned circuit $C[\mathcal{E}, \alpha]$ is a Clifford circuit; in particular, it sends Paulis to Paulis. That brings us to define, for a given set of faults $\mathcal{E}$ and outcomes $\alpha$, a Pauli-path that describes the evolution of the faults through the circuit. 
 
-
+In our case, the conditioned circuit $C[\mathcal{E}, \alpha]$ is a Clifford + projections circuit; in particular, it induces a 'structured trajectory' tracking on the accumulated error. That brings us to define, for a given set of faults $\mathcal{E}$ and outcomes $\alpha$, a Pauli-path that describes the evolution of the faults through the circuit. 
 \begin{definition}[Propagation]
   \label{def:propagation}
 Let $C[\mathcal{E}]$ be a subjected quantum circuit at depth $\mu$, and let $\alpha \in \mathbb{F}_{2}^{(\cdot)}$ be a possible outcome vector for $C[\mathcal{E}]$. Suppose that $C$ is a Clifford+measurements circuit, so $C[\mathcal{E},\alpha]$ is a Clifford + projections circuit. We define the propagation through the conditioned circuit $C[\mathcal{E},\alpha]$ to be the tuple $(\mathbf{P},\mathbf{a})$ such that $\mathbf{P}$ consists of $\mu+1$ Paulis $\mathbf{P} \colonequals P_{1}, \ldots, P_{\mu+1}$ and $\mathbf{a}$ consists of $\mu+1$ outcome measurements $\mathbf{a} \colonequals \alpha^{1}, \alpha^{2}, \ldots, \alpha^{\mu+1}$ satisfying that $P_{1} = \mathcal{E}|_{1}, \alpha^{1}=\alpha$ and for any $i \in [2, \mu+1]$:
@@ -140,5 +139,9 @@ Let $C[\mathcal{E}]$ be a subjected quantum circuit at depth $\mu$, and let $\al
   \end{equation*}
 We extend the notation to step-propagation by considering the propagation of the circuit obtained from $C[\mathcal{E},\alpha]$ by flattening the circuit such that each gate is applied at the time that equals its step. 
 \end{definition}
+
+\begin{remark}
+Notice that, for two different measurement outcomes $\alpha,\alpha^{\prime}$, the conditioned $C[,\alpha]$ and $C[,\alpha^{\prime}]$ might differ also by their Clifford gates (and not only by the projections).
+\end{remark}
 
 
