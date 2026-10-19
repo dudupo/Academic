@@ -10,7 +10,7 @@ A key concept for reducing qubit overhead is to encode qubits with a high-rate q
 
 Contrary to high-rate LDPC codes, topological error codes have a geometrical image that is well understood and, as a result, a wide range of works suggest efficient realization of their logical operators. For example, consider the 3D-color code \cite{Bombín_2015}, fold-transversal gates on the surface code \cite{Breuckmann_2024}, and realization of the Clifford group on the 2D Toric \cite{guernut2024faulttolerantconstantdepthcliffordgates}.
 
-Another branch of work, whose primary goal was to show that the embedding dimension of the computation can be reduced to 2D \cite{Balasubramanian_2026}, and more recently \cite{dünnweber2026quantummemoryautonomouscomputation}, uses topological codes as the main error correction code. Those constructions simplify the hardware realization; they suggest that quantum computers can be implemented by nearest-neighbor interactions automata - what is believed to be easier to develop. Yet, as in the threshold theorem \cite{aharonov1999faulttolerant}, and in contrast to the works that use high-rate LDPC codes, they rely on a hierarchical correction cycle whose execution time grows with system size. Hence, even though those directions have the potential to overcome the non-constant depth overhead per gate, it seems that the correction cycle imposes a barrier for them to come up with a constant factor in depth-overhead construction. 
+Another branch of work, whose primary goal was to show that the embedding dimension of the computation can be reduced to 2D \cite{Balasubramanian_2026}, and more recently \cite{dünnweber2026quantummemoryautonomouscomputation}, uses topological codes as the main error correction code. Those constructions simplify the hardware realization; they suggest that quantum computers can be implemented by nearest-neighbor interactions automata - what is believed to be easier to develop. Yet, as in the threshold theorem \cite{aharonov1999faulttolerant}, and in contrast to the works that use high-rate LDPC codes, they rely on a hierarchical correction cycle whose execution time grows with system size. Hence, even though those directions have the potential to overcome the non-constant depth overhead per gate, it seems that the correction cycle imposes a barrier for them to come up with a constant factor in the total depth-overhead. 
 
 \subsection{Stating Our Results}
 %\paragraph{Fault Tolerance Using the 4D-Toric, Without Hierarchical Correction.}
@@ -29,7 +29,7 @@ The computation model we consider is quantum circuits subject to \textit{local-s
 
 For circuits $\tilde{C}$ and $C$, we say that $\tilde{C}$ simulates $C$ with probability $p$ if, when one stops a noisy run of $\tilde{C}$ at a midpoint, one can, with probability $p$, recover by non-noisy operation an 'image' of a midpoint in the running of $C$, and if stopping at the last time point of $\tilde{C}$ enables recovery of the 'image' of $C$ at the end of its run. We state our main theorem as follows:
 \begin{theorem*}[Informal version of \Cref{theorem:main}]
-  There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, a quantum circuit $C$ with depth $\mu$ and width $w$, and a big enough integer $n$, there exists a 'logical equivalence' circuit $\tilde{C}$ with depth $\Theta(\mu n^{5})$ and width $\Theta((w + \mu) n^{8} \text{Polylog} (n) )$ that simulates $C$ with probability:
+  There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, a quantum circuit $C$ with depth $\mu$ and width $w$, and a big enough integer $n$, there exists a 'logical equivalence' circuit $\tilde{C}$ with depth $\Theta(\mu n)$ and width $\Theta((w + \mu) n^{8} \text{Polylog} (n) )$ that simulates $C$ with probability:
 \begin{equation*}
   \begin{split}
     1 -   O \left( \text{poly}(w,\mu,n) \right)  p^{\Omega(n)} 
@@ -41,7 +41,7 @@ Furthermore, $\tilde{C}$ has the following two properties:
   \item An error correction cycle takes $O(1)$ depth, and the gates in each correction cycle don't depend on time. In particular, if $C$ is the identity circuit, then after the initialization stage, the layers in $\tilde{C}$ are the same constant-depth error reduction procedure.
 \end{enumerate}
   \end{theorem*} 
-  As mentioned earlier, both code simplicity and constant depth have already been achieved: the former as part of the quantum automation line of work, and the latter through the use of high-rate error correction codes. However, this is the first construction to achieve both simultaneously. %\Cref{fig:comapreresults} summarizes and compares the different works:
+As mentioned earlier, both code simplicity and error correction cycles at constant depth have already been achieved: the former as part of the quantum automation line of work, and the latter through the use of high-rate error correction codes. However, this is the first construction to achieve both simultaneously. %\Cref{fig:comparereresults} summarizes and compares the different works:
 
 
 %\newcommand{\tcite}[1]{\hfill\cite{#1}}
@@ -66,22 +66,31 @@ Furthermore, $\tilde{C}$ has the following two properties:
 %    \caption{\label{fig:comapreresults} Comparing different types of works on fault-tolerance. }
 %  \end{table}
 
-  \paragraph{Clifford-free Depth Overhead.}  An application that results from a slight modification of the main construction and its proof is a fault-tolerant construction that introduces a constant depth overhead per Clifford gate. We name that construction \textit{Clifford-free Depth Overhead}. \Cref{section:cliffordfree} describes the construction, proves external claims that are needed, and eventually elaborates on how to modify the proof of the main theorem to achieve the desired result.
-
-  \begin{theorem*}[Informal version of \Cref{theorem:cliffordfree}]
-    There exists a constant $ p_{0} \in (0,1) $ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $ p < p_{0} $, and a Clifford+$\mathbf{T}$ quantum circuit $ C $ with depth $\mu$, $\mathbf{T}$-depth $\mu_{\mathbf{T}}$ and width $ w $, there exists a 'logical equivalence' circuit $\tilde{C}$, with depth $ \Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{5}) $ and width $\Theta((w + \mu) n^{8} \text{Polylog} (n) )$ that simulates $ C $ with probability:
-\begin{equation*}
-  \begin{split}
-    1 -   O \left( \text{poly}(w,\mu,n) \right)  p^{\Omega(n)} 
-  \end{split}
-\end{equation*}
-  \end{theorem*} 
+%  \paragraph{Clifford-free Depth Overhead.}  An application that results from a slight modification of the main construction and its proof is a fault-tolerant construction that introduces a constant depth overhead per Clifford gate. We name that construction \textit{Clifford-free Depth Overhead}. \Cref{section:cliffordfree} describes the construction, proves external claims that are needed, and eventually elaborates on how to modify the proof of the main theorem to achieve the desired result.
+%
+%  \begin{theorem*}[Informal version of \Cref{theorem:cliffordfree}]
+%    There exists a constant $ p_{0} \in (0,1) $ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $ p < p_{0} $, and a Clifford+$\mathbf{T}$ quantum circuit $ C $ with depth $\mu$, $\mathbf{T}$-depth $\mu_{\mathbf{T}}$ and width $ w $, there exists a 'logical equivalence' circuit $\tilde{C}$, with depth $ \Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{5}) $ and width $\Theta((w + \mu) n^{8} \text{Polylog} (n) )$ that simulates $ C $ with probability:
+%\begin{equation*}
+%  \begin{split}
+%    1 -   O \left( \text{poly}(w,\mu,n) \right)  p^{\Omega(n)} 
+%  \end{split}
+%\end{equation*}
+%  \end{theorem*} 
 
   \paragraph{Sweep-rule in High Dimensions.} 
   The correction cycle in our construction consists of local operations done in parallel. Concurrently, any vertex of the Toric is thought of as a computation unit that has to decide on a correction to be applied over its local neighborhood. The specific procedure it runs is the sweep-rule, a generalization of Toom's rule invented by Kubica and Preskill \cite{Kubica_2019}. The sweep-rule can be sketched informally as follows: The vertex looks for a subset of bits to flip on its 'first quarter'\footnote{or the positive direction}, such that the flipping erases the syndrome that is seen on the 'first quarter' and all the bits to be flipped are supported on vertices that support the local syndrome. If there is such a subset of bits, then the vertex flips the bits. In \cite{Kubica_2019}, it is argued that for small dimensions, any vertex that sees only syndrome on its 'first quarter' has a subset of bits to be flipped that satisfy the sweep-rule requirement. Moreover, the authors conjectured that this is also true for higher dimensions. We prove their conjecture; furthermore, we give an explicit algorithm for finding the subset. We refer to the outline section for an elaborated discussion.
  
 
-
+  \paragraph{Sweep-rule as Ideal Decoder Against Local Stochastic Noise.} 
+The sweep rule was initially introduced as a local decoder with a provable threshold \cite{Kubica_2019} against independent noise. Our final contribution is extending that result to local stochastic noise. We prove the following theorem:
+\begin{theorem*}[ Informal version of \Cref{theorem:idealdec} ] 
+    There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, and a quantum state $\rho = \mathcal{N}_{\mathcal{E}}(\ket{\psi})$, where $\ket{\psi}$ is a codeword of the $(d,d^{\prime})$-Toric code, the application of $2dn^{2d+1}$ (ideal) sweep-cycles on $\rho$ results in $\ket{\psi}$ with probability at least:
+\begin{equation*}
+  \begin{split}
+    1 -   O \left( \text{poly}(n) \right)  p^{\Omega(n)} 
+  \end{split}
+\end{equation*}
+  \end{theorem*} 
 
 \subsection{Discussions, Applications, and Further Directions}
 Our result can be understood as follow: when the qubit overhead is not a consideration, it means that the 4D Toric code is might be as good as the good quantum LDPC / Hyperproduct code. That translates to the two following applications: 
@@ -90,7 +99,8 @@ Our result can be understood as follow: when the qubit overhead is not a conside
     \item Memory/Storage components: Protecting a 4D Toric encoded state for an exponentially long time is achieved by performing the same operation at each time unit, suggesting that the 4D Toric code is a promising candidate for memory in the circuit model. Combined with the fact that the 4D Toric code also functions as memory in thermal noise models \cite{alicki2008thermalstabilitytopologicalqubit}, and given its relative simplicity, it appears to be a natural choice for real-world memory applications. We emphasize that an experimental usage of codes in four dimensions has already been demonstrated \cite{aasen2025topologicallyfaulttolerantquantumcomputer}, \cite{Berthusen_2024}, \cite{reichardt2024demonstrationquantumcomputationerror}.
 \end{enumerate}
 
-
+\paragraph{Acknowledgment and AI disclosure.} 
+The author thanks Prof. Michael Ben-Or for countless consultation sessions, guided supervision, and generous funding. Chat-GPT, in various versions, assisted in writing the paper, checking proofs, and served as a partner for brainstorming. The core ideas in this paper were invented by the author, and he takes full responsibility for the written content.
 
 
 
@@ -99,7 +109,7 @@ Our result can be understood as follow: when the qubit overhead is not a conside
 In studying fault tolerance, the typical method is to first distinguish between configurations that can be tolerated and those that cannot. For example, in von Neumann-style proofs \cite{Neumann+1956+43+98}, it is common to track the number of flipped bits; if fewer than half are flipped, the logical states can be recovered. In the work of Aharonov and Ben-Or \cite{aharonov1999faulttolerant}, a logical bit at the $n$ level admits a logical error if at least a constant fraction of the $n-1$ level logical bits that compose it admit an error. In the work of \cite{grospellier:tel-03364419}, a tolerated configuration is one in which all encoded registers can be considered as distributed according to sufficiently weak local stochastic noise. The next step is to show that from a tolerated configuration, we move with high probability to another tolerated configuration. For our goals, each approach presents a challenge: The concatenation method, by definition, requires non-trivial depth computation at each step. Tracking the number of flipped bits fails almost immediately, as topological error correction codes have sublinear distance when a linear number of bits is expected to be flipped. And preserving the local stochastic noise distribution seems to heavily rely on the expansion properties \cite{grospellier:tel-03364419} of the underlying structure, where for topological codes, we expect to forge a 'spatial' dependence.
 
 
-In  contrast, Berman and Simon provided a proof that, instead of tracking the dynamics, considers the entire run as a possible outcome, ruling out improbable runs only at the end \cite{Berman}. We outline their idea informally as follows: a logical bit is represented by $n \times n$ bits set on the vertices of the grid. In each correction cycle, the bits determine their value by taking the majority of their current value, and their north and east neighbors values, a rule known as Toom's rule. For simplicity, let's ignore the logical operations. Now, given a run, and in particular the set of space-time locations of faults, consider the following directed graph $\mathcal{H} \colonequals (V_{\mathcal{H}}, E_{\mathcal{H}})$ induced by it: 
+In contrast, Berman and Simon provided a proof that, instead of putting the focus on the fault-tolerant gadgets and analyzing their functionality in turn, focuses on characterizing the history that led to a certain error \cite{Berman}. We outline their idea informally as follows: a logical bit is represented by $n \times n$ bits set on the vertices of the grid. In each correction cycle, the bits determine their value by taking the majority of their current value, and their north and east neighbors values, a rule known as Toom's rule. For simplicity, let's ignore the logical operations. Now, given a run, and in particular the set of space-time locations of faults, consider the following directed graph $\mathcal{H} \colonequals (V_{\mathcal{H}}, E_{\mathcal{H}})$ induced by it: 
 \begin{enumerate}
   \item If at time $t$, the bit at vertex $v$ diverges relative to the ideal run, then add $(v,t)$ to the vertices. 
   \item If at time $t$, vertex $v$ 'leads' one of its neighbors $u$ to diverge, then connect $(v,t)$ and $(u,t+1)$ by an 'arrow'. 
@@ -155,17 +165,21 @@ Since different leaves (faults) of Toom's contour might be associated with the s
 See \Cref{subsection:infinitetoric} for embedding into the infinite plane, \Cref{subsection:shrink} for the proof of shrinking, and \Cref{subsection:separator} for the claim about the existence of a sufficient subgraph. 
 
 
-\paragraph{The Intermediate Argument.}
+\paragraph{The Barrier Argument.}
 %\label{subsection:internediate}
-Now that we have the code and decoder, the next difference we have to address is how to classify an error. Unlike the classical regime, flipping a stabilizer's qubits doesn't count as a fault. Moreover, the sweep-rule discussed above doesn't shrink stabilizers (as it acts trivially on them). Therefore, we need to redefine what is considered a divergence from the ideal computation. To overcome it, we define the reduced form of an error to be its translation by stabilizer that minimizes the 'perimeter' of the bounding triangle. Then we prove that the poles of the error in it's reduced coalesce with the poles of the syndrome it induces. In particular, the proof that the sweep-rule shrinks an error (\Cref{subsection:shrink}) assumes that the given error is in its reduced form. As a result, instead of defining the vertices of Toom's contour graph to be the flipped vertices as in \cite{Berman}, we define them to be qubits\footnote{In fact: vertices on the qubits' support, see \Cref{subsection:toricencoded}.} in the reduced form of the error.
+Now that we have the code and decoder, the next difference we have to address is how to classify an error. Unlike the classical regime, flipping a stabilizer's qubits doesn't count as a fault. Moreover, the sweep-rule discussed above doesn't shrink stabilizers (as it acts trivially on them). In particular, the proof that the sweep-rule shrinks an 'error' (\Cref{subsection:shrink}) actully shows that the sweep-rule shrinks the 'perimeter' of the bounding triangle of the syndrom induced by the error.
 
-We then face another challenge: if we analyze Toom's contour, which is induced by the single time unit running consisting of flipping all the qubits at once, then in the layer following the fault cycle, even though the error contains many qubits, its reduced form is empty. In the language of Toom's contour, as will be defined later, the Toom's contour is empty, and no bounds on the event's probability to occur can be inferred using it. 
-More generally, there is a threshold, such that for errors exceeding that threshold, one cannot restore the history of the error. In fact, the threshold is far lower than flipping all the qubits and matching errors that close a non-trivial cycle.
 
-We address this by introducing an analysis framework where all computation, including faults, is imagined to occur sequentially — in steps. Within this framework, we can prove an \textit{intermediate claim} stating that on the path to an error configuration closing a non-trivial cycle, one must pass through a step with an error where the 'perimeter' its reduced form is large. Thus, a sufficient condition for a logical error to occur in some time unit is the existence of a step with a reduced error that is large.  
-Moreover, having such a step implies the existence of a step for which it happens for the first time, meaning that prior to that, no error has closed a non-trivial cycle, the sweep-rule worked as it should, and a Toom's contour describing the history of the error can be constructed. Thus, an upper bound on the probability of the condition can be derived. In the proof of the theorem, we show that this condition happens with negligible probability. To elaborate on the issue, we first need to present the computation model.
+Now that we have the code and decoder, the next difference we have to address is how to classify an error. Unlike the classical regime, flipping a stabilizer's qubits doesn't count as a fault. Moreover, the sweep-rule discussed above doesn't shrink stabilizers (as it acts trivially on them). In particular, the proof that the sweep-rule shrinks an 'error' (\Cref{subsection:shrink}) actually shows that the sweep-rule shrinks the 'perimeter' of the bounding triangle of the syndrome induced by the error. As a result, instead of defining the vertices of Toom's contour graph to be the flipped vertices as in \cite{Berman}, we define them to be qubits\footnote{In fact: vertices on the qubits' support, see \Cref{subsection:toricencoded}.} that see unsatisfied checks.
 
-We model a noisy running of a given circuit $C$ as follows: first, we sample space-time locations for the faults and denote the outcome by $\mathcal{E}$. Then, we impose layers of computation alternately, such that the even and odd layers are taken from $\mathcal{E}$ and $C$ according to their order. The combination of the circuit $C$ with a subset of faults $\mathcal{E}$ defines a possible running, and we call it a subjection of $C$ to $\mathcal{E}$ and denote it by $C[\mathcal{E}]$. Furthermore, we showed in \Cref{claim:block_noise_renorm} that for a local-stochastic noise model, unbalancing partition to noisy and logical layers, for example placing a noisy layer after every three logical layers of $C$, is equivalent to odd-even alternations up to a rescaling of the noise rate (by a constant). We use that since the error correction cycle of the sweep rule takes more than a single layer.
+We then face another challenge: if we analyze Toom's contour, which is induced by the single time unit running consisting of flipping all the qubits at once, then in the layer following the fault cycle, even though the error contains many qubits, its syndrome is empty. In the language of Toom's contour, as will be defined later, the corresponding Toom's contour is empty, and no bounds on the event's probability to occur can be inferred using it. 
+More generally, there is a threshold, such that for errors exceeding that threshold, one cannot restore the history of the error. In fact, the threshold is might be far lower than flipping all the qubits and matching errors that close a non-trivial cycle.
+
+
+We address this by introducing an analysis framework where all computation, including faults, is imagined to occur sequentially—in steps. Within this framework, we can prove a \textit{barrier claim} stating that on the path to an error configuration closing a non-trivial cycle, one must pass through a step with an error where the 'perimeter' of its\footnote{In fact, 'perimeter' of one of the connected components of the syndrome.} syndrome is large. Thus, a sufficient condition for a logical error to occur in some time unit is the existence of a step with a syndrome that is sufficiently large.  
+Moreover, having such a step implies the existence of a step for which it happens for the first time, meaning that prior to that, no error has closed a non-trivial cycle, the sweep-rule worked as it should, and a Toom's contour describing the history of the error can be constructed. Thus, an upper bound on the probability of the condition can be derived. In the proof of the main theorem, we show that this condition happens with negligible probability. To elaborate on the issue, we first need to present the computation model.
+
+We model a noisy running of a given circuit $C$ as follows: first, we sample space-time locations for the faults and denote the outcome by $\mathcal{E}$. Then, we impose layers of computation alternately, such that the even and odd layers are taken from $\mathcal{E}$ and $C$ according to their order. The combination of the circuit $C$ with a subset of faults $\mathcal{E}$ defines a possible running, and we call it a subjection of $C$ to $\mathcal{E}$ and denote it by $C[\mathcal{E}]$. %Furthermore, we showed in \Cref{claim:block_noise_renorm} that for a local-stochastic noise model, unbalancing partition to noisy and logical layers, for example placing a noisy layer after every three logical layers of $C$, is equivalent to odd-even alternations up to a rescaling of the noise rate (by a constant). We use that since the error correction cycle of the sweep rule takes more than a single layer.
 
 
 \input{./tikz/circdag.tikz}
@@ -174,10 +188,10 @@ The problem is that a single fault layer (i.e., a layer whose source is in $\mat
 Here comes the splitting of the computation into steps to advantage. In each step, only one gate or one fault is applied, and steps are ordered such that they agree with the computation. Figure \ref{fig:examplecirc} illustrates a quantum circuit and a graph of steps corresponding to it.
 
 
-Since the gates and the faults have a bounded fan-in/out\footnote{The faults are bounded-fan because we can assume that in the time units representation they are Pauli products and therefore in the steps presentation they are decomposed into single qubit Pauli matrices.} In each step, the maximal size of an error cluster can increase by at most a constant factor, with the maximal increase occurring when multiple clusters are merged. Equipped with that insight, we are able to infer the intermediate argument. 
+Since the gates and the faults have a bounded fan-in/out\footnote{The faults are bounded-fan because we can assume that in the time units representation they are Pauli products and therefore in the steps presentation they are decomposed into single qubit Pauli matrices.} In each step, the maximal size of syndrome cluster can increase by at most a constant factor, with the maximal increase occurring when multiple clusters are merged. Equipped with that insight, we are able to infer the barrier argument. 
 
 
-\Cref{subsection:model} formalize the computation model and the computation graph presentation (splitting to steps). In addition, see \Cref{claim:intersyn} for the formal proof of the intermediate argument. 
+\Cref{subsection:model} formalize the computation model and the computation graph presentation (splitting to steps). In addition, see \Cref{claim:barrier} for the formal proof of the barrier argument. 
 
 \paragraph{Description of the Construction.}
 Similarly to other fault tolerance approaches, we use the concatenation construction \cite{aharonov1999faulttolerant} in order to initialize zeros and resource states encoded in the 4D-Toric code, as referred to in \cite{grospellier:tel-03364419}, \cite{gottesman2014faulttolerant}. From there, we assume that all the quantum registers are encoded in the 4D-Toric code, and we name each of the encoded block a quantum register. The resources states are spread across two registers.
@@ -187,30 +201,33 @@ Then, after the initialization step, the logical cycles are divided into error c
 
 The general realization by gate teleportation is done as follows: first, we XOR the target state into a resource state via $\mathbf{CX}$, measure the input state and the first register of the resource state with a Bell measurement, the input register in the $X$ basis, and the first register of the resource state in the $Z$ basis. Then, on the classical outcomes, run a classical decoding procedure to extract the logical codeword. Meanwhile, on the second register of the resource, which is intended to contain the result of the action, perform a sweep cycle. At the end of the decoding, depending on the result, we apply either a transversal Pauli operator or the $\mathbf{S}$ gate (again by teleportation) depending on the original gate that was asked to simulate. The gate teleportation lasts for multiple logical cycles, depending on the depth required by the classical decoding procedure.
 
+We emphasize that for measuring the input register in the $X$-basis, we apply the Hadamard through its fold-transversal realization \cite{Breuckmann_2024}, so the measurement is done in constant depth. However, the reason we don't implement the Hadamard by fold-transversal from the beginning is that, in the standard usage (not as a component of gate teleportation), it introduces an expansion in the bounded triangle.
 
-We emphasize that for measuring the input register in the $X$-basis, we apply the Hadamard through its fold-transversal realization \cite{Breuckmann_2024}, so the measurement is done in constant depth. However, the reason we don't implement the Hadamard by fold-transversal from the beginning is that it introduces an expansion in the bounded-triangle by the fold-transversal realization. Since it guarantees that after the measurement the register will not observe more faults, we can tolerate a one-time blowup in the size of the error and still be able to decode the logical state in the register correctly. Yet, for the Clifford-free depth overhead, we do use the fold-transversal implementation followed by sufficiently many followed sweep-cycles. As a result, we stretch the depth of the basic logical layer, which in turn comes into effect by a lower threshold for the noise rate.
+%Since it guarantees that after the measurement the register will not observe more faults, we can tolerate a one-time blowup in the size of the error and still be able to decode the logical state in the register correctly. 
+
+%Yet, for the Clifford-free depth overhead, we do use the fold-transversal implementation followed by sufficiently many followed sweep-cycles. As a result, we stretch the depth of the basic logical layer, which in turn comes into effect by a lower threshold for the noise rate.
 
 In \Cref{subsection:logical}, we discuss in detail the structures of the logical codeword of the $(d,d^{\prime})$-Toric code and the realization of its logical gates.
 
 
 \paragraph{Toom's Contours.} 
-A sufficiently simple definition of Toom's contours in \cite{Berman} would be a directed graph that describes a noisy run with the additional marking of diverged bits. In our case —the quantum case— the vertices of Toom's contour are neither bits nor checks; instead, they are the vertices on the Torices that 'diverged'. A proper conceptual definition would be:
+A sufficiently simple definition of Toom's contours in \cite{Berman} would be a directed graph that describes a noisy run with the additional marking of diverged bits. In our case—the quantum case—the vertices of Toom's contour are neither bits nor checks; instead, they are the vertices on the torices that see the 'diversion'. A proper conceptual definition would be:
 \begin{center}
 \begin{minipage}{0.75\textwidth}
   \textit{
-A graph that describes a noisy run from the Torices' perspective. In particular, the vertices of the graph are the vertices of the Torices, equipped with a time coordinate, that witness a faulty qubit in a reduced form.
+A graph that describes a noisy run from the Torices' perspective. In particular, the vertices of the graph are the vertices of the Torices, equipped with a time coordinate, that witness a syndrome.
   }
 \end{minipage}
 \end{center}
-We adjust their construction as follows: Denote the graph by $\mathcal{H} \colonequals (V_{\mathcal{H}}, E_{\mathcal{H}})$ and by $P_{1},..,P_{t}$ a \textit{Pauli-path}, such that $P_{i}$ is the propagated error up to time $i$ (including faults that occur at that time), and each 'cluster' of error in $P_{i}$ is in its reduced form. Then,
+We adjust their construction as follows: Denote the graph by $\mathcal{H} \colonequals (V_{\mathcal{H}}, E_{\mathcal{H}})$ and by $P_{1},..,P_{t}$ a \textit{Pauli-path}, such that $P_{i}$ is the propagated error up to time $i$ (including faults that occur at that time). Then,
 \begin{enumerate}
-  \item  If at time $t$, a vertex $v$ on one of the Toric complexes\footnote{Actually the infinite grid.} corresponding to one of the quantum registers supports a face -qubit- that belongs to a reduced error, then add $(v,t)$ to the vertices.
-  \item If at time $t$, vertex $v$ belongs to a reduced error, and at time $t+1$ its neighbor $u$ belongs to a reduced error, then we think of the situation as '$v$ "leads" to $u$' and connect $(v,t)$ and $(u,t+1)$ with an "arrow." The vertices $v$ and $u$ might belong to different registers (which matches the case that at time $t$ we apply an operator on both registers). For convenience, we don't require $u$ at time $t$ to belong only to non-faulty qubits.
+  \item  If at time $t$, a vertex $v$ on one of the Toric complexes\footnote{Actually the infinite grid.} corresponding to one of the quantum registers supports a face -qubit- that belongs to the syndrome, then add $(v,t)$ to the vertices.
+  \item If at time $t$, vertex $v$ belongs to a syndrome, and at time $t+1$ its neighbor $u$ belongs to a syndrome, then we think of the situation as '$v$ "leads" to $u$' and connect $(v,t)$ and $(u,t+1)$ with an "arrow." The vertices $v$ and $u$ might belong to different registers (which matches the case that at time $t$ we apply an operator on both registers). For convenience, we don't require $u$ at time $t$ to belong only to non-faulty qubits.
   \item As in the classical case, connect any two vertices in $V_{\mathcal{H}}$ that are connected to a third by 'arrows' with a 'fork'.
 \end{enumerate}
 
 \input{./tikz/toomscontours.tikz}
-Later, we incorporate the 'splitting into turns' idea into the formation of Toom's counter $\mathcal{H}$-graphs, by gluing the layers corresponding to the first $t-1$ layers with a final layer that matches a partial execution of the $t$th time unit. The layer encodes the situation of the running up to a certain step. Then, combining with the intermediate theorem, we have that any running that admits a logical error derives a Toom's contour, with sufficiently large vertices at final layer. 
+Later, we incorporate the 'splitting into turns' idea into the formation of Toom's counter $\mathcal{H}$-graphs, by gluing the layers corresponding to the first $t-1$ layers with a final layer that matches a partial execution of the $t$th time unit. The layer encodes the situation of the running up to a certain step. Then, combining with the barrier argument, we have that any running that admits a logical error derives a Toom's contour, with sufficiently large vertices at final layer. 
 
 
 The rest of the analysis follows \cite{Berman}. We define \textit{slices} at time $t$ to be connected (by arrows) components of vertices at time $t$. Then, in the merging of two slices into one, it is guaranteed that faults induced by each are disjoint; otherwise, those two slices will be connected by arrows, namely - the same slice. For a \textit{slice}, we define its size to be the perimeter of the triangle that would bound the vertices of the slice if they were projected on the same Toric. Then, by induction, we prove that Toom's contour that induces at time $t$ a slice with size $s$ has a spanning tree with at most and at least a constant times $s$ edges and leaves (and therefore faults). That allows us to bound the probability of such a slice occurring by counting the number of possible spanning trees and assigning them the probability that the minimal number of faults occurs.

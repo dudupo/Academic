@@ -106,211 +106,136 @@
 %\end{proof}
 %
 
-\subsection{Time Coarse-Graining}
-In this section, we prove that when subjecting a circuit to local stochastic noise, changing the frequency at which we introduce the fault layers translates to rescaling the noise rate. For this purpose, we are abusing the notation "propagation" by reusing it to describe a different context.
-\begin{definition}[Layer propagation]
-  Let $C = \{u_{i}\}_{i=1}$ be a quantum circuit. For each time coordinate $t$, write $U_{t}\colonequals C|_{t}$. The family of non-empty $t$-cuts $\{U_{t}\}_{t}$ is called the \textit{layer decomposition} of $C$.
-
-  Let $t<t'$ be such that $U_t$ and $U_{t'}$ are non-empty and $U_s=\emptyset$ for every $t<s<t'$. The \textit{forward propagation} of the layer $U_{t}$ across the next layer $U_{t'}$ is the operation that replaces the pair $(U_{t},U_{t'})$ by a pair $(U_{t'},V_{t\to t'})$ satisfying
-  \begin{equation*}
-    \begin{split}
-      \prod_{u\in U_{t}}u\prod_{v\in U_{t'}}v
-      =
-      \prod_{v\in U_{t'}}v\prod_{w\in V_{t\to t'}}w.
-    \end{split}
-  \end{equation*}
-  The layer $V_{t\to t'}$ is called the \textit{propagation expression} of $U_{t}$ across $U_{t'}$.
-
-  More generally, if $t<t'$, the \textit{forward propagation of $U_t$ to time $t'$} is obtained by iterating the above operation through the successive non-empty cuts between times $t$ and $t'$. The resulting propagated layer is denoted by $V_{t\to t'}$ and is again called the propagation expression of $U_t$ to time $t'$. The resulting circuit has layer decomposition
-  \begin{equation*}
-    \begin{split}
-      \ldots,U_{t-1},U_t,U_{t+1},\ldots,U_{t'},U_{t'+1},\ldots
-      \mapsto
-      \ldots,U_{t-1},U_{t+1},\ldots,U_{t'},V_{t\to t'},U_{t'+1},\ldots.
-    \end{split}
-  \end{equation*}
-  After propagation we update the time coordinates so that they agree with the new layer in which each gate is applied.
-\end{definition}
 
 
-\begin{definition}[$C\sim_{P}C'$]
-  For quantum circuits $C$ and $C'$, we write $C\sim_{P}C'$ if one can be obtained from the other by a finite sequence of layer propagations.
-\end{definition}
-
-By construction, $\sim_{P}$ preserves the implemented channel. Indeed, if $C\sim_{P}C'$ and $\rho$ is any mixed state on the input register, then
-\begin{equation*}
-  \begin{split}
-    C\circ \rho = C'\circ \rho.
-  \end{split}
-\end{equation*}
-
-We state \Cref{claim:block_noise_renorm} in the language of layer propagation.
-\begin{claim}
-  %\label{claim:block_noise_renorm}
-  Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with rate $p$, and let $C$ be a quantum circuit whose gates have arity at most $\Delta$. Fix an even integer $c$. Then there exists a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$ with rate
-  \begin{equation*}
-    \begin{split}
-      q \colonequals \left(2^{H(\Delta^{-2c})\Delta^{2c}}p\right)^{\Delta^{-c}},
-    \end{split}
-  \end{equation*}
-  such that $C[\mathcal{E}]_{1} \sim_{P} C[\mathcal{E}_{q}]_{c/2}$. In particular, up to a constant depending only on $\Delta$ and $c$, the rate $q$ behaves like $p^{\Delta^{-c}}$.
-\end{claim}
-\begin{proof}[Proof of \Cref{claim:block_noise_renorm}]
-  Partition the subjected circuit $C[\mathcal{E}]_{1}$ into consecutive blocks of $c$ layers. Inside each block, propagate all the fault layers to the end of the block and then groupping the resultd expressions together. Doing this block by block yields a new circuit $C^{\prime}$ in which each block of $c/2$ computational layers is followed by a single fault layer. Therefore $C^{\prime} = C[\mathcal{E}^{\prime}]_{c/2}$ for a suitable random fault set $\mathcal{E}^{\prime}$, and by construction: $C[\mathcal{E}]_{1} \sim_{P} C[\mathcal{E}']_{c/2}$. 
-  
-
-
-It remains to be proven that $\mathcal{E}^{\prime}$ is distributed according to a local stochastic channel. Fix one propagation expression $V^{(i)}$ and a subset $S \subset \operatorname{Loc}(V^{(i)})$. Denote by $U_{1}^{i}, \ldots, U_{c}^{i}$ the layers for which $V^{(i)}$ is their (grouped) expression. Denote the light cone of $S$ in $U_{1}^{i}, \ldots, U_{c}^{i}$ by $\Lambda(S)$. Since the fan is bounded by $\Delta$, we have that $|\Lambda(S)| \le \Delta^{c}|S|$, and any $S^{\prime} \subset \Lambda(S)$ whose propagation covers $S$ has size at least $|S^{\prime}| \ge \Delta^{-c}|S|$, and in particular contains a subset of size exactly $\Delta^{-c}|S|$.
-  
-Now, having $S \subset \operatorname{Loc}(V^{(i)})$, implies that there is a minimal $S^{\prime}$ (the minimality is regarding inclusion) such that $S^{\prime} \subset \operatorname{Loc}(\mathcal{E})$. Denote by $\mathcal{W}(S)$ the set of such minimal $S^{\prime}$'s, and observe that its size is at most:
-    \begin{equation*}
-      \begin{split}
- |\mathcal{W}(S)| \le { \Delta^{c}|S| \choose \Delta^{-c}|S| } 
-      \end{split}
-    \end{equation*}
-    Hence, using the fact that $\mathcal{E}$ is an outcome of local stochastic noise channel with a noise rate $p$ we have:
-  \begin{equation*}
-    \begin{split}
-      \prb{S\subset \operatorname{Loc}(V^{(i)})}
-      &\le
-      \prb{\bigcup_{S'\in \mathcal{W}(S)}\{S'\subset \operatorname{Loc}(\mathcal{E})\}} \\
-      &\le
-      \sum_{S'\in \mathcal{W}(S)} \prb{S'\subset \operatorname{Loc}(\mathcal{E})} \\
-      & \le { \Delta^{c}|S| \choose \Delta^{-c}|S| } p^{\Delta^{-c}|S| } \le \left(2^{H(\Delta^{-2c})\Delta^{2c}}p\right)^{|S|/\Delta^{c}}
-      = q^{|S|}.
-    \end{split}
-  \end{equation*}
-\end{proof}
-
-
-\subsection{Checks Commutation}
-We give an alternative proof of \Cref{claim:csscode} by straightforwardly multiplying checks. Consider subsets of generators $A, B \subset S$ with sizes $d^{\prime}-1$ and $d^{\prime}+1$, respectively. Thus, $\partial^{+} \rotfv{v}{A}$ and $\partial^{-} \rotfv{u}{B}$ are $X$- and $Z$-checks. Let us examine their multiplication:
-  \begin{equation*}
-    \begin{split}
-       ( \partial^{+} \rotfv{v}{A} ) ( \partial^{-} \rotfv{u}{B} )   = \left(\sum_{g \in S/A} \rotfv{v}{A \cup g} + \rotfv{g^{-1}v}{ A \cup g }\right)  \left(\sum_{g \in B} \rotfv{u}{B / g} + \rotfv{gu}{ B / g }\right) \\
-    \end{split}
-  \end{equation*}
-Split into cases based on whether $v$ equals $u$.
-\begin{enumerate}
-    \item If $v = u$, then for any $g, g^{\prime} \in S$, it holds that $gv \neq u$, $g^{\prime -1}u$, and $v \neq g^{\prime -1}u$. Thus, only terms of the form 
-\begin{equation*}
-  \begin{split}
-      \rotfv{v}{A \cup g}\rotfv{u}{B / g^{\prime}}
-  \end{split}
-\end{equation*}
-      can contribute to the product, yet for any $g, g^{\prime}$ for which this term is not zeroing out, it follows that $g \in B$ and $g^{\prime} \notin A$, and therefore the term 
-      \begin{equation*}
-        \begin{split}
-      \rotfv{v}{A \cup g^{\prime}}\rotfv{u}{B / g}
-        \end{split}
-      \end{equation*}
-      Is not zero as well. Therefore, the number of non-zero terms is even, namely the sum equals zero.
-
-    \item If there is $g$ such that $gv = u$, then first notice that for any $g^{\prime}, g^{\prime \prime} \in S/g \cup \{e\}$, we have $g^{\prime}v \neq u$. So only terms of the form 
-      \begin{equation*}
-        \begin{split}
-          \text{either } \rotfv{gv}{A \cup g}\rotfv{u}{B / g^{\prime}} \text{ or } \rotfv{v}{A \cup g^{\prime}}\rotfv{g^{-1}u}{B / g}
-        \end{split}
-      \end{equation*}
-      can contribute. Similarly to the above, if
-      \begin{equation*}
-        \begin{split}
-      \rotfv{gv}{A \cup g}\rotfv{u}{B / g^{\prime}} \neq 0
-        \end{split}
-      \end{equation*}
-       then $g \in B$ and $g^{\prime} \notin A$. So 
-       \begin{equation*}
-         \begin{split}
-       \rotfv{v}{A \cup g^{\prime}}\rotfv{g^{-1}u}{B / g}
-         \end{split}
-       \end{equation*}
-       is also not zeroing out, and again the number of non-zeros is even.
-\end{enumerate}
-
-
-\subsection{Infinite Compatibility}
-Here, we provide a proof that circuits for which an $\infty$-extension is defined are $\times$-compatible. Formally:
-\begin{claim} 
-\label{claim:infiequ}
-  Let $C$ be quantum circuit of the form defined in \Cref{def:extension}. Then $C$ is $\infty$-compatible.
-\end{claim}
-
-\begin{proof}
-Obviously, translation by the zero vector (or by the unit vertex) keeps the gate in its place, or in other words, in the restriction of $C^{\infty}$ to $[w]$ - the original Toric - any non-decoding gate is restored. We will need the following claim, which states that this is also true for a decoding gate.
-\begin{claim}
-\label{claim:pauli_back}
-Let $u = (g, l)$ be a decoding gate. The restriction of the image of $u$ in $C^{\infty}$ to $[w]$ is $u$ (when applied to the infinite domain). Namely:
-  \begin{equation*}
-    \begin{split}
-      \bigl(\prod_{a \in \mathbb{Z}^{d} } a *_{r} u \bigr)|_{[w]} = u
-    \end{split}
-  \end{equation*}
-\end{claim}
-\begin{proof}
-  Denote by $\hat{a}^{j} \in \mathbb{F}_{2}^{d}$ the vector which assigns in its $i$th coordinate $1$ if the root that supports the face of $u_{j}$ has a $g_{i}$ power greater than $n$. We argue that the $j$th face of $-\hat{a}^{j} *_{r} u$ is in $[w]$ and that the $j$th face of any other root translation of $u$ is not in $[w]$. That implies that the restriction
-  \begin{equation*}
-    \begin{split}
-      \bigl(\prod_{a \in \mathbb{Z}^{d} } a *_{r} u \bigr)|_{[w]}
-    \end{split}
-  \end{equation*}
-contains each of $u$'s faces exactly once, and combined with the fact that $u$ is a Pauli product, it follows that they are the same operator. 
-
-By the definition of root translation, we get that $(\hat{a}^{j} *_{r} u)_{j}$ is in $[w]$. Let $a^{\prime} \in \mathbb{Z}^{d}$ be such that $a^{\prime} \neq \hat{a}^{j}$, and denote by $i$ the coordinate on which they differ. Then, we get that the $g_{i}$ power of the root of $(a^{\prime} *_{r} u)_{j}$ is at a distance $n$ from the $g_{i}$ power of the root of $(\hat{a}^{j} *_{r} u)_{j}$; therefore, their roots can't both be in the range $[0,n-1]$, which implies that $(a^{\prime} *_{r} u)_{j} \notin [w]$.
-
-\end{proof}
-  From here we continue by induction on the number of the gates in $C$: 
-  \begin{enumerate}
-    \item Base. For an empty circuit, $\rho_{\infty}$ is just the infinite string of zeros; thus, the restriction of it to $[w]$ locations, namely $ \Trr{}_{/[w]}( \rho_{\infty} ) $, yields a single matrix element corresponds to the $w$-length string of zeros, which is exactly $\rho$.
-    \item Step. Assume the claim holds for every circuit with fewer than $\tau$ gates, and consider a circuit $C$ with $\tau$ gates. Denote by $C^{\prime}$ the circuit obtained from $C$ by erasing its last gate; then $C^{\prime}$ has $\tau-1$ gates. Denote by $\rho^{\prime}$ and $\rho_{\infty}^{\prime}$ the output states of $C^{\prime}[\mathcal{E}]$ and $(C^{\prime})^{\infty}[\mathcal{E}^{\infty}]$, respectively.
-      By the induction assumption we have:
-  \begin{equation*}
-    \begin{split}
-      \rho^{\prime} =  \Trr{}_{/[w]}\left( \rho^{\prime}_{\infty} \right) 
-    \end{split}
-  \end{equation*}
-  Denote the last gate in $C$ by $u$, and by $I = \{v_{j}\}$ the collection of gates in $C^{\infty}$ to which $u$ is mapped (notice that the collection is countable). Let us split into cases, depending on whether $u$ is or is not a decoding gate.
-  \begin{enumerate}
-    \item Suppose that $u$ is not a decoding gate. Let $g$ and $l$ be the gate element and the location of $u$. By the definition of $\infty$-extension, $I$ equals:
-      \begin{equation*}
-        \begin{split}
-          I = \bigcup_{a \in \mathbb{Z}^{d}}\left\{ a * u \right\}
-        \end{split}
-      \end{equation*}
-So, there is only one gate in $I$, corresponding to $a$ being the zero vector, that has support on qubits with spatial locations in the range $[w]$. Denote that gate by $v_{0}$.
-
- \begin{equation*}
-   \begin{split}
-   \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= \Trr{}_{/[w]}\left( \prod_{j = -\infty}^{\infty} v_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty}^{\infty} v_{j}^{\dagger} \right) \\ 
-   &= v_{0}\Trr{}_{/[w]}\left( \prod_{j = -\infty, j \neq 0}^{\infty} v_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty, j \neq 0}^{\infty} v_{j}^{\dagger} \right) v_{0}^{\dagger} \\
-   &= v_{0}\Trr{}_{/[w]}\left( \prod_{j = -\infty, j \neq 0}^{\infty} v_{j}^{\dagger} \prod_{j = -\infty, j \neq 0}^{\infty} v_{j} \rho_{\infty}^{\prime} \right) v_{0}^{\dagger} \\
-   &= v_{0}\Trr{}_{/[w]}\left( \rho_{\infty}^{\prime} \right) v_{0}^{\dagger} \\
-   &= v_{0} \rho^{\prime} v_{0}^{\dagger} \\
-   &= \rho 
-   \end{split}
- \end{equation*}
-
-   \item In the case that $u$ is a decoding gate, each of the $v_{j}$ is a Pauli product. Thus, we can decompose it into the product of two terms: the first has support on $[w]$, and the second is its complement. Exactly as in the above case, the second $v_{j}$ component can be treated as a disjoint gate that has no support on qubits in $[w]$ and therefore does not contribute to the trace. For the rest, we get:
-   \begin{equation*}
-     \begin{split}
-       \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= \left(\prod_{-\infty}^{\infty}v_{j}\right)|_{[w]} \rho^{\prime} \left(\left(\prod_{-\infty}^{\infty}v_{j}\right)|_{[w]} \right)^{\dagger} 
-     \end{split}
-   \end{equation*}
-Then, by \Cref{claim:pauli_back}, we have that:
- \begin{equation*}
-   \begin{split}
-          \left(\prod_{-\infty}^{\infty}v_{j}\right)|_{[w]} = u
-   \end{split}
- \end{equation*}
-therefore:
-   \begin{equation*}
-     \begin{split}
-       \Trr{}_{/[w]}\left( \rho_{\infty} \right) & = u \rho^{\prime} u^{\dagger} = \rho 
-     \end{split}
-   \end{equation*}
-  \end{enumerate}
-  \end{enumerate}
-\end{proof}
-
+%\subsection{Checks Commutation}
+%We give an alternative proof of \Cref{claim:csscode} by straightforwardly multiplying checks. Consider subsets of generators $A, B \subset S$ with sizes $d^{\prime}-1$ and $d^{\prime}+1$, respectively. Thus, $\partial^{+} \rotfv{v}{A}$ and $\partial^{-} \rotfv{u}{B}$ are $X$- and $Z$-checks. Let us examine their multiplication:
+%  \begin{equation*}
+%    \begin{split}
+%       ( \partial^{+} \rotfv{v}{A} ) ( \partial^{-} \rotfv{u}{B} )   = \left(\sum_{g \in S/A} \rotfv{v}{A \cup g} + \rotfv{g^{-1}v}{ A \cup g }\right)  \left(\sum_{g \in B} \rotfv{u}{B / g} + \rotfv{gu}{ B / g }\right) \\
+%    \end{split}
+%  \end{equation*}
+%Split into cases based on whether $v$ equals $u$.
+%\begin{enumerate}
+%    \item If $v = u$, then for any $g, g^{\prime} \in S$, it holds that $gv \neq u$, $g^{\prime -1}u$, and $v \neq g^{\prime -1}u$. Thus, only terms of the form 
+%\begin{equation*}
+%  \begin{split}
+%      \rotfv{v}{A \cup g}\rotfv{u}{B / g^{\prime}}
+%  \end{split}
+%\end{equation*}
+%      can contribute to the product, yet for any $g, g^{\prime}$ for which this term is not zeroing out, it follows that $g \in B$ and $g^{\prime} \notin A$, and therefore the term 
+%      \begin{equation*}
+%        \begin{split}
+%      \rotfv{v}{A \cup g^{\prime}}\rotfv{u}{B / g}
+%        \end{split}
+%      \end{equation*}
+%      Is not zero as well. Therefore, the number of non-zero terms is even, namely the sum equals zero.
+%
+%    \item If there is $g$ such that $gv = u$, then first notice that for any $g^{\prime}, g^{\prime \prime} \in S/g \cup \{e\}$, we have $g^{\prime}v \neq u$. So only terms of the form 
+%      \begin{equation*}
+%        \begin{split}
+%          \text{either } \rotfv{gv}{A \cup g}\rotfv{u}{B / g^{\prime}} \text{ or } \rotfv{v}{A \cup g^{\prime}}\rotfv{g^{-1}u}{B / g}
+%        \end{split}
+%      \end{equation*}
+%      can contribute. Similarly to the above, if
+%      \begin{equation*}
+%        \begin{split}
+%      \rotfv{gv}{A \cup g}\rotfv{u}{B / g^{\prime}} \neq 0
+%        \end{split}
+%      \end{equation*}
+%       then $g \in B$ and $g^{\prime} \notin A$. So 
+%       \begin{equation*}
+%         \begin{split}
+%       \rotfv{v}{A \cup g^{\prime}}\rotfv{g^{-1}u}{B / g}
+%         \end{split}
+%       \end{equation*}
+%       is also not zeroing out, and again the number of non-zeros is even.
+%\end{enumerate}
+%
+%
+%\subsection{Infinite Compatibility}
+%Here, we provide a proof that circuits for which an $\infty$-lift is defined are $\times$-compatible. Formally:
+%\begin{claim} 
+%\label{claim:infiequ}
+%  Let $C$ be quantum circuit of the form defined in \Cref{def:extension}. Then $C$ is $\infty$-compatible.
+%\end{claim}
+%
+%\begin{proof}
+%Obviously, translation by the zero vector (or by the unit vertex) keeps the gate in its place, or in other words, in the restriction of $C^{\infty}$ to $[w]$ - the original Toric - any non-decoding gate is restored. We will need the following claim, which states that this is also true for a decoding gate.
+%\begin{claim}
+%\label{claim:pauli_back}
+%Let $u = (g, l)$ be a decoding gate. The restriction of the image of $u$ in $C^{\infty}$ to $[w]$ is $u$ (when applied to the infinite domain). Namely:
+%  \begin{equation*}
+%    \begin{split}
+%      \bigl(\prod_{a \in \mathbb{Z}^{d} } a *_{r} u \bigr)|_{[w]} = u
+%    \end{split}
+%  \end{equation*}
+%\end{claim}
+%\begin{proof}
+%  Denote by $\hat{a}^{j} \in \mathbb{F}_{2}^{d}$ the vector which assigns in its $i$th coordinate $1$ if the root that supports the face of $u_{j}$ has a $g_{i}$ power greater than $n$. We argue that the $j$th face of $-\hat{a}^{j} *_{r} u$ is in $[w]$ and that the $j$th face of any other root translation of $u$ is not in $[w]$. That implies that the restriction
+%  \begin{equation*}
+%    \begin{split}
+%      \bigl(\prod_{a \in \mathbb{Z}^{d} } a *_{r} u \bigr)|_{[w]}
+%    \end{split}
+%  \end{equation*}
+%contains each of $u$'s faces exactly once, and combined with the fact that $u$ is a Pauli product, it follows that they are the same operator. 
+%
+%By the definition of root translation, we get that $(\hat{a}^{j} *_{r} u)_{j}$ is in $[w]$. Let $a^{\prime} \in \mathbb{Z}^{d}$ be such that $a^{\prime} \neq \hat{a}^{j}$, and denote by $i$ the coordinate on which they differ. Then, we get that the $g_{i}$ power of the root of $(a^{\prime} *_{r} u)_{j}$ is at a distance $n$ from the $g_{i}$ power of the root of $(\hat{a}^{j} *_{r} u)_{j}$; therefore, their roots can't both be in the range $[0,n-1]$, which implies that $(a^{\prime} *_{r} u)_{j} \notin [w]$.
+%
+%\end{proof}
+%  From here we continue by induction on the number of the gates in $C$: 
+%  \begin{enumerate}
+%    \item Base. For an empty circuit, $\rho_{\infty}$ is just the infinite string of zeros; thus, the restriction of it to $[w]$ locations, namely $ \Trr{}_{/[w]}( \rho_{\infty} ) $, yields a single matrix element corresponds to the $w$-length string of zeros, which is exactly $\rho$.
+%    \item Step. Assume the claim holds for every circuit with fewer than $\tau$ gates, and consider a circuit $C$ with $\tau$ gates. Denote by $C^{\prime}$ the circuit obtained from $C$ by erasing its last gate; then $C^{\prime}$ has $\tau-1$ gates. Denote by $\rho^{\prime}$ and $\rho_{\infty}^{\prime}$ the output states of $C^{\prime}[\mathcal{E}]$ and $(C^{\prime})^{\infty}[\mathcal{E}^{\infty}]$, respectively.
+%      By the induction assumption we have:
+%  \begin{equation*}
+%    \begin{split}
+%      \rho^{\prime} =  \Trr{}_{/[w]}\left( \rho^{\prime}_{\infty} \right) 
+%    \end{split}
+%  \end{equation*}
+%  Denote the last gate in $C$ by $u$, and by $I = \{v_{j}\}$ the collection of gates in $C^{\infty}$ to which $u$ is mapped (notice that the collection is countable). Let us split into cases, depending on whether $u$ is or is not a decoding gate.
+%  \begin{enumerate}
+%    \item Suppose that $u$ is not a decoding gate. Let $g$ and $l$ be the gate element and the location of $u$. By the definition of $\infty$-lift, $I$ equals:
+%      \begin{equation*}
+%        \begin{split}
+%          I = \bigcup_{a \in \mathbb{Z}^{d}}\left\{ a * u \right\}
+%        \end{split}
+%      \end{equation*}
+%So, there is only one gate in $I$, corresponding to $a$ being the zero vector, that has support on qubits with spatial locations in the range $[w]$. Denote that gate by $v_{0}$.
+%
+% \begin{equation*}
+%   \begin{split}
+%   \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= \Trr{}_{/[w]}\left( \prod_{j = -\infty}^{\infty} v_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty}^{\infty} v_{j}^{\dagger} \right) \\ 
+%   &= v_{0}\Trr{}_{/[w]}\left( \prod_{j = -\infty, j \neq 0}^{\infty} v_{j} \rho_{\infty}^{\prime} \prod_{j = -\infty, j \neq 0}^{\infty} v_{j}^{\dagger} \right) v_{0}^{\dagger} \\
+%   &= v_{0}\Trr{}_{/[w]}\left( \prod_{j = -\infty, j \neq 0}^{\infty} v_{j}^{\dagger} \prod_{j = -\infty, j \neq 0}^{\infty} v_{j} \rho_{\infty}^{\prime} \right) v_{0}^{\dagger} \\
+%   &= v_{0}\Trr{}_{/[w]}\left( \rho_{\infty}^{\prime} \right) v_{0}^{\dagger} \\
+%   &= v_{0} \rho^{\prime} v_{0}^{\dagger} \\
+%   &= \rho 
+%   \end{split}
+% \end{equation*}
+%
+%   \item In the case that $u$ is a decoding gate, each of the $v_{j}$ is a Pauli product. Thus, we can decompose it into the product of two terms: the first has support on $[w]$, and the second is its complement. Exactly as in the above case, the second $v_{j}$ component can be treated as a disjoint gate that has no support on qubits in $[w]$ and therefore does not contribute to the trace. For the rest, we get:
+%   \begin{equation*}
+%     \begin{split}
+%       \Trr{}_{/[w]}\left( \rho_{\infty} \right) &= \left(\prod_{-\infty}^{\infty}v_{j}\right)|_{[w]} \rho^{\prime} \left(\left(\prod_{-\infty}^{\infty}v_{j}\right)|_{[w]} \right)^{\dagger} 
+%     \end{split}
+%   \end{equation*}
+%Then, by \Cref{claim:pauli_back}, we have that:
+% \begin{equation*}
+%   \begin{split}
+%          \left(\prod_{-\infty}^{\infty}v_{j}\right)|_{[w]} = u
+%   \end{split}
+% \end{equation*}
+%therefore:
+%   \begin{equation*}
+%     \begin{split}
+%       \Trr{}_{/[w]}\left( \rho_{\infty} \right) & = u \rho^{\prime} u^{\dagger} = \rho 
+%     \end{split}
+%   \end{equation*}
+%  \end{enumerate}
+%  \end{enumerate}
+%\end{proof}
+%
 
 \input{counting_subgraphs.tex}
 \input{tree_sparator.tex}

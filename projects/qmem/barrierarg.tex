@@ -1,0 +1,487 @@
+\section{Toom's Contours}
+
+\subsection{The Barrier Argument}
+We are going to move between the infinite and the finite back and forth, so we will need to extend the size function, and the reduced notion to chains on the finite-complex.  
+
+
+
+\begin{definition}
+  \label{def:mincover}
+Consider a $d^{\prime}$-dimensional chain on the $d$-dimensional Toric $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$. We extend the notation of size to $x$ as follows. Let $x^{\prime}$ be the $\infty$-lift of $x$, so $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$. Let the chain $y \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be a subset chain of $x^{\prime}$ such:
+  \begin{enumerate}
+    \item The projection of $y$ back to finite complex covers $x$.
+    \item The size of $y$ is minimal. 
+  \end{enumerate}
+  Then, we set: 
+  \begin{equation*}
+    \begin{split}
+      \Size{x} \colonequals \Size{y}
+    \end{split}
+  \end{equation*}
+The chain $y$ will be referred to as the minimizing cover of $x$. We extend the notation of reduced form to a $d^{\prime}$-dimensional chain on the finite complex $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, to be its translation by stabilizers that gets the minimal size. Namely, for $z \in \image \partial^{-} : (\mathcal{F}^{n}_{d^{\prime}+1}; \mathbb{F}_{2}) \rightarrow (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, the chain $x+z$ is a reduced form of $x$ if $\Size{x+z}$ is minimal among the choices of $z$.
+\end{definition}
+In the following, we prove that the definition of the size of chains in the finite complex respects the triangle inequality.
+\begin{claim}
+  \label{clima:finitetrig}
+  Let the chains $x,y \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ such that $V(x) \cap V(y) \neq \emptyset$, then: 
+  \begin{equation*}
+    \begin{split}
+      \Size{x + y} \le \Size{x} + \Size{y}
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+  First, notice that if the $\infty$-lifted chains $x^{\prime}, y^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ satisfy that the projection of $x^{\prime}$ covers $x$ and the projection of $y^{\prime}$ covers $y$, then the projection of $x^{\prime} \cup y^{\prime}$ covers $x+y$. Denote the $d^{\prime}$-dimensional faces in $x, y$ that intersect by $f, g$, and pick $x^{\prime}, y^{\prime}$ such that $f, g$ are also in $x^{\prime}, y^{\prime}$. Thus, $V(x^{\prime})\cap V(y^{\prime}) \neq \emptyset$, and by \Cref{claim:tringinq}, we have:
+  \begin{equation*}
+    \begin{split}
+      \Size{x + y} \le \Size{x^{\prime} \cup y^{\prime}} \le \Size{x^{\prime}} + \Size{y^{\prime}}
+    \end{split}
+  \end{equation*}
+To finish, we argue that we can choose $x^{\prime}, y^{\prime}$ such that $\Size{x} = \Size{x^{\prime}}$ and $\Size{y} = \Size{y^{\prime}}$. Let $\tilde{x} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be the $d^{\prime}$-dimensional chain on the infinite skeleton such that $\Size{x} = \Size{\tilde{x}}$. Split into cases depending on whether $f \in \tilde{x}$.
+  \begin{itemize}
+    \item If $f \in \tilde{x}$, then we can just choose $x^{\prime} = \tilde{x}$.
+    \item If not, then since the projection of $\tilde{x}$ covers $x$, there must be a vertex $v \in \mathcal{G}_{d}$, such that $v$ is a product of the integer powers of $g_{1}^{n},\ldots, g_{d}^{n}$, and a $d^{\prime}$-dimensional face $\tilde{f}$ in $\tilde{x}$ such that $\tilde{f}$ is a translation of $f$ by $v$. Then, construct $x^{\prime}$ by taking the translations of $\tilde{x}$ faces by $v^{-1}$. The size function is invariant to translations, so:
+      \begin{equation*}
+        \begin{split}
+          \Size{x} = \Size{\tilde{x}} = \Size{v^{-1} x^{\prime}  } = \Size{x^{\prime}}
+        \end{split}
+      \end{equation*}
+      and in addition, $f = v^{-1}\tilde{f} \in x^{\prime}$. Moreover, since the projecting is invariant to translation by integer powers of $g_{1}^{n},\ldots, g_{d}^{n}$, the projection of $\tilde{x}$ equals the projection of $x^{\prime}$, namely, covers $x$.
+  \end{itemize}
+  So, 
+  \begin{equation*}
+    \begin{split}
+      \Size{x + y} \le \Size{x^{\prime}} + \Size{y^{\prime}} = \Size{x} + \Size{y}
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+
+We will use the following two elementary lifting facts and omit their proofs. They are discrete instances of the standard local relation between a Torus and its universal cover: below the periodicity scale, the covering map is injective on the relevant region, so chains may be treated as chains in the infinite lattice. In the Toric-code literature, the same principle appears in the identification of non-trivial logical operators with homologically non-trivial cycles of linear extent \cite{Dennis_2002}, and in the restriction of Toric arguments to local regions whose diameter is smaller than the system size \cite{Kubica_2019}. The claims below merely formulate this observation for the size function and minimizing covers used here.
+
+\begin{claim}
+  \label{claim:liftb}
+  Let $x \in (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$ be a $d^{\prime}-1$ dimensional chain of the finite complex, and let $y \in (\mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})$ be the $d^{\prime}-1$ dimensional chain on the infinite complex such that $y$ is the minimizing cover of $x$. If $\Size{x} < n$, and:
+\begin{equation*}
+  \begin{split}
+    x \in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})
+  \end{split}
+\end{equation*}
+Then, also:
+\begin{equation*}
+  \begin{split}
+    y \in \image \partial^{-} : ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})
+  \end{split}
+\end{equation*}
+\end{claim}
+
+\begin{claim}
+  \label{claim:liftc}
+Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain of the finite complex. Suppose that $\Size{x} < n$. Then there is a translation $x^{\prime}$ of $x$ (on the finite complex), such that $x^{\prime}$ has a minimizing cover $y \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, such that the faces of $y$ align with the finite complex. In other words, '$x^{\prime} = y$'.
+\end{claim}
+
+
+Next, we translate the fact that a chain enclosing a non-trivial loop has a size which is at least the side of the Toric.
+\begin{claim}
+  \label{claim:sizenont}
+Suppose that the chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ closes a non-trivial loop on the Toric, then $\Size{x} \ge n - 1$.
+\end{claim}
+\begin{proof}
+  Let $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be a minimizing cover for $x$. In particular, there are vertices $v_{1}, \ldots, v_{l}$ in $x^{\prime}$ such that their projection corresponds to the non-trivial loop in $x$. Assume the non-trivial cycle is in the $g$-direction, thus the $L_{g}$ values of the projections of $v_{1}, \ldots, v_{l}$ cover all the integer range $\{0,1,\ldots, n-1\}$. Thus, there are two vertices $v,u \in v_{1},\ldots,v_{l}$ such that their $L_{g}$-difference is at least $L_{g}(u) - L_{g}(v) \ge n-1$. Thus,
+  \begin{equation*}
+    \begin{split}
+      \Size{x} = \Size{x^{\prime}} \ge \Size{\{u,v\}} \ge n-1
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+
+
+
+Using the claim above, we are able to introduce the notion of filling boundaries. The following claim states that if the connected components of the boundary are all of size lower than $n$, then we can match each of them to a chain such that its boundary agrees with the component and its size is lower than the component size. That will lead us to define the filling operator (\Cref{def:connsyn}).
+\begin{claim}
+  \label{claim:fillchain}
+  Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain. Suppose that there is an integer $l \le n-1$ such each connected component of $\partial^{-}x$ has size $ < l$. Then there are $d^{\prime}$-dimensional chains $y_{1}, y_{2}, \ldots$ such that each $\partial^{-}y_{i}$ is a connected component of $\partial^{-}x$ and $\Size{y_{i}} \le \Size{\partial^{-}y_{i}}$.
+\end{claim}
+
+\begin{proof}
+  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ such that $\partial^{-} x$ has a decomposition $\partial^{-}x = \tilde{x}_{1} + \tilde{x}_{2}$, where $\tilde{x}_{1}, \tilde{x}_{2}$ are $d^{\prime}-1$-dimensional chains, and $\tilde{x}_{1}$ is a connected component of $\partial^{-}x$. In particular $\tilde{x}_{1}$ is not connected to $\tilde{x}_{2}$. By disconnectivity, $\tilde{x}_{1}$ does not share a $d^{\prime}-2$ dimensional face with $\tilde{x}_{2}$. Thus, $\partial^{-} \tilde{x}_{1}$ and $\partial^{-} \tilde{x}_{2}$ are disjoint. On the other hand, since $\partial^{- \circ 2} x = 0$, then combining with disjointness, it follows that:
+  \begin{equation*}
+    \begin{split}
+      \partial^{-}( \tilde{x}_{1} + \tilde{x}_{2} ) = 0 \Rightarrow \partial^{-} \tilde{x}_{1} = \partial^{-}\tilde{x}_{2} = 0 
+    \end{split}
+  \end{equation*}  Namely, $\tilde{x}_{1} \in \ker \partial^{-} : (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-2}; \mathbb{F}_{2})$.
+Suppose $\tilde{x}_{1} \notin \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$, then we have that $\tilde{x}_{1}$ is a non-trivial codeword of the $(d,d^{\prime}-1)$-Toric code. 
+Since $d^{\prime} \ge 2$, and $\tilde{x}_{1}$ has to close a non-trivial loop, so by \Cref{claim:sizenont}, the size of $\tilde{x}$ is at least $n-1$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. We argue that $x_{1}$ can be chosen such $\Size{x_{1}} \le \Size{\tilde{x}_{1}}$.
+
+
+By \Cref{claim:liftc}, since $\Size{\tilde{x}_{1}} < n$, there is a translation of the finite complex for which the minimizing cover of the translation of $\tilde{x}_{1}$ aligns with the finite complex. Since the size function is invariant to translations, we can assume, without loss of generality, that the given finite complex is already translated. Consider the minimizing cover of $\tilde{x}_{1}$, and denote it by $\tilde{y_1}$ Since $\Size{\tilde{x}_{1}} < n$, then by \Cref{claim:liftb} we have that $\tilde{y}$ can be chosen such:
+\begin{equation*}
+  \begin{split}
+    \tilde{y} \in \image \partial^{-} : ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})
+  \end{split}
+\end{equation*}
+Let $y \in ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) $ be a $d^{\prime}$-dimensional reduced chain such that $\partial^{-}y = \tilde{y}$. By the definition of the algorithm in \Cref{claim:reducederr}, from which $y$ is obtained, it follows that the potential walls that bound $\tilde{y}$ also bound $y$, and therefore $y$ is also aligned with the finite complex. Thus, we can take $x_{1}$ to be equal to $y$. By \Cref{claim:reducederr}:
+\begin{equation*}
+  \begin{split}
+    \Size{x_{1}} = \Size{y} = \Size{\partial^{-}y} = \Size{\tilde{y}} = \Size{\tilde{x}_{1}}
+  \end{split}
+\end{equation*}
+So $x_{1}$ satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$. 
+\end{proof}
+
+
+\begin{definition}
+  \label{def:connsyn}
+Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional chain. $x$ will be said to be a fillable chain if each of the connected components of its $\partial^{-}$-boundary, namely $\partial^{-} x$, has size $< n - 1$. By \Cref{claim:fillchain}, there are $d^{\prime}$-dimensional reduced chains $x_{1}, \ldots,$ such that each $\partial^{-}x_{i}$ is a connected component of $\partial^{-}x$. Thus:
+    \begin{equation*}
+      \begin{split}
+      \partial^{-} (x + \sum_{i}x_{i}) = 0  \quad \Rightarrow x + \sum_{i}x_{i} \in \ker \partial^{-} \colon (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})
+    \end{split}
+  \end{equation*}
+  Namely, $x + \sum_{i}x_{i}$ is a codeword in $\mathcal{C}_{X}/ \mathcal{C}_{Z}^{\perp}$. We define the filling operator, denoted by $[x]$, which for a given fillable chain $x$, returns the homology class (logical operator) of $x + \sum_{i}x_{i}$. Lastly, to ensure that the filling operator is canonical, fix for each $d^{\prime}-1$-dimensional chain, which is a connected component, a unique reduced $d^{\prime}$-dimensional chain. With the notations above, for each $\partial x_{i}$ fix a unique $x_{i}$.
+\end{definition}
+
+
+The following claim tracks the evolution of the connected component of the boundary (in terms of the maximal size), where the process is restricted such that in each step the chain is allowed to differ by at most a single face.
+\begin{claim}
+  \label{claim:mergebyf}
+  Let $x_{1},x_{2} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be $d^{\prime}$-dimensional chains, and let $l$ be an integer such the Hamming distance between $x_{1}$ and $x_{2}$ is at most $l$. Denote by $r$ the size of the maximal connected component of $\partial^{-}x_{1}$. Then the maximal size of a connected component of $\partial^{-}x_{2}$ is at most $4{ d^{\prime} \choose 2 }l(r+1) $
+\end{claim}
+\begin{proof}
+  Consider the adjacency graph (\cref{def:asontoric}) with respect to the $d^{\prime}-1$-dimensional chain $\partial^{-}x_{1}$, where each vertex is a $d^{\prime}-1$-dimensional face of $\partial^{-}x_{1}$, and each edge in the graph is a $d^{\prime}-2$ face in the intersection of two $d^{\prime}-1$-dimensional faces in $\partial^{-}x_{1}$. A $d^{\prime}$-dimensional chain contains $4{ d^{\prime} \choose 2 }$. Hence, introducing a new $d^{\prime}$-dimensional face to $x_{1}$ adds at most $4{ d^{\prime} \choose 2 }$ edges to the adjacency graph, each corresponding to a $d^{\prime}-2$ face contained in the new $d^{\prime}$-dimensional face. So introducing $l$ faces into $x^{\prime}_{i}$ adds at most $4 { d^{\prime} \choose 2 } l$ new edges, and therefore connects at most the same number of connected components in $\partial^{-}x^{\prime}_{1}$, or a connected component induced by the additional $l$ faces. Using the triangle inequality for intersecting sets (\Cref{clima:finitetrig}), we have that any connected component of $\partial^{-}x_{2}^{\prime}$ is at most $4{ d^{\prime} \choose 2 } l$ times the maximal size of a connected component of $\partial^{-}x_{1}$, namely $4 { d^{\prime} \choose 2 }l (r+1)$ (Where the $1$ in the closure stands for the connected components of a single face, each corresponding to one of the additional $l$ faces.)
+\end{proof}
+
+
+
+
+Next, we present the main claim of the section, which argues that for a sequence of chains $x_{1}, \ldots, x_{t}$, such that any two sequential chains differ by at most a single face, if $[x_{1}] \neq [x_{t}]$, then there must be an intermediate step $i$ such that $\partial^{-}x_{i}$ has a connected component with sufficiently large size. After that, we present \cref{claim:barrierconstant}, which generalizes the claim to allow sequential elements to be at a distance greater than one.
+
+\begin{claim}
+  \label{claim:barrier}
+Let $x_{1}, \ldots, x_{t} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be $d^{\prime}$-dimensional chains, such that $x_{1}$ is a trivial chain and for any $i \in [t-1]$, the Hamming distance between $x_{i}$ and $x_{i+1}$ is one. There is a constant $c \in (0,1)$, depending only on $d, d^{\prime}$, such that if $n$ is sufficiently large, and for any $x_{i} \in x_{1}, \ldots, x_{t}$, the size of each of the connected components of $\partial^{-} x_{i}$ is bounded by $c n$, then:
+  \begin{equation*}
+    \begin{split}
+      [0]= [x_{1}] = [x_{2}] = ... = [x_{t}] 
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+  Assume through contradiction that there is $i$ such that $0 = [x_{i}] \neq [x_{i+1}]$. Denote by $x_{i}^{1}, x_{i}^{2}, \ldots$ and $x_{i+1}^{1}, x_{i+2}^{2}, \ldots$ the reduced $d^{\prime}$-dimensional chains such that $\partial^{-}x_{i}^{j}$ is a connected component of $\partial^{-}x_{i}$, as defined in \Cref{def:connsyn}. Hence:
+  \begin{equation*}
+    \begin{split}
+      [x_{i+1}] \sim_{\mathcal{C}_{Z^{\perp}}} [x_{i+1}] + [x_{i}] \sim_{\mathcal{C}_{Z^{\perp}}}  x_{i} + x_{i+1} + \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1}
+    \end{split}
+  \end{equation*}
+Denote by $w$ the chain:
+  \begin{equation*}
+    \begin{split}
+      w \colonequals x_{i} + x_{i+1} + \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1}
+    \end{split}
+  \end{equation*}
+  Since the Hamming distance between $x_{i}$ and $x_{i+1}$ is at most one, and since each $d^{\prime}$-dimensional face contributes a constant support over $d^{\prime}-1$-dimensional chains, the $\partial^{-}$-boundaries of $x_{i}$ and $x_{i+1}$ are at a Hamming distance that is at most constant. Therefore, there are only constant connected components of $\partial^{-}x_{i}$ which are not connected components in $\partial^{-}x_{i+1}$ and vice versa. Denote by $y_{1}, \ldots, y_{m}$ the chains in $x_{i}^{1}, \ldots$ and $x_{i+1}^{1}, \ldots$ such that they belong to only one of the collections. Where $m$ is bounded by a function of $d,d^{\prime}$, namely $m \le M(d,d^{\prime})$. So:
+  \begin{equation*}
+    \begin{split}
+      \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1} = \sum_{j}^{m}y_{j}
+    \end{split}
+  \end{equation*}
+Moreover, the vertices of any of $y_{1}, \ldots, y_{m}$ and $x_{i+1}+x_{i}$ have a nontrivial intersection. To see this, suppose that the vertices of $y_{j}$ do not intersect the face $x_{i+1}+x_{i}$, and assume without loss of generality that $\partial^{-}y_{j}$ is a connected component of $\partial^{-}x_{i}$. Then, the vertices of $\partial^{-}y_{j}$ also do not intersect the vertices of $\partial^{-}(x_{i} + x_{i+1})$. So $\partial^{-}y_{j}$ is also a connected component of
+  \begin{equation*}
+    \begin{split}
+    \partial^{-}x_{i} + \partial^{-}(x_{i+1} + x_{i})  = \partial^{-}x_{i+1}
+    \end{split}
+  \end{equation*}
+  which is contradiction to the choices of the $y_{i}$s.  Therefore:
+\begin{equation*}
+  \begin{split}
+    \Size{ w } \le \Size{  x_{i} + x_{i+1} } + \sum_{j}^{m} \Size{y_{j}} \le d + M(d,d^{\prime}) c n  
+  \end{split}
+\end{equation*}
+Thus, for sufficiently large $n$ ,if $c < \frac{1}{M(d,d^{\prime})+1}$, we have that $\Size{w} < n-1$, a contradiction for $w$ being a non-trivial codeword.
+\end{proof}
+
+
+
+\begin{claim}
+  \label{claim:barrierconstant}
+  Let $x_{1}, \ldots, x_{t} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be $d^{\prime}$-dimensional chains defined as in \Cref{claim:barrier}, with the change that any two sequential chains $x_{i}, x_{i+1}$ are at a Hamming distance of at most $\Delta$, and setting the constant $c^{\prime} \leftarrow c/(8{ d^{\prime} \choose 2 }  \Delta )$. Then the claim still holds.
+\end{claim}
+
+\begin{proof}
+  Let $x_{1}^{\prime}, \ldots, x^{\prime}_{\Delta t + 1}$ be the chains obtained from $x_{1}, \ldots, x_{t}$ by taking the stacking between any two sequential elements $\Delta-1$ chains, such that any two sequential chains of the resulted set are at Hamming distance at most one. Namely, for any $i \in [t]$, we have that $x_{1 + i\Delta}^{\prime} = x_{i + i}$ and $x^{\prime}_{i+1}$ differs from $x^{\prime}_{i}$ by at most one coordinate. By \Cref{claim:mergebyf}, each connected component of $\partial^{-}x^{\prime}_{i}$ has a size of at most $4{ d^{\prime} \choose 2 }\Delta (c^{\prime} n+1) \le c n$. 
+
+  \paragraph{}
+  Thus, by \Cref{claim:barrier},we have that:
+  \begin{equation*}
+    \begin{split}
+      [0] = [x_{1}^{\prime}] =[x_{2}^{\prime}] = \ldots = [x_{\Delta t + 1}^{\prime}] 
+    \end{split}
+  \end{equation*}
+  In particular: 
+  \begin{equation*}
+    \begin{split}
+      & [0] = [x_{1}^{\prime}] =[x_{1 + \Delta}^{\prime}] = \ldots  =  [x_{1 + i \Delta}^{\prime} ]  =  \ldots = [x_{\Delta t + 1}^{\prime}] \\
+      \Rightarrow  & [0] = [x_{1}] =[x_{2}] =   \ldots = [x_{t}] \\
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+
+
+
+We summarize the section with the following corollary that incorporates the above insight into an ongoing computation. Namely, changing the logical codeword implies an intermediate step with a sufficiently large connected component of the syndrome. In the computation context, the sequence of the chains is derived from the Paulis in the step-propagation of a conditioned subject circuit.
+\begin{corollary}[Barrier argument]
+  \label{coro:barrier}
+  Let $c^{\prime} \in (0,1)$ be the constant as defined in \Cref{claim:barrierconstant}. Let $P_{1},\ldots,P_{\tau_{f}}$ be a step-propagation of a conditioned subjected circuit $C[\mathcal{E},\alpha]$ (\Cref{def:propagation}). Assume that the arity of the gates of $C$ is bounded by $\Delta$, and that each of the registers in $C$ is encoded in the $(d,d^{\prime})$-Toric code. Denote by $R$ the number of quantum registers in $C$. For a Pauli $P_{\tau}$ in the step-propagation, denote by $x_{\tau} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})^{\otimes R}$ the $X$-component of $P_{\tau}$ and by $x_{\tau}|_{R_{j}}$ the restriction of $x_{\tau}$ to register $R_{j}$. Then, if for any step $\tau$ and for any register $R_{j}$, there is not a connected component of $\partial^{-} x_{\tau}|_{R_{j}}$ of size greater than $c^{\prime}n$, then:
+  \begin{equation*}
+    \begin{split}
+      [x_{\tau_{f}} |_{R_{j}}] = [0] 
+    \end{split}
+  \end{equation*}
+A similar result holds for the $Z$-components, where we define $z_{\tau}|_{R_{j}}$ to be the $d-d^{\prime}$-dimensional chain obtained by applying the $\phi$-transpose on the chain supporting the $Z$-component of $P_{\tau}$ restricted to the register $R_{j}$.
+\paragraph{}
+Equivalently, if the subjected computation introduces a logical error, then at some intermediate step one of the $X$- or $Z$-syndromes has a connected component of size at least $c^{\prime}n$. 
+\end{corollary}
+\begin{proof}
+The proof follows immediately from \Cref{claim:barrierconstant}, where we use the fact that the arity is bounded by $\Delta$, and therefore sequential Paulis in the step-propagation are at a Hamming distance of at most $\Delta$.
+\end{proof}
+
+\begin{remark}
+Consider the application of an iterative sweep rule over a chain whose boundary is at a size lower than $c^{\prime} n$. Since the sweep rule only decreases the size of the boundary, it is easy to see that along the application, the size of the connected component of the boundary is kept below $c^{\prime}n$. Thus, each time, the filling operator will accomplish the chain to the same codeword. In particular, we get that decoding a measurement as presented in \Cref{def:niceenc} doesn't result in a logical error, provided that each of the connected components of the boundary, prior to the broadcast, does not have a size exceeding $c^{\prime}n$.
+\end{remark}
+
+
+
+%\subsection{Drafts for that section.}
+%
+%
+%\inb{\textbf{Consider removing.}}
+%\begin{claim}
+%  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $x$ is connected, and $\Size{x} < n$. Then, there is a connected chain on the infinite complex $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such $\Size{x}= \Size{x^{\prime}}$. 
+%\end{claim}
+%\begin{proof}
+%Let $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ be a minimizing cover for $x$, as defined in \Cref{def:mincover}. Assume that $x^{\prime}$ is disconnected, and consider a decomposition of $x^{\prime}$ into two disjoint chains (each of which might itself be disconnected). Since the projection of $x^{\prime}$ covers $x$ and $x$ is connected, those chains contain two distinct faces in $x^{\prime}$ whose projections either coincide or are adjacent in $x$ and therefore their projections share a vertex in $\mathcal{G}_{d}^{n}$. Denote the corresponding sources of that vertex on those faces by $v,u \in \mathcal{G}_{d}$, so $u$ is a translation of $v$ by at least one integer power of $g_{1}^{n},..,g_{d}^{n}$. Namely, there exists a generator $g \in S$ such that $L_{g}(u) - L_{g}(v) \ge n$ (or vice versa). Thus,
+%  \begin{equation*}
+%    \begin{split}
+%      \Size{x^{\prime}} \ge \Size{\{u,v\}}  & \ge L_{g}(v) + \sum_{g^{\prime}\neq g}L_{g^{\prime}}(u) + L_{d+1}(u) \\
+%      & \ge n + \sum_{g^{\prime}}L_{g^{\prime}}(u) + L_{d+1}(u) = n
+%    \end{split}
+%  \end{equation*}
+%  In contradiction to $\Size{x^{\prime}} = \Size{x} < n$. 
+%\end{proof}
+%
+% 
+%
+%
+%\inb{\textbf{Chain the following claims into list. }}  We present the following simple claim without proof.
+%\begin{claim}
+%Let $f, w \in \mathcal{F}_{d^{\prime}}$ be two $d^{\prime}$-dimensional faces on the infinite complex, and denote by $\mathbf{1}_{f}, \mathbf{1}_{w} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ their corresponding chains. Then the equality:
+%  \begin{equation*}
+%    \begin{split}
+%      \pi(\mathbf{1}_{f}) +  \pi(\mathbf{1}_{w}) = \pi(\mathbf{1}_{f} + \mathbf{1}_{w})  
+%    \end{split}
+%  \end{equation*}
+%  holds if either $\pi(\mathbf{1}_{f}) \neq  \pi(\mathbf{1}_{w}) $ or if $f = w $. 
+%\end{claim}
+%\begin{claim}  
+%Let $f \neq w \in \mathcal{F}_{d^{\prime}}$ be two different $d^{\prime}$-dimensional faces on the infinite complex. Denote by $\mathbf{1}_{f}, \mathbf{1}_{w} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ their corresponding chains. Suppose that $\pi(\mathbf{1}_{f}) = \pi(\mathbf{1}_{w})$. Then, for any $d^{\prime}$-dimensional chain $x \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, such that $x_{f}, x_{w} \neq 0$, we have:
+%  \begin{equation*}
+%    \begin{split}
+%      \Size{x} \ge n
+%    \end{split}
+%  \end{equation*}
+%\end{claim}
+%\begin{definition}
+%Introducing the projection $\pi$, and what covering means $x \preccurlyeq y$. In particular, if $\pi(\tilde{x}) \succcurlyeq x$, then the projection of $\tilde{x}$ covers $x$.
+%\end{definition}
+%
+%
+%\begin{claim}
+%  The following inequality holds:
+%  \begin{equation*}
+%    \begin{split}
+%      \pi( x+ y )  \succcurlyeq \pi(x) + \pi(y)
+%    \end{split}
+%  \end{equation*}
+%\end{claim}
+%
+%
+%\begin{claim} 
+%  \label{claim:coverorder}
+%  The following inequality holds:
+%  \begin{equation*}
+%    \begin{split}
+%      \pi( \partial^{-} y)  \succcurlyeq \partial^{-} \pi(y)
+%    \end{split}
+%  \end{equation*}
+%\end{claim}
+%
+%
+%\begin{claim}
+%  
+%  Let $\tilde{x} \in (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$ be a $d^{\prime}-1$ dimensional chain such $\Size{\tilde{x}} < n $ and:
+%  \begin{equation*}
+%    \begin{split}
+%  \tilde{x} \in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})
+%    \end{split}
+%  \end{equation*} 
+%  Denote by $\tilde{y}$ the minimizing cover of $\tilde{x}$. Then:
+%  \begin{equation*}
+%    \begin{split}
+%  \tilde{y} \in \image \partial^{-} : ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})
+%    \end{split}
+%  \end{equation*} 
+%\end{claim}
+%\begin{proof}
+%  
+%\end{proof}
+%
+%\begin{claim}
+%  Let $\tilde{x} \in (\mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})$ be a $d^{\prime}-1$ dimensional chain such $\Size{\tilde{x}} < n $ and:
+%  \begin{equation*}
+%    \begin{split}
+%  \tilde{x} \in \image \partial^{-} : ( \mathcal{F}^{n}_{d^{\prime}} ; \mathbb{F}_{2}) \rightarrow ( \mathcal{F}^{n}_{d^{\prime}-1}; \mathbb{F}_{2})
+%    \end{split}
+%  \end{equation*}
+%  Then, there is a chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $\Size{x} = \tilde{x}$ and $\partial^{-}x  = \tilde{x}$. 
+%\end{claim}
+%
+%\begin{proof}
+%  Denote the minimizing cover of $\tilde{x}$ by $\tilde{y}$. By \Cref{claim:trnasrespproj}, since $\Size{\tilde{y}} = \Size{\tilde{x}} < n$, there is a vertex in the infinite complex $u \in \mathcal{G}_{d}$ such that the translation $u\tilde{y}$ aligns with the finite complex, namely $\pi(u \tilde{y}) = u \tilde{y}$. Consider the application of the algorithm presented in \Cref{claim:reducederr} on $u\tilde{y}$ and the resulted reduced chain. , yields a chain, with $L_{g}$-values confined in the 
+%
+%
+%\end{proof}
+%
+%
+%
+%\begin{claim}
+%  \label{claim:stabtostab}
+%The projection map sends stabilizers of the infinite complex $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ to stabilizers of the finite complex $(\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$.
+%\end{claim}
+%\begin{proof}
+%Consider a subset of generators $S^{\prime} \subset S$, such that $|S^{\prime}|=d^{\prime}+1$, so for a vertex $\mathcal{G}^{d}$, the chain $\partial^{-}\rotfv{v}{S^{\prime}}$ is a basis element for the stabilizers in $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$. Then, the projection of $\partial^{-}\rotfv{v}{S^{\prime}}$
+%  \begin{equation*}
+%    \begin{split}
+%      \pi ( \partial^{-}\rotfv{v}{S^{\prime}} ) = \pi ( \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} +  \rotfv{gv}{S^{\prime}/g} ) 
+%    \end{split}
+%  \end{equation*}
+%Since no two elements in the right sum are projected to the same target (that is because the size of the $\partial^{-}\rotfv{v}{S^{\prime}}$ is at most $d$), we have that the projection commutes with the summation. So:
+%  \begin{equation*}
+%    \begin{split}
+%    \pi ( \partial^{-}\rotfv{v}{S^{\prime}} ) &=  \sum_{g \in S^{\prime}} \rotfv{\pi(v)}{S^{\prime}/g} +  \rotfv{\pi(gv)}{S^{\prime}/g} \\ 
+%    & =  \sum_{g \in S^{\prime}} \rotfv{\pi(v)}{S^{\prime}/g} +  \rotfv{g \pi(v)}{S^{\prime}/g} = \partial^{-}\rotfv{\pi(v)}{S^{\prime}} 
+%    \end{split}
+%  \end{equation*}
+%\end{proof}
+%
+%\inb{\textbf{Overgoing on that claim again.}}
+%\begin{claim}
+%  \label{claim:liftedreduced}
+%  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $\Size{x} < n$. Then $x$ has a minimizing cover $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such $\partial^{-}x^{\prime}$ is the minimizing cover of $\partial^{-}x$.
+%\end{claim}
+%\begin{proof}
+%  Let the $d^{\prime}-1$-dimensional chains $z_{1}, \ldots, z_{l} \in (\mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})$ be the single-face (unit vector) decomposition of $\partial^{-} x^{\prime}$. We claim that there are no two faces $z_{i}, z_{j}$ whose projections coincide. If there were, then $\Size{\partial^{-} x^{\prime}}$ is greater than $n$. But 
+%  \begin{equation*}
+%    \begin{split}
+%      \Size{\partial^{-} x^{\prime}} \le \Size{ x^{\prime}} = \Size{x} < n
+%    \end{split}
+%  \end{equation*}
+%  Thus, 
+%  \begin{equation*}
+%    \begin{split}
+%      \pi(\partial^{-}x^{\prime} )= \pi(\sum_{i}z_{i}) = \sum_{i}\pi(z_{i})
+%    \end{split}
+%  \end{equation*}
+%  Assume there is a face $f$ in  $\partial^{-}x$ which is not in $\pi(\partial^{-}x^{\prime})$. 
+%\end{proof}
+%
+%
+%\begin{claim}
+%  \label{claim:stabtostab}
+%The projection map sends stabilizers of the infinite complex $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ to stabilizers of the finite complex $(\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$.
+%\end{claim}
+%\begin{proof}
+%Consider a subset of generators $S^{\prime} \subset S$, such that $|S^{\prime}|=d^{\prime}+1$, so for a vertex $\mathcal{G}^{d}$, the chain $\partial^{-}\rotfv{v}{S^{\prime}}$ is a basis element for the stabilizers in $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$. Then, the projection of $\partial^{-}\rotfv{v}{S^{\prime}}$
+%  \begin{equation*}
+%    \begin{split}
+%      \pi ( \partial^{-}\rotfv{v}{S^{\prime}} ) = \pi ( \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} +  \rotfv{gv}{S^{\prime}/g} ) 
+%    \end{split}
+%  \end{equation*}
+%Since no two elements in the right sum are projected to the same target (that is because the size of the $\partial^{-}\rotfv{v}{S^{\prime}}$ is at most $d$), we have that the projection commutes with the summation. So:
+%  \begin{equation*}
+%    \begin{split}
+%    \pi ( \partial^{-}\rotfv{v}{S^{\prime}} ) &=  \sum_{g \in S^{\prime}} \rotfv{\pi(v)}{S^{\prime}/g} +  \rotfv{\pi(gv)}{S^{\prime}/g} \\ 
+%    & =  \sum_{g \in S^{\prime}} \rotfv{\pi(v)}{S^{\prime}/g} +  \rotfv{g \pi(v)}{S^{\prime}/g} = \partial^{-}\rotfv{\pi(v)}{S^{\prime}} 
+%    \end{split}
+%  \end{equation*}
+%\end{proof}
+%
+%\inb{\textbf{Overgoing on that claim again.}}
+%\begin{claim}
+%  \label{claim:liftedreduced}
+%  Consider a $d^{\prime}$-dimensional chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $\Size{x} < n$. Then $x$ has a minimizing cover $x^{\prime} \in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ such $\partial^{-}x^{\prime}$ is the minimizing cover of $\partial^{-}x$.
+%\end{claim}
+%\begin{proof}
+%  Let the $d^{\prime}-1$-dimensional chains $z_{1}, \ldots, z_{l} \in (\mathcal{F}_{d^{\prime}-1}; \mathbb{F}_{2})$ be the single-face (unit vector) decomposition of $\partial^{-} x^{\prime}$. We claim that there are no two faces $z_{i}, z_{j}$ whose projections coincide. If there were, then $\Size{\partial^{-} x^{\prime}}$ is greater than $n$. But 
+%  \begin{equation*}
+%    \begin{split}
+%      \Size{\partial^{-} x^{\prime}} \le \Size{ x^{\prime}} = \Size{x} < n
+%    \end{split}
+%  \end{equation*}
+%  Thus, 
+%  \begin{equation*}
+%    \begin{split}
+%      \pi(\partial^{-}x^{\prime} )= \pi(\sum_{i}z_{i}) = \sum_{i}\pi(z_{i})
+%    \end{split}
+%  \end{equation*}
+%  Assume there is a face $f$ in  $\partial^{-}x$ which is not in $\pi(\partial^{-}x^{\prime})$. 
+%\end{proof}
+%
+%\begin{claim}
+%  Consider a $d^{\prime}$-dimensional chain, on the finite complex, $\tilde{x} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such $\Size{\tilde{x}} < n$. Let the chain, on the infinite complex, $x\in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, be a minimizing cover of $\tilde{x}$.    
+%\end{claim}
+%
+%\begin{claim}
+%  \label{claim:trnasrespproj}
+%Let the $d^{\prime}$-dimensional chain on the infinite complex, $x\in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, be such that if $\Size{x} < n$, then there exists a translation of it $\tilde{x}\in (\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$, such that both $\Size{x} = \Size{\tilde{x}}$ and $\pi(\tilde{x}) = \tilde{x}$. Equivalently, the faces of $\tilde{x}$ align with faces on the finite complex.
+%\end{claim}
+%\begin{proof}
+%  Foe each generator $g \in S$, denote the maximal value of $L_{g}$ in $x$ by $l_{g}$. Define the vertex $u \in \mathcal{G} $, such:
+%  \begin{equation*}
+%    \begin{split}
+%      u_{g}l_{g} = n-1
+%    \end{split}
+%  \end{equation*}
+%Choose $\tilde{x}$ to be the translation of $x$ by $u$. Since $\tilde{x}$ is a translation of $x$, its size equals $\Size{\tilde{x}} = \Size{x}$. So, it's left to prove that $\pi(\tilde{x}) = \tilde{x}$. That's equivalent to proving that for any generator $g \in S$, the $g$-coordinates of $\tilde{x}$ vertices are in the range $[1, n-1]$. Assume through contradiction that there is a vertex $w$ of $\tilde{x}$ and a generator $g$ such that $w_{g} \notin [1, n-1]$. By the construction of $\tilde{x}$, the value $w_{g}$ is lower than $n-1$, thus, combining the contradiction assumption, $w_{g} < 1$. Furthermore, pick $g$ such that the $L_{g}$-value of $w$ is the minimal among all the generators. Then it follows that:
+%  \begin{equation*}
+%    \begin{split}
+%      \Size{\tilde{x}}  \ge \sum_{g^{\prime} \in S} \max_{v \in \tilde{x}}L_{g^{\prime}}(v) + L_{d+1}(w) \ge d(n -1 - L_{g}(w)) \ge n
+%    \end{split}
+%  \end{equation*}
+%In contradiction to $\Size{\tilde{x}} = \Size{x} < n$.
+%\end{proof}
+
+
+
+
+
+%
+%Since $\Size{x_{1}} < n$, then by \Cref{claim:trnasrespproj} there is a vertex $u$, such that for the translation of $\tilde{x}_{1}$ by $u$, namely the chain $u\tilde{x}_{1}$, its minimizing cover $\tilde{y}$ aligns with the finite complex. Since $\partial^{-} uz = u \partial^{-} z$ and $\Size{uz} = \Size{z}$.
+%
+%of the translated chain matches the translation of the boundary of the original, and since the size-function is invariant to translation by vertex, we can assume without loss of generality that the minimizing cover of $\tilde{x}_{1}$ aligns with the finite complex. Denote the minimizing cover of $\tilde{x}_{1}$ by $\tilde{y}$, so $\tilde{y} = \pi(\tilde{y}) = \tilde{x}_{1}$. 
+%
+%Now, take $y$ to be the reduced chain, on the infinite complex, such $\partial^{-}y = \tilde{y}$. Then $\pi (\partial^{-}y)  = \pi( \tilde{y} ) = \tilde{x}$.  On the otherhand, $\Size{y} = \Size{\tilde{y}}$, and there is a translation of it $x$ that align with the finite complex.  
+%
+%
+%By \Cref{claim:coverorder}, any minimizing cover $y \in  ( \mathcal{F}_{d^{\prime}} ; \mathbb{F}_{2}) $ of $x_{1}$, satisfies that for any stabilizer $w \in \mathcal{C}_{Z^{\perp}}$, it holds that: 
+%\begin{equation*}
+%  \begin{split}
+%    \pi \partial^{-} ( y + w ) =  \pi \partial^{-} ( y ) \succcurlyeq \partial^{-} \pi(y)  = \tilde{x}_{1} 
+%  \end{split}
+%\end{equation*}
+%So a translation of $y$ by a stabilizer yields a chain on the infinite complex where the $\partial^{-}$-boundary of its projection still covers $\tilde{x}_{1}$. In particular, we could initially choose $x_{1}$ such that $y$ is a reduced chain, therefore, by \Cref{claim:reducederr}:
+%\begin{equation*}
+%  \begin{split}
+%    \Size{x_{1}} = \Size{y} = \Size{\partial^{-} y} = \Size{\tilde{x}_{1}} 
+%  \end{split}
+%\end{equation*}

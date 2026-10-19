@@ -1,41 +1,32 @@
 
-\subsection{The Replacement Argument}
-Throughout our final construction, logical measurements will be done via first measuring the qubits of the target register, clean the error with non-noisy computation, and eventually inferring the results, by turning to the logical space. In this section we introduce the cleaning procedure, which is the excitation of sweep-cycles for $  2dn^{2d}  $ times - the number of vertices times the side's length. In the case of logical measurement, the cleaning is done over classical bits, and therefore only the relevant stage of the sweep-cycle is done (either in the computational or the phase base).
+\section{The Sweep-rule is Itself a Decoder}
+The role of the sweep-rule in the fault tolerance construction is to restrain the errors in the system rather than erase them. Here, we show that it can also be used as a decoder. Concurrently, if the initial error is distributed according to local stochastic noise, then the excitation of noiseless sweep-cycles for $2dn^{2d}$ times - the number of vertices times the side's length - erases the errors.
 
 
-To present conditions on which the cleaning procedure works, we extend the infinity characterization to slices and subslices.
-\begin{definition}[Inifinite Slice]
-  \label{def:infislice}
-  Let $K$ be a slice/subslice in a Toom's contour. We will say that $K$ is infinite slice/subslice if: % there is $g\in S$ and vertices $u,v$ such: 
-  \begin{equation*}
-    \begin{split}
-       \Size{K} \ge n   %L_{g}(v) - L_{g}(u) \ge n 
-    \end{split}
-  \end{equation*}
-\end{definition}
-That motivates us to define the notion of a step that is the first to admit an infinite slice/error.
-\begin{definition}[Step $\tau$ Admits Inifinte Error/Slice ]
-  \label{def:localprop}
-  Let $C[\mathcal{E}]$ be a Toric encoded circuit, and let $J=\tau_1, \tau_2, \ldots$ be an order agreeing with $\pi_{C[\mathcal{E}]}$. We say that a step $\tau \in J$ admits an infinite error if there exists a reduced Pauli-path up to step $\tau$, $P_{1}, P_{2}, \ldots, P_{t^{\star}}$, that induces an analysis Toom's contour such that there is at least one Pauli in the path whose view in the $\infty$-extension is infinite (\Cref{def:finiteerr}). Similarly, we say that a step $\tau$ admits an infinite slice if there is a Pauli path such that $\mathcal{H}_{\tau}$ has an infinite slice (\Cref{def:infislice}). Moreover, we say that $\tau$ is the first step to admit an infinite error/slice if $\tau$ is the minimal step for which there is a Pauli path such that $\mathcal{H}_{\tau}$ admits an infinite error/slice. By exactly the same way, we define the notation of step $\tau$ admits an error/slice at finite size X.
+To prove it, we first need to introduce the notation of two-translations, which refer to a pair of vertices on the $\infty$-lift that share the same source on the finite Toric.
+\begin{definition}
+Consider a Toom's contour $\mathcal{H}$. We say that vertices $u,v \in V_{\mathcal{H}}$ are two-translations if there is a vertex $v^{\prime}$ on the finite Toric, such that both $v$ and $u$ are translations of $v^{\prime}$.
 \end{definition}
 
-
-
-%Note that $u$ and $v$ might be set on different connected chains. In particular, the origin of the vertices in $K$ might be a finite (yet disconnected) chain, and yet $K$ might be an infinite slice. In addition, if $K$ is a slice in the last layer of the analysis Toom's contour at step $\tau$, and the Pauli $P \in \mathcal{P}$ is the last element in the reduced Pauli-path that induces the contour. Then, if $K$ is finite then $P_{t^{\star} -1}$ is finite.
-
-  
-The following claim states that for ideal running (not subjected to noise), assuming that during the cleaning all the slices are finite, the cleaning succeeds in erasing the errors.
 \begin{claim}
-  \label{claim:decodestopnoise}
-Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code with side length $n$. Let $P \in \mathcal{P}^{(\cdot)}$. Assuming that: 
-\begin{enumerate}
-  \item During the application of $2d n^{2d}   $ ideal sweep-cycles over $P\ket{\psi}$, the Toom's counter does not admit an infinite error.
-  \item For any two vertices $u, w$ which are two different translations of the same vertex on the finite Toric (a vertex in $\mathcal{G}_{n}^{d}$), it holds that they are not connected by arrows.
-\end{enumerate}
-  Then at the end the error is erased, namely, the result of the computation is $\ket{\psi}$.
+  \label{claim:transcon}
+  Let $t_{0}$ be a time, such there are two translations $\tilde{v} =(v,t_{0},\{ \cdot\})$, $\tilde{u}=(u,t_{0},\{ \cdot\}) $ and $\tilde{v},\tilde{u}$ are connected via arrows. Then, there is a slice in $\mathcal{H}$ at size greater than $n$.  
 \end{claim}
 \begin{proof}
-  We will prove that the decoder erases the $X$-component of $P$, and the proof for the $Z$-component is identical. Let $P^{\infty}$ the view of $P$ in the $\infty$-extension and let $v_{1}, v_{2}, \ldots$ be the vertices supporting the faces of $X(P^{\infty})$. During the ideal computation, no new faults are introduced, and therefore $v_{1}, v_{2} \ldots$ are the only leaves in the induced Toom's contour. Without loss of generality, assume that the first $m$ vertices $v_{1},..,v_{m}$ align with the vertices of the finite Toric (namely non-translated vertices), denote them by $V^{\prime}$. 
+Denote by $K$ the slice for which $\tilde{v}, \tilde{u} \in \History{K}$. Observe that we can assume that $T(K) - t_{0}$ is a non-negative integer, since if it is, then $K \in \History{\tilde{u}}, \History{\tilde{v}}$ and therefore $\History{\tilde{u}} = \History{\tilde{v}}$, namely $\tilde{u}$ and $\tilde{v}$ are contained in the same slice. Thus, we prove by induction on $T(K) - t_{0}$.
+  \begin{enumerate}
+    \item Base. If $t_{0} = T(K)$ then $\tilde{v},\tilde{u} \in K$ so clearly $\Size{K} \ge n$.  
+    \item Step. We argue that at time $t_{0}+1$ there must be two translations that belong to $\History{K}$. Let $u^{\prime}$ be a vertex, such that $ \tilde{u} \in \pre{u^{\prime}} $. Notice that if there is no such vertex, then $\tilde{u}$ does not appear in the history of any vertex with a time coordinate greater than $t_{0}$, in contradiction to $\tilde{u} \in \History{K}$. Since the vertices of $\mathcal{H}$ are sets defined by the $\partial^{-}$-boundary of a Pauli-path, and a Pauli-path is an $\infty$-lift of propagation, we have that there has to be a vertex $v^{\prime}$ in $\mathcal{H}$ which is a translation of $u^{\prime}$. If $\{\tilde{u},u^{\prime}\} \in E_{\mathcal{H}}$, then we are finished. Else, by the arrows connection rules (\Cref{def:contour}), it has to be that $v^{\prime} \in \mathcal{E}^{\infty}$, but then it has to be that $u^{\prime}$ is also in $\mathcal{E}^{\infty}$, which is a contradiction to $\{\tilde{u},u^{\prime}\}$ being an arrow.
+  \end{enumerate}
+\end{proof}
+
+The following claim states that an ideal run (not subject to noise) of $2dn^{2d}$ sweep-cycles, with the additional assumption that no two translations are connected by the arrows, succeeds in erasing the syndrome.
+\begin{claim}
+  \label{claim:decodestopnoise}
+Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code with side length $n$, and let $P \in \mathcal{P}^{(\cdot)}$. Let $C$ be the quantum circuit that takes $P\ket{\psi}$ as an input and performs over it $2dn^{2d}$ sweep-cycles. For a possible measurement outcome $\alpha \in \mathbb{F}_{2}^{(\cdot)}$ (of stabilizer measurements), consider the Toom's contour $\mathcal{H}$ induced by $C[,\alpha]$. Assuming that any two vertices $u, w$, which are two different translations of the same vertex on the finite Toric (a vertex in $\mathcal{G}_{n}^{d}$), are not connected by arrows in $\mathcal{H}$. Then, at the end of the running of $C[,\alpha]$, the syndrome is erased.
+\end{claim}
+\begin{proof}
+  We will prove that the decoder erases the $\partial^{-}$-boundary corresponding to the $X$-component of $P$, and the proof for the $Z$-component is identical. Let $P^{\infty}$ be the $\infty$-lift of $P$ and let $v_{1}, v_{2}, \ldots$ be the vertices supporting the faces of $\partial^{-}x(P^{\infty})$. During the ideal computation, no new faults are introduced, and therefore $v_{1}, v_{2} \ldots$ are the only leaves in the induced Toom's contour. Without loss of generality, assume that the first $m$ vertices $v_{1},..,v_{m}$ align with the vertices of the finite Toric (namely non-translated vertices), denote them by $V^{\prime}$. 
 
   
   They set a natural relation over its slices as follows: two slices $K_{1}$ and $K_{2}$, not necessarily with the same time coordinate, will be said to be \textit{history-related}, $K_{1}\sim K_{2}$, if there are leaves $u, w$ such that both $u$ and $w$ are translations of a vertex $v_{i} \in V^{\prime}$ and $u, w$ belong to the histories of $K_{1}, K_{2}$ respectively.
@@ -48,7 +39,7 @@ Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code with s
     \item Suppose that $K_{v,t}$ and $K_{u,t}$ are slices at time $t$, and $K_{w,t+1}$ is a slice at time $t+1$, such that $K_{v,t}\not\sim K_{u,t}$, $K_{w,t+1}\sim K_{v,t}$, and $K_{w,t+1}\sim K_{u,t}$. Then we will say that $\textbf{K}_{v}$ and $\textbf{K}_{u}$ merged at time $t$.
     \item The size of a class $\mathbf{K}_{v}$ at time $t$ is $\Size{K_{v,t}}$.
   \end{enumerate}
-Since no new faults are introduced during the computation, we have that in each step, the only option for a class to grow is by merging. Notice that, by definition, classes cannot 'split'. Namely, if $K_{v,t}\sim \mathbf{K}_{u}$, then for any time $t^{\prime} \ge t$, it holds that $K_{v,t^{\prime}} \sim \textbf{K}_{u}$. Specifically, a correction by the sweep rule that disconnects two error clusters that were connected by checks and, prior to correction, belonged to the same slice and therefore to the same class, would still belong to the same class after the correction.
+  Since no new faults are introduced during the computation, we have that in each step, the only option for a class to grow is by merging. Notice that, by definition, classes cannot 'split'. Namely, if $K_{v,t}\sim \mathbf{K}_{u}$, then for any time $t^{\prime} \ge t$, it holds that $K_{v,t^{\prime}} \sim \textbf{K}_{u}$. Specifically, a correction by the sweep rule that disconnects two connected components of the syndrome that were connected, prior to correction, belonged to the same slice and therefore to the same class, would still belong to the same class after the correction.
 
 
 Therefore, there can be at most $m-1$ merges. And since the number of classes is bounded by the number of vertices on the Toric, we have that $m \le n^{d}$, namely at most $n^{d}-1$ merges can occur. Hence, during the $2dn^{2d}$ sweep-cycles, there has to be a continuous sequence of $2dn^{d}$ cycles for which no merge occurs.
@@ -60,7 +51,7 @@ Moreover, we argue that the maximum size of a slice is bounded by $2dn^{d}$. For
     \Phi_{t} = \sum_{v \in V^{\prime}_{t} } \left( \Size{ K_{v,t} } + 1\right)
   \end{split}
 \end{equation*}
-Observe that $\Phi_{1} = m \le n^{d}$. Now, for a vertex $v \in V^{\prime}_{t+1}$, denote the predecessor of $K_{v,t+1}$ by $K_{u^{\prime}_{0},t}, K_{u^{\prime}_{1},t},\ldots, K_{u^{\prime}_{k_{v}},t}$ and their translation into the finite Toric by $K_{u_{0},t}, K_{u_{1},t},\ldots, K_{u_{k_{v}},t}$, so $u_{i} \in V^{\prime}_{t}$. Using \Cref{claim:shrinkslice} and \Cref{claim:maxfork}, we have:
+Observe that $\Phi_{1} = m \le n^{d}$. Now, for a vertex $v \in V^{\prime}_{t+1}$, denote the predecessor of $K_{v,t+1}$ by $K_{u^{\prime}_{0},t}, K_{u^{\prime}_{1},t},\ldots, K_{u^{\prime}_{k_{v}},t}$ and their translation into the finite Toric by $K_{u_{0},t}, K_{u_{1},t},\ldots, K_{u_{k_{v}},t}$, so $u_{i} \in V^{\prime}_{t}$. Using \Cref{claim:shrinkslice} and \Cref{claim:maxfork}, where the poles for $K_{v,t+1}$ are selected to be the extremis of $L_{1},..,L_{d+1}$, we have:
 \begin{equation*}
   \begin{split}
     \Phi_{t+1} &= \sum_{v \in V^{\prime}_{t+1}} \bigl( \Size{ K_{v,t+1} } + 1\bigr) \le \sum_{v \in V^{\prime}_{t+1}} \bigl(\bigl( \sum^{k_{v}}_{i=0} \Size{ K_{u^{\prime}_{i},t} }\bigr) + 2dk_{v} + 1 \bigr) \\
@@ -71,7 +62,7 @@ Observe that $\Phi_{1} = m \le n^{d}$. Now, for a vertex $v \in V^{\prime}_{t+1}
     Where, in the last transition, we used the fact that the size function is invariant to translations. Now, any vertex of $V^{\prime}_{t}$ has to appear at most once. To see this, assume towards contradiction the existence of two predecessor slices $K_{u^{\prime}_{i},t}$, $K_{w^{\prime}_{j},t}$ which are translations of the same slice. Denote by $K_{u,t+1}$ and $K_{w,t+1}$ the slices whose $K_{u^{\prime}_{i},t}$, $K_{w^{\prime}_{j},t}$ are their predecessors. Let's split to cases, whether $u = w$.
     \begin{itemize}
       \item If $u \neq w$, then $u^{\prime}_{i}, w^{\prime}_{j}$ belong to the histories of different slices $K_{u,t+1}, K_{w,t+1}$, and they are a translation of the same vertex in $V^{\prime}_{t} \subset V^{\prime}$. Hence, $K_{u,t+1} \sim K_{w,t+1}$, in contradiction to $u, w \in V^{\prime}_{t+1}$.
-      \item Otherwise, if $u=w$, then we found two vertices $u^{\prime}_{i}$ and $w^{\prime}_{j}$, which are translations of the same origin vertex of the finite Toric, such that they belong to the same history $\History{K_{w,t+1}}$, namely connected by an arrow, in contradiction to the second given of the claim.
+      \item Otherwise, if $u=w$, then we found two vertices $u^{\prime}_{i}$ and $w^{\prime}_{j}$, which are translations of the same origin vertex of the finite Toric, such that they belong to the same history $\History{K_{w,t+1}}$, namely connected by an arrow, in contradiction to the given of.
     \end{itemize}
 
 Now, observe that each fork connecting two slices is associated with a merge; therefore, $\sum_{t}\sum_{v\in V^{\prime}_{t}}k_{v}$ is lower than the number of merges, and the bound on the potential function becomes:
@@ -81,21 +72,68 @@ Now, observe that each fork connecting two slices is associated with a merge; th
     & \le \Phi_{t} + (2d-1)k  =  \Phi_{1} + (2d-1) \cdot \text{ \# merges }  \le  2d n^{d} 
   \end{split}
 \end{equation*}
-Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, no slice reaches size $2dn^{d}$. Since it's given that no infinite error is admitted, a sweep cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:shrinkslice}, combining that no merging occurred, namely there is only one predecessor slice. Hence, at the end of that sequence of $2dn^{d}$ cycles, all the slices' sizes shrink to zero; namely, the connected errors are erased after those cycles.
+Thus, since $\Size{K_{v,t}} \le \Phi_{t}$, we have that during the computation, no slice reaches size $2dn^{d}$. During the continuous sequence of $2dn^{d}$ cycles, each sweep cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:shrinkslice}, combining that no merging occurred, namely there is only one predecessor slice. Hence, at the end of that sequence of $2dn^{d}$ cycles, all the slices' sizes shrink to zero; namely, the connected components are erased after those cycles.
 \end{proof}
 
-To prove that no infinite error is admitted, and that no two translated vertices are arrow-connected, we use a replacement argument, stating that the probability of an event occurring during a computation where part of its layers are non-noisy is lower than the probability of having the same event in a computation where all its layers are noisy. More precisely, any bound that assumes only that the noise channel is local stochastic captures both cases.
- 
+
+
+\Cref{claim:decodestopnoise} guarantees only that the syndrome is erased; in particular, it says nothing about whether a logical error has or hasn't occurred. To complete the correctness of the decoder, we would like to use the barrier argument. Yet, instead of showing that during the ideal correction no connected component of the syndrome passes the barrier, it will be more convenient to reduce the passing question to the subjected-to-noise setting. We introduce a replacement argument, stating that the probability of an event occurring during a computation where part of its layers are non-noisy is lower than the probability of having the same event in a computation where all its layers are noisy. More precisely, any bound that assumes only that the noise channel is local stochastic captures both cases.
 \begin{claim}[Replacement argument]
   \label{claim:replace}
-  Consider a running of Toric encoded circuit with depth $l$. Denote by $A$ the event in which, after an additional $ 2dn^{2d}$ \textbf{ideal} (non-noisy) iterations of the sweep-cycle, the error is not erased, and denote by $B$ the event that, during the application of an additional $2dn^{2d}$ \textbf{noisy} iterations, either the Toom's contour admits an infinite error, or two translated vertices are become arrows connected. Let $f:(n,d,d^{\prime},l,p) \rightarrow \mathbb{R} $ be an upper bound on $\prb{B}$ that assumes only that the noise is distributed according to a local stochastic noise channel with noise rate $p$. Then, we have:
-  \begin{equation*}
+  Let $C$, $\ket{\psi}$, and $P$ be the quantum circuit, the quantum state, and a Pauli as defined in \Cref{claim:decodestopnoise}, with the change that $P$ is distributed according to local stochastic noise $\mathcal{N}_{\mathcal{E}}$ with an error rate $p\in (0,1)$ rather than being fixed.
+
+Denote by $A$ the event in which, at the end of the running of $C$, namely after the $2dn^{2d}$ \textbf{ideal} (non-noisy) iterations of the sweep-cycle, the error is not erased, and denote by $B$ the event that, during the application of a subjection of $C$ to $\mathcal{N}_{\mathcal{E}}$, either the Toom's contour admits a slice of size at least $cn$, or two translated vertices become arrow-connected.
+
+
+Let $f:(n,d,d^{\prime},p) \rightarrow \mathbb{R}$ be an upper bound on $\prb{B}$. Then, we have:
+  \begin{equation}
+    \label{equ:replacement}
     \begin{split}
-      \prb{A} \le f(n,d,d^{\prime},l,p)
+      \prb{A} \le f(n,d,d^{\prime},p)
     \end{split}
-  \end{equation*}
+  \end{equation}
 \end{claim}
 \begin{proof} 
-\Cref{claim:decodestopnoise} states that if during the $2dn^{2d}$ ideal sweep-cycles, Toom's contour does not admit an infinite error and no two translated vertices become arrow-connected, then the error is erased. Consider the set of atomic events corresponding to the faults in the first $l$ noisy layers, such that during the additional $2dn^{2d}$ ideal iterations, there is a step which either admits an infinite error or in its 'analysis Toom's counter,' two translated vertices are connected by arrows. All those atomic events are also contained in $B$, since local stochastic noise is our only assumption. The bound over the $B$ scenario has to hold for a noise channel that assigns zero probability for a fault occurring during the additional $2dn^{2d}$ iterations. For this specific channel, $\prb{A} \le \prb{B}$ and therefore $\prb{A} \le f(n,d,d^{\prime},l,p)$.
+  A corollary of combining \Cref{claim:decodestopnoise} with \Cref{coro:barrier} (The barrier argument) is that if during the $2dn^{2d}$ ideal sweep-cycles, there is no step for which its propagation admits a slice of size at least $cn$ (and therefore no step admits a syndrome's connected component that passes the barrier), and no two translated vertices become arrow-connected, then the syndrome is erased and no logical error occurred. So it's sufficient to show that the probability that at least one of those conditions does not hold is lower than $f(n,d,d^{\prime},p)$. To do that, we show that there is a local stochastic noise channel $\mathcal{N}^{\prime}_{\mathcal{E}}$ with an error rate $p$ such that $C[\mathcal{E}]= C$ where $\mathcal{E}\sim \mathcal{N}^{\prime}_{\mathcal{E}}$. We do that by defining $\mathcal{N}^{\prime}_{\mathcal{E}}$ to be the identity channel. Clearly, it's satisfying the local stochastic noise inequality \Cref{def:localstoc}, and therefore \Cref{equ:replacement} has to holds. 
+
+  %Consider the set of atomic events, in the probability space induced by sampling $P\sim \mathcal{N}_{\mathcal{E}}$ and stabilizer measurements, in which there is a step $\tau$ and an analysis Toom's counter  $\mathcal{H}_{\tau}$ such either there is a slice at size at least $cn$ in $\mathcal{H}_{\tau}$, or that there are two translated vertices which are connected by arrows in $\mathcal{H}_{\tau}$. All those atomic events can be extended to be contained in $B$. Since local stochastic noise is our only assumption, the bound over the $B$ scenario has to hold for a noise channel that assigns zero probability for a fault occurring during the additional $2dn^{2d}$ iterations. For this specific channel, $\prb{A} \le \prb{B}$ and therefore $\prb{A} \le f(n,d,d^{\prime},p)$.
 \end{proof}
+We now prove that the sweep rule is itself a decoder.
+  \begin{theorem}
+    \label{theorem:idealdec}
+There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, and a quantum state $\rho = \mathcal{N}_{\mathcal{E}}(\ket{\psi})$, where $\ket{\psi}$ is a codeword of the $(d,d^{\prime})$-Toric code, the application of $2dn^{2d}$ (ideal) sweep-cycles on $\rho$ results in $\ket{\psi}$ with probability at least:
+\begin{equation*}
+  \begin{split}
+    1 -   O \left( \text{poly}(n) \right)  p^{\Omega(n)} 
+  \end{split}
+\end{equation*}
+  \end{theorem} 
+  \begin{proof}
+By the replacement argument, it is sufficient to consider the application of $2dn^{2d}$ sweep-cycles subjected to $\mathcal{N}_{\mathcal{E}}$, and bound the probability that during the subjected application there is a step $\tau$ and an analysis of Toom's counter $\mathcal{H}_{\tau}$ such that either $\mathcal{H}_{\tau}$ contains a slice of size at least $cn$, or $\mathcal{H}_{\tau}$ contains two translated vertices connected by arrows. \Cref{claim:transcon} states that the second event is contained in the event that there is a slice of size at least $n$, and therefore contained in the first event. Denote by $B_{\tau}$ the event in which step $\tau$ admits a slice of size at least $cn$. The proof of \Cref{lemma:keylemma} bounds the probability of $B_{\tau}$ by the location's number multiple $p^{\Omega(n)}$ for $p < p_{0}$. Taking the union bound over the steps gives the desired result.
+  \end{proof}
+
+
+
+
+
+
+
+
+%
+%
+%\inb{\textbf{Do something with the infinite slices. } }
+%\begin{definition}[Inifinite Slice]
+%  \label{def:infislice}
+%  Let $K$ be a slice in a Toom's contour. We will say that $K$ is infinite slice if: % there is $g\in S$ and vertices $u,v$ such: 
+%  \begin{equation*}
+%    \begin{split}
+%       \Size{K} \ge n   %L_{g}(v) - L_{g}(u) \ge n 
+%    \end{split}
+%  \end{equation*}
+%\end{definition}
+%That motivates us to define the notion of a step that is the first to admit an infinite slice/error.
+%\begin{definition}[Time $t$ Admits Inifinte Error/Slice ]
+%  \label{def:localprop}
+%Let $C[\mathcal{E}]$ be a Toric encoded circuit with depth $\mu$. We say that a time $t \in [\mu+1]$ admits an infinite error if there exists a Pauli path, $P_{1}, P_{2}, \ldots$, such that in its prefix up to time $t$, there is at least one Pauli in the path whose view in the $\infty$-extension is infinite (\Cref{def:finiteerr}). Consider the analysis of Toom's contour that is induced by the prefix. We say that a time $t$ admits an infinite slice if there is a Pauli path such that $\mathcal{H}_{t}$ has an infinite slice (\Cref{def:infislice}). Moreover, we say that $t$ is the first time to admit an infinite error/slice if $t$ is the minimal time for which there is a Pauli path such that $\mathcal{H}_{t}$ admits an infinite error/slice. In exactly the same way, we define the notation of time $t$ admitting an error/slice at a given size.
+%\end{definition}
 

@@ -1,0 +1,79 @@
+\subsection{The Intermediate Argument} 
+An essential ingredient of our proof is an 'intermediate argument', stating that prior to having a large slice that closes a non-trivial loop on the Toric, there must be a step in which there is a slice that on one hand doesn't close a non-trivial loop, yet it has a size that is comparable to the Toric side. Before the first step of that kind, we can assume that no slice closes a non-trivial loop; namely, the slices are finite. That implies the following two: first, the condition for \Cref{claim:decodestopnoise} is valid, and therefore the replacement argument can be used to infer a correctness of logical measurement gadgets. Second, the sweep rule is, in some sense, effective (\Cref{claim:polesmove}), and soon we will see that it sets a structure for the histories of slices. 
+
+\begin{claim}
+  \label{claim:intersyn}
+  Let $\alpha = \frac{1}{2}(\Delta d^{2})^{-1}$. Denote by $A$ the event that there is a step that admits an infinite slice. In addition, for any step $\tau \in J$, denote by $B_{\tau}$ the event that step $\tau$ is the first step to admit a finite slice at size at least $\alpha n$. Denote by $w$ and $\mu$ the width and the depth of $C[\mathcal{E}]$. Then, for sufficiently large $n$, the probability that $A$ occurs is bounded by:
+  \begin{equation*}
+    \begin{split}
+      \prb{A} \le w\mu\max_{\tau\in J }\prb{B_{\tau}}.
+    \end{split}
+  \end{equation*}
+\end{claim}
+
+\begin{proof}
+Let $\mathcal{H}_{\tau}$ and $\mathcal{H}_{\tau+1}$ be the analysis Toom's contours at steps $\tau$ and $\tau+1$. And let $P_{1}, \ldots, P_{t}, \tilde{P}_{1}$ and $P_{1}, \ldots, P_{t}, \tilde{P}_{2}$ be the reduced Pauli-paths (up to a step) that induce Toom's contours. In addition, let $g$ be the gate that is applied at step $\tau+1$. Assume that step $\tau+1$ is the first to admit an infinite slice. For the sake of the proof, let us denote by $C[\mathcal{E}]|_{\rightarrow \tau}$ the quantum circuit up to step $\tau$, so
+  \begin{equation*}
+    \begin{split}
+ C[\mathcal{E}]|_{\rightarrow \tau+1} = g C[\mathcal{E}]|_{\rightarrow \tau}  
+    \end{split}
+  \end{equation*}
+By definition of Pauli-path (\Cref{def:paulipath}), we have that:
+\begin{equation*}
+  \begin{split}
+    \Trr{} \big( (C[\mathcal{E}]|_{\tau} \circ P_{t}) \tilde{P}_{1}   \big) \neq 0 
+  \end{split}
+\end{equation*}
+Thus, there are constants $\gamma, \bar{\gamma} \in \mathbb{R}$ and an operator $\mathbf{A} \in \mathcal{L}$, such that $\Trr{} (\mathbf{A} \tilde{P}_{1}) = 0$ and:
+\begin{equation*}
+  \begin{split}
+  C[\mathcal{E}]|_{\tau} \circ P_{t} = \gamma \tilde{P}_{1} + \bar{\gamma} \mathbf{A}
+  \end{split}
+\end{equation*}
+Therefore: 
+\begin{equation*}
+  \begin{split}
+    &\Trr{} \big( (C[\mathcal{E}]|_{\tau + 1} \circ P_{t}) \tilde{P}_{2}   \big) = \Trr{} \big(   (gC[\mathcal{E}]|_{\tau}  \circ P_{t}) \tilde{P}_{2}   \big) = \gamma \Trr{} \big( (g \circ \tilde{P}_{1} )  \tilde{P}_{2} \big) +  \bar{\gamma} \Trr{} \big (g \circ \mathbf{A} )  \tilde{P}_{2}   \big) 
+  \end{split}
+\end{equation*}
+We argue that we can assume, without loss of generality, that the term $ \Trr{} ( (g \circ \tilde{P}_{1} )  \tilde{P}_{2} ) $ is non-zero. To see this, suppose that it vanishes; then there has to be another Pauli term $\tilde{P} \in \mathcal{P}$ in the decomposition of $\mathbf{A}$ for which:
+\begin{equation*}
+    \begin{split}
+      \Trr{} \big( (g \circ \tilde{P} )  \tilde{P}_{2} \big) \neq 0
+  \end{split}
+\end{equation*}
+Otherwise, the whole trace is zeroing out in contradiction to the fact that $P_{1},..,P_{t},\tilde{P_{2}}$ is a Pauli-path. So, we could initially choose the Pauli-path that induces '$\mathcal{H}_{\tau}$'\footnote{Observe that the 'reinduced' Toom's counter is different from $\mathcal{H}_{\tau}$.} to be $P_{1},..,P_{t},\tilde{P}$.
+
+
+
+Now, let $K_{\infty}$ be a infinite slice in $\mathcal{H}_{\tau+1}$, and let $K$ be a subslice of $K_{\infty}$ with size greater than or equal to $n$ which is minimal (the minimality is regarding the size). The vertices in $K$ support the faces of $\tilde{P_{2}} = g \circ \tilde{P}$. Recall that the vertices in a Toom's contour supports the faces of the infinite Torices. Yet, observe that $K$ can be chosen to simultaneity support $g$'s original locations (Otherwise $K$ is also in $\mathcal{H}_{\tau}$) and be disjoint to the locations of any of $g$'s translation. Since $g$ acts over at most $\Delta$ faces, there are at most $\Delta$ faces that support $\tilde{P}_{2}$ and don't support $\tilde{P}_{1}$. Furthermore, since the arrow connection rules define a connection of less than $d^{2}$ arrows per face, the arrows in $\mathcal{H}_{\tau+1}$ supporting $K$ can be obtained by the addition of at most $\Delta d^{2}$ arrows to arrows that are already in of $\mathcal{H}_{\tau}$. Thus, $K$ can be covered by the merging of at most $\Delta d^{2}+1$ slices in $\mathcal{H}_{\tau}$ with the vertices supporting $g$.
+
+
+To finish, imagine the space-time graph, consisting of three time-layers. In the bottom layer, set delegates vertices, each corresponding to a slice in the last layer of $\mathcal{H}_{\tau}$. In the second layer, set the vertices in those slices and the vertices supporting $g$'s locations. Connect each of the vertices of $\mathcal{H}_{\tau}$'s slices to its delegate with an arrow.
+And in the final layer, set the vertices of $K$, connected to the vertices in the second layer by the standard connection rules of analysis Toom's contour. Finally, add the required forks so that the result is indeed a space-time graph.
+
+Denote by $K^{\prime}$ the slice in the last layer of $\mathcal{H}_{\tau}$ that is maximal in size. Using the \Cref{claim:prevslicesB}, combining that the vertices of the third layer contained in the second gives:  
+\begin{equation*}
+  \begin{split}
+     & \Size{K}  \le \Delta d^{2} ( \Size{K^{\prime}} +  \Size{\text{fork}} ) \\
+     \Rightarrow & \Size{K^{\prime}} \ge \frac{1}{\Delta d^{2}} \Size{K} - \Size{ \text{fork} }
+   \end{split}
+\end{equation*}
+So, for $n > 2\Delta d^{2} \Size{\text{fork} }$, we have:
+\begin{equation*}
+  \begin{split}
+     \Size{K^{\prime}}  \ge \alpha \Size{K} 
+  \end{split}
+\end{equation*}
+We got that a condition for step $\tau+1$ to admit an infinite slice is that a step $\tau$ admits a slice at size at least $\alpha n$. Thus, the desired inequality follows by taking the union bound:
+  \begin{equation*}
+    \begin{split}
+      \prb{A} \le w\mu\max_{\tau\in J}\prb{B_{\tau}}.
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+
+
+
+

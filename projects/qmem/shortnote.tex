@@ -1,0 +1,332 @@
+
+
+%\newcommand*{\ACM}{}%
+
+\ifdefined\ACM
+
+%\documentclass[sigplan,screen]{acmart}
+\documentclass[manuscript,screen,review]{acmart}
+
+\else
+ \documentclass[12pt]{extarticle}
+%\usepackage{libertine}
+\usepackage{cuted}%\usepackage{widetext}
+\input{./usepackage}
+\usepackage{cancel}
+\usepackage{tikz-3dplot}
+\usepackage{subcaption}
+\addbibresource{./sample.bib}
+
+\fi
+\usepackage{physics} 
+
+\begin{document}
+\input{newcommands}
+\title{ A Note on an Old Proof of 'Quantum Toom's Rule' }
+\author{David Ponarovsky}
+\maketitle
+
+% Constant depth fault tolerance construction.   
+\newcommand*{\xb}{\mathbf{x}}
+
+\ifdefined\SWEEPHEA
+\else 
+  \newcommand*{\SWEEPHEA}{}
+  %\newcommand{\History}[1]{\mathbf{History}(#1)}
+\newcommand{\History}[1]{H_{#1}}
+  %\newcommand{\Time}[1]{\mathbf{Time}(#1)}
+  \newcommand{\Time}[1]{T(#1)}
+  \newcommand{\Excuse}[1]{\mathbf{Excuse}(#1)}
+  \newcommand{\Excusei}[1]{\mathbf{Excuse}_{i}(#1)}
+  \newcommand{\Size}[1]{\mathbf{Size}(#1)}
+  \newcommand{\Span}[1]{\mathbf{Span}(#1)}
+  \newcommand{\pre}[1]{\text{pre}(#1)}
+  \newcommand{\poli}[1]{\text{pole}_{i}(#1)}
+  \newcommand{\prei}[1]{\text{pre}_{i}(#1)}
+  \newcommand{\predd}[1]{\text{pre}_{d+1}(#1)}
+  \newcommand{\rotf}[2]{\theta_{#1 ,#2}}
+  \newcommand*{\rotfs}{\rotf{v}{S^{\prime}}}
+  \newcommand{\rotfv}[2]{\mathbf{\rotf{#1}{#2} }}
+  \newcommand*{\rotfvs}{\mathbf{\rotfs{} }}
+  \newcommand{\F}{\mathbb F_2}
+  \newcommand{\supp}{\operatorname{supp}}
+  \newcommand{\bd}{\partial}
+  \newcommand{\red}{\operatorname{red}}
+  \newcommand{\Star}{\operatorname{Star}}
+  \newcommand{\Cx}{\operatorname{CNOT}}
+\fi
+
+
+
+\begin{abstract}
+This note examines the correctness of a proof of the 'Quantum Toom's rule' given in the old thesis \cite{ahn2004extending}, written almost twenty-five years ago. Although the presented ideas seem to point in the right direction, we found gaps that undermine the solidity of the work. Here, we present three of them. In a separate accompanying paper, we provide a candidate for a correct proof of the main theorem.
+\end{abstract}
+\section{Introduction} 
+The quantum Toom's rule has been mentioned extensively in the literature \cite{Dennis_2002}, yet the question of the existence of a rigorously correct proof is not a consensus. One promising candidate is the work done by \cite{ahn2004extending} in her Ph.D. thesis. We emphasize that her work is meaningful and contains clever concepts regardless of whether it's correct as a whole. Yet, as recent works have been relying on her result, it becomes obligatory to understand if the 'Quantum Toom's rule', as stated by her, is indeed valid. Here, we present three potential gaps to three arguments raised in her proof. The goal of the note is to be short and aimed, and therefore the text assumes that the reader is fluent in the proof details.
+
+\section{Failure of the Disobedient-to-Obedient Construction}
+
+We first examine the conversion from a disobedient to an obedient explanation proposed in \cite[pp.~105--108]{ahn2004extending}. The construction replaces errors' histories, which are explained by disobedient explanations, with ones satisfying the prescribed oriented predecessor relation, namely obedient explanations, while introducing new noise sources. Then, it's mentioned that the structure of the construction implies the existence of a constant $C$ such that the maximal number of disobedient explanations transformed into an obedient explanation, at span $s$, is at most $C^{s}$. Here is a quote of the presented counting argument:
+
+\begin{framed}
+  Toom's rule, only cares about the string and not about parts of the surface that do not contribute to the string. Therefore, we only have to consider the cells adjacent to the relevant links. In $d$ dimensions (with $d/2$-dimensional plaquettes), the number of plaquettes that share an edge with a given plaquette is $d-1$, and the number of edges of a plaquette is $d$, so the total number of disobedient explanations needed to be counted for a given obedient explantation of span $s$ can be at most $(( d-1) 2(d/2 -1))^{s+1}$.   
+\end{framed}
+
+
+\paragraph{}
+
+%\framebox{ 
+  %In $d$ dimensions (with $d/2$-dimensional plaquettes), the number of plaquettes that shares an edge with a given plaquette is $d−1$, and the number of edges of a plaquette is $d$,
+%In $d$ dimensions (with $d/2$-dimensional plaquettes), the number of plaquettes that share an edge with a given plaquette is $d−1$, and the number of edges of a plaquette is $d$.
+  %so the total number of disobedient explanations needed to be counted for a given obedient explanation of span s can be at most $((d−1)·2(d/2−1))^{s+1}$.
+%}
+
+We are going to contradict the counting argument. Since the counting argument doesn't use the fact that the obedient explanations don't contain extraneous nodes, its validity is supposed to remain for the algorithm obtained from omitting the refinement stage (line number (3)). So let's consider the obtained algorithm. In the following example, we give a circuit and a fault configuration for which the bound does not hold. The conclusion is that if the bound indeed holds, then the counting argument has to take advantage of the refinement procedure.
+
+\subsection{Explicit surfaces in $\mathbb Z^4$}
+All cellular chains are over $\F$. For $j\in\mathbb Z$, let
+\[
+ f_j=P_{xy}(0,j,0,0),\qquad
+ A_L=\sum_{j=0}^{L-1}f_j,\qquad L\ge 2.
+\]
+Here $P_{xy}(x,y,z,w)$ is the unit $xy$-face whose lower corner is $(x,y,z,w)$. The syndrome $\gamma_L=\bd A_L$ is the boundary of a $1\times L$ rectangle in the $xy$-plane, hence
+\begin{equation}\label{eq:loop}
+  |\gamma_L|=2(L+1),\qquad \Size{\gamma_L}=L+1.
+\end{equation}
+The second identity uses the usual four-dimensional five-wall spatial size $\max(x+y+z+w)-\min x-\min y-\min z-\min w$ on the vertex support.
+
+Define the sums of unit three-cubes
+\[
+ D_z=[0,1]_x\times[0,L]_y\times[0,1]_z\times\{0\}_w,
+ \qquad
+ D_w=[0,1]_x\times[0,L]_y\times\{0\}_z\times[0,1]_w,
+\]
+with the intervals subdivided into unit cells. Set
+\begin{equation}\label{eq:ABC}
+ A=A_L,\qquad B=A+\bd D_z,\qquad C=A+\bd D_w.
+\end{equation}
+
+\begin{lemma}\label{lem:three}
+The three surfaces in \eqref{eq:ABC} have identical syndromes and pairwise disjoint plaquette supports:
+\[
+ \bd A=\bd B=\bd C=\gamma_L,
+ \qquad A\cap B=A\cap C=B\cap C=\varnothing.
+\]
+Moreover $|A|=L$ and $|B|=|C|=3L+2$.
+\end{lemma}
+\begin{proof}
+Since $\bd^2=0$, equality of boundaries is immediate. The bottom $xy$-side of each prism is precisely $A$, and is cancelled in $B$ or $C$. The remaining sides of $D_z$ use $xy$-faces at $z=1$, $yz$-faces at $x=0,1$, and $xz$-faces at $y=0,L$. The remaining sides of $D_w$ instead use $xy$-faces at $w=1$, $yw$-faces at $x=0,1$, and $xw$-faces at $y=0,L$. These face sets, as well as $A$, are pairwise disjoint. Each complement consists of $L+2L+2=3L+2$ faces.
+\end{proof}
+
+\subsection{Three targets, two noise layers, and a nonzero wait}
+Take four \emph{labelled} encoded registers: one source $R_0$ and three targets $R_1,R_2,R_3$. Thus ``three targets'' means four registers in total. Choose
+\[
+ G=P_{xy}(0,-1,0,0)
+\]
+Use the following Pauli-error experiment (all other fault locations are absent).
+
+\begin{enumerate}
+\item \emph{First noise layer:} insert $X(G)$ in $R_0$. Broadcast by applying transversal $\Cx_{R_0\to R_i}$ for $i=1,2,3$, so each target and the source contains $G$.
+\item \emph{Second noise layer:} choose a permutation $\pi$ of $(A,B,C)$ and insert $X(F_{\pi(i)})$ on target $R_i$. There are six choices.
+\item \emph{Waiting period:} perform $l$ identical noiseless synchronous sweep updates in each register, where $1\le l<L$. The target syndrome is the same for every permutation, namely $\bd(G+A)$, so the target corrections are identical. In fact, the rule that flips a $2$-face when both positive edges carry syndrome flips precisely $f_{L-1},f_{L-2},\ldots,f_{L-l}$. Put
+\[
+ D_l=\sum_{j=L-l}^{L-1}f_j.
+\]
+The isolated $G$ in the source is flipped by its first noiseless update, leaving the source error zero.
+\item \emph{Merge:} apply transversal $\Cx_{R_i\to R_0}$ for $i=1,2,3$, with no additional sweep operation between these three CNOTs.
+\end{enumerate}
+
+\begin{proposition}\label{prop:three}
+For all six permutations, the first-register output is the same \emph{physical} Pauli $X$-error:
+\begin{equation}\label{eq:result}
+ E_{0,\mathrm{out}}=G+A+D_l+\bd D_z+\bd D_w.
+\end{equation}
+Its stabilizer-equivalence class contains the flat strip
+\[
+ S_{L,l}=\sum_{j=-1}^{L-l-1}P_{xy}(0,j,0,0),
+\]
+whose syndrome is one rectangular loop of size
+\begin{equation}\label{eq:s}
+  s=\Size{\bd S_{L,l}}=L-l+2.
+\end{equation}
+In particular, $s$ is independent of the permutation and the total number of registers. Moreover, the obedient explanation produced by Ahn's conversion algorithm is the same, regardless of the choice of $\pi$.
+\end{proposition}
+\begin{proof}
+Immediately before merging, target $R_i$ carries $G+F_{\pi(i)}+D_l$. Under $\Cx_{R_i\to R_0}$, an $X$-error on a target (the control) also appears on $R_0$. Therefore
+\[
+ E_{0,\mathrm{out}}=\sum_{i=1}^3(G+F_{\pi(i)}+D_l)
+ =G+(A+B+C)+D_l.
+\]
+Equation \eqref{eq:ABC} gives $A+B+C=A+\bd D_z+\bd D_w$, proving \eqref{eq:result}. Removing the two stabilizer boundaries yields $G+A+D_l=S_{L,l}$. The latter is a $1\times (L-l+1)$ strip. Its boundary span is $1+(L-l+1)=L-l+2$. Its nonzero boundary forbids the physical error in \eqref{eq:result} from being a stabilizer.
+
+\paragraph{}
+
+To finish, observe that all six permutations give exactly the same syndrome history in every labeled register at every complete circuit layer. It can be easily checked that Ahn's conversion produces the same result for each register. Thus, the obtained explanation of the whole experiment is independent of the chosen permutation.
+
+\end{proof}
+Observes that this experiment can be easily adapted to capture the case in which a Toom's rule cycle is performed between each sequential CNOT by introducing faults immediately after that reverse the correction.
+
+%\paragraph{What is invariant under interleaved operations.}
+%For any two permutations $\pi,\rho$, the errors in each target immediately after the second noise layer differ by a sum of 3-cube boundaries. Transversal CNOTs map $X$-stabilizers to products of $X$-stabilizers, deterministic syndrome-based corrections apply identical corrections to stabilizer-equivalent inputs, and adding a fixed Pauli fault to both histories preserves their equivalence. Hence the stabilizer-equivalence classes and syndromes of all labelled registers at each \emph{complete} time layer remain independent of $\pi$, even if additional fixed noise and syndrome-based corrections are placed between the merging CNOTs. Equation \eqref{eq:s}, however, is the exact span for the schedule just specified; extra corrections may shrink the output loop. The individual physical noise locations and the arrows of a fault-labelled spacetime graph need \emph{not} be invariant.
+%
+%\paragraph{What is and is not a slice statement.}
+%The common output reduced-error \emph{geometry} is explicit; in an analysis contour that joins the final connected error chain, it has a root component of spatial size $s$. This is not a proof that the \emph{entire histories} $H_K$ or the selected rooted explanation trees are identical across permutations. In the sweep-rule manuscript, Definition~5.20 defines slices through arrow-connected histories, and Definition~5.16 lets fault locations affect arrow construction. Thus a common reduced error cannot, by itself, identify the same embedded explanation tree.
+%
+\subsection{A factorial family with only logarithmic spatial span}
+The construction extends to any \emph{odd} number $K$ of targets. Choose $m$ disjoint unit 3-cubes
+\[
+ D_j=[0,1]_x\times[2j,2j+1]_y\times[0,1]_z\times\{0\}_w,
+ \qquad j=0,\ldots,m-1,
+\]
+and let $A=\sum_{j=0}^{2m-1}f_j$. For $\eta\in\{0,1\}^m$ set
+\begin{equation}\label{eq:binary}
+ F_\eta=A+\sum_{j:\eta_j=1}\bd D_j.
+\end{equation}
+There are $2^m$ distinct fault patterns, all of which satisfy $\bd F_\eta=\bd A$. Choose any odd $K\le 2^m$ of these distinct patterns, such that none of them is contained in another. By Sperner's Theorem \cite{Sperner1928}, the maximal set we can choose is of size:
+\[
+  { m \choose \lfloor  \frac{m}{2} \rfloor } \ge 2^{m H(\frac{1}{3})}
+\]
+
+Where $H$ is the binary entropy. We choose one per target, and permute them. This gives exactly $K!$ distinct labelled second-layer fault configurations. If the source carries $G$ as before, then, after $l$ sweeps and the same merge,
+\[
+ E_{0,\mathrm{out}}
+ =\sum_{i=1}^K(G+F_{\pi(i)}+D_l)
+ \equiv G+A+D_l\pmod{\operatorname{im}\bd_3},
+\]
+where the source error $G$ was erased during the wait and we used that $K$ is odd. Hence the first-register reduced geometry has span
+\[
+ s=2m-l+2.
+\]
+Taking $K=2^{H(\frac{1}{3})m}$ and fixing $l$ gives
+\begin{equation}\label{eq:factorial}
+  \log(K!)=\Theta(K\log K)=\Theta(m2^{H(\frac{1}{3})m}),\qquad s=\Theta(m).
+\end{equation}
+Similarly to \Cref{prop:three}, regardless of the chosen permutation, the resulting obedient explanation is the same. Furthermore, since $F_{\mu}$ were chosen such that no one of them is contained in each other, the histories do not degenerate. That contradicts the $C^{s}$ disobedient-to-obedient ratio, for any constant $C$.
+
+
+\section{Dense-Collection Probability Bound Relies on an Unjustified Completion Argument}
+
+The deduction of Eq.~(7.20) in \cite[pp.~109--110]{ahn2004extending} uses the principle that, if every configuration in an event $A$ can be completed into an event $B$ by adding at most $k$ faults, then $\Pr(A)\le\varepsilon^{-k}\Pr(B)$. In her words:
+
+
+
+\begin{framed}
+  The first case is that in which more than $\frac{1}{4}$ of the plaquettes in $S$ are in these minimal surfaces. Then we can add fewer than $\frac{3}{4} L$ more cells in Noise to form some droplet at size $L$. This means that the probability of such a configuration (the ``glob'') can be computed by considering it as a droplet of size $L$ and then dividing out the probability that the extra $\frac{3}{4}L$ cells were in Noise, which is just $\varepsilon^{\frac{3}{4}L}$.
+\end{framed}
+
+
+Such a conclusion does not follow from the existence of completions alone. We give the following example which considers a single noise layer, where each qubit is independently faulty with probability $\varepsilon$. (So the system is equivalent to tossing independent coins).
+
+\paragraph{}
+
+Let $R$ be a rectangle containing $N$ fault locations, where
+$4\mid N$; for instance, take a $4m\times m$ rectangle, so
+$N=4m^2$. Each location is faulty independently with probability
+$\varepsilon$, where $\varepsilon=1/100$ is fixed, independently of $N$.
+Define the events
+\begin{align}
+ A&=\{\text{at least $N/4$ locations of $R$ are faulty}\},\\
+ B&=\{\text{all $N$ locations of $R$ are faulty}\}.
+\end{align}
+Every configuration in $A$ can be completed to one in $B$ by
+introducing at most $3N/4$ additional faults. Nevertheless,
+\begin{align}
+ \Pr(A)
+ &\ge {N\choose N/4}\varepsilon^{N/4}
+             (1-\varepsilon)^{3N/4},\\
+ \Pr(B)&=\varepsilon^N.
+\end{align}
+The alleged probability division would imply
+$\Pr(A)\le\varepsilon^{-3N/4}\Pr(B)=\varepsilon^{N/4}$.
+In fact,
+\begin{equation}\label{eq:completion-multiplicity}
+ \frac{\Pr(A)}{\varepsilon^{-3N/4}\Pr(B)}
+ \ge {N\choose N/4}(1-\varepsilon)^{3N/4}
+ \ge \bigl[4(1-\varepsilon)^3\bigr]^{N/4}>1.
+\end{equation}
+Here we used ${4r\choose r}\ge 4^r$ for $r=N/4$, and the last inequality holds at the fixed constant $\varepsilon=1/100$.  The discrepancy grows exponentially with the area of $R$.
+
+%The obstruction is multiplicity: many partially faulty configurations can have the same completed configuration. A valid probability comparison requires a specified map from original to completed noise histories, together with a bound on its number of preimages (or an equivalent weighted-counting estimate). This rectangular example disproves the general probability-division \emph{inference}, not Eq.~(7.20) itself. In Ahn's geometric setting the claimed completion cost is $3L/4$, where $L$ is a \emph{side length}, not $3N/4$ for a rectangle of area $N$. Establishing that particular bound additionally requires the appropriate geometric completion and its multiplicity estimate.
+
+\section{Toom's Rule in Higher Dimensions Does Not Shrink All Droplets}
+
+
+In four dimensions, Ahn flips a plaquette if both of its positive edges carry a syndrome \cite[p.~105]{ahn2004extending}. For qubits on $k$-dimensional cells, the direct all-positive-facets extension is to flip a $k$-cell if all its $k$ positive $(k-1)$-facets belong to the syndrome. That is how the extension is stated in the work:
+
+\begin{framed}
+  Similarly, in $d$-dimensions, where cells are centered in $d$-dimensional solids with $(d-1)$-dimensional boundary, we can define a similar rule. Define a positive direction for each axis. For a given $d$-dimensional solid, there are $d$ faces that have more positive coordinates than the other $d$ faces. Define string as before to be placed on faces that are shared by two cells with differing values. If there is string on all plus faces, flip the value of the cell. 
+\end{framed}
+
+
+We show that this natural rule has a contractible, nonzero fixed
+point for every $k\ge3$. In particular, it fails for qubits on
+three-faces in six dimensions. The thesis does not give an equally
+explicit higher-dimensional update prescription; accordingly, the
+example applies to this natural extension rather than to every
+possible higher-dimensional decoding rule.
+
+In the six-dimensional cubic lattice with coordinates
+$(x,y,z,w,u,v)$, put qubits on three-cells and syndrome checks on
+square faces. Let
+\begin{align}
+ A&=[0,1]_x\times[0,1]_y\times[-1,0]_z,
+   &&w=u=v=0,\\
+ B&=[0,1]_x\times[0,1]_y\times[-1,0]_w,
+   &&z=u=v=0.
+\end{align}
+Their intersection is the square
+\begin{equation}
+ Q=[0,1]_x\times[0,1]_y,
+ \qquad z=w=u=v=0,
+\end{equation}
+which is a positive facet of \emph{both} cubes. For the error chain
+$E=A+B$, its syndrome $\sigma=\partial E$ does not contain $Q$,
+since the two incidences cancel over $\mathbb F_2$.
+
+Each of $A$ and $B$ therefore has only two of its three positive
+facets in $\sigma$, so neither is flipped. Nor is any other
+three-cell $C$: two distinct elementary cubes share at most one
+square facet; hence $C\notin\{A,B\}$ can have at most one positive
+syndrome facet contributed by $A$ and at most one contributed by
+$B$. In particular, it has at most two positive facets in
+$\sigma$, whereas a flip requires three. Thus the correction
+chain is empty and
+\begin{equation}\label{eq:fixed-six-dimensional-droplet}
+ U(\partial E)=0,\qquad E_t=E\quad\text{for every }t\ge0.
+\end{equation}
+The union $A\cup B$ is contractible, and $\partial E\ne0$. Hence
+this is a finite, contractible error droplet with nonzero syndrome
+that never shrinks under noiseless evolution.
+
+More generally, take two elementary $k$-cubes sharing a common
+$(k-1)$-face that is positive for both. Their common facet cancels
+from the syndrome, leaving only $k-1$ positive syndrome facets on
+each erroneous cube. Any other $k$-cube meets each of the two
+original cubes in at most one $(k-1)$-facet, so it has at most
+two positive syndrome facets. For $k\ge3$, no cell is flipped.
+The same fixed point therefore exists in every ambient dimension
+$d\ge k+1$, in particular in the $d=2k\ge6$ family.
+
+%\inb{\textbf{TODO:}}
+%\begin{enumerate}
+%
+%
+%  \item Enter that we care only about pauli errors somewhere. 
+%  \item Rewrite the all outline. 
+%
+% % \item Define what is mean a finite chain. 
+%
+%  \item Mention that in 'applying the sweep rule on a chain', we refer to the application of the first stage of the sweep cycle. Namely, all the vertices work, yet we don't care about the dual base.
+%  \item In all the claims about chains, set $x$ to note the default chain (instead $z$ which we keep to stabilizers) 
+%  \item Change all the 'Pauli' to capital letter. 
+%  \item Add after the definition of the computation DAG, that the order $J$ has to respect time order.  
+%  %\item Enter the \textbf{Str} notation to the agreement claim. \Cref{claim:agreement}. 
+%  \item Using \Cref{claim:polesmove} in \Cref{claim:shrinkslice} needs some work in the case that the slice contains multiple connected components. 
+%\end{enumerate}
+
+
+
+\printbibliography
+
+%\input{Garbage.tex} 
+\end{document}

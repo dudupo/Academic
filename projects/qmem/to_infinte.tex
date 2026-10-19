@@ -1,33 +1,37 @@
 \subsection{Infinite Sides Torics}
 \label{subsection:infinitetoric}
-The Toric skeleton provides a notation for positive directions. However, to demonstrate that an 'error cluster' shrinks as a result of the decoding cycle, or at least does not expand too much during the operation of the logical operator, we will need a way to mark extremities (for example, the northernmost point). To achieve this, we will analyze the view over the finite Toric as a projection derived from a view over the infinite plane. For this purpose, given our initial (subjected) quantum circuit, we construct a representation in which any gate that originally acted on a quantum register, namely on the finite Toric, is mapped to an infinite set of quantum gates that act on the infinite number of qubits set on the infinite plane. This set respects a periodic condition such that any restriction of it to a finite rectangle at the size of the original Toric yields the original view, and therefore describes well the original running. 
+The Toric skeleton provides a notation for positive directions. However, to demonstrate that an 'error cluster' shrinks as a result of the decoding cycle, or at least does not expand too much during the operation of the logical operator, we will need a way to mark extremities (for example, the northernmost point). To achieve this, we will analyze the view over the finite Toric as a projection derived from a view over the infinite plane. For this purpose, given our initial (subjected) quantum circuit, we construct a representation in which any gate that originally acted on a quantum register, namely on the finite Toric, is mapped to infinite translations of it, each acting on qubits on the infinite plane. Using the Wrapping Lemma, proved in \cite{schumacher2004reversiblequantumcellularautomata}, and combining that the mapping respects a periodic condition, the finite and the infinite presentations are isomorphic.
 
 
-The following two definitions simplify decoding gates by replacing them with the Pauli 'correction' they suggest at the end of their cycle. The first defines what a decoding gate is, and the second defines the replacement.
-\begin{definition}[Decoding Gadget]
-  \label{def:decgate} 
-  Let $C$ be a quantum circuit, and let $u$ be a gate in $C$ with fan-in at most $\Delta$. We say that $u$ is a \textit{decoding gadget} if it has the following form:
-  \begin{enumerate}
-    \item The wires of $u$ wires can be decomposed into two subsets $A$ and $B$ such that the wires in $A$ are reset wires, and there exists an encoded register $R$ in $C$ such that the wires in $B$ are all set in $R$.
-    \item For a set of faults $\mathcal{E}$, there is a Pauli gate $u^\prime$ that acts only on $B$ such that the action of $u$ in $C[\mathcal{E}]$ equals $u^{\prime}$. Put differently, the quantum circuit obtained from $C[\mathcal{E}]$ by replacing $u$ with $u^{\prime}$ equals $C[\mathcal{E}]$.
-  \end{enumerate}
-\end{definition}
 
-\begin{definition}[Unitary Decoding Representation]
-  Let $C = \{u_{i}\}_{i=1}$ be a quantum circuit, and let $\mathcal{U} = \{u^{\prime}_{i}\}_{i=1} \subset C$ be a subset of the gates in $C$ that are decoding gadgets. For a set of faults $\mathcal{E}$, we define the \textit{unitary decoding representation} of $C[\mathcal{E}]$ to be the quantum circuit obtained by replacing each of the gates in $\mathcal{U}$ with their corresponding Pauli gate according to $\mathcal{E}$.
-\end{definition}
 
-To have our constructions yield circuits that have $\infty$-extensions \Cref{def:extension}, the sweep-rule cycles have to be 'decoding gadgets' \Cref{def:decgate}.  
-\begin{claim}
-  The local gates that perform the sweep rule are decoding gadgets.
-\end{claim}
-\begin{proof}
-  A local sweep update acts on a constant-size neighborhood around a vertex, uses only local syndrome information, and may be implemented with fresh ancillas that are reset after the update. Any dependence on faults inside the gadget can therefore be pushed onto the data wires as an effective Pauli operator supported on the encoded register, while the reset ancillas carry no residual information. This is exactly the form required in the definition of a decoding gadget.
-\end{proof}
+%The following two definitions simplify decoding gates by replacing them with the Pauli 'correction' they suggest at the end of their cycle. The first defines what a decoding gate is, and the second defines the replacement.
+%\begin{definition}[Decoding Gadget]
+%  \label{def:decgate} 
+%  Let $C$ be a quantum circuit, and let $u$ be a gate in $C$ with fan-in at most $\Delta$. We say that $u$ is a \textit{decoding gadget} if it has the following form:
+%  \begin{enumerate}
+%    \item The wires of $u$ wires can be decomposed into two subsets $A$ and $B$ such that the wires in $A$ are reset wires, and there exists an encoded register $R$ in $C$ such that the wires in $B$ are all set in $R$.
+%    \item For a set of faults $\mathcal{E}$, there is a Pauli gate $u^\prime$ that acts only on $B$ such that the action of $u$ in $C[\mathcal{E}]$ equals $u^{\prime}$. Put differently, the quantum circuit obtained from $C[\mathcal{E}]$ by replacing $u$ with $u^{\prime}$ equals $C[\mathcal{E}]$.
+%  \end{enumerate}
+%\end{definition}
+%
+%\begin{definition}[Unitary Decoding Representation]
+%  Let $C = \{u_{i}\}_{i=1}$ be a quantum circuit, and let $\mathcal{U} = \{u^{\prime}_{i}\}_{i=1} \subset C$ be a subset of the gates in $C$ that are decoding gadgets. For a set of faults $\mathcal{E}$, we define the \textit{unitary decoding representation} of $C[\mathcal{E}]$ to be the quantum circuit obtained by replacing each of the gates in $\mathcal{U}$ with their corresponding Pauli gate according to $\mathcal{E}$.
+%\end{definition}
+%
+%To have our constructions yield circuits that have $\infty$-lift \Cref{def:extension}, the sweep-rule cycles have to be 'decoding gadgets' \Cref{def:decgate}.  
+%\begin{claim}
+%  The local gates that perform the sweep rule are decoding gadgets.
+%\end{claim}
+%\begin{proof}
+%  A local sweep update acts on a constant-size neighborhood around a vertex, uses only local syndrome information, and may be implemented with fresh ancillas that are reset after the update. Any dependence on faults inside the gadget can therefore be pushed onto the data wires as an effective Pauli operator supported on the encoded register, while the reset ancillas carry no residual information. This is exactly the form required in the definition of a decoding gadget.
+%\end{proof}
+%
+%Until the end of the subsection, we will assume that the subjected circuits are given in their unitary decoding representation.
 
-Until the end of the subsection, we will assume that the subjected circuits are given in their unitary decoding representation.
 
-The following definition extends the notion of location to differentiate between a coordinate that encodes a register and a coordinate of the location inside the register. This will be useful, as in the infinite plane representation, each register will be mapped to a unique infinite register. From a technical perspective, the map will stretch only inner locations to infinity.
+
+The following definition extends the notion of location to differentiate between a coordinate that encodes a register and a coordinate of the location inside the register. This will be useful, as in the infinite plane representation, each register will be mapped to a unique infinite register. %From a technical perspective, the map will stretch only inner locations to infinity.
 \begin{definition}[Toric register coordinate system]
 Let $C=\{u_i\}_i$ be a quantum circuit of width $w$ with registers $\mathcal{R}=R_{1},\ldots,R_{k}$, each encoded in the $(d,d^{\prime})$-Toric code, induced by a $d$-dimensional Toric with a side length $n$. We define the 'Toric register coordinate system' to be the coordinate system that encodes spatial location with two coordinates as follows: In the first coordinate, the register number is recorded, and in the second, the qubit is encoded by the face associated with it. We call the first the \textit{register coordinate} and the second the \textit{inner coordinate}.
 \end{definition}
@@ -63,50 +67,58 @@ Similarly to the standard translation by an integer vector, we extend the action
    We denote the root translation by an integer vector $a$ as $a *_{r} u$.
 \end{definition}
 
-Now we are ready to give an explicit description of the mapping. Given a quantum circuit $C$, we name its presentation over the infinite plane the \textit{$\infty$-extension of $C$}.
+Now we are ready to give an explicit description of the mapping. Given a quantum circuit $C$, we name its presentation over the infinite plane the \textit{$\infty$-lift of $C$}.
 \begin{definition}
   \label{def:extension}
-  Let $n$ be an integer, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with width $w$ and quantum registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ encodes a $(d,d^{\prime})- $Toric code with side at length $n$. We define the \textit{$\infty$-extension of $C$}, denoted by $C^{\infty}$, as follows:
+  Let $n$ be an integer, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with width $w$ and quantum registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ encodes a $(d,d^{\prime})- $Toric code with side at length $n$. We define the \textit{$\infty$-lift of $C$}, denoted by $C^{\infty}$, as follows:
   \begin{enumerate}
     \item Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, which it's qubits are associated with the $d^{\prime}$-dimensional faces of the infinite $d$-dimensional Toric. 
-    \item Each gate $u_{i} \in C$ is mapped to the infinite collection of gates, where the gates are obtained by either the standard translation or the rooted translation by an integer vector, depending on whether $u_{i}$ is a decoding gate as follows:
+    \item The gate $u_{i} \in C$ is mapped to an infinite collection of gates, each being a rooted translation by an integer vector, as follows:
       \begin{equation*}
         \begin{split}
-          u_{i}  \mapsto  
-          \begin{cases}
-            \bigcup_{ a \in \mathbb{Z}^{d} } \left\{ a * u_{i} \right\} & \text{ if } u_{i} \text{ is not a decoding gadget}  \\ 
-            \bigcup_{ a \in \mathbb{Z}^{d} } \left\{ a_{r} * u_{i} \right\} & \text{ else }
-          \end{cases}
+          u_{i}  \mapsto  \bigcup_{ a \in \mathbb{Z}^{d} } \left\{ a *_{r} u_{i} \right\} 
         \end{split}
       \end{equation*}
   \end{enumerate}
-The restriction of the qubits in $C^{\infty}$'s registers to finite Torices with side length $n$ will be denoted by $\cdot |_{[w]}$, and it includes all the faces whose root vertex has 'powers' (the powers of $g_{1}, \ldots, g_{d}$) in the range $[0, n-1]$.
-  For a set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, we denote by $C^{\infty}[\mathcal{E}^{\infty}]$ the \textit{$\infty$-extension of $C[\mathcal{E}]$}.
+  The restriction of the qubits in $C^{\infty}$'s registers to finite Torices with side length $n$ will be denoted by $\cdot |_{[w]}$, and it includes all the faces whose root vertex has 'powers' (the powers of $g_{1}, \ldots, g_{d}$) in the range $[0, n-1]$. For a set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, and measurements outcomes $\alpha \in \mathbb{F}_2^{(\cdot)}$, we denote by $C^{\infty}[\mathcal{E},\alpha]$ the \textit{$\infty$-lift of $C[\mathcal{E},\alpha]$}. 
+  \paragraph{ }
+We define the $\infty$-lift of a Pauli operator $P \in \mathcal{P}^{(\cdot)}$ be the result of lifting the circuit composed only of $P$. Denote it by $P^{\infty}$. Finally, the $\infty$-lifting of a chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ is the chain in the infinite complex $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ obtained by taking all the translations of $x$ by integer vectors.
 \end{definition}
 
 
-The infinite presentation of a circuit agrees with it in terms of action. Concretely, suppose that the input to the circuit $C$ is the zero state; then the actions of $C$ and its $\infty$-extension are 'equivalent' in the sense that the restriction of $C^{\infty}$'s output to $[w]$ yields the same mixed state as the output of $C$. The following provides a formal definition of that 'equivalence', which we name \textit{$\infty$-compatible}. 
-\begin{definition}
-  For a quantum circuit $C$, of the form defined in \Cref{def:extension}, and a set of faults $\mathcal{E}$, denote:
+
+The infinite presentation of a circuit agrees with it in terms of action. We give, without proof, an adaptation of the Wrapping Lemma, proved in \cite{schumacher2004reversiblequantumcellularautomata}.
+\begin{claim}[ Adaptation of \cite{schumacher2004reversiblequantumcellularautomata} ]
+The $\infty$-lifting is an isomorphism. In particular, consider a conditioned subjected quantum circuit $C[\mathcal{E},\alpha]$, such that it has a propagation $P_{1},P_{2},\ldots$, it holds that:
   \begin{equation*}
     \begin{split}
-      \rho & \colonequals C[\mathcal{E}] \ketbra{0}{0} C[\mathcal{E}]^{\dagger} \\
-      \rho_{\infty} & \colonequals C^{\infty}[\mathcal{E}^{\infty}]\ketbra{0}{0}\left(C^{\infty}[\mathcal{E}^{\infty}]\right)^{\dagger}
+    P_{i}^{\infty} =  (C[\mathcal{E},\alpha]|_{ i} P_{i-1})^{\infty} =   C[\mathcal{E},\alpha]|_{ i}^{\infty} P_{i-1}^{\infty} 
     \end{split}
   \end{equation*}
-  We say that a quantum circuit $C$ is \textit{$\infty$-compatible} if, for any set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, it holds that:
-  \begin{equation*}
-    \begin{split}
-      \rho =  \Trr{}_{/[w]}\left( \rho_{\infty} \right) 
-    \end{split}
-  \end{equation*}
-\end{definition}
- In the appendix, we provide a proof that any circuit as in \Cref{def:extension} is $\infty$-compatible (\Cref{claim:infiequ}).
-
-The computation DAG lifts naturally to the $\infty$-extension: gates that arise as translates of the same local gate act on disjoint translated supports inside different periods, so they may be executed simultaneously. The same periodic lifting applies to the underlying geometric objects, passing from the finite Toric complex to its infinite cover.
+\end{claim}
 
 
+% Concretely, suppose that the input to the circuit $C$ is the zero state; then the actions of $C$ and its $\infty$-lift are 'equivalent' in the sense that the restriction of $C^{\infty}$'s output to $[w]$ yields the same mixed state as the output of $C$. The following provides a formal definition of that 'equivalence', which we name \textit{$\infty$-compatible}. 
+%\begin{definition}
+%  For a quantum circuit $C$, of the form defined in \Cref{def:extension}, and a set of faults $\mathcal{E}$, denote:
+%  \begin{equation*}
+%    \begin{split}
+%      \rho & \colonequals C[\mathcal{E}] \ketbra{0}{0} C[\mathcal{E}]^{\dagger} \\
+%      \rho_{\infty} & \colonequals C^{\infty}[\mathcal{E}^{\infty}]\ketbra{0}{0}\left(C^{\infty}[\mathcal{E}^{\infty}]\right)^{\dagger}
+%    \end{split}
+%  \end{equation*}
+%  We say that a quantum circuit $C$ is \textit{$\infty$-compatible} if, for any set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, it holds that:
+%  \begin{equation*}
+%    \begin{split}
+%      \rho =  \Trr{}_{/[w]}\left( \rho_{\infty} \right) 
+%    \end{split}
+%  \end{equation*}
+%\end{definition}
+% In the appendix, we provide a proof that any circuit as in \Cref{def:extension} is $\infty$-compatible (\Cref{claim:infiequ}).
 
+The computation DAG lifts naturally to the $\infty$-lift gates that arise as translates of the same local gate act on disjoint translated supports inside different periods, so they may be executed simultaneously. The same periodic lifting applies to the underlying geometric objects, passing from the finite Toric complex to its infinite cover.
+
+\paragraph{}
 We close that subsection by introducing the \textit{potential walls}. Analyzing the infinite presentation enables us to bound a subset of errors by 'triangles'. A potential wall is a linear function $\mathbb{R}^{d} \rightarrow \mathbb{R}$. For the subset of vertices (that might be the subset that supports some error), the maximal value of the potential wall on it is achieved at the point of tangency between the subsets and its bounding triangle. With the assistance of potential walls, we can discuss the endpoint of a bunch of qubits and the 'size' of the (hyper)triangle that bounds them. Soon, the qubits will be associated with the support of an error, and showing that an action decreases the maximums of the potential walls implies that the error shrinks. 
 The next definition explains how the embedding of vertices of the infinite in $\mathbb{R}^{d}$ is handled.
 \begin{definition}[The standard embedding]

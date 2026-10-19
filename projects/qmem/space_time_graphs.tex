@@ -28,7 +28,7 @@ We extend the notion for subsets of vertices $X \subset V$ by $\pre{X} = \bigcup
 The history of a vertex consists of all the vertices that are connected to it by arrows. Here we allow passing trough arrows in both directions, so it might be possible that the history of vertex $u$ contains vertices with the same time coordinate as $u$. That motivates to define \textit{slices}. A \textit{slice} is a (maximal) subset of vertices with the same time coordinate such they share the same history. In \cite{Berman}, slices take the role of error droplets.
   \begin{definition}[History, Slice]
     \label{def:slice}
-    For a time graph $(G,T)$ and a vertex $u \in V$, let the \textit{history} of $u$, denoted by $H_{u}$, be the restriction of $G$ to vertices that both precede $u$ in time and connect to $u$ via path of arrows. A \textit{slice} is a maximal subset of vertices $K \subset V$ such that for any two vertices $u,v \in K$, $\History{u} = \History{v}$ is satisfied. As a consequence, the time coordinate in $K$ has to be constant. Thus, we can extend the time coordinate and the history to slices and write for a slice $K$, $\Time{K}$ and $\History{K}$. 
+For a time graph $(G,T)$ and a vertex $u \in V$, let the \textit{history} of $u$, denoted by $H_{u}$, be the restriction of $G$ to vertices that both precede $u$ in time (namely, vertices whose time $\le T(u)$) and connect to $u$ via a path of arrows. A \textit{slice} is a maximal subset of vertices $K \subset V$ such that for any two vertices $u,v \in K$, $\History{u} = \History{v}$ is satisfied. As a consequence, the time coordinate in $K$ has to be constant. Thus, we can extend the time coordinate and the history to slices and write for a slice $K$, $\Time{K}$ and $\History{K}$.
   \end{definition}
 The following claim ensures us an 'independent' argument about slices. Here we state that two slices with the same time coordinate have to hold disjoint histories. Another way to think about this is that if the first and the second slices are 'induced by $n_{1}$ and $n_{2}$ faults,' then the slice obtained by merging them 'is induced by $n_{1}+n_{2}$ faults.'
   \begin{claim} 
@@ -68,23 +68,23 @@ Next, we would like to study how slices look a moment before they merge. For thi
     \end{enumerate}
   \end{proof}
   Now, we would like to plug in the fact that the vertices originate from the infinite plane. To do so, we equip slices with poles. The poles are the vertices in the slice, which are the maximal points of potential walls.
-  \begin{definition}[Poles]
-Let $(G,T)$ be a space-time, whose vertices are associated with points in $\mathbb{R}^{d}$. Let $A$ be either a slice, arrow, or a fork in $(G,T)$. We define the $i$th poles of $A$ to be:
-    \begin{equation*}
-      \begin{split}
-        \poli{A} \colonequals  \big\{ v   \colon L_{i}(v) = \max_{v\in A} L_{i}(v) \big\}
-      \end{split}
-    \end{equation*}
-    A selection of poles, is an $d+1$ vertices tuple $v_{1},..,v_{d+1}$ such $v_{i} \in \poli{A}$. For a vertex $u$, we define the $i$th predecessor of a $u$, denoted by $\prei{u}$, to be it's predecessor which achieves the maximal value of $L_{i}$,  namely:
-    \begin{equation*}
-      \begin{split}
-        \prei{u} \colonequals  \arg \max_{v\in \pre{u}} L_{i}(v) 
-      \end{split}
-    \end{equation*}
-If there are many, set one arbitrarily. Lastly, the size of $A$ is defined to be:
+  \begin{definition}[Poles Selection]
+    Let $(G,T)$ be a space-time, whose vertices are associated with points in $\mathbb{R}^{d}$. Let $A$ be either a slice, arrow, or a fork in $(G,T)$. We define a poles selection for $A$ to be a selection of $d+1$ vertices, $v_{1},..,v_{d+1}$ , not necessary different, from $A$. The size of $A$ is defined to be:
     \begin{equation*}
       \begin{split}
         \Size{A} \colonequals  \sum_{i}^{d+1}  \max_{v\in A} L_{i}(v) 
+      \end{split}
+    \end{equation*} 
+    Thus, for any selection of poles $v_{1},..,v_{d+1}$ we have that: 
+    \begin{equation*}
+      \begin{split}
+        \Size{A} \ge \max_{v\in A} L_{i}(v_{i}) 
+      \end{split}
+    \end{equation*} 
+    For a vertex $u$, we define the $i$th predecessor of a $u$, denoted by $\prei{u}$, to be it's predecessor which achieves the maximal value of $L_{i}$,  namely:
+    \begin{equation*}
+      \begin{split}
+        \prei{u} \colonequals  \arg \max_{v\in \pre{u}} L_{i}(v) 
       \end{split}
     \end{equation*}
   \end{definition}
@@ -92,32 +92,31 @@ If there are many, set one arbitrarily. Lastly, the size of $A$ is defined to be
  \paragraph{}  The following claim relates the size of a given slice to the sizes of its predecessor slices.
   \begin{claim}
     \label{claim:prevslices}
-Consider a time graph $(G,T)$ whose vertices are associated with points in $\mathbb{R}^{d}$. Let $K$ be a slice in $G$, such that $K \neq \History{K}$. Let $v_{1}, \ldots, v_{d+1}$ be a poles selection for $K$. Then for some integer $k$, there exist $k+1$ slices $K_{0}, K_{1}, \ldots, K_{k}$ and $k$ forks $F_{1}, \ldots, F_{k}$ such that:
+Consider a time graph $(G,T)$ whose vertices are associated with points in $\mathbb{R}^{d}$. Let $K$ be a slice in $G$, such that $K \neq \History{K}$. Let $v_{1}, \ldots, v_{d+1}$ be a pole selection for $K$. Then for some integer $k$, there exist $k+1$ slices $K_{0}, K_{1}, \ldots, K_{k}$ and $k$ forks $F_{1}, \ldots, F_{k}$ with pole selections for them that satisfy:
     \begin{enumerate}
-      \item For any $i \in [d+1]$,  the $i$th predecessor $\prei{v_{i}} $ belongs to the poles of $K_{0}, \ldots, K_{k}$.
-      \item Introduce an edge between $K_{i}$ and $K_{j}$ if and only if one of the forks $F_{1},..,F_{k}$ consists of a pole of $K_{i}$ and a pole of $K_{j}$. Then the graph formed from $K_{0},..,K_{k}$ is connected.  
-      \item $\sum_{i=0}^{k}\Size{K_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) $
+      \item For any $i \in [d+1]$,  the $i$th predecessor $\prei{v_{i}} $ belongs to the selected poles of $K_{0}, \ldots, K_{k}$.
+      \item Consider the graph whose vertices are associated with $K_{0}, \ldots, K_{k+1}$, and there is an edge between $K_{i}$ and $K_{j}$ if and only if there is a fork in $F_{1}, \ldots, F_{k}$ that intersects both $K_{i}$'s and $K_{j}$'s selected poles. Then the graph formed from $K_{0}, \ldots, K_{k}$ is connected.
+      \item  For any $j\in [0,k]$, denote by $v_{j}^{1},..,v_{j}^{d+1}$ the selected poles for $K_{j}$, then:  
+        \begin{equation*}
+          \begin{split}
+            \sum_{j=0}^{k}\sum_{i=1}^{d+1}L_{i}(v_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) 
+          \end{split}
+        \end{equation*}
+        
     \end{enumerate}
   \end{claim}
   \begin{proof}
 First, notice that $K$ doesn't contain leaves in $(V,A)$, since a leaf is connected only to itself via arrows, and therefore its 'slice' equals its 'History'. Thus, $\prei{v_{i}}$ is not empty for any $i \in [d+1]$. Next, consider the graph $G_{K} = (V_{K},E_{K})$ from \Cref{def:gslice}. Since $\{ v_{i}, \prei{v_{i}} \}$ is an arrow, $\prei{v_{i}}$ belongs to a slice in $V_{K}$. For $i=1,\ldots,d+1$, denote by $R_{i}$ the slice in $V_{K}$ that contains $\prei{v_i}$.
 
-    By \Cref{claim:connected} $G_{K}$ is connected and therefore there exist a minimal collection $K_{0},..,K_{k}$ of slices form $V_{K}$ which contains $R_{1},R_{2},..R_{d+1}$, and which is connected in $G_{K}$. We pick a set of forks $\mathbf{F} = \{F_{1},..,F_{k} \}$ which realizes a spanning tree for this collection of slices. Later we will identify edges from this spanning tree with the forks from $\mathbf{F}$.  
+    By \Cref{claim:connected} $G_{K}$ is connected and therefore there exist a minimal collection $K_{0},..,K_{k}$ of slices form $V_{K}$ which contains $R_{1},R_{2},..R_{d+1}$, and which is connected in $G_{K}$. We pick a set of forks $\mathbf{F} = \{F_{1},..,F_{k} \}$ which realizes a spanning tree for this collection of slices. %Later we will identify edges from this spanning tree with the forks from $\mathbf{F}$.  
 
-    For $i=1,..,d+1$ we set $\prei{v_{i}}$ to be the $i$th pole of $R_{i}$, This assures (1). The set of remaining poles for $K_0, ..,K_{k}$ will be equal to $\cup^{k}_{i=k}F_{i}$. This will assure (ii), We will also select poles for $F_{1}, ..,F_{k}$ in such way that:  
-    \begin{equation*}
-      \begin{split}
-        \sum^{k}_{i=0}\Size{K_{i}} + \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) 
-      \end{split}
-    \end{equation*}
-    This will assure (3). 
 
-    %Now we describe the selection of poles. Since we have to span..
+   
     Let us denote by $J_{0},..,J_{2k}$ the enumerated union $K_{0},..K_{k},F_{1},..,F_{k}$. Observes that for any choice of $(d+1)(2k+1)$ elements $z_{0}^{1},z_{0}^{2}, z_{0}^{3},..,z_{0}^{d+1}..,z_{2k}^{d+1}$ in $\mathbb{R}^{d}$, such that $z_{j}^{i} \in J_{j}$ it holds that:
     \begin{equation}
       \label{equ:spanlow}
       \begin{split}
-         \sum^{k}_{i=0}\Size{K_{i}} + \sum^{k}_{i=1}\Size{F_{i}}  \ge \sum_{j,i}L_{i}(z_{j}^{i})
+         \sum_{j=0}^{k}\sum_{i=1}^{d+1}L_{i}(z_{j}^{i}) + \sum^{k}_{i=1}\Size{F_{i}}  \ge \sum_{j,i}L_{i}(z_{j}^{i})
       \end{split}
     \end{equation}
 
@@ -129,42 +128,43 @@ Later, we are going to take the points $\{z_{j}^{i}\}$ from the intersection of 
     \end{equation*}
 
     
-    Now consider a non-trivial maximal intersection $\bigcap_{j \in X} J_{j}$. The intersection is maximal in the sense that for any $j^{\prime} \notin X$, it holds that $\bigcap_{j \in X\cup \{j^{\prime} \}} J_{j} = \emptyset$. We claim that for any $i$ and for any such $X$, there is $t \in X$ such that $J_{t}$ is the successor of $J_{j}$ on the path to $R_{i}$ for any $j \in X/\{t\}$. Assume not. Let $x, y \in X$, and denote the paths from $J_{x}, J_{y}$ to the $i$th pole by $J_{x}, J_{x_2}, \ldots, R_{i}$, and $J_{y}, J_{y_2}, \ldots, R_{i}$, such that $J_{y} \neq J_{x_{2}}$. If $y = x_{2}$, $y_{2} = x$, or $x_{2} = y_{2} \in X$, then pick other $x, y$ (if there is no such, we get an immediate contradiction). In that case, $J_{x}, J_{y}, J_{y_{2}}, \ldots, R_{i}$ is a path from $J_{x}$ to $R_{i}$ which is different from $J_{x}, J_{x_{2}}, \ldots, R_{i}$. Therefore, there are at least two paths from $J_{x}$ to the $i$th pole, namely, there is a cycle in contradiction to the that the collection $K_{0}, \ldots, K_{k}, F_{1},..,F_{k}$ is a tree.
+    Now consider a non-trivial maximal intersection $\bigcap_{j \in X} J_{j}$. The intersection is maximal in the sense that for any $j^{\prime} \notin X$, it holds that $\bigcap_{j \in X\cup \{j^{\prime} \}} J_{j} = \emptyset$. We claim that for any $i$ and for any such $X$, there is $t \in X$ such that $J_{t}$ is the successor of $J_{j}$ on the path to $R_{i}$ for any $j \in X/\{t\}$. Assume not. Let $x, y \in X$, and denote the paths from $J_{x}, J_{y}$ to the $R_{i}$ by $J_{x}, J_{x_2}, \ldots, R_{i}$, and $J_{y}, J_{y_2}, \ldots, R_{i}$, such that $J_{y} \neq J_{x_{2}}$. If $y = x_{2}$, $y_{2} = x$, or $x_{2} = y_{2} \in X$, then pick other $x, y$ (if there is no such, we get an immediate contradiction). In that case, $J_{x}, J_{y}, J_{y_{2}}, \ldots, R_{i}$ is a path from $J_{x}$ to $R_{i}$ which is different from $J_{x}, J_{x_{2}}, \ldots, R_{i}$. Therefore, there are at least two paths from $J_{x}$ to the $R_{i}$, namely, there is a cycle in contradiction to the that the collection $K_{0}, \ldots, K_{k}, F_{1},..,F_{k}$ is a tree.
 
 
-We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that has not been set yet. If $J_{j} = R_{i}$, then set $z_{j}^{i} \leftarrow \prei{v_{i}}$ - we call this a type-1 assignment. Otherwise, consider the path from $J_{j}$ to $R_{i}$ (by connectivity, it has to be such a one, and by minimality, there is exactly one). Let $J_{t}$ be the successor on the path, then pick $z_{j}^{i} \in J_{j} \cap J_{t}$ - similarly, we call this assignment a type-2 assignment. Since any type-2 assignment is associated with a non-trivial intersection, and any non-trivial intersection induces a type-2 assignment for all $i$'s (since for all $i$'s, one of the $J_{j}$ on its support is a successor of the rest on their path to the $i$th pole), we have that:
-    \begin{equation*}
+    We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that has not been set yet. If $J_{j} = R_{i}$, then set $z_{j}^{i} \leftarrow \prei{v_{i}}$ - we call this a type-1 assignment. Otherwise, consider the path from $J_{j}$ to $R_{i}$ (by connectivity, it has to be such a one, and by minimality, there is exactly one). Let $J_{t}$ be the successor on the path, then pick $z_{j}^{i} \in J_{j} \cap J_{t}$ - similarly, we call this assignment a type-2 assignment. Since any type-2 assignment is associated with a non-trivial intersection, and any non-trivial intersection induces a type-2 assignment for all $i$'s (since for all $i$'s, one of the $J_{j}$ on its support is a successor of the rest on their path to the $R_{i}$), we have that:
+    \begin{equation}
+      \label{equ:span}
       \begin{split}
         \sum_{j,i}L_{i}(z_{j}^{i}) &= \sum_{j,i, z_{j}^{i} \in \text{type-1}}L_{i}(z_{j}^{i}) + \sum_{j,i, z_{j}^{i} \in \text{type-2}}L_{i}(z_{j}^{i}) \\
         &= \sum_{i}^{d+1}L_{i}\left( \prei{v_{i}} \right) + \sum_{X \colon \bigcap_{j\in X}J_{j} \neq \emptyset }\left(|X|-1\right) \sum_{i}^{d+1} L_{i}\left(\bigcap_{j\in X}J_{j} \right) \\ 
         &=\sum_{i}^{d+1}L_{i}\left( \prei{v_{i}} \right) 
       \end{split}
-    \end{equation*}
-    Plugging it into \Cref{equ:spanlow} gives the desired.
+    \end{equation}
+To complete, we select the $i$th pole of $K_{j}$ to be $z^{i}_{j}$. Then, for $i=1,\ldots,d+1$, the $i$th predecessor $\prei{v_{i}}$ is the $i$th pole of $R_{i}$. This assures (1). Since for any intersection $K_{i}\cap F_{j}$ a type-2 assignment is picked from the intersection to $K_{i}$, we have that the type-2 selected poles of $K_{0},K_{1},\ldots,K_{k}$ are covered by the vertices of $F_{1},F_{2},\ldots,F_{k}$. This assures (ii). Plugging \Cref{equ:span} into \Cref{equ:spanlow} assures (3).
   \end{proof}
 
-  \begin{definition}[Subslice] 
-    A subslice is a subset of a slice. We extend the definitions of poles, poles selection, and size to subslices. 
-  \end{definition}
-
-  \begin{claim} 
-    \label{claim:prevslicesB}
-    \Cref{claim:prevslices} is correct to suslices, in the following sense. 
-    Let $K$ be a subslice of slice $K^{\star}$ such ,$K^{\star} \neq \History{K^{\star}}$, and let's fix a poles selection $v_{1},..,v_{d+1}$. Then for some integer $k$ there exist subslices $K_{0}, ..,K_{k}$ and forks $F_{1},..,F_{k}$ such that:
-      \begin{equation*}
-        \begin{split}
-          \sum_{i=0}^{k}\Size{K_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) 
-        \end{split}
-      \end{equation*}
-  \end{claim}
-  \begin{proof}
-    
-    Let $K^{\star}_{0}, \ldots, K^{\star}_{k^{\star}}, F^{\star}_{1}, \ldots, F^{\star}_{k^{\star}}$ be the slices and forks in the graph of $K^{\star}$ (\Cref{def:gslice}). We construct $K_{1}, \ldots, K_{k}, F_{1}, \ldots, F_{k}$ by the following two-step procedure. First, we filter from $K^{\star}_{0}, \ldots, K^{\star}_{k^{\star}}, F^{\star}_{1}, \ldots, F^{\star}_{k^{\star}}$ slices and forks such that the remaining is a minimal tree that spans the slices which contain the $\prei{v_{i}}$s. Denote them by $J_{1},J_{2}..,$. For $i \in [d+1]$, denote by $R^{\star}_{i}$ the slice that contains $\prei{v_{i}}$, and for each such $R^{\star}_{i}$ that is not a leaf, introduce an imaginary slice $R_{i}$ that contains two vertices: the first is $\prei{v_{i}}$ and the second is an imaginary vertex $u_{i}$ that has the same coordinates as $\prei{v_{i}}$ (so $\Size{R^{\star}_{i}} = 0$). However, if $R^{\star}_{i}$ is a leaf, then set $R_{i} = R^{\star}_{i}$.
-
-    
-Observe that the collection $R_{1}, \ldots, R_{d+1}, J_{1}, J_{2}, \ldots$ is a connected minimal collection of slices and forks that spans the $R_{i}$s, and in which the $R_{i}$s are leaves. Thus, we can repeat the proof in \Cref{claim:prevslices}, concurrently repeat the process for choosing the $z_{j}^{i}$s, and combine with the fact that all the imaginary slices have zero size, the inequality follows.
-
-  \end{proof}
+%  \begin{definition}[Subslice] 
+%    A subslice is a subset of a slice. We extend the definitions of poles, poles selection, and size to subslices. 
+%  \end{definition}
+%
+%  \begin{claim} 
+%    \label{claim:prevslicesB}
+%    \Cref{claim:prevslices} is correct to suslices, in the following sense. 
+%    Let $K$ be a subslice of slice $K^{\star}$ such ,$K^{\star} \neq \History{K^{\star}}$, and let's fix a poles selection $v_{1},..,v_{d+1}$. Then for some integer $k$ there exist subslices $K_{0}, ..,K_{k}$ and forks $F_{1},..,F_{k}$ such that:
+%      \begin{equation*}
+%        \begin{split}
+%          \sum_{i=0}^{k}\Size{K_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) 
+%        \end{split}
+%      \end{equation*}
+%  \end{claim}
+%  \begin{proof}
+%    
+%    Let $K^{\star}_{0}, \ldots, K^{\star}_{k^{\star}}, F^{\star}_{1}, \ldots, F^{\star}_{k^{\star}}$ be the slices and forks in the graph of $K^{\star}$ (\Cref{def:gslice}). We construct $K_{1}, \ldots, K_{k}, F_{1}, \ldots, F_{k}$ by the following two-step procedure. First, we filter from $K^{\star}_{0}, \ldots, K^{\star}_{k^{\star}}, F^{\star}_{1}, \ldots, F^{\star}_{k^{\star}}$ slices and forks such that the remaining is a minimal tree that spans the slices which contain the $\prei{v_{i}}$s. Denote them by $J_{1},J_{2}..,$. For $i \in [d+1]$, denote by $R^{\star}_{i}$ the slice that contains $\prei{v_{i}}$, and for each such $R^{\star}_{i}$ that is not a leaf, introduce an imaginary slice $R_{i}$ that contains two vertices: the first is $\prei{v_{i}}$ and the second is an imaginary vertex $u_{i}$ that has the same coordinates as $\prei{v_{i}}$ (so $\Size{R^{\star}_{i}} = 0$). However, if $R^{\star}_{i}$ is a leaf, then set $R_{i} = R^{\star}_{i}$.
+%
+%    
+%Observe that the collection $R_{1}, \ldots, R_{d+1}, J_{1}, J_{2}, \ldots$ is a connected minimal collection of slices and forks that spans the $R_{i}$s, and in which the $R_{i}$s are leaves. Thus, we can repeat the proof in \Cref{claim:prevslices}, concurrently repeat the process for choosing the $z_{j}^{i}$s, and combine with the fact that all the imaginary slices have zero size, the inequality follows.
+%
+%  \end{proof}
 
 %\subsection{Find a Title }
 
@@ -191,37 +191,39 @@ While in the construction presented in \cite{Berman}, all the layers were the sa
     
 
   \begin{definition}
-    Let $K$ be a slice, and let $v_{1}, \ldots, v_{d+1}$ be a selection of poles for it. Then, let $K_{0}, \ldots, K_{k}$ be slices in $H_{K}$, and let $F_{1}, \ldots, F_{k}$ be forks, such that $K_{0}, \ldots, K_{k}, F_{1}, \ldots, F_{k}$ satisfy the conditions in \Cref{claim:prevslices} with respect to the poles selection. We call $K_{0}, \ldots, K_{k}, F_{1}, \ldots, F_{k}$ the \textit{predecessor decomposition} of $K$ \textit{with respect to the pole selection} $v_{1}, \ldots, v_{d+1}$. When the pole selection is either clear from the context or can be chosen arbitrarily, we will omit it.
+    Let $K$ be a slice, and let $v_{1}, \ldots, v_{d+1}$ be a selection of poles for it. Then, let $K_{0}, \ldots, K_{k}$ be slices in $H_{K}$, and let $F_{1}, \ldots, F_{k}$ be forks, such that $K_{0}, \ldots, K_{k},$ $F_{1}, \ldots, F_{k}$ satisfy the conditions in \Cref{claim:prevslices} with respect to the poles selection. We call $K_{0}, \ldots, K_{k},$ $F_{1}, \ldots, F_{k}$ the \textit{predecessor decomposition} of $K$ \textit{with respect to the pole selection} $v_{1}, \ldots, v_{d+1}$. When the pole selection is either clear from the context or can be chosen arbitrarily, we will omit it.
   
-     Furthermore, we say that $K$ is a result of a \textit{sweep-cycle}, \textit{faults}, or a \textit{logical operation} if the layer at time $T(K) - 1$ consists of sweep-cycle gates, fault gates (whose source is $\mathcal{E}$), or either measurement or logical Pauli. The \textit{order} of the slice is its time modulo $4$, namely $\text{order}(K) = T(K) \mod 4$. Observe that slices that are results of faults have an order that is either $0$ or $2$, whereas slices that are results of a logical operation or a sweep-cycle are of orders $1$ and $3$, respectively.
+    Furthermore, we say that $K$ is a result of a \textit{sweep-cycle}, \textit{faults}, or a \textit{logical operation} if the layer at time $T(K) - 1$ consists of sweep-cycle gates, fault gates (whose source is $\mathcal{E}$), or either measurement or logical Pauli. The \textit{order} of the slice is its time plus $3$ modulo $4$, namely $\text{order}(K) = T(K) + 3 \mod 4$. So the orders of slices that result from a sweep-cycle, faults, logical operation, and again faults are $0, 1, 2, 3$ respectively.
   \end{definition}
-The distinction between slices resulting from different layers allows us to adjust \Cref{claim:prevslices} by conditioning on the slice type.
+The distinction between slices resulting from different layers allows us to adjust \Cref{claim:prevslices} by conditioning on the slice type. Yet, before doing so, we will have to extend the infinity characterization to slices.
+
 
 
   \begin{corollary}
     \label{claim:shrinkslice}
-    For a Toom's contour, suppose that the reduced Pauli-path, that induces it, does not admit an infinite slice. Consider a slice $K$ in it, and selection of poles $v_{1},..,v_{d+1}$, such that $K \neq H_{K}$. Since $K \neq H_{K}$, it follows that $K$ has a predecessor decomposition with respect to $v_{1},..,v_{d+1}$, denoted by $K_{0}, \ldots, K_{k}, F_{1}, \ldots, F_{k}$. The inequality in \Cref{claim:prevslices} becomes:
+Consider a slice $K$ in it, and a selection of poles $v_{1}, \ldots, v_{d+1}$, such that $K \neq H_{K}$. Since $K \neq H_{K}$, it follows that $K$ has a predecessor decomposition with respect to $v_{1}, \ldots, v_{d+1}$, denoted by $K_{0}, \ldots, K_{k}, F_{1}, \ldots, F_{k}$. For each slice $K_{j}$, denote its selected poles by $z_{j}^{1}, \ldots, z_{j}^{d+1}$. The inequality in \Cref{claim:prevslices} becomes:
     \begin{enumerate}
       \item If $K$ is a result of a sweep-cycle, then:
         \begin{equation*}
           \begin{split}
-            \sum_{i=0}^{k}\Size{K_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{K} + 1
+            \sum_{j=0}^{k}\sum_{i}^{d+1} L_{i}(z_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i}^{d+1}L_{i}(v) + 1
           \end{split}
         \end{equation*}
           \item If $K$ is a result of either faults or a logical operation, then: 
         \begin{equation*}
           \begin{split}
-            \sum_{i=0}^{k}\Size{K_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{K}  
+            \sum_{j=0}^{k}\sum_{i}^{d+1} L_{i}(z_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i}^{d+1}L_{i}(v)   
           \end{split}
         \end{equation*}
       \end{enumerate}
   \end{corollary}
   \begin{proof}
-First, since the arrows and forks connection rules do not allow vertices of $V_{\mathcal{H},X}$ to connect to vertices of $V_{\mathcal{H},Z}$, we can assume that $K \subset V_{\mathcal{H},X}$. Let us split upon what $K$ results from:
+ Let us split upon what $K$ results from:
     \begin{enumerate}
-        \item For the sweep-cycle part, we use \Cref{claim:polesmove}, which states that after each application of the sweep-cycle over a finite-size assignment, the maximal $L_{d+1}$ value of the resulting reduced error decreases by at least one, while the values of each $L_{g}$ do not increase. Since no infinite slice is admitted, we have that the chain supported on the vertices of $K_{0}, \ldots, K_{k}$ is finite, and therefore its size decreases.
-        \item If $K$ is a result of faults, then it cannot contain a vertex that supports an $X$-fault. That is because no arrow connection is made in that case, and hence, if it were to contain a vertex that supports a $X$-fault, that vertex would be the only one in $K$, namely $K = H_{K}$. So, we can imagine that all the vertices in $K$ support the identity operator (or $Z$-faults, which are treated as identity for vertices in $V_{\mathcal{H},X}$) and handle that case as a result of a logical operator.
-          \item Where $K$ is the result of a logical operator, we use that the operators are transversal, so we have that the support of $K$ is contained in the support of $\cup_{0}^{k} K_{i}$, and therefore for any $i \in [d+1]$:
+      \item For the sweep-cycle part, we use \Cref{claim:polesmove} and \Cref{claim:sweepface}. The first states that within an application of the sweep-cycle over a chain, the maximal $L_{d+1}$ value of the $\partial^{-}$-boundary of the resulting chain decreases by at least one, while the values of each $L_{g}$ do not increase. The second assures that for any local maximum of $L_{i}$ in the resulting $\partial^{-}$-boundary, there is a vertex in the $\partial^{-}$-boundary of the original such that they (1) share a $d^{\prime}$-dimensional face and (2) the $L_{i}$-value of the vertex in the result is at most the $L_{i}$-value of the vertex in the original, where if $i=d+1$, the relation becomes strictly less. Thus, prior to forming the spanning tree of the predecessor slices, for every $v_{i}$ in $v_{1},..,v_{d+1}$ we select a vertex $\prei{v_{i}}$ that has either at most the same $L_{i}$-value as $v_{i}$ if $i\neq d+1$ or an $L_{d+1}$-value that is bigger by at least $1$. That gives the inequality.
+        
+      \item If $K$ is a result of faults, then it cannot contain a vertex that supports a fault. That is because no arrow connection is made in that case, and hence, if it were to contain a vertex that supports a fault, that vertex would be the only one in $K$, namely $K = H_{K}$. So, we can imagine that all the vertices in $K$ support the identity operator and handle that case as a result of a logical operator.
+      \item Where $K$ is the result of a logical operator, we use the observation that a pure logical operator doesn't change the slices (with the exception that the measurement in the phase-basis switches the vertex types, namely $\{X\} \leftrightarrow \{Z\}$, of part of the vertices in the slice, see \Cref{claim:paulipropcon}). So we have that the support of $K$ is contained (up to vertices' types) in the support of $\cup_{0}^{k} K_{i}$, and therefore for any $i \in [d+1]$:
         \begin{equation*}
           \begin{split}
             \max \bigl\{ L_{i}(v) : v \in K \} \le \max \bigl\{ L_{i}(v) : v \in \bigcup_{i=0}^{k}K_{i} \} 
@@ -231,22 +233,22 @@ First, since the arrows and forks connection rules do not allow vertices of $V_{
   \end{proof}
 
   
-  The following claim extends the corollary to slices at the final layer of an \textit{analysis Toom's contour at step $\tau$}.
+  The following claim extends the corollary to slices at the final layer of an \textit{analysis Toom's contour up to step $\tau$}. 
   \begin{claim}
     \label{claim:shrinkan}
-For a step $\tau$, let $\mathcal{H}_{\tau}$ be Toom's contour analysis at step $\tau$, and let $t^{\star}$ be the maximal time at that contour. Assume that the reduced Pauli-path that induces $\mathcal{H}_{\tau}$ does not admit an infinite error. Then, for a slice $K$ and selection for its poles $v_{1}, \ldots, v_{d+1}$ such that $T(K) = t^{\star}$ and $K \neq H_{K}$, the inequality in \Cref{claim:prevslices} becomes:
+For a step $\tau$  let $\mathcal{H}_{\tau}$ be Toom's contour analysis up to step $\tau$. Denote by $t$ the time at which the gate at step $\tau$ is applied. Then, for a slice $K$ and selection for its poles $v_{1}, \ldots, v_{d+1}$ such that $T(K) = t+1$ and $K \neq H_{K}$, the inequality in \Cref{claim:prevslices} becomes:
         \begin{equation*}
           \begin{split}
-            \sum_{i=0}^{k}\Size{K_{i}} +  \sum^{k}_{i=1}\Size{F_{i}} \ge \Size{K} - d - d^{\prime} - 1 
+            \sum_{j=0}^{k}\sum_{i}^{d+1} L_{i}(z_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i}^{d+1}L_{i}(v) - 2d 
           \end{split}
         \end{equation*}
   \end{claim}
   \begin{proof}
-    We allow vertices at the final time layer to be connected by an arrow if their counterpart on the skeleton shares a check. Therefore, for any $i \in [d]$, the value of $L_{i}$ for $v_{i}$ might be greater by at most 1 than the value of $\prei{v_{i}}$, and the $L_{d+1}$ for $v_{d+1}$ might be greater by at most $d^{\prime} + 1$ than the value of the $d+1$ pole of $K$. Hence, overall, we get that:
+We allow vertices of $V_{\mathcal{H},X}$ at the final time layer to be connected by an arrow if their counterpart on the skeleton shares a $d^{\prime}-2$ dimensional face. Similarly, two vertices of $V_{\mathcal{H}, Z}$, such that one of them is at the top layer, are connected if their images in the map $\phi^{-1}$ share a $d-d^{\prime}-2$ dimensional face. Therefore, for any $i \in [d]$, the value of $L_{i}$ for $v_{i}$ might be greater by at most 1 than the value of $\prei{v_{i}}$, and the $L_{d+1}$ for $v_{d+1}$ might be greater by at most $\max\{ d^{\prime} - 2, d - d^{\prime} - 2 \}$ than the value of the $d+1$ pole of $K$. Hence, overall, we get that:
     \begin{equation*}
       \begin{split}
-        \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) & \ge \sum_{i=1}^{d}\bigl( L_{i}\left( v_{i} \right) - 1 \bigr) + L_{d+1}(v_{d+1}) - \max\{ d^{\prime} + 1, d^{\prime}-1\}  \\ 
-        & = \Size{K} - d - d^{\prime} - 1 
+        \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) & \ge \sum_{i=1}^{d}\bigl( L_{i}\left( v_{i} \right) - 1 \bigr) + L_{d+1}(v_{d+1}) - \max\{ d^{\prime} - 2, d - d^{\prime}-2\}  \\ 
+        & \ge  \Size{K} - 2d
       \end{split}
     \end{equation*}
   \end{proof}

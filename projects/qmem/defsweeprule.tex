@@ -72,7 +72,7 @@ Thus, we can repeat recursively until the resulting $d^{\prime}-1$ chain is 'sup
 The algorithm given in the proof of \Cref{claim:findcor} for finding $\tilde{z}$ is as follows: given $\sigma$, pick a $g \in S$ such that $gv \in \sigma$. Then, define $\sigma^{*}$ by removing $gv$ from each face of $\sigma|_{gv}$. Let $\tilde{z}^{*}$ be the result of the recursive call on $\sigma^{*}$, and return '$\tilde{z}^{*} \cup \{gv\}$' plus the recursive call on $\sigma|_{/gv} + \tilde{z}^{*}$.
 
 
-We stop the recursion whenever either $d^{\prime}=2$ or $|\mathbf{Str}_{0+}(v, \sigma )|\le d^{\prime}$. The work in each recursion step consists of decomposing $\sigma$ into $\sigma|_{gv}$ and $\sigma|_{/gv}$ and summing ${ d \choose d^{\prime} }$-length vectors. We summarize by introducing the following claim which gives the running time of the algorithm in the RAM computation model.
+We stop the recursion whenever either $d^{\prime}=2$ or $|\mathbf{Str}_{0+}(v, \sigma )| < d^{\prime}$. The work in each recursion step consists of decomposing $\sigma$ into $\sigma|_{gv}$ and $\sigma|_{/gv}$ and summing ${ d \choose d^{\prime} }$-length vectors. We summarize by introducing the following claim which gives the running time of the algorithm in the RAM computation model.
 \begin{claim}
   Let $ T(d, d', k) : \cdot \rightarrow \mathbb{R} $ be the upper bound function for the running time of the algorithm given in \Cref{claim:findcor}, where $d$ is the dimension of the skeleton, $d^{\prime}$ is the face dimension, and $k$ is the number of vertices supporting the local view, namely $k = |\mathbf{Str}_{0+}(v, \sigma )|$. Then:
   \begin{equation*}
@@ -101,9 +101,9 @@ A full decoding cycle consists of four steps: first, applying the sweep rule reg
 We define the \textit{sweep cycle} to be the following procedure:
 \begin{enumerate}
     \item For each vertex, perform the sweep rule.
-    \item Apply the Hadamard transform $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}$ followed by the $\phi$-transpose.
+    \item Apply the Hadamard transform $\mathbf{H}^{\otimes\mathcal{F}_{d^\prime}^{n}}$ followed by the $\phi$-transpose.
     \item Again, apply the sweep rule at each vertex.
-    \item Reverse stage 2 by reordering the qubits according to the $\phi^{-1}$-transpose, and then apply the Hadamard transform $\mathbf{H}^{\otimes|\mathcal{F}_{d^\prime}|}$.
+    \item Reverse stage 2 by reordering the qubits according to the $\phi^{-1}$-transpose, and then apply the Hadamard transform $\mathbf{H}^{\otimes\mathcal{F}_{d^\prime}^{n}}$.
 \end{enumerate}
 \end{definition}
 

@@ -1,8 +1,6 @@
 
 \subsection{Reduced Error}
-
-
-Errors can be thought of as assignments on the $d^{\prime}$-dimensional faces that have non-vanishing boundaries. In particular, $X$-errors can be characterized as $d^{\prime}$-dimensional chains $z \in \mathbb{F}^{\mathcal{F}_{d^{\prime}}}_{2}$ such that $\partial^{-} z \neq 0$. In this section, we assume dealing with the $\infty$-extension of a circuit (see \Cref{def:extension}), so the cubical complex is the $d$-dimensional grid with infinite side length. The \textit{reduced} form of an error is its representative, a translation by a stabilizer, which minimizes its size.  Here we prove that the sizes of a reduced error and its boundary (derived from $\partial^{-}$) are the same. In particular, they share poles of the potential walls. That will come into use in analyzing the behavior of the sweep-rule, as it is defined to decide on correction upon the syndrome it sees.
+Errors can be thought of as assignments on the $d^{\prime}$-dimensional faces that have non-vanishing boundaries. In particular, $X$-errors can be characterized as $d^{\prime}$-dimensional chains $z \in (\mathcal{F}_{d^{\prime}};\mathbb{F}_{2})$ such that $\partial^{-} z \neq 0$. In this section, we assume dealing with the $\infty$-lift of a circuit (see \Cref{def:extension}), so the cubical complex is the $d$-dimensional grid with infinite side length. The \textit{reduced} form of an error is its representative, a translation by a stabilizer, which minimizes its size. Here we prove that the sizes of a reduced error and its boundary (derived from $\partial^{-}$) are the same\footnote{In fact, the hypertriangles bounding them are the same.}. In particular, they share poles of the potential walls. That will come into use in analyzing the behavior of the sweep-rule, as it is defined to decide on correction upon the syndrome it sees.
 
 For doing so we present two codes that describe local views of vertices. They are the \textit{stabilizers code at vertex} $v$ and the \textit{small code at vertex} $v$. The first corresponds to stabilizers rooted at the vertex, while the second is the collection of local views on faces rooted at $v$ that satisfy the checks rooted at $v$. Then, in \Cref{claim:agreement}, we consider a vertex whose $X$-checks don't admit a syndrome, meaning that its local view is in its \textit{small code}, and show that there is a codeword of its \textit{stabilizers code} that agrees with its positive faces. Addition by that stabilizer yields a new chain excluding $v$. If $v$ were a unique maximum of $L_{d+1}$, then the vertices on the yielded chain would have a lower value of $L_{d+1}$. Subsequently, since the exclusion decreases the size, it follows that the 'corner'—the vertex achieving the maximal $L_{d+1}$ value—of a reduced error sees a syndrome.
 
@@ -141,10 +139,10 @@ To summarize, we have both $z + w|_{v} \in \mathcal{C}_{v}^{J/g}$ and $z+w|_{v}$
   \end{enumerate}
 \end{proof}
 
-We would like to differentiate chains whose projection onto the finite Toric with side length $n$ closes a non-trivial cycle from those which don't. For this, we fix a rough threshold via the size function. Connected chains which have size less than $n$ will be called finite. Observe that a chain might have a projection that doesn't close a non-trivial loop on the Toric and still be marked, according to our definition, as infinite. So, the classification is rough, yet it will turn out to be sufficient.
+We would like to differentiate chains whose projection onto the finite Toric with side length $n$ closes a non-trivial cycle from those which don't. For this, we fix a rough threshold via the size function. Chains which have size less than $n$ will be called finite. Observe that a chain might have a projection that doesn't close a non-trivial loop on the Toric and still be marked, according to our definition, as infinite. So, the classification is rough, yet it will turn out to be sufficient.
 \begin{definition}
   \label{def:finiteerr}
-Let $z$ be a $d^{\prime}$-dimensional chain. Consider the connectivity notation defined in \Cref{def:asontoric}. We will say that a connected chain $z$ is finite if:
+  Let $z$ be a $d^{\prime}$-dimensional chain. We will say that a chain $z$ is finite if:
   \begin{equation*}
     \begin{split}
         \Size{z} \le n-1     %\max_{v,u \in z} L_{g}(v) - L_{g}(u) < n - 1
@@ -158,10 +156,10 @@ Observe that if $\Size{z} < n$, then the projection of $z$ on the $n$-side lengt
 \end{remark}
 
 
-The next claim states that the translation by stabilizer that minimizes its size of a finite connected chain admits a boundary with size equal to itself.
+The next claim states that the translation by stabilizer that minimizes its size of a finite chain admits a boundary with size equal to itself.
 \begin{claim}
   \label{claim:reducederr}
-  Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be a $d^{\prime}$-dimensional finite chain, consider the stabilizer  $z \in \mathcal{C}_{Z}^{\perp}$ which adding it to $x$ minimize the size , Namely: 
+  Let $x \in (\mathcal{F}_{d^{\prime}};\mathbb{F}_{2})$ be a $d^{\prime}$-dimensional finite chain, consider the stabilizer  $z \in \mathcal{C}_{Z}^{\perp}$ which adding it to $x$ minimize the size , Namely: 
   \begin{equation*}
     \begin{split}
       z =  \arg \min_{z \in \mathcal{C}_{Z}^{\perp}} \Size{ x + z }  
@@ -198,14 +196,32 @@ We keep excluding vertices until we get the desired equality.
 
 \end{proof}
 
+
+\input{./tikz/edge.tikz}
+
+
 We close the section by defining the \textit{reduced} form of a finite $d^{\prime}$-dimensional chain. 
 \begin{definition}
   \label{def:reduced}
-  Let $x \in \mathbb{F}_{2}^{\mathcal{F}_{d^{\prime}}}$ be a $d^{\prime}$-dimensional finite chain. We will say that $x$ is reduced if for any vertex $v \in x$ that is a maximum point of a potential wall $L \in L_{1}, \ldots, L_{d+1}$, $v$ is also in $\partial^{-} x$. 
-  In particular, we have that $\Size{x} = \Size{\partial^{-} x}$ and that the reduced form of a given chain is obtained by the construction presented in the proof of \Cref{claim:reducederr}.
+  Let $x \in (\mathcal{F}_{d^{\prime}};\mathbb{F}_{2})$ be a $d^{\prime}$-dimensional finite chain. We will say that $x$ is reduced if for any vertex $v \in x$ that is a maximum point of a potential wall $L \in L_{1}, \ldots, L_{d+1}$, $v$ is also in $\partial^{-} x$. 
+  In particular, we have that $\Size{x} = \Size{\partial^{-} x}$ and that the reduced form of a given chain is obtained by the construction presented in the proof of \Cref{claim:reducederr}. 
 \end{definition}
-We emphasize that the reduced form is not unique. Throughout the paper, every time we choose a reduced form of a chain, we mean choosing one of its reduced forms arbitrarily.
-\input{./tikz/edge.tikz}
+We emphasize that the reduced form is not unique. Throughout the paper, every time we choose a reduced form of a chain, we mean obtaining it from the given algorithm presented in \Cref{claim:reducederr}, so the reduced form is effectively unique.
+
+
+ 
+
+%  Let $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ be a $d^{\prime}$-dimensional finite chain, such that each of the connected components of $\partial^{-}x$ has size less than $n$. Consider the decoder that first decomposes $\partial^{-}x$ into its connected components, copies each of them to a clean Toric register, and applies the sweep rule on each. Denote by $\xi_{i}$ the correction computed for the $i$th connected component. We claim that:
+%\begin{equation*}
+%    \begin{split}
+%      \Size{ x + \sum_{i} \xi_{i}  } \le n 
+%    \end{split}
+%  \end{equation*}
+
+%\begin{claim}
+%Consider a $d^{\prime}$-dimensional chain $x_{1}, x_{2}, \ldots, x_{k} \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$, such that $x_{1}$ is the trivial chain, and for any $i$, the Hamming distance between $x_{i+1}$ and $x_{i}$ is at most $\Delta$. Then, if $x_{k}$ has a connected component with size greater than $n$, there is $i \in [k]$ such that $\partial^{-}x_{i}$ has a connected component of size greater than $\frac{n}{\Delta}$.
+%\end{claim}
+
 
 
 

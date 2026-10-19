@@ -1,8 +1,9 @@
-\section{Toom's Contours}
 
 
 
-\subsection{Toric Encoded Circuits and Toom's Contours}
+
+
+\subsection{ Toom's Contours}
 \label{subsection:toricencoded}
 We are about to zoom out from a single register encoded in the Toric code to describe a fully fault-tolerant computation. For a given quantum circuit, assumed to consist of gates $\mathbf{X}, \mathbf{Z}, \mathbf{CX}, \mathbf{H}, \mathbf{S}, \mathbf{T}$ and measurements, we define its Toric encoded circuit as its version where each qubit is encoded by the Toric code. Formally:
     \begin{definition}[Troic Encoded Circuit]
@@ -12,9 +13,11 @@ We are about to zoom out from a single register encoded in the Toric code to des
         \item The layers of $C$ on the quantum registers at even times are sweep-cycles, and the layers at odd times are realizations of either logical Paulis, $\mathbf{CX}$, or measurements in the computational and parity bases. On the classical registers, including the measured register, we allow any two-bit gates.
         \end{enumerate} 
     \end{definition}
+
 For Toric encoded circuits, we define their \textit{base graph}, which can be thought of as a recording of a running from the Toric's point of view. The \textit{base graph} is obtained by taking the Toric's vertices at different times as the vertices and connecting any two sequential in time if they are support faces — qubits — which are either the same or are entangled by a quantum gate.
+
   \begin{definition}[Base graph $G_{o}$]
-    Let $C$ be a Toric encoded circuit at depth $\mu$. Notice that measurements take quantum registers into classical, Thus any quantum register has a maximal depth, which we denote by $\{\mu_{i}$\}. Let's denote by $\{\mathcal{G}_{i}\}$ the skeleton of the $\infty$-extension of the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o}, E_{o})$, as follows:
+    Let $C$ be a Toric encoded circuit at depth $\mu$. Notice that measurements take quantum registers into classical, Thus any quantum register has a maximal depth, which we denote by $\{\mu_{i}$\}. Let's denote by $\{\mathcal{G}_{i}\}$ the skeleton of the $\infty$-lift of the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o}, E_{o})$, as follows:
     \begin{enumerate}
       \item The vertices $V_{o}$ are tuples, where the first coordinates correspond to a vertex in the disjoin union over the vertices in $\{\mathcal{G}_{i}\}$, and the second coordinate is associated with a time. Namely:
         \begin{equation*}
@@ -33,46 +36,49 @@ For Toric encoded circuits, we define their \textit{base graph}, which can be th
 Where we define a vertex $v$ to belong to location $l$ if there is a qubit-face $f$ in $l$ such that $v$ belongs to its associated face.
     \end{enumerate} 
   \end{definition}
+Notice that since the gates' locations are invariant to the conditioning of outcomes measurement (\Cref{remark:condmeas}), we have that for any outcomes vector $\alpha \in \mathbb{F}_{2}^{(\cdot)}$, the base graph of the conditioned circuit $C[\mathcal{E},\alpha]$ is the same as for $C[\mathcal{E}]$.
+
+\paragraph{}
+
+As a concept, if the base graph is a recording of a run from the Torices' point of view, then a \textit{Toom's contour} is a recording of the deviation's evolution in the eyes of the Torices' vertices. We use the notion of $x,z$-component of a lifted Pauli and the Pauli-path to describe a deviation:
+\begin{definition}
+Let $P \in \mathcal{P}^{(\cdot)}$ be a Pauli, and let $Q \in \mathcal{P}^{(\cdot)}$ be its $\infty$-lift. Assume that $P$ acts on a Toric encoded circuit, namely it has a decomposition such that each element of it acts on a register encoded in the $(d,d^{\prime})$-Toric code. We denote by $x(Q)$ the $d^{\prime}$-dimensional chain in the infinite complex that supports the $X$-component of $Q$, and by $z(Q)$ the $d-d^{\prime}$-dimensional chain, such that the inversion of the $\phi$-transpose sends it to the $d^{\prime}$-dimensional chain that supports the $Z$-component of $Q$, namely $\phi^{-1}(z(Q))$ is the chain that supports the $Z$-component.
+
+%We define the reduced form of $P$ to be the Pauli obtained by the following procedure: for any finite connected chain that corresponds to a subset of the $X$ component of $P$'s support, substitute it with its reduced form (\Cref{def:reduced}). Then do the same for the $Z$ component in the dual picture. Observe that Paulis of a reduced Pauli-path act on the qubits in the $\infty$-extension.^i
 
 
-As a concept, if the base graph is a recording of a run from the Torices' point of view, then a \textit{Toom's contour} is a recording of the deviation's evolution in the eyes of the Torices' vertices. We use the notion of Pauli-path to describe a deviation:
+%\inb{\textbf{Consider removing.}} We extend the notion to Paulis in finite spaces (for example, Paulis on the circuit's register) by saying that a Pauli $P \in \mathcal{P}^{(\cdot)}$ is reduced if its view in the $\infty$-extension is reduced.
+\end{definition}
 
-
-\begin{definition} 
+\begin{definition}
   \label{def:paulipath}
-Consider a quantum circuit $C$, where all its quantum registers are encoded with the Toric code with a side of length $n$, and a set of faults $\mathcal{E}$, such that $C[\mathcal{E}]$ has depth $\mu$ and width $w$. We will say that the Paulis $P_{1}, \ldots, P_{\mu+1} \in \mathcal{P}^{[w]}$ are fault paths of $C[\mathcal{E}]$ if:
-\begin{enumerate}
-  \item $P_{1}$ is the identity. 
-  \item For every $t\le \mu$ the Pauli $P_{t+1}$ supports $C[\mathcal{E}]|_{t} \circ P_{t}$. Namely:
-  \begin{equation*}
-    \begin{split}
-      \Trr{} \big( C[\mathcal{E}]|_{t} P_{t} (C[\mathcal{E}]|_{t})^{\dagger} P_{t+1} \big) \neq 0
-    \end{split}
-  \end{equation*}
-\end{enumerate}
+  Consider the propagation $(\mathbf{P},\mathbf{a})$ of a conditioned subject circuit $C[\mathcal{E},\alpha]$ (\Cref{def:propagation}). A Pauli-path of $C[\mathcal{E},\alpha]$ is the $\infty$-lift of the Paulis in $\mathbf{P}$.
+ 
+
+%\inb{\textbf{Consider removing.}} Consider a quantum circuit subjected to noise $C[\mathcal{E}]$, with width $w$ and depth $\mu$, whose registers are all encoded in the $(d,d^{\prime})$-Toric code with side length $n$ such that $C[\mathcal{E}]$ has an $\infty$-extension. We say that the set of Pauli $\{ (P_{i}) \}_{1}^{\mu+1}$, where for each $i$, $P_{i} \in \mathcal{P}^{[w]}$, is a Pauli-path for $C[\mathcal{E}]$. If $P_{1}$ is the identity and for any $t \in [\mu]$, the Pauli $P_{t+1}$ is defined such it satisfies the follow:  
+%  \begin{equation*}
+%    \begin{split}
+%      & P_{t+1} \in C|_{t} \circ P_{t} 
+%    \end{split}
+%  \end{equation*}
+%\inb{\textbf{Consider removing.}}  If there is a Pauli-path $P_{1},..,P_{\mu+1}$ and a time $t \in [\mu+1]$ such $P_{t}$ is infinite, then we say that time $t$ admits an infinite error. 
+\end{definition}
 
 
-
-We extend the notation to Pauli-path up to step $\tau$ by considering the quantum circuit obtained from $C[\mathcal{E}]$ by taking all the gates at steps lower than or equal to $\tau$. A Pauli-path of that circuit is a Pauli-path up to step $\tau$ of the original circuit.
-
-
-Finally, we define a reduced Pauli-path $\tilde{P_{1}}, \ldots, \tilde{P}_{\mu+1}$ to be the Paulis obtained by taking a Pauli-path, considering its view in the $\infty$-extension, and for any finite connected chain that corresponds to a subset of the $X$ component of $P_{t}$'s support, substitute it with its reduced form (\Cref{def:reduced}). Then do the same for the $Z$ component in the dual picture. Observes that Paulis of a reduced Pauli-path acts on the qubits in the $\infty$-extension. 
-\end{definition} 
-
-For a reduced Pauli-path $P_{1},..,P_{\mu+1}$, the Toom's contour is the restriction of the base graph to vertices that witness a deviation, namely, those that belong to qubits supporting $P_{1},P_{2},..,P_{\mu+1}$. 
+For a Pauli-path $P_{1},..,P_{\mu+1}$, the Toom's contour is the restriction of the base graph to vertices that witness a deviation, namely, those that belong to qubits supporting $P_{1},P_{2},..,P_{\mu+1}$. 
 
 
-\begin{definition}[Toom's Contour Graph of $C(\mathcal{E})$, (Standard form)]
+\begin{definition}[Toom's Contour Graph of $C(\mathcal{E},\alpha)$, (Standard form)]
     \label{def:contour}
-    For a Toric encoded quantum circuit $C$, set of faults $\mathcal{E}$ and a reduced Pauli-path $P_{1},..$, let us denote the base graph of $C[\mathcal{E}]$ by $G_{o}$. We define the \textit{Toom's contour graph} $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
+    For a Toric encoded quantum circuit $C$, set of faults $\mathcal{E}$, measurements outcomes $\alpha$, and a Pauli-path $P_{1},..$ of $C[\mathcal{E}, \alpha]$. We define the \textit{Toom's contour graph} $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
     \begin{enumerate}
-      \item The vertices $V_{\mathcal{H}} = V_{\mathcal{H}, X} \cup V_{\mathcal{H}, Z}$ correspond to vertices of faces supporting the reduced Pauli-path. They consist of the triple $(v,t,\cdot)$ where $(v,t)$ is a vertex of the base graph, and the third is a symbolic coordinate that is either $\{X\}$ or $\{Z\}$ corresponding to the component of the Pauli that $v$ supports at time $t$.
+      \item The vertices $V_{\mathcal{H}} = V_{\mathcal{H}, X} \cup V_{\mathcal{H}, Z}$ correspond to vertices of faces supporting the Pauli-path. They consist of the triple $(v,t,\cdot)$ where $(v,t)$ is a vertex of the base graph, and the third is a symbolic coordinate that is either $\{X\}$ or $\{Z\}$ corresponding to the component of the Pauli that $v$ supports at time $t$.
         \begin{equation*}
           \begin{split}
             V_{\mathcal{H}, X} \colonequals & \big\{ v_{t} \times \{X\} : v_{t}=(v,t) \in V_{o} \\
-            & \, \, \, \text{ and there exists a face } f \in \text{ supp } X(P_{t}) \text{ such } v \in f \big\} \\
+            & \, \, \, \text{ and there exists a face } f \in \partial^{-} x(P_{t}) \text{ such } v \in f \big\} \\
              V_{\mathcal{H}, Z} \colonequals & \big\{ v_{t} \times \{Z\} : v_{t}=(v,t) \in V_{o} \\
-             & \, \, \, \text{ and there exists a face } f \in \text{ supp } Z(P_{t}) \text{ such } v \in \phi(f) \big\} 
+             & \, \, \, \text{ and there exists a face } f \in \partial^{-} z(P_{t}) \text{ such } v \in f \big\} 
           \end{split}
         \end{equation*}
 
@@ -83,29 +89,50 @@ For a reduced Pauli-path $P_{1},..,P_{\mu+1}$, the Toom's contour is the restric
 %          \end{split}
 %        \end{equation*}
 
-      \item The edges $E_{\mathcal{H}}$ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$, where for any logical gate $g$ which applied in time $t$ in $C[\mathcal{E}]^{\infty} $ we add edge to $A_{\mathcal{H}}$ as follow: 
+      \item The edges $E_{\mathcal{H}}$ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$. For any realization of logical gate $g$ which applied in time $t$ in $C[\mathcal{E}]^{\infty} $, we denote by $E_{o}|_{g}$ the edges in $E_{o}$ which induced by $g$. Then, we add edge to $A_{\mathcal{H}}$ as follow: 
+
         \begin{enumerate}
-          \item If $g$ is either a logical Pauli, a measurement in either the computational or the phase basis, a sweep-cycle, or an identity, then for any face $f$ in the register on which $g$ acts, we add:
+          \item If $g$ does not belong to the faults, namely $g \notin \mathcal{E}$, and $g$ is not a measurement in the phases-basis, then we add the arrows: 
             \begin{equation*}
               \begin{split}
-                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : u,v \in f \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \\ 
-                &  \, \, \, \text { or }  u,v \in \phi(f) \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
+                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : \{\{u,t\},\{v,t+1\}\} \in E_{o}|_{g} \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \\ 
+              &  \, \, \, \text { or }  (v,t+1, \cdot)\} : \{\{u,t\},\{v,t+1\}\} \in E_{o}|_{g} \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
               \end{split}
             \end{equation*}
-            \item If $g$ is a logical $\mathbf{CX}$ then for any physical $\mathbf{CX}$ in its realization, between faces $f_{1}$ into $f_{2}$ at time $t$ we add: 
+            Where if $g$ is a measurement in the phase-basis, then we add type-alternating arrows as follows:
             \begin{equation*}
               \begin{split}
-                & \bigl\{  \{ \tilde{u}  = (u,t, \cdot), \tilde{v} = (v,t+1, \cdot)\} :  u \in f_{1}\cup f_{2}, v \in f_{1}\cup f_{2}  \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X}  \\
-                &  \, \, \, \text { or } u \in \phi(f_{1})\cup \phi(f_{2}), v \in \phi(f_{1})\cup \phi(f_{2}) \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
+                & \bigl\{  \{ \tilde{u} = (u,t, \{Z\}),  \tilde{v} = (v,t+1, \{X\})\} : \{\{u,t\},\{v,t+1\}\} \in E_{o}|_{g} \\
+              &  \, \, \, \text{ and } \tilde{v}\in V_{\mathcal{H},X},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
               \end{split}
             \end{equation*}
-          \item If $g$ is a fault Pauli, then for any face $f$ in the register, we add:
+          \item Else, if $g \in \mathcal{E}$ then, we add:   
             \begin{equation*}
               \begin{split}
-                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : u,v \in f \text{ , } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \text{, and } f \notin X(g)  \\ 
-                &  \, \, \, \text { or }  u,v \in \phi(f) \text{ , } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \text{, and } f \notin Z(g)  \bigr\} 
+                & \bigl\{  \{ \tilde{u} = (v,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : \text{ such either } \tilde{u} \in V_{\mathcal{H},X} \text { or } \tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
               \end{split}
             \end{equation*}
+%          \item If $g$ is either a logical Pauli, a measurement in either the computational or the phase basis, a sweep-cycle, or an identity, then for any face $f$ in the register on which $g$ acts, we add:
+%            \begin{equation*}
+%              \begin{split}
+%                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : u,v \in f \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \\ 
+%                &  \, \, \, \text { or }  u,v \in \phi(f) \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
+%              \end{split}
+%            \end{equation*}
+%            \item If $g$ is a logical $\mathbf{CX}$ then for any physical $\mathbf{CX}$ in its realization, between faces $f_{1}$ into $f_{2}$ at time $t$ we add: 
+%            \begin{equation*}
+%              \begin{split}
+%                & \bigl\{  \{ \tilde{u}  = (u,t, \cdot), \tilde{v} = (v,t+1, \cdot)\} :  u \in f_{1}\cup f_{2}, v \in f_{1}\cup f_{2}  \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},X}  \\
+%                &  \, \, \, \text { or } u \in \phi(f_{1})\cup \phi(f_{2}), v \in \phi(f_{1})\cup \phi(f_{2}) \text{ and } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \bigr\} 
+%              \end{split}
+%            \end{equation*}
+%          \item If $g$ is a fault Pauli, then for any face $f$ in the register, we add:
+%            \begin{equation*}
+%              \begin{split}
+%                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : u,v \in f \text{ , } \tilde{v},\tilde{u} \in V_{\mathcal{H},X} \text{, and } f \notin X(g)  \\ 
+%                &  \, \, \, \text { or }  u,v \in \phi(f) \text{ , } \tilde{v},\tilde{u} \in V_{\mathcal{H},Z} \text{, and } f \notin Z(g)  \bigr\} 
+%              \end{split}
+%            \end{equation*}
         \end{enumerate}
 %        In addition for any fault $g$ of $\mathcal{E}^{\infty}$, that is applied at time $t$, and any face $f \in \text{Loc}(g)$, we add the edges:
 %            \begin{equation*}
@@ -128,60 +155,109 @@ For a reduced Pauli-path $P_{1},..,P_{\mu+1}$, the Toom's contour is the restric
 
 
 
+%\inb{\textbf{ Keep the remark change the explantation.} }
+%\begin{remark}
+%One might expect to have a differentiation between measurement in the computational and the phases basis. Namely, a rule of connecting arrows of the form:
+%\begin{center}
+%\begin{minipage}{0.75\textwidth}
+%  \textit{
+%            If $g$ is a measurement in the phases base, then for any face $f$ in the register on which $g$ acts, we add:
+%            \begin{equation*}
+%              \begin{split}
+%                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : u \in f , v \in \phi(f) \text{ and } \tilde{u} \in V_{\mathcal{H},X}, \tilde{v} \in V_{\mathcal{H},Z}, \\ 
+%                &  \, \, \, \text { or }  u\in \phi(f), v \in f \text{ and } \tilde{u} \in V_{\mathcal{H},Z} , \tilde{v} \in  V_{\mathcal{H},X} \bigr\} 
+%              \end{split}
+%            \end{equation*}
+%  }
+%\end{minipage}
+%\end{center}
+%Such intuition is correct in the sense that this is the right way to keep track of the faults.
+%%Yet, since immediately after any measurement a decoding is invoked, and since any connected component (of the syndrome) is handled separately, we only care about having a connected componnent below a certain size. Thus, since there is a bijiction between the connected components of a syndrom to , 
+%%we care only the propagation up to measurements. 
+%we will state \Cref{claim:replace} whose corollary is that instead of analyzing the running of the Toric encoded circuit, it is sufficient to analyze the running of a 'simpler' circuit which doesn't contain measurement in the phase base. In particular, the claim considers the circuit obtained from a given Toric encoded circuit by replacing each of the classical decoding procedures with noisy sweep-rule cycles. Then it states that to derive an upper bound on the failure probability of the original circuit, it's enough to bound the probability that the modified circuit does not admit an infinite 'time-connected cluster' (slice, \Cref{def:slice}).
+%
+%\end{remark}
 
-\begin{remark}
-One might expect to have a differentiation between measurement in the computational and the phases basis. Namely, a rule of connecting arrows of the form:
-\begin{center}
-\begin{minipage}{0.75\textwidth}
-  \textit{
-            If $g$ is a measurement in the phases base, then for any face $f$ in the register on which $g$ acts, we add:
-            \begin{equation*}
-              \begin{split}
-                & \bigl\{  \{ \tilde{u} = (u,t, \cdot),  \tilde{v} = (v,t+1, \cdot)\} : u \in f , v \in \phi(f) \text{ and } \tilde{u} \in V_{\mathcal{H},X}, \tilde{v} \in V_{\mathcal{H},Z}, \\ 
-                &  \, \, \, \text { or }  u\in \phi(f), v \in f \text{ and } \tilde{u} \in V_{\mathcal{H},Z} , \tilde{v} \in  V_{\mathcal{H},X} \bigr\} 
-              \end{split}
-            \end{equation*}
-  }
-\end{minipage}
-\end{center}
-Such intuition is right in the sense that this is the right way to keep track of the faults. Yet, later we will state \Cref{claim:replace} whose corollary is that instead of analyzing the running of the Toric encoded circuit, it is sufficient to analyze the running of a 'simpler' circuit which doesn't contain measurement in the phase base. In particular, the claim considers the circuit obtained from a given Toric encoded circuit by replacing each of the classical decoding procedures with noisy sweep-rule cycles. Then it states that to derive an upper bound on the failure probability of the original circuit, it's enough to bound the probability that the modified circuit does not admit an infinite 'time-connected cluster' (slice, \Cref{def:slice}).
-
-\end{remark}
 
 
+%\inb{\textbf{ Split to, up to a step $\tau$ and up to pseudo step $(\tau,\Delta^{\prime})$.}}
+%\begin{definition}
+%  \label{def:paulipathupstep}
+%With the same notations as in \Cref{def:paulipath}, let $\tau$ be a step in $C[\mathcal{E}]$. Recall that each gate in $C[\mathcal{E}]$ acts on at most $\Delta$ qubits. Let $\Delta^{\prime} \in [\Delta]$. In addition, denote by $g$ and $t$ the gate and its time which is applied at step $\tau$. We say that the set of Pauli $P_{1},\ldots,P_{t},P_{\star}$ is a Pauli-path up to step $(\tau,\Delta^{\prime})$, if the $P_{1},\ldots,P_{t}$ is a Pauli-path for the circuit obtained from $C[\mathcal{E}]$ by taking only its first $t-1$ layers. And $P_{\star}$ satisfies the following: let $g^{\prime}_{1},\ldots,g_{l}^{\prime} = g$ be the gates applied at time $t$ at step up to, and including, $\tau$, placed by order. Let $P^{\prime}_{0},P^{\prime}_{\Delta} \in \mathcal{P}^{(\cdot)}$ be Paulis such:
+%  \begin{equation*}
+%    \begin{split}
+%      P_{0}^{\prime} \in \bigl(g^{\prime}_{l-1}g^{\prime}_{l-2}..g_{1}\bigr) \circ P_{t} \quad P^{\prime}_{\Delta} \in g \circ P_{0}^{\prime}
+%    \end{split}
+%  \end{equation*}
+%Now, since $P^{\prime}_{\Delta}$ is at a Hamming distance of at most $\Delta$ from $P_{0}^{\prime}$, there is a set of Paulis:
+%  \begin{equation*}
+%    \begin{split}
+%      P_{0}^{\prime},P_{1}^{\prime},P_{2}^{\prime},..,P^{\prime}_{\Delta^{\prime}},..,P^{\prime}_{\Delta}
+%    \end{split}
+%  \end{equation*}
+%  Then set $P_{\star} = P^{\prime}_{\Delta^{\prime}}$. 
+%\end{definition}
 
-For the analyses, we would like to extend Toom's contour to record in their final layer a partial time-step, namely a computation up to a certain step \Cref{def:steps}. For this, we substitute in the definition above the Pauli-path with a Pauli-path up to a step. Moreover, since we would like to refer to the connected chain at the final layer as the 'final error clusters', we add at the end a layer whose purpose is to connect in time (by arrows) the connected components of Toom's contour in the prior layer, which are connected by checks (their union is identified with a connected chain).
-\begin{definition}[Analysis Toom's Contour at Step $\tau$]
-  For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, and a step $\tau$, according to the standard order, let $C[\mathcal{E}]_{\tau}$ be the partial computation circuit of $C[\mathcal{E}]$ up to step $\tau$. We define the \textit{analysis Toom's contour at step $\tau$}, denoted by $\mathcal{H}_{\tau} = (V_{\mathcal{H}}, E_{\mathcal{H}})$, to be the graph obtained by taking the Toom's contour of $C[\mathcal{E}]_{\tau}$ and adding vertices and edges as follows:
+
+
+
+For the analyses, we would like to extend Toom's contour to record in their final layer a partial time-step, namely a computation up to a certain step. For this, we first consider Toom's contour of the partial computation circuit up to a step (\Cref{def:steps}). Then, since we would like to refer to the connected chain at the final layer as the 'final error clusters', we add at the end a layer whose purpose is to connect in time (by arrows) the connected components of Toom's contour in the prior layer, which are connected by checks (their union is identified with a connected chain).
+
+\begin{definition}[Analysis Toom's Contour Up to Step $\tau$]
+  For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, outcomes $\alpha$, and a step $\tau$, let $C[\mathcal{E},\alpha]_{\tau}$ be the partial computation circuit of $C[\mathcal{E},\alpha]$ up to step $\tau$. We define the \textit{analysis Toom's contour at step $\tau$} $\mathcal{H}_{\tau} = (V_{\mathcal{H}}, E_{\mathcal{H}})$ to be the graph obtained by taking the Toom's contour of $C[\mathcal{E},\alpha]_{\tau}$ and adding edges as follows:
   \begin{enumerate}
-    \item We define $t^{\star}$ as the time of the gate at step $\tau$ plus one, and then add for the vertices in $V_{\mathcal{H},\{X\}}$ the duplication of the previous layer, namely the subset:
-      \begin{equation*}
-          \begin{split}
-            \bigl\{ v_{t^{\star}}  & : v_{t^{\star}}=( v,t^{\star},\{X\}  ) \text{ if there exists a face } f \in \text{ supp } X(P_{t^{\star}-1}) \\ 
-            & \text{ such } v \in f \in X(P_{t^{\star} - 1}) \bigr\} 
-          \end{split}
-        \end{equation*}
-        Similarly we add to $V_{\mathcal{H}, Z}$ the subset: 
-      \begin{equation*}
-          \begin{split}
-            \bigl\{ v_{t^{\star}}  & : v_{t^{\star}}=(  v,t^{\star},\{Z\} ) \text{ if there exists a face } f \in \text{ supp } Z(P_{t^{\star}-1}) \\
-            & \text{ such } v \in \phi(f) \bigr\} 
-          \end{split}
-        \end{equation*}
-      \item For the edges, we add the following arrows:
+    \item Let $t$ be the depth of $C[\mathcal{E},\alpha]_{\tau}$. We add the following additional arrows:
         \begin{equation*}
           \begin{split}
-            \bigl\{ \bigl\{ \tilde{u} & = (u,t^{\star} -1, \cdot ),  \tilde{v}= (v,t^{\star},\cdot)  \bigr\}  \text{ if  either there exists }\\ 
-           & \text{ a } d^{\prime}-1  \text{ dimensional face } f  \text{such } \tilde{u},\tilde{v} \in V_{\mathcal{H},X} \text{ and } u,v \in f  \\
-          & \text{or there exists a } d - d^{\prime}-1  \text{ dimensional face } f \text{ such } \tilde{u},\tilde{v} \in V_{\mathcal{H},Z} \text{ and } v,u \in \phi^{-1}(f)   \bigr\}  
+            \bigl\{ \bigl\{ \tilde{u} & = (u,t -1, \cdot ),  \tilde{v}= (v,t,\cdot)  \bigr\}  \text{ if  either there exists }\\ 
+           & \text{ a } d^{\prime}-2  \text{ dimensional face } f  \text{such } \tilde{u},\tilde{v} \in V_{\mathcal{H},X} \text{ and } u,v \in f  \\
+          & \text{or there exists a } d - d^{\prime}-2  \text{ dimensional face } f \text{ such } \tilde{u},\tilde{v} \in V_{\mathcal{H},Z} \text{ and } v,u \in f   \bigr\}  
           \end{split}
         \end{equation*}
-      \item Finally, we add forks for vertices at time $t^{\star}$ to preserve the property that any two vertices with the same time coordinate, which are connected to a third (with a $+1$ higher time coordinate) via arrows, are also connected by a fork.
+      \item Then, we add forks to preserve the property that any two vertices with the same time coordinate, which are connected to a third (with a $+1$ higher time coordinate) via arrows, are also connected by a fork.
   \end{enumerate}
-
-
 \end{definition}
 
-
+%
+%\begin{definition}[Analysis Toom's Contour Up to Step $(\tau,\Delta^\prime)$]
+%\inb{\textbf{Rewrite. }}For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, a step $\tau$ according to the standard order, and an integer $\Delta^{\prime} \in [\Delta]$, we define the \textit{analysis Toom's contour up to step $(\tau,\Delta^\prime)$}, denoted by $\mathcal{H}_{\tau,\Delta^{\prime}} = (V_{\mathcal{H}}, E_{\mathcal{H}})$, to be the graph obtained by taking a Pauli-path up to step $(\tau,\Delta^{\prime})$ $P_{1}, \ldots, P_{t}, P_{\star}$, and gluing to the Toom's contour induced by the prefix $P_{1}, \ldots, P_{t-1}$ a layer defined by adding vertices and edges as follows:
+%Let $g$ be a gate that is applied at time $t$ and whose step $\le \tau$. 
+%  \begin{enumerate}
+%    \item If $g$ is a physical $\textbf{CX}$, then denote by $f_{1}, f_{2}$ the $d^{\prime}$-dimensional faces on which $g$ acts. Then, if either $\partial^{-}f_{1}$ or $\partial^{-}f_{2}$ intersects with $\partial^{-}x(P_{t-1})$, then for any pair of vertices $v_{1}, v_{2}$ such that $v_{1} \in f_{1} \cup f_{2}$, $(v_{1}, t-1, \{X\})$ is already in $V_{\mathcal{H},X}$, we add the following vertices and arrows into $V_{\mathcal{H},\{X\}}$ and $E_{\mathcal{H}}$:
+%      \begin{equation*}
+%          \begin{split}
+%            \bigl\{  ( v_{2},t,\{X\}  ) \bigr\} \quad \bigl\{  ( v_{1},t-1,\{X\}  ),  ( v_{2},t,\{X\}  ) \bigr\}
+%          \end{split}
+%        \end{equation*}
+%        Similarly, if either $ \partial^{-} \phi(f_{1})$ or $ \partial^{-} \phi(f_{2})$ intersects $\partial^{-}z(P_{t-1})$, then for any pair of vertices $v_{1}, v_{2}$ such that $v_{1} \in \phi(f_{1}) \cup \phi(f_{2})$ and $(v_{1}, t-1, \{Z\})$ is already in $V_{\mathcal{H},Z}$, we add the following vertices and arrows into $V_{\mathcal{H},\{Z\}}$ and $E_{\mathcal{H}}$:
+%      \begin{equation*}
+%          \begin{split}
+%            \bigl\{  ( v_{2},t,\{Z\}  ) \bigr\} \quad \bigl\{  ( v_{1},t-1,\{Z\}  ),  ( v_{2},t,\{Z\}  ) \bigr\}
+%          \end{split}
+%        \end{equation*}
+%      %\item If $g$ is a physical gate in a realization of logical Pauli, measurement, or a sweep cycle. Then for any face $f$
+%      \item Moreover, for any vertex $v_{t-1} = (v, t-1, \{ X \} ) \in V_{\mathcal{H,X}}$, and any $d^{\prime}-1$ dimensional face $f$ containing   the vertex $(v, t, \{ \cdot \} )$ and connect the two by arrow. 
+%      \item Finally, we add the following additional arrows:
+%        \begin{equation*}
+%          \begin{split}
+%            \bigl\{ \bigl\{ \tilde{u} & = (u,t -1, \cdot ),  \tilde{v}= (v,t,\cdot)  \bigr\}  \text{ if  either there exists }\\ 
+%           & \text{ a } d^{\prime}-2  \text{ dimensional face } f  \text{such } \tilde{u},\tilde{v} \in V_{\mathcal{H},X} \text{ and } u,v \in f  \\
+%          & \text{or there exists a } d - d^{\prime}-2  \text{ dimensional face } f \text{ such } \tilde{u},\tilde{v} \in V_{\mathcal{H},Z} \text{ and } v,u \in f   \bigr\}  
+%          \end{split}
+%        \end{equation*}
+%      \item Finally, we add forks for vertices at time $t+1$ to preserve the property that any two vertices with the same time coordinate, which are connected to a third (with a $+1$ higher time coordinate) via arrows, are also connected by a fork.
+%  \end{enumerate}
+%\end{definition}
+%
+%
+%\begin{claim}
+%  Suppose that for a Pauli-path up to a pseudo step $(\tau,\Delta^{\prime})$, and a register $R$, there is a connected component in $\partial^{-}x(P_{\star})|_{R}$, with size greater than $c n$, then there is a slice in the analysis of Toom's contour up to step $\tau$, a slice of size greater than $c n$.
+%\end{claim}
+%
+%\begin{proof}
+%  We argue that the vertices of any connected component of $ \partial^{-}x(P_{\star})$ are connected by arrows. Assume through contradiction that there is a $d^{\prime}-1$-dimensional connected chain $x \in \partial^{-}x(P_{\star})$, and two vertices $v,u \in x$ such that $v_{t} = (v,t,\{X\})$ and $u_{t} = (u,t,\{X\})$ are not connected via arrows. Let $g$ be the gate which is applied at step $\tau$. We can assume that on the path of $v$ towards $u$ in $x$ there is a vertex supporting $g$. Otherwise, $u$ and $v$ are supposed to be connected by arrows in $\mathcal{H}_{\tau-1}$ \inb{\textbf{ Prove that. }}
+% 
+%  \inb{\textbf{Here.}} Let $w$ be that vertex, and let $w_{-}$ and $w_{+}$ be its predecessor and successor on the path. Connectivity of two faces is determined by whether they share a face of dimension lower by one.
+%\end{proof}
 
 

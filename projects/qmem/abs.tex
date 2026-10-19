@@ -3,13 +3,16 @@ We suggest a new proof of quantum fault tolerance based on the alternative proof
   \begin{enumerate}
     \item  An explicit description of the sweep-rule —a generalization of Toom's rule for topological codes—for any dimension greater than two. In doing so, it answers affirmatively to the conjecture made by Kubica and Preskill \cite{Kubica_2019}.
     \item A fault tolerant construction in the circuit model that both uses the $(d,d^{\prime})$-Toric code and has a constant-depth correction cycle, where $d^{\prime}, d - d^{\prime} \ge 2$. Until now, the use of a topological code as the primary encoding and a constant-depth correction cycle were only achieved separately; this is the first work to achieve them simultaneously.
-    \item A novel fault tolerance that doesn't introduce an asymptotic depth overhead per Clifford gate. In particular, there is a threshold $p_{0} \in (0,1)$ such that for a noise rate $p < p_{0}$, and any $n$ large enough, the construction takes a circuit with total depth $\mu$ and a $\mathbf{T}$-depth $\mu_{\mathbf{T}}$, and results a circuit that simulates the given with probability: 
-      \begin{equation*}
-        \begin{split}
-          1 - \Theta ( \text{Poly(circuit's size)} ) p^{\Theta(n)}   
-        \end{split}
-      \end{equation*}
-      and has a depth $\Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{d+1} ) $. 
+   
+    \item A proof that the sweep-rule is an effective decoder against locally stochastic noise. Concurrently, denote by $n$ the side length of the $d$-dimensional Toric. If the noise rate is below a certain threshold, then an application of $\Theta(n^{2d +1})$ ideal sweep-cycle iterations erases the error with high probability. As far as we know, until now rigorous proofs for the sweep-rule were given only in the i.i.d setting \cite{Kubica_2019}. 
+
+%    \item A novel fault tolerance that doesn't introduce an asymptotic depth overhead per Clifford gate. In particular, there is a threshold $p_{0} \in (0,1)$ such that for a noise rate $p < p_{0}$, and any $n$ large enough, the construction takes a circuit with total depth $\mu$ and a $\mathbf{T}$-depth $\mu_{\mathbf{T}}$, and results a circuit that simulates the given with probability: 
+%      \begin{equation*}
+%        \begin{split}
+%          1 - \Theta ( \text{Poly(circuit's size)} ) p^{\Theta(n)}   
+%        \end{split}
+%      \end{equation*}
+%      and has a depth $\Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{d+1} ) $. 
   \end{enumerate}
 Specifically, all these results hold for the 4D-Toric code.
 \end{abstract}

@@ -5,7 +5,7 @@
 
 \begin{definition}[Quantum Circuit]
   \label{def:quantcirc}
-  A \emph{space-time location} is a pair $l=(t,S)$, where $t$ is a time coordinate and $S=(s_{1},\ldots,s_{\Delta})$ is an ordered tuple of qubit indices. For a finite collection of quantum gates
+  A \emph{space-time location} is a pair $l=(t,S)$, where $t$ is a time coordinate and $S=(s_{1},\ldots,s_{\Delta})$ is an ordered tuple of qubit indices. For a finite collection of quantum gates 
   \begin{equation*}
     \begin{split}
       \mathcal{G} \subset \Big\{ g \colon L(\mathcal{H}_{2}^{\otimes \Delta}) \to L(\mathcal{H}_{2}^{\otimes \Delta}) \Big\},
@@ -30,7 +30,7 @@
     \end{split}
   \end{equation*}
 \end{definition}
-Later, we will restrict $\mathcal{G}$ to contain $\mathbf{CX}, \mathbf{H}, \mathbf{S}, \mathbf{T}$, and measurements. To define the action of a quantum circuit $C$ on a given mixed state, we first associate $C$ with a directed acyclic graph.
+Later, we will restrict $\mathcal{G}$ to contain $\mathbf{X}, \mathbf{Z}, \mathbf{CX}, \mathbf{H}, \mathbf{S}, \mathbf{T}$, and measurements. To define the action of a quantum circuit $C$ on a given mixed state, we first associate $C$ with a directed acyclic graph.
 \begin{definition}[Associated Computation DAG]
   \label{def:steps}
   Let $C=\{u_i\}_i$ be a quantum circuit with depth $d$ and width $w$. We define the associated computation DAG of $C$, denoted by $\pi_C$, to be the directed acyclic graph $\pi_C=(\mathcal{U},E)$ as follows:
@@ -45,12 +45,12 @@ Later, we will restrict $\mathcal{G}$ to contain $\mathbf{CX}, \mathbf{H}, \math
       Equivalently, $u_j$ is one of the earliest later gates whose support intersects the support of $u_i$. There may be more than one such minimizer, so the out-degree may exceed one.
   \end{enumerate}
 
-  Suppose that $J=(j_1,j_2,\ldots,j_k)$ is an ordering of the gate indices that agrees with a topological order induced by $\pi_C$. Then we define the associated partial circuits $C_J=\{C_{J,i}\}_{i=1}^{k}$ by
+  Suppose that $J=(j_1,j_2,\ldots,j_k)$ is an ordering of the gate indices that agrees with a topological order induced by $\pi_C$. Then we define the associated partial circuits $C|_J=\{C|_{J,\rightarrow i}\}_{i=1}^{k}$ by
   \begin{enumerate}
-    \item $C_{J,1}=\{u_{j_1}\}$.
-    \item For $1\le i<k$, set $ C_{J,i+1}=C_{J,i}\cup\{u_{j_{i+1}}\}$.
+    \item $C|_{J,\rightarrow1}=\{u_{j_1}\}$.
+    \item For $1\le i<k$, set $ C|_{J,\rightarrow i+1}=C|_{J,\rightarrow i}\cup\{u_{j_{i+1}}\}$.
   \end{enumerate}
-      We call $C_{J,i}$ the partial computation circuit up to step $i$.
+We call $C|_{J,\rightarrow i}$ the partial computation circuit up to step $i$. When the order itself does not play a role, except for being time-respecting (namely, a gate $u$ that is applied before gate $u^{\prime}$ has a lower step than $u^{\prime}$'s step in $J$), we will omit $J$ from the subscript and briefly write $C|_{\rightarrow i}$ to describe a partial circuit up to that step.
 \end{definition}
 
 \begin{definition}
@@ -80,10 +80,8 @@ For a quantum circuit $C$, we would like to discuss its action in the presence o
       t(m+1).
     \end{split}
   \end{equation*}
-  When $m=1$, the gates occupy the even time coordinates and the fault layers occupy the odd time coordinates. When the parameter is omitted, we mean $m=1$. We denote the associated computation DAG of $C[\mathcal{E}]_{m}$ by $\comDAG$.
+When $m=1$, the gates occupy the even time coordinates, and the fault layers occupy the odd time coordinates. When the subscript parameter is omitted, we mean that the noise layers are injected between any two logical layers, and the logical layers are clear from the context. We denote the associated computation DAG of $C[\mathcal{E}]_{m}$ by $\comDAG$.
 \end{definition}
-
-
 
 
 
@@ -105,37 +103,44 @@ For a quantum circuit $C$, we would like to discuss its action in the presence o
     \end{split}
   \end{equation*}
 \end{example}
-
-
+Later, all the quantum registers will be encoded via stabilizer codes. Then, following the common approach in the literature, we define the fault layers to end with stabilizer measurements, thereby forcing the faults to be Paulis (see \cite{gottesman1997stabilizercodesquantumerror}). Hence, we confine ourselves to noise channels of only this type.
 \begin{definition}[Noise channel and local stochastic noise channel]
-  A \textit{noise channel} $\mathcal{N}_{\mathcal{E}}$ is a distribution over sets of fault locations. Let $p\in(0,1)$, we say that the noise channel $\mathcal{N}_{\mathcal{E}}$ is \textit{local stochastic with rate $p$} if for every finite set of locations $S\subset \mathbb{N}\times \mathbb{N}$,
+  \label{def:localstoc}
+  A \textit{noise channel} $\mathcal{N}_{\mathcal{E}}$ is a distribution over sets of faults and their locations. Let $p\in(0,1)$, we say that the noise channel $\mathcal{N}_{\mathcal{E}}$ is \textit{local stochastic with rate $p$} if for every finite set of locations $S\subset \mathbb{N}\times \mathbb{N}$,
   \begin{equation*}
     \begin{split}
       \prbm{S\subset \operatorname{Loc}(\mathcal{E})}{\mathcal{E}\sim \mathcal{N}_{\mathcal{E}}}
       \le p^{|S|}.
     \end{split}
   \end{equation*}
+Through this work, the sampled faults will be assumed to be Pauli.
 \end{definition}
-So, $N_{\mathcal{E}}$ defines a probability space. The set of faults $\mathcal{E}$ is an atomic outcome, and for a given circuit $C$, the subjected circuit $C[\mathcal{E}]$ is a random variable. The following claim states that for local stochastic noise, the subjection of every 1-layer is equivalent to the subjection of every $m$-layer, up to a rescaling of the noise rate. Here, by equivalence, we mean that the actions of the subjected circuits are the same\footnote{For a given input (mixed) state $\rho$, they yield the same output}. 
+So, $N_{\mathcal{E}}$ defines a probability space. The set of faults $\mathcal{E}$ is an atomic outcome, and for a given circuit $C$, the subjected circuit $C[\mathcal{E}]$ is a random variable. Equipped with this notation, we are allowed to assume having constant depth cycles that don't observe faults. The following definition considers the effective circuit when the running is restricted such that the outcomes of the measurement are fixed.
 
-We give the proof in the appendix for several reasons. First, the argument is not the core of this work. Second, versions of it appear in almost any fault tolerance work. Additionally, it relies on 'propagation of entire layers,' a term that conflicts with the 'propagation to a step' (\Cref{def:localprop}) needed for the intermediate theorem.
-\begin{claim}
-  \label{claim:block_noise_renorm}
-  Let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with rate $p$, and let $C$ be a quantum circuit whose gates have arity at most $\Delta$. Fix an even integer $c$. Then there exists a local stochastic noise channel $\mathcal{N}_{\mathcal{E}_{q}}$ with rate
+\begin{definition}
+  Let $C$ be a quantum circuit that contains $l$ measurements. For possible outcomes $\alpha \in \mathbb{F}^{l}_{2}$, let $C[,\alpha]$ be the circuit obtained by conditioning that $\alpha_{1},..,\alpha_{l}$ were measured. We extend the notation for the subjected circuit by denoting $C[\mathcal{E},\alpha]$ as the subjected circuit where the measurements are assumed to outcome $\alpha_{1},..,\alpha_{l}$.
+\end{definition}
+
+There might be multiple different ways to present a conditioned circuit with a collection of gates and their locations. Since we would like to keep the step-order invariant to a conditioning of the measurement outcome, we choose a representation that substitutes the original gates with gates that act on the same location. The following remark explains how to do that explicitly.
+\begin{remark}
+  \label{remark:condmeas}
+  Consider the presentation of a conditioned circuit as a subset of gates acting on locations. For an outcome $\alpha \in \mathbb{F}_{2}^{(\cdot)}$ for which a conditional gate (for example, a $\mathbf{CCZ}$, where the control bits are conditioned on measurement outcomes) in the original circuit $C$ is mapped to a Pauli in $C[,\alpha]$, we substitute this gate with the Pauli on the target tensored with identity acting on the control locations. Thus, the order of the steps, the locations of each gate, and the computation graph of $C[,\alpha]$ are the same as for $C$ (and independent of the outcomes). We summarize this by briefly saying that the locations are invariant to the conditioning of measurements. 
+\end{remark}
+
+In our case, the conditioned circuit $C[\mathcal{E}, \alpha]$ is a Clifford + projections circuit; in particular, it induces a 'structured trajectory' tracking on the accumulated error. This brings us to define, for a given set of faults $\mathcal{E}$ and outcomes $\alpha$, a 'propagation' that describes the evolution of the faults through the circuit.
+\begin{definition}[Propagation]
+  \label{def:propagation}
+Let $C[\mathcal{E}]$ be a subjected quantum circuit at depth $\mu$, and let $\alpha \in \mathbb{F}_{2}^{(\cdot)}$ be a possible outcome vector for $C[\mathcal{E}]$. Suppose that $C$ is a Clifford+measurements circuit, so $C[\mathcal{E},\alpha]$ is a Clifford + projections circuit. We define the propagation through the conditioned circuit $C[\mathcal{E},\alpha]$ to be the tuple $(\mathbf{P},\mathbf{a})$ such that $\mathbf{P}$ consists of $\mu+1$ Paulis $\mathbf{P} \colonequals P_{1}, \ldots, P_{\mu+1}$ and $\mathbf{a}$ consists of $\mu+1$ outcome measurements $\mathbf{a} \colonequals \alpha^{1}, \alpha^{2}, \ldots, \alpha^{\mu+1}$ satisfying that $P_{1} = \mathcal{E}|_{1}, \alpha^{1}=\alpha$ and for any $i \in [2, \mu+1]$:
   \begin{equation*}
     \begin{split}
-      q \colonequals \left(2^{H(\Delta^{-2c})\Delta^{2c}}p\right)^{\Delta^{-c}},
+      P_{i}C[,\alpha^{i}]|_{\rightarrow i} =  C[\mathcal{E},\alpha]|_{ i} P_{i-1} C[,\alpha^{i-1}]|_{\rightarrow i-1} = C[\mathcal{E},\alpha]|_{\rightarrow i}
     \end{split}
   \end{equation*}
-  such that for any given state $\rho$ it holds that:
-  \begin{equation*}
-    \begin{split}
-      C[\mathcal{E}]_{1} \circ \rho =  C[\mathcal{E}_{q}]_{c/2} \circ \rho
-    \end{split}
-  \end{equation*}
-  In particular, up to a constant depending only on $\Delta$ and $c$, the rate $q$ behaves like $p^{\Delta^{-c}}$.
-\end{claim}
-Equipped with this claim, we are allowed to assume having constant depth cycles that don't observe faults. 
+We extend the notation to step-propagation by considering the propagation of the circuit obtained from $C[\mathcal{E},\alpha]$ by flattening the circuit such that each gate is applied at the time that equals its step. 
+\end{definition}
 
+\begin{remark}
+Notice that, for two different measurement outcomes $\alpha,\alpha^{\prime}$, the conditioned $C[,\alpha]$ and $C[,\alpha^{\prime}]$ might differ also by their Clifford gates (and not only by the projections).
+\end{remark}
 
 
