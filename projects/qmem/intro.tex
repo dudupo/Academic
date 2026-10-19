@@ -41,7 +41,7 @@ Furthermore, $\tilde{C}$ has the following two properties:
   \item An error correction cycle takes $O(1)$ depth, and the gates in each correction cycle don't depend on time. In particular, if $C$ is the identity circuit, then after the initialization stage, the layers in $\tilde{C}$ are the same constant-depth error reduction procedure.
 \end{enumerate}
   \end{theorem*} 
-  As mentioned earlier, both code simplicity and constant depth have already been achieved: the former as part of the quantum automation line of work, and the latter through the use of high-rate error correction codes. However, this is the first construction to achieve both simultaneously. %\Cref{fig:comapreresults} summarizes and compares the different works:
+As mentioned earlier, both code simplicity and error correction cycles at constant depth have already been achieved: the former as part of the quantum automation line of work, and the latter through the use of high-rate error correction codes. However, this is the first construction to achieve both simultaneously. %\Cref{fig:comparereresults} summarizes and compares the different works:
 
 
 %\newcommand{\tcite}[1]{\hfill\cite{#1}}
@@ -66,21 +66,23 @@ Furthermore, $\tilde{C}$ has the following two properties:
 %    \caption{\label{fig:comapreresults} Comparing different types of works on fault-tolerance. }
 %  \end{table}
 
-  \paragraph{Clifford-free Depth Overhead.}  An application that results from a slight modification of the main construction and its proof is a fault-tolerant construction that introduces a constant depth overhead per Clifford gate. We name that construction \textit{Clifford-free Depth Overhead}. \Cref{section:cliffordfree} describes the construction, proves external claims that are needed, and eventually elaborates on how to modify the proof of the main theorem to achieve the desired result.
-
-  \begin{theorem*}[Informal version of \Cref{theorem:cliffordfree}]
-    There exists a constant $ p_{0} \in (0,1) $ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $ p < p_{0} $, and a Clifford+$\mathbf{T}$ quantum circuit $ C $ with depth $\mu$, $\mathbf{T}$-depth $\mu_{\mathbf{T}}$ and width $ w $, there exists a 'logical equivalence' circuit $\tilde{C}$, with depth $ \Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{5}) $ and width $\Theta((w + \mu) n^{8} \text{Polylog} (n) )$ that simulates $ C $ with probability:
-\begin{equation*}
-  \begin{split}
-    1 -   O \left( \text{poly}(w,\mu,n) \right)  p^{\Omega(n)} 
-  \end{split}
-\end{equation*}
-  \end{theorem*} 
+%  \paragraph{Clifford-free Depth Overhead.}  An application that results from a slight modification of the main construction and its proof is a fault-tolerant construction that introduces a constant depth overhead per Clifford gate. We name that construction \textit{Clifford-free Depth Overhead}. \Cref{section:cliffordfree} describes the construction, proves external claims that are needed, and eventually elaborates on how to modify the proof of the main theorem to achieve the desired result.
+%
+%  \begin{theorem*}[Informal version of \Cref{theorem:cliffordfree}]
+%    There exists a constant $ p_{0} \in (0,1) $ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $ p < p_{0} $, and a Clifford+$\mathbf{T}$ quantum circuit $ C $ with depth $\mu$, $\mathbf{T}$-depth $\mu_{\mathbf{T}}$ and width $ w $, there exists a 'logical equivalence' circuit $\tilde{C}$, with depth $ \Theta(\mu) + \Theta( \mu_{\mathbf{T}} n^{5}) $ and width $\Theta((w + \mu) n^{8} \text{Polylog} (n) )$ that simulates $ C $ with probability:
+%\begin{equation*}
+%  \begin{split}
+%    1 -   O \left( \text{poly}(w,\mu,n) \right)  p^{\Omega(n)} 
+%  \end{split}
+%\end{equation*}
+%  \end{theorem*} 
 
   \paragraph{Sweep-rule in High Dimensions.} 
   The correction cycle in our construction consists of local operations done in parallel. Concurrently, any vertex of the Toric is thought of as a computation unit that has to decide on a correction to be applied over its local neighborhood. The specific procedure it runs is the sweep-rule, a generalization of Toom's rule invented by Kubica and Preskill \cite{Kubica_2019}. The sweep-rule can be sketched informally as follows: The vertex looks for a subset of bits to flip on its 'first quarter'\footnote{or the positive direction}, such that the flipping erases the syndrome that is seen on the 'first quarter' and all the bits to be flipped are supported on vertices that support the local syndrome. If there is such a subset of bits, then the vertex flips the bits. In \cite{Kubica_2019}, it is argued that for small dimensions, any vertex that sees only syndrome on its 'first quarter' has a subset of bits to be flipped that satisfy the sweep-rule requirement. Moreover, the authors conjectured that this is also true for higher dimensions. We prove their conjecture; furthermore, we give an explicit algorithm for finding the subset. We refer to the outline section for an elaborated discussion.
  
 
+  \paragraph{Sweep-rule as Ideal Decoder Against Local Stochastic Noise.} 
+A proof that the sweep-rule is an effective decoder against locally stochastic noise. Concurrently, denote by $n$ the side length of the $d$-dimensional Toric. If the noise rate is below a certain threshold, then an application of $\Theta(n^{2d +1})$ ideal sweep-cycle iterations erases the error with high probability. As far as we know, until now rigorous proofs for the sweep-rule were given only in the i.i.d setting \cite{Kubica_2019}. 
 
 
 \subsection{Discussions, Applications, and Further Directions}
