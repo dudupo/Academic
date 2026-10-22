@@ -1,7 +1,11 @@
     \begin{figure}[H]
 
 \begin{center}
+  \ifdefined\POSTER
+    \begin{tikzpicture}[scale=3.2]
+    \else
     \begin{tikzpicture}[scale=1.5]
+    \fi
 
 
   \draw[blue!20!black,fill=blue!70!black!70,rounded corners=1, opacity=0.5]%shift={(0.15,0.15)}]

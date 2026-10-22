@@ -1,6 +1,11 @@
 \begin{figure}[h]
   \centering
+  \ifdefined\POSTER
+  \begin{tikzpicture}[scale=5]
+  \else
   \begin{tikzpicture}[scale=1.5]
+  \fi
+
 
 \tikzset{xyp/.style={canvas is xy plane at z=#1}}
 \tikzset{xzp/.style={canvas is xz plane at y=#1}}
@@ -58,7 +63,7 @@
 }
 
 \draw (2.5,1) node { $\rightarrow$ };
-\end{tikzpicture} \begin{tikzpicture}[scale=1.5]
+\end{tikzpicture}  \ifdefined\POSTER \begin{tikzpicture}[scale=5] \else \begin{tikzpicture}[scale=1.5] \fi
 
 \tikzset{xyp/.style={canvas is xy plane at z=#1}}
 \tikzset{xzp/.style={canvas is xz plane at y=#1}}
