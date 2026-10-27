@@ -3,23 +3,23 @@
 
 
 
-\subsection{ Toom's Contours}
+\subsection{Toom's Contours}
 \label{subsection:toricencoded}
 We are about to zoom out from a single register encoded in the Toric code to describe a fully fault-tolerant computation. For a given quantum circuit, assumed to consist of gates $\mathbf{X}, \mathbf{Z}, \mathbf{CX}, \mathbf{H}, \mathbf{S}, \mathbf{T}$ and measurements, we define its Toric encoded circuit as its version where each qubit is encoded by the Toric code. Formally:
-    \begin{definition}[Troic Encoded Circuit]
+    \begin{definition}[Toric Encoded Circuit]
       Let $C$ be a quantum circuit. We say that $C$ is a \textit{Toric encoded circuit} if the following holds:
       \begin{enumerate}
-        \item Any layer of the circuit consists of classical and quantum registers, such that there is a Toric code $\mathcal{C}$ such that the quantum registers are encoded by the \textit{nice encoding of} $\mathcal{C}$. At time $t=0$, the quantum registers are initialized to be either $\ket{\bar{0}}$, encoded $\ket{\mathbf{H}}$, encoded $\ket{\mathbf{S}}$, or encoded $\ket{\mathbf{T}}$. The classical registers are initialized to be zeros.
+        \item Any layer of the circuit consists of classical and quantum registers, and there is a Toric code $\mathcal{C}$ such that the quantum registers are encoded by the \textit{nice encoding of} $\mathcal{C}$. At time $t=0$, the quantum registers are initialized to be either $\ket{\bar{0}}$, encoded $\ket{\mathbf{H}}$, encoded $\ket{\mathbf{S}}$, or encoded $\ket{\mathbf{T}}$. The classical registers are initialized to be zeros.
         \item The layers of $C$ on the quantum registers at even times are sweep-cycles, and the layers at odd times are realizations of either logical Paulis, $\mathbf{CX}$, or measurements in the computational and parity bases. On the classical registers, including the measured register, we allow any two-bit gates.
         \end{enumerate} 
     \end{definition}
 
-For Toric encoded circuits, we define their \textit{base graph}, which can be thought of as a recording of a running from the Toric's point of view. The \textit{base graph} is obtained by taking the Toric's vertices at different times as the vertices and connecting any two sequential in time if they are support faces — qubits — which are either the same or are entangled by a quantum gate.
+For Toric encoded circuits, we define their \textit{base graph}, which can be thought of as a recording of a running from the viewpoint of the Toric complex. The \textit{base graph} is obtained by taking the Toric complex's vertices at different times as the vertices and connecting any two sequential in time if they are support faces — qubits — which are either the same or are entangled by a quantum gate.
 
   \begin{definition}[Base graph $G_{o}$]
-    Let $C$ be a Toric encoded circuit at depth $\mu$. Notice that measurements take quantum registers into classical, Thus any quantum register has a maximal depth, which we denote by $\{\mu_{i}$\}. Let's denote by $\{\mathcal{G}_{i}\}$ the skeleton of the $\infty$-lift of the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o}, E_{o})$, as follows:
+    Let $C$ be a Toric encoded circuit at depth $\mu$. Notice that measurements take quantum registers into classical data; thus each quantum register has a final time coordinate, which we denote by $\{\mu_i\}_i$. Denote by $\{\mathcal{G}_{i}\}_i$ the skeletons of the $\infty$-lift of the Toric complexes that induce the codes. We define the base graph of $C$, denoted by $G_{o} = (V_{o}, E_{o})$, as follows:
     \begin{enumerate}
-      \item The vertices $V_{o}$ are tuples, where the first coordinates correspond to a vertex in the disjoin union over the vertices in $\{\mathcal{G}_{i}\}$, and the second coordinate is associated with a time. Namely:
+      \item The vertices $V_{o}$ are pairs, where the first coordinates correspond to a vertex in the disjoint union over the vertices in $\{\mathcal{G}_{i}\}$, and the second coordinate is associated with a time. Namely:
         \begin{equation*}
           \begin{split}
             V_{o} \colonequals \bigcup_{i} \bigl( V(\mathcal{G}_{i}) \times [\mu_{i}] \bigr)
@@ -40,9 +40,9 @@ Notice that since the gates' locations are invariant to the conditioning of outc
 
 \paragraph{}
 
-As a concept, if the base graph is a recording of a run from the Torices' point of view, then a \textit{Toom's contour} is a recording of the deviation's evolution in the eyes of the Torices' vertices. We use the notion of $x,z$-component of a lifted Pauli and the Pauli-path to describe a deviation:
+As a concept, if the base graph is a recording of a run from the Toric complexes' point of view, then a \textit{Toom's contour} is a recording of the deviation's evolution in the eyes of the Toric complexes' vertices. We use the notion of $x,z$-component of a lifted Pauli and the Pauli-path to describe a deviation:
 \begin{definition}
-Let $P \in \mathcal{P}^{(\cdot)}$ be a Pauli, and let $Q \in \mathcal{P}^{(\cdot)}$ be its $\infty$-lift. Assume that $P$ acts on a Toric encoded circuit, namely it has a decomposition such that each element of it acts on a register encoded in the $(d,d^{\prime})$-Toric code. We denote by $x(Q)$ the $d^{\prime}$-dimensional chain in the infinite complex that supports the $X$-component of $Q$, and by $z(Q)$ the $d-d^{\prime}$-dimensional chain, such that the inversion of the $\phi$-transpose sends it to the $d^{\prime}$-dimensional chain that supports the $Z$-component of $Q$, namely $\phi^{-1}(z(Q))$ is the chain that supports the $Z$-component.
+Let $P \in \mathcal{P}^{(\cdot)}$ be a Pauli, and let $Q \in \mathcal{P}^{(\cdot)}$ be its $\infty$-lift. Assume that $P$ acts on a Toric encoded circuit, namely it has a decomposition such that each element of it acts on a register encoded in the $(d,d^{\prime})$-Toric code. We denote by $x(Q)$ the $d^{\prime}$-dimensional chain in the infinite complex that supports the $X$-component of $Q$, and by $z(Q)$ the $d-d^{\prime}$-dimensional chain, such that the inverse $\phi$-transpose sends it to the $d^{\prime}$-dimensional chain that supports the $Z$-component of $Q$, namely $\phi^{-1}(z(Q))$ is the chain that supports the $Z$-component.
 
 %We define the reduced form of $P$ to be the Pauli obtained by the following procedure: for any finite connected chain that corresponds to a subset of the $X$ component of $P$'s support, substitute it with its reduced form (\Cref{def:reduced}). Then do the same for the $Z$ component in the dual picture. Observe that Paulis of a reduced Pauli-path act on the qubits in the $\infty$-extension.^i
 
@@ -52,7 +52,7 @@ Let $P \in \mathcal{P}^{(\cdot)}$ be a Pauli, and let $Q \in \mathcal{P}^{(\cdot
 
 \begin{definition}
   \label{def:paulipath}
-  Consider the propagation $(\mathbf{P},\mathbf{a})$ of a conditioned subject circuit $C[\mathcal{E},\alpha]$ (\Cref{def:propagation}). A Pauli-path of $C[\mathcal{E},\alpha]$ is the $\infty$-lift of the Paulis in $\mathbf{P}$.
+  Consider the propagation $(\mathbf{P},\mathbf{a})$ of a conditioned subjected circuit $C[\mathcal{E},\alpha]$ (\Cref{def:propagation}). A Pauli-path of $C[\mathcal{E},\alpha]$ is the $\infty$-lift of the Paulis in $\mathbf{P}$.
  
 
 %\inb{\textbf{Consider removing.}} Consider a quantum circuit subjected to noise $C[\mathcal{E}]$, with width $w$ and depth $\mu$, whose registers are all encoded in the $(d,d^{\prime})$-Toric code with side length $n$ such that $C[\mathcal{E}]$ has an $\infty$-extension. We say that the set of Pauli $\{ (P_{i}) \}_{1}^{\mu+1}$, where for each $i$, $P_{i} \in \mathcal{P}^{[w]}$, is a Pauli-path for $C[\mathcal{E}]$. If $P_{1}$ is the identity and for any $t \in [\mu]$, the Pauli $P_{t+1}$ is defined such it satisfies the follow:  
@@ -68,9 +68,9 @@ Let $P \in \mathcal{P}^{(\cdot)}$ be a Pauli, and let $Q \in \mathcal{P}^{(\cdot
 For a Pauli-path $P_{1},..,P_{\mu+1}$, the Toom's contour is the restriction of the base graph to vertices that witness a deviation, namely, those that belong to qubits supporting $P_{1},P_{2},..,P_{\mu+1}$. 
 
 
-\begin{definition}[Toom's Contour Graph of $C(\mathcal{E},\alpha)$, (Standard form)]
+\begin{definition}[Toom's Contour Graph (Standard Form)]
     \label{def:contour}
-    For a Toric encoded quantum circuit $C$, set of faults $\mathcal{E}$, measurements outcomes $\alpha$, and a Pauli-path $P_{1},..$ of $C[\mathcal{E}, \alpha]$. We define the \textit{Toom's contour graph} $\mathcal{H} = ( V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
+    For a Toric encoded quantum circuit $C$, set of faults $\mathcal{E}$, measurement outcomes $\alpha$, and a Pauli-path $P_{1},..$ of $C[\mathcal{E}, \alpha]$. We define the \textit{Toom's contour graph} $\mathcal{H} = (V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
     \begin{enumerate}
       \item The vertices $V_{\mathcal{H}} = V_{\mathcal{H}, X} \cup V_{\mathcal{H}, Z}$ correspond to vertices of faces supporting the Pauli-path. They consist of the triple $(v,t,\cdot)$ where $(v,t)$ is a vertex of the base graph, and the third is a symbolic coordinate that is either $\{X\}$ or $\{Z\}$ corresponding to the component of the Pauli that $v$ supports at time $t$.
         \begin{equation*}
@@ -89,7 +89,7 @@ For a Pauli-path $P_{1},..,P_{\mu+1}$, the Toom's contour is the restriction of 
 %          \end{split}
 %        \end{equation*}
 
-      \item The edges $E_{\mathcal{H}}$ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$. For any realization of logical gate $g$ which applied in time $t$ in $C[\mathcal{E}]^{\infty} $, we denote by $E_{o}|_{g}$ the edges in $E_{o}$ which induced by $g$. Then, we add edge to $A_{\mathcal{H}}$ as follow: 
+      \item The edges $E_{\mathcal{H}}$ is partitioned into two types $A_{\mathcal{H}}$ and $F_{\mathcal{H}}$. For any realization of logical gate $g$ which applied in time $t$ in $C[\mathcal{E}]^{\infty} $, we denote by $E_{o}|_{g}$ the edges in $E_{o}$ which induced by $g$. Then, we add edge to $A_{\mathcal{H}}$ as follows: 
 
         \begin{enumerate}
           \item If $g$ does not belong to the faults, namely $g \notin \mathcal{E}$, and $g$ is not a measurement in the phases-basis, then we add the arrows: 
@@ -140,7 +140,7 @@ For a Pauli-path $P_{1},..,P_{\mu+1}$, the Toom's contour is the restriction of 
 %                 \bigl\{  \{(u,t),(v,t+1)\} : u,v \in f \text{ and } u,v \in V_{\mathcal{H},X} \bigr\} 
 %              \end{split}
 %            \end{equation*}
-            To construct $F_{\mathcal{H}}$, we connect any pair of vertices $(v,t)$, $(u,t)$ if there exists a vertex $(w,t+1)$ such both of them are connected to it trough $A_{\mathcal{H}}$. Namely: 
+            To construct $F_{\mathcal{H}}$, we connect any pair of vertices $(v,t)$, $(u,t)$ if there exists a vertex $(w,t+1)$ such both of them are connected to it through $A_{\mathcal{H}}$. Namely: 
         \begin{equation*}
           \begin{split}
             F_{\mathcal{H}} &= \big\{ e = \{u,v\} : \text{ exists } w \in V_{\mathcal{H}} \text{ such } \{v,w\},\{u,w\} \in A_{\mathcal{H}} \big\} 
@@ -259,5 +259,6 @@ For the analyses, we would like to extend Toom's contour to record in their fina
 % 
 %  \inb{\textbf{Here.}} Let $w$ be that vertex, and let $w_{-}$ and $w_{+}$ be its predecessor and successor on the path. Connectivity of two faces is determined by whether they share a face of dimension lower by one.
 %\end{proof}
+
 
 

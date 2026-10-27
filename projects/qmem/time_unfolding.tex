@@ -68,16 +68,16 @@ For a quantum circuit $C$, we would like to discuss its action in the presence o
     \end{split}
   \end{equation*}
   Let $\mathcal{L}\subset [d_m]\times [w]$ be a set of locations, and let $\mathcal{E}$ be a quantum circuit, such $\text{Loc}(\mathcal{E}) = \mathcal{L}$. We name $\mathcal{E}$ \textit{subsets of faults}, and we name the layers of $\mathcal{E}$ \textit{fault layers}.
-  The circuit \textit{$C$ subjected to $\mathcal{E}$ every $m$ computational layers}, denoted by $C[\mathcal{E}]_{m}$, is obtained by setting the first layer to be the first layer of $\mathcal{E}$, then placing in order the layers of $C$ and inserting one fault layer after every $m$ consecutive $C$'s layers. Thus the second fault layer is inserted after the layers $1,\ldots,m$ of $C$, the third is inserted after the layers $m+1,\ldots,2m$ of $C$, and so on. Concretely, each gate $u_i=(g_i,(t_i,S_i))$ of $C$ is moved to the time coordinate
+  The circuit \textit{$C$ subjected to $\mathcal{E}$ every $m$ computational layers}, denoted by $C[\mathcal{E}]_{m}$, is obtained by setting the first layer to be the first layer of $\mathcal{E}$, then placing in order the layers of $C$ and inserting a fault layer before each successive block of at most $m$ layers of $C$. Thus, the first fault layer precedes the first block of $C$, the second follows its first $m$ layers, and the third follows its first $2m$ layers, provided a further block remains. Concretely, each gate $u_i=(g_i,(t_i,S_i))$ of $C$ is moved to the time coordinate
   \begin{equation*}
     \begin{split}
-      t_i + \left\lfloor \frac{t_i-1}{m} \right\rfloor,
+      t_i + \left\lceil \frac{t_i}{m} \right\rceil,
     \end{split}
   \end{equation*}
   while each fault gate $(g,(t,S))\in\mathcal{E}$ is placed at time coordinate
   \begin{equation*}
     \begin{split}
-      t(m+1).
+      (t-1)(m+1)+1.
     \end{split}
   \end{equation*}
 When $m=1$, the gates occupy the even time coordinates, and the fault layers occupy the odd time coordinates. When the subscript parameter is omitted, we mean that the noise layers are injected between any two logical layers, and the logical layers are clear from the context. We denote the associated computation DAG of $C[\mathcal{E}]_{m}$ by $\comDAG$.
@@ -115,7 +115,7 @@ Later, all the quantum registers will be encoded via stabilizer codes. Then, fol
   \end{equation*}
 Through this work, the sampled faults will be assumed to be Pauli.
 \end{definition}
-So, $N_{\mathcal{E}}$ defines a probability space. The set of faults $\mathcal{E}$ is an atomic outcome, and for a given circuit $C$, the subjected circuit $C[\mathcal{E}]$ is a random variable. Equipped with this notation, we are allowed to assume having constant depth cycles that don't observe faults. The following definition considers the effective circuit when the running is restricted such that the outcomes of the measurement are fixed.
+So, $N_{\mathcal{E}}$ defines a probability space. The fault set $\mathcal{E}$ is an atomic outcome, and for a given circuit $C$, the subjected circuit $C[\mathcal{E}]$ is a random variable. Equipped with this notation, we are allowed to assume having constant depth cycles that don't observe faults. The following definition considers the effective circuit when the running is restricted such that the outcomes of the measurement are fixed.
 
 \begin{definition}
   Let $C$ be a quantum circuit that contains $l$ measurements. For possible outcomes $\alpha \in \mathbb{F}^{l}_{2}$, let $C[,\alpha]$ be the circuit obtained by conditioning that $\alpha_{1},..,\alpha_{l}$ were measured. We extend the notation for the subjected circuit by denoting $C[\mathcal{E},\alpha]$ as the subjected circuit where the measurements are assumed to outcome $\alpha_{1},..,\alpha_{l}$.
@@ -142,5 +142,6 @@ We extend the notation to step-propagation by considering the propagation of the
 \begin{remark}
 Notice that, for two different measurement outcomes $\alpha,\alpha^{\prime}$, the conditioned $C[,\alpha]$ and $C[,\alpha^{\prime}]$ might differ also by their Clifford gates (and not only by the projections).
 \end{remark}
+
 
 

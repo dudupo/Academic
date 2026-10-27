@@ -24,7 +24,7 @@ For any generator $g \in S$, the maximal values of $L_{g}$ in $\xi$ and $\partia
   \end{equation*}
 In contradiction to $v$ being a local maximum of $L_{g}$ in $\partial^{-} z$.
 
-For a vertex $v \in \partial^{-}z$ denote the correction it applies by $\varphi_{v} \in (\mathcal{F}_{d^{\prime}};\mathbb{F}_{2}) $, so 
+For a vertex $v \in \partial^{-}z$ denote the correction it applies by $\varphi_{v} \in C_{d^{\prime}}(\mathcal T_\infty^d) $, so 
 \begin{equation*}
   \begin{split}
     \xi = \sum_{v \in \partial^{-}z}\varphi_{v} + z \ \ \text{ and } \ \ \partial^{-}\xi = \sum_{v \in \partial^{-}z}\partial^{-}\varphi_{v} + \partial^{-}z
@@ -36,7 +36,7 @@ Now, combining with the sweep rule's first condition, which restricts the correc
 \end{proof}
 
 
-Next, we prove that for a finite $X$-error, the sweep-cycle advances the corner (the maximum of $L_{d+1}$) of its reduced form. We assume we are given a finite error in its reduced form, and therefore whose corner sees a syndrome, and show that the sweep-rule application excludes the corner. In other words, the sweep-rule shrinks $X$-errors.
+Next, we prove that for a finite $X$-error, the sweep-cycle advances the corner (the maximum of $L_{d+1}$) of its reduced form. We assume we are given a finite error in its reduced form, and therefore whose corner sees a syndrome, and show that the sweep rule application excludes the corner. In other words, the sweep rule shrinks $X$-errors.
 
 \begin{claim}
   \label{claim:sweepshrink}
@@ -65,10 +65,10 @@ Consider a vertex on the boundary of a chain resulting from an application of th
 \begin{proof}
 Without loss of generality, we can assume that $z$ and $\xi$ are reduced. We start by proving for $i = d + 1$. Now, it splits upon whether $v \in z + \xi$:
   \begin{enumerate}
-    \item If $v\in z + \xi$, then $v$ belongs to a face that flipped during the correction, denote it's root by $u$ and by definition of the sweep-rule $(\partial^{-} z)|_{u+} \neq 0$. Therefore, $u \in \partial^{-}z$, and $u,\xi$ share a face which $u$ is it's root. Since $u$ it's the root of the face we get $L_{d+1}(u) > L_{d+1}(v)$. 
-    \item Else, if $v \notin z + \xi$, then $v$ has to be in $z$. Combining with the fact that $v \in \xi$, it follows that $v$ is not a local maximum of $L_{d+1}$ in $\partial^{-}z$, otherwise the application of the sweep-rule would exclude $v$ (See the proof of \Cref{claim:sweepshrink}), so it wouldn't be in $\xi$. Pick $u$ to be the neighbor of $v$ in $\partial^{-}z$ such that $L_{d+1}(u) > L_{d+1}(v)$.
+    \item If $v\in z + \xi$, then $v$ belongs to a face that flipped during the correction, denote it's root by $u$ and by definition of the sweep rule $(\partial^{-} z)|_{u+} \neq 0$. Therefore, $u \in \partial^{-}z$, and $u,\xi$ share a face which $u$ is it's root. Since $u$ it's the root of the face we get $L_{d+1}(u) > L_{d+1}(v)$. 
+    \item Else, if $v \notin z + \xi$, then $v$ has to be in $z$. Combining with the fact that $v \in \xi$, it follows that $v$ is not a local maximum of $L_{d+1}$ in $\partial^{-}z$, otherwise the application of the sweep rule would exclude $v$ (See the proof of \Cref{claim:sweepshrink}), so it wouldn't be in $\xi$. Pick $u$ to be the neighbor of $v$ in $\partial^{-}z$ such that $L_{d+1}(u) > L_{d+1}(v)$.
   \end{enumerate}
-  It remains to prove for $i\in [d]$, in this case if $v \in \partial^{-}z$ then take $u = v$. Otherwise, there must be a face $f$ that was flipped during the sweep-rule containing $v$. Denote by $g$ the corresponding generator for $i$ and by $u^{\prime}$ the root of $f$. If $L_{g}(u^{\prime}) = L_{g}(v)$ then set $u = u^{\prime}$. Otherwise, $g$ is one of the generators that span $f$, the second condition of the sweep-rule (\Cref{def:sweeprule}) requires that for $u^\prime$ flipping a face in the $g$ direction, it has to see the vertex $gu^{\prime}$ in $\partial^{-}z$, in that case, set $u = g^{\prime}u$.
+  It remains to prove for $i\in [d]$, in this case if $v \in \partial^{-}z$ then take $u = v$. Otherwise, there must be a face $f$ that was flipped during the sweep rule containing $v$. Denote by $g$ the corresponding generator for $i$ and by $u^{\prime}$ the root of $f$. If $L_{g}(u^{\prime}) = L_{g}(v)$ then set $u = u^{\prime}$. Otherwise, $g$ is one of the generators that span $f$, the second condition of the sweep rule (\Cref{def:sweeprule}) requires that for $u^\prime$ flipping a face in the $g$ direction, it has to see the vertex $gu^{\prime}$ in $\partial^{-}z$, in that case, set $u=gu^{\prime}$.
 \end{proof}
 
 
@@ -226,9 +226,10 @@ We finished analyzing the first part of the sweep-cycle that acts in the computa
  Although the main role of the section is to show that a single sweep-cycle keeps error clusters under control during a noisy run (by admitting a modest shrinking), an immediate corollary of this is that the application of non-noisy multiple iterations of the sweep-cycle has the potential to erase errors, namely a decoder. Here, a classical measurement is given, we act on classical bits, and the sweep-cycle consists only of the first stage that works over the computational basis, without moving to the dual code. We formulate the corollary as follows:
 \begin{corollary}
   \label{col:idealcorrection} 
-  Consider the $(d,d^{\prime})$-Toric code, induced by a Toric with side length $n$. Given a finite connected reduced error $z \in (\mathcal{F}_{d^{\prime}};\mathbb{F}_{2})$ on that Toric, with $\Size{z} \le n-1$. Then an application of $\Size{z}$ sweep cycles (partial cycles consisting only of the first stage) erases the error.
+  Consider the $(d,d^{\prime})$-Toric code, induced by a Toric with side length $n$. Given a finite connected reduced error $z \in C_{d^{\prime}}(\mathcal T_\infty^d)$ on that Toric, with $\Size{z} \le n-1$. Then an application of $\Size{z}$ sweep cycles (partial cycles consisting only of the first stage) erases the error.
 \end{corollary}
 When $z$ is not connected, disjoint components might merge, and it is no longer true that the size of the chain decreases in each iteration. However, we will see later (\Cref{claim:decodestopnoise}, \Cref{claim:replace}, and \Cref{lemma:keylemma}) that performing $\Theta(n^{2d+1})$ sweep-cycles erases the error with high probability, if $z$ is assumed to be distributed according to local stochastic noise.
+
 
 
 

@@ -2,9 +2,9 @@
 
  \subsection{Space-Time Graph}
   \label{subsection:spacetimegraph}  
-  Not a few of the results about Tooms contours are derived from their 'directed' structure, regardless of their connection to Torices. Thus, we split the discussion to talk about \textit{space-time graphs}, which are graphs whose edges can be partitioned into arrows and forks. 
+  Several properties of Toom's contours follow from their directed space--time structure, independently of the underlying Toric complex. We isolate these properties using \emph{space--time graphs}, whose edges are partitioned into arrows and forks. 
   
-  Here, we present the results and proofs first given by Berman and Simon \cite{Berman} and later by Gacs \cite{gacs2021newversiontoomsproof} about \textit{space-time grahps}. Although the proofs we give are almost identical, we chose to present them rather than referring to the sources. The reason for this is that in the language appearing in \cite{Berman} and \cite{gacs2021newversiontoomsproof}, vertices are bits\footnote{It is also true that the gates are different, yet that difference alone does not constitute a conceptual change.}, so conceptually their Toom's contours track different creatures. Thus, jumping into their text while keeping our image in mind might cause confusion, which we would like to avoid.
+  Here, we present the results and proofs first given by Berman and Simon \cite{Berman} and later by Gacs \cite{gacs2021newversiontoomsproof} about \textit{space-time graphs}. Although the proofs we give are almost identical, we choose to present them rather than referring to the sources. The reason for this is that in the formulations in \cite{Berman} and \cite{gacs2021newversiontoomsproof}, vertices are bits\footnote{It is also true that the gates are different, yet that difference alone does not constitute a conceptual change.}, so conceptually their Toom's contours track different objects. Thus, jumping into their text while keeping our image in mind might cause confusion, which we would like to avoid.
 
 
   \begin{definition}
@@ -14,7 +14,7 @@
   \item $\{x,y\} \in A \Rightarrow \Time{y} = \Time{x} \pm 1$  
   \item For $x,y \in V $  $\{x,y\} \in F $ if and only if there exists $z \in V $ such both $\{x,z\},\{y,z\} \in A$, and $\Time{x} = \Time{y} = \Time{z}-1$. 
 \end{enumerate} 
-Additionally, for any vertex $v \in V$ of the space-time graph, denote by $\pre{v}$ the set of vertices defined as follow: 
+Additionally, for any vertex $v \in V$ of the space-time graph, denote by $\pre{v}$ the set of vertices defined as follows: 
     \begin{equation*}
       \begin{split}
 \pre{v} \colonequals \{ u \in V \colon \{u,v\} \in A \text{ and } \Time{v} = \Time{u} + 1 \}
@@ -23,9 +23,9 @@ Additionally, for any vertex $v \in V$ of the space-time graph, denote by $\pre{
 We extend the notion for subsets of vertices $X \subset V$ by $\pre{X} = \bigcup_{v \in X} \pre{v}$. We will call $T$ the time coordinate, $A$ arrows, and $F$ forks. Observe that from the second requirement, it follows that forks can connect only vertices that have the same time value (set by $T$).
   \end{definition}
   \begin{remark}
-    The Toom's contour graph defined in \Cref{def:contour} is, by definition of it's construction, a time-graph.
+    The Toom's contour graph defined in \Cref{def:contour} is, by definition of its construction, a space-time graph.
 \end{remark}
-The history of a vertex consists of all the vertices that are connected to it by arrows. Here we allow passing trough arrows in both directions, so it might be possible that the history of vertex $u$ contains vertices with the same time coordinate as $u$. That motivates to define \textit{slices}. A \textit{slice} is a (maximal) subset of vertices with the same time coordinate such they share the same history. In \cite{Berman}, slices take the role of error droplets.
+The history of a vertex consists of all the vertices that are connected to it by arrows. Here we allow passing through arrows in both directions, so it might be possible that the history of vertex $u$ contains vertices with the same time coordinate as $u$. That motivates to define \textit{slices}. A \textit{slice} is a (maximal) subset of vertices with the same time coordinate such they share the same history. In \cite{Berman}, slices take the role of error droplets.
   \begin{definition}[History, Slice]
     \label{def:slice}
 For a time graph $(G,T)$ and a vertex $u \in V$, let the \textit{history} of $u$, denoted by $H_{u}$, be the restriction of $G$ to vertices that both precede $u$ in time (namely, vertices whose time $\le T(u)$) and connect to $u$ via a path of arrows. A \textit{slice} is a maximal subset of vertices $K \subset V$ such that for any two vertices $u,v \in K$, $\History{u} = \History{v}$ is satisfied. As a consequence, the time coordinate in $K$ has to be constant. Thus, we can extend the time coordinate and the history to slices and write for a slice $K$, $\Time{K}$ and $\History{K}$.
@@ -54,7 +54,7 @@ Next, we would like to study how slices look a moment before they merge. For thi
   \end{claim}
 
   \begin{proof}
-    Let $R, S \in V_{K}$ and consider $r,s \in V$ such that $r \in R, s \in S$. Recall that $R,S \subset \History{K}$ and therefore $r,s \in \History{K}$, Thus, by definition of the 'History' there exists a path, passing trough arrows only, from $r$ to $s$ in $\History{K}$.
+    Let $R, S \in V_{K}$ and consider $r,s \in V$ such that $r \in R, s \in S$. Recall that $R,S \subset \History{K}$ and therefore $r,s \in \History{K}$, Thus, by definition of the 'History' there exists a path, passing through arrows only, from $r$ to $s$ in $\History{K}$.
     Consider a path that is minimal in the number of vertices with a time coordinate equal to $\Time{K}$; denote that number by $k$. We prove by induction on $k$ that $R$ and $S$ are connected in $G_{K}$.
 
       \begin{enumerate}
@@ -69,19 +69,19 @@ Next, we would like to study how slices look a moment before they merge. For thi
   \end{proof}
   Now, we would like to plug in the fact that the vertices originate from the infinite plane. To do so, we equip slices with poles. The poles are the vertices in the slice, which are the maximal points of potential walls.
   \begin{definition}[Poles Selection]
-    Let $(G,T)$ be a space-time, whose vertices are associated with points in $\mathbb{R}^{d}$. Let $A$ be either a slice, arrow, or a fork in $(G,T)$. We define a poles selection for $A$ to be a selection of $d+1$ vertices, $v_{1},..,v_{d+1}$ , not necessary different, from $A$. The size of $A$ is defined to be:
+    Let $(G,T)$ be a space--time graph, whose vertices are associated with points in $\mathbb{R}^{d}$. Let $A$ be either a slice, arrow, or a fork in $(G,T)$. We define a poles selection for $A$ to be a selection of $d+1$ vertices, $v_{1},..,v_{d+1}$ , not necessarily distinct, from $A$. The size of $A$ is defined to be:
     \begin{equation*}
       \begin{split}
-        \Size{A} \colonequals  \sum_{i}^{d+1}  \max_{v\in A} L_{i}(v) 
+        \Size{A} \colonequals  \sum_{i=1}^{d+1}  \max_{v\in A} L_{i}(v) 
       \end{split}
     \end{equation*} 
     Thus, for any selection of poles $v_{1},..,v_{d+1}$ we have that: 
     \begin{equation*}
       \begin{split}
-        \Size{A} \ge \max_{v\in A} L_{i}(v_{i}) 
+        \Size{A} \ge \sum_{i=1}^{d+1} L_i(v_i) 
       \end{split}
     \end{equation*} 
-    For a vertex $u$, we define the $i$th predecessor of a $u$, denoted by $\prei{u}$, to be it's predecessor which achieves the maximal value of $L_{i}$,  namely:
+    For a vertex $u$, we define the $i$th predecessor of a $u$, denoted by $\prei{u}$, to be its predecessor which achieves the maximal value of $L_{i}$,  namely:
     \begin{equation*}
       \begin{split}
         \prei{u} \colonequals  \arg \max_{v\in \pre{u}} L_{i}(v) 
@@ -95,7 +95,7 @@ Next, we would like to study how slices look a moment before they merge. For thi
 Consider a time graph $(G,T)$ whose vertices are associated with points in $\mathbb{R}^{d}$. Let $K$ be a slice in $G$, such that $K \neq \History{K}$. Let $v_{1}, \ldots, v_{d+1}$ be a pole selection for $K$. Then for some integer $k$, there exist $k+1$ slices $K_{0}, K_{1}, \ldots, K_{k}$ and $k$ forks $F_{1}, \ldots, F_{k}$ with pole selections for them that satisfy:
     \begin{enumerate}
       \item For any $i \in [d+1]$,  the $i$th predecessor $\prei{v_{i}} $ belongs to the selected poles of $K_{0}, \ldots, K_{k}$.
-      \item Consider the graph whose vertices are associated with $K_{0}, \ldots, K_{k+1}$, and there is an edge between $K_{i}$ and $K_{j}$ if and only if there is a fork in $F_{1}, \ldots, F_{k}$ that intersects both $K_{i}$'s and $K_{j}$'s selected poles. Then the graph formed from $K_{0}, \ldots, K_{k}$ is connected.
+      \item Consider the graph whose vertices are associated with $K_{0}, \ldots, K_{k}$, and there is an edge between $K_{i}$ and $K_{j}$ if and only if there is a fork in $F_{1}, \ldots, F_{k}$ that intersects both $K_{i}$'s and $K_{j}$'s selected poles. Then the graph formed from $K_{0}, \ldots, K_{k}$ is connected.
       \item  For any $j\in [0,k]$, denote by $v_{j}^{1},..,v_{j}^{d+1}$ the selected poles for $K_{j}$, then:  
         \begin{equation*}
           \begin{split}
@@ -136,8 +136,8 @@ Later, we are going to take the points $\{z_{j}^{i}\}$ from the intersection of 
       \label{equ:span}
       \begin{split}
         \sum_{j,i}L_{i}(z_{j}^{i}) &= \sum_{j,i, z_{j}^{i} \in \text{type-1}}L_{i}(z_{j}^{i}) + \sum_{j,i, z_{j}^{i} \in \text{type-2}}L_{i}(z_{j}^{i}) \\
-        &= \sum_{i}^{d+1}L_{i}\left( \prei{v_{i}} \right) + \sum_{X \colon \bigcap_{j\in X}J_{j} \neq \emptyset }\left(|X|-1\right) \sum_{i}^{d+1} L_{i}\left(\bigcap_{j\in X}J_{j} \right) \\ 
-        &=\sum_{i}^{d+1}L_{i}\left( \prei{v_{i}} \right) 
+        &= \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) + \sum_{X \colon \bigcap_{j\in X}J_{j} \neq \emptyset }\left(|X|-1\right) \sum_{i=1}^{d+1} L_{i}\left(\bigcap_{j\in X}J_{j} \right) \\ 
+        &=\sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) 
       \end{split}
     \end{equation}
 To complete, we select the $i$th pole of $K_{j}$ to be $z^{i}_{j}$. Then, for $i=1,\ldots,d+1$, the $i$th predecessor $\prei{v_{i}}$ is the $i$th pole of $R_{i}$. This assures (1). Since for any intersection $K_{i}\cap F_{j}$ a type-2 assignment is picked from the intersection to $K_{i}$, we have that the type-2 selected poles of $K_{0},K_{1},\ldots,K_{k}$ are covered by the vertices of $F_{1},F_{2},\ldots,F_{k}$. This assures (ii). Plugging \Cref{equ:span} into \Cref{equ:spanlow} assures (3).
@@ -206,13 +206,13 @@ Consider a slice $K$ in it, and a selection of poles $v_{1}, \ldots, v_{d+1}$, s
       \item If $K$ is a result of a sweep-cycle, then:
         \begin{equation*}
           \begin{split}
-            \sum_{j=0}^{k}\sum_{i}^{d+1} L_{i}(z_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i}^{d+1}L_{i}(v) + 1
+            \sum_{j=0}^{k}\sum_{i=1}^{d+1} L_{i}(z_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}(v_i) + 1
           \end{split}
         \end{equation*}
           \item If $K$ is a result of either faults or a logical operation, then: 
         \begin{equation*}
           \begin{split}
-            \sum_{j=0}^{k}\sum_{i}^{d+1} L_{i}(z_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i}^{d+1}L_{i}(v)   
+            \sum_{j=0}^{k}\sum_{i=1}^{d+1} L_{i}(z_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}(v_i)   
           \end{split}
         \end{equation*}
       \end{enumerate}
@@ -226,7 +226,7 @@ Consider a slice $K$ in it, and a selection of poles $v_{1}, \ldots, v_{d+1}$, s
       \item Where $K$ is the result of a logical operator, we use the observation that a pure logical operator doesn't change the slices (with the exception that the measurement in the phase-basis switches the vertex types, namely $\{X\} \leftrightarrow \{Z\}$, of part of the vertices in the slice, see \Cref{claim:paulipropcon}). So we have that the support of $K$ is contained (up to vertices' types) in the support of $\cup_{0}^{k} K_{i}$, and therefore for any $i \in [d+1]$:
         \begin{equation*}
           \begin{split}
-            \max \bigl\{ L_{i}(v) : v \in K \} \le \max \bigl\{ L_{i}(v) : v \in \bigcup_{i=0}^{k}K_{i} \} 
+            \max \bigl\{ L_{i}(v) : v \in K \} \le \max \bigl\{ L_{i}(v) : v \in \bigcup_{j=0}^{k}K_{j} \} 
           \end{split}
         \end{equation*}
     \end{enumerate}
@@ -239,7 +239,7 @@ Consider a slice $K$ in it, and a selection of poles $v_{1}, \ldots, v_{d+1}$, s
 For a step $\tau$  let $\mathcal{H}_{\tau}$ be Toom's contour analysis up to step $\tau$. Denote by $t$ the time at which the gate at step $\tau$ is applied. Then, for a slice $K$ and selection for its poles $v_{1}, \ldots, v_{d+1}$ such that $T(K) = t+1$ and $K \neq H_{K}$, the inequality in \Cref{claim:prevslices} becomes:
         \begin{equation*}
           \begin{split}
-            \sum_{j=0}^{k}\sum_{i}^{d+1} L_{i}(z_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i}^{d+1}L_{i}(v) - 2d 
+            \sum_{j=0}^{k}\sum_{i=1}^{d+1} L_{i}(z_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}(v_i) - 2d 
           \end{split}
         \end{equation*}
   \end{claim}
@@ -252,6 +252,7 @@ We allow vertices of $V_{\mathcal{H},X}$ at the final time layer to be connected
       \end{split}
     \end{equation*}
   \end{proof}
+
 
 
 
