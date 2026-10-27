@@ -103,10 +103,7 @@ for the binary chains on these faces. For one of the CSS sectors, a Pauli error 
 \end{equation*}
 Here $\partial^-$ is the cubical boundary operator. Applying a correction $c\in C_{d'}(\mathcal T_n^d)$ replaces $e$ by $e+c$ and therefore changes the syndrome by $\partial^-c$. The other CSS sector is handled by passing to the dual cubical complex. This way of representing qubits, errors, and syndromes is central to our proof: we can ask for a local correction \emph{chain} with a prescribed local \emph{boundary}, rather than reason about a list of Pauli flips without using their incidence relations.
 
-For describing a local rule, the usual global description of a cell complex is not enough. We need to specify exactly which faces are seen by an individual vertex. Let $S$ be the set of positive coordinate generators. For a vertex $v$ and $S'\subseteq S$, the notation
-\begin{equation*}
-  \rotf{v}{S'}=\theta_{v,S'}
-\end{equation*}
+For describing a local rule, the usual global description of a cell complex is not enough. We need to specify exactly which faces are seen by an individual vertex. Let $S$ be the set of positive coordinate generators. For a vertex $v$ and $S'\subseteq S$, the notation $\rotf{v}{S'}$
 denotes the face rooted at $v$ and spanned by the directions in $S'$. Its vertices are obtained by taking every subset of steps in $S'$ starting from $v$. When we treat the face as a binary chain, we use the corresponding basis vector $\rotfv{v}{S'}$. For example, in two dimensions the generators specify the north and east directions: an edge rooted at $v$ runs one step in one of those directions, and the square rooted at $v$ is spanned by both. The picture below, retained from the original outline, illustrates this convention.
 
 \input{./tikz/toric.tikz}
