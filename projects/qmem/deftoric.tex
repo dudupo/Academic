@@ -1,144 +1,107 @@
-
-
 \section{The $(d,d^{\prime})$-Dimensional Toric Code}
-The main error correction code that we will use is the Toric code invented by Kitaev. In the 2D case, the code is obtained by taking a Toric, tiling it with squares, setting qubits on the edges, and checks as follows: For every vertex, the parity of the qubits adjoining it is even, and for any square, the parity of the qubits lying on its sides, in the phase basis, is even. A high-dimensional version can be obtained by taking a high-dimensional Toric, encoded as a cubical complex, and then setting the $X$-checks, the qubits, and the $Z$-checks to be faces at sequenced dimensions. Throughout this paper, qubits will be set on $d^{\prime}$-dimensional faces, and the $X$-checks and $Z$-checks on the $d^{\prime} \mp 1$ dimensional faces. For a review, we refer to \cite{Kitaev1997QuantumCA}, \cite{Dennis_2002}.
 
-For defining a decoder and proving its 'correctness,' we will have to overload notation. We derive the Toric complex from the skeleton of the Cayley graph of the cyclic group, using the generating subset as a collection of positive directions. The $\rotfvs{}$ encodes a face, one vertex $v$ that serves as its 'root' and a subset of directions $S^{\prime}$. Formally: 
+We use the cubical Toric code of Kitaev \cite{Kitaev1997QuantumCA,Dennis_2002}. In two dimensions, qubits are associated with edges of a square lattice on the torus, and stabilizer checks with its vertices and plaquettes. More generally, a $(d,d')$-Toric code places qubits on $d'$-dimensional cells of a $d$-dimensional cubical Toric complex, and checks on cells of dimensions $d'-1$ and $d'+1$. We first describe the cells and their chain spaces using the rooted-face notation needed for our local decoder. We retain the same conventions, in particular $\rotfv{v}{S'}$ for basis chains and $(\mathcal F_i;\mathbb F_2)$ for their span, in the sections that follow.
 
-\begin{definition}[$d$-Dimensional Toric Complex] 
-  \label{def:toric_complex}
-  For integers $d$ and $n$, denote the group resulting from the $d$-directed power of the cyclic group of order $n$ by $\mathcal{G}_{n}^{d} = \mathbb{Z}_{n}^{\times d}$, and denote the standard generating set of $\mathcal{G}_{n}^{d}$ by $S = \{ 1_{i} \colon i \in [d] \}$. We define the \textit{$d$-dimensional Toric complex} to be the hypergraph obtained from the Cayley graph $\text{Cay}(\mathcal{G}_{n}^{d}, S)$ by taking its vertices as the $0$-faces and for any $i \in [d]$ we define the $i$-faces as follow: First, for a vertex $v \in \mathcal{G}_{n}^{d}$ and for a subset of generators $S^{\prime} \subset S$ of size $|S^{\prime}| = i$, the $i$-face rooted at $v$ and spanned by $S^{\prime}$, denoted by $\theta_{v, S^{\prime}}$, is:
-  \begin{equation*}
-    \begin{split}
-      \theta_{v,S^{\prime}} \colonequals \bigcup_{I \subset S^{\prime}} \left\{  \left(\prod_{g \in I} g \right) v  \right\}
-    \end{split}
-  \end{equation*}
-  The $i$-faces of the complex are the collection of all the possible rooted spanned $i$-faces induced by $\text{Cay}(\mathcal{G}_{n}^{d})$. We will denote them by $\mathcal{F}_{i}$. Additionally, let us define the multiplication of the generators subset $S^{\prime} \subset S$ by a vertex $v \in V(\mathcal{G})$ as follows:
-  \begin{equation*}
-    \begin{split}
-      S^{\prime} v = \left(\prod_{g \in S^{\prime}}g^{\prime} \right) v
-    \end{split}
-  \end{equation*}
-   Finally, we name $n$ and $d$, the \textit{side length} and the \textit{dimension} of the complex.  
+\begin{definition}[$d$-Dimensional Toric Complex]
+\label{def:toric_complex}
+Let $d,n$ be positive integers and set
+\begin{equation*}
+  \mathcal G_n^d:=\mathbb Z_n^d,
+  \qquad S:=\{\mathbf 1_i:i\in[d]\},
+\end{equation*}
+where $\mathbf 1_i$ is the $i$th standard generator. We write the group law multiplicatively when acting on vertices: $gv$ is the translate of $v$ by $g$, and $S'v=(\prod_{g\in S'}g)v$ for $S'\subseteq S$.
+
+The \emph{$d$-dimensional cubical Toric complex} $\mathcal T_n^d$ has vertex set $\mathcal F_0=\mathcal G_n^d$. For each $i\in\{0,\ldots,d\}$, an $i$-cell is specified by a root $v\in\mathcal G_n^d$ and a direction set $S'\subseteq S$ with $|S'|=i$. We denote this cell by
+\begin{equation*}
+  \rotf{v}{S'}=\theta_{v,S'},
+  \qquad V(\theta_{v,S'})=
+  \left\{\left(\prod_{g\in I}g\right)v:I\subseteq S'\right\},
+\end{equation*}
+where $V(\theta_{v,S'})$ is its set of vertices. The root and direction set specify the cell (including its incidences), not merely the displayed set of vertices. Let $\mathcal F_i$ be the set of $i$-cells; thus $\mathcal T_n^d=(\mathcal F_0,\ldots,\mathcal F_d)$ with the standard cubical incidence structure. We call $n$ its \emph{side length} and $d$ its \emph{dimension}.
 \end{definition}
 
-Next, we formalize binary assignments on the Toric complex and introduce boundary operators. These boundary operators are the same as standard boundary operators in the chain complex formalism.
+\begin{definition}[Chains and Assignments on a Toric Complex]
+\label{def:asontoric}
+Let $\mathcal T=\mathcal T_n^d$. For each $i$, we denote the space of $i$-dimensional chains by
+\begin{equation*}
+  C_i(\mathcal T):=(\mathcal F_i;\mathbb F_2)
+  =\operatorname{Span}_{\mathbb F_2}\{\rotfv{v}{S'}:
+  v\in\mathcal G_n^d,\ S'\subseteq S,\ |S'|=i\}.
+\end{equation*}
+Here $\rotfv{v}{S'}$ is the standard basis chain corresponding to the geometric face $\rotf{v}{S'}$. Since $\mathcal F_i$ is finite, $C_i(\mathcal T)$ is canonically identified with both $\mathbb F_2^{\mathcal F_i}$ and $\mathbb F_2^{|\mathcal F_i|}$. An \emph{assignment} on the $i$-faces is simply a chain $z\in C_i(\mathcal T)$; we use these terms interchangeably. If $z$ has support on the distinct cells $\theta_{v_j,S'_j}$, then
+\begin{equation*}
+  z=\sum_{j=1}^{m}\rotfv{v_j}{S'_j}.
+\end{equation*}
+A basis face is regarded as a chain whenever it occurs in a sum or under a linear operator. We write $f\in z$ when $f$ is a cell supporting $z$, and $v\in z$ when $v$ is a vertex of one of its supporting cells. More generally, the incidence notation $f\in z$ for a lower-dimensional face means that $f$ lies in a cell supporting $z$; this is different from saying that its coefficient in the boundary is nonzero. We write $V(z)$ for the set of vertices of the supporting cells.
 
-\begin{definition}[Assignments on a Toric complex]
-  \label{def:asontoric}
-  Let $\mathcal{T}$ be a $d$-dimensional Toric complex. For each $i$, the set of $i$-faces induces a vector space $\mathbb{F}_{2}^{|\mathcal{F}_{i}|}$. An element $z\in \mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ is called an \textit{assignment on the $i$-faces} of $\mathcal{T}$.
+For $i>0$, define the \emph{boundary operator} $\partial^-:C_i(\mathcal T)\to C_{i-1}(\mathcal T)$ on basis chains by
+\begin{equation*}
+  \partial^-\rotfv{v}{S'}
+  :=\sum_{g\in S'}\left(
+       \rotfv{v}{S'/g}+\rotfv{gv}{S'/g}\right).
+\end{equation*}
+For $i<d$, the \emph{coboundary operator} $\partial^+:C_i(\mathcal T)\to C_{i+1}(\mathcal T)$ is
+\begin{equation*}
+  \partial^+\rotfv{v}{S'}
+  :=\sum_{g\in S/S'}\left(
+       \rotfv{v}{S'\cup g}+\rotfv{g^{-1}v}{S'\cup g}\right).
+\end{equation*}
+Both operators are extended linearly to chains. We use $S'/g=S'\setminus\{g\}$, $S/S'=S\setminus S'$, and $S'\cup g=S'\cup\{g\}$ throughout, as in \Cref{sec:nota}.
 
-  For a vertex $v$ and a subset of generators $S^{\prime}\subset S$ of size $|S^{\prime}|=i$, let $\rotfvs{}$ denote the standard basis vector corresponding to the $i$-face $\rotfs{}$. Thus the family
-  \begin{equation*}
-    \begin{split}
-      \bigl\{ \rotfv{v}{S^{\prime}} : v\in\mathcal{F}_{0},\ S^{\prime}\subset S,\ |S^{\prime}|=i \bigr\}
-    \end{split}
-  \end{equation*}
-  is the standard coordinate basis of $\mathbb{F}_{2}^{|\mathcal{F}_{i}|}$.
+For a vertex $v$, define the \emph{restriction at $v$}, $z|_v$, to retain the cells of $z$ having $v$ among their vertices:
+\begin{equation*}
+  \left.\rotfv{u}{S'}\right|_v
+  :=\begin{cases}
+      \rotfv{u}{S'},&v\in V(\theta_{u,S'}),\\
+      0,&\text{otherwise}.
+    \end{cases}
+\end{equation*}
+The \emph{positive restriction} $z|_{v+}$ retains only cells \emph{rooted} at $v$:
+\begin{equation*}
+  \left.\rotfv{u}{S'}\right|_{v+}
+  :=\begin{cases}
+      \rotfv{u}{S'},&u=v,\\
+      0,&\text{otherwise}.
+    \end{cases}
+\end{equation*}
+The maps $|_v$ and $|_{v+}$ extend linearly; the complementary restriction is $z|_{/v}:=z+z|_v$. If $D$ is a specified set of face coordinates, $z|_D$ likewise retains the terms of $z$ supported in $D$. When a local code is written in place of $D$, this notation refers to its underlying face coordinates.
 
-  Let $z$ be an assignment on the $i$-faces. Let $v_{1}, \ldots, v_{k} \in \mathcal{F}_{0}$ and $S^{\prime}_{1}, \ldots, S^{\prime}_{k} \subset S$ be such that $\theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}}, \ldots, \theta_{v_{k},S^{\prime}_{k}}$ are precisely the $i$-faces in the support of $z$, namely:
-  \begin{equation*}
-    \begin{split}
-    z = \sum_{i=1}^{k}\rotfv{v_{i}}{S^{\prime}_{i}}
-    \end{split}
-  \end{equation*} 
-  We refer to $\theta_{v_{1},S^{\prime}_{1}}, \theta_{v_{2},S^{\prime}_{2}}, \ldots, \theta_{v_{k},S^{\prime}_{k}}$ as the collection of faces that form $z$, or briefly, the faces form $z$.
-  For $i > 0$, we define the linear map $\partial^{-}: \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i-1}|}$ such that
-  \begin{equation*}
-    \begin{split}
-      \partial^{-} \rotfvs{} \colonequals \sum_{g \in S^{\prime}} \left( \rotfv{v}{S^{\prime}/g} + \rotfv{gv}{S^{\prime}/g} \right)
-    \end{split}
-  \end{equation*}
-  For $i < d$, we define the linear map $\partial^{+}: \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i+1}|}$ such that
-  \begin{equation*}
-    \begin{split}
-      \partial^{+} \rotfvs{} \colonequals \sum_{g \in S/S^{\prime}} \left( \rotfv{v}{S^{\prime} \cup g} + \rotfv{g^{-1}v}{S^{\prime}\cup g} \right) 
-    \end{split}
-  \end{equation*}
-  We define the \textit{restriction of $z$ at vertex $v$} to be the linear map $|_{v} \colon \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ such that: 
-  \begin{equation*}
-    \begin{split}
-      \rotfv{u}{S^{\prime}} |_{v} \colonequals    
-      \begin{cases}
-      \rotfv{u}{S^{\prime}}  & v \in \theta_{u,S^{\prime}}  \\ 
-        0 & \text{ else }
-      \end{cases}
-    \end{split}
-  \end{equation*}
-  We refer to the faces rooted at $v$ as the positive faces of $v$, and define the \textit{positive restriction at vertex $v$} to be the linear map $|_{v+} \colon \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i}|}$ such that: 
-  \begin{equation*}
-    \begin{split}
-      \rotfv{u}{S^{\prime}} |_{v+} \colonequals    
-      \begin{cases}
-      \rotfv{u}{S^{\prime}}  & u = v \\ 
-        0 & \text{ else }
-      \end{cases}
-    \end{split}
-  \end{equation*}
-  
-
-  Two $i$th dimensional faces will be said to be connected if their intersection is $i-1$th dimensional face. So, an assignment $z$ is \textit{connected} if the graph that is induced by taking the faces that support $z$ as vertices and defining the edges to be the adjacency relation between them is connected. We define the connected components of $z$ to be its subsets such that each of them is a connected assignment. For a $j$-face $f$, we say that $f \in z$ if $z$ has a support on $\rotfvs{}$ such that $f \in \rotfs{}$. Consider an assignment $z \in \mathbb{F}_{2}^{\mathcal{F}_{i}}$ and a vertex $v \in \mathcal{G}_{n}^{d}$. We say that $z$ is a \textit{rooted assignment} at vertex $v$ if there are subsets $S^{\prime}_{1}, \ldots, S^{\prime}_{k} \subset S^{\times k}$ such that each of $S^{\prime}_{j}$ is at size $i$ and $z$ is decomposed as:
-  \begin{equation*}
-    \begin{split}
-    z = \sum_{j}^{k}\rotfv{v}{S^{\prime}_{j}}
-    \end{split}
-  \end{equation*}
-  Put differently, $z$ is the result of taking a collection of $i$-faces that are rooted at $v$.
+Two distinct $i$-faces are \emph{adjacent} if they share an $(i-1)$-face. A nonzero $i$-chain is \emph{connected} if the adjacency graph on its supporting $i$-faces is connected; its connected components are the chains corresponding to the components of this graph. An $i$-chain $z$ is \emph{rooted at $v$} if all of its supporting $i$-faces have root $v$, that is,
+\begin{equation*}
+  z\in\operatorname{Span}_{\mathbb F_2}
+       \{\rotfv{v}{S'}:S'\subseteq S,\ |S'|=i\}.
+\end{equation*}
 \end{definition}
 
+We are ready to define the code in this notation.
 
-%We will use only this CSS property and the local geometry of the code; standard facts about distance and rate may be found in the toric-code literature, for example in \cite{Dennis_2002}.
-We are ready to give a formal definition of the $(d,d^{\prime})$-Toric code. 
-
-
-\begin{definition}[$(d,d^{\prime})$ Toric Code] 
-  Let $d, d^{\prime}$ be integers such that $1 \le d^{\prime} \le d$. For any integer $n$, we construct the $n$th instance of the quantum code family $(d,d^{\prime})$ \textit{Toric Code} as follows: Let $G = (\mathcal{F}_{0}, \ldots, \mathcal{F}_{d})$ be the $d$-dimensional Toric complex obtained from $\mathcal{G}_{n}^{d}$ as defined in \Cref{def:toric_complex}. We associate the (q)bits with the $\mathcal{F}_{d^{\prime}}$, the $X$-checks with the $\mathcal{F}_{d^{\prime}-1}$, and the $Z$-checks with the $\mathcal{F}_{d^{\prime}+1}$. An $X$-check, $c_{x}$, is satisfied if the parity of (q)bits set on the $d^{\prime}$-face containing $c_{x}$ is even. Similarly, a $Z$-check, $c_{z}$, is satisfied if the parity, in the Hadamard basis, of the (q)bits set on the $d^{\prime}$-faces contained in $c_{z}$ is even.
+\begin{definition}[$(d,d')$-Toric Code]
+Let $1\le d'\le d$. The side-length-$n$ $(d,d')$-Toric code is the CSS code associated with $\mathcal T_n^d$ whose physical qubits correspond to $\mathcal F_{d'}$. As in the rest of the paper, the check families are indexed by $\mathcal F_{d'-1}$ and $\mathcal F_{d'+1}$ (called the $X$-checks and $Z$-checks, respectively, in our convention). A lower-dimensional check is supported on the qubits incident to its $(d'-1)$-cell; an upper-dimensional check is supported on the qubits in the boundary of its $(d'+1)$-cell. The corresponding check matrices are the incidence matrices of $\partial^-$ and $\partial^+$.
 \end{definition}
 
-We argue that the $(d,d^{\prime})$-Toric code is indeed a CSS, and prove that by showing that boundary operators $\partial^{\pm} :\mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i \pm 1}|}$ induce a chain complex. 
 \begin{claim}[CSS structure]
-  \label{claim:csscode}
-  The $(d,d^{\prime})$-Toric code is a CSS code.
+\label{claim:csscode}
+The $(d,d')$-Toric code is a CSS code.
 \end{claim}
 \begin{proof}
-  We will show that $ \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \xrightarrow{ \partial^{\pm} } \mathbb{F}_{2}^{|\mathcal{F}_{i \pm 1}|}$ are a chain complex and its dual chain. First, we show that $\left( \partial^{+} \right)^\top = \partial^{-}$. Consider vertices $v, u \in V$ and two generator subsets $A,B \subset S$. Consider the basis elements defined by them: $\rotfv{v}{A}$ and $\rotfv{u}{B}$. Suppose that:
-  \begin{equation*}
-    \begin{split}
-       ( \partial^{+} \rotfv{v}{A} ) \rotfv{u}{B}   = 1 
-    \end{split}
-  \end{equation*}
-Means that there exists $g \notin A$ such that $A \cup \{g\} = B$ and either $v = u$ or $g^{-1}v = u$. But that is equivalent to saying that there is $g \in B$ such that $B \setminus \{g\} = A$ and either $v = u$ or $v = g^{-1}u$. In other words:
-  \begin{equation*}
-    \begin{split}
-       & ( \partial^{+} \rotfv{v}{A} ) \rotfv{u}{B}   =   \rotfv{v}{A} ( \partial^{-} \rotfv{u}{B} ) \\ 
-       \Rightarrow & \left( \partial^{+} \right)^\top = \partial^{-} 
-    \end{split}
-  \end{equation*}
+Give each chain space its standard inner product, in which the basis faces are orthonormal. Directly from the definitions, $\partial^+$ is the transpose of $\partial^-$ in consecutive dimensions:
+\begin{equation*}
+  \bigl\langle\partial^+\rotfv{v}{A},\rotfv{u}{B}\bigr\rangle
+  =\bigl\langle\rotfv{v}{A},\partial^-\rotfv{u}{B}\bigr\rangle.
+\end{equation*}
+Indeed, either coefficient is one precisely when there is $g\in B$ such that $A=B/g$ and either $u=v$ or $u=g^{-1}v$ (equivalently, $v=gu$).
 
-  So it's left to show that the boundary of a boundary is zero. Consider a basis vector $\rotfvs{}$:
-  \begin{equation*}
-    \begin{split}
-      \partial^{-} \left(   \partial^{-} \rotfvs{} \right) & = \partial^{-} \left( \sum_{g \in S^{\prime}} \rotfv{v}{S^{\prime}/g} + \sum_{g \in S^{\prime}} \rotfv{gv}{S^{\prime}/g}  \right) \\
-      & = \sum_{ \substack{ g^{\prime},g \in S^{\prime} \\ g^{\prime}\neq g } } \left( \rotfv{v}{S^{\prime}/\{ g,g^{\prime} \} } +   \rotfv{g^{\prime}v}{S^{\prime}/\{ g,g^{\prime} \} }+ \rotfv{gv}{S^{\prime}/\{ g,g^{\prime} \} } + \rotfv{g^{\prime}gv}{S^{\prime}/\{ g, g^{\prime}\}} \right) \\
-      & = 0
-    \end{split}
-  \end{equation*}
-Where we used that the term in the closure is invariant to sweeping between $g$ and $g^\prime$, and therefore any term in the sum appears twice. Similarly:
-  \begin{equation*}
-    \begin{split}
-      \partial^{+} \left(   \partial^{+} \rotfvs{} \right) & = \partial^{+} \left( \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S / S^{\prime}} \rotfv{g^{-1}v}{S^{\prime} \cup g}  \right) \\
-      & = \sum_{ \substack{ g^{\prime},g \in S/S^{\prime} \\ g^{\prime}\neq g } } \left( \rotfv{v}{S^{\prime}\cup\{ g,g^{\prime} \} } +   \rotfv{g^{\prime -1}v}{S^{\prime}\cup\{ g,g^{\prime} \} }+ \rotfv{g^{-1}v}{S^{\prime}\cup\{ g,g^{\prime} \} } + \rotfv{g^{\prime-1}g^{-1}v}{S^{\prime}\cup\{ g, g^{\prime}\}} \right) \\
-      & = 0
-    \end{split}
-  \end{equation*}
-
-The conditions $ (\partial^{\pm})^{\circ 2} = 0 $ imply that $ \mathbb{F}_{2}^{|\mathcal{F}_{i}|} \xrightarrow{ \partial^{\pm} } \mathbb{F}_{2}^{|\mathcal{F}_{i \pm 1}|}$ are chain complexes. Therefore, for any $d^{\prime}$, every $d^{\prime}-1$ face and every $d^{\prime}+1$ face overlap on an even number of $d^{\prime}$-faces, so the corresponding $X$- and $Z$-checks commute. This is exactly the CSS condition.
+Moreover, the boundary of a boundary vanishes. On expanding $\partial^-\partial^-\rotfv{v}{S'}$, every term indexed by two distinct deleted directions $g,g'\in S'$ occurs twice, once in each order, so over $\mathbb F_2$ it cancels. Hence $(\partial^-)^2=0$; by transposition, $(\partial^+)^2=0$ as well. In particular, the check matrices associated with the two adjacent cell dimensions are orthogonal, and the corresponding Pauli stabilizers commute, as required for a CSS code.
 \end{proof}
 
+The chain formulation will be used for both errors and their syndromes: in the relevant sector, a qubit error is a $d'$-chain and its syndrome is the corresponding boundary chain. We next describe the local vertices visible from a given root.
 
-The fact that $\partial^{\pm} :\mathbb{F}_{2}^{|\mathcal{F}_{i}|} \rightarrow \mathbb{F}_{2}^{|\mathcal{F}_{i \pm 1}|}$ induces a chain complex motivates referring to the collection of qubits/checks/vertices as chains of various dimensions. Next, we give a definition of the 'positive' vertices that a vertex $v$ sees, which lie on a chain $z$.
 \begin{definition}[Positive Neighborhood]
-  \label{def:positiveNei}
-For a vertex $v$ and a chain $z$, we use the notation $\textbf{Str}_{0+}(v,z)$ to denote the vertices in $z$ that are connected to $v$ through a stepping via generator, namely all the vertices that support a face in $z$ of the form $gv$ for some $g \in S$. We think of $\textbf{Str}_{0+}(v,z)$ as the positive neighborhood of $v$ in $z$.
+\label{def:positiveNei}
+For a vertex $v$ and a chain $z$, the \emph{positive one-step neighborhood of $v$ in $z$} is
+\begin{equation*}
+  \textbf{Str}_{0+}(v,z)
+  :=V(z)\cap\{gv:g\in S\}.
+\end{equation*}
+Thus $\textbf{Str}_{0+}(v,z)$ consists of those vertices supporting $z$ that can be reached from $v$ by one step in a positive generator direction. This is the local neighborhood used in the subsequent sweep-rule and reduced-error arguments.
 \end{definition}
-
