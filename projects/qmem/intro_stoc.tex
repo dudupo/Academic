@@ -1,0 +1,115 @@
+\section{Introduction}
+
+\subsection{Background and motivation}
+
+A fault-tolerant quantum computer must protect its logical state while gates, measurements, and error correction are themselves subject to faults. An important design choice is not just the quantum code but the \emph{classical and quantum mechanism used to keep errors under control}. A conceptually attractive target is a regular code for which each correction round consists of the same bounded-depth local procedure, determined only by the syndrome currently observed. Such a procedure neither stores a growing decoding history nor organizes the correction into successively larger scales.
+
+The quantum threshold theorem established the feasibility of fault-tolerant computation below a constant noise threshold \cite{aharonov1999faulttolerant,Ninequ}. A major subsequent direction reduced the qubit overhead using high-rate quantum LDPC codes and, in several constructions, expander-based complexes \cite{gottesman2014faulttolerant,grospellier:tel-03364419,Fawzi_2018,nguyen2025quantumfaulttoleranceconstantspace}. Expansion supplies powerful control of errors and their syndromes, but it is a substantive structural assumption. We pursue a complementary question: \emph{Can a simple, nonexpanding topological code support a local correction cycle within a rigorous fault-tolerant computation?} We answer this question affirmatively for the cubical $(d,d')$-Toric code when $d',d-d'\geq 2$. We do not aim to optimize the total depth or the space overhead of the simulation.
+
+The Toric code is particularly suited to this question. Its qubits, stabilizer checks, and logical operators are described by the cells of a regular cubical complex. Unlike a code whose analysis requires expansion, it admits a direct topological description: errors are chains, their syndromes are boundaries, and logical faults correspond to nontrivial homology classes. Our proof exploits this description rather than trying to maintain a strong probabilistic invariant on the entire physical error after every round. In particular, the chain-complex relation $\partial^2=0$ lets us separate physically large but stabilizer-trivial errors from syndrome configurations that could signal logical failure.
+
+\paragraph{Toom-type recovery for the 4D Toric code.}
+Local recovery for the 4D Toric code was already proposed in the literature. Dennis, Kitaev, Landahl, and Preskill \cite{Dennis2002} discussed anisotropic local dynamics inspired by Toom's rule. Ahn studied 4D Toom correction \cite{Ahn2004}; we discuss gaps in her proof in a companion paper. More recently, Drechsler, Oreg, and Aharonov \cite{DrechslerOregAharonov2026} established quantum--classical correspondences for quantum memories in both asynchronous continuous-time and synchronous discrete-time settings. Their specific 4D Toric/Toom memory application \emph{uses Ahn's threshold estimate}: it gives a synchronous quantum-channel memory and a periodically driven (Floquet) Lindbladian memory, while a time-independent asynchronous 4D Toom-memory theorem remains open. Thus the classical threshold input, the quantum-memory framework, and a full fault-tolerant computation are distinct questions. 
+
+Kubica and Preskill \cite{Kubica_2019} introduced the \emph{sweep rule}, extending Toom's oriented local dynamics to topological codes, and proved ideal-decoding results for independent noise. Their formulation also identifies an existence question for certain higher-dimensional local corrections. We work with the ordinary cubical Toric complex, give an explicit local implementation of the sweep rule, and analyze it both under continuously occurring faults and as a noiseless decoder for initially correlated local-stochastic errors.
+
+\paragraph{Related local fault-tolerant architectures and their classical hardware.}
+An important comparison is the cellular-automaton line of work, including Balasubramanian, Davydova, and Lake \cite{Balasubramanian_2026}. In particular, \emph{Selub, Bhardwaj, and Lake} \cite{SelubBhardwajLake2026} have already achieved fault-tolerant quantum computation based on a \emph{local decoder for a topological code}: their two-dimensional surface-code architecture has time-translation-invariant local decoding dynamics and bounded-speed classical communication. Its constant-resource-density realization, however, implements a multiscale hierarchy with auxiliary classical state and classical wires whose lengths grow with the decoding scale. The propagation delays along those wires \emph{function as distributed timers}: rather than storing a large timer in each processor, the hardware uses physical signal travel to implement the longer periods of the higher-level updates. For this scheduling task, a long delay line is the hardware analogue of a stored timer: the requisite waiting time is encoded in wire length rather than counter bits. Thus the timing resource is relocated into spatial communication hardware, not eliminated. This is an architectural tradeoff, not a claim that their decoder has growing local Boolean-circuit depth.
+
+\emph{Our correction cycle requires neither such distributed timers nor a multiscale communication network.} Each local correction is a fixed function of the presently measured syndrome on a constant-size neighborhood, and all locations execute the same finite schedule in each sweep cycle. In particular, an idle logical identity is implemented by repeated copies of this cycle, with no persistent decoder messages or hierarchy-dependent clocks. We emphasize the precise scope of the comparison: these statements concern the \emph{repeated error-correction procedure on the native 4D Toric lattice}. They do not assert a fully autonomous or clock-free device, remove classical processing for logical gates, or eliminate the potential physical cost of embedding four-dimensional connectivity in lower-dimensional hardware. In this respect, the 2D physical locality achieved by \cite{SelubBhardwajLake2026} is a genuine advantage of their construction.
+
+These results also sharpen our mathematical contribution. One can obtain a local decoder for a nonexpanding topological code by supplying additional hierarchical decoding hardware. Our result shows that \emph{expansion is unnecessary even when the correction rule is a single fixed, local, syndrome-based map without such a hierarchy}, provided the code geometry is allowed to be four-dimensional. The proof mechanism is different from expansion-based estimates: it tracks the combinatorial histories of syndromes viewed as boundaries in a chain complex.
+
+\subsection{Our results}
+
+\paragraph{Fault-tolerant computation with repeated local correction.}
+Fix integers $d,d'$ satisfying $d',d-d'\geq 2$. The $(d,d')$-Toric code is the CSS code associated with the cubical chain groups of a side-length-$n$ $d$-dimensional torus. Each encoded block undergoes a constant-depth \emph{sweep cycle}, consisting of parallel local updates in the two CSS sectors. The update rule and the finite sequence making up a cycle are independent of the elapsed time, the block size, and the number of preceding correction rounds.
+
+We use the circuit model with local-stochastic Pauli noise on quantum locations and reliable classical bits and logic. More precisely, if $\mathcal N_{\mathcal E}$ is a distribution over fault sets with rate $p$, then for every predetermined finite set $S$ of space--time locations,
+\begin{equation*}
+   \prbm{S\subseteq\operatorname{Loc}(\mathcal E)}{\mathcal E\sim\mathcal N_{\mathcal E}}\leq p^{|S|}.
+\end{equation*}
+This condition allows correlations between faults; independence is not assumed. At any physical time step, only constant-depth noiseless classical computation is allowed.
+
+\begin{theorem*}[Informal version of \Cref{theorem:main}]
+There is a constant $p_0>0$ such that for local-stochastic Pauli noise of rate $p<p_0$, every ideal circuit of width $w$ and depth $\mu$ has a 4D-Toric-code-encoded simulation using side-length-$n$ blocks whose logical failure probability is at most
+\begin{equation*}
+  O\!\left(\operatorname{poly}(w,\mu,n)\right)p^{\Omega(n)}.
+\end{equation*}
+For sufficiently large $n$, the encoded circuit has depth $\Theta\!\bigl(\mu(n+\operatorname{polylog}n)\bigr)$ and width $\Theta\!\bigl((w+\mu)n^8\operatorname{polylog}n\bigr)$. After fault-tolerant initialization, the encoded blocks use the 4D Toric code, and each intervening correction cycle has constant depth and applies the same local sweep rule.
+\end{theorem*}
+
+The stated costs include the implementation of logical operations; in particular, gate teleportation may need a classical decoding computation of nonconstant total duration. Our claim of constant depth is therefore \emph{about the recurring correction cycle}, not the entire simulation of each logical gate. Unlike the local-decoding constructions in which code expansion is the essential geometric input, our theorem uses a nonexpanding cubical chain complex. The correction dynamics require no scale-dependent auxiliary control network.
+
+\paragraph{An explicit higher-dimensional sweep rule.}
+At a vertex of the cubical complex, the sweep rule examines syndrome checks in a designated positive neighborhood and seeks a nearby correction chain supported on positive faces. Kubica and Preskill \cite{Kubica_2019} established the usefulness of this rule and posed the local existence question in higher dimensions. We prove the required existence statement and give an explicit choice of local correction. Since the dimension is fixed, this choice can be implemented by bounded-depth classical processing on a constant-size neighborhood.
+
+\paragraph{Ideal decoding of local-stochastic errors.}
+Our third result concerns the same correction rule used \emph{without faults during decoding}. It is separate from the above threshold theorem, where noise may occur between and during repeated correction cycles.
+
+\begin{theorem*}[Informal version of \Cref{theorem:idealdec}]
+Fix $d,d'$ with $d',d-d'\geq2$. There is a constant $p_0>0$ such that a codeword of the side-length-$n$ $(d,d')$-Toric code, corrupted by a local-stochastic Pauli error of rate $p<p_0$, is recovered after $n^{d+1}$ noiseless sweep cycles with probability at least
+\begin{equation*}
+  1-O\!\left(\operatorname{poly}(n)\right)p^{\Omega(n)}.
+\end{equation*}
+\end{theorem*}
+
+The earlier analysis in \cite{Kubica_2019} treats independent initial errors. Our extension allows correlated local-stochastic errors; the crucial probabilistic estimates follow from counting fault explanations rather than assuming error independence.
+
+\subsection{Discussion and scope}
+
+The main message is a separation of two often-confounded ingredients of local quantum decoding: \emph{geometric expansion of the code} and \emph{the ability to control errors by local updates}. For the 4D Toric code, the latter is provable without the former. Moreover, the decoder's rule has no persistent auxiliary state, so there is no need to store large local timers or implement them by scale-dependent wire delays. The construction still relies on a synchronous constant-depth correction cycle, ideal classical computation, and a four-dimensional lattice geometry; none of these hardware assumptions is eliminated by the theorem.
+
+The proof may also be of independent interest. It translates an idea from reliable classical cellular automata---explaining a large error by a space--time dependency tree---into homological language. In a CSS chain complex, errors of large Hamming weight may be stabilizers, while a syndrome is a boundary; thus the relevant objects to track are not the erroneous qubits themselves but the evolving supports and geometric spans of syndrome chains. We use this distinction to make a first-passage argument for logical errors and to count the fault histories that could produce them.
+
+\paragraph{Acknowledgment and AI disclosure.}
+The author thanks Prof.~Michael Ben-Or for discussions, supervision, and support. ChatGPT assisted with editing, proof checking, and brainstorming. The mathematical ideas and responsibility for the paper remain with the author.
+
+\section{Outline of the Proof}
+
+The proof has two intertwined parts. The \emph{deterministic} part expresses errors, checks, and local corrections as cubical chains and proves that a sweep moves the boundary of a finite error cluster inward. The \emph{probabilistic} part describes a large late-time syndrome by a bounded-degree graph of earlier syndrome witnesses and faults. Combining these parts proves that logical failures require an exponentially unlikely number of specified faults, without invoking expansion.
+
+\paragraph{Chains, boundaries, and local sweep corrections.}
+Consider the cubical chain complex over $\mathbb F_2$ associated with the $d$-dimensional Toric lattice,
+\begin{equation*}
+   \cdots\longrightarrow C_{d'+1}
+   \xrightarrow{\partial_{d'+1}} C_{d'}
+   \xrightarrow{\partial_{d'}} C_{d'-1}
+   \longrightarrow\cdots,\qquad \partial_{d'}\partial_{d'+1}=0.
+\end{equation*}
+Qubits correspond to $d'$-faces, so an $X$-error can be represented by a chain $e\in C_{d'}$ and its measured $Z$-syndrome by the boundary $\sigma=\partial_{d'}e\in C_{d'-1}$. For the complementary Pauli sector we use the dual cubical complex. A local correction $c\in C_{d'}$ changes the error to $e+c$ and the syndrome to $\sigma+\partial_{d'}c$; a stabilizer boundary $c=\partial_{d'+1}b$ does not affect the syndrome. The identity $\partial^2=0$ is therefore built into the error-correction problem. Logical operators are detected by nontrivial homology, rather than simply by the Hamming weight of a Pauli chain.
+
+To describe a face locally, use the notation $\rotf{v}{S'}$ of \Cref{def:Toric_complex}: the face is rooted at vertex $v$ and directed along a set $S'$ of coordinate generators. The following TikZ picture from the original outline illustrates this notation on a two-dimensional Toric complex.
+
+\input{./tikz/toric.tikz}
+
+At each vertex $v$, the sweep rule reads the syndrome on positively oriented nearby $(d'-1)$-faces and chooses a correction on positive $d'$-faces, whenever one satisfies the local boundary constraints. The correction is a bounded-dimensional chain problem in the link of $v$; it is therefore local even though the surrounding code has a large block size. We prove the local existence claim conjectured in \cite{Kubica_2019} and derive an explicit algorithm for choosing the chain. Both the primal and dual rules together constitute one sweep cycle (\Cref{def:sweeprule}).
+
+\input{./tikz/tikz_shrink.tikz}
+
+\paragraph{Shrinking syndromes in the infinite cover.}
+We lift the $d$-dimensional Toric complex to its infinite periodic cover, where we can distinguish finite syndrome clusters from homologically nontrivial errors. For finite connected syndrome components, a fixed set of linear potential functions determines extremal \emph{walls} that enclose the component in a simplex-like bounding region. The directional sweep advances the appropriate extremal wall, while keeping the other relevant extremal coordinates under control. This gives a quantitative shrinking statement for the span of finite syndrome clusters, developed in \Cref{subsection:infiniteToric} and \Cref{subsection:shrink}.
+
+\input{./tikz/potwall.tikz}
+
+\paragraph{Why a logical error must cross a syndrome barrier.}
+A homologically nontrivial chain can have zero syndrome. Consequently, one cannot prove fault tolerance merely by examining the final syndrome after a full noisy circuit layer: a collection of faults in that layer may already implement a logical operator. We therefore split the computation, including each fault layer, into a time-respecting sequence of elementary steps containing one bounded-support operation. Since each step changes the local chain data in a bounded region, an evolution from a correctable configuration to a logically nontrivial one must first pass through a step with a sufficiently large connected syndrome span. This is the \emph{barrier argument} of \Cref{claim:barrier}. The first step at which the barrier is crossed allows us to analyze only histories that have remained below the barrier at all earlier steps.
+
+\input{./tikz/circdag.tikz}
+
+\paragraph{Fault propagation through logical gates.}
+After initialization by standard fault-tolerant procedures \cite{aharonov1999faulttolerant,grospellier:tel-03364419,gottesman2014faulttolerant}, each register is encoded in a 4D Toric code. Pauli operations and controlled-NOT have transversal realizations; the other gates in the universal set $\mathbf X,\mathbf Z,\mathbf{CX},\mathbf H,\mathbf S,\mathbf T$ are implemented using encoded resource states and gate teleportation \cite{Zhou_2000}. A logical teleportation step may take multiple sweep cycles while its reliable classical readout is processed; the destination register remains protected during that processing. The fold-transversal Hadamard of \cite{Breuckmann_2024} is used for the relevant $X$-basis measurement. We analyze the propagation of the chain and its boundary through these gadgets so that the local geometric control is compatible with computation, not only with passive memory (\Cref{subsection:logical}).
+
+\paragraph{Toom-type contours from syndrome histories.}
+We adapt the explanation-tree idea of Berman and Simon \cite{Berman} and its later formulation \cite{gacs2021newversiontoomsproof}. The vertices of our space--time graph are lattice vertices supporting nonzero syndrome chains, rather than erroneous qubits. Arrows track the possible influence of one syndrome witness on a later one; forks capture the merging of causal explanations. This choice exploits the chain-complex representation: stabilizer boundaries may change the error chain without creating a syndrome, and therefore should not themselves count as surviving defects.
+
+\input{./tikz/toomscontours.tikz}
+
+A \emph{slice} is a connected group of syndrome witnesses at a given time, with size measured by the geometric span of its projection in the infinite cover. If a final slice has size $s$, the shrinking property forces any explanation of it to have a bounded-degree tree with $O(s)$ edges and $\Omega(s)$ terminal fault witnesses. The covering map can send several witnesses to the same physical fault location, so we extract a large substructure whose leaves project to distinct locations before applying a probability bound. A final partially executed time layer is treated separately, with added local connections between witnesses meeting a common syndrome check. These connections make the barrier's large connected component visible to the contour argument, without altering the induction on earlier layers; see \Cref{subsection:Toricencoded}, \Cref{subsection:spacetimegraph}, and \Cref{subsection:explantion}.
+
+There are at most exponentially many bounded-degree explanation trees of a given size, while a local-stochastic noise model assigns probability at most $p^r$ to any fixed collection of $r$ distinct fault locations. For sufficiently small $p$, this yields an exponentially decaying bound in $s$ for the existence of an explanatory contour. The argument requires no stochastic independence between different fault locations and no expansion inequality for the underlying code.
+
+\paragraph{Completing the fault-tolerance and ideal-decoding results.}
+For a noisy encoded computation, logical failure implies that some intermediate step crosses a barrier with syndrome span $\Omega(n)$. The contour bound makes that event at most $\operatorname{poly}(w,\mu,n)p^{\Omega(n)}$ after a union bound over positions, steps, and encoded registers. This leads to the circuit-level theorem in \Cref{theorem:main}.
+
+For the ideal-decoding theorem, an initial local-stochastic Pauli error is followed by \emph{noiseless} sweep cycles. On the high-probability event that no dangerous syndrome slice appears, repeated shrinking removes every nonzero syndrome within $n^{d+1}$ cycles and the barrier argument excludes a change of logical class. Thus the same combinatorial framework proves both robustness under ongoing noisy correction and successful decoding from an initially correlated error distribution (\Cref{theorem:idealdec}).
