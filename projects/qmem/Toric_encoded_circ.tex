@@ -201,22 +201,26 @@ For a Pauli-path $P_{1},..,P_{\mu+1}$, the Toom's contour is the restriction of 
 
 
 
-
-For the analysis, we would like to extend Toom's contour to record in their final layer a partial time-step, namely a computation up to a certain step. For this, we first consider Toom's contour of the partial computation circuit up to a step (\Cref{def:steps}). Then, since we would like to refer to the connected chain at the final layer as the 'final error clusters', we add to the arrows connecting into the top layer such that the connected (in space, namely connected by checks) components at the top, prior to addition, will be connected in time (by arrows).
-
+For the analyses, we would like to extend Toom's contour to record in their final layer a partial time-step, namely a computation up to a certain step. For this, we first consider Toom's contour of the partial computation circuit up to a step (\Cref{def:steps}). Then, since we would like to refer to the connected chain at the final layer as the 'final error clusters', we add at the end a layer whose purpose is to connect in time (by arrows) the connected components of Toom's contour in the prior layer, which are connected by checks (their union is identified with a connected chain).
 
 \begin{definition}[Analysis Toom's Contour Up to Step $\tau$]
-  For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, outcomes $\alpha$, and a step $\tau$, let $C[\mathcal{E},\alpha]_{\tau}$ be the partial computation circuit of $C[\mathcal{E},\alpha]$ up to step $\tau$. We define the \textit{analysis Toom's contour at step $\tau$} $\mathcal{H}_{\tau} = (V_{\mathcal{H}}, E_{\mathcal{H}})$ to be the graph obtained by taking the Toom's contour of $C[\mathcal{E},\alpha]_{\tau}$ and adding edges as follows:
+  For a Toric encoded quantum circuit $C$, a set of faults $\mathcal{E}$, outcomes $\alpha$, and a step $\tau$, let $C[\mathcal{E},\alpha]_{\tau}$ be the partial computation circuit of $C[\mathcal{E},\alpha]$ up to step $\tau$. We define the \textit{analysis Toom's contour at step $\tau$} $\mathcal{H}_{\tau} = (V_{\mathcal{H}}, E_{\mathcal{H}})$ to be the graph obtained by taking the Toom's contour of $C[\mathcal{E},\alpha]_{\tau}$ and adding vertices and edges as follows:
   \begin{enumerate}
-    \item Let $t$ be the depth of $C[\mathcal{E},\alpha]_{\tau}$. We add the following additional arrows:
+    \item Let $t$ be the depth of $C[\mathcal{E},\alpha]_{\tau}$. We add a layer corresponding to the time $t+1$, which duplicates the vertices of time $t$. Namely, we add to $V_{\mathcal{H}}$:
+\begin{equation*}
+  \begin{split}
+    \big\{ (v,t+1, \cdot ) : \text{ if }  (v,t, \cdot ) \in V_{\mathcal{H}}  \big\}
+  \end{split}
+\end{equation*}
+    \item Then, we add the following additional arrows:
         \begin{equation*}
           \begin{split}
-            \bigl\{ \bigl\{ \tilde{u} & = (u,t -1, \cdot ),  \tilde{v}= (v,t,\cdot)  \bigr\}  \text{ if  either there exists }\\ 
+            \bigl\{ \bigl\{ \tilde{u} & = (u,t, \cdot ),  \tilde{v}= (v,t+1,\cdot)  \bigr\}  \text{ if  either there exists }\\ 
            & \text{ a } d^{\prime}-1  \text{ dimensional face } f  \text{such } \tilde{u},\tilde{v} \in V_{\mathcal{H},X} \text{ and } u,v \in f  \\
           & \text{or there exists a } d - d^{\prime}-1  \text{ dimensional face } f \text{ such } \tilde{u},\tilde{v} \in V_{\mathcal{H},Z} \text{ and } v,u \in f   \bigr\}  
           \end{split}
         \end{equation*}
-      \item Then, we add forks to preserve the property that any two vertices with the same time coordinate, which are connected to a third (with a $+1$ higher time coordinate) via arrows, are also connected by a fork.
+      \item Finally, we add forks to preserve the property that any two vertices with the same time coordinate, which are connected to a third (with a $+1$ higher time coordinate) via arrows, are also connected by a fork.
   \end{enumerate}
 \end{definition}
 
