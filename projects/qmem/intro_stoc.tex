@@ -247,7 +247,7 @@ The barrier argument now turns this statement into fault tolerance. If an encode
 \begin{equation*}
   O\!\left(\operatorname{poly}(w,\mu,n)\right)p^{\Omega(n)}
 \end{equation*}
-under sufficiently weak local-stochastic noise, where $w$ and $\mu$ are the width and depth of the ideal computation. Taking a union bound over the registers and steps establishes the desired bound for the encoded simulation (\Cref{theorem:main}). No independence between different fault locations, and no expansion inequality for the Toric complex, is used in this probability step.
+under sufficiently weak local-stochastic noise, where $w$ and $\mu$ are the width and depth of the ideal computation. Taking a union bound over the registers and steps establishes the desired bound for the encoded simulation (\Cref{theorem:main}). 
 
 \paragraph{Why the same method proves ideal decoding.}
 There is one final application. Suppose an encoded state is subjected to a single, initially sampled local-stochastic Pauli error, and all subsequent sweep cycles are \emph{noiseless}. This is a different claim from maintaining a state during a long noisy computation: the aim now is to remove the initial error by repeated use of the sweep rule. If every relevant syndrome component stays below the geometric barrier, the deterministic shrinking argument guarantees that the syndrome eventually disappears. The barrier result also prevents the evolution from moving to a different logical class. A further counting argument bounds the probability that a barrier-sized slice ever appears during this noiseless evolution, treating the initially sampled fault set as the source of the contour leaves. After $n^{d+1}$ ideal sweep cycles the state is therefore recovered with probability at least
