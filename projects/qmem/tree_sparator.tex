@@ -1,51 +1,116 @@
+\subsection{Tree Separator Lemma}
+\label{subsection:separator}
 
-  \subsection{Tree Separator Lemma}
-  \label{subsection:separator}
- For a tree $T = (V, E)$ and a vertex $v \in V$, we call the subtree obtained by taking the descendants of $v$ the subtree rooted at $v$.
+Throughout this subsection, a \emph{subtree} means a connected subgraph
+of a tree. Whenever we extract a subtree $T'$ from a given tree $T$,
+we may count the \emph{original leaves} of $T$ that it contains.
+This distinction is useful because a vertex that was not a leaf of $T$
+may become a leaf after cutting edges. A single original leaf, viewed
+as a one-vertex subtree, counts as one original leaf.
 
+\begin{claim}
+  \label{claim:tree_separator}
+  Let $T=(V,E)$ be a tree with $m>3$ leaves and $\tau$ edges. Then
+  there is a subtree with $m'\in[\frac13 m,\frac23 m]$ leaves and at most
+  $\frac{m'}{m}\tau$ edges. Moreover, its leaves can be chosen to be
+  leaves of the original tree $T$.
+\end{claim}
 
-  \begin{claim}
-    \label{claim:tree_separator}
-    Let $T = (V,E)$ be a tree with $m > 3$ leaves and $\tau$ edges, then it has a subtree with $m^{\prime} \in ( \frac{1}{3}m, \frac{2}{3}m)$ leaves and at most $ \frac{m^{\prime}}{m} \tau$ edges. 
-  \end{claim}
-  \begin{proof}
-Order the vertices according to their heights. Denote by $v \in V$ the lowest vertex for which the subtree rooted at $v$ has at least $\frac{1}{3}m$ leaves. Now, denote by $T_{1}$ the subtree obtained through the following iterative process over $v$'s children:
-\begin{enumerate}
-  \item Initialize $T_{1}$ as the subtree rooted at $v$.
-  \item For a child $u$ of $v$:
-    \begin{enumerate}
-      \item Check if erasing from $T_{1}$ the subtree rooted at $u$ doesn't decrease the number of leaves below $\frac{1}{3}m$. If so, then we update $T_{1}$ to be the result of the erasure.
-    \end{enumerate}
-\end{enumerate}
-Clearly, the algorithm is defined such that $ T_{1} $ has to have at least $\frac{m}{3}$ leaves. Furthermore, since any child of $ v $ is a root of a subtree with fewer than $\frac{m}{3}$ leaves (otherwise we get a contradiction to the minimality of $ v $'s height), we have that if $ T_{1} $ would have more than $\frac{2}{3}m$ leaves, then the subtraction of any of its children would yield a tree with at least $\frac{2}{3}m - \frac{1}{3}m = \frac{1}{3}m$ leaves. Namely, $ v $ has in $ T_{1} $ a child $ u $ such that the subtraction of the subtree rooted at $ u $ from $ T_{1} $ results in a subtree with more than $\frac{1}{3}m$ leaves. But if indeed there were such a child, then the algorithm would erase it, so there is not. 
-
-
-Now let $T_{2} = T/T_{1} \cup {v}$, namly the tree induced by the subtraction of $T_{1}$'s edges from $T$. Observes that since the summation of leaves in $T_{1}$ and $T_{2}$ is the leaves in $T$, and $T_{1}$ has no more than $\frac{2}{3}m$ leaves, and no less than $\frac{1}{3}$ leaves, it holds that the number of leaves in $T_{2}$ is also in the range $(\frac{1}{3}m, \frac{2}{3}m)$. We claim that at least one of the  subtrees has fewer than $\frac{m^{\prime}}{m} \tau$ edges. 
-
-To see this, denote by $m_{1},m_{2}$ and by $ \tau_{1}, \tau_{2} $ the leaves and the edges in $T_{1},T_{2}$ respectively. Now:
-\begin{equation*}
-  \begin{split}
-    \frac{\tau}{m} &= \frac{\tau_{1} + \tau_{2} }{m_{1} + m_{2}} =  \frac{m_{1} }{m_{1} + m_{2}} \frac{\tau_{1} }{m_{1}}  + \frac{m_{2} }{m_{1} + m_{2}} \frac{\tau_{2} }{m_{2}} 
-  \end{split}
-\end{equation*}
-Namely, $\frac{\tau}{m}$ is a weighted average of $\frac{\tau_{1}}{m_{1}}$ and $\frac{\tau_{2}}{m_{2}}$, and therefore it is greater than their minimum. Peak the subtree with the minimal quotient.
-  \end{proof}
-By repeating recursively on the above construction, we get the following corollary:
-  \begin{corollary}
-Let $T = (V,E)$ be a tree with $m$ leaves and $\tau$ edges. Then, for any $\alpha > 0$, it has a subtree with $m^{\prime} \in \left( \frac{1}{3}\alpha m, \frac{2}{3} \alpha m \right)$ leaves and at most $\frac{m^{\prime}}{m} \tau$ edges.
-  \end{corollary}
-
-  \begin{claim}
-    \label{claim:big_subtree}
-Let $\gamma, \beta \in \mathbb{R}_{>0}$ and $n$ be a positive integer. For any tree $T$ with $\tau \ge \beta n$ edges and $m$ leaves such that $\tau \le \gamma m$, there is a subtree $T^{\prime}$ of $T$ with a number of edges $\tau^{\prime}$ less than $\frac{\beta}{2}n$ and a number of leaves greater than $\frac{\beta}{4\gamma} n$.
-  \end{claim}
 \begin{proof}
-Since the construction of \cref{claim:tree_separator} preserves the ratio of edges to leaves, we have that for a $T^{\prime}$ obtained using the construction, the number of edges satisfies $\tau^{\prime} \le \gamma m^{\prime}$. So, it's enough to look for the maximal $\alpha$ such that:
-    \begin{equation*}
-      \begin{split}
-        \gamma m^{\prime}  \le \gamma \frac{2}{3}\alpha m \le \frac{\beta}{2} n \Rightarrow \alpha  = \frac{3 \beta}{4\gamma} \frac{n}{m} 
-      \end{split}
-    \end{equation*}
-    Which gives $m^{\prime} \ge \frac{1}{3}\alpha m = \frac{\beta}{4\gamma} n$.
+  Assign weight $1$ to every leaf of $T$ and weight $0$ to every other
+  vertex. There is a vertex $v$ such that every connected component of
+  $T-v$ contains at most $m/2$ leaves: starting at any vertex, move
+  towards a component containing more than $m/2$ leaves, if such a
+  component exists. A move cannot immediately be reversed, since the
+  component on the opposite side then contains fewer than $m/2$ leaves.
+  Thus the procedure terminates at the desired vertex.
 
+  Let $a_1,\ldots,a_q$ be the numbers of original leaves in the
+  components of $T-v$. They are positive integers, sum to $m$, and
+  satisfy $a_i\le m/2$. We can divide these components into two
+  nonempty groups, each containing between $m/3$ and $2m/3$ original
+  leaves. Indeed, if some $a_i\ge m/3$, take that component as the
+  first group. Otherwise, add components to the first group until its
+  leaf count first reaches $m/3$; because each summand is smaller than
+  $m/3$, the resulting count is smaller than $2m/3$.
+
+  Form two connected subgraphs $T_1,T_2$ by adjoining $v$ to the
+  components in the respective groups. Their edge sets partition
+  $E$, and their sets of original leaves partition the $m$ leaves of
+  $T$. Write $\tau_i=|E(T_i)|$ and let $m_i$ count their original
+  leaves. Then
+  \[
+    \tau_1+\tau_2=\tau,\qquad m_1+m_2=m,
+    \qquad \frac{m}{3}\le m_i\le\frac{2m}{3}.
+  \]
+  At least one of the two subgraphs, say $T_i$, satisfies
+  \[
+    \frac{\tau_i}{m_i}\le\frac{\tau}{m},
+  \]
+  because $\tau/m$ is the $m_i/m$-weighted average of the two ratios.
+
+  Finally, replace $T_i$ by the minimal connected subtree spanning
+  its $m_i$ original leaves. This can only delete edges and cannot
+  delete any of those original leaves. Since $m_i\ge m/3>1$, this
+  minimal subtree has exactly those $m_i$ vertices as its leaves.
+  It therefore satisfies the asserted leaf and edge bounds.
+\end{proof}
+
+The following scale-selection version is sometimes useful.
+\begin{corollary}
+  Let $T=(V,E)$ be a tree with $m$ leaves and $\tau$ edges. For every
+  real number $s$ with $1\le s\le m$, there is a subtree containing
+  $m'$ original leaves such that
+  \[
+    \frac{s}{3}<m'\le s,
+    \qquad \tau'\le\frac{m'}{m}\tau,
+  \]
+  where $\tau'$ denotes its number of edges.
+\end{corollary}
+
+\begin{proof}
+  If $1\le s<3$, take a one-vertex subtree consisting of any
+  original leaf; then $m'=1$ and $\tau'=0$.
+  Otherwise, repeatedly apply \cref{claim:tree_separator}, always
+  retaining a subtree with at most the same edge-to-leaf ratio, until
+  its number of leaves first becomes at most $s$. The construction
+  applies as long as the current number of leaves exceeds $s\ge3$.
+  If no step is needed, $m'=m=s$ (since $s\le m$). Otherwise, the
+  preceding subtree had more than $s$ leaves and the final one has at
+  least one third as many, so $m'>s/3$. In either case $m'\le s$,
+  and the edge-to-leaf ratio never increases.
+\end{proof}
+
+\begin{claim}
+  \label{claim:big_subtree}
+  Let $\gamma,\beta\in\mathbb{R}_{>0}$ and let $n$ be a positive
+  integer. For any tree $T$ with $\tau\ge\beta n$ edges and $m$ leaves
+  such that $\tau\le\gamma m$, there is a subtree $T'$ of $T$ with a
+  number of edges $\tau'<\frac{\beta}{2}n$ and a number of leaves
+  $m'\ge\frac{\beta}{4\gamma}n$. The counted leaves of $T'$ can be
+  chosen among the original leaves of $T$.
+\end{claim}
+
+\begin{proof}
+  Fix a closed depth-first traversal of $T$, starting at an original
+  leaf and crossing every edge exactly twice. It is a cyclic walk of
+  length $2\tau$ in which each of the $m$ original leaves occurs
+  exactly once among the $2\tau$ cyclic vertex positions.
+
+  Put $b=\beta n$ and $\ell=\lceil b/2\rceil-1$. Since $b>0$, we have
+  $\ell\ge0$ and $\ell<b/2$. Consider all $2\tau$ cyclic segments
+  consisting of $\ell$ consecutive steps of this traversal. Each
+  contains $\ell+1$ consecutive vertex positions. By double counting,
+  the average number of original-leaf occurrences in such a segment is
+  \[
+    \frac{m(\ell+1)}{2\tau}
+    =\frac{m\lceil b/2\rceil}{2\tau}
+    \ge\frac{mb}{4\tau}
+    \ge\frac{b}{4\gamma}.
+  \]
+  Thus some segment visits at least $b/(4\gamma)$ distinct original
+  leaves. The union of the edges traversed by this segment is a
+  connected subtree $T'$ containing those leaves and having at most
+  $\ell<b/2$ edges, as required. (When $\ell=0$, use the single
+  visited vertex, which is an original leaf.)
 \end{proof}

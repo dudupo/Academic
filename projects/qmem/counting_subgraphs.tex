@@ -1,27 +1,36 @@
+\subsection{Counting Subtrees}
 
-   \subsection{Counting Subtrees.} 
+\begin{claim}
+  \label{claim:counting_trees}
+  Let $G=(V,E)$ be a $(\Delta+1)$-regular graph, and let $k$ be an
+  integer less than $|E|$. Fix a vertex $r\in V$. There is a constant
+  $\alpha$, depending only on $\Delta$, such that the number of
+  \emph{connected} subgraphs containing $r$ and having fewer than $k$
+  edges is at most $\alpha^k$.
+\end{claim}
 
-  \begin{claim}
-    \label{claim:counting_trees}
-Let $G = \left( V, E \right)$ be a $\Delta + 1$-regular graph, and let $k$ be an integer less than $|E|$. Fix a vertex $r \in V$. There is a constant number $\alpha$, depending only on $\Delta$, such that the number of subgraphs rooted at $r$ with fewer than $k$ edges is at most $\alpha^{k}$.
-  \end{claim}
+\begin{proof}
+  If $k\le 0$, there are no such subgraphs, so the claim is immediate.
+  Set $d=\Delta+1$. For each connected subgraph $H$ containing $r$ and
+  having exactly $j$ edges, duplicate every edge of $H$. The resulting
+  connected multigraph has even degrees, and hence admits an Eulerian
+  circuit starting at $r$. This circuit induces a closed walk of length
+  $2j$ in $G$ that traverses precisely the edges of $H$ (each twice).
 
+  Fix an ordering of the edges of $G$ and choose, for each $H$, one such
+  walk deterministically, for example the lexicographically first one.
+  The correspondence is injective: from the selected walk we recover
+  $H$ as the subgraph consisting of all edges traversed by the walk,
+  together with $r$ in the case $j=0$.
 
-  \begin{proof}
-    Denote by $T_{\Delta}$ and $T_{2}$ the infinity $\Delta$ and binary tress. There is an injection between the subtrees of $G$, rooted at $v$, with at most $k$ edges, to the subtrees of $T_{\Delta}$ rooted at $v$, with at most $k$ edges. Moreover, there is an injection from the subtrees of $T_{\Delta}$ rooted at $v$, with at most $k$ edges to the subtrees of $T_{2}$, rooted at $v$, with at most $k \log \Delta$ edges. The injection is obtained by replacing each of the vertex with a (complete) binary tree over $\Delta-1$-leaves, each leaf is associated with a outgoing edge of the original vertex. 
-
-    Thus, it's enough to bound the number of of subtrees in $T_{2}$ rooted at $v$, with at most $ k \log \Delta $ edges, that number is less than the number of binary tress with $k \log \Delta + 1$ leaves. For exact leaves number we get the $k \log \Delta$ Catalan number, which its limit is:   
-    \begin{equation*}
-      \begin{split}
-          \sim \frac{4^{k \log \Delta}}{\left( k \log \Delta \right)^{\frac{3}{2}} \sqrt{\pi} } \le \frac{\Delta^{2k}}{\left( k \log \Delta \right)^{\frac{3}{2}} \sqrt{\pi} } 
-      \end{split}
-    \end{equation*}
-    Therefore we can bound by:
-    \begin{equation*}
-      \begin{split}
-        \sum_{j=1}^{k} \frac{\Delta^{2j}}{\left( j \log \Delta \right)^{\frac{3}{2}} \sqrt{\pi} }  \le \frac{\Delta^{2k}}{\sqrt{\pi}\log^{\frac{3}{2}} \Delta}\sum_{j=1}^{k} \frac{1}{ j^{\frac{3}{2}} }  \le \zeta (\frac{3}{2}) \cdot \frac{\Delta^{2k}}{\sqrt{\pi}\log^{\frac{3}{2}} \Delta}
-      \end{split}
-    \end{equation*}
-
-  \end{proof}
-
+  Since every vertex has degree $d$, there are at most $d^{2j}$ walks
+  of length $2j$ starting at $r$. Consequently, the required number
+  of subgraphs is at most
+  \[
+    \sum_{j=0}^{k-1}d^{2j}
+    \le \sum_{j=0}^{k-1}(d+1)^{2j}
+    \le (d+1)^{2k}.
+  \]
+  Thus one may take $\alpha=(\Delta+2)^2$, which depends only on
+  $\Delta$.
+\end{proof}
