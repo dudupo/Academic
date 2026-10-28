@@ -1,0 +1,31 @@
+\section{Notations and Preliminaries}\label{sec:nota}
+
+\paragraph{Sets and indices.}
+For a positive integer $n$, let $[n]=\{1,2,\ldots,n\}$. We write $|A|$ for the cardinality of a set $A$, and $\mathbf{1}_i$ for the vector with a one in coordinate $i$ and zeros elsewhere. An indexed family is written $\{u_i\}_{i=1}^k$ (or $\{u_i\}_{i=1}$ when the upper limit is not relevant); we omit an index range when it is understood. We use $\{a:\,a\in A,\,a\in B\}$ for the intersection $A\cap B$.
+
+When a set of directions $S$ is fixed, we use the following shorthand for its subsets:
+\begin{equation*}
+  S'/g := S'\setminus\{g\},\qquad
+  S/S' := S\setminus S',\qquad
+  S'\cup g := S'\cup\{g\}.
+\end{equation*}
+In particular, $S/g=S\setminus\{g\}$. Products of elements of an abelian group are written multiplicatively; for a subset $J$ of commuting generators, $Jv$ means $(\prod_{g\in J}g)v$. These conventions are used in the definition of the cubical Toric complex and in the subsequent local arguments.
+
+\paragraph{Chains and restrictions.}
+For a set $\mathcal F$ of cells, $(\mathcal F;\mathbb F_2)$ denotes the $\mathbb F_2$-vector space of \emph{finite formal sums} of cells in $\mathcal F$; if $\mathcal F$ is finite, this is naturally $\mathbb F_2^{\mathcal F}\cong\mathbb F_2^{|\mathcal F|}$. We identify a cell with its corresponding basis chain when no confusion arises. The support of a chain is the collection of cells with nonzero coefficients. We use $f\in z$ for a cell in the support of a chain $z$ when $f$ has the same dimension as $z$, and also use the customary incidence notation for lower-dimensional faces of supported cells; in particular, $v\in z$ means that a vertex $v$ belongs to some cell supporting $z$. The cubical boundary and coboundary operators are written $\partial^{-}$ and $\partial^{+}$, respectively, and are defined in \Cref{def:asontoric}.
+
+The notation $z|_D$ denotes restriction of a chain or assignment $z$ to the specified set of coordinates $D$. When $D$ denotes a vertex, a local face family, or the positive faces of a vertex, the precise restriction is specified by its type. In particular, the vertex restrictions $|_v$ and $|_{v+}$ are defined in \Cref{def:asontoric}; $z|_{/v}$ denotes the complementary restriction $z+z|_v$ (addition is over $\mathbb F_2$). These conventions also apply to finite-support chains on the infinite covering lattice.
+
+\paragraph{Quantum notation.}
+Unless stated otherwise, all quantum systems consist of qubits. We write $\mathcal H_2$ for the one-qubit Hilbert space, $\mathcal H_{2^n}=\mathcal H_2^{\otimes n}$ for $n$ qubits, and $L(\mathcal H)$ for the linear operators on $\mathcal H$. Pure states are denoted by $\ket\psi$ and $\bra\psi$; the corresponding density operator is $\ket\psi\!\bra\psi$, and $\rho$ usually denotes a general density operator. If $A$ is an operation, $A\circ\rho$ denotes its action on $\rho$; for a unitary $A$, this is $A\rho A^\dagger$.
+
+The letters $X$ and $Z$ usually denote the single-qubit Pauli matrices. We write $\mathcal P^{\otimes n}$ for the $n$-qubit Pauli group and omit the superscript when its size is clear. For $P\in\mathcal P^{\otimes n}$, the $X$- and $Z$-components are denoted $X(P)$ and $Z(P)$, respectively, so that $P=X(P)Z(P)$ up to an overall phase. We denote controlled-NOT and controlled-$Z$ by $\mathbf{CX}$ and $\mathbf{CZ}$, and the single-qubit gates by
+\begin{equation*}
+ \mathbf H=\frac{1}{\sqrt 2}\begin{bmatrix}1&1\\1&-1\end{bmatrix},\qquad
+ \mathbf S=\begin{bmatrix}1&0\\0&i\end{bmatrix},\qquad
+ \mathbf T=\begin{bmatrix}1&0\\0&e^{i\pi/4}\end{bmatrix}.
+\end{equation*}
+For a gate $U$, $\ket U$ denotes a resource state used in its gate-teleportation implementation; such a state need not be unique. We write $\prb{A}$ for the probability of an event $A$. For group elements $g_1,\ldots,g_\ell$, $\langle g_1,\ldots,g_\ell\rangle$ is the subgroup they generate.
+
+\paragraph{CSS codes.}
+We use the standard conventions for CSS codes \cite{Calderbank_1996,Steane_1996}. For a linear subspace $A\subseteq\mathbb F_2^n$, $\ket A:=|A|^{-1/2}\sum_{a\in A}\ket a$. A CSS code is specified by linear spaces $\mathcal C_X,\mathcal C_Z\subseteq\mathbb F_2^n$ satisfying $\mathcal C_Z^\perp\subseteq\mathcal C_X$; its $Z$-stabilizer vectors constitute $\mathcal C_Z^\perp$, and its computational-basis logical labels lie in $\mathcal C_X/\mathcal C_Z^\perp$. In particular, the logical zero is $\ket{\mathcal C_Z^\perp}$. We write $x_1\sim_{\mathcal C_X}x_2$ when $x_1+x_2\in\mathcal C_Z^\perp$, and analogously define $\sim_{\mathcal C_Z}$ with the roles of $X$ and $Z$ interchanged.

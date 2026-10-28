@@ -1,0 +1,238 @@
+
+
+ \subsection{Space-Time Graph}
+  \label{subsection:spacetimegraph}  
+  Several properties of Toom's contours follow from their directed space--time structure, independently of the underlying Toric complex. We isolate these properties using \emph{space--time graphs}, whose edges are partitioned into arrows and forks. 
+  
+  Here, we present the results and proofs first given by Berman and Simon \cite{Berman} and later by Gacs \cite{gacs2021newversiontoomsproof} about \textit{space-time graphs}. Although the proofs we give are almost identical, we choose to present them rather than referring to the sources. The reason for this is that in the formulations in \cite{Berman} and \cite{gacs2021newversiontoomsproof}, vertices are bits\footnote{It is also true that the gates are different, yet that difference alone does not constitute a conceptual change.}, so conceptually their Toom's contours track different objects. Thus, jumping into their text while keeping our image in mind might cause confusion, which we would like to avoid.
+
+
+  \begin{definition}
+    Consider a graph $G = (V, A, F)$, where $V$ is a set of vertices, and $A$ and $F$ are sets of undirected edges. 
+    Let $ T \colon V \rightarrow \mathbb{N}$, We say that $(G,T)$ is a space-time graph if and only if:
+\begin{enumerate}
+  \item $\{x,y\} \in A \Rightarrow \Time{y} = \Time{x} \pm 1$  
+  \item For $x,y \in V $  $\{x,y\} \in F $ if and only if there exists $z \in V $ such both $\{x,z\},\{y,z\} \in A$, and $\Time{x} = \Time{y} = \Time{z}-1$. 
+\end{enumerate} 
+Additionally, for any vertex $v \in V$ of the space-time graph, denote by $\pre{v}$ the set of vertices defined as follows: 
+    \begin{equation*}
+      \begin{split}
+\pre{v} \colonequals \{ u \in V \colon \{u,v\} \in A \text{ and } \Time{v} = \Time{u} + 1 \}
+      \end{split}
+    \end{equation*}
+We extend the notion for subsets of vertices $X \subset V$ by $\pre{X} = \bigcup_{v \in X} \pre{v}$. We will call $T$ the time coordinate, $A$ arrows, and $F$ forks. Observe that from the second requirement, it follows that forks can connect only vertices that have the same time value (set by $T$).
+  \end{definition}
+  \begin{remark}
+    The Toom's contour graph defined in \Cref{def:contour} is, by definition of its construction, a space-time graph.
+\end{remark}
+The history of a vertex consists of all the vertices that are connected to it by arrows. Here we allow passing through arrows in both directions, so it might be possible that the history of vertex $u$ contains vertices with the same time coordinate as $u$. That motivates to define \textit{slices}. A \textit{slice} is a (maximal) subset of vertices with the same time coordinate such they share the same history. In \cite{Berman}, slices take the role of error droplets.
+  \begin{definition}[History, Slice]
+    \label{def:slice}
+For a time graph $(G,T)$ and a vertex $u \in V$, let the \textit{history} of $u$, denoted by $H_{u}$, be the restriction of $G$ to vertices that both precede $u$ in time (namely, vertices whose time $\le T(u)$) and connect to $u$ via a path of arrows. A \textit{slice} is a maximal subset of vertices $K \subset V$ such that for any two vertices $u,v \in K$, $\History{u} = \History{v}$ is satisfied. As a consequence, the time coordinate in $K$ has to be constant. Thus, we can extend the time coordinate and the history to slices and write for a slice $K$, $\Time{K}$ and $\History{K}$.
+  \end{definition}
+The following claim ensures us an 'independent' argument about slices. Here we state that two slices with the same time coordinate have to hold disjoint histories. Another way to think about this is that if the first and the second slices are 'induced by $n_{1}$ and $n_{2}$ faults,' then the slice obtained by merging them 'is induced by $n_{1}+n_{2}$ faults.'
+  \begin{claim} 
+    \label{claim:disj}
+    Let $K_{1}, K_{2}$ be two slices such that $\Time{K_1} = \Time{K_2}$, then either $K_{1}=K_{2}$ or $\History{K_1}, \History{K_2}$ are disjoint.
+  \end{claim}
+  \begin{proof}
+Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \History{K_{2}}$ such that for any $x \in K_{1}$ and $y \in K_{2}$, there exist arrow-paths $z \rightarrow x$ and $z \rightarrow y$. Thus, for any $w \in \History{K_{1}}$, one can concatenate a path $w \rightarrow x \rightarrow z \rightarrow y$ and conclude that $y \in \History{K_{2}}$.
+  \end{proof}
+  
+
+Next, we would like to study how slices look a moment before they merge. For this, we define the \textit{graph of a slice}. We construct this graph by taking a slice and considering all the slices that precede it by a single time unit. We take those slices as vertices and connect any two of them that have vertices sharing a fork.
+  \begin{definition}[The Graph of Slice]
+    \label{def:gslice}
+    Let $K$ be a slice. The graph of $K$, denoted by $G_{K} = (V_{K}, E_{K})$, is the graph whose vertices are slices $R \subset \History{K}$ with $\Time{R} = \Time{K} - 1$. Two vertices are connected by an edge if and only if there is a fork whose ends belong to the slices associated with them. Namely, $S, R \in V_{K}$ are connected in $G_{K}$ if and only if there is $\{s, r\} = f \in F$ such that $s \in S$ and $r \in R$.
+  \end{definition}
+
+  
+  The graph of slices is connected. That fact means that a spanning tree of a (subgraph of) a slice's history can be found by combining the spanning trees of its processors. The following gives the proof:
+  \begin{claim}
+    \label{claim:connected}
+    $G_{K}$ is connected. 
+  \end{claim}
+
+  \begin{proof}
+    Let $R, S \in V_{K}$ and consider $r,s \in V$ such that $r \in R, s \in S$. Recall that $R,S \subset \History{K}$ and therefore $r,s \in \History{K}$, Thus, by definition of the 'History' there exists a path, passing through arrows only, from $r$ to $s$ in $\History{K}$.
+    Consider a path that is minimal in the number of vertices with a time coordinate equal to $\Time{K}$; denote that number by $k$. We prove by induction on $k$ that $R$ and $S$ are connected in $G_{K}$.
+
+      \begin{enumerate}
+      \item Base. $k=0$, In this case, any vertex on the path between $r$ and $s$ has an equal or lower time coordinate than $r$ and is also connected to $r$ via a path of arrows, namely belongs to $H_{r}$. In particular, $s$ is also a vertex on the path, and therefore $s \in \History{r}$ $\Rightarrow \History{r} = \History{s}$, so $R = S$.
+      \item Induction step. Since $k > 0 $, there exists a vertex $y$ on the path from $r$ to $s$ such that $\Time{y} = \Time{K}$. Let $x$ be the vertex which precedes $y$ on the path, and $z$ be the vertex that follows $y$. Since the values of $T$ at the two ends of an arrow differ by $1$, and since $y$ gets the maximal $T$ value in $\History{K}$ it follows that: 
+        \begin{enumerate}
+          \item $\{x,z\} \subset \pre{y} \Rightarrow \{x,z\} \in F$. 
+          \item The slices of $x$ and $z$, say $K_{x}$ and $K_{z}$ has time value $\Time{K_{x}} = \Time{K_{z}} = \Time{K} -1$, Namely they are both members of $V_{K}$. 
+        \end{enumerate}
+        Since the path connecting $r,x$ in $\History{K}$ has $k-1$ vertices with $\Time{\cdot} = \Time{K}$, then by the induction hypothesis, $R$ and $K_{x}$ are connected in $G_{K}$, and by similar argument so are $K_{z}$ and $S$. On the other hand, $ \{x,z\} \Rightarrow \{K_{x},K_{z}\} \in E_{K}$. Thus, $R$ and $S$ are connected in $G_{K}$.
+    \end{enumerate}
+  \end{proof}
+  Now, we would like to plug in the fact that the vertices originate from the infinite plane. To do so, we equip slices with poles. The poles are the vertices in the slice, which are the maximal points of potential walls.
+  \begin{definition}[Poles Selection]
+    Let $(G,T)$ be a space--time graph, whose vertices are associated with points in $\mathbb{R}^{d}$. Let $A$ be either a slice, arrow, or a fork in $(G,T)$. We define a poles selection for $A$ to be a selection of $d+1$ vertices, $v_{1},..,v_{d+1}$ , not necessarily distinct, from $A$. The size of $A$ is defined to be:
+    \begin{equation*}
+      \begin{split}
+        \Size{A} \colonequals  \sum_{i=1}^{d+1}  \max_{v\in A} L_{i}(v) 
+      \end{split}
+    \end{equation*} 
+    Thus, for any selection of poles $v_{1},..,v_{d+1}$ we have that: 
+    \begin{equation*}
+      \begin{split}
+        \Size{A} \ge \sum_{i=1}^{d+1} L_i(v_i) 
+      \end{split}
+    \end{equation*} 
+    For a vertex $u$, we define the $i$th predecessor of a $u$, denoted by $\prei{u}$, to be its predecessor which achieves the maximal value of $L_{i}$,  namely:
+    \begin{equation*}
+      \begin{split}
+        \prei{u} \colonequals  \arg \max_{v\in \pre{u}} L_{i}(v) 
+      \end{split}
+    \end{equation*}
+  \end{definition}
+    
+ \paragraph{}  The following claim relates the size of a given slice to the sizes of its predecessor slices.
+  \begin{claim}
+    \label{claim:prevslices}
+Consider a time graph $(G,T)$ whose vertices are associated with points in $\mathbb{R}^{d}$. Let $K$ be a slice in $G$, such that $K \neq \History{K}$. Let $v_{1}, \ldots, v_{d+1}$ be a pole selection for $K$. Then for some integer $k$, there exist $k+1$ slices $K_{0}, K_{1}, \ldots, K_{k}$ and $k$ forks $F_{1}, \ldots, F_{k}$ with pole selections for them that satisfy:
+    \begin{enumerate}
+      \item For any $i \in [d+1]$,  the $i$th predecessor $\prei{v_{i}} $ belongs to the selected poles of $K_{0}, \ldots, K_{k}$.
+      \item Consider the graph whose vertices are associated with $K_{0}, \ldots, K_{k}$, and there is an edge between $K_{i}$ and $K_{j}$ if and only if there is a fork in $F_{1}, \ldots, F_{k}$ that intersects both $K_{i}$'s and $K_{j}$'s selected poles. Then the graph formed from $K_{0}, \ldots, K_{k}$ is connected.
+      \item  For any $j\in [0,k]$, denote by $v_{j}^{1},..,v_{j}^{d+1}$ the selected poles for $K_{j}$, then:  
+        \begin{equation*}
+          \begin{split}
+            \sum_{j=0}^{k}\sum_{i=1}^{d+1}L_{i}(v_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) 
+          \end{split}
+        \end{equation*}
+        
+    \end{enumerate}
+  \end{claim}
+  \begin{proof}
+First, notice that $K$ doesn't contain leaves in $(V,A)$, since a leaf is connected only to itself via arrows, and therefore its 'slice' equals its 'History'. Thus, $\prei{v_{i}}$ is not empty for any $i \in [d+1]$. Next, consider the graph $G_{K} = (V_{K},E_{K})$ from \Cref{def:gslice}. Since $\{ v_{i}, \prei{v_{i}} \}$ is an arrow, $\prei{v_{i}}$ belongs to a slice in $V_{K}$. For $i=1,\ldots,d+1$, denote by $R_{i}$ the slice in $V_{K}$ that contains $\prei{v_i}$.
+
+    By \Cref{claim:connected} $G_{K}$ is connected and therefore there exist a minimal collection $K_{0},..,K_{k}$ of slices form $V_{K}$ which contains $R_{1},R_{2},..R_{d+1}$, and which is connected in $G_{K}$. We pick a set of forks $\mathbf{F} = \{F_{1},..,F_{k} \}$ which realizes a spanning tree for this collection of slices. %
+
+
+   
+    Let us denote by $J_{0},..,J_{2k}$ the enumerated union $K_{0},..K_{k},F_{1},..,F_{k}$. Observes that for any choice of $(d+1)(2k+1)$ elements $z_{0}^{1},z_{0}^{2}, z_{0}^{3},..,z_{0}^{d+1}..,z_{2k}^{d+1}$ in $\mathbb{R}^{d}$, such that $z_{j}^{i} \in J_{j}$ it holds that:
+    \begin{equation}
+      \label{equ:spanlow}
+      \begin{split}
+         \sum_{j=0}^{k}\sum_{i=1}^{d+1}L_{i}(z_{j}^{i}) + \sum^{k}_{i=1}\Size{F_{i}}  \ge \sum_{j,i}L_{i}(z_{j}^{i})
+      \end{split}
+    \end{equation}
+
+Later, we are going to take the points $\{z_{j}^{i}\}$ from the intersection of $J_{j}$'s. For convenience, let us assume that for the index subset $X \subset [2k]\cup\{0\}$, the intersection $\bigcap_{j \in X}J_{j}$ returns a single point. If there is more than one, then decide on the point in a way that all the chosen points simultaneously satisfy that for any index subsets $Y, X$, such that $X \cap Y$ and they both introduce a non-trivial intersection $\bigcap_{j \in Z} J_{j} : Z\in \{X,Y\}$, then:
+    \begin{equation*}
+      \begin{split}
+        \bigcap_{j \in X} J_{j} = \bigcap_{j \in Y } J_{j} 
+      \end{split}
+    \end{equation*}
+
+    
+    Now consider a non-trivial maximal intersection $\bigcap_{j \in X} J_{j}$. The intersection is maximal in the sense that for any $j^{\prime} \notin X$, it holds that $\bigcap_{j \in X\cup \{j^{\prime} \}} J_{j} = \emptyset$. We claim that for any $i$ and for any such $X$, there is $t \in X$ such that $J_{t}$ is the successor of $J_{j}$ on the path to $R_{i}$ for any $j \in X/\{t\}$. Assume not. Let $x, y \in X$, and denote the paths from $J_{x}, J_{y}$ to the $R_{i}$ by $J_{x}, J_{x_2}, \ldots, R_{i}$, and $J_{y}, J_{y_2}, \ldots, R_{i}$, such that $J_{y} \neq J_{x_{2}}$. If $y = x_{2}$, $y_{2} = x$, or $x_{2} = y_{2} \in X$, then pick other $x, y$ (if there is no such, we get an immediate contradiction). In that case, $J_{x}, J_{y}, J_{y_{2}}, \ldots, R_{i}$ is a path from $J_{x}$ to $R_{i}$ which is different from $J_{x}, J_{x_{2}}, \ldots, R_{i}$. Therefore, there are at least two paths from $J_{x}$ to the $R_{i}$, namely, there is a cycle in contradiction to the that the collection $K_{0}, \ldots, K_{k}, F_{1},..,F_{k}$ is a tree.
+
+
+    We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that has not been set yet. If $J_{j} = R_{i}$, then set $z_{j}^{i} \leftarrow \prei{v_{i}}$ - we call this a type-1 assignment. Otherwise, consider the path from $J_{j}$ to $R_{i}$ (by connectivity, it has to be such a one, and by minimality, there is exactly one). Let $J_{t}$ be the successor on the path, then pick $z_{j}^{i} \in J_{j} \cap J_{t}$ - similarly, we call this assignment a type-2 assignment. Since any type-2 assignment is associated with a non-trivial intersection, and any non-trivial intersection induces a type-2 assignment for all $i$'s (since for all $i$'s, one of the $J_{j}$ on its support is a successor of the rest on their path to the $R_{i}$), we have that:
+    \begin{equation}
+      \label{equ:span}
+      \begin{split}
+        \sum_{j,i}L_{i}(z_{j}^{i}) &= \sum_{j,i, z_{j}^{i} \in \text{type-1}}L_{i}(z_{j}^{i}) + \sum_{j,i, z_{j}^{i} \in \text{type-2}}L_{i}(z_{j}^{i}) \\
+        &= \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) + \sum_{X \colon \bigcap_{j\in X}J_{j} \neq \emptyset }\left(|X|-1\right) \sum_{i=1}^{d+1} L_{i}\left(\bigcap_{j\in X}J_{j} \right) \\ 
+        &=\sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) 
+      \end{split}
+    \end{equation}
+To complete, we select the $i$th pole of $K_{j}$ to be $z^{i}_{j}$. Then, for $i=1,\ldots,d+1$, the $i$th predecessor $\prei{v_{i}}$ is the $i$th pole of $R_{i}$. This assures (1). Since for any intersection $K_{i}\cap F_{j}$ a type-2 assignment is picked from the intersection to $K_{i}$, we have that the type-2 selected poles of $K_{0},K_{1},\ldots,K_{k}$ are covered by the vertices of $F_{1},F_{2},\ldots,F_{k}$. This assures (ii). Plugging \Cref{equ:span} into \Cref{equ:spanlow} assures (3).
+  \end{proof}
+
+
+
+Until now, the claims stated were true for any kind of space-time graph (where their vertices can be associated with coordinates in $\mathbb{R}^{d}$). The next claims assume that the given time graph is a Toom's contour induced by the noisy running of a Toric encoded circuit.
+
+\begin{claim}
+  \label{claim:maxfork}
+  For Toom's contours, the maximal size of a fork is at most $2d$.
+\end{claim}
+\begin{proof}
+Consider the rules of forks connecting in \Cref{def:contour}. For forks obtained by rules (a), (b), or as a result of a fault, it's clear that their vertices at their ends are on intersecting faces (when projecting the vertices on $\mathcal{G}$). The maximal fork, in those cases, has the form of:
+  \begin{equation*}
+    \begin{split}
+   F =  \bigl\{ v , \bigl( \prod_{g \in S^{\prime}_{1}} g\bigr) \bigl(  \prod_{g \in S^{\prime}_{2}} g \bigr) v    \bigr\}
+    \end{split}
+  \end{equation*}
+Where $S^{\prime}_{1}$ and $S^{\prime}_{2}$ are subsets of $S$ of size either $d^{\prime}$ or $d - d^{\prime}$, and therefore the size of such forks is at most $\Size{F} = 2 \max \{ d^{\prime}, d - d^{\prime} \} \le 2d$.
+\end{proof}
+
+
+
+While in the construction presented in \cite{Berman}, all the layers were the same (consisting of the same gates up to wiring), here different layers might differ both in realization and role. Thus, we would like to distinguish between them. We will define the \textit{predecessor decomposition} of a slice to be the collection of slices and forks which satisfy the condition in \Cref{claim:prevslices}. The order of a slice is a number in $\{0,1,2,3\}$ that matches the time modulo four of the layer that results in the slice. Therefore, it encodes the layer type.
+
+    
+
+  \begin{definition}
+    Let $K$ be a slice, and let $v_{1}, \ldots, v_{d+1}$ be a selection of poles for it. Then, let $K_{0}, \ldots, K_{k}$ be slices in $H_{K}$, and let $F_{1}, \ldots, F_{k}$ be forks, such that $K_{0}, \ldots, K_{k},$ $F_{1}, \ldots, F_{k}$ satisfy the conditions in \Cref{claim:prevslices} with respect to the poles selection. We call $K_{0}, \ldots, K_{k},$ $F_{1}, \ldots, F_{k}$ the \textit{predecessor decomposition} of $K$ \textit{with respect to the pole selection} $v_{1}, \ldots, v_{d+1}$. When the pole selection is either clear from the context or can be chosen arbitrarily, we will omit it.
+  
+    Furthermore, we say that $K$ is a result of a \textit{sweep-cycle}, \textit{faults}, or a \textit{logical operation} if the layer at time $T(K) - 1$ consists of sweep-cycle gates, fault gates (whose source is $\mathcal{E}$), or either measurement or logical Pauli. The \textit{order} of the slice is its time plus $3$ modulo $4$, namely $\text{order}(K) = T(K) + 3 \mod 4$. So the orders of slices that result from a sweep-cycle, faults, logical operation, and again faults are $0, 1, 2, 3$ respectively.
+  \end{definition}
+The distinction between slices resulting from different layers allows us to adjust \Cref{claim:prevslices} by conditioning on the slice type. Yet, before doing so, we will have to extend the infinity characterization to slices.
+
+
+
+  \begin{corollary}
+    \label{claim:shrinkslice}
+Consider a slice $K$ in it, and a selection of poles $v_{1}, \ldots, v_{d+1}$, such that $K \neq H_{K}$. Since $K \neq H_{K}$, it follows that $K$ has a predecessor decomposition with respect to $v_{1}, \ldots, v_{d+1}$, denoted by $K_{0}, \ldots, K_{k}, F_{1}, \ldots, F_{k}$. For each slice $K_{j}$, denote its selected poles by $z_{j}^{1}, \ldots, z_{j}^{d+1}$. The inequality in \Cref{claim:prevslices} becomes:
+    \begin{enumerate}
+      \item If $K$ is a result of a sweep-cycle, then:
+        \begin{equation*}
+          \begin{split}
+            \sum_{j=0}^{k}\sum_{i=1}^{d+1} L_{i}(z_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}(v_i) + 1
+          \end{split}
+        \end{equation*}
+          \item If $K$ is a result of either faults or a logical operation, then: 
+        \begin{equation*}
+          \begin{split}
+            \sum_{j=0}^{k}\sum_{i=1}^{d+1} L_{i}(z_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}(v_i)   
+          \end{split}
+        \end{equation*}
+      \end{enumerate}
+  \end{corollary}
+  \begin{proof}
+ Let us split upon what $K$ results from:
+    \begin{enumerate}
+      \item For the sweep-cycle part, we use \Cref{claim:polesmove} and \Cref{claim:sweepface}. The first states that within an application of the sweep-cycle over a chain, the maximal $L_{d+1}$ value of the $\partial^{-}$-boundary of the resulting chain decreases by at least one, while the values of each $L_{g}$ do not increase. The second assures that for any local maximum of $L_{i}$ in the resulting $\partial^{-}$-boundary, there is a vertex in the $\partial^{-}$-boundary of the original such that they (1) share a $d^{\prime}$-dimensional face and (2) the $L_{i}$-value of the vertex in the result is at most the $L_{i}$-value of the vertex in the original, where if $i=d+1$, the relation becomes strictly less. Thus, prior to forming the spanning tree of the predecessor slices, for every $v_{i}$ in $v_{1},..,v_{d+1}$ we select a vertex $\prei{v_{i}}$ that has either at most the same $L_{i}$-value as $v_{i}$ if $i\neq d+1$ or an $L_{d+1}$-value that is bigger by at least $1$. That gives the inequality.
+        
+      \item If $K$ is a result of faults, then it cannot contain a vertex that supports a fault. That is because no arrow connection is made in that case, and hence, if it were to contain a vertex that supports a fault, that vertex would be the only one in $K$, namely $K = H_{K}$. So, we can imagine that all the vertices in $K$ support the identity operator and handle that case as a result of a logical operator.
+      \item Where $K$ is the result of a logical operator, we use the observation that a pure logical operator doesn't change the slices (with the exception that the measurement in the phase-basis switches the vertex types, namely $\{X\} \leftrightarrow \{Z\}$, of part of the vertices in the slice, see \Cref{claim:paulipropcon}). So we have that the support of $K$ is contained (up to vertices' types) in the support of $\cup_{0}^{k} K_{i}$, and therefore for any $i \in [d+1]$:
+        \begin{equation*}
+          \begin{split}
+            \max \bigl\{ L_{i}(v) : v \in K \} \le \max \bigl\{ L_{i}(v) : v \in \bigcup_{j=0}^{k}K_{j} \} 
+          \end{split}
+        \end{equation*}
+    \end{enumerate}
+  \end{proof}
+
+  
+  The following claim extends the corollary to slices at the final layer of an \textit{analysis Toom's contour up to step $\tau$}. 
+  \begin{claim}
+    \label{claim:shrinkan}
+For a step $\tau$  let $\mathcal{H}_{\tau}$ be Toom's contour analysis up to step $\tau$. Denote by $t$ the time at which the gate at step $\tau$ is applied. Then, for a slice $K$ and selection for its poles $v_{1}, \ldots, v_{d+1}$ such that $T(K) = t+1$ and $K \neq H_{K}$, the inequality in \Cref{claim:prevslices} becomes:
+        \begin{equation*}
+          \begin{split}
+            \sum_{j=0}^{k}\sum_{i=1}^{d+1} L_{i}(z_{j}^{i}) +  \sum^{k}_{i=1}\Size{F_{i}} \ge \sum_{i=1}^{d+1}L_{i}(v_i) - 2d 
+          \end{split}
+        \end{equation*}
+  \end{claim}
+  \begin{proof}
+We allow vertices of $V_{\mathcal{H},X}$ at the final time layer to be connected by an arrow if their counterpart on the skeleton shares a $d^{\prime}-1$ dimensional face. Similarly, two vertices of $V_{\mathcal{H}, Z}$, such that one of them is at the top layer, are connected if their images in the map $\phi^{-1}$ share a $d-d^{\prime}-1$ dimensional face. Therefore, for any $i \in [d]$, the value of $L_{i}$ for $v_{i}$ might be greater by at most 1 than the value of $\prei{v_{i}}$, and the $L_{d+1}$ for $v_{d+1}$ might be greater by at most $\max\{ d^{\prime} - 1, d - d^{\prime} - 1 \}$ than the value of the $d+1$ pole of $K$. Hence, overall, we get that:
+    \begin{equation*}
+      \begin{split}
+        \sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) & \ge \sum_{i=1}^{d}\bigl( L_{i}\left( v_{i} \right) - 1 \bigr) + L_{d+1}(v_{d+1}) - \max\{ d^{\prime} - 1, d - d^{\prime}-1\}  \\ 
+        & \ge  \Size{K} - 2d
+      \end{split}
+    \end{equation*}
+  \end{proof}
+
+
+
+
+
+
+

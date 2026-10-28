@@ -1,0 +1,88 @@
+
+
+\section{The Sweep-rule is Itself a Decoder}
+The role of the sweep rule in the fault tolerance construction is to restrain the errors in the system rather than erase them. Here, we show that it can also be used as a decoder. Concurrently, if the initial error is distributed according to local stochastic noise, then the excitation of noiseless sweep-cycles for $n^{d+1}$ times - the number of vertices times the side's length - erases the errors, with high probability. 
+
+
+
+
+
+The following claim states that an ideal run (not subject to noise) of $n^{d+1}$ sweep-cycles, with the additional assumption that no slice has reached a size greater than $n$, succeeds in erasing the syndrome.
+\begin{claim}
+  \label{claim:decodestopnoise}
+  Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code with side length $n$, and let $P \in \mathcal{P}^{(\cdot)}$. Let $C$ be the quantum circuit that takes $P\ket{\psi}$ as an input and performs over it $n^{d+1}$ sweep-cycles. For a possible measurement outcome $\alpha \in \mathbb{F}_{2}^{(\cdot)}$ (of stabilizer measurements), consider the Toom's contour $\mathcal{H}$ induced by $C[,\alpha]$. Assume that no slice of $\mathcal{H}$ has size greater than $n$. Then, at the end of the running of $C[,\alpha]$, the syndrome is erased.
+\end{claim}
+\begin{proof}
+  We will prove that the decoder erases the $\partial^{-}$-boundary corresponding to the $X$-component of $P$, and the proof for the $Z$-component is identical. Let $P^{\infty}$ be the $\infty$-lift of $P$ and let $v_{1}, v_{2}, \ldots$ be the vertices supporting the faces of $\partial^{-}x(P^{\infty})$. During the ideal computation, no new faults are introduced, and therefore $v_{1}, v_{2} \ldots$ are the only leaves in the induced Toom's contour. Without loss of generality, assume that the first $m$ vertices $v_{1},..,v_{m}$ align with the vertices of the finite Toric (namely non-translated vertices), denote them by $V^{\prime}$. 
+
+  
+  They set a natural relation over its slices as follows: two slices $K_{1}$ and $K_{2}$, not necessarily with the same time coordinate, will be said to be \textit{history-related}, $K_{1}\sim K_{2}$, if there are leaves $u, w$ such that both $u$ and $w$ are translations of a vertex $v_{i} \in V^{\prime}$ and $u, w$ belong to the histories of $K_{1}, K_{2}$ respectively.
+  Thus, for a time $t$ and a leaf $v \in V^{\prime}$, we can define the notation $K_{v,t}$ to be the slice at time $t$ that is reached from leaf $v$ by arrows. We emphasize that $\sim$ is not an equivalence relation, since it doesn't satisfy transitivity. Yet, let us match slices to 'classes' when the map is many-to-many. Here, a class is a grouping of translations of slices which are all history-related. For a vertex $v \in V^{\prime}$, the delegate of the slices reached from vertex $v$ and its translations, namely the translations of slices $\{ K_{v,t} : t \}$, will be denoted by $\mathbf{K}_{v}$. Proving that at the end of time $n^{d+1}$, for any leaf $v$, the slice $K_{v,t}$ is empty, or equivalently is of size zero, and therefore its translations, implies the correctness of the claim.
+
+
+  For proving this, let us present the following terminology. For leaves $v,u,w$, and a time coordinate $t$, consider the following: 
+  \begin{enumerate}
+    \item Suppose that $K_{v,t}$ and $K_{u,t+1}$ are slices at times $t$ and $t+1$, such $K_{v,t}\sim K_{u,t+1}$. If $\Size{K_{u,t+1}} > \Size{K_{v,t}}$, we will say that the class $\mathbf{K}_{v}$ grows at time $t$. Similarly, if $\Size{K_{u,t+1}} < \Size{K_{v,t}}$, then we will say that class $\mathbf{K}_{v}$ shrank at time $t$.
+    \item Suppose that $K_{v,t}$ and $K_{u,t}$ are slices at time $t$, and $K_{w,t+1}$ is a slice at time $t+1$, such that $K_{v,t}\not\sim K_{u,t}$, $K_{w,t+1}\sim K_{v,t}$, and $K_{w,t+1}\sim K_{u,t}$. Then we will say that $\textbf{K}_{v}$ and $\textbf{K}_{u}$ merged at time $t$.
+    \item The size of a class $\mathbf{K}_{v}$ at time $t$ is $\Size{K_{v,t}}$.
+  \end{enumerate}
+  Since no new faults are introduced during the computation, we have that in each step, the only option for a class to grow is by merging. Notice that, by definition, classes cannot 'split'. Namely, if $K_{v,t}\sim \mathbf{K}_{u}$, then for any time $t^{\prime} \ge t$, it holds that $K_{v,t^{\prime}} \sim \textbf{K}_{u}$. Specifically, a correction by the sweep rule that disconnects two connected components of the syndrome that were connected, prior to correction, belonged to the same slice and therefore to the same class, would still belong to the same class after the correction.
+
+
+Therefore, there can be at most $m-1$ merges. And since the number of classes is bounded by the number of vertices on the finite Toric, we have that $m \le n^{d}$, namely at most $n^{d}-1$ merges can occur. Hence, during the $n^{d+1}$ sweep-cycles, there has to be a continuous sequence of $n$ cycles for which no merge occurs. 
+
+
+
+During the continuous sequence of those $n$ cycles, each sweep cycle decreases the size of any slice by at least 1. This is followed by \Cref{claim:shrinkslice}, combining that no merging occurred, meaning there is only one predecessor slice. Thus, using the given assumption that no slice in $\mathcal{H}$ reaches a size greater than $n$, namely $\Size{K_{v,t}} \le n$ for any vertex $v$ and time $t$, we have that at the end of that sequence of $n$ cycles, all the slices' sizes shrink to zero; namely, the slices are erased after those cycles.
+\end{proof}
+
+
+
+
+\Cref{claim:decodestopnoise} guarantees only that the syndrome is erased; in particular, it says nothing about whether a logical error has or hasn't occurred. To complete the correctness of the decoder, we would like to use the barrier argument. Yet, instead of showing that during the ideal correction no connected component of the syndrome passes the barrier, it will be more convenient to reduce the passing question to the subjected-to-noise setting. We introduce a replacement argument, stating that the probability of an event occurring during a computation where part of its layers are non-noisy is lower than the probability of having the same event in a computation where all its layers are noisy. More precisely, any bound that assumes only that the noise channel is local stochastic captures both cases.
+\begin{claim}[Replacement argument]
+  \label{claim:replace}
+  Let $C$, $\ket{\psi}$, and $P$ be the quantum circuit, the quantum state, and a Pauli as defined in \Cref{claim:decodestopnoise}, with the change that $P$ is distributed according to local stochastic noise $\mathcal{N}_{\mathcal{E}}$ with an error rate $p\in (0,1)$ rather than being fixed.
+
+Denote by $A$ the event in which, at the end of the running of $C$, namely after the $n^{d+1}$ \textbf{ideal} (non-noisy) iterations of the sweep-cycle, the error is not erased, and denote by $B$ the event that, during the application of a subsection of $C$ to $\mathcal{N}_{\mathcal{E}}$, there is a step for which the analysis of Toom's contour up to that step admits a slice of size at least $cn$.
+
+
+Let $f:(n,d,d^{\prime},p) \rightarrow \mathbb{R}$ be a bound for $\prb{B}$ that holds uniformly over local-stochastic fault distributions of rate $p$. Then, we have:
+  \begin{equation}
+    \label{equ:replacement}
+    \begin{split}
+      \prb{A} \le f(n,d,d^{\prime},p)
+    \end{split}
+  \end{equation}
+\end{claim}
+\begin{proof} 
+A corollary of combining \Cref{claim:decodestopnoise} with \Cref{coro:barrier} (The barrier argument) is that if during the $n^{d+1}$ ideal sweep-cycles, there is no step for which its propagation admits a slice of size at least $cn$ (and therefore no step admits a syndrome's connected component that passes the barrier), then the syndrome is erased and no logical error occurred. So it's sufficient to show that the probability that the condition does not hold is lower than $f(n,d,d^{\prime},p)$. To apply the same bound, construct a space--time fault distribution
+$\mathcal N'_{\mathcal E}$ as follows. Sample the initial Pauli error from
+$\mathcal N_{\mathcal E}$ and place its support in the initial fault layer;
+introduce no faults at later layers. For any prescribed collection $S$ of
+space--time locations, the probability that all locations in $S$ are faulty
+is zero if $S$ contains a location after initialization. Otherwise, it is at
+most $p^{|S|}$ by the local-stochastic assumption on the initial error.
+Thus $\mathcal N'_{\mathcal E}$ has local-stochastic rate $p$, and the resulting
+noisy-circuit trajectory agrees with the ideal sweep evolution following the
+sampled initial error. The uniform contour estimate applies to this specialized
+fault distribution, yielding \Cref{equ:replacement}.
+\end{proof}
+We now conclude that the sweep rule is an ideal decoder under local-stochastic Pauli noise.
+  \begin{theorem}
+    \label{theorem:idealdec}
+There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, and a quantum state $\rho = \mathcal{N}_{\mathcal{E}}(\ket{\psi})$, where $\ket{\psi}$ is a codeword of the $(d,d^{\prime})$-Toric code, the application of $n^{d+1}$ (ideal) sweep-cycles on $\rho$ results in $\ket{\psi}$ with probability at least:
+\begin{equation*}
+  \begin{split}
+    1 -   O \left( \text{poly}(n) \right)  p^{\Omega(n)} 
+  \end{split}
+\end{equation*}
+  \end{theorem} 
+  \begin{proof}
+    By the replacement argument (\Cref{claim:replace}), it is sufficient to consider the application of $n^{d+1}$ sweep-cycles subjected to $\mathcal{N}_{\mathcal{E}}$, and bound the probability that during the subjected application there is a step $\tau$ and an analysis of Toom's contour $\mathcal{H}_{\tau}$ such that $\mathcal{H}_{\tau}$ contains a slice of size at least $cn$. Denote by $B_{\tau}$ the event in which step $\tau$ admits a slice of size at least $cn$. The proof of \Cref{lemma:keylemma} bounds the probability of $B_{\tau}$ by the number of locations times $p^{\Omega(n)}$ for $p < p_{0}$. Taking the union bound over the steps gives the desired result.
+  \end{proof}
+
+
+
+
+

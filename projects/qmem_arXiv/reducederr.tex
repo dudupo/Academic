@@ -1,0 +1,229 @@
+
+\subsection{Reduced Error}
+We represent Pauli errors as chains on the $d^{\prime}$-dimensional faces. Their syndromes are the corresponding boundary chains. In particular, $X$-errors can be characterized as $d^{\prime}$-dimensional chains $z \in C_{d^{\prime}}(\mathcal T_\infty^d)$ such that $\partial^{-} z \neq 0$. In this section, we assume dealing with the $\infty$-lift of a circuit (see \Cref{def:extension}), so the cubical complex is the $d$-dimensional grid with infinite side length. The \textit{reduced} form of an error is its representative, a translation by a stabilizer, which minimizes its size. Here we prove that the sizes of a reduced error and its boundary (derived from $\partial^{-}$) are the same\footnote{In fact, the hypertriangles bounding them are the same.}. In particular, they share poles of the potential walls. That will come into use in analyzing the behavior of the sweep rule, as it is defined to decide on correction upon the syndrome it sees.
+
+For this purpose we introduce two local codes that describe local views of vertices. They are the \textit{stabilizers code at vertex} $v$ and the \textit{small code at vertex} $v$. The first corresponds to stabilizers rooted at the vertex, while the second is the collection of local views on faces rooted at $v$ that satisfy the checks rooted at $v$. Then, in \Cref{claim:agreement}, we consider a vertex whose $X$-checks don't admit a syndrome, meaning that its local view is in its \textit{small code}, and show that there is a codeword of its \textit{stabilizers code} that agrees with its positive faces. Addition by that stabilizer yields a new chain excluding $v$. If $v$ were a unique maximum of $L_{d+1}$, then the vertices on the yielded chain would have a lower value of $L_{d+1}$. Subsequently, since the exclusion decreases the size, it follows that the 'corner'—the vertex achieving the maximal $L_{d+1}$ value—of a reduced error sees a syndrome.
+
+\begin{definition}[Stabilizers Code at Vertex $v$]
+We define \textit{stabilizer code at vertex} $v$, denoted by $\text{Stab}_{v}$, as the restriction of the $(d,d^{\prime})$-Toric code to the $d^{\prime}$-dimensional faces such that their vertices are at a distance of at most one positive step in each direction from $v$. That is equivalent to the union of all the $d^{\prime}$-dimensional faces rooted at $v$ with the $d$-dimensional faces of each of its sibling $gv$, excluding faces containing $g$ as their generator. Namely:
+  \begin{align*}
+    \text{Stab}_{v} \colonequals  \bigl\{ z : \partial^{-} z  &= 0 \text{ and } \\
+    & z \in \operatorname{Span}_{\mathbb F_2} \big(  \big\{  \rotfvs{} : S^{\prime} \subset S, |S^{\prime}| = d^{\prime}  \big\} \\
+   & \ \ \ \ \ \ \ \ \ \ \ \ \  \bigcup_{g \in S} \big\{ \rotfv{gv}{S^{\prime}/g} : S^{\prime} \subset S/g , |S^{\prime}|=d^{\prime} \big\} \big) \bigr\}
+  \end{align*}
+\end{definition}
+The checks of the code, are of the following three types: 
+\begin{enumerate}
+  \item Checks that are rooted at $v$, each identified by choosing $d-1$ generators from $S$. Namely: 
+    \begin{equation*}
+      \begin{split}
+        \big\{ \rotfvs{}: S^{\prime} \subset S , |S^{\prime}|=d^{\prime}-1  \big\} 
+      \end{split}
+    \end{equation*}
+    For each check, the bits that connect to it, are given by restricting the coboundary of the check to bits domain of $\text{Stab}_{v}$:  
+    \begin{equation*}
+      \begin{split}
+        \big( \partial^{+} \rotfvs{} \big)|_{\text{Stab}_{v}} & =  \big(   \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} + \sum_{g \in S/S^{\prime}} \rotfv{g^{-1}v}{S^{\prime}\cup g}  \big)|_{\text{Stab}_{v}} =     \sum_{g \in S/S^{\prime}} \rotfv{v}{S^{\prime} \cup g} 
+      \end{split}
+    \end{equation*}
+  \item Checks are rooted at the positive sibling of $v$. Consider such a sibling, let's say $gv$ (namely the vertex that is given by stepping in the direction $g \in S$ from $v$). Notice that any face rooted at $gv$ that contains $ggv$ cannot be contained in faces rooted at $v$. Thus, the checks of $gv$ correspond to choosing subsets from $S/g$. Namely:
+    \begin{equation*}
+      \begin{split}
+      \bigcup_{g \in S}\big\{ \rotfv{gv}{S^{\prime}}: S^{\prime} \subset S/g , |S^{\prime}|=d^{\prime}-1  \big\}
+      \end{split}
+    \end{equation*}
+    And each check is supported by:
+    \begin{equation*}
+      \begin{split}
+        \big( \partial^{+} \rotfv{gv}{S^{\prime}} \big)|_{\text{Stab}_{v}} & = 
+        \big(   \sum_{g^{\prime} \in S/S^{\prime}} \rotfv{gv}{S^{\prime} \cup g^{\prime}} + \sum_{g^{\prime} \in S/S^{\prime}} \rotfv{g^{\prime -1}gv}{S^{\prime}\cup g^{\prime}} \big)|_{\text{Stab}_{v}} \\
+        &  =    \bigl(\sum_{ \substack{ g^{\prime} \in S/S^{\prime} \\ g^{\prime } \neq g }} \rotfv{g v}{S^{\prime} \cup g^{\prime}} \bigr) + \rotfv{v}{S^{\prime}\cup g}
+      \end{split}
+    \end{equation*}
+  \item Checks that their roots are at a two-step distance from $v$, namely vertices of the form $g^{\prime}gv$ where $g, g^{\prime} \in S$, and $g \neq g^{\prime}$. By the arguments presented in the second type, the checks are the $d^{\prime}-1$ faces which do not have the generators on the path leading from $v$ to them, i.e., $g, g^{\prime}$, in their generator set.
+    \begin{equation*}
+      \begin{split}
+        \bigcup_{\substack{g,g^{\prime}\in S\\g\ne g^{\prime}}}\big\{ \rotfv{g^{\prime}gv}{J}: J \subset S/\{g,g^{\prime}\}, |J|=d^{\prime}-1 \big\}
+      \end{split}
+    \end{equation*}
+  And for each check, its support is:
+    \begin{equation*}
+      \begin{split}
+        \bigl(\partial^+\rotfv{g'g v}{J}\bigr)|_{\text{Stab}_v}
+        &=\left(\sum_{h\in S/J}\bigl(\rotfv{gg'v}{J\cup h}
+                +\rotfv{h^{-1}gg'v}{J\cup h}\bigr)\right)|_{\text{Stab}_v}\\
+        &=\rotfv{gv}{J\cup g'}+\rotfv{g'v}{J\cup g}
+      \end{split}
+    \end{equation*}
+\end{enumerate}
+
+\begin{definition}[Small Code at Vertex $v$]
+For a vertex $v$, we denote by $\mathcal{C}_{v}$ the \textit{small code at vertex $v$}, which consists of all the $d^{\prime}$-dimensional chains rooted at $v$ that satisfy the checks rooted at $v$, namely:
+  \begin{align*}
+    \mathcal{C}_{v} \colonequals  \bigl\{ z : (\partial^{-} z)|_{v+}  &= 0 \text{ and } \\
+    & z \in \operatorname{Span}_{\mathbb F_2} \big(  \big\{  \rotfvs{} : S^{\prime} \subset S, |S^{\prime}| = d^{\prime}  \big\} \big) \bigr\} 
+  \end{align*}
+The checks of the code are exactly the first type checks of $\text{Stab}_{v}$.
+\end{definition}
+\begin{claim}
+  \label{claim:agreement}
+  Let $v$ be a vertex. For any $d^{\prime}\ge 2$, $d\ge d^{\prime}+1$, and any $z \in \mathcal{C}_{v}$, there is a stabilizer $w \in \text{Stab}_{v}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$. Moreover, the vertex support of $w|_{v}$ is contained in the vertex support of $z|_{v}$, namely:
+  \begin{equation*}
+    \begin{split}
+        \textbf{Str}_{0+}(v, w) \subset \textbf{Str}_{0+}(v, z)
+    \end{split}
+  \end{equation*}
+\end{claim}
+
+
+\begin{proof}
+  By induction on the dimensions $d, d'$. We extend the notation of the stabilizer and the small codes at vertex $v$ to $\mathcal{C}_{v}^{J}, \text{Stab}_{v}^{J}$, where $J$ is a subset of $S$, to refer to the codes derived from the skeleton generated by $J$. Showing that the belonging $z\in \mathcal{C}_{v}^{J}$ implies the existence of $w \in \text{Stab}_{v}^{J}$ such that $w|_{v} =z|_{v}$ proves the claim.
+  \begin{enumerate}
+    \item Base. For the base cases, let $d$ be any number greater than or equal to three, and let $d^{\prime}$ be two. First, observe that, in the case $d^{\prime}=2$, the code $\mathcal{C}_{v}^{J}$ is a Tanner code, whose variables correspond to pairs of the form $\{vg_{i}, vg_{j} \}$ and checks are associated with vertices of the form $\{vg_{i} \}$. Therefore, any codeword is a cycle. Let:
+      \begin{equation*}
+        \begin{split}
+          \{vg_{1},vg_{2}\},\{vg_{2},vg_{3}\},..,\{vg_{k},vg_{1}\}
+        \end{split}
+      \end{equation*}
+    Be the cycle corresponding to $z$. Namely:
+      \begin{equation*}
+        \begin{split}
+          z = \rotfv{v}{\{g_{1},g_{2}\}} + \rotfv{v}{\{g_{2},g_{3}\}} + ..+ \rotfv{v}{\{g_{k},g_{1}\}}
+        \end{split}
+      \end{equation*}
+    And consider the stabilizer $w$ defined as:
+      \begin{equation*}
+        \begin{split}
+          w =  \partial^{-}\left(  \rotfv{v}{\{g_{1},g_{2},g_{3}\}} + \rotfv{v}{\{g_{1},g_{3},g_{4}\}} + .. +  \rotfv{v}{\{g_{1},g_{i},g_{i+1}\}} + .. + \rotfv{v}{\{g_{1},g_{k-1},g_{k}\}} \right)
+        \end{split}
+      \end{equation*}
+    Clearly, $w \in \text{Stab}_{v}^{J}$, and in addition its restriction to $v$ equals:
+      \begin{equation*}
+        \begin{split}
+          w|_{v} &=  \left( \sum_{i=2}^{k-1}\partial^{-}\rotfv{v}{\{g_{1},g_{i},g_{i+1}\}}  \right)|_{v} = \sum_{i=2}^{k-1} \rotfv{v}{\{g_{i},g_{i+1}\}}  + \rotfv{v}{\{g_{1},g_{i}\}}  + \rotfv{v}{\{g_{1},g_{i+1}\}} \\
+          & = \left(\sum_{i=3}^{k-1} \rotfv{v}{\{g_{i},g_{i+1}\}} \right) + \rotfv{v}{\{g_{1},g_{2}\}}  + \rotfv{v}{\{g_{k},g_{1}\}} = z
+        \end{split}
+      \end{equation*}
+      
+    \item Assume the correction of the claim for dimensions lower than $d, d^{\prime}$. Consider a generators subset $J \subset S$ and let $z \in \mathcal{C}_{v}^{J}$. In addition, consider a generator $g \in J$.
+      
+      Decompose $z = z|_{gv} + z|_{/gv}$ where $z|_{gv}$ and $z|_{/gv}$ are the chains consisting of all the faces in $z$ that have support on $gv$ and its complement. Define $z^{*}$ to be the $d^{\prime}-1$-dimensional chain obtained by excluding $gv$ from any face of $z|_{gv}$. Notice that $(\partial^{-} z^{*})|_{v}$ has to be zero since it contains all the faces of $\partial^{-}z$ that contain $gv$ (up to the removal). In other words, $z^{*} \in \mathcal{C}_{v}^{J/g}$. Thus, we can use the induction assumption and infer the existence of $w^{*} \in \text{Stab}_{v}^{J/g}$ such that $z^{*} = w^{*}|_{v}$.
+
+      
+      Now, since $w^{*} \in \text{Stab}_{v}^{J/g}$, then $\partial^{-}w^{*} = 0$. And since the local complex is contractible, $w^{*}$ can be decomposed into a sum of stabilizers rooted in $v$. Let $\rotfv{v}{S^{\prime}_{1}}, \rotfv{v}{S^{\prime}_{2}}, \rotfv{v}{S^{\prime}_{3}}, \ldots, \rotfv{v}{S^{\prime}_{l}}$ be the $d^{\prime}$-dimensional chains corresponding to the stabilizers composing $w^{*}$. Namely:
+      \begin{equation*}
+        \begin{split}
+          w^{*} = \sum_{i} \partial^{-} \rotfv{v}{S^{\prime}_{i}} 
+        \end{split}
+      \end{equation*}
+Since those stabilizers are basis elements of $\text{Stab}_{v}^{J/g}$, we have that $g \notin S^{\prime}_{i}$ for any $i$. Hence, we can define the extended $d^{\prime}$-dimensional chain $w$ to be the chain obtained by adding $g$ to each of the stabilizers deriving $w^{*}$. Namely:
+      \begin{equation*}
+        \begin{split}
+          w =  \sum_{i} \partial^{-} \rotfv{v}{S^{\prime}_{i} \cup g} 
+        \end{split}
+      \end{equation*}
+      However, $\rotfv{v}{S^{\prime}_{1} \cup g}, \ldots, \rotfv{v}{S^{\prime}_{l} \cup g}$ are $d^{\prime}+1$-dimensional chains corresponding to the stabilizers, which are basis elements of $\text{Stab}_{v}^{J}$. Therefore, $w \in \text{Stab}^{J}_{v}$. In addition, opening up the boundary operator yields:
+      \begin{equation*}
+        \begin{split}
+          w|_{v} &=  \sum_{i} \bigl(\partial^{-} \rotfv{v}{S^{\prime}_{i} \cup g} \bigr)|_{v} = \sum_{i} \bigl(\sum_{g^{\prime} \in S^{\prime}_{i}/g}\rotfv{v}{S^{\prime}_{i}/g^{\prime} \cup g} + \rotfv{v}{S^{\prime}_{i}}   \bigr)\\
+          &= \sum_{\rotfvs{}\in w^{*}|_{v} }\rotfv{v}{S^{\prime} \cup g} + \sum_{i} \rotfv{v}{S^{\prime}_{i}} = z|_{gv} + \sum_{i} \rotfv{v}{S^{\prime}_{i}} 
+        \end{split}
+      \end{equation*}
+Thus, adding $w|_{v}$ to $z$ results in:
+      \begin{equation*}
+        \begin{split}
+          z + w|_{v} = z|_{/gv} + \sum_{i} \rotfv{v}{S^{\prime}_{i}} 
+        \end{split}
+      \end{equation*}
+      Which is a $d^{\prime}$-dimensional chain, supported on vertices of the form $g^{\prime}v$ for $g^{\prime}\in J/g$, namely a $d^\prime$-dimensional chain on the complex induced by the $(d-1)$-dimensional subcomplex. In addition, since the boundary operator can only advance the root of a face forward, we have that $\partial^{-} w|_{v} =  (\partial^{-} w)|_{v}$ (as $w$ is rooted in $v$) and therefore $\partial^{-}( z + w|_{v}) = \partial^{-}z + (\partial^{-}w)|_{v} = 0$.
+      
+To summarize, we have both $z + w|_{v} \in \mathcal{C}_{v}^{J/g}$ and $z+w|_{v}$ sets on a $d-1$-dimensional skeleton. Therefore, we can repeat in a recursive manner, with each step resulting in a $d^{\prime}$-dimensional chain in a skeleton with dimension decreased by one. We stop when $d = d^{\prime}$; in that case, the resulting chain must be zero.
+  \end{enumerate}
+\end{proof}
+
+We would like to differentiate chains whose projection onto the finite Toric with side length $n$ closes a non-trivial cycle from those which don't. For this, we fix a rough threshold via the size function. Chains which have size less than $n$ will be called finite. Observe that a chain might have a projection that doesn't close a non-trivial loop on the Toric and still be marked, according to our definition, as infinite. So, the classification is rough, yet it will turn out to be sufficient.
+\begin{definition}
+  \label{def:finiteerr}
+  Let $z$ be a $d^{\prime}$-dimensional chain. We will say that a chain $z$ is finite if:
+  \begin{equation*}
+    \begin{split}
+        \Size{z} \le n-1     %
+    \end{split}
+  \end{equation*}
+Similarly, $z$ is infinite if its size is greater than or equal to $n$.
+\end{definition}
+
+\begin{remark}
+Observe that if $\Size{z} < n$, then the projection of $z$ on the $n$-side length Toric does not close a non-trivial loop.
+\end{remark}
+
+
+The next claim states that the translation by a stabilizer that minimizes its size of a finite chain admits a boundary with size equal to itself.
+\begin{claim}
+  \label{claim:reducederr}
+  Let $x \in C_{d^{\prime}}(\mathcal T_\infty^d)$ be a $d^{\prime}$-dimensional finite chain, consider the stabilizer  $z \in \mathcal{C}_{Z}^{\perp}$ which adding it to $x$ minimize the size , Namely: 
+  \begin{equation*}
+    \begin{split}
+      z =  \arg \min_{z \in \mathcal{C}_{Z}^{\perp}} \Size{ x + z }  
+    \end{split}
+  \end{equation*}
+  Then: 
+  \begin{equation*}
+    \begin{split}
+      \Size{ x + z } = \Size{ \partial^{-}( x + z) } 
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+  First, observe that since the vertex domain of $\partial^{-} x$ is contained in the vertex domain of $x$, it follows that for any $x$ the inequality $\Size{x} \ge \Size{\partial^{-} x}$ holds. Combining this with the fact that $\partial^{-} z = 0$ for any $z \in \mathcal{C}_{Z}^{\perp}$, we have that $\Size{x + z} \ge \Size{\partial^{-}(x + z)}$. Now suppose that $\Size{x} > \Size{\partial^{-} x}$; that implies the existence of $v \in x/\partial^{-} x$ such that $v$ is a local maximum of one of the potential walls in $x$ and $(\partial^{-} x)|_{v} = 0$. Let's split into cases, depending on the potential wall type.
+ 
+  \begin{enumerate}
+
+      \item If $v$ is a maximum of $L_{d+1}$, then by \Cref{claim:agreement}, there exists a stabilizer $z$ rooted at $v$, such that $z|_{v}=z|_{v+}=x|_{v+}=x|_{v}$ (using that $v$ is a local maximum of $L_{d+1}$ in $x$ to infer $x|_{v}=x|_{v+}$). Therefore, $(x+z)|_{v} = 0$, meaning adding $z$ to $x$ excludes $v$. In addition, since the rooted stabilizer $z$ is supported only on the vertices in $\textbf{Str}_{0+}(v,x)$, the addition cannot introduce a vertex with a higher $L_{g}$ value than the maximal $L_{g}$ value in $\textbf{Str}_{0+}(v,x)$ into $x$. So, repeating the process until excluding all the vertices that get the maximal $L_{d+1}$-value in $x$, and summing the stabilizers, results in a stabilizer $z$ for which $L_{d+1}(x+z) < L_{d+1}(x)$.
+
+
+      \item If, for some generator $g \in S$, $v$ is a maximum of $L_{g}$, then without loss of generality, pick $v$ among the maximum points of $L_{g}$ with the highest value of $-L_{d+1}$ (maximize $\sum_{g \in S} L_{g}(v)$). Since stepping through the positive direction can only increase the value of $-L_{d+1}$, it follows that $v$ is also a local max of $-L_{d+1}$.
+        Now consider the skeleton system where the directions are flipped, and $\rotfs{}$ is set to be the face containing the vertices that are reached by the selection of reverse steps from $S^{\prime}$ (i.e., $g^{-1}v \in \rotfs{}$). Similarly, for the sake of the proof, let's present the following notation for the positive neighborhood (\Cref{def:positiveNei}) in the reversed system:
+        \begin{equation*}
+          \begin{split}
+            \textbf{Str}_{0-}(v,x) \colonequals \big\{ u \in x \colon \exists g \in S \text{ such }  u = g^{-1}v   \big\}
+          \end{split}
+        \end{equation*}
+So, $\textbf{Str}_{0-}$ plays the same role as $\textbf{Str}_{0+}$ does in the original skeleton.
+        In that system, we can apply \Cref{claim:agreement} (in the reversed direction) and get that there is a stabilizer $z$ such that adding it to $x$ excludes $v$ from $x$. By the same argument as above, no vertex with a higher $L_{g^{\prime}}$-value (although $L_{d+1}$ can increase, that's fine\footnote{If it happens, we will apply the first case in the next exclusion.}) than what it already has in $\textbf{Str}_{0-}(v,x)$ is introduced into $x$. Repeating the process excludes all the vertices with the maximal value of $L_{g}$ in $x$, so eventually, we end up with $x+z$, such that $L_{g}(x+z) < L_{g}(x)$.
+  \end{enumerate}
+
+  
+We keep excluding vertices until we get the desired equality.
+
+\end{proof}
+
+
+\input{./tikz/edge.tikz}
+
+
+We close the section by defining the \textit{reduced} form of a finite $d^{\prime}$-dimensional chain. 
+\begin{definition}
+  \label{def:reduced}
+Let $x \in C_{d^{\prime}}(\mathcal T_\infty^d)$ be a $d^{\prime}$-dimensional finite chain. We will say that $x$ is reduced if for any potential wall $L_{i}$, there is a vertex $v \in x$ that is a maximum point of $L_{i}$, and $v$ is also in $\partial^{-} x$.
+  In particular, we have that $\Size{x} = \Size{\partial^{-} x}$ and that the reduced form of a given chain is obtained by the construction presented in the proof of \Cref{claim:reducederr}. 
+\end{definition}
+We emphasize that the reduced form is not unique. Throughout the paper, every time we choose a reduced form of a chain, we mean obtaining it from the given algorithm presented in \Cref{claim:reducederr}, so the reduced form is effectively unique.
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,129 @@
+\subsection{Infinite Sides Torics}
+\label{subsection:infinitetoric}
+The Toric skeleton provides a notation for positive directions. However, to demonstrate that an 'error cluster' shrinks as a result of the decoding cycle, or at least does not expand too much during the operation of the logical operator, we will need a way to mark extremities (for example, the northernmost point). To achieve this, we will analyze the view over the finite Toric as a projection derived from a view over the infinite plane. For this purpose, given our initial (subjected) quantum circuit, we construct a representation in which any gate that originally acted on a quantum register, namely on the finite Toric, is mapped to infinite translations of it, each acting on qubits on the infinite plane. Using the Wrapping Lemma, proved in \cite{schumacher2004reversiblequantumcellularautomata}, and combining that the mapping respects a periodic condition, the finite and the infinite presentations are isomorphic.
+
+
+
+
+
+
+
+The following definition extends the notion of location to differentiate between a coordinate that encodes a register and a coordinate of the location inside the register. This will be useful, as in the infinite plane representation, each register will be mapped to a unique infinite register. %
+\begin{definition}[Toric register coordinate system]
+Let $C=\{u_i\}_i$ be a quantum circuit of width $w$ with registers $\mathcal{R}=R_{1},\ldots,R_{k}$, each encoded in the $(d,d^{\prime})$-Toric code, induced by a $d$-dimensional Toric with a side length $n$. We define the 'Toric register coordinate system' to be the coordinate system that encodes spatial location with two coordinates as follows: In the first coordinate, the register number is recorded, and in the second, the qubit is encoded by the face associated with it. We call the first the \textit{register coordinate} and the second the \textit{inner coordinate}.
+\end{definition}
+
+
+We will need two types of gate translation. The first is the standard spatial translation, which means that any of the inner coordinates of the gate are advanced by the same vector. The second is 'rooted translation.' Here, we assume that the locations of the gate are given in a relative-to-root fashion, meaning that there is a root vertex, and all the locations are given by positive paths from the root. Then, we first translate the root and then advance the inner coordinate of any of the other locations to be on the path from the translated root. When considering a product gate, the translations act the same.   
+\begin{definition}[Translation by vertex $v$]
+  Let $u$ be a gate, and denote the inner coordinates of $u$'s locations by $\rotf{v_{1}}{J_{1}}, \ldots, \rotf{v_{\Delta}}{J_{\Delta}}$. The translation of $u$ by vertex $v$ is defined to be the gate obtained from $u$ by replacing the inner coordinates of its locations by: $\rotf{v v_{1}}{J_{1}}, \ldots, \rotf{v v_{\Delta}}{J_{\Delta}}$, where the multiplication $v \cdot v_{i}$ is with respect to the infinity cover $\mathcal{G}^{d}$.
+  Furthermore, for a $d$-dimensional Toric complex with side length $n$, we define a translation by an integer vector $a \in \mathbb{Z}^{d}$ as a translation by the vertex:
+   \begin{equation*}
+     \begin{split}
+       (g_{1}^{n})^{a_{1}}, (g_{2}^{n})^{a_{2}},.., (g_{d}^{n})^{a_{d}}
+     \end{split}
+   \end{equation*}
+    We denote the translation by an integer vector $a$ as $a * u$.
+\end{definition}
+
+
+
+\begin{definition}[Rooted gate at vertex $v$]
+  Let $u$ be a quantum gate that acts on a register whose qubits are associated with a Toric complex at dimension $d$. We say that a gate $u$ is rooted at vertex $v$ if the inner coordinate of its location can be encoded by lists of pairs $(I_{1}, J_{1}), (I_{2}, J_{2}), \ldots, (I_{l}, J_{l})$ such that $I_{i} \in S^{d}, J_{i} \subset S$, and the $i$th qubit on which it acts is in the face $\rotf{ I_{i} v }{  J_{i}  }$.
+\end{definition}
+
+\begin{definition}[Root translation in Register System] 
+  For a gate $u$ that is a rooted gate at vertex $v$, we define its translation by a vertex $v^{\prime}$ to be the gate obtained by copying $u$ and replacing its inner location encoding the root by $v^{\prime}v$. 
+
+Similarly to the standard translation by an integer vector, we extend the action to a root translation by an integer vector $a \in \mathbb{Z}^{d}$, as the root translation by the vertex:
+   \begin{equation*}
+     \begin{split}
+       (g_{1}^{n})^{a_{1}}, (g_{2}^{n})^{a_{2}},.., (g_{d}^{n})^{a_{d}}
+     \end{split}
+   \end{equation*}
+   We denote the root translation by an integer vector $a$ as $a *_{r} u$.
+\end{definition}
+
+Now we are ready to give an explicit description of the mapping. Given a quantum circuit $C$, we name its presentation over the infinite plane the \textit{$\infty$-lift of $C$}.
+\begin{definition}
+  \label{def:extension}
+  Let $n$ be an integer, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with width $w$ and quantum registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ encodes a $(d,d^{\prime})- $Toric code with side at length $n$. We define the \textit{$\infty$-lift of $C$}, denoted by $C^{\infty}$, as follows:
+  \begin{enumerate}
+    \item Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, which it's qubits are associated with the $d^{\prime}$-dimensional faces of the infinite $d$-dimensional Toric. 
+    \item The gate $u_{i} \in C$ is mapped to an infinite collection of gates, each being a rooted translation by an integer vector, as follows:
+      \begin{equation*}
+        \begin{split}
+          u_{i}  \mapsto  \bigcup_{ a \in \mathbb{Z}^{d} } \left\{ a *_{r} u_{i} \right\} 
+        \end{split}
+      \end{equation*}
+  \end{enumerate}
+  The restriction of the qubits in $C^{\infty}$'s registers to finite Torices with side length $n$ will be denoted by $\cdot |_{[w]}$, and it includes all the faces whose root vertex has 'powers' (the powers of $g_{1}, \ldots, g_{d}$) in the range $[0, n-1]$. For a set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, and measurements outcomes $\alpha \in \mathbb{F}_2^{(\cdot)}$, we denote by $C^{\infty}[\mathcal{E},\alpha]$ the \textit{$\infty$-lift of $C[\mathcal{E},\alpha]$}. 
+  \paragraph{ }
+We define the $\infty$-lift of a Pauli operator $P \in \mathcal{P}^{(\cdot)}$ be the result of lifting the circuit composed only of $P$. Denote it by $P^{\infty}$. Finally, the $\infty$-lifting of a chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ is the chain in the infinite complex $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ obtained by taking all the translations of $x$ by integer vectors.
+\end{definition}
+
+
+
+The infinite presentation of a circuit agrees with it in terms of action. We give, without proof, an adaptation of the Wrapping Lemma, proved in \cite{schumacher2004reversiblequantumcellularautomata}.
+\begin{claim}[ Adaptation of \cite{schumacher2004reversiblequantumcellularautomata} ]
+The $\infty$-lifting is an isomorphism. In particular, consider a conditioned subjected quantum circuit $C[\mathcal{E},\alpha]$, such that it has a propagation $P_{1},P_{2},\ldots$, it holds that:
+  \begin{equation*}
+    \begin{split}
+    P_{i}^{\infty} =  (C[\mathcal{E},\alpha]|_{ i} P_{i-1})^{\infty} =   C[\mathcal{E},\alpha]|_{ i}^{\infty} P_{i-1}^{\infty} 
+    \end{split}
+  \end{equation*}
+\end{claim}
+
+
+
+The computation DAG lifts naturally to the $\infty$-lift gates that arise as translates of the same local gate act on disjoint translated supports inside different periods, so they may be executed simultaneously. The same periodic lifting applies to the underlying geometric objects, passing from the finite Toric complex to its infinite cover.
+
+\paragraph{}
+We close that subsection by introducing the \textit{potential walls}. Analyzing the infinite presentation enables us to bound a subset of errors by 'triangles'. A potential wall is a linear function $\mathbb{R}^{d} \rightarrow \mathbb{R}$. For the subset of vertices (that might be the subset that supports some error), the maximal value of the potential wall on it is achieved at the point of tangency between the subsets and its bounding triangle. With the assistance of potential walls, we can discuss the endpoint of a bunch of qubits and the 'size' of the (hyper)triangle that bounds them. Soon, the qubits will be associated with the support of an error, and showing that an action decreases the maximums of the potential walls implies that the error shrinks. 
+The next definition explains how the embedding of vertices of the infinite in $\mathbb{R}^{d}$ is handled.
+\begin{definition}[The standard embedding]
+  Consider the $d$-dimensional infinite grid $\mathcal{G}^{d}$. The \textit{standard embedding} $\mathcal{G}^{d} \rightarrow \mathbb{R}^{d}$ is given by fixing a vertex in $\mathcal{G}^{d}$ to be sent to the origin and then mapping the generators of the grid to the standard basis. We extend notation as follows: for a vertex $v \in \mathcal{G}^{d}$, a generator $g \in S$, and a coordinate $i \in [d]$, such that under the embedding $g \rightarrow i$, we denote by $v_{i} = v_{g}$ the $i$'th coordinate of the image of $v$.
+\end{definition}
+
+Now we are ready to define the \textit{potential walls}:
+\begin{definition}[Potential Walls]
+  We define the \textit{potential walls} to be the $d+1$ functions $L_{1},L_{2},..,L_{d+1}$, from the vertices of $\mathcal{G}^{d}$ to the reals as follow:
+  \begin{enumerate}
+    \item For any coordinate $i \in [d]$, we define $L_{i} \colon \mathcal{G}^{d} \rightarrow \mathbb{R}$ as $L_{i}(v) \colonequals v_{i}$. In addition, for the generator $g \in S$ which is mapped to $i$, i.e $g \rightarrow i $, we identify $L_{g} = L_{i}$. 
+    \item We define $L_{d+1} \colon \mathcal{G}^{d} \rightarrow \mathbb{R}$ by $L_{d+1}(v) \colonequals -\sum_{i = 1}^{d}v_{i}$.
+  \end{enumerate}
+  Consider an assignment $z$ over the faces. For a vertex $v \in z$, and a potential wall $l \in \{ L_{1},..,L_{d+1}\} $, we say that $v$ is a \textit{local maximum} of $l$ in $z$ if for any neighbor $u$ of $v$, such that $u \in z$, we have $l(v) \ge l(u)$. When the assignment $z$ is clear from the context, we might omit it and briefly say that $v$ is a local maximum of $l$. In addition we define the function $\Size{ \cdot } : \mathcal{G}^{d} \rightarrow \mathbb{R} $, to act on a subset of points $A \subset \mathcal{G}^{d}$, as follows:   
+  \begin{equation*}
+    \begin{split}
+      \Size{A} \colonequals \sum_{g \in S}\max_{v \in A}L_{g}(v) + \max_{v \in A}L_{d+1}(v) 
+    \end{split}
+  \end{equation*}
+and extend the function to act over assignment on faces $z$, by taking its action on the set of vertices that support $z$.
+\end{definition}
+The following claim shows that size has a similar behavior to a metric:
+\begin{claim}
+  \label{claim:tringinq}
+  Let $A,B \subset \mathbb{R}^{d}$ such that there $A \cap B \neq \emptyset$ then: 
+  \begin{equation*}
+    \begin{split}
+      \Size{A\cup B} \le \Size{A} + \Size{B}
+    \end{split}
+  \end{equation*}
+\end{claim}
+\begin{proof}
+  Let $p$ be a point in $A\cap B$. Then: 
+  \begin{equation*}
+    \begin{split}
+      \Size{A\cup B} &= \sum_{i \in [d+1]}\max_{v \in A\cup B} L_{i}(v) \\
+      & =  \sum_{ i \in [d+1]} \max \bigl\{ \max_{v \in A } L_{i}(v) , \max_{v \in B } L_{i}(v) \bigr\}  \\
+      & =  \sum_{ i \in [d+1]}  \max_{v \in A } L_{i}(v) + \max_{v \in B } L_{i}(v) -  \min \{   \max_{v \in A } L_{i}(v), \max_{v \in B } L_{i}(v) \} \\
+      & \le  \sum_{ i \in [d+1]}  \max_{v \in A } L_{i}(v) + \max_{v \in B } L_{i}(v) -  L_{i}(p)  \\
+      & \le \Size{A} + \Size{B}   - \sum_{ i \in [d+1]}  L_{i}(p)  =  \Size{A} + \Size{B} 
+    \end{split}
+  \end{equation*}
+Where in the last pass, we used that the size of a single point is zero.
+\end{proof}
+
+
+
+

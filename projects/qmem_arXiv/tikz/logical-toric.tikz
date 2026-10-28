@@ -1,0 +1,51 @@
+    \begin{figure}[h]
+
+\begin{center}
+    \begin{tikzpicture}[scale=1.5]
+
+
+
+
+      \draw[blue!20!black,fill=blue!70!black!70,rounded corners=1,opacity=0.5]%
+  (1.9,2.9) rectangle (3.1,3.1);
+  \draw[blue!20!black,fill=blue!70!black!70,rounded corners=1,opacity=0.5]%
+  (1.9,3.9) rectangle (3.1,4.1);
+  \draw[blue!20!black,fill=blue!70!black!70,rounded corners=1,opacity=0.5]%
+  (1.9,4.9) rectangle (3.1,5.1);
+  \draw[blue!20!black,fill=blue!70!black!70,rounded corners=1,opacity=0.5]%
+  (1.9,1.9) rectangle (3.1,2.1);
+  \draw[blue!20!black,fill=blue!70!black!70,rounded corners=1,opacity=0.5]%
+  (1.9,0.9) rectangle (3.1,1.1);
+  \draw[blue!20!black,fill=blue!70!black!70,rounded corners=1,opacity=0.5]%
+  (1.9,-0.1) rectangle (3.1,0.1);
+
+
+
+  \draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.5]%
+  (-0.1,3.9) rectangle (1.1,4.1);
+  \draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.5]%
+  (0.9,3.9) rectangle (2.1,4.1);
+  \draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.5]%
+  (1.9,3.9) rectangle (3.1,4.1);
+  \draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.5]%
+  (2.9,3.9) rectangle (4.1,4.1);
+  \draw[green!20!black,fill=green!70!black!70,rounded corners=1,opacity=0.5]%
+  (3.9,3.9) rectangle (5.1,4.1);
+
+
+
+  \draw[step=1cm,gray,very thin] (0,0) grid (5,5);
+  \foreach \x in {0,1,2,3,4,5}
+  \foreach \y in {0,1,2,3,4,5}
+  {
+  \node[draw,circle,inner sep=1pt,fill] at (\x,\y) {};
+}
+
+\end{tikzpicture}
+\end{center}
+\caption{ 
+In blue and green are the binary presentations $x_{S}$ and $z_{S}$ of logical code words of the $(2,1)$-Toric code. The edge $\{(5,4), (0,4)\}$ is omitted for clarity (it should be a green edge that hovers over the green line). 
+}
+\label{fig:logicalToric}
+\end{figure}
+

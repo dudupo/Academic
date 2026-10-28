@@ -1,0 +1,10 @@
+\begin{abstract}
+We study fault-tolerant quantum computation with a \emph{fixed, local error-correction rule} and a geometrically simple code. Our construction uses the cubical $(d,d')$-Toric code, with $d',d-d'\geq 2$ (in particular, the 4D Toric code), and tolerates sufficiently weak local-stochastic Pauli noise in the circuit model. Classical processing is assumed noiseless and has bounded depth per physical time step. Unlike constructions whose local decoders require a hierarchy of auxiliary classical states and scale-dependent communication delays, our error-correction cycle acts directly on the current syndrome, has constant depth, and is repeated unchanged during idle logical computation.
+
+Our proof works with errors and syndromes as chains in a cubical chain complex. It combines geometric shrinking under the sweep rule with a space--time explanation-tree analysis inspired by Toom's theorem, without relying on an expansion property of the code complex. We establish three results:
+\begin{enumerate}
+    \item \textbf{An explicit higher-dimensional sweep rule.} We give a local procedure for choosing the sweep correction on cubical $(d,d')$-Toric complexes, resolving the higher-dimensional local-existence question of Kubica and Preskill \cite{Kubica_2019}.
+    \item \textbf{Fault-tolerant computation with a simple code and local correction.} We prove a circuit-level threshold theorem for repeated noisy sweep cycles interleaved with logical operations. In particular, the 4D Toric code supports a fixed, constant-depth syndrome-based correction cycle without a multiscale classical decoder or expansion-based encoding. The construction is not claimed to have constant total-depth overhead.
+    \item \textbf{Ideal decoding under local-stochastic noise.} Starting from a local-stochastic Pauli error of rate $p$ below a threshold, $n^{d+1}$ \emph{noiseless} sweep cycles on a side-length-$n$ $(d,d')$-Toric code recover the encoded state with probability at least $1-O(\operatorname{poly}(n))p^{\Omega(n)}$. This extends earlier sweep-decoding guarantees for independent errors \cite{Kubica_2019}.
+\end{enumerate}
+\end{abstract}

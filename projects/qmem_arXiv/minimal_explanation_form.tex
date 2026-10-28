@@ -1,0 +1,246 @@
+\subsection{Minimal Explanation Argument}
+\label{subsection:explantion}
+
+We now bound the number of faults needed to produce a slice in terms of the
+slice's geometric size and the number of edges in a subgraph explaining its
+history. We construct such a subgraph by joining explanations of predecessor
+slices. The key input is that a sweep cycle decreases the relevant syndrome
+span by at least one, whereas the other layers do not increase it,
+as established by the shrinking argument. This fixed one-unit decrease
+is incorporated explicitly below. 
+
+
+
+We emphasize that the minimal explanation concept was presented in \cite{Berman}, and here we adopt (and extend) the definition of explanation and its existence proof to align with our Toom's contours.
+\begin{definition}
+  \label{def:explantation}
+  Consider a Toom's contour induced by a Toric-encoded circuit. Set
+  \begin{equation*}
+    \alpha \colonequals 40(d+1)^2, \qquad
+    \beta \colonequals 5(d+1), \qquad
+    \mathcal{X}_r \colonequals 1-\frac{r(d+1)}{\alpha}
+    =1-\frac{r}{40(d+1)} \quad (r=0,1,2,3).
+  \end{equation*}
+  We interpret the index cyclically, so that
+  $\mathcal{X}_{-1}\colonequals\mathcal{X}_3$.
+
+  Fix a slice $K$ of order $r=\operatorname{order}(K)$ and a pole selection
+  $v_1,\ldots,v_{d+1}$. Let $W$ be a set of vertices, $A$ a set of arrows,
+  and $F$ a set of forks. Write
+  \[
+    V \colonequals W\cup\{v_1,\ldots,v_{d+1}\}
+      \cup\bigcup_{e\in A\cup F}e.
+  \]
+  We say that $(W,A,F)$ is an \emph{explanation} of $K$ with respect to this
+  pole selection if:
+  \begin{enumerate}
+    \item $V\subseteq\History{K}$ and $(V,A\cup F)$ is connected;
+    \item every vertex of $W$ is a leaf of the Toom's contour;
+    \item writing $m=|W|$ and
+      $s=\sum_{i=1}^{d+1}L_i(v_i)$, we have
+      \begin{equation*}
+        |A|\leq\alpha(m-\mathcal{X}_r)-\beta s,
+        \qquad |F|\leq m-1.
+      \end{equation*}
+  \end{enumerate}
+  The vertices of an explanation may include internal vertices of its
+  arrow--fork paths; they need not be either leaves or selected poles.
+
+  For a slice $K$ in the analysis of a Toom's contour up to a step $\tau$,
+  we use the same conditions, except that we put $s=\Size{K}$ and replace
+  the bound on arrows by
+  \begin{equation*}
+    |A|\leq\alpha(m+1)-\beta s.
+  \end{equation*}
+  Whenever useful, a connected explanation may be reduced to a spanning
+  tree without increasing either edge count.
+\end{definition}
+
+\begin{claim}
+  \label{claim:edgesin}
+  Let $P_1,\ldots,P_{\mu+1}$ be the Pauli path inducing a Toom's contour.
+  Every slice $K$ has an explanation for every selection of its poles.
+  In the analysis of the contour up to a step $\tau$, each slice
+  has an explanation with poles attaining its size. For a slice in the
+  final partial layer, the weaker explanation bound holds for any pole
+  selection.
+\end{claim}
+
+\begin{proof}
+  First consider an ordinary Toom's contour. We induct on
+  \[
+    h=\Time{K}-\min_{u\in\History{K}}\Time{u}.
+  \]
+  \begin{enumerate}
+    \item \emph{Base case: $h=0$.}
+    The history of $K$ contains no arrow. Thus $K=\History{K}=\{u\}$
+    for a leaf $u$ created at a fault layer, and
+    $r=\operatorname{order}(K)\in\{1,3\}$.
+    Take $W=\{u\}$ and $A=F=\varnothing$. Then $m=1$, $s=0$, and
+    \[
+      0=|A|\leq\alpha(1-\mathcal{X}_r),
+      \qquad 0=|F|=m-1.
+    \]
+
+    \item \emph{Induction step: $h>0$.}
+    Fix poles $v_1,\ldots,v_{d+1}$ of $K$, let
+    $r=\operatorname{order}(K)$, and put
+    $s=\sum_{i=1}^{d+1}L_i(v_i)$.
+    By \Cref{claim:prevslices}, choose predecessor slices
+    $K_0,\ldots,K_k$, with respective poles
+    $z_j^1,\ldots,z_j^{d+1}$, and connecting forks
+    $F_1,\ldots,F_k$. Write
+    \[
+      s_j\colonequals\sum_{i=1}^{d+1}L_i(z_j^i).
+    \]
+    The bounds for predecessor slices, together with the fixed one-unit
+    improvement in a sweep cycle, imply
+    \begin{equation}
+      \label{eq:minimal-explanation-predecessor-spans}
+      \sum_{j=0}^k s_j+\sum_{j=1}^k\Size{F_j}
+      \geq
+      \begin{cases}
+        s+1,&r=0,\\
+        s,&r=1,2,3.
+      \end{cases}
+    \end{equation}
+    By \Cref{claim:maxfork}, each fork has size at most $2d$;
+    hence
+    \begin{equation}
+      \label{eq:minimal-explanation-span-sum}
+      \sum_{j=0}^k s_j\geq
+      \begin{cases}
+        s+1-2dk,&r=0,\\
+        s-2dk,&r=1,2,3.
+      \end{cases}
+    \end{equation}
+
+    Each $K_j$ has smaller induction parameter. Let
+    $(W_j,A_j,\mathcal{F}_j)$ be an explanation of $K_j$ with the
+    selected poles, and set $m_j=|W_j|$. Its edge counts satisfy
+    \[
+      |A_j|\leq\alpha(m_j-\mathcal{X}_{r-1})-\beta s_j,
+      \qquad |\mathcal{F}_j|\leq m_j-1.
+    \]
+    Form the parent explanation by taking
+    \begin{align*}
+      W&\colonequals\bigcup_{j=0}^k W_j,\\
+      F&\colonequals\{F_1,\ldots,F_k\}
+                         \cup\bigcup_{j=0}^k\mathcal{F}_j,\\
+      A&\colonequals\bigl\{\{v_i,\prei{v_i}\}:1\leq i\leq d+1\bigr\}
+                         \cup\bigcup_{j=0}^k A_j.
+    \end{align*}
+    By \Cref{claim:disj}, the predecessor slices have disjoint
+    histories, and $W_j\subseteq\History{K_j}$. Thus the sets $W_j$
+    are disjoint and
+    \[
+      m=|W|=\sum_{j=0}^k m_j.
+    \]
+    The connecting forks and the predecessor arrows join the selected
+    poles of $K$ to the connected predecessor explanations, by
+    \Cref{claim:prevslices}. All their endpoints lie in $\History{K}$.
+    Consequently, the resulting graph is connected and its marked vertices
+    $W$ are leaves. Moreover,
+    \[
+      |F|\leq k+\sum_{j=0}^k(m_j-1)=m-1.
+    \]
+
+    For the arrows, \Cref{eq:minimal-explanation-span-sum} yields
+    \begin{align*}
+      |A|
+      &\leq d+1+\sum_{j=0}^k
+             \bigl[\alpha(m_j-\mathcal{X}_{r-1})-\beta s_j\bigr]\\
+      &\leq \alpha(m-\mathcal{X}_r)-\beta s
+          +k(2d\beta-\alpha\mathcal{X}_{r-1})
+          +\begin{cases}
+              4(d+1)-\beta,&r=0,\\
+              0,&r=1,2,3.
+            \end{cases}
+    \end{align*}
+    Here we used
+    $\alpha(\mathcal{X}_r-\mathcal{X}_{r-1})=-(d+1)$
+    for $r=1,2,3$, and
+    $\alpha(\mathcal{X}_0-\mathcal{X}_3)=3(d+1)$.
+    The constant term for $r=0$ is nonpositive because
+    $\beta=5(d+1)$. Further,
+    \[
+      \alpha\mathcal{X}_{r-1}
+      \geq\alpha\mathcal{X}_3
+      =40(d+1)^2-3(d+1)>2d\beta.
+    \]
+    Both remaining terms are nonpositive, proving
+    $|A|\leq\alpha(m-\mathcal{X}_r)-\beta s$.
+  \end{enumerate}
+
+  It remains to consider an analysis up to step $\tau$. For slices
+  preceding the final layer, apply the ordinary-contour argument with
+  poles maximizing each $L_i$; then $s=\Size{K}$, and the ordinary
+  bound implies the weaker bound for the analysis. Consider now a slice
+  $K$ in the final partial layer.
+  If $K=\History{K}$, the single-leaf construction applies. Otherwise,
+  repeat the predecessor construction, now using
+  \Cref{claim:shrinkan}, which gives
+  \[
+    \sum_{j=0}^k s_j+\sum_{j=1}^k\Size{F_j}
+       \geq s-2d,
+    \qquad s=\Size{K}.
+  \]
+  In particular, $\sum_{j=0}^k s_j\geq s-2d-2dk$.
+  The same construction of $W,A,F$ preserves connectedness,
+  the disjoint leaf count, and $|F|\leq m-1$. For arrows we obtain
+  \begin{align*}
+    |A|
+    &\leq d+1+\alpha m-\alpha(k+1)\mathcal{X}_{r-1}
+                         -\beta(s-2d-2dk)\\
+    &=\alpha(m+1)-\beta s
+      +\bigl[d+1-\alpha(1+\mathcal{X}_{r-1})+2d\beta\bigr]
+      +k(2d\beta-\alpha\mathcal{X}_{r-1})\\
+    &\leq\alpha(m+1)-\beta s.
+  \end{align*}
+  Indeed, $2d\beta-\alpha\mathcal{X}_{r-1}<0$, as already shown,
+  and $\alpha\geq d+1+2d\beta$.
+\end{proof}
+
+We finish by relating the marked leaves to fault locations. This gives
+bounds usable under local-stochastic noise without assuming independence.
+
+\begin{corollary}
+  \label{coro:edgefaultratio}
+  Let $K$ be a slice of size $s$, and let $(W,A,F)$ be an explanation
+  (ordinary or at the final layer of a partial analysis). For an ordinary
+  slice, choose poles attaining $\Size{K}=s$. Then the
+  number of fault locations inducing its marked leaves is at least
+  \begin{equation*}
+    \frac{1}{2^{\max\{d',d-d'\}}}\;\frac12
+    \left(|F|+\alpha^{-1}(|A|+\beta s)\right).
+  \end{equation*}
+  Moreover, whenever $|A|+|F|>0$, its marked-leaf-to-edge ratio
+  satisfies
+  \begin{equation*}
+    \frac{|W|}{|A|+|F|}\geq\frac{1}{2\alpha}
+      =\frac{1}{80(d+1)^2}.
+  \end{equation*}
+\end{corollary}
+\begin{proof}
+  Put $m=|W|$. In both kinds of explanation,
+  $m\geq |F|+1$. The weaker final-layer arrow bound implies
+  \[
+    m\geq\alpha^{-1}(|A|+\beta s)-1,
+  \]
+  and it applies a fortiori to ordinary explanations, since
+  $\mathcal{X}_r>0$. Averaging the two inequalities gives
+  \[
+    m\geq\frac12\bigl(|F|+\alpha^{-1}(|A|+\beta s)\bigr).
+  \]
+  A single fault can be responsible for at most
+  $2^{\max\{d',d-d'\}}$ marked leaves in the relevant syndrome
+  sector, yielding the first bound.
+
+  Finally,
+  $|A|\leq\alpha(m+1)$ and $|F|\leq m-1$ imply
+  \[
+    |A|+|F|\leq(\alpha+1)m+\alpha-1\leq 2\alpha m
+    \qquad(m\geq1,\ \alpha\geq1),
+  \]
+  which proves the claimed ratio.
+\end{proof} 

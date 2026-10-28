@@ -1,0 +1,175 @@
+
+
+
+
+
+
+
+
+\section{Proof of the Theorem}
+
+We are ready to prove the main theorem (\Cref{theorem:main}). We start by giving a formal definition of a simulation.
+
+  \begin{definition}[Simulation and Logical Errors]
+    \label{def:simu}
+    Consider a quantum code $\mathcal{C}$ of length $n$ and dimension $k$. A quantum circuit $D \colon L(\mathcal{H}_{2}^{\otimes n}) \rightarrow L(\mathcal{H}_{2}^{\otimes n})$ will be said to be a referee for $\mathcal{C}$ if, when given a codeword of $\mathcal{C}$, it results in the first $k$ output qubits, the logical state of the given. We say that a Pauli operator $P \in \mathcal{P}^{\otimes n}$ is a \textit{logical error} with respect to $D$ if $DP \neq D$, where the inequality is up to stabilizers of $\mathcal{C}$.
+
+For quantum circuits $C$ and $\tilde{C}$, a noise channel $N_{\mathcal{E}}$, and $p \in (0,1)$, we say that $\tilde{C}$ \textit{simulates} $C$ with probability at least $1 - p$ if
+    \begin{enumerate}
+      \item
+        There is a mapping between the qubits of $C$ and the registers of $\tilde{C}$, along with a referee such that, at the end of running $\tilde{C}$ (on the zero state), decoding the registers back to the logical space results in the same quantum states as those produced by running $C$.
+      \item Let $\mathcal{E} \sim N_{\mathcal{E}}$ be a set of faults. The probability induced by $N_{\mathcal{E}}$ that at the end of the running of $\tilde{C}[\mathcal{E}]$, one of its quantum registers introduces a logical error (with respect to the referee) is less than $p$.
+    \end{enumerate}
+  \end{definition}
+
+
+
+The following lemma is the main probabilistic ingredient; it analyzes the probability of a logical error occurring after the initialization stage, namely when assuming the given input is encoded.
+
+  \begin{lemma}
+    \label{lemma:keylemma}
+For any $d, d^{\prime}$, there are constants $a, b \in \mathbb{R}^{+}$ and $p_{0} \in (0,1)$ that depend only on $d, d^{\prime}$ and satisfy the following. Consider a quantum circuit $C$ with depth $\mu$ and width $w$, and let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $\tilde{C}$ such that each of its quantum registers is encoded by an $n$-side length, $(d, d^{\prime})$-Toric code, and it simulates $C$ with probability:
+\begin{equation*}
+  \begin{split}
+    q = 1 -   O \left( \operatorname{poly}(w,\mu,n) \right) \left( a p^{b} \right)^{n} 
+  \end{split}
+\end{equation*}
+\end{lemma}
+
+
+To prove the lemma, we will need the following two claims, which are proved in \cite{Berman, gacs2021newversiontoomsproof}. The first bounds, for a given regular graph, the number of its subgraphs having at most $k$ edges. This claim will be used to infer the number of possible explanation trees for a given slice. The second states that each tree has a subtree with fewer than half of the edges and a leaves-to-edge ratio that is at least half of the ratio of the original tree. This claim will be used to infer that any explanation has a subtree where, under the projection to the finite Toric, its faults are mapped uniquely, meaning no fault is counted twice. 
+
+\begin{claim*}[\Cref{claim:counting_trees}]
+Let $G = \left( V, E \right)$ be a $\Delta + 1$-regular graph, and let $k$ be an integer less than $|E|$. Fix a vertex $r \in V$. There is a constant number $\sigma$, depending only on $\Delta$, such that the number of subgraphs rooted at $r$ with fewer than $k$ edges is at most $\sigma^{k}$.
+  \end{claim*}
+
+  \begin{claim*}[\Cref{claim:big_subtree}]
+  Let $\gamma,\beta\in\mathbb{R}_{>0}$ and let $n$ be a positive
+  integer. For any tree $T$ with $\tau\ge\beta n$ edges and $m$ leaves
+  such that $\tau\le\gamma m$, there is a subtree $T'$ of $T$ with a
+  number of edges $\tau'<\frac{\beta}{2}n$ and a number of leaves
+  $m'\ge\frac{\beta}{4\gamma}n$. The counted leaves of $T'$ can be
+  chosen among the original leaves of $T$.
+  \end{claim*}
+  
+The proofs of the claims are given in the appendix. We continue with the proof of the lemma.
+  \begin{proof}
+    We construct $\tilde{C}$ as follows: for each input wire of $C$, we initialize the logical zero $\ket{\mathbf{0}}$ of the $(d,d^{\prime})$-Toric code. For each of the gates $\mathbf{H}$ and $\mathbf{S}$, we initialize the encoded $\ket{\mathbf{H}}$ and $\ket{\mathbf{S}}$ states, and for each $\mathbf{T}$, we initialize copies of both $\ket{\mathbf{T}}$ and $\ket{\mathbf{S}}$ states. The even layers of $\tilde{C}$ are sweep cycles, while on the odd layers, we set the realization of the logical gates. For $\mathbf{CX}$, we set the transversal realization, and for $\mathbf{H}$, $\mathbf{S}$, and $\mathbf{T}$, we use gate teleportation. Thus the width of $\tilde{C}$ expands to at most $ (w + 2\mu) n^{2d}$.  
+    
+
+    
+    
+    We realize the gate teleportation as described in \Cref{def:niceenc}, so the gate teleportation admits $O(n + \log n)$ and $O(n^{2d})$ depth and width overhead. Thus, the depth of $\tilde{C}$ expands to $\Theta(\mu n)$\footnote{The constant inside the $\Theta$ also accounts for the fact that the realization of a logical gate might contain multiple gate teleportations.}. We will denote the procedure of inferring the logical measurement in the gate teleportation\footnote{This is the codeword checking procedure - $ \mathbf{1}_{x_{S^{\prime}}}$ / $ \mathbf{1}_{x_{S/S^{\prime}}}$ as appears in \Cref{def:niceenc} } by $D$, and we also use $D$ as a realization of measurement in the computational basis and as our referee (\Cref{def:simu}). Denote by $S$ the number of locations, so $S = O(w \mu^{2} n^{2d+1} )$.
+  
+    \paragraph{} 
+    Consider a set of faults $\mathcal{E}$, and consider the representation of the subjected circuit $\tilde{C}[\mathcal{E}]$ as a distribution over circuits conditioned on measurement outcomes:
+    \begin{equation*}
+      \begin{split}
+        \tilde{C}[\mathcal{E}] = \sum_{\alpha} \prb{\alpha | \mathcal{E} }\tilde{C}[\mathcal{E}, \alpha] 
+      \end{split}
+    \end{equation*}
+    Denote by $\tau_{f}$ the last step of $\tilde{C}[\mathcal{E},\alpha]$, and let $(\mathbf{P},\mathbf{a}) $ be a step-propagation of $\tilde{C}[\mathcal{E},\alpha]$, where $\mathbf{P} \colonequals  P_{1},P_{2},..,P_{\tau_{f}+1}$ and $\mathbf{a} \colonequals \alpha^{1}, \alpha^{2},..,\alpha^{\tau_{f}+1}$ (\Cref{def:propagation}). Thus, if $D \circ \tilde{C}[\mathcal{E}] \neq \tilde{C}$, then there is at least one option of outcomes $\alpha$ for which $D \circ \tilde{C}[\mathcal{E},\alpha] \neq \tilde{C}$, namely: 
+    \begin{equation*}
+      \begin{split}
+        D \circ \tilde{C}[\mathcal{E},\alpha] = D\circ P_{\tau_{f}+1} \tilde{C}[,\alpha^{\tau_{f}+1}]  \neq \tilde{C}
+      \end{split}
+    \end{equation*} 
+    For this, one of the following two has to occur: either the decoder $D$ fails to decode $P_{\tau_{f}+1}$, or the conditioned circuit $\tilde{C}[,\alpha^{\tau_{f}+1}]$ deviates from the ideal circuit, namely $\tilde{C}[,\alpha^{\tau_{f}+1}] \neq \tilde{C}$. The second occurs only if, along the running, a gate-teleportation fails, meaning the decoding procedure that erases errors from the measured register failed, and therefore the gate applied following the measurement was incorrect. 
+
+    \paragraph{} 
+
+By the barrier argument (\Cref{coro:barrier}), occurrence of both options implies that there is a connected component of either the $X$-syndrome or $Z$-syndrome of at least one of the Paulis in the propagation $P_{1},..,P_{\tau_{f}+1}$ at a size greater than $cn$ (where $c$ is the constant $c^{\prime}$ defined in \Cref{claim:barrierconstant}), and hence, the Pauli-path induced by the propagation has a connected component of the syndrome at a size at least $cn$.
+
+    Since connectivity by faces in the analysis of Toom's contour implies connectivity by arrows, it follows that an occurrence of that event implies the existence of a step $\tau$ such that the analysis of Toom's contour $\mathcal{H}_{\tau}$ of $\tilde{C}[\mathcal{E},\alpha]_{\tau}$ has a slice of size at least $cn$. So it's sufficient to prove that with probability at least $q$, for the sampled faults $\mathcal{E}$, there are no possible outcomes $\alpha$ and a step $\tau$ such that the analysis of Toom's contour $\mathcal{H}_{\tau}$ of $\tilde{C}[\mathcal{E},\alpha]_{\tau}$ has a slice of size at least $cn$.
+    \paragraph{} 
+    
+Denote by $B_{\tau}$ the event where $\tau$ is the first step such that $\mathcal{H}_{\tau}$ has a slice at size greater than $cn$, and by $A_{\tau}$ the event where all explanations of slices (and any of their pole selections) in $\mathcal{H}_{\tau}$ have fewer than $\frac{n}{2d}$ edges. Using the conditional probability formula, we have:
+    \begin{equation*}
+      \begin{split}
+        \prbm{  B_{\tau}    }{ \sim \mathcal{N}_{\mathcal{E}} } & =  \prbm{  B_{\tau}  \cap A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } + \prbm{  B_{\tau} \cap \bar{A}_{t}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \\
+  & \le \prbm{  B_{\tau}  \cap A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } + \prbm{ \bar{A}_{t}    }{ \sim \mathcal{N}_{\mathcal{E}} }  \\
+      \end{split}
+    \end{equation*}
+    We begin by bounding the contribution of the right term. According to \Cref{coro:edgefaultratio}, there exists a constant $c_{1}$, depending only on $d$, such that the ratio of leaves to edges in the explanation is at least $c_{1}$. By \Cref{claim:big_subtree}, it follows that any such explanation has more than $\frac{n}{2d}$ edges containing a subtree with fewer than $\frac{n}{4d}$ edges, with a leaves-to-edges ratio greater than $\frac{1}{2} c_{1}$. Using the union bound, we bound the probability that there is a vertex in the base graph that is a root of such a subtree. Since the construction of the $\infty$-lift sets periodic conditions, it's sufficient to ask if there is such a vertex in the restriction to the finite $n$-side length Toric.
+  \begin{equation*}
+    \begin{split}
+      \prbm{ \bar{A}_{\tau} }{ \sim \mathcal{N}_{\mathcal{E}} }  \le  \bigcup_{ \substack{ v \in V_{o}, \tau^{\prime} \le \tau \\ L_{g}(v) \in [0,n]} } \prbm{ & v \text{ is a root of subtree in } \mathcal{H}_{\tau^{\prime}}  \\ 
+      &  \text{ with less than  } \frac{n}{4d} \text{ edges and more than } \frac{1}{2}c_{1} \frac{n}{4d} \text{ leaves}  }{ \sim \mathcal{N}_{\mathcal{E}} } 
+    \end{split}
+  \end{equation*}
+    Now, since any two connected vertices are at a space distance of at most 
+    \begin{equation*}
+      \begin{split}
+        \max\{\Size{\text{arrow}}, \Size{\text{fork}}\}  \le 2d
+      \end{split}
+    \end{equation*} 
+    It follows that all the vertices in the subtree are at a space distance of at most $\frac{1}{2} n$ from each other. Thus, no two of them have the same space coordinate modulo $n$. In particular, projecting the infinite plane back to the finite Toric sends each of the leaves of the subtree to a unique target, namely no fault is counted twice. Therefore the number of faults that induce the explanation is at least:
+    \begin{equation*}
+      \begin{split}
+        \frac{1}{2^{\max\{d^{\prime}, d - d^{\prime}\}}} \frac{1}{2} \frac{1}{2}c_{1} \frac{n}{4d} \ge \frac{1}{2^{d+4}} c_{1} \frac{n}{d} 
+      \end{split}
+    \end{equation*}
+Plugging into the union bounds and combining \Cref{claim:counting_trees} yields:
+    \begin{equation*}
+      \begin{split}
+        \prbm{  \bar{A}_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} }  \le O(S) \sigma^{  \frac{n}{4d} } p^{ \frac{c_{1}n}{2^{d+4} d } }\le O(S) \left( \sigma p^{\frac{1}{2^{d + 2}} c_{1}} \right)^{\frac{n}{4d}} 
+      \end{split}
+    \end{equation*}
+
+    It's left to bound the probability of $B_{\tau} \cap A_{\tau}$. By \Cref{claim:edgesin} any slice, and any pole selection of it, in $\mathcal{H}_{\tau}$, have an explanation. Confining to the event $A_{\tau}$, any explanation implies that any explanation has fewer than $\frac{n}{2d}$ edges and therefore, by the same argument as above, the projection of each explanation tree into the finite Toric sends its leaves to unique targets.
+
+Any slice of size at least $cn$, has poles selection $v_{1}..,v_{d+1}$ such: 
+\begin{equation}
+  \begin{split}
+    \label{equ:bigspan}
+  \sum_{i}^{d+1}L_{i}(v_{i}) \ge cn
+  \end{split}
+\end{equation}
+Consider a slice with size at least $cn$ and a pole selection for it satisfying \Cref{equ:bigspan}. \Cref{claim:edgesin} and \Cref{coro:edgefaultratio} state that there are constants $c_{2},c_{3} > 0$ such that any explanation for the slice and the selection, with $x$ edges, has at least $c_{2} cn + c_{3} x$ leaves. Therefore, we obtain:
+    \begin{equation*}
+      \begin{split}
+        \prbm{  B_{\tau}  \cap A_{\tau}  }{ \sim \mathcal{N}_{\mathcal{E}} } & \le \bigcup_{ \substack{ v \in V_{o}, x \ge 1 \\ L_{g}(v) \in [0,n]} } \prbm{ v \text{ is a root of explanation with } x \text{ edges} \\ 
+      & \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \  \ \ \text{ and at least } c_{2}cn + c_{3}x \text{ leaves, } \\
+  & \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \  \ \ \text{ which are projected to different targets  }  }{ \sim \mathcal{N}_{\mathcal{E}} } 
+            \end{split}
+          \end{equation*}
+          So, for sufficiently small $p$ such that $\sigma p^{c_{3}} < 1$, the probability is bounded by:
+          \begin{equation*}
+            \begin{split}
+              \sum_{x = 1  }^{ \infty } O(S)p^{c_{2}cn} \left( \sigma p^{c_{3} } \right)^{x}  \le O(S) p^{c_{2}c n} 
+      \end{split}
+    \end{equation*}
+    Combing the bounds we have, that there is constant $c_{4}$ depending only on  $d,d^{\prime}$ such:
+\begin{equation*}
+  \begin{split}
+    \prbm{  B_{\tau} }{ \sim \mathcal{N}_{\mathcal{E}} } \le  O(S) p^{c_{4} n} 
+  \end{split}
+\end{equation*}
+Now, by the union bound over the time steps, with a probability greater than:
+\begin{equation*}
+  \begin{split}
+  1 -   O \left( S^{2} \right) p^{ c_{4}n } 
+  \end{split}
+\end{equation*}
+No step admits a slice of size at least $cn$ in its corresponding analysis of Toom's contour, so the barrier argument holds; in other words, the propagated errors do not accumulate into a logical error.
+\end{proof}
+The lemma gives the theorem almost immediately. To complete the proof, we need to plug in the initialization phase, which initializes encoded zeros and resource states subjected to local stochastic noise. We emphasize that the resulting states are subjected to local stochastic noise (in addition to the computation). We neither prove nor describe that phase here; instead, we refer to \cite{grospellier:tel-03364419, gottesman2014faulttolerant, Fawzi_2018}, and \cite{nguyen2025quantumfaulttoleranceconstantspace}.
+  \begin{theorem}
+    \label{theorem:main}
+    There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, and a quantum circuit $C$ with depth $\mu$ and width $w$, there exists a Toric encoded circuit $\tilde{C}$, with depth $\Theta(\mu (n + \text{ Polylog}(n)) )$ and width $\Theta((w + \mu) n^{8} \text{ Polylog}(n) )$  that simulates $C$ with probability: 
+\begin{equation*}
+  \begin{split}
+    1 -   O \left( \text{poly}(w,\mu,n) \right)  p^{\Omega(n)} 
+  \end{split}
+\end{equation*}
+and in addition: 
+\begin{enumerate}
+  \item After a short initialization stage (at depth $\Theta( \text{poly}(\log n))$), each of the qubits is encoded in the $n$-length 4D Toric code.
+  \item An error correction cycle takes $O(1)$ depth, and the gates in each correction cycle don't depend on time. In particular, if $C$ is the identity circuit, then after the initialization stage, the layers in $\tilde{C}$ are the same.
+\end{enumerate}
+  \end{theorem} 
+
+
+
+
+

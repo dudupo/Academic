@@ -1,0 +1,96 @@
+\ifdefined \POSTER
+  \else
+\usepackage[utf8]{inputenc}
+\ifdefined \bookflag
+  \usepackage[a4paper, marginparwidth=100pt, total={5in, 9in}]{geometry}
+\else
+\usepackage[a4paper, total={6in, 9in}]{geometry}
+\fi
+\fi
+
+\ifdefined \POSTER \else \usepackage{braket} \fi
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\ifdefined \POSTER \else \usepackage{titling} \fi
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    citecolor=blue %
+}
+
+\usepackage{authblk}
+\usepackage{framed}
+\usepackage{cleveref}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usetikzlibrary{quantikz2}
+\usetikzlibrary{patterns, shapes.arrows}
+\usepackage{adjustbox}
+\usepackage{tkz-graph}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{tkz-berge}
+\usepackage[linesnumbered]{algorithm2e}
+\usepackage{multicol}
+\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+\usepackage{pgfplots}
+\usepackage{setspace}
+\usepackage{etoc}
+\usepackage{pgfgantt}
+\usepackage{pdfpages}
+\usepackage{subcaption}
+\ifdefined \POSTER \else \usepackage[activate={true,nocompatibility}, final, tracking=true, kerning=true, spacing=true, factor=1100, stretch=10, shrink=10]{microtype} \fi
+
+
+\usepackage{colonequals}
+\usepackage{pifont}
+\usepackage{booktabs}
+
+\ifdefined \POSTER \else \DeclareUnicodeCharacter{2212}{−} \fi
+\usepgfplotslibrary{groupplots,dateplot}
+\pgfplotsset{compat=newest}
+
+
+\newcommand{\mynewtheorem}[2]{  
+  \newtheorem{#1}[theorem]{#2}
+
+}
+\newcommand{\mynewtheoremstar}[2]{  
+  \newtheorem*{#1}{#2}
+
+}
+\ifdefined \POSTER \else \newtheorem{theorem}{Theorem}[section] \fi
+\ifdefined \POSTER \else \mynewtheorem{corollary}{Corollary} \fi
+\ifdefined \POSTER \else \mynewtheorem{definition}{Definition} \fi
+\ifdefined \POSTER \else \mynewtheorem{example}{Example} \fi
+\ifdefined \POSTER \else \mynewtheorem{claim}{Claim} \fi
+\ifdefined \POSTER \else \mynewtheorem{proposition}{Proposition} \fi
+\ifdefined \POSTER \else  \fi
+\ifdefined \POSTER \else \mynewtheoremstar{claim*}{Claim} \fi
+\ifdefined \POSTER \else \mynewtheorem{fact}{Fact} \fi
+\ifdefined \POSTER \else \mynewtheorem{remark}{Remark} \fi
+\ifdefined \POSTER \else \mynewtheoremstar{theorem*}{Theorem} \fi
+\ifdefined \POSTER \else \mynewtheorem{lemma}{Lemma} \fi
+\ifdefined \POSTER \else \mynewtheorem{conjecture}{Conjecture} \fi
+\ifdefined \POSTER \else \mynewtheorem{exercise}{Exercise} \fi
+\ifdefined \POSTER \else \mynewtheorem{solution}{Solution} \fi
+\ifdefined \POSTER \else \mynewtheorem{openproblem}{Open problem} \fi
+\ifdefined \POSTER \else \crefname{lemma}{Lemma}{Lemmas} \fi
+\ifdefined \POSTER \else \Crefname{algocf}{Algorithm}{Algorithms} \fi
+\ifdefined \POSTER \else \Crefname{sub@algcof}{Algorithm}{Algorithms} \fi
+\ifdefined \POSTER \else \hypersetup{colorlinks=true} \fi
+
+\ifdefined \POSTER \else \mynewtheorem{problem}{Problem} \fi
+\ifdefined \POSTER \else \crefname{problem}{Problem}{Problems} \fi
+
+\ifdefined \POSTER \else \newtheorem{oproblem}{Open-Problem} \fi
+\ifdefined \POSTER \else \crefname{oproblem}{Open-Problem}{Open Problems} \fi
+
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\Rea}{Re}
+\DeclareMathOperator{\sign}{sign}

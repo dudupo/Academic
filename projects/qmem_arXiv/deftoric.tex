@@ -1,0 +1,110 @@
+\section{The $(d,d^{\prime})$-Dimensional Toric Code}
+
+We use the cubical Toric code of Kitaev \cite{Kitaev1997QuantumCA,Dennis_2002}. In two dimensions, qubits are associated with edges of a square lattice on the torus, and stabilizer checks with its vertices and plaquettes. More generally, a $(d,d')$-Toric code places qubits on $d'$-dimensional cells of a $d$-dimensional cubical Toric complex, and checks on cells of dimensions $d'-1$ and $d'+1$. We first describe the cells and their chain spaces using the rooted-face notation needed for our local decoder. We retain the same conventions, in particular $\rotfv{v}{S'}$ for basis chains and $(\mathcal F_i;\mathbb F_2)$ for their span, in the sections that follow.
+
+\begin{definition}[$d$-Dimensional Toric Complex]
+\label{def:toric_complex}
+Let $d,n$ be positive integers and set
+\begin{equation*}
+  \mathcal G_n^d:=\mathbb Z_n^d,
+  \qquad S:=\{\mathbf 1_i:i\in[d]\},
+\end{equation*}
+where $\mathbf 1_i$ is the $i$th standard generator. We write the group law multiplicatively when acting on vertices: $gv$ is the translate of $v$ by $g$, and $S'v=(\prod_{g\in S'}g)v$ for $S'\subseteq S$.
+
+The \emph{$d$-dimensional cubical Toric complex} $\mathcal T_n^d$ has vertex set $\mathcal F_0=\mathcal G_n^d$. For each $i\in\{0,\ldots,d\}$, an $i$-cell is specified by a root $v\in\mathcal G_n^d$ and a direction set $S'\subseteq S$ with $|S'|=i$. We denote this cell by
+\begin{equation*}
+  \rotf{v}{S'}=\theta_{v,S'},
+  \qquad V(\theta_{v,S'})=
+  \left\{\left(\prod_{g\in I}g\right)v:I\subseteq S'\right\},
+\end{equation*}
+where $V(\theta_{v,S'})$ is its set of vertices. The root and direction set specify the cell (including its incidences), not merely the displayed set of vertices. Let $\mathcal F_i$ be the set of $i$-cells; thus $\mathcal T_n^d=(\mathcal F_0,\ldots,\mathcal F_d)$ with the standard cubical incidence structure. We call $n$ its \emph{side length} and $d$ its \emph{dimension}.
+\end{definition}
+
+\input{tikz/toric.tikz}
+
+
+\begin{definition}[Chains and Assignments on a Toric Complex]
+\label{def:asontoric}
+Let $\mathcal T=\mathcal T_n^d$. For each $i$, we denote the space of $i$-dimensional chains by
+\begin{equation*}
+  C_i(\mathcal T):=(\mathcal F_i;\mathbb F_2)
+  =\operatorname{Span}_{\mathbb F_2}\{\rotfv{v}{S'}:
+  v\in\mathcal G_n^d,\ S'\subseteq S,\ |S'|=i\}.
+\end{equation*}
+Here $\rotfv{v}{S'}$ is the standard basis chain corresponding to the geometric face $\rotf{v}{S'}$. Since $\mathcal F_i$ is finite, $C_i(\mathcal T)$ is canonically identified with both $\mathbb F_2^{\mathcal F_i}$ and $\mathbb F_2^{|\mathcal F_i|}$. An \emph{assignment} on the $i$-faces is simply a chain $z\in C_i(\mathcal T)$; we use these terms interchangeably. If $z$ has support on the distinct cells $\theta_{v_j,S'_j}$, then
+\begin{equation*}
+  z=\sum_{j=1}^{m}\rotfv{v_j}{S'_j}.
+\end{equation*}
+A basis face is regarded as a chain whenever it occurs in a sum or under a linear operator. We write $f\in z$ when $f$ is a cell supporting $z$, and $v\in z$ when $v$ is a vertex of one of its supporting cells. More generally, the incidence notation $f\in z$ for a lower-dimensional face means that $f$ lies in a cell supporting $z$; this is different from saying that its coefficient in the boundary is nonzero. We write $V(z)$ for the set of vertices of the supporting cells.
+
+For $i>0$, define the \emph{boundary operator} $\partial^-:C_i(\mathcal T)\to C_{i-1}(\mathcal T)$ on basis chains by
+\begin{equation*}
+  \partial^-\rotfv{v}{S'}
+  :=\sum_{g\in S'}\left(
+       \rotfv{v}{S'/g}+\rotfv{gv}{S'/g}\right).
+\end{equation*}
+For $i<d$, the \emph{coboundary operator} $\partial^+:C_i(\mathcal T)\to C_{i+1}(\mathcal T)$ is
+\begin{equation*}
+  \partial^+\rotfv{v}{S'}
+  :=\sum_{g\in S/S'}\left(
+       \rotfv{v}{S'\cup g}+\rotfv{g^{-1}v}{S'\cup g}\right).
+\end{equation*}
+Both operators are extended linearly to chains. We use $S'/g=S'\setminus\{g\}$, $S/S'=S\setminus S'$, and $S'\cup g=S'\cup\{g\}$ throughout, as in \Cref{sec:nota}.
+
+For a vertex $v$, define the \emph{restriction at $v$}, $z|_v$, to retain the cells of $z$ having $v$ among their vertices:
+\begin{equation*}
+  \left.\rotfv{u}{S'}\right|_v
+  :=\begin{cases}
+      \rotfv{u}{S'},&v\in V(\theta_{u,S'}),\\
+      0,&\text{otherwise}.
+    \end{cases}
+\end{equation*}
+The \emph{positive restriction} $z|_{v+}$ retains only cells \emph{rooted} at $v$:
+\begin{equation*}
+  \left.\rotfv{u}{S'}\right|_{v+}
+  :=\begin{cases}
+      \rotfv{u}{S'},&u=v,\\
+      0,&\text{otherwise}.
+    \end{cases}
+\end{equation*}
+The maps $|_v$ and $|_{v+}$ extend linearly; the complementary restriction is $z|_{/v}:=z+z|_v$. If $D$ is a specified set of face coordinates, $z|_D$ likewise retains the terms of $z$ supported in $D$. When a local code is written in place of $D$, this notation refers to its underlying face coordinates.
+
+Two distinct $i$-faces are \emph{adjacent} if they share an $(i-1)$-face. A nonzero $i$-chain is \emph{connected} if the adjacency graph on its supporting $i$-faces is connected; its connected components are the chains corresponding to the components of this graph. An $i$-chain $z$ is \emph{rooted at $v$} if all of its supporting $i$-faces have root $v$, that is,
+\begin{equation*}
+  z\in\operatorname{Span}_{\mathbb F_2}
+       \{\rotfv{v}{S'}:S'\subseteq S,\ |S'|=i\}.
+\end{equation*}
+\end{definition}
+
+We are ready to define the code in this notation.
+
+\begin{definition}[$(d,d')$-Toric Code]
+Let $1\le d'\le d$. The side-length-$n$ $(d,d')$-Toric code is the CSS code associated with $\mathcal T_n^d$ whose physical qubits correspond to $\mathcal F_{d'}$. As in the rest of the paper, the check families are indexed by $\mathcal F_{d'-1}$ and $\mathcal F_{d'+1}$ (called the $X$-checks and $Z$-checks, respectively, in our convention). A lower-dimensional check is supported on the qubits incident to its $(d'-1)$-cell; an upper-dimensional check is supported on the qubits in the boundary of its $(d'+1)$-cell. The corresponding check matrices are the incidence matrices of $\partial^-$ and $\partial^+$.
+\end{definition}
+
+\begin{claim}[CSS structure]
+\label{claim:csscode}
+The $(d,d')$-Toric code is a CSS code.
+\end{claim}
+\begin{proof}
+Give each chain space its standard inner product, in which the basis faces are orthonormal. Directly from the definitions, $\partial^+$ is the transpose of $\partial^-$ in consecutive dimensions:
+\begin{equation*}
+  \bigl\langle\partial^+\rotfv{v}{A},\rotfv{u}{B}\bigr\rangle
+  =\bigl\langle\rotfv{v}{A},\partial^-\rotfv{u}{B}\bigr\rangle.
+\end{equation*}
+Indeed, either coefficient is one precisely when there is $g\in B$ such that $A=B/g$ and either $u=v$ or $u=g^{-1}v$ (equivalently, $v=gu$).
+
+Moreover, the boundary of a boundary vanishes. On expanding $\partial^-\partial^-\rotfv{v}{S'}$, every term indexed by two distinct deleted directions $g,g'\in S'$ occurs twice, once in each order, so over $\mathbb F_2$ it cancels. Hence $(\partial^-)^2=0$; by transposition, $(\partial^+)^2=0$ as well. In particular, the check matrices associated with the two adjacent cell dimensions are orthogonal, and the corresponding Pauli stabilizers commute, as required for a CSS code.
+\end{proof}
+
+The chain formulation will be used for both errors and their syndromes: in the relevant sector, a qubit error is a $d'$-chain and its syndrome is the corresponding boundary chain. We next describe the local vertices visible from a given root.
+
+\begin{definition}[Positive Neighborhood]
+\label{def:positiveNei}
+For a vertex $v$ and a chain $z$, the \emph{positive one-step neighborhood of $v$ in $z$} is
+\begin{equation*}
+  \textbf{Str}_{0+}(v,z)
+  :=V(z)\cap\{gv:g\in S\}.
+\end{equation*}
+Thus $\textbf{Str}_{0+}(v,z)$ consists of those vertices supporting $z$ that can be reached from $v$ by one step in a positive generator direction. This is the local neighborhood used in the subsequent sweep-rule and reduced-error arguments.
+\end{definition}
