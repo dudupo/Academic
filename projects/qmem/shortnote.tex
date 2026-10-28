@@ -23,7 +23,8 @@
 \begin{document}
 \input{newcommands}
 \title{ A Note on an Old Proof of 'Quantum Toom's Rule' }
-\author{David Ponarovsky}
+\author{David Ponarovsky\footnote{David.Ponarovsky@mail.huji.ac.il}}
+\affil{School of Computer Science, Hebrew University}
 \maketitle
 
 % Constant depth fault tolerance construction.   
@@ -64,9 +65,71 @@ This note examines the correctness of a proof of the 'Quantum Toom's rule' given
 \section{Introduction} 
 The quantum Toom's rule has been mentioned extensively in the literature \cite{Dennis_2002}, yet the question of the existence of a rigorously correct proof is not a consensus. One promising candidate is the work done by \cite{Ahn2004} in her Ph.D. thesis. We emphasize that her work is meaningful and contains clever concepts regardless of whether it's correct as a whole. Yet, as recent works have been relying on her result, it becomes obligatory to understand if the 'Quantum Toom's rule', as stated by her, is indeed valid. Here, we present three potential gaps to three arguments raised in her proof. The goal of the note is to be short and aimed, and therefore the text assumes that the reader is fluent in the proof details.
 
+
+\section{Toom's Rule in Higher Dimensions Does Not Shrink All Droplets}
+
+
+In four dimensions, Ahn flips a plaquette if both of its positive edges carry a syndrome \cite[p.~105]{Ahn2004}. For qubits on $k$-dimensional cells, the direct all-positive-facets extension is to flip a $k$-cell if all its $k$ positive $(k-1)$-facets belong to the syndrome. That is how the extension is stated in the work:
+
+\begin{framed}
+  Similarly, in $d$-dimensions, where cells are centered in $d$-dimensional solids with $(d-1)$-dimensional boundary, we can define a similar rule. Define a positive direction for each axis. For a given $d$-dimensional solid, there are $d$ faces that have more positive coordinates than the other $d$ faces. Define string as before to be placed on faces that are shared by two cells with differing values. If there is string on all plus faces, flip the value of the cell. 
+\end{framed}
+
+
+We show that this natural rule has a contractible, nonzero fixed
+point for every $k\ge3$. In particular, it fails for qubits on
+three-faces in six dimensions. The thesis does not give an equally
+explicit higher-dimensional update prescription; accordingly, the
+example applies to this natural extension rather than to every
+possible higher-dimensional decoding rule.
+
+In the six-dimensional cubic lattice with coordinates
+$(x,y,z,w,u,v)$, put qubits on three-cells and syndrome checks on
+square faces. Let
+\begin{align}
+ A&=[0,1]_x\times[0,1]_y\times[-1,0]_z,
+   &&w=u=v=0,\\
+ B&=[0,1]_x\times[0,1]_y\times[-1,0]_w,
+   &&z=u=v=0.
+\end{align}
+Their intersection is the square
+\begin{equation}
+ Q=[0,1]_x\times[0,1]_y,
+ \qquad z=w=u=v=0,
+\end{equation}
+which is a positive facet of \emph{both} cubes. For the error chain
+$E=A+B$, its syndrome $\sigma=\partial E$ does not contain $Q$,
+since the two incidences cancel over $\mathbb F_2$.
+
+Each of $A$ and $B$ therefore has only two of its three positive
+facets in $\sigma$, so neither is flipped. Nor is any other
+three-cell $C$: two distinct elementary cubes share at most one
+square facet; hence $C\notin\{A,B\}$ can have at most one positive
+syndrome facet contributed by $A$ and at most one contributed by
+$B$. In particular, it has at most two positive facets in
+$\sigma$, whereas a flip requires three. Thus the correction
+chain is empty and
+\begin{equation}\label{eq:fixed-six-dimensional-droplet}
+ U(\partial E)=0,\qquad E_t=E\quad\text{for every }t\ge0.
+\end{equation}
+The union $A\cup B$ is contractible, and $\partial E\ne0$. Hence
+this is a finite, contractible error droplet with nonzero syndrome
+that never shrinks under noiseless evolution.
+
+More generally, take two elementary $k$-cubes sharing a common
+$(k-1)$-face that is positive for both. Their common facet cancels
+from the syndrome, leaving only $k-1$ positive syndrome facets on
+each erroneous cube. Any other $k$-cube meets each of the two
+original cubes in at most one $(k-1)$-facet, so it has at most
+two positive syndrome facets. For $k\ge3$, no cell is flipped.
+The same fixed point therefore exists in every ambient dimension
+$d\ge k+1$, in particular in the $d=2k\ge6$ family.
+
+
+
 \section{Failure of the Disobedient-to-Obedient Construction}
 
-We first examine the conversion from a disobedient to an obedient explanation proposed in \cite[pp.~105--108]{Ahn2004}. The construction replaces errors' histories, which are explained by disobedient explanations, with ones satisfying the prescribed oriented predecessor relation, namely obedient explanations, while introducing new noise sources. Then, it's mentioned that the structure of the construction implies the existence of a constant $C$ such that the maximal number of disobedient explanations transformed into an obedient explanation, at span $s$, is at most $C^{s}$. Here is a quote of the presented counting argument:
+Next, examine the conversion from a disobedient to an obedient explanation proposed in \cite[pp.~105--108]{Ahn2004}. The construction replaces errors' histories, which are explained by disobedient explanations, with ones satisfying the prescribed oriented predecessor relation, namely obedient explanations, while introducing new noise sources. Then, it's mentioned that the structure of the construction implies the existence of a constant $C$ such that the maximal number of disobedient explanations transformed into an obedient explanation, at span $s$, is at most $C^{s}$. Here is a quote of the presented counting argument:
 
 \begin{framed}
   Toom's rule, only cares about the string and not about parts of the surface that do not contribute to the string. Therefore, we only have to consider the cells adjacent to the relevant links. In $d$ dimensions (with $d/2$-dimensional plaquettes), the number of plaquettes that share an edge with a given plaquette is $d-1$, and the number of edges of a plaquette is $d$, so the total number of disobedient explanations needed to be counted for a given obedient explantation of span $s$ can be at most $(( d-1) 2(d/2 -1))^{s+1}$.   
@@ -248,64 +311,6 @@ Here we used ${4r\choose r}\ge 4^r$ for $r=N/4$, and the last inequality holds a
 
 %The obstruction is multiplicity: many partially faulty configurations can have the same completed configuration. A valid probability comparison requires a specified map from original to completed noise histories, together with a bound on its number of preimages (or an equivalent weighted-counting estimate). This rectangular example disproves the general probability-division \emph{inference}, not Eq.~(7.20) itself. In Ahn's geometric setting the claimed completion cost is $3L/4$, where $L$ is a \emph{side length}, not $3N/4$ for a rectangle of area $N$. Establishing that particular bound additionally requires the appropriate geometric completion and its multiplicity estimate.
 
-\section{Toom's Rule in Higher Dimensions Does Not Shrink All Droplets}
-
-
-In four dimensions, Ahn flips a plaquette if both of its positive edges carry a syndrome \cite[p.~105]{Ahn2004}. For qubits on $k$-dimensional cells, the direct all-positive-facets extension is to flip a $k$-cell if all its $k$ positive $(k-1)$-facets belong to the syndrome. That is how the extension is stated in the work:
-
-\begin{framed}
-  Similarly, in $d$-dimensions, where cells are centered in $d$-dimensional solids with $(d-1)$-dimensional boundary, we can define a similar rule. Define a positive direction for each axis. For a given $d$-dimensional solid, there are $d$ faces that have more positive coordinates than the other $d$ faces. Define string as before to be placed on faces that are shared by two cells with differing values. If there is string on all plus faces, flip the value of the cell. 
-\end{framed}
-
-
-We show that this natural rule has a contractible, nonzero fixed
-point for every $k\ge3$. In particular, it fails for qubits on
-three-faces in six dimensions. The thesis does not give an equally
-explicit higher-dimensional update prescription; accordingly, the
-example applies to this natural extension rather than to every
-possible higher-dimensional decoding rule.
-
-In the six-dimensional cubic lattice with coordinates
-$(x,y,z,w,u,v)$, put qubits on three-cells and syndrome checks on
-square faces. Let
-\begin{align}
- A&=[0,1]_x\times[0,1]_y\times[-1,0]_z,
-   &&w=u=v=0,\\
- B&=[0,1]_x\times[0,1]_y\times[-1,0]_w,
-   &&z=u=v=0.
-\end{align}
-Their intersection is the square
-\begin{equation}
- Q=[0,1]_x\times[0,1]_y,
- \qquad z=w=u=v=0,
-\end{equation}
-which is a positive facet of \emph{both} cubes. For the error chain
-$E=A+B$, its syndrome $\sigma=\partial E$ does not contain $Q$,
-since the two incidences cancel over $\mathbb F_2$.
-
-Each of $A$ and $B$ therefore has only two of its three positive
-facets in $\sigma$, so neither is flipped. Nor is any other
-three-cell $C$: two distinct elementary cubes share at most one
-square facet; hence $C\notin\{A,B\}$ can have at most one positive
-syndrome facet contributed by $A$ and at most one contributed by
-$B$. In particular, it has at most two positive facets in
-$\sigma$, whereas a flip requires three. Thus the correction
-chain is empty and
-\begin{equation}\label{eq:fixed-six-dimensional-droplet}
- U(\partial E)=0,\qquad E_t=E\quad\text{for every }t\ge0.
-\end{equation}
-The union $A\cup B$ is contractible, and $\partial E\ne0$. Hence
-this is a finite, contractible error droplet with nonzero syndrome
-that never shrinks under noiseless evolution.
-
-More generally, take two elementary $k$-cubes sharing a common
-$(k-1)$-face that is positive for both. Their common facet cancels
-from the syndrome, leaving only $k-1$ positive syndrome facets on
-each erroneous cube. Any other $k$-cube meets each of the two
-original cubes in at most one $(k-1)$-facet, so it has at most
-two positive syndrome facets. For $k\ge3$, no cell is flipped.
-The same fixed point therefore exists in every ambient dimension
-$d\ge k+1$, in particular in the $d=2k\ge6$ family.
 
 %\inb{\textbf{TODO:}}
 %\begin{enumerate}
