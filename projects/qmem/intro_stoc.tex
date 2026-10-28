@@ -42,8 +42,17 @@ For sufficiently large $n$, the encoded circuit has depth $\Theta\!\bigl(\mu(n+\
 The stated costs include the implementation of logical operations; in particular, gate teleportation may need a classical decoding computation of nonconstant total duration. Our claim of constant depth is therefore \emph{about the recurring correction cycle}, not the entire simulation of each logical gate. Unlike the local-decoding constructions in which code expansion is the essential geometric input, our theorem uses a nonexpanding cubical chain complex. The correction dynamics require no scale-dependent auxiliary control network.
 
 \paragraph{An explicit higher-dimensional sweep rule.}
-At a vertex of the cubical complex, the sweep rule examines syndrome checks in a designated positive neighborhood and seeks a nearby correction chain supported on positive faces. Kubica and Preskill \cite{Kubica_2019} established the usefulness of this rule and posed the local existence question in higher dimensions. We prove the required existence statement and give an explicit choice of local correction. Since the dimension is fixed, this choice can be implemented by bounded-depth classical processing on a constant-size neighborhood.
+The sweep rule, introduced by Kubica and Preskill \cite{Kubica_2019}, is an oriented local correction procedure for topological codes. At each vertex $v$, it reads the syndrome $\sigma$ on the positive $(d'-1)$-faces rooted at $v$ and searches for a correction chain $\tilde z$ supported on the positive $d'$-faces rooted there, satisfying
+\begin{equation*}
+  (\partial^-\tilde z)|_{v+}=\sigma|_{v+},
+  \qquad
+  \mathbf{Str}_{0+}(v,\tilde z)\subseteq\mathbf{Str}_{0+}(v,\sigma).
+\end{equation*}
+The first condition ensures that the correction cancels the syndrome seen at $v$, while the second confines its positive vertex support to that of the observed syndrome. If an admissible chain is found, the rule flips its qubits; otherwise, no correction is applied at $v$. All vertices execute this fixed local rule in parallel.
 
+The nontrivial question is whether the boundary and support conditions can be satisfied simultaneously in higher dimensions. We prove the following local-existence claim (\Cref{claim:findcor}): whenever a $d'$-chain $z$ rooted at $v$ satisfies $(\partial^- z)|_{v+}=\sigma|_{v+}$, there is also a rooted $d'$-chain $\tilde z$ satisfying \emph{both} sweep-rule conditions above. Our inductive proof gives an explicit algorithm for constructing $\tilde z$, rather than searching over all local corrections. In fixed dimension, its computation takes constant time and can be implemented by bounded-depth classical processing.
+
+In particular, at a corner of an error component---a \emph{trailing vertex} in the terminology of Kubica and Preskill---the error faces meeting the corner lie in its positive neighborhood and provide the rooted chain required by the claim. The sweep rule can therefore flip qubits in that neighborhood so as to erase the syndrome at the corner, moving the error boundary away from the trailing vertex.
 \paragraph{Ideal decoding of local-stochastic errors.}
 Our third result concerns the same correction rule used \emph{without faults during decoding}. It is separate from the above threshold theorem, where noise may occur between and during repeated correction cycles.
 
