@@ -18,8 +18,10 @@ as a one-vertex subtree, counts as one original leaf.
 
 \begin{proof}
   Assign weight $1$ to every leaf of $T$ and weight $0$ to every other
-  vertex. There is a vertex $v$ such that every connected component of
-  $T-v$ contains at most $m/2$ leaves: starting at any vertex, move
+  vertex. We argue that there is a vertex $v$ such that every connected component of
+  $T-v$ contains at most $m/2$ leaves. 
+
+  To see this, consider the following algorithm. Starting at any vertex, move
   towards a component containing more than $m/2$ leaves, if such a
   component exists. A move cannot immediately be reversed, since the
   component on the opposite side then contains fewer than $m/2$ leaves.
