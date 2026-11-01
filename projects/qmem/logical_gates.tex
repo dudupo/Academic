@@ -114,7 +114,7 @@ Consider a Pauli $P \in \mathcal{P}$, acting on the infinite complex, whose $X$-
 
 
 
-Throughout the construction, we encode each qubit in a code block; namely, we restrict ourselves to using only a single codeword of the $(d,d^{\prime})$-Toric code. From now on, we will think of $S^{\prime} \subset S$ as a fixed $d^{\prime}$-size subset of generators that were picked from the head. And we will decode the logical $\ket{1}$ state by $x_{S^{\prime}}$. To simplify terminology, we call such usage 'nice encoding'.
+Throughout the construction, we encode each qubit in a code block; namely, we restrict ourselves to using only a single codeword of the $(d,d^{\prime})$-Toric code. From now on, we will think of $S^{\prime} \subset S$ as a fixed $d^{\prime}$-size subset of generators that were fixed in advance. And we will encode the logical $\ket{1}$ state by $x_{S^{\prime}}$. To simplify terminology, we call such usage 'nice encoding'.
 \begin{definition}[The Nice Encoding]
   \label{def:niceenc}
   Consider $(d,d^{\prime})$-Toric code and fix a subset $S^{\prime} \subset S$, at size $d^{\prime}$. We define the \textit{nice encoding} to be the subsystem code, which uses $x_{S^{\prime}}$ to encode a single logical qubit. Namely, the logical operators are: 
@@ -125,7 +125,7 @@ Throughout the construction, we encode each qubit in a code block; namely, we re
     \end{split}
   \end{equation*}
 \end{definition}
-We are now ready to give a full description of the realization of the logical operators. The logical Paulis $\mathbf{X}$ and $\mathbf{Z}$ are realized by the application of $X_{S^{\prime}}$ and $Z_{S^{\prime}}$. For the gates $\mathbf{S}$ and $\mathbf{T}$, we use single-qubit gate teleportation as presented in \Cref{fig:magic}. In single-qubit gate teleportation, the resource $\ket{\mathbf{S}}$ is initialized as $\mathbf{S}\ket{+}$, similarly for $\ket{\mathbf{T}}$. The gate $\mathbf{1}_{S^{\prime}}$ stands for the classical procedure that, given the measurement results, checks whether the logical bit $\ket{1}$ is turned on. We will return to this gate with a higher resolution depiction of it after the description of the Hadamard teleportation.
+We are now ready to give a full description of the realization of the logical operators. The logical Paulis $\mathbf{X}$ and $\mathbf{Z}$ are realized by the application of $X_{S^{\prime}}$ and $Z_{S^{\prime}}$. For the gates $\mathbf{S}$ and $\mathbf{T}$, we use single-qubit gate teleportation as presented in \Cref{fig:magic}. In single-qubit gate teleportation, the resource $\ket{\mathbf{S}}$ is initialized as $\mathbf{S}\ket{+}$, similarly for $\ket{\mathbf{T}}$. The gate $\mathbf{1}_{x_{S^{\prime}}}$ stands for the classical procedure that, given the measurement results, checks whether the logical bit $\ket{1}$ is turned on. We will return to this gate with a higher resolution depiction of it after the description of the Hadamard teleportation.
     \begin{figure}[h]
         \centering 
         \begin{quantikz}
