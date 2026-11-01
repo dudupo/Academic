@@ -33,9 +33,9 @@ We prove it by induction on $d^{\prime}$. Without loss of generality, we can ass
         \end{split}
       \end{equation*}
 So the number of terms in the sum is even, and since a term is zeroed out only if it appears an even number of times, we have that after excluding the vanishing terms, $\sigma$ has an even number of faces. Since the number of faces is even, there is a perfect matching between them. It's easy to see that the $2$-chain $\tilde{z}$, whose each face corresponds to the union of the two edges in a match, satisfies the sweep-rule conditions.
-    \item Assume the correctness of the claim for every face dimension lower than $d^{\prime}$.   Now for a face dimension $d^{\prime}$ and an arbitrary generator $g \in S$ such $gv \in \sigma$, divide $\sigma$ into a sum of two chains, the first contain the faces of $\sigma$ that supported on the vertex $gv$ where the second contains the compliment. Denote them by $\sigma|_{gv}$ and $\sigma|_{/ gv}$, so $\sigma = \sigma|_{gv} + \sigma|_{/ gv}$. 
+    \item Assume the correctness of the claim for every face dimension lower than $d^{\prime}$.   Now for a face dimension $d^{\prime}$ and an arbitrary generator $g \in S$ such $gv \in \sigma$, divide $\sigma$ into a sum of two chains, the first contains the faces of $\sigma$ that are supported on the vertex $gv$ while the second contains the compliment. Denote them by $\sigma|_{gv}$ and $\sigma|_{/ gv}$, so $\sigma = \sigma|_{gv} + \sigma|_{/ gv}$. 
 
-      Now let $ \sigma^{*}$ the chain obtained from $\sigma|_{gv}$ by removing from any face of it the vertex $gv$, thus $\sigma^{*}$ is a $d^{\prime}-2$-dimensional chain. Moreover, let $z^{*}$ be the $d^{\prime}-1$-dimensional chain complex obtained from $z|_{gv}$ by excluding $gv$ from its faces. Observes that 
+      Now let $ \sigma^{*}$ be the chain obtained from $\sigma|_{gv}$ by removing from any face of it the vertex $gv$, thus $\sigma^{*}$ is a $d^{\prime}-2$-dimensional chain. Moreover, let $z^{*}$ be the $d^{\prime}-1$-dimensional chain obtained from $z|_{gv}$ by excluding $gv$ from its faces. Observe that 
       \begin{equation*}
         \begin{split}
           (\partial^{-} z^{*})|_{v} =  \sum_{\rotfvs \in z|_{gv}}\sum_{g^{\prime} \in S^{\prime}/g}\rotfv{v}{S^{\prime}/\{g,g^{\prime}\}} = \sum_{\rotfvs \in (\partial^{-} z)|_{gv}}\rotfv{v}{S^{\prime}/\{g\}} = \sigma^{*}
@@ -49,7 +49,7 @@ So the number of terms in the sum is even, and since a term is zeroed out only i
 The first condition implies that $gv \notin \tilde{z}^{*}$. Hence, we can define the $d^{\prime}$-dimensional chain $\tilde{z}$ by adding the vertex $gv$ to each face of $\tilde{z}^{*}$. From the second it follows that: 
 \begin{equation*}
   \begin{split}
-    (\partial^{-} \tilde{z})|_{v} &= \bigl(\partial^{-} \bigl(  \sum_{\rotfvs \in \tilde{z}^{*} } \rotfv{v}{S^{\prime}\cup \{g\}}  \bigr)\bigr)|_{v} =  \sum_{\rotfvs \in \tilde{z}^{*} } \bigl( \sum_{g^{\prime} \in S^{\prime}/g } \rotfv{v}{S^{\prime} / \{g^{\prime}\} \cup \{g\}} \bigr) +   \rotfv{v}{S^{\prime}} \\
+    (\partial^{-} \tilde{z})|_{v} &= \bigl(\partial^{-} \bigl(  \sum_{\rotfvs \in \tilde{z}^{*} } \rotfv{v}{S^{\prime}\cup \{g\}}  \bigr)\bigr)|_{v} =  \sum_{\rotfvs \in \tilde{z}^{*} } \bigl( \sum_{g^{\prime} \in S^{\prime}/g } \rotfv{v}{S^{\prime} / \{g^{\prime}\} \cup \{g\}}  +   \rotfv{v}{S^{\prime}} \bigr)\\
     &=  \sum_{\rotfvs \in (\partial^{-}\tilde{z}^{*})|_{v} } \rotfv{v}{S^{\prime}\cup \{g\}} + \tilde{z}^{*} = \sigma|_{gv} + \tilde{z}^{*} 
   \end{split}
 \end{equation*}
