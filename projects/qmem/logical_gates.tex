@@ -193,7 +193,7 @@ For chains $x,z \in C_{d^{\prime}}(\mathcal{T}_n^d)$, we denote by $P_{x,z}$ the
         \end{quantikz} 
          \end{split}
         \end{equation*}
-        \caption{ Pauli propagation trough $\mathbf{S}$ teleportation. }   
+        \caption{ Pauli propagation through $\mathbf{S}$ teleportation. }   
 %\label{fig:magic}
 \end{figure}
 For the $\mathbf{T}$-teleportation, we denote by $P_{x_{3},z_{3}}$ the Pauli act on the third register containing the resource state $\ket{ \mathbf{S} }$, which might be used through the gadget to 'correct' the teleportation. Let $\mathbf{1}^{2}_{x_{S^{\prime}}}$ be the indicator for the event in which measuring the resource register (that prior to the entangle, holds the state $ P_{x_{2},z_{2}} \ket{\mathbf{T}}$) results in $\ket{\bar{1}}$. Then:
@@ -218,7 +218,7 @@ For the $\mathbf{T}$-teleportation, we denote by $P_{x_{3},z_{3}}$ the Pauli act
         \end{quantikz} 
          \end{split}
         \end{equation*}
-        \caption{ Pauli propagation trough $\mathbf{T}$ teleportation. }   
+        \caption{ Pauli propagation through $\mathbf{T}$ teleportation. }   
 %\label{fig:magic}
 \end{figure}
 Where to infer the last passage we used to the Pauli-propagation through $\mathbf{S}$-teleportation. Finally, for the $\mathbf{H}$-teleportation we have: 
@@ -232,16 +232,16 @@ Where to infer the last passage we used to the Pauli-propagation through $\mathb
         \gate{\inr{ P_{x_{3},z_{3}} }}  & &  & & \gate{Z_{S^{\prime}}}   & \gate{X_{S^{\prime}}}  &  \\
         \end{quantikz}  \\
         = \, & \begin{quantikz}
-          & \ctrl{1}  & \gate{\mathbf{H}^{\otimes\mathcal{F}_{d^\prime}^{n}}} & \meter{} &  \gate{ \phi }  \setwiretype{c} & \gate{\inr{ P_{z_{1}+z_{2}, }}}   & \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
+          & \ctrl{1}  & \gate{\mathbf{H}^{\otimes\mathcal{F}_{d^\prime}^{n}}} & \meter{} &  \gate{ \phi }  \setwiretype{c} & \gate{\inr{ P_{\phi(z_{1} + z_{2}), }}}   & \gate{\mathbf{1}_{x_{S/S^{\prime}}}} \wire[d][2]{c} \\
             & \targ{} & & \meter{}   & \gate{\inr{ P_{x_{1}+x_{2},} }}    \setwiretype{c}   &\gate{\mathbf{1}_{x_{S^{\prime}}}} \wire[d][1]{c}  \\
             & & &  & & \gate{Z_{S^{\prime}}}   & \gate{X_{S^{\prime}}}  & \gate{\inr{ \pm P_{x_{3},z_{3}} }}   \\
         \end{quantikz} 
           \end{split}
         \end{equation*}
-        \caption{ Pauli propagation trough $\mathbf{H}$ teleportation. }   
+        \caption{ Pauli propagation through $\mathbf{H}$ teleportation. }   
 %\label{fig:magich}
 \end{figure}
-Notice that the Pauli $P_{z_{1}+z_{2},}$ consists of applying $X$'s on the $d^{\prime}$-dimensional faces of the chain $z_{1}+z_{2}$.
+Notice that the Pauli $P_{\phi(z_{1}+z_{2}\phi),}$ consists of applying $X$'s on the $d-d^{\prime}$-dimensional faces of the chain $\phi(z_{1}+z_{2})$.
 \end{proof}
 We summarize by restating the claim above for Clifford + measurement gates, which also use sweep-cycles.
 \begin{corollary}
