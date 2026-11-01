@@ -7,7 +7,7 @@ We pass repeatedly between the finite Toric complex and its infinite cubical cov
 
 \begin{definition}
   \label{def:mincover}
-Let $x \in C_{d^{\prime}}(\mathcal{T}_n^d)$ be a $d^{\prime}$-chain on the finite Toric complex. We extend the size function as follows. Let $x^{\prime}$ be the $\infty$-lift of $x$, so $x^{\prime} \in \widehat C_{d^{\prime}}(\mathcal T_\infty^d)$. Let $y$ be a finite-support subchain of $x^{\prime}$ satisfying:
+Let $x \in C_{i}(\mathcal{T}_n^d)$ be a $i$-dimensional chain on the finite Toric complex. We extend the size function as follows. Let $x^{\prime}$ be the $\infty$-lift of $x$, so $x^{\prime} \in \widehat C_{i}(\mathcal T_\infty^d)$. Let $y$ be a finite-support subchain of $x^{\prime}$ satisfying:
   \begin{enumerate}
     \item The projection of $y$ back to finite complex covers $x$.
     \item The size of $y$ is minimal. 
@@ -43,7 +43,7 @@ To finish, we argue that we can choose $x^{\prime}, y^{\prime}$ such that $\Size
     \item If not, then since the projection of $\tilde{x}$ covers $x$, there must be a vertex $v \in \mathcal{G}_{d}$, such that $v$ is a product of the integer powers of $g_{1}^{n},\ldots, g_{d}^{n}$, and a $d^{\prime}$-dimensional face $\tilde{f}$ in $\tilde{x}$ such that $\tilde{f}$ is a translation of $f$ by $v$. Then, construct $x^{\prime}$ by taking the translations of $\tilde{x}$ faces by $v^{-1}$. The size function is invariant to translations, so:
       \begin{equation*}
         \begin{split}
-          \Size{x} = \Size{\tilde{x}} = \Size{v^{-1} x^{\prime}  } = \Size{x^{\prime}}
+          \Size{x} = \Size{\tilde{x}} = \Size{v^{-1}\tilde{x}} = \Size{x^{\prime}}
         \end{split}
       \end{equation*}
       and in addition, $f = v^{-1}\tilde{f} \in x^{\prime}$. Moreover, since the projection is invariant to translation by integer powers of $g_{1}^{n},\ldots, g_{d}^{n}$, the projection of $\tilde{x}$ equals the projection of $x^{\prime}$, namely, covers $x$.
