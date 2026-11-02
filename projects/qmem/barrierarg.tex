@@ -115,16 +115,16 @@ Suppose $\tilde{x}_{1} \notin \image \partial^{-} : C_{d^{\prime}}(\mathcal{T}_n
 Since $d^{\prime} \ge 2$, and $\tilde{x}_{1}$ has to close a non-trivial loop, so by \Cref{claim:sizenont}, the size of $\tilde{x}$ is at least $n-1$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : C_{d^{\prime}}(\mathcal{T}_n^d) \rightarrow C_{d^{\prime}-1}(\mathcal{T}_n^d)$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. We argue that $x_{1}$ can be chosen such $\Size{x_{1}} \le \Size{\tilde{x}_{1}}$.
 
 
-By \Cref{claim:liftc}, since $\Size{\tilde{x}_{1}} < n$, there is a translation of the finite complex for which the minimizing cover of the translation of $\tilde{x}_{1}$ aligns with the finite complex. Since the size function is invariant to translations, we can assume, without loss of generality, that the given finite complex is already translated. Consider the minimizing cover of $\tilde{x}_{1}$, and denote it by $\tilde{y_1}$ Since $\Size{\tilde{x}_{1}} < n$, then by \Cref{claim:liftb} we have that $\tilde{y}$ can be chosen such:
+By \Cref{claim:liftc}, since $\Size{\tilde{x}_{1}} < n$, there is a translation of the finite complex for which the minimizing cover of the translation of $\tilde{x}_{1}$ aligns with the finite complex. Since the size function is invariant to translations, we can assume, without loss of generality, that the given finite complex is already translated. Consider the minimizing cover of $\tilde{x}_{1}$, and denote it by $\tilde{y_1}$ Since $\Size{\tilde{x}_{1}} < n$, then by \Cref{claim:liftb} we have that $\tilde{y}_{1}$ can be chosen such:
 \begin{equation*}
   \begin{split}
-    \tilde{y} \in \image \partial^{-} : C_{d^{\prime}}(\mathcal T_\infty^d) \rightarrow C_{d^{\prime}-1}(\mathcal T_\infty^d)
+    \tilde{y}_{1} \in \image \partial^{-} : C_{d^{\prime}}(\mathcal T_\infty^d) \rightarrow C_{d^{\prime}-1}(\mathcal T_\infty^d)
   \end{split}
 \end{equation*}
-Let $y \in C_{d^{\prime}}(\mathcal T_\infty^d) $ be a $d^{\prime}$-dimensional reduced chain such that $\partial^{-}y = \tilde{y}$. By the definition of the algorithm in \Cref{claim:reducederr}, from which $y$ is obtained, it follows that the potential walls that bound $\tilde{y}$ also bound $y$, and therefore $y$ is also aligned with the finite complex. Thus, we can take $x_{1}$ to be equal to $y$. By \Cref{claim:reducederr}:
+Let $y_{1} \in C_{d^{\prime}}(\mathcal T_\infty^d) $ be a $d^{\prime}$-dimensional reduced chain such that $\partial^{-}y_{1} = \tilde{y}_{1}$. By the definition of the algorithm in \Cref{claim:reducederr}, from which $y_{1}$ is obtained, it follows that the potential walls that bound $\tilde{y}_{1}$ also bound $y_{1}$, and therefore $y_{1}$ is also aligned with the finite complex. Thus, we can take $x_{1}$ to be equal to $y_{1}$. By \Cref{claim:reducederr}:
 \begin{equation*}
   \begin{split}
-    \Size{x_{1}} = \Size{y} = \Size{\partial^{-}y} = \Size{\tilde{y}} = \Size{\tilde{x}_{1}}
+    \Size{x_{1}} = \Size{y_{1}} = \Size{\partial^{-}y_{1}} = \Size{\tilde{y}_{1}} = \Size{\tilde{x}_{1}}
   \end{split}
 \end{equation*}
 So $x_{1}$ satisfies the desired condition for the connected component $\tilde{x}_{1}$. To complete, we repeat recursively on the connected components of $\tilde{x}_{2}$. 
