@@ -66,13 +66,14 @@ Thus we reduce the question to handle the $d^{\prime}-1$-dimensional chain $\sig
     |\mathbf{Str}_{0+}(v, \sigma + (\partial^{-} \tilde{z})|_{v} \, )| \le  |\mathbf{Str}_{0+}(v, \sigma )| - 1
   \end{split}
 \end{equation*}
-Thus, we can repeat recursively until the resulting $d^{\prime}-1$ chain is 'supported' on fewer than $d^{\prime}$ vertices. In that case, the chain must be trivial. That is because the resulting chain is the $\partial^{-}$-boundary of the rooted chain $z + \tilde{z}$ at vertex $v$ (and supported only on the positive faces of $v$), so any non-trivial face in the resulting $d^{\prime}-1$ chain introduces $d^{\prime}$ vertices.
+Thus, we can repeat recursively until the resulting $d^{\prime}-1$ chain is 'supported' on fewer than $d^{\prime}$ vertices. In that case, the chain must be trivial. That is because the resulting chain is the $\partial^{-}$-boundary of the rooted chain $z + \tilde{z}$ at vertex $v$ restricted to the positive faces of $v$. So, any nontrivial $d^{\prime}-1$ dimensional face in the resulting $d^{\prime}-1$ chain introduces $d^{\prime}$ vertices, one of them is $v$ itself, and the other $d^{\prime}-1$ are vertices in $\mathbf{Str}_{0+}(v, \sigma + (\partial^{-} \tilde{z})|_{v} \, )$.
   \end{enumerate}
 \end{proof}
 The algorithm given in the proof of \Cref{claim:findcor} for finding $\tilde{z}$ is as follows: given $\sigma$, pick a $g \in S$ such that $gv \in \sigma$. Then, define $\sigma^{*}$ by removing $gv$ from each face of $\sigma|_{gv}$. Let $\tilde{z}^{*}$ be the result of the recursive call on $\sigma^{*}$, and return '$\tilde{z}^{*} \cup \{gv\}$' plus the recursive call on $\sigma|_{/gv} + \tilde{z}^{*}$.
 
+We stop the recursion whenever either $d^{\prime}=2$ or $|\mathbf{Str}_{0+}(v, \sigma|_{v})| < d^{\prime}-1$. If the $\partial^{-}$-boundary of the returned chain doesn't match $\sigma|_{v+}$, then there is no chain that satisfies the sweep rule constraints. Otherwise, the returned chain is a valid sweep-rule suggestion.
 
-We stop the recursion whenever either $d^{\prime}=2$ or $|\mathbf{Str}_{0+}(v, \sigma|_{v} )| < d^{\prime}$. The work in each recursion step consists of decomposing $\sigma$ into $\sigma|_{gv}$ and $\sigma|_{/gv}$ and summing ${ d \choose d^{\prime} }$-length vectors. We summarize by introducing the following claim which gives the running time of the algorithm in the RAM computation model.
+The work in each recursion step consists of decomposing $\sigma$ into $\sigma|_{gv}$ and $\sigma|_{/gv}$ and summing ${ d \choose d^{\prime} }$-length vectors. We summarize by introducing the following claim which gives the running time of the algorithm in the RAM computation model.
 \begin{claim}
   Let $ T(d, d', k) : \cdot \rightarrow \mathbb{R} $ be the upper bound function for the running time of the algorithm given in \Cref{claim:findcor}, where $d$ is the dimension of the skeleton, $d^{\prime}$ is the face dimension, and $k$ is the number of vertices supporting the local view, namely $k = |\mathbf{Str}_{0+}(v, \sigma|_{v} )|$. Then:
   \begin{equation*}
