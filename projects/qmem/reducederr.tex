@@ -5,11 +5,11 @@ We represent Pauli errors as chains on the $d^{\prime}$-dimensional faces. Their
 For this purpose we introduce two local codes that describe local views of vertices. They are the \textit{stabilizers code at vertex} $v$ and the \textit{small code at vertex} $v$. The first corresponds to stabilizers rooted at the vertex, while the second is the collection of local views on faces rooted at $v$ that satisfy the checks rooted at $v$. Then, in \Cref{claim:agreement}, we consider a vertex whose $X$-checks don't admit a syndrome, meaning that its local view is in its \textit{small code}, and show that there is a codeword of its \textit{stabilizers code} that agrees with its positive faces. Addition by that stabilizer yields a new chain excluding $v$. If $v$ were a unique maximum of $L_{d+1}$, then the vertices on the yielded chain would have a lower value of $L_{d+1}$. Subsequently, since the exclusion decreases the size, it follows that the 'corner'—the vertex achieving the maximal $L_{d+1}$ value—of a reduced error sees a syndrome.
 
 \begin{definition}[Stabilizers Code at Vertex $v$]
-We define \textit{stabilizer code at vertex} $v$, denoted by $\text{Stab}_{v}$, as the restriction of the $(d,d^{\prime})$-Toric code to the $d^{\prime}$-dimensional faces such that their vertices are at a distance of at most one positive step in each direction from $v$. That is equivalent to the union of all the $d^{\prime}$-dimensional faces rooted at $v$ with the $d$-dimensional faces of each of its sibling $gv$, excluding faces containing $g$ as their generator. Namely:
+We define \textit{stabilizer code at vertex} $v$, denoted by $\text{Stab}_{v}$, as the restriction of the $(d,d^{\prime})$-Toric code to the $d^{\prime}$-dimensional faces such that their vertices are at a distance of at most one positive step in each direction from $v$. That is equivalent to the union of all the $d^{\prime}$-dimensional faces rooted at $v$ with the $d$-dimensional faces of each of its siblings $gv$, excluding faces containing $g$ as their generator. Namely:
   \begin{align*}
     \text{Stab}_{v} \colonequals  \bigl\{ z : \partial^{-} z  &= 0 \text{ and } \\
     & z \in \operatorname{Span}_{\mathbb F_2} \big(  \big\{  \rotfvs{} : S^{\prime} \subset S, |S^{\prime}| = d^{\prime}  \big\} \\
-   & \ \ \ \ \ \ \ \ \ \ \ \ \  \bigcup_{g \in S} \big\{ \rotfv{gv}{S^{\prime}/g} : S^{\prime} \subset S/g , |S^{\prime}|=d^{\prime} \big\} \big) \bigr\}
+   & \ \ \ \ \ \ \ \ \ \ \ \ \  \bigcup_{g \in S} \big\{ \rotfv{gv}{S^{\prime}} : S^{\prime} \subset S/g , |S^{\prime}|=d^{\prime} \big\} \big) \bigr\}
   \end{align*}
 \end{definition}
 The checks of the code, are of the following three types: 
@@ -105,7 +105,7 @@ The checks of the code are exactly the first type checks of $\text{Stab}_{v}$.
         \end{split}
       \end{equation*}
       
-    \item Assume the correction of the claim for dimensions lower than $d, d^{\prime}$. Consider a generators subset $J \subset S$ and let $z \in \mathcal{C}_{v}^{J}$. In addition, consider a generator $g \in J$.
+    \item Assume the correctness of the claim for dimensions lower than $d, d^{\prime}$. Consider a generators subset $J \subset S$ and let $z \in \mathcal{C}_{v}^{J}$. In addition, consider a generator $g \in J$.
       
       Decompose $z = z|_{gv} + z|_{/gv}$ where $z|_{gv}$ and $z|_{/gv}$ are the chains consisting of all the faces in $z$ that have support on $gv$ and its complement. Define $z^{*}$ to be the $d^{\prime}-1$-dimensional chain obtained by excluding $gv$ from any face of $z|_{gv}$. Notice that $(\partial^{-} z^{*})|_{v}$ has to be zero since it contains all the faces of $\partial^{-}z$ that contain $gv$ (up to the removal). In other words, $z^{*} \in \mathcal{C}_{v}^{J/g}$. Thus, we can use the induction assumption and infer the existence of $w^{*} \in \text{Stab}_{v}^{J/g}$ such that $z^{*} = w^{*}|_{v}$.
 
@@ -137,7 +137,7 @@ Thus, adding $w|_{v}$ to $z$ results in:
       \end{equation*}
       Which is a $d^{\prime}$-dimensional chain, supported on vertices of the form $g^{\prime}v$ for $g^{\prime}\in J/g$, namely a $d^\prime$-dimensional chain on the complex induced by the $(d-1)$-dimensional subcomplex. In addition, since the boundary operator can only advance the root of a face forward, we have that $\partial^{-} w|_{v} =  (\partial^{-} w)|_{v}$ (as $w$ is rooted in $v$) and therefore $\partial^{-}( z + w|_{v}) = \partial^{-}z + (\partial^{-}w)|_{v} = 0$.
       
-To summarize, we have both $z + w|_{v} \in \mathcal{C}_{v}^{J/g}$ and $z+w|_{v}$ sets on a $d-1$-dimensional skeleton. Therefore, we can repeat in a recursive manner, with each step resulting in a $d^{\prime}$-dimensional chain in a skeleton with dimension decreased by one. We stop when $d = d^{\prime}$; in that case, the resulting chain must be zero.
+To summarize, we have both $z + w|_{v} \in \mathcal{C}_{v}^{J/g}$ and $z+w|_{v}$ sits on a $d-1$-dimensional skeleton. Therefore, we can repeat in a recursive manner, with each step resulting in a $d^{\prime}$-dimensional chain in a skeleton with dimension decreased by one. We stop when $d = d^{\prime}$; in that case, the resulting chain must be zero.
   \end{enumerate}
 \end{proof}
 
