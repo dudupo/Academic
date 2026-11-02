@@ -176,7 +176,7 @@ The next claim states that the translation by a stabilizer that minimizes its si
   \end{equation*}
 \end{claim}
 \begin{proof}
-  First, observe that since the vertex domain of $\partial^{-} x$ is contained in the vertex domain of $x$, it follows that for any $x$ the inequality $\Size{x} \ge \Size{\partial^{-} x}$ holds. Combining this with the fact that $\partial^{-} z = 0$ for any $z \in \mathcal{C}_{Z}^{\perp}$, we have that $\Size{x + z} \ge \Size{\partial^{-}(x + z)}$. Now suppose that $\Size{x} > \Size{\partial^{-} x}$; that implies the existence of $v \in x/\partial^{-} x$ such that $v$ is a local maximum of one of the potential walls in $x$ and $(\partial^{-} x)|_{v} = 0$. Let's split into cases, depending on the potential wall type.
+  First, observe that since the vertex domain of $\partial^{-} x$ is contained in the vertex domain of $x$, it follows that for any $x$ the inequality $\Size{x} \ge \Size{\partial^{-} x}$ holds. Combining this with the fact that $\partial^{-} z = 0$ for any $z \in \mathcal{C}_{Z}^{\perp}$, we have that $\Size{x + z} \ge \Size{\partial^{-}(x + z)}$. Now suppose that $\Size{x} > \Size{\partial^{-} x}$; that implies the existence of $v \in x/\partial^{-} x$ such that $v$ is a maximum of one of the potential walls in $x$ and $(\partial^{-} x)|_{v} = 0$. Let's split into cases, depending on the potential wall type.
  
   \begin{enumerate}
 
@@ -193,9 +193,7 @@ The next claim states that the translation by a stabilizer that minimizes its si
 So, $\textbf{Str}_{0-}$ plays the same role as $\textbf{Str}_{0+}$ does in the original skeleton.
 In that system, we can apply \Cref{claim:agreement} (in the reversed direction) and get that there is a stabilizer $z$ such that adding it to $x$ excludes $v$ from $x$. By the same argument as above, no vertex with a higher $L_{g^{\prime}}$-value (although $L_{d+1}$ can increase, that's fine\footnote{ If it happens, we will apply the first case in a future exclusion, after we run the second case to completion. Since the first case can't increase the maximal $L_{g}$-value for any $g\in S$, it can't undo previous applications of the second case. }) than what it already has in $\textbf{Str}_{0-}(v,x)$ is introduced into $x$. Repeating the process excludes all the vertices with the maximal value of $L_{g}$ in $x$, so eventually, we end up with $x+z$, such that $L_{g}(x+z) < L_{g}(x)$.
   \end{enumerate}
-
-  
-We keep excluding vertices until we get the desired equality.
+We keep excluding vertices until there is no potential wall $L_{g}$ and a global maximizer vertex of $L_{g}$ such that $v$ doesn't belong to the $\partial^{-}$-boundary. So, in the end, we get the desired equality.
 
 \end{proof}
 
@@ -206,7 +204,7 @@ We keep excluding vertices until we get the desired equality.
 We close the section by defining the \textit{reduced} form of a finite $d^{\prime}$-dimensional chain. 
 \begin{definition}
   \label{def:reduced}
-Let $x \in C_{d^{\prime}}(\mathcal T_\infty^d)$ be a $d^{\prime}$-dimensional finite chain. We will say that $x$ is reduced if for any potential wall $L_{i}$, there is a vertex $v \in x$ that is a maximum point of $L_{i}$, and $v$ is also in $\partial^{-} x$.
+Let $x \in C_{d^{\prime}}(\mathcal T_\infty^d)$ be a $d^{\prime}$-dimensional finite chain. We will say that $x$ is reduced if, for any potential wall $L_{i}$, the maximizing vertices of $L_{i}$ in $x$ belong to $\partial^{-} x$.
   In particular, we have that $\Size{x} = \Size{\partial^{-} x}$ and that the reduced form of a given chain is obtained by the construction presented in the proof of \Cref{claim:reducederr}. 
 \end{definition}
 We emphasize that the reduced form is not unique. Throughout the paper, every time we choose a reduced form of a chain, we mean obtaining it from the given algorithm presented in \Cref{claim:reducederr}, so the reduced form is effectively unique.
