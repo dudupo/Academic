@@ -12,13 +12,13 @@ We are ready to prove the main theorem (\Cref{theorem:main}). We start by giving
 
   \begin{definition}[Simulation and Logical Errors]
     \label{def:simu}
-    Consider a quantum code $\mathcal{C}$ of length $n$ and dimension $k$. A quantum circuit $D \colon L(\mathcal{H}_{2}^{\otimes n}) \rightarrow L(\mathcal{H}_{2}^{\otimes n})$ will be said to be a referee for $\mathcal{C}$ if, when given a codeword of $\mathcal{C}$, it results in the first $k$ output qubits, the logical state of the given. We say that a Pauli operator $P \in \mathcal{P}^{\otimes n}$ is a \textit{logical error} with respect to $D$ if $DP \neq D$, where the inequality is up to stabilizers of $\mathcal{C}$.
+    Consider a quantum code $\mathcal{C}$ of length $N$ and dimension $k$. A quantum circuit $D \colon L(\mathcal{H}_{2}^{\otimes N}) \rightarrow L(\mathcal{H}_{2}^{\otimes N})$ will be said to be a referee for $\mathcal{C}$ if, when given a codeword of $\mathcal{C}$, it results in the first $k$ output qubits, the logical state of the given. We say that a Pauli operator $P \in \mathcal{P}^{\otimes N}$ is a \textit{logical error} with respect to $D$ if $DP \neq D$, where the inequality is up to stabilizers of $\mathcal{C}$.
 
-For quantum circuits $C$ and $\tilde{C}$, a noise channel $N_{\mathcal{E}}$, and $p \in (0,1)$, we say that $\tilde{C}$ \textit{simulates} $C$ with probability at least $1 - p$ if
+    For quantum circuits $C$ and $\tilde{C}$, a noise channel $\mathcal{N}_{\mathcal{E}}$, and $\delta \in (0,1)$, we say that $\tilde{C}$ \textit{simulates} $C$ with probability at least $1 - \delta$ if
     \begin{enumerate}
       \item
         There is a mapping between the qubits of $C$ and the registers of $\tilde{C}$, along with a referee such that, at the end of running $\tilde{C}$ (on the zero state), decoding the registers back to the logical space results in the same quantum states as those produced by running $C$.
-      \item Let $\mathcal{E} \sim N_{\mathcal{E}}$ be a set of faults. The probability induced by $N_{\mathcal{E}}$ that at the end of the running of $\tilde{C}[\mathcal{E}]$, one of its quantum registers introduces a logical error (with respect to the referee) is less than $p$.
+      \item Let $\mathcal{E} \sim \mathcal{N}_{\mathcal{E}}$ be a set of faults. The probability induced by $\mathcal{N}_{\mathcal{E}}$ that at the end of the running of $\tilde{C}[\mathcal{E}]$, one of its quantum registers introduces a logical error (with respect to the referee) is less than $\delta$.
     \end{enumerate}
   \end{definition}
 
