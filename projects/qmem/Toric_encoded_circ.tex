@@ -33,7 +33,7 @@ For Toric encoded circuits, we define their \textit{base graph}, which can be th
             & \text{or there exists } u_i = (g_{i},l_{i}) \in C^{\infty} \text{ such  that }  v,u \in l_{i,2} \text{ and } t = l_{i,1}, t^{\prime} = l_{i,1}+1  \big\} 
           \end{split}
         \end{equation*}
-Where we define a vertex $v$ to belong to location $l$ if there is a qubit-face $f$ in $l$ such that $v$ belongs to its associated face.
+        Where we define a vertex $v$ to belong to location $l$ if there is a qubit-face $f$ in $l$ such that $v$ belongs to its associated face. For the sake of explicitness, a sweep cycle layer consists of local gates of two types, standing for sweep rule applications in computational and the phase basis, and their locations correspond to qubits in the measured stabilizers and the potential qubits to be flipped.
     \end{enumerate} 
   \end{definition}
 Notice that since the gates' locations are invariant to the conditioning of measurement outcomes (\Cref{remark:condmeas}), we have that for any outcomes vector $\alpha \in \mathbb{F}_{2}^{(\cdot)}$, the base graph of the conditioned circuit $C[\mathcal{E},\alpha]$ is the same as for $C[\mathcal{E}]$.
