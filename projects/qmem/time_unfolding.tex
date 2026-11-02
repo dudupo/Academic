@@ -67,7 +67,7 @@ For a quantum circuit $C$, we would like to discuss its action in the presence o
       \mu_m \colonequals \left\lceil \frac{\mu}{m} \right\rceil.
     \end{split}
   \end{equation*}
-  Let $\mathcal{L}\subset [\mu_m]\times [w]^{}<++>$ be a set of locations, and let $\mathcal{E}$ be a quantum circuit, such that $\text{Loc}(\mathcal{E}) = \mathcal{L}$. We name $\mathcal{E}$ \textit{subsets of faults}, and we name the layers of $\mathcal{E}$ \textit{fault layers}.
+  Let $\mathcal{L}\subset [\mu_m]\times [w]^{\Delta}$ be a set of locations, and let $\mathcal{E}$ be a quantum circuit, such that $\text{Loc}(\mathcal{E}) = \mathcal{L}$. We name $\mathcal{E}$ \textit{subsets of faults}, and we name the layers of $\mathcal{E}$ \textit{fault layers}.
   The circuit \textit{$C$ subjected to $\mathcal{E}$ every $m$ computational layers}, denoted by $C[\mathcal{E}]_{m}$, is obtained by setting the first layer to be the first layer of $\mathcal{E}$, then placing in order the layers of $C$ and inserting a fault layer before each successive block of at most $m$ layers of $C$. Thus, the first fault layer precedes the first block of $C$, the second follows its first $m$ layers, and the third follows its first $2m$ layers, provided a further block remains. Concretely, each gate $u_i=(g_i,(t_i,S_i))$ of $C$ is moved to the time coordinate
   \begin{equation*}
     \begin{split}
@@ -106,10 +106,10 @@ When $m=1$, the gates occupy the even time coordinates, and the fault layers occ
 Later, all the quantum registers will be encoded via stabilizer codes. Then, following the common approach in the literature, we define the fault layers to end with stabilizer measurements, thereby forcing the faults to be Paulis (see \cite{gottesman1997stabilizercodesquantumerror}). Hence, we confine ourselves to noise channels of only this type.
 \begin{definition}[Noise channel and local stochastic noise channel]
   \label{def:localstoc}
-  A \textit{noise channel} $\mathcal{N}_{\mathcal{E}}$ is a distribution over sets of faults and their locations. Let $p\in(0,1)$, we say that the noise channel $\mathcal{N}_{\mathcal{E}}$ is \textit{local stochastic with rate $p$} if for every finite set of locations $S\subset \mathbb{N}\times \mathbb{N}$,
+  A \textit{noise channel} $\mathcal{N}_{\mathcal{E}}$ is a distribution over sets of faults and their locations. Let $p\in(0,1)$, we say that the noise channel $\mathcal{N}_{\mathcal{E}}$ is \textit{local stochastic with rate $p$} if for every finite set of locations $S\subseteq \mathbb{N}\times \mathbb{N}$,
   \begin{equation*}
     \begin{split}
-      \prbm{S\subset \operatorname{Loc}(\mathcal{E})}{\mathcal{E}\sim \mathcal{N}_{\mathcal{E}}}
+      \prbm{S\subseteq \operatorname{Loc}(\mathcal{E})}{\mathcal{E}\sim \mathcal{N}_{\mathcal{E}}}
       \le p^{|S|}.
     \end{split}
   \end{equation*}

@@ -10,7 +10,7 @@ The sweep-rule is the core of our construction. A decoding cycle begins with eac
   \label{def:sweeprule}
   Let $\sigma$ be a $d^{\prime}-1$-dimensional chain. The \textit{sweep rule decoding procedure} at a vertex $v \in \mathcal{G}_{n}^{d}$ is defined as follows: Measure the checks rooted at $v$ and look for a rooted chain $\tilde{z}$ at $v$ such that: 
   \begin{enumerate}
-    \item The vertices in $\tilde{z}$ are contained in the vertices of $\sigma$, namely: $ \mathbf{Str}_{0+}(v, \tilde{z}) \subset \mathbf{Str}_{0+}(v, \sigma)$ % . Any $d^{\prime}$ dimensional face $\rotfvs{}$ in $\tilde{z}$, satisfies $ (\partial^{-})^{d^{\prime}}\rotfvs{} \subset  \partial^{-}(z)|_{v+}$. 
+    \item The vertices in $\tilde{z}$ are contained in the vertices of $\sigma$, namely: $ \mathbf{Str}_{0+}(v, \tilde{z}) \subseteq \mathbf{Str}_{0+}(v, \sigma)$ % . Any $d^{\prime}$ dimensional face $\rotfvs{}$ in $\tilde{z}$, satisfies $ (\partial^{-})^{d^{\prime}}\rotfvs{} \subset  \partial^{-}(z)|_{v+}$. 
     \item The boundary of $\tilde{z}$ agrees with $\sigma$ on the checks rooted at $v$, namely: $(\partial^{-}\tilde{z})|_{v+} = \sigma|_{v+}$.
   \end{enumerate}
   If such an assignment exists, flip $\tilde{z}$.
@@ -43,7 +43,7 @@ So the number of terms in the sum is even, and since a term is zeroed out only i
       \end{equation*}
       Thus, by the induction assumption, there is a $d^{\prime}-1$-dimensional chain $\tilde{z}^{*}$ such that: 
   \begin{enumerate}
-    \item $ \mathbf{Str}_{0+}(v, \tilde{z}^{*}) \subset \mathbf{Str}_{0+}(v, \sigma^{*})$  
+    \item $ \mathbf{Str}_{0+}(v, \tilde{z}^{*}) \subseteq \mathbf{Str}_{0+}(v, \sigma^{*})$  
     \item $(\partial^{-}\tilde{z}^{*})|_{v+} = \sigma^{*}|_{v+}$
   \end{enumerate}
 The first condition implies that $gv \notin \tilde{z}^{*}$. Hence, we can define the $d^{\prime}$-dimensional chain $\tilde{z}$ by adding the vertex $gv$ to each face of $\tilde{z}^{*}$. From the second it follows that: 

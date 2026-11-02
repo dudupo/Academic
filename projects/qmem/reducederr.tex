@@ -8,8 +8,8 @@ For this purpose we introduce two local codes that describe local views of verti
 We define \textit{stabilizer code at vertex} $v$, denoted by $\text{Stab}_{v}$, as the restriction of the $(d,d^{\prime})$-Toric code to the $d^{\prime}$-dimensional faces such that their vertices are at a distance of at most one positive step in each direction from $v$. That is equivalent to the union of all the $d^{\prime}$-dimensional faces rooted at $v$ with the $d$-dimensional faces rooted at each of $v$'s siblings $gv$, excluding faces containing $g$ as their generator. Namely:
   \begin{align*}
     \text{Stab}_{v} \colonequals  \bigl\{ z : \partial^{-} z  &= 0 \text{ and } \\
-    & z \in \operatorname{Span}_{\mathbb F_2} \big(  \big\{  \rotfvs{} : S^{\prime} \subset S, |S^{\prime}| = d^{\prime}  \big\} \\
-   & \ \ \ \ \ \ \ \ \ \ \ \ \  \bigcup_{g \in S} \big\{ \rotfv{gv}{S^{\prime}} : S^{\prime} \subset S/g , |S^{\prime}|=d^{\prime} \big\} \big) \bigr\}
+    & z \in \operatorname{Span}_{\mathbb F_2} \big(  \big\{  \rotfvs{} : S^{\prime} \subseteq S, |S^{\prime}| = d^{\prime}  \big\} \\
+   & \ \ \ \ \ \ \ \ \ \ \ \ \  \bigcup_{g \in S} \big\{ \rotfv{gv}{S^{\prime}} : S^{\prime} \subseteq S/g , |S^{\prime}|=d^{\prime} \big\} \big) \bigr\}
   \end{align*}
 \end{definition}
 The checks of the code, are of the following three types: 
@@ -17,7 +17,7 @@ The checks of the code, are of the following three types:
   \item Checks that are rooted at $v$, each identified by choosing $d^{\prime}-1$ generators from $S$. Namely: 
     \begin{equation*}
       \begin{split}
-        \big\{ \rotfvs{}: S^{\prime} \subset S , |S^{\prime}|=d^{\prime}-1  \big\} 
+        \big\{ \rotfvs{}: S^{\prime} \subseteq S , |S^{\prime}|=d^{\prime}-1  \big\} 
       \end{split}
     \end{equation*}
     For each check, the bits that connect to it, are given by restricting the coboundary of the check to bits domain of $\text{Stab}_{v}$:  
@@ -29,7 +29,7 @@ The checks of the code, are of the following three types:
   \item Checks are rooted at the positive sibling of $v$. Consider such a sibling, let's say $gv$ (namely the vertex that is given by stepping in the direction $g \in S$ from $v$). Notice that any face rooted at $gv$ that contains $ggv$ cannot be contained in faces rooted at $v$. Thus, the checks of $gv$ correspond to choosing subsets from $S/g$. Namely:
     \begin{equation*}
       \begin{split}
-      \bigcup_{g \in S}\big\{ \rotfv{gv}{S^{\prime}}: S^{\prime} \subset S/g , |S^{\prime}|=d^{\prime}-1  \big\}
+      \bigcup_{g \in S}\big\{ \rotfv{gv}{S^{\prime}}: S^{\prime} \subseteq S/g , |S^{\prime}|=d^{\prime}-1  \big\}
       \end{split}
     \end{equation*}
     And each check is supported by:
@@ -43,7 +43,7 @@ The checks of the code, are of the following three types:
   \item Checks that their roots are at a two-step distance from $v$, namely vertices of the form $g^{\prime}gv$ where $g, g^{\prime} \in S$, and $g \neq g^{\prime}$. By the arguments presented in the second type, the checks are the $d^{\prime}-1$ faces which do not have the generators on the path leading from $v$ to them, i.e., $g, g^{\prime}$, in their generator set.
     \begin{equation*}
       \begin{split}
-        \bigcup_{\substack{g,g^{\prime}\in S\\g\ne g^{\prime}}}\big\{ \rotfv{g^{\prime}gv}{J}: J \subset S/\{g,g^{\prime}\}, |J|=d^{\prime}-1 \big\}
+        \bigcup_{\substack{g,g^{\prime}\in S\\g\ne g^{\prime}}}\big\{ \rotfv{g^{\prime}gv}{J}: J \subseteq S/\{g,g^{\prime}\}, |J|=d^{\prime}-1 \big\}
       \end{split}
     \end{equation*}
   And for each check, its support is:
@@ -61,7 +61,7 @@ The checks of the code, are of the following three types:
 For a vertex $v$, we denote by $\mathcal{C}_{v}$ the \textit{small code at vertex $v$}, which consists of all the $d^{\prime}$-dimensional chains rooted at $v$ that satisfy the checks rooted at $v$, namely:
   \begin{align*}
     \mathcal{C}_{v} \colonequals  \bigl\{ z : (\partial^{-} z)|_{v+}  &= 0 \text{ and } \\
-    & z \in \operatorname{Span}_{\mathbb F_2} \big(  \big\{  \rotfvs{} : S^{\prime} \subset S, |S^{\prime}| = d^{\prime}  \big\} \big) \bigr\} 
+    & z \in \operatorname{Span}_{\mathbb F_2} \big(  \big\{  \rotfvs{} : S^{\prime} \subseteq S, |S^{\prime}| = d^{\prime}  \big\} \big) \bigr\} 
   \end{align*}
 The checks of the code are exactly the first type checks of $\text{Stab}_{v}$.
 \end{definition}
@@ -70,7 +70,7 @@ The checks of the code are exactly the first type checks of $\text{Stab}_{v}$.
   Let $v$ be a vertex. For any $d^{\prime}\ge 2$, $d\ge d^{\prime}+1$, and any $z \in \mathcal{C}_{v}$, there is a stabilizer $w \in \text{Stab}_{v}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$. Moreover, the vertex support of $w|_{v}$ is contained in the vertex support of $z|_{v}$, namely:
   \begin{equation*}
     \begin{split}
-        \textbf{Str}_{0+}(v, w) \subset \textbf{Str}_{0+}(v, z)
+        \textbf{Str}_{0+}(v, w) \subseteq \textbf{Str}_{0+}(v, z)
     \end{split}
   \end{equation*}
 \end{claim}
@@ -105,7 +105,7 @@ The checks of the code are exactly the first type checks of $\text{Stab}_{v}$.
         \end{split}
       \end{equation*}
       
-    \item Assume the correctness of the claim for dimensions lower than $d, d^{\prime}$. Consider a generators subset $J \subset S$ and let $z \in \mathcal{C}_{v}^{J}$. In addition, consider a generator $g \in J$.
+    \item Assume the correctness of the claim for dimensions lower than $d, d^{\prime}$. Consider a generators subset $J \subseteq S$ and let $z \in \mathcal{C}_{v}^{J}$. In addition, consider a generator $g \in J$.
       
       Decompose $z = z|_{gv} + z|_{/gv}$ where $z|_{gv}$ and $z|_{/gv}$ are the chains consisting of all the faces in $z$ that have support on $gv$ and its complement. Define $z^{*}$ to be the $d^{\prime}-1$-dimensional chain obtained by excluding $gv$ from any face of $z|_{gv}$. Notice that $(\partial^{-} z^{*})|_{v}$ has to be zero since it contains all the faces of $\partial^{-}z$ that contain $gv$ (up to the removal). In other words, $z^{*} \in \mathcal{C}_{v}^{J/g}$. Thus, we can use the induction assumption and infer the existence of $w^{*} \in \text{Stab}_{v}^{J/g}$ such that $z^{*} = w^{*}|_{v}$.
 
