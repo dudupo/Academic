@@ -31,7 +31,7 @@ In the following, we prove that the definition of the size function on intersect
   \end{equation*}
 \end{claim}
 \begin{proof}
-  First, notice that if the finite-support covering chains $x^{\prime}, y^{\prime} \in C_{d^{\prime}}(\mathcal T_\infty^d)$ satisfy that the projection of $x^{\prime}$ covers $x$ and the projection of $y^{\prime}$ covers $y$, then the projection of $x^{\prime} \cup y^{\prime}$ covers $x+y$. Denote the $d^{\prime}$-dimensional faces in $x, y$ that share a vertex by $f,g$, and pick $x^{\prime}, y^{\prime}$ such that $f, g$ are also in $x^{\prime}, y^{\prime}$. Thus, $V(x^{\prime})\cap V(y^{\prime}) \neq \emptyset$, and by \Cref{claim:tringinq}, we have:
+  First, notice that if the finite-support covering chains $x^{\prime}, y^{\prime} \in C_{d^{\prime}}(\mathcal T_\infty^d)$ satisfy that the projection of $x^{\prime}$ covers $x$ and the projection of $y^{\prime}$ covers $y$, then the projection of $x^{\prime} \cup y^{\prime}$ covers $x+y$. Denote the $d^{\prime}$-dimensional faces in $x, y$ that share a vertex by $f,g$, and pick $x^{\prime}, y^{\prime}$ such that $f, g$ are also in $x^{\prime}, y^{\prime}$\footnote{If $f$ and $g$ meet across the periodic boundary, then reprove for translations of $x,y$. }. Thus, $V(x^{\prime})\cap V(y^{\prime}) \neq \emptyset$, and by \Cref{claim:tringinq}, we have:
   \begin{equation*}
     \begin{split}
       \Size{x + y} \le \Size{x^{\prime} \cup y^{\prime}} \le \Size{x^{\prime}} + \Size{y^{\prime}}
@@ -229,7 +229,10 @@ Thus, for sufficiently large $n$ ,if $c < \frac{1}{M(d,d^{\prime})+1}$, we have 
 
 
 
-We summarize the section with the following corollary that incorporates the above insight into an ongoing computation. Namely, changing the logical codeword implies an intermediate step with a sufficiently large connected component of the syndrome. In the computation context, the sequence of the chains is derived from the Paulis in the step-propagation of a conditioned subjected circuit.
+We summarize the section with the following corollary that incorporates the above insight into an ongoing computation. Namely, changing the logical codeword implies an intermediate step with a sufficiently large connected component of the syndrome. In the computation context, the sequence of the chains is derived from the Paulis in the step-propagation of a conditioned subjected circuit. 
+
+
+We are stressing that the Paulis in the step-propagation record the deviation from an ideal running. In particular, a flattened into steps running, which introduces large syndrome clusters, does not imply a large connected component of the Paulis in the step-propagation. For example, consider CNOTing a register containing a large stabilizer into a second empty register. The ideal running exhibits an intermediate step in which the syndrome of the second register has a large connected component, yet the Paulis in the 'step-propagation of the ideal running' (namely where $\mathcal{E} = \emptyset$) are the identity.
 \begin{corollary}[Barrier argument]
   \label{coro:barrier}
   Let $c^{\prime} \in (0,1)$ be the constant as defined in \Cref{claim:barrierconstant}. Let $P_{1},\ldots,P_{\tau_{f}}$ be a step-propagation of a conditioned subjected circuit $C[\mathcal{E},\alpha]$ (\Cref{def:propagation}). Assume that the arity of the gates of $C$ is bounded by $\Delta$, and that each of the registers in $C$ is encoded in the $(d,d^{\prime})$-Toric code. Denote by $R$ the number of quantum registers in $C$. For a Pauli $P_{\tau}$ in the step-propagation, denote by $x_{\tau} \in C_{d^{\prime}}(\mathcal{T}_n^d)^{\otimes R}$ the $X$-component of $P_{\tau}$ and by $x_{\tau}|_{R_{j}}$ the restriction of $x_{\tau}$ to register $R_{j}$. Then, if for any step $\tau$ and for any register $R_{j}$, there is not a connected component of $\partial^{-} x_{\tau}|_{R_{j}}$ of size greater than $c^{\prime}n$, then:
@@ -245,6 +248,9 @@ Equivalently, if the subjected computation introduces a logical error, then at s
 \begin{proof}
 The proof follows immediately from \Cref{claim:barrierconstant}, where we use the fact that the arity is bounded by $\Delta$, and therefore sequential Paulis in the step-propagation are at a Hamming distance of at most $\Delta$.
 \end{proof}
+
+
+
 
 \begin{remark}
 Consider the application of an iterative sweep rule over a chain whose boundary is at a size lower than $c^{\prime} n$. Since the sweep rule only decreases the size of the boundary, it is easy to see that along the application, the size of the connected component of the boundary is kept below $c^{\prime}n$. Thus, each time, the filling operator will complete the chain to the same codeword. In particular, we get that decoding a measurement as presented in \Cref{def:niceenc} doesn't result in a logical error, provided that each of the connected components of the boundary, prior to the broadcast, does not have a size exceeding $c^{\prime}n$.
