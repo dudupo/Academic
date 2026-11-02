@@ -28,7 +28,7 @@ The following lemma is the main probabilistic ingredient; it analyzes the probab
 
   \begin{lemma}
     \label{lemma:keylemma}
-For any $d, d^{\prime}$, there are constants $a, b \in \mathbb{R}^{+}$ and $p_{0} \in (0,1)$ that depend only on $d, d^{\prime}$ and satisfy the following. Consider a quantum circuit $C$ with depth $\mu$ and width $w$, and let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $\tilde{C}$ such that each of its quantum registers is encoded by an $n$-side length, $(d, d^{\prime})$-Toric code, and it simulates $C$ with probability:
+    For any $d, d^{\prime}$, such that $d^{\prime}\ge 2, d-d^{\prime} \ge 2$, there are constants $a, b \in \mathbb{R}^{+}$ and $p_{0} \in (0,1)$ that depend only on $d, d^{\prime}$ and satisfy the following. Consider a quantum circuit $C$ with depth $\mu$ and width $w$, and let $\mathcal{N}_{\mathcal{E}}$ be a local stochastic noise channel with a noise rate $p < p_{0}$. There is a Toric encoded circuit $\tilde{C}$ such that each of its quantum registers is encoded by an $n$-side length, $(d, d^{\prime})$-Toric code, and it simulates $C$ with probability:
 \begin{equation*}
   \begin{split}
     q = 1 -   O \left( \operatorname{poly}(w,\mu,n) \right) \left( a p^{b} \right)^{n} 

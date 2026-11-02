@@ -10,7 +10,7 @@ The role of the sweep rule in the fault tolerance construction is to restrain th
 The following claim states that an ideal run (not subject to noise) of $n^{d+1}$ sweep-cycles, with the additional assumption that no slice has reached a size greater than $n$, succeeds in erasing the syndrome.
 \begin{claim}
   \label{claim:decodestopnoise}
-  Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code with side length $n$, and let $P \in \mathcal{P}^{(\cdot)}$. Let $C$ be the quantum circuit that takes $P\ket{\psi}$ as an input and performs over it $n^{d+1}$ sweep-cycles. For a possible measurement outcome $\alpha \in \mathbb{F}_{2}^{(\cdot)}$ (of stabilizer measurements), consider the Toom's contour $\mathcal{H}$ induced by $C[,\alpha]$. Assume that no slice of $\mathcal{H}$ has size greater than $n$. Then, at the end of the running of $C[,\alpha]$, the syndrome is erased.
+  Let $\ket{\psi}$ be a logical codeword of the $(d,d^{\prime})$-Toric code, with side length $n$, satisfying $d^{\prime},d-d^{\prime}\ge 2$, and let $P \in \mathcal{P}^{(\cdot)}$. Let $C$ be the quantum circuit that takes $P\ket{\psi}$ as an input and performs over it $n^{d+1}$ sweep-cycles. For a possible measurement outcome $\alpha \in \mathbb{F}_{2}^{(\cdot)}$ (of stabilizer measurements), consider the Toom's contour $\mathcal{H}$ induced by $C[,\alpha]$. Assume that no slice of $\mathcal{H}$ has size greater than $n$. Then, at the end of the running of $C[,\alpha]$, the syndrome is erased.
 \end{claim}
 \begin{proof}
   We will prove that the decoder erases the $\partial^{-}$-boundary corresponding to the $X$-component of $P$, and the proof for the $Z$-component is identical. Let $P^{\infty}$ be the $\infty$-lift of $P$ and let $v_{1}, v_{2}, \ldots$ be the vertices supporting the faces of $\partial^{-}x(P^{\infty})$. During the ideal computation, no new faults are introduced, and therefore $v_{1}, v_{2} \ldots$ are the only leaves in the induced Toom's contour. Without loss of generality, assume that the first $m$ vertices $v_{1},..,v_{m}$ align with the vertices of the finite Toric (namely non-translated vertices), denote them by $V^{\prime}$. 
@@ -71,7 +71,7 @@ fault distribution, yielding \Cref{equ:replacement}.
 We now conclude that the sweep rule is an ideal decoder under local-stochastic Pauli noise.
   \begin{theorem}
     \label{theorem:idealdec}
-There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, and a quantum state $\rho = \mathcal{N}_{\mathcal{E}}(\ket{\psi})$, where $\ket{\psi}$ is a codeword of the $(d,d^{\prime})$-Toric code, the application of $n^{d+1}$ (ideal) sweep-cycles on $\rho$ results in $\ket{\psi}$ with probability at least:
+    There exists a constant $p_{0} \in (0,1)$ such that for any local stochastic noise channel $\mathcal{N}_{\mathcal{E}}$ with rate $p < p_{0}$, and a quantum state $\rho = \mathcal{N}_{\mathcal{E}}(\ket{\psi})$, where $\ket{\psi}$ is a codeword of the $(d,d^{\prime})$-Toric code satisfying $d^{\prime},d-d^{\prime}\ge 2$, the application of $n^{d+1}$ (ideal) sweep-cycles on $\rho$ results in $\ket{\psi}$ with probability at least:
 \begin{equation*}
   \begin{split}
     1 -   O \left( \text{poly}(n) \right)  p^{\Omega(n)} 

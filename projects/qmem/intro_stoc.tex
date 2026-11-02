@@ -51,7 +51,7 @@ The sweep rule, introduced by Kubica and Preskill \cite{Kubica_2019}, is an orie
 The first condition ensures that the correction cancels the syndrome seen at $v$, while the second confines its positive vertex support to that of the observed syndrome. If an admissible chain is found, the rule flips its qubits; otherwise, no correction is applied at $v$. All vertices execute this fixed local rule in parallel.
 The nontrivial question is whether the boundary and support conditions can be satisfied simultaneously in higher dimensions. We prove the following local-existence claim:
 \begin{claim*}[Informal version of \Cref{claim:findcor}]
-  Whenever a $d'$-chain $z$ rooted at $v$ satisfies $(\partial^- z)|_{v+}=\sigma|_{v+}$, there is also a rooted $d'$-chain $\tilde z$ satisfying \emph{both} sweep-rule conditions above. 
+  For $d^{\prime}\ge 2$, whenever a $d'$-chain $z$ rooted at $v$ satisfies $(\partial^- z)|_{v+}=\sigma|_{v+}$, there is also a rooted $d'$-chain $\tilde z$ satisfying \emph{both} sweep-rule conditions above. 
 \end{claim*}
 
 Our inductive proof gives an explicit algorithm for constructing $\tilde z$, rather than searching over all local corrections. In fixed dimension, its computation takes constant time and can be implemented by bounded-depth classical processing.
