@@ -70,7 +70,7 @@ The checks of the code are exactly the first type checks of $\text{Stab}_{v}$.
   Let $v$ be a vertex. For any $d^{\prime}\ge 2$, $d\ge d^{\prime}+1$, and any $z \in \mathcal{C}_{v}$, there is a stabilizer $w \in \text{Stab}_{v}$ such that $z = w|_{v}$; namely, $z$ and $w$ agree on the faces rooted at $v$. Moreover, the vertex support of $w|_{v}$ is contained in the vertex support of $z|_{v}$, namely:
   \begin{equation*}
     \begin{split}
-        \textbf{Str}_{0+}(v, w) \subseteq \textbf{Str}_{0+}(v, z)
+      \textbf{Str}_{0+}(v, w|_{v}) \subseteq \textbf{Str}_{0+}(v, z|_{v})
     \end{split}
   \end{equation*}
 \end{claim}
@@ -179,7 +179,7 @@ The next claim states that the translation by a stabilizer that minimizes its si
  
   \begin{enumerate}
 
-      \item If $v$ is a maximum of $L_{d+1}$, then by \Cref{claim:agreement}, there exists a stabilizer $z$ rooted at $v$, such that $z|_{v}=z|_{v+}=x|_{v+}=x|_{v}$ (using that $v$ is a local maximum of $L_{d+1}$ in $x$ to infer $x|_{v}=x|_{v+}$). Therefore, $(x+z)|_{v} = 0$, meaning adding $z$ to $x$ excludes $v$. In addition, since the rooted stabilizer $z$ is supported only on the vertices in $\textbf{Str}_{0+}(v,x)$, the addition cannot introduce a vertex with a higher $L_{g}$ value than the maximal $L_{g}$ value in $\textbf{Str}_{0+}(v,x)$ into $x$. So, repeating the process until excluding all the vertices that get the maximal $L_{d+1}$-value in $x$, and summing the stabilizers, results in a stabilizer $z$ for which $L_{d+1}(x+z) < L_{d+1}(x)$.
+    \item If $v$ is a maximum of $L_{d+1}$, then by \Cref{claim:agreement}, there exists a stabilizer $z$ rooted at $v$, such that $z|_{v}=z|_{v+}=x|_{v+}=x|_{v}$ (using that $v$ is a local maximum of $L_{d+1}$ in $x$ to infer $x|_{v}=x|_{v+}$). Therefore, $(x+z)|_{v} = 0$, meaning adding $z$ to $x$ excludes $v$. In addition, since the rooted stabilizer $z$ is supported only on the vertices in $\textbf{Str}_{0+}(v,x|_{v})$, the addition cannot introduce a vertex with a higher $L_{g}$ value than the maximal $L_{g}$ value in $\textbf{Str}_{0+}(v,x|_{v})$ into $x$. So, repeating the process until excluding all the vertices that get the maximal $L_{d+1}$-value in $x$, and summing the stabilizers, results in a stabilizer $z$ for which $L_{d+1}(x+z) < L_{d+1}(x)$.
 
 
       \item If, for some generator $g \in S$, $v$ is a maximum of $L_{g}$, then without loss of generality, pick $v$ among the maximum points of $L_{g}$ with the highest value of $-L_{d+1}$ (maximize $\sum_{g \in S} L_{g}(v)$). Since stepping through the positive direction can only increase the value of $-L_{d+1}$, it follows that $v$ is also a local max of $-L_{d+1}$.

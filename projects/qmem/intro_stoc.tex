@@ -46,7 +46,7 @@ The sweep rule, introduced by Kubica and Preskill \cite{Kubica_2019}, is an orie
 \begin{equation*}
   (\partial^-\tilde z)|_{v+}=\sigma|_{v+},
   \qquad
-  \mathbf{Str}_{0+}(v,\tilde z)\subseteq\mathbf{Str}_{0+}(v,\sigma).
+  \mathbf{Str}_{0+}(v,\tilde z)\subseteq\mathbf{Str}_{0+}(v,\sigma|_{v}).
 \end{equation*}
 The first condition ensures that the correction cancels the syndrome seen at $v$, while the second confines its positive vertex support to that of the observed syndrome. If an admissible chain is found, the rule flips its qubits; otherwise, no correction is applied at $v$. All vertices execute this fixed local rule in parallel.
 The nontrivial question is whether the boundary and support conditions can be satisfied simultaneously in higher dimensions. We prove the following local-existence claim:
@@ -94,7 +94,7 @@ At each vertex $v$, the sweep rule of Kubica and Preskill \cite{Kubica_2019} see
 \begin{equation*}
   (\partial^-c_v)|_{v+}=\sigma|_{v+},
   \qquad
-  \textbf{Str}_{0+}(v,c_v)\subseteq\textbf{Str}_{0+}(v,\sigma).
+  \textbf{Str}_{0+}(v,c_v)\subseteq\textbf{Str}_{0+}(v,\sigma|_{v}).
 \end{equation*}
 The first condition cancels the locally observed positive syndrome; the second prevents the correction from extending beyond its prescribed positive support (\Cref{def:positiveNei}). If no admissible chain exists, the vertex makes no correction. All vertices update in parallel, and a complete sweep cycle applies the rule in both CSS sectors. A conceptual rule of this kind is not yet an algorithm: the required local correction must exist wherever shrinking needs it. We resolve the higher-dimensional existence question raised in \cite{Kubica_2019} by constructing $c_v$ inductively over face dimension. Since $d$ is fixed, the procedure examines a constant-size neighborhood and requires bounded-depth classical processing (\Cref{def:sweeprule,subsection:shrink}).
 
