@@ -36,7 +36,7 @@ The following claim ensures us an 'independent' argument about slices. Here we s
     Let $K_{1}, K_{2}$ be two slices such that $\Time{K_1} = \Time{K_2}$, then either $K_{1}=K_{2}$ or $\History{K_1}, \History{K_2}$ are disjoint.
   \end{claim}
   \begin{proof}
-Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \History{K_{2}}$ such that for any $x \in K_{1}$ and $y \in K_{2}$, there exist arrow-paths $z \rightarrow x$ and $z \rightarrow y$. Thus, for any $w \in \History{K_{1}}$, one can concatenate a path $w \rightarrow x \rightarrow z \rightarrow y$ and conclude that $y \in \History{K_{2}}$.
+Assume a non-empty intersection, so there exists $z \in \History{K_{1}}\cap \History{K_{2}}$ such that for any $x \in K_{1}$ and $y \in K_{2}$, there exist arrow-paths $z \rightarrow x$ and $z \rightarrow y$. Thus, for any $w \in \History{K_{1}}$, one can concatenate a path $w \rightarrow x \rightarrow z \rightarrow y$ and conclude that $w \in \History{K_{2}}$.
   \end{proof}
   
 
@@ -47,7 +47,7 @@ Next, we would like to study how slices look a moment before they merge. For thi
   \end{definition}
 
   
-  The graph of slices is connected. That fact means that a spanning tree of a (subgraph of) a slice's history can be found by combining the spanning trees of its processors. The following gives the proof:
+  The graph of slices is connected. That fact means that a spanning tree of a (subgraph of) a slice's history can be found by combining the spanning trees of its predecessors. The following gives the proof:
   \begin{claim}
     \label{claim:connected}
     $G_{K}$ is connected. 
@@ -62,7 +62,7 @@ Next, we would like to study how slices look a moment before they merge. For thi
       \item Induction step. Since $k > 0 $, there exists a vertex $y$ on the path from $r$ to $s$ such that $\Time{y} = \Time{K}$. Let $x$ be the vertex which precedes $y$ on the path, and $z$ be the vertex that follows $y$. Since the values of $T$ at the two ends of an arrow differ by $1$, and since $y$ gets the maximal $T$ value in $\History{K}$ it follows that: 
         \begin{enumerate}
           \item $\{x,z\} \subset \pre{y} \Rightarrow \{x,z\} \in F$. 
-          \item The slices of $x$ and $z$, say $K_{x}$ and $K_{z}$ has time value $\Time{K_{x}} = \Time{K_{z}} = \Time{K} -1$, Namely they are both members of $V_{K}$. 
+          \item The slices of $x$ and $z$, say $K_{x}$ and $K_{z}$ have time value $\Time{K_{x}} = \Time{K_{z}} = \Time{K} -1$, Namely they are both members of $V_{K}$. 
         \end{enumerate}
         Since the path connecting $r,x$ in $\History{K}$ has $k-1$ vertices with $\Time{\cdot} = \Time{K}$, then by the induction hypothesis, $R$ and $K_{x}$ are connected in $G_{K}$, and by similar argument so are $K_{z}$ and $S$. On the other hand, $ \{x,z\} \Rightarrow \{K_{x},K_{z}\} \in E_{K}$. Thus, $R$ and $S$ are connected in $G_{K}$.
     \end{enumerate}
@@ -81,7 +81,7 @@ Next, we would like to study how slices look a moment before they merge. For thi
         \Size{A} \ge \sum_{i=1}^{d+1} L_i(v_i) 
       \end{split}
     \end{equation*} 
-    For a vertex $u$, we define the $i$th predecessor of a $u$, denoted by $\prei{u}$, to be its predecessor which achieves the maximal value of $L_{i}$,  namely:
+    For a vertex $u$, we define the $i$th predecessor of $u$, denoted by $\prei{u}$, to be its predecessor which achieves the maximal value of $L_{i}$,  namely:
     \begin{equation*}
       \begin{split}
         \prei{u} \colonequals  \arg \max_{v\in \pre{u}} L_{i}(v) 
@@ -108,11 +108,11 @@ Consider a time graph $(G,T)$ whose vertices are associated with points in $\mat
   \begin{proof}
 First, notice that $K$ doesn't contain leaves in $(V,A)$, since a leaf is connected only to itself via arrows, and therefore its 'slice' equals its 'History'. Thus, $\prei{v_{i}}$ is not empty for any $i \in [d+1]$. Next, consider the graph $G_{K} = (V_{K},E_{K})$ from \Cref{def:gslice}. Since $\{ v_{i}, \prei{v_{i}} \}$ is an arrow, $\prei{v_{i}}$ belongs to a slice in $V_{K}$. For $i=1,\ldots,d+1$, denote by $R_{i}$ the slice in $V_{K}$ that contains $\prei{v_i}$.
 
-    By \Cref{claim:connected} $G_{K}$ is connected and therefore there exist a minimal collection $K_{0},..,K_{k}$ of slices form $V_{K}$ which contains $R_{1},R_{2},..R_{d+1}$, and which is connected in $G_{K}$. We pick a set of forks $\mathbf{F} = \{F_{1},..,F_{k} \}$ which realizes a spanning tree for this collection of slices. %Later we will identify edges from this spanning tree with the forks from $\mathbf{F}$.  
+    By \Cref{claim:connected} $G_{K}$ is connected and therefore there exist a minimal collection $K_{0},..,K_{k}$ of slices from $V_{K}$ which contains $R_{1},R_{2},..R_{d+1}$, and which is connected in $G_{K}$. We pick a set of forks $\mathbf{F} = \{F_{1},..,F_{k} \}$ which realizes a spanning tree for this collection of slices. %Later we will identify edges from this spanning tree with the forks from $\mathbf{F}$.  
 
 
    
-    Let us denote by $J_{0},..,J_{2k}$ the enumerated union $K_{0},..K_{k},F_{1},..,F_{k}$. Observes that for any choice of $(d+1)(2k+1)$ elements $z_{0}^{1},z_{0}^{2}, z_{0}^{3},..,z_{0}^{d+1}..,z_{2k}^{d+1}$ in $\mathbb{R}^{d}$, such that $z_{j}^{i} \in J_{j}$ it holds that:
+    Let us denote by $J_{0},..,J_{2k}$ the enumerated union $K_{0},..K_{k},F_{1},..,F_{k}$. Observe that for any choice of $(d+1)(2k+1)$ elements $z_{0}^{1},z_{0}^{2}, z_{0}^{3},..,z_{0}^{d+1}..,z_{2k}^{d+1}$ in $\mathbb{R}^{d}$, such that $z_{j}^{i} \in J_{j}$ it holds that:
     \begin{equation}
       \label{equ:spanlow}
       \begin{split}
@@ -128,7 +128,7 @@ Later, we are going to take the points $\{z_{j}^{i}\}$ from the intersection of 
     \end{equation*}
 
     
-    Now consider a non-trivial maximal intersection $\bigcap_{j \in X} J_{j}$. The intersection is maximal in the sense that for any $j^{\prime} \notin X$, it holds that $\bigcap_{j \in X\cup \{j^{\prime} \}} J_{j} = \emptyset$. We claim that for any $i$ and for any such $X$, there is $t \in X$ such that $J_{t}$ is the successor of $J_{j}$ on the path to $R_{i}$ for any $j \in X/\{t\}$. Assume not. Let $x, y \in X$, and denote the paths from $J_{x}, J_{y}$ to the $R_{i}$ by $J_{x}, J_{x_2}, \ldots, R_{i}$, and $J_{y}, J_{y_2}, \ldots, R_{i}$, such that $J_{y} \neq J_{x_{2}}$. If $y = x_{2}$, $y_{2} = x$, or $x_{2} = y_{2} \in X$, then pick other $x, y$ (if there is no such, we get an immediate contradiction). In that case, $J_{x}, J_{y}, J_{y_{2}}, \ldots, R_{i}$ is a path from $J_{x}$ to $R_{i}$ which is different from $J_{x}, J_{x_{2}}, \ldots, R_{i}$. Therefore, there are at least two paths from $J_{x}$ to the $R_{i}$, namely, there is a cycle in contradiction to the that the collection $K_{0}, \ldots, K_{k}, F_{1},..,F_{k}$ is a tree.
+    Now consider a non-trivial maximal intersection $\bigcap_{j \in X} J_{j}$. The intersection is maximal in the sense that for any $j^{\prime} \notin X$, it holds that $\bigcap_{j \in X\cup \{j^{\prime} \}} J_{j} = \emptyset$. We claim that for any $i$ and for any such $X$, there is $t \in X$ such that $J_{t}$ is the successor of $J_{j}$ on the path to $R_{i}$ for any $j \in X/\{t\}$. Assume not. Let $x, y \in X$, and denote the paths from $J_{x}, J_{y}$ to the $R_{i}$ by $J_{x}, J_{x_2}, \ldots, R_{i}$, and $J_{y}, J_{y_2}, \ldots, R_{i}$, such that $J_{y} \neq J_{x_{2}}$. If $y = x_{2}$, $y_{2} = x$, or $x_{2} = y_{2} \in X$, then pick other $x, y$ (if there is no such, we get an immediate contradiction). In that case, $J_{x}, J_{y}, J_{y_{2}}, \ldots, R_{i}$ is a path from $J_{x}$ to $R_{i}$ which is different from $J_{x}, J_{x_{2}}, \ldots, R_{i}$. Therefore, there are at least two paths from $J_{x}$ to the $R_{i}$, namely, there is a cycle in contradiction to the fact that the collection $K_{0}, \ldots, K_{k}, F_{1},..,F_{k}$ is a tree.
 
 
     We will choose the $z_{j}^{i}$ by the following process. Pick a $z_{j}^{i}$ that has not been set yet. If $J_{j} = R_{i}$, then set $z_{j}^{i} \leftarrow \prei{v_{i}}$ - we call this a type-1 assignment. Otherwise, consider the path from $J_{j}$ to $R_{i}$ (by connectivity, it has to be such a one, and by minimality, there is exactly one). Let $J_{t}$ be the successor on the path, then pick $z_{j}^{i} \in J_{j} \cap J_{t}$ - similarly, we call this assignment a type-2 assignment. Since any type-2 assignment is associated with a non-trivial intersection, and any non-trivial intersection induces a type-2 assignment for all $i$'s (since for all $i$'s, one of the $J_{j}$ on its support is a successor of the rest on their path to the $R_{i}$), we have that:
@@ -140,7 +140,7 @@ Later, we are going to take the points $\{z_{j}^{i}\}$ from the intersection of 
         &=\sum_{i=1}^{d+1}L_{i}\left( \prei{v_{i}} \right) 
       \end{split}
     \end{equation}
-To complete, we select the $i$th pole of $K_{j}$ to be $z^{i}_{j}$. Then, for $i=1,\ldots,d+1$, the $i$th predecessor $\prei{v_{i}}$ is the $i$th pole of $R_{i}$. This assures (1). Since for any intersection $K_{i}\cap F_{j}$ a type-2 assignment is picked from the intersection to $K_{i}$, we have that the type-2 selected poles of $K_{0},K_{1},\ldots,K_{k}$ are covered by the vertices of $F_{1},F_{2},\ldots,F_{k}$. This assures (ii). Plugging \Cref{equ:span} into \Cref{equ:spanlow} assures (3).
+To complete, we select the $i$th pole of $K_{j}$ to be $z^{i}_{j}$. Then, for $i=1,\ldots,d+1$, the $i$th predecessor $\prei{v_{i}}$ is the $i$th pole of $R_{i}$. This assures (1). Since for any intersection $K_{i}\cap F_{j}$ a type-2 assignment is picked from the intersection to $K_{i}$, we have that the type-2 selected poles of $K_{0},K_{1},\ldots,K_{k}$ are covered by the vertices of $F_{1},F_{2},\ldots,F_{k}$. This assures (2). Plugging \Cref{equ:span} into \Cref{equ:spanlow} assures (3).
   \end{proof}
 
 %  \begin{definition}[Subslice] 
@@ -201,7 +201,7 @@ The distinction between slices resulting from different layers allows us to adju
 
   \begin{corollary}
     \label{claim:shrinkslice}
-Consider a slice $K$ in it, and a selection of poles $v_{1}, \ldots, v_{d+1}$, such that $K \neq H_{K}$. Since $K \neq H_{K}$, it follows that $K$ has a predecessor decomposition with respect to $v_{1}, \ldots, v_{d+1}$, denoted by $K_{0}, \ldots, K_{k}, F_{1}, \ldots, F_{k}$. For each slice $K_{j}$, denote its selected poles by $z_{j}^{1}, \ldots, z_{j}^{d+1}$. The inequality in \Cref{claim:prevslices} becomes:
+    Consider a slice $K$ in $\mathcal{H}$, and a selection of poles $v_{1}, \ldots, v_{d+1}$, such that $K \neq H_{K}$. Since $K \neq H_{K}$, it follows that $K$ has a predecessor decomposition with respect to $v_{1}, \ldots, v_{d+1}$, denoted by $K_{0}, \ldots, K_{k}, F_{1}, \ldots, F_{k}$. For each slice $K_{j}$, denote its selected poles by $z_{j}^{1}, \ldots, z_{j}^{d+1}$. The inequality in \Cref{claim:prevslices} becomes:
     \begin{enumerate}
       \item If $K$ is a result of a sweep-cycle, then:
         \begin{equation*}
@@ -220,13 +220,13 @@ Consider a slice $K$ in it, and a selection of poles $v_{1}, \ldots, v_{d+1}$, s
   \begin{proof}
  Let us split upon what $K$ results from:
     \begin{enumerate}
-      \item For the sweep-cycle part, we use \Cref{claim:polesmove} and \Cref{claim:sweepface}. The first states that within an application of the sweep-cycle over a chain, the maximal $L_{d+1}$ value of the $\partial^{-}$-boundary of the resulting chain decreases by at least one, while the values of each $L_{g}$ do not increase. The second assures that for any local maximum of $L_{i}$ in the resulting $\partial^{-}$-boundary, there is a vertex in the $\partial^{-}$-boundary of the original such that they (1) share a $d^{\prime}$-dimensional face and (2) the $L_{i}$-value of the vertex in the result is at most the $L_{i}$-value of the vertex in the original, where if $i=d+1$, the relation becomes strictly less. Thus, prior to forming the spanning tree of the predecessor slices, for every $v_{i}$ in $v_{1},..,v_{d+1}$ we select a vertex $\prei{v_{i}}$ that has either at most the same $L_{i}$-value as $v_{i}$ if $i\neq d+1$ or an $L_{d+1}$-value that is bigger by at least $1$. That gives the inequality.
+      \item For the sweep-cycle part, we use \Cref{claim:polesmove} and \Cref{claim:sweepface}. The first states that within an application of the sweep-cycle over a chain, the maximal $L_{d+1}$ value of the $\partial^{-}$-boundary of the resulting chain decreases by at least one, while the values of each $L_{g}$ do not increase. The second assures that for any local maximum of $L_{i}$ in the resulting $\partial^{-}$-boundary, there is a vertex in the $\partial^{-}$-boundary of the original such that they (1) share a $d^{\prime}$-dimensional face and (2) the $L_{i}$-value of the vertex in the result is at most the $L_{i}$-value of the vertex in the original, where if $i=d+1$, the relation becomes strictly less. Thus, prior to forming the spanning tree of the predecessor slices, for every $v_{i}$ in $v_{1},..,v_{d+1}$ we select a vertex $\prei{v_{i}}$ that has either at least the same $L_{i}$-value as $v_{i}$ if $i\neq d+1$ or an $L_{d+1}$-value that is bigger by at least $1$. That gives the inequality.
         
       \item If $K$ is a result of faults, then it cannot contain a vertex that supports a fault. That is because no arrow connection is made in that case, and hence, if it were to contain a vertex that supports a fault, that vertex would be the only one in $K$, namely $K = H_{K}$. So, we can imagine that all the vertices in $K$ support the identity operator and handle that case as a result of a logical operator.
-      \item Where $K$ is the result of a logical operator, we use the observation that a pure logical operator doesn't change the slices (with the exception that the measurement in the phase-basis switches the vertex types, namely $\{X\} \leftrightarrow \{Z\}$, of part of the vertices in the slice, see \Cref{claim:paulipropcon}). So we have that the support of $K$ is contained (up to vertices' types) in the support of $\cup_{0}^{k} K_{i}$, and therefore for any $i \in [d+1]$:
+      \item Where $K$ is the result of a logical operator, we use the observation that a pure logical operator doesn't change the slices (with the exception that the measurement in the phase-basis switches the vertex types, namely $\{X\} \leftrightarrow \{Z\}$, of part of the vertices in the slice, see \Cref{claim:paulipropcon}). So we have that the support of $K$ is contained (up to vertices' types) in the support of $\cup_{j=0}^{k} K_{j}$, and therefore for any $i \in [d+1]$:
         \begin{equation*}
           \begin{split}
-            \max \bigl\{ L_{i}(v) : v \in K \} \le \max \bigl\{ L_{i}(v) : v \in \bigcup_{j=0}^{k}K_{j} \} 
+            \max \bigl\{ L_{i}(v) : v \in K \bigr\} \le \max \bigl\{ L_{i}(v) : v \in \bigcup_{j=0}^{k}K_{j} \bigr\} 
           \end{split}
         \end{equation*}
     \end{enumerate}
