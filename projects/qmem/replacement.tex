@@ -1,7 +1,7 @@
 
 
 \section{The Sweep-rule is Itself a Decoder}
-The role of the sweep rule in the fault tolerance construction is to restrain the errors in the system rather than erase them. Here, we show that it can also be used as a decoder. Concurrently, if the initial error is distributed according to local stochastic noise, then the excitation of noiseless sweep-cycles for $n^{d+1}$ times - the number of vertices times the side's length - erases the errors, with high probability. 
+The role of the sweep rule in the fault tolerance construction is to restrain the errors in the system rather than erase them. Here, we show that it can also be used as a decoder. Concurrently, if the initial error is distributed according to local stochastic noise, then the execution of noiseless sweep-cycles for $n^{d+1}$ times - the number of vertices times the side's length - erases the errors, with high probability. 
 
 
 
@@ -26,7 +26,7 @@ The following claim states that an ideal run (not subject to noise) of $n^{d+1}$
     \item Suppose that $K_{v,t}$ and $K_{u,t}$ are slices at time $t$, and $K_{w,t+1}$ is a slice at time $t+1$, such that $K_{v,t}\not\sim K_{u,t}$, $K_{w,t+1}\sim K_{v,t}$, and $K_{w,t+1}\sim K_{u,t}$. Then we will say that $\textbf{K}_{v}$ and $\textbf{K}_{u}$ merged at time $t$.
     \item The size of a class $\mathbf{K}_{v}$ at time $t$ is $\Size{K_{v,t}}$.
   \end{enumerate}
-  Since no new faults are introduced during the computation, we have that in each step, the only option for a class to grow is by merging. Notice that, by definition, classes cannot 'split'. Namely, if $K_{v,t}\sim \mathbf{K}_{u}$, then for any time $t^{\prime} \ge t$, it holds that $K_{v,t^{\prime}} \sim \textbf{K}_{u}$. Specifically, a correction by the sweep rule that disconnects two connected components of the syndrome that were connected, prior to correction, belonged to the same slice and therefore to the same class, would still belong to the same class after the correction.
+  Since no new faults are introduced during the computation, we have that in each step, the only option for a class to grow is by merging. Notice that, by definition, classes cannot 'split'. Namely, if $K_{v,t}\in \mathbf{K}_{u}$, then for any time $t^{\prime} \ge t$, it holds that $K_{v,t^{\prime}} \in \textbf{K}_{u}$. Specifically, a correction by the sweep rule that disconnects two connected components of the syndrome that were connected, prior to correction, belonged to the same slice and therefore to the same class, would still belong to the same class after the correction.
 
 
 Therefore, there can be at most $m-1$ merges. And since the number of classes is bounded by the number of vertices on the finite Toric, we have that $m \le n^{d}$, namely at most $n^{d}-1$ merges can occur. Hence, during the $n^{d+1}$ sweep-cycles, there has to be a continuous sequence of $n$ cycles for which no merge occurs. 
