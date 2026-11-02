@@ -75,7 +75,7 @@ We stop the recursion whenever either $d^{\prime}=2$ or $|\mathbf{Str}_{0+}(v, \
 
 The work in each recursion step consists of decomposing $\sigma$ into $\sigma|_{gv}$ and $\sigma|_{/gv}$ and summing ${ d \choose d^{\prime} }$-length vectors. We summarize by introducing the following claim which gives the running time of the algorithm in the RAM computation model.
 \begin{claim}
-  Let $ T(d, d', k) : \cdot \rightarrow \mathbb{R} $ be the upper bound function for the running time of the algorithm given in \Cref{claim:findcor}, where $d$ is the dimension of the skeleton, $d^{\prime}$ is the face dimension, and $k$ is the number of vertices supporting the local view, namely $k = |\mathbf{Str}_{0+}(v, \sigma|_{v} )|$. Then:
+  Let $ T(d, d', k) : \mathbb{N}^{\times 3} \rightarrow \mathbb{R} $ be the upper bound function for the running time of the algorithm given in \Cref{claim:findcor}, where $d$ is the dimension of the skeleton, $d^{\prime}$ is the face dimension, and $k$ is the number of vertices supporting the local view, namely $k = |\mathbf{Str}_{0+}(v, \sigma|_{v} )|$. Then:
   \begin{equation*}
     \begin{split}
       T(d, d', k) = O\bigl( 2^{k} \max_{d^{\star}\le d^{\prime}}{ d \choose d^{\star} } \bigr)
