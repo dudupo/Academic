@@ -78,15 +78,15 @@ The work in each recursion step consists of decomposing $\sigma$ into $\sigma|_{
   Let $ T(d, d', k) : \cdot \rightarrow \mathbb{R} $ be the upper bound function for the running time of the algorithm given in \Cref{claim:findcor}, where $d$ is the dimension of the skeleton, $d^{\prime}$ is the face dimension, and $k$ is the number of vertices supporting the local view, namely $k = |\mathbf{Str}_{0+}(v, \sigma|_{v} )|$. Then:
   \begin{equation*}
     \begin{split}
-      T(d, d', k) = O\bigl( 2^{k} { d \choose d^{\prime} } \bigr)
+      T(d, d', k) = O\bigl( 2^{k} \max_{d^{\star}\le d^{\prime}}{ d \choose d^{\star} } \bigr)
     \end{split}
   \end{equation*}
 \end{claim}
 \begin{proof}
-  In each recursive call, the vertex support of $\sigma$ matches a different subset of the vertices in $\mathbf{Str}_{0+}(v, \sigma|_{v})$; thus, the number of recursive calls is at most the number of subsets, namely $2^{k}$. The decomposition of $\sigma$ into $\sigma|_{gv}$ and $\sigma|_{/gv}$, and the summation $\sigma|_{/gv} + \tilde{z}^{*}$ are linear in the vector's length, namely linear in ${d \choose d^{\prime}}$. So we bound the total work by the number of recursive steps multiplied by the maximal work at each recursive step. That becomes at most:
+  In each recursive call, the vertex support of $\sigma$ matches a different subset of the vertices in $\mathbf{Str}_{0+}(v, \sigma|_{v})$; thus, the number of recursive calls is at most the number of subsets, namely $2^{k}$. The decomposition of $\sigma$ into $\sigma|_{gv}$ and $\sigma|_{/gv}$, and the summation $\sigma|_{/gv} + \tilde{z}^{*}$ are linear in the vector's length, namely linear in $\max_{d^{\star} \le d^{\prime} } {d \choose d^{\star}}$. So we bound the total work by the number of recursive steps multiplied by the maximal work at each recursive step. That becomes at most:
 \begin{equation*}
   \begin{split}
-    T(d,d^{\prime},k) \le O\bigl( 2^{k} { d \choose d^{\prime} } \bigr) 
+    T(d,d^{\prime},k) \le O\bigl( 2^{k} \max_{d^{\star} \le d^{\prime}} { d \choose d^{\star} } \bigr) 
   \end{split}
 \end{equation*}
  %Finally, choose $c$, such we get correctness in the base case, namely  $k,d^{\prime} \le 4$ and any $d$. 
