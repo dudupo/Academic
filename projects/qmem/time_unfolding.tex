@@ -11,13 +11,13 @@
       \mathcal{G} \subset \Big\{ g \colon L(\mathcal{H}_{2}^{\otimes \Delta}) \to L(\mathcal{H}_{2}^{\otimes \Delta}) \Big\},
     \end{split}
   \end{equation*}
-  and integers $w,d\in\mathbb{N}$, a quantum circuit $C$ of depth $d$ and width $w$ is a collection of tuples
+  and integers $w,\mu\in\mathbb{N}$, a quantum circuit $C$ of depth $\mu$ and width $w$ is a collection of tuples
   \begin{equation*}
     \begin{split}
       C=\{u_i=(g_i,l_i)\}_i,
     \end{split}
   \end{equation*}
-  where each $g_i\in\mathcal{G}$ and each location $l_i=(l_{i,1},l_{i,2})$ belongs to $[d]\times [w]^{\Delta}$. We call the tuples $u_i$ \textit{the gates of $C$}. They must satisfy the following compatibility condition: if two gates have the same time coordinate, then their supports are disjoint. Namely, for $u_i=(g_i,l_i),u_j=(g_j,l_j)\in C$, the equality $l_{i,1}=l_{j,1}$ implies that the sets of qubit indices appearing in $l_{i,2}$ and $l_{j,2}$ are disjoint. We denote by
+  where each $g_i\in\mathcal{G}$ and each location $l_i=(l_{i,1},l_{i,2})$ belongs to $[\mu]\times [w]^{\Delta}$. We call the tuples $u_i$ \textit{the gates of $C$}. They must satisfy the following compatibility condition: if two gates have the same time coordinate, then their supports are disjoint. Namely, for $u_i=(g_i,l_i),u_j=(g_j,l_j)\in C$, the equality $l_{i,1}=l_{j,1}$ implies that the sets of qubit indices appearing in $l_{i,2}$ and $l_{j,2}$ are disjoint. We denote by
   \begin{equation*}
     \begin{split}
       \operatorname{Loc}(C) \colonequals \{l_i : u_i=(g_i,l_i)\in C\}
@@ -33,7 +33,7 @@
 Later, we will restrict $\mathcal{G}$ to contain $\mathbf{X}, \mathbf{Z}, \mathbf{CX}, \mathbf{H}, \mathbf{S}, \mathbf{T}$, and measurements. To define the action of a quantum circuit $C$ on a given mixed state, we first associate $C$ with a directed acyclic graph.
 \begin{definition}[Associated Computation DAG]
   \label{def:steps}
-  Let $C=\{u_i\}_i$ be a quantum circuit with depth $d$ and width $w$. We define the associated computation DAG of $C$, denoted by $\pi_C$, to be the directed acyclic graph $\pi_C=(\mathcal{U},E)$ as follows:
+  Let $C=\{u_i\}_i$ be a quantum circuit with depth $\mu$ and width $w$. We define the associated computation DAG of $C$, denoted by $\pi_C$, to be the directed acyclic graph $\pi_C=(\mathcal{U},E)$ as follows:
   \begin{enumerate}
     \item The vertex set is the gate set of $C$, namely $\mathcal{U}=\{u_i\}_i$.
     \item For $u_i=(g_i,l_i)$ and $u_j=(g_j,l_j)$, there is a directed edge $(u_i,u_j)\in E$ if and only if $j$ is one of the minimizers of
@@ -54,20 +54,20 @@ We call $C|_{J,\rightarrow i}$ the partial computation circuit up to step $i$. W
 \end{definition}
 
 \begin{definition}
-  Let $\rho$ be a density matrix over $w$ qubits, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with depth $d$ and width $w$. For any density matrix $\sigma$, quantum gate $g \in \mathcal{G}$, and location $l$, the application of the gate-location tuple $(g,l)$ on $\sigma$, denoted by $(g,l) \circ \sigma$, is the application of $g$ on $\sigma$ where wires are ordered such that the first qubit in the input to $g$ is $l_{2,1}$, the second is $l_{2,2}$, and so on. The result of the application of $C$ on $\rho$, denoted by $C \circ \rho$, is given by iterative applications of the gates $\{u_{i}\}_{i=1}$ on $\rho$, according to a topological order induced by $\pi_{C}$.
+  Let $\rho$ be a density matrix over $w$ qubits, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with depth $\mu$ and width $w$. For any density matrix $\sigma$, quantum gate $g \in \mathcal{G}$, and location $l$, the application of the gate-location tuple $(g,l)$ on $\sigma$, denoted by $(g,l) \circ \sigma$, is the application of $g$ on $\sigma$ where wires are ordered such that the first qubit in the input to $g$ is $l_{2,1}$, the second is $l_{2,2}$, and so on. The result of the application of $C$ on $\rho$, denoted by $C \circ \rho$, is given by iterative applications of the gates $\{u_{i}\}_{i=1}$ on $\rho$, according to a topological order induced by $\pi_{C}$.
 
 We say that $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ is a computation prefix if $\rho_{1} = \rho$ and $\rho_{i+1} = u^\prime_{i} \circ \rho_{i}$, where $\{u^{\prime}_{i}\}_{i=1}$ is a prefix of a topological ordering of $\{u_{i}\}_{i=1}$. If $\{u^{\prime}_{i}\}_{i=1}$ contains all the gates in $\{u_{i}\}_{i=1}$, then we call $\rho_{1}, \rho_{2}, \ldots, \rho_{k}$ a running.
 \end{definition}
 For a quantum circuit $C$, we would like to discuss its action in the presence of different outcomes of faults. The following definition encodes the running in the presence of a specific set of faults $\mathcal{E}$.
 %We do this by defining a new circuit, stacking a layer of $\mathcal{E}$ after every $m$ layers of $C$.
 \begin{definition}[$C$ subjected to $\mathcal{E}$ every $m$ computational layers]
-  Let $C=\{u_i\}_i$ be a quantum circuit with depth $d$ and width $w$, let $m\in\mathbb{N}$, and set
+  Let $C=\{u_i\}_i$ be a quantum circuit with depth $\mu$ and width $w$, let $m\in\mathbb{N}$, and set
   \begin{equation*}
     \begin{split}
-      d_m \colonequals \left\lceil \frac{d}{m} \right\rceil.
+      \mu_m \colonequals \left\lceil \frac{\mu}{m} \right\rceil.
     \end{split}
   \end{equation*}
-  Let $\mathcal{L}\subset [d_m]\times [w]$ be a set of locations, and let $\mathcal{E}$ be a quantum circuit, such $\text{Loc}(\mathcal{E}) = \mathcal{L}$. We name $\mathcal{E}$ \textit{subsets of faults}, and we name the layers of $\mathcal{E}$ \textit{fault layers}.
+  Let $\mathcal{L}\subset [\mu_m]\times [w]^{\Delta}$ be a set of locations, and let $\mathcal{E}$ be a quantum circuit, such $\text{Loc}(\mathcal{E}) = \mathcal{L}$. We name $\mathcal{E}$ \textit{subsets of faults}, and we name the layers of $\mathcal{E}$ \textit{fault layers}.
   The circuit \textit{$C$ subjected to $\mathcal{E}$ every $m$ computational layers}, denoted by $C[\mathcal{E}]_{m}$, is obtained by setting the first layer to be the first layer of $\mathcal{E}$, then placing in order the layers of $C$ and inserting a fault layer before each successive block of at most $m$ layers of $C$. Thus, the first fault layer precedes the first block of $C$, the second follows its first $m$ layers, and the third follows its first $2m$ layers, provided a further block remains. Concretely, each gate $u_i=(g_i,(t_i,S_i))$ of $C$ is moved to the time coordinate
   \begin{equation*}
     \begin{split}
