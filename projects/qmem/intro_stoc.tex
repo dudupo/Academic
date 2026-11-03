@@ -75,9 +75,6 @@ The main message is a separation of two often-confounded ingredients of local qu
 
 The proof may also be of independent interest. It translates an idea from reliable classical cellular automata---explaining a large error by a space--time dependency tree---into homological language. In a CSS chain complex, errors of large Hamming weight may be stabilizers, while a syndrome is a boundary; thus the relevant objects to track are not the erroneous qubits themselves but the evolving supports and geometric spans of syndrome chains. We use this distinction to make a first-passage argument for logical errors and to count the fault histories that could produce them.
 
-\paragraph{Acknowledgment and AI disclosure.}
-The author thanks Prof.~Michael Ben-Or for discussions, supervision, and support. ChatGPT assisted with editing, proof checking, and brainstorming. The mathematical ideas and responsibility for the paper remain with the author.
-
 \section{Outline of the Proof}
 
 Our threshold proof combines two ingredients: the deterministic shrinking of syndrome components under the sweep rule and a probabilistic bound on the fault histories that could produce a large component. We do not attempt to correct every physical error before the next logical operation, or to maintain a prescribed distribution of the residual error after every round. Instead, we show that a logical failure would require a large intermediate syndrome, and that such a syndrome has an unlikely space--time explanation. We outline these steps before giving their formal versions in the following sections.
