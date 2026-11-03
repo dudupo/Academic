@@ -71,7 +71,7 @@ The proofs of the claims are given in the appendix. We continue with the proof o
     Denote by $\tau_{f}$ the last step of $\tilde{C}[\mathcal{E},\alpha]$, and let $(\mathbf{P},\mathbf{a}) $ be a step-propagation of $\tilde{C}[\mathcal{E},\alpha]$, where $\mathbf{P} \colonequals  P_{1},P_{2},..,P_{\tau_{f}+1}$ and $\mathbf{a} \colonequals \alpha^{1}, \alpha^{2},..,\alpha^{\tau_{f}+1}$ (\Cref{def:propagation}). Thus, if $D \circ \tilde{C}[\mathcal{E}] \neq \tilde{C}$, then there is at least one option of outcomes $\alpha$ for which $D \circ \tilde{C}[\mathcal{E},\alpha] \neq \tilde{C}$, namely: 
     \begin{equation*}
       \begin{split}
-        D \circ \tilde{C}[\mathcal{E},\alpha] = D\circ P_{\tau_{f}+1} \tilde{C}[,\alpha^{\tau_{f}+1}]  \neq \tilde{C}
+        D \circ \tilde{C}[\mathcal{E},\alpha] = D\circ P_{\tau_{f}+1} \tilde{C}[,\alpha^{\tau_{f}+1}]  \neq D \circ \tilde{C}
       \end{split}
     \end{equation*} 
     For this, one of the following two has to occur: either the decoder $D$ fails to decode $P_{\tau_{f}+1}$, or the conditioned circuit $\tilde{C}[,\alpha^{\tau_{f}+1}]$ deviates from the ideal circuit, namely $\tilde{C}[,\alpha^{\tau_{f}+1}] \neq \tilde{C}$. The second occurs only if, along the running, a gate-teleportation fails, meaning the decoding procedure that erases errors from the measured register failed, and therefore the gate applied following the measurement was incorrect. 
