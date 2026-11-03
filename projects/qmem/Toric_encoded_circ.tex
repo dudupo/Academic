@@ -25,7 +25,7 @@ For Toric encoded circuits, we define their \textit{base graph}, which can be th
             V_{o} \colonequals \bigcup_{i} \bigl( V(\mathcal{G}_{i}) \times [\mu_{i}+1] \bigr)
           \end{split}
         \end{equation*}
-      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}_{1}, \ldots, \mathcal{G}_{k}$, with the addition that any two vertices t consecutive times $t$ and $t+1$ that support qubits (faces) such that $C^{\infty}$ acts non-trivially on those qubits at time $t$ are also connected by an edge. Namely:
+      \item The edges $E_{o}$ are derived from the original edges in $\mathcal{G}_{1}, \ldots, \mathcal{G}_{k}$, with the addition that any two vertices at consecutive times $t$ and $t+1$ that support qubits (faces) such that $C^{\infty}$ acts non-trivially on those qubits at time $t$ are also connected by an edge. Namely:
         \begin{equation*}
           \begin{split}
             E_{o} & \colonequals \big\{ \{(v,t), (u,t^{\prime}) \} :  \text{ if }     \\ 
@@ -70,7 +70,7 @@ For a Pauli-path $P_{1}, \ldots ,P_{\mu+1}$, the Toom's contour is the restricti
 
 \begin{definition}[Toom's Contour Graph (Standard Form)]
     \label{def:contour}
-    For a Toric encoded quantum circuit $C$, set of faults $\mathcal{E}$, measurement outcomes $\alpha$, and a Pauli-path $P_{1}, \ldots, P_{\mu +1}$ of $C[\mathcal{E}, \alpha]$. We define the \textit{Toom's contour graph} $\mathcal{H} = (V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
+    For a Toric encoded quantum circuit $C$, set of faults $\mathcal{E}$, measurement outcomes $\alpha$, and a Pauli-path $P_{1}, \ldots, P_{\mu +1}$ of $C[\mathcal{E}, \alpha]$, We define the \textit{Toom's contour graph} $\mathcal{H} = (V_{\mathcal{H}}, E_{\mathcal{H}})$ as follows: 
     \begin{enumerate}
       \item The vertices $V_{\mathcal{H}} = V_{\mathcal{H}, X} \cup V_{\mathcal{H}, Z}$ correspond to vertices of faces supporting the $\partial^{-}$-boundary of the Pauli-path. They consist of the triple $(v,t,\cdot)$ where $(v,t)$ is a vertex of the base graph, and the third is a symbolic coordinate that is either $\{X\}$ or $\{Z\}$ corresponding to the component of the Pauli that $v$ supports at time $t$.
         \begin{equation*}

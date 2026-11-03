@@ -61,7 +61,7 @@ We will use the following two elementary lifting facts and omit their proofs. Th
 
 \begin{claim}
   \label{claim:liftb}
-  Let $x \in C_{d^{\prime}-1}(\mathcal{T}_n^d)$ be a $d^{\prime}-1$ dimensional chain of the finite complex, and let $y \in C_{d^{\prime}-1}(\mathcal T_\infty^d)$ be the $d^{\prime}-1$ dimensional chain on the infinite complex such that $y$ is the minimizing cover of $x$. If $\Size{x} < n$, and:
+  Let $x \in C_{d^{\prime}-1}(\mathcal{T}_n^d)$ be a $d^{\prime}-1$ dimensional chain of the finite complex, and let $y \in C_{d^{\prime}-1}(\mathcal T_\infty^d)$ be the $d^{\prime}-1$ dimensional chain on the infinite complex such that $y$ is the minimizing cover of $x$. If $\Size{x} < n-1$, and:
 \begin{equation*}
   \begin{split}
     x \in \image \partial^{-} : C_{d^{\prime}}(\mathcal{T}_n^d) \rightarrow C_{d^{\prime}-1}(\mathcal{T}_n^d)
@@ -77,7 +77,7 @@ Then, also:
 
 \begin{claim}
   \label{claim:liftc}
-Let $x \in C_{d^{\prime}}(\mathcal{T}_n^d)$ be a $d^{\prime}$-dimensional chain of the finite complex. Suppose that $\Size{x} < n$. Then there is a translation $x^{\prime}$ of $x$ (on the finite complex), such that $x^{\prime}$ has a minimizing cover $y \in C_{d^{\prime}}(\mathcal T_\infty^d)$, such that the faces of $y$ align with the finite complex. In other words, the chosen representatives coincide.
+Let $x \in C_{d^{\prime}}(\mathcal{T}_n^d)$ be a $d^{\prime}$-dimensional chain of the finite complex. Suppose that $\Size{x} < n-1$. Then there is a translation $x^{\prime}$ of $x$ (on the finite complex), such that $x^{\prime}$ has a minimizing cover $y \in C_{d^{\prime}}(\mathcal T_\infty^d)$, such that the faces of $y$ align with the finite complex. In other words, the chosen representatives coincide.
 \end{claim}
 
 
@@ -112,10 +112,10 @@ Using the claim above, we are able to introduce the notion of filling boundaries
     \end{split}
   \end{equation*}  Namely, $\tilde{x}_{1} \in \ker \partial^{-} : C_{d^{\prime}-1}(\mathcal{T}_n^d) \rightarrow C_{d^{\prime}-2}(\mathcal{T}_n^d)$.
 Suppose $\tilde{x}_{1} \notin \image \partial^{-} : C_{d^{\prime}}(\mathcal{T}_n^d) \rightarrow C_{d^{\prime}-1}(\mathcal{T}_n^d)$, then we have that $\tilde{x}_{1}$ is a non-trivial codeword of the $(d,d^{\prime}-1)$-Toric code. 
-Since $d^{\prime} \ge 2$, and $\tilde{x}_{1}$ has to close a non-trivial loop, so by \Cref{claim:sizenont}, the size of $\tilde{x}$ is at least $n-1$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : C_{d^{\prime}}(\mathcal{T}_n^d) \rightarrow C_{d^{\prime}-1}(\mathcal{T}_n^d)$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. We argue that $x_{1}$ can be chosen such $\Size{x_{1}} \le \Size{\tilde{x}_{1}}$.
+Since $d^{\prime} \ge 2$, and $\tilde{x}_{1}$ has to close a non-trivial loop, so by \Cref{claim:sizenont}, the size of $\tilde{x}_{1}$ is at least $n-1$, which is a contradiction. So we get that $\tilde{x}_{1}\in \image \partial^{-} : C_{d^{\prime}}(\mathcal{T}_n^d) \rightarrow C_{d^{\prime}-1}(\mathcal{T}_n^d)$. In particular, there is a $d^{\prime}$-dimensional chain $x_{1}$ such that $\partial^{-}x_{1} = \tilde{x}_{1}$. We argue that $x_{1}$ can be chosen such $\Size{x_{1}} \le \Size{\tilde{x}_{1}}$.
 
 
-By \Cref{claim:liftc}, since $\Size{\tilde{x}_{1}} < n$, there is a translation of the finite complex for which the minimizing cover of the translation of $\tilde{x}_{1}$ aligns with the finite complex. Since the size function is invariant to translations, we can assume, without loss of generality, that the given finite complex is already translated. Consider the minimizing cover of $\tilde{x}_{1}$, and denote it by $\tilde{y_1}$ Since $\Size{\tilde{x}_{1}} < n$, then by \Cref{claim:liftb} we have that $\tilde{y}_{1}$ can be chosen such:
+By \Cref{claim:liftc}, since $\Size{\tilde{x}_{1}} < n-1$, there is a translation of the finite complex for which the minimizing cover of the translation of $\tilde{x}_{1}$ aligns with the finite complex. Since the size function is invariant to translations, we can assume, without loss of generality, that the given finite complex is already translated. Consider the minimizing cover of $\tilde{x}_{1}$, and denote it by $\tilde{y_1}$. Since $\Size{\tilde{x}_{1}} < n-1$, then by \Cref{claim:liftb} we have that $\tilde{y}_{1}$ can be chosen such:
 \begin{equation*}
   \begin{split}
     \tilde{y}_{1} \in \image \partial^{-} : C_{d^{\prime}}(\mathcal T_\infty^d) \rightarrow C_{d^{\prime}-1}(\mathcal T_\infty^d)
@@ -149,7 +149,7 @@ The following claim tracks the evolution of the connected component of the bound
   Let $x_{1},x_{2} \in C_{d^{\prime}}(\mathcal{T}_n^d)$ be $d^{\prime}$-dimensional chains, and let $l$ be an integer such the Hamming distance between $x_{1}$ and $x_{2}$ is at most $l$. Denote by $r$ the size of the maximal connected component of $\partial^{-}x_{1}$. Then the maximal size of a connected component of $\partial^{-}x_{2}$ is at most $4{ d^{\prime} \choose 2 }l(r+d^{\prime}) $
 \end{claim}
 \begin{proof}
-  Consider the adjacency graph (\cref{def:asontoric}) with respect to the $d^{\prime}-1$-dimensional chain $\partial^{-}x_{1}$, where each vertex is a $d^{\prime}-1$-dimensional face of $\partial^{-}x_{1}$, and each edge in the graph is a $d^{\prime}-2$ face in the intersection of two $d^{\prime}-1$-dimensional faces in $\partial^{-}x_{1}$. A $d^{\prime}$-dimensional face contains $4{ d^{\prime} \choose 2 }$ faces of dimension $d^{\prime}-2$ . Hence, introducing a new $d^{\prime}$-dimensional face to $x_{1}$ adds at most $4{ d^{\prime} \choose 2 }$ edges to the adjacency graph, each corresponding to a $d^{\prime}-2$ face contained in the new $d^{\prime}$-dimensional face. So introducing $l$ faces into $x_{i}$ adds at most $4 { d^{\prime} \choose 2 } l$ new edges, and therefore connects at most the same number of connected components in $\partial^{-}x_{1}$, or a connected component induced by the additional $l$ faces. Using the triangle inequality for intersecting sets (\Cref{clima:finitetrig}), we have that any connected component of $\partial^{-}x_{2}$ is at most $4{ d^{\prime} \choose 2 } l$ times the maximal size of a connected component of $\partial^{-}x_{1}$, namely $4 { d^{\prime} \choose 2 }l (r+d^{\prime})$ (Where the $d^{\prime}$ in the closure stands for the connected components of a single face, each corresponding to one of the additional $l$ faces.)
+  Consider the adjacency graph (\cref{def:asontoric}) with respect to the $d^{\prime}-1$-dimensional chain $\partial^{-}x_{1}$, where each vertex is a $d^{\prime}-1$-dimensional face of $\partial^{-}x_{1}$, and each edge in the graph is a $d^{\prime}-2$ face in the intersection of two $d^{\prime}-1$-dimensional faces in $\partial^{-}x_{1}$. A $d^{\prime}$-dimensional face contains $4{ d^{\prime} \choose 2 }$ faces of dimension $d^{\prime}-2$ . Hence, introducing a new $d^{\prime}$-dimensional face to $x_{1}$ adds at most $4{ d^{\prime} \choose 2 }$ edges to the adjacency graph, each corresponding to a $d^{\prime}-2$ face contained in the new $d^{\prime}$-dimensional face. So introducing $l$ faces into $x_{1}$ adds at most $4 { d^{\prime} \choose 2 } l$ new edges, and therefore connects at most the same number of connected components in $\partial^{-}x_{1}$, or a connected component induced by the additional $l$ faces. Using the triangle inequality for intersecting sets (\Cref{clima:finitetrig}), we have that any connected component of $\partial^{-}x_{2}$ is at most $4{ d^{\prime} \choose 2 } l$ times the maximal size of a connected component of $\partial^{-}x_{1}$, namely $4 { d^{\prime} \choose 2 }l (r+d^{\prime})$ (Where the $d^{\prime}$ in the closure stands for the connected components of a single face, each corresponding to one of the additional $l$ faces.)
 \end{proof}
 
 
@@ -170,19 +170,19 @@ Let $x_{1}, \ldots, x_{t} \in C_{d^{\prime}}(\mathcal{T}_n^d)$ be $d^{\prime}$-d
   Assume through contradiction that there is $i$ such that $0 = [x_{i}] \neq [x_{i+1}]$. Denote by $x_{i}^{1}, x_{i}^{2}, \ldots$ and $x_{i+1}^{1}, x_{i+1}^{2}, \ldots$ the reduced $d^{\prime}$-dimensional chains such that $\partial^{-}x_{i}^{j}$ is a connected component of $\partial^{-}x_{i}$, as defined in \Cref{def:connsyn}. Hence:
   \begin{equation*}
     \begin{split}
-      [x_{i+1}] \sim_{\mathcal{C}_{Z^{\perp}}} [x_{i+1}] + [x_{i}] \sim_{\mathcal{C}_{Z^{\perp}}}  x_{i} + x_{i+1} + \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j}
+      [x_{i+1}] \sim_{\mathcal{C}_{X}} [x_{i+1}] + [x_{i}] \sim_{\mathcal{C}_{X}}  x_{i} + x_{i+1} + \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j}
     \end{split}
   \end{equation*}
 Denote by $w$ the chain:
   \begin{equation*}
     \begin{split}
-      w \colonequals x_{i} + x_{i+1} + \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1}
+      w \colonequals x_{i} + x_{i+1} + \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j}
     \end{split}
   \end{equation*}
   Since the Hamming distance between $x_{i}$ and $x_{i+1}$ is at most one, and since each $d^{\prime}$-dimensional face contributes a constant support over $d^{\prime}-1$-dimensional chains, the $\partial^{-}$-boundaries of $x_{i}$ and $x_{i+1}$ are at a Hamming distance that is at most constant. Therefore, there are only constant connected components of $\partial^{-}x_{i}$ which are not connected components in $\partial^{-}x_{i+1}$ and vice versa. Denote by $y_{1}, \ldots, y_{m}$ the chains in $x_{i}^{1}, \ldots$ and $x_{i+1}^{1}, \ldots$ such that they belong to only one of the collections. Where $m$ is bounded by a function of $d,d^{\prime}$, namely $m \le M(d,d^{\prime})$. So:
   \begin{equation*}
     \begin{split}
-      \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j+1} = \sum_{j}^{m}y_{j}
+      \sum_{j}x_{i}^{j} + \sum_{j}x_{i+1}^{j} = \sum_{j}^{m}y_{j}
     \end{split}
   \end{equation*}
 Moreover, the vertices of any of $y_{1}, \ldots, y_{m}$ and $x_{i+1}+x_{i}$ have a nontrivial intersection. To see this, suppose that the vertices of $y_{j}$ do not intersect the face $x_{i+1}+x_{i}$, and assume without loss of generality that $\partial^{-}y_{j}$ is a connected component of $\partial^{-}x_{i}$. Then, the vertices of $\partial^{-}y_{j}$ also do not intersect the vertices of $\partial^{-}(x_{i} + x_{i+1})$. So $\partial^{-}y_{j}$ is also a connected component of
@@ -191,7 +191,7 @@ Moreover, the vertices of any of $y_{1}, \ldots, y_{m}$ and $x_{i+1}+x_{i}$ have
     \partial^{-}x_{i} + \partial^{-}(x_{i+1} + x_{i})  = \partial^{-}x_{i+1}
     \end{split}
   \end{equation*}
-  which is contradiction to the choices of the $y_{i}$'s.  Therefore:
+  which is contradiction to the choices of the $y_{j}$'s.  Therefore:
 \begin{equation*}
   \begin{split}
     \Size{ w } \le \Size{  x_{i} + x_{i+1} } + \sum_{j}^{m} \Size{y_{j}} \le d + M(d,d^{\prime}) c n  
@@ -208,7 +208,7 @@ Thus, for sufficiently large $n$ ,if $c < \frac{1}{M(d,d^{\prime})+1}$, we have 
 \end{claim}
 
 \begin{proof}
-  Let $x_{1}^{\prime}, \ldots, x^{\prime}_{\Delta t + 1}$ be the chains obtained from $x_{1}, \ldots, x_{t}$ by taking the stacking between any two sequential elements $\Delta-1$ chains, such that any two sequential chains of the resulted set are at Hamming distance at most one. Namely, for any $i \in \{0, 1, \ldots t-1 $, we have that $x_{1 + i\Delta}^{\prime} = x_{i + 1}$ and $x^{\prime}_{i+1}$ differs from $x^{\prime}_{i}$ by at most one coordinate. By \Cref{claim:mergebyf}, each connected component of $\partial^{-}x^{\prime}_{i}$ has a size of at most $4{ d^{\prime} \choose 2 }\Delta (c^{\prime} n+1) \le c n$. 
+  Let $x_{1}^{\prime}, \ldots, x^{\prime}_{\Delta t + 1}$ be the chains obtained from $x_{1}, \ldots, x_{t}$ by stacking $\Delta-1$ intermediate chains between any two sequential elements, such that any two sequential chains of the resulted set are at Hamming distance at most one. Namely, for any $i \in \{0, 1, \ldots t-1 \} $, we have that $x_{1 + i\Delta}^{\prime} = x_{i + 1}$ and $x^{\prime}_{i+1}$ differs from $x^{\prime}_{i}$ by at most one coordinate. By \Cref{claim:mergebyf}, each connected component of $\partial^{-}x^{\prime}_{i}$ has a size of at most $4{ d^{\prime} \choose 2 }\Delta (c^{\prime} n+d^{\prime}) \le c n$. 
 
   \paragraph{}
   Thus, by \Cref{claim:barrier},we have that:

@@ -9,7 +9,7 @@
 
   \begin{definition}
     Consider a graph $G = (V, A, F)$, where $V$ is a set of vertices, and $A$ and $F$ are sets of undirected edges. 
-    Let $ T \colon V \rightarrow \mathbb{N}$, We say that $(G,T)$ is a space-time graph if and only if:
+    Let $ T \colon V \rightarrow \mathbb{N}$. We say that $(G,T)$ is a space-time graph if and only if:
 \begin{enumerate}
   \item $\{x,y\} \in A \Rightarrow \Time{y} = \Time{x} \pm 1$  
   \item For $x,y \in V $  $\{x,y\} \in F $ if and only if there exists $z \in V $ such both $\{x,z\},\{y,z\} \in A$, and $\Time{x} = \Time{y} = \Time{z}-1$. 
@@ -54,7 +54,7 @@ Next, we would like to study how slices look a moment before they merge. For thi
   \end{claim}
 
   \begin{proof}
-    Let $R, S \in V_{K}$ and consider $r,s \in V$ such that $r \in R, s \in S$. Recall that $R,S \subset \History{K}$ and therefore $r,s \in \History{K}$, Thus, by definition of the 'History' there exists a path, passing through arrows only, from $r$ to $s$ in $\History{K}$.
+    Let $R, S \in V_{K}$ and consider $r,s \in V$ such that $r \in R, s \in S$. Recall that $R,S \subset \History{K}$ and therefore $r,s \in \History{K}$. Thus, by definition of the History there exists a path, passing through arrows only, from $r$ to $s$ in $\History{K}$.
     Consider a path that is minimal in the number of vertices with a time coordinate equal to $\Time{K}$; denote that number by $k$. We prove by induction on $k$ that $R$ and $S$ are connected in $G_{K}$.
 
       \begin{enumerate}
@@ -120,7 +120,7 @@ First, notice that $K$ doesn't contain leaves in $(V,A)$, since a leaf is connec
       \end{split}
     \end{equation}
 
-Later, we are going to take the points $\{z_{j}^{i}\}$ from the intersection of $J_{j}$'s. For convenience, let us assume that for the index subset $X \subset [2k]\cup\{0\}$, the intersection $\bigcap_{j \in X}J_{j}$ returns a single point. If there is more than one, then decide on the point in a way that all the chosen points simultaneously satisfy that for any index subsets $Y, X$, such that $X \cap Y$ and they both introduce a non-trivial intersection $\bigcap_{j \in Z} J_{j} : Z\in \{X,Y\}$, then:
+Later, we are going to take the points $\{z_{j}^{i}\}$ from the intersection of $J_{j}$'s. For convenience, let us assume that for the index subset $X \subset [2k]\cup\{0\}$, the intersection $\bigcap_{j \in X}J_{j}$ returns a single point. If there is more than one, then decide on the point in a way that all the chosen points simultaneously satisfy that for any index subsets $Y, X$, such that $X \cap Y \neq \emptyset$ and they both introduce a non-trivial intersection $\bigcap_{j \in Z} J_{j} : Z\in \{X,Y\}$, then:
     \begin{equation*}
       \begin{split}
         \bigcap_{j \in X} J_{j} = \bigcap_{j \in Y } J_{j} 
