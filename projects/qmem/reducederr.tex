@@ -5,7 +5,7 @@ We represent Pauli errors as chains on the $d^{\prime}$-dimensional faces. Their
 For this purpose we introduce two local codes that describe local views of vertices. They are the \textit{stabilizers code at vertex} $v$ and the \textit{small code at vertex} $v$. The first corresponds to stabilizers rooted at the vertex, while the second is the collection of local views on faces rooted at $v$ that satisfy the checks rooted at $v$. Then, in \Cref{claim:agreement}, we consider a vertex whose $X$-checks don't admit a syndrome, meaning that its local view is in its \textit{small code}, and show that there is a codeword of its \textit{stabilizers code} that agrees with its positive faces. Addition by that stabilizer yields a new chain excluding $v$. If $v$ were a unique maximum of $L_{d+1}$, then the vertices on the yielded chain would have a lower value of $L_{d+1}$. Subsequently, since the exclusion decreases the size, it follows that the 'corner'—the vertex achieving the maximal $L_{d+1}$ value—of a reduced error sees a syndrome.
 
 \begin{definition}[Stabilizers Code at Vertex $v$]
-We define \textit{stabilizer code at vertex} $v$, denoted by $\text{Stab}_{v}$, as the restriction of the $(d,d^{\prime})$-Toric code to the $d^{\prime}$-dimensional faces such that their vertices are at a distance of at most one positive step in each direction from $v$. That is equivalent to the union of all the $d^{\prime}$-dimensional faces rooted at $v$ with the $d$-dimensional faces rooted at each of $v$'s siblings $gv$, excluding faces containing $g$ as their generator. Namely:
+  We define \textit{stabilizer code at vertex} $v$, denoted by $\text{Stab}_{v}$, as the restriction of the $(d,d^{\prime})$-Toric code to the $d^{\prime}$-dimensional faces such that their vertices are at a distance of at most one positive step in each direction from $v$. That is equivalent to the union of all the $d^{\prime}$-dimensional faces rooted at $v$ with the $d^{\prime}$-dimensional faces rooted at each of $v$'s siblings $gv$, excluding faces containing $g$ as their generator. Namely:
   \begin{align*}
     \text{Stab}_{v} \colonequals  \bigl\{ z : \partial^{-} z  &= 0 \text{ and } \\
     & z \in \operatorname{Span}_{\mathbb F_2} \big(  \big\{  \rotfvs{} : S^{\prime} \subseteq S, |S^{\prime}| = d^{\prime}  \big\} \\
@@ -40,7 +40,7 @@ The checks of the code, are of the following three types:
         &  =    \bigl(\sum_{ \substack{ g^{\prime} \in S/S^{\prime} \\ g^{\prime } \neq g }} \rotfv{g v}{S^{\prime} \cup g^{\prime}} \bigr) + \rotfv{v}{S^{\prime}\cup g}
       \end{split}
     \end{equation*}
-  \item Checks that their roots are at a two-step distance from $v$, namely vertices of the form $g^{\prime}gv$ where $g, g^{\prime} \in S$, and $g \neq g^{\prime}$. By the arguments presented in the second type, the checks are the $d^{\prime}-1$ faces which do not have the generators on the path leading from $v$ to them, i.e., $g, g^{\prime}$, in their generator set.
+  \item Checks whose roots are at a two-step distance from $v$, namely vertices of the form $g^{\prime}gv$ where $g, g^{\prime} \in S$, and $g \neq g^{\prime}$. By the arguments presented in the second type, the checks are the $d^{\prime}-1$ faces which do not have the generators on the path leading from $v$ to them, i.e., $g, g^{\prime}$, in their generator set.
     \begin{equation*}
       \begin{split}
         \bigcup_{\substack{g,g^{\prime}\in S\\g\ne g^{\prime}}}\big\{ \rotfv{g^{\prime}gv}{J}: J \subseteq S/\{g,g^{\prime}\}, |J|=d^{\prime}-1 \big\}
@@ -50,8 +50,8 @@ The checks of the code, are of the following three types:
     \begin{equation*}
       \begin{split}
         \bigl(\partial^+\rotfv{g'g v}{J}\bigr)|_{\text{Stab}_v}
-        &=\left(\sum_{h\in S/J}\bigl(\rotfv{gg'v}{J\cup h}
-                +\rotfv{h^{-1}gg'v}{J\cup h}\bigr)\right)|_{\text{Stab}_v}\\
+        &=\left(\sum_{h\in S/J}\bigl(\rotfv{g'gv}{J\cup h}
+                +\rotfv{h^{-1}g'gv}{J\cup h}\bigr)\right)|_{\text{Stab}_v}\\
         &=\rotfv{gv}{J\cup g'}+\rotfv{g'v}{J\cup g}
       \end{split}
     \end{equation*}

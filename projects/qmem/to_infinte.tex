@@ -39,7 +39,7 @@ Let $C=\{u_i\}_i$ be a quantum circuit of width $w$ with registers $\mathcal{R}=
 
 We will need two types of gate translation. The first is the standard spatial translation, which means that any of the inner coordinates of the gate are advanced by the same vector. The second is 'rooted translation.' Here, we assume that the locations of the gate are given in a relative-to-root fashion, meaning that there is a root vertex, and all the locations are given by positive paths from the root. Then, we first translate the root and then advance the inner coordinate of any of the other locations to be on the path from the translated root. When considering a product gate, the translations act the same.   
 \begin{definition}[Translation by vertex $v$]
-  Let $u$ be a gate, and denote the inner coordinates of $u$'s locations by $\rotf{v_{1}}{J_{1}}, \ldots, \rotf{v_{\Delta}}{J_{\Delta}}$. The translation of $u$ by vertex $v$ is defined to be the gate obtained from $u$ by replacing the inner coordinates of its locations by: $\rotf{v v_{1}}{J_{1}}, \ldots, \rotf{v v_{\Delta}}{J_{\Delta}}$, where the multiplication $v \cdot v_{i}$ is with respect to the infinity cover $\mathcal{G}^{d}$.
+  Let $u$ be a gate, and denote the inner coordinates of $u$'s locations by $\rotf{v_{1}}{J_{1}}, \ldots, \rotf{v_{\Delta}}{J_{\Delta}}$. The translation of $u$ by vertex $v$ is defined to be the gate obtained from $u$ by replacing the inner coordinates of its locations by: $\rotf{v v_{1}}{J_{1}}, \ldots, \rotf{v v_{\Delta}}{J_{\Delta}}$, where the multiplication $v \cdot v_{i}$ is with respect to the infinite cover $\mathcal{G}^{d}$.
   Furthermore, for a $d$-dimensional Toric complex with side length $n$, we define a translation by an integer vector $a \in \mathbb{Z}^{d}$ as a translation by the vertex:
    \begin{equation*}
      \begin{split}
@@ -61,7 +61,7 @@ We will need two types of gate translation. The first is the standard spatial tr
 Similarly to the standard translation by an integer vector, we extend the action to a root translation by an integer vector $a \in \mathbb{Z}^{d}$, as the root translation by the vertex:
    \begin{equation*}
      \begin{split}
-       (g_{1}^{n})^{a_{1}}, (g_{2}^{n})^{a_{2}},.., (g_{d}^{n})^{a_{d}}
+       (g_{1}^{n})^{a_{1}} (g_{2}^{n})^{a_{2}} \cdots (g_{d}^{n})^{a_{d}}
      \end{split}
    \end{equation*}
    We denote the root translation by an integer vector $a$ as $a *_{r} u$.
@@ -70,7 +70,7 @@ Similarly to the standard translation by an integer vector, we extend the action
 Now we are ready to give an explicit description of the mapping. Given a quantum circuit $C$, we name its presentation over the infinite plane the \textit{$\infty$-lift of $C$}.
 \begin{definition}
   \label{def:extension}
-  Let $n$ be an integer, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with width $w$ and quantum registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ encodes a $(d,d^{\prime})- $Toric code with side at length $n$. We define the \textit{$\infty$-lift of $C$}, denoted by $C^{\infty}$, as follows:
+  Let $n$ be an integer, and let $C = \{u_{i}\}_{i=1}$ be a quantum circuit with width $w$ and quantum registers $\mathcal{R} = R_{1}, \ldots, R_{k}$ such that each register $R_{i}$ encodes a $(d,d^{\prime})- $Toric code with side length $n$. We define the \textit{$\infty$-lift of $C$}, denoted by $C^{\infty}$, as follows:
   \begin{enumerate}
     \item Each register $R_{i}$ in $\mathcal{R}$ is mapped to a register $R^{\prime}_{i}$, whose qubits are associated with the $d^{\prime}$-dimensional faces of the infinite $d$-dimensional Toric. 
     \item The gate $u_{i} \in C$ is mapped to an infinite collection of gates, each being a rooted translation by an integer vector, as follows:
@@ -82,7 +82,7 @@ Now we are ready to give an explicit description of the mapping. Given a quantum
   \end{enumerate}
   The restriction of the qubits in $C^{\infty}$'s registers to finite Toric complexes with side length $n$ will be denoted by $\cdot |_{[w]}$, and it includes all the faces whose root vertex has 'powers' (the powers of $g_{1}, \ldots, g_{d}$) in the range $[0, n-1]$. For a set of faults $\mathcal{E} = \{ f_{i} \}_{i=1}$, and measurements outcomes $\alpha \in \mathbb{F}_2^{(\cdot)}$, we denote by $C^{\infty}[\mathcal{E},\alpha]$ the \textit{$\infty$-lift of $C[\mathcal{E},\alpha]$}. 
   \paragraph{ }
-We define the $\infty$-lift of a Pauli operator $P \in \mathcal{P}^{(\cdot)}$ be the result of lifting the circuit composed only of $P$. Denote it by $P^{\infty}$. Finally, the $\infty$-lifting of a chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ is the chain in the infinite complex $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ obtained by taking all the translations of $x$ by integer vectors.
+We define the $\infty$-lift of a Pauli operator $P \in \mathcal{P}^{(\cdot)}$ to be the result of lifting the circuit composed only of $P$. Denote it by $P^{\infty}$. Finally, the $\infty$-lifting of a chain $x \in (\mathcal{F}^{n}_{d^{\prime}}; \mathbb{F}_{2})$ is the chain in the infinite complex $(\mathcal{F}_{d^{\prime}}; \mathbb{F}_{2})$ obtained by taking all the translations of $x$ by integer vectors.
 \end{definition}
 
 
@@ -120,14 +120,14 @@ The computation DAG lifts naturally to the $\infty$-lift gates that arise as tra
 
 \paragraph{}
 We close that subsection by introducing the \textit{potential walls}. Analyzing the infinite presentation enables us to bound a subset of errors by 'triangles'. A potential wall is a linear function $\mathbb{R}^{d} \rightarrow \mathbb{R}$. For the subset of vertices (that might be the subset that supports some error), the maximal value of the potential wall on it is achieved at the point of tangency between the subsets and its bounding triangle. With the assistance of potential walls, we can discuss the endpoint of a bunch of qubits and the 'size' of the (hyper)triangle that bounds them. Soon, the qubits will be associated with the support of an error, and showing that an action decreases the maximums of the potential walls implies that the error shrinks. 
-The next definition explains how the embedding of vertices of the infinite in $\mathbb{R}^{d}$ is handled.
+The next definition explains how the embedding of vertices of the infinite grid in $\mathbb{R}^{d}$ is handled.
 \begin{definition}[The standard embedding]
   Consider the $d$-dimensional infinite grid $\mathcal{G}^{d}$. The \textit{standard embedding} $\mathcal{G}^{d} \rightarrow \mathbb{R}^{d}$ is given by fixing a vertex in $\mathcal{G}^{d}$ to be sent to the origin and then mapping the generators of the grid to the standard basis. We extend notation as follows: for a vertex $v \in \mathcal{G}^{d}$, a generator $g \in S$, and a coordinate $i \in [d]$, such that under the embedding $g \rightarrow i$, we denote by $v_{i} = v_{g}$ the $i$'th coordinate of the image of $v$.
 \end{definition}
 
 Now we are ready to define the \textit{potential walls}:
 \begin{definition}[Potential Walls]
-  We define the \textit{potential walls} to be the $d+1$ functions $L_{1},L_{2},..,L_{d+1}$, from the vertices of $\mathcal{G}^{d}$ to the reals as follow:
+  We define the \textit{potential walls} to be the $d+1$ functions $L_{1},L_{2},..,L_{d+1}$, from the vertices of $\mathcal{G}^{d}$ to the reals as follows:
   \begin{enumerate}
     \item For any coordinate $i \in [d]$, we define $L_{i} \colon \mathcal{G}^{d} \rightarrow \mathbb{R}$ as $L_{i}(v) \colonequals v_{i}$. In addition, for the generator $g \in S$ which is mapped to $i$, i.e $g \rightarrow i $, we identify $L_{g} = L_{i}$. 
     \item We define $L_{d+1} \colon \mathcal{G}^{d} \rightarrow \mathbb{R}$ by $L_{d+1}(v) \colonequals -\sum_{i = 1}^{d}v_{i}$.
