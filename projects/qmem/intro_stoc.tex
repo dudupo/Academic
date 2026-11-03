@@ -36,7 +36,7 @@ There is a constant $p_0>0$ such that for local-stochastic Pauli noise of rate $
 \begin{equation*}
   O\!\left(\operatorname{poly}(w,\mu,n)\right)p^{\Omega(n)}.
 \end{equation*}
-For sufficiently large $n$, the encoded circuit has depth $\Theta\!\bigl(\mu n+\operatorname{polylog}n\bigr)$ and width $\Theta\!\bigl((w+\mu)n^8\bigr)$. After fault-tolerant initialization, the encoded blocks use the 4D Toric code, and each intervening correction cycle has constant depth and applies the same local sweep rule.
+For sufficiently large $n$, the encoded circuit has depth $\Theta\!\bigl(\mu n+\operatorname{polylog}n\bigr)$ and width $\Theta\!\bigl((w+w\mu)n^8\bigr)$. After fault-tolerant initialization, the encoded blocks use the 4D Toric code, and each intervening correction cycle has constant depth and applies the same local sweep rule.
 \end{theorem*}
 
 The stated costs include the implementation of logical operations; in particular, gate teleportation may need a classical decoding computation of nonconstant total duration. Our claim of constant depth is therefore \emph{about the recurring correction cycle}, not the entire simulation of each logical gate. Unlike the local-decoding constructions in which code expansion is the essential geometric input, our theorem uses a nonexpanding cubical chain complex. The correction dynamics require no scale-dependent auxiliary control network.
