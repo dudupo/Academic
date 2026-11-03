@@ -12,7 +12,7 @@ We are ready to prove the main theorem (\Cref{theorem:main}). We start by giving
 
   \begin{definition}[Simulation and Logical Errors]
     \label{def:simu}
-    Consider a quantum code $\mathcal{C}$ of length $N$ and dimension $k$. A quantum circuit $D \colon L(\mathcal{H}_{2}^{\otimes N}) \rightarrow L(\mathcal{H}_{2}^{\otimes N})$ will be said to be a referee for $\mathcal{C}$ if, when given a codeword of $\mathcal{C}$, it results in the first $k$ output qubits, the logical state of the given. We say that a Pauli operator $P \in \mathcal{P}^{\otimes N}$ is a \textit{logical error} with respect to $D$ if $DP \neq D$, where the inequality is up to stabilizers of $\mathcal{C}$.
+    Consider a quantum code $\mathcal{C}$ of length $N$ and dimension $k$. A quantum circuit $D \colon L(\mathcal{H}_{2}^{\otimes N}) \rightarrow L(\mathcal{H}_{2}^{\otimes N})$ will be said to be a referee for $\mathcal{C}$ if, when given a codeword of $\mathcal{C}$, it results in the first $k$ output qubits, the logical state of the given codeword. We say that a Pauli operator $P \in \mathcal{P}^{\otimes N}$ is a \textit{logical error} with respect to $D$ if $DP \neq D$, where the inequality is up to stabilizers of $\mathcal{C}$.
 
     For quantum circuits $C$ and $\tilde{C}$, a noise channel $\mathcal{N}_{\mathcal{E}}$, and $\delta \in (0,1)$, we say that $\tilde{C}$ \textit{simulates} $C$ with probability at least $1 - \delta$ if
     \begin{enumerate}
@@ -40,7 +40,7 @@ The following lemma is the main probabilistic ingredient; it analyzes the probab
 To prove the lemma, we will need the following two claims, which are proved in \cite{Berman, gacs2021newversiontoomsproof}. The first bounds, for a given regular graph, the number of its subgraphs having at most $k$ edges. This claim will be used to infer the number of possible explanation trees for a given slice. The second states that each tree has a subtree with fewer than half of the edges and a leaves-to-edge ratio that is at least half of the ratio of the original tree. This claim will be used to infer that any explanation has a subtree where, under the projection to the finite Toric, its faults are mapped uniquely, meaning no fault is counted twice. 
 
 \begin{claim*}[\Cref{claim:counting_trees}]
-  Let $G=(V,E)$ be a $(\Delta+1)$-regular graph, and let $k$ be an integer less than $|E|$. Fix a vertex $r\in V$. There is a constant $\sigma$, depending only on $\Delta$, such that the number of \emph{connected} subgraphs containing $r$ and having fewer than $k$ edges is at most $\sigma^k$.
+  Let $G=(V,E)$ be a graph of maximum degree at most $\Delta+1$, and let $k$ be an integer less than $|E|$. Fix a vertex $r\in V$. There is a constant $\sigma$, depending only on $\Delta$, such that the number of \emph{connected} subgraphs containing $r$ and having fewer than $k$ edges is at most $\sigma^k$.
   \end{claim*}
 
   \begin{claim*}[\Cref{claim:big_subtree}]
@@ -59,7 +59,7 @@ The proofs of the claims are given in the appendix. We continue with the proof o
 
     
     
-    We realize the gate teleportation as described in \Cref{def:niceenc}, so the gate teleportation admits $O(n + \log n)$ and $O(n^{2d})$ depth and width overhead. Thus, the depth of $\tilde{C}$ expands to $\Theta(\mu n)$\footnote{The constant inside the $\Theta$ also accounts for the fact that the realization of a logical gate might contain multiple gate teleportations.}. We will denote the procedure of inferring the logical measurement in the gate teleportation\footnote{This is the codeword checking procedure - $ \mathbf{1}_{x_{S^{\prime}}}$ / $ \mathbf{1}_{x_{S/S^{\prime}}}$ as appears in \Cref{def:niceenc} } by $D$, and we also use $D$ as a realization of measurement in the computational basis and as our referee (\Cref{def:simu}). Denote by $S$ the number of locations, so $S = O(w^{2} \mu^{2} n^{2d+1} )$.
+    We realize the gate teleportation as described in \Cref{subsection:logical_gates}, so the gate teleportation admits $O(n + \log n)$ and $O(n^{2d})$ depth and width overhead. Thus, the depth of $\tilde{C}$ expands to $\Theta(\mu n)$\footnote{The constant inside the $\Theta$ also accounts for the fact that the realization of a logical gate might contain multiple gate teleportations.}. We will denote the procedure of inferring the logical measurement in the gate teleportation\footnote{This is the codeword checking procedure - $ \mathbf{1}_{x_{S^{\prime}}}$ / $ \mathbf{1}_{x_{S/S^{\prime}}}$ as appears in \Cref{subsection:logical_gates} } by $D$, and we also use $D$ as a realization of measurement in the computational basis and as our referee (\Cref{def:simu}). Denote by $S$ the number of locations, so $S = O(w^{2} \mu^{2} n^{2d+1} )$.
   
     \paragraph{} 
     Consider a set of faults $\mathcal{E}$, and consider the representation of the subjected circuit $\tilde{C}[\mathcal{E}]$ as a distribution over circuits conditioned on measurement outcomes:

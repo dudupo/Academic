@@ -2,7 +2,7 @@
 
 \begin{claim}
   \label{claim:counting_trees}
-  Let $G=(V,E)$ be a $(\Delta+1)$-regular graph, and let $k$ be an
+  Let $G=(V,E)$ be a graph of maximum degree at most $(\Delta+1)$, and let $k$ be an
   integer less than $|E|$. Fix a vertex $r\in V$. There is a constant
   $\alpha$, depending only on $\Delta$, such that the number of
   \emph{connected} subgraphs containing $r$ and having fewer than $k$
@@ -23,7 +23,7 @@
   $H$ as the subgraph consisting of all edges traversed by the walk,
   together with $r$ in the case $j=0$.
 
-  Since every vertex has degree $d$, there are at most $d^{2j}$ walks
+  Since every vertex has degree at most $d$, there are at most $d^{2j}$ walks
   of length $2j$ starting at $r$. Consequently, the required number
   of subgraphs is at most
   \[
